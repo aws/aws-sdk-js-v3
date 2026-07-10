@@ -239,6 +239,26 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //         QBusinessParameters: { // QBusinessParameters
  * //           ApplicationArn: "STRING_VALUE", // required
  * //         },
+ * //         SharePointParameters: { // SharePointParameters
+ * //           SharePointDomain: "STRING_VALUE", // required
+ * //           TenantId: "STRING_VALUE",
+ * //           ClientId: "STRING_VALUE",
+ * //           AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //         },
+ * //         GoogleDriveParameters: { // GoogleDriveParameters
+ * //           AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //         },
+ * //         OneDriveParameters: { // OneDriveParameters
+ * //           TenantId: "STRING_VALUE",
+ * //           ClientId: "STRING_VALUE",
+ * //           AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //         },
+ * //         FMKBParameters: { // FMKBParameters
+ * //           KnowledgeBaseArn: "STRING_VALUE", // required
+ * //           LinkedDataSourceIds: [ // LinkedDataSourceIds
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //       AlternateDataSourceParameters: [ // DataSourceParametersList
  * //         {//  Union: only one key present
@@ -431,6 +451,26 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //           QBusinessParameters: {
  * //             ApplicationArn: "STRING_VALUE", // required
  * //           },
+ * //           SharePointParameters: {
+ * //             SharePointDomain: "STRING_VALUE", // required
+ * //             TenantId: "STRING_VALUE",
+ * //             ClientId: "STRING_VALUE",
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           GoogleDriveParameters: {
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           OneDriveParameters: {
+ * //             TenantId: "STRING_VALUE",
+ * //             ClientId: "STRING_VALUE",
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           FMKBParameters: {
+ * //             KnowledgeBaseArn: "STRING_VALUE", // required
+ * //             LinkedDataSourceIds: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //       ],
  * //       VpcConnectionProperties: "<VpcConnectionProperties>",
@@ -442,6 +482,8 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //         Message: "STRING_VALUE",
  * //       },
  * //       SecretArn: "STRING_VALUE",
+ * //       CredentialStatus: "CONNECTED" || "AUTH_FAILED" || "NOT_VERIFIED",
+ * //       LastCredentialVerifiedAt: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

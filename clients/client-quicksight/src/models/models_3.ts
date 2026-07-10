@@ -16,12 +16,13 @@ import type {
   ColumnDataType,
   ColumnTagName,
   ConstantType,
+  CredentialStatus,
   DashboardErrorType,
   DashboardFilterAttribute,
-  DashboardsQAStatus,
   DataSetFilterAttribute,
   DataSetImportMode,
   DatasetParameterValueType,
+  DataSetStatus,
   DataSetUseAs,
   DataSourceErrorInfoType,
   DataSourceFilterAttribute,
@@ -35,9 +36,11 @@ import type {
   FolderType,
   HorizontalTextAlignment,
   IdentityStore,
+  ImageExtractionStatus,
   IncludeFolderMembers,
   IngestionStatus,
   IngestionType,
+  JoinOperationType,
   JoinType,
   MemberType,
   NamedEntityAggType,
@@ -55,7 +58,6 @@ import type {
   RowLevelPermissionPolicy,
   ServiceType,
   SharingModel,
-  SnapshotJobStatus,
   Status,
   TextQualifier,
   TextTransform,
@@ -64,10 +66,13 @@ import type {
   TopicScheduleType,
   TopicTimeGranularity,
   TopicUserExperienceVersion,
+  VideoExtractionStatus,
+  VideoExtractionType,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
 import type {
+  AccessControlConfiguration,
   AccountCustomization,
   AccountInfo,
   AccountSettings,
@@ -90,9 +95,7 @@ import type {
   TransformOperationSource,
 } from "./models_0";
 import type {
-  _Parameters,
   AnalysisDefinition,
-  AnonymousUserSnapshotJobResult,
   AppendOperation,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobError,
@@ -105,6 +108,7 @@ import type {
   AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportJobWarning,
   AssetBundleImportSourceDescription,
+  AudioExtractionConfiguration,
   BorderStyle,
   BrandDefinition,
   BrandDetail,
@@ -133,13 +137,9 @@ import type {
   FiltersOperation,
   ImportTableOperation,
   InputColumn,
-  JoinOperation,
   LinkSharingConfiguration,
-  PivotConfiguration,
   ResourcePermission,
   SheetDefinition,
-  SnapshotFile,
-  SnapshotJobResultFileGroup,
   SnapshotS3DestinationConfiguration,
   SourceTable,
   SslProperties,
@@ -149,6 +149,126 @@ import type {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>Specifies a mapping to override the name of an output column from a transform operation.</p>
+ * @public
+ */
+export interface OutputColumnNameOverride {
+  /**
+   * <p>The original name of the column from the source transform operation.</p>
+   * @public
+   */
+  SourceColumnName?: string | undefined;
+
+  /**
+   * <p>The new name to assign to the column in the output.</p>
+   * @public
+   */
+  OutputColumnName: string | undefined;
+}
+
+/**
+ * <p>Properties that control how columns are handled for a join operand, including column name overrides.</p>
+ * @public
+ */
+export interface JoinOperandProperties {
+  /**
+   * <p>A list of column name overrides to apply to the join operand's output columns.</p>
+   * @public
+   */
+  OutputColumnNameOverrides: OutputColumnNameOverride[] | undefined;
+}
+
+/**
+ * <p>A transform operation that combines data from two sources based on specified join conditions.</p>
+ * @public
+ */
+export interface JoinOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The left operand for the join operation.</p>
+   * @public
+   */
+  LeftOperand: TransformOperationSource | undefined;
+
+  /**
+   * <p>The right operand for the join operation.</p>
+   * @public
+   */
+  RightOperand: TransformOperationSource | undefined;
+
+  /**
+   * <p>The type of join to perform, such as <code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>, or <code>OUTER</code>.</p>
+   * @public
+   */
+  Type: JoinOperationType | undefined;
+
+  /**
+   * <p>The join condition that specifies how to match rows between the left and right operands.</p>
+   * @public
+   */
+  OnClause: string | undefined;
+
+  /**
+   * <p>Properties that control how the left operand's columns are handled in the join result.</p>
+   * @public
+   */
+  LeftOperandProperties?: JoinOperandProperties | undefined;
+
+  /**
+   * <p>Properties that control how the right operand's columns are handled in the join result.</p>
+   * @public
+   */
+  RightOperandProperties?: JoinOperandProperties | undefined;
+}
+
+/**
+ * <p>Specifies a label value to be pivoted into a separate column, including the new column name and identifier.</p>
+ * @public
+ */
+export interface PivotedLabel {
+  /**
+   * <p>The label value from the source data to be pivoted.</p>
+   * @public
+   */
+  LabelName: string | undefined;
+
+  /**
+   * <p>The name for the new column created from this pivoted label.</p>
+   * @public
+   */
+  NewColumnName: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new column created from this pivoted label.</p>
+   * @public
+   */
+  NewColumnId: string | undefined;
+}
+
+/**
+ * <p>Configuration for a pivot operation, specifying which column contains labels and how to pivot them.</p>
+ * @public
+ */
+export interface PivotConfiguration {
+  /**
+   * <p>The name of the column that contains the labels to be pivoted into separate columns.</p>
+   * @public
+   */
+  LabelColumnName?: string | undefined;
+
+  /**
+   * <p>The list of specific label values to pivot into separate columns.</p>
+   * @public
+   */
+  PivotedLabels: PivotedLabel[] | undefined;
+}
 
 /**
  * <p>Configuration for how to handle value columns in pivot operations, including aggregation settings.</p>
@@ -2765,6 +2885,190 @@ export interface CreateIngestionResponse {
    * @public
    */
   IngestionStatus?: IngestionStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>The template configuration for a knowledge base.</p>
+ * @public
+ */
+export interface KbTemplateConfiguration {
+  /**
+   * <p>The template document that defines the knowledge base behavior.</p>
+   * @public
+   */
+  template?: __DocumentType | undefined;
+}
+
+/**
+ * <p>The configuration settings for a knowledge base.</p>
+ * @public
+ */
+export interface KnowledgeBaseConfiguration {
+  /**
+   * <p>The template configuration for the knowledge base.</p>
+   * @public
+   */
+  templateConfiguration?: KbTemplateConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for image extraction from knowledge base documents.</p>
+ * @public
+ */
+export interface ImageExtractionConfiguration {
+  /**
+   * <p>The status of image extraction. Valid values are ENABLED and DISABLED.</p>
+   * @public
+   */
+  imageExtractionStatus: ImageExtractionStatus | undefined;
+}
+
+/**
+ * <p>The configuration for video extraction from knowledge base documents.</p>
+ * @public
+ */
+export interface VideoExtractionConfiguration {
+  /**
+   * <p>The status of video extraction. Valid values are ENABLED and DISABLED.</p>
+   * @public
+   */
+  videoExtractionStatus: VideoExtractionStatus | undefined;
+
+  /**
+   * <p>The type of video extraction to perform.</p>
+   * @public
+   */
+  videoExtractionType?: VideoExtractionType | undefined;
+}
+
+/**
+ * <p>The configuration for media extraction from knowledge base documents.</p>
+ * @public
+ */
+export interface MediaExtractionConfiguration {
+  /**
+   * <p>The configuration for image extraction.</p>
+   * @public
+   */
+  imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
+
+  /**
+   * <p>The configuration for audio extraction.</p>
+   * @public
+   */
+  audioExtractionConfiguration?: AudioExtractionConfiguration | undefined;
+
+  /**
+   * <p>The configuration for video extraction.</p>
+   * @public
+   */
+  videoExtractionConfiguration?: VideoExtractionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The name of the knowledge base.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data source for the knowledge base.</p>
+   * @public
+   */
+  DataSourceArn: string | undefined;
+
+  /**
+   * <p>The configuration settings for a knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseConfiguration: KnowledgeBaseConfiguration | undefined;
+
+  /**
+   * <p>A description for the knowledge base. If you don't specify a description, the knowledge base is created without one.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions on the knowledge base. Each entry grants a specified Amazon QuickSight principal either owner or viewer access. If you don't specify permissions, only the primary owner (if provided) receives owner access.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The configuration for media extraction from knowledge base documents.</p>
+   * @public
+   */
+  MediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
+
+  /**
+   * <p>The access control configuration for the knowledge base. If you don't specify this parameter, document-level ACLs are disabled.</p>
+   * @public
+   */
+  AccessControlConfiguration?: AccessControlConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the primary owner for the knowledge base. The specified user is always granted owner access, regardless of what is specified in the <code>Permissions</code> field. If you don't specify a primary owner, the knowledge base is created without one.</p>
+   * @public
+   */
+  PrimaryOwnerArn?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the knowledge base. If you don't specify tags, the knowledge base is created without tags.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateKnowledgeBaseResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The creation status of the knowledge base.</p>
+   * @public
+   */
+  CreationStatus: DataSetStatus | undefined;
 
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
@@ -6174,6 +6478,32 @@ export interface DataSource {
    * @public
    */
   SecretArn?: string | undefined;
+
+  /**
+   * <p>The credential verification status of the data source. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONNECTED</code> – Credential validation succeeded.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTH_FAILED</code> – Credential validation failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_VERIFIED</code> – Credential validation has not been performed.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CredentialStatus?: CredentialStatus | undefined;
+
+  /**
+   * <p>The time that the credentials were last verified.</p>
+   * @public
+   */
+  LastCredentialVerifiedAt?: Date | undefined;
 }
 
 /**
@@ -9386,323 +9716,4 @@ export interface SnapshotDestinationConfiguration {
    * @public
    */
   S3Destinations?: SnapshotS3DestinationConfiguration[] | undefined;
-}
-
-/**
- * <p>A structure that contains the information on the snapshot files.</p>
- * @public
- */
-export interface SnapshotFileGroup {
-  /**
-   * <p>A list of <code>SnapshotFile</code> objects that contain the information on the snapshot files that need to be generated. This structure can hold 1 configuration at a time.</p>
-   * @public
-   */
-  Files?: SnapshotFile[] | undefined;
-}
-
-/**
- * <p>Describes the configuration of the dashboard snapshot.</p>
- * @public
- */
-export interface SnapshotConfiguration {
-  /**
-   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information about the snapshot that is generated. This list can hold a maximum of 6 <code>FileGroup</code> configurations.</p>
-   * @public
-   */
-  FileGroups: SnapshotFileGroup[] | undefined;
-
-  /**
-   * <p>A structure that contains information on the Amazon S3 bucket that the generated snapshot is stored in.</p>
-   * @public
-   */
-  DestinationConfiguration?: SnapshotDestinationConfiguration | undefined;
-
-  /**
-   * <p>A list of Quick Sight parameters and the list's override values.</p>
-   * @public
-   */
-  Parameters?: _Parameters | undefined;
-}
-
-/**
- * <p>Use this structure to redact sensitive information that you provide about an anonymous user from the snapshot.</p>
- * @public
- */
-export interface SnapshotAnonymousUserRedacted {
-  /**
-   * <p>The tag keys for the <code>RowLevelPermissionTags</code>.</p>
-   * @public
-   */
-  RowLevelPermissionTagKeys?: string[] | undefined;
-}
-
-/**
- * <p>A structure that contains information about the users that the dashboard snapshot is generated for. Sensitive user information is excluded.
- *         </p>
- * @public
- */
-export interface SnapshotUserConfigurationRedacted {
-  /**
-   * <p>
-   *             An array of records that describe anonymous users that the dashboard snapshot is generated for. Sensitive user information is excluded.
-   *         </p>
-   * @public
-   */
-  AnonymousUsers?: SnapshotAnonymousUserRedacted[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardSnapshotJobResponse {
-  /**
-   * <p>
-   *             The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
-   *         </p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  SnapshotJobId?: string | undefined;
-
-  /**
-   * <p>The user configuration for the snapshot job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  UserConfiguration?: SnapshotUserConfigurationRedacted | undefined;
-
-  /**
-   * <p>The snapshot configuration of the job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  SnapshotConfiguration?: SnapshotConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Indicates the status of a job. The status updates as the job executes. This shows one of the following values.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> - The job was completed successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> - The job failed to execute.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>QUEUED</code> - The job is queued and hasn't started yet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code> - The job is still running.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  JobStatus?: SnapshotJobStatus | undefined;
-
-  /**
-   * <p>
-   *             The time that the snapshot job was created.
-   *         </p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>
-   *             The time that the snapshot job status was last updated.
-   *         </p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>
-   *             The Amazon Web Services request ID for this operation.
-   *         </p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardSnapshotJobResultRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  SnapshotJobId: string | undefined;
-}
-
-/**
- * <p>An object that contains information on the error that caused the snapshot job to fail.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html">DescribeDashboardSnapshotJobResult API</a>.</p>
- * @public
- */
-export interface SnapshotJobErrorInfo {
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  ErrorMessage?: string | undefined;
-
-  /**
-   * <p>The error type.</p>
-   * @public
-   */
-  ErrorType?: string | undefined;
-}
-
-/**
- * <p>A structure that contains information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
- * @public
- */
-export interface RegisteredUserSnapshotJobResult {
-  /**
-   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
-   * @public
-   */
-  FileGroups?: SnapshotJobResultFileGroup[] | undefined;
-}
-
-/**
- * <p>An object that provides information on the result of a snapshot job. This object provides information about the job, the job status, and the location of the generated file.</p>
- * @public
- */
-export interface SnapshotJobResult {
-  /**
-   * <p> A list of <code>AnonymousUserSnapshotJobResult</code> objects that contain information on anonymous users and their user configurations. This data provided by you when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  AnonymousUsers?: AnonymousUserSnapshotJobResult[] | undefined;
-
-  /**
-   * <p>A list of <code>RegisteredUserSnapshotJobResult</code> objects that contain information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  RegisteredUsers?: RegisteredUserSnapshotJobResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardSnapshotJobResultResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>Indicates the status of a job after it has reached a terminal state. A finished snapshot job will retuen a <code>COMPLETED</code> or <code>FAILED</code> status.</p>
-   * @public
-   */
-  JobStatus?: SnapshotJobStatus | undefined;
-
-  /**
-   * <p>The time that a snapshot job was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The time that a snapshot job status was last updated.</p>
-   * @public
-   */
-  LastUpdatedTime?: Date | undefined;
-
-  /**
-   * <p>The result of the snapshot job. Jobs that have successfully completed will return the S3Uri where they are located. Jobs that have failedwill return information on the error that caused the job to fail.</p>
-   * @public
-   */
-  Result?: SnapshotJobResult | undefined;
-
-  /**
-   * <p>Displays information for the error that caused a job to fail.</p>
-   * @public
-   */
-  ErrorInfo?: SnapshotJobErrorInfo | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardsQAConfigurationRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard QA configuration that you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardsQAConfigurationResponse {
-  /**
-   * <p>The status of dashboards QA configuration that you want described.</p>
-   * @public
-   */
-  DashboardsQAStatus?: DashboardsQAStatus | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
 }

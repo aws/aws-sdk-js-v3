@@ -285,6 +285,26 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //           QBusinessParameters: { // QBusinessParameters
  * //             ApplicationArn: "STRING_VALUE", // required
  * //           },
+ * //           SharePointParameters: { // SharePointParameters
+ * //             SharePointDomain: "STRING_VALUE", // required
+ * //             TenantId: "STRING_VALUE",
+ * //             ClientId: "STRING_VALUE",
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           GoogleDriveParameters: { // GoogleDriveParameters
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           OneDriveParameters: { // OneDriveParameters
+ * //             TenantId: "STRING_VALUE",
+ * //             ClientId: "STRING_VALUE",
+ * //             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ * //           },
+ * //           FMKBParameters: { // FMKBParameters
+ * //             KnowledgeBaseArn: "STRING_VALUE", // required
+ * //             LinkedDataSourceIds: [ // LinkedDataSourceIds
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //         },
  * //         VpcConnectionProperties: {
  * //           VpcConnectionArn: "STRING_VALUE", // required

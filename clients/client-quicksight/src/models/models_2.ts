@@ -24,6 +24,7 @@ import type {
   AuthenticationMethodOption,
   AuthenticationType,
   AuthorizationCodeGrantCredentialsSource,
+  AuthType,
   BrandStatus,
   BrandVersionStatus,
   CapabilityState,
@@ -50,7 +51,6 @@ import type {
   GeoSpatialDataRole,
   HorizontalTextAlignment,
   InputColumnDataType,
-  JoinOperationType,
   LookbackWindowSizeUnit,
   NullFilterOption,
   NumberScale,
@@ -139,11 +139,60 @@ import type {
   SankeyDiagramVisual,
   ScatterPlotVisual,
   TableVisual,
-  TreeMapVisual,
+  TreeMapConfiguration,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
+
+/**
+ * <p>A tree map.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
+ * @public
+ */
+export interface TreeMapVisual {
+  /**
+   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
+   * @public
+   */
+  VisualId: string | undefined;
+
+  /**
+   * <p>The title that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: VisualTitleLabelOptions | undefined;
+
+  /**
+   * <p>The subtitle that is displayed on the visual.</p>
+   * @public
+   */
+  Subtitle?: VisualSubtitleLabelOptions | undefined;
+
+  /**
+   * <p>The configuration settings of the visual.</p>
+   * @public
+   */
+  ChartConfiguration?: TreeMapConfiguration | undefined;
+
+  /**
+   * <p>The list of custom actions that are configured for a visual.</p>
+   * @public
+   */
+  Actions?: VisualCustomAction[] | undefined;
+
+  /**
+   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
+   * @public
+   */
+  ColumnHierarchies?: ColumnHierarchy[] | undefined;
+
+  /**
+   * <p>The alt text for the visual.</p>
+   * @public
+   */
+  VisualContentAltText?: string | undefined;
+}
 
 /**
  * <p>The color configuration for individual groups within a waterfall visual.</p>
@@ -2731,6 +2780,46 @@ export interface ExasolParameters {
 }
 
 /**
+ * <p>The connection parameters for a fully managed knowledge base data source. Provide these parameters in the <code>DataSourceParameters</code> object when you create or update a data source that uses a fully managed knowledge base.</p>
+ * @public
+ */
+export interface FMKBParameters {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Bedrock knowledge base.</p>
+   * @public
+   */
+  KnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>The IDs of the linked data sources.</p>
+   * @public
+   */
+  LinkedDataSourceIds?: string[] | undefined;
+}
+
+/**
+ * <p>The connection parameters for a Google Drive data source. Provide these parameters in the <code>DataSourceParameters</code> object when you create or update a data source that uses Google Drive.</p>
+ * @public
+ */
+export interface GoogleDriveParameters {
+  /**
+   * <p>The authentication type for the Google Drive data source. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SERVICE_ACCOUNT</code> – Server-to-server authentication using a Google service account key.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>THREE_LEGGED_OAUTH</code> – Interactive OAuth that requires user consent.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
+}
+
+/**
  * <p>The parameters that are required to connect to a Impala data source.</p>
  * @public
  */
@@ -2818,6 +2907,40 @@ export interface MySqlParameters {
    * @public
    */
   Database: string | undefined;
+}
+
+/**
+ * <p>The connection parameters for an OneDrive data source. Provide these parameters in the <code>DataSourceParameters</code> object when you create or update a data source that uses OneDrive.</p>
+ * @public
+ */
+export interface OneDriveParameters {
+  /**
+   * <p>The tenant ID for the OneDrive data source.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The client ID for the OneDrive data source.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The authentication type for the OneDrive data source. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TWO_LEGGED_OAUTH</code> – Server-to-server authentication using client credentials that do not require user interaction.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>THREE_LEGGED_OAUTH</code> – Interactive OAuth that requires user consent.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
 }
 
 /**
@@ -3088,6 +3211,46 @@ export interface ServiceNowParameters {
    * @public
    */
   SiteBaseUrl: string | undefined;
+}
+
+/**
+ * <p>The connection parameters for a SharePoint data source. Provide these parameters in the <code>DataSourceParameters</code> object when you create or update a data source that uses SharePoint.</p>
+ * @public
+ */
+export interface SharePointParameters {
+  /**
+   * <p>The SharePoint domain for the data source.</p>
+   * @public
+   */
+  SharePointDomain: string | undefined;
+
+  /**
+   * <p>The tenant ID for the SharePoint data source.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The client ID for the SharePoint data source.</p>
+   * @public
+   */
+  ClientId?: string | undefined;
+
+  /**
+   * <p>The authentication type for the SharePoint data source. Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TWO_LEGGED_OAUTH</code> – Server-to-server authentication using client credentials that do not require user interaction.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>THREE_LEGGED_OAUTH</code> – Interactive OAuth that requires user consent.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  AuthType?: AuthType | undefined;
 }
 
 /**
@@ -3426,10 +3589,13 @@ export type DataSourceParameters =
   | DataSourceParameters.CustomConnectionParametersMember
   | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
+  | DataSourceParameters.FMKBParametersMember
+  | DataSourceParameters.GoogleDriveParametersMember
   | DataSourceParameters.ImpalaParametersMember
   | DataSourceParameters.JiraParametersMember
   | DataSourceParameters.MariaDbParametersMember
   | DataSourceParameters.MySqlParametersMember
+  | DataSourceParameters.OneDriveParametersMember
   | DataSourceParameters.OracleParametersMember
   | DataSourceParameters.PostgreSqlParametersMember
   | DataSourceParameters.PrestoParametersMember
@@ -3440,6 +3606,7 @@ export type DataSourceParameters =
   | DataSourceParameters.S3ParametersMember
   | DataSourceParameters.S3TablesParametersMember
   | DataSourceParameters.ServiceNowParametersMember
+  | DataSourceParameters.SharePointParametersMember
   | DataSourceParameters.SnowflakeParametersMember
   | DataSourceParameters.SparkParametersMember
   | DataSourceParameters.SqlServerParametersMember
@@ -3492,6 +3659,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3533,6 +3704,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3574,6 +3749,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3615,6 +3794,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3656,6 +3839,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3697,6 +3884,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3738,6 +3929,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3779,6 +3974,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3820,6 +4019,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3861,6 +4064,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3902,6 +4109,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3943,6 +4154,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -3984,6 +4199,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4025,6 +4244,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4066,6 +4289,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4107,6 +4334,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4148,6 +4379,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4189,6 +4424,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4230,6 +4469,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4271,6 +4514,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4312,6 +4559,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4353,6 +4604,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4394,6 +4649,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4435,6 +4694,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4476,6 +4739,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4517,6 +4784,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4558,6 +4829,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4599,6 +4874,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4640,6 +4919,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4681,6 +4964,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4722,6 +5009,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters: WebCrawlerParameters;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4763,6 +5054,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters: ConfluenceParameters;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown?: never;
   }
 
@@ -4804,6 +5099,190 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters: QBusinessParameters;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for a SharePoint data source.</p>
+   * @public
+   */
+  export interface SharePointParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3TablesParameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    SharePointParameters: SharePointParameters;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for a Google Drive data source.</p>
+   * @public
+   */
+  export interface GoogleDriveParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3TablesParameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters: GoogleDriveParameters;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for an OneDrive data source.</p>
+   * @public
+   */
+  export interface OneDriveParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3TablesParameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters: OneDriveParameters;
+    FMKBParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The parameters for a fully managed knowledge base data source.</p>
+   * @public
+   */
+  export interface FMKBParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    S3TablesParameters?: never;
+    S3KnowledgeBaseParameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters?: never;
+    StarburstParameters?: never;
+    TrinoParameters?: never;
+    BigQueryParameters?: never;
+    ImpalaParameters?: never;
+    CustomConnectionParameters?: never;
+    WebCrawlerParameters?: never;
+    ConfluenceParameters?: never;
+    QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters: FMKBParameters;
     $unknown?: never;
   }
 
@@ -4844,6 +5323,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters?: never;
     ConfluenceParameters?: never;
     QBusinessParameters?: never;
+    SharePointParameters?: never;
+    GoogleDriveParameters?: never;
+    OneDriveParameters?: never;
+    FMKBParameters?: never;
     $unknown: [string, any];
   }
 
@@ -4885,6 +5368,10 @@ export namespace DataSourceParameters {
     WebCrawlerParameters: (value: WebCrawlerParameters) => T;
     ConfluenceParameters: (value: ConfluenceParameters) => T;
     QBusinessParameters: (value: QBusinessParameters) => T;
+    SharePointParameters: (value: SharePointParameters) => T;
+    GoogleDriveParameters: (value: GoogleDriveParameters) => T;
+    OneDriveParameters: (value: OneDriveParameters) => T;
+    FMKBParameters: (value: FMKBParameters) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11003,124 +11490,4 @@ export interface ImportTableOperation {
    * @public
    */
   Source: ImportTableOperationSource | undefined;
-}
-
-/**
- * <p>Specifies a mapping to override the name of an output column from a transform operation.</p>
- * @public
- */
-export interface OutputColumnNameOverride {
-  /**
-   * <p>The original name of the column from the source transform operation.</p>
-   * @public
-   */
-  SourceColumnName?: string | undefined;
-
-  /**
-   * <p>The new name to assign to the column in the output.</p>
-   * @public
-   */
-  OutputColumnName: string | undefined;
-}
-
-/**
- * <p>Properties that control how columns are handled for a join operand, including column name overrides.</p>
- * @public
- */
-export interface JoinOperandProperties {
-  /**
-   * <p>A list of column name overrides to apply to the join operand's output columns.</p>
-   * @public
-   */
-  OutputColumnNameOverrides: OutputColumnNameOverride[] | undefined;
-}
-
-/**
- * <p>A transform operation that combines data from two sources based on specified join conditions.</p>
- * @public
- */
-export interface JoinOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The left operand for the join operation.</p>
-   * @public
-   */
-  LeftOperand: TransformOperationSource | undefined;
-
-  /**
-   * <p>The right operand for the join operation.</p>
-   * @public
-   */
-  RightOperand: TransformOperationSource | undefined;
-
-  /**
-   * <p>The type of join to perform, such as <code>INNER</code>, <code>LEFT</code>, <code>RIGHT</code>, or <code>OUTER</code>.</p>
-   * @public
-   */
-  Type: JoinOperationType | undefined;
-
-  /**
-   * <p>The join condition that specifies how to match rows between the left and right operands.</p>
-   * @public
-   */
-  OnClause: string | undefined;
-
-  /**
-   * <p>Properties that control how the left operand's columns are handled in the join result.</p>
-   * @public
-   */
-  LeftOperandProperties?: JoinOperandProperties | undefined;
-
-  /**
-   * <p>Properties that control how the right operand's columns are handled in the join result.</p>
-   * @public
-   */
-  RightOperandProperties?: JoinOperandProperties | undefined;
-}
-
-/**
- * <p>Specifies a label value to be pivoted into a separate column, including the new column name and identifier.</p>
- * @public
- */
-export interface PivotedLabel {
-  /**
-   * <p>The label value from the source data to be pivoted.</p>
-   * @public
-   */
-  LabelName: string | undefined;
-
-  /**
-   * <p>The name for the new column created from this pivoted label.</p>
-   * @public
-   */
-  NewColumnName: string | undefined;
-
-  /**
-   * <p>A unique identifier for the new column created from this pivoted label.</p>
-   * @public
-   */
-  NewColumnId: string | undefined;
-}
-
-/**
- * <p>Configuration for a pivot operation, specifying which column contains labels and how to pivot them.</p>
- * @public
- */
-export interface PivotConfiguration {
-  /**
-   * <p>The name of the column that contains the labels to be pivoted into separate columns.</p>
-   * @public
-   */
-  LabelColumnName?: string | undefined;
-
-  /**
-   * <p>The list of specific label values to pivot into separate columns.</p>
-   * @public
-   */
-  PivotedLabels: PivotedLabel[] | undefined;
 }

@@ -108,6 +108,11 @@ import {
   CreateIngestionCommand,
 } from "./commands/CreateIngestionCommand";
 import {
+  type CreateKnowledgeBaseCommandInput,
+  type CreateKnowledgeBaseCommandOutput,
+  CreateKnowledgeBaseCommand,
+} from "./commands/CreateKnowledgeBaseCommand";
+import {
   type CreateNamespaceCommandInput,
   type CreateNamespaceCommandOutput,
   CreateNamespaceCommand,
@@ -1205,6 +1210,11 @@ import {
   UpdateKeyRegistrationCommand,
 } from "./commands/UpdateKeyRegistrationCommand";
 import {
+  type UpdateKnowledgeBaseCommandInput,
+  type UpdateKnowledgeBaseCommandOutput,
+  UpdateKnowledgeBaseCommand,
+} from "./commands/UpdateKnowledgeBaseCommand";
+import {
   type UpdateKnowledgeBasePermissionsCommandInput,
   type UpdateKnowledgeBasePermissionsCommandOutput,
   UpdateKnowledgeBasePermissionsCommand,
@@ -1397,6 +1407,7 @@ const commands = {
   CreateGroupMembershipCommand,
   CreateIAMPolicyAssignmentCommand,
   CreateIngestionCommand,
+  CreateKnowledgeBaseCommand,
   CreateNamespaceCommand,
   CreateOAuthClientApplicationCommand,
   CreateRefreshScheduleCommand,
@@ -1618,6 +1629,7 @@ const commands = {
   UpdateIdentityPropagationConfigCommand,
   UpdateIpRestrictionCommand,
   UpdateKeyRegistrationCommand,
+  UpdateKnowledgeBaseCommand,
   UpdateKnowledgeBasePermissionsCommand,
   UpdateOAuthClientApplicationCommand,
   UpdatePublicSharingSettingsCommand,
@@ -2047,6 +2059,23 @@ export interface QuickSight {
     args: CreateIngestionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIngestionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateKnowledgeBaseCommand}
+   */
+  createKnowledgeBase(
+    args: CreateKnowledgeBaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKnowledgeBaseCommandOutput>;
+  createKnowledgeBase(
+    args: CreateKnowledgeBaseCommandInput,
+    cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
+  ): void;
+  createKnowledgeBase(
+    args: CreateKnowledgeBaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
   ): void;
 
   /**
@@ -5804,6 +5833,23 @@ export interface QuickSight {
     args: UpdateKeyRegistrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKeyRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateKnowledgeBaseCommand}
+   */
+  updateKnowledgeBase(
+    args: UpdateKnowledgeBaseCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKnowledgeBaseCommandOutput>;
+  updateKnowledgeBase(
+    args: UpdateKnowledgeBaseCommandInput,
+    cb: (err: any, data?: UpdateKnowledgeBaseCommandOutput) => void
+  ): void;
+  updateKnowledgeBase(
+    args: UpdateKnowledgeBaseCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKnowledgeBaseCommandOutput) => void
   ): void;
 
   /**

@@ -2,9 +2,8 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
-  AssetBundleExportFormat,
-  AssetBundleImportFailureAction,
   AssignmentStatus,
+  DashboardsQAStatus,
   DataSetStatus,
   DataSourceType,
   EmbeddingIdentityType,
@@ -18,8 +17,6 @@ import type {
   GroupFilterOperator,
   IdentityStore,
   IdentityType,
-  ImageExtractionStatus,
-  IncludeFolderMembers,
   IncludeGeneratedAnswer,
   IncludeQuickSightQIndex,
   IngestionErrorType,
@@ -44,6 +41,7 @@ import type {
   SelfUpgradeRequestStatus,
   SelfUpgradeStatus,
   SharingModel,
+  SnapshotJobStatus,
   SortOrder,
   SpaceQuickSightResourceType,
   SpaceQuickSightSearchFilterName,
@@ -58,12 +56,11 @@ import type {
   UserIndexCapacitySortBy,
   UserIndexCapacitySortOrder,
   UserRole,
-  VideoExtractionStatus,
-  VideoExtractionType,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
 import type {
+  AccessControlConfiguration,
   ActionConnectorSearchFilter,
   ActionConnectorSummary,
   ActiveIAMPolicyAssignment,
@@ -75,19 +72,13 @@ import type {
   Sheet,
 } from "./models_0";
 import type {
+  _Parameters,
   AnalysisSearchFilter,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
-  AssetBundleCloudFormationOverridePropertyConfiguration,
+  AnonymousUserSnapshotJobResult,
   AssetBundleExportJobSummary,
-  AssetBundleExportJobValidationStrategy,
-  AssetBundleImportJobOverrideParameters,
-  AssetBundleImportJobOverridePermissions,
-  AssetBundleImportJobOverrideTags,
-  AssetBundleImportJobOverrideValidationStrategy,
   AssetBundleImportJobSummary,
-  AssetBundleImportSource,
-  AudioExtractionConfiguration,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
   BrandSummary,
@@ -96,6 +87,8 @@ import type {
   DataSetRefreshProperties,
   ResourcePermission,
   SharedViewConfigurations,
+  SnapshotFile,
+  SnapshotJobResultFileGroup,
   Tag,
   VpcConnectionProperties,
 } from "./models_2";
@@ -116,8 +109,11 @@ import type {
   DataSourceSummary,
   Group,
   GroupMember,
+  KnowledgeBaseConfiguration,
+  MediaExtractionConfiguration,
   Permission,
   RefreshSchedule,
+  SnapshotDestinationConfiguration,
   TemplateAlias,
   TemplateVersionDefinition,
   ThemeAlias,
@@ -125,6 +121,325 @@ import type {
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
+
+/**
+ * <p>A structure that contains the information on the snapshot files.</p>
+ * @public
+ */
+export interface SnapshotFileGroup {
+  /**
+   * <p>A list of <code>SnapshotFile</code> objects that contain the information on the snapshot files that need to be generated. This structure can hold 1 configuration at a time.</p>
+   * @public
+   */
+  Files?: SnapshotFile[] | undefined;
+}
+
+/**
+ * <p>Describes the configuration of the dashboard snapshot.</p>
+ * @public
+ */
+export interface SnapshotConfiguration {
+  /**
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information about the snapshot that is generated. This list can hold a maximum of 6 <code>FileGroup</code> configurations.</p>
+   * @public
+   */
+  FileGroups: SnapshotFileGroup[] | undefined;
+
+  /**
+   * <p>A structure that contains information on the Amazon S3 bucket that the generated snapshot is stored in.</p>
+   * @public
+   */
+  DestinationConfiguration?: SnapshotDestinationConfiguration | undefined;
+
+  /**
+   * <p>A list of Quick Sight parameters and the list's override values.</p>
+   * @public
+   */
+  Parameters?: _Parameters | undefined;
+}
+
+/**
+ * <p>Use this structure to redact sensitive information that you provide about an anonymous user from the snapshot.</p>
+ * @public
+ */
+export interface SnapshotAnonymousUserRedacted {
+  /**
+   * <p>The tag keys for the <code>RowLevelPermissionTags</code>.</p>
+   * @public
+   */
+  RowLevelPermissionTagKeys?: string[] | undefined;
+}
+
+/**
+ * <p>A structure that contains information about the users that the dashboard snapshot is generated for. Sensitive user information is excluded.
+ *         </p>
+ * @public
+ */
+export interface SnapshotUserConfigurationRedacted {
+  /**
+   * <p>
+   *             An array of records that describe anonymous users that the dashboard snapshot is generated for. Sensitive user information is excluded.
+   *         </p>
+   * @public
+   */
+  AnonymousUsers?: SnapshotAnonymousUserRedacted[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResponse {
+  /**
+   * <p>
+   *             The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.
+   *         </p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  SnapshotJobId?: string | undefined;
+
+  /**
+   * <p>The user configuration for the snapshot job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  UserConfiguration?: SnapshotUserConfigurationRedacted | undefined;
+
+  /**
+   * <p>The snapshot configuration of the job. This information is provided when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  SnapshotConfiguration?: SnapshotConfiguration | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Indicates the status of a job. The status updates as the job executes. This shows one of the following values.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> - The job was completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The job failed to execute.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUEUED</code> - The job is queued and hasn't started yet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RUNNING</code> - The job is still running.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  JobStatus?: SnapshotJobStatus | undefined;
+
+  /**
+   * <p>
+   *             The time that the snapshot job was created.
+   *         </p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>
+   *             The time that the snapshot job status was last updated.
+   *         </p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>
+   *             The Amazon Web Services request ID for this operation.
+   *         </p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResultRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  SnapshotJobId: string | undefined;
+}
+
+/**
+ * <p>An object that contains information on the error that caused the snapshot job to fail.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboardSnapshotJobResult.html">DescribeDashboardSnapshotJobResult API</a>.</p>
+ * @public
+ */
+export interface SnapshotJobErrorInfo {
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The error type.</p>
+   * @public
+   */
+  ErrorType?: string | undefined;
+}
+
+/**
+ * <p>A structure that contains information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
+ * @public
+ */
+export interface RegisteredUserSnapshotJobResult {
+  /**
+   * <p>A list of <code>SnapshotJobResultFileGroup</code> objects that contain information on the files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call. If the job succeeds, these objects contain the location where the snapshot artifacts are stored. If the job fails, the objects contain information about the error that caused the job to fail.</p>
+   * @public
+   */
+  FileGroups?: SnapshotJobResultFileGroup[] | undefined;
+}
+
+/**
+ * <p>An object that provides information on the result of a snapshot job. This object provides information about the job, the job status, and the location of the generated file.</p>
+ * @public
+ */
+export interface SnapshotJobResult {
+  /**
+   * <p> A list of <code>AnonymousUserSnapshotJobResult</code> objects that contain information on anonymous users and their user configurations. This data provided by you when you make a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  AnonymousUsers?: AnonymousUserSnapshotJobResult[] | undefined;
+
+  /**
+   * <p>A list of <code>RegisteredUserSnapshotJobResult</code> objects that contain information about files that are requested for registered user during a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  RegisteredUsers?: RegisteredUserSnapshotJobResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobResultResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the snapshot job. The job ARN is generated when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>Indicates the status of a job after it has reached a terminal state. A finished snapshot job will retuen a <code>COMPLETED</code> or <code>FAILED</code> status.</p>
+   * @public
+   */
+  JobStatus?: SnapshotJobStatus | undefined;
+
+  /**
+   * <p>The time that a snapshot job was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that a snapshot job status was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+
+  /**
+   * <p>The result of the snapshot job. Jobs that have successfully completed will return the S3Uri where they are located. Jobs that have failedwill return information on the error that caused the job to fail.</p>
+   * @public
+   */
+  Result?: SnapshotJobResult | undefined;
+
+  /**
+   * <p>Displays information for the error that caused a job to fail.</p>
+   * @public
+   */
+  ErrorInfo?: SnapshotJobErrorInfo | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardsQAConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard QA configuration that you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardsQAConfigurationResponse {
+  /**
+   * <p>The status of dashboards QA configuration that you want described.</p>
+   * @public
+   */
+  DashboardsQAStatus?: DashboardsQAStatus | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
 
 /**
  * @public
@@ -1351,90 +1666,6 @@ export interface KnowledgeBaseIngestionSummary {
 }
 
 /**
- * <p>The template configuration for a knowledge base.</p>
- * @public
- */
-export interface KbTemplateConfiguration {
-  /**
-   * <p>The template document that defines the knowledge base behavior.</p>
-   * @public
-   */
-  template?: __DocumentType | undefined;
-}
-
-/**
- * <p>The configuration settings for a knowledge base.</p>
- * @public
- */
-export interface KnowledgeBaseConfiguration {
-  /**
-   * <p>The template configuration for the knowledge base.</p>
-   * @public
-   */
-  templateConfiguration?: KbTemplateConfiguration | undefined;
-
-  /**
-   * <p>Indicates whether event notifications are enabled for the knowledge base.</p>
-   * @public
-   */
-  eventEnabled?: boolean | undefined;
-}
-
-/**
- * <p>The configuration for image extraction from knowledge base documents.</p>
- * @public
- */
-export interface ImageExtractionConfiguration {
-  /**
-   * <p>The status of image extraction. Valid values are ENABLED and DISABLED.</p>
-   * @public
-   */
-  imageExtractionStatus: ImageExtractionStatus | undefined;
-}
-
-/**
- * <p>The configuration for video extraction from knowledge base documents.</p>
- * @public
- */
-export interface VideoExtractionConfiguration {
-  /**
-   * <p>The status of video extraction. Valid values are ENABLED and DISABLED.</p>
-   * @public
-   */
-  videoExtractionStatus: VideoExtractionStatus | undefined;
-
-  /**
-   * <p>The type of video extraction to perform.</p>
-   * @public
-   */
-  videoExtractionType?: VideoExtractionType | undefined;
-}
-
-/**
- * <p>The configuration for media extraction from knowledge base documents.</p>
- * @public
- */
-export interface MediaExtractionConfiguration {
-  /**
-   * <p>The configuration for image extraction.</p>
-   * @public
-   */
-  imageExtractionConfiguration?: ImageExtractionConfiguration | undefined;
-
-  /**
-   * <p>The configuration for audio extraction.</p>
-   * @public
-   */
-  audioExtractionConfiguration?: AudioExtractionConfiguration | undefined;
-
-  /**
-   * <p>The configuration for video extraction.</p>
-   * @public
-   */
-  videoExtractionConfiguration?: VideoExtractionConfiguration | undefined;
-}
-
-/**
  * <p>A knowledge base resource that provides data from connected sources for AI-powered experiences in Amazon QuickSight.</p>
  * @public
  */
@@ -1482,6 +1713,12 @@ export interface KnowledgeBase {
   MediaExtractionConfiguration?: MediaExtractionConfiguration | undefined;
 
   /**
+   * <p>The access control configuration for the knowledge base.</p>
+   * @public
+   */
+  AccessControlConfiguration?: AccessControlConfiguration | undefined;
+
+  /**
    * <p>The type of the knowledge base.</p>
    * @public
    */
@@ -1506,7 +1743,7 @@ export interface KnowledgeBase {
   Description?: string | undefined;
 
   /**
-   * <p>Indicates whether email notifications are enabled for ingestion failures.</p>
+   * <p>Specifies whether email notifications are enabled for ingestion failures.</p>
    * @public
    */
   IsEmailNotificationOptedForIngestionFailures?: boolean | undefined;
@@ -9441,344 +9678,4 @@ export interface SearchTopicsRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTopicsResponse {
-  /**
-   * <p>A list of topic summaries that is returned by the search topic request.</p>
-   * @public
-   */
-  TopicSummaryList?: TopicSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleExportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account to export assets from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is
-   *          completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleExportJobId: string | undefined;
-
-  /**
-   * <p>An array of resource ARNs to export. The following resources are supported.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Analysis</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Dashboard</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataSet</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DataSource</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RefreshSchedule</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Theme</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VPCConnection</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The API caller must have the necessary permissions in their IAM role to
-   *          access each resource before the resources can be exported.</p>
-   * @public
-   */
-  ResourceArns: string[] | undefined;
-
-  /**
-   * <p>A Boolean that determines whether all dependencies of each resource ARN are recursively
-   *          exported with the job. For example, say you provided a Dashboard ARN to the
-   *             <code>ResourceArns</code> parameter. If you set <code>IncludeAllDependencies</code> to
-   *             <code>TRUE</code>, any theme, dataset, and data source resource that is a dependency of
-   *          the dashboard is also exported.</p>
-   * @public
-   */
-  IncludeAllDependencies?: boolean | undefined;
-
-  /**
-   * <p>The export data format.</p>
-   * @public
-   */
-  ExportFormat: AssetBundleExportFormat | undefined;
-
-  /**
-   * <p>An optional collection of structures that generate CloudFormation parameters to
-   *          override the existing resource property values when the resource is exported to a new
-   *             CloudFormation template.</p>
-   *          <p>Use this field if the <code>ExportFormat</code> field of a
-   *             <code>StartAssetBundleExportJobRequest</code> API call is set to
-   *             <code>CLOUDFORMATION_JSON</code>.</p>
-   * @public
-   */
-  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration | undefined;
-
-  /**
-   * <p>A Boolean that determines whether all permissions for each resource ARN are exported
-   *          with the job. If you set <code>IncludePermissions</code> to <code>TRUE</code>, any
-   *          permissions associated with each resource are exported. </p>
-   * @public
-   */
-  IncludePermissions?: boolean | undefined;
-
-  /**
-   * <p> A Boolean that determines whether all tags for each resource ARN are exported with the
-   *          job. If you set <code>IncludeTags</code> to <code>TRUE</code>, any tags associated with
-   *          each resource are exported.</p>
-   * @public
-   */
-  IncludeTags?: boolean | undefined;
-
-  /**
-   * <p>An optional parameter that determines which validation strategy to use for the export
-   *          job. If <code>StrictModeForAllResources</code> is set to <code>TRUE</code>, strict
-   *          validation for every error is enforced. If it is set to <code>FALSE</code>, validation is
-   *          skipped for specific UI errors that are shown as warnings. The default value for
-   *             <code>StrictModeForAllResources</code> is <code>FALSE</code>.</p>
-   * @public
-   */
-  ValidationStrategy?: AssetBundleExportJobValidationStrategy | undefined;
-
-  /**
-   * <p>A Boolean that determines if the exported asset carries over information about the
-   *          folders that the asset is a member of. </p>
-   * @public
-   */
-  IncludeFolderMemberships?: boolean | undefined;
-
-  /**
-   * <p>A setting that indicates whether you want to include folder assets. You can also use
-   *          this setting to recusrsively include all subfolders of an exported folder.</p>
-   * @public
-   */
-  IncludeFolderMembers?: IncludeFolderMembers | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleExportJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the export job.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is
-   *          completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleExportJobId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services response ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleImportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account to import assets into. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is
-   *          completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleImportJobId: string | undefined;
-
-  /**
-   * <p>The source of the asset bundle zip file that contains the data that you want to import.
-   *          The file must be in <code>QUICKSIGHT_JSON</code> format. </p>
-   * @public
-   */
-  AssetBundleImportSource: AssetBundleImportSource | undefined;
-
-  /**
-   * <p>Optional overrides that are applied to the resource configuration before import.</p>
-   * @public
-   */
-  OverrideParameters?: AssetBundleImportJobOverrideParameters | undefined;
-
-  /**
-   * <p>The failure action for the import job.</p>
-   *          <p>If you choose <code>ROLLBACK</code>, failed import jobs will attempt to undo any asset
-   *          changes caused by the failed job.</p>
-   *          <p>If you choose <code>DO_NOTHING</code>, failed import jobs will not attempt to roll back
-   *          any asset changes caused by the failed job, possibly keeping the Amazon Quick Sight account
-   *          in an inconsistent state.</p>
-   * @public
-   */
-  FailureAction?: AssetBundleImportFailureAction | undefined;
-
-  /**
-   * <p>Optional permission overrides that are applied to the resource configuration before
-   *          import.</p>
-   * @public
-   */
-  OverridePermissions?: AssetBundleImportJobOverridePermissions | undefined;
-
-  /**
-   * <p>Optional tag overrides that are applied to the resource configuration before
-   *          import.</p>
-   * @public
-   */
-  OverrideTags?: AssetBundleImportJobOverrideTags | undefined;
-
-  /**
-   * <p>An optional validation strategy override for all analyses and dashboards that is applied
-   *          to the resource configuration before import. </p>
-   * @public
-   */
-  OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAssetBundleImportJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the import job.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID of the job. This ID is unique while the job is running. After the job is
-   *          completed, you can reuse this ID for another job.</p>
-   * @public
-   */
-  AssetBundleImportJobId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services response ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAutomationJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the automation.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the automation group that contains the automation to run.</p>
-   * @public
-   */
-  AutomationGroupId: string | undefined;
-
-  /**
-   * <p>The ID of the automation to run.</p>
-   * @public
-   */
-  AutomationId: string | undefined;
-
-  /**
-   * <p>The input payload for the automation job, provided as a JSON string.</p>
-   * @public
-   */
-  InputPayload?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartAutomationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the automation job.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The ID of the automation job that was started.</p>
-   * @public
-   */
-  JobId: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
 }

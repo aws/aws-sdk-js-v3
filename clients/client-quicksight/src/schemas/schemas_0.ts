@@ -106,6 +106,7 @@ const _ABOC = "AlternateBandOddColor";
 const _ABRLSC = "AssetBundleResourceLinkSharingConfiguration";
 const _ABRP = "AssetBundleResourcePermissions";
 const _AC = "AccountCustomization";
+const _ACC = "AccessControlConfiguration";
 const _ACD = "ActionConnectorDescription";
 const _ACDU = "AutoCreateDatabaseUser";
 const _ACE = "ActionConnectorError";
@@ -259,6 +260,7 @@ const _ATp = "ApplicationTheme";
 const _ATpp = "ApplyTo";
 const _ATr = "ArcThickness";
 const _ATu = "AuthorizedTargets";
+const _ATut = "AuthType";
 const _AU = "AnonymousUsers";
 const _AUA = "AnonymousUserArn";
 const _AUDEC = "AnonymousUserDashboardEmbeddingConfiguration";
@@ -648,6 +650,9 @@ const _CIom = "ComputationId";
 const _CIr = "CreateIngestion";
 const _CIu = "CustomInstructions";
 const _CIus = "CustomInstruction";
+const _CKB = "CreateKnowledgeBase";
+const _CKBR = "CreateKnowledgeBaseRequest";
+const _CKBRr = "CreateKnowledgeBaseResponse";
 const _CL = "CustomLabel";
 const _CLC = "CustomLabelConfiguration";
 const _CLO = "CategoryLabelOptions";
@@ -742,6 +747,7 @@ const _CSolumny = "ColumnSynonyms";
 const _CSr = "CreateSpaces";
 const _CSre = "CreationStatus";
 const _CSrea = "CreateSpace";
+const _CSred = "CredentialStatus";
 const _CSro = "CrossSheet";
 const _CSu = "CustomSql";
 const _CSur = "CurrencySymbol";
@@ -1570,6 +1576,7 @@ const _FMCFO = "FilledMapConditionalFormattingOption";
 const _FMCFOL = "FilledMapConditionalFormattingOptionList";
 const _FMDFL = "FilledMapDimensionFieldList";
 const _FMFW = "FilledMapFieldWells";
+const _FMKBP = "FMKBParameters";
 const _FML = "FolderMemberList";
 const _FMMFL = "FilledMapMeasureFieldList";
 const _FMSC = "FilledMapSortConfiguration";
@@ -1680,6 +1687,7 @@ const _GCr = "GradientColor";
 const _GDEU = "GetDashboardEmbedUrl";
 const _GDEUR = "GetDashboardEmbedUrlRequest";
 const _GDEURe = "GetDashboardEmbedUrlResponse";
+const _GDP = "GoogleDriveParameters";
 const _GDSI = "GeospatialDataSourceItem";
 const _GEUFAU = "GenerateEmbedUrlForAnonymousUser";
 const _GEUFAUR = "GenerateEmbedUrlForAnonymousUserRequest";
@@ -2039,6 +2047,7 @@ const _LCSC = "LineChartSortConfiguration";
 const _LCSO = "ListControlSearchOptions";
 const _LCSS = "LineChartSeriesSettings";
 const _LCV = "LineChartVisual";
+const _LCVA = "LastCredentialVerifiedAt";
 const _LCa = "LabelContent";
 const _LCab = "LabelColor";
 const _LCabe = "LabelConfiguration";
@@ -2050,6 +2059,7 @@ const _LDL = "LineDataLabels";
 const _LDR = "ListDashboardsRequest";
 const _LDRi = "ListDashboardsResponse";
 const _LDS = "ListDataSets";
+const _LDSI = "LinkedDataSourceIds";
 const _LDSR = "ListDataSetsRequest";
 const _LDSRi = "ListDataSetsResponse";
 const _LDSRis = "ListDataSourcesRequest";
@@ -2385,6 +2395,7 @@ const _OCn = "OnClause";
 const _OCt = "OtherCategories";
 const _OCu = "OutputColumn";
 const _ODA = "OneDriveAction";
+const _ODP = "OneDriveParameters";
 const _ODPO = "OverrideDatasetParameterOperation";
 const _OF = "OperandField";
 const _OFN = "OperandFieldName";
@@ -3099,6 +3110,7 @@ const _SPCAFW = "ScatterPlotCategoricallyAggregatedFieldWells";
 const _SPCt = "StatePersistenceConfigurations";
 const _SPD = "StringParameterDeclaration";
 const _SPDA = "SharePagerDutyAction";
+const _SPDh = "SharePointDomain";
 const _SPE = "StatePersistenceEnabled";
 const _SPFW = "ScatterPlotFieldWells";
 const _SPGEA = "SandPGlobalEnergyAction";
@@ -3108,6 +3120,7 @@ const _SPLC = "ScatterPlotLimitConfiguration";
 const _SPLt = "StringParameterList";
 const _SPN = "SourceParameterName";
 const _SPO = "SetParametersOperation";
+const _SPP = "SharePointParameters";
 const _SPS = "SelectedPointStyle";
 const _SPSC = "ScatterPlotSortConfiguration";
 const _SPUFW = "ScatterPlotUnaggregatedFieldWells";
@@ -3396,6 +3409,7 @@ const _TIV = "TableInlineVisualizations";
 const _TIVL = "TableInlineVisualizationList";
 const _TIVa = "TableInlineVisualization";
 const _TIe = "TemplateId";
+const _TIen = "TenantId";
 const _TIh = "ThemeIds";
 const _TIo = "TopicId";
 const _TIoo = "TooltipItem";
@@ -3697,9 +3711,12 @@ const _UIU = "UserInvitationUrl";
 const _UIs = "UserIdentifier";
 const _UJA = "UseJiraAction";
 const _UK = "UniqueKey";
+const _UKB = "UpdateKnowledgeBase";
 const _UKBP = "UpdateKnowledgeBasePermissions";
 const _UKBPR = "UpdateKnowledgeBasePermissionsRequest";
 const _UKBPRp = "UpdateKnowledgeBasePermissionsResponse";
+const _UKBR = "UpdateKnowledgeBaseRequest";
+const _UKBRp = "UpdateKnowledgeBaseResponse";
 const _UKL = "UniqueKeyList";
 const _UKR = "UpdateKeyRegistration";
 const _UKRR = "UpdateKeyRegistrationRequest";
@@ -3983,7 +4000,6 @@ const _d = "description";
 const _dT = "directoryType";
 const _dko = "default-key-only";
 const _e = "error";
-const _eE = "eventEnabled";
 const _em = "email";
 const _ep = "entry-point";
 const _f = "filters";
@@ -3992,6 +4008,7 @@ const _h = "http";
 const _hE = "httpError";
 const _hO = "highlightOperation";
 const _hQ = "httpQuery";
+const _iACLE = "isACLEnabled";
 const _iEC = "imageExtractionConfiguration";
 const _iES = "imageExtractionStatus";
 const _iIP = "includeInputPayload";
@@ -4298,6 +4315,11 @@ var SqlQuery: StaticSimpleSchema = [0, n0, _SQ, 8, 0];
 var StyleDescription: StaticSimpleSchema = [0, n0, _SDt, 8, 0];
 var Suffix: StaticSimpleSchema = [0, n0, _S, 8, 0];
 var WelcomeMessage: StaticSimpleSchema = [0, n0, _WM, 8, 0];
+export var AccessControlConfiguration$: StaticStructureSchema = [3, n0, _ACC,
+  0,
+  [_iACLE],
+  [2]
+];
 export var AccountCustomization$: StaticStructureSchema = [3, n0, _AC,
   0,
   [_DT, _DECT],
@@ -5643,6 +5665,16 @@ export var CreateIngestionResponse$: StaticStructureSchema = [3, n0, _CIRre,
   [_A, _IIn, _ISn, _RI, _St],
   [0, 0, 0, 0, [1, 32]]
 ];
+export var CreateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _CKBR,
+  0,
+  [_AAI, _KBI, _N, _DSAa, _KBC, _D, _Per, _MEC, _ACC, _POA, _Ta],
+  [[0, 1], 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, () => ResourcePermissionList, () => MediaExtractionConfiguration$, () => AccessControlConfiguration$, 0, () => TagList], 5
+];
+export var CreateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _CKBRr,
+  0,
+  [_KBA, _KBI, _CSre, _RI, _St],
+  [0, 0, 0, 0, [1, 32]], 3
+];
 export var CreateNamespaceRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_AAI, _Na, _ISd, _Ta],
@@ -6210,8 +6242,8 @@ export var DataSetUsageConfiguration$: StaticStructureSchema = [3, n0, _DSUC,
 ];
 export var DataSource$: StaticStructureSchema = [3, n0, _DSatao,
   0,
-  [_A, _DSIat, _N, _T, _St, _CT, _LUT, _DSP, _ADSP, _VCP, _SPs, _EI, _SA],
-  [0, 0, 0, 0, 0, 4, 4, () => DataSourceParameters$, () => DataSourceParametersList, () => VpcConnectionProperties$, () => SslProperties$, () => DataSourceErrorInfo$, 0]
+  [_A, _DSIat, _N, _T, _St, _CT, _LUT, _DSP, _ADSP, _VCP, _SPs, _EI, _SA, _CSred, _LCVA],
+  [0, 0, 0, 0, 0, 4, 4, () => DataSourceParameters$, () => DataSourceParametersList, () => VpcConnectionProperties$, () => SslProperties$, () => DataSourceErrorInfo$, 0, 0, 4]
 ];
 export var DataSourceCredentials$: StaticStructureSchema = [3, n0, _DSCat,
   8,
@@ -7763,6 +7795,11 @@ export var FlowSummary$: StaticStructureSchema = [3, n0, _FSl,
   [_A, _FIl, _N, _CT, _D, _CB, _LUT, _LUB, _PS, _RCu, _UCs, _LPB, _LPA],
   [0, 0, 0, 4, 0, 0, 4, 0, 0, 1, 1, 0, 4], 4
 ];
+export var FMKBParameters$: StaticStructureSchema = [3, n0, _FMKBP,
+  0,
+  [_KBA, _LDSI],
+  [0, 64 | 0], 1
+];
 export var Folder$: StaticStructureSchema = [3, n0, _Fol,
   0,
   [_FI, _A, _N, _FT, _FP, _CT, _LUT, _SMh],
@@ -8238,6 +8275,11 @@ export var GlobalTableBorderOptions$: StaticStructureSchema = [3, n0, _GTBO,
   [_UBn, _SSB],
   [() => TableBorderOptions$, () => TableSideBorderOptions$]
 ];
+export var GoogleDriveParameters$: StaticStructureSchema = [3, n0, _GDP,
+  0,
+  [_ATut],
+  [0]
+];
 export var GradientColor$: StaticStructureSchema = [3, n0, _GCr,
   0,
   [_Stop],
@@ -8560,13 +8602,13 @@ export var KeyPairCredentials$: StaticStructureSchema = [3, n0, _KPC,
 ];
 export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
   0,
-  [_KBA, _KBI, _N, _St, _DSAa, _KBC, _MEC, _T, _CA, _UA, _D, _IENOFIF, _FCIS, _FIIS, _LIS, _KBSB, _DCo, _POA, _POU],
-  [0, 0, 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], () => MediaExtractionConfiguration$, 0, 4, 4, 0, 2, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, 1, 1, 0, [() => SensitiveString, 0]], 6
+  [_KBA, _KBI, _N, _St, _DSAa, _KBC, _MEC, _ACC, _T, _CA, _UA, _D, _IENOFIF, _FCIS, _FIIS, _LIS, _KBSB, _DCo, _POA, _POU],
+  [0, 0, 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], () => MediaExtractionConfiguration$, () => AccessControlConfiguration$, 0, 4, 4, 0, 2, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, 1, 1, 0, [() => SensitiveString, 0]], 6
 ];
 export var KnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _KBC,
   8,
-  [_tC, _eE],
-  [() => KbTemplateConfiguration$, 2]
+  [_tC],
+  [() => KbTemplateConfiguration$]
 ];
 export var KnowledgeBaseIngestionSummary$: StaticStructureSchema = [3, n0, _KBIS,
   0,
@@ -9452,6 +9494,11 @@ export var OAuthParameters$: StaticStructureSchema = [3, n0, _OAP,
   0,
   [_TPU, _OASu, _IPVCP, _IPRU, _IPCACBSU],
   [0, 0, () => VpcConnectionProperties$, 0, 0], 1
+];
+export var OneDriveParameters$: StaticStructureSchema = [3, n0, _ODP,
+  0,
+  [_TIen, _CI, _ATut],
+  [0, 0, 0]
 ];
 export var OracleParameters$: StaticStructureSchema = [3, n0, _OPr,
   0,
@@ -10507,6 +10554,11 @@ export var SharedViewConfigurations$: StaticStructureSchema = [3, n0, _SVC,
   0,
   [_En],
   [2], 1
+];
+export var SharePointParameters$: StaticStructureSchema = [3, n0, _SPP,
+  0,
+  [_SPDh, _TIen, _CI, _ATut],
+  [0, 0, 0, 0], 1
 ];
 export var Sheet$: StaticStructureSchema = [3, n0, _She,
   0,
@@ -11918,6 +11970,16 @@ export var UpdateKnowledgeBasePermissionsResponse$: StaticStructureSchema = [3, 
   [_KBA, _KBI, _Per, _RI, _St],
   [0, 0, () => ResourcePermissionList, 0, [1, 32]], 2
 ];
+export var UpdateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _UKBR,
+  0,
+  [_AAI, _KBI, _N, _D, _KBC, _MEC, _IENOFIF, _ACC],
+  [[0, 1], [0, 1], 0, 0, [() => KnowledgeBaseConfiguration$, 0], () => MediaExtractionConfiguration$, 2, () => AccessControlConfiguration$], 2
+];
+export var UpdateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _UKBRp,
+  0,
+  [_KBA, _KBI, _RI, _St],
+  [0, 0, 0, [1, 32]], 2
+];
 export var UpdateOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _UOACAR,
   0,
   [_AAI, _OACAI, _N, _CI, _CS, _OATEU, _OAAEU, _OAS, _DST, _IPVCP],
@@ -13003,6 +13065,7 @@ var LayoutList: StaticListSchema = [1, n0, _LLa,
   0, [() => Layout$,
     0]
 ];
+var LinkedDataSourceIds = 64 | 0;
 var LinkEntityArnList = 64 | 0;
 var MappedDataSetParameters: StaticListSchema = [1, n0, _MDSP,
   0, () => MappedDataSetParameter$
@@ -13550,8 +13613,8 @@ export var CustomPromptInput$: StaticUnionSchema = [4, n0, _CPIu,
 ];
 export var DataSourceParameters$: StaticUnionSchema = [4, n0, _DSP,
   0,
-  [_AEP, _APt, _APu, _APSP, _AIAP, _JP, _MDP, _MSP, _OPr, _PSP, _PP, _RP, _RPe, _SPa, _STP, _SKBP, _SNP, _SPn, _SPp, _SSP, _TPe, _TPw, _AOSP, _EP, _DPa, _SPtar, _TPr, _BQP, _IPm, _CCP, _WCP, _CPo, _QBP],
-  [() => AmazonElasticsearchParameters$, () => AthenaParameters$, () => AuroraParameters$, () => AuroraPostgreSqlParameters$, () => AwsIotAnalyticsParameters$, () => JiraParameters$, () => MariaDbParameters$, () => MySqlParameters$, () => OracleParameters$, () => PostgreSqlParameters$, () => PrestoParameters$, () => RdsParameters$, () => RedshiftParameters$, () => S3Parameters$, () => S3TablesParameters$, () => S3KnowledgeBaseParameters$, () => ServiceNowParameters$, () => SnowflakeParameters$, () => SparkParameters$, () => SqlServerParameters$, () => TeradataParameters$, () => TwitterParameters$, () => AmazonOpenSearchParameters$, () => ExasolParameters$, () => DatabricksParameters$, () => StarburstParameters$, () => TrinoParameters$, () => BigQueryParameters$, () => ImpalaParameters$, () => CustomConnectionParameters$, () => WebCrawlerParameters$, () => ConfluenceParameters$, () => QBusinessParameters$]
+  [_AEP, _APt, _APu, _APSP, _AIAP, _JP, _MDP, _MSP, _OPr, _PSP, _PP, _RP, _RPe, _SPa, _STP, _SKBP, _SNP, _SPn, _SPp, _SSP, _TPe, _TPw, _AOSP, _EP, _DPa, _SPtar, _TPr, _BQP, _IPm, _CCP, _WCP, _CPo, _QBP, _SPP, _GDP, _ODP, _FMKBP],
+  [() => AmazonElasticsearchParameters$, () => AthenaParameters$, () => AuroraParameters$, () => AuroraPostgreSqlParameters$, () => AwsIotAnalyticsParameters$, () => JiraParameters$, () => MariaDbParameters$, () => MySqlParameters$, () => OracleParameters$, () => PostgreSqlParameters$, () => PrestoParameters$, () => RdsParameters$, () => RedshiftParameters$, () => S3Parameters$, () => S3TablesParameters$, () => S3KnowledgeBaseParameters$, () => ServiceNowParameters$, () => SnowflakeParameters$, () => SparkParameters$, () => SqlServerParameters$, () => TeradataParameters$, () => TwitterParameters$, () => AmazonOpenSearchParameters$, () => ExasolParameters$, () => DatabricksParameters$, () => StarburstParameters$, () => TrinoParameters$, () => BigQueryParameters$, () => ImpalaParameters$, () => CustomConnectionParameters$, () => WebCrawlerParameters$, () => ConfluenceParameters$, () => QBusinessParameters$, () => SharePointParameters$, () => GoogleDriveParameters$, () => OneDriveParameters$, () => FMKBParameters$]
 ];
 export var GeocodePreferenceValue$: StaticUnionSchema = [4, n0, _GPV,
   0,
@@ -13665,6 +13728,9 @@ export var CreateIAMPolicyAssignment$: StaticOperationSchema = [9, n0, _CIAMPA,
 ];
 export var CreateIngestion$: StaticOperationSchema = [9, n0, _CIr,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] }, () => CreateIngestionRequest$, () => CreateIngestionResponse$
+];
+export var CreateKnowledgeBase$: StaticOperationSchema = [9, n0, _CKB,
+  { [_h]: ["POST", "/v1/accounts/{AwsAccountId}/knowledge-bases", 202] }, () => CreateKnowledgeBaseRequest$, () => CreateKnowledgeBaseResponse$
 ];
 export var CreateNamespace$: StaticOperationSchema = [9, n0, _CNr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}", 200] }, () => CreateNamespaceRequest$, () => CreateNamespaceResponse$
@@ -14328,6 +14394,9 @@ export var UpdateIpRestriction$: StaticOperationSchema = [9, n0, _UIR,
 ];
 export var UpdateKeyRegistration$: StaticOperationSchema = [9, n0, _UKR,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/key-registration", 200] }, () => UpdateKeyRegistrationRequest$, () => UpdateKeyRegistrationResponse$
+];
+export var UpdateKnowledgeBase$: StaticOperationSchema = [9, n0, _UKB,
+  { [_h]: ["POST", "/v1/accounts/{AwsAccountId}/knowledge-bases/{KnowledgeBaseId}", 202] }, () => UpdateKnowledgeBaseRequest$, () => UpdateKnowledgeBaseResponse$
 ];
 export var UpdateKnowledgeBasePermissions$: StaticOperationSchema = [9, n0, _UKBP,
   { [_h]: ["POST", "/v1/accounts/{AwsAccountId}/knowledge-bases/{KnowledgeBaseId}/permissions", 200] }, () => UpdateKnowledgeBasePermissionsRequest$, () => UpdateKnowledgeBasePermissionsResponse$

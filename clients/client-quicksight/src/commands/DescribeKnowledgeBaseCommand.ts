@@ -49,7 +49,6 @@ export interface DescribeKnowledgeBaseCommandOutput extends DescribeKnowledgeBas
  * //       templateConfiguration: { // KbTemplateConfiguration
  * //         template: "DOCUMENT_VALUE",
  * //       },
- * //       eventEnabled: true || false,
  * //     },
  * //     MediaExtractionConfiguration: { // MediaExtractionConfiguration
  * //       imageExtractionConfiguration: { // ImageExtractionConfiguration
@@ -62,6 +61,9 @@ export interface DescribeKnowledgeBaseCommandOutput extends DescribeKnowledgeBas
  * //         videoExtractionStatus: "ENABLED" || "DISABLED", // required
  * //         videoExtractionType: "AUDIO_TRANSCRIPTION_ONLY" || "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION",
  * //       },
+ * //     },
+ * //     AccessControlConfiguration: { // AccessControlConfiguration
+ * //       isACLEnabled: true || false,
  * //     },
  * //     Type: "STRING_VALUE",
  * //     CreatedAt: new Date("TIMESTAMP"),

@@ -105,6 +105,10 @@ import type {
   CreateIAMPolicyAssignmentCommandOutput,
 } from "./commands/CreateIAMPolicyAssignmentCommand";
 import type { CreateIngestionCommandInput, CreateIngestionCommandOutput } from "./commands/CreateIngestionCommand";
+import type {
+  CreateKnowledgeBaseCommandInput,
+  CreateKnowledgeBaseCommandOutput,
+} from "./commands/CreateKnowledgeBaseCommand";
 import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import type {
   CreateOAuthClientApplicationCommandInput,
@@ -759,6 +763,10 @@ import type {
   UpdateKeyRegistrationCommandOutput,
 } from "./commands/UpdateKeyRegistrationCommand";
 import type {
+  UpdateKnowledgeBaseCommandInput,
+  UpdateKnowledgeBaseCommandOutput,
+} from "./commands/UpdateKnowledgeBaseCommand";
+import type {
   UpdateKnowledgeBasePermissionsCommandInput,
   UpdateKnowledgeBasePermissionsCommandOutput,
 } from "./commands/UpdateKnowledgeBasePermissionsCommand";
@@ -876,6 +884,7 @@ export type ServiceInputTypes =
   | CreateGroupMembershipCommandInput
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
+  | CreateKnowledgeBaseCommandInput
   | CreateNamespaceCommandInput
   | CreateOAuthClientApplicationCommandInput
   | CreateRefreshScheduleCommandInput
@@ -1097,6 +1106,7 @@ export type ServiceInputTypes =
   | UpdateIdentityPropagationConfigCommandInput
   | UpdateIpRestrictionCommandInput
   | UpdateKeyRegistrationCommandInput
+  | UpdateKnowledgeBaseCommandInput
   | UpdateKnowledgeBasePermissionsCommandInput
   | UpdateOAuthClientApplicationCommandInput
   | UpdatePublicSharingSettingsCommandInput
@@ -1148,6 +1158,7 @@ export type ServiceOutputTypes =
   | CreateGroupMembershipCommandOutput
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
+  | CreateKnowledgeBaseCommandOutput
   | CreateNamespaceCommandOutput
   | CreateOAuthClientApplicationCommandOutput
   | CreateRefreshScheduleCommandOutput
@@ -1369,6 +1380,7 @@ export type ServiceOutputTypes =
   | UpdateIdentityPropagationConfigCommandOutput
   | UpdateIpRestrictionCommandOutput
   | UpdateKeyRegistrationCommandOutput
+  | UpdateKnowledgeBaseCommandOutput
   | UpdateKnowledgeBasePermissionsCommandOutput
   | UpdateOAuthClientApplicationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput

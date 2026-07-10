@@ -2517,6 +2517,20 @@ export type LookbackWindowSizeUnit = (typeof LookbackWindowSizeUnit)[keyof typeo
  * @public
  * @enum
  */
+export const AuthType = {
+  SERVICE_ACCOUNT: "SERVICE_ACCOUNT",
+  THREE_LEGGED_OAUTH: "THREE_LEGGED_OAUTH",
+  TWO_LEGGED_OAUTH: "TWO_LEGGED_OAUTH",
+} as const;
+/**
+ * @public
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthenticationType = {
   KEYPAIR: "KEYPAIR",
   PASSWORD: "PASSWORD",
@@ -3457,6 +3471,61 @@ export type IngestionStatus = (typeof IngestionStatus)[keyof typeof IngestionSta
  * @public
  * @enum
  */
+export const ImageExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ImageExtractionStatus = (typeof ImageExtractionStatus)[keyof typeof ImageExtractionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoExtractionStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type VideoExtractionStatus = (typeof VideoExtractionStatus)[keyof typeof VideoExtractionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoExtractionType = {
+  AUDIO_TRANSCRIPTION_ONLY: "AUDIO_TRANSCRIPTION_ONLY",
+  VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION: "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION",
+} as const;
+/**
+ * @public
+ */
+export type VideoExtractionType = (typeof VideoExtractionType)[keyof typeof VideoExtractionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSetStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const IdentityStore = {
   QUICKSIGHT: "QUICKSIGHT",
 } as const;
@@ -3770,6 +3839,20 @@ export type VPCConnectionResourceStatus =
  * @public
  * @enum
  */
+export const CredentialStatus = {
+  AUTH_FAILED: "AUTH_FAILED",
+  CONNECTED: "CONNECTED",
+  NOT_VERIFIED: "NOT_VERIFIED",
+} as const;
+/**
+ * @public
+ */
+export type CredentialStatus = (typeof CredentialStatus)[keyof typeof CredentialStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DashboardErrorType = {
   ACCESS_DENIED: "ACCESS_DENIED",
   COLUMN_GEOGRAPHIC_ROLE_MISMATCH: "COLUMN_GEOGRAPHIC_ROLE_MISMATCH",
@@ -3834,22 +3917,6 @@ export const DataSetFilterAttribute = {
  * @public
  */
 export type DataSetFilterAttribute = (typeof DataSetFilterAttribute)[keyof typeof DataSetFilterAttribute];
-
-/**
- * @public
- * @enum
- */
-export const DataSetStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  FAILED: "FAILED",
-  UPDATING: "UPDATING",
-} as const;
-/**
- * @public
- */
-export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
 
 /**
  * @public
@@ -4043,45 +4110,6 @@ export const KbIngestionStatus = {
  * @public
  */
 export type KbIngestionStatus = (typeof KbIngestionStatus)[keyof typeof KbIngestionStatus];
-
-/**
- * @public
- * @enum
- */
-export const ImageExtractionStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type ImageExtractionStatus = (typeof ImageExtractionStatus)[keyof typeof ImageExtractionStatus];
-
-/**
- * @public
- * @enum
- */
-export const VideoExtractionStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type VideoExtractionStatus = (typeof VideoExtractionStatus)[keyof typeof VideoExtractionStatus];
-
-/**
- * @public
- * @enum
- */
-export const VideoExtractionType = {
-  AUDIO_TRANSCRIPTION_ONLY: "AUDIO_TRANSCRIPTION_ONLY",
-  VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION: "VISUAL_CONTENT_AND_AUDIO_TRANSCRIPTION",
-} as const;
-/**
- * @public
- */
-export type VideoExtractionType = (typeof VideoExtractionType)[keyof typeof VideoExtractionType];
 
 /**
  * @public
@@ -4380,6 +4408,7 @@ export type IncludeQuickSightQIndex = (typeof IncludeQuickSightQIndex)[keyof typ
  * @enum
  */
 export const KnowledgeBaseSearchFilterName = {
+  DATASOURCE_ARN: "DATASOURCE_ARN",
   DIRECT_QUICKSIGHT_OWNER: "DIRECT_QUICKSIGHT_OWNER",
   DIRECT_QUICKSIGHT_SOLE_OWNER: "DIRECT_QUICKSIGHT_SOLE_OWNER",
   DIRECT_QUICKSIGHT_VIEWER_OR_OWNER: "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
