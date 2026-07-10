@@ -2694,6 +2694,13 @@
           "traits": {
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The telemetry configuration for the capacity provider, including logging settings.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
         }
       },
       "traits": {
@@ -2751,6 +2758,29 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 400,
         "smithy.api#tags": ["feature:public"]
+      }
+    },
+    "com.amazonaws.lambda#CapacityProviderLoggingConfig": {
+      "type": "structure",
+      "members": {
+        "SystemLogLevel": {
+          "target": "com.amazonaws.lambda#SystemLogLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        },
+        "LogGroup": {
+          "target": "com.amazonaws.lambda#LogGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>",
+        "smithy.api#tags": ["feature:lmi-system-log"]
       }
     },
     "com.amazonaws.lambda#CapacityProviderMaxVCpuCount": {
@@ -2982,6 +3012,22 @@
           "max": 16
         },
         "smithy.api#tags": ["feature:public"]
+      }
+    },
+    "com.amazonaws.lambda#CapacityProviderTelemetryConfig": {
+      "type": "structure",
+      "members": {
+        "LoggingConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderLoggingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration that specifies the telemetry collection for the capacity provider.</p>",
+        "smithy.api#tags": ["feature:lmi-system-log"]
       }
     },
     "com.amazonaws.lambda#CapacityProviderVpcConfig": {
@@ -4084,6 +4130,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>",
             "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
           }
         }
       },
@@ -11247,21 +11300,6 @@
         "smithy.api#documentation": "<p>Retrieves the provisioned concurrency configuration for a function's alias or version.</p>",
         "smithy.api#examples": [
           {
-            "documentation": "The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.",
-            "input": {
-              "FunctionName": "my-function",
-              "Qualifier": "BLUE"
-            },
-            "output": {
-              "AllocatedProvisionedConcurrentExecutions": 100,
-              "AvailableProvisionedConcurrentExecutions": 100,
-              "LastModified": "2019-12-31T20:28:49+0000",
-              "RequestedProvisionedConcurrentExecutions": 100,
-              "Status": "READY"
-            },
-            "title": "To view a provisioned concurrency configuration"
-          },
-          {
             "documentation": "The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.",
             "input": {
               "FunctionName": "my-function",
@@ -11275,6 +11313,21 @@
               "Status": "READY"
             },
             "title": "To get a provisioned concurrency configuration"
+          },
+          {
+            "documentation": "The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.",
+            "input": {
+              "FunctionName": "my-function",
+              "Qualifier": "BLUE"
+            },
+            "output": {
+              "AllocatedProvisionedConcurrentExecutions": 100,
+              "AvailableProvisionedConcurrentExecutions": 100,
+              "LastModified": "2019-12-31T20:28:49+0000",
+              "RequestedProvisionedConcurrentExecutions": 100,
+              "Status": "READY"
+            },
+            "title": "To view a provisioned concurrency configuration"
           }
         ],
         "smithy.api#http": {
@@ -12637,14 +12690,6 @@
             "smithy.api#tags": ["feature:public"]
           }
         },
-        "InvocationType": {
-          "target": "com.amazonaws.lambda#ResponseStreamingInvocationType",
-          "traits": {
-            "smithy.api#documentation": "<p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>",
-            "smithy.api#httpHeader": "X-Amz-Invocation-Type",
-            "smithy.api#tags": ["feature:public"]
-          }
-        },
         "LogType": {
           "target": "com.amazonaws.lambda#LogType",
           "traits": {
@@ -12682,6 +12727,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the tenant in a multi-tenant Lambda function.</p>",
             "smithy.api#httpHeader": "X-Amz-Tenant-Id",
+            "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "InvocationType": {
+          "target": "com.amazonaws.lambda#ResponseStreamingInvocationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>",
+            "smithy.api#httpHeader": "X-Amz-Invocation-Type",
             "smithy.api#tags": ["feature:public"]
           }
         }
@@ -21413,6 +21466,13 @@
           "target": "com.amazonaws.lambda#PropagateTags",
           "traits": {
             "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated telemetry configuration for the capacity provider.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
           }
         }
       },

@@ -50,6 +50,12 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
+ *   TelemetryConfig: { // CapacityProviderTelemetryConfig
+ *     LoggingConfig: { // CapacityProviderLoggingConfig
+ *       SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ *       LogGroup: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new UpdateCapacityProviderCommand(input);
  * const response = await client.send(command);
@@ -95,6 +101,12 @@ export interface UpdateCapacityProviderCommandOutput extends UpdateCapacityProvi
  * //       Mode: "None" || "Explicit",
  * //       ExplicitTags: { // Tags
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     TelemetryConfig: { // CapacityProviderTelemetryConfig
+ * //       LoggingConfig: { // CapacityProviderLoggingConfig
+ * //         SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //         LogGroup: "STRING_VALUE",
  * //       },
  * //     },
  * //   },

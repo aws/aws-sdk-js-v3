@@ -29,7 +29,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
       "LastModified": "__LastModified__",
-      "PropagateTags": {}
+      "PropagateTags": {},
+      "TelemetryConfig": {}
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -53,7 +54,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
       "LastModified": "__LastModified__",
-      "PropagateTags": {}
+      "PropagateTags": {},
+      "TelemetryConfig": {}
     },
     {
       "CapacityProviderArn": "__CapacityProviderArn__",
@@ -77,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "CapacityProviderScalingConfig": {},
       "KmsKeyArn": "__KmsKeyArn__",
       "LastModified": "__LastModified__",
-      "PropagateTags": {}
+      "PropagateTags": {},
+      "TelemetryConfig": {}
     }
   ],
   "NextMarker": "__NextMarker__"
@@ -109,7 +112,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
       LastModified: "__LastModified__",
-      PropagateTags: {}
+      PropagateTags: {},
+      TelemetryConfig: {}
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -133,7 +137,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
       LastModified: "__LastModified__",
-      PropagateTags: {}
+      PropagateTags: {},
+      TelemetryConfig: {}
     },
     {
       CapacityProviderArn: "__CapacityProviderArn__",
@@ -157,7 +162,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       CapacityProviderScalingConfig: {},
       KmsKeyArn: "__KmsKeyArn__",
       LastModified: "__LastModified__",
-      PropagateTags: {}
+      PropagateTags: {},
+      TelemetryConfig: {}
     }
   ],
   NextMarker: "__NextMarker__",
@@ -242,69 +248,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key2": "__value__",
           "key3": "__value__"
         }
-      }
-    },
-    {
-      "CapacityProviderArn": "__CapacityProviderArn__",
-      "State": "__State__",
-      "VpcConfig": {
-        "SubnetIds": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        "SecurityGroupIds": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
       },
-      "PermissionsConfig": {
-        "CapacityProviderOperatorRoleArn": "__CapacityProviderOperatorRoleArn__"
-      },
-      "InstanceRequirements": {
-        "Architectures": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        "AllowedInstanceTypes": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        "ExcludedInstanceTypes": [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
-      },
-      "CapacityProviderScalingConfig": {
-        "MaxVCpuCount": 0,
-        "ScalingMode": "__ScalingMode__",
-        "ScalingPolicies": [
-          {
-            "PredefinedMetricType": "__PredefinedMetricType__",
-            "TargetValue": 0
-          },
-          {
-            "PredefinedMetricType": "__PredefinedMetricType__",
-            "TargetValue": 0
-          },
-          {
-            "PredefinedMetricType": "__PredefinedMetricType__",
-            "TargetValue": 0
-          }
-        ]
-      },
-      "KmsKeyArn": "__KmsKeyArn__",
-      "LastModified": "__LastModified__",
-      "PropagateTags": {
-        "Mode": "__Mode__",
-        "ExplicitTags": {
-          "key1": "__value__",
-          "key2": "__value__",
-          "key3": "__value__"
+      "TelemetryConfig": {
+        "LoggingConfig": {
+          "SystemLogLevel": "__SystemLogLevel__",
+          "LogGroup": "__LogGroup__"
         }
       }
     },
@@ -369,6 +317,82 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
+        }
+      },
+      "TelemetryConfig": {
+        "LoggingConfig": {
+          "SystemLogLevel": "__SystemLogLevel__",
+          "LogGroup": "__LogGroup__"
+        }
+      }
+    },
+    {
+      "CapacityProviderArn": "__CapacityProviderArn__",
+      "State": "__State__",
+      "VpcConfig": {
+        "SubnetIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "SecurityGroupIds": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "PermissionsConfig": {
+        "CapacityProviderOperatorRoleArn": "__CapacityProviderOperatorRoleArn__"
+      },
+      "InstanceRequirements": {
+        "Architectures": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "AllowedInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        "ExcludedInstanceTypes": [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      "CapacityProviderScalingConfig": {
+        "MaxVCpuCount": 0,
+        "ScalingMode": "__ScalingMode__",
+        "ScalingPolicies": [
+          {
+            "PredefinedMetricType": "__PredefinedMetricType__",
+            "TargetValue": 0
+          },
+          {
+            "PredefinedMetricType": "__PredefinedMetricType__",
+            "TargetValue": 0
+          },
+          {
+            "PredefinedMetricType": "__PredefinedMetricType__",
+            "TargetValue": 0
+          }
+        ]
+      },
+      "KmsKeyArn": "__KmsKeyArn__",
+      "LastModified": "__LastModified__",
+      "PropagateTags": {
+        "Mode": "__Mode__",
+        "ExplicitTags": {
+          "key1": "__value__",
+          "key2": "__value__",
+          "key3": "__value__"
+        }
+      },
+      "TelemetryConfig": {
+        "LoggingConfig": {
+          "SystemLogLevel": "__SystemLogLevel__",
+          "LogGroup": "__LogGroup__"
         }
       }
     }
@@ -442,69 +466,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key2: "__value__",
           key3: "__value__"
         }
-      }
-    },
-    {
-      CapacityProviderArn: "__CapacityProviderArn__",
-      State: "__State__",
-      VpcConfig: {
-        SubnetIds: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        SecurityGroupIds: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
       },
-      PermissionsConfig: {
-        CapacityProviderOperatorRoleArn: "__CapacityProviderOperatorRoleArn__"
-      },
-      InstanceRequirements: {
-        Architectures: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        AllowedInstanceTypes: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ],
-        ExcludedInstanceTypes: [
-          "__member__",
-          "__member__",
-          "__member__"
-        ]
-      },
-      CapacityProviderScalingConfig: {
-        MaxVCpuCount: (number) 0,
-        ScalingMode: "__ScalingMode__",
-        ScalingPolicies: [
-          {
-            PredefinedMetricType: "__PredefinedMetricType__",
-            TargetValue: (number) 0
-          },
-          {
-            PredefinedMetricType: "__PredefinedMetricType__",
-            TargetValue: (number) 0
-          },
-          {
-            PredefinedMetricType: "__PredefinedMetricType__",
-            TargetValue: (number) 0
-          }
-        ]
-      },
-      KmsKeyArn: "__KmsKeyArn__",
-      LastModified: "__LastModified__",
-      PropagateTags: {
-        Mode: "__Mode__",
-        ExplicitTags: {
-          key1: "__value__",
-          key2: "__value__",
-          key3: "__value__"
+      TelemetryConfig: {
+        LoggingConfig: {
+          SystemLogLevel: "__SystemLogLevel__",
+          LogGroup: "__LogGroup__"
         }
       }
     },
@@ -569,6 +535,82 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
+        }
+      },
+      TelemetryConfig: {
+        LoggingConfig: {
+          SystemLogLevel: "__SystemLogLevel__",
+          LogGroup: "__LogGroup__"
+        }
+      }
+    },
+    {
+      CapacityProviderArn: "__CapacityProviderArn__",
+      State: "__State__",
+      VpcConfig: {
+        SubnetIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        SecurityGroupIds: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      PermissionsConfig: {
+        CapacityProviderOperatorRoleArn: "__CapacityProviderOperatorRoleArn__"
+      },
+      InstanceRequirements: {
+        Architectures: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        AllowedInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ],
+        ExcludedInstanceTypes: [
+          "__member__",
+          "__member__",
+          "__member__"
+        ]
+      },
+      CapacityProviderScalingConfig: {
+        MaxVCpuCount: (number) 0,
+        ScalingMode: "__ScalingMode__",
+        ScalingPolicies: [
+          {
+            PredefinedMetricType: "__PredefinedMetricType__",
+            TargetValue: (number) 0
+          },
+          {
+            PredefinedMetricType: "__PredefinedMetricType__",
+            TargetValue: (number) 0
+          },
+          {
+            PredefinedMetricType: "__PredefinedMetricType__",
+            TargetValue: (number) 0
+          }
+        ]
+      },
+      KmsKeyArn: "__KmsKeyArn__",
+      LastModified: "__LastModified__",
+      PropagateTags: {
+        Mode: "__Mode__",
+        ExplicitTags: {
+          key1: "__value__",
+          key2: "__value__",
+          key3: "__value__"
+        }
+      },
+      TelemetryConfig: {
+        LoggingConfig: {
+          SystemLogLevel: "__SystemLogLevel__",
+          LogGroup: "__LogGroup__"
         }
       }
     }

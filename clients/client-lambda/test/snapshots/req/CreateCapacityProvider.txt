@@ -2,14 +2,14 @@ POST https://lambda.us-east-1.amazonaws.com
 /2025-11-30/capacity-providers
 
 content-type: application/json
-content-length: 994
+content-length: 1096
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/lambda#_.__ m/E,e
 host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: aa5d58ca786f724b764d4312a8ea7da377b6220e99b219112b5babf960e376aa
+x-amz-content-sha256: 49bf738e8d59200cf2945962e652ed75f96ba78953c28c7d0e9f18eb5d3fb268
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -77,6 +77,12 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
       "key1": "__value__",
       "key2": "__value__",
       "key3": "__value__"
+    }
+  },
+  "TelemetryConfig": {
+    "LoggingConfig": {
+      "SystemLogLevel": "__SystemLogLevel__",
+      "LogGroup": "__LogGroup__"
     }
   }
 }

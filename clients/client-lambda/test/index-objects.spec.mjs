@@ -29,11 +29,13 @@ import {
   CapacityProviderConfig$,
   CapacityProviderLimitExceededException,
   CapacityProviderLimitExceededException$,
+  CapacityProviderLoggingConfig$,
   CapacityProviderPermissionsConfig$,
   CapacityProviderPredefinedMetricType,
   CapacityProviderScalingConfig$,
   CapacityProviderScalingMode,
   CapacityProviderState,
+  CapacityProviderTelemetryConfig$,
   CapacityProviderVpcConfig$,
   ChainedInvokeDetails$,
   ChainedInvokeFailedDetails$,
@@ -817,8 +819,10 @@ assert(typeof CallbackSucceededDetails$ === "object");
 assert(typeof CallbackTimedOutDetails$ === "object");
 assert(typeof CapacityProvider$ === "object");
 assert(typeof CapacityProviderConfig$ === "object");
+assert(typeof CapacityProviderLoggingConfig$ === "object");
 assert(typeof CapacityProviderPermissionsConfig$ === "object");
 assert(typeof CapacityProviderScalingConfig$ === "object");
+assert(typeof CapacityProviderTelemetryConfig$ === "object");
 assert(typeof CapacityProviderVpcConfig$ === "object");
 assert(typeof ChainedInvokeDetails$ === "object");
 assert(typeof ChainedInvokeFailedDetails$ === "object");

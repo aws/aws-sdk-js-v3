@@ -496,6 +496,36 @@ export interface PropagateTags {
 }
 
 /**
+ * <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
+ * @public
+ */
+export interface CapacityProviderLoggingConfig {
+  /**
+   * <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
+   * @public
+   */
+  SystemLogLevel?: SystemLogLevel | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
+   * @public
+   */
+  LogGroup?: string | undefined;
+}
+
+/**
+ * <p>Configuration that specifies the telemetry collection for the capacity provider.</p>
+ * @public
+ */
+export interface CapacityProviderTelemetryConfig {
+  /**
+   * <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
+   * @public
+   */
+  LoggingConfig?: CapacityProviderLoggingConfig | undefined;
+}
+
+/**
  * <p>VPC configuration that specifies the network settings for compute instances managed by the capacity provider.</p>
  * @public
  */
@@ -564,6 +594,12 @@ export interface CreateCapacityProviderRequest {
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
+
+  /**
+   * <p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>
+   * @public
+   */
+  TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
 }
 
 /**
@@ -624,6 +660,12 @@ export interface CapacityProvider {
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
+
+  /**
+   * <p>The telemetry configuration for the capacity provider, including logging settings.</p>
+   * @public
+   */
+  TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
 }
 
 /**
@@ -806,6 +848,12 @@ export interface UpdateCapacityProviderRequest {
    * @public
    */
   PropagateTags?: PropagateTags | undefined;
+
+  /**
+   * <p>The updated telemetry configuration for the capacity provider.</p>
+   * @public
+   */
+  TelemetryConfig?: CapacityProviderTelemetryConfig | undefined;
 }
 
 /**
@@ -4012,12 +4060,6 @@ export interface InvokeWithResponseStreamRequest {
   FunctionName: string | undefined;
 
   /**
-   * <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
-   * @public
-   */
-  InvocationType?: ResponseStreamingInvocationType | undefined;
-
-  /**
    * <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
    * @public
    */
@@ -4046,6 +4088,12 @@ export interface InvokeWithResponseStreamRequest {
    * @public
    */
   TenantId?: string | undefined;
+
+  /**
+   * <p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>
+   * @public
+   */
+  InvocationType?: ResponseStreamingInvocationType | undefined;
 }
 
 /**

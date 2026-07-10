@@ -152,6 +152,20 @@ export type PropagateTagsMode = (typeof PropagateTagsMode)[keyof typeof Propagat
  * @public
  * @enum
  */
+export const SystemLogLevel = {
+  Debug: "DEBUG",
+  Info: "INFO",
+  Warn: "WARN",
+} as const;
+/**
+ * @public
+ */
+export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityProviderState = {
   Active: "Active",
   Deleting: "Deleting",
@@ -377,20 +391,6 @@ export const LogFormat = {
  * @public
  */
 export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
-
-/**
- * @public
- * @enum
- */
-export const SystemLogLevel = {
-  Debug: "DEBUG",
-  Info: "INFO",
-  Warn: "WARN",
-} as const;
-/**
- * @public
- */
-export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
 
 /**
  * @public
