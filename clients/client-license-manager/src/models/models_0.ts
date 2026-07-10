@@ -1749,6 +1749,12 @@ export interface CreateLicenseVersionRequest {
    * @public
    */
   SourceVersion?: string | undefined;
+
+  /**
+   * <p>Specifies whether to reset the license usage for the new license version. If you don't specify a value, the license usage is not reset.</p>
+   * @public
+   */
+  ResetUsage?: boolean | undefined;
 }
 
 /**
