@@ -8389,6 +8389,14 @@
           {
             "value": "DAYS_180",
             "name": "DAYS_180"
+          },
+          {
+            "value": "DAYS_3",
+            "name": "DAYS_3"
+          },
+          {
+            "value": "DAYS_7",
+            "name": "DAYS_7"
           }
         ]
       }
@@ -8455,6 +8463,14 @@
           {
             "value": "DAYS_90",
             "name": "DAYS_90"
+          },
+          {
+            "value": "DAYS_3",
+            "name": "DAYS_3"
+          },
+          {
+            "value": "DAYS_7",
+            "name": "DAYS_7"
           }
         ]
       }

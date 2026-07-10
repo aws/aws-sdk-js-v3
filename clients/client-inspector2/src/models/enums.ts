@@ -1549,8 +1549,10 @@ export type VMScannerStatus = (typeof VMScannerStatus)[keyof typeof VMScannerSta
 export const EcrPullDateRescanDuration = {
   DAYS_14: "DAYS_14",
   DAYS_180: "DAYS_180",
+  DAYS_3: "DAYS_3",
   DAYS_30: "DAYS_30",
   DAYS_60: "DAYS_60",
+  DAYS_7: "DAYS_7",
   DAYS_90: "DAYS_90",
 } as const;
 /**
@@ -1578,8 +1580,10 @@ export type EcrPullDateRescanMode = (typeof EcrPullDateRescanMode)[keyof typeof 
 export const EcrRescanDuration = {
   DAYS_14: "DAYS_14",
   DAYS_180: "DAYS_180",
+  DAYS_3: "DAYS_3",
   DAYS_30: "DAYS_30",
   DAYS_60: "DAYS_60",
+  DAYS_7: "DAYS_7",
   DAYS_90: "DAYS_90",
   LIFETIME: "LIFETIME",
 } as const;
