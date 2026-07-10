@@ -541,6 +541,17 @@ export interface SingleMetricAnomalyDetector {
  */
 export interface AnomalyDetector {
   /**
+   * <p>The unique identifier of the anomaly detector.</p>
+   *          <note>
+   *             <p>The identifier does not restrict access to a specific anomaly detector in an IAM
+   *                 policy. Permissions for anomaly detector operations apply to all anomaly detectors
+   *                 in the account.</p>
+   *          </note>
+   * @public
+   */
+  AnomalyDetectorId?: string | undefined;
+
+  /**
    * <p>The namespace of the metric associated with the anomaly detection model.</p>
    *
    * @deprecated Use SingleMetricAnomalyDetector.Namespace property.
@@ -957,6 +968,13 @@ export interface DeleteAlarmsInput {
  * @public
  */
 export interface DeleteAnomalyDetectorInput {
+  /**
+   * <p>Specifies the unique identifier of the anomaly detector to delete. If you specify
+   *             this parameter, you do not need to specify a metric to identify the detector.</p>
+   * @public
+   */
+  AnomalyDetectorId?: string | undefined;
+
   /**
    * <p>The namespace associated with the anomaly detection model to delete.</p>
    *
@@ -2050,6 +2068,15 @@ export interface DescribeAlarmsForMetricOutput {
  * @public
  */
 export interface DescribeAnomalyDetectorsInput {
+  /**
+   * <p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify
+   *             up to 50 identifiers. If you specify this parameter, you cannot also specify the
+   *             <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or
+   *             <code>AnomalyDetectorTypes</code> metric filters.</p>
+   * @public
+   */
+  AnomalyDetectorIds?: string[] | undefined;
+
   /**
    * <p>Use the token returned by the previous operation to request the next page of
    *             results.</p>
@@ -4326,7 +4353,13 @@ export interface PutAnomalyDetectorInput {
 /**
  * @public
  */
-export interface PutAnomalyDetectorOutput {}
+export interface PutAnomalyDetectorOutput {
+  /**
+   * <p>The unique identifier of the anomaly detector that you created or updated.</p>
+   * @public
+   */
+  AnomalyDetectorId?: string | undefined;
+}
 
 /**
  * @public

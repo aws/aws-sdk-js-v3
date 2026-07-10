@@ -35,6 +35,7 @@ export interface DeleteAnomalyDetectorCommandOutput extends DeleteAnomalyDetecto
  * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DeleteAnomalyDetectorInput
+ *   AnomalyDetectorId: "STRING_VALUE",
  *   Namespace: "STRING_VALUE",
  *   MetricName: "STRING_VALUE",
  *   Dimensions: [ // Dimensions

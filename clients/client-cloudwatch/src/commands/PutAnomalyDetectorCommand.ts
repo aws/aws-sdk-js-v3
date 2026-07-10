@@ -97,7 +97,9 @@ export interface PutAnomalyDetectorCommandOutput extends PutAnomalyDetectorOutpu
  * };
  * const command = new PutAnomalyDetectorCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // PutAnomalyDetectorOutput
+ * //   AnomalyDetectorId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -139,7 +141,7 @@ export class PutAnomalyDetectorCommand extends command<PutAnomalyDetectorCommand
   protected declare static __types: {
     api: {
       input: PutAnomalyDetectorInput;
-      output: {};
+      output: PutAnomalyDetectorOutput;
     };
     sdk: {
       input: PutAnomalyDetectorCommandInput;

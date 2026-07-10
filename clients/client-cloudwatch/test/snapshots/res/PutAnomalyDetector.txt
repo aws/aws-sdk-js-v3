@@ -27,11 +27,14 @@ content-type: application/x-amz-json-1.0
 x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 
 [Uint8Array (json)]
-{}
+{
+  "AnomalyDetectorId": "__AnomalyDetectorId__"
+}
 
 
 --- [output object] ---
 {
+  AnomalyDetectorId: "__AnomalyDetectorId__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

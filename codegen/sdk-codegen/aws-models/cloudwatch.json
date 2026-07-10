@@ -406,6 +406,12 @@
     "com.amazonaws.cloudwatch#AnomalyDetector": {
       "type": "structure",
       "members": {
+        "AnomalyDetectorId": {
+          "target": "com.amazonaws.cloudwatch#AnomalyDetectorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the anomaly detector.</p>\n         <note>\n            <p>The identifier does not restrict access to a specific anomaly detector in an IAM\n                policy. Permissions for anomaly detector operations apply to all anomaly detectors\n                in the account.</p>\n         </note>"
+          }
+        },
         "Namespace": {
           "target": "com.amazonaws.cloudwatch#Namespace",
           "traits": {
@@ -501,6 +507,28 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.cloudwatch#Range"
+      }
+    },
+    "com.amazonaws.cloudwatch#AnomalyDetectorId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9_./:%()+-]+$"
+      }
+    },
+    "com.amazonaws.cloudwatch#AnomalyDetectorIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.cloudwatch#AnomalyDetectorId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 50
+        }
       }
     },
     "com.amazonaws.cloudwatch#AnomalyDetectorMetricStat": {
@@ -1251,6 +1279,12 @@
     "com.amazonaws.cloudwatch#DeleteAnomalyDetectorInput": {
       "type": "structure",
       "members": {
+        "AnomalyDetectorId": {
+          "target": "com.amazonaws.cloudwatch#AnomalyDetectorId",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the unique identifier of the anomaly detector to delete. If you specify\n            this parameter, you do not need to specify a metric to identify the detector.</p>"
+          }
+        },
         "Namespace": {
           "target": "com.amazonaws.cloudwatch#Namespace",
           "traits": {
@@ -1900,6 +1934,12 @@
     "com.amazonaws.cloudwatch#DescribeAnomalyDetectorsInput": {
       "type": "structure",
       "members": {
+        "AnomalyDetectorIds": {
+          "target": "com.amazonaws.cloudwatch#AnomalyDetectorIds",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the unique identifiers of the anomaly detectors to describe. You can specify\n            up to 50 identifiers. If you specify this parameter, you cannot also specify the\n            <code>Namespace</code>, <code>MetricName</code>, <code>Dimensions</code>, or\n            <code>AnomalyDetectorTypes</code> metric filters.</p>"
+          }
+        },
         "NextToken": {
           "target": "com.amazonaws.cloudwatch#NextToken",
           "traits": {
@@ -6906,7 +6946,14 @@
     },
     "com.amazonaws.cloudwatch#PutAnomalyDetectorOutput": {
       "type": "structure",
-      "members": {},
+      "members": {
+        "AnomalyDetectorId": {
+          "target": "com.amazonaws.cloudwatch#AnomalyDetectorId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the anomaly detector that you created or updated.</p>"
+          }
+        }
+      },
       "traits": {
         "smithy.api#output": {}
       }

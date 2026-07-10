@@ -10,6 +10,8 @@ const _ACl = "AlarmContributors";
 const _AD = "AnomalyDetector";
 const _ADC = "AnomalyDetectorConfiguration";
 const _ADETR = "AnomalyDetectorExcludedTimeRanges";
+const _ADI = "AnomalyDetectorId";
+const _ADIn = "AnomalyDetectorIds";
 const _ADKK = "AssociateDatasetKmsKey";
 const _ADKKI = "AssociateDatasetKmsKeyInput";
 const _ADKKO = "AssociateDatasetKmsKeyOutput";
@@ -605,8 +607,8 @@ export var AlarmPromQLCriteria$: StaticStructureSchema = [3, n0, _APQLC,
 ];
 export var AnomalyDetector$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_N, _MN, _D, _St, _C, _SV, _MC, _SMAD, _MMAD],
-  [0, 0, () => Dimensions, 0, () => AnomalyDetectorConfiguration$, 0, () => MetricCharacteristics$, () => SingleMetricAnomalyDetector$, () => MetricMathAnomalyDetector$]
+  [_ADI, _N, _MN, _D, _St, _C, _SV, _MC, _SMAD, _MMAD],
+  [0, 0, 0, () => Dimensions, 0, () => AnomalyDetectorConfiguration$, 0, () => MetricCharacteristics$, () => SingleMetricAnomalyDetector$, () => MetricMathAnomalyDetector$]
 ];
 export var AnomalyDetectorConfiguration$: StaticStructureSchema = [3, n0, _ADC,
   0,
@@ -655,8 +657,8 @@ export var DeleteAlarmsInput$: StaticStructureSchema = [3, n0, _DAI,
 ];
 export var DeleteAnomalyDetectorInput$: StaticStructureSchema = [3, n0, _DADI,
   0,
-  [_N, _MN, _D, _St, _SMAD, _MMAD],
-  [0, 0, () => Dimensions, 0, () => SingleMetricAnomalyDetector$, () => MetricMathAnomalyDetector$]
+  [_ADI, _N, _MN, _D, _St, _SMAD, _MMAD],
+  [0, 0, 0, () => Dimensions, 0, () => SingleMetricAnomalyDetector$, () => MetricMathAnomalyDetector$]
 ];
 export var DeleteAnomalyDetectorOutput$: StaticStructureSchema = [3, n0, _DADO,
   0,
@@ -735,8 +737,8 @@ export var DescribeAlarmsOutput$: StaticStructureSchema = [3, n0, _DAO,
 ];
 export var DescribeAnomalyDetectorsInput$: StaticStructureSchema = [3, n0, _DADIe,
   0,
-  [_NT, _MRa, _N, _MN, _D, _ADT],
-  [0, 1, 0, 0, () => Dimensions, 64 | 0]
+  [_ADIn, _NT, _MRa, _N, _MN, _D, _ADT],
+  [64 | 0, 0, 1, 0, 0, () => Dimensions, 64 | 0]
 ];
 export var DescribeAnomalyDetectorsOutput$: StaticStructureSchema = [3, n0, _DADOe,
   0,
@@ -1095,8 +1097,8 @@ export var PutAnomalyDetectorInput$: StaticStructureSchema = [3, n0, _PADI,
 ];
 export var PutAnomalyDetectorOutput$: StaticStructureSchema = [3, n0, _PADO,
   0,
-  [],
-  []
+  [_ADI],
+  [0]
 ];
 export var PutCompositeAlarmInput$: StaticStructureSchema = [3, n0, _PCAI,
   0,
@@ -1289,6 +1291,7 @@ var AlarmTypes = 64 | 0;
 var AnomalyDetectorExcludedTimeRanges: StaticListSchema = [1, n0, _ADETR,
   0, () => Range$
 ];
+var AnomalyDetectorIds = 64 | 0;
 var AnomalyDetectors: StaticListSchema = [1, n0, _ADn,
   0, () => AnomalyDetector$
 ];
