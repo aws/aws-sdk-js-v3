@@ -118,6 +118,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
 
     // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
     signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
+    // Capture the raw send time (no skew applied) for the midpoint skew formula.
+    signingProperties._requestSentAt = Date.now();
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
@@ -133,7 +135,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       if (serverTime) {
         const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
         const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
-        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
+        const timeRequestSent = signingProperties._requestSentAt as number | undefined;
+        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset, timeRequestSent);
 
         const isLocalCorrection = newOffset !== config.systemClockOffset;
         const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
@@ -152,7 +155,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     const dateHeader = getDateHeader(httpResponse);
     if (dateHeader) {
       const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
-      config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset);
+      const timeRequestSent = signingProperties._requestSentAt as number | undefined;
+      config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset, timeRequestSent);
     }
   }
 }
