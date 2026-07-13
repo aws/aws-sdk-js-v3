@@ -69,6 +69,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.67 (2026-07-13)
+### Bug Fixes
+* **credential-providers:** memoization in fromNodeProviderChain ([#8185](https://github.com/aws/aws-sdk-js-v3/issues/8185)) ([1f878ba](https://github.com/aws/aws-sdk-js-v3/commit/1f878badeb9c7c9484b6ce9dea3af36edd72ff13))
+
+
+
 # 3.972.66 (2026-07-08)
 ### Chores
 * **credential-provider-node:** update dependencies.

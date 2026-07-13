@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+
+### Bug Fixes
+
+* **credential-providers:** memoization in fromNodeProviderChain ([#8185](https://github.com/aws/aws-sdk-js-v3/issues/8185)) ([1f878ba](https://github.com/aws/aws-sdk-js-v3/commit/1f878badeb9c7c9484b6ce9dea3af36edd72ff13))
+
+
+
+
+
 # [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
 
 **Note:** Version bump only for package @aws-sdk/credential-providers

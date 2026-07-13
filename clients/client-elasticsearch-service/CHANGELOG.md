@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+
+### Features
+
+* **client-elasticsearch-service:** Adds support for the EngineMode and UseCase parameters on Amazon Elasticsearch Service domains, enabling GENERAL or OPTIMIZED engine modes and SEARCH, VECTOR, OBSERVABILITY, or MIXED usecases when creating and updating domain configurations. ([f8248f2](https://github.com/aws/aws-sdk-js-v3/commit/f8248f273eafd3d38a85b00a910e8361b88f4234))
+
+
+
+
+
 # [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
 
 **Note:** Version bump only for package @aws-sdk/client-elasticsearch-service

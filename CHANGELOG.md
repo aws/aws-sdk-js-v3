@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+
+### Bug Fixes
+
+* **credential-providers:** memoization in fromNodeProviderChain ([#8185](https://github.com/aws/aws-sdk-js-v3/issues/8185)) ([1f878ba](https://github.com/aws/aws-sdk-js-v3/commit/1f878badeb9c7c9484b6ce9dea3af36edd72ff13))
+
+
+### Features
+
+* **client-elasticsearch-service:** Adds support for the EngineMode and UseCase parameters on Amazon Elasticsearch Service domains, enabling GENERAL or OPTIMIZED engine modes and SEARCH, VECTOR, OBSERVABILITY, or MIXED usecases when creating and updating domain configurations. ([f8248f2](https://github.com/aws/aws-sdk-js-v3/commit/f8248f273eafd3d38a85b00a910e8361b88f4234))
+* **client-gamelift:** Amazon GameLift Servers now includes fleet expiration for managed fleets. A managed fleet expires one year after creation, transitioning to EXPIRED status, emitting a FLEET EXPIRED event, and scaling to zero instances. Expired fleets cannot host new game sessions or increase capacity. ([ca1487c](https://github.com/aws/aws-sdk-js-v3/commit/ca1487cad489ca2e88496be68c6357faf74bf492))
+* **client-guardduty:** GuardDuty AI Protection is now publicly available. Findings include Bedrock guardrail details, model details, observation numbers, and continuous scan details. GuardrailArn and GuardrailVersion are deprecated in favor of the guardrails list. ([7456bef](https://github.com/aws/aws-sdk-js-v3/commit/7456befb0b4c391b0038961f290afa9b8a1cc609))
+* **client-lambda:** Add Java 8, 11 and 17 on AL2023 (java8.al2023, java11.al2023, java17.al2023) support to AWS Lambda. ([b9cd8db](https://github.com/aws/aws-sdk-js-v3/commit/b9cd8db4e16718877328cdde9a8478ffecaee714))
+* **client-redshift-serverless:** Add support for preserving datasharing, zero-ETL and S3 event integrations on snapshot restore to serverless namespace. ([0ed5e33](https://github.com/aws/aws-sdk-js-v3/commit/0ed5e330fc88ba16a49ac673962622e8373f85b4))
+* **clients:** update client endpoints as of 2026-07-13 ([22a3bc5](https://github.com/aws/aws-sdk-js-v3/commit/22a3bc515d256663596f02b273aaf38b6bf91830))
+
+
+
+
+
 # [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
 
 

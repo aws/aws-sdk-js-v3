@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-polly",
   "description": "AWS SDK for JavaScript Polly Client for Node.js, Browser and React Native",
-  "version": "3.1085.0",
+  "version": "3.1086.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -24,7 +24,7 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.975.1",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.66",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.67",
     "@aws-sdk/eventstream-handler-node": "workspace:^3.972.26",
     "@aws-sdk/middleware-eventstream": "workspace:^3.972.22",
     "@aws-sdk/types": "workspace:^3.974.0",
