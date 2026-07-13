@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
+.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
 
 # fetch AWS testing credentials
 login:
@@ -28,6 +28,7 @@ test-integration: bundles core-prebuild
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types
+	make test-typescript-versions
 	make snapshot-compare
 	make test-indices
 	make test-endpoints
@@ -51,6 +52,10 @@ test-codegen:
 test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.json
 	npx tsc -p tsconfig.test.index-types.json
+
+# verify clients compile across supported TypeScript versions (see tests/ts-compat/README.md).
+test-typescript-versions:
+	(cd ./tests/ts-compat && npm install --no-audit --no-fund && node ./run.mjs)
 
 test-indices:
 	node ./scripts/validation/client-indexes.mjs
