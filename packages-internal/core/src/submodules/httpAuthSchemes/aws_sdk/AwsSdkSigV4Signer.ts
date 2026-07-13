@@ -10,7 +10,7 @@ import type {
   RequestSigner,
 } from "@smithy/types";
 
-import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
+import { getAgeHeader, getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
 import type { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
@@ -136,7 +136,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
         const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
         const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
         const timeRequestSent = signingProperties._requestSentAt as number | undefined;
-        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset, timeRequestSent);
+        const ageHeader = getAgeHeader(errorException.$response);
+        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset, timeRequestSent, ageHeader);
 
         const isLocalCorrection = newOffset !== config.systemClockOffset;
         const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
@@ -156,7 +157,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     if (dateHeader) {
       const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
       const timeRequestSent = signingProperties._requestSentAt as number | undefined;
-      config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset, timeRequestSent);
+      const ageHeader = getAgeHeader(httpResponse);
+      config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset, timeRequestSent, ageHeader);
     }
   }
 }

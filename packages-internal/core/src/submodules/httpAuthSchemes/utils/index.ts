@@ -1,3 +1,3 @@
-export { getDateHeader } from "./getDateHeader";
+export { getAgeHeader, getDateHeader } from "./getDateHeader";
 export { getSkewCorrectedDate } from "./getSkewCorrectedDate";
 export { getUpdatedSystemClockOffset } from "./getUpdatedSystemClockOffset";
