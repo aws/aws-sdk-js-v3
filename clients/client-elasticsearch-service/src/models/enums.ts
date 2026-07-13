@@ -243,6 +243,19 @@ export type ESWarmPartitionInstanceType =
  * @public
  * @enum
  */
+export const DomainEngineMode = {
+  GENERAL: "GENERAL",
+  OPTIMIZED: "OPTIMIZED",
+} as const;
+/**
+ * @public
+ */
+export type DomainEngineMode = (typeof DomainEngineMode)[keyof typeof DomainEngineMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const LogType = {
   AUDIT_LOGS: "AUDIT_LOGS",
   ES_APPLICATION_LOGS: "ES_APPLICATION_LOGS",
@@ -253,6 +266,21 @@ export const LogType = {
  * @public
  */
 export type LogType = (typeof LogType)[keyof typeof LogType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainUseCase = {
+  MIXED: "MIXED",
+  OBSERVABILITY: "OBSERVABILITY",
+  SEARCH: "SEARCH",
+  VECTOR: "VECTOR",
+} as const;
+/**
+ * @public
+ */
+export type DomainUseCase = (typeof DomainUseCase)[keyof typeof DomainUseCase];
 
 /**
  * @public

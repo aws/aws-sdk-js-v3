@@ -147,6 +147,8 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  *     StartTime: new Date("TIMESTAMP"),
  *     EndTime: new Date("TIMESTAMP"),
  *   },
+ *   UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ *   EngineMode: "GENERAL" || "OPTIMIZED",
  * };
  * const command = new UpdateElasticsearchDomainConfigCommand(input);
  * const response = await client.send(command);
@@ -360,6 +362,14 @@ export interface UpdateElasticsearchDomainConfigCommandOutput extends UpdateElas
  * //         EndTime: new Date("TIMESTAMP"),
  * //         State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //       },
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     UseCase: { // UseCaseStatus
+ * //       Options: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED", // required
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     EngineMode: { // EngineModeStatus
+ * //       Options: "GENERAL" || "OPTIMIZED", // required
  * //       Status: "<OptionStatus>", // required
  * //     },
  * //   },
