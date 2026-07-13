@@ -1,6 +1,17 @@
 export { AwsSdkSigV4Signer, AWSSDKSigV4Signer, validateSigningProperties } from "./AwsSdkSigV4Signer";
 export { AwsSdkSigV4ASigner } from "./AwsSdkSigV4ASigner";
 export { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "./NODE_AUTH_SCHEME_PREFERENCE_OPTIONS";
+export {
+  ENV_DISABLE_CLOCK_SKEW_CORRECTION,
+  CONFIG_DISABLE_CLOCK_SKEW_CORRECTION,
+  DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION,
+  NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS,
+} from "./NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS";
+export { resolveDisableClockSkewCorrectionConfig } from "./resolveDisableClockSkewCorrectionConfig";
+export type {
+  DisableClockSkewCorrectionInputConfig,
+  DisableClockSkewCorrectionResolvedConfig,
+} from "./resolveDisableClockSkewCorrectionConfig";
 export { resolveAwsSdkSigV4AConfig, NODE_SIGV4A_CONFIG_OPTIONS } from "./resolveAwsSdkSigV4AConfig";
 export type {
   AwsSdkSigV4AAuthInputConfig,
