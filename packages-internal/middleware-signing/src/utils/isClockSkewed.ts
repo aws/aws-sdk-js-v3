@@ -7,4 +7,4 @@ import { getSkewCorrectedDate } from "./getSkewCorrectedDate";
  * @param systemClockOffset - The offset of the system clock in milliseconds.
  */
 export const isClockSkewed = (clockTime: number, systemClockOffset: number) =>
-  Math.abs(getSkewCorrectedDate(systemClockOffset).getTime() - clockTime) >= 300000;
+  Math.abs(getSkewCorrectedDate(systemClockOffset).getTime() - clockTime) >= 240000;
