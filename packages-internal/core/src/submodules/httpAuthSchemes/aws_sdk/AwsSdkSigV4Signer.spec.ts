@@ -3,21 +3,23 @@ import { describe, expect, test as it } from "vitest";
 import { AwsSdkSigV4Signer } from "./AwsSdkSigV4Signer";
 
 describe(AwsSdkSigV4Signer.name, () => {
-  it("sets clockSkewCorrected when systemClockOffset is updated locally", async () => {
+  it("sets clockSkewCorrected when skew exceeds detection threshold", async () => {
     const signer = new AwsSdkSigV4Signer();
+    const fiveMinMs = 5 * 60 * 1000;
+    const serverTime = new Date(Date.now() + fiveMinMs).toISOString();
 
     let error: Error | any;
     try {
       signer.errorHandler({
-        _preRequestSystemClockOffset: 30 * 60 * 1000,
+        _preRequestSystemClockOffset: 0,
         config: {
-          systemClockOffset: 30 * 60 * 1000,
+          systemClockOffset: 0,
         },
       })(
         Object.assign(new Error("uh oh"), {
           $metadata: {},
           $response: {
-            headers: { date: new Date().toISOString() },
+            headers: { date: serverTime },
             statusCode: 500,
           },
         })

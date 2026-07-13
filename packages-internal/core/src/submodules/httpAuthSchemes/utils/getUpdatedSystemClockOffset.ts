@@ -1,5 +1,3 @@
-import { isClockSkewed } from "./isClockSkewed";
-
 /**
  * @internal
  *
@@ -17,8 +15,9 @@ import { isClockSkewed } from "./isClockSkewed";
  *   - An Age header is present
  *   - elapsed > 15 minutes
  *
- * Returns `currentSystemClockOffset` unchanged if the candidate skew does not
- * exceed the detection threshold.
+ * The candidate is recorded unconditionally when not
+ * discarded. The detection threshold (4 min) is only used for retry decisions,
+ * not for whether to update the offset.
  *
  * @param clockTime The string value of the Date response header.
  * @param currentSystemClockOffset The current system clock offset in milliseconds.
@@ -49,8 +48,5 @@ export const getUpdatedSystemClockOffset = (
       ? serverTime - (timeRequestSent + timeResponseReceived) / 2
       : serverTime - timeResponseReceived;
 
-  if (isClockSkewed(serverTime, currentSystemClockOffset)) {
-    return candidateSkew;
-  }
-  return currentSystemClockOffset;
+  return candidateSkew;
 };

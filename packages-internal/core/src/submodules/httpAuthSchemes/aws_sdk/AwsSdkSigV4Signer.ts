@@ -148,12 +148,16 @@ export class AwsSdkSigV4Signer implements HttpSigner {
           const ageHeader = getAgeHeader(errorException.$response);
           const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset, timeRequestSent, ageHeader);
 
-          const isLocalCorrection = newOffset !== config.systemClockOffset;
+          // Always update ClientSkew
+          config.systemClockOffset = newOffset;
+
+          // Only mark as clockSkewCorrected (enabling retry) if the skew
+          // exceeds the 4-minute detection threshold.
+          const skewExceedsThreshold = Math.abs(newOffset) >= 240_000;
+          const isLocalCorrection = newOffset !== preRequestOffset;
           const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
 
-          const clockSkewCorrected = isLocalCorrection || isConcurrentCorrection;
-          if (clockSkewCorrected && errorException.$metadata) {
-            config.systemClockOffset = newOffset;
+          if (skewExceedsThreshold && (isLocalCorrection || isConcurrentCorrection) && errorException.$metadata) {
             errorException.$metadata.clockSkewCorrected = true;
           }
         }
