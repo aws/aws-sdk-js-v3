@@ -431,7 +431,8 @@
     "credentialsTreatedAsExpired": "function",
     "credentialsWillNeedRefresh": "function",
     "defaultProvider": "function",
-    "DefaultProviderInit": "type(intersection)"
+    "DefaultProviderInit": "type(intersection)",
+    "MemoizedRuntimeConfigAwsCredentialIdentityProvider": "type(interface)"
   },
   "@aws-sdk/credential-provider-process": {
     "fromProcess": "function",
