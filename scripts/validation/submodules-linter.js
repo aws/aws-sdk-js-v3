@@ -170,6 +170,23 @@ export * from "./dist-types/submodules/${submodule}/index";
     }
 
     /**
+     * typesVersions metadata for downlevel (TypeScript <4.5) resolution.
+     * A single wildcard entry covers all submodules instead of one entry per submodule.
+     */
+    if (submodules.length > 0) {
+      const expectedTypesVersions = {
+        "dist-types/*": ["dist-types/ts3.4/*"],
+        "*": ["dist-types/ts3.4/submodules/*/index.d.ts"],
+      };
+      pkgJson.typesVersions = pkgJson.typesVersions ?? {};
+      if (JSON.stringify(pkgJson.typesVersions["<4.5"]) !== JSON.stringify(expectedTypesVersions)) {
+        errors.push(`package.json typesVersions is missing the wildcard submodules entry`);
+        pkgJson.typesVersions["<4.5"] = expectedTypesVersions;
+        fs.writeFileSync(path.join(root, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n");
+      }
+    }
+
+    /**
      * Root index.ts must not use relative imports — use canonical submodule paths instead.
      * Relative imports bypass conditional exports (browser/react-native resolution).
      */
