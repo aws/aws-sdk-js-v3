@@ -3,6 +3,7 @@ import type {
   AutoEnableMembers,
   Confidence,
   DataSource,
+  DetectionSource,
   EbsSnapshotPreservation,
   FeatureStatus,
   Feedback,
@@ -44,16 +45,161 @@ import type {
   Destination,
   DestinationProperties,
   DetectorFeatureConfiguration,
+  EbsSnapshot,
   FilterCondition,
   FindingCriteria,
-  GetMalwareScanResultDetails,
   IncrementalScanDetails,
+  ItemDetails,
   MalwareProtectionPlanActions,
   ScanConfiguration,
-  ScannedResource,
   SortCriteria,
   UnprocessedAccount,
+  VolumeDetail,
 } from "./models_0";
+
+/**
+ * <p>Contains additional information about a resource that was scanned.</p>
+ * @public
+ */
+export interface ScannedResourceDetails {
+  /**
+   * <p>Contains information about the EBS volume that was scanned.</p>
+   * @public
+   */
+  EbsVolume?: VolumeDetail | undefined;
+
+  /**
+   * <p>Contains information about the EBS snapshot that was scanned.</p>
+   * @public
+   */
+  EbsSnapshot?: EbsSnapshot | undefined;
+}
+
+/**
+ * <p>Contains information about a resource that was scanned as part of the malware scan operation.</p>
+ * @public
+ */
+export interface ScannedResource {
+  /**
+   * <p>Amazon Resource Name (ARN) of the scanned resource.</p>
+   * @public
+   */
+  ScannedResourceArn?: string | undefined;
+
+  /**
+   * <p>The resource type of the scanned resource.</p>
+   * @public
+   */
+  ScannedResourceType?: MalwareProtectionResourceType | undefined;
+
+  /**
+   * <p>The status of the scanned resource.</p>
+   * @public
+   */
+  ScannedResourceStatus?: MalwareProtectionScanStatus | undefined;
+
+  /**
+   * <p>The reason for the scan status of this particular resource, if applicable.</p>
+   * @public
+   */
+  ScanStatusReason?: ScanStatusReason | undefined;
+
+  /**
+   * <p>Information about the scanned resource.</p>
+   * @public
+   */
+  ResourceDetails?: ScannedResourceDetails | undefined;
+}
+
+/**
+ * <p>Contains information about a specific threat that was detected during the malware scan.</p>
+ * @public
+ */
+export interface ScanResultThreat {
+  /**
+   * <p>The name of the detected threat.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The source that detected this threat.</p>
+   * @public
+   */
+  Source?: DetectionSource | undefined;
+
+  /**
+   * <p>The number of instances of this threat that were detected.</p>
+   * @public
+   */
+  Count?: number | undefined;
+
+  /**
+   * <p>The hash value associated with the detected threat.</p>
+   * @public
+   */
+  Hash?: string | undefined;
+
+  /**
+   * <p>Additional information about where this threat was detected.</p>
+   * @public
+   */
+  ItemDetails?: ItemDetails[] | undefined;
+}
+
+/**
+ * <p>Contains information about the results of the malware scan.</p>
+ * @public
+ */
+export interface GetMalwareScanResultDetails {
+  /**
+   * <p>Status indicating whether threats were found for a completed scan.</p>
+   * @public
+   */
+  ScanResultStatus?: ScanResultStatus | undefined;
+
+  /**
+   * <p>The total number of files that were skipped during the scan.</p>
+   * @public
+   */
+  SkippedFileCount?: number | undefined;
+
+  /**
+   * <p>The total number of files that failed to be scanned.</p>
+   * @public
+   */
+  FailedFileCount?: number | undefined;
+
+  /**
+   * <p>The total number of files in which threats were detected.</p>
+   * @public
+   */
+  ThreatFoundFileCount?: number | undefined;
+
+  /**
+   * <p>The total number of files that were processed during the scan.</p>
+   * @public
+   */
+  TotalFileCount?: number | undefined;
+
+  /**
+   * <p>The total number of bytes that were scanned.</p>
+   * @public
+   */
+  TotalBytes?: number | undefined;
+
+  /**
+   * <p>The total number of unique threats that were detected during the scan.</p>
+   * @public
+   */
+  UniqueThreatCount?: number | undefined;
+
+  /**
+   * <p>The threats that were detected during the malware scan.</p>
+   * @public
+   */
+  Threats?: ScanResultThreat[] | undefined;
+}
 
 /**
  * @public

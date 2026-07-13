@@ -4,6 +4,7 @@
  * @enum
  */
 export const FreeTrialFeatureResult = {
+  AI_PROTECTION: "AI_PROTECTION",
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
@@ -52,6 +53,8 @@ export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
  * @enum
  */
 export const ProfileSubtype = {
+  AVERAGE: "AVERAGE",
+  COUNT: "COUNT",
   FREQUENT: "FREQUENT",
   INFREQUENT: "INFREQUENT",
   RARE: "RARE",
@@ -68,6 +71,7 @@ export type ProfileSubtype = (typeof ProfileSubtype)[keyof typeof ProfileSubtype
  */
 export const ProfileType = {
   FREQUENCY: "FREQUENCY",
+  VOLUME: "VOLUME",
 } as const;
 /**
  * @public
@@ -87,6 +91,78 @@ export const AutoEnableMembers = {
  * @public
  */
 export type AutoEnableMembers = (typeof AutoEnableMembers)[keyof typeof AutoEnableMembers];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentPolicyFilterAction = {
+  BLOCKED: "BLOCKED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type ContentPolicyFilterAction = (typeof ContentPolicyFilterAction)[keyof typeof ContentPolicyFilterAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConfidenceLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type ConfidenceLevel = (typeof ConfidenceLevel)[keyof typeof ConfidenceLevel];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContentPolicyFilterType = {
+  HATE: "HATE",
+  INSULTS: "INSULTS",
+  JAILBREAK: "JAILBREAK",
+  MISCONDUCT: "MISCONDUCT",
+  PROMPT_ATTACK: "PROMPT_ATTACK",
+  SEXUAL: "SEXUAL",
+  VIOLENCE: "VIOLENCE",
+} as const;
+/**
+ * @public
+ */
+export type ContentPolicyFilterType = (typeof ContentPolicyFilterType)[keyof typeof ContentPolicyFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailAction = {
+  GUARDRAIL_INTERVENED: "GUARDRAIL_INTERVENED",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const GuardrailSource = {
+  INPUT: "INPUT",
+  OUTPUT: "OUTPUT",
+} as const;
+/**
+ * @public
+ */
+export type GuardrailSource = (typeof GuardrailSource)[keyof typeof GuardrailSource];
 
 /**
  * @public
@@ -288,6 +364,7 @@ export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
  */
 export const DetectorFeature = {
   AI_ANALYST: "AI_ANALYST",
+  AI_PROTECTION: "AI_PROTECTION",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
@@ -545,6 +622,7 @@ export type OrgFeatureAdditionalConfiguration =
  * @enum
  */
 export const OrgFeature = {
+  AI_PROTECTION: "AI_PROTECTION",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
   EKS_AUDIT_LOGS: "EKS_AUDIT_LOGS",
   EKS_RUNTIME_MONITORING: "EKS_RUNTIME_MONITORING",
@@ -771,6 +849,7 @@ export type DetectionSource = (typeof DetectionSource)[keyof typeof DetectionSou
  */
 export const DetectorFeatureResult = {
   AI_ANALYST: "AI_ANALYST",
+  AI_PROTECTION: "AI_PROTECTION",
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",
@@ -1094,6 +1173,7 @@ export type TrustedEntitySetStatus = (typeof TrustedEntitySetStatus)[keyof typeo
  * @enum
  */
 export const UsageFeature = {
+  AI_PROTECTION: "AI_PROTECTION",
   CLOUD_TRAIL: "CLOUD_TRAIL",
   DNS_LOGS: "DNS_LOGS",
   EBS_MALWARE_PROTECTION: "EBS_MALWARE_PROTECTION",

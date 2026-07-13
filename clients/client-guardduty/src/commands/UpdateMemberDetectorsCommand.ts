@@ -54,7 +54,7 @@ export interface UpdateMemberDetectorsCommandOutput extends UpdateMemberDetector
  *   },
  *   Features: [ // MemberFeaturesConfigurations
  *     { // MemberFeaturesConfiguration
- *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
+ *       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING" || "AI_PROTECTION",
  *       Status: "ENABLED" || "DISABLED",
  *       AdditionalConfiguration: [ // MemberAdditionalConfigurations
  *         { // MemberAdditionalConfiguration

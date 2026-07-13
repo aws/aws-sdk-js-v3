@@ -68,7 +68,7 @@ export interface GetRemainingFreeTrialDaysCommandOutput extends GetRemainingFree
  * //       },
  * //       Features: [ // FreeTrialFeatureConfigurationsResults
  * //         { // FreeTrialFeatureConfigurationResult
- * //           Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING",
+ * //           Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "EC2_RUNTIME_MONITORING" || "FARGATE_RUNTIME_MONITORING" || "AI_PROTECTION",
  * //           FreeTrialDaysRemaining: Number("int"),
  * //         },
  * //       ],
