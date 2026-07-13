@@ -47,6 +47,9 @@
     "<4.5": {
       "dist-types/*": [
         "dist-types/ts3.4/*"
+      ],
+      "*": [
+        "dist-types/ts3.4/submodules/*/index.d.ts"
       ]
     }
   },
