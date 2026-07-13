@@ -213,7 +213,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //     Name: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     TerminationTime: new Date("TIMESTAMP"),
- * //     Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ * //     Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND" || "EXPIRED",
  * //     BuildId: "STRING_VALUE",
  * //     BuildArn: "STRING_VALUE",
  * //     ScriptId: "STRING_VALUE",
@@ -252,7 +252,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //   LocationStates: [ // LocationStateList
  * //     { // LocationState
  * //       Location: "STRING_VALUE",
- * //       Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ * //       Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND" || "EXPIRED",
  * //       PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //     },
  * //   ],

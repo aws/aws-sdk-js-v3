@@ -78,7 +78,7 @@ export interface DescribeFleetLocationAttributesCommandOutput extends DescribeFl
  * //     { // LocationAttributes
  * //       LocationState: { // LocationState
  * //         Location: "STRING_VALUE",
- * //         Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND",
+ * //         Status: "NEW" || "DOWNLOADING" || "VALIDATING" || "BUILDING" || "ACTIVATING" || "ACTIVE" || "DELETING" || "ERROR" || "TERMINATED" || "NOT_FOUND" || "EXPIRED",
  * //         PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //       },
  * //       StoppedActions: [ // FleetActionList

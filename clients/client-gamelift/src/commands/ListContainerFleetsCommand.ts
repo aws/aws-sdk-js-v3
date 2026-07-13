@@ -103,7 +103,7 @@ export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOut
  * //         NewGameSessionsPerCreator: Number("int"),
  * //         PolicyPeriodInMinutes: Number("int"),
  * //       },
- * //       Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //       Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING" || "EXPIRED",
  * //       DeploymentDetails: { // DeploymentDetails
  * //         LatestDeploymentId: "STRING_VALUE",
  * //       },
@@ -115,7 +115,7 @@ export interface ListContainerFleetsCommandOutput extends ListContainerFleetsOut
  * //       LocationAttributes: [ // ContainerFleetLocationAttributesList
  * //         { // ContainerFleetLocationAttributes
  * //           Location: "STRING_VALUE",
- * //           Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING",
+ * //           Status: "PENDING" || "CREATING" || "CREATED" || "ACTIVATING" || "ACTIVE" || "UPDATING" || "DELETING" || "EXPIRED",
  * //           PlayerGatewayStatus: "DISABLED" || "ENABLED",
  * //         },
  * //       ],
