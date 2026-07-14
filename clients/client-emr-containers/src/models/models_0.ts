@@ -393,6 +393,12 @@ export interface S3MonitoringConfiguration {
    * @public
    */
   logUri: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the encryption key for logs.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -645,6 +651,12 @@ export interface CreateVirtualClusterRequest {
    * @public
    */
   securityConfigurationId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the virtual cluster has session support enabled.</p>
+   * @public
+   */
+  sessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -976,6 +988,12 @@ export interface VirtualCluster {
    * @public
    */
   securityConfigurationId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the virtual cluster has session support enabled. </p>
+   * @public
+   */
+  sessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -1092,6 +1110,12 @@ export interface GetManagedEndpointSessionCredentialsResponse {
    * @public
    */
   credentials?: Credentials | undefined;
+
+  /**
+   * <p>The structure containing the session token being returned.</p>
+   * @public
+   */
+  endpointCredentials?: Credentials | undefined;
 
   /**
    * <p>The date and time when the session token will expire.</p>
@@ -1562,6 +1586,12 @@ export interface CreateManagedEndpointRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The idle timeout in minutes for the managed endpoint session.</p>
+   * @public
+   */
+  sessionIdleTimeoutInMinutes?: number | undefined;
 }
 
 /**
@@ -1645,6 +1675,12 @@ export interface Endpoint {
    * @public
    */
   serverUrl?: string | undefined;
+
+  /**
+   * <p>The auth proxy URL of the endpoint.</p>
+   * @public
+   */
+  authProxyUrl?: string | undefined;
 
   /**
    * <p>The date and time when the endpoint was created.</p>

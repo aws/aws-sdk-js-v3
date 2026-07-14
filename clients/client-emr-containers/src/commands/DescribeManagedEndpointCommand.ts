@@ -84,6 +84,7 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * //         },
  * //         s3MonitoringConfiguration: { // S3MonitoringConfiguration
  * //           logUri: "STRING_VALUE", // required
+ * //           encryptionKeyArn: "STRING_VALUE",
  * //         },
  * //         containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
  * //           rotationSize: "STRING_VALUE", // required
@@ -92,6 +93,7 @@ export interface DescribeManagedEndpointCommandOutput extends DescribeManagedEnd
  * //       },
  * //     },
  * //     serverUrl: "STRING_VALUE",
+ * //     authProxyUrl: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     securityGroup: "STRING_VALUE",
  * //     subnetIds: [ // SubnetIds

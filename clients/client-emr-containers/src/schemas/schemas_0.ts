@@ -125,6 +125,7 @@ const _a = "arn";
 const _aAWSTRL = "allowAWSToRetainLogs";
 const _aC = "applicationConfiguration";
 const _aCu = "authorizationConfiguration";
+const _aPU = "authProxyUrl";
 const _aSTV = "authorizedSessionTagValue";
 const _c = "client";
 const _cA = "certificateArn";
@@ -155,6 +156,7 @@ const _e = "error";
 const _eA = "expiresAt";
 const _eAEI = "eksAccessEntryIntegrated";
 const _eC = "encryptionConfiguration";
+const _eCn = "endpointCredentials";
 const _eI = "endpointIdentifier";
 const _eIk = "eksInfo";
 const _eKA = "encryptionKeyArn";
@@ -212,8 +214,10 @@ const _sCD = "securityConfigurationData";
 const _sCI = "securityConfigurationId";
 const _sCe = "securityConfigurations";
 const _sD = "stateDetails";
+const _sE = "sessionEnabled";
 const _sG = "securityGroup";
 const _sI = "subnetIds";
+const _sITIM = "sessionIdleTimeoutInMinutes";
 const _sMC = "s3MonitoringConfiguration";
 const _sNI = "secureNamespaceInfo";
 const _sSJD = "sparkSubmitJobDriver";
@@ -364,8 +368,8 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 ];
 export var CreateManagedEndpointRequest$: StaticStructureSchema = [3, n0, _CMER,
   0,
-  [_n, _vCI, _t, _rL, _eRA, _cA, _cO, _cT, _ta],
-  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0], 5
+  [_n, _vCI, _t, _rL, _eRA, _cA, _cO, _cT, _ta, _sITIM],
+  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0, 1], 5
 ];
 export var CreateManagedEndpointResponse$: StaticStructureSchema = [3, n0, _CMERr,
   0,
@@ -384,8 +388,8 @@ export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateVirtualClusterRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
-  [_n, _cP, _cT, _ta, _sCI],
-  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0], 2
+  [_n, _cP, _cT, _ta, _sCI, _sE],
+  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0, 2], 2
 ];
 export var CreateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -484,8 +488,8 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_i, _n, _a, _vCI, _t, _st, _rL, _eRA, _cA, _cAe, _cO, _sU, _cAr, _sG, _sI, _sD, _fR, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Certificate$, [() => ConfigurationOverrides$, 0], 0, 5, 0, 64 | 0, 0, 0, 128 | 0]
+  [_i, _n, _a, _vCI, _t, _st, _rL, _eRA, _cA, _cAe, _cO, _sU, _aPU, _cAr, _sG, _sI, _sD, _fR, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Certificate$, [() => ConfigurationOverrides$, 0], 0, 0, 5, 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema = [3, n0, _GMESCR,
   0,
@@ -494,8 +498,8 @@ export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema =
 ];
 export var GetManagedEndpointSessionCredentialsResponse$: StaticStructureSchema = [3, n0, _GMESCRe,
   0,
-  [_i, _cr, _eA],
-  [0, [() => Credentials$, 0], 5]
+  [_i, _cr, _eCn, _eA],
+  [0, [() => Credentials$, 0], [() => Credentials$, 0], 5]
 ];
 export var InTransitEncryptionConfiguration$: StaticStructureSchema = [3, n0, _ITEC,
   0,
@@ -629,8 +633,8 @@ export var RetryPolicyExecution$: StaticStructureSchema = [3, n0, _RPE,
 ];
 export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
-  [_lU],
-  [0], 1
+  [_lU, _eKA],
+  [0, 0], 1
 ];
 export var SecureNamespaceInfo$: StaticStructureSchema = [3, n0, _SNI,
   0,
@@ -699,8 +703,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var VirtualCluster$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI],
-  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0]
+  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI, _sE],
+  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0, 2]
 ];
 var ConfigurationList: StaticListSchema = [1, n0, _CL,
   0, [() => Configuration$,

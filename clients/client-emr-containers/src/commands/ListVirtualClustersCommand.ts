@@ -73,6 +73,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       securityConfigurationId: "STRING_VALUE",
+ * //       sessionEnabled: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
