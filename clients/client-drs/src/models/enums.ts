@@ -321,6 +321,19 @@ export type LaunchDisposition = (typeof LaunchDisposition)[keyof typeof LaunchDi
  * @public
  * @enum
  */
+export const RecoveryMode = {
+  FAST: "FAST",
+  OPTIMAL: "OPTIMAL",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryMode = (typeof RecoveryMode)[keyof typeof RecoveryMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const TargetInstanceTypeRightSizingMethod = {
   BASIC: "BASIC",
   IN_AWS: "IN_AWS",

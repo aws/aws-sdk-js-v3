@@ -180,6 +180,7 @@ export type {
   RecoveryInstanceDataReplicationInitiationStepName,
   RecoveryInstanceDataReplicationInitiationStepStatus,
   RecoveryInstanceDataReplicationState,
+  RecoveryMode,
   RecoveryResult,
   RecoverySnapshotsOrder,
   ReplicationConfigurationDataPlaneRouting,

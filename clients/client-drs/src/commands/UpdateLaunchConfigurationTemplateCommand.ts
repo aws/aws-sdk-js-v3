@@ -47,6 +47,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends UpdateLa
  *   exportBucketArn: "STRING_VALUE",
  *   postLaunchEnabled: true || false,
  *   launchIntoSourceInstance: true || false,
+ *   recoveryMode: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -67,6 +68,7 @@ export interface UpdateLaunchConfigurationTemplateCommandOutput extends UpdateLa
  * //     exportBucketArn: "STRING_VALUE",
  * //     postLaunchEnabled: true || false,
  * //     launchIntoSourceInstance: true || false,
+ * //     recoveryMode: "STRING_VALUE",
  * //   },
  * // };
  *

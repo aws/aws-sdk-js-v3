@@ -28,6 +28,7 @@ import type {
   RecoveryInstanceDataReplicationInitiationStepName,
   RecoveryInstanceDataReplicationInitiationStepStatus,
   RecoveryInstanceDataReplicationState,
+  RecoveryMode,
   RecoveryResult,
   RecoverySnapshotsOrder,
   ReplicationConfigurationDataPlaneRouting,
@@ -1091,6 +1092,12 @@ export interface CreateLaunchConfigurationTemplateRequest {
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
+
+  /**
+   * <p>Recovery mode.</p>
+   * @public
+   */
+  recoveryMode?: RecoveryMode | undefined;
 }
 
 /**
@@ -1163,6 +1170,12 @@ export interface LaunchConfigurationTemplate {
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
+
+  /**
+   * <p>Recovery mode.</p>
+   * @public
+   */
+  recoveryMode?: RecoveryMode | undefined;
 }
 
 /**
@@ -2771,6 +2784,12 @@ export interface UpdateLaunchConfigurationTemplateRequest {
    * @public
    */
   launchIntoSourceInstance?: boolean | undefined;
+
+  /**
+   * <p>Recovery mode.</p>
+   * @public
+   */
+  recoveryMode?: RecoveryMode | undefined;
 }
 
 /**
@@ -3585,6 +3604,12 @@ export interface LaunchConfiguration {
    * @public
    */
   launchIntoInstanceProperties?: LaunchIntoInstanceProperties | undefined;
+
+  /**
+   * <p>Recovery mode.</p>
+   * @public
+   */
+  recoveryMode?: RecoveryMode | undefined;
 }
 
 /**
@@ -3918,6 +3943,12 @@ export interface UpdateLaunchConfigurationRequest {
    * @public
    */
   launchIntoInstanceProperties?: LaunchIntoInstanceProperties | undefined;
+
+  /**
+   * <p>Recovery mode.</p>
+   * @public
+   */
+  recoveryMode?: RecoveryMode | undefined;
 }
 
 /**

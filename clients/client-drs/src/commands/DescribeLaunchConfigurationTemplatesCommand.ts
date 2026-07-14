@@ -62,6 +62,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput extends Descr
  * //       exportBucketArn: "STRING_VALUE",
  * //       postLaunchEnabled: true || false,
  * //       launchIntoSourceInstance: true || false,
+ * //       recoveryMode: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
