@@ -77,6 +77,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *   SecurityGroups: [
  *     "STRING_VALUE",
  *   ],
+ *   StorageSize: Number("int"),
  *   StorageType: "EBS" || "EFS",
  *   SubnetIds: [
  *     "STRING_VALUE",

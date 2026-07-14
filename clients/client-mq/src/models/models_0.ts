@@ -722,6 +722,12 @@ export interface CreateBrokerRequest {
   SecurityGroups?: string[] | undefined;
 
   /**
+   * <p>The broker's storage size in GB.</p>
+   * @public
+   */
+  StorageSize?: number | undefined;
+
+  /**
    * <p>The broker's storage type.</p>
    * @public
    */
@@ -1314,6 +1320,12 @@ export interface DescribeBrokerResponse {
   PendingSecurityGroups?: string[] | undefined;
 
   /**
+   * <p>The pending storage size in GB, to be applied on the next broker restart.</p>
+   * @public
+   */
+  PendingStorageSize?: number | undefined;
+
+  /**
    * <p>Enables connections from applications outside of the VPC that hosts the broker's subnets.</p>
    * @public
    */
@@ -1324,6 +1336,12 @@ export interface DescribeBrokerResponse {
    * @public
    */
   SecurityGroups?: string[] | undefined;
+
+  /**
+   * <p>The broker's storage size in GB.</p>
+   * @public
+   */
+  StorageSize?: number | undefined;
 
   /**
    * <p>The broker's storage type.</p>
@@ -2039,6 +2057,12 @@ export interface UpdateBrokerRequest {
   SecurityGroups?: string[] | undefined;
 
   /**
+   * <p>The broker's storage size in GB.</p>
+   * @public
+   */
+  StorageSize?: number | undefined;
+
+  /**
    * <p>Defines whether this broker is a part of a data replication pair.</p>
    * @public
    */
@@ -2138,6 +2162,12 @@ export interface UpdateBrokerResponse {
    * @public
    */
   PendingDataReplicationMode?: DataReplicationMode | undefined;
+
+  /**
+   * <p>The broker's storage size in GB.</p>
+   * @public
+   */
+  StorageSize?: number | undefined;
 }
 
 /**
