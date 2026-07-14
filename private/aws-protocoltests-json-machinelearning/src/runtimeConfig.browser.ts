@@ -3,6 +3,7 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
+import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "@aws-sdk/core/httpAuthSchemes";
 import { invalidProvider, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
   DEFAULT_USE_DUALSTACK_ENDPOINT,
@@ -31,6 +32,7 @@ export const getRuntimeConfig = (config: MachineLearningClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
+    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? (() => Promise.resolve(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION)),
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

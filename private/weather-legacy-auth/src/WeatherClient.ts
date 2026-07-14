@@ -12,6 +12,11 @@ import {
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
 import {
+  DisableClockSkewCorrectionInputConfig,
+  DisableClockSkewCorrectionResolvedConfig,
+  resolveDisableClockSkewCorrectionConfig,
+} from "@aws-sdk/core/httpAuthSchemes";
+import {
   type SigV4AuthInputConfig,
   type SigV4AuthResolvedConfig,
   resolveSigV4AuthConfig,
@@ -289,6 +294,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  DisableClockSkewCorrectionInputConfig &
   TokenInputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
@@ -312,6 +318,7 @@ export interface WeatherClientConfig extends WeatherClientConfigType {}
 export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  DisableClockSkewCorrectionResolvedConfig &
   TokenResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
@@ -348,17 +355,18 @@ export class WeatherClient extends __Client<
     super(_config_0 as any);
     this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveTokenConfig(_config_1);
-    const _config_3 = resolveUserAgentConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
-    const _config_5 = resolveRegionConfig(_config_4);
-    const _config_6 = resolveHostHeaderConfig(_config_5);
-    const _config_7 = resolveSigV4AuthConfig(_config_6);
-    const _config_8 = resolveEndpointConfig(_config_7);
-    const _config_9 = resolveEndpointRequiredConfig(_config_8);
-    const _config_10 = resolveHttpApiKeyAuthConfig(_config_9);
-    const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
-    this.config = _config_11;
+    const _config_2 = resolveDisableClockSkewCorrectionConfig(_config_1);
+    const _config_3 = resolveTokenConfig(_config_2);
+    const _config_4 = resolveUserAgentConfig(_config_3);
+    const _config_5 = resolveRetryConfig(_config_4);
+    const _config_6 = resolveRegionConfig(_config_5);
+    const _config_7 = resolveHostHeaderConfig(_config_6);
+    const _config_8 = resolveSigV4AuthConfig(_config_7);
+    const _config_9 = resolveEndpointConfig(_config_8);
+    const _config_10 = resolveEndpointRequiredConfig(_config_9);
+    const _config_11 = resolveHttpApiKeyAuthConfig(_config_10);
+    const _config_12 = resolveRuntimeExtensions(_config_11, configuration?.extensions || []);
+    this.config = _config_12;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getTokenPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));

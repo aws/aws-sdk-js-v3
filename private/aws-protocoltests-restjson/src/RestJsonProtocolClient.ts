@@ -15,6 +15,11 @@ import {
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
 import {
+  DisableClockSkewCorrectionInputConfig,
+  DisableClockSkewCorrectionResolvedConfig,
+  resolveDisableClockSkewCorrectionConfig,
+} from "@aws-sdk/core/httpAuthSchemes";
+import {
   type EventStreamInputConfig,
   type EventStreamResolvedConfig,
   resolveEventStreamConfig,
@@ -855,6 +860,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  DisableClockSkewCorrectionInputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
   RegionInputConfig &
@@ -879,6 +885,7 @@ export interface RestJsonProtocolClientConfig extends RestJsonProtocolClientConf
 export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  DisableClockSkewCorrectionResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
@@ -916,18 +923,19 @@ export class RestJsonProtocolClient extends __Client<
     super(_config_0 as any);
     this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveUserAgentConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveRegionConfig(_config_3);
-    const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveDefaultAwsRegionalEndpointsConfig(_config_6);
-    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
-    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
-    const _config_10 = resolveEventStreamConfig(_config_9);
-    const _config_11 = resolveCompressionConfig(_config_10);
-    const _config_12 = resolveRuntimeExtensions(_config_11, configuration?.extensions || []);
-    this.config = _config_12;
+    const _config_2 = resolveDisableClockSkewCorrectionConfig(_config_1);
+    const _config_3 = resolveUserAgentConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveRegionConfig(_config_4);
+    const _config_6 = resolveHostHeaderConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
+    const _config_8 = resolveDefaultAwsRegionalEndpointsConfig(_config_7);
+    const _config_9 = resolveEventStreamSerdeConfig(_config_8);
+    const _config_10 = resolveHttpAuthSchemeConfig(_config_9);
+    const _config_11 = resolveEventStreamConfig(_config_10);
+    const _config_12 = resolveCompressionConfig(_config_11);
+    const _config_13 = resolveRuntimeExtensions(_config_12, configuration?.extensions || []);
+    this.config = _config_13;
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

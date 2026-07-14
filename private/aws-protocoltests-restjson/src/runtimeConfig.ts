@@ -7,7 +7,10 @@ import {
   emitWarningIfUnsupportedVersion as awsCheckVersion,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
-import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
+import {
+  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
+  NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS,
+} from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { fileStreamHasher as streamHasher } from "@smithy/core/checksum";
@@ -58,6 +61,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
+    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? loadNodeConfig(NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS, loaderConfig),
     disableRequestCompression: config?.disableRequestCompression ?? loadNodeConfig(NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS, config),
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? eventStreamPayloadHandlerProvider,
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
