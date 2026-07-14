@@ -1,6 +1,6 @@
 import type { HostAddress, HostResolverArguments } from "@aws-sdk/types";
 import { HostAddressType } from "@aws-sdk/types";
-import type { LookupAddress } from "dns";
+import type { LookupAddress } from "node:dns";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import { NodeDnsLookupHostResolver } from "./NodeDnsLookupHostResolver";
@@ -208,9 +208,8 @@ describe(NodeDnsLookupHostResolver.name, () => {
         nodeDnsLookup: MOCK_NODE_DNS_LOOKUP as any,
       });
       // Resolve address
-      const RESOLVED_HOST_ADDRESSES: HostAddress[] = await TEST_HOST_RESOLVER.resolveAddress(
-        TEST_HOST_RESOLVER_ARGUMENTS
-      );
+      const RESOLVED_HOST_ADDRESSES: HostAddress[] =
+        await TEST_HOST_RESOLVER.resolveAddress(TEST_HOST_RESOLVER_ARGUMENTS);
       expect(RESOLVED_HOST_ADDRESSES).toHaveLength(1);
       const [hostAddress] = RESOLVED_HOST_ADDRESSES;
       expect(hostAddress.hostName).toBe(TEST_HOST_NAME);
@@ -234,9 +233,8 @@ describe(NodeDnsLookupHostResolver.name, () => {
         nodeDnsLookup: MOCK_NODE_DNS_LOOKUP as any,
       });
       // Resolve address
-      const RESOLVED_HOST_ADDRESSES: HostAddress[] = await TEST_HOST_RESOLVER.resolveAddress(
-        TEST_HOST_RESOLVER_ARGUMENTS
-      );
+      const RESOLVED_HOST_ADDRESSES: HostAddress[] =
+        await TEST_HOST_RESOLVER.resolveAddress(TEST_HOST_RESOLVER_ARGUMENTS);
       expect(RESOLVED_HOST_ADDRESSES).toHaveLength(1);
       const [hostAddress] = RESOLVED_HOST_ADDRESSES;
       expect(hostAddress.hostName).toBe(TEST_HOST_NAME);

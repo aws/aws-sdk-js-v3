@@ -6,4 +6,4 @@
 import { getDepToDefaultVersionHash } from "./getDepToDefaultVersionHash.mjs";
 import { updateVersions } from "./updateVersions.mjs";
 
-updateVersions(getDepToDefaultVersionHash());
+await updateVersions(getDepToDefaultVersionHash());

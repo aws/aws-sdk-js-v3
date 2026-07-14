@@ -386,13 +386,9 @@ Others follow the same pattern.
 ```js
 import { DynamoDBDocumentClient, QueryCommand } from "@aws-sdk/lib-dynamodb";
 
-const client = new DynamoDBClient({
-  /*...*/
-});
+const client = new DynamoDBClient({/*...*/});
 const doc = DynamoDBDocumentClient.from(client);
-const command = new QueryCommand({
-  /*...*/
-});
+const command = new QueryCommand({/*...*/});
 ```
 
 Before and after marshalling:

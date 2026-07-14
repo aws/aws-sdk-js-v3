@@ -50,12 +50,15 @@ const processObj = (obj: any, processFunc: Function, keyNodes?: KeyNodes): any =
       } else if (allChildren) {
         return processAllKeysInObj(obj, processFunc, SELF);
       } else if (goToNextLevel) {
-        return Object.entries(obj ?? {}).reduce((acc, [k, v]) => {
-          if (typeof v !== "function") {
-            acc[k] = processObj(v, processFunc, keyNodes[NEXT_LEVEL]);
-          }
-          return acc;
-        }, (Array.isArray(obj) ? [] : {}) as any);
+        return Object.entries(obj ?? {}).reduce(
+          (acc, [k, v]) => {
+            if (typeof v !== "function") {
+              acc[k] = processObj(v, processFunc, keyNodes[NEXT_LEVEL]);
+            }
+            return acc;
+          },
+          (Array.isArray(obj) ? [] : {}) as any
+        );
       }
     }
   }

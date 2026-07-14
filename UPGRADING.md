@@ -69,9 +69,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
 
   const dynamodbClient = new DynamoDBClient({
     requestHandler: new NodeHttpHandler({
-      httpsAgent: new Agent({
-        /*params*/
-      }),
+      httpsAgent: new Agent({/*params*/}),
       /**
        * The maximum time in milliseconds that the connection phase of a request
        * may take before the connection attempt is abandoned.

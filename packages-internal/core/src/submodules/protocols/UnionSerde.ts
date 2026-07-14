@@ -4,7 +4,10 @@
 export class UnionSerde {
   private keys: Set<string>;
 
-  public constructor(private from: any, private to: any) {
+  public constructor(
+    private from: any,
+    private to: any
+  ) {
     const keys = Object.keys(this.from);
     const set = new Set<string>(keys);
     set.delete("__type");

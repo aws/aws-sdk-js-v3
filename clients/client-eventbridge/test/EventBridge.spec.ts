@@ -9,7 +9,7 @@ import { crtAvailability } from "@aws-sdk/core/client";
 signatureV4CrtContainer.CrtSignerV4 = CrtSignerV4;
 crtAvailability.isCrtAvailable = true;
 
-import { FinalizeRequestMiddleware } from "@aws-sdk/types";
+import type { FinalizeRequestMiddleware } from "@aws-sdk/types";
 import { describe, expect, test as it } from "vitest";
 
 import { EventBridge } from "../src/EventBridge";

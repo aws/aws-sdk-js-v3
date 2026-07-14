@@ -124,8 +124,7 @@ type LowerCaseKey<T> = { [K in keyof T as `${Uncapitalize<string & K>}`]: T[K] }
  * @public
  */
 export interface FromWebTokenInit
-  extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName">,
-    CredentialProviderOptions {
+  extends Omit<LowerCaseKey<AssumeRoleWithWebIdentityParams>, "roleSessionName">, CredentialProviderOptions {
   /**
    * The IAM session name used to distinguish sessions.
    */

@@ -1,7 +1,7 @@
 import type { HttpHandler } from "@smithy/core/protocols";
-import { HttpRequest, HttpResponse } from "@smithy/core/protocols";
-import { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@smithy/types";
-import { PassThrough, Readable } from "stream";
+import { type HttpRequest, HttpResponse } from "@smithy/core/protocols";
+import type { BuildMiddleware, FinalizeRequestMiddleware, SerializeMiddleware } from "@smithy/types";
+import { PassThrough, Readable } from "node:stream";
 import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { S3 } from "../../src/S3";

@@ -1,10 +1,10 @@
 // @ts-check
-import { exec } from "child_process";
+import { exec } from "node:child_process";
 import decomment from "decomment";
-import { access, readFile, writeFile } from "fs/promises";
-import { join } from "path";
-import prettier from "prettier";
-import { promisify } from "util";
+import { access, readFile, writeFile } from "node:fs/promises";
+import { join } from "node:path";
+import { format } from "oxfmt";
+import { promisify } from "node:util";
 
 import { getAllFiles } from "./getAllFiles.mjs";
 import { getDeclarationDirname } from "./getDeclarationDirname.mjs";
@@ -48,7 +48,7 @@ export const downlevelWorkspace = async (workspacesDir, workspaceName) => {
         const content = await readFile(downlevelTypesFilepath, "utf8");
         const decommentedContent = decomment(content);
         try {
-          const formatted = prettier.format(decommentedContent, { parser: "typescript" });
+          const formatted = (await format(downlevelTypesFilepath, decommentedContent)).code;
           await writeFile(downlevelTypesFilepath, formatted);
         } catch (error) {
           console.warn(`Failed to format "${downlevelTypesFilepath}". Skipping...`);

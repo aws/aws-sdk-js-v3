@@ -9,9 +9,9 @@
 //
 
 import { fileURLToPath } from "node:url";
-import fs from "fs";
-import path, { dirname } from "path";
-import readline from "readline";
+import fs from "node:fs";
+import path, { dirname } from "node:path";
+import readline from "node:readline";
 import { listFolders } from "../utils/list-folders.js";
 import { spawnProcessReturnValue } from "../utils/spawn-process.js";
 

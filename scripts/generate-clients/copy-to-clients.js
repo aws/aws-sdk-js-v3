@@ -1,10 +1,15 @@
 // @ts-check
 const { join, basename } = require("node:path");
 const { copySync, removeSync } = require("fs-extra");
-const prettier = require("prettier");
+const { format } = require("oxfmt");
 const semver = require("semver");
 const { readdirSync, lstatSync, readFileSync, existsSync, writeFileSync } = require("node:fs");
 const { sortScripts } = require("../utils/sort-scripts");
+
+const oxfmtConfigPath = join(__dirname, "..", "..", ".oxfmtrc.json");
+const oxfmtConfig = JSON.parse(readFileSync(oxfmtConfigPath, "utf-8"));
+// Remove keys that are not format options (e.g. $schema, ignorePatterns).
+const { $schema, ignorePatterns, ...oxfmtOptions } = oxfmtConfig;
 
 const getOverwritableDirectories = (subDirectories, packageName) => {
   const additionalOverwritablePaths = {
@@ -211,7 +216,7 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           }
         }
 
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+        writeFileSync(destSubPath, (await format(destSubPath, JSON.stringify(mergedManifest), oxfmtOptions)).code);
       } else if (packageSub === "typedoc.json") {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.
@@ -268,7 +273,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           // don't generate documentation for private packages
           delete mergedManifest.scripts["build:docs"];
         }
-        writeFileSync(destSubPath, prettier.format(JSON.stringify(mergedManifest), { parser: "json-stringify" }));
+        writeFileSync(destSubPath, (await format(destSubPath, JSON.stringify(mergedManifest), oxfmtOptions)).code);
       } else if (packageSub === "typedoc.json") {
         // Skip writing typedoc.json
         // ToDo: Remove if typedoc.json is config driven or removed in smithy-typescript.

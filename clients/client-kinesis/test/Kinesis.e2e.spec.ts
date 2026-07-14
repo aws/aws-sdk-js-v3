@@ -1,6 +1,6 @@
 import { Kinesis } from "@aws-sdk/client-kinesis";
 import { NodeHttp2Handler } from "@aws-sdk/config/requestHandler";
-import { type MetadataBearer } from "@smithy/types";
+import type { MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("@aws-sdk/client-kinesis", () => {
@@ -116,8 +116,8 @@ describe("@aws-sdk/client-kinesis", () => {
   /**
    * Aggregates sessions across every connection pool the client opened.
    *
-   * A client can resolve to more than one endpoint depending on the operation, 
-   * so the connection manager may hold multiple pools. We total the sessions 
+   * A client can resolve to more than one endpoint depending on the operation,
+   * so the connection manager may hold multiple pools. We total the sessions
    * across all of them rather than keying off a single endpoint.
    */
   function getSessions(state: any) {

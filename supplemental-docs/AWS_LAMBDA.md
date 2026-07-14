@@ -23,7 +23,7 @@ exports.handler = function (event) {
 ## Creating an AWS Lambda layer
 
 With layers, you can create a shared set of dependencies for your AWS Lambda functions that can be imported
-as if they were included in the functions themselves. 
+as if they were included in the functions themselves.
 
 The benefits of doing this include finer control over the version of the AWS SDK you are using, and not
 having to upload the AWS SDK as part of your individual functions' code.
@@ -37,16 +37,16 @@ In a clean folder, create a `package.json` with your required dependencies.
 ```json5
 // package.json
 {
-  "dependencies": {
+  dependencies: {
     "@aws-sdk/client-s3": "<=3.750.0",
     "@aws-sdk/client-dynamodb": "<=3.750.0",
     "@aws-sdk/lib-dynamodb": "<=3.750.0",
-    "@aws-sdk/client-lambda": "<=3.750.0"
-  }
+    "@aws-sdk/client-lambda": "<=3.750.0",
+  },
 }
 ```
 
-In this example we've used the `<=` version range to ensure the AWS SDK dependencies use the same transitive dependency, 
+In this example we've used the `<=` version range to ensure the AWS SDK dependencies use the same transitive dependency,
 i.e., core package versions. Run `npm install` or equivalent to create the `node_modules` folder, and then zip the contents
 into the following structure:
 
@@ -92,9 +92,8 @@ import { Lambda } from "@aws-sdk/client-lambda";
 const lambda = new Lambda();
 
 const listLayers = await lambda.listLayers({});
-const layerArn = listLayers.Layers.find(
-  (l) => l.LayerName === "AWS-SDK-JavaScript-v3.750.0-layer"
-).LatestMatchingVersion.LayerVersionArn;
+const layerArn = listLayers.Layers.find((l) => l.LayerName === "AWS-SDK-JavaScript-v3.750.0-layer")
+  .LatestMatchingVersion.LayerVersionArn;
 ```
 
 Adding the layer to an existing function or creating a new function with the layer:

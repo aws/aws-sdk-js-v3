@@ -289,7 +289,7 @@ export const requests: Array<TestCase> = [
     authorization:
       "AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/service/aws4_request, SignedHeaders=host;x-amz-date, Signature=5da7c1a2acd57cee7505fc6676e4e544621c30862966e37dddb68e92efbe5d6b",
   },
-  /** This test can be ignored as it's only needed at IoT WebSocket handshake. 
+  /** This test can be ignored as it's only needed at IoT WebSocket handshake.
   {
     name: "post-sts-header-before",
     request: {

@@ -1,4 +1,4 @@
-import { FinalizeRequestMiddleware } from "@aws-sdk/types";
+import type { FinalizeRequestMiddleware } from "@aws-sdk/types";
 import { describe, expect, test as it } from "vitest";
 
 import { S3Control } from "../src/S3Control";

@@ -135,9 +135,7 @@ import { fromCognitoIdentity } from "@aws-sdk/credential-providers";
 const client = new S3Client({
   credentials: async () => {
     // get credentials from any source.
-    const credentials = {
-      /* ... */
-    };
+    const credentials = {/* ... */};
     return {
       accessKeyId: credentials.accessKeyId,
       secretAccessKey: "etc.",

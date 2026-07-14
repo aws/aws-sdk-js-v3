@@ -28,9 +28,9 @@ export interface PreviouslyResolved {
  */
 export function regionRedirectMiddleware(clientConfig: PreviouslyResolved): InitializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-      next: InitializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): InitializeHandler<any, Output> =>
+    next: InitializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): InitializeHandler<any, Output> =>
     async (args: InitializeHandlerArguments<any>): Promise<InitializeHandlerOutput<Output>> => {
       try {
         return await next(args);

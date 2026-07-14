@@ -160,7 +160,7 @@ describe("fromSSO integration", () => {
         },
       };
 
-      // Set up an expired token 
+      // Set up an expired token
       const expiredToken = {
         accessToken: "expired_token",
         expiresAt: new Date(Date.now() - 60_000).toISOString(),

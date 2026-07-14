@@ -22,9 +22,9 @@ const DECODED_CONTENT_LENGTH_HEADER = "x-amz-decoded-content-length";
  */
 export function checkContentLengthHeader(): FinalizeRequestMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-      next: FinalizeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): FinalizeHandler<any, Output> =>
+    next: FinalizeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): FinalizeHandler<any, Output> =>
     async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
       const { request } = args;
 

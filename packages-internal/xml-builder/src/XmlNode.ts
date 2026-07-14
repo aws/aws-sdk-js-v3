@@ -21,7 +21,10 @@ export class XmlNode {
     return node;
   }
 
-  public constructor(private name: string, public readonly children: Stringable[] = []) {}
+  public constructor(
+    private name: string,
+    public readonly children: Stringable[] = []
+  ) {}
 
   public withName(name: string): XmlNode {
     this.name = name;

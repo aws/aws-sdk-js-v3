@@ -1,4 +1,4 @@
-import { FinalizeRequestMiddleware } from "@smithy/types";
+import type { FinalizeRequestMiddleware } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { S3 } from "@aws-sdk/client-s3";

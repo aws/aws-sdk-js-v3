@@ -36,9 +36,9 @@ const version = "2016-11-15";
 // a serialize middleware to add PresignUrl to input
 export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved): SerializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-      next: SerializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): SerializeHandler<any, Output> =>
+    next: SerializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): SerializeHandler<any, Output> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       const { input } = args;
 
@@ -83,10 +83,13 @@ export function copySnapshotPresignedUrlMiddleware(options: PreviouslyResolved):
           query: {
             // Values must be string instead of e.g. boolean
             // because we need to sign the serialized form.
-            ...Object.entries(input).reduce((acc, [k, v]) => {
-              acc[k] = String(v ?? "");
-              return acc;
-            }, {} as Record<string, string>),
+            ...Object.entries(input).reduce(
+              (acc, [k, v]) => {
+                acc[k] = String(v ?? "");
+                return acc;
+              },
+              {} as Record<string, string>
+            ),
             Action: "CopySnapshot",
             Version: version,
             DestinationRegion: destinationRegion,

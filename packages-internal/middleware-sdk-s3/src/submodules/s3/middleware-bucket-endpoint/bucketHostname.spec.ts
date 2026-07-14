@@ -941,7 +941,7 @@ describe.skip("bucketHostname", () => {
           clientRegion: string,
           useArnRegion: boolean,
           expectedEndpoint: string,
-          clientPartition?: string
+          clientPartition?: string,
         ][] = [
           [
             "arn:aws:s3-object-lambda:us-west-2:1123456789012:accesspoint/mybanner",
@@ -997,7 +997,7 @@ describe.skip("bucketHostname", () => {
           clientRegion: string,
           useArnRegion: boolean,
           expectedError: string,
-          clientPartition?: string
+          clientPartition?: string,
         ][] = [
           [
             "arn:aws:s3-object-lambda:us-east-1:123456789012:accesspoint/mybanner",

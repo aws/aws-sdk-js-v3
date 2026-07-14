@@ -206,9 +206,7 @@ a factor of it.
 // example: workload of 10,000 files, batch size of 100.
 import { S3 } from "@aws-sdk/client-s3";
 
-const files = [
-  /*... */
-];
+const files = [/*... */];
 const BATCH_SIZE = 100;
 
 const s3 = new S3({

@@ -82,7 +82,7 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
           // to other implementations.
           for (const k in record) {
             const v = record[k];
-            const t = jsonName ? nameMap![k] ?? k : k;
+            const t = jsonName ? (nameMap![k] ?? k) : k;
             if (!(t in out)) {
               // we have no type information, so copy as-is from JSON object.
               out[t] = v;

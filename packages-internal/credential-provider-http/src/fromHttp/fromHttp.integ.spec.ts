@@ -15,7 +15,6 @@ describe("fromHttp socket cleanup", () => {
   let tokenServer: http.Server;
   let tmpDir: string;
 
-
   beforeAll(async () => {
     activeConnections = new Set();
 

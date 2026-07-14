@@ -1,7 +1,7 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { fromLoginCredentials, fromSSO } from "@aws-sdk/credential-providers";
 import { stsRegionWarning as warning } from "@aws-sdk/core/client";
-import { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
+import type { ParsedIniData, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/core/protocols";
 import { externalDataInterceptor } from "@smithy/core/config";

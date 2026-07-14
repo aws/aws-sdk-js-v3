@@ -1,7 +1,7 @@
 import { describe, test as it } from "vitest";
 
 import { S3 } from "@aws-sdk/client-s3";
-import { AwsCredentialIdentity } from "@smithy/types";
+import type { AwsCredentialIdentity } from "@smithy/types";
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 
 describe("S3 Object Lambda", () => {

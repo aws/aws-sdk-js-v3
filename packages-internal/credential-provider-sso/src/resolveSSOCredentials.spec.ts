@@ -90,16 +90,16 @@ describe(resolveSSOCredentials.name, () => {
 
   it("forwards clientConfig, parentClientConfig, and logger to the token provider", async () => {
     const mockClientConfig = {
-      requestHandler: { handle: vi.fn() }, 
-      region: "us-west-2" 
+      requestHandler: { handle: vi.fn() },
+      region: "us-west-2",
     };
     const mockParentClientConfig = { logger: console };
     const mockCallerClientConfig = { region: async () => "us-east-1" };
-    const mockLogger = { 
-      debug: vi.fn(), 
-      info: vi.fn(), 
-      warn: vi.fn(), 
-      error: vi.fn() 
+    const mockLogger = {
+      debug: vi.fn(),
+      info: vi.fn(),
+      warn: vi.fn(),
+      error: vi.fn(),
     };
 
     const mockTokenProviderFn = vi.fn().mockResolvedValue({

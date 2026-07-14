@@ -30,7 +30,7 @@ export interface PresignedPollyInput {
   options?: PresignedPollyOptions;
 }
 
-export const getSynthesizeSpeechUrl = async (input: PresignedPollyInput): Promise<String> => {
+export const getSynthesizeSpeechUrl = async (input: PresignedPollyInput): Promise<string> => {
   const command = new SynthesizeSpeechCommand(input.params);
   const options = input.options || {};
   return await getSignedUrl(input.client, command, options);

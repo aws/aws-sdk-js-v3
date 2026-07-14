@@ -8,7 +8,7 @@ import { basename } from "node:path";
 import { getWorkspacePaths } from "../utils/getWorkspacePaths.mjs";
 import { updateVersions } from "./updateVersions.mjs";
 
-updateVersions(
+await updateVersions(
   getWorkspacePaths().reduce((acc, workspacePath) => {
     acc[`@aws-sdk/${basename(workspacePath)}`] = `*`;
     return acc;

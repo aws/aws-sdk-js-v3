@@ -153,14 +153,14 @@ const convertToMapAttrFromEnumerableProps = (
 // For future-proofing: this functions are called from multiple places
 const convertToNullAttr = (): { NULL: true } => ({ NULL: true });
 const convertToBinaryAttr = (data: NativeAttributeBinary): { B: NativeAttributeBinary } => ({ B: data });
-const convertToStringAttr = (data: string | String): { S: string } => ({ S: data.toString() });
+const convertToStringAttr = (data: string | string): { S: string } => ({ S: data.toString() });
 const convertToBigIntAttr = (data: bigint): { N: string } => ({ N: data.toString() });
 
 const validateBigIntAndThrow = (errorPrefix: string) => {
   throw new Error(`${errorPrefix} Use NumberValue from @aws-sdk/lib-dynamodb.`);
 };
 
-const convertToNumberAttr = (num: number | Number, options?: marshallOptions): { N: string } => {
+const convertToNumberAttr = (num: number | number, options?: marshallOptions): { N: string } => {
   if (
     [Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]
       .map((val) => val.toString())

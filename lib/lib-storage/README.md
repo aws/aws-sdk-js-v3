@@ -17,9 +17,7 @@ try {
     params: { Bucket, Key, Body },
 
     // optional tags
-    tags: [
-      /*...*/
-    ],
+    tags: [/*...*/],
 
     // additional optional fields show default values below:
 

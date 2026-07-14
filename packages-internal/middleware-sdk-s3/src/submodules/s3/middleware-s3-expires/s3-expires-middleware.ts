@@ -28,9 +28,9 @@ interface PreviouslyResolved {}
  */
 export const s3ExpiresMiddleware = (config: PreviouslyResolved): DeserializeMiddleware<any, any> => {
   return <Output extends MetadataBearer>(
-      next: DeserializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): DeserializeHandler<any, Output> =>
+    next: DeserializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): DeserializeHandler<any, Output> =>
     async (args: DeserializeHandlerArguments<any>): Promise<DeserializeHandlerOutput<Output>> => {
       const result = await next(args);
       const { response } = result;

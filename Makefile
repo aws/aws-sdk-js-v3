@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
+.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis lint format
 
 # fetch AWS testing credentials
 login:
@@ -176,3 +176,9 @@ nested-clients:
 
 core-prebuild:
 	yarn workspace @aws-sdk/core run prebuild
+
+lint:
+	yarn lint
+
+format:
+	npx oxfmt --write .

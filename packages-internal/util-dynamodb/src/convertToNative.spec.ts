@@ -228,14 +228,20 @@ describe("convertToNative", () => {
     });
 
     it(`testing map with big objects`, () => {
-      const input = Array.from(Array(100000).keys()).reduce((acc, index) => {
-        acc[index] = { N: "1.00" };
-        return acc;
-      }, {} as Record<string, any>);
-      const output = Array.from(Array(100000).keys()).reduce((acc, index) => {
-        acc[index] = 1;
-        return acc;
-      }, {} as Record<string, number>);
+      const input = Array.from(Array(100000).keys()).reduce(
+        (acc, index) => {
+          acc[index] = { N: "1.00" };
+          return acc;
+        },
+        {} as Record<string, any>
+      );
+      const output = Array.from(Array(100000).keys()).reduce(
+        (acc, index) => {
+          acc[index] = 1;
+          return acc;
+        },
+        {} as Record<string, number>
+      );
       expect(convertToNative({ M: input })).toEqual(output);
     });
   });

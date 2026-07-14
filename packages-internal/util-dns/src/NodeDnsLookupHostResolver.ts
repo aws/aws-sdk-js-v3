@@ -1,7 +1,7 @@
 import type { HostAddress, HostResolver as IHostResolver, HostResolverArguments } from "@aws-sdk/types";
 import { HostAddressType } from "@aws-sdk/types";
-import type { LookupAddress, LookupAllOptions } from "dns";
-import { ALL, promises as dnsPromises, V4MAPPED } from "dns";
+import type { LookupAddress, LookupAllOptions } from "node:dns";
+import { ALL, promises as dnsPromises, V4MAPPED } from "node:dns";
 
 import type { DnsCache } from "./DnsCache";
 import { HostEntryTable } from "./util/HostEntryTable";

@@ -5,4 +5,4 @@
 import { getDepToCurrentVersionHash } from "./getDepToCurrentVersionHash.mjs";
 import { updateVersions } from "./updateVersions.mjs";
 
-updateVersions(getDepToCurrentVersionHash());
+await updateVersions(getDepToCurrentVersionHash());

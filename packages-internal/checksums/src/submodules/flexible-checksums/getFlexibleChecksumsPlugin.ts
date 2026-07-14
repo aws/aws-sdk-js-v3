@@ -18,7 +18,8 @@ import {
  * @internal
  */
 export interface FlexibleChecksumsMiddlewareConfig
-  extends FlexibleChecksumsRequestMiddlewareConfig,
+  extends
+    FlexibleChecksumsRequestMiddlewareConfig,
     FlexibleChecksumsInputMiddlewareConfig,
     FlexibleChecksumsResponseMiddlewareConfig {}
 

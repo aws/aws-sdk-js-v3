@@ -1,7 +1,7 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
 
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { configuration } from "./config";
 
 const Bucket = configuration.Bucket;

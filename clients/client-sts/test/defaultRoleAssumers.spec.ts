@@ -2,11 +2,11 @@
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.spec.ts
 import { NodeHttp2Handler, NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { HttpResponse } from "@smithy/core/protocols";
-import { Readable } from "stream";
+import { Readable } from "node:stream";
 import { afterAll, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import type { AssumeRoleCommandInput } from "../src/commands/AssumeRoleCommand";
-import { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
+import type { AssumeRoleWithWebIdentityCommandInput } from "../src/commands/AssumeRoleWithWebIdentityCommand";
 import { getDefaultRoleAssumer, getDefaultRoleAssumerWithWebIdentity } from "../src/defaultRoleAssumers";
 
 const mockHandle = vi.fn().mockResolvedValue({
