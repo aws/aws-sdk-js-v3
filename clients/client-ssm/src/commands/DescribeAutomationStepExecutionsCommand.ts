@@ -125,7 +125,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput extends DescribeA
  * //         ExcludeAccounts: [ // ExcludeAccounts
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: [
+ * //         Targets: [ // AutomationTargets
  * //           {
  * //             Key: "STRING_VALUE",
  * //             Values: [

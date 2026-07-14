@@ -101,7 +101,7 @@ export interface StartChangeRequestExecutionCommandOutput extends StartChangeReq
  *           ExcludeAccounts: [ // ExcludeAccounts
  *             "STRING_VALUE",
  *           ],
- *           Targets: [
+ *           Targets: [ // AutomationTargets
  *             {
  *               Key: "STRING_VALUE",
  *               Values: [

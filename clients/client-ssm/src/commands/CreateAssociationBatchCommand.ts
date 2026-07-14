@@ -98,7 +98,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  *           ExcludeAccounts: [ // ExcludeAccounts
  *             "STRING_VALUE",
  *           ],
- *           Targets: [
+ *           Targets: [ // AutomationTargets
  *             {
  *               Key: "STRING_VALUE",
  *               Values: [
@@ -212,7 +212,7 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * //           ExcludeAccounts: [ // ExcludeAccounts
  * //             "STRING_VALUE",
  * //           ],
- * //           Targets: [
+ * //           Targets: [ // AutomationTargets
  * //             {
  * //               Key: "STRING_VALUE",
  * //               Values: [
@@ -262,7 +262,9 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * //         },
  * //         AutomationTargetParameterName: "STRING_VALUE",
  * //         DocumentVersion: "STRING_VALUE",
- * //         Targets: "<Targets>",
+ * //         Targets: [
+ * //           "<Target>",
+ * //         ],
  * //         ScheduleExpression: "STRING_VALUE",
  * //         OutputLocation: {
  * //           S3Location: {
@@ -296,7 +298,9 @@ export interface CreateAssociationBatchCommandOutput extends CreateAssociationBa
  * //             ExcludeAccounts: [
  * //               "STRING_VALUE",
  * //             ],
- * //             Targets: "<Targets>",
+ * //             Targets: [
+ * //               "<Target>",
+ * //             ],
  * //             TargetsMaxConcurrency: "STRING_VALUE",
  * //             TargetsMaxErrors: "STRING_VALUE",
  * //           },

@@ -107,6 +107,7 @@ const _ATg = "AgentType";
 const _ATgg = "AggregatorType";
 const _ATt = "AtTime";
 const _ATu = "AutomationType";
+const _ATut = "AutomationTargets";
 const _AUD = "ApproveUntilDate";
 const _AUT = "AllowUnassociatedTargets";
 const _AV = "AssociationVersion";
@@ -2657,7 +2658,7 @@ export var AutomationExecutionFilter$: StaticStructureSchema = [3, n0, _AEFu,
 export var AutomationExecutionInputs$: StaticStructureSchema = [3, n0, _AEIu,
   0,
   [_P, _TPN, _Ta, _TM, _TL, _TLURL],
-  [[2, n0, _APM, 0, 0, 64 | 0], 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => TargetLocations, 0]
+  [[2, n0, _APM, 0, 0, 64 | 0], 0, () => AutomationTargets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => TargetLocations, 0]
 ];
 export var AutomationExecutionMetadata$: StaticStructureSchema = [3, n0, _AEM,
   0,
@@ -4647,7 +4648,7 @@ export var StartAssociationsOnceResult$: StaticStructureSchema = [3, n0, _SAORt,
 export var StartAutomationExecutionRequest$: StaticStructureSchema = [3, n0, _SAER,
   0,
   [_DN, _DV, _P, _CTl, _Mo, _TPN, _Ta, _TM, _MC, _ME, _TL, _T, _AC, _TLURL],
-  [0, 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], 0, 0, () => TargetLocations, () => TagList, () => AlarmConfiguration$, 0], 1
+  [0, 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, () => AutomationTargets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], 0, 0, () => TargetLocations, () => TagList, () => AlarmConfiguration$, 0], 1
 ];
 export var StartAutomationExecutionResult$: StaticStructureSchema = [3, n0, _SAERt,
   0,
@@ -4717,7 +4718,7 @@ export var Target$: StaticStructureSchema = [3, n0, _Tar,
 export var TargetLocation$: StaticStructureSchema = [3, n0, _TLar,
   0,
   [_Acc, _Re, _TLMC, _TLME, _ERN, _TLAC, _ICOU, _EAx, _Ta, _TMC, _TME],
-  [64 | 0, 64 | 0, 0, 0, 0, () => AlarmConfiguration$, 2, 64 | 0, () => Targets, 0, 0]
+  [64 | 0, 64 | 0, 0, 0, 0, () => AlarmConfiguration$, 2, 64 | 0, () => AutomationTargets, 0, 0]
 ];
 export var TargetPreview$: StaticStructureSchema = [3, n0, _TPar,
   0,
@@ -4985,6 +4986,9 @@ var AutomationExecutionMetadataList: StaticListSchema = [1, n0, _AEML,
   0, () => AutomationExecutionMetadata$
 ];
 var AutomationParameterValueList = 64 | 0;
+var AutomationTargets: StaticListSchema = [1, n0, _ATut,
+  0, () => Target$
+];
 var AzureSubscriptionList: StaticListSchema = [1, n0, _ASLz,
   0, () => AzureSubscription$
 ];

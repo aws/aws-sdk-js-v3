@@ -110,7 +110,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  *       ExcludeAccounts: [ // ExcludeAccounts
  *         "STRING_VALUE",
  *       ],
- *       Targets: [
+ *       Targets: [ // AutomationTargets
  *         {
  *           Key: "STRING_VALUE",
  *           Values: [
@@ -221,7 +221,7 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationResult,
  * //         ExcludeAccounts: [ // ExcludeAccounts
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: [
+ * //         Targets: [ // AutomationTargets
  * //           {
  * //             Key: "STRING_VALUE",
  * //             Values: [

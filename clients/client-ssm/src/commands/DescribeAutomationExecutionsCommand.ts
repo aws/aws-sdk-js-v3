@@ -160,7 +160,9 @@ export interface DescribeAutomationExecutionsCommandOutput extends DescribeAutom
  * //               ExcludeAccounts: [ // ExcludeAccounts
  * //                 "STRING_VALUE",
  * //               ],
- * //               Targets: "<Targets>",
+ * //               Targets: [ // AutomationTargets
+ * //                 "<Target>",
+ * //               ],
  * //               TargetsMaxConcurrency: "STRING_VALUE",
  * //               TargetsMaxErrors: "STRING_VALUE",
  * //             },

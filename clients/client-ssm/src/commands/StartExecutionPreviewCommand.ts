@@ -44,7 +44,7 @@ export interface StartExecutionPreviewCommandOutput extends StartExecutionPrevie
  *         ],
  *       },
  *       TargetParameterName: "STRING_VALUE",
- *       Targets: [ // Targets
+ *       Targets: [ // AutomationTargets
  *         { // Target
  *           Key: "STRING_VALUE",
  *           Values: [ // TargetValues

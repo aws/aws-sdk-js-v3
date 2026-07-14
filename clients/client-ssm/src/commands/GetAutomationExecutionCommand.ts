@@ -117,7 +117,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //           ExcludeAccounts: [ // ExcludeAccounts
  * //             "STRING_VALUE",
  * //           ],
- * //           Targets: [
+ * //           Targets: [ // AutomationTargets
  * //             {
  * //               Key: "STRING_VALUE",
  * //               Values: [
@@ -153,7 +153,9 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     CurrentStepName: "STRING_VALUE",
  * //     CurrentAction: "STRING_VALUE",
  * //     TargetParameterName: "STRING_VALUE",
- * //     Targets: "<Targets>",
+ * //     Targets: [
+ * //       "<Target>",
+ * //     ],
  * //     TargetMaps: [ // TargetMaps
  * //       { // TargetMap
  * //         "<keys>": [ // TargetMapValueList
@@ -193,7 +195,9 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         ExcludeAccounts: [
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: "<Targets>",
+ * //         Targets: [
+ * //           "<Target>",
+ * //         ],
  * //         TargetsMaxConcurrency: "STRING_VALUE",
  * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
@@ -221,7 +225,9 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         DocumentVersion: "STRING_VALUE",
  * //         Parameters: "<AutomationParameterMap>",
  * //         TargetParameterName: "STRING_VALUE",
- * //         Targets: "<Targets>",
+ * //         Targets: [
+ * //           "<Target>",
+ * //         ],
  * //         TargetMaps: [
  * //           {
  * //             "<keys>": [

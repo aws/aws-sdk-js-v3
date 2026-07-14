@@ -4043,7 +4043,7 @@
           }
         },
         "Targets": {
-          "target": "com.amazonaws.ssm#Targets",
+          "target": "com.amazonaws.ssm#AutomationTargets",
           "traits": {
             "smithy.api#documentation": "<p>Information about the resources that would be included in the actual runbook execution, if\n   it were to be run. Both Targets and TargetMaps can't be specified together.</p>"
           }
@@ -4539,6 +4539,18 @@
         "smithy.api#length": {
           "min": 1,
           "max": 50
+        }
+      }
+    },
+    "com.amazonaws.ssm#AutomationTargets": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ssm#Target"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1
         }
       }
     },
@@ -30165,7 +30177,7 @@
           }
         },
         "Targets": {
-          "target": "com.amazonaws.ssm#Targets",
+          "target": "com.amazonaws.ssm#AutomationTargets",
           "traits": {
             "smithy.api#documentation": "<p>A key-value mapping to target resources. Required if you specify TargetParameterName.</p>\n         <p>If both this parameter and the <code>TargetLocation:Targets</code> parameter are supplied,\n    <code>TargetLocation:Targets</code> takes precedence.</p>"
           }
@@ -31109,7 +31121,7 @@
           }
         },
         "Targets": {
-          "target": "com.amazonaws.ssm#Targets",
+          "target": "com.amazonaws.ssm#AutomationTargets",
           "traits": {
             "smithy.api#documentation": "<p>A list of key-value mappings to target resources. If you specify values for this data type,\n   you must also specify a value for <code>TargetParameterName</code>.</p>\n         <p>This <code>Targets</code> parameter takes precedence over the\n    <code>StartAutomationExecution:Targets</code> parameter if both are supplied.</p>"
           }

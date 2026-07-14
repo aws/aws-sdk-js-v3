@@ -99,7 +99,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *       ExcludeAccounts: [ // ExcludeAccounts
  *         "STRING_VALUE",
  *       ],
- *       Targets: [
+ *       Targets: [ // AutomationTargets
  *         {
  *           Key: "STRING_VALUE",
  *           Values: [
@@ -216,7 +216,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  * //         ExcludeAccounts: [ // ExcludeAccounts
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: [
+ * //         Targets: [ // AutomationTargets
  * //           {
  * //             Key: "STRING_VALUE",
  * //             Values: [

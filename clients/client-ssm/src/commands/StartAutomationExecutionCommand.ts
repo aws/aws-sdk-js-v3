@@ -43,7 +43,7 @@ export interface StartAutomationExecutionCommandOutput extends StartAutomationEx
  *   ClientToken: "STRING_VALUE",
  *   Mode: "Auto" || "Interactive",
  *   TargetParameterName: "STRING_VALUE",
- *   Targets: [ // Targets
+ *   Targets: [ // AutomationTargets
  *     { // Target
  *       Key: "STRING_VALUE",
  *       Values: [ // TargetValues
