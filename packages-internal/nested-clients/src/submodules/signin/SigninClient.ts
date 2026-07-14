@@ -58,6 +58,10 @@ import type {
   CreateOAuth2TokenCommandInput,
   CreateOAuth2TokenCommandOutput,
 } from "./commands/CreateOAuth2TokenCommand";
+import type {
+  CreateOAuth2TokenWithIAMCommandInput,
+  CreateOAuth2TokenWithIAMCommandOutput,
+} from "./commands/CreateOAuth2TokenWithIAMCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -73,13 +77,15 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | CreateOAuth2TokenCommandInput;
+  | CreateOAuth2TokenCommandInput
+  | CreateOAuth2TokenWithIAMCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
-  | CreateOAuth2TokenCommandOutput;
+  | CreateOAuth2TokenCommandOutput
+  | CreateOAuth2TokenWithIAMCommandOutput;
 
 /**
  * @public

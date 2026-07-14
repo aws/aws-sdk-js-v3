@@ -26,8 +26,8 @@
   "dependencies": {
     "@aws-sdk/checksums": "workspace:^3.1000.16",
     "@aws-sdk/crt-loader": "workspace:^3.972.61",
-    "@smithy/core": "^3.29.2",
-    "@smithy/types": "^4.16.0",
+    "@smithy/core": "^3.29.3",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
