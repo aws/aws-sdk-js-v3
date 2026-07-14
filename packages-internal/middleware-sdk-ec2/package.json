@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "3.972.45",
+  "version": "3.972.46",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -26,8 +26,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.1",
-    "@aws-sdk/types": "workspace:^3.974.0",
+    "@aws-sdk/core": "workspace:^3.975.2",
+    "@aws-sdk/types": "workspace:^3.974.1",
     "@smithy/core": "^3.29.3",
     "@smithy/signature-v4": "^5.6.3",
     "@smithy/types": "^4.16.1",

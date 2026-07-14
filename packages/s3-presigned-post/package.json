@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-presigned-post",
-  "version": "3.1086.0",
+  "version": "3.1087.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -25,9 +25,9 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1086.0",
-    "@aws-sdk/core": "workspace:^3.975.1",
-    "@aws-sdk/types": "workspace:^3.974.0",
+    "@aws-sdk/client-s3": "workspace:3.1087.0",
+    "@aws-sdk/core": "workspace:^3.975.2",
+    "@aws-sdk/types": "workspace:^3.974.1",
     "@smithy/core": "^3.29.3",
     "@smithy/signature-v4": "^5.6.3",
     "@smithy/types": "^4.16.1",

@@ -63,6 +63,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.975.2 (2026-07-14)
+### Bug Fixes
+* **scripts:** add typesVersions entries for submodules ([#8186](https://github.com/aws/aws-sdk-js-v3/issues/8186)) ([9eade26](https://github.com/aws/aws-sdk-js-v3/commit/9eade2692bd0f4486bc03c606a6963bc96706fd1))
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
 # 3.975.1 (2026-07-08)
 ### Chores
 * **core/client:** remove TypeScript version user-agent metric ([#8177](https://github.com/aws/aws-sdk-js-v3/issues/8177)) ([9d72bc2](https://github.com/aws/aws-sdk-js-v3/commit/9d72bc2930426ebee73da6a72df0f495be4e7db9))

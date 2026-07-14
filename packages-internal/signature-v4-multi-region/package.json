@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.996.39",
+  "version": "3.996.40",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:browser": "node ./test-browser/browser-build/esbuild",
@@ -26,7 +26,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.0",
+    "@aws-sdk/types": "workspace:^3.974.1",
     "@smithy/signature-v4": "^5.6.3",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

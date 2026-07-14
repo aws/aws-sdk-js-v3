@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.974.41",
+  "version": "3.974.42",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -19,7 +19,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.16",
+    "@aws-sdk/checksums": "workspace:^3.1000.17",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

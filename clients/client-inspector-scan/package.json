@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-inspector-scan",
   "description": "AWS SDK for JavaScript Inspector Scan Client for Node.js, Browser and React Native",
-  "version": "3.1086.0",
+  "version": "3.1087.0",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -19,9 +19,9 @@
   "module": "./dist-es/index.js",
   "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.1",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.67",
-    "@aws-sdk/types": "workspace:^3.974.0",
+    "@aws-sdk/core": "workspace:^3.975.2",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.68",
+    "@aws-sdk/types": "workspace:^3.974.1",
     "@smithy/core": "^3.29.3",
     "@smithy/fetch-http-handler": "^5.6.5",
     "@smithy/node-http-handler": "^4.9.5",

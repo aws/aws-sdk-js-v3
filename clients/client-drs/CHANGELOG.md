@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Features
+
+* **client-drs:** Fast recovery of EC2 based drs workloads by skipping the conversion step ([89a090d](https://github.com/aws/aws-sdk-js-v3/commit/89a090d83c0d8413a849f56bde61feb59417e467))
+
+
+
+
+
 # [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
 
 **Note:** Version bump only for package @aws-sdk/client-drs

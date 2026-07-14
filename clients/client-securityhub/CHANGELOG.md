@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Features
+
+* **client-securityhub:** AWS Security Hub now provides an AI inventory, giving central security teams a continuously updated, organization-wide view of AI assets and their security posture ([e5e2f52](https://github.com/aws/aws-sdk-js-v3/commit/e5e2f52e31e671a4115e0ac249e1ec1418a43674))
+
+
+
+
+
 # [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
 
 **Note:** Version bump only for package @aws-sdk/client-securityhub

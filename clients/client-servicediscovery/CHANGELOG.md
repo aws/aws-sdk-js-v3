@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Features
+
+* **client-servicediscovery:** Fixed Cloud Map endpoint resolution to correctly route to the dualstack endpoint when dualstack is enabled. ([f853718](https://github.com/aws/aws-sdk-js-v3/commit/f853718ec74623127a5789e00034f07411472f48))
+
+
+
+
+
 # [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
 
 **Note:** Version bump only for package @aws-sdk/client-servicediscovery

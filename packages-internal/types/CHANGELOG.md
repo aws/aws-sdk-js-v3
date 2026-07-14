@@ -20,6 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.1 (2026-07-14)
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
 # 3.974.0 (2026-07-08)
 ### Features
 * **credential-providers:** deferred loading for credential providers aggregation package ([#8129](https://github.com/aws/aws-sdk-js-v3/issues/8129)) ([d0f426c](https://github.com/aws/aws-sdk-js-v3/commit/d0f426cb354454238efc135a059ee413406a196c))

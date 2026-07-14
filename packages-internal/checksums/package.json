@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/checksums",
-  "version": "3.1000.16",
+  "version": "3.1000.17",
   "description": "Checksum algorithms and flexible checksums middleware for the AWS SDK",
   "scripts": {
     "benchmark": "node ./scripts/checksum-perf.mjs",
@@ -78,8 +78,8 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.1",
-    "@aws-sdk/types": "workspace:^3.974.0",
+    "@aws-sdk/core": "workspace:^3.975.2",
+    "@aws-sdk/types": "workspace:^3.974.1",
     "@smithy/core": "^3.29.3",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

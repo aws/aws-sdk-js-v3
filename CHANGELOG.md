@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **scripts:** add typesVersions entries for submodules ([#8186](https://github.com/aws/aws-sdk-js-v3/issues/8186)) ([9eade26](https://github.com/aws/aws-sdk-js-v3/commit/9eade2692bd0f4486bc03c606a6963bc96706fd1))
+
+
+### Features
+
+* **client-connect:** This release adds SearchRules API which can be used to search for rules within an Amazon Connect instance. ([f29288c](https://github.com/aws/aws-sdk-js-v3/commit/f29288c751327448c91ad5e89ea25d702dadab96))
+* **client-drs:** Fast recovery of EC2 based drs workloads by skipping the conversion step ([89a090d](https://github.com/aws/aws-sdk-js-v3/commit/89a090d83c0d8413a849f56bde61feb59417e467))
+* **client-emr-containers:** Introduced 5 new fields across 3 APIs as part of Spark Connect server launch for EMR on EKS. The fields added are sessionIdleTimeoutInMinutes, sessionEnabled, endpointToken, authProxyUrl and encryptionKeyArn. ([a62275e](https://github.com/aws/aws-sdk-js-v3/commit/a62275e33d64fd761c495af7b3603fccef34f99f))
+* **client-lambda:** AWS Lambda now returns a new DependencyError value in StateReasonCode and LastUpdateStatusReasonCode to provide more actionable information when a function reaches a failed state due to an error from an upstream dependency or service. ([aa8732a](https://github.com/aws/aws-sdk-js-v3/commit/aa8732a0942c6bc2e9897ebab5f358e4041a1a6e))
+* **client-mq:** This release adds storage size parameter for Amazon MQ for RabbitMQ cluster deployment broker on engine version RabbitMQ 4.2. You can now set a configurable storage size within a range of sizes dependent on broker instance size. ([a19e4c8](https://github.com/aws/aws-sdk-js-v3/commit/a19e4c8be0c2e18081e0d5025905b2b850042231))
+* **client-securityhub:** AWS Security Hub now provides an AI inventory, giving central security teams a continuously updated, organization-wide view of AI assets and their security posture ([e5e2f52](https://github.com/aws/aws-sdk-js-v3/commit/e5e2f52e31e671a4115e0ac249e1ec1418a43674))
+* **client-servicediscovery:** Fixed Cloud Map endpoint resolution to correctly route to the dualstack endpoint when dualstack is enabled. ([f853718](https://github.com/aws/aws-sdk-js-v3/commit/f853718ec74623127a5789e00034f07411472f48))
+* **client-ssm:** Update AWS Systems Manager Automation Targets to be correct max value. ([7506cef](https://github.com/aws/aws-sdk-js-v3/commit/7506cef18526419998e08e8dd97c1a5d56534d3a))
+
+
+
+
+
 # [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
 
 

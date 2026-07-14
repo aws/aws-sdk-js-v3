@@ -31,6 +31,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.29 (2026-07-14)
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
 # 3.972.28 (2026-07-08)
 ### Chores
 * **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
