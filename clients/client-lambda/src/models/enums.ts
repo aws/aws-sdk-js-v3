@@ -536,6 +536,7 @@ export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdate
  */
 export const LastUpdateStatusReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
+  DependencyError: "DependencyError",
   DisabledKMSKey: "DisabledKMSKey",
   DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
@@ -597,6 +598,7 @@ export type SnapStartOptimizationStatus =
 export const StateReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
+  DependencyError: "DependencyError",
   DisabledKMSKey: "DisabledKMSKey",
   DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   DrainingDurableExecutions: "DrainingDurableExecutions",
