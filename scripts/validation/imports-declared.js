@@ -7,103 +7,92 @@
  * Usage: node imports-declared.js
  */
 
-const fs = require("node:fs");
 const path = require("node:path");
-const walk = require("../utils/walk");
-const {
-  NODE_BUILTINS,
-  getPackageName,
-  extractImports,
-  getPackageDirs,
-  summarizePackages,
-} = require("./validation-shared");
-
-/**
- * @param packageDir - package root.
- * @param pkgJson - parsed package.json.
- * @param distName - "dist-cjs" or "dist-es".
- * @returns error messages for undeclared imports.
- */
-async function validateDist(packageDir, pkgJson, distName) {
-  const distDir = path.join(packageDir, distName);
-  if (!fs.existsSync(distDir)) {
-    return [];
-  }
-
-  const declared = new Set([
-    ...Object.keys(pkgJson.dependencies || {}),
-    ...Object.keys(pkgJson.peerDependencies || {}),
-  ]);
-
-  const useRequireResolve = distName === "dist-cjs";
-  const errors = [];
-  for await (const file of walk(distDir, ["node_modules"])) {
-    if (!file.endsWith(".js")) {
-      continue;
-    }
-    const code = fs.readFileSync(file, "utf-8");
-    for (const specifier of extractImports(code)) {
-      if (specifier.startsWith(".") || specifier.startsWith("node:")) {
-        continue;
-      }
-      if (NODE_BUILTINS.has(specifier)) {
-        continue;
-      }
-      if (specifier === "vitest") {
-        continue;
-      }
-      const pkg = getPackageName(specifier);
-      if (pkg === pkgJson.name) {
-        continue;
-      }
-      if (!declared.has(pkg)) {
-        errors.push(`${pkg} imported but not declared in ${pkgJson.name} (${path.relative(packageDir, file)})`);
-      } else if (useRequireResolve) {
-        try {
-          require.resolve(specifier, { paths: [path.dirname(file)] });
-        } catch {
-          errors.push(`${specifier} does not resolve in ${pkgJson.name} (${path.relative(packageDir, file)})`);
-        }
-      }
-    }
-  }
-  return errors;
-}
+const { createBus } = require("./ast-bus");
+const { NODE_BUILTINS, getPackageName, getPackageDirs } = require("./validation-shared");
 
 // Packages exempt from undeclared import checks.
 const ALLOWLIST = new Set([]);
 
 /**
- * @param packageDir - package root.
- * @returns aggregated errors from both dist directories.
+ * Creates the imports-declared validator.
  */
-async function validate(packageDir) {
-  const pkgJsonPath = path.join(packageDir, "package.json");
-  if (!fs.existsSync(pkgJsonPath)) {
-    return [];
-  }
-  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
-  if (ALLOWLIST.has(pkgJson.name)) {
-    return [];
-  }
+function createValidator() {
   const errors = [];
-  for (const dist of ["dist-cjs", "dist-es"]) {
-    errors.push(...(await validateDist(packageDir, pkgJson, dist)));
+  // Cache declared deps per package — avoids rebuilding Sets on every onImport call.
+  const declaredCache = new Map();
+
+  function getDeclared(packageJson) {
+    let declared = declaredCache.get(packageJson.name);
+    if (!declared) {
+      declared = new Set([
+        ...Object.keys(packageJson.dependencies || {}),
+        ...Object.keys(packageJson.peerDependencies || {}),
+      ]);
+      declaredCache.set(packageJson.name, declared);
+    }
+    return declared;
   }
-  return errors;
+
+  return {
+    name: "imports-declared",
+    targets: ["dist-cjs", "dist-es"],
+    inspects: ["dist-cjs", "dist-es", "package.json"],
+
+    onImport(specifier, file, context) {
+      if (specifier.startsWith(".") || specifier.startsWith("node:")) {
+        return;
+      }
+      if (NODE_BUILTINS.has(specifier)) {
+        return;
+      }
+      if (specifier === "vitest") {
+        return;
+      }
+      const { packageJson, packageDir, target } = context;
+      if (ALLOWLIST.has(packageJson.name)) {
+        return;
+      }
+      const pkg = getPackageName(specifier);
+      if (pkg === packageJson.name) {
+        return;
+      }
+      const declared = getDeclared(packageJson);
+      if (!declared.has(pkg)) {
+        errors.push(`${pkg} imported but not declared in ${packageJson.name} (${path.relative(packageDir, file)})`);
+      } else if (target === "dist-cjs") {
+        try {
+          require.resolve(specifier, { paths: [path.dirname(file)] });
+        } catch {
+          errors.push(`${specifier} does not resolve in ${packageJson.name} (${path.relative(packageDir, file)})`);
+        }
+      }
+    },
+
+    getErrors() {
+      return errors;
+    },
+  };
 }
 
 async function main() {
   const packages = getPackageDirs();
-  const errors = [];
-  for (const { dir } of packages) {
-    errors.push(...(await validate(dir)));
-  }
+  const validator = createValidator();
+  const bus = createBus({ packages });
+  bus.register(validator);
+  await bus.run();
+
+  const errors = validator.getErrors();
   if (errors.length) {
     console.error(`❌ ${errors.length} undeclared import(s):\n  ${[...new Set(errors)].join("\n  ")}`);
     process.exit(1);
   }
-  console.log(`✅ All absolute imports are declared in package.json. (${summarizePackages(packages)})`);
+  console.log(`✅ All absolute imports are declared in package.json. (${bus.getSummary()})`);
+  console.log(`    [${(validator.inspects || validator.targets).join(", ")}]`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createValidator };
