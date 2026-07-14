@@ -152,6 +152,8 @@ unbuilt:
 static-analysis:
 	node ./scripts/validation/generic-byte-arrays.js
 	node ./scripts/validation/validate-all.js;
+	yarn lint:versions
+	yarn lint:dependencies
 	make api-snapshot
 
 # Clears the Turborepo local build cache

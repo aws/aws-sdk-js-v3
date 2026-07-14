@@ -24,9 +24,13 @@ function main() {
   const errors = [];
   for (const { dir } of packages) {
     const pkgJsonPath = path.join(dir, "package.json");
-    if (!fs.existsSync(pkgJsonPath)) continue;
+    if (!fs.existsSync(pkgJsonPath)) {
+      continue;
+    }
     const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
-    if (SKIP.has(pkgJson.name)) continue;
+    if (SKIP.has(pkgJson.name)) {
+      continue;
+    }
     validated.push({ dir });
     for (const file of REQUIRED_FILES) {
       if (!fs.existsSync(path.join(dir, file))) {
