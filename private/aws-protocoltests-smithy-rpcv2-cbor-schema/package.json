@@ -21,14 +21,14 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.975.1",
-    "@smithy/core": "^3.29.2",
-    "@smithy/fetch-http-handler": "^5.6.4",
-    "@smithy/node-http-handler": "^4.9.4",
-    "@smithy/types": "^4.16.0",
+    "@smithy/core": "^3.29.3",
+    "@smithy/fetch-http-handler": "^5.6.5",
+    "@smithy/node-http-handler": "^4.9.5",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/snapshot-testing": "^2.2.7",
+    "@smithy/snapshot-testing": "^2.2.8",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",

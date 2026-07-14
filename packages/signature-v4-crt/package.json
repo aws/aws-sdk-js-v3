@@ -26,9 +26,9 @@
     "@aws-sdk/crt-loader": "workspace:^3.972.61",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.39",
     "@aws-sdk/types": "workspace:^3.974.0",
-    "@smithy/core": "^3.29.2",
+    "@smithy/core": "^3.29.3",
     "@smithy/signature-v4": "^5.6.3",
-    "@smithy/types": "^4.16.0",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

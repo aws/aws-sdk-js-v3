@@ -37,9 +37,9 @@
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.63",
     "@aws-sdk/nested-clients": "workspace:^3.997.31",
     "@aws-sdk/types": "workspace:^3.974.0",
-    "@smithy/core": "^3.29.2",
+    "@smithy/core": "^3.29.3",
     "@smithy/credential-provider-imds": "^4.4.7",
-    "@smithy/types": "^4.16.0",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
