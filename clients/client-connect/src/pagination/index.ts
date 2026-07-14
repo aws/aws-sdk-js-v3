@@ -78,6 +78,7 @@ export * from "./SearchQueuesPaginator";
 export * from "./SearchQuickConnectsPaginator";
 export * from "./SearchResourceTagsPaginator";
 export * from "./SearchRoutingProfilesPaginator";
+export * from "./SearchRulesPaginator";
 export * from "./SearchSecurityProfilesPaginator";
 export * from "./SearchTestCasesPaginator";
 export * from "./SearchUserHierarchyGroupsPaginator";

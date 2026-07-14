@@ -274,6 +274,7 @@ export * from "./SearchQueuesCommand";
 export * from "./SearchQuickConnectsCommand";
 export * from "./SearchResourceTagsCommand";
 export * from "./SearchRoutingProfilesCommand";
+export * from "./SearchRulesCommand";
 export * from "./SearchSecurityProfilesCommand";
 export * from "./SearchTestCasesCommand";
 export * from "./SearchUserHierarchyGroupsCommand";

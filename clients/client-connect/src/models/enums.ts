@@ -2126,6 +2126,18 @@ export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
  * @public
  * @enum
  */
+export const RuleCapabilityTier = {
+  GenerativeAI: "GenerativeAI",
+} as const;
+/**
+ * @public
+ */
+export type RuleCapabilityTier = (typeof RuleCapabilityTier)[keyof typeof RuleCapabilityTier];
+
+/**
+ * @public
+ * @enum
+ */
 export const TrafficDistributionGroupStatus = {
   ACTIVE: "ACTIVE",
   CREATION_FAILED: "CREATION_FAILED",

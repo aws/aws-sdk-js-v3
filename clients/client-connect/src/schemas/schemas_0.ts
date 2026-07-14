@@ -1965,6 +1965,9 @@ const _Qu = "Queues";
 const _Que = "Question";
 const _R = "Reason";
 const _RA = "ResourceArns";
+const _RAAC = "RuleAttributeAndCondition";
+const _RAF = "RuleAttributeFilter";
+const _RAOCL = "RuleAttributeOrConditionList";
 const _RAe = "ResourceArn";
 const _RAep = "ReplicaAlias";
 const _RAu = "RuleArn";
@@ -1985,6 +1988,7 @@ const _RCRR = "ResumeContactRecordingRequest";
 const _RCRRe = "ResumeContactRecordingResponse";
 const _RCRe = "ResumeContactResponse";
 const _RCRes = "ResumeContactRecording";
+const _RCT = "RuleCapabilityTiers";
 const _RCe = "RecommenderConfig";
 const _RCec = "RecurrenceConfig";
 const _RCep = "ReplicationConfiguration";
@@ -2051,15 +2055,20 @@ const _RR = "ReplicaRegion";
 const _RRC = "ReviewRequestComments";
 const _RS = "ReplicationStatus";
 const _RSA = "ResourceShareArn";
+const _RSC = "RulesSearchCriteria";
+const _RSCL = "RulesSearchConditionList";
 const _RSE = "RoutingStepExpression";
 const _RSEo = "RoutingStepExpressions";
+const _RSF = "RulesSearchFilter";
 const _RSI = "ResourceShareId";
 const _RSL = "ReferenceSummaryList";
 const _RSLu = "RuleSummaryList";
 const _RSR = "ReplicationStatusReason";
 const _RSS = "ResourceShareStatus";
 const _RSSL = "ReplicationStatusSummaryList";
+const _RSSLu = "RuleSearchSummaryList";
 const _RSSe = "ReplicationStatusSummary";
+const _RSSu = "RuleSearchSummary";
 const _RST = "RingStartTimestamp";
 const _RSe = "ReferenceSummary";
 const _RSu = "RuleSummary";
@@ -2108,6 +2117,7 @@ const _Reg = "Region";
 const _Res = "Results";
 const _Rev = "Review";
 const _Ru = "Rule";
+const _Rul = "Rules";
 const _S = "State";
 const _SA = "StatusArn";
 const _SACS = "SearchableAgentCriteriaStep";
@@ -2324,9 +2334,12 @@ const _SRL = "SuccessfulRequestList";
 const _SRP = "SearchRoutingProfiles";
 const _SRPR = "SearchRoutingProfilesRequest";
 const _SRPRe = "SearchRoutingProfilesResponse";
+const _SRR = "SearchRulesRequest";
+const _SRRe = "SearchRulesResponse";
 const _SRT = "SearchResourceTags";
 const _SRTR = "SearchResourceTagsRequest";
 const _SRTRe = "SearchResourceTagsResponse";
+const _SRe = "SearchRules";
 const _SRo = "SourceRegion";
 const _SRt = "StatusReason";
 const _SRtr = "StringReference";
@@ -7587,23 +7600,48 @@ export var RoutingProfileSummary$: StaticStructureSchema = [3, n0, _RPS,
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,
-  [_N, _RIu, _RAu, _TES, _Fu, _Ac, _PS, _CTre, _LUTa, _LUB, _Ta],
-  [0, 0, 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, 4, 4, 0, 128 | 0], 10
+  [_N, _RIu, _RAu, _TES, _Fu, _Ac, _PS, _CTre, _LUTa, _LUB, _RCT, _Ta],
+  [0, 0, 0, () => RuleTriggerEventSource$, 0, () => RuleActions, 0, 4, 4, 0, 64 | 0, 128 | 0], 10
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
   [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA],
   [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$], 1
 ];
+export var RuleAttributeAndCondition$: StaticStructureSchema = [3, n0, _RAAC,
+  0,
+  [_TC],
+  [() => TagAndConditionList]
+];
+export var RuleAttributeFilter$: StaticStructureSchema = [3, n0, _RAF,
+  0,
+  [_OC, _ACnd, _TCa],
+  [() => RuleAttributeOrConditionList, () => RuleAttributeAndCondition$, () => TagCondition$]
+];
 export var RulesConfiguration$: StaticStructureSchema = [3, n0, _RCu,
   0,
   [_Be],
   [0]
 ];
+export var RuleSearchSummary$: StaticStructureSchema = [3, n0, _RSSu,
+  0,
+  [_N, _RIu, _RAu, _TES, _ASc, _PS, _CTre, _LUTa, _LUB, _RCT, _Ta],
+  [0, 0, 0, () => RuleTriggerEventSource$, () => ActionSummaries, 0, 4, 4, 0, 64 | 0, 128 | 0], 9
+];
+export var RulesSearchCriteria$: StaticStructureSchema = [3, n0, _RSC,
+  0,
+  [_OC, _ACn, _SC],
+  [() => RulesSearchConditionList, () => RulesSearchConditionList, () => StringCondition$]
+];
+export var RulesSearchFilter$: StaticStructureSchema = [3, n0, _RSF,
+  0,
+  [_AFt],
+  [() => RuleAttributeFilter$]
+];
 export var RuleSummary$: StaticStructureSchema = [3, n0, _RSu,
   0,
-  [_N, _RIu, _RAu, _ESN, _PS, _ASc, _CTre, _LUTa],
-  [0, 0, 0, 0, 0, () => ActionSummaries, 4, 4], 8
+  [_N, _RIu, _RAu, _ESN, _PS, _ASc, _CTre, _LUTa, _RCT],
+  [0, 0, 0, 0, 0, () => ActionSummaries, 4, 4, 64 | 0], 8
 ];
 export var RuleTriggerEventSource$: StaticStructureSchema = [3, n0, _RTES,
   0,
@@ -7854,6 +7892,16 @@ export var SearchRoutingProfilesResponse$: StaticStructureSchema = [3, n0, _SRPR
   0,
   [_RPo, _NT, _ATC],
   [() => RoutingProfileList, 0, 1]
+];
+export var SearchRulesRequest$: StaticStructureSchema = [3, n0, _SRR,
+  0,
+  [_II, _MR, _NT, _SCea, _SF],
+  [0, 1, 0, () => RulesSearchCriteria$, () => RulesSearchFilter$], 1
+];
+export var SearchRulesResponse$: StaticStructureSchema = [3, n0, _SRRe,
+  0,
+  [_Rul, _ATC, _NT],
+  [() => RuleSearchSummaryList, 1, 0], 1
 ];
 export var SearchSecurityProfilesRequest$: StaticStructureSchema = [3, n0, _SSPR,
   0,
@@ -9857,6 +9905,16 @@ var RoutingProfileSummaryList: StaticListSchema = [1, n0, _RPSL,
 var RuleActions: StaticListSchema = [1, n0, _RAule,
   0, () => RuleAction$
 ];
+var RuleAttributeOrConditionList: StaticListSchema = [1, n0, _RAOCL,
+  0, () => RuleAttributeAndCondition$
+];
+var RuleCapabilityTiers = 64 | 0;
+var RuleSearchSummaryList: StaticListSchema = [1, n0, _RSSLu,
+  0, () => RuleSearchSummary$
+];
+var RulesSearchConditionList: StaticListSchema = [1, n0, _RSCL,
+  0, () => RulesSearchCriteria$
+];
 var RuleSummaryList: StaticListSchema = [1, n0, _RSLu,
   0, () => RuleSummary$
 ];
@@ -11024,6 +11082,9 @@ export var SearchResourceTags$: StaticOperationSchema = [9, n0, _SRT,
 ];
 export var SearchRoutingProfiles$: StaticOperationSchema = [9, n0, _SRP,
   { [_h]: ["POST", "/search-routing-profiles", 200] }, () => SearchRoutingProfilesRequest$, () => SearchRoutingProfilesResponse$
+];
+export var SearchRules$: StaticOperationSchema = [9, n0, _SRe,
+  { [_h]: ["POST", "/search-rules", 200] }, () => SearchRulesRequest$, () => SearchRulesResponse$
 ];
 export var SearchSecurityProfiles$: StaticOperationSchema = [9, n0, _SSP,
   { [_h]: ["POST", "/search-security-profiles", 200] }, () => SearchSecurityProfilesRequest$, () => SearchSecurityProfilesResponse$

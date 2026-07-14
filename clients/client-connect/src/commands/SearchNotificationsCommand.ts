@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchNotificationsRequest, SearchNotificationsResponse } from "../models/models_3";
+import type { SearchNotificationsResponse } from "../models/models_3";
+import type { SearchNotificationsRequest } from "../models/models_4";
 import { SearchNotifications$ } from "../schemas/schemas_0";
 
 /**

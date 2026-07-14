@@ -1531,6 +1531,7 @@ import {
   paginateSearchQuickConnects,
   paginateSearchResourceTags,
   paginateSearchRoutingProfiles,
+  paginateSearchRules,
   paginateSearchSecurityProfiles,
   paginateSearchTestCases,
   paginateSearchUserHierarchyGroups,
@@ -1703,8 +1704,14 @@ import {
   RoutingProfileSummary$,
   Rule$,
   RuleAction$,
+  RuleAttributeAndCondition$,
+  RuleAttributeFilter$,
+  RuleCapabilityTier,
   RulePublishStatus,
   RulesConfiguration$,
+  RuleSearchSummary$,
+  RulesSearchCriteria$,
+  RulesSearchFilter$,
   RuleSummary$,
   RuleTriggerEventSource$,
   S3Config$,
@@ -1797,6 +1804,10 @@ import {
   SearchRoutingProfilesCommand,
   SearchRoutingProfilesRequest$,
   SearchRoutingProfilesResponse$,
+  SearchRules$,
+  SearchRulesCommand,
+  SearchRulesRequest$,
+  SearchRulesResponse$,
   SearchSecurityProfiles$,
   SearchSecurityProfilesCommand,
   SearchSecurityProfilesRequest$,
@@ -2877,6 +2888,8 @@ assert(typeof SearchResourceTagsCommand === "function");
 assert(typeof SearchResourceTags$ === "object");
 assert(typeof SearchRoutingProfilesCommand === "function");
 assert(typeof SearchRoutingProfiles$ === "object");
+assert(typeof SearchRulesCommand === "function");
+assert(typeof SearchRules$ === "object");
 assert(typeof SearchSecurityProfilesCommand === "function");
 assert(typeof SearchSecurityProfiles$ === "object");
 assert(typeof SearchTestCasesCommand === "function");
@@ -3987,7 +4000,12 @@ assert(typeof RoutingProfileSearchFilter$ === "object");
 assert(typeof RoutingProfileSummary$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuleAction$ === "object");
+assert(typeof RuleAttributeAndCondition$ === "object");
+assert(typeof RuleAttributeFilter$ === "object");
 assert(typeof RulesConfiguration$ === "object");
+assert(typeof RuleSearchSummary$ === "object");
+assert(typeof RulesSearchCriteria$ === "object");
+assert(typeof RulesSearchFilter$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTriggerEventSource$ === "object");
 assert(typeof S3Config$ === "object");
@@ -4039,6 +4057,8 @@ assert(typeof SearchResourceTagsRequest$ === "object");
 assert(typeof SearchResourceTagsResponse$ === "object");
 assert(typeof SearchRoutingProfilesRequest$ === "object");
 assert(typeof SearchRoutingProfilesResponse$ === "object");
+assert(typeof SearchRulesRequest$ === "object");
+assert(typeof SearchRulesResponse$ === "object");
 assert(typeof SearchSecurityProfilesRequest$ === "object");
 assert(typeof SearchSecurityProfilesResponse$ === "object");
 assert(typeof SearchTestCasesRequest$ === "object");
@@ -4467,6 +4487,7 @@ assert(typeof RehydrationType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ResponseMode === "object");
 assert(typeof RoutingCriteriaStepStatus === "object");
+assert(typeof RuleCapabilityTier === "object");
 assert(typeof RulePublishStatus === "object");
 assert(typeof ScreenShareCapability === "object");
 assert(typeof SearchableQueueType === "object");
@@ -4643,6 +4664,7 @@ assert(typeof paginateSearchQueues === "function");
 assert(typeof paginateSearchQuickConnects === "function");
 assert(typeof paginateSearchResourceTags === "function");
 assert(typeof paginateSearchRoutingProfiles === "function");
+assert(typeof paginateSearchRules === "function");
 assert(typeof paginateSearchSecurityProfiles === "function");
 assert(typeof paginateSearchTestCases === "function");
 assert(typeof paginateSearchUserHierarchyGroups === "function");

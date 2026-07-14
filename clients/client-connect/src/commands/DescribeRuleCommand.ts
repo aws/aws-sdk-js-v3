@@ -47,6 +47,9 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * //       EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //     },
+ * //     RuleCapabilityTiers: [ // RuleCapabilityTiers
+ * //       "GenerativeAI",
+ * //     ],
  * //     Function: "STRING_VALUE", // required
  * //     Actions: [ // RuleActions // required
  * //       { // RuleAction

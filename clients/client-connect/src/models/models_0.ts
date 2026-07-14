@@ -5290,7 +5290,7 @@ export interface CreateHoursOfOperationRequest {
 
   /**
    * <p>Configuration for parent hours of operations. Eg: ResourceArn. </p>
-   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
+   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
    *      <i> Administrator Guide</i>.</p>
    * @public
    */
@@ -5472,7 +5472,7 @@ export interface CreateHoursOfOperationOverrideRequest {
 
   /**
    * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
    *      <i> Administrator Guide</i>.</p>
    * @public
    */

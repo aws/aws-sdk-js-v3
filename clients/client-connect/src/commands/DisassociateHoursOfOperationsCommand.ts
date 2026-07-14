@@ -23,7 +23,7 @@ export interface DisassociateHoursOfOperationsCommandInput extends DisassociateH
 export interface DisassociateHoursOfOperationsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates a set of hours of operations with another hours of operation. Refer to Administrator Guide <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html"> here </a> for more information on inheriting overrides from parent hours of operation(s).</p>
+ * <p>Disassociates a set of hours of operations with another hours of operation. For more information about inheriting overrides from parent hours of operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Hours of operation overrides</a> in the Administrator Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -1362,6 +1362,11 @@ import {
   SearchRoutingProfilesCommand,
 } from "./commands/SearchRoutingProfilesCommand";
 import {
+  type SearchRulesCommandInput,
+  type SearchRulesCommandOutput,
+  SearchRulesCommand,
+} from "./commands/SearchRulesCommand";
+import {
   type SearchSecurityProfilesCommandInput,
   type SearchSecurityProfilesCommandOutput,
   SearchSecurityProfilesCommand,
@@ -1959,6 +1964,7 @@ import { paginateSearchQueues } from "./pagination/SearchQueuesPaginator";
 import { paginateSearchQuickConnects } from "./pagination/SearchQuickConnectsPaginator";
 import { paginateSearchResourceTags } from "./pagination/SearchResourceTagsPaginator";
 import { paginateSearchRoutingProfiles } from "./pagination/SearchRoutingProfilesPaginator";
+import { paginateSearchRules } from "./pagination/SearchRulesPaginator";
 import { paginateSearchSecurityProfiles } from "./pagination/SearchSecurityProfilesPaginator";
 import { paginateSearchTestCases } from "./pagination/SearchTestCasesPaginator";
 import { paginateSearchUserHierarchyGroups } from "./pagination/SearchUserHierarchyGroupsPaginator";
@@ -2244,6 +2250,7 @@ const commands = {
   SearchQuickConnectsCommand,
   SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
+  SearchRulesCommand,
   SearchSecurityProfilesCommand,
   SearchTestCasesCommand,
   SearchUserHierarchyGroupsCommand,
@@ -2427,6 +2434,7 @@ const paginators = {
   paginateSearchQuickConnects,
   paginateSearchResourceTags,
   paginateSearchRoutingProfiles,
+  paginateSearchRules,
   paginateSearchSecurityProfiles,
   paginateSearchTestCases,
   paginateSearchUserHierarchyGroups,
@@ -7117,6 +7125,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchRulesCommand}
+   */
+  searchRules(
+    args: SearchRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRulesCommandOutput>;
+  searchRules(
+    args: SearchRulesCommandInput,
+    cb: (err: any, data?: SearchRulesCommandOutput) => void
+  ): void;
+  searchRules(
+    args: SearchRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchSecurityProfilesCommand}
    */
   searchSecurityProfiles(
@@ -9726,6 +9751,17 @@ export interface Connect {
     args: SearchRoutingProfilesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchRoutingProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchRulesCommandOutput}.
+   */
+  paginateSearchRules(
+    args: SearchRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchRulesCommandOutput>;
 
   /**
    * @see {@link SearchSecurityProfilesCommand}

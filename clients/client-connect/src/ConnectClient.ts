@@ -947,6 +947,7 @@ import type {
   SearchRoutingProfilesCommandInput,
   SearchRoutingProfilesCommandOutput,
 } from "./commands/SearchRoutingProfilesCommand";
+import type { SearchRulesCommandInput, SearchRulesCommandOutput } from "./commands/SearchRulesCommand";
 import type {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
@@ -1595,6 +1596,7 @@ export type ServiceInputTypes =
   | SearchQuickConnectsCommandInput
   | SearchResourceTagsCommandInput
   | SearchRoutingProfilesCommandInput
+  | SearchRulesCommandInput
   | SearchSecurityProfilesCommandInput
   | SearchTestCasesCommandInput
   | SearchUserHierarchyGroupsCommandInput
@@ -1978,6 +1980,7 @@ export type ServiceOutputTypes =
   | SearchQuickConnectsCommandOutput
   | SearchResourceTagsCommandOutput
   | SearchRoutingProfilesCommandOutput
+  | SearchRulesCommandOutput
   | SearchSecurityProfilesCommandOutput
   | SearchTestCasesCommandOutput
   | SearchUserHierarchyGroupsCommandOutput

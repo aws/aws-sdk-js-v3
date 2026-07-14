@@ -48,14 +48,24 @@ import type {
   ContactSearchSummaryAiAgentInfo,
   ContactSearchSummaryQueueInfo,
   EmailAddressInfo,
+  EmailAddressSearchCriteria,
+  EmailAddressSearchFilter,
   EmailAttachment,
   EvaluationFormQuestion,
+  EvaluationFormSearchCriteria,
+  EvaluationFormSearchFilter,
   Expression,
+  HoursOfOperationOverrideSearchCriteria,
+  HoursOfOperationSearchCriteria,
+  HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
+  NotificationSearchCriteria,
+  NotificationSearchFilter,
   ParticipantConfiguration,
   ParticipantDetails,
   PersistentChat,
+  PredefinedAttributeSearchCriteria,
   PromptSearchCriteria,
   PromptSearchFilter,
   QueueInfoInput,
@@ -66,6 +76,8 @@ import type {
   RoutingCriteriaInputStep,
   RoutingProfileSearchCriteria,
   RoutingProfileSearchFilter,
+  RulesSearchCriteria,
+  RulesSearchFilter,
   SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
   SegmentAttributeValue,
@@ -84,6 +96,216 @@ import type {
   WorkspaceSearchCriteria,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchEmailAddressesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The search criteria to be used to return email addresses.</p>
+   * @public
+   */
+  SearchCriteria?: EmailAddressSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EmailAddressSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchEvaluationFormsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return evaluation forms.</p>
+   * @public
+   */
+  SearchCriteria?: EvaluationFormSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EvaluationFormSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationOverridesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return hours of operations overrides.</p>
+   * @public
+   */
+  SearchCriteria?: HoursOfOperationOverrideSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: HoursOfOperationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return hours of operations.</p>
+   * @public
+   */
+  SearchCriteria?: HoursOfOperationSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchNotificationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Valid range is 1-100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to apply to the search results, such as tag-based filters.</p>
+   * @public
+   */
+  SearchFilter?: NotificationSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to apply when searching for notifications. Supports filtering by notification ID and message content using comparison types such as STARTS_WITH, CONTAINS, and EXACT.</p>
+   * @public
+   */
+  SearchCriteria?: NotificationSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchPredefinedAttributesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return predefined attributes.</p>
+   * @public
+   */
+  SearchCriteria?: PredefinedAttributeSearchCriteria | undefined;
+}
 
 /**
  * @public
@@ -237,6 +459,42 @@ export interface SearchRoutingProfilesRequest {
    * @public
    */
   SearchCriteria?: RoutingProfileSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRulesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The search criteria to be used to return rules.</p>
+   * @public
+   */
+  SearchCriteria?: RulesSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results, such as tag-based filters.</p>
+   * @public
+   */
+  SearchFilter?: RulesSearchFilter | undefined;
 }
 
 /**

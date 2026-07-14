@@ -45,6 +45,7 @@ import type {
   QueueStatus,
   RehydrationType,
   ResponseMode,
+  RuleCapabilityTier,
   RulePublishStatus,
   SearchableQueueType,
   StringComparisonType,
@@ -63,6 +64,7 @@ import type {
   VoiceRecordingTrack,
 } from "./enums";
 import type {
+  ActionSummary,
   AfterContactWorkConfigPerChannel,
   AgentConfig,
   AgentStatusSearchFilter,
@@ -95,6 +97,7 @@ import type {
   Reference,
   RoutingProfileQueueConfig,
   RuleAction,
+  RuleTriggerEventSource,
   StringCondition,
   TagCondition,
   TaskTemplateConstraints,
@@ -1079,6 +1082,161 @@ export interface SearchRoutingProfilesResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+ * @public
+ */
+export interface RuleAttributeAndCondition {
+  /**
+   * <p>A list of tag conditions that need to be applied with <code>AND</code> condition.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[] | undefined;
+}
+
+/**
+ * <p>An object that can be used to specify tag conditions inside the <code>SearchFilter</code>. This accepts an
+ *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
+ *             </li>
+ *             <li>
+ *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface RuleAttributeFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  OrConditions?: RuleAttributeAndCondition[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  AndCondition?: RuleAttributeAndCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>.
+   *   </p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface RulesSearchFilter {
+  /**
+   * <p>An object that can be used to specify tag conditions inside the <code>SearchFilter</code>.</p>
+   * @public
+   */
+  AttributeFilter?: RuleAttributeFilter | undefined;
+}
+
+/**
+ * <p>A summary of information about a rule, returned as part of the response to a <code>SearchRules</code>
+ *    operation.</p>
+ * @public
+ */
+export interface RuleSearchSummary {
+  /**
+   * <p>The name of the rule.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule.</p>
+   * @public
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   * @public
+   */
+  RuleArn: string | undefined;
+
+  /**
+   * <p>The event source to trigger the rule.</p>
+   * @public
+   */
+  TriggerEventSource: RuleTriggerEventSource | undefined;
+
+  /**
+   * <p>A list of <code>ActionTypes</code> associated with a rule.</p>
+   * @public
+   */
+  ActionSummaries: ActionSummary[] | undefined;
+
+  /**
+   * <p>The list of capability tiers associated with the rule. Used for categorizing rules by capability (for example,
+   *     <code>GenerativeAI</code>).</p>
+   * @public
+   */
+  RuleCapabilityTiers?: RuleCapabilityTier[] | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   * @public
+   */
+  PublishStatus: RulePublishStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the rule was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the rule was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the rule.</p>
+   * @public
+   */
+  LastUpdatedBy: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchRulesResponse {
+  /**
+   * <p>Information about the rules.</p>
+   * @public
+   */
+  Rules: RuleSearchSummary[] | undefined;
+
+  /**
+   * <p>The total number of rules which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5172,7 +5330,7 @@ export interface UpdateHoursOfOperationOverrideRequest {
 
   /**
    * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
    *      <i> Administrator Guide</i>.</p>
    * @public
    */
@@ -7528,6 +7686,36 @@ export interface RoutingProfileSearchCriteria {
 }
 
 /**
+ * <p>The search criteria to be used to return rules.</p>
+ * @public
+ */
+export interface RulesSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: RulesSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: RulesSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>Name</code>,
+   *      <code>PublishStatus</code>, <code>EventSourceName</code>, <code>RuleId</code>,
+   *      <code>IntegrationAssociationId</code>, <code>ActionSummaries</code>, and
+   *      <code>RuleCapabilityTiers</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
  * <p>The search criteria to be used to return security profiles.</p>
  *          <note>
  *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25
@@ -8053,214 +8241,4 @@ export interface SearchDataTablesRequest {
    * @public
    */
   SearchCriteria?: DataTableSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchEmailAddressesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The search criteria to be used to return email addresses.</p>
-   * @public
-   */
-  SearchCriteria?: EmailAddressSearchCriteria | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: EmailAddressSearchFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchEvaluationFormsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The search criteria to be used to return evaluation forms.</p>
-   * @public
-   */
-  SearchCriteria?: EvaluationFormSearchCriteria | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: EvaluationFormSearchFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchHoursOfOperationOverridesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: HoursOfOperationSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return hours of operations overrides.</p>
-   * @public
-   */
-  SearchCriteria?: HoursOfOperationOverrideSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchHoursOfOperationsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: HoursOfOperationSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return hours of operations.</p>
-   * @public
-   */
-  SearchCriteria?: HoursOfOperationSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchNotificationsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page. Valid range is 1-100.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to apply to the search results, such as tag-based filters.</p>
-   * @public
-   */
-  SearchFilter?: NotificationSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to apply when searching for notifications. Supports filtering by notification ID and message content using comparison types such as STARTS_WITH, CONTAINS, and EXACT.</p>
-   * @public
-   */
-  SearchCriteria?: NotificationSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchPredefinedAttributesRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name (ARN) of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The search criteria to be used to return predefined attributes.</p>
-   * @public
-   */
-  SearchCriteria?: PredefinedAttributeSearchCriteria | undefined;
 }
