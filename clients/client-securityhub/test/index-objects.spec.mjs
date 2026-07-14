@@ -25,6 +25,7 @@ import {
   AdminAccount$,
   AdminStatus,
   AggregatorV2$,
+  AIDetails$,
   AllowedOperators,
   AssociatedStandard$,
   AssociationFilters$,
@@ -801,6 +802,7 @@ import {
   DisassociateMembersCommand,
   DisassociateMembersRequest$,
   DisassociateMembersResponse$,
+  DiscoveryType,
   DnsRequestAction$,
   DoubleConfigurationOptions$,
   EnableImportFindingsForProduct$,
@@ -1157,6 +1159,7 @@ import {
   ResourceFindingsSummary$,
   ResourceGroupByField,
   ResourceGroupByRule$,
+  ResourceInfo$,
   ResourceInUseException,
   ResourceInUseException$,
   ResourceNotFoundException,
@@ -1184,6 +1187,7 @@ import {
   ResourcesTrendsStringField,
   ResourcesTrendsStringFilter$,
   ResourcesTrendsValues$,
+  ResourceSubCategory,
   ResourceTag$,
   Result$,
   RouteSetDetails$,
@@ -1624,6 +1628,7 @@ assert(typeof ActorUser$ === "object");
 assert(typeof Adjustment$ === "object");
 assert(typeof AdminAccount$ === "object");
 assert(typeof AggregatorV2$ === "object");
+assert(typeof AIDetails$ === "object");
 assert(typeof AssociatedStandard$ === "object");
 assert(typeof AssociationFilters$ === "object");
 assert(typeof AssociationSetDetails$ === "object");
@@ -2468,6 +2473,7 @@ assert(typeof Resource$ === "object");
 assert(typeof ResourceDetails$ === "object");
 assert(typeof ResourceFindingsSummary$ === "object");
 assert(typeof ResourceGroupByRule$ === "object");
+assert(typeof ResourceInfo$ === "object");
 assert(typeof ResourceOwner$ === "object");
 assert(typeof ResourceOwnerAccount$ === "object");
 assert(typeof ResourceOwnerOrg$ === "object");
@@ -2628,6 +2634,7 @@ assert(typeof CspmConnectorStatus === "object");
 assert(typeof CspmEnablementStatus === "object");
 assert(typeof DateRangeComparison === "object");
 assert(typeof DateRangeUnit === "object");
+assert(typeof DiscoveryType === "object");
 assert(typeof EnablementStatus === "object");
 assert(typeof FeatureName === "object");
 assert(typeof FeatureStatus === "object");
@@ -2663,6 +2670,7 @@ assert(typeof ResourcesMapField === "object");
 assert(typeof ResourcesNumberField === "object");
 assert(typeof ResourcesStringField === "object");
 assert(typeof ResourcesTrendsStringField === "object");
+assert(typeof ResourceSubCategory === "object");
 assert(typeof RuleStatus === "object");
 assert(typeof RuleStatusV2 === "object");
 assert(typeof ScopeType === "object");

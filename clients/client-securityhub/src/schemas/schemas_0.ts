@@ -513,6 +513,7 @@ const _AIAMP = "AwsIamAttachedManagedPolicy";
 const _AIAMPL = "AwsIamAttachedManagedPolicyList";
 const _AIAOC = "AssignIpv6AddressOnCreation";
 const _AICR = "AppIdClientRegex";
+const _AID = "AIDetails";
 const _AIG = "AwsIamGroup";
 const _AIGD = "AwsIamGroupDetails";
 const _AIGP = "AwsIamGroupPolicy";
@@ -1147,15 +1148,16 @@ const _CHCs = "CspmHealthCheck";
 const _CHZI = "CanonicalHostedZoneId";
 const _CHZN = "CanonicalHostedZoneName";
 const _CHZNID = "CanonicalHostedZoneNameID";
-const _CI = "ClientId";
+const _CI = "CanonicalId";
 const _CIC = "CompliantInformationalCount";
 const _CIR = "CreateInsightRequest";
 const _CIRr = "CreateInsightResponse";
 const _CIi = "CidrIp";
 const _CIid = "CidrIpv6";
-const _CIl = "ClusterInfo";
+const _CIl = "ClientId";
 const _CIlo = "CloudId";
-const _CIlu = "ClusterIdentifier";
+const _CIlu = "ClusterInfo";
+const _CIlus = "ClusterIdentifier";
 const _CIo = "ConnectorId";
 const _CIom = "ComponentId";
 const _CIon = "ControlId";
@@ -1544,6 +1546,7 @@ const _DT = "DeviceType";
 const _DTA = "DatapointsToAlarm";
 const _DTE = "DataTraceEnabled";
 const _DTS = "DpdTimeoutSeconds";
+const _DTi = "DiscoveryType";
 const _DU = "DateUpdated";
 const _DV = "DocumentationVersion";
 const _DVC = "DockerVolumeConfiguration";
@@ -1932,7 +1935,9 @@ const _HPos = "HostPort";
 const _HPt = "HttpsPort";
 const _HR = "HomeRegion";
 const _HRC = "HttpRedirectCode";
+const _HRG = "HostResourceGuid";
 const _HRGA = "HostResourceGroupArn";
+const _HRT = "HostResourceType";
 const _HS = "HsmStatus";
 const _HSFRA = "HttpSuccessFeedbackRoleArn";
 const _HT = "HttpTokens";
@@ -2800,7 +2805,8 @@ const _RIe = "ResourceIdentifier";
 const _RIec = "RecordIndex";
 const _RIeg = "RegistryId";
 const _RIes = "ResizeInfo";
-const _RIeso = "ResourceIds";
+const _RIeso = "ResourceInfo";
+const _RIesou = "ResourceIds";
 const _RIev = "RevisionId";
 const _RIo = "RoleId";
 const _RIoo = "RootId";
@@ -2863,6 +2869,7 @@ const _RRo = "RoutingRules";
 const _RRot = "RotationRules";
 const _RS = "RuleStatus";
 const _RSB = "ResourceSeverityBreakdown";
+const _RSC = "ResourceSubCategory";
 const _RSD = "ReplicaStatusDescription";
 const _RSDo = "RouteSetDetails";
 const _RSE = "RouteSelectionExpression";
@@ -3053,7 +3060,15 @@ const _SGS = "SecurityGroupSet";
 const _SGSu = "SubnetGroupStatus";
 const _SGe = "SecondaryGids";
 const _SH = "SecurityHub";
+const _SHAIAFRC = "SelfHostedAIAgentFrameworkResourceCount";
+const _SHAIARC = "SelfHostedAIAgentResourceCount";
+const _SHAIATAIRC = "SelfHostedAIAgentToolsAndIdentityResourceCount";
+const _SHAIDRC = "SelfHostedAIDevelopmentResourceCount";
+const _SHAIEERC = "SelfHostedAIExternalEndpointResourceCount";
+const _SHAIMRC = "SelfHostedAIModelResourceCount";
+const _SHAIMSRC = "SelfHostedAIModelServingResourceCount";
 const _SHP = "SecurityHubPolicy";
+const _SHTAIRC = "SelfHostedTotalAIResourceCount";
 const _SI = "StandardsId";
 const _SIL = "SourceIdsList";
 const _SIP = "SpotInstancePools";
@@ -3723,6 +3738,11 @@ export var AggregatorV2$: StaticStructureSchema = [3, n0, _AV,
   [_AVA],
   [0]
 ];
+export var AIDetails$: StaticStructureSchema = [3, n0, _AID,
+  0,
+  [_HRG, _HRT, _CI, _SHAIMRC, _SHAIARC, _SHAIMSRC, _SHAIEERC, _SHAIDRC, _SHAIAFRC, _SHAIATAIRC, _SHTAIRC],
+  [0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
+];
 export var AssociatedStandard$: StaticStructureSchema = [3, n0, _ASs,
   0,
   [_SI],
@@ -3905,7 +3925,7 @@ export var AwsAppSyncGraphQlApiLogConfigDetails$: StaticStructureSchema = [3, n0
 ];
 export var AwsAppSyncGraphQlApiOpenIdConnectConfigDetails$: StaticStructureSchema = [3, n0, _AASGQAOICCD,
   0,
-  [_ATL, _CI, _ITL, _Is],
+  [_ATL, _CIl, _ITL, _Is],
   [1, 0, 1, 0]
 ];
 export var AwsAppSyncGraphQlApiUserPoolConfigDetails$: StaticStructureSchema = [3, n0, _AASGQAUPCD,
@@ -5525,7 +5545,7 @@ export var AwsMskClusterClusterInfoEncryptionInfoEncryptionInTransitDetails$: St
 ];
 export var AwsMskClusterDetails$: StaticStructureSchema = [3, n0, _AMCD,
   0,
-  [_CIl],
+  [_CIlu],
   [() => AwsMskClusterClusterInfoDetails$]
 ];
 export var AwsNetworkFirewallFirewallDetails$: StaticStructureSchema = [3, n0, _ANFFD,
@@ -5770,7 +5790,7 @@ export var AwsRedshiftClusterDeferredMaintenanceWindow$: StaticStructureSchema =
 ];
 export var AwsRedshiftClusterDetails$: StaticStructureSchema = [3, n0, _ARCD,
   0,
-  [_AVU, _ASRP, _AZ, _CAS, _CCT, _CIlu, _CNlu, _CPG, _CPK, _CRN, _CSG, _CSCS, _CSlu, _CSGNl, _CVl, _DBN, _DMW, _EIS, _ERNONO, _En, _End, _EVR, _ENSST, _ENSSTS, _HS, _IRa, _KKI, _MTN, _MSRP, _MU, _NMWST, _NTo, _NON, _PAe, _PMV, _PMW, _PAu, _RIes, _RSest, _SSI, _SSS, _VIp, _VSG, _LSog],
+  [_AVU, _ASRP, _AZ, _CAS, _CCT, _CIlus, _CNlu, _CPG, _CPK, _CRN, _CSG, _CSCS, _CSlu, _CSGNl, _CVl, _DBN, _DMW, _EIS, _ERNONO, _En, _End, _EVR, _ENSST, _ENSSTS, _HS, _IRa, _KKI, _MTN, _MSRP, _MU, _NMWST, _NTo, _NON, _PAe, _PMV, _PMW, _PAu, _RIes, _RSest, _SSI, _SSS, _VIp, _VSG, _LSog],
   [2, 1, 0, 0, 0, 0, () => AwsRedshiftClusterClusterNodes, () => AwsRedshiftClusterClusterParameterGroups, 0, 0, () => AwsRedshiftClusterClusterSecurityGroups, () => AwsRedshiftClusterClusterSnapshotCopyStatus$, 0, 0, 0, 0, () => AwsRedshiftClusterDeferredMaintenanceWindows, () => AwsRedshiftClusterElasticIpStatus$, 0, 2, () => AwsRedshiftClusterEndpoint$, 2, 0, 0, () => AwsRedshiftClusterHsmStatus$, () => AwsRedshiftClusterIamRoles, 0, 0, 1, 0, 0, 0, 1, 64 | 0, () => AwsRedshiftClusterPendingModifiedValues$, 0, 2, () => AwsRedshiftClusterResizeInfo$, () => AwsRedshiftClusterRestoreStatus$, 0, 0, 0, () => AwsRedshiftClusterVpcSecurityGroups, () => AwsRedshiftClusterLoggingStatus$]
 ];
 export var AwsRedshiftClusterElasticIpStatus$: StaticStructureSchema = [3, n0, _ARCEIS,
@@ -5800,7 +5820,7 @@ export var AwsRedshiftClusterLoggingStatus$: StaticStructureSchema = [3, n0, _AR
 ];
 export var AwsRedshiftClusterPendingModifiedValues$: StaticStructureSchema = [3, n0, _ARCPMV,
   0,
-  [_ASRP, _CIlu, _CTlu, _CVl, _ETnc, _EVR, _MTN, _MUP, _NTo, _NON, _PAu],
+  [_ASRP, _CIlus, _CTlu, _CVl, _ETnc, _EVR, _MTN, _MUP, _NTo, _NON, _PAu],
   [1, 0, 0, 0, 0, 2, 0, 0, 0, 1, 2]
 ];
 export var AwsRedshiftClusterResizeInfo$: StaticStructureSchema = [3, n0, _ARCRI,
@@ -7888,6 +7908,11 @@ export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
   [_GBF, _Filt],
   [0, () => ResourcesFilters$], 1
 ];
+export var ResourceInfo$: StaticStructureSchema = [3, n0, _RIeso,
+  0,
+  [_AID],
+  [() => AIDetails$]
+];
 export var ResourceOwner$: StaticStructureSchema = [3, n0, _ROes,
   0,
   [_Acc, _Org],
@@ -7905,8 +7930,8 @@ export var ResourceOwnerOrg$: StaticStructureSchema = [3, n0, _ROO,
 ];
 export var ResourceResult$: StaticStructureSchema = [3, n0, _RResou,
   0,
-  [_RI, _AIc, _Reg, _RT, _RDCTD, _RCeso, _RGe, _ANcc, _RPe, _ROAI, _ROOI, _RCP, _RR, _RCesou, _RNes, _RCTD, _FSin, _RTe],
-  [0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList], 6
+  [_RI, _AIc, _Reg, _RT, _RDCTD, _RCeso, _RGe, _ANcc, _RPe, _ROAI, _ROOI, _RCP, _RR, _RCesou, _RNes, _RCTD, _FSin, _RTe, _RSC, _DTi, _RIeso],
+  [0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ResourceFindingsSummaryList, () => ResourceTagList, 0, 0, () => ResourceInfo$], 6
 ];
 export var ResourcesCompositeFilter$: StaticStructureSchema = [3, n0, _RCF,
   0,
@@ -8165,7 +8190,7 @@ export var SeverityUpdate$: StaticStructureSchema = [3, n0, _SUe,
 ];
 export var Signal$: StaticStructureSchema = [3, n0, _Sign,
   0,
-  [_T, _I, _Ti, _PA, _RIeso, _SIi, _N, _CA, _UA, _FSA, _LSAa, _Se, _Cou, _AIct, _EIndp],
+  [_T, _I, _Ti, _PA, _RIesou, _SIi, _N, _CA, _UA, _FSA, _LSAa, _Se, _Cou, _AIct, _EIndp],
   [0, 0, 0, 0, 64 | 0, () => IndicatorsList, 0, 1, 1, 1, 1, 1, 1, 64 | 0, 64 | 0]
 ];
 export var SoftwarePackage$: StaticStructureSchema = [3, n0, _SPof,

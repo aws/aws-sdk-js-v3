@@ -23,7 +23,7 @@ export interface CreateConnectorCommandInput extends CreateConnectorRequest {}
 export interface CreateConnectorCommandOutput extends CreateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cloud service provider management (CSPM) connector in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.</p>
+ * <p>Creates a connector to a third-party cloud provider in Security Hub CSPM. A connector establishes a connection between Security Hub CSPM and a third-party cloud provider, enabling Security Hub CSPM to ingest security findings and resource data from the connected environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

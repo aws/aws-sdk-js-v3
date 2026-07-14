@@ -38,7 +38,6 @@ import type {
   RecommendationStatus,
   RecommendationType,
   RecordState,
-  ResourceCategory,
   ResourcesDateField,
   ResourcesMapField,
   ResourcesNumberField,
@@ -72,6 +71,7 @@ import type {
   Action,
   ActionTarget,
   Adjustment,
+  AIDetails,
   AutomationRulesAction,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
@@ -178,7 +178,7 @@ import type {
   AwsWafRegionalRuleGroupDetails,
   AwsWafRegionalWebAclDetails,
   AwsWafRuleDetails,
-  AwsWafRuleGroupDetails,
+  AwsWafRuleGroupRulesDetails,
   Compliance,
   DataClassificationDetails,
   Detection,
@@ -192,6 +192,42 @@ import type {
   ProcessDetails,
   Remediation,
 } from "./models_1";
+
+/**
+ * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRuleGroupDetails {
+  /**
+   * <p>The name of the metrics for this rule group.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The name of the rule group.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the rule group.
+   *       </p>
+   * @public
+   */
+  RuleGroupId?: string | undefined;
+
+  /**
+   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+   * allow, block, or count.
+   *       </p>
+   * @public
+   */
+  Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
+}
 
 /**
  * <p>
@@ -3615,7 +3651,7 @@ export interface AzureScopeConfiguration {
  */
 export interface AzureDetail {
   /**
-   * <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
    * @public
    */
   AWSConfigConnectorArn: string | undefined;
@@ -3639,7 +3675,7 @@ export interface AzureDetail {
  */
 export interface AzureProviderConfiguration {
   /**
-   * <p>The ARN of the AWS Config connector used to establish the connection to Azure.</p>
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
    * @public
    */
   AWSConfigConnectorArn: string | undefined;
@@ -10353,6 +10389,18 @@ export interface ResourceFindingsSummary {
 }
 
 /**
+ * <p>Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains <code>AIDetails</code>.</p>
+ * @public
+ */
+export interface ResourceInfo {
+  /**
+   * <p>Details that are specific to self-hosted AI resources and their host resources.</p>
+   * @public
+   */
+  AIDetails?: AIDetails | undefined;
+}
+
+/**
  * <p>Represents tag information associated with Amazon Web Services resources.</p>
  * @public
  */
@@ -10368,136 +10416,4 @@ export interface ResourceTag {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
- * @public
- */
-export interface ResourceResult {
-  /**
-   * <p>The global identifier used to identify a resource.</p>
-   * @public
-   */
-  ResourceGuid?: string | undefined;
-
-  /**
-   * <p>The unique identifier for a resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account that recorded the resource data in Security Hub.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services account that's associated with the resource.</p>
-   * @public
-   */
-  AccountName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region that recorded the resource data in Security Hub.</p>
-   * @public
-   */
-  Region: string | undefined;
-
-  /**
-   * <p>The cloud provider where the resource exists. Valid values are <code>AWS</code> and <code>Azure</code>. This field is always included.</p>
-   * @public
-   */
-  ResourceProvider?: string | undefined;
-
-  /**
-   * <p>The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.</p>
-   * @public
-   */
-  ResourceOwnerAccountId?: string | undefined;
-
-  /**
-   * <p>The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.</p>
-   * @public
-   */
-  ResourceOwnerOrgId?: string | undefined;
-
-  /**
-   * <p>The cloud partition where the resource exists. For Amazon Web Services, valid values include <code>aws</code>, <code>aws-cn</code>, and <code>aws-us-gov</code>. This field isn't returned for cloud providers that don't use partitions.</p>
-   * @public
-   */
-  ResourceCloudPartition?: string | undefined;
-
-  /**
-   * <p>The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, <code>us-east-1</code>). For Azure resources, this is the Azure region (for example, <code>westus2</code>). This field is always included.</p>
-   * @public
-   */
-  ResourceRegion?: string | undefined;
-
-  /**
-   * <p>The grouping where the resource belongs.</p>
-   * @public
-   */
-  ResourceCategory?: ResourceCategory | undefined;
-
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  ResourceType: string | undefined;
-
-  /**
-   * <p>The name of the resource.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-
-  /**
-   * <p>The time when the resource was created.</p>
-   * @public
-   */
-  ResourceCreationTimeDt?: string | undefined;
-
-  /**
-   * <p>The timestamp when information about the resource was captured.</p>
-   * @public
-   */
-  ResourceDetailCaptureTimeDt: string | undefined;
-
-  /**
-   * <p>An aggregated view of security findings associated with a resource.</p>
-   * @public
-   */
-  FindingsSummary?: ResourceFindingsSummary[] | undefined;
-
-  /**
-   * <p>The key-value pairs associated with a resource.</p>
-   * @public
-   */
-  ResourceTags?: ResourceTag[] | undefined;
-
-  /**
-   * <p>The configuration details of a resource.</p>
-   * @public
-   */
-  ResourceConfig: __DocumentType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesV2Response {
-  /**
-   * <p>An array of resources returned by the operation.</p>
-   * @public
-   */
-  Resources: ResourceResult[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -1097,6 +1097,19 @@ export type FeatureName = (typeof FeatureName)[keyof typeof FeatureName];
  * @public
  * @enum
  */
+export const DiscoveryType = {
+  MANAGED: "Managed",
+  SELF_HOSTED: "SelfHosted",
+} as const;
+/**
+ * @public
+ */
+export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FindingHistoryUpdateSourceType = {
   BATCH_IMPORT_FINDINGS: "BATCH_IMPORT_FINDINGS",
   BATCH_UPDATE_FINDINGS: "BATCH_UPDATE_FINDINGS",
@@ -1257,6 +1270,14 @@ export type ResourcesMapField = (typeof ResourcesMapField)[keyof typeof Resource
  * @enum
  */
 export const ResourcesNumberField = {
+  SELF_HOSTED_AI_AGENT_FRAMEWORK_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
+  SELF_HOSTED_AI_AGENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
+  SELF_HOSTED_AI_AGENT_TOOLS_AND_IDENTITY_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount",
+  SELF_HOSTED_AI_DEVELOPMENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
+  SELF_HOSTED_AI_EXTERNAL_ENDPOINT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
+  SELF_HOSTED_AI_MODEL_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
+  SELF_HOSTED_AI_MODEL_SERVING_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
+  SELF_HOSTED_TOTAL_AI_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
   SEVERITY_CRITICAL: "FindingsSummary.Severities.Critical",
   SEVERITY_FATAL: "FindingsSummary.Severities.Fatal",
   SEVERITY_HIGH: "FindingsSummary.Severities.High",
@@ -1279,7 +1300,11 @@ export type ResourcesNumberField = (typeof ResourcesNumberField)[keyof typeof Re
 export const ResourcesStringField = {
   ACCOUNT_ID: "AccountId",
   ACCOUNT_NAME: "AccountName",
+  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
+  DISCOVERY_TYPE: "DiscoveryType",
   FINDING_TYPE: "FindingsSummary.FindingType",
+  HOST_RESOURCE_GUID: "ResourceInfo.AIDetails.HostResourceGuid",
+  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
   PRODUCT_NAME: "FindingsSummary.ProductName",
   REGION: "Region",
   RESOURCE_CATEGORY: "ResourceCategory",
@@ -1291,6 +1316,7 @@ export const ResourcesStringField = {
   RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
   RESOURCE_PROVIDER: "ResourceProvider",
   RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
   RESOURCE_TYPE: "ResourceType",
 } as const;
 /**
@@ -1305,7 +1331,10 @@ export type ResourcesStringField = (typeof ResourcesStringField)[keyof typeof Re
 export const ResourceGroupByField = {
   ACCOUNT_ID: "AccountId",
   ACCOUNT_NAME: "AccountName",
+  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
+  DISCOVERY_TYPE: "DiscoveryType",
   FINDING_TYPE: "FindingsSummary.FindingType",
+  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
   REGION: "Region",
   RESOURCE_CATEGORY: "ResourceCategory",
   RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
@@ -1314,6 +1343,7 @@ export const ResourceGroupByField = {
   RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
   RESOURCE_PROVIDER: "ResourceProvider",
   RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
   RESOURCE_TYPE: "ResourceType",
 } as const;
 /**
@@ -1359,6 +1389,28 @@ export const ResourceCategory = {
  * @public
  */
 export type ResourceCategory = (typeof ResourceCategory)[keyof typeof ResourceCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSubCategory = {
+  AGENT: "Agent",
+  AGENT_FRAMEWORK: "AgentFramework",
+  AGENT_TOOLS_AND_IDENTITY: "AgentToolsAndIdentity",
+  DEVELOPMENT: "Development",
+  EXTERNAL_ENDPOINT: "ExternalEndpoint",
+  KNOWLEDGE_AND_DATA: "KnowledgeAndData",
+  MODEL: "Model",
+  MODEL_SERVING: "ModelServing",
+  ORCHESTRATION_AND_PIPELINE: "OrchestrationAndPipeline",
+  OTHER: "Other",
+  SAFETY_AND_GUARDRAIL: "SafetyAndGuardrail",
+} as const;
+/**
+ * @public
+ */
+export type ResourceSubCategory = (typeof ResourceSubCategory)[keyof typeof ResourceSubCategory];
 
 /**
  * @public

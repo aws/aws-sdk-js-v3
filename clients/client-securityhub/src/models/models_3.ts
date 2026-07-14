@@ -1,4 +1,6 @@
 // smithy-typescript generated code
+import type { DocumentType as __DocumentType } from "@smithy/types";
+
 import type {
   AllowedOperators,
   AssociationStatus,
@@ -12,11 +14,14 @@ import type {
   CspmConnectorProviderName,
   CspmConnectorStatus,
   CspmEnablementStatus,
+  DiscoveryType,
   EnablementStatus,
   GroupByField,
   RecordState,
   RegionAvailabilityStatus,
+  ResourceCategory,
   ResourceGroupByField,
+  ResourceSubCategory,
   RuleStatusV2,
   SecurityControlProperty,
   SecurityControlsProvider,
@@ -57,16 +62,169 @@ import type {
   OrganizationConfiguration,
   ParameterConfiguration,
   Policy,
+  ResourceFindingsSummary,
+  ResourceInfo,
   ResourceScopes,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
+  ResourceTag,
   Result,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
+ * @public
+ */
+export interface ResourceResult {
+  /**
+   * <p>The global identifier used to identify a resource.</p>
+   * @public
+   */
+  ResourceGuid?: string | undefined;
+
+  /**
+   * <p>The unique identifier for a resource.</p>
+   * @public
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account that recorded the resource data in Security Hub.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services account that's associated with the resource.</p>
+   * @public
+   */
+  AccountName?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region that recorded the resource data in Security Hub.</p>
+   * @public
+   */
+  Region: string | undefined;
+
+  /**
+   * <p>The cloud provider where the resource exists. Valid values are <code>AWS</code> and <code>Azure</code>. This field is always included.</p>
+   * @public
+   */
+  ResourceProvider?: string | undefined;
+
+  /**
+   * <p>The identifier of the cloud account that owns the resource. For Amazon Web Services resources, this is the Amazon Web Services account ID. For Azure resources, this is the Azure subscription ID.</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>The identifier of the cloud organization that owns the resource. For Amazon Web Services resources, this is the Organizations ID. For Azure resources, this is the Azure tenant ID.</p>
+   * @public
+   */
+  ResourceOwnerOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud partition where the resource exists. For Amazon Web Services, valid values include <code>aws</code>, <code>aws-cn</code>, and <code>aws-us-gov</code>. This field isn't returned for cloud providers that don't use partitions.</p>
+   * @public
+   */
+  ResourceCloudPartition?: string | undefined;
+
+  /**
+   * <p>The native cloud region where the resource is located. For Amazon Web Services, this is an Amazon Web Services Region (for example, <code>us-east-1</code>). For Azure resources, this is the Azure region (for example, <code>westus2</code>). This field is always included.</p>
+   * @public
+   */
+  ResourceRegion?: string | undefined;
+
+  /**
+   * <p>The grouping where the resource belongs.</p>
+   * @public
+   */
+  ResourceCategory?: ResourceCategory | undefined;
+
+  /**
+   * <p>The type of resource.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The name of the resource.</p>
+   * @public
+   */
+  ResourceName?: string | undefined;
+
+  /**
+   * <p>The time when the resource was created.</p>
+   * @public
+   */
+  ResourceCreationTimeDt?: string | undefined;
+
+  /**
+   * <p>The timestamp when information about the resource was captured.</p>
+   * @public
+   */
+  ResourceDetailCaptureTimeDt: string | undefined;
+
+  /**
+   * <p>An aggregated view of security findings associated with a resource.</p>
+   * @public
+   */
+  FindingsSummary?: ResourceFindingsSummary[] | undefined;
+
+  /**
+   * <p>The key-value pairs associated with a resource.</p>
+   * @public
+   */
+  ResourceTags?: ResourceTag[] | undefined;
+
+  /**
+   * <p>The configuration details of a resource.</p>
+   * @public
+   */
+  ResourceConfig: __DocumentType | undefined;
+
+  /**
+   * <p>The AI/ML sub-grouping of the resource. Present only when <code>ResourceCategory</code> is <code>AI/ML</code>.</p>
+   * @public
+   */
+  ResourceSubCategory?: ResourceSubCategory | undefined;
+
+  /**
+   * <p>Specifies how the resource was discovered. If the value is <code>Managed</code>, the resource is natively provided by a cloud service provider. If the value is <code>SelfHosted</code>, the resource is hosted on customer-managed infrastructure, such as a compute instance or container image.</p>
+   * @public
+   */
+  DiscoveryType?: DiscoveryType | undefined;
+
+  /**
+   * <p>Additional resource-type-specific details. For self-hosted AI resources and their host resources, contains an <code>AIDetails</code> structure.</p>
+   * @public
+   */
+  ResourceInfo?: ResourceInfo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcesV2Response {
+  /**
+   * <p>An array of resources returned by the operation.</p>
+   * @public
+   */
+  Resources: ResourceResult[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results.
+   *          Otherwise, this parameter is null.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public

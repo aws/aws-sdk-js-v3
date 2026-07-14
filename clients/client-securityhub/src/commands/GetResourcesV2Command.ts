@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetResourcesV2Response } from "../models/models_2";
-import type { GetResourcesV2Request } from "../models/models_3";
+import type { GetResourcesV2Request, GetResourcesV2Response } from "../models/models_3";
 import { GetResourcesV2$ } from "../schemas/schemas_0";
 
 /**
@@ -27,6 +26,8 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * <p>Returns a list of resources.</p>
  *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you retrieve resources from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
  *          <p>You can use the <code>Filters</code> parameter to refine results based on resource attributes. You can use <code>Scopes</code> and <code>Filters</code> independently or together. When both are provided, <code>Scopes</code> narrows the data set first, and then <code>Filters</code> refines results within that scoped data set.</p>
+ *          <p>For AI/ML resources, the response includes the <code>ResourceSubCategory</code> field. For self-hosted AI resources and their host resources, the response also includes <code>ResourceInfo</code> with AI-specific details. Self-hosted AI resources use a <code>ResourceType</code> with the <code>SelfHosted::AI::</code> prefix, such as <code>SelfHosted::AI::Model</code>, <code>SelfHosted::AI::Agent</code>, <code>SelfHosted::AI::InferenceEndpoint</code>, and <code>SelfHosted::AI::ExternalEndpoint</code>.</p>
+ *          <p>If you filter by <code>ResourceSubCategory</code>, you must also include a <code>ResourceCategory</code> string filter with comparison set to <code>EQUALS</code> and value <code>AI/ML</code> in the same request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,7 +42,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *       { // ResourcesCompositeFilter
  *         StringFilters: [ // ResourcesStringFilterList
  *           { // ResourcesStringFilter
- *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *             FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -64,7 +65,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *         ],
  *         NumberFilters: [ // ResourcesNumberFilterList
  *           { // ResourcesNumberFilter
- *             FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
+ *             FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
  *             Filter: { // NumberFilter
  *               Gte: Number("double"),
  *               Lte: Number("double"),
@@ -88,7 +89,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *           {
  *             StringFilters: [
  *               {
- *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
  *                 Filter: {
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -111,7 +112,7 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  *             ],
  *             NumberFilters: [
  *               {
- *                 FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
+ *                 FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
  *                 Filter: {
  *                   Gte: Number("double"),
  *                   Lte: Number("double"),
@@ -201,6 +202,23 @@ export interface GetResourcesV2CommandOutput extends GetResourcesV2Response, __M
  * //         },
  * //       ],
  * //       ResourceConfig: "DOCUMENT_VALUE", // required
+ * //       ResourceSubCategory: "Model" || "ModelServing" || "Agent" || "AgentFramework" || "AgentToolsAndIdentity" || "SafetyAndGuardrail" || "KnowledgeAndData" || "OrchestrationAndPipeline" || "ExternalEndpoint" || "Development" || "Other",
+ * //       DiscoveryType: "Managed" || "SelfHosted",
+ * //       ResourceInfo: { // ResourceInfo
+ * //         AIDetails: { // AIDetails
+ * //           HostResourceGuid: "STRING_VALUE",
+ * //           HostResourceType: "STRING_VALUE",
+ * //           CanonicalId: "STRING_VALUE",
+ * //           SelfHostedAIModelResourceCount: Number("int"),
+ * //           SelfHostedAIAgentResourceCount: Number("int"),
+ * //           SelfHostedAIModelServingResourceCount: Number("int"),
+ * //           SelfHostedAIExternalEndpointResourceCount: Number("int"),
+ * //           SelfHostedAIDevelopmentResourceCount: Number("int"),
+ * //           SelfHostedAIAgentFrameworkResourceCount: Number("int"),
+ * //           SelfHostedAIAgentToolsAndIdentityResourceCount: Number("int"),
+ * //           SelfHostedTotalAIResourceCount: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
