@@ -43,35 +43,96 @@ function loadVersions() {
   return specs.map(({ version, tscArgs = [] }) => ({ version, tscArgs }));
 }
 
+const CLIENTS = [
+  "@aws-sdk/client-dynamodb",
+  "@aws-sdk/client-cloudwatch-logs",
+  "@aws-sdk/client-sts",
+  "@aws-sdk/client-ec2",
+  "@aws-sdk/client-lambda",
+  "@aws-sdk/client-s3",
+];
+
+// Clients expose downleveled declarations for older compilers via a package.json
+// `typesVersions` entry ("<4.5" -> dist-types/ts3.4/*). Any version we test below
+// 4.5 therefore resolves to dist-types/ts3.4, which must be generated separately
+// from the primary dist-types (client script: build:types:downlevel).
+const DOWNLEVEL_BOUNDARY = 4.5;
+
+/**
+ * Parse a bare minor spec (e.g. "3.4", "4.10") into a comparable number.
+ * @param {string} version
+ * @returns {number}
+ */
+function minorValue(version) {
+  const [major, minor = "0"] = version.split(".");
+  return Number(major) + Number(minor) / 1000;
+}
+
 /**
  * Ensure the workspace clients are installed and built (dist-types present).
  * The clients are consumed via file: links, so their .d.ts must exist on disk.
+ * When any version below 4.5 is under test, the downleveled dist-types/ts3.4
+ * declarations must also be present.
+ * @param {{ version: string }[]} versions
  */
-function ensureClientsReady() {
+function ensureClientsReady(versions) {
   if (!existsSync(path.join(root, "node_modules"))) {
     console.log("Installing fixture dependencies (clients) ...");
-    execFileSync("npm", ["install", "--no-audit", "--no-fund"], { cwd: root, stdio: "inherit" });
+    execFileSync("npm", ["install", "--no-audit", "--no-fund"], {
+      cwd: root,
+      stdio: "inherit",
+    });
   }
 
-  const clients = [
-    "@aws-sdk/client-dynamodb",
-    "@aws-sdk/client-cloudwatch-logs",
-    "@aws-sdk/client-sts",
-    "@aws-sdk/client-ec2",
-    "@aws-sdk/client-lambda",
-    "@aws-sdk/client-s3",
-  ];
-  const missing = clients.filter(
-    (name) => !existsSync(path.join(root, "node_modules", ...name.split("/"), "dist-types", "index.d.ts"))
+  const missing = CLIENTS.filter(
+    (name) =>
+      !existsSync(
+        path.join(
+          root,
+          "node_modules",
+          ...name.split("/"),
+          "dist-types",
+          "index.d.ts",
+        ),
+      ),
   );
   if (missing.length > 0) {
     console.error(
       `\nThe following clients are not built (dist-types missing): ${missing.join(", ")}.\n` +
         `Build them first, e.g.:\n` +
         `  node ./scripts/turbo build -F=@aws-sdk/client-dynamodb -F=@aws-sdk/client-cloudwatch-logs \\\n` +
-        `    -F=@aws-sdk/client-sts -F=@aws-sdk/client-ec2 -F=@aws-sdk/client-lambda -F=@aws-sdk/client-s3\n`
+        `    -F=@aws-sdk/client-sts -F=@aws-sdk/client-ec2 -F=@aws-sdk/client-lambda -F=@aws-sdk/client-s3\n`,
     );
     process.exit(1);
+  }
+
+  const needsDownlevel = versions.some(
+    (v) => minorValue(v.version) < DOWNLEVEL_BOUNDARY,
+  );
+  if (needsDownlevel) {
+    const missingDownlevel = CLIENTS.filter(
+      (name) =>
+        !existsSync(
+          path.join(
+            root,
+            "node_modules",
+            ...name.split("/"),
+            "dist-types",
+            "ts3.4",
+            "index.d.ts",
+          ),
+        ),
+    );
+    if (missingDownlevel.length > 0) {
+      console.error(
+        `\nTesting TypeScript < ${DOWNLEVEL_BOUNDARY} requires the downleveled ts3.4 declarations, ` +
+          `which are missing for: ${missingDownlevel.join(", ")}.\n` +
+          `Generate them from each client directory, e.g.:\n` +
+          `  yarn build:types:downlevel\n` +
+          `or build the clients including the downlevel step before running this suite.\n`,
+      );
+      process.exit(1);
+    }
   }
 }
 
@@ -122,12 +183,14 @@ async function runPool(versions) {
   return results;
 }
 
-ensureClientsReady();
 const versions = loadVersions();
+ensureClientsReady(versions);
 const results = await runPool(versions);
 
 results.sort(
-  (a, b) => versions.findIndex((v) => v.version === a.version) - versions.findIndex((v) => v.version === b.version)
+  (a, b) =>
+    versions.findIndex((v) => v.version === a.version) -
+    versions.findIndex((v) => v.version === b.version),
 );
 
 const failures = results.filter((r) => !r.ok);

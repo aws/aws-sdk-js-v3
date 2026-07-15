@@ -7,7 +7,12 @@
     "target": "es2018",
     "module": "commonjs",
     "moduleResolution": "node",
-    "lib": ["es2020", "dom"],
+    // es2019 is the newest lib value accepted by every version under test:
+    // TypeScript 3.4 rejects "es2020" at config-parse time (TS6046) and that
+    // error can't be overridden via command-line tscArgs, so the base value
+    // must be valid down to 3.4. es2019 covers everything the fixture and the
+    // clients' (downleveled) .d.ts need.
+    "lib": ["es2019", "dom"],
     // types:[] keeps @types/node out of the program. The fixture uses no Node
     // APIs, and no single @types/node version parses across all the TypeScript
     // versions under test.
