@@ -23,8 +23,7 @@ export interface ListFHIRDatastoresCommandInput extends ListFHIRDatastoresReques
 export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresResponse, __MetadataBearer {}
 
 /**
- * <p>List all FHIR-enabled data stores in a user’s account, regardless of data store
- *          status.</p>
+ * <p>List all FHIR-enabled data stores in a user’s account, regardless of data store status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +74,7 @@ export interface ListFHIRDatastoresCommandOutput extends ListFHIRDatastoresRespo
  * //         ErrorCategory: "RETRYABLE_ERROR" || "NON_RETRYABLE_ERROR",
  * //       },
  * //       NlpConfiguration: { // NlpConfiguration
- * //         Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ * //         Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
  * //       },
  * //       AnalyticsConfiguration: { // AnalyticsConfiguration
  * //         Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",

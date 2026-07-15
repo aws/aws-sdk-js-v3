@@ -8,15 +8,30 @@ import type {
 } from "@smithy/types";
 
 import {
+  type CreateDataTransformationProfileCommandInput,
+  type CreateDataTransformationProfileCommandOutput,
+  CreateDataTransformationProfileCommand,
+} from "./commands/CreateDataTransformationProfileCommand";
+import {
   type CreateFHIRDatastoreCommandInput,
   type CreateFHIRDatastoreCommandOutput,
   CreateFHIRDatastoreCommand,
 } from "./commands/CreateFHIRDatastoreCommand";
 import {
+  type DeleteDataTransformationProfileCommandInput,
+  type DeleteDataTransformationProfileCommandOutput,
+  DeleteDataTransformationProfileCommand,
+} from "./commands/DeleteDataTransformationProfileCommand";
+import {
   type DeleteFHIRDatastoreCommandInput,
   type DeleteFHIRDatastoreCommandOutput,
   DeleteFHIRDatastoreCommand,
 } from "./commands/DeleteFHIRDatastoreCommand";
+import {
+  type DescribeDataTransformationJobCommandInput,
+  type DescribeDataTransformationJobCommandOutput,
+  DescribeDataTransformationJobCommand,
+} from "./commands/DescribeDataTransformationJobCommand";
 import {
   type DescribeFHIRDatastoreCommandInput,
   type DescribeFHIRDatastoreCommandOutput,
@@ -32,6 +47,26 @@ import {
   type DescribeFHIRImportJobCommandOutput,
   DescribeFHIRImportJobCommand,
 } from "./commands/DescribeFHIRImportJobCommand";
+import {
+  type GetDataTransformationProfileCommandInput,
+  type GetDataTransformationProfileCommandOutput,
+  GetDataTransformationProfileCommand,
+} from "./commands/GetDataTransformationProfileCommand";
+import {
+  type ListDataTransformationJobsCommandInput,
+  type ListDataTransformationJobsCommandOutput,
+  ListDataTransformationJobsCommand,
+} from "./commands/ListDataTransformationJobsCommand";
+import {
+  type ListDataTransformationProfilesCommandInput,
+  type ListDataTransformationProfilesCommandOutput,
+  ListDataTransformationProfilesCommand,
+} from "./commands/ListDataTransformationProfilesCommand";
+import {
+  type ListDataTransformationProfileVersionsCommandInput,
+  type ListDataTransformationProfileVersionsCommandOutput,
+  ListDataTransformationProfileVersionsCommand,
+} from "./commands/ListDataTransformationProfileVersionsCommand";
 import {
   type ListFHIRDatastoresCommandInput,
   type ListFHIRDatastoresCommandOutput,
@@ -53,6 +88,16 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type PublishDataTransformationProfileCommandInput,
+  type PublishDataTransformationProfileCommandOutput,
+  PublishDataTransformationProfileCommand,
+} from "./commands/PublishDataTransformationProfileCommand";
+import {
+  type StartDataTransformationJobCommandInput,
+  type StartDataTransformationJobCommandOutput,
+  StartDataTransformationJobCommand,
+} from "./commands/StartDataTransformationJobCommand";
+import {
   type StartFHIRExportJobCommandInput,
   type StartFHIRExportJobCommandOutput,
   StartFHIRExportJobCommand,
@@ -73,42 +118,73 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import {
+  type UpdateDataTransformationProfileCommandInput,
+  type UpdateDataTransformationProfileCommandOutput,
+  UpdateDataTransformationProfileCommand,
+} from "./commands/UpdateDataTransformationProfileCommand";
+import {
   type UpdateFHIRDatastoreCommandInput,
   type UpdateFHIRDatastoreCommandOutput,
   UpdateFHIRDatastoreCommand,
 } from "./commands/UpdateFHIRDatastoreCommand";
+import {
+  type UpdateProfileWithAgentCommandInput,
+  type UpdateProfileWithAgentCommandOutput,
+  UpdateProfileWithAgentCommand,
+} from "./commands/UpdateProfileWithAgentCommand";
 import { HealthLakeClient } from "./HealthLakeClient";
 import type { HealthLakeServiceException } from "./models/HealthLakeServiceException";
+import { paginateListDataTransformationJobs } from "./pagination/ListDataTransformationJobsPaginator";
+import { paginateListDataTransformationProfiles } from "./pagination/ListDataTransformationProfilesPaginator";
+import {
+  paginateListDataTransformationProfileVersions,
+} from "./pagination/ListDataTransformationProfileVersionsPaginator";
 import { paginateListFHIRDatastores } from "./pagination/ListFHIRDatastoresPaginator";
 import { paginateListFHIRExportJobs } from "./pagination/ListFHIRExportJobsPaginator";
 import { paginateListFHIRImportJobs } from "./pagination/ListFHIRImportJobsPaginator";
+import { waitUntilDataTransformationJobCompleted } from "./waiters/waitForDataTransformationJobCompleted";
 import { waitUntilFHIRDatastoreActive } from "./waiters/waitForFHIRDatastoreActive";
 import { waitUntilFHIRDatastoreDeleted } from "./waiters/waitForFHIRDatastoreDeleted";
 import { waitUntilFHIRExportJobCompleted } from "./waiters/waitForFHIRExportJobCompleted";
 import { waitUntilFHIRImportJobCompleted } from "./waiters/waitForFHIRImportJobCompleted";
 
 const commands = {
+  CreateDataTransformationProfileCommand,
   CreateFHIRDatastoreCommand,
+  DeleteDataTransformationProfileCommand,
   DeleteFHIRDatastoreCommand,
+  DescribeDataTransformationJobCommand,
   DescribeFHIRDatastoreCommand,
   DescribeFHIRExportJobCommand,
   DescribeFHIRImportJobCommand,
+  GetDataTransformationProfileCommand,
+  ListDataTransformationJobsCommand,
+  ListDataTransformationProfilesCommand,
+  ListDataTransformationProfileVersionsCommand,
   ListFHIRDatastoresCommand,
   ListFHIRExportJobsCommand,
   ListFHIRImportJobsCommand,
   ListTagsForResourceCommand,
+  PublishDataTransformationProfileCommand,
+  StartDataTransformationJobCommand,
   StartFHIRExportJobCommand,
   StartFHIRImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateDataTransformationProfileCommand,
   UpdateFHIRDatastoreCommand,
+  UpdateProfileWithAgentCommand,
 };
 const paginators = {
+  paginateListDataTransformationJobs,
+  paginateListDataTransformationProfiles,
+  paginateListDataTransformationProfileVersions,
   paginateListFHIRDatastores,
   paginateListFHIRExportJobs,
   paginateListFHIRImportJobs,
 };
 const waiters = {
+  waitUntilDataTransformationJobCompleted,
   waitUntilFHIRDatastoreActive,
   waitUntilFHIRDatastoreDeleted,
   waitUntilFHIRExportJobCompleted,
@@ -116,6 +192,23 @@ const waiters = {
 };
 
 export interface HealthLake {
+  /**
+   * @see {@link CreateDataTransformationProfileCommand}
+   */
+  createDataTransformationProfile(
+    args: CreateDataTransformationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataTransformationProfileCommandOutput>;
+  createDataTransformationProfile(
+    args: CreateDataTransformationProfileCommandInput,
+    cb: (err: any, data?: CreateDataTransformationProfileCommandOutput) => void
+  ): void;
+  createDataTransformationProfile(
+    args: CreateDataTransformationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataTransformationProfileCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateFHIRDatastoreCommand}
    */
@@ -134,6 +227,23 @@ export interface HealthLake {
   ): void;
 
   /**
+   * @see {@link DeleteDataTransformationProfileCommand}
+   */
+  deleteDataTransformationProfile(
+    args: DeleteDataTransformationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataTransformationProfileCommandOutput>;
+  deleteDataTransformationProfile(
+    args: DeleteDataTransformationProfileCommandInput,
+    cb: (err: any, data?: DeleteDataTransformationProfileCommandOutput) => void
+  ): void;
+  deleteDataTransformationProfile(
+    args: DeleteDataTransformationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataTransformationProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteFHIRDatastoreCommand}
    */
   deleteFHIRDatastore(
@@ -148,6 +258,23 @@ export interface HealthLake {
     args: DeleteFHIRDatastoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFHIRDatastoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeDataTransformationJobCommand}
+   */
+  describeDataTransformationJob(
+    args: DescribeDataTransformationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDataTransformationJobCommandOutput>;
+  describeDataTransformationJob(
+    args: DescribeDataTransformationJobCommandInput,
+    cb: (err: any, data?: DescribeDataTransformationJobCommandOutput) => void
+  ): void;
+  describeDataTransformationJob(
+    args: DescribeDataTransformationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDataTransformationJobCommandOutput) => void
   ): void;
 
   /**
@@ -199,6 +326,75 @@ export interface HealthLake {
     args: DescribeFHIRImportJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFHIRImportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataTransformationProfileCommand}
+   */
+  getDataTransformationProfile(
+    args: GetDataTransformationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataTransformationProfileCommandOutput>;
+  getDataTransformationProfile(
+    args: GetDataTransformationProfileCommandInput,
+    cb: (err: any, data?: GetDataTransformationProfileCommandOutput) => void
+  ): void;
+  getDataTransformationProfile(
+    args: GetDataTransformationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataTransformationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTransformationJobsCommand}
+   */
+  listDataTransformationJobs(): Promise<ListDataTransformationJobsCommandOutput>;
+  listDataTransformationJobs(
+    args: ListDataTransformationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTransformationJobsCommandOutput>;
+  listDataTransformationJobs(
+    args: ListDataTransformationJobsCommandInput,
+    cb: (err: any, data?: ListDataTransformationJobsCommandOutput) => void
+  ): void;
+  listDataTransformationJobs(
+    args: ListDataTransformationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTransformationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTransformationProfilesCommand}
+   */
+  listDataTransformationProfiles(
+    args: ListDataTransformationProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTransformationProfilesCommandOutput>;
+  listDataTransformationProfiles(
+    args: ListDataTransformationProfilesCommandInput,
+    cb: (err: any, data?: ListDataTransformationProfilesCommandOutput) => void
+  ): void;
+  listDataTransformationProfiles(
+    args: ListDataTransformationProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTransformationProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTransformationProfileVersionsCommand}
+   */
+  listDataTransformationProfileVersions(
+    args: ListDataTransformationProfileVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataTransformationProfileVersionsCommandOutput>;
+  listDataTransformationProfileVersions(
+    args: ListDataTransformationProfileVersionsCommandInput,
+    cb: (err: any, data?: ListDataTransformationProfileVersionsCommandOutput) => void
+  ): void;
+  listDataTransformationProfileVersions(
+    args: ListDataTransformationProfileVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataTransformationProfileVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -271,6 +467,40 @@ export interface HealthLake {
   ): void;
 
   /**
+   * @see {@link PublishDataTransformationProfileCommand}
+   */
+  publishDataTransformationProfile(
+    args: PublishDataTransformationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PublishDataTransformationProfileCommandOutput>;
+  publishDataTransformationProfile(
+    args: PublishDataTransformationProfileCommandInput,
+    cb: (err: any, data?: PublishDataTransformationProfileCommandOutput) => void
+  ): void;
+  publishDataTransformationProfile(
+    args: PublishDataTransformationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PublishDataTransformationProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartDataTransformationJobCommand}
+   */
+  startDataTransformationJob(
+    args: StartDataTransformationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDataTransformationJobCommandOutput>;
+  startDataTransformationJob(
+    args: StartDataTransformationJobCommandInput,
+    cb: (err: any, data?: StartDataTransformationJobCommandOutput) => void
+  ): void;
+  startDataTransformationJob(
+    args: StartDataTransformationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDataTransformationJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartFHIRExportJobCommand}
    */
   startFHIRExportJob(
@@ -339,6 +569,23 @@ export interface HealthLake {
   ): void;
 
   /**
+   * @see {@link UpdateDataTransformationProfileCommand}
+   */
+  updateDataTransformationProfile(
+    args: UpdateDataTransformationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataTransformationProfileCommandOutput>;
+  updateDataTransformationProfile(
+    args: UpdateDataTransformationProfileCommandInput,
+    cb: (err: any, data?: UpdateDataTransformationProfileCommandOutput) => void
+  ): void;
+  updateDataTransformationProfile(
+    args: UpdateDataTransformationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataTransformationProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFHIRDatastoreCommand}
    */
   updateFHIRDatastore(
@@ -354,6 +601,56 @@ export interface HealthLake {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateFHIRDatastoreCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateProfileWithAgentCommand}
+   */
+  updateProfileWithAgent(
+    args: UpdateProfileWithAgentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProfileWithAgentCommandOutput>;
+  updateProfileWithAgent(
+    args: UpdateProfileWithAgentCommandInput,
+    cb: (err: any, data?: UpdateProfileWithAgentCommandOutput) => void
+  ): void;
+  updateProfileWithAgent(
+    args: UpdateProfileWithAgentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProfileWithAgentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataTransformationJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTransformationJobsCommandOutput}.
+   */
+  paginateListDataTransformationJobs(
+    args?: ListDataTransformationJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTransformationJobsCommandOutput>;
+
+  /**
+   * @see {@link ListDataTransformationProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTransformationProfilesCommandOutput}.
+   */
+  paginateListDataTransformationProfiles(
+    args: ListDataTransformationProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTransformationProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListDataTransformationProfileVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDataTransformationProfileVersionsCommandOutput}.
+   */
+  paginateListDataTransformationProfileVersions(
+    args: ListDataTransformationProfileVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDataTransformationProfileVersionsCommandOutput>;
 
   /**
    * @see {@link ListFHIRDatastoresCommand}
@@ -387,6 +684,16 @@ export interface HealthLake {
     args: ListFHIRImportJobsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFHIRImportJobsCommandOutput>;
+
+  /**
+   * @see {@link DescribeDataTransformationJobCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilDataTransformationJobCompleted(
+    args: DescribeDataTransformationJobCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<HealthLake>, "client">
+  ): Promise<WaiterResult<DescribeDataTransformationJobCommandOutput>>;
 
   /**
    * @see {@link DescribeFHIRDatastoreCommand}
@@ -430,9 +737,7 @@ export interface HealthLake {
 }
 
 /**
- * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to
- *          the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer
- *             Guide</i>.</p>
+ * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer Guide</i>.</p>
  * @public
  */
 export class HealthLake extends HealthLakeClient implements HealthLake {}

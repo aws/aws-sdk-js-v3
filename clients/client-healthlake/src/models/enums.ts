@@ -3,6 +3,79 @@
  * @public
  * @enum
  */
+export const SourceFormat = {
+  CCDA: "CCDA",
+  CSV: "CSV",
+} as const;
+/**
+ * @public
+ */
+export type SourceFormat = (typeof SourceFormat)[keyof typeof SourceFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TargetFormat = {
+  FHIR_R4: "FHIR_R4",
+} as const;
+/**
+ * @public
+ */
+export type TargetFormat = (typeof TargetFormat)[keyof typeof TargetFormat];
+
+/**
+ * @public
+ * @enum
+ */
+export const TransformationJobStatus = {
+  COMPLETED: "COMPLETED",
+  COMPLETED_WITH_ERRORS: "COMPLETED_WITH_ERRORS",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+  SUBMITTED: "SUBMITTED",
+} as const;
+/**
+ * @public
+ */
+export type TransformationJobStatus = (typeof TransformationJobStatus)[keyof typeof TransformationJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentInputMessageType = {
+  NORMAL: "normal",
+  USER_CONFIRMATION_RESPONSE: "confirmation_response",
+} as const;
+/**
+ * @public
+ */
+export type AgentInputMessageType = (typeof AgentInputMessageType)[keyof typeof AgentInputMessageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgentOutputMessageType = {
+  CHOICES: "choices",
+  COMPLETE: "complete",
+  ERROR: "error",
+  INITIAL_GREETING: "INITIAL_GREETING",
+  NORMAL: "normal",
+  OPTIONS: "options",
+  USER_CONFIRMATION_REQUEST: "confirmation",
+} as const;
+/**
+ * @public
+ */
+export type AgentOutputMessageType = (typeof AgentOutputMessageType)[keyof typeof AgentOutputMessageType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalyticsStatus = {
   DISABLED: "DISABLED",
   DISABLING: "DISABLING",

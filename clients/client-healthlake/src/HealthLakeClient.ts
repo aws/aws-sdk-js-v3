@@ -55,13 +55,25 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  CreateDataTransformationProfileCommandInput,
+  CreateDataTransformationProfileCommandOutput,
+} from "./commands/CreateDataTransformationProfileCommand";
+import type {
   CreateFHIRDatastoreCommandInput,
   CreateFHIRDatastoreCommandOutput,
 } from "./commands/CreateFHIRDatastoreCommand";
 import type {
+  DeleteDataTransformationProfileCommandInput,
+  DeleteDataTransformationProfileCommandOutput,
+} from "./commands/DeleteDataTransformationProfileCommand";
+import type {
   DeleteFHIRDatastoreCommandInput,
   DeleteFHIRDatastoreCommandOutput,
 } from "./commands/DeleteFHIRDatastoreCommand";
+import type {
+  DescribeDataTransformationJobCommandInput,
+  DescribeDataTransformationJobCommandOutput,
+} from "./commands/DescribeDataTransformationJobCommand";
 import type {
   DescribeFHIRDatastoreCommandInput,
   DescribeFHIRDatastoreCommandOutput,
@@ -74,6 +86,22 @@ import type {
   DescribeFHIRImportJobCommandInput,
   DescribeFHIRImportJobCommandOutput,
 } from "./commands/DescribeFHIRImportJobCommand";
+import type {
+  GetDataTransformationProfileCommandInput,
+  GetDataTransformationProfileCommandOutput,
+} from "./commands/GetDataTransformationProfileCommand";
+import type {
+  ListDataTransformationJobsCommandInput,
+  ListDataTransformationJobsCommandOutput,
+} from "./commands/ListDataTransformationJobsCommand";
+import type {
+  ListDataTransformationProfilesCommandInput,
+  ListDataTransformationProfilesCommandOutput,
+} from "./commands/ListDataTransformationProfilesCommand";
+import type {
+  ListDataTransformationProfileVersionsCommandInput,
+  ListDataTransformationProfileVersionsCommandOutput,
+} from "./commands/ListDataTransformationProfileVersionsCommand";
 import type {
   ListFHIRDatastoresCommandInput,
   ListFHIRDatastoresCommandOutput,
@@ -91,6 +119,14 @@ import type {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import type {
+  PublishDataTransformationProfileCommandInput,
+  PublishDataTransformationProfileCommandOutput,
+} from "./commands/PublishDataTransformationProfileCommand";
+import type {
+  StartDataTransformationJobCommandInput,
+  StartDataTransformationJobCommandOutput,
+} from "./commands/StartDataTransformationJobCommand";
+import type {
   StartFHIRExportJobCommandInput,
   StartFHIRExportJobCommandOutput,
 } from "./commands/StartFHIRExportJobCommand";
@@ -101,9 +137,17 @@ import type {
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
+  UpdateDataTransformationProfileCommandInput,
+  UpdateDataTransformationProfileCommandOutput,
+} from "./commands/UpdateDataTransformationProfileCommand";
+import type {
   UpdateFHIRDatastoreCommandInput,
   UpdateFHIRDatastoreCommandOutput,
 } from "./commands/UpdateFHIRDatastoreCommand";
+import type {
+  UpdateProfileWithAgentCommandInput,
+  UpdateProfileWithAgentCommandOutput,
+} from "./commands/UpdateProfileWithAgentCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -119,39 +163,61 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateDataTransformationProfileCommandInput
   | CreateFHIRDatastoreCommandInput
+  | DeleteDataTransformationProfileCommandInput
   | DeleteFHIRDatastoreCommandInput
+  | DescribeDataTransformationJobCommandInput
   | DescribeFHIRDatastoreCommandInput
   | DescribeFHIRExportJobCommandInput
   | DescribeFHIRImportJobCommandInput
+  | GetDataTransformationProfileCommandInput
+  | ListDataTransformationJobsCommandInput
+  | ListDataTransformationProfileVersionsCommandInput
+  | ListDataTransformationProfilesCommandInput
   | ListFHIRDatastoresCommandInput
   | ListFHIRExportJobsCommandInput
   | ListFHIRImportJobsCommandInput
   | ListTagsForResourceCommandInput
+  | PublishDataTransformationProfileCommandInput
+  | StartDataTransformationJobCommandInput
   | StartFHIRExportJobCommandInput
   | StartFHIRImportJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
-  | UpdateFHIRDatastoreCommandInput;
+  | UpdateDataTransformationProfileCommandInput
+  | UpdateFHIRDatastoreCommandInput
+  | UpdateProfileWithAgentCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateDataTransformationProfileCommandOutput
   | CreateFHIRDatastoreCommandOutput
+  | DeleteDataTransformationProfileCommandOutput
   | DeleteFHIRDatastoreCommandOutput
+  | DescribeDataTransformationJobCommandOutput
   | DescribeFHIRDatastoreCommandOutput
   | DescribeFHIRExportJobCommandOutput
   | DescribeFHIRImportJobCommandOutput
+  | GetDataTransformationProfileCommandOutput
+  | ListDataTransformationJobsCommandOutput
+  | ListDataTransformationProfileVersionsCommandOutput
+  | ListDataTransformationProfilesCommandOutput
   | ListFHIRDatastoresCommandOutput
   | ListFHIRExportJobsCommandOutput
   | ListFHIRImportJobsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PublishDataTransformationProfileCommandOutput
+  | StartDataTransformationJobCommandOutput
   | StartFHIRExportJobCommandOutput
   | StartFHIRImportJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
-  | UpdateFHIRDatastoreCommandOutput;
+  | UpdateDataTransformationProfileCommandOutput
+  | UpdateFHIRDatastoreCommandOutput
+  | UpdateProfileWithAgentCommandOutput;
 
 /**
  * @public
@@ -344,9 +410,7 @@ export type HealthLakeClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface HealthLakeClientResolvedConfig extends HealthLakeClientResolvedConfigType {}
 
 /**
- * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to
- *          the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer
- *             Guide</i>.</p>
+ * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer Guide</i>.</p>
  * @public
  */
 export class HealthLakeClient extends __Client<

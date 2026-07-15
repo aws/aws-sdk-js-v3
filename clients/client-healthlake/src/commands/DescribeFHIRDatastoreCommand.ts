@@ -66,7 +66,7 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * //       ErrorCategory: "RETRYABLE_ERROR" || "NON_RETRYABLE_ERROR",
  * //     },
  * //     NlpConfiguration: { // NlpConfiguration
- * //       Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ * //       Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
  * //     },
  * //     AnalyticsConfiguration: { // AnalyticsConfiguration
  * //       Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",

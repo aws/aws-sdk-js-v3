@@ -23,9 +23,7 @@ export interface StartFHIRImportJobCommandInput extends StartFHIRImportJobReques
 export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Start importing bulk FHIR data into an ACTIVE data store. The import job imports FHIR
- *          data found in the <code>InputDataConfig</code> object and stores processing results in the
- *          <code>JobOutputDataConfig</code> object.</p>
+ * <p>Start importing bulk FHIR data into an ACTIVE data store. The import job imports FHIR data found in the <code>InputDataConfig</code> object and stores processing results in the <code>JobOutputDataConfig</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +47,9 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *   DataAccessRoleArn: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
  *   ValidationLevel: "strict" || "structure-only" || "minimal",
+ *   ProfileId: "STRING_VALUE",
+ *   InputFormat: "STRING_VALUE",
+ *   DriftDetectionEnabled: true || false,
  * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);
@@ -68,6 +69,9 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
+ *
+ * @throws {@link FailedDependencyException} (client fault)
+ *  A dependent service failed to fulfill the request.
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>

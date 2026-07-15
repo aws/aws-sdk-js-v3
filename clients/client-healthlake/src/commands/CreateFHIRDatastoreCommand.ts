@@ -61,7 +61,7 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
  *   },
  *   NlpConfiguration: { // NlpConfiguration
- *     Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
  *   },
  *   ProfileConfiguration: { // ProfileConfiguration
  *     DefaultProfiles: [ // DefaultProfiles
