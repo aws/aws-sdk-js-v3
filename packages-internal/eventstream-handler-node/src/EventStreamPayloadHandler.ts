@@ -57,7 +57,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       throw new Error("Eventstream payload must be a Readable stream.");
     }
 
-    const payloadStream = payload as Readable;
+    const payloadStream = payload;
     request.body = new PassThrough({
       objectMode: true,
     });
