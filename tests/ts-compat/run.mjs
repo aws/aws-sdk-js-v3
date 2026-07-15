@@ -43,15 +43,6 @@ function loadVersions() {
   return specs.map(({ version, tscArgs = [] }) => ({ version, tscArgs }));
 }
 
-const CLIENTS = [
-  "@aws-sdk/client-dynamodb",
-  "@aws-sdk/client-cloudwatch-logs",
-  "@aws-sdk/client-sts",
-  "@aws-sdk/client-ec2",
-  "@aws-sdk/client-lambda",
-  "@aws-sdk/client-s3",
-];
-
 /**
  * Ensure the workspace clients are installed and built (dist-types present).
  * The clients are consumed via file: links, so their .d.ts must exist on disk.
@@ -65,7 +56,15 @@ function ensureClientsReady() {
     });
   }
 
-  const missing = CLIENTS.filter(
+  const clients = [
+    "@aws-sdk/client-dynamodb",
+    "@aws-sdk/client-cloudwatch-logs",
+    "@aws-sdk/client-sts",
+    "@aws-sdk/client-ec2",
+    "@aws-sdk/client-lambda",
+    "@aws-sdk/client-s3",
+  ];
+  const missing = clients.filter(
     (name) =>
       !existsSync(
         path.join(

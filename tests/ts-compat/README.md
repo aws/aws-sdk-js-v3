@@ -40,8 +40,10 @@ isolation with its own dependency installs.
 
 For versions below TypeScript 4.5, the clients resolve their types to the
 downleveled `dist-types/ts3.4` declarations via each client's `typesVersions`
-(`"<4.5"`) entry. Those declarations are produced by a separate build step
-(`yarn build:types:downlevel` in the client), so they must exist too.
+(`"<4.5"`) entry. These are produced by a separate build step
+(`build:types:downlevel`). The `test-typescript-versions` Make target runs the
+root `yarn build:types:downlevel` before the suite so they are present. If you
+run `run.mjs` directly, run `yarn build:types:downlevel` at the repo root first.
 
 ## Protocol coverage
 
