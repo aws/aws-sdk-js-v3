@@ -1,25 +1,10 @@
-/**
- * Integration tests for clock skew correction, derived from the Clock Skew SEP
- * test cases (clock-skew-test-cases.json).
- *
- * These tests exercise the full middleware + signer flow with mocked HTTP
- * responses and mocked time. No network calls are made.
- *
- * Approach:
- *   - We mock Date.now() to return controlled values
- *   - During the "send phase" (before request handler fires), Date.now() returns clientTimeAtSend
- *   - During the "receive phase" (after handler returns response), Date.now() returns clientTimeAtReceive
- *   - A custom HTTP handler transitions the mock between phases
- *   - This is robust against any number of Date.now() calls in middleware
- */
+
 import { STS } from "@aws-sdk/client-sts";
 import { HttpResponse } from "@smithy/core/protocols";
 import type { HttpHandlerOptions, RequestHandlerOutput } from "@smithy/types";
 import { HttpRequest } from "@smithy/protocol-http";
 import { Readable } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
-
-// ─── Response Builders ──────────────────────────────────────────────────────
 
 function stsSuccessResponse(dateHeader: string, ageHeader?: string): HttpResponse {
   const headers: Record<string, string> = {
@@ -92,7 +77,6 @@ function stsErrorResponseNoDate(errorCode: string, statusCode = 403): HttpRespon
   });
 }
 
-// ─── Time-controlling HTTP handler ──────────────────────────────────────────
 
 interface AttemptTiming {
   sendMs: number;
@@ -102,7 +86,7 @@ interface AttemptTiming {
 }
 
 /**
- * Custom HTTP handler that:
+ * Custom HTTP handler that
  * 1. Records the x-amz-date header from each request for assertion
  * 2. Transitions Date.now() from send→receive time when the handler fires
  * 3. Returns the queued response
@@ -130,23 +114,13 @@ class ClockSkewTestHandler {
     const signingTime = request.headers["x-amz-date"];
     this.capturedSigningTimes.push(signingTime);
 
-    // Transition to receive phase — after this point, Date.now() returns receiveMs
     this.dateNowMock.mockImplementation(() => attempt.receiveMs);
 
     const response = attempt.response;
     this.currentIndex++;
 
-    // Set up the next attempt's send time for any subsequent calls
     if (this.currentIndex < this.attempts.length) {
-      // After the response processing is done and before the next sign() call,
-      // we need to return the next attempt's send time. We do this via a short
-      // setTimeout-like trick: mockImplementation that returns the next sendMs.
-      // The response processing (successHandler/errorHandler) will still see
-      // receiveMs because we set it above and the handler runs synchronously
-      // before returning. After the await resolves, the next sign() call will
-      // get the next sendMs.
       const nextSendMs = this.attempts[this.currentIndex].sendMs;
-      // Use a microtask to transition after the current handler's response is processed
       queueMicrotask(() => {
         this.dateNowMock.mockImplementation(() => nextSendMs);
       });
@@ -171,13 +145,9 @@ class ClockSkewTestHandler {
   }
 }
 
-// ─── Helpers ────────────────────────────────────────────────────────────────
-
 function toSigV4Date(isoTime: string): string {
   return new Date(isoTime).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
 }
-
-// ─── Tests ──────────────────────────────────────────────────────────────────
 
 describe("Clock Skew SEP Integration Tests", () => {
   const credentials = { accessKeyId: "INTEG_TEST", secretAccessKey: "INTEG_TEST" };
@@ -286,7 +256,7 @@ describe("Clock Skew SEP Integration Tests", () => {
   });
 
   it("Delayed response exceeding trust threshold does not update ClientSkew", async () => {
-    // Operation 1: elapsed = 16 min > 15 min → discard
+    // Operation 1: elapsed = 16 min > 15 min -> discard
     const handler1 = new ClockSkewTestHandler(
       [
         {
@@ -361,7 +331,6 @@ describe("Clock Skew SEP Integration Tests", () => {
       dateNowSpy
     );
 
-    // maxAttempts = 1 to prove it's NOT retried as clock skew
     const client = new STS({ region, credentials, maxAttempts: 1, requestHandler: handler as any });
 
     try {
@@ -429,7 +398,7 @@ describe("Clock Skew SEP Integration Tests", () => {
   });
 
   it("Cached response with Age header does not update ClientSkew", async () => {
-    // Operation 1: CDN cached (Age header present) → discard
+    // Operation 1: CDN cached (Age header present) -> discard
     const handler1 = new ClockSkewTestHandler(
       [
         {
@@ -469,7 +438,7 @@ describe("Clock Skew SEP Integration Tests", () => {
   });
 
   it("Cached response with Age header does not poison ClientSkew even when followed by normal request", async () => {
-    // Operation 1: CDN cached → discarded
+    // Operation 1: CDN cached -> discarded
     const handler1 = new ClockSkewTestHandler(
       [
         {
