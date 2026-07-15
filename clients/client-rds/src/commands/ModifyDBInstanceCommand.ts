@@ -135,6 +135,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  *     },
  *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new ModifyDBInstanceCommand(input);
  * const response = await client.send(command);

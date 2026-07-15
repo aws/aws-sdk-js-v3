@@ -3985,8 +3985,8 @@ export var ModifyDBClusterEndpointMessage$: StaticStructureSchema = [3, n0, _MDB
 ];
 export var ModifyDBClusterMessage$: StaticStructureSchema = [3, n0, _MDBCM,
   0,
-  [_DBCI, _NDBCI, _AIp, _BRP, _DBCPGN, _VSGI, _P, _MUP, _OGN, _PBW, _PMW, _EIAMDA, _BW, _CLEC, _EV, _AMVUl, _DBIPGN, _Do, _DIAMRN, _SC, _DP, _EHE, _CTTS, _EGWF, _DBCIC, _AS, _STt, _I, _AMVU, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _MMUP, _RMUP, _ELWF, _MUSKKI, _EMn, _AEMC, _ABRPA, _ELD, _CACI, _MUAT],
-  [0, 0, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], 1, [() => SensitiveString, 0], 0, 0, 0, 2, 1, () => CloudwatchLogsExportConfiguration$, 0, 2, 0, 0, 0, () => ScalingConfiguration$, 2, 2, 2, 2, 0, 1, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 2, 2, 0, 0, 2, 0, 2, 0, 0], 1
+  [_DBCI, _NDBCI, _AIp, _BRP, _DBCPGN, _VSGI, _P, _MUP, _OGN, _PBW, _PMW, _EIAMDA, _BW, _CLEC, _EV, _AMVUl, _DBIPGN, _Do, _DIAMRN, _SC, _DP, _EHE, _CTTS, _EGWF, _DBCIC, _AS, _STt, _I, _AMVU, _NT, _SVSC, _MIo, _MRA, _DIM, _EPI, _PIKMSKI, _PIRP, _MMUP, _RMUP, _ELWF, _MUSKKI, _EMn, _AEMC, _ABRPA, _ELD, _CACI, _MUAT, _ELS],
+  [0, 0, 2, 1, 0, [() => VpcSecurityGroupIdList, 0], 1, [() => SensitiveString, 0], 0, 0, 0, 2, 1, () => CloudwatchLogsExportConfiguration$, 0, 2, 0, 0, 0, () => ScalingConfiguration$, 2, 2, 2, 2, 0, 1, 0, 1, 2, 0, () => ServerlessV2ScalingConfiguration$, 1, 0, 0, 2, 0, 1, 2, 2, 2, 0, 0, 2, 0, 2, 0, 0, 0], 1
 ];
 export var ModifyDBClusterParameterGroupMessage$: StaticStructureSchema = [3, n0, _MDBCPGM,
   0,
@@ -4010,8 +4010,8 @@ export var ModifyDBClusterSnapshotAttributeResult$: StaticStructureSchema = [3, 
 ];
 export var ModifyDBInstanceMessage$: StaticStructureSchema = [3, n0, _MDBIM,
   0,
-  [_DBII, _AS, _DBIC, _DBSGNu, _DBSGe, _VSGI, _AIp, _MUP, _DBPGN, _BRP, _PBW, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _LM, _I, _ST, _OGN, _NDBII, _STt, _TCA, _TCP, _CACI, _Do, _DF, _DO, _DASA, _DDI, _DD, _CTTS, _MIo, _DBPNo, _PA, _MRA, _DIAMRN, _PT, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _CLEC, _PF, _UDPF, _DP, _MAS, _CRR, _RM, _AM, _RFAMM, _ECOI, _NT, _ABRPA, _MMUP, _RMUP, _MUSKKI, _MT, _DLV, _E, _ASVd, _TS, _MUAT],
-  [0, 1, 0, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 2, [() => SensitiveString, 0], 0, 1, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, [() => SensitiveString, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 2, 1, 1, 2, 0, 0, 1, 2, 0, 2, 0, 1, () => CloudwatchLogsExportConfiguration$, [() => ProcessorFeatureList, 0], 2, 2, 1, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 2, 2, 0, () => ModifyAdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0], 1
+  [_DBII, _AS, _DBIC, _DBSGNu, _DBSGe, _VSGI, _AIp, _MUP, _DBPGN, _BRP, _PBW, _PMW, _MAZ, _EV, _AMVUl, _AMVU, _LM, _I, _ST, _OGN, _NDBII, _STt, _TCA, _TCP, _CACI, _Do, _DF, _DO, _DASA, _DDI, _DD, _CTTS, _MIo, _DBPNo, _PA, _MRA, _DIAMRN, _PT, _EIAMDA, _DIM, _EPI, _PIKMSKI, _PIRP, _CLEC, _PF, _UDPF, _DP, _MAS, _CRR, _RM, _AM, _RFAMM, _ECOI, _NT, _ABRPA, _MMUP, _RMUP, _MUSKKI, _MT, _DLV, _E, _ASVd, _TS, _MUAT, _ELS],
+  [0, 1, 0, 0, [() => DBSecurityGroupNameList, 0], [() => VpcSecurityGroupIdList, 0], 2, [() => SensitiveString, 0], 0, 1, 0, 0, 2, 0, 2, 2, 0, 1, 1, 0, 0, 0, 0, [() => SensitiveString, 0], 0, 0, 0, 0, 0, 64 | 0, 2, 2, 1, 1, 2, 0, 0, 1, 2, 0, 2, 0, 1, () => CloudwatchLogsExportConfiguration$, [() => ProcessorFeatureList, 0], 2, 2, 1, 2, 0, 0, 1, 2, 0, 0, 2, 2, 0, 2, 2, 0, () => ModifyAdditionalStorageVolumesList, [() => TagSpecificationList, 0], 0, 0], 1
 ];
 export var ModifyDBInstanceResult$: StaticStructureSchema = [3, n0, _MDBIR,
   0,

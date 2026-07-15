@@ -100,6 +100,7 @@ export interface ModifyDBClusterCommandOutput extends ModifyDBClusterResult, __M
  *   EnableLimitlessDatabase: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
+ *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new ModifyDBClusterCommand(input);
  * const response = await client.send(command);
