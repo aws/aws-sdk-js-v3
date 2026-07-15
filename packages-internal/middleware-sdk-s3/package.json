@@ -64,7 +64,7 @@
     "@aws-sdk/core": "workspace:^3.975.2",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.40",
     "@aws-sdk/types": "workspace:^3.974.1",
-    "@smithy/core": "^3.29.3",
+    "@smithy/core": "^3.29.4",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },

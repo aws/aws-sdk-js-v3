@@ -1,9 +1,8 @@
 // smithy-typescript generated code
-import type {
+import {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4AuthResolvedConfig,
-  AwsSdkSigV4PreviouslyResolved} from "@aws-sdk/core/httpAuthSchemes";
-import {
+  AwsSdkSigV4PreviouslyResolved,
   resolveAwsSdkSigV4Config,
 } from "@aws-sdk/core/httpAuthSchemes";
 import { getSmithyContext, normalizeProvider } from "@smithy/core/client";
@@ -17,8 +16,7 @@ import type {
   Provider,
 } from "@smithy/types";
 
-import type { SSOClientConfig } from "../SSOClient";
-import { type SSOClientResolvedConfig } from "../SSOClient";
+import { type SSOClientResolvedConfig, SSOClientConfig } from "../SSOClient";
 
 /**
  * @internal
@@ -93,7 +91,7 @@ export const defaultSSOHttpAuthSchemeProvider: SSOHttpAuthSchemeProvider = (auth
     case "GetRoleCredentials": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
-    }
+    };
     default: {
       options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
     }

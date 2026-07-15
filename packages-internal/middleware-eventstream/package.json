@@ -24,7 +24,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "workspace:^3.974.1",
-    "@smithy/core": "^3.29.3",
+    "@smithy/core": "^3.29.4",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
