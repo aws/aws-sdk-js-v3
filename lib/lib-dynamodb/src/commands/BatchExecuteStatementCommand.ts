@@ -22,7 +22,7 @@ export { DynamoDBDocumentClientCommand, $Command };
 export type BatchExecuteStatementCommandInput = Omit<__BatchExecuteStatementCommandInput, "Statements"> & {
   Statements: (
     Omit<BatchStatementRequest, "Parameters"> & {
-      Parameters?: NativeAttributeValue[] | undefined;
+      Parameters?: JsAttributeValue[] | undefined;
     }
   )[] | undefined;
 };
@@ -34,9 +34,9 @@ export type BatchExecuteStatementCommandOutput = Omit<__BatchExecuteStatementCom
   Responses?: (
     Omit<BatchStatementResponse, "Error" | "Item"> & {
       Error?: Omit<BatchStatementError, "Item"> & {
-        Item?: Record<string, NativeAttributeValue> | undefined;
+        Item?: Record<string, JsAttributeValue> | undefined;
       } | undefined;
-      Item?: Record<string, NativeAttributeValue> | undefined;
+      Item?: Record<string, JsAttributeValue> | undefined;
     }
   )[] | undefined;
 };
@@ -76,8 +76,7 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __BatchExecuteStatementCommand;
-  public readonly middlewareStack: MiddlewareStack<BatchExecuteStatementCommandInput | __BatchExecuteStatementCommandInput,
-  BatchExecuteStatementCommandOutput | __BatchExecuteStatementCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: BatchExecuteStatementCommandInput) {
     super();
@@ -97,7 +96,7 @@ export class BatchExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -109,5 +108,5 @@ import type {
   BatchStatementResponse,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

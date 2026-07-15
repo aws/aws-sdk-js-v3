@@ -838,6 +838,50 @@ describe(
         },
       });
     });
+
+    it("can decode with useMaps=true to return Map instances", async () => {
+      const docWithMaps = DynamoDBDocument.from(dynamodb, {
+        decodeOptions: {
+          useMaps: true,
+        },
+      });
+
+      await docWithMaps.put({
+        TableName,
+        // Item (AttributeValueMap), ironically, is not M and will
+        // not convert to Map.
+        Item: {
+          id: "map-decode",
+          maybeAMap: {
+            a: 1,
+            b: 2,
+            nestedMap: {
+              c: 3,
+              d: 4,
+            },
+          },
+        },
+      });
+
+      const result: any = await docWithMaps.get({ TableName, Key: { id: "map-decode" }, ConsistentRead: true });
+      // Item itself is always a plain object (reconstructed by processAllKeysInObj).
+      // useMaps affects nested M attributes within the item.
+      expect(result.Item.id).toBe("map-decode");
+      expect(result.Item.maybeAMap).toBeInstanceOf(Map);
+      expect(result.Item.maybeAMap).toEqual(
+        new Map<any, any>([
+          ["a", 1],
+          ["b", 2],
+          [
+            "nestedMap",
+            new Map([
+              ["c", 3],
+              ["d", 4],
+            ]),
+          ],
+        ])
+      );
+    });
   },
   180_000
 );

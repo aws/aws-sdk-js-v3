@@ -41,7 +41,7 @@ describe("DynamoDBDocumentClientCommand", () => {
     command.resolveMiddleware(null as any, null as any, null as any);
     {
       const [middleware, options] = command.argCaptor[0];
-      expect(middleware.toString()).toContain(`marshallInput`);
+      expect(middleware.toString()).toContain(`encodeInput`);
       expect(options).toEqual({
         name: "DocumentMarshall",
         override: true,
@@ -51,7 +51,7 @@ describe("DynamoDBDocumentClientCommand", () => {
     }
     {
       const [middleware, options] = command.argCaptor[1];
-      expect(middleware.toString()).toContain(`unmarshallOutput`);
+      expect(middleware.toString()).toContain(`decodeOutput`);
       expect(options).toEqual({
         name: "DocumentUnmarshall",
         override: true,

@@ -12,7 +12,7 @@ import type {
 } from "@smithy/types";
 
 import type { KeyNodeChildren } from "../commands/utils";
-import { marshallInput, unmarshallOutput } from "../commands/utils";
+import { encodeInput, decodeOutput } from "../commands/utils";
 import type { DynamoDBDocumentClientResolvedConfig } from "../DynamoDBDocumentClient";
 
 // /** @public */
@@ -30,18 +30,15 @@ export abstract class DynamoDBDocumentClientCommand<
   BaseInput extends object,
   BaseOutput extends object,
   ResolvedClientConfiguration,
-> extends $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration> {
+> extends $Command<any, any, ResolvedClientConfiguration> {
   protected abstract readonly inputKeyNodes: KeyNodeChildren;
   protected abstract readonly outputKeyNodes: KeyNodeChildren;
-  protected abstract clientCommand: $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration>;
+  protected abstract clientCommand: $Command<any, any, any>;
 
-  public abstract middlewareStack: MiddlewareStack<Input | BaseInput, Output | BaseOutput>;
+  public abstract middlewareStack: MiddlewareStack<any, any>;
 
   protected addMarshallingMiddleware(configuration: DynamoDBDocumentClientResolvedConfig): void {
-    const { marshallOptions = {}, unmarshallOptions = {} } = configuration.translateConfig || {};
-
-    marshallOptions.convertTopLevelContainer = marshallOptions.convertTopLevelContainer ?? true;
-    unmarshallOptions.convertWithoutMapWrapper = unmarshallOptions.convertWithoutMapWrapper ?? true;
+    const { encodeOptions = {}, decodeOptions = {} } = configuration.translateConfig || {};
 
     this.clientCommand.middlewareStack.addRelativeTo(
       (next: InitializeHandler<Input | BaseInput, Output | BaseOutput>, context: HandlerExecutionContext) =>
@@ -59,7 +56,7 @@ export abstract class DynamoDBDocumentClientCommand<
              * from being carried over if the Command instance is reused in a new
              * request.
              */
-            input: marshallInput(args.input, this.inputKeyNodes, marshallOptions),
+            input: encodeInput(args.input, this.inputKeyNodes, encodeOptions),
           });
         },
       {
@@ -75,7 +72,7 @@ export abstract class DynamoDBDocumentClientCommand<
           args: DeserializeHandlerArguments<Input | BaseInput>
         ): Promise<DeserializeHandlerOutput<Output | BaseOutput>> => {
           const deserialized = await next(args);
-          deserialized.output = unmarshallOutput(deserialized.output, this.outputKeyNodes, unmarshallOptions);
+          deserialized.output = decodeOutput(deserialized.output, this.outputKeyNodes, decodeOptions);
           return deserialized;
         },
       {

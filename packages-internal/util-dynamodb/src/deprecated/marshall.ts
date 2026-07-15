@@ -1,11 +1,12 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToAttr } from "./convertToAttr";
-import type { NativeAttributeBinary, NativeAttributeValue } from "./models";
-import type { NumberValue } from "./NumberValue";
+import type { NativeAttributeBinary, NativeAttributeValue } from "./deprecated-util-ddb-models";
+import type { NumberValue } from "../NumberValue";
 
 /**
  * An optional configuration object for `marshall`
+ * @deprecated use EncodeOptions.
  */
 export interface marshallOptions {
   /**
@@ -47,7 +48,7 @@ export interface marshallOptions {
  *
  * @param data - The data to convert to a DynamoDB record
  * @param options - An optional configuration object for `marshall`
- *
+ * @deprecated use EncodeOptions and the encode function.
  */
 export function marshall(data: null, options?: marshallOptions): AttributeValue.NULLMember;
 export function marshall(
@@ -96,7 +97,7 @@ export function marshall(data: any, options?: marshallOptions): any;
  */
 export function marshall(data: unknown, options?: marshallOptions): AttributeValue.$UnknownMember;
 export function marshall(data: unknown, options?: marshallOptions) {
-  const attributeValue: AttributeValue = convertToAttr(data, options);
+  const attributeValue: AttributeValue = convertToAttr(data as NativeAttributeValue, options);
   const [key, value] = Object.entries(attributeValue)[0];
 
   switch (key) {

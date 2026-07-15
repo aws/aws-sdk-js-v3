@@ -20,24 +20,24 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type PutCommandInput = Omit<__PutItemCommandInput, "Item" | "Expected" | "ExpressionAttributeValues"> & {
-  Item: Record<string, NativeAttributeValue> | undefined;
+  Item: Record<string, JsAttributeValue> | undefined;
   Expected?: Record<
     string,
     Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue | undefined;
-      AttributeValueList?: NativeAttributeValue[] | undefined;
+      Value?: JsAttributeValue | undefined;
+      AttributeValueList?: JsAttributeValue[] | undefined;
     }
   > | undefined;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type PutCommandOutput = Omit<__PutItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: Record<string, NativeAttributeValue> | undefined;
+  Attributes?: Record<string, JsAttributeValue> | undefined;
   ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+    ItemCollectionKey?: Record<string, JsAttributeValue> | undefined;
   } | undefined;
 };
 
@@ -75,8 +75,7 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __PutItemCommand;
-  public readonly middlewareStack: MiddlewareStack<PutCommandInput | __PutItemCommandInput,
-  PutCommandOutput | __PutItemCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: PutCommandInput) {
     super();
@@ -96,7 +95,7 @@ export class PutCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -107,5 +106,5 @@ import type {
   PutItemCommandOutput as __PutItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

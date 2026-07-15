@@ -4,7 +4,7 @@ import { describe, expect, test as it } from "vitest";
 import { convertToAttr } from "./convertToAttr";
 import type { marshallOptions } from "./marshall";
 import type { NativeAttributeValue } from "./models";
-import { NumberValue } from "./NumberValue";
+import { NumberValue } from "../NumberValue";
 
 describe("convertToAttr", () => {
   describe("null", () => {
