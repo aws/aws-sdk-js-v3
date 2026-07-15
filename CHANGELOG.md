@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Fix HarnessEndpointArn pattern to match the actual service-emitted ARN format ('harness-endpoint' instead of 'endpoint'). Add additionalParams to Gemini model configuration for passing provider-specific parameters through to the model unchanged. ([5b7701e](https://github.com/aws/aws-sdk-js-v3/commit/5b7701e82520538b19cf739ba4445c32adbf6f6e))
+* **client-elastic-load-balancing-v2:** This release adds support for the IpAddressType field on SourceIpConfig, enabling Network Load Balancer listener rules to match traffic based on whether the source IP is IPv4 or IPv6. ([8012e14](https://github.com/aws/aws-sdk-js-v3/commit/8012e14ff65acf9340dd1fa12cfaba1fcb3c4c91))
+* **client-healthlake:** AWS HealthLake now offers data transformation in Preview to convert CSV and C-CDA data to FHIR R4. Customers can maintain reusable mapping profiles, run sync or async jobs with provenance tracking and drift detection, and use an AI agent to build and edit mapping logic from natural language. ([69cdbbc](https://github.com/aws/aws-sdk-js-v3/commit/69cdbbcc09d0d3f33625fd7d7703cb2964600d71))
+* **client-payment-cryptography-data:** Adds support for UnionPay session key derivation to the GenerateAuthRequestCryptogram, VerifyAuthRequestCryptogram, GenerateMac, and VerifyMac APIs. ([6188712](https://github.com/aws/aws-sdk-js-v3/commit/618871277ab613bae1fb60aa0da13014f031ad74))
+* **client-rds:** Adds support for modifying EngineLifecycleSupport on DB instances and DB clusters through ModifyDBInstance and ModifyDBCluster. ([faa78bc](https://github.com/aws/aws-sdk-js-v3/commit/faa78bc92ac9aa0a876f613869a6dd0bf7595acc))
+
+
+
+
+
 # [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
 
 

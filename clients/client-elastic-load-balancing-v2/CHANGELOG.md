@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+
+### Features
+
+* **client-elastic-load-balancing-v2:** This release adds support for the IpAddressType field on SourceIpConfig, enabling Network Load Balancer listener rules to match traffic based on whether the source IP is IPv4 or IPv6. ([8012e14](https://github.com/aws/aws-sdk-js-v3/commit/8012e14ff65acf9340dd1fa12cfaba1fcb3c4c91))
+
+
+
+
+
 # [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
 
 **Note:** Version bump only for package @aws-sdk/client-elastic-load-balancing-v2

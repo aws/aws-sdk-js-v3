@@ -7,6 +7,13 @@
 
 
 
+
+# 3.0.1 (2026-07-15)
+### Chores
+* **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))
+
+
+
 # 3.0.0 (2026-07-08)
 ### Features
 * **undici-http-handler:** bump version to 3.0.0 ([#8168](https://github.com/aws/aws-sdk-js-v3/issues/8168)) ([6c243a1](https://github.com/aws/aws-sdk-js-v3/commit/6c243a15d8e0b059098d547a7b48311d9e43e352))

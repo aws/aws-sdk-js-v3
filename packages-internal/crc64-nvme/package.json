@@ -1,7 +1,22 @@
 {
   "name": "@aws-sdk/crc64-nvme",
-  "version": "3.972.27",
+  "version": "3.972.28",
   "description": "A pure JS implementation of CRC64-NVME checksum",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/crc64-nvme",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/crc64-nvme"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -13,14 +28,8 @@
     "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "clean": "premove dist-cjs dist-es dist-types"
   },
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.17",
+    "@aws-sdk/checksums": "workspace:^3.1000.18",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -30,14 +39,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/crc64-nvme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/crc64-nvme"
   }
 }

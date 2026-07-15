@@ -1,7 +1,38 @@
 {
   "name": "@aws-sdk/client-wisdom",
+  "version": "3.1088.0",
   "description": "AWS SDK for JavaScript Wisdom Client for Node.js, Browser and React Native",
-  "version": "3.1087.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-wisdom",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/client-wisdom"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -14,14 +45,10 @@
     "generate:client": "node ../../scripts/generate-clients/single-service",
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
-  "main": "./dist-cjs/index.js",
-  "types": "./dist-types/index.d.ts",
-  "module": "./dist-es/index.js",
-  "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.2",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.68",
-    "@aws-sdk/types": "workspace:^3.974.1",
+    "@aws-sdk/core": "workspace:^3.975.3",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.69",
+    "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",
     "@smithy/fetch-http-handler": "^5.6.6",
     "@smithy/node-http-handler": "^4.9.6",
@@ -38,32 +65,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
-  },
-  "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
-  },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-wisdom",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/client-wisdom"
   }
 }

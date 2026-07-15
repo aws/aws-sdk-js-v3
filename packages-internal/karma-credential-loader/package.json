@@ -1,7 +1,32 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "3.972.67",
+  "version": "3.972.68",
   "private": true,
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/karma-credential-loader",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/karma-credential-loader"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -12,18 +37,9 @@
     "clean": "premove dist-cjs dist-es dist-types",
     "test": "(exit 0)"
   },
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.68",
-    "@aws-sdk/nested-clients": "workspace:^3.997.32",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.69",
+    "@aws-sdk/nested-clients": "workspace:^3.997.33",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -36,21 +52,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/karma-credential-loader",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/karma-credential-loader"
   }
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Fix HarnessEndpointArn pattern to match the actual service-emitted ARN format ('harness-endpoint' instead of 'endpoint'). Add additionalParams to Gemini model configuration for passing provider-specific parameters through to the model unchanged. ([5b7701e](https://github.com/aws/aws-sdk-js-v3/commit/5b7701e82520538b19cf739ba4445c32adbf6f6e))
+
+
+
+
+
 # [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control
