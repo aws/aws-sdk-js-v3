@@ -38,6 +38,13 @@ Either way assumes the referenced clients are already built (their `dist-types`
 are present). `run.mjs` errors with guidance if they are not. It runs in
 isolation with its own dependency installs.
 
+For versions below TypeScript 4.5, the clients resolve their types to the
+downleveled `dist-types/ts3.4` declarations via each client's `typesVersions`
+(`"<4.5"`) entry. These are produced by a separate build step
+(`build:types:downlevel`). The `test-typescript-versions` Make target runs the
+root `yarn build:types:downlevel` before the suite so they are present. If you
+run `run.mjs` directly, run `yarn build:types:downlevel` at the repo root first.
+
 ## Protocol coverage
 
 | Protocol   | Client                            |

@@ -54,7 +54,9 @@ test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.index-types.json
 
 # verify clients compile across supported TypeScript versions (see tests/ts-compat/README.md).
+# Downlevel the .d.ts first so TypeScript < 4.5 resolves the clients' dist-types/ts3.4 declarations.
 test-typescript-versions:
+	yarn build:types:downlevel
 	(cd ./tests/ts-compat && npm install --no-audit --no-fund && node ./run.mjs)
 
 test-indices:
