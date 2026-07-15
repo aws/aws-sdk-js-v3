@@ -9142,6 +9142,12 @@ export interface HarnessGeminiModelConfig {
    * @public
    */
   topK?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**

@@ -193,6 +193,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *       temperature: Number("float"),
  *       topP: Number("float"),
  *       topK: Number("int"),
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *     liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  *       modelId: "STRING_VALUE", // required
@@ -354,6 +355,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
  * //         topK: Number("int"),
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //       liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  * //         modelId: "STRING_VALUE", // required

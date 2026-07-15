@@ -3031,8 +3031,8 @@ export var HarnessEndpoint$: StaticStructureSchema = [3, n0, _HE,
 ];
 export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
-  [_mI, _aKA, _mT, _te, _tP, _tK],
-  [0, 0, 1, 1, 1, 1], 2
+  [_mI, _aKA, _mT, _te, _tP, _tK, _aP],
+  [0, 0, 1, 1, 1, 1, 15], 2
 ];
 export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   0,

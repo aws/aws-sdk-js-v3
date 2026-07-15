@@ -102,6 +102,9 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyResponse, __Metad
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when a resource referenced by the operation does not exist</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>
  *

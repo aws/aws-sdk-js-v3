@@ -74,6 +74,7 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
  * //         topK: Number("int"),
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //       liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  * //         modelId: "STRING_VALUE", // required
