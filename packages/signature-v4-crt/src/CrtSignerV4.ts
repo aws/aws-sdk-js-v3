@@ -88,7 +88,7 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
       signingRegion,
       signingService,
     }: RequestSigningArguments | RequestPresigningArguments | undefined = {},
-    viaHeader: Boolean,
+    viaHeader: boolean,
     payloadHash: string,
     expiresIn?: number,
     _credentials?: AwsCredentialIdentity
@@ -287,7 +287,7 @@ function getHeadersUnsignable(unsignableHeaders?: Set<string>, signableHeaders?:
     return [...unsignableHeaders];
   }
   const result = new Set([...unsignableHeaders]);
-  for (let it = signableHeaders.values(), val = null; (val = it.next().value); ) {
+  for (let it = signableHeaders.values(), val = null; (val = it.next().value);) {
     if (result.has(val)) {
       result.delete(val);
     }

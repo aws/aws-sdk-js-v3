@@ -15,9 +15,9 @@ import type { PreviouslyResolved } from "./region-redirect-middleware";
  */
 export const regionRedirectEndpointMiddleware = (config: PreviouslyResolved): SerializeMiddleware<any, any> => {
   return <Output extends MetadataBearer>(
-      next: SerializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): SerializeHandler<any, Output> =>
+    next: SerializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): SerializeHandler<any, Output> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       const originalRegion = await config.region();
       const regionProviderRef = config.region;

@@ -167,7 +167,10 @@ export interface IS3TransferManager {
    *
    * @returns the number of objects that have been downloaded and the number of objects that have failed
    */
-  downloadDirectory(request: DownloadDirectoryRequest, transferOptions?: TransferOptions): Promise<DownloadDirectoryResponse>;
+  downloadDirectory(
+    request: DownloadDirectoryRequest,
+    transferOptions?: TransferOptions
+  ): Promise<DownloadDirectoryResponse>;
 
   /**
    * Registers a callback function to be executed when a specific transfer event occurs.

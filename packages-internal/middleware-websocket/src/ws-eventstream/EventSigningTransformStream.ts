@@ -15,12 +15,12 @@ export class EventSigningTransformStream extends TransformStream<Uint8Array, Uin
   /**
    * @override
    */
-  public declare readable: ReadableStream<Uint8Array>;
+  declare public readable: ReadableStream<Uint8Array>;
 
   /**
    * @override
    */
-  public declare writable: WritableStream<Uint8Array>;
+  declare public writable: WritableStream<Uint8Array>;
 
   public constructor(
     initialSignature: string,

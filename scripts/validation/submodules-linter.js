@@ -19,10 +19,10 @@ const submodulePackages = process.argv.includes("--all")
       const dir = fs.existsSync(path.join(a, "package.json"))
         ? a
         : fs.existsSync(path.join(b, "package.json"))
-        ? b
-        : fs.existsSync(path.join(c, "package.json"))
-        ? c
-        : null;
+          ? b
+          : fs.existsSync(path.join(c, "package.json"))
+            ? c
+            : null;
       if (!dir) return false;
       return (
         fs.existsSync(path.join(dir, "src", "submodules")) &&
@@ -85,9 +85,8 @@ const submodulePackages = process.argv.includes("--all")
         }
         if (submodulePackage === "nested-clients") {
           if (!pkgJson.browser[`./dist-es/submodules/${submodule}/runtimeConfig`]) {
-            pkgJson.browser[
-              `./dist-es/submodules/${submodule}/runtimeConfig`
-            ] = `./dist-es/submodules/${submodule}/runtimeConfig.browser`;
+            pkgJson.browser[`./dist-es/submodules/${submodule}/runtimeConfig`] =
+              `./dist-es/submodules/${submodule}/runtimeConfig.browser`;
             errors.push(`${submodule} is missing browser replacement directive.`);
           }
           pushPkgJson();

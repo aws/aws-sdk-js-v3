@@ -1,5 +1,5 @@
 const esbuild = require("esbuild");
-const path = require("path");
+const path = require("node:path");
 
 module.exports = async function setup() {
   await esbuild.build({

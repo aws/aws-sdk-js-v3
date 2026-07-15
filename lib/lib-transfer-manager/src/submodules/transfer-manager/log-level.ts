@@ -5,7 +5,10 @@ export class LogLevel implements Logger {
 
   private readonly level: number = 5;
 
-  public constructor(private minimum: keyof Logger, private logger: Logger = console) {
+  public constructor(
+    private minimum: keyof Logger,
+    private logger: Logger = console
+  ) {
     const index = LogLevel.LEVELS.indexOf(minimum);
     if (index === -1) {
       throw new Error(`Log level must be one of ${LogLevel.LEVELS.join(", ")}`);

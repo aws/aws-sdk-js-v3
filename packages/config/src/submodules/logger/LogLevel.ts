@@ -15,7 +15,10 @@ export class LogLevel implements Logger {
    * @param minimum - minimum log level filter.
    * @param logger - to which messages are forwarded. Default console.
    */
-  public constructor(private minimum: keyof Logger, private logger: Logger = console) {
+  public constructor(
+    private minimum: keyof Logger,
+    private logger: Logger = console
+  ) {
     const index = LogLevel.LEVELS.indexOf(minimum);
     if (index === -1) {
       throw new Error(`Log level must be one of ${LogLevel.LEVELS.join(", ")}`);

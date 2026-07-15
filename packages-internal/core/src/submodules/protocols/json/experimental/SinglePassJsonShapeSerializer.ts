@@ -75,7 +75,7 @@ export class SinglePassJsonShapeSerializer extends SerdeContextConfig implements
       let didWriteMember = false;
       for (const [name, member] of ns.structIterator()) {
         const item = (value as any)[name];
-        const targetKey = this.settings.jsonName ? member.getMergedTraits().jsonName ?? name : name;
+        const targetKey = this.settings.jsonName ? (member.getMergedTraits().jsonName ?? name) : name;
         const serializableValue = this.writeValue(member, item);
         if (item != null || member.isIdempotencyToken()) {
           didWriteMember = true;

@@ -117,6 +117,7 @@ module.exports = class PatternDetection extends CompressionAlgorithm {
     if (optionalReplaceNodeVariableId) {
       this.variableIdsUsed[optionalReplaceNodeVariableId] = 1;
       const order = `this.cloneData${path} = "__REPLACE__${optionalReplaceNodeVariableId}__REPLACE__"`;
+      // oxlint-disable-next-line no-eval
       eval(order);
       return;
     }

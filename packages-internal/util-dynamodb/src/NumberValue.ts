@@ -21,7 +21,7 @@ export class NumberValue implements INumberValue {
    *
    * @param value - a precise number, or any BigInt or string, or AttributeValue.
    */
-  public constructor(value: number | Number | BigInt | string | { N: string }) {
+  public constructor(value: number | number | bigint | string | { N: string }) {
     if (typeof value === "object" && "N" in value) {
       this.value = String(value.N);
     } else {
@@ -47,7 +47,7 @@ export class NumberValue implements INumberValue {
    *
    * @param value - a precise number, or any BigInt or string, or AttributeValue.
    */
-  public static from(value: number | Number | BigInt | string | { N: string }) {
+  public static from(value: number | number | bigint | string | { N: string }) {
     return new NumberValue(value);
   }
 

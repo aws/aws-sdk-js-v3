@@ -19,7 +19,7 @@ import { S3RequestPresigner } from "./presigner";
 export const getSignedUrl = async <
   InputTypesUnion extends object,
   InputType extends InputTypesUnion,
-  OutputType extends MetadataBearer = MetadataBearer
+  OutputType extends MetadataBearer = MetadataBearer,
 >(
   client: Client<any, InputTypesUnion, MetadataBearer, any>,
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>,

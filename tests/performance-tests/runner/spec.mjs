@@ -29,6 +29,12 @@ for (const { name, file } of bundles) {
   const contentSize = content.replaceAll(/\s+/g, "").length;
   const callsToClassBuilder = content.match(/\.classBuilder\(\)/g) || [];
 
-  assert(contentSize < 1_000_000, `[${name}] content size should be under 1M chars, got ${contentSize.toLocaleString()}`);
-  assert(callsToClassBuilder.length <= 2, `[${name}] tree-shaking failure: expected <=2 classBuilder calls, got ${callsToClassBuilder.length}`);
+  assert(
+    contentSize < 1_000_000,
+    `[${name}] content size should be under 1M chars, got ${contentSize.toLocaleString()}`
+  );
+  assert(
+    callsToClassBuilder.length <= 2,
+    `[${name}] tree-shaking failure: expected <=2 classBuilder calls, got ${callsToClassBuilder.length}`
+  );
 }

@@ -37,7 +37,7 @@ export class BundlerSizeBenchmarker {
           if (stats?.hasErrors()) return reject(new Error(stats.toString("errors-only")));
           const totalBytes = Object.values(stats.compilation.assets).reduce((sum, a) => sum + a.size(), 0);
           resolve({ bundler: "webpack", bytes: totalBytes });
-        },
+        }
       );
     });
   }

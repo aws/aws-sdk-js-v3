@@ -82,7 +82,7 @@ describe("createPresignedPost", () => {
       Bucket,
       Key,
     });
-    expect(url).toBe("https://s3.us-foo-1.amazonaws.com/foo/bucket"),
+    (expect(url).toBe("https://s3.us-foo-1.amazonaws.com/foo/bucket"),
       expect(fields).toEqual({
         bucket: Bucket,
         key: Key,
@@ -91,7 +91,7 @@ describe("createPresignedPost", () => {
         [AMZ_DATE_QUERY_PARAM]: "20201028T225649Z",
         Policy: "mock_base64_encoded",
         [SIGNATURE_QUERY_PARAM]: "mock_hex_encoded",
-      });
+      }));
 
     expect(vi.mocked(createScope).mock.calls[0]).toEqual(["20201028", "us-foo-1", "s3"]);
     expect(mockS3Client.config.utf8Decoder).toBeCalled();

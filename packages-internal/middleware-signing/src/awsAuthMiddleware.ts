@@ -112,7 +112,7 @@ export const awsAuthMiddleware =
     };
 
 const getDateHeader = (response: unknown): string | undefined =>
-  HttpResponse.isInstance(response) ? response.headers?.date ?? response.headers?.Date : undefined;
+  HttpResponse.isInstance(response) ? (response.headers?.date ?? response.headers?.Date) : undefined;
 
 /**
  * @deprecated only used in legacy auth.

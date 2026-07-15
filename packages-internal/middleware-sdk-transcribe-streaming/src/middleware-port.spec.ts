@@ -7,7 +7,7 @@ import { websocketPortMiddleware } from "./middleware-port";
 describe("websocketPortMiddleware", () => {
   const mockHandler: RequestHandler<any, any> = {
     metadata: { handlerProtocol: "websocket" },
-    handle: () => ({} as any),
+    handle: () => ({}) as any,
   };
   it("should skip non-http request", async () => {
     const nonHttpRequest = {
@@ -27,7 +27,7 @@ describe("websocketPortMiddleware", () => {
   it("should skip non WebSocket requests", async () => {
     const mockHandler: RequestHandler<any, any> = {
       metadata: { handlerProtocol: "some_protocol" },
-      handle: () => ({} as any),
+      handle: () => ({}) as any,
     };
     const request = new HttpRequest({});
     let resolve: (resolved?: unknown) => void;

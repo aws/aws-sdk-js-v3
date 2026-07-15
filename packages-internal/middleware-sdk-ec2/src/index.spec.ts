@@ -16,7 +16,7 @@ const handler = copySnapshotPresignedUrlMiddleware({
       url: {
         hostname: "ec2.src-region.test-host.com",
       },
-    } as EndpointV2),
+    }) as EndpointV2,
 } as any)(nextHandler, {} as any);
 
 describe("middleware-sdk-ec2", () => {

@@ -13,10 +13,7 @@ async function bundle() {
     resolverMainFields: ["react-native", "browser", "module", "main"],
     unstable_enablePackageExports: true,
     unstable_conditionNames: ["react-native", "browser", "import", "require"],
-    nodeModulesPaths: [
-      path.join(root, "node_modules"),
-      path.resolve(root, "../../node_modules"),
-    ],
+    nodeModulesPaths: [path.join(root, "node_modules"), path.resolve(root, "../../node_modules")],
   };
   await Metro.runBuild(config, {
     entry: "src/sample-app.ts",
@@ -27,7 +24,9 @@ async function bundle() {
   });
 }
 
-bundle().then(() => process.exit(0)).catch((e) => {
-  console.error(e.message);
-  process.exit(1);
-});
+bundle()
+  .then(() => process.exit(0))
+  .catch((e) => {
+    console.error(e.message);
+    process.exit(1);
+  });

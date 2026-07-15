@@ -1,7 +1,7 @@
 import { fileURLToPath } from "url";
 import path from "node:path";
 import fs from "node:fs";
-import prettier from "prettier";
+import { format } from "oxfmt";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPORT_PATH = path.join(__dirname, "..", "..", "..", "benchmark", "size", "report-bundlers.md");
@@ -31,6 +31,6 @@ export async function generateBundleSizeReport(appResults, sdkVersion) {
 | :------ | :------ | :----------- | :------ | :----- | 
 ${rows.join("\n")}`;
 
-  const formatted = await prettier.format(markdown, { filepath: REPORT_PATH });
+  const formatted = (await format(REPORT_PATH, markdown)).code;
   fs.writeFileSync(REPORT_PATH, formatted);
 }

@@ -1,5 +1,5 @@
-import { readFile } from "fs/promises";
-import { join } from "path";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const getDownlevelDirname = async (workspaceDir) => {
   const packageJsonPath = join(workspaceDir, "package.json");

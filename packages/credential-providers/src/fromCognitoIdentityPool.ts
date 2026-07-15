@@ -55,9 +55,8 @@ export const fromCognitoIdentityPool = (
   options: FromCognitoIdentityPoolParameters
 ): CognitoIdentityCredentialProvider => {
   return async (args?: AwsIdentityProperties) => {
-    const { fromCognitoIdentityPool: _fromCognitoIdentityPool } = await import(
-      "@aws-sdk/credential-provider-cognito-identity"
-    );
+    const { fromCognitoIdentityPool: _fromCognitoIdentityPool } =
+      await import("@aws-sdk/credential-provider-cognito-identity");
     return _fromCognitoIdentityPool(options)(args);
   };
 };

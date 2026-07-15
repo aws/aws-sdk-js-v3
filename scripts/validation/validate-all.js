@@ -61,7 +61,7 @@ const SUBPROCESS_VALIDATIONS = [
     script: "export-names.js",
     inspects: ["dist-cjs"],
   },
-  { name: "eslint", label: "eslint passes on source", script: "eslint.js", inspects: ["src"] },
+  { name: "eslint", label: "oxlint passes on source", script: "oxlint.js", inspects: ["src"] },
   {
     name: "filenames",
     label: "no suspicious multi-dot filenames in dist",

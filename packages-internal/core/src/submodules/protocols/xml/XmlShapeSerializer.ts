@@ -72,8 +72,8 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
     const traits = ns.getMergedTraits();
     const name =
       ns.isMemberSchema() && !traits.httpPayload
-        ? ns.getMemberTraits().xmlName ?? ns.getMemberName()
-        : traits.xmlName ?? ns.getName();
+        ? (ns.getMemberTraits().xmlName ?? ns.getMemberName())
+        : (traits.xmlName ?? ns.getName());
 
     if (!name || !ns.isStructSchema()) {
       throw new Error(
@@ -164,11 +164,13 @@ export class XmlShapeSerializer extends SerdeContextConfig implements ShapeSeria
       } else if (listValueSchema.isStructSchema()) {
         const struct = this.writeStruct(listValueSchema, value, xmlns);
         container.addChildNode(
-          struct.withName(flat ? listTraits.xmlName ?? listMember.getMemberName() : listValueTraits.xmlName ?? "member")
+          struct.withName(
+            flat ? (listTraits.xmlName ?? listMember.getMemberName()) : (listValueTraits.xmlName ?? "member")
+          )
         );
       } else {
         const listItemNode = XmlNode.of(
-          flat ? listTraits.xmlName ?? listMember.getMemberName() : listValueTraits.xmlName ?? "member"
+          flat ? (listTraits.xmlName ?? listMember.getMemberName()) : (listValueTraits.xmlName ?? "member")
         );
         this.writeSimpleInto(listValueSchema, value, listItemNode, xmlns);
         container.addChildNode(listItemNode);

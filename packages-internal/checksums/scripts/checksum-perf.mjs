@@ -8,20 +8,18 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const outputPath = resolve(__dirname, "..", "planning", "checksums.md");
 
 const require = createRequire(import.meta.url);
-const {
-  Crc32, Crc32Js, Crc32Node,
-  Crc32cJs, Crc32cNode,
-  Crc64NvmeJs, Crc64Nvme,
-} = require("@aws-sdk/checksums/crc");
-try { require("@aws-sdk/crc64-nvme-crt"); } catch {}
+const { Crc32, Crc32Js, Crc32Node, Crc32cJs, Crc32cNode, Crc64NvmeJs, Crc64Nvme } = require("@aws-sdk/checksums/crc");
+try {
+  require("@aws-sdk/crc64-nvme-crt");
+} catch {}
 const { Sha1Js, Sha1Node, Sha1WebCrypto, Sha256, Sha256Js, Sha256Node } = require("@aws-sdk/checksums/sha");
 const { AwsCrc32 } = require("@aws-crypto/crc32");
 const { AwsCrc32c } = require("@aws-crypto/crc32c");
 const { Sha256: AwsSha256 } = require("@aws-crypto/sha256-js");
 const { Md5Js, Md5Node, Sha256WebCrypto } = require("@smithy/core/checksum");
 
-const SIZES =      [32,    256,   1024,  64 * 1024, 1024 * 1024, 10 * 1024 * 1024];
-const ITERATIONS = [10000, 5000,  2000,  200,       20,          5              ];
+const SIZES = [32, 256, 1024, 64 * 1024, 1024 * 1024, 10 * 1024 * 1024];
+const ITERATIONS = [10000, 5000, 2000, 200, 20, 5];
 
 function generateData(size) {
   const buf = new Uint8Array(size);
@@ -97,7 +95,8 @@ async function runSection(label, impls) {
   return rows;
 }
 
-const WEBCRYPTO_NOTE = "> **Note:** WebCrypto (`crypto.subtle`) was benchmarked from Node.js and may be significantly faster in a browser.";
+const WEBCRYPTO_NOTE =
+  "> **Note:** WebCrypto (`crypto.subtle`) was benchmarked from Node.js and may be significantly faster in a browser.";
 
 const sections = [
   {

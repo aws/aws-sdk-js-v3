@@ -8,7 +8,7 @@ import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
 import { internalEventHandler, S3TransferManager } from "./S3TransferManager";
-import { type CannedFailurePolicy,type DirectoryProgressSnapshot, type S3TransferManagerConfig } from "./types";
+import type { CannedFailurePolicy, DirectoryProgressSnapshot, S3TransferManagerConfig } from "./types";
 
 describe(S3TransferManager.name, () => {
   const chunk = "01234567";
@@ -582,9 +582,7 @@ describe(S3TransferManager.name, () => {
     async function cleanupS3Objects(s3Prefix: string) {
       const listed = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
       if (listed.Contents?.length) {
-        await Promise.all(
-          listed.Contents.map((obj) => client.deleteObject({ Bucket, Key: obj.Key! }))
-        );
+        await Promise.all(listed.Contents.map((obj) => client.deleteObject({ Bucket, Key: obj.Key! })));
       }
     }
 

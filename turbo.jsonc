@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "remoteCache": {
-    "signature": true
+    "signature": true,
   },
   "globalDependencies": [
     "turbo.jsonc",
@@ -9,51 +9,51 @@
     "tsconfig.cjs.json",
     "tsconfig.es.json",
     "tsconfig.types.json",
-    "scripts/compilation/**"
+    "scripts/compilation/**",
   ],
   "tasks": {
     "prebuild": {},
     "build": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
-      "dependsOn": ["prebuild", "^build"]
+      "dependsOn": ["prebuild", "^build"],
     },
     "build:cjs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["build:es"]
+      "dependsOn": ["build:es"],
     },
     "build:docs": {
       "outputs": ["dist-cjs/**"],
-      "dependsOn": ["build:types", "^build:types"]
+      "dependsOn": ["build:types", "^build:types"],
     },
     "build:es": {
       // ^build:types is critical: without upstream .d.ts files, tsc cannot
       // distinguish type-only re-exports from values, causing undefined exports.
       "outputs": ["dist-es/**"],
-      "dependsOn": ["prebuild", "^build:types"]
+      "dependsOn": ["prebuild", "^build:types"],
     },
     "build:include:deps": {
       "outputs": ["dist-types/**", "dist-cjs/**", "dist-es/**"],
-      "dependsOn": ["^build:types", "^build:es", "^build:cjs", "build:types", "build:es", "build:cjs"]
+      "dependsOn": ["^build:types", "^build:es", "^build:cjs", "build:types", "build:es", "build:cjs"],
     },
     "build:types": {
       "outputs": ["dist-types/**"],
-      "dependsOn": ["prebuild", "^build:types"]
+      "dependsOn": ["prebuild", "^build:types"],
     },
     "build:types:downlevel": {
       "outputs": ["dist-types/ts3.4/**"],
-      "dependsOn": ["^build:types:downlevel"]
+      "dependsOn": ["^build:types:downlevel"],
     },
     "clean": {
-      "cache": false
+      "cache": false,
     },
     "test": {
-      "cache": false
+      "cache": false,
     },
     "test:integration": {
-      "cache": false
+      "cache": false,
     },
     "test:e2e": {
-      "cache": false
-    }
-  }
+      "cache": false,
+    },
+  },
 }

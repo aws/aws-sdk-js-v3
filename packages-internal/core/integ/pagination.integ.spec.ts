@@ -1,5 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
-import { DynamoDB, paginateScan, ScanCommandInput } from "@aws-sdk/client-dynamodb";
+import type { ScanCommandInput } from "@aws-sdk/client-dynamodb";
+import { DynamoDB, paginateScan } from "@aws-sdk/client-dynamodb";
 import { HttpResponse } from "@smithy/core/protocols";
 import { describe, expect, test as it } from "vitest";
 

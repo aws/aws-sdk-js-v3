@@ -20,7 +20,7 @@ import {
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
 import type { Logger } from "@smithy/types";
-import { type StreamingBlobPayloadOutputTypes } from "@smithy/types";
+import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { createReadStream } from "node:fs";
 import { opendir, realpath, stat } from "node:fs/promises";
 import { join, relative, sep } from "node:path";
