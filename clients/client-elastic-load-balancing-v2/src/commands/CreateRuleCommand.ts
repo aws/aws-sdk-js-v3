@@ -80,6 +80,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       },
  *       SourceIpConfig: { // SourceIpConditionConfig
  *         Values: "<ListOfString>",
+ *         IpAddressType: "ipv4" || "ipv6",
  *       },
  *       RegexValues: "<ListOfString>",
  *     },
@@ -233,6 +234,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
+ * //             IpAddressType: "ipv4" || "ipv6",
  * //           },
  * //           RegexValues: "<ListOfString>",
  * //         },

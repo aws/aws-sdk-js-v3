@@ -19,6 +19,7 @@ import type {
   RedirectActionStatusCodeEnum,
   RemoveIpamPoolEnum,
   RevocationType,
+  SourceIpAddressTypeEnum,
   TargetAdministrativeOverrideReasonEnum,
   TargetAdministrativeOverrideStateEnum,
   TargetGroupIpAddressTypeEnum,
@@ -1515,6 +1516,23 @@ export interface SourceIpConditionConfig {
    * @public
    */
   Values?: string[] | undefined;
+
+  /**
+   * <p>The IP address type for Network Load Balancers.</p>
+   *          <p>The valid values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ipv4</code> – IPv4 addresses only.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6</code> – IPv6 addresses only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IpAddressType?: SourceIpAddressTypeEnum | undefined;
 }
 
 /**

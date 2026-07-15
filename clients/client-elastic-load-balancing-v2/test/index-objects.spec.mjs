@@ -343,6 +343,7 @@ import {
   SetSubnetsCommand,
   SetSubnetsInput$,
   SetSubnetsOutput$,
+  SourceIpAddressTypeEnum,
   SourceIpConditionConfig$,
   SslPolicy$,
   SSLPolicyNotFoundException,
@@ -708,6 +709,7 @@ assert(typeof ProtocolEnum === "object");
 assert(typeof RedirectActionStatusCodeEnum === "object");
 assert(typeof RemoveIpamPoolEnum === "object");
 assert(typeof RevocationType === "object");
+assert(typeof SourceIpAddressTypeEnum === "object");
 assert(typeof TargetAdministrativeOverrideReasonEnum === "object");
 assert(typeof TargetAdministrativeOverrideStateEnum === "object");
 assert(typeof TargetGroupIpAddressTypeEnum === "object");

@@ -1592,8 +1592,8 @@ export var SetSubnetsOutput$: StaticStructureSchema = [3, n0, _SSO,
 ];
 export var SourceIpConditionConfig$: StaticStructureSchema = [3, n0, _SICC,
   0,
-  [_V],
-  [64 | 0]
+  [_V, _IAT],
+  [64 | 0, 0]
 ];
 export var SslPolicy$: StaticStructureSchema = [3, n0, _SP,
   0,

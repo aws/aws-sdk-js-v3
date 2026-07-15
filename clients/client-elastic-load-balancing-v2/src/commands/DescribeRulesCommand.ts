@@ -88,6 +88,7 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
+ * //             IpAddressType: "ipv4" || "ipv6",
  * //           },
  * //           RegexValues: "<ListOfString>",
  * //         },

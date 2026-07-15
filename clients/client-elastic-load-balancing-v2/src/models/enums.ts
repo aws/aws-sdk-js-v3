@@ -283,6 +283,19 @@ export type LoadBalancerStateEnum = (typeof LoadBalancerStateEnum)[keyof typeof 
  * @public
  * @enum
  */
+export const SourceIpAddressTypeEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+/**
+ * @public
+ */
+export type SourceIpAddressTypeEnum = (typeof SourceIpAddressTypeEnum)[keyof typeof SourceIpAddressTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransformTypeEnum = {
   HOST_HEADER_REWRITE: "host-header-rewrite",
   URL_REWRITE: "url-rewrite",
