@@ -1690,6 +1690,30 @@ export interface SessionKeyMastercard {
 }
 
 /**
+ * <p>Parameters to derive session key for a UnionPay payment card for Authorization Request Cryptogram (ARQC) generation and verification.</p>
+ * @public
+ */
+export interface SessionKeyUnionPay {
+  /**
+   * <p>The Primary Account Number (PAN) of the cardholder. A PAN is a unique identifier for a payment credit or debit card and associates the card to a specific account holder.</p>
+   * @public
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN). If not used, enter <code>00</code>.</p>
+   * @public
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * <p>The transaction counter that the terminal provides during transaction processing. This value is in hexadecimal format. For example, enter a decimal counter of 109 as <code>006D</code>.</p>
+   * @public
+   */
+  ApplicationTransactionCounter: string | undefined;
+}
+
+/**
  * <p>Parameters to derive session key for Visa payment card for ARQC verification.</p>
  * @public
  */
@@ -1716,6 +1740,7 @@ export type SessionKeyDerivation =
   | SessionKeyDerivation.Emv2000Member
   | SessionKeyDerivation.EmvCommonMember
   | SessionKeyDerivation.MastercardMember
+  | SessionKeyDerivation.UnionPayMember
   | SessionKeyDerivation.VisaMember
   | SessionKeyDerivation.$UnknownMember;
 
@@ -1733,6 +1758,7 @@ export namespace SessionKeyDerivation {
     Emv2000?: never;
     Amex?: never;
     Visa?: never;
+    UnionPay?: never;
     $unknown?: never;
   }
 
@@ -1746,6 +1772,7 @@ export namespace SessionKeyDerivation {
     Emv2000?: never;
     Amex?: never;
     Visa?: never;
+    UnionPay?: never;
     $unknown?: never;
   }
 
@@ -1759,6 +1786,7 @@ export namespace SessionKeyDerivation {
     Emv2000: SessionKeyEmv2000;
     Amex?: never;
     Visa?: never;
+    UnionPay?: never;
     $unknown?: never;
   }
 
@@ -1772,6 +1800,7 @@ export namespace SessionKeyDerivation {
     Emv2000?: never;
     Amex: SessionKeyAmex;
     Visa?: never;
+    UnionPay?: never;
     $unknown?: never;
   }
 
@@ -1785,6 +1814,21 @@ export namespace SessionKeyDerivation {
     Emv2000?: never;
     Amex?: never;
     Visa: SessionKeyVisa;
+    UnionPay?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Parameters to derive session key for a UnionPay payment card for Authorization Request Cryptogram (ARQC) generation and verification.</p>
+   * @public
+   */
+  export interface UnionPayMember {
+    EmvCommon?: never;
+    Mastercard?: never;
+    Emv2000?: never;
+    Amex?: never;
+    Visa?: never;
+    UnionPay: SessionKeyUnionPay;
     $unknown?: never;
   }
 
@@ -1797,6 +1841,7 @@ export namespace SessionKeyDerivation {
     Emv2000?: never;
     Amex?: never;
     Visa?: never;
+    UnionPay?: never;
     $unknown: [string, any];
   }
 
@@ -1810,6 +1855,7 @@ export namespace SessionKeyDerivation {
     Emv2000: (value: SessionKeyEmv2000) => T;
     Amex: (value: SessionKeyAmex) => T;
     Visa: (value: SessionKeyVisa) => T;
+    UnionPay: (value: SessionKeyUnionPay) => T;
     _: (name: string, value: any) => T;
   }
 }

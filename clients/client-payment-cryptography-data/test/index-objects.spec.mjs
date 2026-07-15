@@ -116,6 +116,7 @@ import {
   SessionKeyEmv2000$,
   SessionKeyEmvCommon$,
   SessionKeyMastercard$,
+  SessionKeyUnionPay$,
   SessionKeyVisa$,
   SymmetricEncryptionAttributes$,
   SymmetricKeyAlgorithm,
@@ -272,6 +273,7 @@ assert(typeof SessionKeyDerivationValue$ === "object");
 assert(typeof SessionKeyEmv2000$ === "object");
 assert(typeof SessionKeyEmvCommon$ === "object");
 assert(typeof SessionKeyMastercard$ === "object");
+assert(typeof SessionKeyUnionPay$ === "object");
 assert(typeof SessionKeyVisa$ === "object");
 assert(typeof SymmetricEncryptionAttributes$ === "object");
 assert(typeof TranslateKeyMaterialInput$ === "object");

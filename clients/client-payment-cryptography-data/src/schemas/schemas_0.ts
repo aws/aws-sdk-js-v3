@@ -222,6 +222,7 @@ const _SKDV = "SessionKeyDerivationValue";
 const _SKE = "SessionKeyEmv2000";
 const _SKEC = "SessionKeyEmvCommon";
 const _SKM = "SessionKeyMastercard";
+const _SKUP = "SessionKeyUnionPay";
 const _SKV = "SessionKeyVisa";
 const _SMCKA = "SecureMessagingConfidentialityKeyArn";
 const _SMCKCV = "SecureMessagingConfidentialityKeyCheckValue";
@@ -249,6 +250,7 @@ const _TPDIFr = "TranslationPinDataIsoFormat1";
 const _TPDO = "TranslatePinDataOutput";
 const _TWKB = "Tr31WrappedKeyBlock";
 const _UN = "UnpredictableNumber";
+const _UP = "UnionPay";
 const _V = "Visa";
 const _VA = "VerificationAttributes";
 const _VADO = "VisaAmexDerivationOutputs";
@@ -673,6 +675,11 @@ export var SessionKeyMastercard$: StaticStructureSchema = [3, n0, _SKM,
   [_PAN, _PSN, _ATC, _UN],
   [[() => PrimaryAccountNumberType, 0], 0, 0, 0], 4
 ];
+export var SessionKeyUnionPay$: StaticStructureSchema = [3, n0, _SKUP,
+  0,
+  [_PAN, _PSN, _ATC],
+  [[() => PrimaryAccountNumberType, 0], 0, 0], 3
+];
 export var SessionKeyVisa$: StaticStructureSchema = [3, n0, _SKV,
   0,
   [_PAN, _PSN],
@@ -873,8 +880,8 @@ export var ReEncryptionAttributes$: StaticUnionSchema = [4, n0, _REA,
 ];
 export var SessionKeyDerivation$: StaticUnionSchema = [4, n0, _SKD,
   0,
-  [_EC, _Mas, _E, _A, _V],
-  [[() => SessionKeyEmvCommon$, 0], [() => SessionKeyMastercard$, 0], [() => SessionKeyEmv2000$, 0], [() => SessionKeyAmex$, 0], [() => SessionKeyVisa$, 0]]
+  [_EC, _Mas, _E, _A, _V, _UP],
+  [[() => SessionKeyEmvCommon$, 0], [() => SessionKeyMastercard$, 0], [() => SessionKeyEmv2000$, 0], [() => SessionKeyAmex$, 0], [() => SessionKeyVisa$, 0], [() => SessionKeyUnionPay$, 0]]
 ];
 export var SessionKeyDerivationValue$: StaticUnionSchema = [4, n0, _SKDV,
   0,
