@@ -32,7 +32,7 @@
   "dependencies": {
     "@aws-sdk/token-providers": "workspace:3.1087.0",
     "@aws-sdk/types": "workspace:^3.974.1",
-    "@smithy/core": "^3.29.3",
+    "@smithy/core": "^3.29.4",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },

@@ -24,7 +24,7 @@ describe("SignatureV4MultiRegion (Browser Bundle SigV4a Test)", () => {
   });
 
   class MockSha256 implements Checksum {
-    private hash = "hash of body";
+    private hash = "00".repeat(32);
     async digest() {
       return Buffer.from(this.hash, "hex");
     }
@@ -50,7 +50,9 @@ describe("SignatureV4MultiRegion (Browser Bundle SigV4a Test)", () => {
 
   it("should use SigV4a for the request when signingRegion is '*' (JS implementation is available in bundle)", async () => {
     const signer = new SignatureV4MultiRegion(baseSignerParams);
-    const signedRequest = await signer.sign(minimalRequest, { signingRegion: "*" });
+    const signedRequest = await signer.sign(minimalRequest, {
+      signingRegion: "*",
+    });
     const signedHeaders = signedRequest.headers;
     expect(signedHeaders).toHaveProperty("authorization");
     const authHeader = signedHeaders.authorization;
