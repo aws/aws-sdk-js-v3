@@ -49,6 +49,7 @@ Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/sup
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
 1. [Node.js and ECMAScript Version Support Policy](#nodejs-and-ecmascript-version-support-policy)
+1. [TypeScript Version Support Policy](#typescript-version-support-policy)
 1. [Stability of Modular Packages](#stability-of-modular-packages)
 1. [Known Issues](#known-issues)
    1. [Functionality requiring AWS Common Runtime (CRT)](#functionality-requiring-aws-common-runtime-crt)
@@ -619,6 +620,21 @@ The browser artifacts will follow the ECMAScript versions required by supported 
 most applications because new versions of browsers are released at a much faster pace (usually every 4–6 weeks), and
 they are automatically updated. Also, most browser applications use bundlers, where the ECMAScript version is specified
 in the application bundler configuration and the bundler will transpile all dependencies to that target.
+
+## TypeScript Version Support Policy
+
+In 2026, we [announced](https://aws.amazon.com/blogs/developer/updating-typescript-version-support-in-aws-sdk-for-javascript-v3/)
+an update to the range of TypeScript versions supported by AWS SDK for JavaScript v3.
+
+| TypeScript version | Release Date       | DefinitelyTyped end-of-support | JS SDK end-of-support |
+| ------------------ | ------------------ | ------------------------------ | --------------------- |
+| <= 5.5             | June 20, 2024      | June 20, 2026\*                | January 4, 2027       |
+| 5.6                | September 24, 2024 | September 24, 2026\*           | March 31, 2027        |
+| 5.7                | November 22, 2024  | November 22, 2026\*            | May 31, 2027          |
+| 5.8                | March 5, 2025      | March 5, 2027\*                | September 30, 2027    |
+| 5.9                | August 1, 2025     | August 1, 2027                 | February 29, 2028     |
+
+\* DefinitelyTyped supports the last 2 years of released TypeScript versions.
 
 ## Stability of Modular Packages
 
