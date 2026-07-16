@@ -52,7 +52,7 @@ export const Dimension = {
    */
   SERVICE: "SERVICE",
   /**
-   * <p>The account ID whose Amazon Web Services usage resulted in the estimated carbon emissions.</p>
+   * <p>The account ID whose Amazon Web Services usage is associated with the estimated environmental impact data.</p>
    */
   USAGE_ACCOUNT_ID: "USAGE_ACCOUNT_ID",
 } as const;
@@ -67,23 +67,23 @@ export type Dimension = (typeof Dimension)[keyof typeof Dimension];
  */
 export const TimeGranularity = {
   /**
-   * <p>Emissions aggregated by calendar month.</p>
+   * <p>Environmental impact data aggregated by calendar month.</p>
    */
   MONTHLY: "MONTHLY",
   /**
-   * <p>Emissions aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).</p>
+   * <p>Environmental impact data aggregated over calendar quarter periods (Q1: Jan-Mar, Q2: Apr-Jun, Q3: Jul-Sep, Q4: Oct-Dec).</p>
    */
   QUARTERLY_CALENDAR: "QUARTERLY_CALENDAR",
   /**
-   * <p>Emissions aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+   * <p>Environmental impact data aggregated over fiscal quarter periods based on the fiscal year start month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
    */
   QUARTERLY_FISCAL: "QUARTERLY_FISCAL",
   /**
-   * <p>Emissions aggregated over calendar year periods (January-December).</p>
+   * <p>Environmental impact data aggregated over calendar year periods (January-December).</p>
    */
   YEARLY_CALENDAR: "YEARLY_CALENDAR",
   /**
-   * <p>Emissions aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
+   * <p>Environmental impact data aggregated over fiscal year periods starting from the month specified in GranularityConfiguration.FiscalYearStartMonth.</p>
    */
   YEARLY_FISCAL: "YEARLY_FISCAL",
 } as const;
@@ -106,3 +106,33 @@ export const EmissionsUnit = {
  * @public
  */
 export type EmissionsUnit = (typeof EmissionsUnit)[keyof typeof EmissionsUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const WaterAllocationType = {
+  /**
+   * <p>Total water drawn from surface water, groundwater, seawater, or a third party associated with Amazon Web Services account usage.</p>
+   */
+  TOTAL_WATER_WITHDRAWALS: "TOTAL_WATER_WITHDRAWALS",
+} as const;
+/**
+ * @public
+ */
+export type WaterAllocationType = (typeof WaterAllocationType)[keyof typeof WaterAllocationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const WaterAllocationUnit = {
+  /**
+   * <p>Cubic meters of water.</p>
+   */
+  CUBIC_METERS: "m3",
+} as const;
+/**
+ * @public
+ */
+export type WaterAllocationUnit = (typeof WaterAllocationUnit)[keyof typeof WaterAllocationUnit];

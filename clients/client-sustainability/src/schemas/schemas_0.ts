@@ -1,4 +1,6 @@
 const _ADE = "AccessDeniedException";
+const _AT = "AllocationTypes";
+const _AV = "AllocationValues";
 const _D = "Dimension";
 const _DE = "DimensionEntry";
 const _DEL = "DimensionEntryList";
@@ -11,6 +13,8 @@ const _ECEL = "EstimatedCarbonEmissionsList";
 const _EM = "EmissionsMap";
 const _ET = "EmissionsTypes";
 const _EV = "EmissionsValues";
+const _EWA = "EstimatedWaterAllocation";
+const _EWAL = "EstimatedWaterAllocationList";
 const _En = "End";
 const _FB = "FilterBy";
 const _FE = "FilterExpression";
@@ -24,6 +28,12 @@ const _GECEDVR = "GetEstimatedCarbonEmissionsDimensionValuesRequest";
 const _GECEDVRe = "GetEstimatedCarbonEmissionsDimensionValuesResponse";
 const _GECER = "GetEstimatedCarbonEmissionsRequest";
 const _GECERe = "GetEstimatedCarbonEmissionsResponse";
+const _GEWA = "GetEstimatedWaterAllocation";
+const _GEWADV = "GetEstimatedWaterAllocationDimensionValues";
+const _GEWADVR = "GetEstimatedWaterAllocationDimensionValuesRequest";
+const _GEWADVRe = "GetEstimatedWaterAllocationDimensionValuesResponse";
+const _GEWAR = "GetEstimatedWaterAllocationRequest";
+const _GEWARe = "GetEstimatedWaterAllocationResponse";
 const _ISE = "InternalServerException";
 const _M = "Message";
 const _MR = "MaxResults";
@@ -36,6 +46,8 @@ const _TP = "TimePeriod";
 const _U = "Unit";
 const _V = "Value";
 const _VE = "ValidationException";
+const _WA = "WaterAllocation";
+const _WAM = "WaterAllocationMap";
 const _c = "client";
 const _e = "error";
 const _h = "http";
@@ -117,6 +129,11 @@ export var EstimatedCarbonEmissions$: StaticStructureSchema = [3, n0, _ECE,
   [_TP, _DV, _MV, _EV],
   [() => TimePeriod$, 128 | 0, 0, () => EmissionsMap], 4
 ];
+export var EstimatedWaterAllocation$: StaticStructureSchema = [3, n0, _EWA,
+  0,
+  [_TP, _DV, _MV, _AV],
+  [() => TimePeriod$, 128 | 0, 0, () => WaterAllocationMap], 4
+];
 export var FilterExpression$: StaticStructureSchema = [3, n0, _FE,
   0,
   [_Di],
@@ -142,6 +159,26 @@ export var GetEstimatedCarbonEmissionsResponse$: StaticStructureSchema = [3, n0,
   [_R, _NT],
   [() => EstimatedCarbonEmissionsList, 0], 1
 ];
+export var GetEstimatedWaterAllocationDimensionValuesRequest$: StaticStructureSchema = [3, n0, _GEWADVR,
+  0,
+  [_TP, _Di, _MR, _NT],
+  [() => TimePeriod$, 64 | 0, 1, 0], 2
+];
+export var GetEstimatedWaterAllocationDimensionValuesResponse$: StaticStructureSchema = [3, n0, _GEWADVRe,
+  0,
+  [_R, _NT],
+  [() => DimensionEntryList, 0], 1
+];
+export var GetEstimatedWaterAllocationRequest$: StaticStructureSchema = [3, n0, _GEWAR,
+  0,
+  [_TP, _GB, _FB, _AT, _G, _MR, _NT],
+  [() => TimePeriod$, 64 | 0, () => FilterExpression$, 64 | 0, 0, 1, 0], 1
+];
+export var GetEstimatedWaterAllocationResponse$: StaticStructureSchema = [3, n0, _GEWARe,
+  0,
+  [_R, _NT],
+  [() => EstimatedWaterAllocationList, 0], 1
+];
 export var GranularityConfiguration$: StaticStructureSchema = [3, n0, _GC,
   0,
   [_FYSM],
@@ -152,6 +189,11 @@ export var TimePeriod$: StaticStructureSchema = [3, n0, _TP,
   [_S, _En],
   [5, 5], 2
 ];
+export var WaterAllocation$: StaticStructureSchema = [3, n0, _WA,
+  0,
+  [_V, _U],
+  [1, 0], 2
+];
 var DimensionEntryList: StaticListSchema = [1, n0, _DEL,
   0, () => DimensionEntry$
 ];
@@ -161,6 +203,10 @@ var EmissionsTypeList = 64 | 0;
 var EstimatedCarbonEmissionsList: StaticListSchema = [1, n0, _ECEL,
   0, () => EstimatedCarbonEmissions$
 ];
+var EstimatedWaterAllocationList: StaticListSchema = [1, n0, _EWAL,
+  0, () => EstimatedWaterAllocation$
+];
+var WaterAllocationTypeList = 64 | 0;
 var DimensionListMap: StaticMapSchema = [2, n0, _DLM,
   0, 0, 64 | 0
 ];
@@ -168,9 +214,18 @@ var DimensionsMap = 128 | 0;
 var EmissionsMap: StaticMapSchema = [2, n0, _EM,
   0, 0, () => Emissions$
 ];
+var WaterAllocationMap: StaticMapSchema = [2, n0, _WAM,
+  0, 0, () => WaterAllocation$
+];
 export var GetEstimatedCarbonEmissions$: StaticOperationSchema = [9, n0, _GECE,
   { [_h]: ["POST", "/v1/estimated-carbon-emissions", 200] }, () => GetEstimatedCarbonEmissionsRequest$, () => GetEstimatedCarbonEmissionsResponse$
 ];
 export var GetEstimatedCarbonEmissionsDimensionValues$: StaticOperationSchema = [9, n0, _GECEDV,
   { [_h]: ["POST", "/v1/estimated-carbon-emissions-dimension-values", 200] }, () => GetEstimatedCarbonEmissionsDimensionValuesRequest$, () => GetEstimatedCarbonEmissionsDimensionValuesResponse$
+];
+export var GetEstimatedWaterAllocation$: StaticOperationSchema = [9, n0, _GEWA,
+  { [_h]: ["POST", "/v1/estimated-water-allocation", 200] }, () => GetEstimatedWaterAllocationRequest$, () => GetEstimatedWaterAllocationResponse$
+];
+export var GetEstimatedWaterAllocationDimensionValues$: StaticOperationSchema = [9, n0, _GEWADV,
+  { [_h]: ["POST", "/v1/estimated-water-allocation-dimension-values", 200] }, () => GetEstimatedWaterAllocationDimensionValuesRequest$, () => GetEstimatedWaterAllocationDimensionValuesResponse$
 ];
