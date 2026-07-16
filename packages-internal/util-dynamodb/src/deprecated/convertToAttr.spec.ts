@@ -3,7 +3,7 @@ import { describe, expect, test as it } from "vitest";
 
 import { convertToAttr } from "./convertToAttr";
 import type { marshallOptions } from "./marshall";
-import type { NativeAttributeValue } from "./models";
+import type { NativeAttributeValue } from "./deprecated-util-ddb-models";
 import { NumberValue } from "../NumberValue";
 
 describe("convertToAttr", () => {

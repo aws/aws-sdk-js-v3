@@ -588,7 +588,7 @@ describe(
                   return "ownFunction";
                 };
               })(),
-            },
+            } as Record<string, any>,
           },
         })
         .catch(passError);
@@ -718,7 +718,7 @@ describe(
       const results = log.batchRead?.Responses?.[TableName] ?? [];
 
       for (const result of results) {
-        expect(result.data).toEqual(data[result.id.replace("-batch", "")]);
+        expect(result.data).toEqual(data[(result.id as string).replace("-batch", "")]);
       }
     });
 
@@ -731,7 +731,8 @@ describe(
       const results = log.transactRead?.Responses ?? [];
 
       for (const result of results) {
-        expect(result.Item?.data).toEqual(data[result.Item?.id.replace("-transact", "")]);
+        const id = result.Item?.id as string;
+        expect(result.Item?.data).toEqual(data[id.replace("-transact", "")]);
       }
     });
 
@@ -745,7 +746,7 @@ describe(
       expect(log.batchExecuteStatementReadBack?.Responses).toBeInstanceOf(Array);
       expect(log.batchExecuteStatementReadBack?.Responses?.length).toBeGreaterThan(0);
       for (const response of log.batchExecuteStatementReadBack?.Responses ?? []) {
-        expect(response.Item?.data).toEqual(data[response.Item?.id?.replace("-batch-statement", "")]);
+        expect(response.Item?.data).toEqual(data[(response.Item?.id as string)?.replace("-batch-statement", "")]);
       }
     });
 
