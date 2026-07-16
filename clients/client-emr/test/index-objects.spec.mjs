@@ -36,7 +36,6 @@ import {
   CancelStepsInput$,
   CancelStepsOutput$,
   CancelStepsRequestStatus,
-  CertificateAuthority$,
   CloudWatchAlarmDefinition$,
   CloudWatchLogConfiguration$,
   Cluster$,
@@ -597,7 +596,6 @@ assert(typeof BootstrapActionDetail$ === "object");
 assert(typeof CancelStepsInfo$ === "object");
 assert(typeof CancelStepsInput$ === "object");
 assert(typeof CancelStepsOutput$ === "object");
-assert(typeof CertificateAuthority$ === "object");
 assert(typeof CloudWatchAlarmDefinition$ === "object");
 assert(typeof CloudWatchLogConfiguration$ === "object");
 assert(typeof Cluster$ === "object");

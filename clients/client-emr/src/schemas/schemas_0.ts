@@ -58,15 +58,12 @@ const _BPSGR = "BlockPublicSecurityGroupRules";
 const _C = "Constraints";
 const _CA = "ClusterArn";
 const _CAI = "CustomAmiId";
-const _CAe = "CertificateAuthority";
-const _CAer = "CertificateArn";
 const _CAr = "CreatedAfter";
 const _CAre = "CreatedAt";
 const _CB = "CreatedBefore";
 const _CBA = "CreatedByArn";
-const _CD = "CertificateData";
+const _CD = "CoolDown";
 const _CDT = "CreationDateTime";
-const _CDo = "CoolDown";
 const _CI = "ClusterId";
 const _CL = "ComputeLimits";
 const _CLo = "CommandList";
@@ -828,11 +825,6 @@ export var CancelStepsOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
   [_CSIL],
   [() => CancelStepsInfoList]
-];
-export var CertificateAuthority$: StaticStructureSchema = [3, n0, _CAe,
-  0,
-  [_CAer, _CD],
-  [0, 0]
 ];
 export var CloudWatchAlarmDefinition$: StaticStructureSchema = [3, n0, _CWAD,
   0,
@@ -1676,8 +1668,8 @@ export var SecurityConfigurationSummary$: StaticStructureSchema = [3, n0, _SCS,
 ];
 export var Session$: StaticStructureSchema = [3, n0, _Se,
   0,
-  [_I, _CI, _Arn, _Sta, _N, _SCR, _RL, _ERA, _AIc, _CAre, _UA, _SAt, _EAn, _ISd, _ECn, _MC, _SITIM, _CAe, _SU, _T],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, () => ConfigurationList, () => SessionMonitoringConfiguration$, 1, () => CertificateAuthority$, 0, () => TagList], 4
+  [_I, _CI, _Arn, _Sta, _N, _SCR, _RL, _ERA, _AIc, _CAre, _UA, _SAt, _EAn, _ISd, _ECn, _MC, _SITIM, _SU, _T],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, () => ConfigurationList, () => SessionMonitoringConfiguration$, 1, 0, () => TagList], 4
 ];
 export var SessionCloudWatchLoggingConfiguration$: StaticStructureSchema = [3, n0, _SCWLC,
   0,
@@ -1736,7 +1728,7 @@ export var ShrinkPolicy$: StaticStructureSchema = [3, n0, _SPh,
 ];
 export var SimpleScalingPolicyConfiguration$: StaticStructureSchema = [3, n0, _SSPC,
   0,
-  [_SAc, _ATd, _CDo],
+  [_SAc, _ATd, _CD],
   [1, 0, 1], 1
 ];
 export var SimplifiedApplication$: StaticStructureSchema = [3, n0, _SAi,

@@ -1208,24 +1208,6 @@ export interface CancelStepsOutput {
 }
 
 /**
- * <p>Describes the certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
- * @public
- */
-export interface CertificateAuthority {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the certificate authority in Amazon Web Services Private CA that issued the Spark Connect server certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-
-  /**
-   * <p>The PEM-encoded root CA certificate data. Provide this certificate to your client's trust store when connecting directly to the Spark Connect server over VPC peering.</p>
-   * @public
-   */
-  CertificateData?: string | undefined;
-}
-
-/**
  * <p>Holds CloudWatch log configuration settings and metadata that specify settings like log files to monitor and where to send them.</p>
  * @public
  */
@@ -6802,12 +6784,6 @@ export interface Session {
    * @public
    */
   SessionIdleTimeoutInMinutes?: number | undefined;
-
-  /**
-   * <p>The certificate authority used to establish an mTLS connection to the Spark Connect server when connecting directly over VPC peering.</p>
-   * @public
-   */
-  CertificateAuthority?: CertificateAuthority | undefined;
 
   /**
    * <p>The Spark Connect server URL for the session. Use this URL with the <code>Credentials</code> returned by <code>GetSessionEndpoint</code> to connect directly to the session over VPC peering.</p>
