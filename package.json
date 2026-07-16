@@ -1,8 +1,26 @@
 {
   "name": "aws-sdk-js-v3",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "description": "AWS SDK for JavaScript from the future",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "http://aws.amazon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aws/aws-sdk-js-v3.git"
+  },
+  "workspaces": {
+    "packages": [
+      "clients/*",
+      "lib/*",
+      "packages/*",
+      "packages-internal/*",
+      "private/*"
+    ]
+  },
   "main": "index.js",
   "scripts": {
     "benchmark:bundlers": "node ./tests/performance-tests/runner/run.mjs",
@@ -60,15 +78,6 @@
     "update:versions:default": "node ./scripts/update-versions/default.mjs",
     "update:versions:preview": "node ./scripts/update-versions/preview.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:aws/aws-sdk-js-v3.git"
-  },
-  "author": {
-    "name": "Amazon Web Services",
-    "url": "http://aws.amazon.com"
-  },
-  "license": "UNLICENSED",
   "devDependencies": {
     "@aws-crypto/crc32": "5.2.0",
     "@aws-crypto/crc32c": "5.2.0",
@@ -124,25 +133,16 @@
     "webpack-cli": "4.10.0",
     "yargs": "17.5.1"
   },
-  "overrides": {
-    "typescript": "~5.8.3"
-  },
   "resolutions": {
     "typescript": "~5.8.3"
   },
-  "workspaces": {
-    "packages": [
-      "clients/*",
-      "lib/*",
-      "packages/*",
-      "packages-internal/*",
-      "private/*"
-    ]
+  "overrides": {
+    "typescript": "~5.8.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
