@@ -1,6 +1,6 @@
 {
-  "private": true,
   "name": "@aws-sdk/ts-compat-test",
+  "private": true,
   "description": "Verifies that one client per protocol compiles against every supported TypeScript minor version.",
   "type": "module",
   "scripts": {

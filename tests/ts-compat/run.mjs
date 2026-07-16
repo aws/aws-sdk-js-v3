@@ -65,23 +65,14 @@ function ensureClientsReady() {
     "@aws-sdk/client-s3",
   ];
   const missing = clients.filter(
-    (name) =>
-      !existsSync(
-        path.join(
-          root,
-          "node_modules",
-          ...name.split("/"),
-          "dist-types",
-          "index.d.ts",
-        ),
-      ),
+    (name) => !existsSync(path.join(root, "node_modules", ...name.split("/"), "dist-types", "index.d.ts"))
   );
   if (missing.length > 0) {
     console.error(
       `\nThe following clients are not built (dist-types missing): ${missing.join(", ")}.\n` +
         `Build them first, e.g.:\n` +
         `  node ./scripts/turbo build -F=@aws-sdk/client-dynamodb -F=@aws-sdk/client-cloudwatch-logs \\\n` +
-        `    -F=@aws-sdk/client-sts -F=@aws-sdk/client-ec2 -F=@aws-sdk/client-lambda -F=@aws-sdk/client-s3\n`,
+        `    -F=@aws-sdk/client-sts -F=@aws-sdk/client-ec2 -F=@aws-sdk/client-lambda -F=@aws-sdk/client-s3\n`
     );
     process.exit(1);
   }
@@ -139,9 +130,7 @@ const versions = loadVersions();
 const results = await runPool(versions);
 
 results.sort(
-  (a, b) =>
-    versions.findIndex((v) => v.version === a.version) -
-    versions.findIndex((v) => v.version === b.version),
+  (a, b) => versions.findIndex((v) => v.version === a.version) - versions.findIndex((v) => v.version === b.version)
 );
 
 const failures = results.filter((r) => !r.ok);
