@@ -55,9 +55,9 @@ describe(getUpdatedSystemClockOffset.name, () => {
 
   describe("Age header guard", () => {
     it("returns currentSystemClockOffset unchanged when Age header is present", () => {
-      expect(
-        getUpdatedSystemClockOffset(mockClockTime.toString(), mockSystemClockOffset, undefined, "17280")
-      ).toEqual(mockSystemClockOffset);
+      expect(getUpdatedSystemClockOffset(mockClockTime.toString(), mockSystemClockOffset, undefined, "17280")).toEqual(
+        mockSystemClockOffset
+      );
     });
 
     it("updates offset normally when Age header is absent", () => {

@@ -146,7 +146,12 @@ export class AwsSdkSigV4Signer implements HttpSigner {
           const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
           const timeRequestSent = signingProperties._requestSentAt as number | undefined;
           const ageHeader = getAgeHeader(errorException.$response);
-          const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset, timeRequestSent, ageHeader);
+          const newOffset = getUpdatedSystemClockOffset(
+            serverTime,
+            config.systemClockOffset,
+            timeRequestSent,
+            ageHeader
+          );
 
           // Always update ClientSkew
           config.systemClockOffset = newOffset;

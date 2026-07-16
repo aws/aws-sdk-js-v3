@@ -1,8 +1,7 @@
-
 import { STS } from "@aws-sdk/client-sts";
 import { HttpResponse } from "@smithy/core/protocols";
 import type { HttpHandlerOptions, RequestHandlerOutput } from "@smithy/types";
-import { HttpRequest } from "@smithy/protocol-http";
+import type { HttpRequest } from "@smithy/core/protocols";
 import { Readable } from "node:stream";
 import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
@@ -77,7 +76,6 @@ function stsErrorResponseNoDate(errorCode: string, statusCode = 403): HttpRespon
   });
 }
 
-
 interface AttemptTiming {
   sendMs: number;
   receiveMs: number;
@@ -146,10 +144,13 @@ class ClockSkewTestHandler {
 }
 
 function toSigV4Date(isoTime: string): string {
-  return new Date(isoTime).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  return new Date(isoTime)
+    .toISOString()
+    .replace(/[-:]/g, "")
+    .replace(/\.\d{3}/, "");
 }
 
-describe("Clock Skew SEP Integration Tests", () => {
+describe("Clock Skew Integration Tests", () => {
   const credentials = { accessKeyId: "INTEG_TEST", secretAccessKey: "INTEG_TEST" };
   const region = "us-east-1";
   let dateNowSpy: ReturnType<typeof vi.spyOn>;
