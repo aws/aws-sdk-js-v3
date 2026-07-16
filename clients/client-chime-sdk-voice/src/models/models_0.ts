@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AlexaSkillStatus,
+  CallDistributionType,
   CallingNameStatus,
   CallLegType,
   Capability,
@@ -430,7 +431,7 @@ export interface PhoneNumberOrder {
    *          if a phone number order is not a porting order.</p>
    * @public
    */
-  FocDate?: Date | undefined;
+  FocDate?: string | undefined;
 }
 
 /**
@@ -878,7 +879,7 @@ export interface CreateSipRuleRequest {
    *          application per AWS Region can be used.</p>
    * @public
    */
-  TargetApplications?: SipRuleTargetApplication[] | undefined;
+  TargetApplications: SipRuleTargetApplication[] | undefined;
 }
 
 /**
@@ -991,6 +992,10 @@ export interface CreateVoiceConnectorRequest {
    *                and branch voice systems. Additionally, enterprises migrating their contact center to
    *                Connect Customer can start with Connect telephony and IVR for immediate
    *                modernization ahead of agent migration.</p>
+   *                <note>
+   *                   <p>This integration is a gated feature. Please reach out to your account team to
+   *                   discuss this feature with a Connect Specialist.</p>
+   *                </note>
    *             </li>
    *             <li>
    *                <p>
@@ -1012,7 +1017,7 @@ export interface CreateVoiceConnectorRequest {
   IntegrationType?: VoiceConnectorIntegrationType | undefined;
 
   /**
-   * <p>The type of network for the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * <p>The type of network for the Voice Connector.</p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -1080,7 +1085,7 @@ export interface VoiceConnector {
   IntegrationType?: VoiceConnectorIntegrationType | undefined;
 
   /**
-   * <p>The type of network of the Voice Connector. Either IPv4 only or dual-stack (IPv4 and IPv6).</p>
+   * <p>The type of network for the Voice Connector.</p>
    * @public
    */
   NetworkType?: NetworkType | undefined;
@@ -1116,7 +1121,7 @@ export interface VoiceConnectorItem {
    *            the system distributes calls among them based on their relative weight.</p>
    * @public
    */
-  Priority: number | undefined;
+  Priority?: number | undefined;
 }
 
 /**
@@ -1134,6 +1139,8 @@ export interface CreateVoiceConnectorGroupRequest {
    * @public
    */
   VoiceConnectorItems?: VoiceConnectorItem[] | undefined;
+
+  CallDistributionType?: CallDistributionType | undefined;
 }
 
 /**
@@ -1179,6 +1186,8 @@ export interface VoiceConnectorGroup {
    * @public
    */
   VoiceConnectorGroupArn?: string | undefined;
+
+  CallDistributionType?: CallDistributionType | undefined;
 }
 
 /**
@@ -1725,6 +1734,7 @@ export interface PhoneNumber {
    */
   E164PhoneNumber?: string | undefined;
 
+  PhoneNumberArn?: string | undefined;
   /**
    * <p>The phone number's country. Format: ISO 3166-1 alpha-2.</p>
    * @public
@@ -3869,7 +3879,7 @@ export interface UpdateGlobalSettingsRequest {
    * <p>The Voice Connector settings.</p>
    * @public
    */
-  VoiceConnector?: VoiceConnectorSettings | undefined;
+  VoiceConnector: VoiceConnectorSettings | undefined;
 }
 
 /**
@@ -4128,6 +4138,8 @@ export interface UpdateVoiceConnectorGroupRequest {
    * @public
    */
   VoiceConnectorItems: VoiceConnectorItem[] | undefined;
+
+  CallDistributionType?: CallDistributionType | undefined;
 }
 
 /**

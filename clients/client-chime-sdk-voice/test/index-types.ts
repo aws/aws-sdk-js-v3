@@ -291,6 +291,7 @@ export type {
   ValidateE911AddressCommandInput,
   ValidateE911AddressCommandOutput,
   AlexaSkillStatus,
+  CallDistributionType,
   CallingNameStatus,
   CallLegType,
   Capability,

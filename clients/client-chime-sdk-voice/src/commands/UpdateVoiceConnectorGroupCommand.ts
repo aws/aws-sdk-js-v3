@@ -38,9 +38,10 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  *   VoiceConnectorItems: [ // VoiceConnectorItemList // required
  *     { // VoiceConnectorItem
  *       VoiceConnectorId: "STRING_VALUE", // required
- *       Priority: Number("int"), // required
+ *       Priority: Number("int"),
  *     },
  *   ],
+ *   CallDistributionType: "PriorityWeightedDistribution" || "LoadBalancedDistribution",
  * };
  * const command = new UpdateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
@@ -51,12 +52,13 @@ export interface UpdateVoiceConnectorGroupCommandOutput extends UpdateVoiceConne
  * //     VoiceConnectorItems: [ // VoiceConnectorItemList
  * //       { // VoiceConnectorItem
  * //         VoiceConnectorId: "STRING_VALUE", // required
- * //         Priority: Number("int"), // required
+ * //         Priority: Number("int"),
  * //       },
  * //     ],
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorGroupArn: "STRING_VALUE",
+ * //     CallDistributionType: "PriorityWeightedDistribution" || "LoadBalancedDistribution",
  * //   },
  * // };
  *

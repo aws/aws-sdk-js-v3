@@ -69,6 +69,9 @@ export interface GetSipMediaApplicationAlexaSkillConfigurationCommandOutput exte
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
  *
+ * @throws {@link GoneException} (client fault)
+ *  <p>Access to the target resource is no longer available at the origin server. This condition is likely to be permanent.</p>
+ *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource couldn't be found.</p>
  *

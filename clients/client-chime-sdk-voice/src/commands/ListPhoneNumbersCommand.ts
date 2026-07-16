@@ -49,6 +49,7 @@ export interface ListPhoneNumbersCommandOutput extends ListPhoneNumbersResponse,
  * //     { // PhoneNumber
  * //       PhoneNumberId: "STRING_VALUE",
  * //       E164PhoneNumber: "STRING_VALUE",
+ * //       PhoneNumberArn: "STRING_VALUE",
  * //       Country: "STRING_VALUE",
  * //       Type: "Local" || "TollFree",
  * //       ProductType: "VoiceConnector" || "SipMediaApplicationDialIn",

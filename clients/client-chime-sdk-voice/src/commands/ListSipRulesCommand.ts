@@ -75,6 +75,9 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
  *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
+ *
  * @throws {@link ServiceFailureException} (server fault)
  *  <p>The service encountered an unexpected error.</p>
  *
