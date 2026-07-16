@@ -3346,7 +3346,7 @@ export interface CreateClusterMessage {
    *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
    *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>rg.large</code> | <code>rg.xlarge</code> | <code>rg.4xlarge</code> | <code>rg.12xlarge</code> |
    *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
@@ -10173,7 +10173,7 @@ export interface ModifyClusterMessage {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>rg.large</code> | <code>rg.xlarge</code> | <code>rg.4xlarge</code> | <code>rg.12xlarge</code> |
    *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public

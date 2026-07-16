@@ -40,10 +40,16 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  *                      <p>dc2.8xlarge</p>
  *                   </li>
  *                   <li>
+ *                      <p>rg.large</p>
+ *                   </li>
+ *                   <li>
  *                      <p>rg.xlarge</p>
  *                   </li>
  *                   <li>
  *                      <p>rg.4xlarge</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>rg.12xlarge</p>
  *                   </li>
  *                   <li>
  *                      <p>ra3.large</p>
