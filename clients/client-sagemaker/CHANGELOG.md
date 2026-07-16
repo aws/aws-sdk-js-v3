@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Features
+
+* **client-sagemaker:** Release support for g7 instance type for SageMaker inference endpoints. ([668f46c](https://github.com/aws/aws-sdk-js-v3/commit/668f46cb4b4da795b341153fded865aaf643a76f))
+
+
+
+
+
 # [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

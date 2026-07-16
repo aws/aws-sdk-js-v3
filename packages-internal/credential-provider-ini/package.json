@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-ini",
-  "version": "3.973.3",
+  "version": "3.973.4",
   "description": "AWS credential provider that sources credentials from ~/.aws/credentials and ~/.aws/config",
   "keywords": [
     "aws",
@@ -48,7 +48,7 @@
     "@aws-sdk/core": "workspace:^3.975.3",
     "@aws-sdk/credential-provider-env": "workspace:^3.972.59",
     "@aws-sdk/credential-provider-http": "workspace:^3.972.61",
-    "@aws-sdk/credential-provider-login": "workspace:^3.972.65",
+    "@aws-sdk/credential-provider-login": "workspace:^3.972.66",
     "@aws-sdk/credential-provider-process": "workspace:^3.972.59",
     "@aws-sdk/credential-provider-sso": "workspace:^3.973.3",
     "@aws-sdk/credential-provider-web-identity": "workspace:^3.972.65",

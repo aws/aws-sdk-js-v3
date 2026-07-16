@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-json-machinelearning",
-  "version": "3.1088.0",
+  "version": "3.1089.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-json-machinelearning client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-json-machinelearning",
@@ -49,7 +49,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.975.3",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.69",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.70",
     "@aws-sdk/middleware-sdk-machinelearning": "workspace:^3.972.24",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",

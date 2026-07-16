@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/config",
-  "version": "3.1088.0",
+  "version": "3.1089.0",
   "description": "Injectable dependencies, extensions, and other plugins for AWS SDK clients.",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/config",
   "license": "Apache-2.0",
@@ -112,7 +112,7 @@
   },
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.975.3",
-    "@aws-sdk/credential-providers": "workspace:3.1088.0",
+    "@aws-sdk/credential-providers": "workspace:3.1089.0",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",
     "@smithy/fetch-http-handler": "^5.6.6",

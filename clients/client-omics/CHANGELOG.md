@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Features
+
+* **client-omics:** Adds support for returning the task UUID (universally unique identifier) in GetRunTask and ListRunTasks responses ([bafd66d](https://github.com/aws/aws-sdk-js-v3/commit/bafd66dde7a91690c7a01a3da87709056f3aaca3))
+
+
+
+
+
 # [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-omics

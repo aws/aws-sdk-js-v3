@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Features
+
+* **client-emr:** Amazon EMR updates the Session object returned by GetSession API ([863234a](https://github.com/aws/aws-sdk-js-v3/commit/863234ad7a0f08a13d24aac2b31dbe12fc14d62f))
+
+
+
+
+
 # [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

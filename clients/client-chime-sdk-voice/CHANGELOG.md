@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Features
+
+* **client-chime-sdk-voice:** Marked CreateProxySession, DeleteProxySession, GetProxySession, ListProxySessions, UpdateProxySession, PutVoiceConnectorProxy, DeleteVoiceConnectorProxy, and GetVoiceConnectorProxy as deprecated. ([d706c45](https://github.com/aws/aws-sdk-js-v3/commit/d706c4567374de6cb774ec9e57440b6bee202fe7))
+
+
+
+
+
 # [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
 
 **Note:** Version bump only for package @aws-sdk/client-chime-sdk-voice

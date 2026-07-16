@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Bug Fixes
+
+* **package.json:** run make lint format without file args ([#8201](https://github.com/aws/aws-sdk-js-v3/issues/8201)) ([33ac9c0](https://github.com/aws/aws-sdk-js-v3/commit/33ac9c0b184907603ea288f0b71c4cd9a77601d1))
+
+
+### Features
+
+* **client-chime-sdk-voice:** Marked CreateProxySession, DeleteProxySession, GetProxySession, ListProxySessions, UpdateProxySession, PutVoiceConnectorProxy, DeleteVoiceConnectorProxy, and GetVoiceConnectorProxy as deprecated. ([d706c45](https://github.com/aws/aws-sdk-js-v3/commit/d706c4567374de6cb774ec9e57440b6bee202fe7))
+* **client-emr:** Amazon EMR updates the Session object returned by GetSession API ([863234a](https://github.com/aws/aws-sdk-js-v3/commit/863234ad7a0f08a13d24aac2b31dbe12fc14d62f))
+* **client-omics:** Adds support for returning the task UUID (universally unique identifier) in GetRunTask and ListRunTasks responses ([bafd66d](https://github.com/aws/aws-sdk-js-v3/commit/bafd66dde7a91690c7a01a3da87709056f3aaca3))
+* **client-sagemaker:** Release support for g7 instance type for SageMaker inference endpoints. ([668f46c](https://github.com/aws/aws-sdk-js-v3/commit/668f46cb4b4da795b341153fded865aaf643a76f))
+* **client-sustainability:** Adds support for retrieving estimated water allocation data. ([432031b](https://github.com/aws/aws-sdk-js-v3/commit/432031b68ada0cb596f07e3747aec70adb1a39c8))
+* **clients:** update client endpoints as of 2026-07-16 ([c9150fe](https://github.com/aws/aws-sdk-js-v3/commit/c9150fe6891b8d1c9a8455ea8f32f403a43c464c))
+
+
+
+
+
 # [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
 
 

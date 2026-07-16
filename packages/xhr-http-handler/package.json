@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.1088.0",
+  "version": "3.1089.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xhr-http-handler",
   "bugs": {
