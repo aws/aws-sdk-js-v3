@@ -146,11 +146,7 @@
     }
   },
   "lint-staged": {
-    "{lib,packages,packages-internal}/**/src/**/*.ts": [
-      "oxlint --fix",
-      "oxfmt --write"
-    ],
-    "**/*.{ts,js,md,json}": "oxfmt --write"
+    "*": "make lint format"
   },
   "packageManager": "yarn@4.17.1"
 }
