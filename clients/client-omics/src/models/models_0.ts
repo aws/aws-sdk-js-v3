@@ -5670,6 +5670,12 @@ export interface GetRunTaskResponse {
    * @public
    */
   imageDetails?: ImageDetails | undefined;
+
+  /**
+   * <p>The universally unique identifier (UUID) for the workflow task.</p>
+   * @public
+   */
+  uuid?: string | undefined;
 }
 
 /**
@@ -8051,6 +8057,12 @@ export interface TaskListItem {
    * @public
    */
   instanceType?: string | undefined;
+
+  /**
+   * <p>The universally unique identifier (UUID) for the workflow task.</p>
+   * @public
+   */
+  uuid?: string | undefined;
 }
 
 /**

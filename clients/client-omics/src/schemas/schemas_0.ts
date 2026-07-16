@@ -1468,8 +1468,8 @@ export var GetRunTaskRequest$: StaticStructureSchema = [3, n0, _GRTR,
 ];
 export var GetRunTaskResponse$: StaticStructureSchema = [3, n0, _GRTRe,
   0,
-  [_tI, _sta, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _sM, _lS, _g, _iT, _fR, _iD],
-  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 0, 0, 1, 0, 0, () => ImageDetails$]
+  [_tI, _sta, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _sM, _lS, _g, _iT, _fR, _iD, _u],
+  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 0, 0, 1, 0, 0, () => ImageDetails$, 0]
 ];
 export var GetS3AccessPolicyRequest$: StaticStructureSchema = [3, n0, _GSAPR,
   0,
@@ -2153,8 +2153,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TaskListItem$: StaticStructureSchema = [3, n0, _TLI,
   0,
-  [_tI, _sta, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _g, _iT],
-  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 1, 0]
+  [_tI, _sta, _n, _cp, _cH, _cSU, _me, _cT, _sTt, _sTto, _g, _iT, _u],
+  [0, 0, 0, 1, 2, 0, 1, 5, 5, 5, 1, 0, 0]
 ];
 export var TsvOptions$: StaticStructureSchema = [3, n0, _TO,
   0,
