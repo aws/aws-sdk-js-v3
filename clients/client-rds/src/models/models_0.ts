@@ -2410,6 +2410,24 @@ export interface DBEngineVersion {
 }
 
 /**
+ * <p>Contains information about an Amazon Web Services Identity and Access Management (IAM) role to associate with a DB cluster. You can specify this structure in the <code>AssociatedRoles</code> parameter of <a>CreateDBCluster</a>, <a>RestoreDBClusterFromS3</a>, <a>RestoreDBClusterFromSnapshot</a>, and <a>RestoreDBClusterToPointInTime</a>.</p>
+ * @public
+ */
+export interface DBClusterAssociatedRole {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the DB cluster.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the feature associated with the IAM role. For information about supported feature names, see <a>DBEngineVersion</a>.</p>
+   * @public
+   */
+  FeatureName?: string | undefined;
+}
+
+/**
  * <p>Reserved for future use.</p>
  * @public
  */
@@ -2875,6 +2893,12 @@ export interface CreateDBClusterMessage {
    * @public
    */
   WithExpressConfiguration?: boolean | undefined;
+
+  /**
+   * <p>A list of Amazon Web Services Identity and Access Management (IAM) roles to associate with the DB cluster. Each role grants the DB cluster permission to access other Amazon Web Services on your behalf. For each role, specify a role ARN and, optionally, the feature name (such as <code>s3Import</code>, <code>s3Export</code>, or <code>Lambda</code>).</p> <p>Valid for Cluster Type: Aurora DB clusters only</p>
+   * @public
+   */
+  AssociatedRoles?: DBClusterAssociatedRole[] | undefined;
 }
 
 /**
@@ -12031,34 +12055,4 @@ export interface ServerlessV2PlatformVersionsMessage {
    * @public
    */
   ServerlessV2PlatformVersions?: ServerlessV2PlatformVersionInfo[] | undefined;
-}
-
-/**
- * <p/>
- * @public
- */
-export interface DescribeSourceRegionsMessage {
-  /**
-   * <p>The source Amazon Web Services Region name. For example, <code>us-east-1</code>.</p> <p>Constraints:</p> <ul> <li> <p>Must specify a valid Amazon Web Services Region name.</p> </li> </ul>
-   * @public
-   */
-  RegionName?: string | undefined;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist than the specified <code>MaxRecords</code> value, a pagination token called a marker is included in the response so you can retrieve the remaining results.</p> <p>Default: 100</p> <p>Constraints: Minimum 20, maximum 100.</p>
-   * @public
-   */
-  MaxRecords?: number | undefined;
-
-  /**
-   * <p>An optional pagination token provided by a previous <code>DescribeSourceRegions</code> request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
 }

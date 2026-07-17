@@ -179,6 +179,7 @@ import {
   DBCluster$,
   DBClusterAlreadyExistsFault,
   DBClusterAlreadyExistsFault$,
+  DBClusterAssociatedRole$,
   DBClusterAutomatedBackup$,
   DBClusterAutomatedBackupMessage$,
   DBClusterAutomatedBackupNotFoundFault,
@@ -1562,6 +1563,7 @@ assert(typeof CreateTenantDatabaseMessage$ === "object");
 assert(typeof CreateTenantDatabaseResult$ === "object");
 assert(typeof CustomDBEngineVersionAMI$ === "object");
 assert(typeof DBCluster$ === "object");
+assert(typeof DBClusterAssociatedRole$ === "object");
 assert(typeof DBClusterAutomatedBackup$ === "object");
 assert(typeof DBClusterAutomatedBackupMessage$ === "object");
 assert(typeof DBClusterBacktrack$ === "object");
