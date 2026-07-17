@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+
+### Features
+
+* **client-odb:** Adds support for sourcing Autonomous Database admin and wallet passwords from customer-managed AWS Secrets Manager secrets, including password source configuration and summaries, and enabling or disabling the OCI IAM service role for Secrets Manager integration via InitializeService. ([d5619c8](https://github.com/aws/aws-sdk-js-v3/commit/d5619c8bb18547fd7fe95bdf5f4ed8eff3178275))
+
+
+
+
+
 # [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
 
 **Note:** Version bump only for package @aws-sdk/client-odb

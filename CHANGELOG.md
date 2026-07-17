@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito user pools now support sending SMS via AWS End User Messaging. A new EumsSms object in SmsConfigurationType lets you deliver MFA and verification texts through AWS End User Messaging, alongside the existing Amazon SNS option. ([600cf8d](https://github.com/aws/aws-sdk-js-v3/commit/600cf8d5cb99b819ab1bbb0296d645ee8690a05f))
+* **client-gameliftstreams:** Amazon GameLift Streams now supports assigning an IAM role to a stream session, enabling your application to securely access resources in your AWS account, such as Amazon S3 buckets and DynamoDB tables. ([cf945cd](https://github.com/aws/aws-sdk-js-v3/commit/cf945cdbdfbcc0ea5bbf36b1f4048aef95097237))
+* **client-kinesis-analytics-v2:** Support for Flink 2.3 in Managed Service for Apache Flink ([1ad0421](https://github.com/aws/aws-sdk-js-v3/commit/1ad0421fb0f752af3417a9bb6b55280fa021a8f0))
+* **client-odb:** Adds support for sourcing Autonomous Database admin and wallet passwords from customer-managed AWS Secrets Manager secrets, including password source configuration and summaries, and enabling or disabling the OCI IAM service role for Secrets Manager integration via InitializeService. ([d5619c8](https://github.com/aws/aws-sdk-js-v3/commit/d5619c8bb18547fd7fe95bdf5f4ed8eff3178275))
+* **client-rds:** Adds the AssociatedRoles parameter to CreateDBCluster, RestoreDBClusterFromSnapshot, RestoreDBClusterToPointInTime, and RestoreDBClusterFromS3, letting customers associate IAM roles with an Aurora DB cluster at create or restore time instead of calling AddRoleToDBCluster afterward. ([48b74a4](https://github.com/aws/aws-sdk-js-v3/commit/48b74a4393b494e2e59b16d8a61ab47c385a0b05))
+* **clients:** update client endpoints as of 2026-07-17 ([857153f](https://github.com/aws/aws-sdk-js-v3/commit/857153f32bc002c6c13c784843c612e24c1ec3c2))
+
+
+
+
+
 # [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
 
 

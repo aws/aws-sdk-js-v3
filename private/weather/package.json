@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/weather",
-  "version": "3.1089.0",
+  "version": "3.1090.0",
   "private": true,
   "description": "@aws-sdk/weather client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/weather",

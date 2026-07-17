@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/dsql-signer",
-  "version": "3.1089.0",
+  "version": "3.1090.0",
   "description": "Dsql utility for generating a password token that can be used for IAM authentication to a Dsql Database.",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/dsql-signer",
   "license": "Apache-2.0",

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-data-pipeline",
-  "version": "3.1089.0",
+  "version": "3.1090.0",
   "description": "AWS SDK for JavaScript Data Pipeline Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-data-pipeline",
   "license": "Apache-2.0",

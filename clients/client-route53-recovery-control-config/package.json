@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-route53-recovery-control-config",
-  "version": "3.1089.0",
+  "version": "3.1090.0",
   "description": "AWS SDK for JavaScript Route53 Recovery Control Config Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-route53-recovery-control-config",
   "license": "Apache-2.0",

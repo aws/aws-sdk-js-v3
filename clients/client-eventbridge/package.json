@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-eventbridge",
-  "version": "3.1089.0",
+  "version": "3.1090.0",
   "description": "AWS SDK for JavaScript Eventbridge Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-eventbridge",
   "license": "Apache-2.0",
@@ -59,7 +59,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "workspace:3.1089.0",
+    "@aws-sdk/signature-v4-crt": "workspace:3.1090.0",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
