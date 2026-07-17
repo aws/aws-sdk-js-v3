@@ -171,6 +171,7 @@ export const RuntimeEnvironment = {
   FLINK_1_6: "FLINK-1_6",
   FLINK_1_8: "FLINK-1_8",
   FLINK_2_2: "FLINK-2_2",
+  FLINK_2_3: "FLINK-2_3",
   SQL_1_0: "SQL-1_0",
   ZEPPELIN_FLINK_1_0: "ZEPPELIN-FLINK-1_0",
   ZEPPELIN_FLINK_2_0: "ZEPPELIN-FLINK-2_0",
