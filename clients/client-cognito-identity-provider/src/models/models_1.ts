@@ -51,6 +51,24 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Represents the request to stop the user import job.</p>
+ * @public
+ */
+export interface StopUserImportJobRequest {
+  /**
+   * <p>The ID of the user pool that you want to stop.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of a running user import job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
  * <p>Represents the response from the server to the request to stop the user import
  *             job.</p>
  * @public

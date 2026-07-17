@@ -326,6 +326,7 @@ import {
   EnableSoftwareTokenMFAException,
   EnableSoftwareTokenMFAException$,
   EncryptionKeyType,
+  EumsSmsConfigurationType$,
   EventContextDataType$,
   EventFeedbackType$,
   EventFilterType,
@@ -533,6 +534,7 @@ import {
   paginateListUserPools,
   paginateListUsers,
   paginateListUsersInGroup,
+  PasswordHashingAlgorithmType,
   PasswordHistoryPolicyViolationException,
   PasswordHistoryPolicyViolationException$,
   PasswordPolicyType$,
@@ -1193,6 +1195,7 @@ assert(typeof DomainDescriptionType$ === "object");
 assert(typeof EmailConfigurationType$ === "object");
 assert(typeof EmailMfaConfigType$ === "object");
 assert(typeof EmailMfaSettingsType$ === "object");
+assert(typeof EumsSmsConfigurationType$ === "object");
 assert(typeof EventContextDataType$ === "object");
 assert(typeof EventFeedbackType$ === "object");
 assert(typeof EventRiskType$ === "object");
@@ -1415,6 +1418,7 @@ assert(typeof LimitClass === "object");
 assert(typeof LogLevel === "object");
 assert(typeof MessageActionType === "object");
 assert(typeof OAuthFlowType === "object");
+assert(typeof PasswordHashingAlgorithmType === "object");
 assert(typeof PreTokenGenerationLambdaVersionType === "object");
 assert(typeof PreventUserExistenceErrorTypes === "object");
 assert(typeof RecoveryOptionNameType === "object");

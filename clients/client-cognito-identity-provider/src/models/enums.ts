@@ -416,6 +416,22 @@ export type TermsSourceType = (typeof TermsSourceType)[keyof typeof TermsSourceT
  * @public
  * @enum
  */
+export const PasswordHashingAlgorithmType = {
+  ARGON2ID: "ARGON2ID",
+  BCRYPT: "BCRYPT",
+  PBKDF2_SHA256: "PBKDF2_SHA256",
+  SCRYPT: "SCRYPT",
+} as const;
+/**
+ * @public
+ */
+export type PasswordHashingAlgorithmType =
+  (typeof PasswordHashingAlgorithmType)[keyof typeof PasswordHashingAlgorithmType];
+
+/**
+ * @public
+ * @enum
+ */
 export const UserImportJobStatusType = {
   Created: "Created",
   Expired: "Expired",

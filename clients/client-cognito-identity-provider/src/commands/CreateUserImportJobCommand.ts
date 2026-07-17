@@ -57,6 +57,7 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  *   JobName: "STRING_VALUE", // required
  *   UserPoolId: "STRING_VALUE", // required
  *   CloudWatchLogsRoleArn: "STRING_VALUE", // required
+ *   PasswordHashingAlgorithm: "BCRYPT" || "SCRYPT" || "ARGON2ID" || "PBKDF2_SHA256",
  * };
  * const command = new CreateUserImportJobCommand(input);
  * const response = await client.send(command);
@@ -75,6 +76,7 @@ export interface CreateUserImportJobCommandOutput extends CreateUserImportJobRes
  * //     SkippedUsers: Number("long"),
  * //     FailedUsers: Number("long"),
  * //     CompletionMessage: "STRING_VALUE",
+ * //     PasswordHashingAlgorithm: "BCRYPT" || "SCRYPT" || "ARGON2ID" || "PBKDF2_SHA256",
  * //   },
  * // };
  *

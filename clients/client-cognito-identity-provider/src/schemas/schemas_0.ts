@@ -146,6 +146,7 @@ const _CA = "CustomAttributes";
 const _CAC = "CreateAuthChallenge";
 const _CALT = "CustomAttributesListType";
 const _CAM = "CustomAuthMode";
+const _CAa = "CallerArn";
 const _CAe = "CertificateArn";
 const _CAr = "CreatedAt";
 const _CC = "ConfirmationCode";
@@ -217,6 +218,7 @@ const _CSDT = "ClientSecretDescriptorType";
 const _CSI = "ClientSecretId";
 const _CSMSLVCT = "CustomSMSLambdaVersionConfigType";
 const _CSMSS = "CustomSMSSender";
+const _CSN = "ConfigurationSetName";
 const _CSS = "CSS";
 const _CSSV = "CSSVersion";
 const _CST = "ClientSecretType";
@@ -383,8 +385,10 @@ const _ERv = "EventRisk";
 const _ES = "EventSource";
 const _ESA = "EmailSendingAccount";
 const _ESBL = "EmailSubjectByLink";
+const _ESCT = "EumsSmsConfigurationType";
 const _ESTMFAE = "EnableSoftwareTokenMFAException";
 const _ESm = "EmailSubject";
+const _ESu = "EumsSms";
 const _ET = "EventType";
 const _ETR = "EnableTokenRevocation";
 const _EVM = "EmailVerificationMessage";
@@ -476,6 +480,7 @@ const _IAn = "InitiateAuth";
 const _IC = "IssuerConfiguration";
 const _ICT = "IssuerConfigurationType";
 const _IEE = "InternalErrorException";
+const _IEI = "InEntityId";
 const _IERAPE = "InvalidEmailRoleAccessPolicyException";
 const _IF = "InboundFederation";
 const _IFLT = "InboundFederationLambdaType";
@@ -493,6 +498,7 @@ const _ISE = "InternalServerException";
 const _ISRAPE = "InvalidSmsRoleAccessPolicyException";
 const _ISRTRE = "InvalidSmsRoleTrustRelationshipException";
 const _IT = "IdToken";
+const _ITI = "InTemplateId";
 const _ITV = "IdTokenValidity";
 const _IU = "ImageUrl";
 const _IUPCE = "InvalidUserPoolConfigurationException";
@@ -602,6 +608,7 @@ const _NDMT = "NewDeviceMetadataType";
 const _NET = "NotifyEmailType";
 const _NT = "NextToken";
 const _Na = "Name";
+const _OI = "OriginationIdentity";
 const _ONEE = "OperationNotEnabledException";
 const _P = "Password";
 const _PA = "PreAuthentication";
@@ -611,6 +618,7 @@ const _PAo = "PostAuthentication";
 const _PC = "PostConfirmation";
 const _PD = "ProviderDetails";
 const _PDr = "ProviderDescription";
+const _PHA = "PasswordHashingAlgorithm";
 const _PHPVE = "PasswordHistoryPolicyViolationException";
 const _PHS = "PasswordHistorySize";
 const _PLT = "ProvidersListType";
@@ -691,7 +699,8 @@ const _RTe = "ReplyTo";
 const _RTev = "RevokeToken";
 const _RTo = "RoutingType";
 const _RU = "RequireUppercase";
-const _Re = "Required";
+const _Re = "Region";
+const _Req = "Required";
 const _Ro = "Role";
 const _S = "Session";
 const _SA = "SourceArn";
@@ -1871,8 +1880,8 @@ export var CreateTermsResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var CreateUserImportJobRequest$: StaticStructureSchema = [3, n0, _CUIJR,
   0,
-  [_JN, _UPI, _CWLRA],
-  [0, 0, 0], 3
+  [_JN, _UPI, _CWLRA, _PHA],
+  [0, 0, 0, 0], 3
 ];
 export var CreateUserImportJobResponse$: StaticStructureSchema = [3, n0, _CUIJRr,
   0,
@@ -2158,6 +2167,11 @@ export var EmailMfaSettingsType$: StaticStructureSchema = [3, n0, _EMST,
   0,
   [_E, _PM],
   [2, 2]
+];
+export var EumsSmsConfigurationType$: StaticStructureSchema = [3, n0, _ESCT,
+  0,
+  [_CAa, _EIx, _OI, _CSN, _IEI, _ITI, _Re],
+  [0, 0, 0, 0, 0, 0, 0], 1
 ];
 export var EventContextDataType$: StaticStructureSchema = [3, n0, _ECDT,
   0,
@@ -2671,7 +2685,7 @@ export var S3ConfigurationType$: StaticStructureSchema = [3, n0, _SCTo,
 ];
 export var SchemaAttributeType$: StaticStructureSchema = [3, n0, _SAT,
   0,
-  [_Na, _ADT, _DOA, _Mu, _Re, _NAC, _SAC],
+  [_Na, _ADT, _DOA, _Mu, _Req, _NAC, _SAC],
   [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$]
 ];
 export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _SLDCR,
@@ -2751,8 +2765,8 @@ export var SignUpResponse$: StaticStructureSchema = [3, n0, _SURi,
 ];
 export var SmsConfigurationType$: StaticStructureSchema = [3, n0, _SCTm,
   0,
-  [_SCA, _EIx, _SRn],
-  [0, 0, 0], 1
+  [_SCA, _EIx, _SRn, _ESu],
+  [0, 0, 0, () => EumsSmsConfigurationType$]
 ];
 export var SmsMfaConfigType$: StaticStructureSchema = [3, n0, _SMCT,
   0,
@@ -2991,8 +3005,8 @@ export var UserContextDataType$: StaticStructureSchema = [3, n0, _UCDT,
 ];
 export var UserImportJobType$: StaticStructureSchema = [3, n0, _UIJT,
   0,
-  [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom],
-  [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0]
+  [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom, _PHA],
+  [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0, 0]
 ];
 export var UsernameConfigurationType$: StaticStructureSchema = [3, n0, _UCT,
   0,

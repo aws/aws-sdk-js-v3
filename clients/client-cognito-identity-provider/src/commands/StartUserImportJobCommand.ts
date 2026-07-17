@@ -55,6 +55,7 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  * //     SkippedUsers: Number("long"),
  * //     FailedUsers: Number("long"),
  * //     CompletionMessage: "STRING_VALUE",
+ * //     PasswordHashingAlgorithm: "BCRYPT" || "SCRYPT" || "ARGON2ID" || "PBKDF2_SHA256",
  * //   },
  * // };
  *
