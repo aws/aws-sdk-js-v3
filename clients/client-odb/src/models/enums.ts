@@ -31,6 +31,33 @@ export type Access = (typeof Access)[keyof typeof Access];
  * @public
  * @enum
  */
+export const AdminPasswordSource = {
+  API_REQUEST_PARAMETER: "API_REQUEST_PARAMETER",
+  CUSTOMER_MANAGED_AWS_SECRET: "CUSTOMER_MANAGED_AWS_SECRET",
+} as const;
+/**
+ * @public
+ */
+export type AdminPasswordSource = (typeof AdminPasswordSource)[keyof typeof AdminPasswordSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExternalIdType = {
+  COMPARTMENT_OCID: "compartment_ocid",
+  DATABASE_OCID: "database_ocid",
+  TENANT_OCID: "tenant_ocid",
+} as const;
+/**
+ * @public
+ */
+export type ExternalIdType = (typeof ExternalIdType)[keyof typeof ExternalIdType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SupportedAwsIntegration = {
   KmsTde: "KmsTde",
 } as const;
@@ -139,20 +166,6 @@ export const DbWorkload = {
  * @public
  */
 export type DbWorkload = (typeof DbWorkload)[keyof typeof DbWorkload];
-
-/**
- * @public
- * @enum
- */
-export const ExternalIdType = {
-  COMPARTMENT_OCID: "compartment_ocid",
-  DATABASE_OCID: "database_ocid",
-  TENANT_OCID: "tenant_ocid",
-} as const;
-/**
- * @public
- */
-export type ExternalIdType = (typeof ExternalIdType)[keyof typeof ExternalIdType];
 
 /**
  * @public
@@ -477,6 +490,19 @@ export type CloneType = (typeof CloneType)[keyof typeof CloneType];
  * @public
  * @enum
  */
+export const WalletPasswordSource = {
+  API_REQUEST_PARAMETER: "API_REQUEST_PARAMETER",
+  CUSTOMER_MANAGED_AWS_SECRET: "CUSTOMER_MANAGED_AWS_SECRET",
+} as const;
+/**
+ * @public
+ */
+export type WalletPasswordSource = (typeof WalletPasswordSource)[keyof typeof WalletPasswordSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const WalletType = {
   INSTANCE: "INSTANCE",
   REGIONAL: "REGIONAL",
@@ -708,11 +734,28 @@ export type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
  */
 export const OciAwsIntegration = {
   KmsTde: "KmsTde",
+  SecretsManager: "SecretsManager",
 } as const;
 /**
  * @public
  */
 export type OciAwsIntegration = (typeof OciAwsIntegration)[keyof typeof OciAwsIntegration];
+
+/**
+ * @public
+ * @enum
+ */
+export const OciIamRoleStatus = {
+  AVAILABLE: "AVAILABLE",
+  PROVISIONING: "PROVISIONING",
+  PROVISION_FAILED: "PROVISION_FAILED",
+  TERMINATE_FAILED: "TERMINATE_FAILED",
+  TERMINATING: "TERMINATING",
+} as const;
+/**
+ * @public
+ */
+export type OciIamRoleStatus = (typeof OciIamRoleStatus)[keyof typeof OciIamRoleStatus];
 
 /**
  * @public

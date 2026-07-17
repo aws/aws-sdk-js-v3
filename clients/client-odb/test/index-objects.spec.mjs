@@ -6,6 +6,10 @@ import {
   Access,
   AccessDeniedException,
   AccessDeniedException$,
+  AdminPasswordSource,
+  AdminPasswordSourceConfiguration$,
+  AdminPasswordSourceConfigurationInput$,
+  AdminPasswordSourceSummary$,
   AssociateIamRoleToResource$,
   AssociateIamRoleToResourceCommand,
   AssociateIamRoleToResourceInput$,
@@ -79,6 +83,8 @@ import {
   CrossRegionDisasterRecoveryConfiguration$,
   CrossRegionS3RestoreSourcesAccess$,
   CustomerContact$,
+  CustomerManagedAwsSecretConfiguration$,
+  CustomerManagedAwsSecretConfigurationInput$,
   DatabaseCloneConfiguration$,
   DatabaseConnectionStringProfile$,
   DatabaseEdition,
@@ -293,6 +299,7 @@ import {
   OciDnsForwardingConfig$,
   OciEncryptionKeyConfiguration$,
   OciIamRole$,
+  OciIamRoleStatus,
   OciIdentityDomain$,
   OciOnboardingStatus,
   Odb,
@@ -419,6 +426,10 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VpcEndpointType,
+  WalletPasswordSource,
+  WalletPasswordSourceConfiguration$,
+  WalletPasswordSourceConfigurationInput$,
+  WalletPasswordSourceSummary$,
   WalletType,
   ZeroEtlAccess$,
 } from "../dist-cjs/index.js";
@@ -562,6 +573,9 @@ assert(typeof UpdateOdbPeeringConnection$ === "object");
 // structural schemas
 assert(typeof AcceptMarketplaceRegistrationInput$ === "object");
 assert(typeof AcceptMarketplaceRegistrationOutput$ === "object");
+assert(typeof AdminPasswordSourceConfiguration$ === "object");
+assert(typeof AdminPasswordSourceConfigurationInput$ === "object");
+assert(typeof AdminPasswordSourceSummary$ === "object");
 assert(typeof AssociateIamRoleToResourceInput$ === "object");
 assert(typeof AssociateIamRoleToResourceOutput$ === "object");
 assert(typeof AutonomousDatabase$ === "object");
@@ -607,6 +621,8 @@ assert(typeof CrossRegionDataGuardConfiguration$ === "object");
 assert(typeof CrossRegionDisasterRecoveryConfiguration$ === "object");
 assert(typeof CrossRegionS3RestoreSourcesAccess$ === "object");
 assert(typeof CustomerContact$ === "object");
+assert(typeof CustomerManagedAwsSecretConfiguration$ === "object");
+assert(typeof CustomerManagedAwsSecretConfigurationInput$ === "object");
 assert(typeof DatabaseCloneConfiguration$ === "object");
 assert(typeof DatabaseConnectionStringProfile$ === "object");
 assert(typeof DatabaseStandbySummary$ === "object");
@@ -766,9 +782,13 @@ assert(typeof UpdateOdbNetworkOutput$ === "object");
 assert(typeof UpdateOdbPeeringConnectionInput$ === "object");
 assert(typeof UpdateOdbPeeringConnectionOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof WalletPasswordSourceConfiguration$ === "object");
+assert(typeof WalletPasswordSourceConfigurationInput$ === "object");
+assert(typeof WalletPasswordSourceSummary$ === "object");
 assert(typeof ZeroEtlAccess$ === "object");
 // enums
 assert(typeof Access === "object");
+assert(typeof AdminPasswordSource === "object");
 assert(typeof AutonomousDatabaseBackupStatus === "object");
 assert(typeof AutonomousDatabaseBackupType === "object");
 assert(typeof AutonomousDatabaseResourceStatus === "object");
@@ -800,6 +820,7 @@ assert(typeof MonthName === "object");
 assert(typeof NetServicesArchitecture === "object");
 assert(typeof Objective === "object");
 assert(typeof OciAwsIntegration === "object");
+assert(typeof OciIamRoleStatus === "object");
 assert(typeof OciOnboardingStatus === "object");
 assert(typeof OpenMode === "object");
 assert(typeof OperationsInsightsStatus === "object");
@@ -816,6 +837,7 @@ assert(typeof StandbyAllowlistedIpsSource === "object");
 assert(typeof SupportedAwsIntegration === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VpcEndpointType === "object");
+assert(typeof WalletPasswordSource === "object");
 assert(typeof WalletType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof OdbServiceException);

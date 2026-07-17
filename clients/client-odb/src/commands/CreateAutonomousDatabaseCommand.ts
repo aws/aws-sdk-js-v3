@@ -146,6 +146,14 @@ export interface CreateAutonomousDatabaseCommandOutput extends CreateAutonomousD
  *       kmsKeyId: "STRING_VALUE",
  *     },
  *   },
+ *   adminPasswordSource: "CUSTOMER_MANAGED_AWS_SECRET" || "API_REQUEST_PARAMETER",
+ *   adminPasswordSourceConfiguration: { // AdminPasswordSourceConfigurationInput Union: only one key present
+ *     customerManagedAwsSecret: { // CustomerManagedAwsSecretConfigurationInput
+ *       secretId: "STRING_VALUE",
+ *       iamRoleArn: "STRING_VALUE",
+ *       externalIdType: "database_ocid" || "compartment_ocid" || "tenant_ocid",
+ *     },
+ *   },
  *   clientToken: "STRING_VALUE",
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",

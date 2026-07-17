@@ -24,6 +24,9 @@ const _AIRTRO = "AssociateIamRoleToResourceOutput";
 const _AMR = "AcceptMarketplaceRegistration";
 const _AMRI = "AcceptMarketplaceRegistrationInput";
 const _AMRO = "AcceptMarketplaceRegistrationOutput";
+const _APSC = "AdminPasswordSourceConfiguration";
+const _APSCI = "AdminPasswordSourceConfigurationInput";
+const _APSS = "AdminPasswordSourceSummary";
 const _AVML = "AutonomousVirtualMachineList";
 const _AVMS = "AutonomousVirtualMachineSummary";
 const _CAD = "CreateAutonomousDatabase";
@@ -56,6 +59,8 @@ const _CEI = "CloudExadataInfrastructure";
 const _CEIL = "CloudExadataInfrastructureList";
 const _CEIS = "CloudExadataInfrastructureSummary";
 const _CEIUR = "CloudExadataInfrastructureUnallocatedResources";
+const _CMASC = "CustomerManagedAwsSecretConfiguration";
+const _CMASCI = "CustomerManagedAwsSecretConfigurationInput";
 const _CON = "CreateOdbNetwork";
 const _CONI = "CreateOdbNetworkInput";
 const _CONO = "CreateOdbNetworkOutput";
@@ -311,6 +316,9 @@ const _URRn = "UntagResourceResponse";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _WPSC = "WalletPasswordSourceConfiguration";
+const _WPSCI = "WalletPasswordSourceConfigurationInput";
+const _WPSS = "WalletPasswordSourceSummary";
 const _ZEA = "ZeroEtlAccess";
 const _a = "application/zip";
 const _aADSSITB = "availableAutonomousDataStorageSizeInTBs";
@@ -331,6 +339,7 @@ const _aDCS = "autonomousDatabaseCharacterSets";
 const _aDI = "autonomousDatabaseId";
 const _aDNPNIGB = "availableDbNodePerNodeInGBs";
 const _aDNSIGB = "availableDbNodeStorageInGBs";
+const _aDOASMI = "autonomousDatabaseOciAwsSecretsManagerIntegration";
 const _aDOIIR = "autonomousDatabaseOciIntegrationIamRoles";
 const _aDP = "autonomousDatabasePeers";
 const _aDSITB = "availableDataStorageInTBs";
@@ -351,6 +360,9 @@ const _aMIGB = "availableMemoryInGBs";
 const _aMPNIGB = "availableMemoryPerNodeInGBs";
 const _aMST = "autonomousMaintenanceScheduleType";
 const _aP = "adminPassword";
+const _aPS = "adminPasswordSource";
+const _aPSC = "adminPasswordSourceConfiguration";
+const _aPSS = "adminPasswordSourceSummary";
 const _aRFIS = "autoRefreshFrequencyInSeconds";
 const _aRPLIS = "autoRefreshPointLagInSeconds";
 const _aSC = "activatedStorageCount";
@@ -402,6 +414,7 @@ const _cG = "consumerGroup";
 const _cI = "certificateId";
 const _cIA = "clientIpAddress";
 const _cM = "computeModel";
+const _cMAS = "customerManagedAwsSecret";
 const _cN = "clusterName";
 const _cP = "cpuPercentage";
 const _cRDG = "crossRegionDataGuard";
@@ -642,8 +655,11 @@ const _pNCTBR = "peerNetworkCidrsToBeRemoved";
 const _pNI = "peerNetworkId";
 const _pNRTI = "peerNetworkRouteTableIds";
 const _pP = "percentProgress";
-const _pS = "patchingStatus";
+const _pS = "passwordSource";
+const _pSC = "passwordSourceConfiguration";
+const _pSS = "passwordSourceSummary";
 const _pSSITB = "poolStorageSizeInTBs";
+const _pSa = "patchingStatus";
 const _pSo = "poolSize";
 const _pa = "password";
 const _pr = "protocol";
@@ -689,6 +705,7 @@ const _sFh = "shapeFamily";
 const _sI = "sourceId";
 const _sII = "scanIpIds";
 const _sITB = "sizeInTBs";
+const _sIe = "secretId";
 const _sLPNT = "scanListenerPortNonTls";
 const _sLPT = "scanListenerPortTls";
 const _sLPTc = "scanListenerPortTcp";
@@ -869,6 +886,11 @@ export var AcceptMarketplaceRegistrationOutput$: StaticStructureSchema = [3, n0,
   [],
   []
 ];
+export var AdminPasswordSourceSummary$: StaticStructureSchema = [3, n0, _APSS,
+  0,
+  [_aPS, _aPSC],
+  [0, () => AdminPasswordSourceConfiguration$]
+];
 export var AssociateIamRoleToResourceInput$: StaticStructureSchema = [3, n0, _AIRTRI,
   0,
   [_iRA, _aI, _rA],
@@ -881,8 +903,8 @@ export var AssociateIamRoleToResourceOutput$: StaticStructureSchema = [3, n0, _A
 ];
 export var AutonomousDatabase$: StaticStructureSchema = [3, n0, _AD,
   0,
-  [_aDI, _aDA, _oRAN, _pP, _o, _oU, _dN, _dNb, _sI, _st, _sR, _dT, _dV, _dW, _cS, _nS, _dE, _lM, _oM, _pL, _iMCR, _aMST, _nSA, _aUV, _bCCL, _cSD, _sCU, _sWDU, _cC, _aD, _sD, _lSD, _dSS, _dMS, _oIS, _aZ, _aZI, _mTC, _cU, _dTD, _sO, _rPLI, _cCo, _cM, _cCC, _mPOCUIGB, _pC, _iASE, _dSSITB, _dSSIGB, _uDSSITB, _uDSSIGB, _aUDSSITB, _aSSITB, _iMAIGB, _iASFSE, _oNI, _oNA, _pE, _pEI, _pEL, _aIl, _sAI, _sAIS, _iLDGE, _iRDGE, _lDRT, _ro, _pDI, _fDRIS, _lAAFMDLL, _rDRC, _iRC, _rM, _rS, _aRFIS, _aRPLIS, _iRCE, _cTSL, _bRPID, _lTBS, _iBRL, _tBSSIGB, _rPS, _eS, _cA, _tOLB, _tMB, _tME, _tLDGE, _tDGRC, _tOLS, _tOLF, _tOLR, _tOLRP, _tONR, _tOARS, _tDOFAD, _tROFAD, _tDRRC, _tURCE, _nLTBTS, _tU],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0, 1, () => AutonomousDatabaseConnectionStrings$, 0, 0, [() => CustomerContacts, 0], () => AutonomousDatabaseApex$, () => DatabaseStandbySummary$, () => DatabaseStandbySummary$, 0, 0, 0, 0, 0, 0, () => AutonomousDatabaseConnectionUrls$, () => DatabaseToolList, () => ScheduledOperationDetailsList, 0, 1, 0, 1, 1, 64 | 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 0, 64 | 0, 1, 1, () => DisasterRecoveryConfiguration$, 2, 0, 0, 1, 1, 2, 64 | 1, 1, () => LongTermBackupSchedule$, 2, 1, () => ResourcePoolSummary$, () => EncryptionSummary$, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+  [_aDI, _aDA, _oRAN, _pP, _o, _oU, _dN, _dNb, _sI, _st, _sR, _dT, _dV, _dW, _cS, _nS, _dE, _lM, _oM, _pL, _iMCR, _aMST, _nSA, _aUV, _bCCL, _cSD, _sCU, _sWDU, _cC, _aD, _sD, _lSD, _dSS, _dMS, _oIS, _aZ, _aZI, _mTC, _cU, _dTD, _sO, _rPLI, _cCo, _cM, _cCC, _mPOCUIGB, _pC, _iASE, _dSSITB, _dSSIGB, _uDSSITB, _uDSSIGB, _aUDSSITB, _aSSITB, _iMAIGB, _iASFSE, _oNI, _oNA, _pE, _pEI, _pEL, _aIl, _sAI, _sAIS, _iLDGE, _iRDGE, _lDRT, _ro, _pDI, _fDRIS, _lAAFMDLL, _rDRC, _iRC, _rM, _rS, _aRFIS, _aRPLIS, _iRCE, _cTSL, _bRPID, _lTBS, _iBRL, _tBSSIGB, _rPS, _eS, _cA, _tOLB, _tMB, _tME, _tLDGE, _tDGRC, _tOLS, _tOLF, _tOLR, _tOLRP, _tONR, _tOARS, _tDOFAD, _tROFAD, _tDRRC, _tURCE, _nLTBTS, _tU, _aPSS],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0, 1, () => AutonomousDatabaseConnectionStrings$, 0, 0, [() => CustomerContacts, 0], () => AutonomousDatabaseApex$, () => DatabaseStandbySummary$, () => DatabaseStandbySummary$, 0, 0, 0, 0, 0, 0, () => AutonomousDatabaseConnectionUrls$, () => DatabaseToolList, () => ScheduledOperationDetailsList, 0, 1, 0, 1, 1, 64 | 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 0, 64 | 0, 1, 1, () => DisasterRecoveryConfiguration$, 2, 0, 0, 1, 1, 2, 64 | 1, 1, () => LongTermBackupSchedule$, 2, 1, () => ResourcePoolSummary$, () => EncryptionSummary$, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, () => AdminPasswordSourceSummary$]
 ];
 export var AutonomousDatabaseApex$: StaticStructureSchema = [3, n0, _ADA,
   0,
@@ -921,8 +943,8 @@ export var AutonomousDatabasePeerSummary$: StaticStructureSchema = [3, n0, _ADPS
 ];
 export var AutonomousDatabaseSummary$: StaticStructureSchema = [3, n0, _ADS,
   0,
-  [_aDI, _aDA, _oRAN, _pP, _o, _oU, _dN, _dNb, _sI, _st, _sR, _dT, _dV, _dW, _cS, _nS, _dE, _lM, _oM, _pL, _iMCR, _aMST, _nSA, _aUV, _bCCL, _cSD, _sCU, _sWDU, _cC, _aD, _sD, _lSD, _dSS, _dMS, _oIS, _aZ, _aZI, _mTC, _cU, _dTD, _sO, _rPLI, _cCo, _cM, _cCC, _mPOCUIGB, _pC, _iASE, _dSSITB, _dSSIGB, _uDSSITB, _uDSSIGB, _aUDSSITB, _aSSITB, _iMAIGB, _iASFSE, _oNI, _oNA, _pE, _pEI, _pEL, _aIl, _sAI, _sAIS, _iLDGE, _iRDGE, _lDRT, _ro, _pDI, _fDRIS, _lAAFMDLL, _rDRC, _iRC, _rM, _rS, _aRFIS, _aRPLIS, _iRCE, _cTSL, _bRPID, _lTBS, _iBRL, _tBSSIGB, _rPS, _eS, _cA, _tOLB, _tMB, _tME, _tLDGE, _tDGRC, _tOLS, _tOLF, _tOLR, _tOLRP, _tONR, _tOARS, _tDOFAD, _tROFAD, _tDRRC, _tURCE, _nLTBTS, _tU],
-  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0, 1, () => AutonomousDatabaseConnectionStrings$, 0, 0, [() => CustomerContacts, 0], () => AutonomousDatabaseApex$, () => DatabaseStandbySummary$, () => DatabaseStandbySummary$, 0, 0, 0, 0, 0, 0, () => AutonomousDatabaseConnectionUrls$, () => DatabaseToolList, () => ScheduledOperationDetailsList, 0, 1, 0, 1, 1, 64 | 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 0, 64 | 0, 1, 1, () => DisasterRecoveryConfiguration$, 2, 0, 0, 1, 1, 2, 64 | 1, 1, () => LongTermBackupSchedule$, 2, 1, () => ResourcePoolSummary$, () => EncryptionSummary$, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+  [_aDI, _aDA, _oRAN, _pP, _o, _oU, _dN, _dNb, _sI, _st, _sR, _dT, _dV, _dW, _cS, _nS, _dE, _lM, _oM, _pL, _iMCR, _aMST, _nSA, _aUV, _bCCL, _cSD, _sCU, _sWDU, _cC, _aD, _sD, _lSD, _dSS, _dMS, _oIS, _aZ, _aZI, _mTC, _cU, _dTD, _sO, _rPLI, _cCo, _cM, _cCC, _mPOCUIGB, _pC, _iASE, _dSSITB, _dSSIGB, _uDSSITB, _uDSSIGB, _aUDSSITB, _aSSITB, _iMAIGB, _iASFSE, _oNI, _oNA, _pE, _pEI, _pEL, _aIl, _sAI, _sAIS, _iLDGE, _iRDGE, _lDRT, _ro, _pDI, _fDRIS, _lAAFMDLL, _rDRC, _iRC, _rM, _rS, _aRFIS, _aRPLIS, _iRCE, _cTSL, _bRPID, _lTBS, _iBRL, _tBSSIGB, _rPS, _eS, _cA, _tOLB, _tMB, _tME, _tLDGE, _tDGRC, _tOLS, _tOLF, _tOLR, _tOLRP, _tONR, _tOARS, _tDOFAD, _tROFAD, _tDRRC, _tURCE, _nLTBTS, _tU, _aPSS],
+  [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 64 | 0, 1, () => AutonomousDatabaseConnectionStrings$, 0, 0, [() => CustomerContacts, 0], () => AutonomousDatabaseApex$, () => DatabaseStandbySummary$, () => DatabaseStandbySummary$, 0, 0, 0, 0, 0, 0, () => AutonomousDatabaseConnectionUrls$, () => DatabaseToolList, () => ScheduledOperationDetailsList, 0, 1, 0, 1, 1, 64 | 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 0, 2, 2, 0, 0, 64 | 0, 1, 1, () => DisasterRecoveryConfiguration$, 2, 0, 0, 1, 1, 2, 64 | 1, 1, () => LongTermBackupSchedule$, 2, 1, () => ResourcePoolSummary$, () => EncryptionSummary$, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, () => AdminPasswordSourceSummary$]
 ];
 export var AutonomousDatabaseVersionSummary$: StaticStructureSchema = [3, n0, _ADVS,
   0,
@@ -931,8 +953,8 @@ export var AutonomousDatabaseVersionSummary$: StaticStructureSchema = [3, n0, _A
 ];
 export var AutonomousDatabaseWalletDetails$: StaticStructureSchema = [3, n0, _ADWD,
   0,
-  [_st, _tR],
-  [0, 5]
+  [_st, _tR, _pSS],
+  [0, 5, () => WalletPasswordSourceSummary$]
 ];
 export var AutonomousVirtualMachineSummary$: StaticStructureSchema = [3, n0, _AVMS,
   0,
@@ -1006,8 +1028,8 @@ export var CreateAutonomousDatabaseBackupOutput$: StaticStructureSchema = [3, n0
 ];
 export var CreateAutonomousDatabaseInput$: StaticStructureSchema = [3, n0, _CADI,
   0,
-  [_oNI, _dN, _dNb, _aP, _cCo, _dSSITB, _dSSIGB, _dW, _iASE, _iASFSE, _lM, _cS, _nS, _dV, _dE, _sAIS, _aMST, _bRPID, _bCCL, _cCC, _cCTSTOCI, _pEI, _pEL, _rPLI, _rPS, _sO, _sAI, _aIl, _tT, _iBRL, _iLDGE, _iMCR, _dTD, _so, _sCo, _eKP, _eKC, _cTl, _ta],
-  [0, 0, 0, [() => SensitiveString, 0], 1, 1, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, [() => CustomerContacts, 0], 0, 0, 0, () => ResourcePoolSummary$, () => ScheduledOperationDetailsList, 64 | 0, 64 | 0, () => TransportableTablespace$, 2, 2, 2, () => DatabaseToolList, 0, () => SourceConfiguration$, 0, () => EncryptionKeyConfigurationInput$, [0, 4], 128 | 0]
+  [_oNI, _dN, _dNb, _aP, _cCo, _dSSITB, _dSSIGB, _dW, _iASE, _iASFSE, _lM, _cS, _nS, _dV, _dE, _sAIS, _aMST, _bRPID, _bCCL, _cCC, _cCTSTOCI, _pEI, _pEL, _rPLI, _rPS, _sO, _sAI, _aIl, _tT, _iBRL, _iLDGE, _iMCR, _dTD, _so, _sCo, _eKP, _eKC, _aPS, _aPSC, _cTl, _ta],
+  [0, 0, 0, [() => SensitiveString, 0], 1, 1, 1, 0, 2, 2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, [() => CustomerContacts, 0], 0, 0, 0, () => ResourcePoolSummary$, () => ScheduledOperationDetailsList, 64 | 0, 64 | 0, () => TransportableTablespace$, 2, 2, 2, () => DatabaseToolList, 0, () => SourceConfiguration$, 0, () => EncryptionKeyConfigurationInput$, 0, () => AdminPasswordSourceConfigurationInput$, [0, 4], 128 | 0]
 ];
 export var CreateAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _CADO,
   0,
@@ -1016,8 +1038,8 @@ export var CreateAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _CAD
 ];
 export var CreateAutonomousDatabaseWalletInput$: StaticStructureSchema = [3, n0, _CADWI,
   0,
-  [_aDI, _pa, _wT, _cTl],
-  [0, [() => SensitiveString, 0], 0, [0, 4]], 2
+  [_aDI, _wT, _pa, _pS, _pSC, _cTl],
+  [0, 0, [() => SensitiveString, 0], 0, () => WalletPasswordSourceConfigurationInput$, [0, 4]], 1
 ];
 export var CreateAutonomousDatabaseWalletOutput$: StaticStructureSchema = [3, n0, _CADWO,
   0,
@@ -1094,6 +1116,16 @@ export var CustomerContact$: StaticStructureSchema = [3, n0, _CC,
   [_em],
   [[() => SensitiveString, 0]]
 ];
+export var CustomerManagedAwsSecretConfiguration$: StaticStructureSchema = [3, n0, _CMASC,
+  0,
+  [_iRA, _sIe, _eIT],
+  [0, 0, 0]
+];
+export var CustomerManagedAwsSecretConfigurationInput$: StaticStructureSchema = [3, n0, _CMASCI,
+  0,
+  [_sIe, _iRA, _eIT],
+  [0, 0, 0]
+];
 export var DatabaseCloneConfiguration$: StaticStructureSchema = [3, n0, _DCC,
   0,
   [_sADI, _cT],
@@ -1146,7 +1178,7 @@ export var DbServer$: StaticStructureSchema = [3, n0, _DS,
 ];
 export var DbServerPatchingDetails$: StaticStructureSchema = [3, n0, _DSPD,
   0,
-  [_ePD, _pS, _tPE, _tPS],
+  [_ePD, _pSa, _tPE, _tPS],
   [1, 0, 0, 0]
 ];
 export var DbServerSummary$: StaticStructureSchema = [3, n0, _DSSb,
@@ -1396,8 +1428,8 @@ export var IamRole$: StaticStructureSchema = [3, n0, _IR,
 ];
 export var InitializeServiceInput$: StaticStructureSchema = [3, n0, _ISI,
   0,
-  [_oID],
-  [2]
+  [_oID, _aDOASMI],
+  [2, 0]
 ];
 export var InitializeServiceOutput$: StaticStructureSchema = [3, n0, _ISO,
   0,
@@ -1626,8 +1658,8 @@ export var OciEncryptionKeyConfiguration$: StaticStructureSchema = [3, n0, _OEKC
 ];
 export var OciIamRole$: StaticStructureSchema = [3, n0, _OIR,
   0,
-  [_iRA, _aI],
-  [0, 0]
+  [_iRA, _aI, _st, _sR],
+  [0, 0, 0, 0]
 ];
 export var OciIdentityDomain$: StaticStructureSchema = [3, n0, _OID,
   0,
@@ -1831,8 +1863,8 @@ export var UpdateAutonomousDatabaseBackupOutput$: StaticStructureSchema = [3, n0
 ];
 export var UpdateAutonomousDatabaseInput$: StaticStructureSchema = [3, n0, _UADI,
   0,
-  [_aDI, _aP, _cCo, _cCC, _dSSITB, _dSSIGB, _dN, _dNb, _dV, _dW, _dTD, _dE, _lM, _iASE, _iASFSE, _iBRL, _iLDGE, _iMCR, _iRC, _iDP, _bRPID, _bCCL, _lAAFMDLL, _aMST, _cCTSTOCI, _sO, _lTBS, _oM, _pL, _rM, _pEI, _pEL, _pDIe, _rPLI, _rPS, _sAIS, _sAI, _aIl, _aRFIS, _aRPLIS, _tOARS, _eKP, _eKC],
-  [0, [() => SensitiveString, 0], 1, 1, 1, 1, 0, 0, 0, 0, () => DatabaseToolList, 0, 0, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 0, [() => CustomerContacts, 0], () => ScheduledOperationDetailsList, () => LongTermBackupSchedule$, 0, 0, 0, 0, 0, 0, 0, () => ResourcePoolSummary$, 0, 64 | 0, 64 | 0, 1, 1, 5, 0, () => EncryptionKeyConfigurationInput$], 1
+  [_aDI, _aP, _cCo, _cCC, _dSSITB, _dSSIGB, _dN, _dNb, _dV, _dW, _dTD, _dE, _lM, _iASE, _iASFSE, _iBRL, _iLDGE, _iMCR, _iRC, _iDP, _bRPID, _bCCL, _lAAFMDLL, _aMST, _cCTSTOCI, _sO, _lTBS, _oM, _pL, _rM, _pEI, _pEL, _pDIe, _rPLI, _rPS, _sAIS, _sAI, _aIl, _aRFIS, _aRPLIS, _tOARS, _eKP, _eKC, _aPS, _aPSC],
+  [0, [() => SensitiveString, 0], 1, 1, 1, 1, 0, 0, 0, 0, () => DatabaseToolList, 0, 0, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 0, [() => CustomerContacts, 0], () => ScheduledOperationDetailsList, () => LongTermBackupSchedule$, 0, 0, 0, 0, 0, 0, 0, () => ResourcePoolSummary$, 0, 64 | 0, 64 | 0, 1, 1, 5, 0, () => EncryptionKeyConfigurationInput$, 0, () => AdminPasswordSourceConfigurationInput$], 1
 ];
 export var UpdateAutonomousDatabaseOutput$: StaticStructureSchema = [3, n0, _UADO,
   0,
@@ -1873,6 +1905,11 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
+];
+export var WalletPasswordSourceSummary$: StaticStructureSchema = [3, n0, _WPSS,
+  0,
+  [_pS, _pSC],
+  [0, () => WalletPasswordSourceConfiguration$]
 ];
 export var ZeroEtlAccess$: StaticStructureSchema = [3, n0, _ZEA,
   0,
@@ -1988,6 +2025,16 @@ var WeeksOfMonth = 64 | 1;
 var DatabaseConnectionStringMap = 128 | 0;
 var RequestTagMap = 128 | 0;
 var ResponseTagMap = 128 | 0;
+export var AdminPasswordSourceConfiguration$: StaticUnionSchema = [4, n0, _APSC,
+  0,
+  [_cMAS],
+  [() => CustomerManagedAwsSecretConfiguration$]
+];
+export var AdminPasswordSourceConfigurationInput$: StaticUnionSchema = [4, n0, _APSCI,
+  0,
+  [_cMAS],
+  [() => CustomerManagedAwsSecretConfigurationInput$]
+];
 export var EncryptionKeyConfiguration$: StaticUnionSchema = [4, n0, _EKC,
   0,
   [_aEK, _oEK, _oEKk],
@@ -2002,6 +2049,16 @@ export var SourceConfiguration$: StaticUnionSchema = [4, n0, _SC,
   0,
   [_dC, _rFB, _pITR, _cRDG, _cRDR, _cTR],
   [() => DatabaseCloneConfiguration$, () => RestoreFromBackupConfiguration$, () => PointInTimeRestoreConfiguration$, () => CrossRegionDataGuardConfiguration$, () => CrossRegionDisasterRecoveryConfiguration$, () => CloneToRefreshableConfiguration$]
+];
+export var WalletPasswordSourceConfiguration$: StaticUnionSchema = [4, n0, _WPSC,
+  0,
+  [_cMAS],
+  [() => CustomerManagedAwsSecretConfiguration$]
+];
+export var WalletPasswordSourceConfigurationInput$: StaticUnionSchema = [4, n0, _WPSCI,
+  0,
+  [_cMAS],
+  [() => CustomerManagedAwsSecretConfigurationInput$]
 ];
 export var AcceptMarketplaceRegistration$: StaticOperationSchema = [9, n0, _AMR,
   2, () => AcceptMarketplaceRegistrationInput$, () => AcceptMarketplaceRegistrationOutput$

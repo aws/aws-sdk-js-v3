@@ -35,7 +35,15 @@ export interface CreateAutonomousDatabaseWalletCommandOutput extends CreateAuton
  * const input = { // CreateAutonomousDatabaseWalletInput
  *   autonomousDatabaseId: "STRING_VALUE", // required
  *   walletType: "REGIONAL" || "INSTANCE",
- *   password: "STRING_VALUE", // required
+ *   password: "STRING_VALUE",
+ *   passwordSource: "CUSTOMER_MANAGED_AWS_SECRET" || "API_REQUEST_PARAMETER",
+ *   passwordSourceConfiguration: { // WalletPasswordSourceConfigurationInput Union: only one key present
+ *     customerManagedAwsSecret: { // CustomerManagedAwsSecretConfigurationInput
+ *       secretId: "STRING_VALUE",
+ *       iamRoleArn: "STRING_VALUE",
+ *       externalIdType: "database_ocid" || "compartment_ocid" || "tenant_ocid",
+ *     },
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateAutonomousDatabaseWalletCommand(input);
