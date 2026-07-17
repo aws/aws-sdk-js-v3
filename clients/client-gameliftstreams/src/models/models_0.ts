@@ -1206,6 +1206,12 @@ export interface GetStreamSessionOutput {
    * @public
    */
   ExportFilesMetadata?: ExportFilesMetadata | undefined;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1307,6 +1313,12 @@ export interface StreamSessionSummary {
    * @public
    */
   Location?: string | undefined;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1492,6 +1504,12 @@ export interface StartStreamSessionInput {
    * @public
    */
   PerformanceStatsConfiguration?: PerformanceStatsConfiguration | undefined;
+
+  /**
+   * <p>The ARN of an AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on your behalf during the stream session. The role grants Amazon GameLift Streams permission to obtain temporary credentials for your application. The role's trust policy must allow the <code>gameliftstreams.amazonaws.com</code> service principal to assume it. The role name must start with <code>GameLiftStreams-</code>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1623,6 +1641,12 @@ export interface StartStreamSessionOutput {
    * @public
    */
   ExportFilesMetadata?: ExportFilesMetadata | undefined;
+
+  /**
+   * <p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**

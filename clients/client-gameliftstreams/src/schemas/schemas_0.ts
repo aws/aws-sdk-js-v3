@@ -66,6 +66,7 @@ const _GSSO = "GetStreamSessionOutput";
 const _I = "Identifier";
 const _IC = "IdleCapacity";
 const _ICB = "Ipv4CidrBlocks";
+const _IRA = "IamRoleArn";
 const _ISE = "InternalServerException";
 const _IVICB = "InternalVpcIpv4CidrBlock";
 const _Id = "Id";
@@ -102,7 +103,8 @@ const _ODC = "OnDemandCapacity";
 const _OU = "OutputUri";
 const _P = "Protocol";
 const _PSC = "PerformanceStatsConfiguration";
-const _RA = "ResourceArn";
+const _RA = "RoleArn";
+const _RAe = "ResourceArn";
 const _RC = "RequestedCapacity";
 const _RE = "RuntimeEnvironment";
 const _RNFE = "ResourceNotFoundException";
@@ -255,6 +257,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var IamRoleArn: StaticSimpleSchema = [0, n0, _IRA, 8, 0];
 var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
 var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
 var TokenValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
@@ -390,8 +393,8 @@ export var GetStreamSessionInput$: StaticStructureSchema = [3, n0, _GSSI,
 ];
 export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0]]
 ];
 export var ListApplicationsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -421,7 +424,7 @@ export var ListStreamSessionsByAccountInput$: StaticStructureSchema = [3, n0, _L
 export var ListStreamSessionsByAccountOutput$: StaticStructureSchema = [3, n0, _LSSBAO,
   0,
   [_It, _NT],
-  [() => StreamSessionSummaryList, 0]
+  [[() => StreamSessionSummaryList, 0], 0]
 ];
 export var ListStreamSessionsInput$: StaticStructureSchema = [3, n0, _LSSI,
   0,
@@ -431,11 +434,11 @@ export var ListStreamSessionsInput$: StaticStructureSchema = [3, n0, _LSSI,
 export var ListStreamSessionsOutput$: StaticStructureSchema = [3, n0, _LSSO,
   0,
   [_It, _NT],
-  [() => StreamSessionSummaryList, 0]
+  [[() => StreamSessionSummaryList, 0], 0]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
-  [_RA],
+  [_RAe],
   [[0, 1]], 1
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
@@ -475,13 +478,13 @@ export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
 ];
 export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
   0,
-  [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC],
-  [[0, 1], 0, [() => SignalRequest, 0], 0, [0, 4], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$], 4
+  [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC, _RA],
+  [[0, 1], 0, [() => SignalRequest, 0], 0, [0, 4], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, [() => IamRoleArn, 0]], 4
 ];
 export var StartStreamSessionOutput$: StaticStructureSchema = [3, n0, _SSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0]]
 ];
 export var StreamGroupSummary$: StaticStructureSchema = [3, n0, _SGS,
   0,
@@ -490,12 +493,12 @@ export var StreamGroupSummary$: StaticStructureSchema = [3, n0, _SGS,
 ];
 export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
-  [_A, _UI, _S, _SRt, _P, _LUA, _CA, _AAp, _EFM, _Lo],
-  [0, 0, 0, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, 0]
+  [_A, _UI, _S, _SRt, _P, _LUA, _CA, _AAp, _EFM, _Lo, _RA],
+  [0, 0, 0, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, 0, [() => IamRoleArn, 0]]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_RA, _T],
+  [_RAe, _T],
   [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -510,7 +513,7 @@ export var TerminateStreamSessionInput$: StaticStructureSchema = [3, n0, _TSSI,
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
-  [_RA, _TK],
+  [_RAe, _TK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
@@ -572,7 +575,8 @@ var StreamGroupSummaryList: StaticListSchema = [1, n0, _SGSL,
   0, () => StreamGroupSummary$
 ];
 var StreamSessionSummaryList: StaticListSchema = [1, n0, _SSSL,
-  0, () => StreamSessionSummary$
+  0, [() => StreamSessionSummary$,
+    0]
 ];
 var TagKeyList = 64 | 0;
 var EnvironmentVariables = 128 | 0;

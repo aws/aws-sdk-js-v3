@@ -183,6 +183,7 @@ export const StreamSessionStatusReason = {
   API_TERMINATED: "apiTerminated",
   APPLICATION_EXIT: "applicationExit",
   APP_LOG_S3_DESTINATION_ERROR: "applicationLogS3DestinationError",
+  ASSUME_ROLE_FAILED: "assumeRoleFailed",
   CONNECTION_TIMEOUT: "connectionTimeout",
   IDLE_TIMEOUT: "idleTimeout",
   INTERNAL_ERROR: "internalError",
