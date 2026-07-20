@@ -49,7 +49,7 @@ describe("middleware-sdk-route53", () => {
       });
 
       requireRequestsFrom(client).toMatch({
-        path: "/2013-04-01/change/my-change",
+        path: /^\/20\d\d-\d\d-\d\d\/change\/my\-change$/,
       });
 
       await client.getChange({
