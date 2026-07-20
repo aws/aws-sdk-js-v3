@@ -20,6 +20,9 @@ const _AMT = "AdMarkupType";
 const _AMl = "AlternateMedia";
 const _AMu = "AudienceMedia";
 const _AN = "AvailNum";
+const _APC = "AdsPersonalizationConcurrency";
+const _APT = "AdsPersonalizationTimeouts";
+const _ARTM = "AdsRequestTimeoutMilliseconds";
 const _AS = "AvailSuppression";
 const _AST = "ApproximateStartTime";
 const _ASUP = "AdSegmentUrlPrefix";
@@ -131,6 +134,7 @@ const _ELS = "EnabledLoggingStrategies";
 const _EOM = "EndOffsetMillis";
 const _ET = "EndTime";
 const _EU = "EndUrl";
+const _EVVP = "EnableVodVastParallelization";
 const _F = "Function";
 const _FI = "FunctionId";
 const _FL = "FunctionList";
@@ -181,6 +185,7 @@ const _LFRi = "ListFunctionsResponse";
 const _LLS = "ListLiveSources";
 const _LLSR = "ListLiveSourcesRequest";
 const _LLSRi = "ListLiveSourcesResponse";
+const _LMAPTM = "LiveMaximumAdsPersonalizationTimeMilliseconds";
 const _LMT = "LastModifiedTime";
 const _LPC = "ListPlaybackConfigurations";
 const _LPCR = "ListPlaybackConfigurationsRequest";
@@ -203,6 +208,7 @@ const _LVSR = "ListVodSourcesRequest";
 const _LVSRi = "ListVodSourcesResponse";
 const _M = "Message";
 const _MBTS = "MinBufferTimeSeconds";
+const _MCAR = "MaxConcurrentAdsRequests";
 const _MDS = "MaxDurationSeconds";
 const _MEP = "ManifestEndpointPrefix";
 const _ML = "MpdLocation";
@@ -225,6 +231,7 @@ const _OMT = "OriginManifestType";
 const _Ou = "Outputs";
 const _Out = "Output";
 const _P = "Policy";
+const _PARTM = "PrefetchAdsRequestTimeoutMilliseconds";
 const _PC = "PlaybackConfiguration";
 const _PCA = "PlaybackConfigurationArn";
 const _PCN = "PlaybackConfigurationName";
@@ -239,6 +246,7 @@ const _PF = "PutFunction";
 const _PFR = "PutFunctionRequest";
 const _PFRu = "PutFunctionResponse";
 const _PM = "PlaybackMode";
+const _PMAPTM = "PrefetchMaximumAdsPersonalizationTimeMilliseconds";
 const _PN = "ProgramName";
 const _POIET = "PublishOptInEventTypes";
 const _PPC = "PutPlaybackConfiguration";
@@ -350,6 +358,7 @@ const _UVSR = "UpdateVodSourceRequest";
 const _UVSRp = "UpdateVodSourceResponse";
 const _V = "Value";
 const _VCSU = "VideoContentSourceUrl";
+const _VMAPTM = "VodMaximumAdsPersonalizationTimeMilliseconds";
 const _VS = "VodSource";
 const _VSN = "VodSourceName";
 const _a = "audience";
@@ -451,6 +460,16 @@ export var AdsInteractionLog$: StaticStructureSchema = [3, n0, _AIL,
   0,
   [_POIET, _EET],
   [64 | 0, 64 | 0]
+];
+export var AdsPersonalizationConcurrency$: StaticStructureSchema = [3, n0, _APC,
+  0,
+  [_MCAR, _EVVP],
+  [1, 2]
+];
+export var AdsPersonalizationTimeouts$: StaticStructureSchema = [3, n0, _APT,
+  0,
+  [_ARTM, _LMAPTM, _VMAPTM, _PARTM, _PMAPTM],
+  [1, 1, 1, 1, 1]
 ];
 export var Alert$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -789,8 +808,8 @@ export var GetPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _GP
 ];
 export var GetPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var GetPrefetchScheduleRequest$: StaticStructureSchema = [3, n0, _GPSR,
   0,
@@ -959,8 +978,8 @@ export var ManifestServiceInteractionLog$: StaticStructureSchema = [3, n0, _MSIL
 ];
 export var PlaybackConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var PrefetchConsumption$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -999,13 +1018,13 @@ export var PutFunctionResponse$: StaticStructureSchema = [3, n0, _PFRu,
 ];
 export var PutPlaybackConfigurationRequest$: StaticStructureSchema = [3, n0, _PPCR,
   0,
-  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0], 1
+  [_N, _ADSU, _AS, _B, _CC, _CA, _DC, _IM, _LPRC, _MPR, _PTS, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
+  [0, 0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CARo, 0, 0, 128 | 0], () => DashConfigurationForPut$, 0, () => LivePreRollConfiguration$, () => ManifestProcessingRules$, 1, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$], 1
 ];
 export var PutPlaybackConfigurationResponse$: StaticStructureSchema = [3, n0, _PPCRu,
   0,
-  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM],
-  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0]
+  [_ADSU, _AS, _B, _CC, _CA, _DC, _HCl, _IM, _LPRC, _LC, _MPR, _N, _PTS, _PCA, _PEP, _DSPEP, _SIEP, _DSSIEP, _SAU, _Ta, _TPN, _VCSU, _ACC, _ADSC, _FM, _APT, _APC],
+  [0, () => AvailSuppression$, () => Bumper$, () => CdnConfiguration$, [2, n0, _CAR, 0, 0, 128 | 0], () => DashConfiguration$, () => HlsConfiguration$, 0, () => LivePreRollConfiguration$, () => LogConfiguration$, () => ManifestProcessingRules$, 0, 1, 0, 0, 0, 0, 0, 0, [128 | 0, { [_jN]: _t }], 0, 0, () => AdConditioningConfiguration$, () => AdDecisionServerConfiguration$, 128 | 0, () => AdsPersonalizationTimeouts$, () => AdsPersonalizationConcurrency$]
 ];
 export var RecurringConsumption$: StaticStructureSchema = [3, n0, _RCe,
   0,

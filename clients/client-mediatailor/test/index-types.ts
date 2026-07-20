@@ -184,6 +184,8 @@ export type {
   AdDecisionServerConfiguration,
   AdMarkerPassthrough,
   AdsInteractionLog,
+  AdsPersonalizationConcurrency,
+  AdsPersonalizationTimeouts,
   Alert,
   AlternateMedia,
   AudienceMedia,

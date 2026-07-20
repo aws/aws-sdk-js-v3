@@ -568,7 +568,7 @@ export interface CustomOutputConfiguration {
 }
 
 /**
- * -- Function Configuration DataStructure
+ * <p>The configuration for an <code>HTTP_REQUEST</code> function. Specifies the HTTP method, URL, headers, body, timeout, and output expressions for the request. For more information, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions-types-http-request.html">HTTP_REQUEST</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
 export interface HttpRequestConfiguration {
@@ -646,7 +646,7 @@ export interface SequentialExecutorConfiguration {
 }
 
 /**
- * -- Define Mixin --
+ * <p>Defines reusable logic that MediaTailor executes at lifecycle hooks during ad insertion. The <code>FunctionType</code> determines the function's runtime behavior. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
  * @public
  */
 export interface Function {
@@ -823,6 +823,60 @@ export interface AdDecisionServerConfiguration {
    * @public
    */
   HttpRequest?: HttpRequest | undefined;
+}
+
+/**
+ * <p>The concurrency settings for ad decision server interactions during ad personalization.</p>
+ * @public
+ */
+export interface AdsPersonalizationConcurrency {
+  /**
+   * <p>The maximum number of simultaneous requests that MediaTailor makes to the ad decision server per manifest request. The default is 1.</p>
+   * @public
+   */
+  MaxConcurrentAdsRequests?: number | undefined;
+
+  /**
+   * <p>Enables parallel processing of ad decision server requests in VOD workflows when the ADS returns VAST responses. The default is false.</p>
+   * @public
+   */
+  EnableVodVastParallelization?: boolean | undefined;
+}
+
+/**
+ * <p>The timeout settings for ad decision server interactions during ad personalization.</p>
+ * @public
+ */
+export interface AdsPersonalizationTimeouts {
+  /**
+   * <p>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during live or VOD playback. The default is 3000.</p>
+   * @public
+   */
+  AdsRequestTimeoutMilliseconds?: number | undefined;
+
+  /**
+   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for live manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.</p>
+   * @public
+   */
+  LiveMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity for VOD manifests, including making requests, waiting for responses, and following VAST wrapper redirects. The default is 10000.</p>
+   * @public
+   */
+  VodMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, that MediaTailor waits for a single ad decision server response during prefetch retrieval. If not set, the value of AdsRequestTimeoutMilliseconds is used.</p>
+   * @public
+   */
+  PrefetchAdsRequestTimeoutMilliseconds?: number | undefined;
+
+  /**
+   * <p>The maximum total time, in milliseconds, that MediaTailor spends on ad decision server activity during prefetch retrieval, including making requests, waiting for responses, and following VAST wrapper redirects.</p>
+   * @public
+   */
+  PrefetchMaximumAdsPersonalizationTimeMilliseconds?: number | undefined;
 }
 
 /**
@@ -1195,6 +1249,18 @@ export interface PlaybackConfiguration {
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
+
+  /**
+   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * @public
+   */
+  AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
+
+  /**
+   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * @public
+   */
+  AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 }
 
 /**
@@ -3958,6 +4024,18 @@ export interface GetPlaybackConfigurationResponse {
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
+
+  /**
+   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * @public
+   */
+  AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
+
+  /**
+   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * @public
+   */
+  AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 }
 
 /**
@@ -4479,6 +4557,18 @@ export interface PutPlaybackConfigurationRequest {
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
+
+  /**
+   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * @public
+   */
+  AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
+
+  /**
+   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * @public
+   */
+  AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 }
 
 /**
@@ -4634,6 +4724,18 @@ export interface PutPlaybackConfigurationResponse {
    * @public
    */
   FunctionMapping?: Partial<Record<EventName, string>> | undefined;
+
+  /**
+   * <p>The timeout settings for ad decision server interactions. These settings control how long MediaTailor waits for ADS responses and the total time budget for ad personalization across live, VOD, and prefetch workflows.</p>
+   * @public
+   */
+  AdsPersonalizationTimeouts?: AdsPersonalizationTimeouts | undefined;
+
+  /**
+   * <p>The concurrency settings for ad decision server interactions. These settings control how many simultaneous ADS requests MediaTailor makes per manifest request.</p>
+   * @public
+   */
+  AdsPersonalizationConcurrency?: AdsPersonalizationConcurrency | undefined;
 }
 
 /**

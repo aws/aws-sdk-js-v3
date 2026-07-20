@@ -131,6 +131,17 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       FunctionMapping: { // FunctionMapping
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ * //         AdsRequestTimeoutMilliseconds: Number("int"),
+ * //         LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //         VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //         PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ * //         PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //       },
+ * //       AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ * //         MaxConcurrentAdsRequests: Number("int"),
+ * //         EnableVodVastParallelization: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

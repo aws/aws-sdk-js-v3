@@ -90,6 +90,17 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *   FunctionMapping: { // FunctionMapping
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ *     AdsRequestTimeoutMilliseconds: Number("int"),
+ *     LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *     VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *     PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ *     PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *   },
+ *   AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ *     MaxConcurrentAdsRequests: Number("int"),
+ *     EnableVodVastParallelization: true || false,
+ *   },
  * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
@@ -183,6 +194,17 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   FunctionMapping: { // FunctionMapping
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ * //     AdsRequestTimeoutMilliseconds: Number("int"),
+ * //     LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ * //     PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //   },
+ * //   AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ * //     MaxConcurrentAdsRequests: Number("int"),
+ * //     EnableVodVastParallelization: true || false,
  * //   },
  * // };
  *

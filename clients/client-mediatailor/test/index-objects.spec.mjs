@@ -10,6 +10,8 @@ import {
   AdsInteractionExcludeEventType,
   AdsInteractionLog$,
   AdsInteractionPublishOptInEventType,
+  AdsPersonalizationConcurrency$,
+  AdsPersonalizationTimeouts$,
   Alert$,
   AlertCategory,
   AlternateMedia$,
@@ -407,6 +409,8 @@ assert(typeof AdConditioningConfiguration$ === "object");
 assert(typeof AdDecisionServerConfiguration$ === "object");
 assert(typeof AdMarkerPassthrough$ === "object");
 assert(typeof AdsInteractionLog$ === "object");
+assert(typeof AdsPersonalizationConcurrency$ === "object");
+assert(typeof AdsPersonalizationTimeouts$ === "object");
 assert(typeof Alert$ === "object");
 assert(typeof AlternateMedia$ === "object");
 assert(typeof AudienceMedia$ === "object");
