@@ -100,7 +100,7 @@ new S3Client({
 
 #### Region resolution chain
 
-When `region` is not passed to the client constructor, the SDK resolves it in this order:
+The first priority is any `region` string or region provider function passed directly to the client constructor. When neither is provided, the SDK resolves region in this order:
 
 1. `AWS_REGION` environment variable.
 2. `AWS_DEFAULT_REGION` environment variable.
