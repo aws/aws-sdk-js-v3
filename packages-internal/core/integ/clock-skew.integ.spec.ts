@@ -86,7 +86,7 @@ interface AttemptTiming {
 /**
  * Custom HTTP handler that
  * 1. Records the x-amz-date header from each request for assertion
- * 2. Transitions Date.now() from send→receive time when the handler fires
+ * 2. Transitions Date.now() from send -> receive time when the handler fires
  * 3. Returns the queued response
  */
 class ClockSkewTestHandler {
