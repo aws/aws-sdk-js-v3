@@ -101,7 +101,7 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>ACCOUNT_CREATION_RATE_LIMIT_EXCEEDED: You attempted to exceed the number of
- *                     accounts that you can create in one day.</p>
+ *                     accounts that can be in progress at a time.</p>
  *             </li>
  *             <li>
  *                <p>ACCOUNT_CREATION_NOT_COMPLETE: Your account setup isn't complete or your
@@ -389,7 +389,9 @@ export interface DetachPolicyCommandOutput extends __MetadataBearer {}
  *             </li>
  *             <li>
  *                <p>INVALID_PATTERN: You provided a value that doesn't match the required
- *                     pattern.</p>
+ *                     pattern. The service also validates your free-text field values against
+ *                     common cross-site scripting (XSS) patterns and rejects requests that
+ *                     contain matching values.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match
