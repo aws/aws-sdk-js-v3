@@ -24,7 +24,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
 
 /**
  * <important>
- *             <p>Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling buyers to make multiple purchases per Amazon Web Services account. Starting June 1, 2026, new SaaS products must use <code>CustomerAWSAccountId</code> (instead of <code>CustomerIdentifier</code>), <code>LicenseArn</code> (instead of <code>ProductCode</code>) to support this feature. Existing integrations will continue to work. Review the new integration for Concurrent Agreements <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>.</p>
+ *             <p>Amazon Web Services Marketplace is introducing Concurrent Agreements, enabling buyers to make multiple purchases per Amazon Web Services account. Starting June 1, 2026, new SaaS products must use <code>CustomerAWSAccountId</code> (instead of <code>CustomerIdentifier</code>), <code>LicenseArn</code> (instead of <code>ProductCode</code>) to support this feature. <code>BatchMeterUsage</code> does not support <code>CustomerIdentifier</code> for new integrations. Existing integrations continue to work. Review the new integration for Concurrent Agreements <a href="https://catalog.workshops.aws/mpseller/en-US/saas/integration-for-concurrent-agreements">here</a>.</p>
  *          </important>
  *          <p>To post metering records for customers, SaaS applications call
  *         <code>BatchMeterUsage</code>, which is used for metering SaaS flexible
@@ -35,14 +35,11 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *         <code>BatchMeterUsage</code> calls.</p>
  *          <p>Usage records should be submitted in quick succession following a
  *       recorded event. Usage records aren't accepted 24 hours or more after an
- *       event.</p>
- *          <note>
- *             <p>At the end of each billing cycle, a 6-hour grace period applies. We accept
+ *       event. At the end of each billing cycle, a 6-hour grace period applies. We accept
  *       usage records for the previous billing month until 06:00 UTC on the first day of the
  *       next month. For example, you must submit March usage records before 06:00 UTC on
  *       April 1. After this grace period, we return a
  *       <code>TimestampOutOfBoundsException</code> error.</p>
- *          </note>
  *          <p>
  *             <code>BatchMeterUsage</code> can process up to 25
  *         <code>UsageRecords</code> at a time, and each request must be less than
