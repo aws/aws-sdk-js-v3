@@ -9089,6 +9089,30 @@ export interface Capabilities {
    * @public
    */
   Scenario?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to manage trigger-related settings for flows and automations.</p>
+   * @public
+   */
+  Trigger?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, view, edit, delete, and run schedule triggers for flows and automations.</p>
+   * @public
+   */
+  ScheduleTrigger?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, view, edit, delete, and run inbound email triggers for flows and automations.</p>
+   * @public
+   */
+  InboundEmailTrigger?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to create, view, edit, delete, and run Quick event triggers for flows and automations.</p>
+   * @public
+   */
+  QuickEventTrigger?: CapabilityState | undefined;
 }
 
 /**

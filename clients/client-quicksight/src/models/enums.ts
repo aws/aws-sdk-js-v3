@@ -2636,6 +2636,7 @@ export type AuthenticationMethodOption = (typeof AuthenticationMethodOption)[key
  */
 export const ServiceType = {
   ATHENA: "ATHENA",
+  GLUE_DATA_CATALOG: "GLUE_DATA_CATALOG",
   QBUSINESS: "QBUSINESS",
   REDSHIFT: "REDSHIFT",
 } as const;

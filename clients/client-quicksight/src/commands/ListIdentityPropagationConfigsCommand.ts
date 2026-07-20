@@ -43,7 +43,7 @@ export interface ListIdentityPropagationConfigsCommandOutput extends ListIdentit
  * // { // ListIdentityPropagationConfigsResponse
  * //   Services: [ // AuthorizedTargetsByServices
  * //     { // AuthorizedTargetsByService
- * //       Service: "REDSHIFT" || "QBUSINESS" || "ATHENA",
+ * //       Service: "REDSHIFT" || "QBUSINESS" || "ATHENA" || "GLUE_DATA_CATALOG",
  * //       AuthorizedTargets: [ // AuthorizedTargetsList
  * //         "STRING_VALUE",
  * //       ],
