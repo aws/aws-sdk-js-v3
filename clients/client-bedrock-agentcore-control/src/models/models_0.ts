@@ -8071,6 +8071,12 @@ export interface ConnectorSource {
    * @public
    */
   connectorId: string | undefined;
+
+  /**
+   * <p>The version of the connector to use (for example, <code>1.1.0</code>). If you don't specify a version, the service uses the latest available version.</p>
+   * @public
+   */
+  version?: string | undefined;
 }
 
 /**

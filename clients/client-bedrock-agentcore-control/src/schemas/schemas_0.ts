@@ -1921,8 +1921,8 @@ export var ConnectorParameterOverride$: StaticStructureSchema = [3, n0, _CPO,
 ];
 export var ConnectorSource$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cIo],
-  [0], 1
+  [_cIo, _ve],
+  [0, 0], 1
 ];
 export var ConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,

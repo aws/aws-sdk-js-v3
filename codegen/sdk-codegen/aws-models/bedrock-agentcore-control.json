@@ -3743,6 +3743,12 @@
                         "smithy.api#documentation": "<p>The identifier for the connector integration (for example, <code>bedrock-knowledge-bases</code>).</p>",
                         "smithy.api#required": {}
                     }
+                },
+                "version": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#ConnectorVersion",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The version of the connector to use (for example, <code>1.1.0</code>). If you don't specify a version, the service uses the latest available version.</p>"
+                    }
                 }
             },
             "traits": {
@@ -3774,6 +3780,16 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.</p>"
+            }
+        },
+        "com.amazonaws.bedrockagentcorecontrol#ConnectorVersion": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 5,
+                    "max": 32
+                },
+                "smithy.api#pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)$"
             }
         },
         "com.amazonaws.bedrockagentcorecontrol#ConsolidationConfiguration": {
