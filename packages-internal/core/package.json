@@ -102,6 +102,7 @@
     }
   },
   "scripts": {
+    "benchmark:json": "npx tsx scripts/benchmark-json-serializer.ts",
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline && premove ./dist-cjs/api-extractor-type-index.js",
     "build:es": "premove dist-es && tsc -p tsconfig.es.json && premove ./dist-es/api-extractor-type-index.js",
