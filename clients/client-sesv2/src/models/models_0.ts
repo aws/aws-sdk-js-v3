@@ -32,6 +32,7 @@ import type {
   MetricAggregation,
   MetricDimensionName,
   MetricNamespace,
+  PricingPlan,
   QueryErrorCode,
   RecommendationImpact,
   RecommendationStatus,
@@ -4564,6 +4565,27 @@ export interface FailureInfo {
 export interface GetAccountRequest {}
 
 /**
+ * <p>The pricing attributes that apply to your Amazon SES account, including the currently active
+ *             pricing plan and any scheduled change for the next billing cycle.</p>
+ * @public
+ */
+export interface PricingAttributes {
+  /**
+   * <p>The pricing plan that is currently active on your Amazon SES account.</p>
+   * @public
+   */
+  CurrentPlan?: PricingPlan | undefined;
+
+  /**
+   * <p>The pricing plan that will become active at the start of the next billing cycle, if a
+   *             scheduled change has been requested. This field is empty when no scheduled change is
+   *             pending.</p>
+   * @public
+   */
+  NextPlan?: PricingPlan | undefined;
+}
+
+/**
  * <p>An object that contains information about the per-day and per-second sending limits
  *             for your Amazon SES account in the current Amazon Web Services Region.</p>
  * @public
@@ -4788,6 +4810,13 @@ export interface GetAccountResponse {
    * @public
    */
   VdmAttributes?: VdmAttributes | undefined;
+
+  /**
+   * <p>The pricing attributes that apply to your Amazon SES account, including the currently active
+   *             pricing plan and any scheduled change.</p>
+   * @public
+   */
+  PricingAttributes?: PricingAttributes | undefined;
 }
 
 /**
@@ -7895,6 +7924,47 @@ export interface PutAccountDetailsRequest {
 export interface PutAccountDetailsResponse {}
 
 /**
+ * <p>A request to set the pricing plan for your Amazon SES account.</p>
+ * @public
+ */
+export interface PutAccountPricingAttributesRequest {
+  /**
+   * <p>The pricing plan to apply to your Amazon SES account. Can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> – No pricing plan is applied; billing follows per-feature
+   *                     pricing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ESSENTIALS</code> – Baseline Amazon SES capabilities and select premium
+   *                     features.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRO</code> – Includes everything in <code>ESSENTIALS</code>, plus
+   *                     additional premium features for growing senders.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENTERPRISE</code> – Includes everything in <code>PRO</code>, plus
+   *                     features intended for large-scale senders.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Plan: PricingPlan | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error response if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutAccountPricingAttributesResponse {}
+
+/**
  * <p>A request to change the ability of your account to send email.</p>
  * @public
  */
@@ -8394,157 +8464,3 @@ export interface PutEmailIdentityDkimAttributesRequest {
  * @public
  */
 export interface PutEmailIdentityDkimAttributesResponse {}
-
-/**
- * <p>A request to change the DKIM attributes for an email identity.</p>
- * @public
- */
-export interface PutEmailIdentityDkimSigningAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>The method to use to configure DKIM for the identity. There are the following possible
-   *             values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                         DKIM</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
-   *                     Your Own DKIM (BYODKIM).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
-
-  /**
-   * <p>An object that contains information about the private key and selector that you want
-   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
-   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
-   * @public
-   */
-  SigningAttributes?: DkimSigningAttributes | undefined;
-}
-
-/**
- * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
- *          <p>The following data is returned in JSON format by the service.</p>
- * @public
- */
-export interface PutEmailIdentityDkimSigningAttributesResponse {
-  /**
-   * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
-   *             status by searching for specific records in the DNS configuration for your domain. If
-   *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
-   *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
-   *             records in the DNS configuration for your domain.</p>
-   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
-   *             record that uses the selector that you specified. The value of the TXT record must be a
-   *             public key that's paired with the private key that you specified in the process of
-   *             creating the identity.</p>
-   *          <p>The status can be one of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
-   *                     hasn't yet detected the DKIM records in the DNS configuration for the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCESS</code> – The verification process completed
-   *                     successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> – The verification process failed. This typically
-   *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
-   *                     domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
-   *                     from determining the DKIM authentication status of the domain.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
-   *                     initiated for the domain.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DkimStatus?: DkimStatus | undefined;
-
-  /**
-   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
-   *             contains a set of unique strings that you use to create a set of CNAME records that you
-   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
-   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
-   *          <p>If you configured DKIM authentication for the domain by providing your own
-   *             public-private key pair, then this object contains the selector that's associated with
-   *             your public key.</p>
-   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
-   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
-   * @public
-   */
-  DkimTokens?: string[] | undefined;
-
-  /**
-   * <p>The hosted zone where Amazon SES publishes the DKIM public key TXT records for this email identity.
-   *         This value indicates the DNS zone that customers must reference when configuring their CNAME records for DKIM authentication.</p>
-   *          <p>When configuring DKIM for your domain, create CNAME records in your DNS that point to the selectors in this hosted zone.
-   *         For example:</p>
-   *          <p>
-   *             <code>
-   *             selector1._domainkey.yourdomain.com CNAME selector1.<SigningHostedZone>
-   *         </code>
-   *          </p>
-   *          <p>
-   *             <code>
-   *             selector2._domainkey.yourdomain.com CNAME selector2.<SigningHostedZone>
-   *         </code>
-   *          </p>
-   *          <p>
-   *             <code>
-   *             selector3._domainkey.yourdomain.com CNAME selector3.<SigningHostedZone>
-   *         </code>
-   *          </p>
-   * @public
-   */
-  SigningHostedZone?: string | undefined;
-}
-
-/**
- * <p>A request to set the attributes that control how bounce and complaint events are
- *             processed.</p>
- * @public
- */
-export interface PutEmailIdentityFeedbackAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>Sets the feedback forwarding configuration for the identity.</p>
-   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
-   *             complaint events occur. These notifications are sent to the address that you specified
-   *             in the <code>Return-Path</code> header of the original email.</p>
-   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
-   *             set up another mechanism for receiving bounce or complaint notifications (for example,
-   *             by setting up an event destination), you receive an email notification when these events
-   *             occur (even if this setting is disabled).</p>
-   * @public
-   */
-  EmailForwardingEnabled?: boolean | undefined;
-}

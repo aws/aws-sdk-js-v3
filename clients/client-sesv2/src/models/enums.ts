@@ -609,6 +609,21 @@ export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
  * @public
  * @enum
  */
+export const PricingPlan = {
+  ENTERPRISE: "ENTERPRISE",
+  ESSENTIALS: "ESSENTIALS",
+  NONE: "NONE",
+  PRO: "PRO",
+} as const;
+/**
+ * @public
+ */
+export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
+
+/**
+ * @public
+ * @enum
+ */
 export const MailFromDomainStatus = {
   FAILED: "FAILED",
   PENDING: "PENDING",

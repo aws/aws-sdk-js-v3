@@ -81,6 +81,10 @@ export interface GetAccountCommandOutput extends GetAccountResponse, __MetadataB
  * //       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  * //     },
  * //   },
+ * //   PricingAttributes: { // PricingAttributes
+ * //     CurrentPlan: "NONE" || "ESSENTIALS" || "PRO" || "ENTERPRISE",
+ * //     NextPlan: "NONE" || "ESSENTIALS" || "PRO" || "ENTERPRISE",
+ * //   },
  * // };
  *
  * ```

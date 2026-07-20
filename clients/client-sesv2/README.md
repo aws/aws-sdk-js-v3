@@ -719,6 +719,13 @@ PutAccountDetails
 </details>
 <details>
 <summary>
+PutAccountPricingAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sesv2/command/PutAccountPricingAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutAccountPricingAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sesv2/Interface/PutAccountPricingAttributesCommandOutput/)
+</details>
+<details>
+<summary>
 PutAccountSendingAttributes
 </summary>
 

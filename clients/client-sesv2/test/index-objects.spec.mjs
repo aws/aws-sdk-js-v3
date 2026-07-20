@@ -442,6 +442,8 @@ import {
   paginateListTenants,
   PinpointDestination$,
   PlacementStatistics$,
+  PricingAttributes$,
+  PricingPlan,
   PutAccountDedicatedIpWarmupAttributes$,
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDedicatedIpWarmupAttributesRequest$,
@@ -450,6 +452,10 @@ import {
   PutAccountDetailsCommand,
   PutAccountDetailsRequest$,
   PutAccountDetailsResponse$,
+  PutAccountPricingAttributes$,
+  PutAccountPricingAttributesCommand,
+  PutAccountPricingAttributesRequest$,
+  PutAccountPricingAttributesResponse$,
   PutAccountSendingAttributes$,
   PutAccountSendingAttributesCommand,
   PutAccountSendingAttributesRequest$,
@@ -814,6 +820,8 @@ assert(typeof PutAccountDedicatedIpWarmupAttributesCommand === "function");
 assert(typeof PutAccountDedicatedIpWarmupAttributes$ === "object");
 assert(typeof PutAccountDetailsCommand === "function");
 assert(typeof PutAccountDetails$ === "object");
+assert(typeof PutAccountPricingAttributesCommand === "function");
+assert(typeof PutAccountPricingAttributes$ === "object");
 assert(typeof PutAccountSendingAttributesCommand === "function");
 assert(typeof PutAccountSendingAttributes$ === "object");
 assert(typeof PutAccountSuppressionAttributesCommand === "function");
@@ -1107,10 +1115,13 @@ assert(typeof MultiRegionEndpoint$ === "object");
 assert(typeof OverallVolume$ === "object");
 assert(typeof PinpointDestination$ === "object");
 assert(typeof PlacementStatistics$ === "object");
+assert(typeof PricingAttributes$ === "object");
 assert(typeof PutAccountDedicatedIpWarmupAttributesRequest$ === "object");
 assert(typeof PutAccountDedicatedIpWarmupAttributesResponse$ === "object");
 assert(typeof PutAccountDetailsRequest$ === "object");
 assert(typeof PutAccountDetailsResponse$ === "object");
+assert(typeof PutAccountPricingAttributesRequest$ === "object");
+assert(typeof PutAccountPricingAttributesResponse$ === "object");
 assert(typeof PutAccountSendingAttributesRequest$ === "object");
 assert(typeof PutAccountSendingAttributesResponse$ === "object");
 assert(typeof PutAccountSuppressionAttributesRequest$ === "object");
@@ -1253,6 +1264,7 @@ assert(typeof Metric === "object");
 assert(typeof MetricAggregation === "object");
 assert(typeof MetricDimensionName === "object");
 assert(typeof MetricNamespace === "object");
+assert(typeof PricingPlan === "object");
 assert(typeof QueryErrorCode === "object");
 assert(typeof RecommendationImpact === "object");
 assert(typeof RecommendationStatus === "object");

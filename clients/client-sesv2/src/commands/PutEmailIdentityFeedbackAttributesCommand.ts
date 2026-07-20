@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PutEmailIdentityFeedbackAttributesRequest } from "../models/models_0";
-import type { PutEmailIdentityFeedbackAttributesResponse } from "../models/models_1";
+import type {
+  PutEmailIdentityFeedbackAttributesRequest,
+  PutEmailIdentityFeedbackAttributesResponse,
+} from "../models/models_1";
 import { PutEmailIdentityFeedbackAttributes$ } from "../schemas/schemas_0";
 
 /**
