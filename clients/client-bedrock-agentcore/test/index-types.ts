@@ -439,6 +439,7 @@ export type {
   HarnessToolResultBlockDelta,
   HarnessToolResultBlockStart,
   HarnessToolResultContentBlock,
+  HarnessToolResultMetadataBlockDelta,
   HarnessToolUseBlock,
   HarnessToolUseBlockDelta,
   HarnessToolUseBlockStart,

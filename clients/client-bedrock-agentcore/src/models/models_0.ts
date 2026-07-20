@@ -543,6 +543,18 @@ export interface InvokeAgentRuntimeRequest {
   mcpProtocolVersion?: string | undefined;
 
   /**
+   * <p>The MCP method being invoked. For example, <code>tools/call</code>, <code>resources/read</code>, or <code>prompts/get</code>.</p>
+   * @public
+   */
+  mcpMethod?: string | undefined;
+
+  /**
+   * <p>The name of the MCP resource, tool, or prompt being accessed. The value depends on the method:</p> <ul> <li> <p> <code>tools/call</code> – The tool name.</p> </li> <li> <p> <code>resources/read</code> – The resource URI.</p> </li> <li> <p> <code>prompts/get</code> – The prompt name.</p> </li> </ul>
+   * @public
+   */
+  mcpName?: string | undefined;
+
+  /**
    * <p>The identifier of the runtime user.</p>
    * @public
    */
@@ -7561,6 +7573,12 @@ export interface HarnessGeminiModelConfig {
    * @public
    */
   topK?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
 }
 
 /**
@@ -8286,6 +8304,30 @@ export interface InvokeHarnessRequest {
   runtimeUserId?: string | undefined;
 
   /**
+   * <p>W3C trace context parent header containing version, trace ID, parent span ID, and trace flags.</p>
+   * @public
+   */
+  traceParent?: string | undefined;
+
+  /**
+   * <p>W3C trace context state header for vendor-specific trace information.</p>
+   * @public
+   */
+  traceState?: string | undefined;
+
+  /**
+   * <p>Trace ID for maintaining observability through the operation.</p>
+   * @public
+   */
+  traceId?: string | undefined;
+
+  /**
+   * <p>W3C Baggage header for user-defined context propagation. Format: key1=value1,key2=value2</p>
+   * @public
+   */
+  baggage?: string | undefined;
+
+  /**
    * <p>The messages to send to the agent.</p>
    * @public
    */
@@ -8469,6 +8511,18 @@ export namespace HarnessToolResultBlockDelta {
 }
 
 /**
+ * <p>Delta payload for a tool result metadata.</p>
+ * @public
+ */
+export interface HarnessToolResultMetadataBlockDelta {
+  /**
+   * <p>The partial JSON-string fragment of the tool result metadata.</p>
+   * @public
+   */
+  metadata: string | undefined;
+}
+
+/**
  * <p>Delta payload for tool use input.</p>
  * @public
  */
@@ -8488,6 +8542,7 @@ export type HarnessContentBlockDelta =
   | HarnessContentBlockDelta.ReasoningContentMember
   | HarnessContentBlockDelta.TextMember
   | HarnessContentBlockDelta.ToolResultMember
+  | HarnessContentBlockDelta.ToolResultMetadataMember
   | HarnessContentBlockDelta.ToolUseMember
   | HarnessContentBlockDelta.$UnknownMember;
 
@@ -8504,6 +8559,7 @@ export namespace HarnessContentBlockDelta {
     toolUse?: never;
     toolResult?: never;
     reasoningContent?: never;
+    toolResultMetadata?: never;
     $unknown?: never;
   }
 
@@ -8516,6 +8572,7 @@ export namespace HarnessContentBlockDelta {
     toolUse: HarnessToolUseBlockDelta;
     toolResult?: never;
     reasoningContent?: never;
+    toolResultMetadata?: never;
     $unknown?: never;
   }
 
@@ -8528,6 +8585,7 @@ export namespace HarnessContentBlockDelta {
     toolUse?: never;
     toolResult: HarnessToolResultBlockDelta[];
     reasoningContent?: never;
+    toolResultMetadata?: never;
     $unknown?: never;
   }
 
@@ -8540,6 +8598,20 @@ export namespace HarnessContentBlockDelta {
     toolUse?: never;
     toolResult?: never;
     reasoningContent: HarnessReasoningContentBlockDelta;
+    toolResultMetadata?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A tool result metadata delta.</p>
+   * @public
+   */
+  export interface ToolResultMetadataMember {
+    text?: never;
+    toolUse?: never;
+    toolResult?: never;
+    reasoningContent?: never;
+    toolResultMetadata: HarnessToolResultMetadataBlockDelta;
     $unknown?: never;
   }
 
@@ -8551,6 +8623,7 @@ export namespace HarnessContentBlockDelta {
     toolUse?: never;
     toolResult?: never;
     reasoningContent?: never;
+    toolResultMetadata?: never;
     $unknown: [string, any];
   }
 
@@ -8563,6 +8636,7 @@ export namespace HarnessContentBlockDelta {
     toolUse: (value: HarnessToolUseBlockDelta) => T;
     toolResult: (value: HarnessToolResultBlockDelta[]) => T;
     reasoningContent: (value: HarnessReasoningContentBlockDelta) => T;
+    toolResultMetadata: (value: HarnessToolResultMetadataBlockDelta) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9915,43 +9989,4 @@ export interface BranchFilter {
    * @public
    */
   includeParentBranches?: boolean | undefined;
-}
-
-/**
- * <p>Left expression of the event metadata filter.</p>
- * @public
- */
-export type LeftExpression =
-  | LeftExpression.MetadataKeyMember
-  | LeftExpression.$UnknownMember;
-
-/**
- * @public
- */
-export namespace LeftExpression {
-  /**
-   * <p>Key associated with the metadata in an event.</p>
-   * @public
-   */
-  export interface MetadataKeyMember {
-    metadataKey: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataKey?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    metadataKey: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
 }
