@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-providers",
-  "version": "3.1090.0",
+  "version": "3.1091.0",
   "description": "A collection of credential providers, without requiring service clients like STS, Cognito",
   "keywords": [
     "aws",

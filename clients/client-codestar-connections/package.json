@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-codestar-connections",
-  "version": "3.1090.0",
+  "version": "3.1091.0",
   "description": "AWS SDK for JavaScript Codestar Connections Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-codestar-connections",
   "license": "Apache-2.0",

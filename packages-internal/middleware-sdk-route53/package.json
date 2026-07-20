@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-route53",
-  "version": "3.972.22",
+  "version": "3.972.23",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-route53",
   "license": "Apache-2.0",
   "author": {

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+
+### Features
+
+* **client-mediatailor:** This change adds api support for configuring ad decision server timeouts and concurrency fields on MediaTailor playback configurations ([97ea965](https://github.com/aws/aws-sdk-js-v3/commit/97ea965ee220d53cb041fe095f361a8caba729e6))
+
+
+
+
+
 # [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** This release adds support for specifying a connector version on Gateway targets to pin the connector's tool schema. It also introduces web-search connector version 1.2.0, which adds agent-side domain filtering, published date range filtering, and admin-side domain allowlisting. ([2c37055](https://github.com/aws/aws-sdk-js-v3/commit/2c37055a89a32783babd2ac3813d89b21d4bc7e9))
+* **client-bedrock-agentcore:** Add W3C trace context headers (traceparent, tracestate, baggage) and X-Amzn-Trace-Id to InvokeHarness request for end-to-end observability propagation. Add toolResultMetadata to the streaming content block delta for MCP tool result meta delivery without oversized SSE frames. ([4cf22ef](https://github.com/aws/aws-sdk-js-v3/commit/4cf22ef38ed3caa0e15c779e1d93f67ff5747288))
+* **client-inspector2:** Adds Windows path support for deep inspection. Fixes tag propagation for connector CloudFormation stack operations. ([2263613](https://github.com/aws/aws-sdk-js-v3/commit/2263613f795a6c5caaa421f529109436892a6faf))
+* **client-mediatailor:** This change adds api support for configuring ad decision server timeouts and concurrency fields on MediaTailor playback configurations ([97ea965](https://github.com/aws/aws-sdk-js-v3/commit/97ea965ee220d53cb041fe095f361a8caba729e6))
+* **client-quicksight:** Adds support for custom permissions for Triggers, allowing administrators to control user access to Schedule, Inbound Email and Quick Event triggers. ([fbe7d94](https://github.com/aws/aws-sdk-js-v3/commit/fbe7d94d5751c21ca65b96aff97786752aca884c))
+* **client-sesv2:** Amazon SES introduces three new Pricing Plans (Essentials, Pro, Enterprise), which bundle SES features under one pricing umbrella.  The new PutAccountPricingAttributes API lets the user set the account's plan, while current plan retrievalif done through the new PricingAttributes field on GetAccount. ([751dc8d](https://github.com/aws/aws-sdk-js-v3/commit/751dc8df47e1a2353680b45bc53b7f431f84123d))
+
+
+
+
+
 # [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
 
 

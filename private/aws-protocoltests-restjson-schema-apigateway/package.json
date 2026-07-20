@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-schema-apigateway",
-  "version": "3.1090.0",
+  "version": "3.1091.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-restjson-schema-apigateway client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-restjson-schema-apigateway",

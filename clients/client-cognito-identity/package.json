@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-cognito-identity",
-  "version": "3.1090.0",
+  "version": "3.1091.0",
   "description": "AWS SDK for JavaScript Cognito Identity Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity",
   "license": "Apache-2.0",
@@ -62,7 +62,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-iam": "workspace:3.1090.0",
+    "@aws-sdk/client-iam": "workspace:3.1091.0",
     "@smithy/snapshot-testing": "^2.2.9",
     "@tsconfig/node20": "20.1.8",
     "@types/chai": "^4.2.11",

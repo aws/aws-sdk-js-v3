@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-account",
-  "version": "3.1090.0",
+  "version": "3.1091.0",
   "description": "AWS SDK for JavaScript Account Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-account",
   "license": "Apache-2.0",

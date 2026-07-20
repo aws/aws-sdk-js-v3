@@ -25,6 +25,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.23 (2026-07-20)
+### Tests
+* **middleware-sdk-route53:** loosen date in path assertion ([#8212](https://github.com/aws/aws-sdk-js-v3/issues/8212)) ([e522518](https://github.com/aws/aws-sdk-js-v3/commit/e52251827b3b4e718dda1936e8c5a24ff74671e4))
+
+
+
 # 3.972.22 (2026-07-15)
 ### Chores
 * **middleware-sdk-route53:** update dependencies.
