@@ -74,6 +74,7 @@ export interface DescribeAutomationStepExecutionsCommandOutput extends DescribeA
  * //       },
  * //       Response: "STRING_VALUE",
  * //       FailureMessage: "STRING_VALUE",
+ * //       WarningMessage: "STRING_VALUE",
  * //       FailureDetails: { // FailureDetails
  * //         FailureStage: "STRING_VALUE",
  * //         FailureType: "STRING_VALUE",

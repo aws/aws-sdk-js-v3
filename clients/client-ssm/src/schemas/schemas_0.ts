@@ -1499,6 +1499,7 @@ const _WETI = "WindowExecutionTaskIdentities";
 const _WETII = "WindowExecutionTaskInvocationIdentities";
 const _WI = "WindowId";
 const _WIi = "WindowIdentities";
+const _WM = "WarningMessage";
 const _WTI = "WindowTargetId";
 const _WTIi = "WindowTaskId";
 const _aQE = "awsQueryError";
@@ -2647,8 +2648,8 @@ export var AttachmentsSource$: StaticStructureSchema = [3, n0, _ASt,
 ];
 export var AutomationExecution$: StaticStructureSchema = [3, n0, _AEu,
   0,
-  [_AEI, _DN, _DV, _EST, _EET, _AES, _SEt, _SET, _P, _Ou, _FM, _Mo, _PAEI, _EB, _CSN, _CA, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _TL, _PC, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN, _Var],
-  [0, 0, 0, 4, 4, 0, () => StepExecutionList, 2, [2, n0, _APM, 0, 0, 64 | 0], [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, () => TargetLocations, () => ProgressCounters$, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0, [2, n0, _APM, 0, 0, 64 | 0]]
+  [_AEI, _DN, _DV, _EST, _EET, _AES, _SEt, _SET, _P, _Ou, _FM, _WM, _Mo, _PAEI, _EB, _CSN, _CA, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _TL, _PC, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN, _Var],
+  [0, 0, 0, 4, 4, 0, () => StepExecutionList, 2, [2, n0, _APM, 0, 0, 64 | 0], [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, () => TargetLocations, () => ProgressCounters$, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0, [2, n0, _APM, 0, 0, 64 | 0]]
 ];
 export var AutomationExecutionFilter$: StaticStructureSchema = [3, n0, _AEFu,
   0,
@@ -2662,8 +2663,8 @@ export var AutomationExecutionInputs$: StaticStructureSchema = [3, n0, _AEIu,
 ];
 export var AutomationExecutionMetadata$: StaticStructureSchema = [3, n0, _AEM,
   0,
-  [_AEI, _DN, _DV, _AES, _EST, _EET, _EB, _LF, _Ou, _Mo, _PAEI, _CSN, _CA, _FM, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _ATu, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN],
-  [0, 0, 0, 0, 4, 4, 0, 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, 0, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0]
+  [_AEI, _DN, _DV, _AES, _EST, _EET, _EB, _LF, _Ou, _Mo, _PAEI, _CSN, _CA, _FM, _WM, _TPN, _Ta, _TM, _RTes, _MC, _ME, _Tar, _ATu, _AC, _TA, _TLURL, _ASu, _STc, _R, _OII, _AIs, _CRN],
+  [0, 0, 0, 0, 4, 4, 0, 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, 0, 0, 0, 0, () => Targets, [1, n0, _TM, 0, [2, n0, _TMa, 0, 0, 64 | 0]], () => ResolvedTargets$, 0, 0, 0, 0, () => AlarmConfiguration$, () => AlarmStateInformationList, 0, 0, 4, () => Runbooks, 0, 0, 0]
 ];
 export var AutomationExecutionPreview$: StaticStructureSchema = [3, n0, _AEP,
   0,
@@ -4687,8 +4688,8 @@ export var StartSessionResponse$: StaticStructureSchema = [3, n0, _SSRt,
 ];
 export var StepExecution$: StaticStructureSchema = [3, n0, _SEte,
   0,
-  [_SNt, _Ac, _TS, _OFn, _MA, _EST, _EET, _SSt, _RCes, _Inpu, _Ou, _Res, _FM, _FD, _SEI, _OP, _IE, _NS, _ICs, _VNS, _Ta, _TLar, _TA, _PSD],
-  [0, 0, 1, 0, 1, 4, 4, 0, 0, 128 | 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, () => FailureDetails$, 0, [2, n0, _APM, 0, 0, 64 | 0], 2, 0, 2, 64 | 0, () => Targets, () => TargetLocation$, () => AlarmStateInformationList, () => ParentStepDetails$]
+  [_SNt, _Ac, _TS, _OFn, _MA, _EST, _EET, _SSt, _RCes, _Inpu, _Ou, _Res, _FM, _WM, _FD, _SEI, _OP, _IE, _NS, _ICs, _VNS, _Ta, _TLar, _TA, _PSD],
+  [0, 0, 1, 0, 1, 4, 4, 0, 0, 128 | 0, [2, n0, _APM, 0, 0, 64 | 0], 0, 0, 0, () => FailureDetails$, 0, [2, n0, _APM, 0, 0, 64 | 0], 2, 0, 2, 64 | 0, () => Targets, () => TargetLocation$, () => AlarmStateInformationList, () => ParentStepDetails$]
 ];
 export var StepExecutionFilter$: StaticStructureSchema = [3, n0, _SEF,
   0,

@@ -66,6 +66,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //         },
  * //         Response: "STRING_VALUE",
  * //         FailureMessage: "STRING_VALUE",
+ * //         WarningMessage: "STRING_VALUE",
  * //         FailureDetails: { // FailureDetails
  * //           FailureStage: "STRING_VALUE",
  * //           FailureType: "STRING_VALUE",
@@ -147,6 +148,7 @@ export interface GetAutomationExecutionCommandOutput extends GetAutomationExecut
  * //     Parameters: "<AutomationParameterMap>",
  * //     Outputs: "<AutomationParameterMap>",
  * //     FailureMessage: "STRING_VALUE",
+ * //     WarningMessage: "STRING_VALUE",
  * //     Mode: "Auto" || "Interactive",
  * //     ParentAutomationExecutionId: "STRING_VALUE",
  * //     ExecutedBy: "STRING_VALUE",

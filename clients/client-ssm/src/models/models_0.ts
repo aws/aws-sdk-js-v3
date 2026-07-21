@@ -4469,10 +4469,16 @@ export interface AutomationExecutionMetadata {
   CurrentAction?: string | undefined;
 
   /**
-   * <p>The list of execution outputs as defined in the Automation runbook.</p>
+   * <p>A message that describes a failure that occurred during the automation execution.</p>
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
 
   /**
    * <p>The list of execution outputs as defined in the Automation runbook.</p>
@@ -4810,6 +4816,12 @@ export interface StepExecution {
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
 
   /**
    * <p>Information about the Automation failure.</p>
@@ -9337,6 +9349,12 @@ export interface AutomationExecution {
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
 
   /**
    * <p>The automation execution mode.</p>
