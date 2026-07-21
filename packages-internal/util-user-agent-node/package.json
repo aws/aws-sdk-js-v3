@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-user-agent-node",
-  "version": "3.973.49",
+  "version": "3.973.50",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-user-agent-node",
   "license": "Apache-2.0",
   "author": {
@@ -28,7 +28,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.3",
+    "@aws-sdk/core": "workspace:^3.976.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

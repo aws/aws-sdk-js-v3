@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-restjson-glacier",
-  "version": "3.1091.0",
+  "version": "3.1092.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-restjson-glacier client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-restjson-glacier",
@@ -50,8 +50,8 @@
   "dependencies": {
     "@aws-sdk/body-checksum-browser": "workspace:^3.972.25",
     "@aws-sdk/body-checksum-node": "workspace:^3.972.25",
-    "@aws-sdk/core": "workspace:^3.975.3",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.70",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
     "@aws-sdk/middleware-sdk-glacier": "workspace:^3.972.24",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",

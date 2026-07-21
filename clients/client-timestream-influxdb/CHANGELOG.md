@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+
+### Features
+
+* **client-timestream-influxdb:** This release adds support for custom plugins in Amazon Timestream for InfluxDB. InfluxDB 3 Core and Enterprise DB parameter groups now accept a plugin repository URL and optional AWS Secrets Manager secret ARN, so the Processing Engine loads your Python plugins from a public or private repository. ([ade4b96](https://github.com/aws/aws-sdk-js-v3/commit/ade4b9693d2b2c9ea5f7a7f6c6bc534226e01e5d))
+
+
+
+
+
 # [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
 
 **Note:** Version bump only for package @aws-sdk/client-timestream-influxdb

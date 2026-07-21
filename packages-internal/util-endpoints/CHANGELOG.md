@@ -35,6 +35,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.33 (2026-07-21)
+### Chores
+* **util-endpoints:** update dependencies.
+
+
+
 # 3.996.32 (2026-07-15)
 ### Chores
 * **util-endpoints:** update aws partitions.json ([aae92a2](https://github.com/aws/aws-sdk-js-v3/commit/aae92a20f4382cd6d322af65c3b3b4b4b91816f2))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+
+### Features
+
+* **client-inspector2:** GA date - July 21st 2026, remove Tags field from ListCodeSecurityIntegration and ListCodeSecurityScanConfiguration. ([33a1778](https://github.com/aws/aws-sdk-js-v3/commit/33a1778dda593b289641717f0df9c08107d8a55d))
+
+
+
+
+
 # [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

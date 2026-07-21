@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-flexible-checksums",
-  "version": "3.974.43",
+  "version": "3.974.44",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-flexible-checksums",
   "license": "Apache-2.0",
   "author": {
@@ -28,7 +28,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.18",
+    "@aws-sdk/checksums": "workspace:^3.1000.19",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

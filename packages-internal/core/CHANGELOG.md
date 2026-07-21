@@ -65,6 +65,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.976.0 (2026-07-20)
+### Features
+* **core/protocols:** bytebuffer serializer and buffer deserializer for JSON ([#8202](https://github.com/aws/aws-sdk-js-v3/issues/8202)) ([f39955a](https://github.com/aws/aws-sdk-js-v3/commit/f39955afbdfdcf665a5cf43cab8a057c56744dc4))
+
+
+
 # 3.975.3 (2026-07-15)
 ### Chores
 * **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-s3",
-  "version": "3.1091.0",
+  "version": "3.1092.0",
   "description": "AWS SDK for JavaScript S3 Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-s3",
   "license": "Apache-2.0",
@@ -54,10 +54,10 @@
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.18",
-    "@aws-sdk/core": "workspace:^3.975.3",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.70",
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.64",
+    "@aws-sdk/checksums": "workspace:^3.1000.19",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.65",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.41",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",
@@ -67,7 +67,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/signature-v4-crt": "workspace:3.1091.0",
+    "@aws-sdk/signature-v4-crt": "workspace:3.1092.0",
     "@smithy/snapshot-testing": "^2.2.9",
     "@tsconfig/node20": "20.1.8",
     "@types/node": "^20.14.8",

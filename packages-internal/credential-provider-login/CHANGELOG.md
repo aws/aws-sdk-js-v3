@@ -69,6 +69,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.67 (2026-07-21)
+### Chores
+* **credential-provider-login:** update dependencies.
+
+
+
 # 3.972.66 (2026-07-15)
 ### Chores
 * remove redundant type assertions ([#8193](https://github.com/aws/aws-sdk-js-v3/issues/8193)) ([b41fbb0](https://github.com/aws/aws-sdk-js-v3/commit/b41fbb0e0c92877fc891b3e85a7e716cc29e6965))

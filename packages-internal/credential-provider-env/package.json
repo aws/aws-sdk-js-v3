@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-env",
-  "version": "3.972.59",
+  "version": "3.972.60",
   "description": "AWS credential provider that sources credentials from known environment variables",
   "keywords": [
     "aws",
@@ -43,7 +43,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.3",
+    "@aws-sdk/core": "workspace:^3.976.0",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",
     "@smithy/types": "^4.16.1",

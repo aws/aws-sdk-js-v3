@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+
+### Features
+
+* **client-emr-containers:** Added support for the DeleteSecurityConfiguration API, which allows customers to delete security configurations in Amazon EMR on EKS. Also added authenticationConfiguration in securityConfigurationdata structure. ([e344cea](https://github.com/aws/aws-sdk-js-v3/commit/e344cea997509a58334096da2269e7b61ae34b69))
+* **client-entityresolution:** Add support for real time matching with AWS Entity Resolution matching workflows with advanced rule sets. ([b92fd6c](https://github.com/aws/aws-sdk-js-v3/commit/b92fd6c4199c84eb85d1bb58056b0c2472b14fef))
+* **client-inspector2:** GA date - July 21st 2026, remove Tags field from ListCodeSecurityIntegration and ListCodeSecurityScanConfiguration. ([33a1778](https://github.com/aws/aws-sdk-js-v3/commit/33a1778dda593b289641717f0df9c08107d8a55d))
+* **client-invoicing:** Added the SendProcurementPortalValidation and VerifyProcurementPortalValidation APIs. You can use the AWS SDKs to self-service activate your Procurement Portal Preferences created on the Billing Preferences page with a one-time-passcode (OTP) delivered to your portal. ([35e023c](https://github.com/aws/aws-sdk-js-v3/commit/35e023c05d6a8671e5b6848d24c5d3addfe56c6d))
+* **client-redshift-data:** update the workgroupArn to include EUSC partition, tests in THF Gamma and Prod no issue ([4f372fc](https://github.com/aws/aws-sdk-js-v3/commit/4f372fc5411bc7336227df8a4af7bac4cdb73f4e))
+* **client-redshift:** Amazon Redshift - Added support for managing Query Editor V2 IAM Identity Center applications via new CreateQev2IdcApplication, DescribeQev2IdcApplications, ModifyQev2IdcApplication, and DeleteQev2IdcApplication API operations. ([17507f2](https://github.com/aws/aws-sdk-js-v3/commit/17507f23fa6a9baea128353c2819e4cc2e90c3e6))
+* **client-ssm:** Added a WarningMessage field to Automation along with corresponding public documentation. ([7af6eb5](https://github.com/aws/aws-sdk-js-v3/commit/7af6eb584260597163ef479eb86de199d3267e19))
+* **client-timestream-influxdb:** This release adds support for custom plugins in Amazon Timestream for InfluxDB. InfluxDB 3 Core and Enterprise DB parameter groups now accept a plugin repository URL and optional AWS Secrets Manager secret ARN, so the Processing Engine loads your Python plugins from a public or private repository. ([ade4b96](https://github.com/aws/aws-sdk-js-v3/commit/ade4b9693d2b2c9ea5f7a7f6c6bc534226e01e5d))
+* **core/protocols:** bytebuffer serializer and buffer deserializer for JSON ([#8202](https://github.com/aws/aws-sdk-js-v3/issues/8202)) ([f39955a](https://github.com/aws/aws-sdk-js-v3/commit/f39955afbdfdcf665a5cf43cab8a057c56744dc4))
+
+
+
+
+
 # [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
 
 

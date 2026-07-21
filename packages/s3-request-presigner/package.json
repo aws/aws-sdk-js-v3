@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/s3-request-presigner",
-  "version": "3.1091.0",
+  "version": "3.1092.0",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/s3-request-presigner",
   "license": "Apache-2.0",
   "author": {
@@ -39,7 +39,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.975.3",
+    "@aws-sdk/core": "workspace:^3.976.0",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.41",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.4",
@@ -47,7 +47,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1091.0",
+    "@aws-sdk/client-s3": "workspace:3.1092.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
