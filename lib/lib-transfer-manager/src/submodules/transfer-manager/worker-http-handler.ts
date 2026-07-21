@@ -369,6 +369,82 @@ export class WorkerHttpHandler {
     return {};
   }
 
+  /**
+   * Pre-dispatch a batch of pre-signed requests to workers. Workers self-schedule.
+   * Returns a promise that resolves with all responses once every request completes.
+   */
+  async dispatchBatch(
+    requests: Array<{
+      request: HttpRequest;
+      dataSource: DataSource;
+      partNumber: number;
+    }>
+  ): Promise<Array<{ response: HttpResponse }>> {
+    await this.ensureInitialized();
+
+    // Build all messages upfront.
+    const messages: Array<{ id: number; msg: HttpWorkerRequestMessage }> = [];
+    for (const { request, dataSource, partNumber } of requests) {
+      const id = this.nextRequestId++;
+      const serializedRequest: WorkerHttpRequest = {
+        method: request.method,
+        protocol: request.protocol,
+        hostname: request.hostname,
+        port: request.port,
+        path: request.path,
+        query: request.query,
+        headers: request.headers,
+      };
+
+      let msg: HttpWorkerRequestMessage;
+      if (dataSource.type === "file") {
+        const { filePath, partSize, totalFileSize, checksumAlgorithm, checksumHeader } = dataSource;
+        const offset = (partNumber - 1) * partSize;
+        const length = Math.min(partSize, totalFileSize - offset);
+        msg = {
+          type: "httpRequestFromFile",
+          id,
+          request: serializedRequest,
+          filePath,
+          offset,
+          length,
+          checksumAlgorithm,
+          checksumHeader,
+        };
+      } else {
+        const { sharedBuffer, partSize, totalSize, checksumAlgorithm, checksumHeader } = dataSource;
+        const offset = (partNumber - 1) * partSize;
+        const length = Math.min(partSize, totalSize - offset);
+        msg = {
+          type: "httpRequestFromRAM",
+          id,
+          request: serializedRequest,
+          sharedBuffer,
+          offset,
+          length,
+          checksumAlgorithm,
+          checksumHeader,
+        };
+      }
+      messages.push({ id, msg });
+    }
+
+    // Dispatch all at once, round-robin across workers.
+    const results = new Array<{ response: HttpResponse }>(messages.length);
+    let resolved = 0;
+
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < messages.length; i++) {
+        const { id, msg } = messages[i];
+        const idx = i;
+        this.dispatchToWorker(id, msg).then((res) => {
+          results[idx] = res;
+          if (++resolved === messages.length) resolve(results);
+        }, reject);
+      }
+    });
+  }
+
   destroy(): void {
     for (const worker of this.workers) {
       worker.postMessage({ type: "done" } satisfies HttpWorkerDoneMessage);

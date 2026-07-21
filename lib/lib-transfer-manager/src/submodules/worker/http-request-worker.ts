@@ -7,10 +7,45 @@
  */
 import { HttpRequest } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { open } from "node:fs/promises";
+import dns from "node:dns";
+import { openSync, readSync, closeSync } from "node:fs";
 import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
 import { crc32 } from "node:zlib";
+
+/**
+ * DNS spreading: resolve all A records and pick one at random per connection.
+ */
+const DNS_TTL_MS = 1000;
+const dnsCache = new Map<string, { ips: string[]; ts: number }>();
+
+function spreadLookup(hostname: string, options: any, callback: any): void {
+  if (options && options.family === 6) {
+    return dns.lookup(hostname, options, callback);
+  }
+
+  const deliver = (ips: string[]) => {
+    const ip = ips[Math.floor(Math.random() * ips.length)];
+    if (options && options.all) {
+      callback(null, [{ address: ip, family: 4 }]);
+    } else {
+      callback(null, ip, 4);
+    }
+  };
+
+  const cached = dnsCache.get(hostname);
+  if (cached && cached.ips.length && Date.now() - cached.ts < DNS_TTL_MS) {
+    return deliver(cached.ips);
+  }
+
+  dns.resolve4(hostname, (err, ips) => {
+    if (err || !ips || !ips.length) {
+      return dns.lookup(hostname, options, callback);
+    }
+    dnsCache.set(hostname, { ips, ts: Date.now() });
+    deliver(ips);
+  });
+}
 
 /**
  * Types duplicated from worker-http-handler to avoid cross-submodule imports.
@@ -91,15 +126,27 @@ if (parentPort) {
   let handler: NodeHttpHandler | undefined;
   const port = parentPort;
 
-  const readFileSlice = async (filePath: string, offset: number, length: number): Promise<Buffer> => {
-    const fh = await open(filePath, "r");
-    try {
-      const buffer = Buffer.allocUnsafe(length);
-      await fh.read(buffer, 0, length, offset);
-      return buffer;
-    } finally {
-      await fh.close();
+  // Hold file descriptors open for the lifetime of the worker.
+  const fdCache = new Map<string, number>();
+  function getFd(filePath: string): number {
+    let fd = fdCache.get(filePath);
+    if (fd === undefined) {
+      fd = openSync(filePath, "r");
+      fdCache.set(filePath, fd);
     }
+    return fd;
+  }
+
+  const readFileSlice = (filePath: string, offset: number, length: number): Buffer => {
+    const fd = getFd(filePath);
+    const buffer = Buffer.allocUnsafe(length);
+    let read = 0;
+    while (read < length) {
+      const n = readSync(fd, buffer, read, length - read, offset + read);
+      if (n === 0) break;
+      read += n;
+    }
+    return buffer;
   };
 
   const buildAwsChunkedBody = (data: Buffer, checksumHeader?: string, checksumValue?: string): Buffer => {
@@ -129,7 +176,7 @@ if (parentPort) {
           body = fileData;
         }
       } else if (msg.type === "httpRequestFromFile") {
-        const fileData = await readFileSlice(msg.filePath, msg.offset, msg.length);
+        const fileData = readFileSlice(msg.filePath, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
           const crcValue = crc32(fileData);
@@ -195,6 +242,13 @@ if (parentPort) {
 
   port.on("message", (msg: HttpWorkerInboundMessage) => {
     if (msg.type === "done") {
+      for (const fd of fdCache.values()) {
+        try {
+          closeSync(fd);
+        } catch {
+          /* ignore */
+        }
+      }
       handler?.destroy();
       process.exit(0);
       return;
@@ -203,7 +257,7 @@ if (parentPort) {
     if (msg.type === "config") {
       const { maxSockets } = msg as HttpWorkerConfigMessage;
       handler = new NodeHttpHandler({
-        httpsAgent: new httpsAgent({ maxSockets }),
+        httpsAgent: new httpsAgent({ maxSockets, lookup: spreadLookup }),
       });
       return;
     }

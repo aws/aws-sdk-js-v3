@@ -1,0 +1,51 @@
+{
+  "name": "@aws-sdk/lib-tm-alt",
+  "version": "3.1090.0",
+  "private": true,
+  "description": "Ad hoc high-throughput multipart S3 transfer manager (download + upload) using worker threads",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-tm-alt",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "lib/lib-tm-alt"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "scripts": {
+    "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
+    "build:cjs": "premove dist-cjs && tsc -p tsconfig.cjs.json && echo '{\"type\":\"commonjs\"}' > dist-cjs/package.json",
+    "build:es": "premove dist-es && tsc -p tsconfig.es.json",
+    "build:include:deps": "yarn g:turbo run build -F=\"$npm_package_name\"",
+    "build:types": "premove dist-types && tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "premove dist-cjs dist-es dist-types"
+  },
+  "dependencies": {
+    "@smithy/node-http-handler": "^4.9.6",
+    "tslib": "^2.6.2"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "3.1090.0",
+    "@tsconfig/recommended": "1.0.1",
+    "@types/node": "^20.14.8",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "premove": "4.0.0",
+    "typescript": "~5.8.3"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-s3": "^3.1090.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
