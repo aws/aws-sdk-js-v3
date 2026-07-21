@@ -2445,6 +2445,18 @@ export interface InfluxDBv3CoreParameters {
    * @public
    */
   hardDeleteDefaultDuration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+   * @public
+   */
+  pluginRepositoryUrl?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+   * @public
+   */
+  pluginRepositorySecretArn?: string | undefined;
 }
 
 /**
@@ -2713,6 +2725,18 @@ export interface InfluxDBv3EnterpriseParameters {
    * @public
    */
   hardDeleteDefaultDuration?: Duration | undefined;
+
+  /**
+   * <p>Specifies the URL of the repository that InfluxDB downloads plugins from.</p>
+   * @public
+   */
+  pluginRepositoryUrl?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret that holds your repository access token.</p>
+   * @public
+   */
+  pluginRepositorySecretArn?: string | undefined;
 
   /**
    * <p>Specifies number of instances in the DbCluster which can both ingest and query.</p>
