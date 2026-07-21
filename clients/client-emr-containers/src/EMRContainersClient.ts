@@ -80,6 +80,10 @@ import type {
   DeleteManagedEndpointCommandOutput,
 } from "./commands/DeleteManagedEndpointCommand";
 import type {
+  DeleteSecurityConfigurationCommandInput,
+  DeleteSecurityConfigurationCommandOutput,
+} from "./commands/DeleteSecurityConfigurationCommand";
+import type {
   DeleteVirtualClusterCommandInput,
   DeleteVirtualClusterCommandOutput,
 } from "./commands/DeleteVirtualClusterCommand";
@@ -147,6 +151,7 @@ export type ServiceInputTypes =
   | CreateVirtualClusterCommandInput
   | DeleteJobTemplateCommandInput
   | DeleteManagedEndpointCommandInput
+  | DeleteSecurityConfigurationCommandInput
   | DeleteVirtualClusterCommandInput
   | DescribeJobRunCommandInput
   | DescribeJobTemplateCommandInput
@@ -175,6 +180,7 @@ export type ServiceOutputTypes =
   | CreateVirtualClusterCommandOutput
   | DeleteJobTemplateCommandOutput
   | DeleteManagedEndpointCommandOutput
+  | DeleteSecurityConfigurationCommandOutput
   | DeleteVirtualClusterCommandOutput
   | DescribeJobRunCommandOutput
   | DescribeJobTemplateCommandOutput

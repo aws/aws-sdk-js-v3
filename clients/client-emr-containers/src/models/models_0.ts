@@ -12,6 +12,66 @@ import type {
 } from "./enums";
 
 /**
+ * <p>IAM configuration for the security configuration.</p>
+ * @public
+ */
+export interface IAMConfiguration {
+  /**
+   * <p>The ARN of the system role used by the security configuration.</p>
+   * @public
+   */
+  systemRole?: string | undefined;
+}
+
+/**
+ * <p>Identity Center related configuration for the security configuration.</p>
+ * @public
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * <p>Determines whether Identity Center is enabled for the security configuration.</p>
+   * @public
+   */
+  enableIdentityCenter?: boolean | undefined;
+
+  /**
+   * <p>Determines whether user assignment is required for the Identity Center application.</p>
+   * @public
+   */
+  identityCenterApplicationAssignmentRequired?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the Identity Center instance.</p>
+   * @public
+   */
+  identityCenterInstanceARN?: string | undefined;
+
+  /**
+   * <p>The ARN of the EMR Identity Center application.</p>
+   * @public
+   */
+  emrIdentityCenterApplicationARN?: string | undefined;
+}
+
+/**
+ * <p>Authentication configuration for the security configuration.</p>
+ * @public
+ */
+export interface AuthenticationConfiguration {
+  /**
+   * <p>Identity Center configuration for authentication in the security configuration.</p>
+   * @public
+   */
+  identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>IAM configuration for authentication in the security configuration.</p>
+   * @public
+   */
+  iamConfiguration?: IAMConfiguration | undefined;
+}
+
+/**
  * <p>Configurations related to the TLS certificate for the security configuration.</p>
  * @public
  */
@@ -558,6 +618,12 @@ export interface SecurityConfigurationData {
    * @public
    */
   authorizationConfiguration?: AuthorizationConfiguration | undefined;
+
+  /**
+   * <p>Authentication-related configuration input for the security configuration.</p>
+   * @public
+   */
+  authenticationConfiguration?: AuthenticationConfiguration | undefined;
 }
 
 /**
@@ -736,6 +802,28 @@ export interface DeleteManagedEndpointResponse {
    * @public
    */
   virtualClusterId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityConfigurationRequest {
+  /**
+   * <p>The ID of the security configuration to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityConfigurationResponse {
+  /**
+   * <p>The ID of the security configuration that was deleted.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**

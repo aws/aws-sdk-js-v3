@@ -253,6 +253,13 @@ DeleteManagedEndpoint
 </details>
 <details>
 <summary>
+DeleteSecurityConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/emr-containers/command/DeleteSecurityConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/DeleteSecurityConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-emr-containers/Interface/DeleteSecurityConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteVirtualCluster
 </summary>
 

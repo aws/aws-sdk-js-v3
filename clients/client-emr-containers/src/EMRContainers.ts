@@ -38,6 +38,11 @@ import {
   DeleteManagedEndpointCommand,
 } from "./commands/DeleteManagedEndpointCommand";
 import {
+  type DeleteSecurityConfigurationCommandInput,
+  type DeleteSecurityConfigurationCommandOutput,
+  DeleteSecurityConfigurationCommand,
+} from "./commands/DeleteSecurityConfigurationCommand";
+import {
   type DeleteVirtualClusterCommandInput,
   type DeleteVirtualClusterCommandOutput,
   DeleteVirtualClusterCommand,
@@ -132,6 +137,7 @@ const commands = {
   CreateVirtualClusterCommand,
   DeleteJobTemplateCommand,
   DeleteManagedEndpointCommand,
+  DeleteSecurityConfigurationCommand,
   DeleteVirtualClusterCommand,
   DescribeJobRunCommand,
   DescribeJobTemplateCommand,
@@ -275,6 +281,23 @@ export interface EMRContainers {
     args: DeleteManagedEndpointCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteManagedEndpointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSecurityConfigurationCommand}
+   */
+  deleteSecurityConfiguration(
+    args: DeleteSecurityConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSecurityConfigurationCommandOutput>;
+  deleteSecurityConfiguration(
+    args: DeleteSecurityConfigurationCommandInput,
+    cb: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
+  ): void;
+  deleteSecurityConfiguration(
+    args: DeleteSecurityConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSecurityConfigurationCommandOutput) => void
   ): void;
 
   /**
