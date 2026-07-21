@@ -39,6 +39,7 @@ const _CT = "ClientToken";
 const _CTM = "ConnectionTestingMethod";
 const _Ci = "City";
 const _Co = "Contacts";
+const _Cod = "Code";
 const _D = "Discounts";
 const _DB = "DiscountsBreakdown";
 const _DBA = "DiscountsBreakdownAmount";
@@ -176,6 +177,9 @@ const _SDup = "SupplementalDocument";
 const _SI = "SupplierIdentifier";
 const _SOR = "SellerOfRecords";
 const _SORt = "StateOrRegion";
+const _SPPV = "SendProcurementPortalValidation";
+const _SPPVR = "SendProcurementPortalValidationRequest";
+const _SPPVRe = "SendProcurementPortalValidationResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _STA = "SubTotalAmount";
 const _T = "Taxes";
@@ -209,6 +213,9 @@ const _V = "Value";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
+const _VPPV = "VerifyProcurementPortalValidation";
+const _VPPVR = "VerifyProcurementPortalValidationRequest";
+const _VPPVRe = "VerifyProcurementPortalValidationResponse";
 const _Ve = "Version";
 const _Y = "Year";
 const _aQE = "awsQueryError";
@@ -566,6 +573,16 @@ export var ResourceTag$: StaticStructureSchema = [3, n0, _RTes,
   [_K, _V],
   [0, 0], 2
 ];
+export var SendProcurementPortalValidationRequest$: StaticStructureSchema = [3, n0, _SPPVR,
+  0,
+  [_PPPA, _CT],
+  [0, [0, 4]], 1
+];
+export var SendProcurementPortalValidationResponse$: StaticStructureSchema = [3, n0, _SPPVRe,
+  0,
+  [_PPPA],
+  [0], 1
+];
 export var SupplementalDocument$: StaticStructureSchema = [3, n0, _SDup,
   0,
   [_DT, _DIo, _DU, _DUED],
@@ -635,6 +652,16 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0], 2
+];
+export var VerifyProcurementPortalValidationRequest$: StaticStructureSchema = [3, n0, _VPPVR,
+  0,
+  [_PPPA, _Cod, _CT],
+  [0, 0, [0, 4]], 2
+];
+export var VerifyProcurementPortalValidationResponse$: StaticStructureSchema = [3, n0, _VPPVRe,
+  0,
+  [_PPPA],
+  [0], 1
 ];
 var AccountIdList = 64 | 0;
 var BillSourceAccountList = 64 | 0;
@@ -722,6 +749,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var PutProcurementPortalPreference$: StaticOperationSchema = [9, n0, _PPPP,
   2, () => PutProcurementPortalPreferenceRequest$, () => PutProcurementPortalPreferenceResponse$
 ];
+export var SendProcurementPortalValidation$: StaticOperationSchema = [9, n0, _SPPV,
+  2, () => SendProcurementPortalValidationRequest$, () => SendProcurementPortalValidationResponse$
+];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   0, () => TagResourceRequest$, () => TagResourceResponse$
 ];
@@ -733,4 +763,7 @@ export var UpdateInvoiceUnit$: StaticOperationSchema = [9, n0, _UIU,
 ];
 export var UpdateProcurementPortalPreferenceStatus$: StaticOperationSchema = [9, n0, _UPPPS,
   2, () => UpdateProcurementPortalPreferenceStatusRequest$, () => UpdateProcurementPortalPreferenceStatusResponse$
+];
+export var VerifyProcurementPortalValidation$: StaticOperationSchema = [9, n0, _VPPV,
+  2, () => VerifyProcurementPortalValidationRequest$, () => VerifyProcurementPortalValidationResponse$
 ];

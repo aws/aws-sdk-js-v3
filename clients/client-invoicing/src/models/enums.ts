@@ -197,6 +197,7 @@ export const ProcurementPortalPreferenceStatus = {
   TEST_FAILED: "TEST_FAILED",
   TEST_INITIALIZATION_FAILED: "TEST_INITIALIZATION_FAILED",
   TEST_INITIALIZED: "TEST_INITIALIZED",
+  VALIDATED: "VALIDATED",
 } as const;
 /**
  * @public

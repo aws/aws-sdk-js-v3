@@ -106,6 +106,10 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResourceTag$,
+  SendProcurementPortalValidation$,
+  SendProcurementPortalValidationCommand,
+  SendProcurementPortalValidationRequest$,
+  SendProcurementPortalValidationResponse$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SupplementalDocument$,
@@ -138,6 +142,10 @@ import {
   ValidationException$,
   ValidationExceptionField$,
   ValidationExceptionReason,
+  VerifyProcurementPortalValidation$,
+  VerifyProcurementPortalValidationCommand,
+  VerifyProcurementPortalValidationRequest$,
+  VerifyProcurementPortalValidationResponse$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -170,6 +178,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutProcurementPortalPreferenceCommand === "function");
 assert(typeof PutProcurementPortalPreference$ === "object");
+assert(typeof SendProcurementPortalValidationCommand === "function");
+assert(typeof SendProcurementPortalValidation$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -178,6 +188,8 @@ assert(typeof UpdateInvoiceUnitCommand === "function");
 assert(typeof UpdateInvoiceUnit$ === "object");
 assert(typeof UpdateProcurementPortalPreferenceStatusCommand === "function");
 assert(typeof UpdateProcurementPortalPreferenceStatus$ === "object");
+assert(typeof VerifyProcurementPortalValidationCommand === "function");
+assert(typeof VerifyProcurementPortalValidation$ === "object");
 // structural schemas
 assert(typeof AmountBreakdown$ === "object");
 assert(typeof BatchGetInvoiceProfileRequest$ === "object");
@@ -231,6 +243,8 @@ assert(typeof PutProcurementPortalPreferenceRequest$ === "object");
 assert(typeof PutProcurementPortalPreferenceResponse$ === "object");
 assert(typeof ReceiverAddress$ === "object");
 assert(typeof ResourceTag$ === "object");
+assert(typeof SendProcurementPortalValidationRequest$ === "object");
+assert(typeof SendProcurementPortalValidationResponse$ === "object");
 assert(typeof SupplementalDocument$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -245,6 +259,8 @@ assert(typeof UpdateInvoiceUnitResponse$ === "object");
 assert(typeof UpdateProcurementPortalPreferenceStatusRequest$ === "object");
 assert(typeof UpdateProcurementPortalPreferenceStatusResponse$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof VerifyProcurementPortalValidationRequest$ === "object");
+assert(typeof VerifyProcurementPortalValidationResponse$ === "object");
 // enums
 assert(typeof BillingEntity === "object");
 assert(typeof BillType === "object");

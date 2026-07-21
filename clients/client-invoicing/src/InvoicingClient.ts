@@ -97,6 +97,10 @@ import type {
   PutProcurementPortalPreferenceCommandInput,
   PutProcurementPortalPreferenceCommandOutput,
 } from "./commands/PutProcurementPortalPreferenceCommand";
+import type {
+  SendProcurementPortalValidationCommandInput,
+  SendProcurementPortalValidationCommandOutput,
+} from "./commands/SendProcurementPortalValidationCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -107,6 +111,10 @@ import type {
   UpdateProcurementPortalPreferenceStatusCommandInput,
   UpdateProcurementPortalPreferenceStatusCommandOutput,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
+import type {
+  VerifyProcurementPortalValidationCommandInput,
+  VerifyProcurementPortalValidationCommandOutput,
+} from "./commands/VerifyProcurementPortalValidationCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -135,10 +143,12 @@ export type ServiceInputTypes =
   | ListProcurementPortalPreferencesCommandInput
   | ListTagsForResourceCommandInput
   | PutProcurementPortalPreferenceCommandInput
+  | SendProcurementPortalValidationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateInvoiceUnitCommandInput
-  | UpdateProcurementPortalPreferenceStatusCommandInput;
+  | UpdateProcurementPortalPreferenceStatusCommandInput
+  | VerifyProcurementPortalValidationCommandInput;
 
 /**
  * @public
@@ -157,10 +167,12 @@ export type ServiceOutputTypes =
   | ListProcurementPortalPreferencesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutProcurementPortalPreferenceCommandOutput
+  | SendProcurementPortalValidationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateInvoiceUnitCommandOutput
-  | UpdateProcurementPortalPreferenceStatusCommandOutput;
+  | UpdateProcurementPortalPreferenceStatusCommandOutput
+  | VerifyProcurementPortalValidationCommandOutput;
 
 /**
  * @public

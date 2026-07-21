@@ -1773,6 +1773,34 @@ export interface PutProcurementPortalPreferenceResponse {
 /**
  * @public
  */
+export interface SendProcurementPortalValidationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to validate.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendProcurementPortalValidationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference for which the validation request was sent.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the tags. </p>
@@ -1907,6 +1935,40 @@ export interface UpdateProcurementPortalPreferenceStatusRequest {
 export interface UpdateProcurementPortalPreferenceStatusResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the procurement portal preference with updated status.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VerifyProcurementPortalValidationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference to validate.</p>
+   * @public
+   */
+  ProcurementPortalPreferenceArn: string | undefined;
+
+  /**
+   * <p>The validation code received from the procurement portal in response to a previous <code>SendProcurementPortalValidation</code> request.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface VerifyProcurementPortalValidationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the procurement portal preference for which validation was completed.</p>
    * @public
    */
   ProcurementPortalPreferenceArn: string | undefined;

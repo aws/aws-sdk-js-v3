@@ -68,6 +68,11 @@ import {
   PutProcurementPortalPreferenceCommand,
 } from "./commands/PutProcurementPortalPreferenceCommand";
 import {
+  type SendProcurementPortalValidationCommandInput,
+  type SendProcurementPortalValidationCommandOutput,
+  SendProcurementPortalValidationCommand,
+} from "./commands/SendProcurementPortalValidationCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -87,6 +92,11 @@ import {
   type UpdateProcurementPortalPreferenceStatusCommandOutput,
   UpdateProcurementPortalPreferenceStatusCommand,
 } from "./commands/UpdateProcurementPortalPreferenceStatusCommand";
+import {
+  type VerifyProcurementPortalValidationCommandInput,
+  type VerifyProcurementPortalValidationCommandOutput,
+  VerifyProcurementPortalValidationCommand,
+} from "./commands/VerifyProcurementPortalValidationCommand";
 import { InvoicingClient } from "./InvoicingClient";
 import { paginateListInvoiceSummaries } from "./pagination/ListInvoiceSummariesPaginator";
 import { paginateListInvoiceUnits } from "./pagination/ListInvoiceUnitsPaginator";
@@ -106,10 +116,12 @@ const commands = {
   ListProcurementPortalPreferencesCommand,
   ListTagsForResourceCommand,
   PutProcurementPortalPreferenceCommand,
+  SendProcurementPortalValidationCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateInvoiceUnitCommand,
   UpdateProcurementPortalPreferenceStatusCommand,
+  VerifyProcurementPortalValidationCommand,
 };
 const paginators = {
   paginateListInvoiceSummaries,
@@ -342,6 +354,23 @@ export interface Invoicing {
   ): void;
 
   /**
+   * @see {@link SendProcurementPortalValidationCommand}
+   */
+  sendProcurementPortalValidation(
+    args: SendProcurementPortalValidationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendProcurementPortalValidationCommandOutput>;
+  sendProcurementPortalValidation(
+    args: SendProcurementPortalValidationCommandInput,
+    cb: (err: any, data?: SendProcurementPortalValidationCommandOutput) => void
+  ): void;
+  sendProcurementPortalValidation(
+    args: SendProcurementPortalValidationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendProcurementPortalValidationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -407,6 +436,23 @@ export interface Invoicing {
     args: UpdateProcurementPortalPreferenceStatusCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProcurementPortalPreferenceStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link VerifyProcurementPortalValidationCommand}
+   */
+  verifyProcurementPortalValidation(
+    args: VerifyProcurementPortalValidationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyProcurementPortalValidationCommandOutput>;
+  verifyProcurementPortalValidation(
+    args: VerifyProcurementPortalValidationCommandInput,
+    cb: (err: any, data?: VerifyProcurementPortalValidationCommandOutput) => void
+  ): void;
+  verifyProcurementPortalValidation(
+    args: VerifyProcurementPortalValidationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifyProcurementPortalValidationCommandOutput) => void
   ): void;
 
   /**

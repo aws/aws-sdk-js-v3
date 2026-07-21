@@ -272,6 +272,13 @@ PutProcurementPortalPreference
 </details>
 <details>
 <summary>
+SendProcurementPortalValidation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/SendProcurementPortalValidationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/SendProcurementPortalValidationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/SendProcurementPortalValidationCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -297,4 +304,11 @@ UpdateProcurementPortalPreferenceStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/UpdateProcurementPortalPreferenceStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateProcurementPortalPreferenceStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/UpdateProcurementPortalPreferenceStatusCommandOutput/)
+</details>
+<details>
+<summary>
+VerifyProcurementPortalValidation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/invoicing/command/VerifyProcurementPortalValidationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/VerifyProcurementPortalValidationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-invoicing/Interface/VerifyProcurementPortalValidationCommandOutput/)
 </details>
