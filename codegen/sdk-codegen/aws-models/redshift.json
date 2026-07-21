@@ -4011,6 +4011,81 @@
                 "smithy.api#input": {}
             }
         },
+        "com.amazonaws.redshift#CreateQev2IdcApplication": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.redshift#CreateQev2IdcApplicationMessage"
+            },
+            "output": {
+                "target": "com.amazonaws.redshift#CreateQev2IdcApplicationResult"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceAccessDeniedFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceUnavailableFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationAlreadyExistsFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Creates an Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>"
+            }
+        },
+        "com.amazonaws.redshift#CreateQev2IdcApplicationMessage": {
+            "type": "structure",
+            "members": {
+                "IdcInstanceArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM Identity Center instance used to create the Amazon Redshift Query Editor (QEV2) managed application.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Qev2IdcApplicationName": {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationName",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The name of the Amazon Redshift Query Editor (QEV2) application in IAM Identity Center.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "IdcDisplayName": {
+                    "target": "com.amazonaws.redshift#IdcDisplayNameString",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The display name for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application. It appears in the console.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Tags": {
+                    "target": "com.amazonaws.redshift#TagList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of tags to associate with the application. Tags are key-value pairs that you can use to organize and identify your resources.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.redshift#CreateQev2IdcApplicationResult": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplication": {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplication"
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
         "com.amazonaws.redshift#CreateRedshiftIdcApplication": {
             "type": "operation",
             "input": {
@@ -5556,6 +5631,48 @@
             ],
             "traits": {
                 "smithy.api#documentation": "<p>Deletes a partner integration from a cluster. Data can still flow to the cluster until the integration is deleted at the partner's website.</p>"
+            }
+        },
+        "com.amazonaws.redshift#DeleteQev2IdcApplication": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.redshift#DeleteQev2IdcApplicationMessage"
+            },
+            "output": {
+                "target": "smithy.api#Unit"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceAccessDeniedFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceUnavailableFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationNotExistsFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Deletes an Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>"
+            }
+        },
+        "com.amazonaws.redshift#DeleteQev2IdcApplicationMessage": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplicationArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application to delete.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
             }
         },
         "com.amazonaws.redshift#DeleteRedshiftIdcApplication": {
@@ -7934,6 +8051,84 @@
                     "target": "com.amazonaws.redshift#PartnerIntegrationInfoList",
                     "traits": {
                         "smithy.api#documentation": "<p>A list of partner integrations.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
+        "com.amazonaws.redshift#DescribeQev2IdcApplications": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.redshift#DescribeQev2IdcApplicationsMessage"
+            },
+            "output": {
+                "target": "com.amazonaws.redshift#DescribeQev2IdcApplicationsResult"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceAccessDeniedFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceUnavailableFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationNotExistsFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Lists the Amazon Redshift Query Editor (QEV2) IAM Identity Center applications. To retrieve additional results, use the MaxRecords and Marker parameters.</p>",
+                "smithy.api#paginated": {
+                    "inputToken": "Marker",
+                    "outputToken": "Marker",
+                    "items": "Qev2IdcApplications",
+                    "pageSize": "MaxRecords"
+                }
+            }
+        },
+        "com.amazonaws.redshift#DescribeQev2IdcApplicationsMessage": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplicationArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) application that integrates with IAM Identity Center.</p>"
+                    }
+                },
+                "MaxRecords": {
+                    "target": "com.amazonaws.redshift#IntegerOptional",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The maximum number of response records to return in each call. If the number of remaining response records \n            exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve \n            the next set of records by retrying the command with the returned marker value.</p>"
+                    }
+                },
+                "Marker": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A value that indicates the starting point for the next set of response records in a subsequent request. If a \n            value is returned in a response, you can retrieve the next set\n            of records by providing this returned marker value in the Marker parameter\n            and retrying the command. If the Marker field is empty, all response\n            records have been retrieved for the request.\n        </p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.redshift#DescribeQev2IdcApplicationsResult": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplications": {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The list of Amazon Redshift Query Editor (QEV2) IAM Identity Center applications.</p>"
+                    }
+                },
+                "Marker": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A value that indicates the starting point for the next set of response records in a subsequent \n            request. If a value is returned in a response, you can retrieve the next set\n            of records by providing this returned marker value in the Marker parameter\n            and retrying the command. If the Marker field is empty, all response\n            records have been retrieved for the request.\n        </p>"
                     }
                 }
             },
@@ -13115,6 +13310,65 @@
                 "smithy.api#input": {}
             }
         },
+        "com.amazonaws.redshift#ModifyQev2IdcApplication": {
+            "type": "operation",
+            "input": {
+                "target": "com.amazonaws.redshift#ModifyQev2IdcApplicationMessage"
+            },
+            "output": {
+                "target": "com.amazonaws.redshift#ModifyQev2IdcApplicationResult"
+            },
+            "errors": [
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceAccessDeniedFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DependentServiceUnavailableFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationNotExistsFault"
+                },
+                {
+                    "target": "com.amazonaws.redshift#UnsupportedOperationFault"
+                }
+            ],
+            "traits": {
+                "smithy.api#documentation": "<p>Modifies an Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>"
+            }
+        },
+        "com.amazonaws.redshift#ModifyQev2IdcApplicationMessage": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplicationArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#clientOptional": {},
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) application that integrates with IAM Identity Center.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "IdcDisplayName": {
+                    "target": "com.amazonaws.redshift#IdcDisplayNameString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display name for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application. It appears in the console.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#input": {}
+            }
+        },
+        "com.amazonaws.redshift#ModifyQev2IdcApplicationResult": {
+            "type": "structure",
+            "members": {
+                "Qev2IdcApplication": {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplication"
+                }
+            },
+            "traits": {
+                "smithy.api#output": {}
+            }
+        },
         "com.amazonaws.redshift#ModifyRedshiftIdcApplication": {
             "type": "operation",
             "input": {
@@ -14383,6 +14637,106 @@
                 "smithy.api#output": {}
             }
         },
+        "com.amazonaws.redshift#Qev2IdcApplication": {
+            "type": "structure",
+            "members": {
+                "IdcInstanceArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the IAM Identity Center instance that the Amazon Redshift Query Editor (QEV2) application integrates with.</p>"
+                    }
+                },
+                "Qev2IdcApplicationName": {
+                    "target": "com.amazonaws.redshift#Qev2IdcApplicationName",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The name of the Amazon Redshift Query Editor (QEV2) application in IAM Identity Center.</p>"
+                    }
+                },
+                "Qev2IdcApplicationArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) application that integrates with IAM Identity Center.</p>"
+                    }
+                },
+                "IdcManagedApplicationArn": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) IAM Identity Center managed application.</p>"
+                    }
+                },
+                "IdcOnboardStatus": {
+                    "target": "com.amazonaws.redshift#String",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The onboarding status for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>"
+                    }
+                },
+                "IdcDisplayName": {
+                    "target": "com.amazonaws.redshift#IdcDisplayNameString",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The display name for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application. It appears in the console.</p>"
+                    }
+                },
+                "Tags": {
+                    "target": "com.amazonaws.redshift#TagList",
+                    "traits": {
+                        "smithy.api#documentation": "<p>A list of tags associated with the application. Tags are key-value pairs that you can use to organize and identify your resources.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Contains configuration and status information for an Amazon Redshift Query Editor (QEV2) application that is registered with IAM Identity Center.</p>"
+            }
+        },
+        "com.amazonaws.redshift#Qev2IdcApplicationAlreadyExistsFault": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "target": "com.amazonaws.redshift#ExceptionMessage"
+                }
+            },
+            "traits": {
+                "aws.protocols#awsQueryError": {
+                    "code": "Qev2IdcApplicationAlreadyExists",
+                    "httpResponseCode": 400
+                },
+                "smithy.api#documentation": "<p>The Amazon Redshift Query Editor (QEV2) IAM Identity Center application already exists. Use a different application name or describe existing applications to find the ARN.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 400
+            }
+        },
+        "com.amazonaws.redshift#Qev2IdcApplicationList": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.redshift#Qev2IdcApplication"
+            }
+        },
+        "com.amazonaws.redshift#Qev2IdcApplicationName": {
+            "type": "string",
+            "traits": {
+                "smithy.api#length": {
+                    "min": 1,
+                    "max": 63
+                },
+                "smithy.api#pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$"
+            }
+        },
+        "com.amazonaws.redshift#Qev2IdcApplicationNotExistsFault": {
+            "type": "structure",
+            "members": {
+                "message": {
+                    "target": "com.amazonaws.redshift#ExceptionMessage"
+                }
+            },
+            "traits": {
+                "aws.protocols#awsQueryError": {
+                    "code": "Qev2IdcApplicationNotExists",
+                    "httpResponseCode": 404
+                },
+                "smithy.api#documentation": "<p>The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.</p>",
+                "smithy.api#error": "client",
+                "smithy.api#httpError": 404
+            }
+        },
         "com.amazonaws.redshift#ReadWriteAccess": {
             "type": "structure",
             "members": {
@@ -14887,6 +15241,9 @@
                     "target": "com.amazonaws.redshift#CreateIntegration"
                 },
                 {
+                    "target": "com.amazonaws.redshift#CreateQev2IdcApplication"
+                },
+                {
                     "target": "com.amazonaws.redshift#CreateRedshiftIdcApplication"
                 },
                 {
@@ -14945,6 +15302,9 @@
                 },
                 {
                     "target": "com.amazonaws.redshift#DeletePartner"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DeleteQev2IdcApplication"
                 },
                 {
                     "target": "com.amazonaws.redshift#DeleteRedshiftIdcApplication"
@@ -15056,6 +15416,9 @@
                 },
                 {
                     "target": "com.amazonaws.redshift#DescribePartners"
+                },
+                {
+                    "target": "com.amazonaws.redshift#DescribeQev2IdcApplications"
                 },
                 {
                     "target": "com.amazonaws.redshift#DescribeRedshiftIdcApplications"
@@ -15176,6 +15539,9 @@
                 },
                 {
                     "target": "com.amazonaws.redshift#ModifyLakehouseConfiguration"
+                },
+                {
+                    "target": "com.amazonaws.redshift#ModifyQev2IdcApplication"
                 },
                 {
                     "target": "com.amazonaws.redshift#ModifyRedshiftIdcApplication"

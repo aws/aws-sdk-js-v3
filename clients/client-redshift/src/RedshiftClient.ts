@@ -138,6 +138,10 @@ import type {
   CreateIntegrationCommandOutput,
 } from "./commands/CreateIntegrationCommand";
 import type {
+  CreateQev2IdcApplicationCommandInput,
+  CreateQev2IdcApplicationCommandOutput,
+} from "./commands/CreateQev2IdcApplicationCommand";
+import type {
   CreateRedshiftIdcApplicationCommandInput,
   CreateRedshiftIdcApplicationCommandOutput,
 } from "./commands/CreateRedshiftIdcApplicationCommand";
@@ -205,6 +209,10 @@ import type {
   DeleteIntegrationCommandOutput,
 } from "./commands/DeleteIntegrationCommand";
 import type { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "./commands/DeletePartnerCommand";
+import type {
+  DeleteQev2IdcApplicationCommandInput,
+  DeleteQev2IdcApplicationCommandOutput,
+} from "./commands/DeleteQev2IdcApplicationCommand";
 import type {
   DeleteRedshiftIdcApplicationCommandInput,
   DeleteRedshiftIdcApplicationCommandOutput,
@@ -338,6 +346,10 @@ import type {
   DescribeOrderableClusterOptionsCommandOutput,
 } from "./commands/DescribeOrderableClusterOptionsCommand";
 import type { DescribePartnersCommandInput, DescribePartnersCommandOutput } from "./commands/DescribePartnersCommand";
+import type {
+  DescribeQev2IdcApplicationsCommandInput,
+  DescribeQev2IdcApplicationsCommandOutput,
+} from "./commands/DescribeQev2IdcApplicationsCommand";
 import type {
   DescribeRedshiftIdcApplicationsCommandInput,
   DescribeRedshiftIdcApplicationsCommandOutput,
@@ -481,6 +493,10 @@ import type {
   ModifyLakehouseConfigurationCommandOutput,
 } from "./commands/ModifyLakehouseConfigurationCommand";
 import type {
+  ModifyQev2IdcApplicationCommandInput,
+  ModifyQev2IdcApplicationCommandOutput,
+} from "./commands/ModifyQev2IdcApplicationCommand";
+import type {
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
 } from "./commands/ModifyRedshiftIdcApplicationCommand";
@@ -584,6 +600,7 @@ export type ServiceInputTypes =
   | CreateHsmClientCertificateCommandInput
   | CreateHsmConfigurationCommandInput
   | CreateIntegrationCommandInput
+  | CreateQev2IdcApplicationCommandInput
   | CreateRedshiftIdcApplicationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCopyGrantCommandInput
@@ -604,6 +621,7 @@ export type ServiceInputTypes =
   | DeleteHsmConfigurationCommandInput
   | DeleteIntegrationCommandInput
   | DeletePartnerCommandInput
+  | DeleteQev2IdcApplicationCommandInput
   | DeleteRedshiftIdcApplicationCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteScheduledActionCommandInput
@@ -641,6 +659,7 @@ export type ServiceInputTypes =
   | DescribeNodeConfigurationOptionsCommandInput
   | DescribeOrderableClusterOptionsCommandInput
   | DescribePartnersCommandInput
+  | DescribeQev2IdcApplicationsCommandInput
   | DescribeRedshiftIdcApplicationsCommandInput
   | DescribeReservedNodeExchangeStatusCommandInput
   | DescribeReservedNodeOfferingsCommandInput
@@ -681,6 +700,7 @@ export type ServiceInputTypes =
   | ModifyEventSubscriptionCommandInput
   | ModifyIntegrationCommandInput
   | ModifyLakehouseConfigurationCommandInput
+  | ModifyQev2IdcApplicationCommandInput
   | ModifyRedshiftIdcApplicationCommandInput
   | ModifyScheduledActionCommandInput
   | ModifySnapshotCopyRetentionPeriodCommandInput
@@ -730,6 +750,7 @@ export type ServiceOutputTypes =
   | CreateHsmClientCertificateCommandOutput
   | CreateHsmConfigurationCommandOutput
   | CreateIntegrationCommandOutput
+  | CreateQev2IdcApplicationCommandOutput
   | CreateRedshiftIdcApplicationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCopyGrantCommandOutput
@@ -750,6 +771,7 @@ export type ServiceOutputTypes =
   | DeleteHsmConfigurationCommandOutput
   | DeleteIntegrationCommandOutput
   | DeletePartnerCommandOutput
+  | DeleteQev2IdcApplicationCommandOutput
   | DeleteRedshiftIdcApplicationCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteScheduledActionCommandOutput
@@ -787,6 +809,7 @@ export type ServiceOutputTypes =
   | DescribeNodeConfigurationOptionsCommandOutput
   | DescribeOrderableClusterOptionsCommandOutput
   | DescribePartnersCommandOutput
+  | DescribeQev2IdcApplicationsCommandOutput
   | DescribeRedshiftIdcApplicationsCommandOutput
   | DescribeReservedNodeExchangeStatusCommandOutput
   | DescribeReservedNodeOfferingsCommandOutput
@@ -827,6 +850,7 @@ export type ServiceOutputTypes =
   | ModifyEventSubscriptionCommandOutput
   | ModifyIntegrationCommandOutput
   | ModifyLakehouseConfigurationCommandOutput
+  | ModifyQev2IdcApplicationCommandOutput
   | ModifyRedshiftIdcApplicationCommandOutput
   | ModifyScheduledActionCommandOutput
   | ModifySnapshotCopyRetentionPeriodCommandOutput

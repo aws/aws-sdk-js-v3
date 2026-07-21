@@ -24,6 +24,7 @@ export * from "./DescribeInboundIntegrationsPaginator";
 export * from "./DescribeIntegrationsPaginator";
 export * from "./DescribeNodeConfigurationOptionsPaginator";
 export * from "./DescribeOrderableClusterOptionsPaginator";
+export * from "./DescribeQev2IdcApplicationsPaginator";
 export * from "./DescribeRedshiftIdcApplicationsPaginator";
 export * from "./DescribeReservedNodeExchangeStatusPaginator";
 export * from "./DescribeReservedNodeOfferingsPaginator";
