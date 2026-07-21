@@ -1591,8 +1591,8 @@ export var CodeRepositoryOnDemandScan$: StaticStructureSchema = [3, n0, _CRODS,
 ];
 export var CodeSecurityIntegrationSummary$: StaticStructureSchema = [3, n0, _CSIS,
   0,
-  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _ta],
-  [0, 0, 0, 0, 0, 4, 4, 128 | 0], 7
+  [_iA, _na, _ty, _st, _sR, _cO, _lUO],
+  [0, 0, 0, 0, 0, 4, 4], 7
 ];
 export var CodeSecurityScanConfiguration$: StaticStructureSchema = [3, n0, _CSSC,
   0,
@@ -1606,8 +1606,8 @@ export var CodeSecurityScanConfigurationAssociationSummary$: StaticStructureSche
 ];
 export var CodeSecurityScanConfigurationSummary$: StaticStructureSchema = [3, n0, _CSSCS,
   0,
-  [_sCA, _na, _oAI, _rSC, _pSF, _fE, _cISSE, _sSco, _ta],
-  [0, 0, 0, 64 | 0, 0, 0, 64 | 0, () => ScopeSettings$, 128 | 0], 4
+  [_sCA, _na, _oAI, _rSC, _pSF, _fE, _cISSE, _sSco],
+  [0, 0, 0, 64 | 0, 0, 0, 64 | 0, () => ScopeSettings$], 4
 ];
 export var CodeSnippetError$: StaticStructureSchema = [3, n0, _CSE,
   0,
@@ -2166,8 +2166,8 @@ export var GetCodeSecurityIntegrationRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var GetCodeSecurityIntegrationResponse$: StaticStructureSchema = [3, n0, _GCSIRe,
   0,
-  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _ta, _aU],
-  [0, 0, 0, 0, 0, 4, 4, 128 | 0, [() => AuthorizationUrl, 0]], 7
+  [_iA, _na, _ty, _st, _sR, _cO, _lUO, _aU, _ta],
+  [0, 0, 0, 0, 0, 4, 4, [() => AuthorizationUrl, 0], 128 | 0], 7
 ];
 export var GetCodeSecurityScanConfigurationRequest$: StaticStructureSchema = [3, n0, _GCSSCR,
   0,

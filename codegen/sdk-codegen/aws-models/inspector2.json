@@ -4377,12 +4377,6 @@
                         "smithy.api#documentation": "<p>The timestamp when the code security integration was last updated.</p>",
                         "smithy.api#required": {}
                     }
-                },
-                "tags": {
-                    "target": "com.amazonaws.inspector2#TagMap",
-                    "traits": {
-                        "smithy.api#documentation": "<p>The tags associated with the code security integration.</p>"
-                    }
                 }
             },
             "traits": {
@@ -4506,12 +4500,6 @@
                     "target": "com.amazonaws.inspector2#ScopeSettings",
                     "traits": {
                         "smithy.api#documentation": "<p>The scope settings that define which repositories will be scanned. If the\n            <code>ScopeSetting</code> parameter is <code>ALL</code> the scan configuration applies\n         to all existing and future projects imported into Amazon Inspector.</p>"
-                    }
-                },
-                "tags": {
-                    "target": "com.amazonaws.inspector2#TagMap",
-                    "traits": {
-                        "smithy.api#documentation": "<p>The tags associated with the scan configuration.</p>"
                     }
                 }
             },
@@ -10867,16 +10855,16 @@
                         "smithy.api#required": {}
                     }
                 },
-                "tags": {
-                    "target": "com.amazonaws.inspector2#TagMap",
-                    "traits": {
-                        "smithy.api#documentation": "<p>The tags associated with the code security integration.</p>"
-                    }
-                },
                 "authorizationUrl": {
                     "target": "com.amazonaws.inspector2#AuthorizationUrl",
                     "traits": {
                         "smithy.api#documentation": "<p>The URL used to authorize the integration with the repository provider. This is only\n         returned if reauthorization is required to fix a connection issue. Otherwise, it is\n         null.</p>"
+                    }
+                },
+                "tags": {
+                    "target": "com.amazonaws.inspector2#TagMap",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The tags associated with the code security integration.</p>"
                     }
                 }
             },

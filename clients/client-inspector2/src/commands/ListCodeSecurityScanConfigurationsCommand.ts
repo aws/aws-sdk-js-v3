@@ -58,9 +58,6 @@ export interface ListCodeSecurityScanConfigurationsCommandOutput extends ListCod
  * //       scopeSettings: { // ScopeSettings
  * //         projectSelectionScope: "ALL",
  * //       },
- * //       tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

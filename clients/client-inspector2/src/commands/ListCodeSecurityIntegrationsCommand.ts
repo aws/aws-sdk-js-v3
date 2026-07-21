@@ -48,9 +48,6 @@ export interface ListCodeSecurityIntegrationsCommandOutput extends ListCodeSecur
  * //       statusReason: "STRING_VALUE", // required
  * //       createdOn: new Date("TIMESTAMP"), // required
  * //       lastUpdateOn: new Date("TIMESTAMP"), // required
- * //       tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
- * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

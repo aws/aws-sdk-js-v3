@@ -5947,12 +5947,6 @@ export interface CodeSecurityIntegrationSummary {
    * @public
    */
   lastUpdateOn: Date | undefined;
-
-  /**
-   * <p>The tags associated with the code security integration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -6095,12 +6089,6 @@ export interface CodeSecurityScanConfigurationSummary {
    * @public
    */
   scopeSettings?: ScopeSettings | undefined;
-
-  /**
-   * <p>The tags associated with the scan configuration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -9847,18 +9835,18 @@ export interface GetCodeSecurityIntegrationResponse {
   lastUpdateOn: Date | undefined;
 
   /**
-   * <p>The tags associated with the code security integration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
    * <p>The URL used to authorize the integration with the repository provider. This is only
    *          returned if reauthorization is required to fix a connection issue. Otherwise, it is
    *          null.</p>
    * @public
    */
   authorizationUrl?: string | undefined;
+
+  /**
+   * <p>The tags associated with the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**

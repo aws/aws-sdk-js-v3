@@ -48,10 +48,10 @@ export interface GetCodeSecurityIntegrationCommandOutput extends GetCodeSecurity
  * //   statusReason: "STRING_VALUE", // required
  * //   createdOn: new Date("TIMESTAMP"), // required
  * //   lastUpdateOn: new Date("TIMESTAMP"), // required
+ * //   authorizationUrl: "STRING_VALUE",
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   authorizationUrl: "STRING_VALUE",
  * // };
  *
  * ```
