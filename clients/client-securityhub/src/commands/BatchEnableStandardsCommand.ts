@@ -111,7 +111,9 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * {
  *   StandardsSubscriptions: [
  *     {
+ *       Provider: "AWS",
  *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       StandardsControlsUpdatable: "NOT_READY_FOR_UPDATES",
  *       StandardsInput:       { /* empty *\/ },
  *       StandardsStatus: "PENDING",
  *       StandardsSubscriptionArn: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"

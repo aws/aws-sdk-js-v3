@@ -81,6 +81,35 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  *
+ * @example To get available Azure security standards
+ * ```javascript
+ * // The following example returns a list of available security standards from a specified provider.
+ * const input = {
+ *   Providers: [
+ *     "Azure"
+ *   ]
+ * };
+ * const command = new DescribeStandardsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Standards: [
+ *     {
+ *       Description: "The Center for Internet Security (CIS) Microsoft Azure Foundations Benchmark v4.0.0 is a set of security configuration best practices for Azure. This Security Hub standard automatically checks your compliance readiness against a subset of CIS requirements.",
+ *       EnabledByDefault: false,
+ *       Name: "CIS Azure Foundations Benchmark v4.0.0",
+ *       Provider: "Azure",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-azure-foundations-benchmark/v/4.0.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @example To get available Security Hub standards
  * ```javascript
  * // The following example returns a list of available security standards in Security Hub.
@@ -94,25 +123,56 @@ export interface DescribeStandardsCommandOutput extends DescribeStandardsRespons
  *       Description: "The AWS Foundational Security Best Practices standard is a set of automated security checks that detect when AWS accounts and deployed resources do not align to security best practices. The standard is defined by AWS security experts. This curated set of controls helps improve your security posture in AWS, and cover AWS's most popular and foundational services.",
  *       EnabledByDefault: true,
  *       Name: "AWS Foundational Security Best Practices v1.0.0",
- *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/aws-foundational-security-best-practices/v/1.0.0"
+ *       Provider: "AWS",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/aws-foundational-security-best-practices/v/1.0.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
  *     },
  *     {
  *       Description: "The Center for Internet Security (CIS) AWS Foundations Benchmark v1.2.0 is a set of security configuration best practices for AWS. This Security Hub standard automatically checks for your compliance readiness against a subset of CIS requirements.",
  *       EnabledByDefault: true,
  *       Name: "CIS AWS Foundations Benchmark v1.2.0",
- *       StandardsArn: "arn:aws:securityhub:us-west-1::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+ *       Provider: "AWS",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
  *     },
  *     {
  *       Description: "The Center for Internet Security (CIS) AWS Foundations Benchmark v1.4.0 is a set of security configuration best practices for AWS. This Security Hub standard automatically checks for your compliance readiness against a subset of CIS requirements.",
  *       EnabledByDefault: false,
  *       Name: "CIS AWS Foundations Benchmark v1.4.0",
- *       StandardsArn: "arn:aws::securityhub:us-west-1::standards/cis-aws-foundations-benchmark/v/1.4.0"
+ *       Provider: "AWS",
+ *       StandardsArn: "arn:aws::securityhub:us-west-1::standards/cis-aws-foundations-benchmark/v/1.4.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
  *     },
  *     {
  *       Description: "The Payment Card Industry Data Security Standard (PCI DSS) v3.2.1 is an information security standard for entities that store, process, and/or transmit cardholder data. This Security Hub standard automatically checks for your compliance readiness against a subset of PCI DSS requirements.",
  *       EnabledByDefault: false,
  *       Name: "PCI DSS v3.2.1",
- *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1"
+ *       Provider: "AWS",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
+ *     },
+ *     {
+ *       Description: "The Center for Internet Security (CIS) Microsoft Azure Foundations Benchmark v4.0.0 is a set of security configuration best practices for Azure. This Security Hub standard automatically checks your compliance readiness against a subset of CIS requirements.",
+ *       EnabledByDefault: false,
+ *       Name: "CIS Azure Foundations Benchmark v4.0.0",
+ *       Provider: "Azure",
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/cis-azure-foundations-benchmark/v/4.0.0",
+ *       StandardsManagedBy: {
+ *         Company: "AWS",
+ *         Product: "Security Hub"
+ *       }
  *     }
  *   ]
  * }

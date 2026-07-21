@@ -103,6 +103,7 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * {
  *   StandardsSubscriptions: [
  *     {
+ *       Provider: "AWS",
  *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
  *       StandardsInput:       { /* empty *\/ },
  *       StandardsStatus: "READY",

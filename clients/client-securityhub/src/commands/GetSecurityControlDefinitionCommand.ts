@@ -164,6 +164,7 @@ export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityCo
  *         Description: "Number of days the EC2 instance is allowed to be in a stopped state before generating a failed finding"
  *       }
  *     },
+ *     Provider: "AWS",
  *     RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/EC2.4/remediation",
  *     SecurityControlId: "EC2.4",
  *     SeverityRating: "MEDIUM",

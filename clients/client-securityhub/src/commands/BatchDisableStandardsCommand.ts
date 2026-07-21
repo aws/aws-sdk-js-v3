@@ -103,7 +103,9 @@ export interface BatchDisableStandardsCommandOutput extends BatchDisableStandard
  * {
  *   StandardsSubscriptions: [
  *     {
+ *       Provider: "AWS",
  *       StandardsArn: "arn:aws:securityhub:eu-central-1::standards/pci-dss/v/3.2.1",
+ *       StandardsControlsUpdatable: "NOT_READY_FOR_UPDATES",
  *       StandardsInput:       { /* empty *\/ },
  *       StandardsStatus: "DELETING",
  *       StandardsSubscriptionArn: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
