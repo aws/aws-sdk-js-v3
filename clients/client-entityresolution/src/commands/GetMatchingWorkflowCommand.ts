@@ -90,6 +90,7 @@ export interface GetMatchingWorkflowCommandOutput extends GetMatchingWorkflowOut
  * //         enableTransitiveMatching: true || false,
  * //       },
  * //     },
+ * //     enableRealTimeMatching: true || false,
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
  * //       providerConfiguration: "DOCUMENT_VALUE",
