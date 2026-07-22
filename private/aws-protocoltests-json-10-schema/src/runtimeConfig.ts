@@ -7,10 +7,7 @@ import {
   emitWarningIfUnsupportedVersion as awsCheckVersion,
   NODE_APP_ID_CONFIG_OPTIONS,
 } from "@aws-sdk/core/client";
-import {
-  NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
-  NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS,
-} from "@aws-sdk/core/httpAuthSchemes";
+import { NODE_AUTH_SCHEME_PREFERENCE_OPTIONS } from "@aws-sdk/core/httpAuthSchemes";
 import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credential-provider-node";
 import { emitWarningIfUnsupportedVersion, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
@@ -58,7 +55,6 @@ export const getRuntimeConfig = (config: JSONRPC10ClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? loadNodeConfig(NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS, loaderConfig),
     disableRequestCompression: config?.disableRequestCompression ?? loadNodeConfig(NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS, config),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS, config),
     region: config?.region ?? loadNodeConfig(

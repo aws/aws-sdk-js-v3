@@ -35,7 +35,6 @@ export const getRuntimeConfig = (config: JsonProtocolClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? false,
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),

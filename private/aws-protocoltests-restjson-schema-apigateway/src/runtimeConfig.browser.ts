@@ -31,7 +31,6 @@ export const getRuntimeConfig = (config: APIGatewayClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? false,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),

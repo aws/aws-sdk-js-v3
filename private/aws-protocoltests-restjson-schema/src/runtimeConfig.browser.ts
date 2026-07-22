@@ -37,7 +37,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? false,
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => ({
       handle: invalidFunction("event stream request is not supported in browser."),
