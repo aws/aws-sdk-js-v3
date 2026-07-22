@@ -4,10 +4,13 @@ import type {
   ClusterStatus,
   ComputeNodeGroupStatus,
   EndpointType,
+  ExecutionPolicy,
   NetworkType,
+  OnError,
   PurchaseOption,
   QueueStatus,
   SchedulerType,
+  ScriptCachingPolicy,
   Size,
   SlurmRestMode,
   SpotAllocationStrategy,
@@ -77,6 +80,102 @@ export interface InstanceConfig {
    * @public
    */
   instanceType?: string | undefined;
+}
+
+/**
+ * <p>The source location and integrity information for a node lifecycle script.</p>
+ * @public
+ */
+export interface ScriptSource {
+  /**
+   * <p>The location of the script. Specify either an Amazon S3 URI in the format <code>s3://bucket-name/key</code> or an HTTPS URL.</p>
+   * @public
+   */
+  scriptLocation: string | undefined;
+
+  /**
+   * <p>The Amazon S3 version ID of the script. Use this value to pin the script to a specific version in a versioned Amazon S3 bucket. This value is only valid when <code>scriptLocation</code> is an Amazon S3 URI.</p>
+   * @public
+   */
+  s3VersionId?: string | undefined;
+
+  /**
+   * <p>The SHA-256 checksum of the script content, as a 64-character hexadecimal string. This value is optional. When specified, PCS uses this value to verify the integrity of the downloaded script.</p>
+   * @public
+   */
+  checksum?: string | undefined;
+}
+
+/**
+ * <p>A script to run during a compute node lifecycle stage.</p>
+ * @public
+ */
+export interface NodeLifecycleScript {
+  /**
+   * <p>A unique name for the script. The name can be up to 64 characters long. Valid characters are letters, numbers, spaces, underscores (<code>_</code>), and hyphens (<code>-</code>). The first character must be a letter or a number.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The source location and integrity information for the script.</p>
+   * @public
+   */
+  scriptSource: ScriptSource | undefined;
+
+  /**
+   * <p>The command-line arguments to pass to the script. You can specify up to 20 arguments, and each argument can be up to 256 characters long.</p>
+   * @public
+   */
+  arguments?: string[] | undefined;
+
+  /**
+   * <p>The behavior when the script fails. The default value is <code>TERMINATE</code>. Valid values:</p> <ul> <li> <p> <code>TERMINATE</code> – Terminates the compute node.</p> </li> <li> <p> <code>STOP_SEQUENCE</code> – Stops running subsequent scripts in the sequence but doesn't terminate the compute node.</p> </li> <li> <p> <code>CONTINUE</code> – Ignores the error and continues running the next script.</p> </li> </ul>
+   * @public
+   */
+  onError?: OnError | undefined;
+
+  /**
+   * <p>The policy that determines when the script runs. The default value is <code>FIRST_BOOT_ONLY</code>. Valid values:</p> <ul> <li> <p> <code>FIRST_BOOT_ONLY</code> – Runs the script only the first time the compute node boots.</p> </li> <li> <p> <code>EVERY_BOOT</code> – Runs the script every time the compute node boots, including reboots.</p> </li> </ul>
+   * @public
+   */
+  executionPolicy?: ExecutionPolicy | undefined;
+}
+
+/**
+ * <p>The stages of a compute node's lifecycle where you can configure scripts to run.</p>
+ * @public
+ */
+export interface NodeLifecycleStages {
+  /**
+   * <p>The scripts to run after PCS finishes setting up the compute node and before the Slurm daemon (<code>slurmd</code>) starts. Use this stage for tasks that must complete before the node accepts jobs, such as mounting shared storage, configuring networking, or installing software packages.</p>
+   * @public
+   */
+  nodeBootstrapped?: NodeLifecycleScript[] | undefined;
+
+  /**
+   * <p>The scripts to run after the Slurm daemon (<code>slurmd</code>) starts and the compute node registers with the Slurm controller. Use this stage for tasks that require Slurm to be running, such as running Slurm commands.</p>
+   * @public
+   */
+  nodeReady?: NodeLifecycleScript[] | undefined;
+}
+
+/**
+ * <p>The lifecycle actions to configure on a compute node group when you create it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * @public
+ */
+export interface NodeLifecycleActionsRequest {
+  /**
+   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * @public
+   */
+  stages: NodeLifecycleStages | undefined;
+
+  /**
+   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * @public
+   */
+  scriptCachingPolicy?: ScriptCachingPolicy | undefined;
 }
 
 /**
@@ -216,6 +315,12 @@ export interface CreateComputeNodeGroupRequest {
   slurmConfiguration?: ComputeNodeGroupSlurmConfigurationRequest | undefined;
 
   /**
+   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * @public
+   */
+  nodeLifecycleActions?: NodeLifecycleActionsRequest | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
    * @public
    */
@@ -244,6 +349,24 @@ export interface ErrorInfo {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * <p>The lifecycle actions configured on a compute node group. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * @public
+ */
+export interface NodeLifecycleActions {
+  /**
+   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * @public
+   */
+  stages: NodeLifecycleStages | undefined;
+
+  /**
+   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * @public
+   */
+  scriptCachingPolicy?: ScriptCachingPolicy | undefined;
 }
 
 /**
@@ -382,6 +505,12 @@ export interface ComputeNodeGroup {
    * @public
    */
   slurmConfiguration?: ComputeNodeGroupSlurmConfiguration | undefined;
+
+  /**
+   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * @public
+   */
+  nodeLifecycleActions?: NodeLifecycleActions | undefined;
 
   /**
    * <p>The list of errors that occurred during compute node group provisioning.</p>
@@ -564,6 +693,24 @@ export interface ListComputeNodeGroupsResponse {
 }
 
 /**
+ * <p>The lifecycle actions to configure on a compute node group when you update it. Lifecycle actions define scripts that PCS runs on compute nodes at specific stages of their lifecycle.</p>
+ * @public
+ */
+export interface UpdateNodeLifecycleActionsRequest {
+  /**
+   * <p>The lifecycle stages where you configure scripts to run.</p>
+   * @public
+   */
+  stages: NodeLifecycleStages | undefined;
+
+  /**
+   * <p>The caching policy for node lifecycle scripts. The default value is <code>CACHE_ONCE</code>. Valid values:</p> <ul> <li> <p> <code>CACHE_ONCE</code> – Downloads each script once and reuses it on subsequent boots.</p> </li> <li> <p> <code>REFRESH_ON_REBOOT</code> – Downloads each script on every boot.</p> </li> </ul>
+   * @public
+   */
+  scriptCachingPolicy?: ScriptCachingPolicy | undefined;
+}
+
+/**
  * <p>Additional options related to the Slurm scheduler.</p>
  * @public
  */
@@ -644,6 +791,12 @@ export interface UpdateComputeNodeGroupRequest {
    * @public
    */
   slurmConfiguration?: UpdateComputeNodeGroupSlurmConfigurationRequest | undefined;
+
+  /**
+   * <p>The lifecycle actions to run on compute nodes in the compute node group. Use lifecycle actions to run custom scripts at defined stages of a compute node's lifecycle, such as when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * @public
+   */
+  nodeLifecycleActions?: UpdateNodeLifecycleActionsRequest | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. Idempotency ensures that an API request completes only once. With an idempotent request, if the original request completes successfully, the subsequent retries with the same client token return the result from the original successful request and they have no additional effect. If you don't specify a client token, the CLI and SDK automatically generate 1 for you.</p>
@@ -914,7 +1067,7 @@ export interface Scheduler {
   type: SchedulerType | undefined;
 
   /**
-   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can upgrade this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * <p>The version of the specified scheduling software that PCS uses to manage cluster scaling and job scheduling. You can update this version using the <code>UpdateCluster</code> API action. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> and <a href="https://docs.aws.amazon.com/pcs/latest/userguide/slurm-versions.html">Slurm versions in PCS</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>23.11 | 24.05 | 24.11 | 25.05 | 25.11</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1637,15 +1790,39 @@ export interface RegisterComputeNodeGroupInstanceResponse {
    * @public
    */
   endpoints: Endpoint[] | undefined;
+
+  /**
+   * <p>The name of the cluster that the compute node registered into.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The ID of the compute node group that the compute node registered into.</p>
+   * @public
+   */
+  computeNodeGroupId?: string | undefined;
+
+  /**
+   * <p>The name of the compute node group that the compute node registered into.</p>
+   * @public
+   */
+  computeNodeGroupName?: string | undefined;
+
+  /**
+   * <p>The node lifecycle actions configured for the node group, including scripts to run when a compute node finishes bootstrapping or becomes ready to accept jobs.</p>
+   * @public
+   */
+  nodeLifecycleActions?: NodeLifecycleActions | undefined;
 }
 
 /**
- * <p>The scheduler configuration for updating a cluster. Use this to specify the Slurm version to upgrade to.</p>
+ * <p>The scheduler configuration for updating a cluster. Use this to specify the scheduler version to update to.</p>
  * @public
  */
 export interface UpdateSchedulerRequest {
   /**
-   * <p>The Slurm version to upgrade the cluster to. You can only upgrade to a newer version. For more information about supported versions and upgrade paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code> </p>
+   * <p>The scheduler version to update the cluster to. You can only update to a newer version. For more information about supported versions and update paths, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p> <p>Valid Values: <code>24.05 | 24.11 | 25.05 | 25.11</code> </p>
    * @public
    */
   version: string | undefined;
@@ -1746,7 +1923,7 @@ export interface UpdateClusterRequest {
   slurmConfiguration?: UpdateClusterSlurmConfigurationRequest | undefined;
 
   /**
-   * <p>The scheduler configuration to update for the cluster. Use this to upgrade the Slurm version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_upgrade.html">Upgrading the Slurm version on a cluster</a> in the <i>PCS User Guide</i>.</p>
+   * <p>The scheduler configuration to update for the cluster. Use this to update the scheduler version. For more information, see <a href="https://docs.aws.amazon.com/pcs/latest/userguide/working-with_clusters_version_update.html">Updating the scheduler version on a cluster</a> in the <i>PCS User Guide</i>.</p>
    * @public
    */
   scheduler?: UpdateSchedulerRequest | undefined;

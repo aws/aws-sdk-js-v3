@@ -16,6 +16,46 @@ export type AccountingMode = (typeof AccountingMode)[keyof typeof AccountingMode
  * @public
  * @enum
  */
+export const ScriptCachingPolicy = {
+  CACHE_ONCE: "CACHE_ONCE",
+  REFRESH_ON_REBOOT: "REFRESH_ON_REBOOT",
+} as const;
+/**
+ * @public
+ */
+export type ScriptCachingPolicy = (typeof ScriptCachingPolicy)[keyof typeof ScriptCachingPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExecutionPolicy = {
+  EVERY_BOOT: "EVERY_BOOT",
+  FIRST_BOOT_ONLY: "FIRST_BOOT_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ExecutionPolicy = (typeof ExecutionPolicy)[keyof typeof ExecutionPolicy];
+
+/**
+ * @public
+ * @enum
+ */
+export const OnError = {
+  CONTINUE: "CONTINUE",
+  STOP_SEQUENCE: "STOP_SEQUENCE",
+  TERMINATE: "TERMINATE",
+} as const;
+/**
+ * @public
+ */
+export type OnError = (typeof OnError)[keyof typeof OnError];
+
+/**
+ * @public
+ * @enum
+ */
 export const PurchaseOption = {
   CAPACITY_BLOCK: "CAPACITY_BLOCK",
   INTERRUPTIBLE_CAPACITY_RESERVATION: "INTERRUPTIBLE_CAPACITY_RESERVATION",

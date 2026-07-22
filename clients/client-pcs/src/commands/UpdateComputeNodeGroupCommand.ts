@@ -61,6 +61,41 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  *       },
  *     ],
  *   },
+ *   nodeLifecycleActions: { // UpdateNodeLifecycleActionsRequest
+ *     stages: { // NodeLifecycleStages
+ *       nodeBootstrapped: [ // NodeLifecycleScriptList
+ *         { // NodeLifecycleScript
+ *           name: "STRING_VALUE", // required
+ *           scriptSource: { // ScriptSource
+ *             scriptLocation: "STRING_VALUE", // required
+ *             s3VersionId: "STRING_VALUE",
+ *             checksum: "STRING_VALUE",
+ *           },
+ *           arguments: [ // NodeLifecycleScriptArguments
+ *             "STRING_VALUE",
+ *           ],
+ *           onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ *           executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ *         },
+ *       ],
+ *       nodeReady: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           scriptSource: {
+ *             scriptLocation: "STRING_VALUE", // required
+ *             s3VersionId: "STRING_VALUE",
+ *             checksum: "STRING_VALUE",
+ *           },
+ *           arguments: [
+ *             "STRING_VALUE",
+ *           ],
+ *           onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ *           executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ *         },
+ *       ],
+ *     },
+ *     scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateComputeNodeGroupCommand(input);
@@ -104,6 +139,41 @@ export interface UpdateComputeNodeGroupCommandOutput extends UpdateComputeNodeGr
  * //           parameterValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //     },
+ * //     nodeLifecycleActions: { // NodeLifecycleActions
+ * //       stages: { // NodeLifecycleStages
+ * //         nodeBootstrapped: [ // NodeLifecycleScriptList
+ * //           { // NodeLifecycleScript
+ * //             name: "STRING_VALUE", // required
+ * //             scriptSource: { // ScriptSource
+ * //               scriptLocation: "STRING_VALUE", // required
+ * //               s3VersionId: "STRING_VALUE",
+ * //               checksum: "STRING_VALUE",
+ * //             },
+ * //             arguments: [ // NodeLifecycleScriptArguments
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ * //             executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ * //           },
+ * //         ],
+ * //         nodeReady: [
+ * //           {
+ * //             name: "STRING_VALUE", // required
+ * //             scriptSource: {
+ * //               scriptLocation: "STRING_VALUE", // required
+ * //               s3VersionId: "STRING_VALUE",
+ * //               checksum: "STRING_VALUE",
+ * //             },
+ * //             arguments: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ * //             executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ * //           },
+ * //         ],
+ * //       },
+ * //       scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
  * //     },
  * //     errorInfo: [ // ErrorInfoList
  * //       { // ErrorInfo
