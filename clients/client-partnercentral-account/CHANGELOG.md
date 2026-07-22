@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-partnercentral-account:** Adds Qualifications Association APIs that enable partners to associate a subsidiary account's qualifications with a primary account. Once associated, qualifications are shared across all connected accounts and scorecards are consolidated. Partners can start and track association and disassociation. ([4b0d8db](https://github.com/aws/aws-sdk-js-v3/commit/4b0d8db8bf1cae2d72cda42abaf645a57a62d149))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-account

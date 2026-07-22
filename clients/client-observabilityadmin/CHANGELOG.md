@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-observabilityadmin:** Enablement for ALB and Bedrock Knowledge Base logs via Observability Admin Telemetry Rule for account and organization level ([0bd549c](https://github.com/aws/aws-sdk-js-v3/commit/0bd549cf6e01adb650db7c826986fe0eb4d6776e))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

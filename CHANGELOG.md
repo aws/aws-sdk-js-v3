@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-amp:** Add CloudWatch dataset destinations for Amazon Managed Service for Prometheus collectors. ([3709a0b](https://github.com/aws/aws-sdk-js-v3/commit/3709a0bd52c24410dd5f5682929eefe581e681e4))
+* **client-arc-region-switch:** Adds support for a client token in StartPlanExecution to make plan execution requests idempotent for safe retries. ([6cfe2c0](https://github.com/aws/aws-sdk-js-v3/commit/6cfe2c059376935b80bb9b27835c6cdf34b41b6b))
+* **client-cloudwatch:** Adds documented value constraints for CloudWatch Log Alarm scheduled query configuration fields, and makes LogGroupIdentifiers optional for log alarms. ([5884c0d](https://github.com/aws/aws-sdk-js-v3/commit/5884c0d40e6e8af1b005e6b6c297137b780af470))
+* **client-guardduty:** Amazon GuardDuty now returns filter lifecycle metadata in GetFilter responses. The response includes createdAt and updatedAt timestamps and a version number that increments on each update, giving you visibility into when a filter was created and last modified. ([15117c9](https://github.com/aws/aws-sdk-js-v3/commit/15117c9160d49bbb3ea1ce84c44cfc8ff1211b04))
+* **client-observabilityadmin:** Enablement for ALB and Bedrock Knowledge Base logs via Observability Admin Telemetry Rule for account and organization level ([0bd549c](https://github.com/aws/aws-sdk-js-v3/commit/0bd549cf6e01adb650db7c826986fe0eb4d6776e))
+* **client-partnercentral-account:** Adds Qualifications Association APIs that enable partners to associate a subsidiary account's qualifications with a primary account. Once associated, qualifications are shared across all connected accounts and scorecards are consolidated. Partners can start and track association and disassociation. ([4b0d8db](https://github.com/aws/aws-sdk-js-v3/commit/4b0d8db8bf1cae2d72cda42abaf645a57a62d149))
+* **client-pcs:** AWS PCS Node Lifecycle Actions provides a structured way to run custom scripts at defined points in a compute node's lifecycle directly through the AWS PCS compute node group API. ([c3c4289](https://github.com/aws/aws-sdk-js-v3/commit/c3c4289aa7d277fdadecff25196911edfd43112b))
+* **client-sesv2:** Launching DEED and MREP in US GOV ([2971803](https://github.com/aws/aws-sdk-js-v3/commit/2971803946e47bc8dd0df6aa865d337370d8a657))
+* **clients:** update client endpoints as of 2026-07-22 ([8e084a4](https://github.com/aws/aws-sdk-js-v3/commit/8e084a494b75dc927c3202f12368aa31676b281c))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-amp:** Add CloudWatch dataset destinations for Amazon Managed Service for Prometheus collectors. ([3709a0b](https://github.com/aws/aws-sdk-js-v3/commit/3709a0bd52c24410dd5f5682929eefe581e681e4))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-amp

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-iot",
-  "version": "3.1092.0",
+  "version": "3.1093.0",
   "description": "AWS SDK for JavaScript Iot Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-iot",
   "license": "Apache-2.0",

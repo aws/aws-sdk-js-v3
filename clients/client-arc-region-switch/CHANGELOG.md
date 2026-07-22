@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-arc-region-switch:** Adds support for a client token in StartPlanExecution to make plan execution requests idempotent for safe retries. ([6cfe2c0](https://github.com/aws/aws-sdk-js-v3/commit/6cfe2c059376935b80bb9b27835c6cdf34b41b6b))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-region-switch

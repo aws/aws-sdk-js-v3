@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-sagemaker-metrics",
-  "version": "3.1092.0",
+  "version": "3.1093.0",
   "description": "AWS SDK for JavaScript Sagemaker Metrics Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sagemaker-metrics",
   "license": "Apache-2.0",

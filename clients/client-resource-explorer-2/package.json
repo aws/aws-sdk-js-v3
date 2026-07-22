@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-resource-explorer-2",
-  "version": "3.1092.0",
+  "version": "3.1093.0",
   "description": "AWS SDK for JavaScript Resource Explorer 2 Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-resource-explorer-2",
   "license": "Apache-2.0",

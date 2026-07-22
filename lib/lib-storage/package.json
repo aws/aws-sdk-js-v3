@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.1092.0",
+  "version": "3.1093.0",
   "description": "Storage higher order operation",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
   "license": "Apache-2.0",
@@ -59,7 +59,7 @@
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1092.0",
+    "@aws-sdk/client-s3": "workspace:3.1093.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
@@ -69,7 +69,7 @@
     "web-streams-polyfill": "3.2.1"
   },
   "peerDependencies": {
-    "@aws-sdk/client-s3": "workspace:^3.1092.0"
+    "@aws-sdk/client-s3": "workspace:^3.1093.0"
   },
   "engines": {
     "node": ">=20.0.0"

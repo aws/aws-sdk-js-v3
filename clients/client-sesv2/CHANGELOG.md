@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-sesv2:** Launching DEED and MREP in US GOV ([2971803](https://github.com/aws/aws-sdk-js-v3/commit/2971803946e47bc8dd0df6aa865d337370d8a657))
+
+
+
+
+
 # [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

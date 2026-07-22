@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-cognito-identity-provider",
-  "version": "3.1092.0",
+  "version": "3.1093.0",
   "description": "AWS SDK for JavaScript Cognito Identity Provider Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-cognito-identity-provider",
   "license": "Apache-2.0",
