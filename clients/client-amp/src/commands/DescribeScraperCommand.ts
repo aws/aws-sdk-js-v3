@@ -78,6 +78,9 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //       ampConfiguration: { // AmpConfiguration
  * //         workspaceArn: "STRING_VALUE", // required
  * //       },
+ * //       cloudWatchConfiguration: { // CloudWatchConfiguration
+ * //         datasetArn: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     roleConfiguration: { // RoleConfiguration
  * //       sourceRoleArn: "STRING_VALUE",

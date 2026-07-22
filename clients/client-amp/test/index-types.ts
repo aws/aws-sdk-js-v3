@@ -154,6 +154,7 @@ export type {
   AnomalyDetectorMissingDataAction,
   AnomalyDetectorStatus,
   AnomalyDetectorSummary,
+  CloudWatchConfiguration,
   CloudWatchLogDestination,
   ComponentConfig,
   CreateAlertManagerDefinitionRequest,

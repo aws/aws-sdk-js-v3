@@ -14,6 +14,7 @@ import {
   AnomalyDetectorStatus$,
   AnomalyDetectorStatusCode,
   AnomalyDetectorSummary$,
+  CloudWatchConfiguration$,
   CloudWatchLogDestination$,
   ComponentConfig$,
   ConflictException,
@@ -355,6 +356,7 @@ assert(typeof AnomalyDetectorDescription$ === "object");
 assert(typeof AnomalyDetectorMissingDataAction$ === "object");
 assert(typeof AnomalyDetectorStatus$ === "object");
 assert(typeof AnomalyDetectorSummary$ === "object");
+assert(typeof CloudWatchConfiguration$ === "object");
 assert(typeof CloudWatchLogDestination$ === "object");
 assert(typeof ComponentConfig$ === "object");
 assert(typeof CreateAlertManagerDefinitionRequest$ === "object");
