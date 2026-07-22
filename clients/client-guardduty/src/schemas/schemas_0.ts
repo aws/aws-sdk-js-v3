@@ -2580,8 +2580,8 @@ export var GetFilterRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFilterResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_N, _Ac, _FCin, _D, _Ra, _Ta],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _ra }], [128 | 0, { [_jN]: _ta }]], 3
+  [_N, _Ac, _FCin, _D, _Ra, _Ta, _CAr, _UAp, _V],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _ra }], [128 | 0, { [_jN]: _ta }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [1, { [_jN]: _v }]], 3
 ];
 export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
