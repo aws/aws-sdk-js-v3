@@ -21,6 +21,7 @@ import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { UnionSerde } from "../UnionSerde";
 import type { JsonSettings } from "./JsonCodec";
 import { jsonReviver } from "./jsonReviver";
+import { needsReviver } from "./needsReviver";
 import { parseJsonBody } from "./parseJsonBody";
 import { writeKey } from "../writeKey";
 
@@ -33,9 +34,10 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
   }
 
   public async read(schema: Schema, data: string | Uint8Array | unknown): Promise<any> {
+    const reviver = needsReviver(schema) ? jsonReviver : undefined;
     return this._read(
       schema,
-      typeof data === "string" ? JSON.parse(data, jsonReviver) : await parseJsonBody(data, this.serdeContext!)
+      typeof data === "string" ? JSON.parse(data, reviver) : await parseJsonBody(data, this.serdeContext!, schema)
     );
   }
 

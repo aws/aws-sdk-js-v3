@@ -1,43 +1,50 @@
 import type { HttpResponse, Schema, SerdeFunctions } from "@smithy/types";
-
+import { collectBody } from "@smithy/core/protocols";
 import { collectBodyString } from "../common";
 import { detectBufferParsing } from "./detectBufferParsing";
 import { jsonReviver } from "./jsonReviver";
 import { needsReviver } from "./needsReviver";
 
 /**
+ * @deprecated new calls to parseJsonBody must pass schema.
  * @internal
  */
-export const parseJsonBody = async (streamBody: any, context: SerdeFunctions, schema?: Schema): Promise<any> => {
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions): Promise<any>;
+/**
+ * @internal
+ */
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions, schema: Schema): Promise<any>;
+/**
+ * @internal
+ */
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions, schema?: Schema): Promise<any> {
   // Fast path: if streamBody is an async iterable and JSON.parse(Buffer) is supported,
   // collect chunks directly and parse the concatenated Buffer without UTF-8 decode.
   let parsingInput: any;
 
   if (detectBufferParsing() && typeof streamBody?.[Symbol.asyncIterator] === "function") {
-    const chunks: any[] = [];
-    for await (const chunk of streamBody) {
-      chunks.push(chunk);
-    }
-    if (chunks.length > 0) {
-      const buffer = Buffer.concat(chunks);
-      if (buffer.byteLength === 0) {
-        return {};
+    const buffer = await collectBody(streamBody, context);
+    if (typeof Buffer === "function") {
+      if (Buffer.isBuffer(buffer)) {
+        parsingInput = buffer;
+      } else {
+        parsingInput = Buffer.from(buffer.buffer, buffer.byteOffset, buffer.byteLength);
       }
-      parsingInput = buffer;
     }
   }
-
   if (!parsingInput) {
-    // Fallback: collect to string, then parse.
-    const encoded = await collectBodyString(streamBody, context);
-    if (encoded.length) {
-      parsingInput = encoded;
-    } else {
-      return {};
-    }
+    // Fallback: collect to string
+    parsingInput = await collectBodyString(streamBody, context);
+  }
+  if (parsingInput.length === 0) {
+    return {};
   }
 
-  const reviver = schema && !needsReviver(schema) ? undefined : jsonReviver;
+  /**
+   * We require a schema to use the reviver, because in the pre-schema implementation
+   * of this function, no reviver was used to parse JSON.
+   */
+  const reviver = schema && needsReviver(schema) ? jsonReviver : undefined;
 
   try {
     return JSON.parse(parsingInput, reviver);
@@ -49,7 +56,7 @@ export const parseJsonBody = async (streamBody: any, context: SerdeFunctions, sc
     }
     throw e;
   }
-};
+}
 
 /**
  * @internal
