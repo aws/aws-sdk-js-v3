@@ -102,3 +102,37 @@ export class IllegalStateException extends __BaseException {
     Object.setPrototypeOf(this, IllegalStateException.prototype);
   }
 }
+
+/**
+ * <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The identifier of the resource involved in the client token conflict.</p>
+   * @public
+   */
+  resourceId?: string | undefined;
+
+  /**
+   * <p>The type of the resource involved in the client token conflict.</p>
+   * @public
+   */
+  resourceType?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+  }
+}

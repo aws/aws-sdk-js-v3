@@ -23,6 +23,8 @@ import {
   CancelPlanExecutionCommand,
   CancelPlanExecutionRequest$,
   CancelPlanExecutionResponse$,
+  ConflictException,
+  ConflictException$,
   CreatePlan$,
   CreatePlanCommand,
   CreatePlanRequest$,
@@ -375,6 +377,8 @@ assert(typeof WorkflowTargetAction === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ARCRegionSwitchServiceException);
 assert(typeof AccessDeniedException$ === "object");
+assert(ConflictException.prototype instanceof ARCRegionSwitchServiceException);
+assert(typeof ConflictException$ === "object");
 assert(IllegalArgumentException.prototype instanceof ARCRegionSwitchServiceException);
 assert(typeof IllegalArgumentException$ === "object");
 assert(IllegalStateException.prototype instanceof ARCRegionSwitchServiceException);

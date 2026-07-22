@@ -40,6 +40,7 @@ export interface StartPlanExecutionCommandOutput extends StartPlanExecutionRespo
  *   comment: "STRING_VALUE",
  *   latestVersion: "STRING_VALUE",
  *   recoveryExecutionId: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new StartPlanExecutionCommand(input);
  * const response = await client.send(command);
@@ -61,6 +62,9 @@ export interface StartPlanExecutionCommandOutput extends StartPlanExecutionRespo
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p> <p>HTTP Status Code: 403</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The client token was already used with different request parameters. A client token must map to the same parameters for every request. To retry this operation, provide a new client token.</p>
  *
  * @throws {@link IllegalArgumentException} (client fault)
  *  <p>The request processing has an invalid argument.</p>
