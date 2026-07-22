@@ -153,7 +153,8 @@ export class AwsSdkSigV4Signer implements HttpSigner {
             ageHeader
           );
 
-          // Always update ClientSkew
+          // Unconditionally record the offset to heal clock drift over time,
+          // even when the skew doesn't breach the retry threshold.
           config.systemClockOffset = newOffset;
 
           // Only mark as clockSkewCorrected (enabling retry) if the skew
