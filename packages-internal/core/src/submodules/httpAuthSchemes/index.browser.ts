@@ -6,14 +6,11 @@ export {
   validateSigningProperties,
   AwsSdkSigV4ASigner,
   DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION,
-  resolveDisableClockSkewCorrectionConfig,
   resolveAwsSdkSigV4AConfig,
   resolveAwsSdkSigV4Config,
   resolveAWSSDKSigV4Config,
 } from "./aws_sdk";
 export type {
-  DisableClockSkewCorrectionInputConfig,
-  DisableClockSkewCorrectionResolvedConfig,
   AwsSdkSigV4AAuthInputConfig,
   AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AAuthResolvedConfig,

@@ -15,11 +15,6 @@ import {
   resolveUserAgentConfig,
 } from "@aws-sdk/core/client";
 import {
-  DisableClockSkewCorrectionInputConfig,
-  DisableClockSkewCorrectionResolvedConfig,
-  resolveDisableClockSkewCorrectionConfig,
-} from "@aws-sdk/core/httpAuthSchemes";
-import {
   DefaultIdentityProviderConfig,
   getHttpAuthSchemeEndpointRuleSetPlugin,
   getHttpSigningPlugin,
@@ -565,7 +560,6 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  DisableClockSkewCorrectionInputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
   RegionInputConfig &
@@ -588,7 +582,6 @@ export interface RestXmlProtocolClientConfig extends RestXmlProtocolClientConfig
 export type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  DisableClockSkewCorrectionResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
@@ -625,17 +618,16 @@ export class RestXmlProtocolClient extends __Client<
     super(_config_0 as any);
     this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveDisableClockSkewCorrectionConfig(_config_1);
-    const _config_3 = resolveUserAgentConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
-    const _config_5 = resolveRegionConfig(_config_4);
-    const _config_6 = resolveHostHeaderConfig(_config_5);
-    const _config_7 = resolveEndpointConfig(_config_6);
-    const _config_8 = resolveDefaultAwsRegionalEndpointsConfig(_config_7);
-    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
-    const _config_10 = resolveCompressionConfig(_config_9);
-    const _config_11 = resolveRuntimeExtensions(_config_10, configuration?.extensions || []);
-    this.config = _config_11;
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveDefaultAwsRegionalEndpointsConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveCompressionConfig(_config_8);
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    this.config = _config_10;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

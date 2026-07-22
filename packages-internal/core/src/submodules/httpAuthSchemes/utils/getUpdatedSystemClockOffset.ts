@@ -1,6 +1,4 @@
 /**
- * @internal
- *
  * Computes an updated system clock offset from a server Date header.
  *
  * When `timeRequestSent` is provided, uses the midpoint formula:
@@ -19,6 +17,7 @@
  * discarded. The detection threshold (4 min) is only used for retry decisions,
  * not for whether to update the offset.
  *
+ * @internal
  * @param clockTime The string value of the Date response header.
  * @param currentSystemClockOffset The current system clock offset in milliseconds.
  * @param timeRequestSent The raw client time (ms) at which the request was sent.

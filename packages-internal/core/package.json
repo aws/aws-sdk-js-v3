@@ -33,7 +33,8 @@
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "browser": {
-    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.browser.js"
+    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.browser.js",
+    "./dist-es/submodules/httpAuthSchemes/index.js": "./dist-es/submodules/httpAuthSchemes/index.browser.js"
   },
   "types": "./dist-types/index.d.ts",
   "typesVersions": {
@@ -47,7 +48,8 @@
     }
   },
   "react-native": {
-    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js"
+    "./dist-es/submodules/client/index.js": "./dist-es/submodules/client/index.native.js",
+    "./dist-es/submodules/httpAuthSchemes/index.js": "./dist-es/submodules/httpAuthSchemes/index.browser.js"
   },
   "exports": {
     ".": {
@@ -74,6 +76,7 @@
     },
     "./httpAuthSchemes": {
       "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts",
+      "react-native": "./dist-es/submodules/httpAuthSchemes/index.browser.js",
       "browser": "./dist-es/submodules/httpAuthSchemes/index.browser.js",
       "module": "./dist-es/submodules/httpAuthSchemes/index.js",
       "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",

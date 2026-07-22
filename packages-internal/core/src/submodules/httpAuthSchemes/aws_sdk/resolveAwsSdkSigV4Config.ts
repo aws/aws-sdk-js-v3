@@ -21,6 +21,8 @@ import type {
   RequestSigner,
 } from "@smithy/types";
 
+import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./clock-skew-config";
+
 /**
  * @public
  */
@@ -58,6 +60,15 @@ export interface AwsSdkSigV4AuthInputConfig {
    * @internal
    */
   signerConstructor?: new (options: SignatureV4Init & SignatureV4CryptoInit) => RequestSigner;
+
+  /**
+   * Whether to disable clock skew correction. When true, the SDK will not adjust
+   * the signing timestamp, will not update the client clock offset from response
+   * headers, and will not retry clock skew errors.
+   *
+   * Defaults to false (correction enabled).
+   */
+  disableClockSkewCorrection?: boolean | Provider<boolean>;
 }
 
 /**
@@ -116,6 +127,10 @@ export interface AwsSdkSigV4AuthResolvedConfig {
    * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.systemClockOffset}
    */
   systemClockOffset: number;
+  /**
+   * Resolved value for input config {@link AwsSdkSigV4AuthInputConfig.disableClockSkewCorrection}
+   */
+  disableClockSkewCorrection: Provider<boolean>;
 }
 
 /**
@@ -263,6 +278,9 @@ export const resolveAwsSdkSigV4Config = <T>(
     systemClockOffset,
     signingEscapePath,
     signer,
+    disableClockSkewCorrection: normalizeProvider(
+      config.disableClockSkewCorrection ?? DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION
+    ),
   });
 
   return resolvedConfig as typeof resolvedConfig & {

@@ -8,11 +8,9 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAws
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
@@ -20,14 +18,12 @@ import software.amazon.smithy.typescript.codegen.SmithyCoreSubmodules;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
-import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
- * Generates disableClockSkewCorrection configuration field for all AWS service clients.
- * When enabled, the SDK will not adjust signing timestamps, will not update the client
- * clock offset from response headers, and will not retry clock skew errors.
+ * Generates disableClockSkewCorrection runtime config field for all AWS service clients.
+ * The input/resolved config types and resolver logic live in resolveAwsSdkSigV4Config.
  */
 @SmithyInternalApi
 public final class AddDisableClockSkewCorrectionRuntimeConfig implements TypeScriptIntegration {
@@ -75,41 +71,5 @@ public final class AddDisableClockSkewCorrectionRuntimeConfig implements TypeScr
             }
         }
         return runtimeConfigs;
-    }
-
-    @Override
-    public List<RuntimeClientPlugin> getClientPlugins() {
-        return List.of(
-            RuntimeClientPlugin.builder()
-                .inputConfig(
-                    Symbol.builder()
-                        .namespace(
-                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes",
-                            "/"
-                        )
-                        .name("DisableClockSkewCorrectionInputConfig")
-                        .build()
-                )
-                .resolvedConfig(
-                    Symbol.builder()
-                        .namespace(
-                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes",
-                            "/"
-                        )
-                        .name("DisableClockSkewCorrectionResolvedConfig")
-                        .build()
-                )
-                .resolveFunction(
-                    Symbol.builder()
-                        .namespace(
-                            AwsDependency.AWS_SDK_CORE.getPackageName() + "/httpAuthSchemes",
-                            "/"
-                        )
-                        .name("resolveDisableClockSkewCorrectionConfig")
-                        .build()
-                )
-                .servicePredicate((m, s) -> isAwsService(s) || isSigV4Service(s))
-                .build()
-        );
     }
 }

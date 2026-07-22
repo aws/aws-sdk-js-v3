@@ -29,17 +29,17 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
       signingRegionSet ?? [signingRegion]
     ).join(",");
 
-    const disabled = (await config.disableClockSkewCorrection?.()) === true;
-    signingProperties._disableClockSkewCorrection = disabled;
+    const noSkewCorrection = (await config.disableClockSkewCorrection?.()) === true;
+    signingProperties._disableClockSkewCorrection = noSkewCorrection;
 
-    if (!disabled) {
+    if (!noSkewCorrection) {
       signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
       // Capture the raw send time (no skew applied) for the midpoint skew formula.
       signingProperties._requestSentAt = Date.now();
     }
 
     const signedRequest = await signer.sign(httpRequest, {
-      signingDate: disabled ? new Date() : getSkewCorrectedDate(config.systemClockOffset),
+      signingDate: noSkewCorrection ? new Date() : getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: multiRegionOverride,
       signingService: signingName,
     });

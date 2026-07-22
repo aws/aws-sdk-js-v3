@@ -118,10 +118,10 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       }
     }
 
-    const disabled = (await config.disableClockSkewCorrection?.()) === true;
-    signingProperties._disableClockSkewCorrection = disabled;
+    const noSkewCorrection = (await config.disableClockSkewCorrection?.()) === true;
+    signingProperties._disableClockSkewCorrection = noSkewCorrection;
 
-    if (!disabled) {
+    if (!noSkewCorrection) {
       // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
       signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
       // Capture the raw send time (no skew applied) for the midpoint skew formula.
@@ -129,7 +129,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     }
 
     const signedRequest = await signer.sign(httpRequest, {
-      signingDate: disabled ? new Date() : getSkewCorrectedDate(config.systemClockOffset),
+      signingDate: noSkewCorrection ? new Date() : getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
       signingService: signingName,
     });
