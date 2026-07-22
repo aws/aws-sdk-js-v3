@@ -1,5 +1,7 @@
 import { type LoadedConfigSelectors, booleanSelector, SelectorType } from "@smithy/core/config";
 
+import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./clock-skew-defaults";
+
 /**
  * @internal
  */
@@ -9,11 +11,6 @@ export const ENV_DISABLE_CLOCK_SKEW_CORRECTION = "AWS_DISABLE_CLOCK_SKEW_CORRECT
  * @internal
  */
 export const CONFIG_DISABLE_CLOCK_SKEW_CORRECTION = "disable_clock_skew_correction";
-
-/**
- * @internal
- */
-export const DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION = false;
 
 /**
  * @internal

@@ -21,7 +21,7 @@ import type {
   RequestSigner,
 } from "@smithy/types";
 
-import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./clock-skew-config";
+import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./clock-skew-defaults";
 
 /**
  * @public
