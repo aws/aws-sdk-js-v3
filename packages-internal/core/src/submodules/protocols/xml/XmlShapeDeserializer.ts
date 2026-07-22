@@ -7,6 +7,7 @@ import type { Schema, SerdeFunctions, ShapeDeserializer } from "@smithy/types";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import { UnionSerde } from "../UnionSerde";
+import { writeKey } from "../writeKey";
 import type { XmlSettings } from "./XmlCodec";
 
 /**
@@ -112,6 +113,9 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
         for (const entry of entries) {
           const key = entry[keyProperty];
           const value = entry[valueProperty];
+          if (key === "__proto__") {
+            writeKey(buffer);
+          }
           buffer[key] = this.readSchema(memberNs, value);
         }
         return buffer;

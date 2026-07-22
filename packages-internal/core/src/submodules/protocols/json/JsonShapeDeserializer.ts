@@ -22,6 +22,7 @@ import { UnionSerde } from "../UnionSerde";
 import type { JsonSettings } from "./JsonCodec";
 import { jsonReviver } from "./jsonReviver";
 import { parseJsonBody } from "./parseJsonBody";
+import { writeKey } from "../writeKey";
 
 /**
  * @public
@@ -103,6 +104,9 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
         const mapMember = ns.getValueSchema();
         const out = {} as any;
         for (const _k in value) {
+          if (_k === "__proto__") {
+            writeKey(out);
+          }
           out[_k] = this._read(mapMember, (value as Record<string, unknown>)[_k]);
         }
         return out;
@@ -168,6 +172,9 @@ export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDe
       if (isObject) {
         const out = Array.isArray(value) ? [] : ({} as any);
         for (const k in value) {
+          if (k === "__proto__") {
+            writeKey(out);
+          }
           const v = (value as Record<string, unknown>)[k];
           if (v instanceof NumericValue) {
             out[k] = v;

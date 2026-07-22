@@ -19,28 +19,12 @@ import type {
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import { UnionSerde } from "../../UnionSerde";
+import { detectBufferParsing } from "../detectBufferParsing";
 import type { JsonSettings } from "../JsonCodec";
 import { jsonReviver } from "../jsonReviver";
+import { needsReviver } from "../needsReviver";
 import { parseJsonBody } from "../parseJsonBody";
-
-/**
- * One-time detection: can JSON.parse accept a Uint8Array/Buffer directly?
- * Node.js 22+ supports this, browsers and older runtimes do not.
- */
-let canParseBuffer: boolean | undefined;
-
-function detectBufferParsing(): boolean {
-  if (canParseBuffer === undefined) {
-    try {
-      // 0x7b 0x7d = "{}"
-      const result = JSON.parse(new Uint8Array([0x7b, 0x7d]) as any);
-      canParseBuffer = result !== null && typeof result === "object";
-    } catch {
-      canParseBuffer = false;
-    }
-  }
-  return canParseBuffer;
-}
+import { writeKey } from "../../writeKey";
 
 /**
  * Performance-optimized JSON deserializer.
@@ -66,12 +50,14 @@ export class BufferJsonShapeDeserializer extends SerdeContextConfig implements S
   }
 
   public async read(schema: Schema, data: string | Uint8Array | unknown): Promise<any> {
+    const reviver = needsReviver(schema) ? jsonReviver : undefined;
     let parsed: unknown;
     if (typeof data === "string") {
-      parsed = JSON.parse(data, jsonReviver);
+      parsed = JSON.parse(data, reviver);
     } else if (data instanceof Uint8Array && detectBufferParsing()) {
-      // Fast path: skip UTF-8 decode, parse bytes directly.
-      parsed = JSON.parse(data as any, jsonReviver);
+      // detectBufferParsing() guarantees Buffer exists globally.
+      const buf = Buffer.isBuffer(data) ? data : Buffer.from(data.buffer, data.byteOffset, data.byteLength);
+      parsed = JSON.parse(buf as any, reviver);
     } else {
       // Fallback: collect stream to string, then parse.
       parsed = await parseJsonBody(data, this.serdeContext!);
@@ -103,6 +89,9 @@ export class BufferJsonShapeDeserializer extends SerdeContextConfig implements S
         const mapMember = ns.getValueSchema();
         const map = value as Record<string, unknown>;
         for (const k in map) {
+          if (k === "__proto__") {
+            writeKey(map);
+          }
           map[k] = this._read(mapMember, map[k]);
         }
         return map;
@@ -177,6 +166,9 @@ export class BufferJsonShapeDeserializer extends SerdeContextConfig implements S
         } else {
           const doc = value as Record<string, unknown>;
           for (const k in doc) {
+            if (k === "__proto__") {
+              writeKey(doc);
+            }
             const v = doc[k];
             if (!(v instanceof NumericValue)) {
               doc[k] = this._read(ns, v);

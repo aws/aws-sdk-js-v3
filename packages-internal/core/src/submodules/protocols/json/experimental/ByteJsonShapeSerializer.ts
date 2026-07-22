@@ -12,6 +12,7 @@ import type {
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import type { JsonSettings } from "../JsonCodec";
+import { writeKey } from "../../writeKey";
 
 const encoder = new TextEncoder();
 
@@ -210,11 +211,10 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
         // ASCII range — check if it needs escaping
         const esc = ESCAPE_TABLE[c];
         if (esc !== null) {
-          // Write back before potential ensure
           this.ensure(esc.length + 1);
           this.json[this.i++] = BACKSLASH;
-          for (let j = 0; j < esc.length; j++) {
-            this.json[this.i++] = esc.charCodeAt(j);
+          for (let k = 0; k < esc.length; k++) {
+            this.json[this.i++] = esc.charCodeAt(k);
           }
         } else {
           this.json[this.i++] = c;
@@ -539,10 +539,37 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
   }
 
   private writeMap(ns: NormalizedSchema, value: Record<string, unknown>, isDocument?: boolean): void {
-    this.ensure(2);
-    this.json[this.i++] = OPEN_BRACE;
     const sparse = !!ns.getMergedTraits().sparse;
     const valueSchema = ns.getValueSchema();
+
+    // Fast path: when value type is a JSON-native primitive (string, number, boolean),
+    // delegate the entire map to JSON.stringify + encodeInto.
+    // This leverages V8's native C++ string escaping which is significantly faster than
+    // character-by-character escaping in JS for string-heavy maps.
+    if (!isDocument) {
+      if (valueSchema.isStringSchema() || valueSchema.isNumericSchema() || valueSchema.isBooleanSchema()) {
+        // For sparse maps, JSON.stringify omits undefined values instead of writing null.
+        // Convert undefined → null to match production serializer behavior.
+        let input: Record<string, unknown> = value;
+        if (sparse) {
+          input = {};
+          for (const k in value) {
+            if (k === "__proto__") {
+              writeKey(input);
+            }
+            input[k] = value[k] ?? null;
+          }
+        }
+        const json = JSON.stringify(input);
+        this.ensure(json.length * 3); // worst-case UTF-8 expansion
+        const { written } = encoder.encodeInto(json, this.json.subarray(this.i));
+        this.i += written!;
+        return;
+      }
+    }
+
+    this.ensure(2);
+    this.json[this.i++] = OPEN_BRACE;
     let first = true;
 
     for (const k in value) {

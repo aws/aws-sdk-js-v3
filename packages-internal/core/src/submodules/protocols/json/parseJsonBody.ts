@@ -1,26 +1,55 @@
-import type { HttpResponse, SerdeFunctions } from "@smithy/types";
+import type { HttpResponse, Schema, SerdeFunctions } from "@smithy/types";
 
 import { collectBodyString } from "../common";
+import { detectBufferParsing } from "./detectBufferParsing";
+import { jsonReviver } from "./jsonReviver";
+import { needsReviver } from "./needsReviver";
 
 /**
  * @internal
  */
-export const parseJsonBody = (streamBody: any, context: SerdeFunctions): any =>
-  collectBodyString(streamBody, context).then((encoded) => {
-    if (encoded.length) {
-      try {
-        return JSON.parse(encoded);
-      } catch (e: any) {
-        if (e?.name === "SyntaxError") {
-          Object.defineProperty(e, "$responseBodyText", {
-            value: encoded,
-          });
-        }
-        throw e;
-      }
+export const parseJsonBody = async (streamBody: any, context: SerdeFunctions, schema?: Schema): Promise<any> => {
+  // Fast path: if streamBody is an async iterable and JSON.parse(Buffer) is supported,
+  // collect chunks directly and parse the concatenated Buffer without UTF-8 decode.
+  let parsingInput: any;
+
+  if (detectBufferParsing() && typeof streamBody?.[Symbol.asyncIterator] === "function") {
+    const chunks: any[] = [];
+    for await (const chunk of streamBody) {
+      chunks.push(chunk);
     }
-    return {};
-  });
+    if (chunks.length > 0) {
+      const buffer = Buffer.concat(chunks);
+      if (buffer.byteLength === 0) {
+        return {};
+      }
+      parsingInput = buffer;
+    }
+  }
+
+  if (!parsingInput) {
+    // Fallback: collect to string, then parse.
+    const encoded = await collectBodyString(streamBody, context);
+    if (encoded.length) {
+      parsingInput = encoded;
+    } else {
+      return {};
+    }
+  }
+
+  const reviver = schema && !needsReviver(schema) ? undefined : jsonReviver;
+
+  try {
+    return JSON.parse(parsingInput, reviver);
+  } catch (e: any) {
+    if (e?.name === "SyntaxError") {
+      Object.defineProperty(e, "$responseBodyText", {
+        value: typeof parsingInput === "string" ? parsingInput : parsingInput.toString("utf8"),
+      });
+    }
+    throw e;
+  }
+};
 
 /**
  * @internal

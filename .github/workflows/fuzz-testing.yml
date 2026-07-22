@@ -52,12 +52,11 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        working-directory: packages-internal/xml-builder
         run: yarn install
 
       - name: Build parser
         working-directory: packages-internal/xml-builder
-        run: yarn build:cjs
+        run: yarn build
 
       - name: Restore fuzz corpus
         uses: actions/cache/restore@v4
