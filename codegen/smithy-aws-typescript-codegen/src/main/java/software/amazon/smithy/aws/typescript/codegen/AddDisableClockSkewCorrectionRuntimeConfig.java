@@ -47,13 +47,7 @@ public final class AddDisableClockSkewCorrectionRuntimeConfig implements TypeScr
             switch (target) {
                 case BROWSER:
                     runtimeConfigs.put("disableClockSkewCorrection", writer -> {
-                        writer.addImportSubmodule(
-                            "DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION",
-                            null,
-                            AwsDependency.AWS_SDK_CORE,
-                            "/httpAuthSchemes"
-                        );
-                        writer.write("(() => Promise.resolve(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION))");
+                        writer.write("false");
                     });
                     break;
                 case NODE:

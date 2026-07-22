@@ -3,7 +3,6 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
-import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "@aws-sdk/core/httpAuthSchemes";
 import { blobHasher as streamHasher } from "@smithy/core/checksum";
 import { invalidFunction, invalidProvider, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
@@ -38,7 +37,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? (() => Promise.resolve(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION)),
+    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? false,
     disableRequestCompression: config?.disableRequestCompression ?? DEFAULT_DISABLE_REQUEST_COMPRESSION,
     eventStreamPayloadHandlerProvider: config?.eventStreamPayloadHandlerProvider ?? (() => ({
       handle: invalidFunction("event stream request is not supported in browser."),

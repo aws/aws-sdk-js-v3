@@ -74,6 +74,7 @@
     },
     "./httpAuthSchemes": {
       "types": "./dist-types/submodules/httpAuthSchemes/index.d.ts",
+      "browser": "./dist-es/submodules/httpAuthSchemes/index.browser.js",
       "module": "./dist-es/submodules/httpAuthSchemes/index.js",
       "node": "./dist-cjs/submodules/httpAuthSchemes/index.js",
       "import": "./dist-es/submodules/httpAuthSchemes/index.js",
