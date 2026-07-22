@@ -405,6 +405,7 @@ const _rIIDe = "recoveryInstanceIDs";
 const _rIP = "recoveryInstanceProperties";
 const _rIT = "recommendedInstanceType";
 const _rIu = "runId";
+const _rM = "recoveryMode";
 const _rS = "replicationStatus";
 const _rSB = "replicatedStorageBytes";
 const _rSBe = "rescannedStorageBytes";
@@ -601,8 +602,8 @@ export var CreateExtendedSourceServerResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CLCTR,
   0,
-  [_t, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI],
-  [[() => TagsMap, 0], 0, 0, 2, 2, () => Licensing$, 0, 2, 2]
+  [_t, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI, _rM],
+  [[() => TagsMap, 0], 0, 0, 2, 2, () => Licensing$, 0, 2, 2, 0]
 ];
 export var CreateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [3, n0, _CLCTRr,
   0,
@@ -921,13 +922,13 @@ export var LaunchActionsStatus$: StaticStructureSchema = [3, n0, _LAS,
 ];
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
-  [_sSID, _n, _eLTID, _lD, _tITRSM, _cPI, _cT, _l, _pLE, _lIIP],
-  [0, 0, 0, 0, 0, 2, 2, () => Licensing$, 2, () => LaunchIntoInstanceProperties$]
+  [_sSID, _n, _eLTID, _lD, _tITRSM, _cPI, _cT, _l, _pLE, _lIIP, _rM],
+  [0, 0, 0, 0, 0, 2, 2, () => Licensing$, 2, () => LaunchIntoInstanceProperties$, 0]
 ];
 export var LaunchConfigurationTemplate$: StaticStructureSchema = [3, n0, _LCT,
   0,
-  [_lCTID, _a, _t, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI],
-  [0, 0, [() => TagsMap, 0], 0, 0, 2, 2, () => Licensing$, 0, 2, 2]
+  [_lCTID, _a, _t, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI, _rM],
+  [0, 0, [() => TagsMap, 0], 0, 0, 2, 2, () => Licensing$, 0, 2, 2, 0]
 ];
 export var LaunchIntoInstanceProperties$: StaticStructureSchema = [3, n0, _LIIP,
   0,
@@ -1266,13 +1267,13 @@ export var UpdateFailbackReplicationConfigurationRequest$: StaticStructureSchema
 ];
 export var UpdateLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _ULCR,
   0,
-  [_sSID, _n, _lD, _tITRSM, _cPI, _cT, _l, _pLE, _lIIP],
-  [0, 0, 0, 0, 2, 2, () => Licensing$, 2, () => LaunchIntoInstanceProperties$], 1
+  [_sSID, _n, _lD, _tITRSM, _cPI, _cT, _l, _pLE, _lIIP, _rM],
+  [0, 0, 0, 0, 2, 2, () => Licensing$, 2, () => LaunchIntoInstanceProperties$, 0], 1
 ];
 export var UpdateLaunchConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _ULCTR,
   0,
-  [_lCTID, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI],
-  [0, 0, 0, 2, 2, () => Licensing$, 0, 2, 2], 1
+  [_lCTID, _lD, _tITRSM, _cPI, _cT, _l, _eBA, _pLE, _lISI, _rM],
+  [0, 0, 0, 2, 2, () => Licensing$, 0, 2, 2, 0], 1
 ];
 export var UpdateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [3, n0, _ULCTRp,
   0,

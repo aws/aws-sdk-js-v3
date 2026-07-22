@@ -15,6 +15,7 @@ const _ARCS = "ArcRoutingControlState";
 const _ARCSr = "ArcRoutingControlStates";
 const _ASSC = "AuroraServerlessScalingConfiguration";
 const _CALC = "CustomActionLambdaConfiguration";
+const _CE = "ConflictException";
 const _CP = "CreatePlan";
 const _CPE = "CancelPlanExecution";
 const _CPER = "CancelPlanExecutionRequest";
@@ -169,6 +170,7 @@ const _cA = "clusterArn";
 const _cALC = "customActionLambdaConfig";
 const _cAR = "crossAccountRole";
 const _cMA = "capacityMonitoringApproach";
+const _cT = "clientToken";
 const _co = "comment";
 const _con = "conditions";
 const _cond = "condition";
@@ -243,18 +245,20 @@ const _rEI = "recoveryExecutionId";
 const _rESM = "regionEventSourceMappings";
 const _rGT = "reportGenerationTime";
 const _rHCC = "route53HealthCheckConfig";
-const _rI = "resourceIdentifier";
+const _rI = "resourceId";
 const _rIM = "retryIntervalMinutes";
+const _rIe = "resourceIdentifier";
 const _rN = "recordName";
 const _rO = "reportOutput";
 const _rPRRC = "rdsPromoteReadReplicaConfig";
 const _rS = "recordSets";
 const _rSI = "recordSetIdentifier";
 const _rSPC = "regionSwitchPlanConfig";
-const _rT = "resourceTags";
+const _rT = "resourceType";
 const _rTK = "resourceTagKeys";
 const _rTOM = "recoveryTimeObjectiveMinutes";
 const _rTR = "regionToRun";
+const _rTe = "resourceTags";
 const _re = "resources";
 const _reg = "region";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.arcregionswitch";
@@ -307,6 +311,7 @@ import type {
 import { ARCRegionSwitchServiceException } from "../models/ARCRegionSwitchServiceException";
 import {
   AccessDeniedException,
+  ConflictException,
   IllegalArgumentException,
   IllegalStateException,
   InternalServerException,
@@ -324,6 +329,12 @@ export var AccessDeniedException$: StaticErrorSchema = [-3, n0, _ADE,
   [0], 1
 ];
 n0_registry.registerError(AccessDeniedException$, AccessDeniedException);
+export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
+  { [_e]: _c, [_hE]: 409 },
+  [_m, _rI, _rT],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(ConflictException$, ConflictException);
 export var IllegalArgumentException$: StaticErrorSchema = [-3, n0, _IAE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -394,7 +405,7 @@ export var Asg$: StaticStructureSchema = [3, n0, _A,
 ];
 export var AssociatedAlarm$: StaticStructureSchema = [3, n0, _AA,
   0,
-  [_rI, _aT, _cAR, _eIx],
+  [_rIe, _aT, _cAR, _eIx],
   [0, 0, 0, 0], 2
 ];
 export var AuroraProvisionedScalingConfiguration$: StaticStructureSchema = [3, n0, _APSC,
@@ -659,7 +670,7 @@ export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_rT],
+  [_rTe],
   [128 | 0]
 ];
 export var MinimalWorkflow$: StaticStructureSchema = [3, n0, _MW,
@@ -744,8 +755,8 @@ export var Service$: StaticStructureSchema = [3, n0, _S,
 ];
 export var StartPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SPER,
   0,
-  [_pA, _tR, _ac, _mo, _co, _lV, _rEI],
-  [0, 0, 0, 0, 0, 0, 0], 3
+  [_pA, _tR, _ac, _mo, _co, _lV, _rEI, _cT],
+  [0, 0, 0, 0, 0, 0, 0, [0, 4]], 3
 ];
 export var StartPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SPERt,
   0,

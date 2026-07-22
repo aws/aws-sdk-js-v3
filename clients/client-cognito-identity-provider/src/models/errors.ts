@@ -1193,6 +1193,26 @@ export class WebAuthnConfigurationMissingException extends __BaseException {
 }
 
 /**
+ * <p>The request exceeded your account's service quota. To increase your limit, use  or submit a Service Quotas increase request.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when there is a code mismatch and the service fails to
  *             configure the software token TOTP multi-factor authentication (MFA).</p>
  * @public

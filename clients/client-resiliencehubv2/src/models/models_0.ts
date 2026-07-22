@@ -4,6 +4,7 @@ import type {
   ActorType,
   AssertionSource,
   AssessmentErrorCode,
+  AssessmentSortField,
   AssessmentStatus,
   AssessmentStep,
   CostCurrency,
@@ -27,6 +28,7 @@ import type {
   ServiceEventType,
   ServiceFunctionCriticality,
   ServiceFunctionSource,
+  SortOrder,
   SystemEventType,
   TopologyType,
 } from "./enums";
@@ -53,6 +55,12 @@ export interface Achievability {
    * @public
    */
   multiRegionRtoRpo?: AchievabilityStatus | undefined;
+
+  /**
+   * <p>The achievability status of the data recovery time between backups for the service.</p>
+   * @public
+   */
+  dataRecoveryTimeBetweenBackups?: AchievabilityStatus | undefined;
 }
 
 /**
@@ -1077,6 +1085,18 @@ export interface DependencyDiscoveryConfig {
    * @public
    */
   updatedAt?: Date | undefined;
+
+  /**
+   * <p>The count of resources eligible for dependency attribution.</p>
+   * @public
+   */
+  eligibleResourceCount?: number | undefined;
+
+  /**
+   * <p>A status message for dependency discovery, displayed during the initialization state.</p>
+   * @public
+   */
+  message?: string | undefined;
 }
 
 /**
@@ -2769,6 +2789,36 @@ export interface ListFailureModeAssessmentsRequest {
   serviceArn: string | undefined;
 
   /**
+   * <p>Specifies the assessment statuses to include in the results.</p>
+   * @public
+   */
+  assessmentStatuses?: AssessmentStatus[] | undefined;
+
+  /**
+   * <p>Specifies that only assessments that started at or after this timestamp appear in the results.</p>
+   * @public
+   */
+  startedAfter?: Date | undefined;
+
+  /**
+   * <p>Specifies that only assessments that ended at or before this timestamp appear in the results.</p>
+   * @public
+   */
+  endedBefore?: Date | undefined;
+
+  /**
+   * <p>The field to use for sorting failure mode assessments.</p>
+   * @public
+   */
+  sortBy?: AssessmentSortField | undefined;
+
+  /**
+   * <p>The sort order for results.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
    * <p>Pagination page size.</p>
    * @public
    */
@@ -3063,6 +3113,18 @@ export interface ListResourcesRequest {
    * @public
    */
   awsRegion?: string | undefined;
+
+  /**
+   * <p>The CloudFormation resource types to include in the response.</p>
+   * @public
+   */
+  resourceTypes?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to filter non-billable resources. When true (the default), the operation returns only billable resources.</p>
+   * @public
+   */
+  billable?: boolean | undefined;
 
   /**
    * <p>Pagination page size.</p>
@@ -4414,6 +4476,30 @@ export interface ServiceTopologyEdgeSummary {
    * @public
    */
   destinationResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The AWS Region of the source resource.</p>
+   * @public
+   */
+  sourceRegion?: string | undefined;
+
+  /**
+   * <p>The AWS Region of the destination resource.</p>
+   * @public
+   */
+  destinationRegion?: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the source resource.</p>
+   * @public
+   */
+  sourceAccount?: string | undefined;
+
+  /**
+   * <p>The AWS account ID of the destination resource.</p>
+   * @public
+   */
+  destinationAccount?: string | undefined;
 
   /**
    * <p>The properties of the topology edge.</p>

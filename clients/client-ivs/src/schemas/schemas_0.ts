@@ -126,6 +126,7 @@ const _PKPL = "PlaybackKeyPairList";
 const _PKPS = "PlaybackKeyPairSummary";
 const _PM = "PutMetadata";
 const _PMR = "PutMetadataRequest";
+const _PRC = "PostRollConfiguration";
 const _PRP = "PlaybackRestrictionPolicy";
 const _PRPL = "PlaybackRestrictionPolicyList";
 const _PRPS = "PlaybackRestrictionPolicySummary";
@@ -252,6 +253,7 @@ const _nT = "nextToken";
 const _p = "preset";
 const _pCA = "playbackConfigurationArn";
 const _pKM = "publicKeyMaterial";
+const _pRC = "postRollConfiguration";
 const _pRP = "playbackRestrictionPolicy";
 const _pRPA = "playbackRestrictionPolicyArn";
 const _pRPl = "playbackRestrictionPolicies";
@@ -420,13 +422,13 @@ var StreamKeyValue: StaticSimpleSchema = [0, n0, _SKV, 8, 0];
 var StreamMetadata: StaticSimpleSchema = [0, n0, _SM, 8, 0];
 export var AdConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
-  [_a, _mTPC, _n, _t],
-  [0, () => MediaTailorPlaybackConfigurationsList, 0, 128 | 0], 2
+  [_a, _mTPC, _n, _pRC, _t],
+  [0, () => MediaTailorPlaybackConfigurationsList, 0, () => PostRollConfiguration$, 128 | 0], 2
 ];
 export var AdConfigurationSummary$: StaticStructureSchema = [3, n0, _ACS,
   0,
-  [_a, _mTPC, _n, _t],
-  [0, () => MediaTailorPlaybackConfigurationsList, 0, 128 | 0], 2
+  [_a, _mTPC, _n, _pRC, _t],
+  [0, () => MediaTailorPlaybackConfigurationsList, 0, () => PostRollConfiguration$, 128 | 0], 2
 ];
 export var AudioConfiguration$: StaticStructureSchema = [3, n0, _ACu,
   0,
@@ -490,8 +492,8 @@ export var ChannelSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateAdConfigurationRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
-  [_mTPC, _n, _t],
-  [() => MediaTailorPlaybackConfigurationsList, 0, 128 | 0], 1
+  [_mTPC, _n, _pRC, _t],
+  [() => MediaTailorPlaybackConfigurationsList, 0, () => PostRollConfiguration$, 128 | 0], 1
 ];
 export var CreateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _CACRr,
   0,
@@ -808,6 +810,11 @@ export var PlaybackRestrictionPolicySummary$: StaticStructureSchema = [3, n0, _P
   [_a, _aCl, _aO, _eSOE, _n, _t],
   [0, 64 | 0, 64 | 0, 2, 0, 128 | 0], 3
 ];
+export var PostRollConfiguration$: StaticStructureSchema = [3, n0, _PRC,
+  0,
+  [_dS, _en],
+  [1, 2], 2
+];
 export var PutMetadataRequest$: StaticStructureSchema = [3, n0, _PMR,
   0,
   [_cA, _me],
@@ -925,8 +932,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAdConfigurationRequest$: StaticStructureSchema = [3, n0, _UACR,
   0,
-  [_a, _n, _mTPC],
-  [0, 0, () => MediaTailorPlaybackConfigurationsList], 1
+  [_a, _n, _mTPC, _pRC],
+  [0, 0, () => MediaTailorPlaybackConfigurationsList, () => PostRollConfiguration$], 1
 ];
 export var UpdateAdConfigurationResponse$: StaticStructureSchema = [3, n0, _UACRp,
   0,

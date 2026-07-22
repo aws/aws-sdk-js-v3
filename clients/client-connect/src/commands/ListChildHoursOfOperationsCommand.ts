@@ -24,7 +24,7 @@ export interface ListChildHoursOfOperationsCommandOutput extends ListChildHoursO
 
 /**
  * <p>Provides information about the child hours of operations for the specified parent hours of operation.</p>
- *          <p>For more information about child hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Link overrides from different hours of operation</a> in the
+ *          <p>For more information about child hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
  *      <i> Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

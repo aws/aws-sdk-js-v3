@@ -1,7 +1,22 @@
 {
   "name": "@aws-sdk/crt-loader",
-  "version": "3.972.56",
+  "version": "3.972.64",
   "description": "Loader for AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/crt-loader",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/crt-loader"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": true,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -15,14 +30,8 @@
     "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local"
   },
-  "sideEffects": true,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
+    "@aws-sdk/core": "workspace:^3.976.0",
     "aws-crt": "^1.31.0",
     "tslib": "^2.6.2"
   },
@@ -35,14 +44,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/crt-loader",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/crt-loader"
   }
 }

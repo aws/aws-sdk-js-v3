@@ -999,6 +999,87 @@ export interface AggregatorV2 {
 }
 
 /**
+ * <p>Contains information about self-hosted AI resources and their host resources. The fields that are present depend on the role of the resource.</p>
+ *          <p>On a self-hosted AI resource (a resource with a <code>SelfHosted::AI::</code> resource type, such as <code>SelfHosted::AI::Model</code> or <code>SelfHosted::AI::Agent</code>), the <code>HostResourceGuid</code> and <code>HostResourceType</code> fields link the resource to its host. The <code>CanonicalId</code> field identifies what the resource is, enabling aggregation of identical resources across multiple hosts.</p>
+ *          <p>On a host resource (such as an Amazon EC2 instance), the <code>SelfHostedAI*ResourceCount</code> fields contain the count for each <code>ResourceSubCategory</code> and the total count of self-hosted AI resources detected on the host.</p>
+ * @public
+ */
+export interface AIDetails {
+  /**
+   * <p>The identifier of the host resource that hosts the self-hosted AI resource. Present only on self-hosted AI resources.</p>
+   * @public
+   */
+  HostResourceGuid?: string | undefined;
+
+  /**
+   * <p>The <code>ResourceType</code> of the host resource that hosts the self-hosted AI resource, such as <code>AWS::EC2::Instance</code>. Present only on self-hosted AI resources.</p>
+   * @public
+   */
+  HostResourceType?: string | undefined;
+
+  /**
+   * <p>The canonical identifier for the AI resource, independent of where it is deployed. Multiple occurrences of the same resource on different hosts share the same <code>CanonicalId</code>. For model resources, the value follows the format <code>model/<purl></code>, such as <code>model/pkg:huggingface/meta-llama/llama-3-8b</code>. Present only on self-hosted AI resources.</p>
+   * @public
+   */
+  CanonicalId?: string | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>Model</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIModelResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>Agent</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIAgentResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>ModelServing</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIModelServingResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>ExternalEndpoint</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIExternalEndpointResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>Development</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIDevelopmentResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>AgentFramework</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIAgentFrameworkResourceCount?: number | undefined;
+
+  /**
+   * <p>The number of self-hosted AI resources of <code>ResourceSubCategory</code>
+   *             <code>AgentToolsAndIdentity</code> detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedAIAgentToolsAndIdentityResourceCount?: number | undefined;
+
+  /**
+   * <p>The total number of all self-hosted AI resources detected on the host resource. Present only on host resources.</p>
+   * @public
+   */
+  SelfHostedTotalAIResourceCount?: number | undefined;
+}
+
+/**
  * <p>
  *          Information about an enabled security standard in which a security control is enabled.
  *       </p>
@@ -1912,6 +1993,24 @@ export interface AutomationRulesFindingFilters {
    * @public
    */
   AwsAccountName?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * @public
+   */
+  ResourceProvider?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id</p>
+   * @public
+   */
+  ResourceOwnerOrgId?: StringFilter[] | undefined;
 }
 
 /**
@@ -13005,40 +13104,4 @@ export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationC
    * @public
    */
   Iam?: string | undefined;
-}
-
-/**
- * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
-  /**
-   * <p>The authorization configuration details for the Amazon EFS file system.</p>
-   * @public
-   */
-  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails | undefined;
-
-  /**
-   * <p>The Amazon EFS file system identifier to use.</p>
-   * @public
-   */
-  FilesystemId?: string | undefined;
-
-  /**
-   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
-   * @public
-   */
-  RootDirectory?: string | undefined;
-
-  /**
-   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
-   * @public
-   */
-  TransitEncryption?: string | undefined;
-
-  /**
-   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
-   * @public
-   */
-  TransitEncryptionPort?: number | undefined;
 }

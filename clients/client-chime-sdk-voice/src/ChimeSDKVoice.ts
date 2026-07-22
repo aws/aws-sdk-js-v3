@@ -2048,7 +2048,6 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link UpdateGlobalSettingsCommand}
    */
-  updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions

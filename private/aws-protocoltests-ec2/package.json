@@ -1,7 +1,39 @@
 {
   "name": "@aws-sdk/aws-protocoltests-ec2",
+  "version": "3.1093.0",
+  "private": true,
   "description": "@aws-sdk/aws-protocoltests-ec2 client",
-  "version": "3.1078.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-ec2",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/aws-protocoltests-ec2"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -15,19 +47,15 @@
     "test:integration": "yarn g:vitest run --passWithNoTests -c vitest.config.integ.mts",
     "test:integration:watch": "yarn g:vitest watch --passWithNoTests -c vitest.config.integ.mts"
   },
-  "main": "./dist-cjs/index.js",
-  "types": "./dist-types/index.d.ts",
-  "module": "./dist-es/index.js",
-  "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.61",
-    "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
-    "@smithy/fetch-http-handler": "^5.6.2",
-    "@smithy/middleware-compression": "^4.5.5",
-    "@smithy/node-http-handler": "^4.9.2",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
+    "@aws-sdk/types": "workspace:^3.974.2",
+    "@smithy/core": "^3.29.4",
+    "@smithy/fetch-http-handler": "^5.6.6",
+    "@smithy/middleware-compression": "^4.5.9",
+    "@smithy/node-http-handler": "^4.9.6",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -41,33 +69,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
-  },
-  "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
-  },
-  "private": true,
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-ec2",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/aws-protocoltests-ec2"
   }
 }

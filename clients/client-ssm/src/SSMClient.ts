@@ -76,6 +76,10 @@ import type {
   CreateAssociationCommandInput,
   CreateAssociationCommandOutput,
 } from "./commands/CreateAssociationCommand";
+import type {
+  CreateCloudConnectorCommandInput,
+  CreateCloudConnectorCommandOutput,
+} from "./commands/CreateCloudConnectorCommand";
 import type { CreateDocumentCommandInput, CreateDocumentCommandOutput } from "./commands/CreateDocumentCommand";
 import type {
   CreateMaintenanceWindowCommandInput,
@@ -99,6 +103,10 @@ import type {
   DeleteAssociationCommandInput,
   DeleteAssociationCommandOutput,
 } from "./commands/DeleteAssociationCommand";
+import type {
+  DeleteCloudConnectorCommandInput,
+  DeleteCloudConnectorCommandOutput,
+} from "./commands/DeleteCloudConnectorCommand";
 import type { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
 import type { DeleteInventoryCommandInput, DeleteInventoryCommandOutput } from "./commands/DeleteInventoryCommand";
 import type {
@@ -274,6 +282,10 @@ import type {
 } from "./commands/GetAutomationExecutionCommand";
 import type { GetCalendarStateCommandInput, GetCalendarStateCommandOutput } from "./commands/GetCalendarStateCommand";
 import type {
+  GetCloudConnectorCommandInput,
+  GetCloudConnectorCommandOutput,
+} from "./commands/GetCloudConnectorCommand";
+import type {
   GetCommandInvocationCommandInput,
   GetCommandInvocationCommandOutput,
 } from "./commands/GetCommandInvocationCommand";
@@ -354,6 +366,10 @@ import type {
   ListAssociationVersionsCommandInput,
   ListAssociationVersionsCommandOutput,
 } from "./commands/ListAssociationVersionsCommand";
+import type {
+  ListCloudConnectorsCommandInput,
+  ListCloudConnectorsCommandOutput,
+} from "./commands/ListCloudConnectorsCommand";
 import type {
   ListCommandInvocationsCommandInput,
   ListCommandInvocationsCommandOutput,
@@ -485,6 +501,10 @@ import type {
   UpdateAssociationStatusCommandInput,
   UpdateAssociationStatusCommandOutput,
 } from "./commands/UpdateAssociationStatusCommand";
+import type {
+  UpdateCloudConnectorCommandInput,
+  UpdateCloudConnectorCommandOutput,
+} from "./commands/UpdateCloudConnectorCommand";
 import type { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
 import type {
   UpdateDocumentDefaultVersionCommandInput,
@@ -527,6 +547,10 @@ import type {
   UpdateServiceSettingCommandInput,
   UpdateServiceSettingCommandOutput,
 } from "./commands/UpdateServiceSettingCommand";
+import type {
+  ValidateCloudConnectorCommandInput,
+  ValidateCloudConnectorCommandOutput,
+} from "./commands/ValidateCloudConnectorCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -549,6 +573,7 @@ export type ServiceInputTypes =
   | CreateActivationCommandInput
   | CreateAssociationBatchCommandInput
   | CreateAssociationCommandInput
+  | CreateCloudConnectorCommandInput
   | CreateDocumentCommandInput
   | CreateMaintenanceWindowCommandInput
   | CreateOpsItemCommandInput
@@ -557,6 +582,7 @@ export type ServiceInputTypes =
   | CreateResourceDataSyncCommandInput
   | DeleteActivationCommandInput
   | DeleteAssociationCommandInput
+  | DeleteCloudConnectorCommandInput
   | DeleteDocumentCommandInput
   | DeleteInventoryCommandInput
   | DeleteMaintenanceWindowCommandInput
@@ -608,6 +634,7 @@ export type ServiceInputTypes =
   | GetAccessTokenCommandInput
   | GetAutomationExecutionCommandInput
   | GetCalendarStateCommandInput
+  | GetCloudConnectorCommandInput
   | GetCommandInvocationCommandInput
   | GetConnectionStatusCommandInput
   | GetDefaultPatchBaselineCommandInput
@@ -635,6 +662,7 @@ export type ServiceInputTypes =
   | LabelParameterVersionCommandInput
   | ListAssociationVersionsCommandInput
   | ListAssociationsCommandInput
+  | ListCloudConnectorsCommandInput
   | ListCommandInvocationsCommandInput
   | ListCommandsCommandInput
   | ListComplianceItemsCommandInput
@@ -676,6 +704,7 @@ export type ServiceInputTypes =
   | UnlabelParameterVersionCommandInput
   | UpdateAssociationCommandInput
   | UpdateAssociationStatusCommandInput
+  | UpdateCloudConnectorCommandInput
   | UpdateDocumentCommandInput
   | UpdateDocumentDefaultVersionCommandInput
   | UpdateDocumentMetadataCommandInput
@@ -687,7 +716,8 @@ export type ServiceInputTypes =
   | UpdateOpsMetadataCommandInput
   | UpdatePatchBaselineCommandInput
   | UpdateResourceDataSyncCommandInput
-  | UpdateServiceSettingCommandInput;
+  | UpdateServiceSettingCommandInput
+  | ValidateCloudConnectorCommandInput;
 
 /**
  * @public
@@ -700,6 +730,7 @@ export type ServiceOutputTypes =
   | CreateActivationCommandOutput
   | CreateAssociationBatchCommandOutput
   | CreateAssociationCommandOutput
+  | CreateCloudConnectorCommandOutput
   | CreateDocumentCommandOutput
   | CreateMaintenanceWindowCommandOutput
   | CreateOpsItemCommandOutput
@@ -708,6 +739,7 @@ export type ServiceOutputTypes =
   | CreateResourceDataSyncCommandOutput
   | DeleteActivationCommandOutput
   | DeleteAssociationCommandOutput
+  | DeleteCloudConnectorCommandOutput
   | DeleteDocumentCommandOutput
   | DeleteInventoryCommandOutput
   | DeleteMaintenanceWindowCommandOutput
@@ -759,6 +791,7 @@ export type ServiceOutputTypes =
   | GetAccessTokenCommandOutput
   | GetAutomationExecutionCommandOutput
   | GetCalendarStateCommandOutput
+  | GetCloudConnectorCommandOutput
   | GetCommandInvocationCommandOutput
   | GetConnectionStatusCommandOutput
   | GetDefaultPatchBaselineCommandOutput
@@ -786,6 +819,7 @@ export type ServiceOutputTypes =
   | LabelParameterVersionCommandOutput
   | ListAssociationVersionsCommandOutput
   | ListAssociationsCommandOutput
+  | ListCloudConnectorsCommandOutput
   | ListCommandInvocationsCommandOutput
   | ListCommandsCommandOutput
   | ListComplianceItemsCommandOutput
@@ -827,6 +861,7 @@ export type ServiceOutputTypes =
   | UnlabelParameterVersionCommandOutput
   | UpdateAssociationCommandOutput
   | UpdateAssociationStatusCommandOutput
+  | UpdateCloudConnectorCommandOutput
   | UpdateDocumentCommandOutput
   | UpdateDocumentDefaultVersionCommandOutput
   | UpdateDocumentMetadataCommandOutput
@@ -838,7 +873,8 @@ export type ServiceOutputTypes =
   | UpdateOpsMetadataCommandOutput
   | UpdatePatchBaselineCommandOutput
   | UpdateResourceDataSyncCommandOutput
-  | UpdateServiceSettingCommandOutput;
+  | UpdateServiceSettingCommandOutput
+  | ValidateCloudConnectorCommandOutput;
 
 /**
  * @public

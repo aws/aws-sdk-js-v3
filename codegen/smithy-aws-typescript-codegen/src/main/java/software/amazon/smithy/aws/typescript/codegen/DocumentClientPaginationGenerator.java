@@ -79,7 +79,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         );
 
         writer.writeDocs("@public");
-        writer.write("export { Paginator };");
+        writer.write("export type { Paginator };");
 
         writePager();
     }
@@ -117,7 +117,7 @@ final class DocumentClientPaginationGenerator implements Runnable {
         );
 
         writer.writeDocs("@public");
-        writer.write("export { PaginationConfiguration };");
+        writer.write("export type { PaginationConfiguration };");
         writer.write("");
 
         writer.writeDocs("@public");

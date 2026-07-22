@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { TestTransformerRequest, TestTransformerResponse } from "../models/models_0";
+import type { TestTransformerRequest, TestTransformerResponse } from "../models/models_1";
 import { TestTransformer$ } from "../schemas/schemas_0";
 
 /**

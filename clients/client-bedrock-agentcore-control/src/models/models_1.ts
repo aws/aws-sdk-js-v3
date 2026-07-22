@@ -3470,8 +3470,7 @@ export interface Memory {
   streamDeliveryResources?: StreamDeliveryResources | undefined;
 
   /**
-   * ARN of the resource managing this memory (e.g. a harness). When set, strategy
-   * modifications and deletion are only allowed through the managing resource.
+   * <p>ARN of the resource managing this memory (e.g. a harness). When set, strategy modifications and deletion are only allowed through the managing resource.</p>
    * @public
    */
   managedByResourceArn?: string | undefined;
@@ -3603,7 +3602,7 @@ export interface MemorySummary {
   updatedAt: Date | undefined;
 
   /**
-   * ARN of the resource managing this memory (e.g. a harness). Null if not managed.
+   * <p>ARN of the resource managing this memory (e.g. a harness). Null if not managed.</p>
    * @public
    */
   managedByResourceArn?: string | undefined;

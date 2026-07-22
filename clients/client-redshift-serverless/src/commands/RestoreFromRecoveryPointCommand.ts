@@ -36,6 +36,7 @@ export interface RestoreFromRecoveryPointCommandOutput extends RestoreFromRecove
  *   recoveryPointId: "STRING_VALUE", // required
  *   namespaceName: "STRING_VALUE", // required
  *   workgroupName: "STRING_VALUE", // required
+ *   maintainIntegration: true || false,
  * };
  * const command = new RestoreFromRecoveryPointCommand(input);
  * const response = await client.send(command);

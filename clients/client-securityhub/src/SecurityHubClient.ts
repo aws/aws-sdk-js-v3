@@ -127,6 +127,7 @@ import type {
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "./commands/CreateConfigurationPolicyCommand";
+import type { CreateConnectorCommandInput, CreateConnectorCommandOutput } from "./commands/CreateConnectorCommand";
 import type {
   CreateConnectorV2CommandInput,
   CreateConnectorV2CommandOutput,
@@ -158,6 +159,7 @@ import type {
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "./commands/DeleteConfigurationPolicyCommand";
+import type { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import type {
   DeleteConnectorV2CommandInput,
   DeleteConnectorV2CommandOutput,
@@ -211,6 +213,10 @@ import type {
   DisableSecurityHubCommandOutput,
 } from "./commands/DisableSecurityHubCommand";
 import type {
+  DisableSecurityHubFeatureV2CommandInput,
+  DisableSecurityHubFeatureV2CommandOutput,
+} from "./commands/DisableSecurityHubFeatureV2Command";
+import type {
   DisableSecurityHubV2CommandInput,
   DisableSecurityHubV2CommandOutput,
 } from "./commands/DisableSecurityHubV2Command";
@@ -239,6 +245,10 @@ import type {
   EnableSecurityHubCommandOutput,
 } from "./commands/EnableSecurityHubCommand";
 import type {
+  EnableSecurityHubFeatureV2CommandInput,
+  EnableSecurityHubFeatureV2CommandOutput,
+} from "./commands/EnableSecurityHubFeatureV2Command";
+import type {
   EnableSecurityHubV2CommandInput,
   EnableSecurityHubV2CommandOutput,
 } from "./commands/EnableSecurityHubV2Command";
@@ -263,6 +273,7 @@ import type {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "./commands/GetConfigurationPolicyCommand";
+import type { GetConnectorCommandInput, GetConnectorCommandOutput } from "./commands/GetConnectorCommand";
 import type { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "./commands/GetConnectorV2Command";
 import type {
   GetEnabledStandardsCommandInput,
@@ -335,6 +346,7 @@ import type {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
+import type { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import type { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "./commands/ListConnectorsV2Command";
 import type {
   ListEnabledProductsForImportCommandInput,
@@ -392,6 +404,7 @@ import type {
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "./commands/UpdateConfigurationPolicyCommand";
+import type { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
 import type {
   UpdateConnectorV2CommandInput,
   UpdateConnectorV2CommandOutput,
@@ -452,6 +465,7 @@ export type ServiceInputTypes =
   | CreateAutomationRuleCommandInput
   | CreateAutomationRuleV2CommandInput
   | CreateConfigurationPolicyCommandInput
+  | CreateConnectorCommandInput
   | CreateConnectorV2CommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
@@ -462,6 +476,7 @@ export type ServiceInputTypes =
   | DeleteAggregatorV2CommandInput
   | DeleteAutomationRuleV2CommandInput
   | DeleteConfigurationPolicyCommandInput
+  | DeleteConnectorCommandInput
   | DeleteConnectorV2CommandInput
   | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
@@ -478,6 +493,7 @@ export type ServiceInputTypes =
   | DisableImportFindingsForProductCommandInput
   | DisableOrganizationAdminAccountCommandInput
   | DisableSecurityHubCommandInput
+  | DisableSecurityHubFeatureV2CommandInput
   | DisableSecurityHubV2CommandInput
   | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
@@ -485,6 +501,7 @@ export type ServiceInputTypes =
   | EnableImportFindingsForProductCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
+  | EnableSecurityHubFeatureV2CommandInput
   | EnableSecurityHubV2CommandInput
   | GenerateRecommendedPolicyV2CommandInput
   | GetAdministratorAccountCommandInput
@@ -492,6 +509,7 @@ export type ServiceInputTypes =
   | GetAutomationRuleV2CommandInput
   | GetConfigurationPolicyAssociationCommandInput
   | GetConfigurationPolicyCommandInput
+  | GetConnectorCommandInput
   | GetConnectorV2CommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
@@ -516,6 +534,7 @@ export type ServiceInputTypes =
   | ListAutomationRulesV2CommandInput
   | ListConfigurationPoliciesCommandInput
   | ListConfigurationPolicyAssociationsCommandInput
+  | ListConnectorsCommandInput
   | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
@@ -534,6 +553,7 @@ export type ServiceInputTypes =
   | UpdateAggregatorV2CommandInput
   | UpdateAutomationRuleV2CommandInput
   | UpdateConfigurationPolicyCommandInput
+  | UpdateConnectorCommandInput
   | UpdateConnectorV2CommandInput
   | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
@@ -566,6 +586,7 @@ export type ServiceOutputTypes =
   | CreateAutomationRuleCommandOutput
   | CreateAutomationRuleV2CommandOutput
   | CreateConfigurationPolicyCommandOutput
+  | CreateConnectorCommandOutput
   | CreateConnectorV2CommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
@@ -576,6 +597,7 @@ export type ServiceOutputTypes =
   | DeleteAggregatorV2CommandOutput
   | DeleteAutomationRuleV2CommandOutput
   | DeleteConfigurationPolicyCommandOutput
+  | DeleteConnectorCommandOutput
   | DeleteConnectorV2CommandOutput
   | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
@@ -592,6 +614,7 @@ export type ServiceOutputTypes =
   | DisableImportFindingsForProductCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
   | DisableSecurityHubCommandOutput
+  | DisableSecurityHubFeatureV2CommandOutput
   | DisableSecurityHubV2CommandOutput
   | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
@@ -599,6 +622,7 @@ export type ServiceOutputTypes =
   | EnableImportFindingsForProductCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
+  | EnableSecurityHubFeatureV2CommandOutput
   | EnableSecurityHubV2CommandOutput
   | GenerateRecommendedPolicyV2CommandOutput
   | GetAdministratorAccountCommandOutput
@@ -606,6 +630,7 @@ export type ServiceOutputTypes =
   | GetAutomationRuleV2CommandOutput
   | GetConfigurationPolicyAssociationCommandOutput
   | GetConfigurationPolicyCommandOutput
+  | GetConnectorCommandOutput
   | GetConnectorV2CommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
@@ -630,6 +655,7 @@ export type ServiceOutputTypes =
   | ListAutomationRulesV2CommandOutput
   | ListConfigurationPoliciesCommandOutput
   | ListConfigurationPolicyAssociationsCommandOutput
+  | ListConnectorsCommandOutput
   | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
@@ -648,6 +674,7 @@ export type ServiceOutputTypes =
   | UpdateAggregatorV2CommandOutput
   | UpdateAutomationRuleV2CommandOutput
   | UpdateConfigurationPolicyCommandOutput
+  | UpdateConnectorCommandOutput
   | UpdateConnectorV2CommandOutput
   | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput

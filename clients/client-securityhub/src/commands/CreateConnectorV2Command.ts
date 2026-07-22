@@ -43,6 +43,18 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  *       InstanceName: "STRING_VALUE", // required
  *       SecretArn: "STRING_VALUE", // required
  *     },
+ *     Azure: { // AzureProviderConfiguration
+ *       AWSConfigConnectorArn: "STRING_VALUE", // required
+ *       ScopeConfiguration: { // AzureScopeConfiguration
+ *         ScopeType: "TENANT" || "SUBSCRIPTION", // required
+ *         ScopeValues: [ // ScopeValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       AzureRegions: [ // AzureRegionList // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   KmsKeyArn: "STRING_VALUE",
  *   Tags: { // TagMap
@@ -56,7 +68,8 @@ export interface CreateConnectorV2CommandOutput extends CreateConnectorV2Respons
  * //   ConnectorArn: "STRING_VALUE", // required
  * //   ConnectorId: "STRING_VALUE", // required
  * //   AuthUrl: "STRING_VALUE",
- * //   ConnectorStatus: "CONNECTED" || "FAILED_TO_CONNECT" || "PENDING_CONFIGURATION" || "PENDING_AUTHORIZATION",
+ * //   ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
+ * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
  * // };
  *
  * ```

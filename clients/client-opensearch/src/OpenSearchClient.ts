@@ -213,6 +213,7 @@ import type {
   GetDomainMaintenanceStatusCommandOutput,
 } from "./commands/GetDomainMaintenanceStatusCommand";
 import type { GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import type { GetMigrationCommandInput, GetMigrationCommandOutput } from "./commands/GetMigrationCommand";
 import type {
   GetPackageVersionHistoryCommandInput,
   GetPackageVersionHistoryCommandOutput,
@@ -247,6 +248,7 @@ import type {
   ListInstanceTypeDetailsCommandInput,
   ListInstanceTypeDetailsCommandOutput,
 } from "./commands/ListInstanceTypeDetailsCommand";
+import type { ListMigrationsCommandInput, ListMigrationsCommandOutput } from "./commands/ListMigrationsCommand";
 import type {
   ListPackagesForDomainCommandInput,
   ListPackagesForDomainCommandOutput,
@@ -295,6 +297,7 @@ import type {
   StartDomainMaintenanceCommandInput,
   StartDomainMaintenanceCommandOutput,
 } from "./commands/StartDomainMaintenanceCommand";
+import type { StartMigrationCommandInput, StartMigrationCommandOutput } from "./commands/StartMigrationCommand";
 import type {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
@@ -396,6 +399,7 @@ export type ServiceInputTypes =
   | GetDirectQueryDataSourceCommandInput
   | GetDomainMaintenanceStatusCommandInput
   | GetIndexCommandInput
+  | GetMigrationCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
@@ -409,6 +413,7 @@ export type ServiceInputTypes =
   | ListDomainsForPackageCommandInput
   | ListInsightsCommandInput
   | ListInstanceTypeDetailsCommandInput
+  | ListMigrationsCommandInput
   | ListPackagesForDomainCommandInput
   | ListScheduledActionsCommandInput
   | ListTagsCommandInput
@@ -424,6 +429,7 @@ export type ServiceInputTypes =
   | RevokeVpcEndpointAccessCommandInput
   | RollbackServiceSoftwareUpdateCommandInput
   | StartDomainMaintenanceCommandInput
+  | StartMigrationCommandInput
   | StartServiceSoftwareUpdateCommandInput
   | UpdateApplicationCommandInput
   | UpdateDataSourceCommandInput
@@ -494,6 +500,7 @@ export type ServiceOutputTypes =
   | GetDirectQueryDataSourceCommandOutput
   | GetDomainMaintenanceStatusCommandOutput
   | GetIndexCommandOutput
+  | GetMigrationCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
@@ -507,6 +514,7 @@ export type ServiceOutputTypes =
   | ListDomainsForPackageCommandOutput
   | ListInsightsCommandOutput
   | ListInstanceTypeDetailsCommandOutput
+  | ListMigrationsCommandOutput
   | ListPackagesForDomainCommandOutput
   | ListScheduledActionsCommandOutput
   | ListTagsCommandOutput
@@ -522,6 +530,7 @@ export type ServiceOutputTypes =
   | RevokeVpcEndpointAccessCommandOutput
   | RollbackServiceSoftwareUpdateCommandOutput
   | StartDomainMaintenanceCommandOutput
+  | StartMigrationCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateApplicationCommandOutput
   | UpdateDataSourceCommandOutput

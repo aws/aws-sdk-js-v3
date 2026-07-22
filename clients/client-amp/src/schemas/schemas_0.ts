@@ -29,6 +29,7 @@ const _CS = "CreateScraper";
 const _CSR = "CreateScraperRequest";
 const _CSRr = "CreateScraperResponse";
 const _CW = "CreateWorkspace";
+const _CWC = "CloudWatchConfiguration";
 const _CWLD = "CloudWatchLogDestination";
 const _CWR = "CreateWorkspaceRequest";
 const _CWRr = "CreateWorkspaceResponse";
@@ -192,10 +193,12 @@ const _cA = "createdAt";
 const _cAl = "clusterArn";
 const _cB = "configurationBlob";
 const _cT = "clientToken";
+const _cWC = "cloudWatchConfiguration";
 const _cWL = "cloudWatchLogs";
 const _co = "configuration";
 const _con = "config";
 const _d = "data";
+const _dA = "datasetArn";
 const _de = "destinations";
 const _des = "destination";
 const _e = "error";
@@ -387,6 +390,11 @@ export var AnomalyDetectorSummary$: StaticStructureSchema = [3, n0, _ADSn,
   0,
   [_a, _aDI, _al, _st, _cA, _mA, _t],
   [0, 0, 0, () => AnomalyDetectorStatus$, 4, 4, 128 | 0], 6
+];
+export var CloudWatchConfiguration$: StaticStructureSchema = [3, n0, _CWC,
+  0,
+  [_dA],
+  [0], 1
 ];
 export var CloudWatchLogDestination$: StaticStructureSchema = [3, n0, _CWLD,
   0,
@@ -971,8 +979,8 @@ export var AnomalyDetectorMissingDataAction$: StaticUnionSchema = [4, n0, _ADMDA
 ];
 export var Destination$: StaticUnionSchema = [4, n0, _D,
   0,
-  [_aC],
-  [() => AmpConfiguration$]
+  [_aC, _cWC],
+  [() => AmpConfiguration$, () => CloudWatchConfiguration$]
 ];
 export var IgnoreNearExpected$: StaticUnionSchema = [4, n0, _INE,
   0,

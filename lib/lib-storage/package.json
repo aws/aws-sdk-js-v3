@@ -1,10 +1,39 @@
 {
   "name": "@aws-sdk/lib-storage",
-  "version": "3.1078.0",
+  "version": "3.1093.0",
   "description": "Storage higher order operation",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "lib/lib-storage"
+  },
+  "files": [
+    "dist-*/**"
+  ],
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
+    "fs": false,
+    "stream": "stream-browserify"
+  },
   "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -21,27 +50,16 @@
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts --mode development",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/core": "^3.29.0",
-    "@smithy/types": "^4.15.1",
+    "@smithy/core": "^3.29.4",
+    "@smithy/types": "^4.16.1",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",
     "tslib": "^2.6.2"
   },
-  "peerDependencies": {
-    "@aws-sdk/client-s3": "workspace:^3.1078.0"
-  },
   "devDependencies": {
-    "@aws-sdk/client-s3": "workspace:3.1078.0",
+    "@aws-sdk/client-s3": "workspace:3.1093.0",
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "^20.14.8",
     "concurrently": "7.0.0",
@@ -50,28 +68,10 @@
     "typescript": "~5.8.3",
     "web-streams-polyfill": "3.2.1"
   },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
+  "peerDependencies": {
+    "@aws-sdk/client-s3": "workspace:^3.1093.0"
   },
-  "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser",
-    "fs": false,
-    "stream": "stream-browserify"
-  },
-  "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/lib/lib-storage",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "lib/lib-storage"
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

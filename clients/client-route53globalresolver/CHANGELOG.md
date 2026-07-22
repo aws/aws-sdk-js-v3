@@ -3,6 +3,129 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Features
+
+* **client-route53globalresolver:** Adds ListSharedDNSViews operation to list all DNS Views shared with caller using AWS Resource Access Manager. Also updates ListHostedZoneAssociations operation so that resource ARN param is optional, allowing caller to list all HostedZoneAssociations in account. ([0e11517](https://github.com/aws/aws-sdk-js-v3/commit/0e11517de3c81ff489ad83876301828ea7803a3b))
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-route53globalresolver
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-route53globalresolver

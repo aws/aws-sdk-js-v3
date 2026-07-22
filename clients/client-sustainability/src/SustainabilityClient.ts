@@ -62,6 +62,14 @@ import type {
   GetEstimatedCarbonEmissionsDimensionValuesCommandInput,
   GetEstimatedCarbonEmissionsDimensionValuesCommandOutput,
 } from "./commands/GetEstimatedCarbonEmissionsDimensionValuesCommand";
+import type {
+  GetEstimatedWaterAllocationCommandInput,
+  GetEstimatedWaterAllocationCommandOutput,
+} from "./commands/GetEstimatedWaterAllocationCommand";
+import type {
+  GetEstimatedWaterAllocationDimensionValuesCommandInput,
+  GetEstimatedWaterAllocationDimensionValuesCommandOutput,
+} from "./commands/GetEstimatedWaterAllocationDimensionValuesCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -78,14 +86,18 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | GetEstimatedCarbonEmissionsCommandInput
-  | GetEstimatedCarbonEmissionsDimensionValuesCommandInput;
+  | GetEstimatedCarbonEmissionsDimensionValuesCommandInput
+  | GetEstimatedWaterAllocationCommandInput
+  | GetEstimatedWaterAllocationDimensionValuesCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | GetEstimatedCarbonEmissionsCommandOutput
-  | GetEstimatedCarbonEmissionsDimensionValuesCommandOutput;
+  | GetEstimatedCarbonEmissionsDimensionValuesCommandOutput
+  | GetEstimatedWaterAllocationCommandOutput
+  | GetEstimatedWaterAllocationDimensionValuesCommandOutput;
 
 /**
  * @public
@@ -278,7 +290,7 @@ export type SustainabilityClientResolvedConfigType = __SmithyResolvedConfigurati
 export interface SustainabilityClientResolvedConfig extends SustainabilityClientResolvedConfigType {}
 
 /**
- * <p>The AWS Sustainability service provides programmatic access to estimated carbon emissions data for your Amazon Web Services usage. Use the AWS Sustainability service to retrieve, analyze, and track the carbon footprint of your cloud infrastructure over time. </p> <p>With the AWS Sustainability service, you can:</p> <ul> <li> <p>Retrieve estimated carbon emissions for your Amazon Web Services usage across different time periods </p> </li> <li> <p>Group emissions data by dimensions such as account, region, and service</p> </li> <li> <p>Filter emissions data to focus on specific accounts, regions, or services</p> </li> <li> <p>Access multiple emissions calculation methodologies including Location-based Method (LBM) and Market-based Method (MBM) </p> </li> <li> <p>Aggregate emissions data at various time granularities including monthly, quarterly, and yearly periods </p> </li> </ul> <p> The API supports pagination for efficient data retrieval and provides dimension values to help you understand the available grouping and filtering options for your account. </p> <p> All emissions values are calculated using methodologies aligned with the Greenhouse Gas (GHG) Protocol and are provided in metric tons of carbon dioxide-equivalent (MTCO2e). </p>
+ * <p>The AWS Sustainability service provides programmatic access to estimated environmental impact data for your Amazon Web Services usage. Use the AWS Sustainability service to retrieve, analyze, and track the environmental impact of your cloud infrastructure over time. </p> <p>With the AWS Sustainability service, you can:</p> <ul> <li> <p>Retrieve estimated carbon emissions and water allocation for your Amazon Web Services usage across different time periods </p> </li> <li> <p>Group environmental impact data by dimensions such as account, region, and service</p> </li> <li> <p>Filter environmental impact data to focus on specific accounts, regions, or services</p> </li> <li> <p>Access multiple carbon emissions calculation methodologies including Location-based Method (LBM) and Market-based Method (MBM) </p> </li> <li> <p>Aggregate environmental impact data at various time granularities including monthly, quarterly, and yearly periods </p> </li> </ul> <p> The API supports pagination for efficient data retrieval and provides dimension values to help you understand the available grouping and filtering options for your account. </p>
  * @public
  */
 export class SustainabilityClient extends __Client<

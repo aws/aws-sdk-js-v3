@@ -188,6 +188,11 @@ import {
   ListManagedFirewallDomainListsCommand,
 } from "./commands/ListManagedFirewallDomainListsCommand";
 import {
+  type ListSharedDNSViewsCommandInput,
+  type ListSharedDNSViewsCommandOutput,
+  ListSharedDNSViewsCommand,
+} from "./commands/ListSharedDNSViewsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -246,6 +251,7 @@ import { paginateListFirewallRules } from "./pagination/ListFirewallRulesPaginat
 import { paginateListGlobalResolvers } from "./pagination/ListGlobalResolversPaginator";
 import { paginateListHostedZoneAssociations } from "./pagination/ListHostedZoneAssociationsPaginator";
 import { paginateListManagedFirewallDomainLists } from "./pagination/ListManagedFirewallDomainListsPaginator";
+import { paginateListSharedDNSViews } from "./pagination/ListSharedDNSViewsPaginator";
 import { Route53GlobalResolverClient } from "./Route53GlobalResolverClient";
 
 const commands = {
@@ -286,6 +292,7 @@ const commands = {
   ListGlobalResolversCommand,
   ListHostedZoneAssociationsCommand,
   ListManagedFirewallDomainListsCommand,
+  ListSharedDNSViewsCommand,
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -307,6 +314,7 @@ const paginators = {
   paginateListGlobalResolvers,
   paginateListHostedZoneAssociations,
   paginateListManagedFirewallDomainLists,
+  paginateListSharedDNSViews,
 };
 
 export interface Route53GlobalResolver {
@@ -911,6 +919,7 @@ export interface Route53GlobalResolver {
   /**
    * @see {@link ListHostedZoneAssociationsCommand}
    */
+  listHostedZoneAssociations(): Promise<ListHostedZoneAssociationsCommandOutput>;
   listHostedZoneAssociations(
     args: ListHostedZoneAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -940,6 +949,24 @@ export interface Route53GlobalResolver {
     args: ListManagedFirewallDomainListsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListManagedFirewallDomainListsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSharedDNSViewsCommand}
+   */
+  listSharedDNSViews(): Promise<ListSharedDNSViewsCommandOutput>;
+  listSharedDNSViews(
+    args: ListSharedDNSViewsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSharedDNSViewsCommandOutput>;
+  listSharedDNSViews(
+    args: ListSharedDNSViewsCommandInput,
+    cb: (err: any, data?: ListSharedDNSViewsCommandOutput) => void
+  ): void;
+  listSharedDNSViews(
+    args: ListSharedDNSViewsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSharedDNSViewsCommandOutput) => void
   ): void;
 
   /**
@@ -1196,7 +1223,7 @@ export interface Route53GlobalResolver {
    * @returns AsyncIterable of {@link ListHostedZoneAssociationsCommandOutput}.
    */
   paginateListHostedZoneAssociations(
-    args: ListHostedZoneAssociationsCommandInput,
+    args?: ListHostedZoneAssociationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListHostedZoneAssociationsCommandOutput>;
 
@@ -1210,6 +1237,17 @@ export interface Route53GlobalResolver {
     args: ListManagedFirewallDomainListsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListManagedFirewallDomainListsCommandOutput>;
+
+  /**
+   * @see {@link ListSharedDNSViewsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSharedDNSViewsCommandOutput}.
+   */
+  paginateListSharedDNSViews(
+    args?: ListSharedDNSViewsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSharedDNSViewsCommandOutput>;
 }
 
 /**

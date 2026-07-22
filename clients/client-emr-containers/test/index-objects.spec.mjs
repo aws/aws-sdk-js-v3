@@ -1,5 +1,6 @@
 import {
   AllowAWSToRetainLogs,
+  AuthenticationConfiguration$,
   AuthorizationConfiguration$,
   CancelJobRun$,
   CancelJobRunCommand,
@@ -39,6 +40,10 @@ import {
   DeleteManagedEndpointCommand,
   DeleteManagedEndpointRequest$,
   DeleteManagedEndpointResponse$,
+  DeleteSecurityConfiguration$,
+  DeleteSecurityConfigurationCommand,
+  DeleteSecurityConfigurationRequest$,
+  DeleteSecurityConfigurationResponse$,
   DeleteVirtualCluster$,
   DeleteVirtualClusterCommand,
   DeleteVirtualClusterRequest$,
@@ -77,6 +82,8 @@ import {
   GetManagedEndpointSessionCredentialsCommand,
   GetManagedEndpointSessionCredentialsRequest$,
   GetManagedEndpointSessionCredentialsResponse$,
+  IAMConfiguration$,
+  IdentityCenterConfiguration$,
   InternalServerException,
   InternalServerException$,
   InTransitEncryptionConfiguration$,
@@ -173,6 +180,8 @@ assert(typeof DeleteJobTemplateCommand === "function");
 assert(typeof DeleteJobTemplate$ === "object");
 assert(typeof DeleteManagedEndpointCommand === "function");
 assert(typeof DeleteManagedEndpoint$ === "object");
+assert(typeof DeleteSecurityConfigurationCommand === "function");
+assert(typeof DeleteSecurityConfiguration$ === "object");
 assert(typeof DeleteVirtualClusterCommand === "function");
 assert(typeof DeleteVirtualCluster$ === "object");
 assert(typeof DescribeJobRunCommand === "function");
@@ -206,6 +215,7 @@ assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 // structural schemas
+assert(typeof AuthenticationConfiguration$ === "object");
 assert(typeof AuthorizationConfiguration$ === "object");
 assert(typeof CancelJobRunRequest$ === "object");
 assert(typeof CancelJobRunResponse$ === "object");
@@ -229,6 +239,8 @@ assert(typeof DeleteJobTemplateRequest$ === "object");
 assert(typeof DeleteJobTemplateResponse$ === "object");
 assert(typeof DeleteManagedEndpointRequest$ === "object");
 assert(typeof DeleteManagedEndpointResponse$ === "object");
+assert(typeof DeleteSecurityConfigurationRequest$ === "object");
+assert(typeof DeleteSecurityConfigurationResponse$ === "object");
 assert(typeof DeleteVirtualClusterRequest$ === "object");
 assert(typeof DeleteVirtualClusterResponse$ === "object");
 assert(typeof DescribeJobRunRequest$ === "object");
@@ -246,6 +258,8 @@ assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof Endpoint$ === "object");
 assert(typeof GetManagedEndpointSessionCredentialsRequest$ === "object");
 assert(typeof GetManagedEndpointSessionCredentialsResponse$ === "object");
+assert(typeof IAMConfiguration$ === "object");
+assert(typeof IdentityCenterConfiguration$ === "object");
 assert(typeof InTransitEncryptionConfiguration$ === "object");
 assert(typeof JobDriver$ === "object");
 assert(typeof JobRun$ === "object");

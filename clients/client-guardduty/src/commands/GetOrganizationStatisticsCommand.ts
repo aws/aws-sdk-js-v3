@@ -45,7 +45,7 @@ export interface GetOrganizationStatisticsCommandOutput extends GetOrganizationS
  * //       EnabledAccountsCount: Number("int"),
  * //       CountByFeature: [ // OrganizationFeatureStatisticsResults
  * //         { // OrganizationFeatureStatistics
- * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
+ * //           Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING" || "AI_PROTECTION",
  * //           EnabledAccountsCount: Number("int"),
  * //           AdditionalConfiguration: [ // OrganizationFeatureStatisticsAdditionalConfigurations
  * //             { // OrganizationFeatureStatisticsAdditionalConfiguration

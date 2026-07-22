@@ -59,6 +59,7 @@ export interface GetRunTaskCommandOutput extends GetRunTaskResponse, __MetadataB
  * //     imageDigest: "STRING_VALUE",
  * //     sourceImage: "STRING_VALUE",
  * //   },
+ * //   uuid: "STRING_VALUE",
  * // };
  *
  * ```

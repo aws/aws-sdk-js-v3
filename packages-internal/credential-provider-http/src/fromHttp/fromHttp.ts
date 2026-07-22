@@ -37,7 +37,7 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
       "@aws-sdk/credential-provider-http: " +
         "you have set both awsContainerCredentialsRelativeUri and awsContainerCredentialsFullUri."
     );
-    warn("awsContainerCredentialsFullUri will take precedence.");
+    warn("awsContainerCredentialsRelativeUri will take precedence.");
   }
 
   if (token && tokenFile) {
@@ -45,13 +45,13 @@ export const fromHttp = (options: FromHttpOptions = {}): AwsCredentialIdentityPr
       "@aws-sdk/credential-provider-http: " +
         "you have set both awsContainerAuthorizationToken and awsContainerAuthorizationTokenFile."
     );
-    warn("awsContainerAuthorizationToken will take precedence.");
+    warn("awsContainerAuthorizationTokenFile will take precedence.");
   }
 
-  if (full) {
-    host = full;
-  } else if (relative) {
+  if (relative) {
     host = `${DEFAULT_LINK_LOCAL_HOST}${relative}`;
+  } else if (full) {
+    host = full;
   } else {
     throw new CredentialsProviderError(
       `No HTTP credential provider host provided.
@@ -73,12 +73,12 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
     async (): Promise<AwsCredentialIdentity> => {
       const request = createGetRequest(url);
 
-      if (token) {
-        request.headers.Authorization = token;
-      } else if (tokenFile) {
+      if (tokenFile) {
         // Note: specification requires a file read on each request
         // to allow for updates to the file contents.
-        request.headers.Authorization = (await fs.readFile(tokenFile)).toString();
+        request.headers.Authorization = validateToken((await fs.readFile(tokenFile)).toString());
+      } else if (token) {
+        request.headers.Authorization = validateToken(token);
       }
       try {
         const result = await requestHandler.handle(request, { requestTimeout });
@@ -98,4 +98,16 @@ Set AWS_CONTAINER_CREDENTIALS_FULL_URI or AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
       requestHandler.destroy?.();
     }
   };
+};
+
+/**
+ * Validates that the token does not contain the \r\n sequence
+ * that would otherwise break the HTTP request.
+ * @internal
+ */
+const validateToken = (token: string): string => {
+  if (token.includes("\r\n")) {
+    throw new CredentialsProviderError("Authorization token contains invalid \\r\\n sequence.");
+  }
+  return token;
 };

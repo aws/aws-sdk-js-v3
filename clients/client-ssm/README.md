@@ -267,6 +267,13 @@ CreateAssociationBatch
 </details>
 <details>
 <summary>
+CreateCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/CreateCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/CreateCloudConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDocument
 </summary>
 
@@ -320,6 +327,13 @@ DeleteAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeleteAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeleteAssociationCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/DeleteCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeleteCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/DeleteCloudConnectorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -680,6 +694,13 @@ GetCalendarState
 </details>
 <details>
 <summary>
+GetCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/GetCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/GetCloudConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 GetCommandInvocation
 </summary>
 
@@ -866,6 +887,13 @@ ListAssociationVersions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListAssociationVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListAssociationVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListAssociationVersionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListCloudConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ListCloudConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListCloudConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ListCloudConnectorsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1156,6 +1184,13 @@ UpdateAssociationStatus
 </details>
 <details>
 <summary>
+UpdateCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/UpdateCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/UpdateCloudConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateDocument
 </summary>
 
@@ -1237,4 +1272,11 @@ UpdateServiceSetting
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/UpdateServiceSettingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/UpdateServiceSettingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/UpdateServiceSettingCommandOutput/)
+</details>
+<details>
+<summary>
+ValidateCloudConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ssm/command/ValidateCloudConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ValidateCloudConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ssm/Interface/ValidateCloudConnectorCommandOutput/)
 </details>

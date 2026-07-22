@@ -63,6 +63,76 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+
+
+
+
+
+
+
+# 3.972.70 (2026-07-21)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.69 (2026-07-16)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.68 (2026-07-15)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.67 (2026-07-14)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.66 (2026-07-13)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.65 (2026-07-08)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.64 (2026-07-08)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.63 (2026-07-07)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.62 (2026-07-06)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
+# 3.972.61 (2026-07-02)
+### Chores
+* **karma-credential-loader:** update dependencies.
+
+
+
 # 3.972.60 (2026-07-01)
 ### Chores
 * **karma-credential-loader:** update dependencies.

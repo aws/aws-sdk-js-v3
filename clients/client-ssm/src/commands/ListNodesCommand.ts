@@ -36,7 +36,7 @@ export interface ListNodesCommandOutput extends ListNodesResult, __MetadataBeare
  *   SyncName: "STRING_VALUE",
  *   Filters: [ // NodeFilterList
  *     { // NodeFilter
- *       Key: "AgentType" || "AgentVersion" || "ComputerName" || "InstanceId" || "InstanceStatus" || "IpAddress" || "ManagedStatus" || "PlatformName" || "PlatformType" || "PlatformVersion" || "ResourceType" || "OrganizationalUnitId" || "OrganizationalUnitPath" || "Region" || "AccountId", // required
+ *       Key: "AgentType" || "AgentVersion" || "ComputerName" || "InstanceId" || "InstanceStatus" || "IpAddress" || "ManagedStatus" || "PlatformName" || "PlatformType" || "PlatformVersion" || "ResourceType" || "OrganizationalUnitId" || "OrganizationalUnitPath" || "Region" || "AccountId" || "SourceType" || "SourceId" || "SourceLocation" || "AvailabilityZone" || "AvailabilityZoneId", // required
  *       Values: [ // NodeFilterValueList // required
  *         "STRING_VALUE",
  *       ],
@@ -67,10 +67,16 @@ export interface ListNodesCommandOutput extends ListNodesResult, __MetadataBeare
  * //           InstanceStatus: "STRING_VALUE",
  * //           IpAddress: "STRING_VALUE",
  * //           ManagedStatus: "All" || "Managed" || "Unmanaged",
+ * //           Name: "STRING_VALUE",
  * //           PlatformType: "Windows" || "Linux" || "MacOS",
  * //           PlatformName: "STRING_VALUE",
  * //           PlatformVersion: "STRING_VALUE",
  * //           ResourceType: "ManagedInstance" || "EC2Instance",
+ * //           SourceType: "AWS::EC2::Instance" || "AWS::IoT::Thing" || "AWS::SSM::ManagedInstance" || "Microsoft.Compute/virtualMachines",
+ * //           SourceId: "STRING_VALUE",
+ * //           SourceLocation: "STRING_VALUE",
+ * //           AvailabilityZone: "STRING_VALUE",
+ * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
  * //     },

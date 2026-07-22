@@ -51,6 +51,9 @@ export interface GetManagedEndpointSessionCredentialsCommandOutput extends GetMa
  * //   credentials: { // Credentials Union: only one key present
  * //     token: "STRING_VALUE",
  * //   },
+ * //   endpointCredentials: {//  Union: only one key present
+ * //     token: "STRING_VALUE",
+ * //   },
  * //   expiresAt: new Date("TIMESTAMP"),
  * // };
  *

@@ -53,6 +53,44 @@ export interface RegisterComputeNodeGroupInstanceCommandOutput extends RegisterC
  * //       port: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   clusterName: "STRING_VALUE",
+ * //   computeNodeGroupId: "STRING_VALUE",
+ * //   computeNodeGroupName: "STRING_VALUE",
+ * //   nodeLifecycleActions: { // NodeLifecycleActions
+ * //     stages: { // NodeLifecycleStages
+ * //       nodeBootstrapped: [ // NodeLifecycleScriptList
+ * //         { // NodeLifecycleScript
+ * //           name: "STRING_VALUE", // required
+ * //           scriptSource: { // ScriptSource
+ * //             scriptLocation: "STRING_VALUE", // required
+ * //             s3VersionId: "STRING_VALUE",
+ * //             checksum: "STRING_VALUE",
+ * //           },
+ * //           arguments: [ // NodeLifecycleScriptArguments
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ * //           executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ * //         },
+ * //       ],
+ * //       nodeReady: [
+ * //         {
+ * //           name: "STRING_VALUE", // required
+ * //           scriptSource: {
+ * //             scriptLocation: "STRING_VALUE", // required
+ * //             s3VersionId: "STRING_VALUE",
+ * //             checksum: "STRING_VALUE",
+ * //           },
+ * //           arguments: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           onError: "TERMINATE" || "STOP_SEQUENCE" || "CONTINUE",
+ * //           executionPolicy: "FIRST_BOOT_ONLY" || "EVERY_BOOT",
+ * //         },
+ * //       ],
+ * //     },
+ * //     scriptCachingPolicy: "CACHE_ONCE" || "REFRESH_ON_REBOOT",
+ * //   },
  * // };
  *
  * ```

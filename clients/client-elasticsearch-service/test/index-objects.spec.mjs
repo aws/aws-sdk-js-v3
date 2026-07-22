@@ -158,11 +158,13 @@ import {
   DissociatePackageResponse$,
   DomainEndpointOptions$,
   DomainEndpointOptionsStatus$,
+  DomainEngineMode,
   DomainInfo$,
   DomainInformation$,
   DomainPackageDetails$,
   DomainPackageStatus,
   DomainProcessingStatusType,
+  DomainUseCase,
   DryRunResults$,
   Duration$,
   EBSOptions$,
@@ -177,6 +179,7 @@ import {
   ElasticsearchVersionStatus$,
   EncryptionAtRestOptions$,
   EncryptionAtRestOptionsStatus$,
+  EngineModeStatus$,
   EngineType,
   ErrorDetails$,
   ESPartitionInstanceType,
@@ -344,6 +347,7 @@ import {
   UpgradeStatus,
   UpgradeStep,
   UpgradeStepItem$,
+  UseCaseStatus$,
   ValidationException,
   ValidationException$,
   VolumeType,
@@ -565,6 +569,7 @@ assert(typeof ElasticsearchDomainStatus$ === "object");
 assert(typeof ElasticsearchVersionStatus$ === "object");
 assert(typeof EncryptionAtRestOptions$ === "object");
 assert(typeof EncryptionAtRestOptionsStatus$ === "object");
+assert(typeof EngineModeStatus$ === "object");
 assert(typeof ErrorDetails$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof GetCompatibleElasticsearchVersionsRequest$ === "object");
@@ -642,6 +647,7 @@ assert(typeof UpgradeElasticsearchDomainRequest$ === "object");
 assert(typeof UpgradeElasticsearchDomainResponse$ === "object");
 assert(typeof UpgradeHistory$ === "object");
 assert(typeof UpgradeStepItem$ === "object");
+assert(typeof UseCaseStatus$ === "object");
 assert(typeof VPCDerivedInfo$ === "object");
 assert(typeof VPCDerivedInfoStatus$ === "object");
 assert(typeof VpcEndpoint$ === "object");
@@ -657,8 +663,10 @@ assert(typeof ConfigChangeStatus === "object");
 assert(typeof DeploymentStatus === "object");
 assert(typeof DeploymentStrategy === "object");
 assert(typeof DescribePackagesFilterName === "object");
+assert(typeof DomainEngineMode === "object");
 assert(typeof DomainPackageStatus === "object");
 assert(typeof DomainProcessingStatusType === "object");
+assert(typeof DomainUseCase === "object");
 assert(typeof EngineType === "object");
 assert(typeof ESPartitionInstanceType === "object");
 assert(typeof ESWarmPartitionInstanceType === "object");

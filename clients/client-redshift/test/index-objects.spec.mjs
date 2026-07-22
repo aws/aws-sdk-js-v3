@@ -182,6 +182,10 @@ import {
   CreateIntegration$,
   CreateIntegrationCommand,
   CreateIntegrationMessage$,
+  CreateQev2IdcApplication$,
+  CreateQev2IdcApplicationCommand,
+  CreateQev2IdcApplicationMessage$,
+  CreateQev2IdcApplicationResult$,
   CreateRedshiftIdcApplication$,
   CreateRedshiftIdcApplicationCommand,
   CreateRedshiftIdcApplicationMessage$,
@@ -261,6 +265,9 @@ import {
   DeleteIntegrationMessage$,
   DeletePartner$,
   DeletePartnerCommand,
+  DeleteQev2IdcApplication$,
+  DeleteQev2IdcApplicationCommand,
+  DeleteQev2IdcApplicationMessage$,
   DeleteRedshiftIdcApplication$,
   DeleteRedshiftIdcApplicationCommand,
   DeleteRedshiftIdcApplicationMessage$,
@@ -387,6 +394,10 @@ import {
   DescribePartnersCommand,
   DescribePartnersInputMessage$,
   DescribePartnersOutputMessage$,
+  DescribeQev2IdcApplications$,
+  DescribeQev2IdcApplicationsCommand,
+  DescribeQev2IdcApplicationsMessage$,
+  DescribeQev2IdcApplicationsResult$,
   DescribeRedshiftIdcApplications$,
   DescribeRedshiftIdcApplicationsCommand,
   DescribeRedshiftIdcApplicationsMessage$,
@@ -678,6 +689,10 @@ import {
   ModifyLakehouseConfiguration$,
   ModifyLakehouseConfigurationCommand,
   ModifyLakehouseConfigurationMessage$,
+  ModifyQev2IdcApplication$,
+  ModifyQev2IdcApplicationCommand,
+  ModifyQev2IdcApplicationMessage$,
+  ModifyQev2IdcApplicationResult$,
   ModifyRedshiftIdcApplication$,
   ModifyRedshiftIdcApplicationCommand,
   ModifyRedshiftIdcApplicationMessage$,
@@ -733,6 +748,7 @@ import {
   paginateDescribeIntegrations,
   paginateDescribeNodeConfigurationOptions,
   paginateDescribeOrderableClusterOptions,
+  paginateDescribeQev2IdcApplications,
   paginateDescribeRedshiftIdcApplications,
   paginateDescribeReservedNodeExchangeStatus,
   paginateDescribeReservedNodeOfferings,
@@ -768,6 +784,11 @@ import {
   PutResourcePolicyCommand,
   PutResourcePolicyMessage$,
   PutResourcePolicyResult$,
+  Qev2IdcApplication$,
+  Qev2IdcApplicationAlreadyExistsFault,
+  Qev2IdcApplicationAlreadyExistsFault$,
+  Qev2IdcApplicationNotExistsFault,
+  Qev2IdcApplicationNotExistsFault$,
   ReadWriteAccess$,
   RebootCluster$,
   RebootClusterCommand,
@@ -1038,6 +1059,8 @@ assert(typeof CreateHsmConfigurationCommand === "function");
 assert(typeof CreateHsmConfiguration$ === "object");
 assert(typeof CreateIntegrationCommand === "function");
 assert(typeof CreateIntegration$ === "object");
+assert(typeof CreateQev2IdcApplicationCommand === "function");
+assert(typeof CreateQev2IdcApplication$ === "object");
 assert(typeof CreateRedshiftIdcApplicationCommand === "function");
 assert(typeof CreateRedshiftIdcApplication$ === "object");
 assert(typeof CreateScheduledActionCommand === "function");
@@ -1078,6 +1101,8 @@ assert(typeof DeleteIntegrationCommand === "function");
 assert(typeof DeleteIntegration$ === "object");
 assert(typeof DeletePartnerCommand === "function");
 assert(typeof DeletePartner$ === "object");
+assert(typeof DeleteQev2IdcApplicationCommand === "function");
+assert(typeof DeleteQev2IdcApplication$ === "object");
 assert(typeof DeleteRedshiftIdcApplicationCommand === "function");
 assert(typeof DeleteRedshiftIdcApplication$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
@@ -1152,6 +1177,8 @@ assert(typeof DescribeOrderableClusterOptionsCommand === "function");
 assert(typeof DescribeOrderableClusterOptions$ === "object");
 assert(typeof DescribePartnersCommand === "function");
 assert(typeof DescribePartners$ === "object");
+assert(typeof DescribeQev2IdcApplicationsCommand === "function");
+assert(typeof DescribeQev2IdcApplications$ === "object");
 assert(typeof DescribeRedshiftIdcApplicationsCommand === "function");
 assert(typeof DescribeRedshiftIdcApplications$ === "object");
 assert(typeof DescribeReservedNodeExchangeStatusCommand === "function");
@@ -1232,6 +1259,8 @@ assert(typeof ModifyIntegrationCommand === "function");
 assert(typeof ModifyIntegration$ === "object");
 assert(typeof ModifyLakehouseConfigurationCommand === "function");
 assert(typeof ModifyLakehouseConfiguration$ === "object");
+assert(typeof ModifyQev2IdcApplicationCommand === "function");
+assert(typeof ModifyQev2IdcApplication$ === "object");
 assert(typeof ModifyRedshiftIdcApplicationCommand === "function");
 assert(typeof ModifyRedshiftIdcApplication$ === "object");
 assert(typeof ModifyScheduledActionCommand === "function");
@@ -1347,6 +1376,8 @@ assert(typeof CreateHsmClientCertificateResult$ === "object");
 assert(typeof CreateHsmConfigurationMessage$ === "object");
 assert(typeof CreateHsmConfigurationResult$ === "object");
 assert(typeof CreateIntegrationMessage$ === "object");
+assert(typeof CreateQev2IdcApplicationMessage$ === "object");
+assert(typeof CreateQev2IdcApplicationResult$ === "object");
 assert(typeof CreateRedshiftIdcApplicationMessage$ === "object");
 assert(typeof CreateRedshiftIdcApplicationResult$ === "object");
 assert(typeof CreateScheduledActionMessage$ === "object");
@@ -1378,6 +1409,7 @@ assert(typeof DeleteEventSubscriptionMessage$ === "object");
 assert(typeof DeleteHsmClientCertificateMessage$ === "object");
 assert(typeof DeleteHsmConfigurationMessage$ === "object");
 assert(typeof DeleteIntegrationMessage$ === "object");
+assert(typeof DeleteQev2IdcApplicationMessage$ === "object");
 assert(typeof DeleteRedshiftIdcApplicationMessage$ === "object");
 assert(typeof DeleteResourcePolicyMessage$ === "object");
 assert(typeof DeleteScheduledActionMessage$ === "object");
@@ -1423,6 +1455,8 @@ assert(typeof DescribeNodeConfigurationOptionsMessage$ === "object");
 assert(typeof DescribeOrderableClusterOptionsMessage$ === "object");
 assert(typeof DescribePartnersInputMessage$ === "object");
 assert(typeof DescribePartnersOutputMessage$ === "object");
+assert(typeof DescribeQev2IdcApplicationsMessage$ === "object");
+assert(typeof DescribeQev2IdcApplicationsResult$ === "object");
 assert(typeof DescribeRedshiftIdcApplicationsMessage$ === "object");
 assert(typeof DescribeRedshiftIdcApplicationsResult$ === "object");
 assert(typeof DescribeReservedNodeExchangeStatusInputMessage$ === "object");
@@ -1513,6 +1547,8 @@ assert(typeof ModifyEventSubscriptionMessage$ === "object");
 assert(typeof ModifyEventSubscriptionResult$ === "object");
 assert(typeof ModifyIntegrationMessage$ === "object");
 assert(typeof ModifyLakehouseConfigurationMessage$ === "object");
+assert(typeof ModifyQev2IdcApplicationMessage$ === "object");
+assert(typeof ModifyQev2IdcApplicationResult$ === "object");
 assert(typeof ModifyRedshiftIdcApplicationMessage$ === "object");
 assert(typeof ModifyRedshiftIdcApplicationResult$ === "object");
 assert(typeof ModifyScheduledActionMessage$ === "object");
@@ -1539,6 +1575,7 @@ assert(typeof PurchaseReservedNodeOfferingMessage$ === "object");
 assert(typeof PurchaseReservedNodeOfferingResult$ === "object");
 assert(typeof PutResourcePolicyMessage$ === "object");
 assert(typeof PutResourcePolicyResult$ === "object");
+assert(typeof Qev2IdcApplication$ === "object");
 assert(typeof ReadWriteAccess$ === "object");
 assert(typeof RebootClusterMessage$ === "object");
 assert(typeof RebootClusterResult$ === "object");
@@ -1840,6 +1877,10 @@ assert(NumberOfNodesQuotaExceededFault.prototype instanceof RedshiftServiceExcep
 assert(typeof NumberOfNodesQuotaExceededFault$ === "object");
 assert(PartnerNotFoundFault.prototype instanceof RedshiftServiceException);
 assert(typeof PartnerNotFoundFault$ === "object");
+assert(Qev2IdcApplicationAlreadyExistsFault.prototype instanceof RedshiftServiceException);
+assert(typeof Qev2IdcApplicationAlreadyExistsFault$ === "object");
+assert(Qev2IdcApplicationNotExistsFault.prototype instanceof RedshiftServiceException);
+assert(typeof Qev2IdcApplicationNotExistsFault$ === "object");
 assert(RedshiftIdcApplicationAlreadyExistsFault.prototype instanceof RedshiftServiceException);
 assert(typeof RedshiftIdcApplicationAlreadyExistsFault$ === "object");
 assert(RedshiftIdcApplicationNotExistsFault.prototype instanceof RedshiftServiceException);
@@ -1969,6 +2010,7 @@ assert(typeof paginateDescribeInboundIntegrations === "function");
 assert(typeof paginateDescribeIntegrations === "function");
 assert(typeof paginateDescribeNodeConfigurationOptions === "function");
 assert(typeof paginateDescribeOrderableClusterOptions === "function");
+assert(typeof paginateDescribeQev2IdcApplications === "function");
 assert(typeof paginateDescribeRedshiftIdcApplications === "function");
 assert(typeof paginateDescribeReservedNodeExchangeStatus === "function");
 assert(typeof paginateDescribeReservedNodeOfferings === "function");

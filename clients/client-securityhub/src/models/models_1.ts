@@ -19,9 +19,45 @@ import type {
   AwsEcsTaskDefinitionPlacementConstraintsDetails,
   AwsEcsTaskDefinitionProxyConfigurationDetails,
   AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails,
+  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
   RelatedFinding,
 } from "./models_0";
+
+/**
+ * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails {
+  /**
+   * <p>The authorization configuration details for the Amazon EFS file system.</p>
+   * @public
+   */
+  AuthorizationConfig?: AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails | undefined;
+
+  /**
+   * <p>The Amazon EFS file system identifier to use.</p>
+   * @public
+   */
+  FilesystemId?: string | undefined;
+
+  /**
+   * <p>The directory within the Amazon EFS file system to mount as the root directory inside the host.</p>
+   * @public
+   */
+  RootDirectory?: string | undefined;
+
+  /**
+   * <p>Whether to enable encryption for Amazon EFS data in transit between the Amazon ECS host and the Amazon EFS server. </p>
+   * @public
+   */
+  TransitEncryption?: string | undefined;
+
+  /**
+   * <p>The port to use when sending encrypted data between the Amazon ECS host and the Amazon EFS server.</p>
+   * @public
+   */
+  TransitEncryptionPort?: number | undefined;
+}
 
 /**
  * <p>Information about a bind mount host volume.</p>
@@ -11188,40 +11224,4 @@ export interface AwsWafRuleGroupRulesDetails {
    * @public
    */
   Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupDetails {
-  /**
-   * <p>The name of the metrics for this rule group.
-   *       </p>
-   * @public
-   */
-  MetricName?: string | undefined;
-
-  /**
-   * <p>The name of the rule group.
-   *       </p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The ID of the rule group.
-   *       </p>
-   * @public
-   */
-  RuleGroupId?: string | undefined;
-
-  /**
-   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
-   * allow, block, or count.
-   *       </p>
-   * @public
-   */
-  Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
 }

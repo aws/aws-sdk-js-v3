@@ -265,8 +265,17 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *         { // Resource
  *           Type: "STRING_VALUE", // required
  *           Id: "STRING_VALUE", // required
- *           Partition: "aws" || "aws-cn" || "aws-us-gov",
+ *           Partition: "aws" || "aws-cn" || "aws-us-gov" || "aws-us-iso" || "aws-us-iso-b" || "AzureCloud",
  *           Region: "STRING_VALUE",
+ *           Provider: "Azure" || "AWS",
+ *           Owner: { // ResourceOwner
+ *             Account: { // ResourceOwnerAccount
+ *               Id: "STRING_VALUE",
+ *             },
+ *             Org: { // ResourceOwnerOrg
+ *               Id: "STRING_VALUE",
+ *             },
+ *           },
  *           ResourceRole: "STRING_VALUE",
  *           Tags: {
  *             "<keys>": "STRING_VALUE",
@@ -4044,6 +4053,7 @@ export interface BatchImportFindingsCommandOutput extends BatchImportFindingsRes
  *               ProjectName: "STRING_VALUE",
  *               CodeSecurityIntegrationArn: "STRING_VALUE",
  *             },
+ *             AzureResource: "DOCUMENT_VALUE",
  *           },
  *           ApplicationName: "STRING_VALUE",
  *           ApplicationArn: "STRING_VALUE",

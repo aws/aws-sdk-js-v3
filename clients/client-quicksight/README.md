@@ -332,6 +332,13 @@ CreateIngestion
 </details>
 <details>
 <summary>
+CreateKnowledgeBase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/CreateKnowledgeBaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateKnowledgeBaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateKnowledgeBaseCommandOutput/)
+</details>
+<details>
+<summary>
 CreateNamespace
 </summary>
 
@@ -1876,6 +1883,13 @@ UpdateKeyRegistration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateKeyRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateKeyRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateKeyRegistrationCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateKnowledgeBase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateKnowledgeBaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateKnowledgeBaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateKnowledgeBaseCommandOutput/)
 </details>
 <details>
 <summary>

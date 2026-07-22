@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "@aws-sdk/client-s3": "file:../../clients/client-s3",
     "@aws-sdk/client-dynamodb": "file:../../clients/client-dynamodb",
-    "@aws-sdk/lib-storage": "file:../../lib/lib-storage",
-    "@aws-sdk/lib-dynamodb": "file:../../lib/lib-dynamodb"
+    "@aws-sdk/client-s3": "file:../../clients/client-s3",
+    "@aws-sdk/lib-dynamodb": "file:../../lib/lib-dynamodb",
+    "@aws-sdk/lib-storage": "file:../../lib/lib-storage"
   },
   "overrides": {
     "@aws-sdk/core": "file:../../packages-internal/core",

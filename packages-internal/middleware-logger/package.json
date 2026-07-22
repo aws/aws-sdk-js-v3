@@ -1,6 +1,25 @@
 {
   "name": "@aws-sdk/middleware-logger",
-  "version": "3.972.26",
+  "version": "3.972.34",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-logger",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "email": "",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/middleware-logger"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -9,18 +28,8 @@
     "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "clean": "premove dist-cjs dist-es dist-types"
   },
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "email": "",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
+    "@aws-sdk/core": "workspace:^3.976.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -31,14 +40,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-logger",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/middleware-logger"
   }
 }

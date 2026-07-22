@@ -6,15 +6,23 @@ import type {
   AssociationType,
   AutoEnableStandards,
   BatchUpdateFindingsV2UnprocessedFindingErrorCode,
+  CloudProviderName,
   ConfigurationPolicyAssociationStatus,
   ConnectorAuthStatus,
   ConnectorProviderName,
   ConnectorStatus,
   ControlFindingGenerator,
   ControlStatus,
+  CspmConnectorProviderName,
+  CspmConnectorStatus,
+  CspmEnablementStatus,
+  EnablementStatus,
+  FeatureName,
+  FeatureStatus,
   FindingHistoryUpdateSourceType,
   FindingsTrendsStringField,
   GranularityField,
+  HealthIssueCode,
   IntegrationType,
   IntegrationV2Type,
   OcsfBooleanField,
@@ -30,20 +38,20 @@ import type {
   RecommendationStatus,
   RecommendationType,
   RecordState,
-  RegionAvailabilityStatus,
-  ResourceCategory,
   ResourcesDateField,
   ResourcesMapField,
   ResourcesNumberField,
   ResourcesStringField,
   ResourcesTrendsStringField,
   RuleStatus,
-  SecurityControlProperty,
+  ScopeType,
+  SecurityControlsProvider,
   SecurityHubFeature,
   SeverityLabel,
   SeverityRating,
   SortOrder,
   StandardsControlsUpdatable,
+  StandardsProvider,
   StandardsStatus,
   StatusReasonCode,
   TargetType,
@@ -63,13 +71,10 @@ import type {
   Action,
   ActionTarget,
   Adjustment,
-  AggregatorV2,
-  AssociationFilters,
+  AIDetails,
   AutomationRulesAction,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
-  AutomationRulesMetadata,
-  AutomationRulesMetadataV2,
   AwsAmazonMqBrokerDetails,
   AwsApiGatewayRestApiDetails,
   AwsApiGatewayStageDetails,
@@ -173,7 +178,7 @@ import type {
   AwsWafRegionalRuleGroupDetails,
   AwsWafRegionalWebAclDetails,
   AwsWafRuleDetails,
-  AwsWafRuleGroupDetails,
+  AwsWafRuleGroupRulesDetails,
   Compliance,
   DataClassificationDetails,
   Detection,
@@ -187,6 +192,42 @@ import type {
   ProcessDetails,
   Remediation,
 } from "./models_1";
+
+/**
+ * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRuleGroupDetails {
+  /**
+   * <p>The name of the metrics for this rule group.
+   *       </p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The name of the rule group.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the rule group.
+   *       </p>
+   * @public
+   */
+  RuleGroupId?: string | undefined;
+
+  /**
+   * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+   * allow, block, or count.
+   *       </p>
+   * @public
+   */
+  Rules?: AwsWafRuleGroupRulesDetails[] | undefined;
+}
 
 /**
  * <p>
@@ -1648,6 +1689,54 @@ export interface ResourceDetails {
    * @public
    */
   CodeRepository?: CodeRepositoryDetails | undefined;
+
+  /**
+   * <p>Details about an Azure resource that is related to a finding.</p>
+   * @public
+   */
+  AzureResource?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Information about the account that owns a resource, for example, an Azure Subscription or Amazon Web Services Account.</p>
+ * @public
+ */
+export interface ResourceOwnerAccount {
+  /**
+   * <p>The unique identifier of the account that owns the resource, for example, Azure Subscription Id or Amazon Web Services Account Id.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * <p>Information about the organization that owns a resource, for example, an Azure Tenant.</p>
+ * @public
+ */
+export interface ResourceOwnerOrg {
+  /**
+   * <p>The unique identifier of the organization that owns the resource, for example, Azure Tenant Id.</p>
+   * @public
+   */
+  Id?: string | undefined;
+}
+
+/**
+ * <p>Information about the owner of a resource, including the account and organization that the resource belongs to.</p>
+ * @public
+ */
+export interface ResourceOwner {
+  /**
+   * <p>Information about the account that owns the resource, for example, an Azure Subscription or Amazon Web Services Account.</p>
+   * @public
+   */
+  Account?: ResourceOwnerAccount | undefined;
+
+  /**
+   * <p>Information about the organization that owns the resource, for example, an Azure Tenant.</p>
+   * @public
+   */
+  Org?: ResourceOwnerOrg | undefined;
 }
 
 /**
@@ -1684,6 +1773,18 @@ export interface Resource {
    * @public
    */
   Region?: string | undefined;
+
+  /**
+   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * @public
+   */
+  Provider?: CloudProviderName | undefined;
+
+  /**
+   * <p>Information about the account and organization that own the resource.</p>
+   * @public
+   */
+  Owner?: ResourceOwner | undefined;
 
   /**
    * <p>Identifies the role of the resource in the finding. A resource is either the actor or target of the finding activity,</p>
@@ -3486,6 +3587,24 @@ export interface AwsSecurityFindingFilters {
    * @public
    */
   ResourceApplicationArn?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the account that owns the resource that the finding applies to, for example, Azure Subscription Id or Amazon Web Services Account Id</p>
+   * @public
+   */
+  ResourceOwnerAccountId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The unique identifier of the organization that owns the resource that the finding applies to, for example, Azure Tenant Id</p>
+   * @public
+   */
+  ResourceOwnerOrgId?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider that the resource belongs to. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   * @public
+   */
+  ResourceProvider?: StringFilter[] | undefined;
 }
 
 /**
@@ -3506,6 +3625,90 @@ export interface AwsSecurityFindingIdentifier {
    * @public
    */
   ProductArn: string | undefined;
+}
+
+/**
+ * <p>The scope configuration for an Azure connector, defining the tenant or subscription scope.</p>
+ * @public
+ */
+export interface AzureScopeConfiguration {
+  /**
+   * <p>The type of scope. Valid values are <code>tenant</code> and <code>subscription</code>.</p>
+   * @public
+   */
+  ScopeType: ScopeType | undefined;
+
+  /**
+   * <p>The list of scope values, such as subscription IDs, when the scope type is <code>subscription</code>.</p>
+   * @public
+   */
+  ScopeValues?: string[] | undefined;
+}
+
+/**
+ * <p>The detailed Azure configuration for a connector.</p>
+ * @public
+ */
+export interface AzureDetail {
+  /**
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
+   * @public
+   */
+  AWSConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which Azure resources are monitored.</p>
+   * @public
+   */
+  ScopeConfiguration: AzureScopeConfiguration | undefined;
+
+  /**
+   * <p>The list of Azure regions being monitored.</p>
+   * @public
+   */
+  AzureRegions: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for connecting to an Azure environment.</p>
+ * @public
+ */
+export interface AzureProviderConfiguration {
+  /**
+   * <p>The ARN of the multi-cloud configuration connector used to establish the connection to Azure.</p>
+   * @public
+   */
+  AWSConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which Azure resources are monitored.</p>
+   * @public
+   */
+  ScopeConfiguration: AzureScopeConfiguration | undefined;
+
+  /**
+   * <p>The list of Azure regions to monitor.</p>
+   * @public
+   */
+  AzureRegions: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for updating an Azure connector's scope and regions.</p>
+ * @public
+ */
+export interface AzureUpdateConfiguration {
+  /**
+   * <p>The updated scope configuration.</p>
+   * @public
+   */
+  ScopeConfiguration: AzureScopeConfiguration | undefined;
+
+  /**
+   * <p>The updated list of Azure regions to monitor.</p>
+   * @public
+   */
+  AzureRegions: string[] | undefined;
 }
 
 /**
@@ -3674,6 +3877,12 @@ export interface StandardsSubscription {
    * @public
    */
   StandardsStatusReason?: StandardsStatusReason | undefined;
+
+  /**
+   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * @public
+   */
+  Provider?: StandardsProvider | undefined;
 }
 
 /**
@@ -4329,6 +4538,12 @@ export interface SecurityControl {
    * @public
    */
   LastUpdateReason?: string | undefined;
+
+  /**
+   * <p>The cloud provider whose resources the security control evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * @public
+   */
+  Provider?: SecurityControlsProvider | undefined;
 }
 
 /**
@@ -5807,6 +6022,135 @@ export interface ConfigurationPolicySummary {
 }
 
 /**
+ * <p>Information about the configuration and status of a Jira Cloud integration.</p>
+ * @public
+ */
+export interface JiraCloudDetail {
+  /**
+   * <p>The cloud id of the Jira Cloud.</p>
+   * @public
+   */
+  CloudId?: string | undefined;
+
+  /**
+   * <p>The projectKey of Jira Cloud.</p>
+   * @public
+   */
+  ProjectKey?: string | undefined;
+
+  /**
+   * <p>The URL domain of your Jira Cloud instance.</p>
+   * @public
+   */
+  Domain?: string | undefined;
+
+  /**
+   * <p>The URL to provide to customers for OAuth auth code flow.</p>
+   * @public
+   */
+  AuthUrl?: string | undefined;
+
+  /**
+   * <p>The status of the authorization between Jira Cloud and the service.</p>
+   * @public
+   */
+  AuthStatus?: ConnectorAuthStatus | undefined;
+}
+
+/**
+ * <p>Information about a ServiceNow ITSM integration.</p>
+ * @public
+ */
+export interface ServiceNowDetail {
+  /**
+   * <p>The instanceName of ServiceNow ITSM.</p>
+   * @public
+   */
+  InstanceName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+
+  /**
+   * <p>The status of the authorization between ServiceNow and the service.</p>
+   * @public
+   */
+  AuthStatus: ConnectorAuthStatus | undefined;
+}
+
+/**
+ * <p>The third-party provider detail for a service configuration.</p>
+ * @public
+ */
+export type ProviderDetail =
+  | ProviderDetail.AzureMember
+  | ProviderDetail.JiraCloudMember
+  | ProviderDetail.ServiceNowMember
+  | ProviderDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderDetail {
+  /**
+   * <p>Details about a Jira Cloud integration.</p>
+   * @public
+   */
+  export interface JiraCloudMember {
+    JiraCloud: JiraCloudDetail;
+    ServiceNow?: never;
+    Azure?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a ServiceNow ITSM integration.</p>
+   * @public
+   */
+  export interface ServiceNowMember {
+    JiraCloud?: never;
+    ServiceNow: ServiceNowDetail;
+    Azure?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Details about a Microsoft Azure CSPM integration.</p>
+   * @public
+   */
+  export interface AzureMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure: AzureDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    JiraCloud: (value: JiraCloudDetail) => T;
+    ServiceNow: (value: ServiceNowDetail) => T;
+    Azure: (value: AzureDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The connectorV2 third-party provider configuration summary.</p>
  * @public
  */
@@ -5822,6 +6166,12 @@ export interface ProviderSummary {
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
+
+  /**
+   * <p>The third-party provider detail for a service configuration.</p>
+   * @public
+   */
+  ProviderConfiguration?: ProviderDetail | undefined;
 }
 
 /**
@@ -5864,6 +6214,18 @@ export interface ConnectorSummary {
    * @public
    */
   CreatedAt: Date | undefined;
+
+  /**
+   * <p>The enablement status of the connector.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
+
+  /**
+   * <p>The reason for the current enablement status. Provides additional context when the connector is in a failed state.</p>
+   * @public
+   */
+  EnablementStatusReason?: string | undefined;
 }
 
 /**
@@ -6321,6 +6683,109 @@ export interface CreateConfigurationPolicyResponse {
 }
 
 /**
+ * <p>The cloud provider configuration for creating a connector. This is a union type that currently supports Azure.</p>
+ * @public
+ */
+export type CspmProviderConfiguration =
+  | CspmProviderConfiguration.AzureMember
+  | CspmProviderConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CspmProviderConfiguration {
+  /**
+   * <p>The Azure provider configuration.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureProviderConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureProviderConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorRequest {
+  /**
+   * <p>The name of the connector. Must be unique within the account.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration for the cloud provider to connect to. Currently supports Azure.</p>
+   * @public
+   */
+  Provider: CspmProviderConfiguration | undefined;
+
+  /**
+   * <p>The tags to add to the connector resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique identifier used to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  ConnectorArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The connectivity status of the connector.</p>
+   * @public
+   */
+  ConnectorStatus?: CspmConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status of the connector.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
  * <p>The initial configuration settings required to establish an integration between Security Hub and Jira Cloud.</p>
  * @public
  */
@@ -6355,6 +6820,7 @@ export interface ServiceNowProviderConfiguration {
  * @public
  */
 export type ProviderConfiguration =
+  | ProviderConfiguration.AzureMember
   | ProviderConfiguration.JiraCloudMember
   | ProviderConfiguration.ServiceNowMember
   | ProviderConfiguration.$UnknownMember;
@@ -6370,6 +6836,7 @@ export namespace ProviderConfiguration {
   export interface JiraCloudMember {
     JiraCloud: JiraCloudProviderConfiguration;
     ServiceNow?: never;
+    Azure?: never;
     $unknown?: never;
   }
 
@@ -6380,6 +6847,18 @@ export namespace ProviderConfiguration {
   export interface ServiceNowMember {
     JiraCloud?: never;
     ServiceNow: ServiceNowProviderConfiguration;
+    Azure?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration settings required to establish a CSPM integration with Microsoft Azure.</p>
+   * @public
+   */
+  export interface AzureMember {
+    JiraCloud?: never;
+    ServiceNow?: never;
+    Azure: AzureProviderConfiguration;
     $unknown?: never;
   }
 
@@ -6389,6 +6868,7 @@ export namespace ProviderConfiguration {
   export interface $UnknownMember {
     JiraCloud?: never;
     ServiceNow?: never;
+    Azure?: never;
     $unknown: [string, any];
   }
 
@@ -6399,6 +6879,7 @@ export namespace ProviderConfiguration {
   export interface Visitor<T> {
     JiraCloud: (value: JiraCloudProviderConfiguration) => T;
     ServiceNow: (value: ServiceNowProviderConfiguration) => T;
+    Azure: (value: AzureProviderConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6471,6 +6952,12 @@ export interface CreateConnectorV2Response {
    * @public
    */
   ConnectorStatus?: ConnectorStatus | undefined;
+
+  /**
+   * <p>The enablement status of the connector after creation.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
 }
 
 /**
@@ -6674,6 +7161,210 @@ export interface CreateTicketV2Response {
 }
 
 /**
+ * <p>The detailed cloud provider configuration for a connector. This is a union type that currently supports Azure.</p>
+ * @public
+ */
+export type CspmProviderDetail =
+  | CspmProviderDetail.AzureMember
+  | CspmProviderDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CspmProviderDetail {
+  /**
+   * <p>The Azure provider detail.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of the cloud provider configuration for a connector.</p>
+ * @public
+ */
+export interface CspmProviderSummary {
+  /**
+   * <p>The name of the cloud provider.</p>
+   * @public
+   */
+  ProviderName?: CspmConnectorProviderName | undefined;
+
+  /**
+   * <p>The connectivity status of the connector.</p>
+   * @public
+   */
+  ConnectorStatus?: CspmConnectorStatus | undefined;
+
+  /**
+   * <p>The provider configuration details.</p>
+   * @public
+   */
+  ProviderConfiguration?: CspmProviderDetail | undefined;
+}
+
+/**
+ * <p>A summary of a CSPM connector.</p>
+ * @public
+ */
+export interface CspmConnectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the connector.</p>
+   * @public
+   */
+  ConnectorId?: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A summary of the cloud provider configuration for the connector.</p>
+   * @public
+   */
+  ProviderSummary?: CspmProviderSummary | undefined;
+
+  /**
+   * <p>The ISO 8601 UTC timestamp indicating when the connector was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The service principal that created the connector.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+
+  /**
+   * <p>The enablement status of the connector.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
+ * <p>Represents a specific health issue detected for a connector.</p>
+ * @public
+ */
+export interface HealthIssue {
+  /**
+   * <p>The error code that identifies the type of health issue.</p>
+   * @public
+   */
+  Code: HealthIssueCode | undefined;
+
+  /**
+   * <p>A human-readable message that describes the health issue.</p>
+   * @public
+   */
+  Message: string | undefined;
+}
+
+/**
+ * <p>Information about the operational status and health of a CSPM connector.</p>
+ * @public
+ */
+export interface CspmHealthCheck {
+  /**
+   * <p>The connectivity status of the connector.</p>
+   * @public
+   */
+  ConnectorStatus: CspmConnectorStatus | undefined;
+
+  /**
+   * <p>A message describing the reason for the current connector status.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The ISO 8601 UTC timestamp indicating when the health status was last checked.</p>
+   * @public
+   */
+  LastCheckedAt: Date | undefined;
+
+  /**
+   * <p>A list of health issues associated with the connector.</p>
+   * @public
+   */
+  Issues?: HealthIssue[] | undefined;
+}
+
+/**
+ * <p>The cloud provider configuration for updating a connector. This is a union type that currently supports Azure.</p>
+ * @public
+ */
+export type CspmProviderUpdateConfiguration =
+  | CspmProviderUpdateConfiguration.AzureMember
+  | CspmProviderUpdateConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CspmProviderUpdateConfiguration {
+  /**
+   * <p>The Azure update configuration.</p>
+   * @public
+   */
+  export interface AzureMember {
+    Azure: AzureUpdateConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Azure: (value: AzureUpdateConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface DeclineInvitationsRequest {
@@ -6771,6 +7462,28 @@ export interface DeleteConfigurationPolicyResponse {}
 /**
  * @public
  */
+export interface DeleteConnectorRequest {
+  /**
+   * <p>The unique identifier of the connector to delete.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorResponse {
+  /**
+   * <p>The enablement status of the connector after the delete request.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteConnectorV2Request {
   /**
    * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
@@ -6782,7 +7495,13 @@ export interface DeleteConnectorV2Request {
 /**
  * @public
  */
-export interface DeleteConnectorV2Response {}
+export interface DeleteConnectorV2Response {
+  /**
+   * <p>The enablement status of the connector after deletion.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
+}
 
 /**
  * @public
@@ -7287,6 +8006,24 @@ export interface DescribeProductsV2Response {
 export interface DescribeSecurityHubV2Request {}
 
 /**
+ * <p>Contains the status and metadata for an opt-in feature.</p>
+ * @public
+ */
+export interface FeatureDetail {
+  /**
+   * <p>The current enablement status of the feature. Valid values: <code>ENABLED</code> | <code>DISABLED</code>.</p>
+   * @public
+   */
+  FeatureStatus?: FeatureStatus | undefined;
+
+  /**
+   * <p>The date and time when the feature status was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribeSecurityHubV2Response {
@@ -7301,6 +8038,12 @@ export interface DescribeSecurityHubV2Response {
    * @public
    */
   SubscribedAt?: string | undefined;
+
+  /**
+   * <p>A map of opt-in features and their current status and metadata for the account in the current Region.</p>
+   * @public
+   */
+  Features?: Record<string, FeatureDetail> | undefined;
 }
 
 /**
@@ -7322,6 +8065,12 @@ export interface DescribeStandardsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>A list of cloud providers to filter the standards by. For example, specify <code>Azure</code> to return only standards that evaluate Azure resources.</p>
+   * @public
+   */
+  Providers?: StandardsProvider[] | undefined;
 }
 
 /**
@@ -7378,6 +8127,12 @@ export interface Standard {
    * @public
    */
   EnabledByDefault?: boolean | undefined;
+
+  /**
+   * <p>The cloud provider whose resources the standard evaluates. For example, <code>AWS</code> or <code>Azure</code>.</p>
+   * @public
+   */
+  Provider?: StandardsProvider | undefined;
 
   /**
    * <p>Provides details about the management of a standard.
@@ -7573,6 +8328,22 @@ export interface DisableSecurityHubResponse {}
 /**
  * @public
  */
+export interface DisableSecurityHubFeatureV2Request {
+  /**
+   * <p>The name of the feature to disable.</p>
+   * @public
+   */
+  FeatureName: FeatureName | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableSecurityHubFeatureV2Response {}
+
+/**
+ * @public
+ */
 export interface DisableSecurityHubV2Request {}
 
 /**
@@ -7714,6 +8485,22 @@ export interface EnableSecurityHubRequest {
  * @public
  */
 export interface EnableSecurityHubResponse {}
+
+/**
+ * @public
+ */
+export interface EnableSecurityHubFeatureV2Request {
+  /**
+   * <p>The name of the feature to enable.</p>
+   * @public
+   */
+  FeatureName: FeatureName | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableSecurityHubFeatureV2Response {}
 
 /**
  * @public
@@ -7896,7 +8683,65 @@ export interface FindingScopes {
  */
 export interface FindingsTrendsStringFilter {
   /**
-   * <p>The name of the findings field to filter on.</p>
+   * <p>The name of the findings field to filter on. You can specify one of the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account_id</code> – The Amazon Web Services account ID associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> – The Amazon Web Services Region associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_types</code> – The finding types associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_status</code> – The status of the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_cve_ids</code> – The Common Vulnerabilities and Exposures (CVE) identifiers associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_compliance_status</code> – The compliance status of the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_control_id</code> – The identifier of the security control associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_class_name</code> – The finding class, such as <code>Compliance Finding</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_provider</code> – The name of the product that generated the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>finding_activity_name</code> – The activity name associated with the finding.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_cloud_providers</code> – The cloud providers of the resources that the finding is associated with. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_regions</code> – The Regions of the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_owner_ids</code> – The identifiers of the accounts that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_owner_organization_ids</code> – The identifiers of the organizations that own the associated resources. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FieldName?: FindingsTrendsStringField | undefined;
@@ -8178,6 +9023,82 @@ export interface GetConfigurationPolicyAssociationResponse {
 /**
  * @public
  */
+export interface GetConnectorRequest {
+  /**
+   * <p>The unique identifier of the connector to retrieve.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  ConnectorArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the connector.</p>
+   * @public
+   */
+  ConnectorId: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ISO 8601 UTC timestamp indicating when the connector was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The ISO 8601 UTC timestamp indicating when the connector was last updated.</p>
+   * @public
+   */
+  LastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The health status of the connector, including connectivity status and last check time.</p>
+   * @public
+   */
+  Health: CspmHealthCheck | undefined;
+
+  /**
+   * <p>The cloud provider configuration details for the connector.</p>
+   * @public
+   */
+  ProviderDetail: CspmProviderDetail | undefined;
+
+  /**
+   * <p>The service principal that created the connector.</p>
+   * @public
+   */
+  CreatedBy?: string | undefined;
+
+  /**
+   * <p>The enablement status of the connector.</p>
+   * @public
+   */
+  EnablementStatus?: CspmEnablementStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetConnectorV2Request {
   /**
    * <p>The UUID of the connectorV2 to identify connectorV2 resource.</p>
@@ -8208,119 +9129,12 @@ export interface HealthCheck {
    * @public
    */
   LastCheckedAt: Date | undefined;
-}
 
-/**
- * <p>Information about the configuration and status of a Jira Cloud integration.</p>
- * @public
- */
-export interface JiraCloudDetail {
   /**
-   * <p>The cloud id of the Jira Cloud.</p>
+   * <p>A list of health issues associated with the connector, including error codes and messages.</p>
    * @public
    */
-  CloudId?: string | undefined;
-
-  /**
-   * <p>The projectKey of Jira Cloud.</p>
-   * @public
-   */
-  ProjectKey?: string | undefined;
-
-  /**
-   * <p>The URL domain of your Jira Cloud instance.</p>
-   * @public
-   */
-  Domain?: string | undefined;
-
-  /**
-   * <p>The URL to provide to customers for OAuth auth code flow.</p>
-   * @public
-   */
-  AuthUrl?: string | undefined;
-
-  /**
-   * <p>The status of the authorization between Jira Cloud and the service.</p>
-   * @public
-   */
-  AuthStatus?: ConnectorAuthStatus | undefined;
-}
-
-/**
- * <p>Information about a ServiceNow ITSM integration.</p>
- * @public
- */
-export interface ServiceNowDetail {
-  /**
-   * <p>The instanceName of ServiceNow ITSM.</p>
-   * @public
-   */
-  InstanceName?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the ServiceNow credentials.</p>
-   * @public
-   */
-  SecretArn: string | undefined;
-
-  /**
-   * <p>The status of the authorization between ServiceNow and the service.</p>
-   * @public
-   */
-  AuthStatus: ConnectorAuthStatus | undefined;
-}
-
-/**
- * <p>The third-party provider detail for a service configuration.</p>
- * @public
- */
-export type ProviderDetail =
-  | ProviderDetail.JiraCloudMember
-  | ProviderDetail.ServiceNowMember
-  | ProviderDetail.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ProviderDetail {
-  /**
-   * <p>Details about a Jira Cloud integration.</p>
-   * @public
-   */
-  export interface JiraCloudMember {
-    JiraCloud: JiraCloudDetail;
-    ServiceNow?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Details about a ServiceNow ITSM integration.</p>
-   * @public
-   */
-  export interface ServiceNowMember {
-    JiraCloud?: never;
-    ServiceNow: ServiceNowDetail;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    JiraCloud?: never;
-    ServiceNow?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    JiraCloud: (value: JiraCloudDetail) => T;
-    ServiceNow: (value: ServiceNowDetail) => T;
-    _: (name: string, value: any) => T;
-  }
+  Issues?: HealthIssue[] | undefined;
 }
 
 /**
@@ -8380,6 +9194,18 @@ export interface GetConnectorV2Response {
    * @public
    */
   ProviderDetail: ProviderDetail | undefined;
+
+  /**
+   * <p>The enablement status of the connector.</p>
+   * @public
+   */
+  EnablementStatus?: EnablementStatus | undefined;
+
+  /**
+   * <p>The reason for the current enablement status. Provides additional context when the connector is in a failed state.</p>
+   * @public
+   */
+  EnablementStatusReason?: string | undefined;
 }
 
 /**
@@ -8407,6 +9233,12 @@ export interface GetEnabledStandardsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>A list of cloud providers to filter the enabled standards by. For example, specify <code>Azure</code> to return only enabled standards that evaluate Azure resources.</p>
+   * @public
+   */
+  Providers?: StandardsProvider[] | undefined;
 }
 
 /**
@@ -9361,7 +10193,41 @@ export interface GetResourcesStatisticsV2Response {
  */
 export interface ResourcesTrendsStringFilter {
   /**
-   * <p>The name of the resources field to filter on, such as resourceType, accountId, or region.</p>
+   * <p>The name of the resources field to filter on. You can specify one of the following fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account_id</code> – The Amazon Web Services account ID that owns the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>region</code> – The Amazon Web Services Region of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_type</code> – The type of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_category</code> – The category of the resource.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_cloud_provider</code> – The cloud provider of the resource. Valid values are <code>AWS</code> and <code>Azure</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_region</code> – The Region of the resource. For an Amazon Web Services resource, this is the Amazon Web Services Region. For an Azure resource, this is the Azure Region, such as <code>eastus</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_owner_id</code> – The identifier of the account that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services account ID. For an Azure resource, this is the Azure subscription ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource_owner_organization_id</code> – The identifier of the organization that owns the resource. For an Amazon Web Services resource, this is the Amazon Web Services organization ID. For an Azure resource, this is the Azure tenant ID.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FieldName?: ResourcesTrendsStringField | undefined;
@@ -9523,6 +10389,18 @@ export interface ResourceFindingsSummary {
 }
 
 /**
+ * <p>Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains <code>AIDetails</code>.</p>
+ * @public
+ */
+export interface ResourceInfo {
+  /**
+   * <p>Details that are specific to self-hosted AI resources and their host resources.</p>
+   * @public
+   */
+  AIDetails?: AIDetails | undefined;
+}
+
+/**
  * <p>Represents tag information associated with Amazon Web Services resources.</p>
  * @public
  */
@@ -9538,656 +10416,4 @@ export interface ResourceTag {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
- * @public
- */
-export interface ResourceResult {
-  /**
-   * <p>The global identifier used to identify a resource.</p>
-   * @public
-   */
-  ResourceGuid?: string | undefined;
-
-  /**
-   * <p>The unique identifier for a resource.</p>
-   * @public
-   */
-  ResourceId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account that owns the resource.</p>
-   * @public
-   */
-  AccountId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services Region where the resource is located.</p>
-   * @public
-   */
-  Region: string | undefined;
-
-  /**
-   * <p>The grouping where the resource belongs.</p>
-   * @public
-   */
-  ResourceCategory?: ResourceCategory | undefined;
-
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The name of the resource.</p>
-   * @public
-   */
-  ResourceName?: string | undefined;
-
-  /**
-   * <p>The time when the resource was created.</p>
-   * @public
-   */
-  ResourceCreationTimeDt?: string | undefined;
-
-  /**
-   * <p>The timestamp when information about the resource was captured.</p>
-   * @public
-   */
-  ResourceDetailCaptureTimeDt: string | undefined;
-
-  /**
-   * <p>An aggregated view of security findings associated with a resource.</p>
-   * @public
-   */
-  FindingsSummary?: ResourceFindingsSummary[] | undefined;
-
-  /**
-   * <p>The key-value pairs associated with a resource.</p>
-   * @public
-   */
-  ResourceTags?: ResourceTag[] | undefined;
-
-  /**
-   * <p>The configuration details of a resource.</p>
-   * @public
-   */
-  ResourceConfig: __DocumentType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcesV2Response {
-  /**
-   * <p>An array of resources returned by the operation.</p>
-   * @public
-   */
-  Resources: ResourceResult[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityControlDefinitionRequest {
-  /**
-   * <p>
-   *             The ID of the security control to retrieve the definition for. This field doesn’t accept an Amazon Resource Name (ARN).
-   *         </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-}
-
-/**
- * <p>
- *             An object that describes a security control parameter and the options for customizing it.
- *         </p>
- * @public
- */
-export interface ParameterDefinition {
-  /**
-   * <p>
-   *             Description of a control parameter.
-   *         </p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>
-   *             The options for customizing a control parameter. Customization options vary based on the data type of the parameter.
-   *         </p>
-   * @public
-   */
-  ConfigurationOptions: ConfigurationOptions | undefined;
-}
-
-/**
- * <p>
- *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
- *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
- *       </p>
- * @public
- */
-export interface SecurityControlDefinition {
-  /**
-   * <p>
-   *          The unique identifier of a security control across standards. Values for this field typically consist of an
-   *          Amazon Web Services service name and a number (for example, APIGateway.3). This parameter differs from
-   *          <code>SecurityControlArn</code>, which is a unique Amazon Resource Name (ARN) assigned to a control. The
-   *          ARN references the security control ID (for example, arn:aws:securityhub:eu-central-1:123456789012:security-control/APIGateway.3).
-   *       </p>
-   * @public
-   */
-  SecurityControlId: string | undefined;
-
-  /**
-   * <p>
-   *          The title of a security control.
-   *       </p>
-   * @public
-   */
-  Title: string | undefined;
-
-  /**
-   * <p> The description of a security control across standards. This typically summarizes how
-   *             Security Hub CSPM evaluates the control and the conditions under which it produces a
-   *          failed finding. This parameter doesn't reference a specific standard. </p>
-   * @public
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>
-   *          A link to Security Hub CSPM documentation that explains how to remediate a failed finding for a security control.
-   *       </p>
-   * @public
-   */
-  RemediationUrl: string | undefined;
-
-  /**
-   * <p>
-   *          The severity of a security control. For more information about how Security Hub CSPM determines control severity,
-   *          see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/controls-findings-create-update.html#control-findings-severity">Assigning severity to control findings</a> in the
-   *          <i>Security Hub CSPM User Guide</i>.
-   *       </p>
-   * @public
-   */
-  SeverityRating: SeverityRating | undefined;
-
-  /**
-   * <p>
-   *          Specifies whether a security control is available in the current Amazon Web Services Region.
-   *       </p>
-   * @public
-   */
-  CurrentRegionAvailability: RegionAvailabilityStatus | undefined;
-
-  /**
-   * <p>
-   *             Security control properties that you can customize. Currently, only parameter customization is supported for select
-   *             controls. An empty array is returned for controls that don’t support custom properties.
-   *         </p>
-   * @public
-   */
-  CustomizableProperties?: SecurityControlProperty[] | undefined;
-
-  /**
-   * <p>
-   *             An object that provides a security control parameter name, description, and the options for customizing it. This
-   * object is excluded for a control that doesn't support custom parameters.
-   *         </p>
-   * @public
-   */
-  ParameterDefinitions?: Record<string, ParameterDefinition> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSecurityControlDefinitionResponse {
-  /**
-   * <p>
-   *          Provides metadata for a security control, including its unique standard-agnostic identifier, title, description,
-   *          severity, availability in Amazon Web Services Regions, and a link to remediation steps.
-   *       </p>
-   * @public
-   */
-  SecurityControlDefinition: SecurityControlDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface InviteMembersRequest {
-  /**
-   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub CSPM as members. </p>
-   * @public
-   */
-  AccountIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface InviteMembersResponse {
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   * @public
-   */
-  UnprocessedAccounts?: Result[] | undefined;
-}
-
-/**
- * <p>The parameters used to modify an existing Jira Cloud integration.</p>
- * @public
- */
-export interface JiraCloudUpdateConfiguration {
-  /**
-   * <p>The project key for a JiraCloud instance.</p>
-   * @public
-   */
-  ProjectKey?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAggregatorsV2Request {
-  /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAggregatorsV2Response {
-  /**
-   * <p>An array of aggregators.</p>
-   * @public
-   */
-  AggregatorsV2?: AggregatorV2[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesRequest {
-  /**
-   * <p>
-   *          A token to specify where to start paginating the response. This is the <code>NextToken</code>
-   *          from a previously truncated response. On your first call to the <code>ListAutomationRules</code>
-   *          API, set the value of this parameter to <code>NULL</code>.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p> The maximum number of rules to return in the response. This currently ranges from 1 to
-   *          100. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesResponse {
-  /**
-   * <p>
-   *          Metadata for rules in the calling account. The response includes rules with a
-   *          <code>RuleStatus</code> of <code>ENABLED</code> and <code>DISABLED</code>.
-   *       </p>
-   * @public
-   */
-  AutomationRulesMetadata?: AutomationRulesMetadata[] | undefined;
-
-  /**
-   * <p>
-   *          A pagination token for the response.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesV2Request {
-  /**
-   * <p>The token required for pagination.
-   *          On your first call, set the value of this parameter to <code>NULL</code>.
-   *          For subsequent calls, to continue listing data, set the value of this parameter to the value returned in the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAutomationRulesV2Response {
-  /**
-   * <p>An array of automation rules.</p>
-   * @public
-   */
-  Rules?: AutomationRulesMetadataV2[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPoliciesRequest {
-  /**
-   * <p>
-   *             The NextToken value that's returned from a previous paginated <code>ListConfigurationPolicies</code> request where
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination continues from the
-   *             end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *             there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicies</code> returns the specified number of results in a
-   *             single page and a <code>NextToken</code> response element. You can see the remaining results of the initial request
-   *             by sending another <code>ListConfigurationPolicies</code> request with the returned <code>NextToken</code> value. A
-   *             valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPoliciesResponse {
-  /**
-   * <p>
-   *             Provides metadata for each of your configuration policies.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicySummaries?: ConfigurationPolicySummary[] | undefined;
-
-  /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicies</code> request. When the
-   *             results of a <code>ListConfigurationPolicies</code> request exceed <code>MaxResults</code>, this value can be used to
-   *             retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPolicyAssociationsRequest {
-  /**
-   * <p>
-   *             The <code>NextToken</code> value that's returned from a previous paginated <code>ListConfigurationPolicyAssociations</code>
-   *             request where <code>MaxResults</code> was used but the results exceeded the value of that parameter. Pagination
-   *             continues from the end of the previous response that returned the <code>NextToken</code> value. This value is <code>null</code>
-   *             when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>
-   *             The maximum number of results that's returned by <code>ListConfigurationPolicies</code> in each page of the response.
-   *             When this parameter is used, <code>ListConfigurationPolicyAssociations</code> returns the specified number of results
-   *             in a single page and a <code>NextToken</code> response element. You can see the remaining results of the initial
-   *             request by sending another <code>ListConfigurationPolicyAssociations</code> request with the returned <code>NextToken</code>
-   *             value. A valid range for <code>MaxResults</code> is between 1 and 100.
-   *         </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>
-   *             Options for filtering the <code>ListConfigurationPolicyAssociations</code> response. You can filter by the Amazon Resource Name (ARN) or
-   *             universally unique identifier (UUID) of a configuration, <code>AssociationType</code>, or <code>AssociationStatus</code>.
-   *         </p>
-   * @public
-   */
-  Filters?: AssociationFilters | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConfigurationPolicyAssociationsResponse {
-  /**
-   * <p>
-   *             An object that contains the details of each configuration policy association that’s returned in a
-   *             <code>ListConfigurationPolicyAssociations</code> request.
-   *         </p>
-   * @public
-   */
-  ConfigurationPolicyAssociationSummaries?: ConfigurationPolicyAssociationSummary[] | undefined;
-
-  /**
-   * <p>
-   *             The <code>NextToken</code> value to include in the next <code>ListConfigurationPolicyAssociations</code> request. When
-   *             the results of a <code>ListConfigurationPolicyAssociations</code> request exceed <code>MaxResults</code>, this value
-   *             can be used to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.
-   *         </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConnectorsV2Request {
-  /**
-   * <p>The pagination token per the Amazon Web Services Pagination standard</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The name of the third-party provider.</p>
-   * @public
-   */
-  ProviderName?: ConnectorProviderName | undefined;
-
-  /**
-   * <p>The status for the connectorV2.</p>
-   * @public
-   */
-  ConnectorStatus?: ConnectorStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListConnectorsV2Response {
-  /**
-   * <p>The pagination token to use to request the next page of results.
-   *          Otherwise, this parameter is null.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>An array of connectorV2 summaries.</p>
-   * @public
-   */
-  Connectors: ConnectorSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEnabledProductsForImportRequest {
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListEnabledProductsForImport</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListEnabledProductsForImportResponse {
-  /**
-   * <p>The list of ARNs for the resources that represent your subscriptions to products. </p>
-   * @public
-   */
-  ProductSubscriptions?: string[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregatorsRequest {
-  /**
-   * <p>The token returned with the previous set of results. Identifies the next set of results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return. This operation currently only returns a single result.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregatorsResponse {
-  /**
-   * <p>The list of finding aggregators. This operation currently only returns a single result.</p>
-   * @public
-   */
-  FindingAggregators?: FindingAggregator[] | undefined;
-
-  /**
-   * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
-   *          <p>This operation currently only returns a single result.
-   *       </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsRequest {
-  /**
-   * <p>The maximum number of items to return in the response. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>ListInvitations</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListInvitationsResponse {
-  /**
-   * <p>The details of the invitations returned by the operation.</p>
-   * @public
-   */
-  Invitations?: Invitation[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

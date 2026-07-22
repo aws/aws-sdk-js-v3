@@ -359,6 +359,11 @@ import {
   GetScheduledQueryHistoryCommand,
 } from "./commands/GetScheduledQueryHistoryCommand";
 import {
+  type GetStorageTierPolicyCommandInput,
+  type GetStorageTierPolicyCommandOutput,
+  GetStorageTierPolicyCommand,
+} from "./commands/GetStorageTierPolicyCommand";
+import {
   type GetTransformerCommandInput,
   type GetTransformerCommandOutput,
   GetTransformerCommand,
@@ -498,6 +503,11 @@ import {
   type PutRetentionPolicyCommandOutput,
   PutRetentionPolicyCommand,
 } from "./commands/PutRetentionPolicyCommand";
+import {
+  type PutStorageTierPolicyCommandInput,
+  type PutStorageTierPolicyCommandOutput,
+  PutStorageTierPolicyCommand,
+} from "./commands/PutStorageTierPolicyCommand";
 import {
   type PutSubscriptionFilterCommandInput,
   type PutSubscriptionFilterCommandOutput,
@@ -670,6 +680,7 @@ const commands = {
   GetQueryResultsCommand,
   GetScheduledQueryCommand,
   GetScheduledQueryHistoryCommand,
+  GetStorageTierPolicyCommand,
   GetTransformerCommand,
   ListAggregateLogGroupSummariesCommand,
   ListAnomaliesCommand,
@@ -698,6 +709,7 @@ const commands = {
   PutQueryDefinitionCommand,
   PutResourcePolicyCommand,
   PutRetentionPolicyCommand,
+  PutStorageTierPolicyCommand,
   PutSubscriptionFilterCommand,
   PutSyslogConfigurationCommand,
   PutTransformerCommand,
@@ -1964,6 +1976,24 @@ export interface CloudWatchLogs {
   ): void;
 
   /**
+   * @see {@link GetStorageTierPolicyCommand}
+   */
+  getStorageTierPolicy(): Promise<GetStorageTierPolicyCommandOutput>;
+  getStorageTierPolicy(
+    args: GetStorageTierPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStorageTierPolicyCommandOutput>;
+  getStorageTierPolicy(
+    args: GetStorageTierPolicyCommandInput,
+    cb: (err: any, data?: GetStorageTierPolicyCommandOutput) => void
+  ): void;
+  getStorageTierPolicy(
+    args: GetStorageTierPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStorageTierPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTransformerCommand}
    */
   getTransformer(
@@ -2444,6 +2474,23 @@ export interface CloudWatchLogs {
     args: PutRetentionPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutRetentionPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutStorageTierPolicyCommand}
+   */
+  putStorageTierPolicy(
+    args: PutStorageTierPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutStorageTierPolicyCommandOutput>;
+  putStorageTierPolicy(
+    args: PutStorageTierPolicyCommandInput,
+    cb: (err: any, data?: PutStorageTierPolicyCommandOutput) => void
+  ): void;
+  putStorageTierPolicy(
+    args: PutStorageTierPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutStorageTierPolicyCommandOutput) => void
   ): void;
 
   /**

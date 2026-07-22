@@ -506,6 +506,18 @@ export type FailureReasonCode = (typeof FailureReasonCode)[keyof typeof FailureR
  * @public
  * @enum
  */
+export const AuthCodeEntityType = {
+  CUSTOMER_PROFILE: "CUSTOMER_PROFILE",
+} as const;
+/**
+ * @public
+ */
+export type AuthCodeEntityType = (typeof AuthCodeEntityType)[keyof typeof AuthCodeEntityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InitiateAs = {
   COMPLETED: "COMPLETED",
   CONNECTED_TO_USER: "CONNECTED_TO_USER",
@@ -1418,6 +1430,20 @@ export type WorkspaceFontFamily = (typeof WorkspaceFontFamily)[keyof typeof Work
  * @public
  * @enum
  */
+export const ContactField = {
+  ADDITIONAL_EMAIL_RECIPIENTS: "ADDITIONAL_EMAIL_RECIPIENTS",
+  CUSTOMER_ENDPOINT: "CUSTOMER_ENDPOINT",
+  EMAIL_SUBJECT: "EMAIL_SUBJECT",
+} as const;
+/**
+ * @public
+ */
+export type ContactField = (typeof ContactField)[keyof typeof ContactField];
+
+/**
+ * @public
+ * @enum
+ */
 export const MediaType = {
   IMAGE_LOGO_DARK_FAVICON: "IMAGE_LOGO_DARK_FAVICON",
   IMAGE_LOGO_DARK_HORIZONTAL: "IMAGE_LOGO_DARK_HORIZONTAL",
@@ -2095,6 +2121,18 @@ export const QueueStatus = {
  * @public
  */
 export type QueueStatus = (typeof QueueStatus)[keyof typeof QueueStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleCapabilityTier = {
+  GenerativeAI: "GenerativeAI",
+} as const;
+/**
+ * @public
+ */
+export type RuleCapabilityTier = (typeof RuleCapabilityTier)[keyof typeof RuleCapabilityTier];
 
 /**
  * @public

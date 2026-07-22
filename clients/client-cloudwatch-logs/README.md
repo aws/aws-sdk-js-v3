@@ -719,6 +719,13 @@ GetScheduledQueryHistory
 </details>
 <details>
 <summary>
+GetStorageTierPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetStorageTierPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetStorageTierPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/GetStorageTierPolicyCommandOutput/)
+</details>
+<details>
+<summary>
 GetTransformer
 </summary>
 
@@ -912,6 +919,13 @@ PutRetentionPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutRetentionPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutRetentionPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutRetentionPolicyCommandOutput/)
+</details>
+<details>
+<summary>
+PutStorageTierPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/PutStorageTierPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutStorageTierPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudwatch-logs/Interface/PutStorageTierPolicyCommandOutput/)
 </details>
 <details>
 <summary>

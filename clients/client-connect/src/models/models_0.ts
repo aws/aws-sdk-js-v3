@@ -10,6 +10,7 @@ import type {
   ApplicationType,
   AttachedFileInvalidRequestExceptionReason,
   AttachedFileServiceQuotaExceededExceptionReason,
+  AuthCodeEntityType,
   BehaviorType,
   Channel,
   ConfigurableNotificationPriority,
@@ -78,7 +79,6 @@ import type {
   TestCaseStatus,
   UseCaseType,
   VideoCapability,
-  ViewStatus,
   VocabularyLanguageCode,
   VoiceEnhancementMode,
 } from "./enums";
@@ -3510,6 +3510,97 @@ export interface CreateAttachedFileResponse {
 }
 
 /**
+ * <p>Contains the scope configuration for an authorization code. Defines the permissions and access boundaries for
+ *    the session.</p>
+ * @public
+ */
+export interface AuthScope {
+  /**
+   * <p>The list of security profile identifiers to scope the session to. Maximum of 10 security profiles.</p>
+   * @public
+   */
+  SecurityProfileIds?: string[] | undefined;
+
+  /**
+   * <p>The type of entity to scope the session to.</p>
+   * @public
+   */
+  EntityType: AuthCodeEntityType | undefined;
+
+  /**
+   * <p>The identifier of the entity to scope the session to.</p>
+   * @public
+   */
+  EntityId?: string | undefined;
+
+  /**
+   * <p>The name of the Customer Profiles domain to scope the session to.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAuthCodeRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The scope for the authorization code. Defines the permissions and access boundaries for the session.</p>
+   * @public
+   */
+  Scope: AuthScope | undefined;
+
+  /**
+   * <p>The maximum duration of the session, in minutes. Minimum value of 1440 (24 hours). Maximum value of 43200 (30
+   *    days). If no value is provided, the session will expire after 400 days.</p>
+   * @public
+   */
+  MaxSessionDurationMinutes?: number | undefined;
+
+  /**
+   * <p>The duration of inactivity, in minutes, after which the session expires. Minimum value of 1440 (24 hours).
+   *    Maximum value of 20160 (14 days).</p>
+   * @public
+   */
+  SessionInactivityDurationMinutes: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateAuthCodeResponse {
+  /**
+   * <p>The authorization code to use for establishing a session.</p>
+   * @public
+   */
+  AuthCode?: string | undefined;
+
+  /**
+   * <p>The identifier of the session created with the authorization code.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The type of entity associated with the authorization code.</p>
+   * @public
+   */
+  EntityType?: AuthCodeEntityType | undefined;
+
+  /**
+   * <p>The identifier of the entity associated with the authorization code.</p>
+   * @public
+   */
+  EntityId?: string | undefined;
+}
+
+/**
  * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up to 4,096 UTF-8
  *    bytes across all references for a contact.</p>
  * @public
@@ -5199,7 +5290,7 @@ export interface CreateHoursOfOperationRequest {
 
   /**
    * <p>Configuration for parent hours of operations. Eg: ResourceArn. </p>
-   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
+   *          <p>For more information about parent hours of operations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Link overrides from different hours of operation</a> in the
    *      <i> Administrator Guide</i>.</p>
    * @public
    */
@@ -5381,7 +5472,7 @@ export interface CreateHoursOfOperationOverrideRequest {
 
   /**
    * <p>Whether the override will be defined as a <i>standard</i> or as a <i>recurring event</i>.</p>
-   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
    *      <i> Administrator Guide</i>.</p>
    * @public
    */
@@ -7951,94 +8042,6 @@ export interface CreateUserHierarchyGroupRequest {
 
   /**
    * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserHierarchyGroupResponse {
-  /**
-   * <p>The identifier of the hierarchy group.</p>
-   * @public
-   */
-  HierarchyGroupId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the hierarchy group. </p>
-   * @public
-   */
-  HierarchyGroupArn?: string | undefined;
-}
-
-/**
- * <p>View content containing all content necessary to render a view except for runtime input data and the runtime
- *    input schema, which is auto-generated by this operation.</p>
- * @public
- */
-export interface ViewInputContent {
-  /**
-   * <p>The view template representing the structure of the view.</p>
-   * @public
-   */
-  Template?: string | undefined;
-
-  /**
-   * <p>A list of possible actions from the view.</p>
-   * @public
-   */
-  Actions?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateViewRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique Id for each create view request to avoid duplicate view creation. For example, the view is idempotent
-   *    ClientToken is provided.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Indicates the view status as either <code>SAVED</code> or <code>PUBLISHED</code>. The <code>PUBLISHED</code>
-   *    status will initiate validation on the content.</p>
-   * @public
-   */
-  Status: ViewStatus | undefined;
-
-  /**
-   * <p>View content containing all content necessary to render a view except for runtime input data.</p>
-   *          <p>The total uncompressed content has a maximum file size of 400kB.</p>
-   * @public
-   */
-  Content: ViewInputContent | undefined;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The tags associated with the view resource (not specific to view version).These tags can be used to organize,
-   *    track, or control access for this resource. For example, \{ "tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
    * @public
    */
   Tags?: Record<string, string> | undefined;

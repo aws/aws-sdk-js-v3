@@ -202,6 +202,9 @@ const _CPS = "ClusterParameterStatus";
 const _CPSL = "ClusterParameterStatusList";
 const _CPUF = "ConflictPolicyUpdateFault";
 const _CQEF = "ClusterQuotaExceededFault";
+const _CQIA = "CreateQev2IdcApplication";
+const _CQIAM = "CreateQev2IdcApplicationMessage";
+const _CQIAR = "CreateQev2IdcApplicationResult";
 const _CR = "ConsumerRegion";
 const _CRIA = "CreateRedshiftIdcApplication";
 const _CRIAM = "CreateRedshiftIdcApplicationMessage";
@@ -382,6 +385,11 @@ const _DPIM = "DescribePartnersInputMessage";
 const _DPOM = "DescribePartnersOutputMessage";
 const _DPe = "DeletePartner";
 const _DPes = "DescribePartners";
+const _DQIA = "DeleteQev2IdcApplication";
+const _DQIAM = "DeleteQev2IdcApplicationMessage";
+const _DQIAMe = "DescribeQev2IdcApplicationsMessage";
+const _DQIAR = "DescribeQev2IdcApplicationsResult";
+const _DQIAe = "DescribeQev2IdcApplications";
 const _DR = "DestinationRegion";
 const _DRIA = "DeleteRedshiftIdcApplication";
 const _DRIAM = "DeleteRedshiftIdcApplicationMessage";
@@ -725,6 +733,9 @@ const _MLCM = "ModifyLakehouseConfigurationMessage";
 const _MMP = "ManageMasterPassword";
 const _MPSA = "MasterPasswordSecretArn";
 const _MPSKKI = "MasterPasswordSecretKmsKeyId";
+const _MQIA = "ModifyQev2IdcApplication";
+const _MQIAM = "ModifyQev2IdcApplicationMessage";
+const _MQIAR = "ModifyQev2IdcApplicationResult";
 const _MR = "MaxRecords";
 const _MRIA = "ModifyRedshiftIdcApplication";
 const _MRIAM = "ModifyRedshiftIdcApplicationMessage";
@@ -823,6 +834,13 @@ const _Pa = "Parameter";
 const _Pe = "Period";
 const _Po = "Port";
 const _Pol = "Policy";
+const _QIA = "Qev2IdcApplication";
+const _QIAA = "Qev2IdcApplicationArn";
+const _QIAAEF = "Qev2IdcApplicationAlreadyExistsFault";
+const _QIAL = "Qev2IdcApplicationList";
+const _QIAN = "Qev2IdcApplicationName";
+const _QIANEF = "Qev2IdcApplicationNotExistsFault";
+const _QIAe = "Qev2IdcApplications";
 const _R = "Resources";
 const _RA = "ResourceArn";
 const _RAL = "RecommendedActionList";
@@ -1260,6 +1278,8 @@ import {
   NumberOfNodesPerClusterLimitExceededFault,
   NumberOfNodesQuotaExceededFault,
   PartnerNotFoundFault,
+  Qev2IdcApplicationAlreadyExistsFault,
+  Qev2IdcApplicationNotExistsFault,
   RedshiftIdcApplicationAlreadyExistsFault,
   RedshiftIdcApplicationNotExistsFault,
   RedshiftIdcApplicationQuotaExceededFault,
@@ -1891,6 +1911,18 @@ export var PartnerNotFoundFault$: StaticErrorSchema = [-3, n0, _PNFF,
   [0]
 ];
 n0_registry.registerError(PartnerNotFoundFault$, PartnerNotFoundFault);
+export var Qev2IdcApplicationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _QIAAEF,
+  { [_aQE]: [`Qev2IdcApplicationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(Qev2IdcApplicationAlreadyExistsFault$, Qev2IdcApplicationAlreadyExistsFault);
+export var Qev2IdcApplicationNotExistsFault$: StaticErrorSchema = [-3, n0, _QIANEF,
+  { [_aQE]: [`Qev2IdcApplicationNotExists`, 404], [_e]: _c, [_hE]: 404 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(Qev2IdcApplicationNotExistsFault$, Qev2IdcApplicationNotExistsFault);
 export var RedshiftIdcApplicationAlreadyExistsFault$: StaticErrorSchema = [-3, n0, _RIAAEF,
   { [_aQE]: [`RedshiftIdcApplicationAlreadyExists`, 400], [_e]: _c, [_hE]: 400 },
   [_m],
@@ -2543,6 +2575,16 @@ export var CreateIntegrationMessage$: StaticStructureSchema = [3, n0, _CIM,
   [_SAo, _TA, _IN, _KMSKI, _TL, _AEC, _D],
   [0, 0, 0, 0, [() => TagList, 0], 128 | 0, 0], 3
 ];
+export var CreateQev2IdcApplicationMessage$: StaticStructureSchema = [3, n0, _CQIAM,
+  0,
+  [_IIA, _QIAN, _IDN, _T],
+  [0, 0, 0, [() => TagList, 0]], 3
+];
+export var CreateQev2IdcApplicationResult$: StaticStructureSchema = [3, n0, _CQIAR,
+  0,
+  [_QIA],
+  [[() => Qev2IdcApplication$, 0]]
+];
 export var CreateRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _CRIAM,
   0,
   [_IIA, _RIAN, _IDN, _IRA, _INd, _ATIL, _SIe, _AT, _T, _STK],
@@ -2696,6 +2738,11 @@ export var DeleteHsmConfigurationMessage$: StaticStructureSchema = [3, n0, _DHCM
 export var DeleteIntegrationMessage$: StaticStructureSchema = [3, n0, _DIM,
   0,
   [_IA],
+  [0], 1
+];
+export var DeleteQev2IdcApplicationMessage$: StaticStructureSchema = [3, n0, _DQIAM,
+  0,
+  [_QIAA],
   [0], 1
 ];
 export var DeleteRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _DRIAM,
@@ -2922,6 +2969,16 @@ export var DescribePartnersOutputMessage$: StaticStructureSchema = [3, n0, _DPOM
   0,
   [_PIIL],
   [[() => PartnerIntegrationInfoList, 0]]
+];
+export var DescribeQev2IdcApplicationsMessage$: StaticStructureSchema = [3, n0, _DQIAMe,
+  0,
+  [_QIAA, _MR, _M],
+  [0, 1, 0]
+];
+export var DescribeQev2IdcApplicationsResult$: StaticStructureSchema = [3, n0, _DQIAR,
+  0,
+  [_QIAe, _M],
+  [[() => Qev2IdcApplicationList, 0], 0]
 ];
 export var DescribeRedshiftIdcApplicationsMessage$: StaticStructureSchema = [3, n0, _DRIAMe,
   0,
@@ -3368,6 +3425,16 @@ export var ModifyLakehouseConfigurationMessage$: StaticStructureSchema = [3, n0,
   [_CIl, _LR, _CNa, _LIR, _LIAA, _DRr],
   [0, 0, 0, 0, 0, 2], 1
 ];
+export var ModifyQev2IdcApplicationMessage$: StaticStructureSchema = [3, n0, _MQIAM,
+  0,
+  [_QIAA, _IDN],
+  [0, 0], 1
+];
+export var ModifyQev2IdcApplicationResult$: StaticStructureSchema = [3, n0, _MQIAR,
+  0,
+  [_QIA],
+  [[() => Qev2IdcApplication$, 0]]
+];
 export var ModifyRedshiftIdcApplicationMessage$: StaticStructureSchema = [3, n0, _MRIAM,
   0,
   [_RIAA, _INd, _IRA, _IDN, _ATIL, _SIe],
@@ -3492,6 +3559,11 @@ export var PutResourcePolicyResult$: StaticStructureSchema = [3, n0, _PRPR,
   0,
   [_RPe],
   [() => ResourcePolicy$]
+];
+export var Qev2IdcApplication$: StaticStructureSchema = [3, n0, _QIA,
+  0,
+  [_IIA, _QIAN, _QIAA, _IMAA, _IOS, _IDN, _T],
+  [0, 0, 0, 0, 0, 0, [() => TagList, 0]]
 ];
 export var ReadWriteAccess$: StaticStructureSchema = [3, n0, _RWA,
   0,
@@ -4044,6 +4116,10 @@ var PartnerIntegrationInfoList: StaticListSchema = [1, n0, _PIIL,
     { [_xN]: _PII }]
 ];
 var PendingActionsList = 64 | 0;
+var Qev2IdcApplicationList: StaticListSchema = [1, n0, _QIAL,
+  0, [() => Qev2IdcApplication$,
+    0]
+];
 var RecommendationList: StaticListSchema = [1, n0, _RLec,
   0, [() => Recommendation$,
     { [_xN]: _Rec }]
@@ -4300,6 +4376,9 @@ export var CreateHsmConfiguration$: StaticOperationSchema = [9, n0, _CHC,
 export var CreateIntegration$: StaticOperationSchema = [9, n0, _CIr,
   0, () => CreateIntegrationMessage$, () => Integration$
 ];
+export var CreateQev2IdcApplication$: StaticOperationSchema = [9, n0, _CQIA,
+  0, () => CreateQev2IdcApplicationMessage$, () => CreateQev2IdcApplicationResult$
+];
 export var CreateRedshiftIdcApplication$: StaticOperationSchema = [9, n0, _CRIA,
   0, () => CreateRedshiftIdcApplicationMessage$, () => CreateRedshiftIdcApplicationResult$
 ];
@@ -4359,6 +4438,9 @@ export var DeleteIntegration$: StaticOperationSchema = [9, n0, _DI,
 ];
 export var DeletePartner$: StaticOperationSchema = [9, n0, _DPe,
   0, () => PartnerIntegrationInputMessage$, () => PartnerIntegrationOutputMessage$
+];
+export var DeleteQev2IdcApplication$: StaticOperationSchema = [9, n0, _DQIA,
+  0, () => DeleteQev2IdcApplicationMessage$, () => __Unit
 ];
 export var DeleteRedshiftIdcApplication$: StaticOperationSchema = [9, n0, _DRIA,
   0, () => DeleteRedshiftIdcApplicationMessage$, () => __Unit
@@ -4470,6 +4552,9 @@ export var DescribeOrderableClusterOptions$: StaticOperationSchema = [9, n0, _DO
 ];
 export var DescribePartners$: StaticOperationSchema = [9, n0, _DPes,
   0, () => DescribePartnersInputMessage$, () => DescribePartnersOutputMessage$
+];
+export var DescribeQev2IdcApplications$: StaticOperationSchema = [9, n0, _DQIAe,
+  0, () => DescribeQev2IdcApplicationsMessage$, () => DescribeQev2IdcApplicationsResult$
 ];
 export var DescribeRedshiftIdcApplications$: StaticOperationSchema = [9, n0, _DRIAe,
   0, () => DescribeRedshiftIdcApplicationsMessage$, () => DescribeRedshiftIdcApplicationsResult$
@@ -4590,6 +4675,9 @@ export var ModifyIntegration$: StaticOperationSchema = [9, n0, _MI,
 ];
 export var ModifyLakehouseConfiguration$: StaticOperationSchema = [9, n0, _MLC,
   0, () => ModifyLakehouseConfigurationMessage$, () => LakehouseConfiguration$
+];
+export var ModifyQev2IdcApplication$: StaticOperationSchema = [9, n0, _MQIA,
+  0, () => ModifyQev2IdcApplicationMessage$, () => ModifyQev2IdcApplicationResult$
 ];
 export var ModifyRedshiftIdcApplication$: StaticOperationSchema = [9, n0, _MRIA,
   0, () => ModifyRedshiftIdcApplicationMessage$, () => ModifyRedshiftIdcApplicationResult$

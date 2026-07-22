@@ -3,14 +3,12 @@
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultStsRoleAssumers.ts
 import { setCredentialFeature, stsRegionDefaultResolver } from "@aws-sdk/core/client";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
+import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
-import type { AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
-import { AssumeRoleCommand } from "./commands/AssumeRoleCommand";
-import type {
-  AssumeRoleWithWebIdentityCommandInput} from "./commands/AssumeRoleWithWebIdentityCommand";
+import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
 import {
-  AssumeRoleWithWebIdentityCommand
+  AssumeRoleWithWebIdentityCommand,
+  AssumeRoleWithWebIdentityCommandInput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
 import type { STSClient, STSClientConfig } from "./STSClient";
 

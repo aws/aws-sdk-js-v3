@@ -1,6 +1,31 @@
 {
   "name": "@aws-sdk/middleware-sdk-ec2",
-  "version": "3.972.40",
+  "version": "3.972.48",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-ec2",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/middleware-sdk-ec2"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -16,41 +41,13 @@
     "test:e2e": "yarn g:vitest run -c vitest.config.e2e.mts",
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
-    "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
-    "@smithy/signature-v4": "^5.6.1",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/types": "workspace:^3.974.2",
+    "@smithy/core": "^3.29.4",
+    "@smithy/signature-v4": "^5.6.5",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
-  },
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-ec2",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/middleware-sdk-ec2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
@@ -58,5 +55,8 @@
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

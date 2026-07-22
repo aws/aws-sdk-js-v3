@@ -1,7 +1,11 @@
 {
   "name": "@aws-sdk/aws-util-test",
-  "version": "3.1078.0",
+  "version": "3.1093.0",
   "private": true,
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:es": "tsc -p tsconfig.es.json",
@@ -14,19 +18,15 @@
     "test:integration": "yarn g:vitest run -c vitest.config.integ.mts",
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/aws-protocoltests-json": "workspace:3.1078.0",
-    "@aws-sdk/client-cognito-identity": "workspace:3.1078.0",
-    "@aws-sdk/client-s3": "workspace:3.1078.0",
-    "@aws-sdk/client-s3-control": "workspace:3.1078.0",
-    "@aws-sdk/client-sts": "workspace:3.1078.0",
-    "@smithy/protocol-http": "^5.5.5",
-    "@smithy/shared-ini-file-loader": "^4.6.5",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/aws-protocoltests-json": "workspace:3.1093.0",
+    "@aws-sdk/client-cognito-identity": "workspace:3.1093.0",
+    "@aws-sdk/client-s3": "workspace:3.1093.0",
+    "@aws-sdk/client-s3-control": "workspace:3.1093.0",
+    "@aws-sdk/client-sts": "workspace:3.1093.0",
+    "@smithy/protocol-http": "^5.5.9",
+    "@smithy/shared-ini-file-loader": "^4.6.9",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

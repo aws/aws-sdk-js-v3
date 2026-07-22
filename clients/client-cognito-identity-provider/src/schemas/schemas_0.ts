@@ -146,6 +146,7 @@ const _CA = "CustomAttributes";
 const _CAC = "CreateAuthChallenge";
 const _CALT = "CustomAttributesListType";
 const _CAM = "CustomAuthMode";
+const _CAa = "CallerArn";
 const _CAe = "CertificateArn";
 const _CAr = "CreatedAt";
 const _CC = "ConfirmationCode";
@@ -217,6 +218,7 @@ const _CSDT = "ClientSecretDescriptorType";
 const _CSI = "ClientSecretId";
 const _CSMSLVCT = "CustomSMSLambdaVersionConfigType";
 const _CSMSS = "CustomSMSSender";
+const _CSN = "ConfigurationSetName";
 const _CSS = "CSS";
 const _CSSV = "CSSVersion";
 const _CST = "ClientSecretType";
@@ -383,8 +385,10 @@ const _ERv = "EventRisk";
 const _ES = "EventSource";
 const _ESA = "EmailSendingAccount";
 const _ESBL = "EmailSubjectByLink";
+const _ESCT = "EumsSmsConfigurationType";
 const _ESTMFAE = "EnableSoftwareTokenMFAException";
 const _ESm = "EmailSubject";
+const _ESu = "EumsSms";
 const _ET = "EventType";
 const _ETR = "EnableTokenRevocation";
 const _EVM = "EmailVerificationMessage";
@@ -402,6 +406,7 @@ const _FDN = "FriendlyDeviceName";
 const _FDR = "ForgetDeviceRequest";
 const _FDo = "ForgetDevice";
 const _FE = "ForbiddenException";
+const _FLV = "FreeLimitValue";
 const _FP = "ForgotPassword";
 const _FPR = "ForgotPasswordRequest";
 const _FPRo = "ForgotPasswordResponse";
@@ -432,6 +437,9 @@ const _GLDCR = "GetLogDeliveryConfigurationRequest";
 const _GLDCRe = "GetLogDeliveryConfigurationResponse";
 const _GLT = "GroupListType";
 const _GN = "GroupName";
+const _GPL = "GetProvisionedLimit";
+const _GPLR = "GetProvisionedLimitRequest";
+const _GPLRe = "GetProvisionedLimitResponse";
 const _GS = "GenerateSecret";
 const _GSC = "GetSigningCertificate";
 const _GSCR = "GetSigningCertificateRequest";
@@ -472,6 +480,7 @@ const _IAn = "InitiateAuth";
 const _IC = "IssuerConfiguration";
 const _ICT = "IssuerConfigurationType";
 const _IEE = "InternalErrorException";
+const _IEI = "InEntityId";
 const _IERAPE = "InvalidEmailRoleAccessPolicyException";
 const _IF = "InboundFederation";
 const _IFLT = "InboundFederationLambdaType";
@@ -489,6 +498,7 @@ const _ISE = "InternalServerException";
 const _ISRAPE = "InvalidSmsRoleAccessPolicyException";
 const _ISRTRE = "InvalidSmsRoleTrustRelationshipException";
 const _IT = "IdToken";
+const _ITI = "InTemplateId";
 const _ITV = "IdTokenValidity";
 const _IU = "ImageUrl";
 const _IUPCE = "InvalidUserPoolConfigurationException";
@@ -508,12 +518,15 @@ const _LC = "LambdaConfig";
 const _LCLT = "LogConfigurationListType";
 const _LCT = "LambdaConfigType";
 const _LCTo = "LogConfigurationType";
+const _LCi = "LimitClass";
 const _LCo = "LogConfigurations";
-const _LD = "ListDevices";
+const _LD = "LimitDefinition";
 const _LDC = "LogDeliveryConfiguration";
 const _LDCT = "LogDeliveryConfigurationType";
 const _LDR = "ListDevicesRequest";
 const _LDRi = "ListDevicesResponse";
+const _LDT = "LimitDefinitionType";
+const _LDi = "ListDevices";
 const _LEE = "LimitExceededException";
 const _LG = "ListGroups";
 const _LGA = "LogGroupArn";
@@ -527,12 +540,13 @@ const _LMD = "LastModifiedDate";
 const _LRS = "ListResourceServers";
 const _LRSR = "ListResourceServersRequest";
 const _LRSRi = "ListResourceServersResponse";
-const _LT = "ListTerms";
+const _LT = "LimitType";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTR = "ListTermsRequest";
 const _LTRi = "ListTermsResponse";
+const _LTi = "ListTerms";
 const _LU = "ListUsers";
 const _LUIG = "ListUsersInGroup";
 const _LUIGR = "ListUsersInGroupRequest";
@@ -594,6 +608,7 @@ const _NDMT = "NewDeviceMetadataType";
 const _NET = "NotifyEmailType";
 const _NT = "NextToken";
 const _Na = "Name";
+const _OI = "OriginationIdentity";
 const _ONEE = "OperationNotEnabledException";
 const _P = "Password";
 const _PA = "PreAuthentication";
@@ -603,9 +618,11 @@ const _PAo = "PostAuthentication";
 const _PC = "PostConfirmation";
 const _PD = "ProviderDetails";
 const _PDr = "ProviderDescription";
+const _PHA = "PasswordHashingAlgorithm";
 const _PHPVE = "PasswordHistoryPolicyViolationException";
 const _PHS = "PasswordHistorySize";
 const _PLT = "ProvidersListType";
+const _PLV = "ProvisionedLimitValue";
 const _PM = "PreferredMfa";
 const _PMS = "PreferredMfaSetting";
 const _PN = "ProviderName";
@@ -649,6 +666,7 @@ const _RECT = "RiskExceptionConfigurationType";
 const _RGPS = "RetryGracePeriodSeconds";
 const _RI = "ResourceId";
 const _RL = "RiskLevel";
+const _RLV = "RequestedLimitValue";
 const _RLe = "RequireLowercase";
 const _RM = "RecoveryMechanisms";
 const _RMR = "ReturnMergedResources";
@@ -681,7 +699,8 @@ const _RTe = "ReplyTo";
 const _RTev = "RevokeToken";
 const _RTo = "RoutingType";
 const _RU = "RequireUppercase";
-const _Re = "Required";
+const _Re = "Region";
+const _Req = "Required";
 const _Ro = "Role";
 const _S = "Session";
 const _SA = "SourceArn";
@@ -723,6 +742,7 @@ const _SN = "ServerName";
 const _SNc = "ScopeName";
 const _SP = "ServerPath";
 const _SPe = "SecurityPolicy";
+const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SecondaryRegion";
 const _SRC = "SetRiskConfiguration";
 const _SRCR = "SetRiskConfigurationRequest";
@@ -857,6 +877,9 @@ const _UPCT = "UserPoolClientType";
 const _UPCs = "UserPoolClients";
 const _UPDT = "UserPoolDescriptionType";
 const _UPI = "UserPoolId";
+const _UPL = "UpdateProvisionedLimit";
+const _UPLR = "UpdateProvisionedLimitRequest";
+const _UPLRp = "UpdateProvisionedLimitResponse";
 const _UPLT = "UserPoolListType";
 const _UPPT = "UserPoolPolicyType";
 const _UPR = "UserPoolReplica";
@@ -984,6 +1007,7 @@ import {
   RefreshTokenReuseException,
   ResourceNotFoundException,
   ScopeDoesNotExistException,
+  ServiceQuotaExceededException,
   SoftwareTokenMFANotFoundException,
   TermsExistsException,
   TierChangeNotAllowedException,
@@ -1214,6 +1238,12 @@ export var ScopeDoesNotExistException$: StaticErrorSchema = [-3, n0, _SDNEE,
   [0]
 ];
 n0_registry.registerError(ScopeDoesNotExistException$, ScopeDoesNotExistException);
+export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
+  { [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
 export var SoftwareTokenMFANotFoundException$: StaticErrorSchema = [-3, n0, _STMFANFE,
   { [_e]: _c, [_hE]: 400 },
   [_m],
@@ -1850,8 +1880,8 @@ export var CreateTermsResponse$: StaticStructureSchema = [3, n0, _CTRr,
 ];
 export var CreateUserImportJobRequest$: StaticStructureSchema = [3, n0, _CUIJR,
   0,
-  [_JN, _UPI, _CWLRA],
-  [0, 0, 0], 3
+  [_JN, _UPI, _CWLRA, _PHA],
+  [0, 0, 0, 0], 3
 ];
 export var CreateUserImportJobResponse$: StaticStructureSchema = [3, n0, _CUIJRr,
   0,
@@ -2138,6 +2168,11 @@ export var EmailMfaSettingsType$: StaticStructureSchema = [3, n0, _EMST,
   [_E, _PM],
   [2, 2]
 ];
+export var EumsSmsConfigurationType$: StaticStructureSchema = [3, n0, _ESCT,
+  0,
+  [_CAa, _EIx, _OI, _CSN, _IEI, _ITI, _Re],
+  [0, 0, 0, 0, 0, 0, 0], 1
+];
 export var EventContextDataType$: StaticStructureSchema = [3, n0, _ECDT,
   0,
   [_IA, _DN, _Ti, _Ci, _Co],
@@ -2227,6 +2262,16 @@ export var GetLogDeliveryConfigurationResponse$: StaticStructureSchema = [3, n0,
   0,
   [_LDC],
   [() => LogDeliveryConfigurationType$]
+];
+export var GetProvisionedLimitRequest$: StaticStructureSchema = [3, n0, _GPLR,
+  0,
+  [_LD],
+  [() => LimitDefinitionType$], 1
+];
+export var GetProvisionedLimitResponse$: StaticStructureSchema = [3, n0, _GPLRe,
+  0,
+  [_L],
+  [() => LimitType$], 1
 ];
 export var GetSigningCertificateRequest$: StaticStructureSchema = [3, n0, _GSCR,
   0,
@@ -2352,6 +2397,16 @@ export var LambdaConfigType$: StaticStructureSchema = [3, n0, _LCT,
   0,
   [_PSU, _CMu, _PC, _PA, _PAo, _DAC, _CAC, _VACR, _PTG, _UM, _PTGC, _CSMSS, _CES, _KMSKID, _IF],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => PreTokenGenerationVersionConfigType$, () => CustomSMSLambdaVersionConfigType$, () => CustomEmailLambdaVersionConfigType$, 0, () => InboundFederationLambdaType$]
+];
+export var LimitDefinitionType$: StaticStructureSchema = [3, n0, _LDT,
+  0,
+  [_LCi, _At],
+  [0, 128 | 0], 2
+];
+export var LimitType$: StaticStructureSchema = [3, n0, _LT,
+  0,
+  [_LD, _PLV, _FLV],
+  [() => LimitDefinitionType$, 1, 1], 3
 ];
 export var ListDevicesRequest$: StaticStructureSchema = [3, n0, _LDR,
   0,
@@ -2630,7 +2685,7 @@ export var S3ConfigurationType$: StaticStructureSchema = [3, n0, _SCTo,
 ];
 export var SchemaAttributeType$: StaticStructureSchema = [3, n0, _SAT,
   0,
-  [_Na, _ADT, _DOA, _Mu, _Re, _NAC, _SAC],
+  [_Na, _ADT, _DOA, _Mu, _Req, _NAC, _SAC],
   [0, 0, 2, 2, 2, () => NumberAttributeConstraintsType$, () => StringAttributeConstraintsType$]
 ];
 export var SetLogDeliveryConfigurationRequest$: StaticStructureSchema = [3, n0, _SLDCR,
@@ -2710,8 +2765,8 @@ export var SignUpResponse$: StaticStructureSchema = [3, n0, _SURi,
 ];
 export var SmsConfigurationType$: StaticStructureSchema = [3, n0, _SCTm,
   0,
-  [_SCA, _EIx, _SRn],
-  [0, 0, 0], 1
+  [_SCA, _EIx, _SRn, _ESu],
+  [0, 0, 0, () => EumsSmsConfigurationType$]
 ];
 export var SmsMfaConfigType$: StaticStructureSchema = [3, n0, _SMCT,
   0,
@@ -2858,6 +2913,16 @@ export var UpdateManagedLoginBrandingResponse$: StaticStructureSchema = [3, n0, 
   [_MLB],
   [() => ManagedLoginBrandingType$]
 ];
+export var UpdateProvisionedLimitRequest$: StaticStructureSchema = [3, n0, _UPLR,
+  0,
+  [_LD, _RLV],
+  [() => LimitDefinitionType$, 1], 2
+];
+export var UpdateProvisionedLimitResponse$: StaticStructureSchema = [3, n0, _UPLRp,
+  0,
+  [_L],
+  [() => LimitType$], 1
+];
 export var UpdateResourceServerRequest$: StaticStructureSchema = [3, n0, _URSR,
   0,
   [_UPI, _I, _Na, _Sc],
@@ -2940,8 +3005,8 @@ export var UserContextDataType$: StaticStructureSchema = [3, n0, _UCDT,
 ];
 export var UserImportJobType$: StaticStructureSchema = [3, n0, _UIJT,
   0,
-  [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom],
-  [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0]
+  [_JN, _JI, _UPI, _PSUr, _CDr, _SDt, _CDo, _St, _CWLRA, _IUm, _SUk, _FU, _CMom, _PHA],
+  [0, 0, 0, 0, 4, 4, 4, 0, 0, 1, 1, 1, 0, 0]
 ];
 export var UsernameConfigurationType$: StaticStructureSchema = [3, n0, _UCT,
   0,
@@ -3143,6 +3208,7 @@ var ChallengeResponsesType: StaticMapSchema = [2, n0, _CRTh,
 var ClientMetadataType = 128 | 0;
 var LinksType = 128 | 0;
 var ProviderDetailsType = 128 | 0;
+var StringToStringMapType = 128 | 0;
 var UserPoolTagsType = 128 | 0;
 export var AddCustomAttributes$: StaticOperationSchema = [9, n0, _ACA,
   0, () => AddCustomAttributesRequest$, () => AddCustomAttributesResponse$
@@ -3366,6 +3432,9 @@ export var GetIdentityProviderByIdentifier$: StaticOperationSchema = [9, n0, _GI
 export var GetLogDeliveryConfiguration$: StaticOperationSchema = [9, n0, _GLDC,
   0, () => GetLogDeliveryConfigurationRequest$, () => GetLogDeliveryConfigurationResponse$
 ];
+export var GetProvisionedLimit$: StaticOperationSchema = [9, n0, _GPL,
+  0, () => GetProvisionedLimitRequest$, () => GetProvisionedLimitResponse$
+];
 export var GetSigningCertificate$: StaticOperationSchema = [9, n0, _GSC,
   0, () => GetSigningCertificateRequest$, () => GetSigningCertificateResponse$
 ];
@@ -3393,7 +3462,7 @@ export var GlobalSignOut$: StaticOperationSchema = [9, n0, _GSO,
 export var InitiateAuth$: StaticOperationSchema = [9, n0, _IAn,
   0, () => InitiateAuthRequest$, () => InitiateAuthResponse$
 ];
-export var ListDevices$: StaticOperationSchema = [9, n0, _LD,
+export var ListDevices$: StaticOperationSchema = [9, n0, _LDi,
   0, () => ListDevicesRequest$, () => ListDevicesResponse$
 ];
 export var ListGroups$: StaticOperationSchema = [9, n0, _LG,
@@ -3408,7 +3477,7 @@ export var ListResourceServers$: StaticOperationSchema = [9, n0, _LRS,
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   0, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
-export var ListTerms$: StaticOperationSchema = [9, n0, _LT,
+export var ListTerms$: StaticOperationSchema = [9, n0, _LTi,
   0, () => ListTermsRequest$, () => ListTermsResponse$
 ];
 export var ListUserImportJobs$: StaticOperationSchema = [9, n0, _LUIJ,
@@ -3494,6 +3563,9 @@ export var UpdateIdentityProvider$: StaticOperationSchema = [9, n0, _UIP,
 ];
 export var UpdateManagedLoginBranding$: StaticOperationSchema = [9, n0, _UMLB,
   0, () => UpdateManagedLoginBrandingRequest$, () => UpdateManagedLoginBrandingResponse$
+];
+export var UpdateProvisionedLimit$: StaticOperationSchema = [9, n0, _UPL,
+  0, () => UpdateProvisionedLimitRequest$, () => UpdateProvisionedLimitResponse$
 ];
 export var UpdateResourceServer$: StaticOperationSchema = [9, n0, _URS,
   0, () => UpdateResourceServerRequest$, () => UpdateResourceServerResponse$

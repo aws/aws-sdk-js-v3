@@ -1,16 +1,4 @@
-/**
- * @internal
- */
-export * from "./configurations";
-/**
- * @internal
- */
-export * from "./getTokenPlugin";
-/**
- * @internal
- */
-export * from "./resolveTokenConfig";
-/**
- * @internal
- */
-export * from "./tokenMiddleware";
+export type { TokenInputConfig, TokenResolvedConfig } from "./configurations";
+export { getTokenPlugin } from "./getTokenPlugin";
+export { resolveTokenConfig } from "./resolveTokenConfig";
+export { tokenMiddlewareOptions, tokenMiddleware } from "./tokenMiddleware";

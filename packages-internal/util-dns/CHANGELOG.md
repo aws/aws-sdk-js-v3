@@ -21,6 +21,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+# 3.972.21 (2026-07-15)
+### Chores
+* migrate eslint/prettier to oxlint/oxfmt ([#8192](https://github.com/aws/aws-sdk-js-v3/issues/8192)) ([7d14409](https://github.com/aws/aws-sdk-js-v3/commit/7d144094844d078a2ec15c6ecbd054f9e127fa11))
+
+
+
+# 3.972.20 (2026-07-14)
+### Chores
+* **util-dns:** update dependencies.
+
+
+
+# 3.972.19 (2026-07-08)
+### Chores
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+
+
+
 # 3.972.18 (2026-07-01)
 ### Chores
 * **util-dns:** update dependencies.

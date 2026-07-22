@@ -103,7 +103,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
           // to other implementations.
           for (const k in record) {
             const v = record[k];
-            const targetKey = jsonName ? nameMap![k] ?? k : k;
+            const targetKey = jsonName ? (nameMap![k] ?? k) : k;
             if (!(targetKey in out)) {
               // we have no type information, so serialize with Document rules.
               out[targetKey] = this._write(15 satisfies DocumentSchema, v);

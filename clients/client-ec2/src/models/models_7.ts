@@ -7,7 +7,6 @@ import type {
   ArchitectureValues,
   AutoAcceptSharedAttachmentsValue,
   BootModeValues,
-  CapacityManagerStatus,
   CapacityReservationInstancePlatform,
   CurrencyCodeValues,
   DefaultRouteTableAssociationValue,
@@ -81,6 +80,7 @@ import type {
   EnaSrdSpecification,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
+  IpamPoolAllocation,
   IpPermission,
   NatGatewayAddress,
   PortRange,
@@ -164,11 +164,11 @@ import type {
   PublicIpv4PoolRange,
   ReservedInstancesConfiguration,
   ScheduledInstance,
-  SpotFleetRequestConfigData,
   SpotPlacement,
 } from "./models_4";
 import type {
   RunInstancesMonitoringEnabled,
+  SpotFleetRequestConfigData,
   SpotInstanceRequest,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
@@ -183,6 +183,42 @@ import type {
   Purchase,
   RemoveIpamOperatingRegion,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolAllocationRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool allocation you want to modify.</p>
+   * @public
+   */
+  IpamPoolAllocationId: string | undefined;
+
+  /**
+   * <p>The new description for the IPAM pool allocation. If you submit a <code>null</code> value, the description is removed from the allocation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolAllocationResult {
+  /**
+   * <p>The modified IPAM pool allocation.</p>
+   * @public
+   */
+  IpamPoolAllocation?: IpamPoolAllocation | undefined;
+}
 
 /**
  * @public
@@ -9688,55 +9724,4 @@ export interface UpdateCapacityManagerMonitoredTagKeysResult {
    * @public
    */
   CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCapacityManagerOrganizationsAccessRequest {
-  /**
-   * <p>
-   *     Specifies whether to enable or disable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager aggregates data from all accounts in your organization.
-   * </p>
-   * @public
-   */
-  OrganizationsAccess: boolean | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If
-   * you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>
-   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   * </p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCapacityManagerOrganizationsAccessResult {
-  /**
-   * <p>
-   * The current status of Capacity Manager after the update operation.
-   * </p>
-   * @public
-   */
-  CapacityManagerStatus?: CapacityManagerStatus | undefined;
-
-  /**
-   * <p>
-   * The updated Organizations access setting indicating whether cross-account data aggregation is enabled.
-   * </p>
-   * @public
-   */
-  OrganizationsAccess?: boolean | undefined;
 }

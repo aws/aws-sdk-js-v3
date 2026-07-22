@@ -37,9 +37,9 @@ export interface UpdateProcurementPortalPreferenceStatusCommandOutput extends Up
  * const client = new InvoicingClient(config);
  * const input = { // UpdateProcurementPortalPreferenceStatusRequest
  *   ProcurementPortalPreferenceArn: "STRING_VALUE", // required
- *   EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
+ *   EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
  *   EinvoiceDeliveryPreferenceStatusReason: "STRING_VALUE",
- *   PurchaseOrderRetrievalPreferenceStatus: "PENDING_VERIFICATION" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
+ *   PurchaseOrderRetrievalPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
  *   PurchaseOrderRetrievalPreferenceStatusReason: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
  * };

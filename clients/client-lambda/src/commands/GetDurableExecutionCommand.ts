@@ -34,6 +34,7 @@ export interface GetDurableExecutionCommandOutput extends GetDurableExecutionRes
  * const client = new LambdaClient(config);
  * const input = { // GetDurableExecutionRequest
  *   DurableExecutionArn: "STRING_VALUE", // required
+ *   IncludeExecutionData: true || false,
  * };
  * const command = new GetDurableExecutionCommand(input);
  * const response = await client.send(command);
@@ -58,6 +59,12 @@ export interface GetDurableExecutionCommandOutput extends GetDurableExecutionRes
  * //   TraceHeader: { // TraceHeader
  * //     XAmznTraceId: "STRING_VALUE",
  * //   },
+ * //   ExecutionDataIncluded: true || false,
+ * //   DurableConfig: { // DurableConfig
+ * //     KMSKeyArn: "STRING_VALUE",
+ * //     RetentionPeriodInDays: Number("int"),
+ * //     ExecutionTimeout: Number("int"),
+ * //   },
  * // };
  *
  * ```
@@ -70,6 +77,18 @@ export interface GetDurableExecutionCommandOutput extends GetDurableExecutionRes
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One of the parameters in the request is not valid.</p>
+ *
+ * @throws {@link KMSAccessDeniedException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+ *
+ * @throws {@link KMSDisabledException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+ *
+ * @throws {@link KMSInvalidStateException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ *
+ * @throws {@link KMSNotFoundException} (server fault)
+ *  <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource specified in the request does not exist.</p>

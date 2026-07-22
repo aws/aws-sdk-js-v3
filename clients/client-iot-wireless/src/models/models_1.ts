@@ -31,7 +31,38 @@ import type {
   TraceContent,
   WirelessDeviceLogOption,
   WirelessGatewayLogOption,
+  WirelessMetadata,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface SendDataToWirelessDeviceRequest {
+  /**
+   * <p>The ID of the wireless device to receive the data.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code>
+   *             for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   * @public
+   */
+  TransmitMode: number | undefined;
+
+  /**
+   * <p>The binary to be sent to the end device, encoded in base64.</p>
+   * @public
+   */
+  PayloadData: string | undefined;
+
+  /**
+   * <p>Metadata about the message request.</p>
+   * @public
+   */
+  WirelessMetadata?: WirelessMetadata | undefined;
+}
 
 /**
  * @public

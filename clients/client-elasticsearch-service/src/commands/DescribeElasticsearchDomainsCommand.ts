@@ -179,6 +179,8 @@ export interface DescribeElasticsearchDomainsCommandOutput extends DescribeElast
  * //         EndTime: new Date("TIMESTAMP"),
  * //         State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //       },
+ * //       UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ * //       EngineMode: "GENERAL" || "OPTIMIZED",
  * //     },
  * //   ],
  * // };

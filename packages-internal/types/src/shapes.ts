@@ -1,1 +1,1 @@
-export { DocumentType, RetryableTrait, SmithyException, SdkError } from "@smithy/types";
+export type { DocumentType, RetryableTrait, SmithyException, SdkError } from "@smithy/types";

@@ -39,6 +39,8 @@ import {
   AwsApiCallAction$,
   BadRequestException,
   BadRequestException$,
+  BedrockGuardrail$,
+  BedrockGuardrailDetails$,
   BlockPublicAccess$,
   BucketLevelPermissions$,
   BucketPolicy$,
@@ -50,11 +52,15 @@ import {
   ClusterStatus,
   Condition$,
   Confidence,
+  ConfidenceLevel,
   ConflictException,
   ConflictException$,
   Container$,
   ContainerFindingResource$,
   ContainerInstanceDetails$,
+  ContentPolicyFilter$,
+  ContentPolicyFilterAction,
+  ContentPolicyFilterType,
   ContinuousScanDetails$,
   Country$,
   CoverageEc2InstanceDetails$,
@@ -344,6 +350,8 @@ import {
   GuardDuty,
   GuardDutyClient,
   GuardDutyServiceException,
+  GuardrailAction,
+  GuardrailSource,
   HighestSeverityThreatDetails$,
   HostPath$,
   IamInstanceProfile$,
@@ -480,6 +488,7 @@ import {
   MemberFeaturesConfiguration$,
   MemberFeaturesConfigurationResult$,
   MfaStatus,
+  ModelDetail$,
   NetworkConnection$,
   NetworkConnectionAction$,
   NetworkDirection,
@@ -932,6 +941,8 @@ assert(typeof ArchiveFindingsResponse$ === "object");
 assert(typeof AutonomousSystem$ === "object");
 assert(typeof AutoscalingAutoScalingGroup$ === "object");
 assert(typeof AwsApiCallAction$ === "object");
+assert(typeof BedrockGuardrail$ === "object");
+assert(typeof BedrockGuardrailDetails$ === "object");
 assert(typeof BlockPublicAccess$ === "object");
 assert(typeof BucketLevelPermissions$ === "object");
 assert(typeof BucketPolicy$ === "object");
@@ -943,6 +954,7 @@ assert(typeof Condition$ === "object");
 assert(typeof Container$ === "object");
 assert(typeof ContainerFindingResource$ === "object");
 assert(typeof ContainerInstanceDetails$ === "object");
+assert(typeof ContentPolicyFilter$ === "object");
 assert(typeof ContinuousScanDetails$ === "object");
 assert(typeof Country$ === "object");
 assert(typeof CoverageEc2InstanceDetails$ === "object");
@@ -1189,6 +1201,7 @@ assert(typeof MemberAdditionalConfigurationResult$ === "object");
 assert(typeof MemberDataSourceConfiguration$ === "object");
 assert(typeof MemberFeaturesConfiguration$ === "object");
 assert(typeof MemberFeaturesConfigurationResult$ === "object");
+assert(typeof ModelDetail$ === "object");
 assert(typeof NetworkConnection$ === "object");
 assert(typeof NetworkConnectionAction$ === "object");
 assert(typeof NetworkEndpoint$ === "object");
@@ -1345,6 +1358,9 @@ assert(typeof AutoEnableMembers === "object");
 assert(typeof CloudProvider === "object");
 assert(typeof ClusterStatus === "object");
 assert(typeof Confidence === "object");
+assert(typeof ConfidenceLevel === "object");
+assert(typeof ContentPolicyFilterAction === "object");
+assert(typeof ContentPolicyFilterType === "object");
 assert(typeof CoverageFilterCriterionKey === "object");
 assert(typeof CoverageSortKey === "object");
 assert(typeof CoverageStatisticsType === "object");
@@ -1369,6 +1385,8 @@ assert(typeof FindingResourceType === "object");
 assert(typeof FindingStatisticType === "object");
 assert(typeof FreeTrialFeatureResult === "object");
 assert(typeof GroupByType === "object");
+assert(typeof GuardrailAction === "object");
+assert(typeof GuardrailSource === "object");
 assert(typeof IndicatorType === "object");
 assert(typeof InvestigationSortField === "object");
 assert(typeof InvestigationStatus === "object");

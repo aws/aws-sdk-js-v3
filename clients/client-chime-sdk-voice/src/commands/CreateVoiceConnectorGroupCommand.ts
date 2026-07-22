@@ -42,9 +42,10 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  *   VoiceConnectorItems: [ // VoiceConnectorItemList
  *     { // VoiceConnectorItem
  *       VoiceConnectorId: "STRING_VALUE", // required
- *       Priority: Number("int"), // required
+ *       Priority: Number("int"),
  *     },
  *   ],
+ *   CallDistributionType: "PriorityWeightedDistribution" || "LoadBalancedDistribution",
  * };
  * const command = new CreateVoiceConnectorGroupCommand(input);
  * const response = await client.send(command);
@@ -55,12 +56,13 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  * //     VoiceConnectorItems: [ // VoiceConnectorItemList
  * //       { // VoiceConnectorItem
  * //         VoiceConnectorId: "STRING_VALUE", // required
- * //         Priority: Number("int"), // required
+ * //         Priority: Number("int"),
  * //       },
  * //     ],
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorGroupArn: "STRING_VALUE",
+ * //     CallDistributionType: "PriorityWeightedDistribution" || "LoadBalancedDistribution",
  * //   },
  * // };
  *
@@ -80,6 +82,9 @@ export interface CreateVoiceConnectorGroupCommandOutput extends CreateVoiceConne
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>The client is permanently forbidden from making the request.</p>
+ *
+ * @throws {@link NotFoundException} (client fault)
+ *  <p>The requested resource couldn't be found.</p>
  *
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>The request exceeds the resource limit.</p>

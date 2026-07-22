@@ -40,6 +40,7 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  *   ownerAccount: "STRING_VALUE",
  *   manageAdminPassword: true || false,
  *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   maintainIntegration: true || false,
  * };
  * const command = new RestoreFromSnapshotCommand(input);
  * const response = await client.send(command);

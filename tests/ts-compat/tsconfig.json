@@ -1,0 +1,30 @@
+{
+  // Base config. Options here must be valid across every TypeScript version
+  // listed in typescript-versions.json. Options that changed between versions
+  // (e.g. moduleResolution handling in newer releases) are supplied per-version
+  // by run.mjs.
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    // es2019 is the newest lib value accepted by every version under test:
+    // TypeScript 3.4 rejects "es2020" at config-parse time (TS6046) and that
+    // error can't be overridden via command-line tscArgs, so the base value
+    // must be valid down to 3.4. es2019 covers everything the fixture and the
+    // clients' (downleveled) .d.ts need.
+    "lib": ["es2019", "dom"],
+    // types:[] keeps @types/node out of the program. The fixture uses no Node
+    // APIs, and no single @types/node version parses across all the TypeScript
+    // versions under test.
+    "types": [],
+    "strict": true,
+    "esModuleInterop": true,
+    // skipLibCheck lets the clients' internal Node references pass without
+    // @types/node; the .d.ts are still parsed, so downlevel *syntax*
+    // incompatibilities are still caught.
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true
+  },
+  "include": ["fixtures/**/*.ts"]
+}

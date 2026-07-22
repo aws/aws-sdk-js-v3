@@ -37,7 +37,9 @@ export interface DeleteConnectorV2CommandOutput extends DeleteConnectorV2Respons
  * };
  * const command = new DeleteConnectorV2Command(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeleteConnectorV2Response
+ * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
+ * // };
  *
  * ```
  *
@@ -85,7 +87,7 @@ export class DeleteConnectorV2Command extends command<DeleteConnectorV2CommandIn
   protected declare static __types: {
     api: {
       input: DeleteConnectorV2Request;
-      output: {};
+      output: DeleteConnectorV2Response;
     };
     sdk: {
       input: DeleteConnectorV2CommandInput;

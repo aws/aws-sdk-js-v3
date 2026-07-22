@@ -42,9 +42,7 @@ const client = new S3Client({
 
 const upload = new Upload({
   client,
-  params: {
-    /* ... */
-  },
+  params: {/* ... */},
 });
 
 upload.on("httpUploadProgress", (progress) => {

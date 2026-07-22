@@ -104,9 +104,7 @@ function isSdkServiceError(e: unknown): e is LambdaServiceException {
 }
 
 try {
-  await lambda.createFunction({
-    /* ... */
-  });
+  await lambda.createFunction({/* ... */});
 } catch (e: unknown) {
   if (isSdkServiceError(e)) {
     // checking the name of the error.

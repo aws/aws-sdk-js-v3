@@ -46,6 +46,7 @@ import {
   Endpoint$,
   EndpointType,
   ErrorInfo$,
+  ExecutionPolicy,
   GetCluster$,
   GetClusterCommand,
   GetClusterRequest$,
@@ -82,6 +83,11 @@ import {
   Networking$,
   NetworkingRequest$,
   NetworkType,
+  NodeLifecycleActions$,
+  NodeLifecycleActionsRequest$,
+  NodeLifecycleScript$,
+  NodeLifecycleStages$,
+  OnError,
   paginateListClusters,
   paginateListComputeNodeGroups,
   paginateListQueues,
@@ -105,6 +111,8 @@ import {
   Scheduler$,
   SchedulerRequest$,
   SchedulerType,
+  ScriptCachingPolicy,
+  ScriptSource$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   Size,
@@ -137,6 +145,7 @@ import {
   UpdateComputeNodeGroupRequest$,
   UpdateComputeNodeGroupResponse$,
   UpdateComputeNodeGroupSlurmConfigurationRequest$,
+  UpdateNodeLifecycleActionsRequest$,
   UpdateQueue$,
   UpdateQueueCommand,
   UpdateQueueRequest$,
@@ -239,6 +248,10 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof Networking$ === "object");
 assert(typeof NetworkingRequest$ === "object");
+assert(typeof NodeLifecycleActions$ === "object");
+assert(typeof NodeLifecycleActionsRequest$ === "object");
+assert(typeof NodeLifecycleScript$ === "object");
+assert(typeof NodeLifecycleStages$ === "object");
 assert(typeof Queue$ === "object");
 assert(typeof QueueSlurmConfiguration$ === "object");
 assert(typeof QueueSlurmConfigurationRequest$ === "object");
@@ -249,6 +262,7 @@ assert(typeof ScalingConfiguration$ === "object");
 assert(typeof ScalingConfigurationRequest$ === "object");
 assert(typeof Scheduler$ === "object");
 assert(typeof SchedulerRequest$ === "object");
+assert(typeof ScriptSource$ === "object");
 assert(typeof SlurmAuthKey$ === "object");
 assert(typeof SlurmCustomSetting$ === "object");
 assert(typeof SlurmdbdCustomSetting$ === "object");
@@ -266,6 +280,7 @@ assert(typeof UpdateClusterSlurmConfigurationRequest$ === "object");
 assert(typeof UpdateComputeNodeGroupRequest$ === "object");
 assert(typeof UpdateComputeNodeGroupResponse$ === "object");
 assert(typeof UpdateComputeNodeGroupSlurmConfigurationRequest$ === "object");
+assert(typeof UpdateNodeLifecycleActionsRequest$ === "object");
 assert(typeof UpdateQueueRequest$ === "object");
 assert(typeof UpdateQueueResponse$ === "object");
 assert(typeof UpdateQueueSlurmConfigurationRequest$ === "object");
@@ -277,10 +292,13 @@ assert(typeof AccountingMode === "object");
 assert(typeof ClusterStatus === "object");
 assert(typeof ComputeNodeGroupStatus === "object");
 assert(typeof EndpointType === "object");
+assert(typeof ExecutionPolicy === "object");
 assert(typeof NetworkType === "object");
+assert(typeof OnError === "object");
 assert(typeof PurchaseOption === "object");
 assert(typeof QueueStatus === "object");
 assert(typeof SchedulerType === "object");
+assert(typeof ScriptCachingPolicy === "object");
 assert(typeof Size === "object");
 assert(typeof SlurmRestMode === "object");
 assert(typeof SpotAllocationStrategy === "object");

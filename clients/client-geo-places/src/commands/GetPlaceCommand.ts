@@ -35,18 +35,19 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * const input = { // GetPlaceRequest
  *   PlaceId: "STRING_VALUE", // required
  *   AdditionalFeatures: [ // GetPlaceAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "TimeZone" || "Phonemes" || "Access" || "Contact" || "SecondaryAddresses" || "CrossReferences",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse" || "Storage",
  *   Key: "STRING_VALUE",
+ *   AddressNamesMode: "Administrative",
  * };
  * const command = new GetPlaceCommand(input);
  * const response = await client.send(command);
  * // { // GetPlaceResponse
  * //   PlaceId: "STRING_VALUE", // required
- * //   PlaceType: "STRING_VALUE", // required
+ * //   PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //   Title: "STRING_VALUE", // required
  * //   PricingBucket: "STRING_VALUE", // required
  * //   Address: { // Address
@@ -78,7 +79,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //       { // StreetComponents
  * //         BaseName: "STRING_VALUE",
  * //         Type: "STRING_VALUE",
- * //         TypePlacement: "STRING_VALUE",
+ * //         TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //         TypeSeparator: "STRING_VALUE",
  * //         Prefix: "STRING_VALUE",
  * //         Suffix: "STRING_VALUE",
@@ -99,13 +100,13 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //   PostalCodeDetails: [ // PostalCodeDetailsList
  * //     { // PostalCodeDetails
  * //       PostalCode: "STRING_VALUE",
- * //       PostalAuthority: "STRING_VALUE",
- * //       PostalCodeType: "STRING_VALUE",
+ * //       PostalAuthority: "Usps",
+ * //       PostalCodeType: "UspsZip" || "UspsZipPlus4",
  * //       UspsZip: { // UspsZip
- * //         ZipClassificationCode: "STRING_VALUE",
+ * //         ZipClassificationCode: "Military" || "PostOfficeBoxes" || "Unique",
  * //       },
  * //       UspsZipPlus4: { // UspsZipPlus4
- * //         RecordTypeCode: "STRING_VALUE",
+ * //         RecordTypeCode: "Firm" || "General" || "HighRise" || "PostOfficeBox" || "Rural" || "Street",
  * //       },
  * //     },
  * //   ],
@@ -215,6 +216,9 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //       Position: [
  * //         Number("double"),
  * //       ],
+ * //       Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //       Primary: true || false,
+ * //       Label: "STRING_VALUE",
  * //     },
  * //   ],
  * //   AccessRestrictions: [ // AccessRestrictionList
@@ -275,7 +279,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //   },
  * //   MainAddress: { // RelatedPlace
  * //     PlaceId: "STRING_VALUE", // required
- * //     PlaceType: "STRING_VALUE", // required
+ * //     PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //     Title: "STRING_VALUE", // required
  * //     Address: {
  * //       Label: "STRING_VALUE",
@@ -306,7 +310,7 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //         {
  * //           BaseName: "STRING_VALUE",
  * //           Type: "STRING_VALUE",
- * //           TypePlacement: "STRING_VALUE",
+ * //           TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //           TypeSeparator: "STRING_VALUE",
  * //           Prefix: "STRING_VALUE",
  * //           Suffix: "STRING_VALUE",
@@ -327,17 +331,31 @@ export interface GetPlaceCommandOutput extends GetPlaceResponse, __MetadataBeare
  * //     AccessPoints: [
  * //       {
  * //         Position: "<Position>",
+ * //         Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //         Primary: true || false,
+ * //         Label: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
  * //   SecondaryAddresses: [ // RelatedPlaceList
  * //     {
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: "<Address>",
  * //       Position: "<Position>",
  * //       AccessPoints: "<AccessPointList>",
+ * //     },
+ * //   ],
+ * //   PlaceAttributes: [ // PlaceAttributeList
+ * //     "DriveThrough",
+ * //   ],
+ * //   EstimatedPointAddress: true || false,
+ * //   CrossReferences: [ // CrossReferenceList
+ * //     { // CrossReference
+ * //       Source: "STRING_VALUE", // required
+ * //       SourcePlaceId: "STRING_VALUE", // required
+ * //       SourceCategories: "<CategoryList>",
  * //     },
  * //   ],
  * // };

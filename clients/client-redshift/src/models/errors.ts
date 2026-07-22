@@ -1891,6 +1891,26 @@ export class IntegrationTargetNotFoundFault extends __BaseException {
 }
 
 /**
+ * <p>The Amazon Redshift Query Editor (QEV2) IAM Identity Center application already exists. Use a different application name or describe existing applications to find the ARN.</p>
+ * @public
+ */
+export class Qev2IdcApplicationAlreadyExistsFault extends __BaseException {
+  readonly name = "Qev2IdcApplicationAlreadyExistsFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Qev2IdcApplicationAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "Qev2IdcApplicationAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Qev2IdcApplicationAlreadyExistsFault.prototype);
+  }
+}
+
+/**
  * <p>The application you attempted to add already exists.</p>
  * @public
  */
@@ -2415,6 +2435,26 @@ export class IntegrationNotFoundFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, IntegrationNotFoundFault.prototype);
+  }
+}
+
+/**
+ * <p>The specified Amazon Redshift Query Editor (QEV2) IAM Identity Center application doesn't exist. Verify that the application ARN is correct and that the application exists in this Region.</p>
+ * @public
+ */
+export class Qev2IdcApplicationNotExistsFault extends __BaseException {
+  readonly name = "Qev2IdcApplicationNotExistsFault" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<Qev2IdcApplicationNotExistsFault, __BaseException>) {
+    super({
+      name: "Qev2IdcApplicationNotExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, Qev2IdcApplicationNotExistsFault.prototype);
   }
 }
 

@@ -149,6 +149,48 @@ import type {
 /**
  * @public
  */
+export interface DeleteRouteTableRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecondaryNetworkRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensure Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the secondary network.</p>
+   * @public
+   */
+  SecondaryNetworkId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteSecondaryNetworkResult {
   /**
    * <p>Information about the secondary network.</p>
@@ -10017,6 +10059,42 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>image-watermark.source-image-creation-time</code> - The creation date of the
+   *           source AMI, in the ISO 8601 format in the UTC time zone
+   *             (<code>
+   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
+   *                   </code>).
+   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+   *           matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.source-image-id</code> - The ID of the AMI to which the
+   *           watermark was originally attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.source-image-region</code> - The Region where the watermark
+   *           was originally attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.watermark-creation-time</code> - The date and time the
+   *           watermark was attached to the AMI, in the ISO 8601 format in the UTC time zone
+   *             (<code>
+   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
+   *                   </code>).
+   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+   *           matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.watermark-key</code> - The watermark identifier, in
+   *             <code>accountId:watermarkName</code> format (for example,
+   *             <code>123456789012:approvedAmi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
    *             <code>ramdisk</code>).</p>
    *             </li>
@@ -10062,6 +10140,13 @@ export interface DescribeImagesRequest {
    *                <p>
    *                   <code>product-code.type</code> - The type of the product code
    *           (<code>marketplace</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ssm-parameter-name</code> - The name of a public Systems Manager
+   *           parameter associated with the AMI. The parameter must be in a trusted Amazon Web Services namespace
+   *           under <code>aws/service/</code>. Returns all AMIs that have ever been associated with
+   *           the parameter, including previous versions.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10367,6 +10452,13 @@ export interface Image {
    * @public
    */
   FreeTierEligible?: boolean | undefined;
+
+  /**
+   * <p>The name of the public Systems Manager parameter that resolves to this AMI, under the
+   *       <code>aws/service/</code> namespace.</p>
+   * @public
+   */
+  PublicSsmParameterName?: string | undefined;
 
   /**
    * <p>The watermarks attached to the AMI.</p>
@@ -10679,101 +10771,4 @@ export interface ImageUsageResourceTypeOption {
    * @public
    */
   OptionValues?: string[] | undefined;
-}
-
-/**
- * <p>A resource type to include in the report. Associated options can also be specified if the
- *       resource type is a launch template.</p>
- * @public
- */
-export interface ImageUsageResourceType {
-  /**
-   * <p>The resource type.</p>
-   *          <p>Valid values: <code>ec2:Instance</code> | <code>ec2:LaunchTemplate</code>
-   *          </p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The options that affect the scope of the report. Valid only when <code>ResourceType</code>
-   *       is <code>ec2:LaunchTemplate</code>.</p>
-   * @public
-   */
-  ResourceTypeOptions?: ImageUsageResourceTypeOption[] | undefined;
-}
-
-/**
- * <p>The configuration and status of an image usage report.</p>
- * @public
- */
-export interface ImageUsageReport {
-  /**
-   * <p>The ID of the image that was specified when the report was created.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The resource types that were specified when the report was created.</p>
-   * @public
-   */
-  ResourceTypes?: ImageUsageResourceType[] | undefined;
-
-  /**
-   * <p>The IDs of the Amazon Web Services accounts that were specified when the report was created.</p>
-   * @public
-   */
-  AccountIds?: string[] | undefined;
-
-  /**
-   * <p>The current state of the report. Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The report is available to view.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - The report is being created and not available to view.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>error</code> - The report could not be created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>Provides additional details when the report is in an <code>error</code> state.</p>
-   * @public
-   */
-  StateReason?: string | undefined;
-
-  /**
-   * <p>The date and time when the report was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>The date and time when Amazon EC2 will delete the report (30 days after the report was
-   *       created).</p>
-   * @public
-   */
-  ExpirationTime?: Date | undefined;
-
-  /**
-   * <p>Any tags assigned to the report.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

@@ -64,7 +64,7 @@ export interface DescribeOrganizationConfigurationCommandOutput extends Describe
  * //   },
  * //   Features: [ // OrganizationFeaturesConfigurationsResults
  * //     { // OrganizationFeatureConfigurationResult
- * //       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
+ * //       Name: "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING" || "AI_PROTECTION",
  * //       AutoEnable: "NEW" || "NONE" || "ALL",
  * //       AdditionalConfiguration: [ // OrganizationAdditionalConfigurationResults
  * //         { // OrganizationAdditionalConfigurationResult

@@ -1565,6 +1565,24 @@ export interface CreateFuotaTaskResponse {
 }
 
 /**
+ * <p>The default session parameters for the multicast group.</p>
+ * @public
+ */
+export interface DefaultSessionParametersMulticast {
+  /**
+   * <p>Downlink data rate.</p>
+   * @public
+   */
+  DlDr?: number | undefined;
+
+  /**
+   * <p>Downlink frequency.</p>
+   * @public
+   */
+  DlFreq?: number | undefined;
+}
+
+/**
  * <p>Specify the list of gateways to which you want to send the multicast downlink
  *             messages. The multicast message will be sent to each gateway in the list, with the
  *             transmission interval as the time interval between each message.</p>
@@ -1612,6 +1630,12 @@ export interface LoRaWANMulticast {
    * @public
    */
   ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
+
+  /**
+   * <p>The default session parameters for the multicast group.</p>
+   * @public
+   */
+  DefaultSessionParameters?: DefaultSessionParametersMulticast | undefined;
 }
 
 /**
@@ -4098,6 +4122,12 @@ export interface LoRaWANMulticastGet {
    * @public
    */
   ParticipatingGateways?: ParticipatingGatewaysMulticast | undefined;
+
+  /**
+   * <p>The default session parameters for the multicast group.</p>
+   * @public
+   */
+  DefaultSessionParameters?: DefaultSessionParametersMulticast | undefined;
 }
 
 /**
@@ -7114,34 +7144,4 @@ export interface WirelessMetadata {
    * @public
    */
   Sidewalk?: SidewalkSendDataToDevice | undefined;
-}
-
-/**
- * @public
- */
-export interface SendDataToWirelessDeviceRequest {
-  /**
-   * <p>The ID of the wireless device to receive the data.</p>
-   * @public
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code>
-   *             for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
-   * @public
-   */
-  TransmitMode: number | undefined;
-
-  /**
-   * <p>The binary to be sent to the end device, encoded in base64.</p>
-   * @public
-   */
-  PayloadData: string | undefined;
-
-  /**
-   * <p>Metadata about the message request.</p>
-   * @public
-   */
-  WirelessMetadata?: WirelessMetadata | undefined;
 }

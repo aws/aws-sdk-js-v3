@@ -274,6 +274,102 @@ export class CapacityProviderLimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
+ * @public
+ */
+export class KMSAccessDeniedException extends __BaseException {
+  readonly name = "KMSAccessDeniedException" as const;
+  readonly $fault = "server" as const;
+  Type?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
+    super({
+      name: "KMSAccessDeniedException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
+ * @public
+ */
+export class KMSDisabledException extends __BaseException {
+  readonly name = "KMSDisabledException" as const;
+  readonly $fault = "server" as const;
+  Type?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
+    super({
+      name: "KMSDisabledException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSDisabledException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
+ * @public
+ */
+export class KMSInvalidStateException extends __BaseException {
+  readonly name = "KMSInvalidStateException" as const;
+  readonly $fault = "server" as const;
+  Type?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
+    super({
+      name: "KMSInvalidStateException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
+ * @public
+ */
+export class KMSNotFoundException extends __BaseException {
+  readonly name = "KMSNotFoundException" as const;
+  readonly $fault = "server" as const;
+  Type?: string | undefined;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
+    super({
+      name: "KMSNotFoundException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
+    this.Type = opts.Type;
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The operation conflicts with the resource's availability. For example, you tried to update an event source mapping in the CREATING state, or you tried to delete an event source mapping currently UPDATING.</p>
  * @public
  */
@@ -878,102 +974,6 @@ export class InvalidZipFileException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidZipFileException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because KMS access was denied. Check the Lambda function's KMS permissions.</p>
- * @public
- */
-export class KMSAccessDeniedException extends __BaseException {
-  readonly name = "KMSAccessDeniedException" as const;
-  readonly $fault = "server" as const;
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSAccessDeniedException, __BaseException>) {
-    super({
-      name: "KMSAccessDeniedException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSAccessDeniedException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key used is disabled. Check the Lambda function's KMS key settings.</p>
- * @public
- */
-export class KMSDisabledException extends __BaseException {
-  readonly name = "KMSDisabledException" as const;
-  readonly $fault = "server" as const;
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSDisabledException, __BaseException>) {
-    super({
-      name: "KMSDisabledException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSDisabledException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the state of the KMS key used is not valid for Decrypt. Check the function's KMS key settings.</p>
- * @public
- */
-export class KMSInvalidStateException extends __BaseException {
-  readonly name = "KMSInvalidStateException" as const;
-  readonly $fault = "server" as const;
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSInvalidStateException, __BaseException>) {
-    super({
-      name: "KMSInvalidStateException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSInvalidStateException.prototype);
-    this.Type = opts.Type;
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Lambda couldn't decrypt the environment variables because the KMS key was not found. Check the function's KMS key settings.</p>
- * @public
- */
-export class KMSNotFoundException extends __BaseException {
-  readonly name = "KMSNotFoundException" as const;
-  readonly $fault = "server" as const;
-  Type?: string | undefined;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<KMSNotFoundException, __BaseException>) {
-    super({
-      name: "KMSNotFoundException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, KMSNotFoundException.prototype);
     this.Type = opts.Type;
     this.Message = opts.Message;
   }

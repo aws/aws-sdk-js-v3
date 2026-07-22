@@ -35,7 +35,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FunctionArn": "__FunctionArn__",
       "Status": "__Status__",
       "StartTimestamp": 946702799.999,
-      "EndTimestamp": 946702799.999
+      "EndTimestamp": 946702799.999,
+      "KMSKeyArn": "__KMSKeyArn__"
     },
     {
       "DurableExecutionArn": "__DurableExecutionArn__",
@@ -43,7 +44,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FunctionArn": "__FunctionArn__",
       "Status": "__Status__",
       "StartTimestamp": 946702799.999,
-      "EndTimestamp": 946702799.999
+      "EndTimestamp": 946702799.999,
+      "KMSKeyArn": "__KMSKeyArn__"
     },
     {
       "DurableExecutionArn": "__DurableExecutionArn__",
@@ -51,7 +53,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "FunctionArn": "__FunctionArn__",
       "Status": "__Status__",
       "StartTimestamp": 946702799.999,
-      "EndTimestamp": 946702799.999
+      "EndTimestamp": 946702799.999,
+      "KMSKeyArn": "__KMSKeyArn__"
     }
   ],
   "NextMarker": "__NextMarker__"
@@ -67,7 +70,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FunctionArn: "__FunctionArn__",
       Status: "__Status__",
       StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      KMSKeyArn: "__KMSKeyArn__"
     },
     {
       DurableExecutionArn: "__DurableExecutionArn__",
@@ -75,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FunctionArn: "__FunctionArn__",
       Status: "__Status__",
       StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      KMSKeyArn: "__KMSKeyArn__"
     },
     {
       DurableExecutionArn: "__DurableExecutionArn__",
@@ -83,7 +88,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       FunctionArn: "__FunctionArn__",
       Status: "__Status__",
       StartTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
-      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+      EndTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      KMSKeyArn: "__KMSKeyArn__"
     }
   ],
   NextMarker: "__NextMarker__",

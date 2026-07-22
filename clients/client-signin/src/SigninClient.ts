@@ -59,6 +59,10 @@ import type {
   CreateOAuth2TokenCommandOutput,
 } from "./commands/CreateOAuth2TokenCommand";
 import type {
+  CreateOAuth2TokenWithIAMCommandInput,
+  CreateOAuth2TokenWithIAMCommandOutput,
+} from "./commands/CreateOAuth2TokenWithIAMCommand";
+import type {
   DeleteConsoleAuthorizationConfigurationCommandInput,
   DeleteConsoleAuthorizationConfigurationCommandOutput,
 } from "./commands/DeleteConsoleAuthorizationConfigurationCommand";
@@ -75,6 +79,10 @@ import type {
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import type {
+  IntrospectOAuth2TokenWithIAMCommandInput,
+  IntrospectOAuth2TokenWithIAMCommandOutput,
+} from "./commands/IntrospectOAuth2TokenWithIAMCommand";
+import type {
   ListResourcePermissionStatementsCommandInput,
   ListResourcePermissionStatementsCommandOutput,
 } from "./commands/ListResourcePermissionStatementsCommand";
@@ -86,6 +94,10 @@ import type {
   PutResourcePermissionStatementCommandInput,
   PutResourcePermissionStatementCommandOutput,
 } from "./commands/PutResourcePermissionStatementCommand";
+import type {
+  RevokeOAuth2TokenWithIAMCommandInput,
+  RevokeOAuth2TokenWithIAMCommandOutput,
+} from "./commands/RevokeOAuth2TokenWithIAMCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -102,26 +114,32 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateOAuth2TokenCommandInput
+  | CreateOAuth2TokenWithIAMCommandInput
   | DeleteConsoleAuthorizationConfigurationCommandInput
   | DeleteResourcePermissionStatementCommandInput
   | GetConsoleAuthorizationConfigurationCommandInput
   | GetResourcePolicyCommandInput
+  | IntrospectOAuth2TokenWithIAMCommandInput
   | ListResourcePermissionStatementsCommandInput
   | PutConsoleAuthorizationConfigurationCommandInput
-  | PutResourcePermissionStatementCommandInput;
+  | PutResourcePermissionStatementCommandInput
+  | RevokeOAuth2TokenWithIAMCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | CreateOAuth2TokenCommandOutput
+  | CreateOAuth2TokenWithIAMCommandOutput
   | DeleteConsoleAuthorizationConfigurationCommandOutput
   | DeleteResourcePermissionStatementCommandOutput
   | GetConsoleAuthorizationConfigurationCommandOutput
   | GetResourcePolicyCommandOutput
+  | IntrospectOAuth2TokenWithIAMCommandOutput
   | ListResourcePermissionStatementsCommandOutput
   | PutConsoleAuthorizationConfigurationCommandOutput
-  | PutResourcePermissionStatementCommandOutput;
+  | PutResourcePermissionStatementCommandOutput
+  | RevokeOAuth2TokenWithIAMCommandOutput;
 
 /**
  * @public

@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { PutEmailIdentityDkimSigningAttributes$ } from "../schemas/schemas_0";
 
 /**
@@ -59,12 +59,12 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput extends PutE
  * const client = new SESv2Client(config);
  * const input = { // PutEmailIdentityDkimSigningAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
- *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2" || "AWS_SES_ME_CENTRAL_1" || "AWS_SES_AP_SOUTH_2" || "AWS_SES_EU_CENTRAL_2" || "AWS_SES_AP_SOUTHEAST_5" || "AWS_SES_CA_WEST_1", // required
+ *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2" || "AWS_SES_ME_CENTRAL_1" || "AWS_SES_AP_SOUTH_2" || "AWS_SES_EU_CENTRAL_2" || "AWS_SES_AP_SOUTHEAST_5" || "AWS_SES_CA_WEST_1" || "AWS_SES_US_GOV_EAST_1" || "AWS_SES_US_GOV_WEST_1", // required
  *   SigningAttributes: { // DkimSigningAttributes
  *     DomainSigningSelector: "STRING_VALUE",
  *     DomainSigningPrivateKey: "STRING_VALUE",
  *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
- *     DomainSigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2" || "AWS_SES_ME_CENTRAL_1" || "AWS_SES_AP_SOUTH_2" || "AWS_SES_EU_CENTRAL_2" || "AWS_SES_AP_SOUTHEAST_5" || "AWS_SES_CA_WEST_1",
+ *     DomainSigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2" || "AWS_SES_ME_CENTRAL_1" || "AWS_SES_AP_SOUTH_2" || "AWS_SES_EU_CENTRAL_2" || "AWS_SES_AP_SOUTHEAST_5" || "AWS_SES_CA_WEST_1" || "AWS_SES_US_GOV_EAST_1" || "AWS_SES_US_GOV_WEST_1",
  *   },
  * };
  * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);

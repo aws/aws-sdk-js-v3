@@ -169,9 +169,18 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //       ConfigurationSet: "STRING_VALUE",
  * //     },
  * //     SmsConfiguration: { // SmsConfigurationType
- * //       SnsCallerArn: "STRING_VALUE", // required
+ * //       SnsCallerArn: "STRING_VALUE",
  * //       ExternalId: "STRING_VALUE",
  * //       SnsRegion: "STRING_VALUE",
+ * //       EumsSms: { // EumsSmsConfigurationType
+ * //         CallerArn: "STRING_VALUE", // required
+ * //         ExternalId: "STRING_VALUE",
+ * //         OriginationIdentity: "STRING_VALUE",
+ * //         ConfigurationSetName: "STRING_VALUE",
+ * //         InEntityId: "STRING_VALUE",
+ * //         InTemplateId: "STRING_VALUE",
+ * //         Region: "STRING_VALUE",
+ * //       },
  * //     },
  * //     UserPoolTags: { // UserPoolTagsType
  * //       "<keys>": "STRING_VALUE",

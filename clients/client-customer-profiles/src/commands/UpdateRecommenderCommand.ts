@@ -60,7 +60,17 @@ export interface UpdateRecommenderCommandOutput extends UpdateRecommenderRespons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     DiversityConfig: { // DiversityConfig
+ *       DiversityColumns: [ // DiversityColumnsList
+ *         { // DiversityColumn
+ *           Name: "STRING_VALUE", // required
+ *           CapType: "PERCENTAGE" || "VALUE", // required
+ *           Target: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
+ *   RecommenderVersionName: "STRING_VALUE",
  * };
  * const command = new UpdateRecommenderCommand(input);
  * const response = await client.send(command);

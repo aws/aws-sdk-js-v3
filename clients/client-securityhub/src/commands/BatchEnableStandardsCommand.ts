@@ -59,8 +59,9 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
  * //       StandardsControlsUpdatable: "READY_FOR_UPDATES" || "NOT_READY_FOR_UPDATES",
  * //       StandardsStatusReason: { // StandardsStatusReason
- * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "INTERNAL_ERROR", // required
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "NO_AVAILABLE_MULTICLOUD_CONNECTOR" || "INTERNAL_ERROR", // required
  * //       },
+ * //       Provider: "AWS" || "Azure",
  * //     },
  * //   ],
  * // };
@@ -110,7 +111,9 @@ export interface BatchEnableStandardsCommandOutput extends BatchEnableStandardsR
  * {
  *   StandardsSubscriptions: [
  *     {
+ *       Provider: "AWS",
  *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       StandardsControlsUpdatable: "NOT_READY_FOR_UPDATES",
  *       StandardsInput:       { /* empty *\/ },
  *       StandardsStatus: "PENDING",
  *       StandardsSubscriptionArn: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"

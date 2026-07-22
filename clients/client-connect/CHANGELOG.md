@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Features
+
+* **client-connect:** This release adds SearchRules API which can be used to search for rules within an Amazon Connect instance. ([f29288c](https://github.com/aws/aws-sdk-js-v3/commit/f29288c751327448c91ad5e89ea25d702dadab96))
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+
+### Features
+
+* **client-connect:** Amazon Connect - Added DeleteContactData API to support PII deletion of customer endpoint, additional email recipients and email subject. ([87f4ae0](https://github.com/aws/aws-sdk-js-v3/commit/87f4ae0edee3b09fccf660a9ec06f3819c0de033))
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Features
+
+* **client-connect:** Adds support for CreateAuthCode and DeleteSession APIs. ([b84bbf6](https://github.com/aws/aws-sdk-js-v3/commit/b84bbf6f4aa3e3ed630d76029180872a5c3c99ee))
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-connect
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 

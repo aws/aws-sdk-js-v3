@@ -10,6 +10,7 @@ import type {
   DataFormat,
   DataPullMode,
   DateDimensionType,
+  DiversityCapType,
   EstimateStatus,
   EventStreamDestinationStatus,
   EventStreamState,
@@ -3328,6 +3329,42 @@ export interface CreateProfileResponse {
 }
 
 /**
+ * <p>Defines a diversity constraint for a single item column, specifying a cap type and a target value or placeholder that controls how many recommended items may share the same column value.</p>
+ * @public
+ */
+export interface DiversityColumn {
+  /**
+   * <p>The name of the item catalog column on which to apply the diversity cap. The column must be defined in the recommender schema.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of diversity cap to apply. Valid values are <code>PERCENTAGE</code> (interpret <code>Target</code> as a percentage of returned items) and <code>VALUE</code> (interpret <code>Target</code> as an absolute count).</p>
+   * @public
+   */
+  CapType: DiversityCapType | undefined;
+
+  /**
+   * <p>The diversity cap target. Either an integer literal (for example, <code>"25"</code>) or a placeholder expression of the form <code>$name</code> whose value is supplied at inference time through <code>GetProfileRecommendations</code>.</p>
+   * @public
+   */
+  Target: string | undefined;
+}
+
+/**
+ * <p>Configuration that controls diversity of recommendation results by capping the representation of specified item columns.</p>
+ * @public
+ */
+export interface DiversityConfig {
+  /**
+   * <p>A list of up to two diversity columns. Each column defines a cap on the number or percentage of recommended items that share the same value for that column.</p>
+   * @public
+   */
+  DiversityColumns?: DiversityColumn[] | undefined;
+}
+
+/**
  * <p>Configuration parameters for events in the personalization system.</p>
  * @public
  */
@@ -3409,6 +3446,12 @@ export interface RecommenderConfig {
    * @public
    */
   ExcludedColumns?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>Configuration for diversity-aware recommendations. When set, the recommender applies diversity constraints defined per item column to reduce over-concentration of similar items in the results.</p>
+   * @public
+   */
+  DiversityConfig?: DiversityConfig | undefined;
 }
 
 /**
@@ -6216,6 +6259,24 @@ export interface GetProfileObjectTypeTemplateResponse {
 }
 
 /**
+ * <p>Runtime diversity configuration for a <code>GetProfileRecommendations</code> request.</p>
+ * @public
+ */
+export interface RecommendationDiversityConfig {
+  /**
+   * <p>Whether diversity-aware recommendations are enabled for this request.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>An optional map of placeholder name to integer cap value used to resolve <code>$name</code> placeholders defined in the recommender's <code>DiversityConfig</code> at inference time. Up to 2 entries are supported.</p>
+   * @public
+   */
+  Values?: Record<string, number> | undefined;
+}
+
+/**
  * <p>Configuration for metadata to include in recommendation responses.</p>
  * @public
  */
@@ -6332,6 +6393,12 @@ export interface GetProfileRecommendationsRequest {
    * @public
    */
   MetadataConfig?: MetadataConfig | undefined;
+
+  /**
+   * <p>Runtime diversity configuration for this request. Enables diversity-aware recommendations and optionally supplies values for placeholder-based diversity caps configured on the recommender.</p>
+   * @public
+   */
+  DiversityConfig?: RecommendationDiversityConfig | undefined;
 }
 
 /**
@@ -6420,6 +6487,12 @@ export interface RecommenderUpdate {
    * @public
    */
   FailureReason?: string | undefined;
+
+  /**
+   * <p>The name of the recommender version associated with this update operation.</p>
+   * @public
+   */
+  RecommenderVersionName?: string | undefined;
 }
 
 /**
@@ -6438,6 +6511,12 @@ export interface TrainingMetrics {
    * @public
    */
   Metrics?: Partial<Record<TrainingMetricName, number>> | undefined;
+
+  /**
+   * <p>The name of the recommender version that produced these training metrics.</p>
+   * @public
+   */
+  RecommenderVersionName?: string | undefined;
 }
 
 /**
@@ -6503,6 +6582,12 @@ export interface GetRecommenderResponse {
    * @public
    */
   LatestRecommenderUpdate?: RecommenderUpdate | undefined;
+
+  /**
+   * <p>The name of the recommender version currently serving recommendations. Omitted when no active recommender version is set.</p>
+   * @public
+   */
+  ActiveRecommenderVersionName?: string | undefined;
 
   /**
    * <p>A set of metrics that provide information about the recommender's training performance and accuracy.</p>
@@ -9073,75 +9158,4 @@ export interface ListRecommenderSchemasRequest {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * <p>Provides a summary of a recommender schema's configuration and current state.</p>
- * @public
- */
-export interface RecommenderSchemaSummary {
-  /**
-   * <p>The name of the recommender schema.</p>
-   * @public
-   */
-  RecommenderSchemaName: string | undefined;
-
-  /**
-   * <p>A map of dataset type to column definitions included in the schema.</p>
-   * @public
-   */
-  Fields: Record<string, RecommenderSchemaField[]> | undefined;
-
-  /**
-   * <p>The timestamp when the recommender schema was created.</p>
-   * @public
-   */
-  CreatedAt: Date | undefined;
-
-  /**
-   * <p>The current operational status of the recommender schema.</p>
-   * @public
-   */
-  Status: RecommenderSchemaStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRecommenderSchemasResponse {
-  /**
-   * <p>A token to retrieve the next page of results. Null if there are no more results to retrieve.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of recommender schemas and their properties in the specified domain.</p>
-   * @public
-   */
-  RecommenderSchemas?: RecommenderSchemaSummary[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRuleBasedMatchesRequest {
-  /**
-   * <p>The pagination token from the previous <code>ListRuleBasedMatches</code> API
-   *          call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of <code>MatchIds</code> returned per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The unique name of the domain.</p>
-   * @public
-   */
-  DomainName: string | undefined;
 }

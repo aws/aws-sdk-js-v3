@@ -42,16 +42,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ConfigServiceClient` and
-the commands you need, for example `ListStoredQueriesCommand`:
+the commands you need, for example `ListConnectorsCommand`:
 
 ```js
 // ES5 example
-const { ConfigServiceClient, ListStoredQueriesCommand } = require("@aws-sdk/client-config-service");
+const { ConfigServiceClient, ListConnectorsCommand } = require("@aws-sdk/client-config-service");
 ```
 
 ```ts
 // ES6+ example
-import { ConfigServiceClient, ListStoredQueriesCommand } from "@aws-sdk/client-config-service";
+import { ConfigServiceClient, ListConnectorsCommand } from "@aws-sdk/client-config-service";
 ```
 
 ### Usage
@@ -68,7 +68,7 @@ To send a request:
 const client = new ConfigServiceClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListStoredQueriesCommand(params);
+const command = new ListConnectorsCommand(params);
 ```
 
 #### Async/await
@@ -124,7 +124,7 @@ const client = new ConfigService({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listStoredQueries(params);
+  const data = await client.listConnectors(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -132,7 +132,7 @@ try {
 
 // Promises.
 client
-  .listStoredQueries(params)
+  .listConnectors(params)
   .then((data) => {
     // process data.
   })
@@ -141,7 +141,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listStoredQueries(params, (err, data) => {
+client.listConnectors(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -254,6 +254,13 @@ DeleteConformancePack
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConformancePackCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/DeleteConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/DeleteConnectorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -600,6 +607,13 @@ GetConformancePackComplianceSummary
 </details>
 <details>
 <summary>
+GetConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/GetConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/GetConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 GetCustomRulePolicy
 </summary>
 
@@ -677,6 +691,13 @@ ListConformancePackComplianceScores
 </details>
 <details>
 <summary>
+ListConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/ListConnectorsCommandOutput/)
+</details>
+<details>
+<summary>
 ListDiscoveredResources
 </summary>
 
@@ -737,6 +758,13 @@ PutConformancePack
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConformancePackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConformancePackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConformancePackCommandOutput/)
+</details>
+<details>
+<summary>
+PutConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutConnectorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -814,6 +842,13 @@ PutStoredQuery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutStoredQueryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutStoredQueryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutStoredQueryCommandOutput/)
+</details>
+<details>
+<summary>
+PutThirdPartyServiceLinkedConfigurationRecorder
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/config-service/command/PutThirdPartyServiceLinkedConfigurationRecorderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutThirdPartyServiceLinkedConfigurationRecorderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-config-service/Interface/PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput/)
 </details>
 <details>
 <summary>

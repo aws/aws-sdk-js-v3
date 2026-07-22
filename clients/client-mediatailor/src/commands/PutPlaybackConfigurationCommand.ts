@@ -90,6 +90,17 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  *   FunctionMapping: { // FunctionMapping
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ *     AdsRequestTimeoutMilliseconds: Number("int"),
+ *     LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *     VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *     PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ *     PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ *   },
+ *   AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ *     MaxConcurrentAdsRequests: Number("int"),
+ *     EnableVodVastParallelization: true || false,
+ *   },
  * };
  * const command = new PutPlaybackConfigurationCommand(input);
  * const response = await client.send(command);
@@ -115,11 +126,13 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   DashConfiguration: { // DashConfiguration
  * //     ManifestEndpointPrefix: "STRING_VALUE",
+ * //     DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //     MpdLocation: "STRING_VALUE",
  * //     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
  * //   },
  * //   HlsConfiguration: { // HlsConfiguration
  * //     ManifestEndpointPrefix: "STRING_VALUE",
+ * //     DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //   },
  * //   InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  * //   LivePreRollConfiguration: { // LivePreRollConfiguration
@@ -157,7 +170,9 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   PersonalizationThresholdSeconds: Number("int"),
  * //   PlaybackConfigurationArn: "STRING_VALUE",
  * //   PlaybackEndpointPrefix: "STRING_VALUE",
+ * //   DualStackPlaybackEndpointPrefix: "STRING_VALUE",
  * //   SessionInitializationEndpointPrefix: "STRING_VALUE",
+ * //   DualStackSessionInitializationEndpointPrefix: "STRING_VALUE",
  * //   SlateAdUrl: "STRING_VALUE",
  * //   Tags: {
  * //     "<keys>": "STRING_VALUE",
@@ -179,6 +194,17 @@ export interface PutPlaybackConfigurationCommandOutput extends PutPlaybackConfig
  * //   },
  * //   FunctionMapping: { // FunctionMapping
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ * //     AdsRequestTimeoutMilliseconds: Number("int"),
+ * //     LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ * //     PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //   },
+ * //   AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ * //     MaxConcurrentAdsRequests: Number("int"),
+ * //     EnableVodVastParallelization: true || false,
  * //   },
  * // };
  *

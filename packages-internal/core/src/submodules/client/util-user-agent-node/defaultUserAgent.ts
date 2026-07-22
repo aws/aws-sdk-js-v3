@@ -3,7 +3,6 @@ import { platform, release } from "node:os";
 import { env } from "node:process";
 
 import { getRuntimeUserAgentPair } from "./getRuntimeUserAgentPair";
-import { getTypeScriptUserAgentPair } from "./getTypeScriptUserAgentPair";
 import { isCrtAvailable } from "./is-crt-available";
 
 /**
@@ -45,11 +44,6 @@ export const createDefaultUserAgentProvider = ({ serviceId, clientVersion }: Def
       ["lang/js"],
       runtimeUserAgentPair,
     ];
-
-    const typescriptUserAgentPair = await getTypeScriptUserAgentPair();
-    if (typescriptUserAgentPair) {
-      sections.push(typescriptUserAgentPair);
-    }
 
     const crtAvailable = isCrtAvailable();
     if (crtAvailable) {

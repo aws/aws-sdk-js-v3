@@ -12,6 +12,68 @@
 
 
 
+
+
+
+
+
+
+
+
+# 3.1000.19 (2026-07-21)
+### Chores
+* **checksums:** update dependencies.
+
+
+
+# 3.1000.18 (2026-07-15)
+### Chores
+* **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))
+* migrate eslint/prettier to oxlint/oxfmt ([#8192](https://github.com/aws/aws-sdk-js-v3/issues/8192)) ([7d14409](https://github.com/aws/aws-sdk-js-v3/commit/7d144094844d078a2ec15c6ecbd054f9e127fa11))
+
+
+
+# 3.1000.17 (2026-07-14)
+### Bug Fixes
+* **scripts:** add typesVersions entries for submodules ([#8186](https://github.com/aws/aws-sdk-js-v3/issues/8186)) ([9eade26](https://github.com/aws/aws-sdk-js-v3/commit/9eade2692bd0f4486bc03c606a6963bc96706fd1))
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
+# 3.1000.16 (2026-07-08)
+### Chores
+* **checksums:** update dependencies.
+
+
+
+# 3.1000.15 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+### Tests
+* **checksums:** pass buffer in flexible checksums integ test ([#8166](https://github.com/aws/aws-sdk-js-v3/issues/8166)) ([22281e3](https://github.com/aws/aws-sdk-js-v3/commit/22281e3968b75b54e3ab8bbe33c9259e7e72973a))
+
+
+
+# 3.1000.14 (2026-07-07)
+### Chores
+* **checksums:** update dependencies.
+
+
+
+# 3.1000.13 (2026-07-06)
+### Chores
+* **checksums:** update dependencies.
+
+
+
+# 3.1000.12 (2026-07-02)
+### Chores
+* **checksums:** update dependencies.
+
+
+
 # 3.1000.11 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

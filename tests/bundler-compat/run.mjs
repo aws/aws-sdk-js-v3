@@ -43,7 +43,9 @@ function validateBundle(bundler, filePath, { checkBuffer = true } = {}) {
 
   const nodeOnlyMatches = content.match(/\w+\s*=\s*Symbol\.for\(["']node-only["']\)/g) || [];
   if (nodeOnlyMatches.length > 0) {
-    console.log(`    ${bundler}: ⚠️ ${nodeOnlyMatches.length} Symbol.for("node-only") — node-only code not fully tree-shaken`);
+    console.log(
+      `    ${bundler}: ⚠️ ${nodeOnlyMatches.length} Symbol.for("node-only") — node-only code not fully tree-shaken`
+    );
   }
 
   if (checkBuffer) {
@@ -66,11 +68,14 @@ console.log("tsup");
 console.log("=".repeat(60));
 
 run("JS bundle (ESM)", () => {
-  execSync("npx tsup src/sample-app.ts --format esm --platform browser --outDir dist/js --silent --tsconfig tsconfig.json", {
-    cwd: root,
-    stdio: "pipe",
-    env: { ...process.env, NODE_OPTIONS: "" },
-  });
+  execSync(
+    "npx tsup src/sample-app.ts --format esm --platform browser --outDir dist/js --silent --tsconfig tsconfig.json",
+    {
+      cwd: root,
+      stdio: "pipe",
+      env: { ...process.env, NODE_OPTIONS: "" },
+    }
+  );
   const out = path.join(root, "dist/js/sample-app.js");
   if (!fs.existsSync(out)) {
     throw new Error("output file not created");
@@ -82,10 +87,11 @@ run("JS bundle (ESM)", () => {
 });
 
 run("DTS bundle (all types inlined)", () => {
-  execSync(
-    "npx tsup --config tsup-dts.config.ts --silent",
-    { cwd: root, stdio: "pipe", env: { ...process.env, NODE_OPTIONS: "--max-old-space-size=8192" } }
-  );
+  execSync("npx tsup --config tsup-dts.config.ts --silent", {
+    cwd: root,
+    stdio: "pipe",
+    env: { ...process.env, NODE_OPTIONS: "--max-old-space-size=8192" },
+  });
   const out = path.join(root, "dist/dts/dts-check.d.ts");
   if (!fs.existsSync(out)) {
     throw new Error("output .d.ts not created");

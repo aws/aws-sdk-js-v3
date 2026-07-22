@@ -45,12 +45,13 @@ export interface GetVoiceConnectorGroupCommandOutput extends GetVoiceConnectorGr
  * //     VoiceConnectorItems: [ // VoiceConnectorItemList
  * //       { // VoiceConnectorItem
  * //         VoiceConnectorId: "STRING_VALUE", // required
- * //         Priority: Number("int"), // required
+ * //         Priority: Number("int"),
  * //       },
  * //     ],
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorGroupArn: "STRING_VALUE",
+ * //     CallDistributionType: "PriorityWeightedDistribution" || "LoadBalancedDistribution",
  * //   },
  * // };
  *

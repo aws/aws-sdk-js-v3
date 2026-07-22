@@ -1,19 +1,17 @@
 // smithy-typescript generated code
 // Please do not touch this file. It's generated from template in:
 // https://github.com/aws/aws-sdk-js-v3/blob/main/codegen/smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/sts-client-defaultRoleAssumers.ts
-import type { Pluggable } from "@smithy/types";
+import { Pluggable } from "@smithy/types";
 
-import type {
+import {
   DefaultCredentialProvider,
+  getDefaultRoleAssumer as StsGetDefaultRoleAssumer,
+  getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity,
   RoleAssumer,
   RoleAssumerWithWebIdentity,
-  STSRoleAssumerOptions} from "./defaultStsRoleAssumers";
-import {
-  getDefaultRoleAssumer as StsGetDefaultRoleAssumer,
-  getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity
+  STSRoleAssumerOptions,
 } from "./defaultStsRoleAssumers";
-import type { ServiceInputTypes, ServiceOutputTypes, STSClientConfig } from "./STSClient";
-import { STSClient } from "./STSClient";
+import { ServiceInputTypes, ServiceOutputTypes, STSClient, STSClientConfig } from "./STSClient";
 
 const getCustomizableStsClientCtor = (
   baseCtor: new (config: STSClientConfig) => STSClient,

@@ -3,10 +3,10 @@ import type {
   AccountSortBy,
   AggregationFindingType,
   AggregationResourceType,
-  AggregationType,
   AmiSortBy,
   Architecture,
   AssociationResultStatusCode,
+  AwsConfigConnectorArnComparison,
   AwsEcrContainerSortBy,
   CisFindingStatus,
   CisFindingStatusComparison,
@@ -28,16 +28,24 @@ import type {
   CisTargetStatus,
   CisTargetStatusComparison,
   CisTargetStatusReason,
+  CloudProvider,
   CodeRepositoryProviderType,
   CodeRepositorySortBy,
   CodeScanStatus,
   CodeSnippetErrorCode,
   ConfigurationLevel,
+  ConnectorArnComparison,
+  ConnectorCloudProvider,
+  ConnectorHealthStatus,
+  ConnectorType,
+  ConnectorTypeComparison,
+  ContainerImagePullDateRescanDuration,
+  ContainerImageRescanDuration,
+  ContainerImageSortBy,
   ContinuousIntegrationScanEvent,
   CoverageMapComparison,
   CoverageResourceType,
   CoverageStringComparison,
-  Currency,
   Day,
   DelegatedAdminStatus,
   Ec2DeepInspectionStatus,
@@ -50,6 +58,7 @@ import type {
   EcrRescanDuration,
   EcrRescanDurationStatus,
   EcrScanFrequency,
+  EnablementStatus,
   ErrorCode,
   ExploitAvailable,
   ExternalReportStatus,
@@ -78,6 +87,8 @@ import type {
   PackageType,
   PeriodicScanFrequency,
   ProjectSelectionScope,
+  Provider,
+  ProviderComparison,
   RelationshipStatus,
   ReportFormat,
   ReportingErrorCode,
@@ -93,17 +104,19 @@ import type {
   ScanStatusCode,
   ScanStatusReason,
   ScanType,
+  ScopeState,
+  ScopeType,
+  ServerlessFunctionSortBy,
   Service,
   Severity,
-  SortField,
   SortOrder,
   Status,
   StringComparison,
   TagComparison,
   TitleSortBy,
-  UsageType,
+  VmInstanceSortBy,
+  VmPlatform,
   VMScannerStatus,
-  VulnerabilitySource,
 } from "./enums";
 
 /**
@@ -538,6 +551,138 @@ export interface CodeRepositoryAggregation {
 }
 
 /**
+ * <p>An aggregation of information about container images.</p>
+ * @public
+ */
+export interface ContainerImageAggregation {
+  /**
+   * <p>The resource IDs to aggregate findings for.</p>
+   * @public
+   */
+  resourceIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The image digests to aggregate findings for.</p>
+   * @public
+   */
+  imageDigests?: StringFilter[] | undefined;
+
+  /**
+   * <p>The image repositories to aggregate findings for.</p>
+   * @public
+   */
+  repositories?: StringFilter[] | undefined;
+
+  /**
+   * <p>The image registries to aggregate findings for.</p>
+   * @public
+   */
+  registries?: StringFilter[] | undefined;
+
+  /**
+   * <p>The image architectures to aggregate findings for.</p>
+   * @public
+   */
+  architectures?: StringFilter[] | undefined;
+
+  /**
+   * <p>The image tags to aggregate findings for.</p>
+   * @public
+   */
+  imageTags?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud providers to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProviders?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartitions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud organization IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudOrgIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud account IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudAccountIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The last in-use timestamps to aggregate findings for.</p>
+   * @public
+   */
+  lastInUseAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>The in-use counts to aggregate findings for.</p>
+   * @public
+   */
+  inUseCount?: NumberFilter[] | undefined;
+
+  /**
+   * <p>The order to sort results by. Valid values are <code>ASC</code> and <code>DESC</code>.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The value to sort results by. Specify a field name from the aggregation response, such as <code>CRITICAL</code>, <code>HIGH</code>, or <code>ALL</code>.</p>
+   * @public
+   */
+  sortBy?: ContainerImageSortBy | undefined;
+}
+
+/**
  * <p>An object that describes details of a map filter.</p>
  * @public
  */
@@ -657,6 +802,72 @@ export interface ImageLayerAggregation {
    * @public
    */
   layerHashes?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud providers to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProviders?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud account IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudAccountIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud organization IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudOrgIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartitions?: StringFilter[] | undefined;
 
   /**
    * <p>The order to sort results by.</p>
@@ -802,6 +1013,114 @@ export interface RepositoryAggregation {
 }
 
 /**
+ * <p>An aggregation of information about serverless functions.</p>
+ * @public
+ */
+export interface ServerlessFunctionAggregation {
+  /**
+   * <p>The resource IDs to aggregate findings for.</p>
+   * @public
+   */
+  resourceIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The function names to aggregate findings for.</p>
+   * @public
+   */
+  functionNames?: StringFilter[] | undefined;
+
+  /**
+   * <p>The runtimes to aggregate findings for.</p>
+   * @public
+   */
+  runtimes?: StringFilter[] | undefined;
+
+  /**
+   * <p>The function tags to aggregate findings for.</p>
+   * @public
+   */
+  functionTags?: MapFilter[] | undefined;
+
+  /**
+   * <p>The cloud providers to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProviders?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartitions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud organization IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudOrgIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud account IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudAccountIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The order to sort results by. Valid values are <code>ASC</code> and <code>DESC</code>.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The value to sort results by. Specify a field name from the aggregation response, such as <code>CRITICAL</code>, <code>HIGH</code>, or <code>ALL</code>.</p>
+   * @public
+   */
+  sortBy?: ServerlessFunctionSortBy | undefined;
+}
+
+/**
  * <p>The details that define an aggregation based on finding title.</p>
  * @public
  */
@@ -825,6 +1144,12 @@ export interface TitleAggregation {
   resourceType?: AggregationResourceType | undefined;
 
   /**
+   * <p>The type of finding to aggregate on.</p>
+   * @public
+   */
+  findingType?: AggregationFindingType | undefined;
+
+  /**
    * <p>The order to sort results by.</p>
    * @public
    */
@@ -835,12 +1160,114 @@ export interface TitleAggregation {
    * @public
    */
   sortBy?: TitleSortBy | undefined;
+}
 
+/**
+ * <p>An aggregation of information about VM instances.</p>
+ * @public
+ */
+export interface VmInstanceAggregation {
   /**
-   * <p>The type of finding to aggregate on.</p>
+   * <p>The resource IDs to aggregate findings for.</p>
    * @public
    */
-  findingType?: AggregationFindingType | undefined;
+  resourceIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The operating systems to aggregate findings for.</p>
+   * @public
+   */
+  operatingSystems?: StringFilter[] | undefined;
+
+  /**
+   * <p>The instance tags to aggregate findings for.</p>
+   * @public
+   */
+  instanceTags?: MapFilter[] | undefined;
+
+  /**
+   * <p>The VM image references to aggregate findings for.</p>
+   * @public
+   */
+  vmImageReferences?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud providers to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProviders?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud partitions to aggregate findings for. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartitions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud regions to aggregate findings for. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegions?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud organization IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudOrgIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The cloud account IDs to aggregate findings for.</p>
+   * @public
+   */
+  cloudAccountIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>The order to sort results by. Valid values are <code>ASC</code> and <code>DESC</code>.</p>
+   * @public
+   */
+  sortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>The value to sort results by. Specify a field name from the aggregation response, such as <code>CRITICAL</code>, <code>HIGH</code>, <code>ALL</code>, or <code>NETWORK_FINDINGS</code>.</p>
+   * @public
+   */
+  sortBy?: VmInstanceSortBy | undefined;
 }
 
 /**
@@ -852,6 +1279,7 @@ export type AggregationRequest =
   | AggregationRequest.AmiAggregationMember
   | AggregationRequest.AwsEcrContainerAggregationMember
   | AggregationRequest.CodeRepositoryAggregationMember
+  | AggregationRequest.ContainerImageAggregationMember
   | AggregationRequest.Ec2InstanceAggregationMember
   | AggregationRequest.FindingTypeAggregationMember
   | AggregationRequest.ImageLayerAggregationMember
@@ -859,7 +1287,9 @@ export type AggregationRequest =
   | AggregationRequest.LambdaLayerAggregationMember
   | AggregationRequest.PackageAggregationMember
   | AggregationRequest.RepositoryAggregationMember
+  | AggregationRequest.ServerlessFunctionAggregationMember
   | AggregationRequest.TitleAggregationMember
+  | AggregationRequest.VmInstanceAggregationMember
   | AggregationRequest.$UnknownMember;
 
 /**
@@ -884,6 +1314,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -905,6 +1338,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -926,6 +1362,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -947,6 +1386,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -968,6 +1410,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -989,6 +1434,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1010,6 +1458,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1031,6 +1482,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1052,6 +1506,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1072,6 +1529,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation: LambdaLayerAggregation;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1092,6 +1552,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation: LambdaFunctionAggregation;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1113,6 +1576,78 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation: CodeRepositoryAggregation;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation request based on virtual machine (VM) instances.</p>
+   * @public
+   */
+  export interface VmInstanceAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation: VmInstanceAggregation;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation request based on container images.</p>
+   * @public
+   */
+  export interface ContainerImageAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation: ContainerImageAggregation;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation request based on serverless functions.</p>
+   * @public
+   */
+  export interface ServerlessFunctionAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation: ServerlessFunctionAggregation;
     $unknown?: never;
   }
 
@@ -1132,6 +1667,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -1152,6 +1690,9 @@ export namespace AggregationRequest {
     lambdaLayerAggregation: (value: LambdaLayerAggregation) => T;
     lambdaFunctionAggregation: (value: LambdaFunctionAggregation) => T;
     codeRepositoryAggregation: (value: CodeRepositoryAggregation) => T;
+    vmInstanceAggregation: (value: VmInstanceAggregation) => T;
+    containerImageAggregation: (value: ContainerImageAggregation) => T;
+    serverlessFunctionAggregation: (value: ServerlessFunctionAggregation) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1172,6 +1713,72 @@ export interface AmiAggregationResponse {
    * @public
    */
   accountId?: string | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this Amazon Machine Image (AMI) aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: Provider | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this AMI aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this AMI aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the AMI aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud account ID for the AMI aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
 
   /**
    * <p>An object that contains the count of matched findings per severity.</p>
@@ -1297,6 +1904,150 @@ export interface CodeRepositoryAggregationResponse {
 }
 
 /**
+ * <p>A response that contains the results of a container image aggregation.</p>
+ * @public
+ */
+export interface ContainerImageAggregationResponse {
+  /**
+   * <p>The resource ID for the container image.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this container image aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: Provider | undefined;
+
+  /**
+   * <p>The cloud account ID for the container image aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this container image aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this container image aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the container image aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The image digest for the container image.</p>
+   * @public
+   */
+  imageDigest?: string | undefined;
+
+  /**
+   * <p>The repository for the container image.</p>
+   * @public
+   */
+  repository?: string | undefined;
+
+  /**
+   * <p>The registry for the container image.</p>
+   * @public
+   */
+  registry?: string | undefined;
+
+  /**
+   * <p>The architecture of the container image.</p>
+   * @public
+   */
+  architecture?: string | undefined;
+
+  /**
+   * <p>The image tags attached to the container image.</p>
+   * @public
+   */
+  imageTags?: string[] | undefined;
+
+  /**
+   * <p>The account ID associated with the container image.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
+   */
+  severityCounts?: SeverityCounts | undefined;
+
+  /**
+   * <p>The last time the container image was in use.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of times the container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
+
+  /**
+   * <p>The number of active findings with an exploit available for the container image.</p>
+   * @public
+   */
+  exploitAvailableActiveFindingsCount?: number | undefined;
+
+  /**
+   * <p>The number of active findings with a fix available for the container image.</p>
+   * @public
+   */
+  fixAvailableActiveFindingsCount?: number | undefined;
+}
+
+/**
  * <p>A response that contains the results of a finding aggregation by Amazon EC2 instance.</p>
  * @public
  */
@@ -1372,6 +2123,72 @@ export interface FindingTypeAggregationResponse {
    * @public
    */
   fixAvailableCount?: number | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this finding type aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: string | undefined;
+
+  /**
+   * <p>The cloud account ID for the finding type aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the finding type aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this finding type aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this finding type aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
 }
 
 /**
@@ -1403,6 +2220,72 @@ export interface ImageLayerAggregationResponse {
    * @public
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this image layer aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: string | undefined;
+
+  /**
+   * <p>The cloud account ID for the image layer aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the image layer aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this image layer aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this image layer aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
 
   /**
    * <p>An object that represents the count of matched findings per severity.</p>
@@ -1542,6 +2425,72 @@ export interface RepositoryAggregationResponse {
   accountId?: string | undefined;
 
   /**
+   * <p>The cloud service provider associated with this repository aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: Provider | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this repository aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this repository aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the repository aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud account ID for the repository aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
    * <p>An object that represent the count of matched findings per severity.</p>
    * @public
    */
@@ -1552,6 +2501,132 @@ export interface RepositoryAggregationResponse {
    * @public
    */
   affectedImages?: number | undefined;
+}
+
+/**
+ * <p>A response that contains the results of a serverless function aggregation.</p>
+ * @public
+ */
+export interface ServerlessFunctionAggregationResponse {
+  /**
+   * <p>The resource ID for the serverless function.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this serverless function aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: Provider | undefined;
+
+  /**
+   * <p>The cloud account ID for the serverless function aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this serverless function aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this serverless function aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the serverless function aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The name of the serverless function.</p>
+   * @public
+   */
+  functionName?: string | undefined;
+
+  /**
+   * <p>The runtime of the serverless function.</p>
+   * @public
+   */
+  runtime?: string | undefined;
+
+  /**
+   * <p>The tags attached to the serverless function.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The account ID associated with the serverless function.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
+   */
+  severityCounts?: SeverityCounts | undefined;
+
+  /**
+   * <p>The date and time the serverless function was last modified.</p>
+   * @public
+   */
+  lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The number of active findings with an exploit available for the serverless function.</p>
+   * @public
+   */
+  exploitAvailableActiveFindingsCount?: number | undefined;
+
+  /**
+   * <p>The number of active findings with a fix available for the serverless function.</p>
+   * @public
+   */
+  fixAvailableActiveFindingsCount?: number | undefined;
 }
 
 /**
@@ -1586,6 +2661,132 @@ export interface TitleAggregationResponse {
 }
 
 /**
+ * <p>A response that contains the results of a VM instance aggregation.</p>
+ * @public
+ */
+export interface VmInstanceAggregationResponse {
+  /**
+   * <p>The resource ID for the VM instance.</p>
+   * @public
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The cloud service provider associated with this VM instance aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS</code> – Findings from Amazon Web Services resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AZURE</code> – Findings from Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudProvider?: Provider | undefined;
+
+  /**
+   * <p>The cloud account ID for the VM instance aggregation.</p>
+   * @public
+   */
+  cloudAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud infrastructure partition associated with this VM instance aggregation. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws</code> – Amazon Web Services commercial Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-cn</code> – Amazon Web Services China Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-us-gov</code> – Amazon Web Services GovCloud (US) Regions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AzureCloud</code> – Azure commercial Regions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudPartition?: string | undefined;
+
+  /**
+   * <p>The cloud Region associated with this VM instance aggregation. The value format depends on the cloud provider:</p>
+   *          <ul>
+   *             <li>
+   *                <p>An Amazon Web Services Region, such as <code>us-east-1</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>An Azure region, such as <code>eastus</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  cloudRegion?: string | undefined;
+
+  /**
+   * <p>The cloud organization ID for the VM instance aggregation.</p>
+   * @public
+   */
+  cloudOrgId?: string | undefined;
+
+  /**
+   * <p>The VM image reference for the VM instance.</p>
+   * @public
+   */
+  vmImageReference?: string | undefined;
+
+  /**
+   * <p>The operating system of the VM instance.</p>
+   * @public
+   */
+  operatingSystem?: string | undefined;
+
+  /**
+   * <p>The tags attached to the VM instance.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The account ID associated with the VM instance.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
+   * @public
+   */
+  severityCounts?: SeverityCounts | undefined;
+
+  /**
+   * <p>The number of network findings for the VM instance. This field applies only to Amazon Web Services resources.</p>
+   * @public
+   */
+  networkFindings?: number | undefined;
+
+  /**
+   * <p>The number of active findings with an exploit available for the VM instance.</p>
+   * @public
+   */
+  exploitAvailableActiveFindingsCount?: number | undefined;
+
+  /**
+   * <p>The number of active findings with a fix available for the VM instance.</p>
+   * @public
+   */
+  fixAvailableActiveFindingsCount?: number | undefined;
+}
+
+/**
  * <p>A structure that contains details about the results of an aggregation type.</p>
  * @public
  */
@@ -1594,6 +2795,7 @@ export type AggregationResponse =
   | AggregationResponse.AmiAggregationMember
   | AggregationResponse.AwsEcrContainerAggregationMember
   | AggregationResponse.CodeRepositoryAggregationMember
+  | AggregationResponse.ContainerImageAggregationMember
   | AggregationResponse.Ec2InstanceAggregationMember
   | AggregationResponse.FindingTypeAggregationMember
   | AggregationResponse.ImageLayerAggregationMember
@@ -1601,7 +2803,9 @@ export type AggregationResponse =
   | AggregationResponse.LambdaLayerAggregationMember
   | AggregationResponse.PackageAggregationMember
   | AggregationResponse.RepositoryAggregationMember
+  | AggregationResponse.ServerlessFunctionAggregationMember
   | AggregationResponse.TitleAggregationMember
+  | AggregationResponse.VmInstanceAggregationMember
   | AggregationResponse.$UnknownMember;
 
 /**
@@ -1626,6 +2830,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1647,6 +2854,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1668,6 +2878,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1689,6 +2902,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1710,6 +2926,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1731,6 +2950,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1752,6 +2974,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1773,6 +2998,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1794,6 +3022,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1814,6 +3045,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation: LambdaLayerAggregationResponse;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1834,6 +3068,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation: LambdaFunctionAggregationResponse;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1855,6 +3092,78 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation: CodeRepositoryAggregationResponse;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation response based on VM instances.</p>
+   * @public
+   */
+  export interface VmInstanceAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation: VmInstanceAggregationResponse;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation response based on container images.</p>
+   * @public
+   */
+  export interface ContainerImageAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation: ContainerImageAggregationResponse;
+    serverlessFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An object that contains details about an aggregation response based on serverless functions.</p>
+   * @public
+   */
+  export interface ServerlessFunctionAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation: ServerlessFunctionAggregationResponse;
     $unknown?: never;
   }
 
@@ -1874,6 +3183,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation?: never;
     lambdaFunctionAggregation?: never;
     codeRepositoryAggregation?: never;
+    vmInstanceAggregation?: never;
+    containerImageAggregation?: never;
+    serverlessFunctionAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -1894,6 +3206,9 @@ export namespace AggregationResponse {
     lambdaLayerAggregation: (value: LambdaLayerAggregationResponse) => T;
     lambdaFunctionAggregation: (value: LambdaFunctionAggregationResponse) => T;
     codeRepositoryAggregation: (value: CodeRepositoryAggregationResponse) => T;
+    vmInstanceAggregation: (value: VmInstanceAggregationResponse) => T;
+    containerImageAggregation: (value: ContainerImageAggregationResponse) => T;
+    serverlessFunctionAggregation: (value: ServerlessFunctionAggregationResponse) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2068,6 +3383,24 @@ export interface AutoEnable {
    * @public
    */
   codeRepository?: boolean | undefined;
+}
+
+/**
+ * <p>A filter that matches connectors by the ARN of the associated Amazon Web Services Config connector.</p>
+ * @public
+ */
+export interface AwsConfigConnectorArnFilter {
+  /**
+   * <p>The comparison operator for the Amazon Web Services Config connector ARN filter.</p>
+   * @public
+   */
+  comparison: AwsConfigConnectorArnComparison | undefined;
+
+  /**
+   * <p>The Amazon Web Services Config connector ARN value to filter by.</p>
+   * @public
+   */
+  value: string | undefined;
 }
 
 /**
@@ -2354,6 +3687,156 @@ export interface AwsLambdaFunctionDetails {
    * @public
    */
   lastModifiedAt?: Date | undefined;
+}
+
+/**
+ * <p>The scope of resources to scan for a single scanning type. Provide this as part of an <code>AzureScopeConfigurationInput</code> when you create or update a connector.</p>
+ * @public
+ */
+export interface ScopeConfigurationInput {
+  /**
+   * <p>The type of scope. Valid values are <code>TENANT</code>, which scans all resources in the Azure tenant, and <code>SUBSCRIPTION</code>, which scans only the resources in the specified Azure subscriptions.</p>
+   * @public
+   */
+  scopeType: ScopeType | undefined;
+
+  /**
+   * <p>The list of scope values. For subscription-level scope, these are Azure subscription IDs.</p>
+   * @public
+   */
+  scopeValues?: string[] | undefined;
+}
+
+/**
+ * <p>The scope of Azure resources to scan, defined separately for VM, container image, and serverless scanning. Provide this when you create or update an Azure connector.</p>
+ * @public
+ */
+export interface AzureScopeConfigurationInput {
+  /**
+   * <p>The scope configuration input for VM scanning.</p>
+   * @public
+   */
+  vmScanning?: ScopeConfigurationInput | undefined;
+
+  /**
+   * <p>The scope configuration input for container image scanning.</p>
+   * @public
+   */
+  containerImageScanning?: ScopeConfigurationInput | undefined;
+
+  /**
+   * <p>The scope configuration input for serverless scanning.</p>
+   * @public
+   */
+  serverlessScanning?: ScopeConfigurationInput | undefined;
+}
+
+/**
+ * <p>The Azure-specific configuration details for creating a connector, including the Amazon Web Services Config connector association, scan scope, and regions to scan.</p>
+ * @public
+ */
+export interface AzureProviderDetailCreate {
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector to associate with this connector.</p>
+   * @public
+   */
+  awsConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scope configuration that defines which Azure resources to scan.</p>
+   * @public
+   */
+  scopeConfiguration: AzureScopeConfigurationInput | undefined;
+
+  /**
+   * <p>The Azure regions to scan.</p>
+   * @public
+   */
+  azureRegions: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to automatically install the VM scanner on connected Azure resources. Defaults to <code>true</code>.</p>
+   * @public
+   */
+  autoInstallVMScanner?: boolean | undefined;
+}
+
+/**
+ * <p>The Azure-specific configuration details for updating a connector, including the scan scope and regions to scan.</p>
+ * @public
+ */
+export interface AzureProviderDetailUpdate {
+  /**
+   * <p>The updated Azure regions to scan.</p>
+   * @public
+   */
+  azureRegions?: string[] | undefined;
+
+  /**
+   * <p>The updated scope configuration that defines which Azure resources to scan.</p>
+   * @public
+   */
+  scopeConfiguration?: AzureScopeConfigurationInput | undefined;
+
+  /**
+   * <p>Specifies whether to automatically install the VM scanner on connected Azure resources.</p>
+   * @public
+   */
+  autoInstallVMScanner?: boolean | undefined;
+}
+
+/**
+ * <p>The scope of resources that Amazon Inspector scans for a single scanning type, including the scope level, the targeted resources, and the current state.</p>
+ * @public
+ */
+export interface ScopeConfiguration {
+  /**
+   * <p>The type of scope. Valid values are <code>TENANT</code>, which scans all resources in the Azure tenant, and <code>SUBSCRIPTION</code>, which scans only the resources in the specified Azure subscriptions.</p>
+   * @public
+   */
+  scopeType: ScopeType | undefined;
+
+  /**
+   * <p>The list of scope values. For subscription-level scope, these are Azure subscription IDs.</p>
+   * @public
+   */
+  scopeValues?: string[] | undefined;
+
+  /**
+   * <p>The current state of the scope configuration.</p>
+   * @public
+   */
+  state?: ScopeState | undefined;
+
+  /**
+   * <p>The reason for the current state of the scope configuration.</p>
+   * @public
+   */
+  stateReason?: string | undefined;
+}
+
+/**
+ * <p>The scope of Azure resources that Amazon Inspector scans, defined separately for VM, container image, and serverless scanning. Returned as part of a connector's configuration.</p>
+ * @public
+ */
+export interface AzureScopeConfiguration {
+  /**
+   * <p>The scope configuration for VM scanning.</p>
+   * @public
+   */
+  vmScanning?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The scope configuration for container image scanning.</p>
+   * @public
+   */
+  containerImageScanning?: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The scope configuration for serverless scanning.</p>
+   * @public
+   */
+  serverlessScanning?: ScopeConfiguration | undefined;
 }
 
 /**
@@ -2909,6 +4392,12 @@ export interface FreeTrialInfo {
    * @public
    */
   status: FreeTrialStatus | undefined;
+
+  /**
+   * <p>The cloud provider associated with the free trial information.</p>
+   * @public
+   */
+  cloudProvider?: CloudProvider | undefined;
 }
 
 /**
@@ -4458,12 +5947,6 @@ export interface CodeSecurityIntegrationSummary {
    * @public
    */
   lastUpdateOn: Date | undefined;
-
-  /**
-   * <p>The tags associated with the code security integration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4606,12 +6089,6 @@ export interface CodeSecurityScanConfigurationSummary {
    * @public
    */
   scopeSettings?: ScopeSettings | undefined;
-
-  /**
-   * <p>The tags associated with the scan configuration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4699,6 +6176,324 @@ export interface ComputePlatform {
    * @public
    */
   version?: string | undefined;
+}
+
+/**
+ * <p>The health and connectivity status of a connector, including the last time the status was checked and any diagnostic message. Returned as part of the <code>Connector</code> structure.</p>
+ * @public
+ */
+export interface ConnectorHealth {
+  /**
+   * <p>The health status of the connector.</p>
+   * @public
+   */
+  connectorStatus: ConnectorHealthStatus | undefined;
+
+  /**
+   * <p>The date and time when the connector health was last checked.</p>
+   * @public
+   */
+  lastCheckedAt: Date | undefined;
+
+  /**
+   * <p>A message providing additional details about the connector health status.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Describes a connector that links an external cloud provider to Amazon Inspector for vulnerability scanning.</p>
+ * @public
+ */
+export interface Connector {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The cloud provider for the connector.</p>
+   * @public
+   */
+  provider: ConnectorCloudProvider | undefined;
+
+  /**
+   * <p>The enablement status of the connector, which indicates whether the connector is active and scanning resources.</p>
+   * @public
+   */
+  enablementStatus?: EnablementStatus | undefined;
+
+  /**
+   * <p>Additional information about the current enablement status of the connector.</p>
+   * @public
+   */
+  enablementStatusReason?: string | undefined;
+
+  /**
+   * <p>The health of the connector, which indicates whether Amazon Inspector can reach and scan the connected resources.</p>
+   * @public
+   */
+  health?: ConnectorHealth | undefined;
+
+  /**
+   * <p>The date and time when the connector was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The date and time when the connector was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The Azure regions configured for the connector.</p>
+   * @public
+   */
+  azureRegions?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector associated with this connector.</p>
+   * @public
+   */
+  awsConfigConnectorArn?: string | undefined;
+
+  /**
+   * <p>The Azure scope configuration for the connector.</p>
+   * @public
+   */
+  scopeConfiguration?: AzureScopeConfiguration | undefined;
+
+  /**
+   * <p>The tags associated with the connector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>Specifies whether the VM scanner is automatically installed on connected resources.</p>
+   * @public
+   */
+  autoInstallVMScanner?: boolean | undefined;
+}
+
+/**
+ * <p>A filter that matches connectors by connector ARN.</p>
+ * @public
+ */
+export interface ConnectorArnFilter {
+  /**
+   * <p>The comparison operator for the connector ARN filter.</p>
+   * @public
+   */
+  comparison: ConnectorArnComparison | undefined;
+
+  /**
+   * <p>The connector ARN value to filter by.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * <p>The container image scanning settings for a connector, including how long pushed and pulled images continue to be rescanned for vulnerabilities.</p>
+ * @public
+ */
+export interface ConnectorContainerImageScanConfiguration {
+  /**
+   * <p>The amount of time after a container image is pushed to a repository during which Amazon Inspector continues to rescan the image for vulnerabilities. Valid values are <code>LIFETIME</code>, <code>DAYS_3</code>, <code>DAYS_7</code>, <code>DAYS_14</code>, <code>DAYS_30</code>, <code>DAYS_60</code>, <code>DAYS_90</code>, and <code>DAYS_180</code>.</p>
+   * @public
+   */
+  pushDuration?: ContainerImageRescanDuration | undefined;
+
+  /**
+   * <p>The amount of time after a container image is last pulled from a repository during which Amazon Inspector continues to rescan the image for vulnerabilities. Valid values are <code>DAYS_3</code>, <code>DAYS_7</code>, <code>DAYS_14</code>, <code>DAYS_30</code>, <code>DAYS_60</code>, <code>DAYS_90</code>, and <code>DAYS_180</code>.</p>
+   * @public
+   */
+  pullDuration?: ContainerImagePullDateRescanDuration | undefined;
+}
+
+/**
+ * <p>A filter that matches connectors by connector type.</p>
+ * @public
+ */
+export interface ConnectorTypeFilter {
+  /**
+   * <p>The comparison operator for the connector type filter.</p>
+   * @public
+   */
+  comparison: ConnectorTypeComparison | undefined;
+
+  /**
+   * <p>The connector type value to filter by.</p>
+   * @public
+   */
+  value: ConnectorType | undefined;
+}
+
+/**
+ * <p>A filter that matches connectors by cloud provider.</p>
+ * @public
+ */
+export interface ProviderFilter {
+  /**
+   * <p>The comparison operator for the provider filter.</p>
+   * @public
+   */
+  comparison: ProviderComparison | undefined;
+
+  /**
+   * <p>The cloud provider value to filter by.</p>
+   * @public
+   */
+  value: ConnectorCloudProvider | undefined;
+}
+
+/**
+ * <p>Contains the filter criteria for narrowing the results returned by a <code>ListConnectors</code> request. You can filter by connector ARN, Amazon Web Services account ID, Amazon Web Services Config connector ARN, connector type, or cloud provider.</p>
+ * @public
+ */
+export interface ConnectorFilterCriteria {
+  /**
+   * <p>Filter by connector ARNs.</p>
+   * @public
+   */
+  connectorArns?: ConnectorArnFilter[] | undefined;
+
+  /**
+   * <p>Filter by Amazon Web Services account IDs.</p>
+   * @public
+   */
+  accounts?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter by Amazon Web Services Config connector ARNs.</p>
+   * @public
+   */
+  awsConfigConnectorArns?: AwsConfigConnectorArnFilter[] | undefined;
+
+  /**
+   * <p>Filter by connector type.</p>
+   * @public
+   */
+  connectorType?: ConnectorTypeFilter[] | undefined;
+
+  /**
+   * <p>Filter by cloud provider.</p>
+   * @public
+   */
+  provider?: ProviderFilter[] | undefined;
+}
+
+/**
+ * <p>The scan settings that Amazon Inspector applies to resources discovered through a connector.</p>
+ * @public
+ */
+export interface ConnectorScanConfiguration {
+  /**
+   * <p>The container image scanning configuration, including push and pull duration settings.</p>
+   * @public
+   */
+  containerImageScanning?: ConnectorContainerImageScanConfiguration | undefined;
+}
+
+/**
+ * <p>Represents a scan configuration and the connectors it applies to. Returned in the results of a <code>ListConnectorScanConfigurations</code> request.</p>
+ * @public
+ */
+export interface ConnectorScanConfigurationItem {
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector.</p>
+   * @public
+   */
+  awsConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The list of connector ARNs associated with this Amazon Web Services Config connector.</p>
+   * @public
+   */
+  connectorArns: string[] | undefined;
+
+  /**
+   * <p>The scan configuration settings.</p>
+   * @public
+   */
+  scanConfiguration: ConnectorScanConfiguration | undefined;
+}
+
+/**
+ * <p>Contains metadata about a container image associated with a covered resource.</p>
+ * @public
+ */
+export interface ContainerImageMetadata {
+  /**
+   * <p>The tags attached to the container image.</p>
+   * @public
+   */
+  imageTags?: string[] | undefined;
+
+  /**
+   * <p>The date and time the container image was pulled.</p>
+   * @public
+   */
+  imagePulledAt?: Date | undefined;
+
+  /**
+   * <p>The last time the container image was in use.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The number of times the container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
+}
+
+/**
+ * <p>Contains metadata about a container registry associated with a covered resource.</p>
+ * @public
+ */
+export interface ContainerRegistryMetadata {
+  /**
+   * <p>The name of the container registry.</p>
+   * @public
+   */
+  name?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata about a container repository associated with a covered resource.</p>
+ * @public
+ */
+export interface ContainerRepositoryMetadata {
+  /**
+   * <p>The name of the container repository.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The scan frequency for the container repository.</p>
+   * @public
+   */
+  scanFrequency?: string | undefined;
 }
 
 /**
@@ -4940,6 +6735,72 @@ export interface CoverageFilterCriteria {
    * @public
    */
   lastScannedCommitId?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider to filter coverage results by.</p>
+   * @public
+   */
+  cloudProvider?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider account ID to filter coverage results by.</p>
+   * @public
+   */
+  cloudProviderAccountId?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider region to filter coverage results by.</p>
+   * @public
+   */
+  cloudProviderRegion?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud VM instance tags to filter coverage results by.</p>
+   * @public
+   */
+  cloudVmInstanceTags?: CoverageMapFilter[] | undefined;
+
+  /**
+   * <p>The cloud container image tags to filter coverage results by.</p>
+   * @public
+   */
+  cloudContainerImageTags?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud container repository name to filter coverage results by.</p>
+   * @public
+   */
+  cloudContainerRepositoryName?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud container registry name to filter coverage results by.</p>
+   * @public
+   */
+  cloudContainerRegistryName?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function name to filter coverage results by.</p>
+   * @public
+   */
+  cloudServerlessFunctionName?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function runtime to filter coverage results by.</p>
+   * @public
+   */
+  cloudServerlessFunctionRuntime?: CoverageStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function tags to filter coverage results by.</p>
+   * @public
+   */
+  cloudServerlessFunctionTags?: CoverageMapFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider organization ID to filter coverage results by.</p>
+   * @public
+   */
+  cloudProviderOrgId?: CoverageStringFilter[] | undefined;
 }
 
 /**
@@ -5047,6 +6908,60 @@ export interface LambdaFunctionMetadata {
 }
 
 /**
+ * <p>Contains metadata about a serverless function associated with a covered resource.</p>
+ * @public
+ */
+export interface ServerlessFunctionMetadata {
+  /**
+   * <p>The name of the serverless function.</p>
+   * @public
+   */
+  serverlessFunctionName?: string | undefined;
+
+  /**
+   * <p>The runtime of the serverless function.</p>
+   * @public
+   */
+  runtime?: string | undefined;
+
+  /**
+   * <p>The tags associated with the serverless function.</p>
+   * @public
+   */
+  functionTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Contains metadata about a virtual machine (VM) instance associated with a covered resource.</p>
+ * @public
+ */
+export interface VmInstanceMetadata {
+  /**
+   * <p>The tags associated with the VM instance.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The platform of the VM instance.</p>
+   * @public
+   */
+  platform?: VmPlatform | undefined;
+
+  /**
+   * <p>The inventory hash of the VM instance.</p>
+   * @public
+   */
+  inventoryHash?: string | undefined;
+
+  /**
+   * <p>The image reference of the VM instance.</p>
+   * @public
+   */
+  vmImageReference?: string | undefined;
+}
+
+/**
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
  * @public
  */
@@ -5081,6 +6996,36 @@ export interface ResourceScanMetadata {
    * @public
    */
   codeRepository?: CodeRepositoryMetadata | undefined;
+
+  /**
+   * <p>The VM instance metadata associated with a covered resource.</p>
+   * @public
+   */
+  vmInstance?: VmInstanceMetadata | undefined;
+
+  /**
+   * <p>The container image metadata associated with a covered resource.</p>
+   * @public
+   */
+  containerImage?: ContainerImageMetadata | undefined;
+
+  /**
+   * <p>The container repository metadata associated with a covered resource.</p>
+   * @public
+   */
+  containerRepository?: ContainerRepositoryMetadata | undefined;
+
+  /**
+   * <p>The container registry metadata associated with a covered resource.</p>
+   * @public
+   */
+  containerRegistry?: ContainerRegistryMetadata | undefined;
+
+  /**
+   * <p>The serverless function metadata associated with a covered resource.</p>
+   * @public
+   */
+  serverlessFunction?: ServerlessFunctionMetadata | undefined;
 }
 
 /**
@@ -5135,6 +7080,36 @@ export interface CoveredResource {
    * @public
    */
   scanMode?: ScanMode | undefined;
+
+  /**
+   * <p>The cloud provider of the covered resource.</p>
+   * @public
+   */
+  provider?: Provider | undefined;
+
+  /**
+   * <p>The cloud provider account ID of the covered resource.</p>
+   * @public
+   */
+  providerAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud provider organization ID of the covered resource.</p>
+   * @public
+   */
+  providerOrgId?: string | undefined;
+
+  /**
+   * <p>The cloud provider region of the covered resource.</p>
+   * @public
+   */
+  providerRegion?: string | undefined;
+
+  /**
+   * <p>The cloud provider partition of the covered resource.</p>
+   * @public
+   */
+  providerPartition?: string | undefined;
 }
 
 /**
@@ -5363,6 +7338,97 @@ export interface CreateCodeSecurityScanConfigurationResponse {
    * @public
    */
   scanConfigurationArn: string | undefined;
+}
+
+/**
+ * <p>The provider-specific configuration details for creating a connector.</p>
+ * @public
+ */
+export type ProviderDetailCreate =
+  | ProviderDetailCreate.AzureMember
+  | ProviderDetailCreate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderDetailCreate {
+  /**
+   * <p>The Azure-specific details for creating a connector.</p>
+   * @public
+   */
+  export interface AzureMember {
+    azure: AzureProviderDetailCreate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    azure: (value: AzureProviderDetailCreate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The cloud provider for the connector.</p>
+   * @public
+   */
+  provider: ConnectorCloudProvider | undefined;
+
+  /**
+   * <p>A description of the connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The provider-specific configuration details for the connector.</p>
+   * @public
+   */
+  providerDetail: ProviderDetailCreate | undefined;
+
+  /**
+   * <p>The tags to apply to the connector.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created connector.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
 }
 
 /**
@@ -5735,6 +7801,120 @@ export interface FilterCriteria {
    * @public
    */
   codeRepositoryProviderType?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the cloud provider.</p>
+   * @public
+   */
+  cloudProvider?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the cloud provider region.</p>
+   * @public
+   */
+  cloudProviderRegion?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the cloud provider account ID.</p>
+   * @public
+   */
+  cloudProviderAccountId?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the cloud provider organization ID.</p>
+   * @public
+   */
+  cloudProviderOrgId?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the image reference of a VM instance.</p>
+   * @public
+   */
+  cloudVmImageReference?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the network ID of a VM instance.</p>
+   * @public
+   */
+  cloudVmNetworkId?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the subnet IDs of a VM instance.</p>
+   * @public
+   */
+  cloudVmSubnetIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the repository name of a container image.</p>
+   * @public
+   */
+  cloudImageRepositoryName?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the registry of a container image.</p>
+   * @public
+   */
+  cloudImageRegistry?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the digest of a container image.</p>
+   * @public
+   */
+  cloudImageDigest?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the tags of a container image.</p>
+   * @public
+   */
+  cloudImageTags?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for when a container image was pushed.</p>
+   * @public
+   */
+  cloudImagePushedAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the architecture of a container image.</p>
+   * @public
+   */
+  cloudImageArchitecture?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the last time a container image was in use.</p>
+   * @public
+   */
+  cloudImageLastInUseAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the in-use count of a container image.</p>
+   * @public
+   */
+  cloudImageInUseCount?: NumberFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the name of a serverless function.</p>
+   * @public
+   */
+  cloudServerlessFunctionName?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the runtime of a serverless function.</p>
+   * @public
+   */
+  cloudServerlessFunctionRuntime?: StringFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for when a serverless function was last modified.</p>
+   * @public
+   */
+  cloudServerlessFunctionLastModifiedAt?: DateFilter[] | undefined;
+
+  /**
+   * <p>Filter criteria for the execution role of a serverless function.</p>
+   * @public
+   */
+  cloudServerlessFunctionExecutionRole?: StringFilter[] | undefined;
 }
 
 /**
@@ -6226,6 +8406,22 @@ export interface DeleteCodeSecurityScanConfigurationResponse {
    */
   scanConfigurationArn?: string | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector to delete.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorResponse {}
 
 /**
  * @public
@@ -6944,6 +9140,228 @@ export interface Remediation {
 }
 
 /**
+ * <p>Contains details about a container image involved in a finding.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The name of the repository the container image resides in.</p>
+   * @public
+   */
+  repositoryName?: string | undefined;
+
+  /**
+   * <p>The registry for the container image.</p>
+   * @public
+   */
+  registry?: string | undefined;
+
+  /**
+   * <p>The image tags attached to the container image.</p>
+   * @public
+   */
+  imageTags?: string[] | undefined;
+
+  /**
+   * <p>The image digest of the container image.</p>
+   * @public
+   */
+  imageDigest?: string | undefined;
+
+  /**
+   * <p>The date and time the container image was pushed.</p>
+   * @public
+   */
+  pushedAt?: Date | undefined;
+
+  /**
+   * <p>The architecture of the container image.</p>
+   * @public
+   */
+  architecture?: string | undefined;
+
+  /**
+   * <p>The author of the container image.</p>
+   * @public
+   */
+  author?: string | undefined;
+
+  /**
+   * <p>The number of times the container image is in use.</p>
+   * @public
+   */
+  inUseCount?: number | undefined;
+
+  /**
+   * <p>The last time the container image was in use.</p>
+   * @public
+   */
+  lastInUseAt?: Date | undefined;
+
+  /**
+   * <p>The platform of the container image.</p>
+   * @public
+   */
+  platform?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a serverless function involved in a finding.</p>
+ * @public
+ */
+export interface ServerlessFunction {
+  /**
+   * <p>The name of the serverless function.</p>
+   * @public
+   */
+  serverlessFunctionName?: string | undefined;
+
+  /**
+   * <p>The runtime of the serverless function.</p>
+   * @public
+   */
+  runtime?: string | undefined;
+
+  /**
+   * <p>The version of the serverless function.</p>
+   * @public
+   */
+  version?: string | undefined;
+
+  /**
+   * <p>The code digest of the serverless function.</p>
+   * @public
+   */
+  codeDigest?: string | undefined;
+
+  /**
+   * <p>The date and time the serverless function was last modified.</p>
+   * @public
+   */
+  lastModifiedAt?: Date | undefined;
+
+  /**
+   * <p>The network ID associated with the serverless function.</p>
+   * @public
+   */
+  networkId?: string | undefined;
+
+  /**
+   * <p>The subnet IDs associated with the serverless function.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security group IDs associated with the serverless function.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The execution role of the serverless function.</p>
+   * @public
+   */
+  executionRole?: string | undefined;
+
+  /**
+   * <p>The package type of the serverless function.</p>
+   * @public
+   */
+  packageType?: PackageType | undefined;
+
+  /**
+   * <p>The architectures of the serverless function.</p>
+   * @public
+   */
+  architectures?: Architecture[] | undefined;
+
+  /**
+   * <p>The layers of the serverless function.</p>
+   * @public
+   */
+  layers?: string[] | undefined;
+}
+
+/**
+ * <p>Contains details about a VM instance involved in a finding.</p>
+ * @public
+ */
+export interface Vm {
+  /**
+   * <p>The type of the VM instance.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The name of the VM instance.</p>
+   * @public
+   */
+  vmName?: string | undefined;
+
+  /**
+   * <p>The image reference of the VM instance.</p>
+   * @public
+   */
+  vmImageReference?: string | undefined;
+
+  /**
+   * <p>The IPv4 addresses of the VM instance.</p>
+   * @public
+   */
+  ipV4Addresses?: string[] | undefined;
+
+  /**
+   * <p>The IPv6 addresses of the VM instance.</p>
+   * @public
+   */
+  ipV6Addresses?: string[] | undefined;
+
+  /**
+   * <p>The network ID associated with the VM instance.</p>
+   * @public
+   */
+  networkId?: string | undefined;
+
+  /**
+   * <p>The subnet IDs of the VM instance.</p>
+   * @public
+   */
+  subnetIds?: string[] | undefined;
+
+  /**
+   * <p>The security group IDs associated with the VM instance.</p>
+   * @public
+   */
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The date and time the VM instance was launched.</p>
+   * @public
+   */
+  launchedAt?: Date | undefined;
+
+  /**
+   * <p>The platform of the VM instance.</p>
+   * @public
+   */
+  platform?: string | undefined;
+
+  /**
+   * <p>The execution role of the VM instance.</p>
+   * @public
+   */
+  executionRole?: string | undefined;
+
+  /**
+   * <p>The key name associated with the VM instance.</p>
+   * @public
+   */
+  keyName?: string | undefined;
+}
+
+/**
  * <p>Contains details about the resource involved in the finding.</p>
  * @public
  */
@@ -6973,6 +9391,24 @@ export interface ResourceDetails {
    * @public
    */
   codeRepository?: CodeRepositoryDetails | undefined;
+
+  /**
+   * <p>An object that contains details about a VM instance involved in the finding.</p>
+   * @public
+   */
+  vm?: Vm | undefined;
+
+  /**
+   * <p>An object that contains details about a container image involved in the finding.</p>
+   * @public
+   */
+  image?: Image | undefined;
+
+  /**
+   * <p>An object that contains details about a serverless function involved in the finding.</p>
+   * @public
+   */
+  serverlessFunction?: ServerlessFunction | undefined;
 }
 
 /**
@@ -7015,6 +9451,24 @@ export interface Resource {
    * @public
    */
   details?: ResourceDetails | undefined;
+
+  /**
+   * <p>The cloud provider of the resource.</p>
+   * @public
+   */
+  provider?: Provider | undefined;
+
+  /**
+   * <p>The cloud provider account ID of the resource.</p>
+   * @public
+   */
+  providerAccountId?: string | undefined;
+
+  /**
+   * <p>The cloud provider organization ID of the resource.</p>
+   * @public
+   */
+  providerOrgId?: string | undefined;
 }
 
 /**
@@ -7381,18 +9835,18 @@ export interface GetCodeSecurityIntegrationResponse {
   lastUpdateOn: Date | undefined;
 
   /**
-   * <p>The tags associated with the code security integration.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-
-  /**
    * <p>The URL used to authorize the integration with the repository provider. This is only
    *          returned if reauthorization is required to fix a connection issue. Otherwise, it is
    *          null.</p>
    * @public
    */
   authorizationUrl?: string | undefined;
+
+  /**
+   * <p>The tags associated with the code security integration.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -7535,7 +9989,16 @@ export interface GetCodeSecurityScanConfigurationResponse {
 /**
  * @public
  */
-export interface GetConfigurationRequest {}
+export interface GetConfigurationRequest {
+  /**
+   * <p>The 12-digit Amazon Web Services account ID of the member account whose scan configuration you want
+   *          to retrieve. When specified, you must be the delegated administrator for this
+   *          member account. If not specified, the operation returns your own
+   *          configuration.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+}
 
 /**
  * @public
@@ -8261,825 +10724,4 @@ export interface ListCodeSecurityScanConfigurationAssociationsRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityScanConfigurationAssociationsResponse {
-  /**
-   * <p>A list of associations between code repositories and scan configurations.</p>
-   * @public
-   */
-  associations?: CodeSecurityScanConfigurationAssociationSummary[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityScanConfigurationsRequest {
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
-   *          value returned from the previous request to continue listing results after the first
-   *          page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSecurityScanConfigurationsResponse {
-  /**
-   * <p>A list of code security scan configuration summaries.</p>
-   * @public
-   */
-  configurations?: CodeSecurityScanConfigurationSummary[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
-   *          value returned from the previous request to continue listing results after the first
-   *          page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCoverageRequest {
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An object that contains details on the filters to apply to the coverage data for your
-   *          environment.</p>
-   * @public
-   */
-  filterCriteria?: CoverageFilterCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCoverageResponse {
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An object that contains details on the covered resources in your environment.</p>
-   * @public
-   */
-  coveredResources?: CoveredResource[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCoverageStatisticsRequest {
-  /**
-   * <p>An object that contains details on the filters to apply to the coverage data for your
-   *          environment.</p>
-   * @public
-   */
-  filterCriteria?: CoverageFilterCriteria | undefined;
-
-  /**
-   * <p>The value to group the results by.</p>
-   * @public
-   */
-  groupBy?: GroupKey | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCoverageStatisticsResponse {
-  /**
-   * <p>An array with the number for each group.</p>
-   * @public
-   */
-  countsByGroup?: Counts[] | undefined;
-
-  /**
-   * <p>The total number for all groups.</p>
-   * @public
-   */
-  totalCounts: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDelegatedAdminAccountsRequest {
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDelegatedAdminAccountsResponse {
-  /**
-   * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
-   * @public
-   */
-  delegatedAdminAccounts?: DelegatedAdminAccount[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFiltersRequest {
-  /**
-   * <p>The Amazon resource number (ARN) of the filter.</p>
-   * @public
-   */
-  arns?: string[] | undefined;
-
-  /**
-   * <p>The action the filter applies to matched findings.</p>
-   * @public
-   */
-  action?: FilterAction | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFiltersResponse {
-  /**
-   * <p>Contains details on the filters associated with your account.</p>
-   * @public
-   */
-  filters: Filter[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregationsRequest {
-  /**
-   * <p>The type of the aggregation request.</p>
-   * @public
-   */
-  aggregationType: AggregationType | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services account IDs to retrieve finding aggregation data for.</p>
-   * @public
-   */
-  accountIds?: StringFilter[] | undefined;
-
-  /**
-   * <p>Details of the aggregation request that is used to filter your aggregation
-   *          results.</p>
-   * @public
-   */
-  aggregationRequest?: AggregationRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingAggregationsResponse {
-  /**
-   * <p>The type of aggregation to perform.</p>
-   * @public
-   */
-  aggregationType: AggregationType | undefined;
-
-  /**
-   * <p>Objects that contain the results of an aggregation operation.</p>
-   * @public
-   */
-  responses?: AggregationResponse[] | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Details about the criteria used to sort finding results.</p>
- * @public
- */
-export interface SortCriteria {
-  /**
-   * <p>The finding detail field by which results are sorted.</p>
-   * @public
-   */
-  field: SortField | undefined;
-
-  /**
-   * <p>The order by which findings are sorted.</p>
-   * @public
-   */
-  sortOrder: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingsRequest {
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Details on the filters to apply to your finding results.</p>
-   * @public
-   */
-  filterCriteria?: FilterCriteria | undefined;
-
-  /**
-   * <p>Details on the sort criteria to apply to your finding results.</p>
-   * @public
-   */
-  sortCriteria?: SortCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface ListFindingsResponse {
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Contains details on the findings in your environment.</p>
-   * @public
-   */
-  findings?: Finding[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersRequest {
-  /**
-   * <p>Specifies whether to list only currently associated members if <code>True</code> or to
-   *          list all members within the organization if <code>False</code>.</p>
-   * @public
-   */
-  onlyAssociated?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMembersResponse {
-  /**
-   * <p>An object that contains details for each member account.</p>
-   * @public
-   */
-  members?: Member[] | undefined;
-
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *          items.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The tags associated with the resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsageTotalsRequest {
-  /**
-   * <p>The maximum number of results the response can return. If your request would return more
-   *          than the maximum the response will return a <code>nextToken</code> value, use this value
-   *          when you call the action again to get the remaining results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. If your response returns
-   *          more than the <code>maxResults</code> maximum value it will also return a
-   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
-   *          returned from the previous request to continue listing results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
-   * @public
-   */
-  accountIds?: string[] | undefined;
-}
-
-/**
- * <p>Contains usage information about the cost of Amazon Inspector operation.</p>
- * @public
- */
-export interface Usage {
-  /**
-   * <p>The type scan.</p>
-   * @public
-   */
-  type?: UsageType | undefined;
-
-  /**
-   * <p>The total of usage.</p>
-   * @public
-   */
-  total?: number | undefined;
-
-  /**
-   * <p>The estimated monthly cost of Amazon Inspector.</p>
-   * @public
-   */
-  estimatedMonthlyCost?: number | undefined;
-
-  /**
-   * <p>The currency type used when calculating usage data.</p>
-   * @public
-   */
-  currency?: Currency | undefined;
-}
-
-/**
- * <p>The total of usage for an account ID.</p>
- * @public
- */
-export interface UsageTotal {
-  /**
-   * <p>The account ID of the account that usage data was retrieved for.</p>
-   * @public
-   */
-  accountId?: string | undefined;
-
-  /**
-   * <p>An object representing the total usage for an account.</p>
-   * @public
-   */
-  usage?: Usage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListUsageTotalsResponse {
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *          items.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>An object with details on the total usage for the requested account.</p>
-   * @public
-   */
-  totals?: UsageTotal[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEncryptionKeyRequest {
-  /**
-   * <p>The scan type the key encrypts.</p>
-   * @public
-   */
-  scanType: ScanType | undefined;
-
-  /**
-   * <p>The resource type the key encrypts.</p>
-   * @public
-   */
-  resourceType: ResourceType | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEncryptionKeyResponse {}
-
-/**
- * <p>Details on the criteria used to define the filter for a vulnerability search. </p>
- * @public
- */
-export interface SearchVulnerabilitiesFilterCriteria {
-  /**
-   * <p>The IDs for specific vulnerabilities.</p>
-   * @public
-   */
-  vulnerabilityIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchVulnerabilitiesRequest {
-  /**
-   * <p>The criteria used to filter the results of a vulnerability search.</p>
-   * @public
-   */
-  filterCriteria: SearchVulnerabilitiesFilterCriteria | undefined;
-
-  /**
-   * <p>A token to use for paginating results that are returned in the response. Set the value
-   *          of this parameter to null for the first request to a list action. For subsequent calls, use
-   *          the <code>NextToken</code> value returned from the previous request to continue listing
-   *          results after the first page.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains details about a specific vulnerability Amazon Inspector can detect.</p>
- * @public
- */
-export interface Vulnerability {
-  /**
-   * <p>The ID for the specific vulnerability.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The Common Weakness Enumeration (CWE) associated with the vulnerability.</p>
-   * @public
-   */
-  cwes?: string[] | undefined;
-
-  /**
-   * <p>An object that contains the Cybersecurity and Infrastructure Security Agency (CISA)
-   *          details for the vulnerability.</p>
-   * @public
-   */
-  cisaData?: CisaData | undefined;
-
-  /**
-   * <p>The source of the vulnerability information. Possible results are <code>RHEL</code>,
-   *             <code>AMAZON_CVE</code>, <code>DEBIAN</code> or <code>NVD</code>.</p>
-   * @public
-   */
-  source?: VulnerabilitySource | undefined;
-
-  /**
-   * <p>A description of the vulnerability.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>An object that contains information about the Amazon Web Services Threat Intel Group
-   *          (ATIG) details for the vulnerability.</p>
-   * @public
-   */
-  atigData?: AtigData | undefined;
-
-  /**
-   * <p>The severity assigned by the vendor.</p>
-   * @public
-   */
-  vendorSeverity?: string | undefined;
-
-  /**
-   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 4 details for the vulnerability.</p>
-   * @public
-   */
-  cvss4?: Cvss4 | undefined;
-
-  /**
-   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details
-   *          for the vulnerability.</p>
-   * @public
-   */
-  cvss3?: Cvss3 | undefined;
-
-  /**
-   * <p>A list of related vulnerabilities.</p>
-   * @public
-   */
-  relatedVulnerabilities?: string[] | undefined;
-
-  /**
-   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 2 details
-   *          for the vulnerability.</p>
-   * @public
-   */
-  cvss2?: Cvss2 | undefined;
-
-  /**
-   * <p>The date and time when the vendor created this vulnerability.</p>
-   * @public
-   */
-  vendorCreatedAt?: Date | undefined;
-
-  /**
-   * <p>The date and time when the vendor last updated this vulnerability.</p>
-   * @public
-   */
-  vendorUpdatedAt?: Date | undefined;
-
-  /**
-   * <p>A link to the official source material for this vulnerability.</p>
-   * @public
-   */
-  sourceUrl?: string | undefined;
-
-  /**
-   * <p>Links to various resources with more information on this vulnerability. </p>
-   * @public
-   */
-  referenceUrls?: string[] | undefined;
-
-  /**
-   * <p>An object that contains details on when the exploit was observed.</p>
-   * @public
-   */
-  exploitObserved?: ExploitObserved | undefined;
-
-  /**
-   * <p>Platforms that the vulnerability can be detected on.</p>
-   * @public
-   */
-  detectionPlatforms?: string[] | undefined;
-
-  /**
-   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score for a
-   *          vulnerability.</p>
-   * @public
-   */
-  epss?: Epss | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchVulnerabilitiesResponse {
-  /**
-   * <p>Details about the listed vulnerability.</p>
-   * @public
-   */
-  vulnerabilities: Vulnerability[] | undefined;
-
-  /**
-   * <p>The pagination parameter to be used on the next list operation to retrieve more
-   *          items.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendCisSessionHealthRequest {
-  /**
-   * <p>A unique identifier for the scan job.</p>
-   * @public
-   */
-  scanJobId: string | undefined;
-
-  /**
-   * <p>The unique token that identifies the CIS session.</p>
-   * @public
-   */
-  sessionToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SendCisSessionHealthResponse {}
-
-/**
- * @public
- */
-export interface SendCisSessionTelemetryRequest {
-  /**
-   * <p>A unique identifier for the scan job.</p>
-   * @public
-   */
-  scanJobId: string | undefined;
-
-  /**
-   * <p>The unique token that identifies the CIS session.</p>
-   * @public
-   */
-  sessionToken: string | undefined;
-
-  /**
-   * <p>The CIS session telemetry messages.</p>
-   * @public
-   */
-  messages: CisSessionMessage[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SendCisSessionTelemetryResponse {}
-
-/**
- * <p>The start CIS session message.</p>
- * @public
- */
-export interface StartCisSessionMessage {
-  /**
-   * <p>The unique token that identifies the CIS session.</p>
-   * @public
-   */
-  sessionToken: string | undefined;
 }

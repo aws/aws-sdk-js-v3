@@ -1,6 +1,6 @@
 // @ts-check
-import { readdir, stat } from "fs/promises";
-import { join } from "path";
+import { readdir, stat } from "node:fs/promises";
+import { join } from "node:path";
 
 export const getAllFiles = async (dirPath, arrayOfFiles = []) => {
   const files = await readdir(dirPath);

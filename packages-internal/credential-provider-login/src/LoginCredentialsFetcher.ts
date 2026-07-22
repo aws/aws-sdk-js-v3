@@ -126,12 +126,12 @@ export class LoginCredentialsFetcher {
         ...token,
         accessToken: {
           ...token.accessToken, // Preserve existing fields like accountId
-          accessKeyId: accessKeyId!,
-          secretAccessKey: secretAccessKey!,
-          sessionToken: sessionToken!,
+          accessKeyId,
+          secretAccessKey,
+          sessionToken,
           expiresAt: expiration.toISOString(),
         },
-        refreshToken: refreshToken!,
+        refreshToken,
       };
 
       await this.saveToken(updatedToken);

@@ -23,7 +23,7 @@ export interface DisableSecurityHubV2CommandInput extends DisableSecurityHubV2Re
 export interface DisableSecurityHubV2CommandOutput extends DisableSecurityHubV2Response, __MetadataBearer {}
 
 /**
- * <p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region.</p>
+ * <p>Disable the service for the current Amazon Web Services Region or specified Amazon Web Services Region. Disabling the service also disables all opt-in features that are currently enabled in that Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

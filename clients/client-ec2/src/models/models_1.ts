@@ -26,6 +26,8 @@ import type {
   ExportTaskState,
   FleetCapacityReservationUsageStrategy,
   FleetExcessCapacityTerminationPolicy,
+  FleetHttpTokensState,
+  FleetInstanceMetadataEndpointState,
   FleetOnDemandAllocationStrategy,
   FleetReplacementStrategy,
   FleetReservationType,
@@ -96,7 +98,6 @@ import type {
   ReplaceRootVolumeTaskState,
   ResourceType,
   RouteServerEndpointState,
-  RouteServerPeerLivenessMode,
   RouteServerPersistRoutesAction,
   RouteServerPersistRoutesState,
   RouteServerState,
@@ -1044,6 +1045,14 @@ export interface FleetLaunchTemplateSpecificationRequest {
    * @public
    */
   Version?: string | undefined;
+
+  /**
+   * <p>The base64-encoded user data for instances launched by the fleet. User data is limited
+   *          to 16 KB, in raw form, before it is base64-encoded.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  LaunchTemplateSpecificationUserData?: string | undefined;
 }
 
 /**
@@ -1263,6 +1272,25 @@ export interface FleetBlockDeviceMappingRequest {
    * @public
    */
   NoDevice?: string | undefined;
+}
+
+/**
+ * <p>Describes an IAM instance profile. Supported only for fleets of type
+ *          <code>instant</code>.</p>
+ * @public
+ */
+export interface FleetIamInstanceProfileSpecificationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The name of the instance profile.</p>
+   * @public
+   */
+  Name?: string | undefined;
 }
 
 /**
@@ -2004,6 +2032,57 @@ export interface InstanceRequirementsRequest {
 }
 
 /**
+ * <p>Describes the metadata options for the instances. Supported only for fleets of type
+ *          <code>instant</code>.</p>
+ * @public
+ */
+export interface FleetInstanceMetadataOptionsRequest {
+  /**
+   * <p>Indicates whether IMDSv2 is required.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>optional</code> - IMDSv2 is optional, which means that you can use either
+   *                IMDSv2 or IMDSv1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>required</code> - IMDSv2 is required, which means that IMDSv1 is
+   *                disabled, and you must use IMDSv2.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpTokens?: FleetHttpTokensState | undefined;
+
+  /**
+   * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
+   *          number, the further instance metadata requests can travel.</p>
+   *          <p>Default: <code>1</code>
+   *          </p>
+   *          <p>Possible values: Integers from 1 to 64</p>
+   * @public
+   */
+  HttpPutResponseHopLimit?: number | undefined;
+
+  /**
+   * <p>Enables or disables the HTTP metadata endpoint on your instances.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code> - The HTTP metadata endpoint is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code> - The HTTP metadata endpoint is disabled.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  HttpEndpoint?: FleetInstanceMetadataEndpointState | undefined;
+}
+
+/**
  * <p>Describes the placement of an instance.</p>
  * @public
  */
@@ -2183,6 +2262,15 @@ export interface FleetLaunchTemplateOverridesRequest {
   Placement?: Placement | undefined;
 
   /**
+   * <p>The name of the key pair to use for the instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
+   *          in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
    * <p>The block device mappings, which define the EBS volumes and instance store volumes to
    *          attach to the instance at launch.</p>
    *          <p>Supported only for fleets of type <code>instant</code>.</p>
@@ -2192,6 +2280,24 @@ export interface FleetLaunchTemplateOverridesRequest {
    * @public
    */
   BlockDeviceMappings?: FleetBlockDeviceMappingRequest[] | undefined;
+
+  /**
+   * <p>The IAM instance profile to associate with the instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html">IAM roles for Amazon EC2</a>
+   *          in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  IamInstanceProfile?: FleetIamInstanceProfileSpecificationRequest | undefined;
+
+  /**
+   * <p>The metadata options for the instances.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html">Configure the
+   *             instance metadata service</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  MetadataOptions?: FleetInstanceMetadataOptionsRequest | undefined;
 
   /**
    * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
@@ -2780,10 +2886,12 @@ export interface CreateFleetRequest {
    * <p>The key-value pair for tagging the EC2 Fleet request on creation. For more information, see
    *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tag your resources</a>.</p>
    *          <p>If the fleet type is <code>instant</code>, specify a resource type of <code>fleet</code>
-   *          to tag the fleet or <code>instance</code> to tag the instances at launch.</p>
+   *          to tag the fleet, <code>instance</code> to tag the instances at launch,
+   *          <code>volume</code> to tag the volumes at launch, or <code>network-interface</code> to
+   *          tag the network interfaces at launch.</p>
    *          <p>If the fleet type is <code>maintain</code> or <code>request</code>, specify a resource
    *          type of <code>fleet</code> to tag the fleet. You cannot specify a resource type of
-   *             <code>instance</code>. To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>.</p>
+   *             <code>instance</code>, <code>volume</code>, or <code>network-interface</code>. To tag instances at launch, specify the tags in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>.</p>
    * @public
    */
   TagSpecifications?: TagSpecification[] | undefined;
@@ -3950,6 +4058,29 @@ export interface CreateFleetInstance {
    * @public
    */
   Platform?: PlatformValues | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which the instance was launched. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The name of the Availability Zone in which the instance was launched. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet in which the instance was launched.</p>
+   *          <p>Supported only for fleets of type <code>instant</code>.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
 }
 
 /**
@@ -13523,8 +13654,8 @@ export interface CreateReplaceRootVolumeTaskRequest {
    *       specified snapshot must be a snapshot that you previously created from the original
    *       root volume.</p>
    *          <p>If you want to restore the replacement root volume to the initial launch state,
-   *       or if you want to restore the replacement root volume from an AMI, omit this
-   *       parameter.</p>
+   *       if you want to restore the replacement root volume from an AMI, or if you want to
+   *       replace the root volume with a specified volume, omit this parameter.</p>
    * @public
    */
   SnapshotId?: string | undefined;
@@ -13555,8 +13686,9 @@ export interface CreateReplaceRootVolumeTaskRequest {
    * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
    *       same product code, billing information, architecture type, and virtualization type as
    *       that of the instance.</p>
-   *          <p>If you want to restore the replacement volume from a specific snapshot, or if you want
-   *       to restore it to its launch state, omit this parameter.</p>
+   *          <p>If you want to restore the replacement volume from a specific snapshot, if you want
+   *       to restore it to its launch state, or if you want to replace the root volume with a
+   *       specified volume, omit this parameter.</p>
    * @public
    */
   ImageId?: string | undefined;
@@ -13596,6 +13728,17 @@ export interface CreateReplaceRootVolumeTaskRequest {
    * @public
    */
   VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The ID of the volume to use as the replacement root volume. The specified volume must
+   *       be in the same Availability Zone as the instance, must be in the <code>available</code>
+   *       state, and must not be attached to an instance. If the original root volume is encrypted,
+   *       the specified volume must also be encrypted.</p>
+   *          <p>If you want to restore the replacement root volume from a specific snapshot, an AMI,
+   *       or to its launch state, omit this parameter.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
 }
 
 /**
@@ -14200,70 +14343,4 @@ export interface CreateRouteServerEndpointResult {
    * @public
    */
   RouteServerEndpoint?: RouteServerEndpoint | undefined;
-}
-
-/**
- * <p>The BGP configuration options requested for a route server peer.</p>
- * @public
- */
-export interface RouteServerBgpOptionsRequest {
-  /**
-   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
-   * @public
-   */
-  PeerAsn: number | undefined;
-
-  /**
-   * <p>The requested liveness detection protocol for the BGP peer.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>bgp-keepalive</code>: The standard BGP keep alive mechanism (<a href="https://www.rfc-editor.org/rfc/rfc4271#page-21">RFC4271</a>) that is stable but may take longer to fail-over in cases of network impact or router failure.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bfd</code>: An additional Bidirectional Forwarding Detection (BFD) protocol (<a href="https://www.rfc-editor.org/rfc/rfc5880">RFC5880</a>) that enables fast failover by using more sensitive liveness detection.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Defaults to <code>bgp-keepalive</code>.</p>
-   * @public
-   */
-  PeerLivenessDetection?: RouteServerPeerLivenessMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRouteServerPeerRequest {
-  /**
-   * <p>The ID of the route server endpoint for which to create a peer.</p>
-   * @public
-   */
-  RouteServerEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address of the peer device.</p>
-   * @public
-   */
-  PeerAddress: string | undefined;
-
-  /**
-   * <p>The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.</p>
-   * @public
-   */
-  BgpOptions: RouteServerBgpOptionsRequest | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The tags to apply to the route server peer during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
 }

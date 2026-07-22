@@ -39,7 +39,7 @@ export interface GetResourcesTrendsV2CommandOutput extends GetResourcesTrendsV2R
  *       { // ResourcesTrendsCompositeFilter
  *         StringFilters: [ // ResourcesTrendsStringFilterList
  *           { // ResourcesTrendsStringFilter
- *             FieldName: "account_id" || "region" || "resource_type" || "resource_category",
+ *             FieldName: "account_id" || "region" || "resource_type" || "resource_category" || "resource_cloud_provider" || "resource_region" || "resource_owner_id" || "resource_owner_organization_id",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -50,7 +50,7 @@ export interface GetResourcesTrendsV2CommandOutput extends GetResourcesTrendsV2R
  *           {
  *             StringFilters: [
  *               {
- *                 FieldName: "account_id" || "region" || "resource_type" || "resource_category",
+ *                 FieldName: "account_id" || "region" || "resource_type" || "resource_category" || "resource_cloud_provider" || "resource_region" || "resource_owner_id" || "resource_owner_organization_id",
  *                 Filter: {
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",

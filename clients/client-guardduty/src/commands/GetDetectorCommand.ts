@@ -76,7 +76,7 @@ export interface GetDetectorCommandOutput extends GetDetectorResponse, __Metadat
  * //   },
  * //   Features: [ // DetectorFeatureConfigurationsResults
  * //     { // DetectorFeatureConfigurationResult
- * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING",
+ * //       Name: "FLOW_LOGS" || "CLOUD_TRAIL" || "DNS_LOGS" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "EBS_MALWARE_PROTECTION" || "RDS_LOGIN_EVENTS" || "LAMBDA_NETWORK_LOGS" || "EKS_RUNTIME_MONITORING" || "RUNTIME_MONITORING" || "AI_PROTECTION" || "AI_ANALYST",
  * //       Status: "ENABLED" || "DISABLED",
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //       AdditionalConfiguration: [ // DetectorAdditionalConfigurationResults

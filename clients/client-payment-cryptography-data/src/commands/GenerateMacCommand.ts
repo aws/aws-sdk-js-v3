@@ -41,7 +41,7 @@ export interface GenerateMacCommandOutput extends GenerateMacOutput, __MetadataB
  *       MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *       PanSequenceNumber: "STRING_VALUE", // required
- *       SessionKeyDerivationMode: "EMV_COMMON_SESSION_KEY" || "EMV2000" || "AMEX" || "MASTERCARD_SESSION_KEY" || "VISA", // required
+ *       SessionKeyDerivationMode: "EMV_COMMON_SESSION_KEY" || "EMV2000" || "AMEX" || "MASTERCARD_SESSION_KEY" || "VISA" || "UNION_PAY", // required
  *       SessionKeyDerivationValue: { // SessionKeyDerivationValue Union: only one key present
  *         ApplicationCryptogram: "STRING_VALUE",
  *         ApplicationTransactionCounter: "STRING_VALUE",

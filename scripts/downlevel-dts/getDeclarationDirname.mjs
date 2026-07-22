@@ -1,5 +1,5 @@
-import { readFile } from "fs/promises";
-import { join } from "path";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const getDeclarationDirname = async (workspaceDir) => {
   const tsTypesConfigPath = join(workspaceDir, "tsconfig.types.json");

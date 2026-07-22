@@ -246,11 +246,24 @@ export interface AmpConfiguration {
 }
 
 /**
+ * <p>The configuration identifies the CloudWatch dataset used as a scraper destination.</p>
+ * @public
+ */
+export interface CloudWatchConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudWatch dataset. To use the default dataset, specify <code>arn:aws:cloudwatch:&lt;region&gt;:&lt;account-id&gt;:dataset/default</code>.</p>
+   * @public
+   */
+  datasetArn: string | undefined;
+}
+
+/**
  * <p>Where to send the metrics from a scraper.</p>
  * @public
  */
 export type Destination =
   | Destination.AmpConfigurationMember
+  | Destination.CloudWatchConfigurationMember
   | Destination.$UnknownMember;
 
 /**
@@ -263,6 +276,17 @@ export namespace Destination {
    */
   export interface AmpConfigurationMember {
     ampConfiguration: AmpConfiguration;
+    cloudWatchConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The CloudWatch dataset to send metrics to.</p>
+   * @public
+   */
+  export interface CloudWatchConfigurationMember {
+    ampConfiguration?: never;
+    cloudWatchConfiguration: CloudWatchConfiguration;
     $unknown?: never;
   }
 
@@ -271,6 +295,7 @@ export namespace Destination {
    */
   export interface $UnknownMember {
     ampConfiguration?: never;
+    cloudWatchConfiguration?: never;
     $unknown: [string, any];
   }
 
@@ -280,6 +305,7 @@ export namespace Destination {
    */
   export interface Visitor<T> {
     ampConfiguration: (value: AmpConfiguration) => T;
+    cloudWatchConfiguration: (value: CloudWatchConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -460,7 +486,7 @@ export interface CreateScraperRequest {
   source: Source | undefined;
 
   /**
-   * <p>The Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+   * <p>The destination where the scraper sends the collected metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
    * @public
    */
   destination: Destination | undefined;
@@ -646,7 +672,7 @@ export interface ScraperDescription {
   source: Source | undefined;
 
   /**
-   * <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+   * <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
    * @public
    */
   destination: Destination | undefined;
@@ -760,7 +786,7 @@ export interface ScraperSummary {
   source: Source | undefined;
 
   /**
-   * <p>The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.</p>
+   * <p>The destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
    * @public
    */
   destination: Destination | undefined;
@@ -1009,7 +1035,7 @@ export interface UpdateScraperRequest {
   scrapeConfiguration?: ScrapeConfiguration | undefined;
 
   /**
-   * <p>The new Amazon Managed Service for Prometheus workspace to send metrics to.</p>
+   * <p>The new destination where the scraper sends metrics. Valid destinations are Amazon Managed Service for Prometheus workspaces and CloudWatch datasets.</p>
    * @public
    */
   destination?: Destination | undefined;

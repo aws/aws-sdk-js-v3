@@ -1,6 +1,8 @@
-import type { DefaultProviderInit } from "@aws-sdk/credential-provider-node";
-import { defaultProvider } from "@aws-sdk/credential-provider-node";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
+import type {
+  DefaultProviderInit,
+  MemoizedRuntimeConfigAwsCredentialIdentityProvider,
+} from "@aws-sdk/credential-provider-node";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 
 /**
  * This is the same credential provider as {@link https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-credential-providers/#fromnodeproviderchain|the default provider for Node.js SDK},
@@ -33,7 +35,15 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromNodeProviderChain = (init: DefaultProviderInit = {}): AwsCredentialIdentityProvider =>
-  defaultProvider({
-    ...init,
-  });
+export const fromNodeProviderChain = (
+  init: DefaultProviderInit = {}
+): MemoizedRuntimeConfigAwsCredentialIdentityProvider => {
+  let chain: MemoizedRuntimeConfigAwsCredentialIdentityProvider | undefined;
+  return async (args?: AwsIdentityProperties & { forceRefresh?: boolean }) => {
+    if (!chain) {
+      const { defaultProvider } = await import("@aws-sdk/credential-provider-node");
+      chain = defaultProvider({ ...init });
+    }
+    return chain(args);
+  };
+};

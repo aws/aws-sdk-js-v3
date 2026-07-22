@@ -1,7 +1,35 @@
 {
   "name": "@aws-sdk/xhr-http-handler",
-  "version": "3.1078.0",
+  "version": "3.1093.0",
   "description": "Provides a way to make requests using XMLHttpRequest",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xhr-http-handler",
+  "bugs": {
+    "url": "https://github.com/aws/aws-sdk-js-v3/issues"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/xhr-http-handler"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -14,47 +42,19 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/types": "workspace:^3.974.2",
+    "@smithy/core": "^3.29.4",
+    "@smithy/types": "^4.16.1",
     "events": "3.3.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/abort-controller": "^4.3.1",
+    "@smithy/abort-controller": "^4.3.3",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/xhr-http-handler",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/xhr-http-handler"
-  },
-  "bugs": {
-    "url": "https://github.com/aws/aws-sdk-js-v3/issues"
   }
 }

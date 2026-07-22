@@ -55,6 +55,9 @@ export interface GetPaymentManagerCommandOutput extends GetPaymentManagerRespons
  * //       allowedScopes: [ // AllowedScopesType
  * //         "STRING_VALUE",
  * //       ],
+ * //       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       customClaims: [ // CustomClaimValidationsType
  * //         { // CustomClaimValidationType
  * //           inboundTokenClaimName: "STRING_VALUE", // required

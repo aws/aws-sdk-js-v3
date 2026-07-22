@@ -48,6 +48,8 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * const command = new GetFederationTokenCommand(input);
  * const response = await client.send(command);
  * // { // GetFederationTokenResponse
+ * //   UserId: "STRING_VALUE",
+ * //   UserArn: "STRING_VALUE",
  * //   Credentials: { // Credentials
  * //     AccessToken: "STRING_VALUE",
  * //     AccessTokenExpiration: new Date("TIMESTAMP"),
@@ -55,8 +57,6 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  * //     RefreshTokenExpiration: new Date("TIMESTAMP"),
  * //   },
  * //   SignInUrl: "STRING_VALUE",
- * //   UserArn: "STRING_VALUE",
- * //   UserId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -81,6 +81,9 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
  *
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>No user with the specified credentials was found in the Connect Customer instance.</p>

@@ -152,6 +152,20 @@ export type PropagateTagsMode = (typeof PropagateTagsMode)[keyof typeof Propagat
  * @public
  * @enum
  */
+export const SystemLogLevel = {
+  Debug: "DEBUG",
+  Info: "INFO",
+  Warn: "WARN",
+} as const;
+/**
+ * @public
+ */
+export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapacityProviderState = {
   Active: "Active",
   Deleting: "Deleting",
@@ -382,20 +396,6 @@ export type LogFormat = (typeof LogFormat)[keyof typeof LogFormat];
  * @public
  * @enum
  */
-export const SystemLogLevel = {
-  Debug: "DEBUG",
-  Info: "INFO",
-  Warn: "WARN",
-} as const;
-/**
- * @public
- */
-export type SystemLogLevel = (typeof SystemLogLevel)[keyof typeof SystemLogLevel];
-
-/**
- * @public
- * @enum
- */
 export const PackageType = {
   Image: "Image",
   Zip: "Zip",
@@ -432,11 +432,14 @@ export const Runtime = {
   dotnetcore31: "dotnetcore3.1",
   go1x: "go1.x",
   java11: "java11",
+  java11al2023: "java11.al2023",
   java17: "java17",
+  java17al2023: "java17.al2023",
   java21: "java21",
   java25: "java25",
   java8: "java8",
   java8al2: "java8.al2",
+  java8al2023: "java8.al2023",
   nodejs: "nodejs",
   nodejs10x: "nodejs10.x",
   nodejs12x: "nodejs12.x",
@@ -533,6 +536,7 @@ export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdate
  */
 export const LastUpdateStatusReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
+  DependencyError: "DependencyError",
   DisabledKMSKey: "DisabledKMSKey",
   DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   EC2RequestLimitExceeded: "EC2RequestLimitExceeded",
@@ -594,6 +598,7 @@ export type SnapStartOptimizationStatus =
 export const StateReasonCode = {
   CapacityProviderScalingLimitExceeded: "CapacityProviderScalingLimitExceeded",
   Creating: "Creating",
+  DependencyError: "DependencyError",
   DisabledKMSKey: "DisabledKMSKey",
   DisallowedByVpcEncryptionControl: "DisallowedByVpcEncryptionControl",
   DrainingDurableExecutions: "DrainingDurableExecutions",

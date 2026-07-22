@@ -60,6 +60,15 @@ export interface CreateRecommenderCommandOutput extends CreateRecommenderRespons
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     DiversityConfig: { // DiversityConfig
+ *       DiversityColumns: [ // DiversityColumnsList
+ *         { // DiversityColumn
+ *           Name: "STRING_VALUE", // required
+ *           CapType: "PERCENTAGE" || "VALUE", // required
+ *           Target: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *     },
  *   },
  *   Description: "STRING_VALUE",
  *   RecommenderSchemaName: "STRING_VALUE",

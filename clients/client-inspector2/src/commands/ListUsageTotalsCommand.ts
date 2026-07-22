@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListUsageTotalsRequest, ListUsageTotalsResponse } from "../models/models_0";
+import type { ListUsageTotalsRequest, ListUsageTotalsResponse } from "../models/models_1";
 import { ListUsageTotals$ } from "../schemas/schemas_0";
 
 /**
@@ -52,6 +52,7 @@ export interface ListUsageTotalsCommandOutput extends ListUsageTotalsResponse, _
  * //           total: Number("double"),
  * //           estimatedMonthlyCost: Number("double"),
  * //           currency: "STRING_VALUE",
+ * //           cloudProvider: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

@@ -252,6 +252,14 @@ export interface DescribeElasticsearchDomainConfigCommandOutput extends Describe
  * //       },
  * //       Status: "<OptionStatus>", // required
  * //     },
+ * //     UseCase: { // UseCaseStatus
+ * //       Options: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED", // required
+ * //       Status: "<OptionStatus>", // required
+ * //     },
+ * //     EngineMode: { // EngineModeStatus
+ * //       Options: "GENERAL" || "OPTIMIZED", // required
+ * //       Status: "<OptionStatus>", // required
+ * //     },
  * //   },
  * // };
  *

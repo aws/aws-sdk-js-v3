@@ -127,6 +127,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  *       connector: { // ConnectorTargetConfiguration
  *         source: { // ConnectorSource
  *           connectorId: "STRING_VALUE", // required
+ *           version: "STRING_VALUE",
  *         },
  *         enabled: [ // EnabledConnectors
  *           "STRING_VALUE",
@@ -363,6 +364,7 @@ export interface UpdateGatewayTargetCommandOutput extends UpdateGatewayTargetRes
  * //       connector: { // ConnectorTargetConfiguration
  * //         source: { // ConnectorSource
  * //           connectorId: "STRING_VALUE", // required
+ * //           version: "STRING_VALUE",
  * //         },
  * //         enabled: [ // EnabledConnectors
  * //           "STRING_VALUE",

@@ -16,10 +16,13 @@ export function createGetRequest(url: URL): HttpRequest {
     hostname: url.hostname,
     port: Number(url.port),
     path: url.pathname,
-    query: Array.from(url.searchParams.entries()).reduce((acc, [k, v]) => {
-      acc[k] = v;
-      return acc;
-    }, {} as Record<string, string>),
+    query: Array.from(url.searchParams.entries()).reduce(
+      (acc, [k, v]) => {
+        acc[k] = v;
+        return acc;
+      },
+      {} as Record<string, string>
+    ),
     fragment: url.hash,
   });
 }

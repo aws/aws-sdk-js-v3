@@ -36,11 +36,11 @@ export interface DescribeConfigRulesCommandOutput extends DescribeConfigRulesRes
  *   ConfigRuleNames: [ // ConfigRuleNames
  *     "STRING_VALUE",
  *   ],
- *   NextToken: "STRING_VALUE",
  *   Filters: { // DescribeConfigRulesFilters
  *     EvaluationMode: "DETECTIVE" || "PROACTIVE",
  *     RuleEvaluationVisibility: "EXTERNAL" || "INTERNAL",
  *   },
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeConfigRulesCommand(input);
  * const response = await client.send(command);

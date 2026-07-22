@@ -59,6 +59,62 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+
+
+
+
+
+# 3.972.64 (2026-07-21)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.63 (2026-07-15)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.62 (2026-07-14)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.61 (2026-07-08)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.60 (2026-07-08)
+### Chores
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+
+
+
+# 3.972.59 (2026-07-07)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.58 (2026-07-06)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
+# 3.972.57 (2026-07-02)
+### Chores
+* **crt-loader:** update dependencies.
+
+
+
 # 3.972.56 (2026-07-01)
 ### Chores
 * **crt-loader:** update dependencies.

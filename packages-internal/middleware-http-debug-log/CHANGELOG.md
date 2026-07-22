@@ -30,6 +30,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+# 3.972.30 (2026-07-15)
+### Chores
+* **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))
+
+
+
+# 3.972.29 (2026-07-14)
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
+# 3.972.28 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* **deps:** bump '@smithy/core' to ^3.29.1 ([#8167](https://github.com/aws/aws-sdk-js-v3/issues/8167)) ([8f43c79](https://github.com/aws/aws-sdk-js-v3/commit/8f43c790d2d05f793e719773f74ee10e0f49f00d))
+
+
+
 # 3.972.27 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

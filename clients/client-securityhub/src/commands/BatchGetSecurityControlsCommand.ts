@@ -74,6 +74,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * //         },
  * //       },
  * //       LastUpdateReason: "STRING_VALUE",
+ * //       Provider: "AWS" || "Azure",
  * //     },
  * //   ],
  * //   UnprocessedIds: [ // UnprocessedSecurityControls
@@ -136,6 +137,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  *           ValueType: "DEFAULT"
  *         }
  *       },
+ *       Provider: "AWS",
  *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
  *       SecurityControlArn: "arn:aws:securityhub:us-west-2:123456789012:security-control/ACM.1",
  *       SecurityControlId: "ACM.1",
@@ -155,6 +157,7 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  *           ValueType: "CUSTOM"
  *         }
  *       },
+ *       Provider: "AWS",
  *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
  *       SecurityControlArn: "arn:aws:securityhub:us-west-2:123456789012:security-control/APIGateway.1",
  *       SecurityControlId: "APIGateway.1",

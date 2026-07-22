@@ -22,6 +22,7 @@ import {
   BatchUpdatePhoneNumberRequest$,
   BatchUpdatePhoneNumberResponse$,
   CallDetails$,
+  CallDistributionType,
   CallingNameStatus,
   CallLegType,
   CandidateAddress$,
@@ -883,6 +884,7 @@ assert(typeof VoiceProfileSummary$ === "object");
 assert(typeof VoiceToneAnalysisTask$ === "object");
 // enums
 assert(typeof AlexaSkillStatus === "object");
+assert(typeof CallDistributionType === "object");
 assert(typeof CallingNameStatus === "object");
 assert(typeof CallLegType === "object");
 assert(typeof Capability === "object");

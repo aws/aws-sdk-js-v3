@@ -70,6 +70,7 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *       },
  *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE", // required
+ *         encryptionKeyArn: "STRING_VALUE",
  *       },
  *       containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
  *         rotationSize: "STRING_VALUE", // required
@@ -81,6 +82,7 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   sessionIdleTimeoutInMinutes: Number("int"),
  * };
  * const command = new CreateManagedEndpointCommand(input);
  * const response = await client.send(command);

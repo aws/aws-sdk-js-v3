@@ -35,9 +35,11 @@ import type {
   IdentityProviderTypeType,
   InboundFederationLambdaVersionType,
   IssuerType,
+  LimitClass,
   LogLevel,
   MessageActionType,
   OAuthFlowType,
+  PasswordHashingAlgorithmType,
   PreTokenGenerationLambdaVersionType,
   PreventUserExistenceErrorTypes,
   RecoveryOptionNameType,
@@ -5075,6 +5077,16 @@ export interface CreateUserImportJobRequest {
    * @public
    */
   CloudWatchLogsRoleArn: string | undefined;
+
+  /**
+   * <p>The password hashing algorithm used to generate the hashes in the CSV file for this
+   *             import job.</p>
+   *          <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> |
+   *                 <code>PBKDF2_SHA256</code>
+   *          </p>
+   * @public
+   */
+  PasswordHashingAlgorithm?: PasswordHashingAlgorithmType | undefined;
 }
 
 /**
@@ -5203,6 +5215,16 @@ export interface UserImportJobType {
    * @public
    */
   CompletionMessage?: string | undefined;
+
+  /**
+   * <p>The password hashing algorithm used to generate the hashes in the CSV file for this
+   *             import job.</p>
+   *          <p>Valid values: <code>BCRYPT</code> | <code>SCRYPT</code> | <code>ARGON2ID</code> |
+   *                 <code>PBKDF2_SHA256</code>
+   *          </p>
+   * @public
+   */
+  PasswordHashingAlgorithm?: PasswordHashingAlgorithmType | undefined;
 }
 
 /**
@@ -5740,6 +5762,88 @@ export interface UserPoolPolicyType {
 }
 
 /**
+ * <p>The configuration that Amazon Cognito uses to send SMS messages through Amazon Web Services End User
+ *             Messaging SMS. Provide this structure in the <code>EumsSms</code> member of
+ *             <code>SmsConfigurationType</code> to use Amazon Web Services End User Messaging SMS instead of
+ *             Amazon SNS.</p>
+ * @public
+ */
+export interface EumsSmsConfigurationType {
+  /**
+   * <p>The ARN of the IAM role that Amazon Cognito assumes to send SMS messages through Amazon Web Services
+   *             End User Messaging SMS. The role must grant permission to call the
+   *                 <code>sms-voice:SendTextMessage</code> operation.</p>
+   * @public
+   */
+  CallerArn: string | undefined;
+
+  /**
+   * <p>The external ID that Amazon Cognito includes when it assumes the <code>CallerArn</code> role.
+   *             Use this value as a condition in the role trust policy to prevent the confused deputy
+   *             problem.</p>
+   * @public
+   */
+  ExternalId?: string | undefined;
+
+  /**
+   * <p>The origination identity that Amazon Web Services End User Messaging SMS uses to send messages to your users. This value can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A phone number – A long code, toll-free number, or short code
+   *                     that is assigned to your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>A sender ID – An alphabetic name that identifies the message sender
+   *                     in supported countries.</p>
+   *             </li>
+   *             <li>
+   *                <p>A phone pool – A group of phone numbers that Amazon Web Services End User
+   *                     Messaging SMS selects from when it sends messages.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can provide an E.164 phone number or the ARN of the phone number, sender ID, or
+   *             phone pool. Amazon Web Services End User Messaging SMS evaluates IAM authorization with the value
+   *             that you provide. If the permissions policy of your <code>CallerArn</code> role scopes
+   *             the <code>sms-voice:SendTextMessage</code> resource to a specific ARN, provide that same
+   *             ARN. If the formats do not match, requests fail with an
+   *             <code>InvalidSmsRoleAccessPolicyException</code>.</p>
+   *          <p>Depending on the destination country, you must provide an origination identity. For
+   *             country-specific requirements, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported
+   *                 countries and regions for SMS messaging</a> in the Amazon Web Services End User Messaging SMS
+   *             User Guide.</p>
+   * @public
+   */
+  OriginationIdentity?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services End User Messaging SMS configuration set that Amazon Cognito
+   *             applies to messages, for logging and event destinations. If you omit this member,
+   *             Amazon Cognito sends messages without applying a configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The principal entity ID required by India's Distributed Ledger Technology (DLT) regulations for SMS messages.</p>
+   * @public
+   */
+  InEntityId?: string | undefined;
+
+  /**
+   * <p>The registered template ID for the message template required by India's DLT regulations for SMS messages.</p>
+   * @public
+   */
+  InTemplateId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the Amazon Web Services End User Messaging SMS resources that Amazon Cognito uses to send messages. Amazon Web Services End User Messaging SMS must be available in your user pool's Region.</p>
+   *          <p>If you omit this parameter, Amazon Cognito uses the same Region as your user pool. You can also set this parameter to your user pool's Region explicitly. Amazon Cognito rejects any other value with an <code>InvalidParameterException</code>.</p>
+   * @public
+   */
+  Region?: string | undefined;
+}
+
+/**
  * <p>User pool configuration for delivery of SMS messages with Amazon Simple Notification Service. To send SMS
  *             messages with Amazon SNS in the Amazon Web Services Region that you want, the Amazon Cognito user pool uses an
  *             Identity and Access Management (IAM) role in your Amazon Web Services account.</p>
@@ -5752,7 +5856,7 @@ export interface SmsConfigurationType {
    *             messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>. </p>
    * @public
    */
-  SnsCallerArn: string | undefined;
+  SnsCallerArn?: string | undefined;
 
   /**
    * <p>The external ID provides additional security for your IAM role. You can use an
@@ -5781,6 +5885,15 @@ export interface SmsConfigurationType {
    * @public
    */
   SnsRegion?: string | undefined;
+
+  /**
+   * <p>The configuration for sending SMS messages through Amazon Web Services End User Messaging SMS, as
+   *             an alternative to Amazon SNS. In a user pool, provide either the Amazon SNS configuration
+   *             (<code>SnsCallerArn</code>) or this configuration, but not both. In Amazon Web Services Regions
+   *             where Amazon SNS is not available, this configuration is required.</p>
+   * @public
+   */
+  EumsSms?: EumsSmsConfigurationType | undefined;
 }
 
 /**
@@ -7384,23 +7497,31 @@ export interface CustomDomainConfigType {
 
   /**
    * <p>The security policy for the custom domain. Defines the minimum TLS version and cipher
-   *             suites that CloudFront uses when communicating with viewers (clients). Valid values are
+   *             suites that Amazon CloudFront supports when communicating with clients. For specific guidance,
+   *             see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers between viewers and CloudFront</a>. Valid values are
    *             as follows:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>TLS_V1</code>: Supports TLS 1.0 and later. Provides the broadest client
-   *                     compatibility.</p>
+   *                   <code>TLS_V1_3_2025</code> (strictest): A post-quantum-ready policy requiring TLS 1.3.
+   *                     It provides the strongest security posture and is ideal for
+   *                     workloads where all clients and browsers are updated to the latest
+   *                     versions. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1.3_2025</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TLS_V1_2_2021</code>: Supports TLS 1.2 and later with 2021 cipher
-   *                     suites. Recommended minimum for most use cases.</p>
+   *                   <code>TLS_V1_2_2021</code> (recommended): A post-quantum-ready policy which prefers TLS 1.3 but allows
+   *                     fallback to TLS 1.2 to accommodate older clients. It
+   *                     is the recommended minimum for typical commercial-grade consumer
+   *                     applications. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1.2_2021</a>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TLS_V1_3_2025</code>: Supports TLS 1.3 and later with 2025 cipher
-   *                     suites. Provides the strongest security posture.</p>
+   *                   <code>TLS_V1</code> (strongly discouraged): Permits fallback to TLS 1.0. It offers the broadest
+   *                     compatibility, including support for legacy clients that are more than a
+   *                     decade old. This compatibility comes at the expense of allowing TLS versions
+   *                     and cryptographic algorithms that are no longer considered safe for
+   *                     commercial use. <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html">Supported protocols and ciphers for TLSv1</a>.</p>
    *             </li>
    *          </ul>
    * @public
@@ -8778,6 +8899,76 @@ export interface GetLogDeliveryConfigurationResponse {
    * @public
    */
   LogDeliveryConfiguration?: LogDeliveryConfigurationType | undefined;
+}
+
+/**
+ * <p>The class and attributes that identify a specific limit at the account level.</p>
+ * @public
+ */
+export interface LimitDefinitionType {
+  /**
+   * <p>The class of the limit. For API rate limits, this is
+   *             <code>API_CATEGORY</code>.</p>
+   * @public
+   */
+  LimitClass: LimitClass | undefined;
+
+  /**
+   * <p>The attributes that identify the specific limit. For API rate limits, specify the
+   *             <code>Category</code> key with a value like <code>UserAuthentication</code> or
+   *             <code>UserCreation</code>.</p>
+   * @public
+   */
+  Attributes: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProvisionedLimitRequest {
+  /**
+   * <p>The limit to retrieve. Specify the limit class and the attributes that identify the
+   *             limit.</p>
+   * @public
+   */
+  LimitDefinition: LimitDefinitionType | undefined;
+}
+
+/**
+ * <p>The limit definition and current limit values for a provisioned limit.</p>
+ * @public
+ */
+export interface LimitType {
+  /**
+   * <p>The definition that identifies this limit, including the class and attributes.</p>
+   * @public
+   */
+  LimitDefinition: LimitDefinitionType | undefined;
+
+  /**
+   * <p>The provisioned limit value, in requests per second (RPS). This is the rate that
+   *             Amazon Cognito currently enforces for your account.</p>
+   * @public
+   */
+  ProvisionedLimitValue: number | undefined;
+
+  /**
+   * <p>The default (free) limit value, in requests per second (RPS). This is the rate
+   *             included at no additional cost.</p>
+   * @public
+   */
+  FreeLimitValue: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetProvisionedLimitResponse {
+  /**
+   * <p>The provisioned and default limit values for the requested limit.</p>
+   * @public
+   */
+  Limit: LimitType | undefined;
 }
 
 /**
@@ -11912,75 +12103,4 @@ export interface StartWebAuthnRegistrationResponse {
    * @public
    */
   CredentialCreationOptions: __DocumentType | undefined;
-}
-
-/**
- * <p>Represents the request to stop the user import job.</p>
- * @public
- */
-export interface StopUserImportJobRequest {
-  /**
-   * <p>The ID of the user pool that you want to stop.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The ID of a running user import job.</p>
-   * @public
-   */
-  JobId: string | undefined;
-}
-
-/**
- * <p>Represents the response from the server to the request to stop the user import
- *             job.</p>
- * @public
- */
-export interface StopUserImportJobResponse {
-  /**
-   * <p>The details of the user import job. Includes logging destination, status, and the Amazon S3
-   *             pre-signed URL for CSV upload.</p>
-   * @public
-   */
-  UserImportJob?: UserImportJobType | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag keys and values that you want to assign to the user pool.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TagResourceResponse {}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>An array of tag keys that you want to remove from the user pool.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
 }

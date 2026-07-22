@@ -149,6 +149,49 @@ import type {
 import type { RouteServerPropagation } from "./models_5";
 
 /**
+ * <p>Information about the associated IAM roles.</p>
+ * @public
+ */
+export interface AssociatedRole {
+  /**
+   * <p>The ARN of the associated IAM role.</p>
+   * @public
+   */
+  AssociatedRoleArn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+   * @public
+   */
+  CertificateS3BucketName?: string | undefined;
+
+  /**
+   * <p>The key of the Amazon S3 object where the certificate, certificate chain, and encrypted private key bundle
+   * 			are stored. The object key is formatted as follows: <code>role_arn</code>/<code>certificate_arn</code>.
+   * 		</p>
+   * @public
+   */
+  CertificateS3ObjectKey?: string | undefined;
+
+  /**
+   * <p>The ID of the KMS key used to encrypt the private key.</p>
+   * @public
+   */
+  EncryptionKmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedEnclaveCertificateIamRolesResult {
+  /**
+   * <p>Information about the associated IAM roles.</p>
+   * @public
+   */
+  AssociatedRoles?: AssociatedRole[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetAssociatedIpv6PoolCidrsRequest {
@@ -10133,40 +10176,4 @@ export interface ModifyIpamPoolResult {
    * @public
    */
   IpamPool?: IpamPool | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPoolAllocationRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool allocation you want to modify.</p>
-   * @public
-   */
-  IpamPoolAllocationId: string | undefined;
-
-  /**
-   * <p>The new description for the IPAM pool allocation. If you submit a <code>null</code> value, the description is removed from the allocation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPoolAllocationResult {
-  /**
-   * <p>The modified IPAM pool allocation.</p>
-   * @public
-   */
-  IpamPoolAllocation?: IpamPoolAllocation | undefined;
 }

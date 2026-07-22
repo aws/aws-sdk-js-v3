@@ -67,6 +67,15 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     DiversityConfig: { // DiversityConfig
+ * //       DiversityColumns: [ // DiversityColumnsList
+ * //         { // DiversityColumn
+ * //           Name: "STRING_VALUE", // required
+ * //           CapType: "PERCENTAGE" || "VALUE", // required
+ * //           Target: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   Description: "STRING_VALUE",
  * //   Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
@@ -98,18 +107,30 @@ export interface GetRecommenderCommandOutput extends GetRecommenderResponse, __M
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       DiversityConfig: {
+ * //         DiversityColumns: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             CapType: "PERCENTAGE" || "VALUE", // required
+ * //             Target: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //     Status: "PENDING" || "IN_PROGRESS" || "ACTIVE" || "FAILED" || "STOPPING" || "INACTIVE" || "STARTING" || "DELETING",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     LastUpdatedAt: new Date("TIMESTAMP"),
  * //     FailureReason: "STRING_VALUE",
+ * //     RecommenderVersionName: "STRING_VALUE",
  * //   },
+ * //   ActiveRecommenderVersionName: "STRING_VALUE",
  * //   TrainingMetrics: [ // TrainingMetricsList
  * //     { // TrainingMetrics
  * //       Time: new Date("TIMESTAMP"),
  * //       Metrics: { // Metrics
  * //         "<keys>": Number("double"),
  * //       },
+ * //       RecommenderVersionName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   Tags: { // TagMap

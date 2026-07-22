@@ -34,6 +34,7 @@ export interface InitializeServiceCommandOutput extends InitializeServiceOutput,
  * const client = new OdbClient(config);
  * const input = { // InitializeServiceInput
  *   ociIdentityDomain: true || false,
+ *   autonomousDatabaseOciAwsSecretsManagerIntegration: "ENABLED" || "DISABLED",
  * };
  * const command = new InitializeServiceCommand(input);
  * const response = await client.send(command);

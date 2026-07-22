@@ -963,6 +963,11 @@ export interface ContainerFleetLocationAttributes {
    *                   <code>UPDATING</code> -- Updates to the container fleet is being updated. A
    *                     deployment is in progress.</p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPIRED</code> -- The container fleet has been expired. The fleet is
+   *                     scaled down to zero instances and cannot host new game sessions.</p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -1207,6 +1212,11 @@ export interface ContainerFleet {
    *                <p>
    *                   <code>UPDATING</code> -- Updates to the container fleet is being updated. A deployment is in
    *                     progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXPIRED</code> -- The container fleet has been expired. The fleet is scaled down to zero
+   *                     instances and cannot host new game sessions.</p>
    *             </li>
    *          </ul>
    * @public
@@ -3282,6 +3292,10 @@ export interface FleetAttributes {
    *             <li>
    *                <p>ERROR -- An error occurred when downloading,
    *                     validating, building, or activating the fleet.</p>
+   *             </li>
+   *             <li>
+   *                <p>EXPIRED -- The fleet has been expired. The fleet is scaled down to zero
+   *                     instances and cannot host new game sessions.</p>
    *             </li>
    *             <li>
    *                <p>DELETING -- Hosts are responding to a delete fleet request.</p>
@@ -7145,6 +7159,10 @@ export interface Event {
    *             </li>
    *             <li>
    *                <p>FLEET_DELETED -- A request to delete a fleet was initiated.</p>
+   *             </li>
+   *             <li>
+   *                <p>FLEET_EXPIRED -- The fleet has been expired. The fleet is scaled down to zero
+   *                     instances and can no longer host game sessions.</p>
    *             </li>
    *             <li>
    *                <p> GENERIC_EVENT -- An unspecified event has occurred.</p>

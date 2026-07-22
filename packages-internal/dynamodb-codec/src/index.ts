@@ -1,1 +1,1 @@
-export * from "./codec/DynamoDBJsonCodec";
+export { DynamoDBJsonCodec } from "./codec/DynamoDBJsonCodec";

@@ -273,6 +273,7 @@ const _HTRBDa = "HarnessToolResultBlockDelta";
 const _HTRBS = "HarnessToolResultBlockStart";
 const _HTRCB = "HarnessToolResultContentBlocks";
 const _HTRCBa = "HarnessToolResultContentBlock";
+const _HTRMBD = "HarnessToolResultMetadataBlockDelta";
 const _HTU = "HarnessTokenUsage";
 const _HTUB = "HarnessToolUseBlock";
 const _HTUBD = "HarnessToolUseBlockDelta";
@@ -363,12 +364,14 @@ const _MDA = "MouseDragArguments";
 const _MDR = "MouseDragResult";
 const _MDc = "McpDescriptor";
 const _ML = "MessagesList";
-const _MM = "MessageMetadata";
+const _MM = "Mcp-Method";
 const _MMA = "MouseMoveArguments";
 const _MMFE = "MemoryMetadataFilterExpression";
 const _MMFL = "MemoryMetadataFilterList";
 const _MMR = "MouseMoveResult";
-const _MMe = "MetadataMap";
+const _MMe = "MessageMetadata";
+const _MMet = "MetadataMap";
+const _MN = "Mcp-Name";
 const _MPV = "Mcp-Protocol-Version";
 const _MR = "MemoryRecord";
 const _MRCI = "MemoryRecordCreateInput";
@@ -813,7 +816,9 @@ const _mIe = "messageIndex";
 const _mIo = "modelId";
 const _mK = "metadataKey";
 const _mL = "messagesList";
-const _mM = "mouseMove";
+const _mM = "mcpMethod";
+const _mMo = "mouseMove";
+const _mN = "mcpName";
 const _mPV = "mcpProtocolVersion";
 const _mR = "memoryRecord";
 const _mRI = "memoryRecordId";
@@ -1023,6 +1028,7 @@ const _tP = "targetPaths";
 const _tPo = "topP";
 const _tPr = "traceParent";
 const _tR = "timeRange";
+const _tRM = "toolResultMetadata";
 const _tRo = "toolResult";
 const _tS = "traceState";
 const _tSI = "testScenarioId";
@@ -1951,8 +1957,8 @@ export var HarnessContentBlockStopEvent$: StaticStructureSchema = [3, n0, _HCBSE
 ];
 export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
-  [_mIo, _aKA, _mTa, _tem, _tPo, _tK],
-  [0, 0, 1, 1, 1, 1], 2
+  [_mIo, _aKA, _mTa, _tem, _tPo, _tK, _aP],
+  [0, 0, 1, 1, 1, 1, 15], 2
 ];
 export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   0,
@@ -2044,6 +2050,11 @@ export var HarnessToolResultBlockStart$: StaticStructureSchema = [3, n0, _HTRBS,
   [_tUI, _sta],
   [0, 0], 1
 ];
+export var HarnessToolResultMetadataBlockDelta$: StaticStructureSchema = [3, n0, _HTRMBD,
+  0,
+  [_met],
+  [[() => SensitiveText, 0]], 1
+];
 export var HarnessToolUseBlock$: StaticStructureSchema = [3, n0, _HTUB,
   0,
   [_n, _tUI, _in, _t, _sNe],
@@ -2096,8 +2107,8 @@ export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
-  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
+  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _mM, _mN, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
+  [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _MM }], [0, { [_hH]: _MN }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
@@ -2126,8 +2137,8 @@ export var InvokeCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _ICIR
 ];
 export var InvokeHarnessRequest$: StaticStructureSchema = [3, n0, _IHR,
   0,
-  [_hA, _rSI, _mes, _q, _rUI, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
-  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], [0, { [_hQ]: _q }], [0, { [_hH]: _XABARUI }], [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
+  [_hA, _rSI, _mes, _q, _rUI, _tPr, _tS, _tI, _ba, _mo, _sP, _too, _sk, _aTl, _mIa, _mTa, _tSi, _aI],
+  [[0, { [_hQ]: _hA }], [0, { [_hH]: _XABARSI }], [() => HarnessMessages, 0], [0, { [_hQ]: _q }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _XATI }], [0, { [_hH]: _ba }], [() => HarnessModelConfiguration$, 0], [() => HarnessSystemPrompt, 0], [() => HarnessTools, 0], () => HarnessSkills, 64 | 0, 1, 1, 1, 0], 3
 ];
 export var InvokeHarnessResponse$: StaticStructureSchema = [3, n0, _IHRn,
   0,
@@ -2344,7 +2355,7 @@ export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   [_mRI, _tim, _co, _nam, _mSIe, _met],
   [0, 4, [() => MemoryContent$, 0], 64 | 0, 0, () => MemoryRecordMetadataMap], 2
 ];
-export var MessageMetadata$: StaticStructureSchema = [3, n0, _MM,
+export var MessageMetadata$: StaticStructureSchema = [3, n0, _MMe,
   0,
   [_eI, _mIe],
   [0, 1], 2
@@ -3068,7 +3079,7 @@ var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
 var MemoryRecordMetadataMap: StaticMapSchema = [2, n0, _MRMM,
   0, 0, () => MemoryRecordMetadataValue$
 ];
-var MetadataMap: StaticMapSchema = [2, n0, _MMe,
+var MetadataMap: StaticMapSchema = [2, n0, _MMet,
   0, 0, () => MetadataValue$
 ];
 var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu,
@@ -3091,12 +3102,12 @@ export var AgentTracesConfig$: StaticUnionSchema = [4, n0, _ATC,
 ];
 export var BrowserAction$: StaticUnionSchema = [4, n0, _BAr,
   0,
-  [_mC, _mM, _mD, _mS, _kT, _kP, _kS, _scr],
+  [_mC, _mMo, _mD, _mS, _kT, _kP, _kS, _scr],
   [() => MouseClickArguments$, () => MouseMoveArguments$, () => MouseDragArguments$, () => MouseScrollArguments$, () => KeyTypeArguments$, () => KeyPressArguments$, () => KeyShortcutArguments$, () => ScreenshotArguments$]
 ];
 export var BrowserActionResult$: StaticUnionSchema = [4, n0, _BAR,
   0,
-  [_mC, _mM, _mD, _mS, _kT, _kP, _kS, _scr],
+  [_mC, _mMo, _mD, _mS, _kT, _kP, _kS, _scr],
   [() => MouseClickResult$, () => MouseMoveResult$, () => MouseDragResult$, () => MouseScrollResult$, () => KeyTypeResult$, () => KeyPressResult$, () => KeyShortcutResult$, () => ScreenshotResult$]
 ];
 export var CertificateLocation$: StaticUnionSchema = [4, n0, _CL,
@@ -3171,8 +3182,8 @@ export var HarnessContentBlock$: StaticUnionSchema = [4, n0, _HCBa,
 ];
 export var HarnessContentBlockDelta$: StaticUnionSchema = [4, n0, _HCBD,
   0,
-  [_te, _tUo, _tRo, _rCea],
-  [[() => SensitiveText, 0], [() => HarnessToolUseBlockDelta$, 0], [() => HarnessToolResultBlocksDelta, 0], [() => HarnessReasoningContentBlockDelta$, 0]]
+  [_te, _tUo, _tRo, _rCea, _tRM],
+  [[() => SensitiveText, 0], [() => HarnessToolUseBlockDelta$, 0], [() => HarnessToolResultBlocksDelta, 0], [() => HarnessReasoningContentBlockDelta$, 0], [() => HarnessToolResultMetadataBlockDelta$, 0]]
 ];
 export var HarnessContentBlockStart$: StaticUnionSchema = [4, n0, _HCBS,
   0,

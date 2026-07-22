@@ -9,7 +9,7 @@ const clients = [
   },
   {
     name: "signin",
-    operations: ["CreateOAuth2Token"],
+    operations: ["CreateOAuth2Token", "CreateOAuth2TokenWithIAM"],
   },
   {
     name: "sso",

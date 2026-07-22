@@ -150,6 +150,8 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  *     StartTime: new Date("TIMESTAMP"),
  *     EndTime: new Date("TIMESTAMP"),
  *   },
+ *   UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ *   EngineMode: "GENERAL" || "OPTIMIZED",
  * };
  * const command = new CreateElasticsearchDomainCommand(input);
  * const response = await client.send(command);
@@ -292,6 +294,8 @@ export interface CreateElasticsearchDomainCommandOutput extends CreateElasticsea
  * //       EndTime: new Date("TIMESTAMP"),
  * //       State: "Active" || "Completed" || "Scheduled" || "Disabled",
  * //     },
+ * //     UseCase: "SEARCH" || "VECTOR" || "OBSERVABILITY" || "MIXED",
+ * //     EngineMode: "GENERAL" || "OPTIMIZED",
  * //   },
  * // };
  *

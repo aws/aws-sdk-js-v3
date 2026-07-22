@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListCoverageStatisticsRequest, ListCoverageStatisticsResponse } from "../models/models_0";
+import type { ListCoverageStatisticsRequest, ListCoverageStatisticsResponse } from "../models/models_1";
 import { ListCoverageStatistics$ } from "../schemas/schemas_0";
 
 /**
@@ -112,6 +112,29 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *     codeRepositoryProviderType: "<CoverageStringFilterList>",
  *     codeRepositoryProviderTypeVisibility: "<CoverageStringFilterList>",
  *     lastScannedCommitId: "<CoverageStringFilterList>",
+ *     cloudProvider: "<CoverageStringFilterList>",
+ *     cloudProviderAccountId: "<CoverageStringFilterList>",
+ *     cloudProviderRegion: "<CoverageStringFilterList>",
+ *     cloudVmInstanceTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     cloudContainerImageTags: "<CoverageStringFilterList>",
+ *     cloudContainerRepositoryName: "<CoverageStringFilterList>",
+ *     cloudContainerRegistryName: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionName: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionRuntime: "<CoverageStringFilterList>",
+ *     cloudServerlessFunctionTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     cloudProviderOrgId: "<CoverageStringFilterList>",
  *   },
  *   groupBy: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",

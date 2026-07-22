@@ -23,11 +23,49 @@ import type {
   AgentSkillsDescriptor,
   BranchFilter,
   Event,
-  LeftExpression,
   MemoryContent,
   MemoryRecordMetadataValue,
   MetadataValue,
 } from "./models_0";
+
+/**
+ * <p>Left expression of the event metadata filter.</p>
+ * @public
+ */
+export type LeftExpression =
+  | LeftExpression.MetadataKeyMember
+  | LeftExpression.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LeftExpression {
+  /**
+   * <p>Key associated with the metadata in an event.</p>
+   * @public
+   */
+  export interface MetadataKeyMember {
+    metadataKey: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataKey: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Right expression of the <code>eventMetadata</code>filter.</p>

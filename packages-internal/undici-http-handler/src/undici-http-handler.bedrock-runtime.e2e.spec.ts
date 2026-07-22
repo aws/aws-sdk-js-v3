@@ -6,7 +6,7 @@ import { UndiciHttpHandler } from "./index";
 describe("BedrockRuntime", () => {
   const client = new BedrockRuntime({
     region: "us-east-1",
-    requestHandler: new UndiciHttpHandler(),
+    requestHandler: new UndiciHttpHandler({ dispatcher: { allowH2: true } }),
   });
 
   afterAll(() => {

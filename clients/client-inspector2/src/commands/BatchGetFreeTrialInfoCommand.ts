@@ -49,6 +49,7 @@ export interface BatchGetFreeTrialInfoCommandOutput extends BatchGetFreeTrialInf
  * //           start: new Date("TIMESTAMP"), // required
  * //           end: new Date("TIMESTAMP"), // required
  * //           status: "STRING_VALUE", // required
+ * //           cloudProvider: "STRING_VALUE",
  * //         },
  * //       ],
  * //     },

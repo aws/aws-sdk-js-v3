@@ -1,5 +1,5 @@
 import { CloudWatchLogs } from "@aws-sdk/client-cloudwatch-logs";
-import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
+import { type GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
 import { describe, expect, test as it } from "vitest";
 
 describe(

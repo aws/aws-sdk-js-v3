@@ -1,7 +1,7 @@
 import type { TokenIdentity } from "@smithy/types";
 
 import type { AwsSdkTokenFeatures } from "../feature-ids";
-export { TokenIdentity, TokenIdentityProvider } from "@smithy/types";
+export type { TokenIdentity, TokenIdentityProvider } from "@smithy/types";
 
 /**
  * @public

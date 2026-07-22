@@ -18,6 +18,7 @@ const _ACBCRg = "AggregateComplianceByConfigRules";
 const _ACC = "AggregateComplianceCount";
 const _ACCL = "AggregateComplianceCountList";
 const _ACCg = "AggregateComplianceCounts";
+const _ACCz = "AzureConnectorConfiguration";
 const _ACPC = "AggregateConformancePackCompliance";
 const _ACPCC = "AggregateConformancePackComplianceCount";
 const _ACPCF = "AggregateConformancePackComplianceFilters";
@@ -58,6 +59,7 @@ const _CAL = "ConfigurationAggregatorList";
 const _CAN = "ConfigurationAggregatorName";
 const _CANo = "ConfigurationAggregatorNames";
 const _CAo = "ConfigurationAggregators";
+const _CAon = "ConnectorArn";
 const _CB = "CreatedBy";
 const _CBCR = "ComplianceByConfigRule";
 const _CBCRo = "ComplianceByConfigRules";
@@ -67,10 +69,13 @@ const _CBS = "CreatedByService";
 const _CC = "CappedCount";
 const _CCC = "ComplianceContributorCount";
 const _CCPC = "CompliantConformancePackCount";
+const _CCo = "ConnectorConfiguration";
 const _CE = "ConflictException";
 const _CEDI = "ConfigExportDeliveryInfo";
 const _CERP = "ConcurrentExecutionRatePercentage";
 const _CEa = "CapExceeded";
+const _CF = "ConnectorFilter";
+const _CFL = "ConnectorFilterList";
 const _CI = "ConfigurationItem";
 const _CIL = "ConfigurationItemList";
 const _CPA = "ConformancePackArn";
@@ -139,12 +144,15 @@ const _CSBRTo = "ComplianceSummariesByResourceType";
 const _CSDI = "ConfigStreamDeliveryInfo";
 const _CSDP = "ConfigSnapshotDeliveryProperties";
 const _CST = "ComplianceSummaryTimestamp";
+const _CSo = "ConnectorSummary";
+const _CSon = "ConnectorSummaries";
 const _CT = "ComplianceType";
 const _CTl = "ClientToken";
 const _CTo = "ComplianceTypes";
 const _CTr = "CreationTime";
 const _Co = "Controls";
-const _Con = "Configuration";
+const _Con = "Connector";
+const _Conf = "Configuration";
 const _D = "Description";
 const _DAA = "DeleteAggregationAuthorization";
 const _DAAR = "DeleteAggregationAuthorizationRequest";
@@ -186,7 +194,7 @@ const _DCPS = "DescribeConformancePackStatus";
 const _DCPSR = "DescribeConformancePackStatusRequest";
 const _DCPSRe = "DescribeConformancePackStatusResponse";
 const _DCPe = "DescribeConformancePacks";
-const _DCR = "DeleteConfigRule";
+const _DCR = "DeleteConnectorRequest";
 const _DCRES = "DescribeConfigRuleEvaluationStatus";
 const _DCRESR = "DescribeConfigRuleEvaluationStatusRequest";
 const _DCRESRe = "DescribeConfigRuleEvaluationStatusResponse";
@@ -200,7 +208,8 @@ const _DCRRescri = "DescribeConfigurationRecordersResponse";
 const _DCRS = "DescribeConfigurationRecorderStatus";
 const _DCRSR = "DescribeConfigurationRecorderStatusRequest";
 const _DCRSRe = "DescribeConfigurationRecorderStatusResponse";
-const _DCRe = "DeleteConfigurationRecorder";
+const _DCRe = "DeleteConfigRule";
+const _DCRel = "DeleteConfigurationRecorder";
 const _DCRes = "DescribeConfigRules";
 const _DCResc = "DescribeConfigurationRecorders";
 const _DCS = "DeliveryChannelStatus";
@@ -210,6 +219,7 @@ const _DCSRe = "DeliverConfigSnapshotResponse";
 const _DCSe = "DeliveryChannelsStatus";
 const _DCSel = "DeliverConfigSnapshot";
 const _DCe = "DeliveryChannels";
+const _DCel = "DeleteConnector";
 const _DDC = "DeleteDeliveryChannel";
 const _DDCR = "DeleteDeliveryChannelRequest";
 const _DDCRe = "DescribeDeliveryChannelsRequest";
@@ -337,6 +347,7 @@ const _GARC = "GetAggregateResourceConfig";
 const _GARCR = "GetAggregateResourceConfigRequest";
 const _GARCRe = "GetAggregateResourceConfigResponse";
 const _GBK = "GroupByKey";
+const _GC = "GetConnector";
 const _GCDBCR = "GetComplianceDetailsByConfigRule";
 const _GCDBCRR = "GetComplianceDetailsByConfigRuleRequest";
 const _GCDBCRRe = "GetComplianceDetailsByConfigRuleResponse";
@@ -349,9 +360,11 @@ const _GCPCDRe = "GetConformancePackComplianceDetailsResponse";
 const _GCPCS = "GetConformancePackComplianceSummary";
 const _GCPCSR = "GetConformancePackComplianceSummaryRequest";
 const _GCPCSRe = "GetConformancePackComplianceSummaryResponse";
+const _GCR = "GetConnectorRequest";
 const _GCRP = "GetCustomRulePolicy";
 const _GCRPR = "GetCustomRulePolicyRequest";
 const _GCRPRe = "GetCustomRulePolicyResponse";
+const _GCRe = "GetConnectorResponse";
 const _GCSBCR = "GetComplianceSummaryByConfigRule";
 const _GCSBCRR = "GetComplianceSummaryByConfigRuleResponse";
 const _GCSBRT = "GetComplianceSummaryByResourceType";
@@ -405,12 +418,15 @@ const _L = "Limit";
 const _LADR = "ListAggregateDiscoveredResources";
 const _LADRR = "ListAggregateDiscoveredResourcesRequest";
 const _LADRRi = "ListAggregateDiscoveredResourcesResponse";
+const _LC = "ListConnectors";
 const _LCPCS = "ListConformancePackComplianceScores";
 const _LCPCSR = "ListConformancePackComplianceScoresRequest";
 const _LCPCSRi = "ListConformancePackComplianceScoresResponse";
-const _LCR = "ListConfigurationRecorders";
+const _LCR = "ListConnectorsRequest";
 const _LCRR = "ListConfigurationRecordersRequest";
 const _LCRRi = "ListConfigurationRecordersResponse";
+const _LCRi = "ListConnectorsResponse";
+const _LCRis = "ListConfigurationRecorders";
 const _LDCDFE = "LastDeliveryChannelDeleteFailedException";
 const _LDLDS = "LastDebugLogDeliveryStatus";
 const _LDLDSR = "LastDebugLogDeliveryStatusReason";
@@ -447,6 +463,7 @@ const _MAREE = "MaxActiveResourcesExceededException";
 const _MARS = "MemberAccountRuleStatus";
 const _MAS = "MemberAccountStatus";
 const _MEF = "MaximumExecutionFrequency";
+const _MNOCEE = "MaxNumberOfConnectorsExceededException";
 const _MNOCPEE = "MaxNumberOfConformancePacksExceededException";
 const _MNOCREE = "MaxNumberOfConfigRulesExceededException";
 const _MNOCREEa = "MaxNumberOfConfigurationRecordersExceededException";
@@ -516,16 +533,19 @@ const _PAARu = "PutAggregationAuthorizationResponse";
 const _PAR = "PendingAggregationRequests";
 const _PARL = "PendingAggregationRequestList";
 const _PARe = "PendingAggregationRequest";
+const _PC = "PutConnector";
 const _PCA = "PutConfigurationAggregator";
 const _PCAR = "PutConfigurationAggregatorRequest";
 const _PCARu = "PutConfigurationAggregatorResponse";
 const _PCP = "PutConformancePack";
 const _PCPR = "PutConformancePackRequest";
 const _PCPRu = "PutConformancePackResponse";
-const _PCR = "PutConfigRule";
+const _PCR = "PutConnectorRequest";
 const _PCRR = "PutConfigRuleRequest";
 const _PCRRu = "PutConfigurationRecorderRequest";
-const _PCRu = "PutConfigurationRecorder";
+const _PCRu = "PutConnectorResponse";
+const _PCRut = "PutConfigRule";
+const _PCRuto = "PutConfigurationRecorder";
 const _PDC = "PutDeliveryChannel";
 const _PDCR = "PutDeliveryChannelRequest";
 const _PE = "PutEvaluations";
@@ -560,6 +580,9 @@ const _PSQ = "PutStoredQuery";
 const _PSQR = "PutStoredQueryRequest";
 const _PSQRu = "PutStoredQueryResponse";
 const _PT = "PolicyText";
+const _PTPSLCR = "PutThirdPartyServiceLinkedConfigurationRecorder";
+const _PTPSLCRR = "PutThirdPartyServiceLinkedConfigurationRecorderRequest";
+const _PTPSLCRRu = "PutThirdPartyServiceLinkedConfigurationRecorderResponse";
 const _PV = "ParameterValue";
 const _QA = "QueryArn";
 const _QI = "QueryInfo";
@@ -646,6 +669,7 @@ const _SCRERt = "StartConfigRulesEvaluationResponse";
 const _SCRR = "StartConfigurationRecorderRequest";
 const _SCRRt = "StopConfigurationRecorderRequest";
 const _SCRt = "StopConfigurationRecorder";
+const _SCc = "ScopeConfiguration";
 const _SD = "StepDetails";
 const _SDF = "StatusDetailFilters";
 const _SDo = "SourceDetails";
@@ -713,22 +737,28 @@ const _Va = "Values";
 const _a = "arn";
 const _aI = "accountId";
 const _aR = "awsRegion";
+const _aRl = "allRegions";
 const _aS = "allSupported";
 const _aZ = "availabilityZone";
+const _az = "azure";
 const _bCI = "baseConfigurationItems";
 const _c = "client";
+const _cA = "connectorArn";
+const _cC = "connectorConfiguration";
 const _cHDI = "configHistoryDeliveryInfo";
-const _cI = "configurationItems";
+const _cI = "clientIdentifier";
 const _cICT = "configurationItemCaptureTime";
 const _cIDT = "configurationItemDeliveryTime";
 const _cIMDH = "configurationItemMD5Hash";
 const _cIS = "configurationItemStatus";
+const _cIo = "configurationItems";
 const _cO = "chronologicalOrder";
 const _cSDI = "configSnapshotDeliveryInfo";
 const _cSDIo = "configStreamDeliveryInfo";
 const _cSDP = "configSnapshotDeliveryProperties";
 const _cSI = "configurationStateId";
 const _cSIo = "configSnapshotId";
+const _cT = "createdTime";
 const _co = "configuration";
 const _cou = "count";
 const _d = "description";
@@ -739,9 +769,11 @@ const _eBRT = "exclusionByResourceTypes";
 const _eT = "earlierTime";
 const _fN = "filterName";
 const _fV = "filterValue";
+const _fVi = "filterValues";
 const _hE = "httpError";
 const _iDR = "includeDeletedResources";
 const _iGRT = "includeGlobalResourceTypes";
+const _iR = "includedRegions";
 const _l = "limit";
 const _lAT = "lastAttemptTime";
 const _lEC = "lastErrorCode";
@@ -756,6 +788,7 @@ const _m = "message";
 const _n = "name";
 const _nDT = "nextDeliveryTime";
 const _nT = "nextToken";
+const _p = "provider";
 const _r = "relationships";
 const _rARN = "roleARN";
 const _rC = "resourceCounts";
@@ -780,12 +813,16 @@ const _re = "recording";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.configservice";
 const _sBN = "s3BucketName";
 const _sC = "supplementaryConfiguration";
+const _sCc = "scopeConfiguration";
 const _sKKA = "s3KmsKeyArn";
 const _sKP = "s3KeyPrefix";
 const _sP = "servicePrincipal";
+const _sT = "scopeType";
 const _sTARN = "snsTopicARN";
+const _sV = "scopeValues";
 const _t = "tags";
 const _tDR = "totalDiscoveredResources";
+const _tI = "tenantIdentifier";
 const _uO = "useOnly";
 const _uRK = "unprocessedResourceKeys";
 const _v = "version";
@@ -827,6 +864,7 @@ import {
   MaxNumberOfConfigRulesExceededException,
   MaxNumberOfConfigurationRecordersExceededException,
   MaxNumberOfConformancePacksExceededException,
+  MaxNumberOfConnectorsExceededException,
   MaxNumberOfDeliveryChannelsExceededException,
   MaxNumberOfOrganizationConfigRulesExceededException,
   MaxNumberOfOrganizationConformancePacksExceededException,
@@ -1010,6 +1048,12 @@ export var MaxNumberOfConformancePacksExceededException$: StaticErrorSchema = [-
   [0]
 ];
 n0_registry.registerError(MaxNumberOfConformancePacksExceededException$, MaxNumberOfConformancePacksExceededException);
+export var MaxNumberOfConnectorsExceededException$: StaticErrorSchema = [-3, n0, _MNOCEE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(MaxNumberOfConnectorsExceededException$, MaxNumberOfConnectorsExceededException);
 export var MaxNumberOfDeliveryChannelsExceededException$: StaticErrorSchema = [-3, n0, _MNODCEE,
   { [_e]: _c },
   [_m],
@@ -1301,6 +1345,11 @@ export var AssociateResourceTypesResponse$: StaticStructureSchema = [3, n0, _ART
   [_CR],
   [() => ConfigurationRecorder$], 1
 ];
+export var AzureConnectorConfiguration$: StaticStructureSchema = [3, n0, _ACCz,
+  0,
+  [_tI, _cI],
+  [0, 0], 2
+];
 export var BaseConfigurationItem$: StaticStructureSchema = [3, n0, _BCI,
   0,
   [_v, _aI, _cICT, _cIS, _cSI, _a, _rT, _rI, _rN, _aR, _aZ, _rCT, _co, _sC, _rF, _cIDT],
@@ -1403,8 +1452,8 @@ export var ConfigurationItem$: StaticStructureSchema = [3, n0, _CI,
 ];
 export var ConfigurationRecorder$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_a, _n, _rARN, _rG, _rM, _rS, _sP],
-  [0, 0, 0, () => RecordingGroup$, () => RecordingMode$, 0, 0]
+  [_a, _n, _rARN, _rG, _rM, _rS, _sP, _cA, _sCc],
+  [0, 0, 0, () => RecordingGroup$, () => RecordingMode$, 0, 0, 0, () => ScopeConfiguration$]
 ];
 export var ConfigurationRecorderFilter$: StaticStructureSchema = [3, n0, _CRF,
   0,
@@ -1418,8 +1467,8 @@ export var ConfigurationRecorderStatus$: StaticStructureSchema = [3, n0, _CRSo,
 ];
 export var ConfigurationRecorderSummary$: StaticStructureSchema = [3, n0, _CRSon,
   0,
-  [_a, _n, _rS, _sP],
-  [0, 0, 0, 0], 3
+  [_a, _n, _rS, _sP, _p],
+  [0, 0, 0, 0, 0], 3
 ];
 export var ConformancePackComplianceFilters$: StaticStructureSchema = [3, n0, _CPCF,
   0,
@@ -1471,6 +1520,26 @@ export var ConformancePackStatusDetail$: StaticStructureSchema = [3, n0, _CPSD,
   [_CPN, _CPI, _CPA, _CPS, _SA, _LURT, _CPSR, _LUCT],
   [0, 0, 0, 0, 0, 4, 0, 4], 6
 ];
+export var Connector$: StaticStructureSchema = [3, n0, _Con,
+  0,
+  [_n, _a, _cC, _cT],
+  [0, 0, () => ConnectorConfiguration$, 4], 4
+];
+export var ConnectorConfiguration$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_az],
+  [() => AzureConnectorConfiguration$]
+];
+export var ConnectorFilter$: StaticStructureSchema = [3, n0, _CF,
+  0,
+  [_fN, _fVi],
+  [0, 64 | 0]
+];
+export var ConnectorSummary$: StaticStructureSchema = [3, n0, _CSo,
+  0,
+  [_a, _n, _p, _tI, _cT],
+  [0, 0, 0, 0, 4], 5
+];
 export var CustomPolicyDetails$: StaticStructureSchema = [3, n0, _CPDu,
   0,
   [_PR, _PT, _EDLD],
@@ -1499,6 +1568,11 @@ export var DeleteConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, 
 export var DeleteConformancePackRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
   [_CPN],
+  [0], 1
+];
+export var DeleteConnectorRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_Ar],
   [0], 1
 ];
 export var DeleteDeliveryChannelRequest$: StaticStructureSchema = [3, n0, _DDCR,
@@ -1563,8 +1637,8 @@ export var DeleteRetentionConfigurationRequest$: StaticStructureSchema = [3, n0,
 ];
 export var DeleteServiceLinkedConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _DSLCRR,
   0,
-  [_SP],
-  [0], 1
+  [_SP, _Ar],
+  [0, 0]
 ];
 export var DeleteServiceLinkedConfigurationRecorderResponse$: StaticStructureSchema = [3, n0, _DSLCRRe,
   0,
@@ -1668,8 +1742,8 @@ export var DescribeConfigRulesFilters$: StaticStructureSchema = [3, n0, _DCRF,
 ];
 export var DescribeConfigRulesRequest$: StaticStructureSchema = [3, n0, _DCRRes,
   0,
-  [_CRNo, _NT, _F],
-  [64 | 0, 0, () => DescribeConfigRulesFilters$]
+  [_CRNo, _F, _NT],
+  [64 | 0, () => DescribeConfigRulesFilters$, 0]
 ];
 export var DescribeConfigRulesResponse$: StaticStructureSchema = [3, n0, _DCRResc,
   0,
@@ -2041,6 +2115,16 @@ export var GetConformancePackComplianceSummaryResponse$: StaticStructureSchema =
   [_CPCSL, _NT],
   [() => ConformancePackComplianceSummaryList, 0]
 ];
+export var GetConnectorRequest$: StaticStructureSchema = [3, n0, _GCR,
+  0,
+  [_Ar],
+  [0], 1
+];
+export var GetConnectorResponse$: StaticStructureSchema = [3, n0, _GCRe,
+  0,
+  [_Con],
+  [() => Connector$], 1
+];
 export var GetCustomRulePolicyRequest$: StaticStructureSchema = [3, n0, _GCRPR,
   0,
   [_CRN],
@@ -2098,7 +2182,7 @@ export var GetResourceConfigHistoryRequest$: StaticStructureSchema = [3, n0, _GR
 ];
 export var GetResourceConfigHistoryResponse$: StaticStructureSchema = [3, n0, _GRCHRe,
   0,
-  [_cI, _nT],
+  [_cIo, _nT],
   [() => ConfigurationItemList, 0]
 ];
 export var GetResourceEvaluationSummaryRequest$: StaticStructureSchema = [3, n0, _GRESR,
@@ -2155,6 +2239,16 @@ export var ListConformancePackComplianceScoresResponse$: StaticStructureSchema =
   0,
   [_CPCSonf, _NT],
   [() => ConformancePackComplianceScores, 0], 1
+];
+export var ListConnectorsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_MR, _NT, _F],
+  [1, 0, () => ConnectorFilterList]
+];
+export var ListConnectorsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_CSon, _NT],
+  [() => ConnectorSummaries, 0], 1
 ];
 export var ListDiscoveredResourcesRequest$: StaticStructureSchema = [3, n0, _LDRR,
   0,
@@ -2301,6 +2395,16 @@ export var PutConformancePackResponse$: StaticStructureSchema = [3, n0, _PCPRu,
   [_CPA],
   [0]
 ];
+export var PutConnectorRequest$: StaticStructureSchema = [3, n0, _PCR,
+  0,
+  [_CCo, _Ta],
+  [() => ConnectorConfiguration$, () => TagsList], 1
+];
+export var PutConnectorResponse$: StaticStructureSchema = [3, n0, _PCRu,
+  0,
+  [_Ar],
+  [0], 1
+];
 export var PutDeliveryChannelRequest$: StaticStructureSchema = [3, n0, _PDCR,
   0,
   [_DC],
@@ -2328,8 +2432,8 @@ export var PutExternalEvaluationResponse$: StaticStructureSchema = [3, n0, _PEER
 ];
 export var PutOrganizationConfigRuleRequest$: StaticStructureSchema = [3, n0, _POCRR,
   0,
-  [_OCRN, _OMRM, _OCRM, _EA, _OCPRM],
-  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$], 1
+  [_OCRN, _OMRM, _OCRM, _EA, _OCPRM, _Ta],
+  [0, () => OrganizationManagedRuleMetadata$, () => OrganizationCustomRuleMetadata$, 64 | 0, () => OrganizationCustomPolicyRuleMetadata$, () => TagsList], 1
 ];
 export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _POCRRu,
   0,
@@ -2338,8 +2442,8 @@ export var PutOrganizationConfigRuleResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var PutOrganizationConformancePackRequest$: StaticStructureSchema = [3, n0, _POCPR,
   0,
-  [_OCPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _EA],
-  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0], 1
+  [_OCPN, _TSU, _TB, _DSB, _DSKP, _CPIP, _EA, _Ta],
+  [0, 0, 0, 0, 0, () => ConformancePackInputParameters, 64 | 0, () => TagsList], 1
 ];
 export var PutOrganizationConformancePackResponse$: StaticStructureSchema = [3, n0, _POCPRu,
   0,
@@ -2368,7 +2472,7 @@ export var PutRemediationExceptionsResponse$: StaticStructureSchema = [3, n0, _P
 ];
 export var PutResourceConfigRequest$: StaticStructureSchema = [3, n0, _PRCRut,
   0,
-  [_RT, _SVI, _RI, _Con, _RN, _Ta],
+  [_RT, _SVI, _RI, _Conf, _RN, _Ta],
   [0, 0, 0, 0, 0, 128 | 0], 4
 ];
 export var PutRetentionConfigurationRequest$: StaticStructureSchema = [3, n0, _PRCRute,
@@ -2400,6 +2504,16 @@ export var PutStoredQueryResponse$: StaticStructureSchema = [3, n0, _PSQRu,
   0,
   [_QA],
   [0]
+];
+export var PutThirdPartyServiceLinkedConfigurationRecorderRequest$: StaticStructureSchema = [3, n0, _PTPSLCRR,
+  0,
+  [_SP, _CAon, _SCc, _Ta],
+  [0, 0, () => ScopeConfiguration$, () => TagsList], 3
+];
+export var PutThirdPartyServiceLinkedConfigurationRecorderResponse$: StaticStructureSchema = [3, n0, _PTPSLCRRu,
+  0,
+  [_Ar, _N],
+  [0, 0], 2
 ];
 export var QueryInfo$: StaticStructureSchema = [3, n0, _QI,
   0,
@@ -2515,6 +2629,11 @@ export var Scope$: StaticStructureSchema = [3, n0, _Sc,
   0,
   [_CRTo, _TK, _TVa, _CRIo, _SPe],
   [64 | 0, 0, 0, 0, 64 | 0]
+];
+export var ScopeConfiguration$: StaticStructureSchema = [3, n0, _SCc,
+  0,
+  [_sT, _aRl, _sV, _iR],
+  [0, 2, 64 | 0, 64 | 0], 2
 ];
 export var SelectAggregateResourceConfigRequest$: StaticStructureSchema = [3, n0, _SARCR,
   0,
@@ -2732,6 +2851,12 @@ var ConformancePackRuleEvaluationResultsList: StaticListSchema = [1, n0, _CPRERL
 var ConformancePackStatusDetailsList: StaticListSchema = [1, n0, _CPSDL,
   0, () => ConformancePackStatusDetail$
 ];
+var ConnectorFilterList: StaticListSchema = [1, n0, _CFL,
+  0, () => ConnectorFilter$
+];
+var ConnectorSummaries: StaticListSchema = [1, n0, _CSon,
+  0, () => ConnectorSummary$
+];
 var ControlsList = 64 | 0;
 var DebugLogDeliveryAccounts = 64 | 0;
 var DeliveryChannelList: StaticListSchema = [1, n0, _DCL,
@@ -2766,9 +2891,11 @@ var FailedRemediationExceptionBatches: StaticListSchema = [1, n0, _FREBa,
 var FieldInfoList: StaticListSchema = [1, n0, _FIL,
   0, () => FieldInfo$
 ];
+var FilterValueList = 64 | 0;
 var GroupedResourceCountList: StaticListSchema = [1, n0, _GRCL,
   0, () => GroupedResourceCount$
 ];
+var IncludedRegions = 64 | 0;
 var OrganizationConfigRuleDetailedStatus: StaticListSchema = [1, n0, _OCRDS,
   0, () => MemberAccountStatus$
 ];
@@ -2843,6 +2970,7 @@ var RetentionConfigurationList: StaticListSchema = [1, n0, _RCL,
   0, () => RetentionConfiguration$
 ];
 var RetentionConfigurationNameList = 64 | 0;
+var ScopeValues = 64 | 0;
 var ServicePrincipals = 64 | 0;
 var ServicePrincipalValueList = 64 | 0;
 var SourceDetails: StaticListSchema = [1, n0, _SDo,
@@ -2879,17 +3007,20 @@ export var BatchGetResourceConfig$: StaticOperationSchema = [9, n0, _BGRC,
 export var DeleteAggregationAuthorization$: StaticOperationSchema = [9, n0, _DAA,
   0, () => DeleteAggregationAuthorizationRequest$, () => __Unit
 ];
-export var DeleteConfigRule$: StaticOperationSchema = [9, n0, _DCR,
+export var DeleteConfigRule$: StaticOperationSchema = [9, n0, _DCRe,
   0, () => DeleteConfigRuleRequest$, () => __Unit
 ];
 export var DeleteConfigurationAggregator$: StaticOperationSchema = [9, n0, _DCA,
   0, () => DeleteConfigurationAggregatorRequest$, () => __Unit
 ];
-export var DeleteConfigurationRecorder$: StaticOperationSchema = [9, n0, _DCRe,
+export var DeleteConfigurationRecorder$: StaticOperationSchema = [9, n0, _DCRel,
   0, () => DeleteConfigurationRecorderRequest$, () => __Unit
 ];
 export var DeleteConformancePack$: StaticOperationSchema = [9, n0, _DCP,
   0, () => DeleteConformancePackRequest$, () => __Unit
+];
+export var DeleteConnector$: StaticOperationSchema = [9, n0, _DCel,
+  0, () => DeleteConnectorRequest$, () => __Unit
 ];
 export var DeleteDeliveryChannel$: StaticOperationSchema = [9, n0, _DDC,
   0, () => DeleteDeliveryChannelRequest$, () => __Unit
@@ -3038,6 +3169,9 @@ export var GetConformancePackComplianceDetails$: StaticOperationSchema = [9, n0,
 export var GetConformancePackComplianceSummary$: StaticOperationSchema = [9, n0, _GCPCS,
   0, () => GetConformancePackComplianceSummaryRequest$, () => GetConformancePackComplianceSummaryResponse$
 ];
+export var GetConnector$: StaticOperationSchema = [9, n0, _GC,
+  0, () => GetConnectorRequest$, () => GetConnectorResponse$
+];
 export var GetCustomRulePolicy$: StaticOperationSchema = [9, n0, _GCRP,
   0, () => GetCustomRulePolicyRequest$, () => GetCustomRulePolicyResponse$
 ];
@@ -3065,11 +3199,14 @@ export var GetStoredQuery$: StaticOperationSchema = [9, n0, _GSQ,
 export var ListAggregateDiscoveredResources$: StaticOperationSchema = [9, n0, _LADR,
   0, () => ListAggregateDiscoveredResourcesRequest$, () => ListAggregateDiscoveredResourcesResponse$
 ];
-export var ListConfigurationRecorders$: StaticOperationSchema = [9, n0, _LCR,
+export var ListConfigurationRecorders$: StaticOperationSchema = [9, n0, _LCRis,
   0, () => ListConfigurationRecordersRequest$, () => ListConfigurationRecordersResponse$
 ];
 export var ListConformancePackComplianceScores$: StaticOperationSchema = [9, n0, _LCPCS,
   0, () => ListConformancePackComplianceScoresRequest$, () => ListConformancePackComplianceScoresResponse$
+];
+export var ListConnectors$: StaticOperationSchema = [9, n0, _LC,
+  0, () => ListConnectorsRequest$, () => ListConnectorsResponse$
 ];
 export var ListDiscoveredResources$: StaticOperationSchema = [9, n0, _LDR,
   0, () => ListDiscoveredResourcesRequest$, () => ListDiscoveredResourcesResponse$
@@ -3086,17 +3223,20 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var PutAggregationAuthorization$: StaticOperationSchema = [9, n0, _PAA,
   0, () => PutAggregationAuthorizationRequest$, () => PutAggregationAuthorizationResponse$
 ];
-export var PutConfigRule$: StaticOperationSchema = [9, n0, _PCR,
+export var PutConfigRule$: StaticOperationSchema = [9, n0, _PCRut,
   0, () => PutConfigRuleRequest$, () => __Unit
 ];
 export var PutConfigurationAggregator$: StaticOperationSchema = [9, n0, _PCA,
   0, () => PutConfigurationAggregatorRequest$, () => PutConfigurationAggregatorResponse$
 ];
-export var PutConfigurationRecorder$: StaticOperationSchema = [9, n0, _PCRu,
+export var PutConfigurationRecorder$: StaticOperationSchema = [9, n0, _PCRuto,
   0, () => PutConfigurationRecorderRequest$, () => __Unit
 ];
 export var PutConformancePack$: StaticOperationSchema = [9, n0, _PCP,
   0, () => PutConformancePackRequest$, () => PutConformancePackResponse$
+];
+export var PutConnector$: StaticOperationSchema = [9, n0, _PC,
+  0, () => PutConnectorRequest$, () => PutConnectorResponse$
 ];
 export var PutDeliveryChannel$: StaticOperationSchema = [9, n0, _PDC,
   0, () => PutDeliveryChannelRequest$, () => __Unit
@@ -3130,6 +3270,9 @@ export var PutServiceLinkedConfigurationRecorder$: StaticOperationSchema = [9, n
 ];
 export var PutStoredQuery$: StaticOperationSchema = [9, n0, _PSQ,
   0, () => PutStoredQueryRequest$, () => PutStoredQueryResponse$
+];
+export var PutThirdPartyServiceLinkedConfigurationRecorder$: StaticOperationSchema = [9, n0, _PTPSLCR,
+  0, () => PutThirdPartyServiceLinkedConfigurationRecorderRequest$, () => PutThirdPartyServiceLinkedConfigurationRecorderResponse$
 ];
 export var SelectAggregateResourceConfig$: StaticOperationSchema = [9, n0, _SARC,
   0, () => SelectAggregateResourceConfigRequest$, () => SelectAggregateResourceConfigResponse$

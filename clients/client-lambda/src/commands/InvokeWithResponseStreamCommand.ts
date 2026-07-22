@@ -41,12 +41,12 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * const client = new LambdaClient(config);
  * const input = { // InvokeWithResponseStreamRequest
  *   FunctionName: "STRING_VALUE", // required
- *   InvocationType: "RequestResponse" || "DryRun",
  *   LogType: "None" || "Tail",
  *   ClientContext: "STRING_VALUE",
  *   Qualifier: "STRING_VALUE",
  *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   TenantId: "STRING_VALUE",
+ *   InvocationType: "RequestResponse" || "DryRun",
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);

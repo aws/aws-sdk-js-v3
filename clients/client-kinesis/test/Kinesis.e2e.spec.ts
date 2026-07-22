@@ -1,6 +1,6 @@
 import { Kinesis } from "@aws-sdk/client-kinesis";
 import { NodeHttp2Handler } from "@aws-sdk/config/requestHandler";
-import { type MetadataBearer } from "@smithy/types";
+import type { MetadataBearer } from "@smithy/types";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 describe("@aws-sdk/client-kinesis", () => {
@@ -112,8 +112,16 @@ describe("@aws-sdk/client-kinesis", () => {
    * ]
    * ```
    */
+
+  /**
+   * Aggregates sessions across every connection pool the client opened.
+   *
+   * A client can resolve to more than one endpoint depending on the operation,
+   * so the connection manager may hold multiple pools. We total the sessions
+   * across all of them rather than keying off a single endpoint.
+   */
   function getSessions(state: any) {
-    return state?.["https://kinesis.us-west-2.amazonaws.com/"]?.sessions ?? [];
+    return Object.values(state ?? {}).flatMap((pool: any) => pool?.sessions ?? []);
   }
 
   beforeAll(async () => {
@@ -161,7 +169,6 @@ describe("@aws-sdk/client-kinesis", () => {
   });
 
   describe("Node.js HTTP2 session concurrency", () => {
-    const usWest2Endpoint = "https://kinesis.us-west-2.amazonaws.com/";
     const sessionType = {
       id: expect.any(Number),
       active: expect.any(Number),
@@ -178,24 +185,21 @@ describe("@aws-sdk/client-kinesis", () => {
       expect(connectionManagerStates.initial).toEqual({});
 
       expect(getSessions(connectionManagerStates.requestsFinished)).not.toEqual([]);
-      expect(connectionManagerStates.requestsFinished).toMatchObject({
-        [usWest2Endpoint]: {
-          sessions: getSessions(connectionManagerStates.requestsFinished).map(() => sessionType),
-        },
-      });
+      for (const session of getSessions(connectionManagerStates.requestsFinished)) {
+        expect(session).toMatchObject(sessionType);
+      }
 
       expect(getSessions(connectionManagerStates.secondBatchRequestsFinished)).not.toEqual([]);
-      expect(connectionManagerStates.secondBatchRequestsFinished).toMatchObject({
-        [usWest2Endpoint]: {
-          sessions: getSessions(connectionManagerStates.secondBatchRequestsFinished).map(() => sessionType),
-        },
-      });
+      for (const session of getSessions(connectionManagerStates.secondBatchRequestsFinished)) {
+        expect(session).toMatchObject(sessionType);
+      }
 
-      expect(connectionManagerStates.idle).toEqual({
-        "https://kinesis.us-west-2.amazonaws.com/": {
-          sessions: [],
-        },
-      });
+      // Every pool the client opened should have drained to zero sessions once idle.
+      const idlePools = Object.values(connectionManagerStates.idle ?? {});
+      expect(idlePools.length).toBeGreaterThan(0);
+      for (const pool of idlePools) {
+        expect((pool as any).sessions).toEqual([]);
+      }
 
       expect(connectionManagerStates.destroyed).toEqual({});
     });

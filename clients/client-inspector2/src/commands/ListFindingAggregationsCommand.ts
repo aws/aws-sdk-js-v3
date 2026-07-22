@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_0";
+import type { ListFindingAggregationsRequest, ListFindingAggregationsResponse } from "../models/models_1";
 import { ListFindingAggregations$ } from "../schemas/schemas_0";
 
 /**
@@ -119,6 +119,11 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       repositories: "<StringFilterList>",
  *       resourceIds: "<StringFilterList>",
  *       layerHashes: "<StringFilterList>",
+ *       cloudProviders: "<StringFilterList>",
+ *       cloudAccountIds: "<StringFilterList>",
+ *       cloudOrgIds: "<StringFilterList>",
+ *       cloudRegions: "<StringFilterList>",
+ *       cloudPartitions: "<StringFilterList>",
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
  *     },
@@ -136,9 +141,9 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       titles: "<StringFilterList>",
  *       vulnerabilityIds: "<StringFilterList>",
  *       resourceType: "STRING_VALUE",
+ *       findingType: "STRING_VALUE",
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
- *       findingType: "STRING_VALUE",
  *     },
  *     lambdaLayerAggregation: { // LambdaLayerAggregation
  *       functionNames: "<StringFilterList>",
@@ -168,6 +173,71 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       sortBy: "STRING_VALUE",
  *       resourceIds: "<StringFilterList>",
  *     },
+ *     vmInstanceAggregation: { // VmInstanceAggregation
+ *       resourceIds: "<StringFilterList>",
+ *       operatingSystems: "<StringFilterList>",
+ *       instanceTags: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       vmImageReferences: "<StringFilterList>",
+ *       cloudProviders: "<StringFilterList>",
+ *       cloudPartitions: "<StringFilterList>",
+ *       cloudRegions: "<StringFilterList>",
+ *       cloudOrgIds: "<StringFilterList>",
+ *       cloudAccountIds: "<StringFilterList>",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     containerImageAggregation: { // ContainerImageAggregation
+ *       resourceIds: "<StringFilterList>",
+ *       imageDigests: "<StringFilterList>",
+ *       repositories: "<StringFilterList>",
+ *       registries: "<StringFilterList>",
+ *       architectures: "<StringFilterList>",
+ *       imageTags: "<StringFilterList>",
+ *       cloudProviders: "<StringFilterList>",
+ *       cloudPartitions: "<StringFilterList>",
+ *       cloudRegions: "<StringFilterList>",
+ *       cloudOrgIds: "<StringFilterList>",
+ *       cloudAccountIds: "<StringFilterList>",
+ *       lastInUseAt: [
+ *         {
+ *           startInclusive: new Date("TIMESTAMP"),
+ *           endInclusive: new Date("TIMESTAMP"),
+ *         },
+ *       ],
+ *       inUseCount: [
+ *         {
+ *           upperInclusive: Number("double"),
+ *           lowerInclusive: Number("double"),
+ *         },
+ *       ],
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
+ *     serverlessFunctionAggregation: { // ServerlessFunctionAggregation
+ *       resourceIds: "<StringFilterList>",
+ *       functionNames: "<StringFilterList>",
+ *       runtimes: "<StringFilterList>",
+ *       functionTags: [
+ *         {
+ *           comparison: "STRING_VALUE", // required
+ *           key: "STRING_VALUE", // required
+ *           value: "STRING_VALUE",
+ *         },
+ *       ],
+ *       cloudProviders: "<StringFilterList>",
+ *       cloudPartitions: "<StringFilterList>",
+ *       cloudRegions: "<StringFilterList>",
+ *       cloudOrgIds: "<StringFilterList>",
+ *       cloudAccountIds: "<StringFilterList>",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new ListFindingAggregationsCommand(input);
@@ -190,6 +260,11 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //       amiAggregation: { // AmiAggregationResponse
  * //         ami: "STRING_VALUE", // required
  * //         accountId: "STRING_VALUE",
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
  * //         severityCounts: {
  * //           all: Number("long"),
  * //           medium: Number("long"),
@@ -242,12 +317,22 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //         },
  * //         exploitAvailableCount: Number("long"),
  * //         fixAvailableCount: Number("long"),
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
  * //       },
  * //       imageLayerAggregation: { // ImageLayerAggregationResponse
  * //         repository: "STRING_VALUE", // required
  * //         resourceId: "STRING_VALUE", // required
  * //         layerHash: "STRING_VALUE", // required
  * //         accountId: "STRING_VALUE", // required
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
  * //         severityCounts: "<SeverityCounts>",
  * //       },
  * //       packageAggregation: { // PackageAggregationResponse
@@ -258,6 +343,11 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //       repositoryAggregation: { // RepositoryAggregationResponse
  * //         repository: "STRING_VALUE", // required
  * //         accountId: "STRING_VALUE",
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
  * //         severityCounts: "<SeverityCounts>",
  * //         affectedImages: Number("long"),
  * //       },
@@ -293,6 +383,63 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //         fixAvailableActiveFindingsCount: Number("long"),
  * //         accountId: "STRING_VALUE",
  * //         resourceId: "STRING_VALUE",
+ * //       },
+ * //       vmInstanceAggregation: { // VmInstanceAggregationResponse
+ * //         resourceId: "STRING_VALUE", // required
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         vmImageReference: "STRING_VALUE",
+ * //         operatingSystem: "STRING_VALUE",
+ * //         tags: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         accountId: "STRING_VALUE",
+ * //         severityCounts: "<SeverityCounts>",
+ * //         networkFindings: Number("long"),
+ * //         exploitAvailableActiveFindingsCount: Number("long"),
+ * //         fixAvailableActiveFindingsCount: Number("long"),
+ * //       },
+ * //       containerImageAggregation: { // ContainerImageAggregationResponse
+ * //         resourceId: "STRING_VALUE", // required
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         imageDigest: "STRING_VALUE",
+ * //         repository: "STRING_VALUE",
+ * //         registry: "STRING_VALUE",
+ * //         architecture: "STRING_VALUE",
+ * //         imageTags: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         accountId: "STRING_VALUE",
+ * //         severityCounts: "<SeverityCounts>",
+ * //         lastInUseAt: new Date("TIMESTAMP"),
+ * //         inUseCount: Number("long"),
+ * //         exploitAvailableActiveFindingsCount: Number("long"),
+ * //         fixAvailableActiveFindingsCount: Number("long"),
+ * //       },
+ * //       serverlessFunctionAggregation: { // ServerlessFunctionAggregationResponse
+ * //         resourceId: "STRING_VALUE", // required
+ * //         cloudProvider: "STRING_VALUE",
+ * //         cloudAccountId: "STRING_VALUE",
+ * //         cloudPartition: "STRING_VALUE",
+ * //         cloudRegion: "STRING_VALUE",
+ * //         cloudOrgId: "STRING_VALUE",
+ * //         functionName: "STRING_VALUE",
+ * //         runtime: "STRING_VALUE",
+ * //         tags: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         accountId: "STRING_VALUE",
+ * //         severityCounts: "<SeverityCounts>",
+ * //         lastModifiedAt: new Date("TIMESTAMP"),
+ * //         exploitAvailableActiveFindingsCount: Number("long"),
+ * //         fixAvailableActiveFindingsCount: Number("long"),
  * //       },
  * //     },
  * //   ],

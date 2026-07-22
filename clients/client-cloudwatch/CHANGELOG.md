@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-cloudwatch:** Adds documented value constraints for CloudWatch Log Alarm scheduled query configuration fields, and makes LogGroupIdentifiers optional for log alarms. ([5884c0d](https://github.com/aws/aws-sdk-js-v3/commit/5884c0d40e6e8af1b005e6b6c297137b780af470))
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-cloudwatch:** CloudWatch now assigns a unique identifier to each anomaly detector. PutAnomalyDetector and DescribeAnomalyDetectors return this AnomalyDetectorId, which you can use to describe or delete a specific anomaly detector directly. ([36fc0ee](https://github.com/aws/aws-sdk-js-v3/commit/36fc0ee52f520bcd30676ec8954140309719677f))
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-cloudwatch
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

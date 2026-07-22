@@ -1,1 +1,1 @@
-export * from "./MetadataService";
+export { MetadataService } from "./MetadataService";

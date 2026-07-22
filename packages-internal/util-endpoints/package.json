@@ -1,7 +1,22 @@
 {
   "name": "@aws-sdk/util-endpoints",
-  "version": "3.996.25",
+  "version": "3.996.33",
   "description": "Utilities to help with endpoint resolution",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-endpoints",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/util-endpoints"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": true,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -13,33 +28,18 @@
     "build:types": "premove dist-types && tsc -p tsconfig.types.json",
     "clean": "premove dist-cjs dist-es dist-types"
   },
-  "sideEffects": true,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
-    "@smithy/core": "^3.29.0",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@smithy/core": "^3.29.4",
     "tslib": "^2.6.2"
-  },
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/util-endpoints",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/util-endpoints"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

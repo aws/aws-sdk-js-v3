@@ -23,7 +23,7 @@ export interface RestoreDBClusterFromSnapshotCommandInput extends RestoreDBClust
 export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClusterFromSnapshotResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <p>You can use the <code>EnableVPCNetworking</code> and <code>EnableInternetAccessGateway</code> parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set <code>EnableVPCNetworking</code> to <code>false</code> to disable the VPC network interface (ENI) for the cluster. <code>EnableInternetAccessGateway</code> enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using <code>EnableIAMDatabaseAuthentication</code>. Once the cluster is restored, you need to modify the DB cluster to update <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>. </p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
+ * <p>Creates a new DB cluster from a DB snapshot or DB cluster snapshot.</p> <p>The target DB cluster is created from the source snapshot with a default configuration. If you don't specify a security group, the new DB cluster is associated with the default security group.</p> <p>You can use the <code>EnableVPCNetworking</code> and <code>EnableInternetAccessGateway</code> parameters together to restore an Aurora PostgreSQL cluster without VPC networking and with internet-based connectivity. These two parameters must always be specified together. Set <code>EnableVPCNetworking</code> to <code>false</code> to disable the VPC network interface (ENI) for the cluster. <code>EnableInternetAccessGateway</code> enables internet-based connectivity through an internet access gateway. IAM database authentication is required and must be enabled using <code>EnableIAMDatabaseAuthentication</code>. Once the cluster is restored, you need to modify the DB cluster to update <code>MasterUserAuthenticationType</code> to <code>iam-db-auth</code>. </p> <p>You can use the <code>AssociatedRoles</code> parameter to associate one or more Amazon Web Services Identity and Access Management (IAM) roles with an Aurora DB cluster when you restore it from a snapshot.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromSnapshot</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide.</i> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +109,12 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *   ],
  *   EnableVPCNetworking: true || false,
  *   EnableInternetAccessGateway: true || false,
+ *   AssociatedRoles: [ // DBClusterAssociatedRoles
+ *     { // DBClusterAssociatedRole
+ *       RoleArn: "STRING_VALUE", // required
+ *       FeatureName: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new RestoreDBClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -328,6 +334,9 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
  *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
  *
+ * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
+ *
  * @throws {@link DBClusterSnapshotNotFoundFault} (client fault)
  *  <p> <code>DBClusterSnapshotIdentifier</code> doesn't refer to an existing DB cluster snapshot.</p>
  *
@@ -479,6 +488,62 @@ export interface RestoreDBClusterFromSnapshotCommandOutput extends RestoreDBClus
  *     ],
  *     BackupRetentionPeriod: 7,
  *     ClusterCreateTime: "2020-06-05T15:06:58.634Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:restored-cluster",
+ *     DBClusterIdentifier: "restored-cluster",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DatabaseName: "",
+ *     DbClusterResourceId: "cluster-5DSB5IFQDDUVAWOUWM1EXAMPLE",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.7",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: true,
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "09:33-10:03",
+ *     PreferredMaintenanceWindow: "sun:12:22-sun:12:52",
+ *     ReadReplicaIdentifiers:     [],
+ *     Status: "creating",
+ *     StorageEncrypted: false,
+ *     VpcSecurityGroups:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To restore a DB cluster from a snapshot with an associated IAM role
+ * ```javascript
+ * // The following example restores an Aurora PostgreSQL DB cluster from a snapshot and associates an IAM role for Amazon S3 import in a single call.
+ * const input = {
+ *   AssociatedRoles: [
+ *     {
+ *       FeatureName: "s3Import",
+ *       RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ *     }
+ *   ],
+ *   DBClusterIdentifier: "restored-cluster",
+ *   Engine: "aurora-postgresql",
+ *   SnapshotIdentifier: "test-instance-snapshot"
+ * };
+ * const command = new RestoreDBClusterFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AssociatedRoles: [
+ *       {
+ *         FeatureName: "s3Import",
+ *         RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3",
+ *         Status: "ACTIVE"
+ *       }
+ *     ],
+ *     ClusterCreateTime: "2024-06-05T15:06:58.634Z",
  *     CopyTagsToSnapshot: false,
  *     CrossAccountClone: false,
  *     DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:restored-cluster",

@@ -3,6 +3,132 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito user pools now support sending SMS via AWS End User Messaging. A new EumsSms object in SmsConfigurationType lets you deliver MFA and verification texts through AWS End User Messaging, alongside the existing Amazon SNS option. ([600cf8d](https://github.com/aws/aws-sdk-js-v3/commit/600cf8d5cb99b819ab1bbb0296d645ee8690a05f))
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add support for provisioned limit management, enabling customers to view and update their provisioned API rate limits for Amazon Cognito User Pools programmatically through the new GetProvisionedLimit and UpdateProvisionedLimit APIs. ([160778d](https://github.com/aws/aws-sdk-js-v3/commit/160778dc11e6b8e93c3a576dd9bca809498eebf2))
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

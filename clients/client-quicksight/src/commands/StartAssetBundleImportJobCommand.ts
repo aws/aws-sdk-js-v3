@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartAssetBundleImportJobRequest, StartAssetBundleImportJobResponse } from "../models/models_4";
+import type { StartAssetBundleImportJobRequest, StartAssetBundleImportJobResponse } from "../models/models_5";
 import { StartAssetBundleImportJob$ } from "../schemas/schemas_0";
 
 /**
@@ -268,6 +268,26 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *           },
  *           QBusinessParameters: { // QBusinessParameters
  *             ApplicationArn: "STRING_VALUE", // required
+ *           },
+ *           SharePointParameters: { // SharePointParameters
+ *             SharePointDomain: "STRING_VALUE", // required
+ *             TenantId: "STRING_VALUE",
+ *             ClientId: "STRING_VALUE",
+ *             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ *           },
+ *           GoogleDriveParameters: { // GoogleDriveParameters
+ *             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ *           },
+ *           OneDriveParameters: { // OneDriveParameters
+ *             TenantId: "STRING_VALUE",
+ *             ClientId: "STRING_VALUE",
+ *             AuthType: "THREE_LEGGED_OAUTH" || "TWO_LEGGED_OAUTH" || "SERVICE_ACCOUNT",
+ *           },
+ *           FMKBParameters: { // FMKBParameters
+ *             KnowledgeBaseArn: "STRING_VALUE", // required
+ *             LinkedDataSourceIds: [ // LinkedDataSourceIds
+ *               "STRING_VALUE",
+ *             ],
  *           },
  *         },
  *         VpcConnectionProperties: {

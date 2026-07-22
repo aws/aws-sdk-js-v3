@@ -1002,7 +1002,8 @@ const _aS = "allowedScopes";
 const _aSA = "appSecretArn";
 const _aSC = "appSecretConfig";
 const _aSJK = "appSecretJsonKey";
-const _aSM = "authorizationServerMetadata";
+const _aSM = "advertisedScopeMapping";
+const _aSMu = "authorizationServerMetadata";
 const _aSS = "appSecretSource";
 const _aSg = "agentSkills";
 const _aSp = "appSecret";
@@ -1920,8 +1921,8 @@ export var ConnectorParameterOverride$: StaticStructureSchema = [3, n0, _CPO,
 ];
 export var ConnectorSource$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_cIo],
-  [0], 1
+  [_cIo, _ve],
+  [0, 0], 1
 ];
 export var ConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _CTC,
   0,
@@ -2215,8 +2216,8 @@ export var CustomDescriptor$: StaticStructureSchema = [3, n0, _CD,
 ];
 export var CustomJWTAuthorizerConfiguration$: StaticStructureSchema = [3, n0, _CJWTAC,
   0,
-  [_dU, _aAl, _aCl, _aS, _cCu, _pE, _pEO, _aWC],
-  [0, 64 | 0, 64 | 0, 64 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => AllowedWorkloadConfiguration$], 1
+  [_dU, _aAl, _aCl, _aS, _aSM, _cCu, _pE, _pEO, _aWC],
+  [0, 64 | 0, 64 | 0, 64 | 0, 128 | 0, () => CustomClaimValidationsType, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => AllowedWorkloadConfiguration$], 1
 ];
 export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
   0,
@@ -3030,8 +3031,8 @@ export var HarnessEndpoint$: StaticStructureSchema = [3, n0, _HE,
 ];
 export var HarnessGeminiModelConfig$: StaticStructureSchema = [3, n0, _HGMC,
   0,
-  [_mI, _aKA, _mT, _te, _tP, _tK],
-  [0, 0, 1, 1, 1, 1], 2
+  [_mI, _aKA, _mT, _te, _tP, _tK, _aP],
+  [0, 0, 1, 1, 1, 1, 15], 2
 ];
 export var HarnessInlineFunctionConfig$: StaticStructureSchema = [3, n0, _HIFC,
   0,
@@ -4970,6 +4971,7 @@ var WorkloadIdentityList: StaticListSchema = [1, n0, _WIL,
   0, () => WorkloadIdentityType$
 ];
 var WorkloadIdentityNameListType = 64 | 0;
+var AdvertisedScopeMappingType = 128 | 0;
 var ComponentConfigurationMap: StaticMapSchema = [2, n0, _CCM,
   0, [0,
     0]
@@ -5264,7 +5266,7 @@ export var ModifyReflectionConfiguration$: StaticUnionSchema = [4, n0, _MRC,
 ];
 export var Oauth2Discovery$: StaticUnionSchema = [4, n0, _OD,
   0,
-  [_dU, _aSM],
+  [_dU, _aSMu],
   [0, () => Oauth2AuthorizationServerMetadata$]
 ];
 export var Oauth2ProviderConfigInput$: StaticUnionSchema = [4, n0, _OPCI,

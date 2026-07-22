@@ -43,6 +43,11 @@ import {
   CreateAssociationCommand,
 } from "./commands/CreateAssociationCommand";
 import {
+  type CreateCloudConnectorCommandInput,
+  type CreateCloudConnectorCommandOutput,
+  CreateCloudConnectorCommand,
+} from "./commands/CreateCloudConnectorCommand";
+import {
   type CreateDocumentCommandInput,
   type CreateDocumentCommandOutput,
   CreateDocumentCommand,
@@ -82,6 +87,11 @@ import {
   type DeleteAssociationCommandOutput,
   DeleteAssociationCommand,
 } from "./commands/DeleteAssociationCommand";
+import {
+  type DeleteCloudConnectorCommandInput,
+  type DeleteCloudConnectorCommandOutput,
+  DeleteCloudConnectorCommand,
+} from "./commands/DeleteCloudConnectorCommand";
 import {
   type DeleteDocumentCommandInput,
   type DeleteDocumentCommandOutput,
@@ -338,6 +348,11 @@ import {
   GetCalendarStateCommand,
 } from "./commands/GetCalendarStateCommand";
 import {
+  type GetCloudConnectorCommandInput,
+  type GetCloudConnectorCommandOutput,
+  GetCloudConnectorCommand,
+} from "./commands/GetCloudConnectorCommand";
+import {
   type GetCommandInvocationCommandInput,
   type GetCommandInvocationCommandOutput,
   GetCommandInvocationCommand,
@@ -472,6 +487,11 @@ import {
   type ListAssociationVersionsCommandOutput,
   ListAssociationVersionsCommand,
 } from "./commands/ListAssociationVersionsCommand";
+import {
+  type ListCloudConnectorsCommandInput,
+  type ListCloudConnectorsCommandOutput,
+  ListCloudConnectorsCommand,
+} from "./commands/ListCloudConnectorsCommand";
 import {
   type ListCommandInvocationsCommandInput,
   type ListCommandInvocationsCommandOutput,
@@ -674,6 +694,11 @@ import {
   UpdateAssociationStatusCommand,
 } from "./commands/UpdateAssociationStatusCommand";
 import {
+  type UpdateCloudConnectorCommandInput,
+  type UpdateCloudConnectorCommandOutput,
+  UpdateCloudConnectorCommand,
+} from "./commands/UpdateCloudConnectorCommand";
+import {
   type UpdateDocumentCommandInput,
   type UpdateDocumentCommandOutput,
   UpdateDocumentCommand,
@@ -733,6 +758,11 @@ import {
   type UpdateServiceSettingCommandOutput,
   UpdateServiceSettingCommand,
 } from "./commands/UpdateServiceSettingCommand";
+import {
+  type ValidateCloudConnectorCommandInput,
+  type ValidateCloudConnectorCommandOutput,
+  ValidateCloudConnectorCommand,
+} from "./commands/ValidateCloudConnectorCommand";
 import type { SSMServiceException } from "./models/SSMServiceException";
 import { paginateDescribeActivations } from "./pagination/DescribeActivationsPaginator";
 import { paginateDescribeAssociationExecutions } from "./pagination/DescribeAssociationExecutionsPaginator";
@@ -781,6 +811,7 @@ import { paginateGetParametersByPath } from "./pagination/GetParametersByPathPag
 import { paginateGetResourcePolicies } from "./pagination/GetResourcePoliciesPaginator";
 import { paginateListAssociations } from "./pagination/ListAssociationsPaginator";
 import { paginateListAssociationVersions } from "./pagination/ListAssociationVersionsPaginator";
+import { paginateListCloudConnectors } from "./pagination/ListCloudConnectorsPaginator";
 import { paginateListCommandInvocations } from "./pagination/ListCommandInvocationsPaginator";
 import { paginateListCommands } from "./pagination/ListCommandsPaginator";
 import { paginateListComplianceItems } from "./pagination/ListComplianceItemsPaginator";
@@ -794,6 +825,7 @@ import { paginateListOpsItemRelatedItems } from "./pagination/ListOpsItemRelated
 import { paginateListOpsMetadata } from "./pagination/ListOpsMetadataPaginator";
 import { paginateListResourceComplianceSummaries } from "./pagination/ListResourceComplianceSummariesPaginator";
 import { paginateListResourceDataSync } from "./pagination/ListResourceDataSyncPaginator";
+import { paginateValidateCloudConnector } from "./pagination/ValidateCloudConnectorPaginator";
 import { SSMClient } from "./SSMClient";
 import { waitUntilCommandExecuted } from "./waiters/waitForCommandExecuted";
 
@@ -805,6 +837,7 @@ const commands = {
   CreateActivationCommand,
   CreateAssociationCommand,
   CreateAssociationBatchCommand,
+  CreateCloudConnectorCommand,
   CreateDocumentCommand,
   CreateMaintenanceWindowCommand,
   CreateOpsItemCommand,
@@ -813,6 +846,7 @@ const commands = {
   CreateResourceDataSyncCommand,
   DeleteActivationCommand,
   DeleteAssociationCommand,
+  DeleteCloudConnectorCommand,
   DeleteDocumentCommand,
   DeleteInventoryCommand,
   DeleteMaintenanceWindowCommand,
@@ -864,6 +898,7 @@ const commands = {
   GetAccessTokenCommand,
   GetAutomationExecutionCommand,
   GetCalendarStateCommand,
+  GetCloudConnectorCommand,
   GetCommandInvocationCommand,
   GetConnectionStatusCommand,
   GetDefaultPatchBaselineCommand,
@@ -891,6 +926,7 @@ const commands = {
   LabelParameterVersionCommand,
   ListAssociationsCommand,
   ListAssociationVersionsCommand,
+  ListCloudConnectorsCommand,
   ListCommandInvocationsCommand,
   ListCommandsCommand,
   ListComplianceItemsCommand,
@@ -932,6 +968,7 @@ const commands = {
   UnlabelParameterVersionCommand,
   UpdateAssociationCommand,
   UpdateAssociationStatusCommand,
+  UpdateCloudConnectorCommand,
   UpdateDocumentCommand,
   UpdateDocumentDefaultVersionCommand,
   UpdateDocumentMetadataCommand,
@@ -944,6 +981,7 @@ const commands = {
   UpdatePatchBaselineCommand,
   UpdateResourceDataSyncCommand,
   UpdateServiceSettingCommand,
+  ValidateCloudConnectorCommand,
 };
 const paginators = {
   paginateDescribeActivations,
@@ -983,6 +1021,7 @@ const paginators = {
   paginateGetResourcePolicies,
   paginateListAssociations,
   paginateListAssociationVersions,
+  paginateListCloudConnectors,
   paginateListCommandInvocations,
   paginateListCommands,
   paginateListComplianceItems,
@@ -996,6 +1035,7 @@ const paginators = {
   paginateListOpsMetadata,
   paginateListResourceComplianceSummaries,
   paginateListResourceDataSync,
+  paginateValidateCloudConnector,
 };
 const waiters = {
   waitUntilCommandExecuted,
@@ -1119,6 +1159,23 @@ export interface SSM {
     args: CreateAssociationBatchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAssociationBatchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCloudConnectorCommand}
+   */
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCloudConnectorCommandOutput>;
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
+  ): void;
+  createCloudConnector(
+    args: CreateCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCloudConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -1256,6 +1313,23 @@ export interface SSM {
     args: DeleteAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCloudConnectorCommand}
+   */
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCloudConnectorCommandOutput>;
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
+  ): void;
+  deleteCloudConnector(
+    args: DeleteCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCloudConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -2139,6 +2213,23 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link GetCloudConnectorCommand}
+   */
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCloudConnectorCommandOutput>;
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
+  ): void;
+  getCloudConnector(
+    args: GetCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCommandInvocationCommand}
    */
   getCommandInvocation(
@@ -2600,6 +2691,24 @@ export interface SSM {
     args: ListAssociationVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssociationVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCloudConnectorsCommand}
+   */
+  listCloudConnectors(): Promise<ListCloudConnectorsCommandOutput>;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCloudConnectorsCommandOutput>;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
+  ): void;
+  listCloudConnectors(
+    args: ListCloudConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCloudConnectorsCommandOutput) => void
   ): void;
 
   /**
@@ -3311,6 +3420,23 @@ export interface SSM {
   ): void;
 
   /**
+   * @see {@link UpdateCloudConnectorCommand}
+   */
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCloudConnectorCommandOutput>;
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
+  ): void;
+  updateCloudConnector(
+    args: UpdateCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCloudConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDocumentCommand}
    */
   updateDocument(
@@ -3512,6 +3638,23 @@ export interface SSM {
     args: UpdateServiceSettingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceSettingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ValidateCloudConnectorCommand}
+   */
+  validateCloudConnector(
+    args: ValidateCloudConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ValidateCloudConnectorCommandOutput>;
+  validateCloudConnector(
+    args: ValidateCloudConnectorCommandInput,
+    cb: (err: any, data?: ValidateCloudConnectorCommandOutput) => void
+  ): void;
+  validateCloudConnector(
+    args: ValidateCloudConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ValidateCloudConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -3922,6 +4065,17 @@ export interface SSM {
   ): Paginator<ListAssociationVersionsCommandOutput>;
 
   /**
+   * @see {@link ListCloudConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCloudConnectorsCommandOutput}.
+   */
+  paginateListCloudConnectors(
+    args?: ListCloudConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCloudConnectorsCommandOutput>;
+
+  /**
    * @see {@link ListCommandInvocationsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -4063,6 +4217,17 @@ export interface SSM {
     args?: ListResourceDataSyncCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListResourceDataSyncCommandOutput>;
+
+  /**
+   * @see {@link ValidateCloudConnectorCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ValidateCloudConnectorCommandOutput}.
+   */
+  paginateValidateCloudConnector(
+    args: ValidateCloudConnectorCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ValidateCloudConnectorCommandOutput>;
 
   /**
    * @see {@link GetCommandInvocationCommand}

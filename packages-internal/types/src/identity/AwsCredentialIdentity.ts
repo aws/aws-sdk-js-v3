@@ -1,7 +1,8 @@
 import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Logger, RequestHandler } from "@smithy/types";
 
 import type { AwsSdkCredentialsFeatures } from "../feature-ids";
-export { AwsCredentialIdentity, AwsCredentialIdentityProvider, IdentityProvider } from "@smithy/types";
+export type { IdentityProvider } from "@smithy/types";
+export type { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@smithy/types";
 
 /**
  * @public
@@ -33,33 +34,32 @@ export interface AwsIdentityProperties {
 }
 
 /**
- * @public
- *
  * Variation of {@link IdentityProvider} which accepts a contextual
  * client configuration that includes an AWS region and potentially other
  * configurable fields.
  *
  * Used to link a credential provider to a client if it is being called
  * in the context of a client.
+ *
+ * @public
  */
 export type RuntimeConfigIdentityProvider<T> = (awsIdentityProperties?: AwsIdentityProperties) => Promise<T>;
 
 /**
- * @public
- *
  * Variation of {@link AwsCredentialIdentityProvider} which accepts a contextual
  * client configuration that includes an AWS region and potentially other
  * configurable fields.
  *
  * Used to link a credential provider to a client if it is being called
  * in the context of a client.
+ *
+ * @public
  */
 export type RuntimeConfigAwsCredentialIdentityProvider = RuntimeConfigIdentityProvider<AwsCredentialIdentity>;
 
 /**
- * @public
- *
  * AwsCredentialIdentity with source attribution metadata.
+ * @public
  */
 export type AttributedAwsCredentialIdentity = AwsCredentialIdentity & {
   $source?: AwsSdkCredentialsFeatures;

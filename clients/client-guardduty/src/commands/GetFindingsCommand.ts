@@ -397,7 +397,35 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //         RecoveryPointDetails: { // RecoveryPointDetails
  * //           RecoveryPointArn: "STRING_VALUE",
  * //           BackupVaultName: "STRING_VALUE",
+ * //           ContinuousScanDetails: { // ScanConfigurationContinuousScanDetails
+ * //             StartTime: new Date("TIMESTAMP"),
+ * //             EndTime: new Date("TIMESTAMP"), // required
+ * //           },
  * //         },
+ * //         BedrockGuardrailDetails: { // BedrockGuardrailDetails
+ * //           GuardrailArn: "STRING_VALUE",
+ * //           GuardrailVersion: "STRING_VALUE",
+ * //           Guardrails: [ // BedrockGuardrails
+ * //             { // BedrockGuardrail
+ * //               Arn: "STRING_VALUE",
+ * //               Version: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           GuardrailAction: "GUARDRAIL_INTERVENED" || "NONE",
+ * //           GuardrailSource: "INPUT" || "OUTPUT",
+ * //           ContentPolicyFilters: [ // ContentPolicyFilters
+ * //             { // ContentPolicyFilter
+ * //               Type: "PROMPT_ATTACK" || "JAILBREAK" || "HATE" || "INSULTS" || "SEXUAL" || "VIOLENCE" || "MISCONDUCT",
+ * //               Confidence: "HIGH" || "MEDIUM" || "LOW" || "NONE",
+ * //               Action: "BLOCKED" || "NONE",
+ * //             },
+ * //           ],
+ * //         },
+ * //         ModelDetails: [ // ModelDetails
+ * //           { // ModelDetail
+ * //             ModelId: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //       SchemaVersion: "STRING_VALUE", // required
  * //       Service: { // Service
@@ -800,11 +828,14 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               "<keys>": { // AnomalyProfileFeatures
  * //                 "<keys>": [ // AnomalyProfileFeatureObjects
  * //                   { // AnomalyObject
- * //                     ProfileType: "FREQUENCY",
- * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     ProfileType: "FREQUENCY" || "VOLUME",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE" || "COUNT" || "AVERAGE",
  * //                     Observations: { // Observations
  * //                       Text: [ // ObservationTexts
  * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       Number: [ // ObservationNumbers
+ * //                         Number("long"),
  * //                       ],
  * //                     },
  * //                   },
@@ -815,11 +846,14 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               Behavior: { // Behavior
  * //                 "<keys>": { // AnomalyUnusualBehaviorFeature
  * //                   "<keys>": {
- * //                     ProfileType: "FREQUENCY",
- * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE",
+ * //                     ProfileType: "FREQUENCY" || "VOLUME",
+ * //                     ProfileSubtype: "FREQUENT" || "INFREQUENT" || "UNSEEN" || "RARE" || "COUNT" || "AVERAGE",
  * //                     Observations: {
  * //                       Text: [
  * //                         "STRING_VALUE",
+ * //                       ],
+ * //                       Number: [
+ * //                         Number("long"),
  * //                       ],
  * //                     },
  * //                   },

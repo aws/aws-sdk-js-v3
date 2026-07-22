@@ -2,9 +2,7 @@
 /**
  * AWS credentials structure containing temporary access credentials
  *
- * The scoped-down, 15 minute duration AWS credentials.
- * Scoping down will be based on CLI policy (CLI team needs to create it).
- * Similar to cloud shell implementation.
+ * Scoped, temporary AWS credentials with a 15-minute duration.
  * @public
  */
 export interface AccessToken {
@@ -155,4 +153,49 @@ export interface CreateOAuth2TokenResponse {
    * @public
    */
   tokenOutput: CreateOAuth2TokenResponseBody | undefined;
+}
+
+/**
+ * Input structure for CreateOAuth2TokenWithIAM operation
+ * @public
+ */
+export interface CreateOAuth2TokenWithIAMRequest {
+  /**
+   * OAuth 2.0 grant type. Must be "client_credentials".
+   * @public
+   */
+  grantType: string | undefined;
+
+  /**
+   * The OAuth resource for which the access token is requested.
+   * Example: "aws-mcp.amazonaws.com".
+   * @public
+   */
+  resource: string | undefined;
+}
+
+/**
+ * Output structure for CreateOAuth2TokenWithIAM operation
+ *
+ * Contains the JWT access token, token type, and expiration per RFC 6749 §5.1.
+ * @public
+ */
+export interface CreateOAuth2TokenWithIAMResponse {
+  /**
+   * JWT access token containing principal identity, resource scope, and session metadata
+   * @public
+   */
+  accessToken: string | undefined;
+
+  /**
+   * Always "Bearer" per OAuth 2.1 specification
+   * @public
+   */
+  tokenType: string | undefined;
+
+  /**
+   * Token lifetime in seconds. Value is the minimum of session validity and 1 hour.
+   * @public
+   */
+  expiresIn: number | undefined;
 }

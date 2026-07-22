@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListCodeSecurityScanConfigurationsRequest,
   ListCodeSecurityScanConfigurationsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { ListCodeSecurityScanConfigurations$ } from "../schemas/schemas_0";
 
 /**
@@ -57,9 +57,6 @@ export interface ListCodeSecurityScanConfigurationsCommandOutput extends ListCod
  * //       ],
  * //       scopeSettings: { // ScopeSettings
  * //         projectSelectionScope: "ALL",
- * //       },
- * //       tags: { // TagMap
- * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

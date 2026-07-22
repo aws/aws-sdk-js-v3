@@ -394,6 +394,7 @@ const _RSeg = "RegionStatus";
 const _RT = "ResourceType";
 const _RTe = "RenewType";
 const _RTep = "ReportType";
+const _RU = "ResetUsage";
 const _Re = "Region";
 const _S = "Status";
 const _SAWSMLAR = "ShowAWSManagedLicenseAssetRulesets";
@@ -778,8 +779,8 @@ export var CreateLicenseResponse$: StaticStructureSchema = [3, n0, _CLRre,
 ];
 export var CreateLicenseVersionRequest$: StaticStructureSchema = [3, n0, _CLVR,
   0,
-  [_LA, _LN, _PN, _I, _HR, _Va, _E, _CC, _S, _CT, _LM, _SV],
-  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => EntitlementList, () => ConsumptionConfiguration$, 0, 0, () => MetadataList, 0], 10
+  [_LA, _LN, _PN, _I, _HR, _Va, _E, _CC, _S, _CT, _LM, _SV, _RU],
+  [0, 0, 0, () => Issuer$, 0, () => DatetimeRange$, () => EntitlementList, () => ConsumptionConfiguration$, 0, 0, () => MetadataList, 0, 2], 10
 ];
 export var CreateLicenseVersionResponse$: StaticStructureSchema = [3, n0, _CLVRr,
   0,

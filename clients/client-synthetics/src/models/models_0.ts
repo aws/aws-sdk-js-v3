@@ -59,6 +59,14 @@ export interface AddReplicaLocationInput {
    * @public
    */
   VpcConfig?: VpcConfigInput | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary replica's
+   *          AWS Lambda function environment variables at rest. If you don't specify a value,
+   *          the service uses an AWS-managed key.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -731,6 +739,14 @@ export interface Canary {
   ArtifactConfig?: ArtifactConfigOutput | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's
+   *          AWS Lambda function environment variables at rest. If you don't specify a value,
+   *          the service uses an AWS-managed key.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+
+  /**
    * <p>Returns the dry run configurations for a canary.</p>
    * @public
    */
@@ -1290,6 +1306,14 @@ export interface CreateCanaryRequest {
    * @public
    */
   ArtifactConfig?: ArtifactConfigInput | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's
+   *          AWS Lambda function environment variables at rest. If you don't specify a value,
+   *          the service uses an AWS-managed key.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -2439,6 +2463,16 @@ export interface UpdateCanaryRequest {
    * @public
    */
   RemoveReplicaLocations?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed AWS Key Management Service (AWS KMS) key used to encrypt the canary's
+   *          AWS Lambda function environment variables at rest. If you don't specify a value,
+   *          the service uses an AWS-managed key. If you omit this parameter, the service retains
+   *          the existing value. To revert to the AWS-managed key, set this parameter to
+   *          an empty string.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 }
 
 /**

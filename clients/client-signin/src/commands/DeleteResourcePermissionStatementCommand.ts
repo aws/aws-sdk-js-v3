@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type {
   DeleteResourcePermissionStatementInput,
   DeleteResourcePermissionStatementOutput,
@@ -104,7 +104,7 @@ export interface DeleteResourcePermissionStatementCommandOutput extends DeleteRe
  * @public
  */
 export class DeleteResourcePermissionStatementCommand extends command<DeleteResourcePermissionStatementCommandInput, DeleteResourcePermissionStatementCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "DeleteResourcePermissionStatement",
   DeleteResourcePermissionStatement$

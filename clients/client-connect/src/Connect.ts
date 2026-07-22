@@ -173,6 +173,11 @@ import {
   CreateAttachedFileCommand,
 } from "./commands/CreateAttachedFileCommand";
 import {
+  type CreateAuthCodeCommandInput,
+  type CreateAuthCodeCommandOutput,
+  CreateAuthCodeCommand,
+} from "./commands/CreateAuthCodeCommand";
+import {
   type CreateContactCommandInput,
   type CreateContactCommandOutput,
   CreateContactCommand,
@@ -363,6 +368,11 @@ import {
   DeleteAttachedFileCommand,
 } from "./commands/DeleteAttachedFileCommand";
 import {
+  type DeleteContactDataCommandInput,
+  type DeleteContactDataCommandOutput,
+  DeleteContactDataCommand,
+} from "./commands/DeleteContactDataCommand";
+import {
   type DeleteContactEvaluationCommandInput,
   type DeleteContactEvaluationCommandOutput,
   DeleteContactEvaluationCommand,
@@ -477,6 +487,11 @@ import {
   type DeleteSecurityProfileCommandOutput,
   DeleteSecurityProfileCommand,
 } from "./commands/DeleteSecurityProfileCommand";
+import {
+  type DeleteSessionCommandInput,
+  type DeleteSessionCommandOutput,
+  DeleteSessionCommand,
+} from "./commands/DeleteSessionCommand";
 import {
   type DeleteTaskTemplateCommandInput,
   type DeleteTaskTemplateCommandOutput,
@@ -1347,6 +1362,11 @@ import {
   SearchRoutingProfilesCommand,
 } from "./commands/SearchRoutingProfilesCommand";
 import {
+  type SearchRulesCommandInput,
+  type SearchRulesCommandOutput,
+  SearchRulesCommand,
+} from "./commands/SearchRulesCommand";
+import {
   type SearchSecurityProfilesCommandInput,
   type SearchSecurityProfilesCommandOutput,
   SearchSecurityProfilesCommand,
@@ -1944,6 +1964,7 @@ import { paginateSearchQueues } from "./pagination/SearchQueuesPaginator";
 import { paginateSearchQuickConnects } from "./pagination/SearchQuickConnectsPaginator";
 import { paginateSearchResourceTags } from "./pagination/SearchResourceTagsPaginator";
 import { paginateSearchRoutingProfiles } from "./pagination/SearchRoutingProfilesPaginator";
+import { paginateSearchRules } from "./pagination/SearchRulesPaginator";
 import { paginateSearchSecurityProfiles } from "./pagination/SearchSecurityProfilesPaginator";
 import { paginateSearchTestCases } from "./pagination/SearchTestCasesPaginator";
 import { paginateSearchUserHierarchyGroups } from "./pagination/SearchUserHierarchyGroupsPaginator";
@@ -1988,6 +2009,7 @@ const commands = {
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
   CreateAttachedFileCommand,
+  CreateAuthCodeCommand,
   CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
@@ -2026,6 +2048,7 @@ const commands = {
   CreateWorkspacePageCommand,
   DeactivateEvaluationFormCommand,
   DeleteAttachedFileCommand,
+  DeleteContactDataCommand,
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
@@ -2049,6 +2072,7 @@ const commands = {
   DeleteRoutingProfileCommand,
   DeleteRuleCommand,
   DeleteSecurityProfileCommand,
+  DeleteSessionCommand,
   DeleteTaskTemplateCommand,
   DeleteTestCaseCommand,
   DeleteTrafficDistributionGroupCommand,
@@ -2226,6 +2250,7 @@ const commands = {
   SearchQuickConnectsCommand,
   SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
+  SearchRulesCommand,
   SearchSecurityProfilesCommand,
   SearchTestCasesCommand,
   SearchUserHierarchyGroupsCommand,
@@ -2409,6 +2434,7 @@ const paginators = {
   paginateSearchQuickConnects,
   paginateSearchResourceTags,
   paginateSearchRoutingProfiles,
+  paginateSearchRules,
   paginateSearchSecurityProfiles,
   paginateSearchTestCases,
   paginateSearchUserHierarchyGroups,
@@ -2996,6 +3022,23 @@ export interface Connect {
     args: CreateAttachedFileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAttachedFileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAuthCodeCommand}
+   */
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAuthCodeCommandOutput>;
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    cb: (err: any, data?: CreateAuthCodeCommandOutput) => void
+  ): void;
+  createAuthCode(
+    args: CreateAuthCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAuthCodeCommandOutput) => void
   ): void;
 
   /**
@@ -3645,6 +3688,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteContactDataCommand}
+   */
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactDataCommandOutput>;
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    cb: (err: any, data?: DeleteContactDataCommandOutput) => void
+  ): void;
+  deleteContactData(
+    args: DeleteContactDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactDataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteContactEvaluationCommand}
    */
   deleteContactEvaluation(
@@ -4033,6 +4093,23 @@ export interface Connect {
     args: DeleteSecurityProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSecurityProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSessionCommand}
+   */
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSessionCommandOutput>;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
+  ): void;
+  deleteSession(
+    args: DeleteSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSessionCommandOutput) => void
   ): void;
 
   /**
@@ -7048,6 +7125,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchRulesCommand}
+   */
+  searchRules(
+    args: SearchRulesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRulesCommandOutput>;
+  searchRules(
+    args: SearchRulesCommandInput,
+    cb: (err: any, data?: SearchRulesCommandOutput) => void
+  ): void;
+  searchRules(
+    args: SearchRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRulesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchSecurityProfilesCommand}
    */
   searchSecurityProfiles(
@@ -9657,6 +9751,17 @@ export interface Connect {
     args: SearchRoutingProfilesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchRoutingProfilesCommandOutput>;
+
+  /**
+   * @see {@link SearchRulesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchRulesCommandOutput}.
+   */
+  paginateSearchRules(
+    args: SearchRulesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchRulesCommandOutput>;
 
   /**
    * @see {@link SearchSecurityProfilesCommand}

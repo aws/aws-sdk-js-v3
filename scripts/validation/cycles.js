@@ -8,35 +8,26 @@
  * Usage: node cycles.js
  */
 
-const fs = require("node:fs");
 const path = require("node:path");
-const walk = require("../utils/walk");
-const {
-  extractImports,
-  getPackageName,
-  resolveRelative,
-  getPackageDirs,
-  summarizePackages,
-} = require("./validation-shared");
+const { createBus } = require("./ast-bus");
+const { getPackageName, resolveRelative, getPackageDirs } = require("./validation-shared");
 
 /**
  * Finds all cycles in a directed graph using Tarjan's algorithm.
- *
- * @param graph - adjacency list (Map of node -> Set of neighbors).
- * @returns array of { cycle, sccSize } objects.
+ * Returns one representative cycle per strongly connected component.
  */
 function findAllCycles(graph) {
   const discoveryIndex = new Map();
   const lowlink = new Map();
   const onStack = new Set();
   const stack = [];
-  let i = 0;
+  let idx = 0;
   const connectedComponents = [];
 
   function visit(node) {
-    discoveryIndex.set(node, i);
-    lowlink.set(node, i);
-    i++;
+    discoveryIndex.set(node, idx);
+    lowlink.set(node, idx);
+    ++idx;
     stack.push(node);
     onStack.add(node);
 
@@ -124,65 +115,10 @@ function findAllCycles(graph) {
 }
 
 /**
- * Builds a module-level dependency graph from @aws-sdk/* imports across packages.
- *
- * @param packageDirs - list of package root paths.
- * @returns adjacency list of package name -> Set of @aws-sdk/* dependency names.
- */
-async function buildModuleGraph(packageDirs) {
-  const graph = new Map();
-
-  for (const packageDir of packageDirs) {
-    const pkgJsonPath = path.join(packageDir, "package.json");
-    if (!fs.existsSync(pkgJsonPath)) {
-      continue;
-    }
-    const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
-    const name = pkgJson.name;
-    if (!name || !name.startsWith("@aws-sdk/")) {
-      continue;
-    }
-    if (!graph.has(name)) {
-      graph.set(name, new Set());
-    }
-
-    for (const dist of ["dist-cjs", "dist-es"]) {
-      const distDir = path.join(packageDir, dist);
-      if (!fs.existsSync(distDir)) {
-        continue;
-      }
-      for await (const file of walk(distDir, ["node_modules"])) {
-        if (!file.endsWith(".js")) {
-          continue;
-        }
-        const code = fs.readFileSync(file, "utf-8");
-        for (const specifier of extractImports(code)) {
-          if (specifier.startsWith(".") || specifier.startsWith("node:")) {
-            continue;
-          }
-          const pkg = getPackageName(specifier);
-          if (pkg.startsWith("@aws-sdk/") && pkg !== name) {
-            graph.get(name).add(pkg);
-          }
-        }
-      }
-    }
-  }
-
-  return graph;
-}
-
-/**
  * Resolves a self-referencing package import (e.g. "@aws-sdk/core/client")
  * to a file path within the package using the exports map.
- *
- * @param specifier - the import specifier.
- * @param pkgJson - parsed package.json.
- * @param packageDir - package root.
- * @param distName - "dist-cjs" or "dist-es".
- * @returns absolute file path, or null if not a self-reference.
  */
-function resolveSelfImport(specifier, pkgJson, packageDir, distName) {
+function resolveSelfImport(specifier, pkgJson, packageDir, target) {
   const pkg = getPackageName(specifier);
   if (pkg !== pkgJson.name) {
     return null;
@@ -192,10 +128,10 @@ function resolveSelfImport(specifier, pkgJson, packageDir, distName) {
   if (!exportConfig) {
     return null;
   }
-  const conditionKeys = distName === "dist-es" ? ["module", "import"] : ["node", "require"];
+  const conditionKeys = target === "dist-es" ? ["module", "import"] : ["node", "require"];
   for (const key of conditionKeys) {
     const val = typeof exportConfig === "string" ? exportConfig : exportConfig[key];
-    if (typeof val === "string" && val.includes(distName)) {
+    if (typeof val === "string" && val.includes(target)) {
       return path.resolve(packageDir, val);
     }
   }
@@ -203,87 +139,143 @@ function resolveSelfImport(specifier, pkgJson, packageDir, distName) {
 }
 
 /**
- * Builds a file-level dependency graph within a single dist directory.
- *
- * @param distDir - absolute path to dist-cjs or dist-es.
- * @param pkgJson - parsed package.json.
- * @param packageDir - package root.
- * @param distName - "dist-cjs" or "dist-es".
- * @returns adjacency list of absolute file path -> Set of absolute file paths.
+ * Creates the cycles validator.
  */
-async function buildFileGraph(distDir, pkgJson, packageDir, distName) {
-  const graph = new Map();
+function createValidator() {
+  // Module-level graph: packageName → Set<packageName>
+  const moduleGraph = new Map();
+  // File-level graph: filePath → Set<filePath>
+  const fileGraph = new Map();
+  // Track which package owns which file for error reporting.
+  const filePkgInfo = new Map();
 
-  for await (const file of walk(distDir, ["node_modules"])) {
-    if (!file.endsWith(".js")) {
-      continue;
-    }
-    if (!graph.has(file)) {
-      graph.set(file, new Set());
-    }
-    const code = fs.readFileSync(file, "utf-8");
-    for (const specifier of extractImports(code)) {
-      let target = null;
-      if (specifier.startsWith(".")) {
-        target = resolveRelative(file, specifier);
-      } else {
-        target = resolveSelfImport(specifier, pkgJson, packageDir, distName);
-      }
-      if (target) {
-        graph.get(file).add(target);
-      }
-    }
-  }
-
-  return graph;
-}
-
-async function validate(packageDirs) {
   const errors = [];
 
-  // Module-level cycle detection.
-  const moduleGraph = await buildModuleGraph(packageDirs);
-  const moduleCycles = findAllCycles(moduleGraph);
-  for (const { cycle, sccSize } of moduleCycles) {
-    const sccNote = sccSize > cycle.length - 1 ? ` (${sccSize} packages in cycle group)` : "";
-    errors.push(`module-level cycle${sccNote}:\n    ${cycle.join(" →\n    ")}`);
-  }
+  return {
+    name: "cycles",
+    targets: ["dist-cjs", "dist-es"],
 
-  // File-level cycle detection per package per dist.
-  for (const packageDir of packageDirs) {
-    const pkgJsonPath = path.join(packageDir, "package.json");
-    if (!fs.existsSync(pkgJsonPath)) {
-      continue;
-    }
-    const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
+    onImport(specifier, file, context) {
+      const { packageJson, packageDir, target } = context;
+      const pkgName = packageJson.name;
 
-    for (const dist of ["dist-cjs", "dist-es"]) {
-      const distDir = path.join(packageDir, dist);
-      if (!fs.existsSync(distDir)) {
-        continue;
+      // Module-level: track @aws-sdk/* cross-package imports.
+      if (!specifier.startsWith(".") && !specifier.startsWith("node:")) {
+        const importedPkg = getPackageName(specifier);
+        if (importedPkg.startsWith("@aws-sdk/") && importedPkg !== pkgName) {
+          if (!moduleGraph.has(pkgName)) {
+            moduleGraph.set(pkgName, new Set());
+          }
+          moduleGraph.get(pkgName).add(importedPkg);
+        }
+
+        // Self-referencing subpath imports create file-level edges.
+        const selfTarget = resolveSelfImport(specifier, packageJson, packageDir, target);
+        if (selfTarget) {
+          if (!fileGraph.has(file)) {
+            fileGraph.set(file, new Set());
+          }
+          fileGraph.get(file).add(selfTarget);
+        }
       }
-      const fileGraph = await buildFileGraph(distDir, pkgJson, packageDir, dist);
-      const fileCycles = findAllCycles(fileGraph);
-      for (const { cycle, sccSize } of fileCycles) {
-        const relCycle = cycle.map((f) => path.relative(packageDir, f));
-        const sccNote = sccSize > cycle.length - 1 ? ` (${sccSize} files in cycle group)` : "";
-        errors.push(`[${pkgJson.name}/${dist}] file-level cycle${sccNote}:\n    ${relCycle.join(" →\n    ")}`);
-      }
-    }
-  }
 
-  return errors;
+      // File-level: track relative imports.
+      if (specifier.startsWith(".")) {
+        const resolved = resolveRelative(file, specifier);
+        if (resolved) {
+          if (!fileGraph.has(file)) {
+            fileGraph.set(file, new Set());
+          }
+          fileGraph.get(file).add(resolved);
+        }
+      }
+    },
+
+    onFile(file, context) {
+      filePkgInfo.set(file, {
+        packageDir: context.packageDir,
+        packageJson: context.packageJson,
+        target: context.target,
+      });
+      if (!fileGraph.has(file)) {
+        fileGraph.set(file, new Set());
+      }
+    },
+
+    onWalkComplete() {
+      // Module-level cycle detection.
+      const moduleCycles = findAllCycles(moduleGraph);
+      for (const { cycle, sccSize } of moduleCycles) {
+        const sccNote = sccSize > cycle.length - 1 ? ` (${sccSize} packages in cycle group)` : "";
+        errors.push(`module-level cycle${sccNote}:\n    ${cycle.join(" →\n    ")}`);
+      }
+
+      // File-level cycle detection — partition file graph by package+target.
+      const partitions = new Map();
+      for (const [file, info] of filePkgInfo) {
+        const key = `${info.packageDir}::${info.target}`;
+        if (!partitions.has(key)) {
+          partitions.set(key, {
+            packageDir: info.packageDir,
+            packageJson: info.packageJson,
+            target: info.target,
+            files: new Set(),
+          });
+        }
+        partitions.get(key).files.add(file);
+      }
+
+      for (const { packageDir, packageJson, target, files } of partitions.values()) {
+        // Build a subgraph restricted to files within this package+target.
+        const subgraph = new Map();
+        for (const file of files) {
+          const edges = fileGraph.get(file);
+          if (edges) {
+            const filtered = new Set();
+            for (const neighbor of edges) {
+              if (files.has(neighbor)) {
+                filtered.add(neighbor);
+              }
+            }
+            if (filtered.size) {
+              subgraph.set(file, filtered);
+            }
+          }
+        }
+
+        const fileCycles = findAllCycles(subgraph);
+        for (const { cycle, sccSize } of fileCycles) {
+          const relCycle = cycle.map((f) => path.relative(packageDir, f));
+          const sccNote = sccSize > cycle.length - 1 ? ` (${sccSize} files in cycle group)` : "";
+          errors.push(`[${packageJson.name}/${target}] file-level cycle${sccNote}:\n    ${relCycle.join(" →\n    ")}`);
+        }
+      }
+    },
+
+    getErrors() {
+      return errors;
+    },
+  };
 }
 
 async function main() {
   const packages = getPackageDirs();
-  const packageDirs = packages.map((p) => p.dir);
-  const errors = await validate(packageDirs);
+  const validator = createValidator();
+  const bus = createBus({ packages });
+  bus.register(validator);
+  await bus.run();
+
+  const errors = validator.getErrors();
   if (errors.length) {
     console.error(`❌ ${errors.length} cycle(s) detected:\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log(`✅ No cyclical file or package dependencies. (${summarizePackages(packages)})`);
+  console.log(`✅ No cyclical file or package dependencies. (${bus.getSummary()})`);
+  console.log(`    [${(validator.inspects || validator.targets).join(", ")}]`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createValidator };

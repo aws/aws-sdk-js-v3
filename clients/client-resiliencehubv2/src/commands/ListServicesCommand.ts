@@ -68,11 +68,14 @@ export interface ListServicesCommandOutput extends ListServicesResponse, __Metad
  * //       dependencyDiscovery: { // DependencyDiscoveryConfig
  * //         status: "ENABLED" || "INITIALIZING" || "DISABLED", // required
  * //         updatedAt: new Date("TIMESTAMP"),
+ * //         eligibleResourceCount: Number("int"),
+ * //         message: "STRING_VALUE",
  * //       },
  * //       achievability: { // Achievability
  * //         availabilitySlo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //         multiAzRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //         multiRegionRtoRpo: "ACHIEVABLE" || "NOT_ACHIEVABLE",
+ * //         dataRecoveryTimeBetweenBackups: "ACHIEVABLE" || "NOT_ACHIEVABLE",
  * //       },
  * //       organizationId: "STRING_VALUE",
  * //       ouId: "STRING_VALUE",

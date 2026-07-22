@@ -38,7 +38,7 @@ export interface UpdateIdentityPropagationConfigCommandOutput extends UpdateIden
  * const client = new QuickSightClient(config);
  * const input = { // UpdateIdentityPropagationConfigRequest
  *   AwsAccountId: "STRING_VALUE", // required
- *   Service: "REDSHIFT" || "QBUSINESS" || "ATHENA", // required
+ *   Service: "REDSHIFT" || "QBUSINESS" || "ATHENA" || "GLUE_DATA_CATALOG", // required
  *   AuthorizedTargets: [ // AuthorizedTargetsList
  *     "STRING_VALUE",
  *   ],

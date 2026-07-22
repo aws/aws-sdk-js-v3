@@ -44,6 +44,16 @@ export interface GetAutonomousDatabaseWalletDetailsCommandOutput extends GetAuto
  * //   autonomousDatabaseWalletDetails: { // AutonomousDatabaseWalletDetails
  * //     status: "ACTIVE" || "UPDATING",
  * //     timeRotated: new Date("TIMESTAMP"),
+ * //     passwordSourceSummary: { // WalletPasswordSourceSummary
+ * //       passwordSource: "CUSTOMER_MANAGED_AWS_SECRET" || "API_REQUEST_PARAMETER",
+ * //       passwordSourceConfiguration: { // WalletPasswordSourceConfiguration Union: only one key present
+ * //         customerManagedAwsSecret: { // CustomerManagedAwsSecretConfiguration
+ * //           iamRoleArn: "STRING_VALUE",
+ * //           secretId: "STRING_VALUE",
+ * //           externalIdType: "database_ocid" || "compartment_ocid" || "tenant_ocid",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

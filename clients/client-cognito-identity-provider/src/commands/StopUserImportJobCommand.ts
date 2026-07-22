@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/models_0";
+import type { StopUserImportJobRequest, StopUserImportJobResponse } from "../models/models_1";
 import { StopUserImportJob$ } from "../schemas/schemas_0";
 
 /**
@@ -55,6 +55,7 @@ export interface StopUserImportJobCommandOutput extends StopUserImportJobRespons
  * //     SkippedUsers: Number("long"),
  * //     FailedUsers: Number("long"),
  * //     CompletionMessage: "STRING_VALUE",
+ * //     PasswordHashingAlgorithm: "BCRYPT" || "SCRYPT" || "ARGON2ID" || "PBKDF2_SHA256",
  * //   },
  * // };
  *

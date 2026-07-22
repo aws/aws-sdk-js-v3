@@ -143,6 +143,8 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       retentionCheckInterval: "<Duration>",
  * //       deleteGracePeriod: "<Duration>",
  * //       hardDeleteDefaultDuration: "<Duration>",
+ * //       pluginRepositoryUrl: "STRING_VALUE",
+ * //       pluginRepositorySecretArn: "STRING_VALUE",
  * //     },
  * //     InfluxDBv3Enterprise: { // InfluxDBv3EnterpriseParameters
  * //       queryFileLimit: Number("int"),
@@ -190,6 +192,8 @@ export interface GetDbParameterGroupCommandOutput extends GetDbParameterGroupOut
  * //       retentionCheckInterval: "<Duration>",
  * //       deleteGracePeriod: "<Duration>",
  * //       hardDeleteDefaultDuration: "<Duration>",
+ * //       pluginRepositoryUrl: "STRING_VALUE",
+ * //       pluginRepositorySecretArn: "STRING_VALUE",
  * //       ingestQueryInstances: Number("int"), // required
  * //       queryOnlyInstances: Number("int"), // required
  * //       dedicatedCompactor: true || false, // required

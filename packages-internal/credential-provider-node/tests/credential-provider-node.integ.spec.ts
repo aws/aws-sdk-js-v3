@@ -1,4 +1,5 @@
-import { STS, STSExtensionConfiguration } from "@aws-sdk/client-sts";
+import type { STSExtensionConfiguration } from "@aws-sdk/client-sts";
+import { STS } from "@aws-sdk/client-sts";
 import * as credentialProviderHttp from "@aws-sdk/credential-provider-http";
 import {
   fromCognitoIdentity,
@@ -8,11 +9,11 @@ import {
   fromWebToken,
 } from "@aws-sdk/credential-providers";
 import { assumeRoleArns, MockNodeHttpHandler } from "@aws-sdk/credential-providers/tests/_test-lib";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { HttpResponse } from "@smithy/core/protocols";
 import { externalDataInterceptor } from "@smithy/core/config";
-import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
+import { HttpResponse } from "@smithy/core/protocols";
 import { AdaptiveRetryStrategy, StandardRetryStrategy } from "@smithy/core/retry";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
+import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
 import { createServer, type Server } from "node:http";

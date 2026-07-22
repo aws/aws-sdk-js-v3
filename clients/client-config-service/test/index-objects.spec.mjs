@@ -23,6 +23,7 @@ import {
   AssociateResourceTypesCommand,
   AssociateResourceTypesRequest$,
   AssociateResourceTypesResponse$,
+  AzureConnectorConfiguration$,
   BaseConfigurationItem$,
   BatchGetAggregateResourceConfig$,
   BatchGetAggregateResourceConfigCommand,
@@ -76,6 +77,11 @@ import {
   ConformancePackStatusDetail$,
   ConformancePackTemplateValidationException,
   ConformancePackTemplateValidationException$,
+  Connector$,
+  ConnectorConfiguration$,
+  ConnectorFilter$,
+  ConnectorFilterName,
+  ConnectorSummary$,
   CustomPolicyDetails$,
   DeleteAggregationAuthorization$,
   DeleteAggregationAuthorizationCommand,
@@ -92,6 +98,9 @@ import {
   DeleteConformancePack$,
   DeleteConformancePackCommand,
   DeleteConformancePackRequest$,
+  DeleteConnector$,
+  DeleteConnectorCommand,
+  DeleteConnectorRequest$,
   DeleteDeliveryChannel$,
   DeleteDeliveryChannelCommand,
   DeleteDeliveryChannelRequest$,
@@ -301,6 +310,10 @@ import {
   GetConformancePackComplianceSummaryCommand,
   GetConformancePackComplianceSummaryRequest$,
   GetConformancePackComplianceSummaryResponse$,
+  GetConnector$,
+  GetConnectorCommand,
+  GetConnectorRequest$,
+  GetConnectorResponse$,
   GetCustomRulePolicy$,
   GetCustomRulePolicyCommand,
   GetCustomRulePolicyRequest$,
@@ -382,6 +395,10 @@ import {
   ListConformancePackComplianceScoresCommand,
   ListConformancePackComplianceScoresRequest$,
   ListConformancePackComplianceScoresResponse$,
+  ListConnectors$,
+  ListConnectorsCommand,
+  ListConnectorsRequest$,
+  ListConnectorsResponse$,
   ListDiscoveredResources$,
   ListDiscoveredResourcesCommand,
   ListDiscoveredResourcesRequest$,
@@ -407,6 +424,8 @@ import {
   MaxNumberOfConfigurationRecordersExceededException$,
   MaxNumberOfConformancePacksExceededException,
   MaxNumberOfConformancePacksExceededException$,
+  MaxNumberOfConnectorsExceededException,
+  MaxNumberOfConnectorsExceededException$,
   MaxNumberOfDeliveryChannelsExceededException,
   MaxNumberOfDeliveryChannelsExceededException$,
   MaxNumberOfOrganizationConfigRulesExceededException,
@@ -510,6 +529,7 @@ import {
   paginateListAggregateDiscoveredResources,
   paginateListConfigurationRecorders,
   paginateListConformancePackComplianceScores,
+  paginateListConnectors,
   paginateListDiscoveredResources,
   paginateListResourceEvaluations,
   paginateListStoredQueries,
@@ -517,6 +537,7 @@ import {
   paginateSelectAggregateResourceConfig,
   paginateSelectResourceConfig,
   PendingAggregationRequest$,
+  Provider,
   PutAggregationAuthorization$,
   PutAggregationAuthorizationCommand,
   PutAggregationAuthorizationRequest$,
@@ -535,6 +556,10 @@ import {
   PutConformancePackCommand,
   PutConformancePackRequest$,
   PutConformancePackResponse$,
+  PutConnector$,
+  PutConnectorCommand,
+  PutConnectorRequest$,
+  PutConnectorResponse$,
   PutDeliveryChannel$,
   PutDeliveryChannelCommand,
   PutDeliveryChannelRequest$,
@@ -577,6 +602,10 @@ import {
   PutStoredQueryCommand,
   PutStoredQueryRequest$,
   PutStoredQueryResponse$,
+  PutThirdPartyServiceLinkedConfigurationRecorder$,
+  PutThirdPartyServiceLinkedConfigurationRecorderCommand,
+  PutThirdPartyServiceLinkedConfigurationRecorderRequest$,
+  PutThirdPartyServiceLinkedConfigurationRecorderResponse$,
   QueryInfo$,
   RecorderStatus,
   RecordingFrequency,
@@ -623,6 +652,7 @@ import {
   RetentionConfiguration$,
   RuleEvaluationVisibility,
   Scope$,
+  ScopeConfiguration$,
   SelectAggregateResourceConfig$,
   SelectAggregateResourceConfigCommand,
   SelectAggregateResourceConfigRequest$,
@@ -695,6 +725,8 @@ assert(typeof DeleteConfigurationRecorderCommand === "function");
 assert(typeof DeleteConfigurationRecorder$ === "object");
 assert(typeof DeleteConformancePackCommand === "function");
 assert(typeof DeleteConformancePack$ === "object");
+assert(typeof DeleteConnectorCommand === "function");
+assert(typeof DeleteConnector$ === "object");
 assert(typeof DeleteDeliveryChannelCommand === "function");
 assert(typeof DeleteDeliveryChannel$ === "object");
 assert(typeof DeleteEvaluationResultsCommand === "function");
@@ -793,6 +825,8 @@ assert(typeof GetConformancePackComplianceDetailsCommand === "function");
 assert(typeof GetConformancePackComplianceDetails$ === "object");
 assert(typeof GetConformancePackComplianceSummaryCommand === "function");
 assert(typeof GetConformancePackComplianceSummary$ === "object");
+assert(typeof GetConnectorCommand === "function");
+assert(typeof GetConnector$ === "object");
 assert(typeof GetCustomRulePolicyCommand === "function");
 assert(typeof GetCustomRulePolicy$ === "object");
 assert(typeof GetDiscoveredResourceCountsCommand === "function");
@@ -815,6 +849,8 @@ assert(typeof ListConfigurationRecordersCommand === "function");
 assert(typeof ListConfigurationRecorders$ === "object");
 assert(typeof ListConformancePackComplianceScoresCommand === "function");
 assert(typeof ListConformancePackComplianceScores$ === "object");
+assert(typeof ListConnectorsCommand === "function");
+assert(typeof ListConnectors$ === "object");
 assert(typeof ListDiscoveredResourcesCommand === "function");
 assert(typeof ListDiscoveredResources$ === "object");
 assert(typeof ListResourceEvaluationsCommand === "function");
@@ -833,6 +869,8 @@ assert(typeof PutConfigurationRecorderCommand === "function");
 assert(typeof PutConfigurationRecorder$ === "object");
 assert(typeof PutConformancePackCommand === "function");
 assert(typeof PutConformancePack$ === "object");
+assert(typeof PutConnectorCommand === "function");
+assert(typeof PutConnector$ === "object");
 assert(typeof PutDeliveryChannelCommand === "function");
 assert(typeof PutDeliveryChannel$ === "object");
 assert(typeof PutEvaluationsCommand === "function");
@@ -855,6 +893,8 @@ assert(typeof PutServiceLinkedConfigurationRecorderCommand === "function");
 assert(typeof PutServiceLinkedConfigurationRecorder$ === "object");
 assert(typeof PutStoredQueryCommand === "function");
 assert(typeof PutStoredQuery$ === "object");
+assert(typeof PutThirdPartyServiceLinkedConfigurationRecorderCommand === "function");
+assert(typeof PutThirdPartyServiceLinkedConfigurationRecorder$ === "object");
 assert(typeof SelectAggregateResourceConfigCommand === "function");
 assert(typeof SelectAggregateResourceConfig$ === "object");
 assert(typeof SelectResourceConfigCommand === "function");
@@ -892,6 +932,7 @@ assert(typeof AggregatorFilters$ === "object");
 assert(typeof AggregatorFilterServicePrincipal$ === "object");
 assert(typeof AssociateResourceTypesRequest$ === "object");
 assert(typeof AssociateResourceTypesResponse$ === "object");
+assert(typeof AzureConnectorConfiguration$ === "object");
 assert(typeof BaseConfigurationItem$ === "object");
 assert(typeof BatchGetAggregateResourceConfigRequest$ === "object");
 assert(typeof BatchGetAggregateResourceConfigResponse$ === "object");
@@ -926,12 +967,17 @@ assert(typeof ConformancePackEvaluationResult$ === "object");
 assert(typeof ConformancePackInputParameter$ === "object");
 assert(typeof ConformancePackRuleCompliance$ === "object");
 assert(typeof ConformancePackStatusDetail$ === "object");
+assert(typeof Connector$ === "object");
+assert(typeof ConnectorConfiguration$ === "object");
+assert(typeof ConnectorFilter$ === "object");
+assert(typeof ConnectorSummary$ === "object");
 assert(typeof CustomPolicyDetails$ === "object");
 assert(typeof DeleteAggregationAuthorizationRequest$ === "object");
 assert(typeof DeleteConfigRuleRequest$ === "object");
 assert(typeof DeleteConfigurationAggregatorRequest$ === "object");
 assert(typeof DeleteConfigurationRecorderRequest$ === "object");
 assert(typeof DeleteConformancePackRequest$ === "object");
+assert(typeof DeleteConnectorRequest$ === "object");
 assert(typeof DeleteDeliveryChannelRequest$ === "object");
 assert(typeof DeleteEvaluationResultsRequest$ === "object");
 assert(typeof DeleteEvaluationResultsResponse$ === "object");
@@ -1040,6 +1086,8 @@ assert(typeof GetConformancePackComplianceDetailsRequest$ === "object");
 assert(typeof GetConformancePackComplianceDetailsResponse$ === "object");
 assert(typeof GetConformancePackComplianceSummaryRequest$ === "object");
 assert(typeof GetConformancePackComplianceSummaryResponse$ === "object");
+assert(typeof GetConnectorRequest$ === "object");
+assert(typeof GetConnectorResponse$ === "object");
 assert(typeof GetCustomRulePolicyRequest$ === "object");
 assert(typeof GetCustomRulePolicyResponse$ === "object");
 assert(typeof GetDiscoveredResourceCountsRequest$ === "object");
@@ -1063,6 +1111,8 @@ assert(typeof ListConfigurationRecordersRequest$ === "object");
 assert(typeof ListConfigurationRecordersResponse$ === "object");
 assert(typeof ListConformancePackComplianceScoresRequest$ === "object");
 assert(typeof ListConformancePackComplianceScoresResponse$ === "object");
+assert(typeof ListConnectorsRequest$ === "object");
+assert(typeof ListConnectorsResponse$ === "object");
 assert(typeof ListDiscoveredResourcesRequest$ === "object");
 assert(typeof ListDiscoveredResourcesResponse$ === "object");
 assert(typeof ListResourceEvaluationsRequest$ === "object");
@@ -1092,6 +1142,8 @@ assert(typeof PutConfigurationAggregatorResponse$ === "object");
 assert(typeof PutConfigurationRecorderRequest$ === "object");
 assert(typeof PutConformancePackRequest$ === "object");
 assert(typeof PutConformancePackResponse$ === "object");
+assert(typeof PutConnectorRequest$ === "object");
+assert(typeof PutConnectorResponse$ === "object");
 assert(typeof PutDeliveryChannelRequest$ === "object");
 assert(typeof PutEvaluationsRequest$ === "object");
 assert(typeof PutEvaluationsResponse$ === "object");
@@ -1112,6 +1164,8 @@ assert(typeof PutServiceLinkedConfigurationRecorderRequest$ === "object");
 assert(typeof PutServiceLinkedConfigurationRecorderResponse$ === "object");
 assert(typeof PutStoredQueryRequest$ === "object");
 assert(typeof PutStoredQueryResponse$ === "object");
+assert(typeof PutThirdPartyServiceLinkedConfigurationRecorderRequest$ === "object");
+assert(typeof PutThirdPartyServiceLinkedConfigurationRecorderResponse$ === "object");
 assert(typeof QueryInfo$ === "object");
 assert(typeof RecordingGroup$ === "object");
 assert(typeof RecordingMode$ === "object");
@@ -1135,6 +1189,7 @@ assert(typeof ResourceKey$ === "object");
 assert(typeof ResourceValue$ === "object");
 assert(typeof RetentionConfiguration$ === "object");
 assert(typeof Scope$ === "object");
+assert(typeof ScopeConfiguration$ === "object");
 assert(typeof SelectAggregateResourceConfigRequest$ === "object");
 assert(typeof SelectAggregateResourceConfigResponse$ === "object");
 assert(typeof SelectResourceConfigRequest$ === "object");
@@ -1172,6 +1227,7 @@ assert(typeof ConfigurationItemStatus === "object");
 assert(typeof ConfigurationRecorderFilterName === "object");
 assert(typeof ConformancePackComplianceType === "object");
 assert(typeof ConformancePackState === "object");
+assert(typeof ConnectorFilterName === "object");
 assert(typeof DeliveryStatus === "object");
 assert(typeof EvaluationMode === "object");
 assert(typeof EventSource === "object");
@@ -1184,6 +1240,7 @@ assert(typeof OrganizationResourceDetailedStatus === "object");
 assert(typeof OrganizationResourceStatus === "object");
 assert(typeof OrganizationRuleStatus === "object");
 assert(typeof Owner === "object");
+assert(typeof Provider === "object");
 assert(typeof RecorderStatus === "object");
 assert(typeof RecordingFrequency === "object");
 assert(typeof RecordingScope === "object");
@@ -1248,6 +1305,8 @@ assert(MaxNumberOfConfigurationRecordersExceededException.prototype instanceof C
 assert(typeof MaxNumberOfConfigurationRecordersExceededException$ === "object");
 assert(MaxNumberOfConformancePacksExceededException.prototype instanceof ConfigServiceServiceException);
 assert(typeof MaxNumberOfConformancePacksExceededException$ === "object");
+assert(MaxNumberOfConnectorsExceededException.prototype instanceof ConfigServiceServiceException);
+assert(typeof MaxNumberOfConnectorsExceededException$ === "object");
 assert(MaxNumberOfDeliveryChannelsExceededException.prototype instanceof ConfigServiceServiceException);
 assert(typeof MaxNumberOfDeliveryChannelsExceededException$ === "object");
 assert(MaxNumberOfOrganizationConfigRulesExceededException.prototype instanceof ConfigServiceServiceException);
@@ -1349,6 +1408,7 @@ assert(typeof paginateGetResourceConfigHistory === "function");
 assert(typeof paginateListAggregateDiscoveredResources === "function");
 assert(typeof paginateListConfigurationRecorders === "function");
 assert(typeof paginateListConformancePackComplianceScores === "function");
+assert(typeof paginateListConnectors === "function");
 assert(typeof paginateListDiscoveredResources === "function");
 assert(typeof paginateListResourceEvaluations === "function");
 assert(typeof paginateListStoredQueries === "function");

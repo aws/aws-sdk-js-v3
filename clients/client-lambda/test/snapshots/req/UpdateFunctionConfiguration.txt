@@ -2,14 +2,14 @@ PUT https://lambda.us-east-1.amazonaws.com
 /2015-03-31/functions/__FunctionName__/configuration
 
 content-type: application/json
-content-length: 1416
+content-length: 1444
 x-amz-user-agent: aws-sdk-js/3.___._
-user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ md/tsc#_.__ api/lambda#_.__ m/E,e
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/lambda#_.__ m/E,e
 host: lambda.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 70ffa56635810eb4fb418b3b954e7c15c09a59873a49b6836229ceb2d2b34a16
+x-amz-content-sha256: d189979195a7d1cb2814f3d194d87c76e25370cf7b23a5f964d2963d2f7e290a
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -100,6 +100,7 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/lambda/aws4_re
     }
   },
   "DurableConfig": {
+    "KMSKeyArn": "__KMSKeyArn__",
     "RetentionPeriodInDays": 0,
     "ExecutionTimeout": 0
   }

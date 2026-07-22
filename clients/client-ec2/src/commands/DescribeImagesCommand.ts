@@ -142,6 +142,7 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //       SourceImageId: "STRING_VALUE",
  * //       SourceImageRegion: "STRING_VALUE",
  * //       FreeTierEligible: true || false,
+ * //       PublicSsmParameterName: "STRING_VALUE",
  * //       ImageWatermarks: [ // ImageWatermarkList
  * //         { // ImageWatermark
  * //           WatermarkKey: "STRING_VALUE",

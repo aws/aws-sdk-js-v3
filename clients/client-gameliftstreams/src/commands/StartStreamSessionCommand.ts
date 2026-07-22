@@ -54,6 +54,7 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *   PerformanceStatsConfiguration: { // PerformanceStatsConfiguration
  *     SharedWithClient: true || false,
  *   },
+ *   RoleArn: "STRING_VALUE",
  * };
  * const command = new StartStreamSessionCommand(input);
  * const response = await client.send(command);
@@ -63,7 +64,7 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //   StreamGroupId: "STRING_VALUE",
  * //   UserId: "STRING_VALUE",
  * //   Status: "ACTIVATING" || "ACTIVE" || "CONNECTED" || "PENDING_CLIENT_RECONNECTION" || "RECONNECTING" || "TERMINATING" || "TERMINATED" || "ERROR",
- * //   StatusReason: "internalError" || "invalidSignalRequest" || "placementTimeout" || "applicationLogS3DestinationError" || "applicationExit" || "connectionTimeout" || "reconnectionTimeout" || "maxSessionLengthTimeout" || "idleTimeout" || "apiTerminated",
+ * //   StatusReason: "internalError" || "invalidSignalRequest" || "placementTimeout" || "applicationLogS3DestinationError" || "assumeRoleFailed" || "applicationExit" || "connectionTimeout" || "reconnectionTimeout" || "maxSessionLengthTimeout" || "idleTimeout" || "apiTerminated",
  * //   Protocol: "WebRTC",
  * //   Location: "STRING_VALUE",
  * //   SignalRequest: "STRING_VALUE",
@@ -89,6 +90,7 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //     StatusReason: "STRING_VALUE",
  * //     OutputUri: "STRING_VALUE",
  * //   },
+ * //   RoleArn: "STRING_VALUE",
  * // };
  *
  * ```

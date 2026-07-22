@@ -1,6 +1,5 @@
 import type { FromWebTokenInit } from "@aws-sdk/credential-provider-web-identity";
-import { fromWebToken as _fromWebToken } from "@aws-sdk/credential-provider-web-identity";
-import type { AwsCredentialIdentityProvider } from "@smithy/types";
+import type { AwsIdentityProperties, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Creates a credential provider function that gets credentials calling STS
@@ -41,7 +40,9 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromWebToken = (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
-  _fromWebToken({
-    ...init,
-  });
+export const fromWebToken = (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider => {
+  return async (args?: AwsIdentityProperties) => {
+    const { fromWebToken: _fromWebToken } = await import("@aws-sdk/credential-provider-web-identity");
+    return _fromWebToken({ ...init })(args);
+  };
+};

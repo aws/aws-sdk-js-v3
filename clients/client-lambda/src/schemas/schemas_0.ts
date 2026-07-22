@@ -85,12 +85,14 @@ const _CP = "CapacityProvider";
 const _CPA = "CapacityProviderArn";
 const _CPC = "CapacityProviderConfig";
 const _CPL = "CapacityProvidersList";
+const _CPLC = "CapacityProviderLoggingConfig";
 const _CPLEE = "CapacityProviderLimitExceededException";
 const _CPN = "CapacityProviderName";
 const _CPORA = "CapacityProviderOperatorRoleArn";
 const _CPPC = "CapacityProviderPermissionsConfig";
 const _CPSC = "CapacityProviderScalingConfig";
 const _CPSPL = "CapacityProviderScalingPoliciesList";
+const _CPTC = "CapacityProviderTelemetryConfig";
 const _CPVC = "CapacityProviderVpcConfig";
 const _CPa = "CapacityProviders";
 const _CR = "CompatibleRuntimes";
@@ -170,6 +172,7 @@ const _ECEC = "EC2ErrorCode";
 const _ECTE = "EC2ThrottledException";
 const _ECUE = "EC2UnexpectedException";
 const _ED = "ErrorData";
+const _EDI = "ExecutionDataIncluded";
 const _EDr = "ErrorDetails";
 const _EDx = "ExecutionDetails";
 const _EE = "EnvironmentError";
@@ -643,10 +646,11 @@ const _Sta = "Status";
 const _Stat = "Statuses";
 const _T = "Type";
 const _TA = "TargetArn";
-const _TC = "TracingConfig";
+const _TC = "TelemetryConfig";
 const _TCR = "TracingConfigResponse";
 const _TCS = "TotalCodeSize";
 const _TCe = "TenancyConfig";
+const _TCr = "TracingConfig";
 const _TE = "TagsError";
 const _TH = "TraceHeader";
 const _TI = "TenantId";
@@ -1250,13 +1254,18 @@ export var CallbackTimedOutDetails$: StaticStructureSchema = [3, n0, _CTOD,
 ];
 export var CapacityProvider$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_CPA, _St, _VC, _PC, _IR, _CPSC, _KKA, _LM, _PT],
-  [0, 0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 0, () => PropagateTags$], 4
+  [_CPA, _St, _VC, _PC, _IR, _CPSC, _KKA, _LM, _PT, _TC],
+  [0, 0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 0, () => PropagateTags$, () => CapacityProviderTelemetryConfig$], 4
 ];
 export var CapacityProviderConfig$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_LMICPC],
   [() => LambdaManagedInstancesCapacityProviderConfig$], 1
+];
+export var CapacityProviderLoggingConfig$: StaticStructureSchema = [3, n0, _CPLC,
+  0,
+  [_SLL, _LG],
+  [0, 0]
 ];
 export var CapacityProviderPermissionsConfig$: StaticStructureSchema = [3, n0, _CPPC,
   0,
@@ -1267,6 +1276,11 @@ export var CapacityProviderScalingConfig$: StaticStructureSchema = [3, n0, _CPSC
   0,
   [_MVCC, _SM, _SP],
   [1, 0, () => CapacityProviderScalingPoliciesList]
+];
+export var CapacityProviderTelemetryConfig$: StaticStructureSchema = [3, n0, _CPTC,
+  0,
+  [_LC],
+  [() => CapacityProviderLoggingConfig$]
 ];
 export var CapacityProviderVpcConfig$: StaticStructureSchema = [3, n0, _CPVC,
   0,
@@ -1375,8 +1389,8 @@ export var CreateAliasRequest$: StaticStructureSchema = [3, n0, _CAR,
 ];
 export var CreateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_CPN, _VC, _PC, _IR, _CPSC, _KKA, _Ta, _PT],
-  [0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 128 | 0, () => PropagateTags$], 3
+  [_CPN, _VC, _PC, _IR, _CPSC, _KKA, _Ta, _PT, _TC],
+  [0, () => CapacityProviderVpcConfig$, () => CapacityProviderPermissionsConfig$, () => InstanceRequirements$, () => CapacityProviderScalingConfig$, 0, 128 | 0, () => PropagateTags$, () => CapacityProviderTelemetryConfig$], 3
 ];
 export var CreateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -1400,7 +1414,7 @@ export var CreateEventSourceMappingRequest$: StaticStructureSchema = [3, n0, _CE
 ];
 export var CreateFunctionRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TC, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu],
+  [_FN, _Ro, _Cod, _Ru, _H, _D, _Ti, _MS, _Pu, _PTu, _VC, _PTa, _DLC, _Env, _KMSKA, _TCr, _Ta, _L, _FSC, _CSCA, _IC, _Ar, _ES, _SSn, _LC, _TCe, _CPC, _DCu],
   [0, 0, [() => FunctionCode$, 0], 0, 0, 0, 1, 1, 2, 0, () => VpcConfig$, 0, () => DeadLetterConfig$, [() => Environment$, 0], 0, () => TracingConfig$, 128 | 0, 64 | 0, () => FileSystemConfigList, 0, () => ImageConfig$, 64 | 0, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, () => DurableConfig$], 3
 ];
 export var CreateFunctionUrlConfigRequest$: StaticStructureSchema = [3, n0, _CFUCR,
@@ -1500,8 +1514,8 @@ export var DocumentDBEventSourceConfig$: StaticStructureSchema = [3, n0, _DDBESC
 ];
 export var DurableConfig$: StaticStructureSchema = [3, n0, _DCu,
   0,
-  [_RPID, _ETx],
-  [1, 1]
+  [_KMSKA, _RPID, _ETx],
+  [0, 1, 1]
 ];
 export var Environment$: StaticStructureSchema = [3, n0, _Env,
   0,
@@ -1565,8 +1579,8 @@ export var EventSourceMappingMetricsConfig$: StaticStructureSchema = [3, n0, _ES
 ];
 export var Execution$: StaticStructureSchema = [3, n0, _Ex,
   0,
-  [_DEA, _DEN, _FA, _Sta, _STt, _ETn],
-  [0, 0, 0, 0, 4, 4], 5
+  [_DEA, _DEN, _FA, _Sta, _STt, _ETn, _KMSKA],
+  [0, 0, 0, 0, 4, 4, 0], 5
 ];
 export var ExecutionDetails$: StaticStructureSchema = [3, n0, _EDx,
   0,
@@ -1635,7 +1649,7 @@ export var FunctionCodeLocationError$: StaticStructureSchema = [3, n0, _FCLE,
 ];
 export var FunctionConfiguration$: StaticStructureSchema = [3, n0, _FCun,
   0,
-  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TC, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu],
+  [_FN, _FA, _Ru, _Ro, _H, _CS, _D, _Ti, _MS, _LM, _CSo, _Ve, _VC, _DLC, _Env, _KMSKA, _TCr, _MAa, _RI, _L, _St, _SR, _SRCt, _LUS, _LUSR, _LUSRC, _FSC, _SPVAi, _SJA, _PTa, _ICR, _Ar, _ES, _SSn, _RVC, _LC, _TCe, _CPC, _CSon, _DCu],
   [0, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, () => VpcConfigResponse$, () => DeadLetterConfig$, [() => EnvironmentResponse$, 0], 0, () => TracingConfigResponse$, 0, 0, () => LayersReferenceList, 0, 0, 0, 0, 0, 0, () => FileSystemConfigList, 0, 0, 0, [() => ImageConfigResponse$, 0], 64 | 0, () => EphemeralStorage$, () => SnapStartResponse$, [() => RuntimeVersionConfig$, 0], () => LoggingConfig$, () => TenancyConfig$, () => CapacityProviderConfig$, 0, () => DurableConfig$]
 ];
 export var FunctionEventInvokeConfig$: StaticStructureSchema = [3, n0, _FEIC,
@@ -1705,13 +1719,13 @@ export var GetDurableExecutionHistoryResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var GetDurableExecutionRequest$: StaticStructureSchema = [3, n0, _GDER,
   0,
-  [_DEA],
-  [[0, 1]], 1
+  [_DEA, _IED],
+  [[0, 1], [2, { [_hQ]: _IED }]], 1
 ];
 export var GetDurableExecutionResponse$: StaticStructureSchema = [3, n0, _GDERe,
   0,
-  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH],
-  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$], 5
+  [_DEA, _DEN, _FA, _STt, _Sta, _IP, _Re, _E, _ETn, _Ve, _TH, _EDI, _DCu],
+  [0, 0, 0, 4, 0, [() => InputPayload, 0], [() => OutputPayload, 0], [() => ErrorObject$, 0], 4, 0, () => TraceHeader$, 2, () => DurableConfig$], 5
 ];
 export var GetDurableExecutionStateRequest$: StaticStructureSchema = [3, n0, _GDESR,
   0,
@@ -1910,8 +1924,8 @@ export var InvokeWithResponseStreamCompleteEvent$: StaticStructureSchema = [3, n
 ];
 export var InvokeWithResponseStreamRequest$: StaticStructureSchema = [3, n0, _IWRSR,
   0,
-  [_FN, _IT, _LT, _CC, _Q, _Pa, _TI],
-  [[0, 1], [0, { [_hH]: _XAIT }], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hQ]: _Q }], [() => _Blob, 16], [0, { [_hH]: _XATI }]], 1
+  [_FN, _LT, _CC, _Q, _Pa, _TI, _IT],
+  [[0, 1], [0, { [_hH]: _XALT }], [0, { [_hH]: _XACC }], [0, { [_hQ]: _Q }], [() => _Blob, 16], [0, { [_hH]: _XATI }], [0, { [_hH]: _XAIT }]], 1
 ];
 export var InvokeWithResponseStreamResponse$: StaticStructureSchema = [3, n0, _IWRSRn,
   0,
@@ -2378,7 +2392,7 @@ export var TraceHeader$: StaticStructureSchema = [3, n0, _TH,
   [_XATIm],
   [0]
 ];
-export var TracingConfig$: StaticStructureSchema = [3, n0, _TC,
+export var TracingConfig$: StaticStructureSchema = [3, n0, _TCr,
   0,
   [_Mo],
   [0]
@@ -2400,8 +2414,8 @@ export var UpdateAliasRequest$: StaticStructureSchema = [3, n0, _UAR,
 ];
 export var UpdateCapacityProviderRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
-  [_CPN, _CPSC, _PT],
-  [[0, 1], () => CapacityProviderScalingConfig$, () => PropagateTags$], 1
+  [_CPN, _CPSC, _PT, _TC],
+  [[0, 1], () => CapacityProviderScalingConfig$, () => PropagateTags$, () => CapacityProviderTelemetryConfig$], 1
 ];
 export var UpdateCapacityProviderResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -2430,7 +2444,7 @@ export var UpdateFunctionCodeRequest$: StaticStructureSchema = [3, n0, _UFCR,
 ];
 export var UpdateFunctionConfigurationRequest$: StaticStructureSchema = [3, n0, _UFCRp,
   0,
-  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TC, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu],
+  [_FN, _Ro, _H, _D, _Ti, _MS, _VC, _Env, _Ru, _DLC, _KMSKA, _TCr, _RI, _L, _FSC, _IC, _ES, _SSn, _LC, _CPC, _DCu],
   [[0, 1], 0, 0, 0, 1, 1, () => VpcConfig$, [() => Environment$, 0], 0, () => DeadLetterConfig$, 0, () => TracingConfig$, 0, 64 | 0, () => FileSystemConfigList, () => ImageConfig$, () => EphemeralStorage$, () => SnapStart$, () => LoggingConfig$, () => CapacityProviderConfig$, () => DurableConfig$], 1
 ];
 export var UpdateFunctionEventInvokeConfigRequest$: StaticStructureSchema = [3, n0, _UFEICR,

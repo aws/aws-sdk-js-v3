@@ -72,6 +72,17 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * //             },
  * //           },
  * //         },
+ * //         authenticationConfiguration: { // AuthenticationConfiguration
+ * //           identityCenterConfiguration: { // IdentityCenterConfiguration
+ * //             enableIdentityCenter: true || false,
+ * //             identityCenterApplicationAssignmentRequired: true || false,
+ * //             identityCenterInstanceARN: "STRING_VALUE",
+ * //             emrIdentityCenterApplicationARN: "STRING_VALUE",
+ * //           },
+ * //           iamConfiguration: { // IAMConfiguration
+ * //             systemRole: "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

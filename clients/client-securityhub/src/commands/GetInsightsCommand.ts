@@ -318,6 +318,9 @@ export interface GetInsightsCommandOutput extends GetInsightsResponse, __Metadat
  * //         AwsAccountName: "<StringFilterList>",
  * //         ResourceApplicationName: "<StringFilterList>",
  * //         ResourceApplicationArn: "<StringFilterList>",
+ * //         ResourceOwnerAccountId: "<StringFilterList>",
+ * //         ResourceOwnerOrgId: "<StringFilterList>",
+ * //         ResourceProvider: "<StringFilterList>",
  * //       },
  * //       GroupByAttribute: "STRING_VALUE", // required
  * //     },

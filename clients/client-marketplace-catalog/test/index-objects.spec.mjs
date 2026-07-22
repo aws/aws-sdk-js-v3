@@ -154,6 +154,8 @@ import {
   ResaleAuthorizationProductNameFilter$,
   ResaleAuthorizationResellerAccountIDFilter$,
   ResaleAuthorizationResellerLegalNameFilter$,
+  ResaleAuthorizationResellerRoleFilter$,
+  ResaleAuthorizationResellerRoleString,
   ResaleAuthorizationSort$,
   ResaleAuthorizationSortBy,
   ResaleAuthorizationStatusFilter$,
@@ -338,6 +340,7 @@ assert(typeof ResaleAuthorizationProductIdFilter$ === "object");
 assert(typeof ResaleAuthorizationProductNameFilter$ === "object");
 assert(typeof ResaleAuthorizationResellerAccountIDFilter$ === "object");
 assert(typeof ResaleAuthorizationResellerLegalNameFilter$ === "object");
+assert(typeof ResaleAuthorizationResellerRoleFilter$ === "object");
 assert(typeof ResaleAuthorizationSort$ === "object");
 assert(typeof ResaleAuthorizationStatusFilter$ === "object");
 assert(typeof ResaleAuthorizationSummary$ === "object");
@@ -375,6 +378,7 @@ assert(typeof OfferSortBy === "object");
 assert(typeof OfferStateString === "object");
 assert(typeof OfferTargetingString === "object");
 assert(typeof OwnershipType === "object");
+assert(typeof ResaleAuthorizationResellerRoleString === "object");
 assert(typeof ResaleAuthorizationSortBy === "object");
 assert(typeof ResaleAuthorizationStatusString === "object");
 assert(typeof SaaSProductSortBy === "object");

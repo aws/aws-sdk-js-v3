@@ -3,17 +3,14 @@
 /**
  * AST-based banned import checker for dist-cjs and dist-es output.
  * Enforces no-restricted-imports rules via direct AST parsing.
+ * Also enforces: dist-cjs must not contain ESM syntax.
  *
  * Usage: node banned-imports.js
  */
 
-const fs = require("node:fs");
 const path = require("node:path");
-const walk = require("../utils/walk");
-const { extractImports, getPackageDirs, summarizePackages } = require("./validation-shared");
-const { parse } = require("acorn");
-
-const root = path.join(__dirname, "..", "..");
+const { createBus } = require("./ast-bus");
+const { getPackageDirs } = require("./validation-shared");
 
 // Banned exact-match packages (consolidated into @smithy/core/* or @aws-sdk/core/*).
 const BANNED_PACKAGES = new Set([
@@ -80,41 +77,41 @@ const BANNED_PACKAGES = new Set([
   "@aws-sdk/middleware-sdk-s3-control",
 ]);
 
+// Packages that intentionally re-export a banned package (compatibility shims).
+const REEXPORT_ALLOWLIST = {
+  "@aws-sdk/smithy-client": new Set(["@smithy/smithy-client"]),
+};
+
 /**
  * Checks if a specifier is banned.
- * Rules:
- * 1. Must not contain "src" (unless contains "csrc") or "dist-" in path
- * 2. "@aws-sdk/core" without subpath is banned (must use @aws-sdk/core/submodule)
- * 3. Any import starting with a banned package name is banned
  */
 function checkBanned(specifier) {
   if (specifier.startsWith(".")) {
     return null;
   }
 
-  // Rule: no src or dist- in import paths (except csrc)
+  // Rule: no src or dist- in import paths (except csrc).
   if ((specifier.includes("src") && !specifier.includes("csrc")) || specifier.includes("dist-")) {
     return `"${specifier}" — imports must not contain src or dist- in their path`;
   }
 
-  // Rule: @aws-sdk/core must use submodule
+  // Rule: @aws-sdk/core must use submodule.
   if (specifier === "@aws-sdk/core") {
     return `"${specifier}" — import from a specific submodule like @aws-sdk/core/submodule instead`;
   }
 
-  // Rule: @aws-sdk/checksums must use submodule
+  // Rule: @aws-sdk/checksums must use submodule.
   if (specifier === "@aws-sdk/checksums") {
     return `"${specifier}" — import from a specific submodule like @aws-sdk/checksums/crc, @aws-sdk/checksums/sha, or @aws-sdk/checksums/flexible-checksums instead`;
   }
 
-  // Rule: @aws-sdk/middleware-sdk-s3 must use submodule
+  // Rule: @aws-sdk/middleware-sdk-s3 must use submodule.
   if (specifier === "@aws-sdk/middleware-sdk-s3") {
     return `"${specifier}" — import from a specific submodule like @aws-sdk/middleware-sdk-s3/s3 or @aws-sdk/middleware-sdk-s3/s3-control instead`;
   }
 
-  // Rule: banned consolidated packages
+  // Rule: banned consolidated packages.
   const pkgName = specifier.startsWith("@") ? specifier.split("/").slice(0, 2).join("/") : specifier.split("/")[0];
-
   if (BANNED_PACKAGES.has(pkgName)) {
     return `"${specifier}" — this package has been consolidated`;
   }
@@ -122,111 +119,73 @@ function checkBanned(specifier) {
   return null;
 }
 
-// Packages that intentionally re-export a banned package (compatibility shims).
-const REEXPORT_ALLOWLIST = {
-  "@aws-sdk/smithy-client": ["@smithy/smithy-client"],
-};
-
-async function validate(packageDir) {
-  const pkgJsonPath = path.join(packageDir, "package.json");
-  if (!fs.existsSync(pkgJsonPath)) {
-    return [];
-  }
-  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
-  const allowed = new Set(REEXPORT_ALLOWLIST[pkgJson.name] || []);
-
+/**
+ * Creates the banned-imports validator.
+ */
+function createValidator() {
   const errors = [];
-  for (const dist of ["dist-cjs", "dist-es"]) {
-    const distDir = path.join(packageDir, dist);
-    if (!fs.existsSync(distDir)) {
-      continue;
-    }
-    for await (const file of walk(distDir, ["node_modules"])) {
-      if (!file.endsWith(".js")) {
-        continue;
-      }
-      const code = fs.readFileSync(file, "utf-8");
+  // Deduplicate ESM errors — one per file is enough to avoid noise.
+  const esmReportedFiles = new Set();
 
-      // dist-cjs must not contain any ESM including dynamic import.
-      if (dist === "dist-cjs") {
-        let ast;
-        try {
-          ast = parse(code, { ecmaVersion: "latest", sourceType: "module", allowHashBang: true, locations: true });
-        } catch {
-          ast = null;
-        }
-        if (ast) {
-          for (const node of ast.body) {
-            if (
-              node.type === "ImportDeclaration" ||
-              node.type === "ExportNamedDeclaration" ||
-              node.type === "ExportAllDeclaration" ||
-              node.type === "ExportDefaultDeclaration"
-            ) {
-              errors.push(
-                `[${pkgJson.name}] ESM including dynamic import is not allowed in dist-cjs (${path.relative(
-                  packageDir,
-                  file
-                )}:${node.loc?.start?.line ?? 1})`
-              );
-              break;
-            }
-          }
-          // Also check for dynamic import() expressions anywhere in the AST.
-          const queue = [ast];
-          let foundDynamic = false;
-          while (queue.length && !foundDynamic) {
-            const n = queue.pop();
-            if (!n || typeof n !== "object") continue;
-            if (Array.isArray(n)) {
-              queue.push(...n);
-              continue;
-            }
-            if (n.type === "ImportExpression") {
-              errors.push(
-                `[${pkgJson.name}] ESM including dynamic import is not allowed in dist-cjs (${path.relative(
-                  packageDir,
-                  file
-                )}:${n.loc?.start?.line ?? 1})`
-              );
-              foundDynamic = true;
-              break;
-            }
-            for (const key of Object.keys(n)) {
-              if (key === "type") continue;
-              const val = n[key];
-              if (Array.isArray(val)) queue.push(...val);
-              else if (val && typeof val === "object" && val.type) queue.push(val);
-            }
-          }
-        }
-      }
+  return {
+    name: "banned-imports",
+    targets: ["dist-cjs", "dist-es"],
+    features: ["esm-detection"],
 
-      for (const specifier of extractImports(code)) {
-        if (allowed.has(specifier)) {
-          continue;
-        }
-        const reason = checkBanned(specifier);
-        if (reason) {
-          errors.push(`[${pkgJson.name}] ${reason} (${path.relative(packageDir, file)})`);
-        }
+    onImport(specifier, file, context) {
+      const { packageJson } = context;
+      const allowed = REEXPORT_ALLOWLIST[packageJson.name];
+      if (allowed && allowed.has(specifier)) {
+        return;
       }
-    }
-  }
-  return errors;
+      const reason = checkBanned(specifier);
+      if (reason) {
+        errors.push(`[${packageJson.name}] ${reason} (${path.relative(context.packageDir, file)})`);
+      }
+    },
+
+    onESMNode(node, file, context) {
+      // Only care about ESM in dist-cjs.
+      if (context.target !== "dist-cjs") {
+        return;
+      }
+      if (esmReportedFiles.has(file)) {
+        return;
+      }
+      esmReportedFiles.add(file);
+      const { packageJson, packageDir } = context;
+      errors.push(
+        `[${packageJson.name}] ESM including dynamic import is not allowed in dist-cjs (${path.relative(
+          packageDir,
+          file
+        )}:${node.loc?.start?.line ?? 1})`
+      );
+    },
+
+    getErrors() {
+      return errors;
+    },
+  };
 }
 
 async function main() {
   const packages = getPackageDirs();
-  const errors = [];
-  for (const { dir } of packages) {
-    errors.push(...(await validate(dir)));
-  }
+  const validator = createValidator();
+  const bus = createBus({ packages });
+  bus.register(validator);
+  await bus.run();
+
+  const errors = validator.getErrors();
   if (errors.length) {
     console.error(`❌ ${errors.length} banned import(s):\n  ${[...new Set(errors)].join("\n  ")}`);
     process.exit(1);
   }
-  console.log(`✅ No banned imports. (${summarizePackages(packages)})`);
+  console.log(`✅ No banned imports. (${bus.getSummary()})`);
+  console.log(`    [${(validator.inspects || validator.targets).join(", ")}]`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createValidator };

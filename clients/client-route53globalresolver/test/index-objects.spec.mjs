@@ -182,6 +182,10 @@ import {
   ListManagedFirewallDomainListsCommand,
   ListManagedFirewallDomainListsInput$,
   ListManagedFirewallDomainListsOutput$,
+  ListSharedDNSViews$,
+  ListSharedDNSViewsCommand,
+  ListSharedDNSViewsInput$,
+  ListSharedDNSViewsOutput$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -196,6 +200,7 @@ import {
   paginateListGlobalResolvers,
   paginateListHostedZoneAssociations,
   paginateListManagedFirewallDomainLists,
+  paginateListSharedDNSViews,
   ProfileResourceStatus,
   ResourceNotFoundException,
   ResourceNotFoundException$,
@@ -204,6 +209,7 @@ import {
   Route53GlobalResolverServiceException,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  SharedDNSViewSummary$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -327,6 +333,8 @@ assert(typeof ListHostedZoneAssociationsCommand === "function");
 assert(typeof ListHostedZoneAssociations$ === "object");
 assert(typeof ListManagedFirewallDomainListsCommand === "function");
 assert(typeof ListManagedFirewallDomainLists$ === "object");
+assert(typeof ListSharedDNSViewsCommand === "function");
+assert(typeof ListSharedDNSViews$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -438,9 +446,12 @@ assert(typeof ListHostedZoneAssociationsInput$ === "object");
 assert(typeof ListHostedZoneAssociationsOutput$ === "object");
 assert(typeof ListManagedFirewallDomainListsInput$ === "object");
 assert(typeof ListManagedFirewallDomainListsOutput$ === "object");
+assert(typeof ListSharedDNSViewsInput$ === "object");
+assert(typeof ListSharedDNSViewsOutput$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof ManagedFirewallDomainListsItem$ === "object");
+assert(typeof SharedDNSViewSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -503,4 +514,5 @@ assert(typeof paginateListFirewallRules === "function");
 assert(typeof paginateListGlobalResolvers === "function");
 assert(typeof paginateListHostedZoneAssociations === "function");
 assert(typeof paginateListManagedFirewallDomainLists === "function");
+assert(typeof paginateListSharedDNSViews === "function");
 console.log(`Route53GlobalResolver index test passed.`);

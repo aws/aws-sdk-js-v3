@@ -2,9 +2,7 @@
 /**
  * AWS credentials structure containing temporary access credentials
  *
- * The scoped-down, 15 minute duration AWS credentials.
- * Scoping down will be based on CLI policy (CLI team needs to create it).
- * Similar to cloud shell implementation.
+ * Scoped, temporary AWS credentials with a 15-minute duration.
  * @public
  */
 export interface AccessToken {
@@ -155,6 +153,51 @@ export interface CreateOAuth2TokenResponse {
    * @public
    */
   tokenOutput: CreateOAuth2TokenResponseBody | undefined;
+}
+
+/**
+ * Input structure for CreateOAuth2TokenWithIAM operation
+ * @public
+ */
+export interface CreateOAuth2TokenWithIAMRequest {
+  /**
+   * OAuth 2.0 grant type. Must be "client_credentials".
+   * @public
+   */
+  grantType: string | undefined;
+
+  /**
+   * The OAuth resource for which the access token is requested.
+   * Example: "aws-mcp.amazonaws.com".
+   * @public
+   */
+  resource: string | undefined;
+}
+
+/**
+ * Output structure for CreateOAuth2TokenWithIAM operation
+ *
+ * Contains the JWT access token, token type, and expiration per RFC 6749 §5.1.
+ * @public
+ */
+export interface CreateOAuth2TokenWithIAMResponse {
+  /**
+   * JWT access token containing principal identity, resource scope, and session metadata
+   * @public
+   */
+  accessToken: string | undefined;
+
+  /**
+   * Always "Bearer" per OAuth 2.1 specification
+   * @public
+   */
+  tokenType: string | undefined;
+
+  /**
+   * Token lifetime in seconds. Value is the minimum of session validity and 1 hour.
+   * @public
+   */
+  expiresIn: number | undefined;
 }
 
 /**
@@ -326,6 +369,133 @@ export interface GetResourcePolicyOutput {
 }
 
 /**
+ * Input structure for IntrospectOAuth2TokenWithIAM operation
+ *
+ * RFC 7662 §2.1 introspection request. Contains the token to inspect and an
+ * optional hint about the token's type.
+ * @public
+ */
+export interface IntrospectOAuth2TokenWithIAMRequest {
+  /**
+   * The string value of the token to introspect.
+   * May be either an access_token or a refresh_token issued by AWS Sign-In.
+   * @public
+   */
+  token: string | undefined;
+
+  /**
+   * Optional hint about the type of the token submitted for introspection.
+   * The server uses this hint to optimize lookup, but still falls back to
+   * the other token type on miss. Allowed values: access_token, refresh_token.
+   * @public
+   */
+  tokenTypeHint?: string | undefined;
+}
+
+/**
+ * Output structure for IntrospectOAuth2TokenWithIAM operation
+ *
+ * RFC 7662 §2.2 introspection response. Only `active` is required; all other
+ * claims are omitted when the token is inactive.
+ * @public
+ */
+export interface IntrospectOAuth2TokenWithIAMResponse {
+  /**
+   * Indicates whether the token is currently active. `true` only when the
+   * token is valid, has not expired, has not been revoked, and belongs to
+   * the caller's account.
+   * @public
+   */
+  active: boolean | undefined;
+
+  /**
+   * Client identifier for the OAuth 2.0 client that requested the token.
+   * @public
+   */
+  clientId?: string | undefined;
+
+  /**
+   * User identifier matching sts:GetCallerIdentity's `UserId` field for the
+   * token's subject principal (e.g. "AIDAEXAMPLE" for an IAM user, or
+   * "AROAEXAMPLE:session-name" for an assumed role).
+   * @public
+   */
+  userId?: string | undefined;
+
+  /**
+   * Indicates which kind of token was introspected.
+   * One of "access_token" or "refresh_token".
+   * @public
+   */
+  tokenType?: string | undefined;
+
+  /**
+   * Token expiration time as a NumericDate (Unix epoch seconds).
+   * @public
+   */
+  exp?: number | undefined;
+
+  /**
+   * Token issuance time as a NumericDate (Unix epoch seconds).
+   * @public
+   */
+  iat?: number | undefined;
+
+  /**
+   * Token "not before" time as a NumericDate (Unix epoch seconds).
+   * @public
+   */
+  nbf?: number | undefined;
+
+  /**
+   * Subject of the token: the IAM principal ARN. For assumed-role sessions,
+   * this is the session ARN (matches sts:GetCallerIdentity's `Arn` field),
+   * e.g. arn:aws:sts::123456789012:assumed-role/MyRole/session-name.
+   * @public
+   */
+  sub?: string | undefined;
+
+  /**
+   * Audience of the token: the OAuth resource the token is scoped to
+   * (for example, "aws-mcp.amazonaws.com"). Omitted for refresh tokens.
+   * @public
+   */
+  aud?: string | undefined;
+
+  /**
+   * Issuer of the token. Always "signin.amazonaws.com" for AWS Sign-In.
+   * @public
+   */
+  iss?: string | undefined;
+
+  /**
+   * Unique identifier for the token.
+   * @public
+   */
+  jti?: string | undefined;
+
+  /**
+   * 12-digit AWS account ID of the token's subject principal.
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * AWS Sign-In session ARN bound to the token, of the form
+   * arn:aws:signin:\{region\}:\{account\}:session/\{uuid\}.
+   * @public
+   */
+  signinSession?: string | undefined;
+
+  /**
+   * The OAuth resource the token is scoped to during Human OAuth flow.
+   * Only present for refresh token introspection.
+   * @public
+   */
+  resource?: string | undefined;
+}
+
+/**
  * Input for ListResourcePermissionStatements operation
  * @public
  */
@@ -481,3 +651,27 @@ export interface PutResourcePermissionStatementOutput {
    */
   statementId: string | undefined;
 }
+
+/**
+ * Input structure for RevokeOAuth2TokenWithIAM operation
+ *
+ * RFC 7009 §2.1 revocation request. Contains the refresh_token to revoke.
+ * @public
+ */
+export interface RevokeOAuth2TokenWithIAMRequest {
+  /**
+   * The refresh_token to revoke. Must be a refresh_token issued by AWS
+   * Sign-In (prefix "ASOR"); access_tokens are not accepted for revocation.
+   * @public
+   */
+  token: string | undefined;
+}
+
+/**
+ * Output structure for RevokeOAuth2TokenWithIAM operation
+ *
+ * RFC 7009 §2.2 revocation response. The endpoint returns 200 OK with an
+ * empty body on success; there are no response fields.
+ * @public
+ */
+export interface RevokeOAuth2TokenWithIAMResponse {}

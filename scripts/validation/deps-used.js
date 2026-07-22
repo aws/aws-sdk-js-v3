@@ -9,11 +9,10 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const walk = require("../utils/walk");
-const { getPackageName, extractImports, getPackageDirs, summarizePackages } = require("./validation-shared");
+const { createBus } = require("./ast-bus");
+const { getPackageName, getPackageDirs } = require("./validation-shared");
 
 const IMPLICIT_DEPS = new Set(["tslib", "@aws-sdk/types", "@smithy/types", "vitest"]);
-const DTS_IMPORT_RE = /from\s+["']([^"']+)["']/g;
 
 /**
  * Browser polyfill packages that are declared as dependencies but imported
@@ -22,88 +21,103 @@ const DTS_IMPORT_RE = /from\s+["']([^"']+)["']/g;
 const BROWSER_POLYFILL_MAP = new Map([["stream-browserify", "stream"]]);
 
 /**
- * @param packageDir - package root.
- * @returns error messages for unused dependencies.
+ * Creates the deps-used validator.
+ * Needs access to packages list to check declared deps at the end.
  */
-async function validate(packageDir) {
-  const pkgJsonPath = path.join(packageDir, "package.json");
-  if (!fs.existsSync(pkgJsonPath)) {
-    return [];
-  }
-  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
-  const declared = new Set(Object.keys(pkgJson.dependencies || {}));
-  const used = new Set();
+function createValidator(packages) {
+  // Need both "what's declared" and "what's actually imported" to diff at the end.
+  const usedByPackage = new Map();
+  const declaredByPackage = new Map();
 
-  // Scan compiled JS.
-  for (const dist of ["dist-cjs", "dist-es"]) {
-    const distDir = path.join(packageDir, dist);
-    if (!fs.existsSync(distDir)) {
+  // Snapshot declared deps up front so we can diff against usage after the walk.
+  for (const { dir } of packages) {
+    if (dir.includes("/private/")) {
       continue;
     }
-    for await (const file of walk(distDir, ["node_modules"])) {
-      if (!file.endsWith(".js")) {
-        continue;
+    const pkgJsonPath = path.join(dir, "package.json");
+    if (!fs.existsSync(pkgJsonPath)) {
+      continue;
+    }
+    const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
+    declaredByPackage.set(pkgJson.name, new Set(Object.keys(pkgJson.dependencies || {})));
+    usedByPackage.set(pkgJson.name, new Set());
+  }
+
+  return {
+    name: "deps-used",
+    targets: ["dist-cjs", "dist-es", "dist-types"],
+    inspects: ["dist-cjs", "dist-es", "dist-types", "package.json"],
+
+    onImport(specifier, file, context) {
+      if (specifier.startsWith(".") || specifier.startsWith("node:")) {
+        return;
       }
-      const code = fs.readFileSync(file, "utf-8");
-      for (const specifier of extractImports(code)) {
-        if (specifier.startsWith(".") || specifier.startsWith("node:")) {
-          continue;
-        }
+      if (context.packageDir.includes("/private/")) {
+        return;
+      }
+      const pkgName = context.packageJson.name;
+      const used = usedByPackage.get(pkgName);
+      if (used) {
         used.add(getPackageName(specifier));
       }
-    }
-  }
+    },
 
-  // Scan .d.ts for type-only imports erased from JS.
-  const distTypes = path.join(packageDir, "dist-types");
-  if (fs.existsSync(distTypes)) {
-    for await (const file of walk(distTypes, ["node_modules"])) {
-      if (!file.endsWith(".d.ts")) {
-        continue;
+    onDtsImport(specifier, file, context) {
+      if (specifier.startsWith(".") || specifier.startsWith("node:")) {
+        return;
       }
-      const contents = fs.readFileSync(file, "utf-8");
-      let m;
-      DTS_IMPORT_RE.lastIndex = 0;
-      while ((m = DTS_IMPORT_RE.exec(contents)) !== null) {
-        if (m[1].startsWith(".") || m[1].startsWith("node:")) {
-          continue;
+      if (context.packageDir.includes("/private/")) {
+        return;
+      }
+      const pkgName = context.packageJson.name;
+      const used = usedByPackage.get(pkgName);
+      if (used) {
+        used.add(getPackageName(specifier));
+      }
+    },
+
+    getErrors() {
+      const errors = [];
+      for (const [pkgName, declared] of declaredByPackage) {
+        const used = usedByPackage.get(pkgName) || new Set();
+        for (const dep of declared) {
+          if (IMPLICIT_DEPS.has(dep)) {
+            continue;
+          }
+          if (used.has(dep)) {
+            continue;
+          }
+          // Allow browser polyfill packages imported via core module name.
+          const coreModule = BROWSER_POLYFILL_MAP.get(dep);
+          if (coreModule && used.has(coreModule)) {
+            continue;
+          }
+          errors.push(`${dep} declared but never imported in ${pkgName}`);
         }
-        used.add(getPackageName(m[1]));
       }
-    }
-  }
-
-  const errors = [];
-  for (const dep of declared) {
-    if (IMPLICIT_DEPS.has(dep)) {
-      continue;
-    }
-    if (!used.has(dep)) {
-      // Allow browser polyfill packages that are imported via their core module name.
-      const coreModule = BROWSER_POLYFILL_MAP.get(dep);
-      if (coreModule && used.has(coreModule)) {
-        continue;
-      }
-      errors.push(`${dep} declared but never imported in ${pkgJson.name}`);
-    }
-  }
-  return errors;
+      return errors;
+    },
+  };
 }
 
 async function main() {
   const packages = getPackageDirs();
-  const validated = [];
-  const errors = [];
-  for (const { dir } of packages) {
-    if (dir.includes("/private/")) continue;
-    validated.push({ dir });
-    errors.push(...(await validate(dir)));
-  }
+  const validator = createValidator(packages);
+  const bus = createBus({ packages });
+  bus.register(validator);
+  await bus.run();
+
+  const errors = validator.getErrors();
   if (errors.length) {
     console.error(`❌ ${errors.length} unused dependency declaration(s):\n  ${errors.join("\n  ")}`);
     process.exit(1);
   }
-  console.log(`✅ All declared dependencies are imported. (${summarizePackages(validated)})`);
+  console.log(`✅ All declared dependencies are imported. (${bus.getSummary()})`);
+  console.log(`    [${(validator.inspects || validator.targets).join(", ")}]`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createValidator };

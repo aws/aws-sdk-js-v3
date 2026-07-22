@@ -67,6 +67,7 @@ export interface DescribeAutomationExecutionsCommandOutput extends DescribeAutom
  * //       CurrentStepName: "STRING_VALUE",
  * //       CurrentAction: "STRING_VALUE",
  * //       FailureMessage: "STRING_VALUE",
+ * //       WarningMessage: "STRING_VALUE",
  * //       TargetParameterName: "STRING_VALUE",
  * //       Targets: [ // Targets
  * //         { // Target
@@ -160,7 +161,9 @@ export interface DescribeAutomationExecutionsCommandOutput extends DescribeAutom
  * //               ExcludeAccounts: [ // ExcludeAccounts
  * //                 "STRING_VALUE",
  * //               ],
- * //               Targets: "<Targets>",
+ * //               Targets: [ // AutomationTargets
+ * //                 "<Target>",
+ * //               ],
  * //               TargetsMaxConcurrency: "STRING_VALUE",
  * //               TargetsMaxErrors: "STRING_VALUE",
  * //             },

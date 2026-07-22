@@ -5,6 +5,9 @@ import type {
   CloudProvider,
   ClusterStatus,
   Confidence,
+  ConfidenceLevel,
+  ContentPolicyFilterAction,
+  ContentPolicyFilterType,
   CoverageFilterCriterionKey,
   CoverageSortKey,
   CoverageStatisticsType,
@@ -12,7 +15,6 @@ import type {
   CriterionKey,
   DataSourceStatus,
   DestinationType,
-  DetectionSource,
   DetectorFeature,
   DetectorFeatureResult,
   DetectorStatus,
@@ -26,6 +28,8 @@ import type {
   FindingStatisticType,
   FreeTrialFeatureResult,
   GroupByType,
+  GuardrailAction,
+  GuardrailSource,
   IndicatorType,
   InvestigationStatus,
   IpSetFormat,
@@ -33,8 +37,6 @@ import type {
   KubernetesResourcesTypes,
   MalwareProtectionPlanStatus,
   MalwareProtectionPlanTaggingActionStatus,
-  MalwareProtectionResourceType,
-  MalwareProtectionScanStatus,
   MalwareProtectionScanType,
   ManagementType,
   MfaStatus,
@@ -53,9 +55,7 @@ import type {
   RiskLevel,
   ScanCategory,
   ScanResult,
-  ScanResultStatus,
   ScanStatus,
-  ScanStatusReason,
   ScanType,
   SignalType,
   ThreatEntitySetFormat,
@@ -1316,6 +1316,12 @@ export interface Observations {
    * @public
    */
   Text?: string[] | undefined;
+
+  /**
+   * <p>The numeric values that were unusual.</p>
+   * @public
+   */
+  Number?: number[] | undefined;
 }
 
 /**
@@ -1422,6 +1428,94 @@ export interface AutoscalingAutoScalingGroup {
    * @public
    */
   Ec2InstanceUids?: string[] | undefined;
+}
+
+/**
+ * <p>Contains information about a Bedrock guardrail associated with a finding.</p>
+ * @public
+ */
+export interface BedrockGuardrail {
+  /**
+   * <p>The ARN of the Bedrock guardrail.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The version of the Bedrock guardrail.</p>
+   * @public
+   */
+  Version?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a content policy filter that matched during a guardrail evaluation.</p>
+ * @public
+ */
+export interface ContentPolicyFilter {
+  /**
+   * <p>The type of content that was filtered by the guardrail.</p>
+   * @public
+   */
+  Type?: ContentPolicyFilterType | undefined;
+
+  /**
+   * <p>The confidence level that the content matched the filter.</p>
+   * @public
+   */
+  Confidence?: ConfidenceLevel | undefined;
+
+  /**
+   * <p>The action taken by the guardrail filter.</p>
+   * @public
+   */
+  Action?: ContentPolicyFilterAction | undefined;
+}
+
+/**
+ * <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+ * @public
+ */
+export interface BedrockGuardrailDetails {
+  /**
+   * <p>The ARN of the Bedrock guardrail. This field is deprecated. Use the <code>guardrails</code> list instead.</p>
+   *
+   * @deprecated (since 2026-07-13) Use guardrails list instead.
+   * @public
+   */
+  GuardrailArn?: string | undefined;
+
+  /**
+   * <p>The version of the Bedrock guardrail. This field is deprecated. Use the <code>guardrails</code> list instead.</p>
+   *
+   * @deprecated (since 2026-07-13) Use guardrails list instead.
+   * @public
+   */
+  GuardrailVersion?: string | undefined;
+
+  /**
+   * <p>The list of Bedrock guardrails associated with the finding.</p>
+   * @public
+   */
+  Guardrails?: BedrockGuardrail[] | undefined;
+
+  /**
+   * <p>Indicates whether the guardrail intervened or not.</p>
+   * @public
+   */
+  GuardrailAction?: GuardrailAction | undefined;
+
+  /**
+   * <p>Indicates whether the guardrail was applied on the input or output of the model invocation.</p>
+   * @public
+   */
+  GuardrailSource?: GuardrailSource | undefined;
+
+  /**
+   * <p>The list of content policy filters that matched during the guardrail evaluation.</p>
+   * @public
+   */
+  ContentPolicyFilters?: ContentPolicyFilter[] | undefined;
 }
 
 /**
@@ -5808,6 +5902,18 @@ export interface LambdaDetails {
 }
 
 /**
+ * <p>Contains information about the AI model involved in a finding.</p>
+ * @public
+ */
+export interface ModelDetail {
+  /**
+   * <p>The identifier of the AI model.</p>
+   * @public
+   */
+  ModelId?: string | undefined;
+}
+
+/**
  * <p>Contains information about the resource type <code>RDSDBInstance</code> involved in a GuardDuty finding.</p>
  * @public
  */
@@ -5940,6 +6046,24 @@ export interface RdsLimitlessDbDetails {
 }
 
 /**
+ * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+ * @public
+ */
+export interface ScanConfigurationContinuousScanDetails {
+  /**
+   * <p>The timestamp representing the start of the time range that was scanned.</p>
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * <p>The timestamp representing the end of the time range that was scanned.</p>
+   * @public
+   */
+  EndTime: Date | undefined;
+}
+
+/**
  * <p>Contains details about the backup recovery point.</p>
  * @public
  */
@@ -5955,6 +6079,12 @@ export interface RecoveryPointDetails {
    * @public
    */
   BackupVaultName?: string | undefined;
+
+  /**
+   * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
+   * @public
+   */
+  ContinuousScanDetails?: ScanConfigurationContinuousScanDetails | undefined;
 }
 
 /**
@@ -6201,6 +6331,18 @@ export interface Resource {
    * @public
    */
   RecoveryPointDetails?: RecoveryPointDetails | undefined;
+
+  /**
+   * <p>Contains information about the Bedrock guardrail that was involved in a finding.</p>
+   * @public
+   */
+  BedrockGuardrailDetails?: BedrockGuardrailDetails | undefined;
+
+  /**
+   * <p>Contains information about the AI models involved in a finding.</p>
+   * @public
+   */
+  ModelDetails?: ModelDetail[] | undefined;
 }
 
 /**
@@ -7229,6 +7371,24 @@ export interface GetFilterResponse {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The timestamp when the filter was created. This field is not available for filters that were created before the lifecycle metadata feature was enabled (legacy filters).</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the filter was last updated. For legacy filters, this field is present only after the filter has been updated at least once since the lifecycle metadata feature was enabled.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The version of the filter. Every time the filter is updated, the version increments by 1. This field is not available for legacy filters that were created before the lifecycle metadata feature was enabled.</p>
+   * @public
+   */
+  Version?: number | undefined;
 }
 
 /**
@@ -7641,24 +7801,6 @@ export interface GetMalwareScanRequest {
 }
 
 /**
- * <p>Contains information about the time range within the continuous backup in Amazon Web Services Backup that was scanned for a point-in-time recovery resource.</p>
- * @public
- */
-export interface ScanConfigurationContinuousScanDetails {
-  /**
-   * <p>The timestamp representing the start of the time range that was scanned.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The timestamp representing the end of the time range that was scanned.</p>
-   * @public
-   */
-  EndTime: Date | undefined;
-}
-
-/**
  * <p>Contains information about the recovery point configuration used in the scan.</p>
  * @public
  */
@@ -7704,148 +7846,4 @@ export interface ScanConfiguration {
    * @public
    */
   RecoveryPoint?: ScanConfigurationRecoveryPoint | undefined;
-}
-
-/**
- * <p>Contains additional information about a resource that was scanned.</p>
- * @public
- */
-export interface ScannedResourceDetails {
-  /**
-   * <p>Contains information about the EBS volume that was scanned.</p>
-   * @public
-   */
-  EbsVolume?: VolumeDetail | undefined;
-
-  /**
-   * <p>Contains information about the EBS snapshot that was scanned.</p>
-   * @public
-   */
-  EbsSnapshot?: EbsSnapshot | undefined;
-}
-
-/**
- * <p>Contains information about a resource that was scanned as part of the malware scan operation.</p>
- * @public
- */
-export interface ScannedResource {
-  /**
-   * <p>Amazon Resource Name (ARN) of the scanned resource.</p>
-   * @public
-   */
-  ScannedResourceArn?: string | undefined;
-
-  /**
-   * <p>The resource type of the scanned resource.</p>
-   * @public
-   */
-  ScannedResourceType?: MalwareProtectionResourceType | undefined;
-
-  /**
-   * <p>The status of the scanned resource.</p>
-   * @public
-   */
-  ScannedResourceStatus?: MalwareProtectionScanStatus | undefined;
-
-  /**
-   * <p>The reason for the scan status of this particular resource, if applicable.</p>
-   * @public
-   */
-  ScanStatusReason?: ScanStatusReason | undefined;
-
-  /**
-   * <p>Information about the scanned resource.</p>
-   * @public
-   */
-  ResourceDetails?: ScannedResourceDetails | undefined;
-}
-
-/**
- * <p>Contains information about a specific threat that was detected during the malware scan.</p>
- * @public
- */
-export interface ScanResultThreat {
-  /**
-   * <p>The name of the detected threat.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The source that detected this threat.</p>
-   * @public
-   */
-  Source?: DetectionSource | undefined;
-
-  /**
-   * <p>The number of instances of this threat that were detected.</p>
-   * @public
-   */
-  Count?: number | undefined;
-
-  /**
-   * <p>The hash value associated with the detected threat.</p>
-   * @public
-   */
-  Hash?: string | undefined;
-
-  /**
-   * <p>Additional information about where this threat was detected.</p>
-   * @public
-   */
-  ItemDetails?: ItemDetails[] | undefined;
-}
-
-/**
- * <p>Contains information about the results of the malware scan.</p>
- * @public
- */
-export interface GetMalwareScanResultDetails {
-  /**
-   * <p>Status indicating whether threats were found for a completed scan.</p>
-   * @public
-   */
-  ScanResultStatus?: ScanResultStatus | undefined;
-
-  /**
-   * <p>The total number of files that were skipped during the scan.</p>
-   * @public
-   */
-  SkippedFileCount?: number | undefined;
-
-  /**
-   * <p>The total number of files that failed to be scanned.</p>
-   * @public
-   */
-  FailedFileCount?: number | undefined;
-
-  /**
-   * <p>The total number of files in which threats were detected.</p>
-   * @public
-   */
-  ThreatFoundFileCount?: number | undefined;
-
-  /**
-   * <p>The total number of files that were processed during the scan.</p>
-   * @public
-   */
-  TotalFileCount?: number | undefined;
-
-  /**
-   * <p>The total number of bytes that were scanned.</p>
-   * @public
-   */
-  TotalBytes?: number | undefined;
-
-  /**
-   * <p>The total number of unique threats that were detected during the scan.</p>
-   * @public
-   */
-  UniqueThreatCount?: number | undefined;
-
-  /**
-   * <p>The threats that were detected during the malware scan.</p>
-   * @public
-   */
-  Threats?: ScanResultThreat[] | undefined;
 }

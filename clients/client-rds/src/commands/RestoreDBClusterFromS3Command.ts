@@ -23,7 +23,7 @@ export interface RestoreDBClusterFromS3CommandInput extends RestoreDBClusterFrom
 export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFromS3Result, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromS3</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters. The source DB engine must be MySQL.</p> </note>
+ * <p>Creates an Amazon Aurora DB cluster from MySQL data stored in an Amazon S3 bucket. Amazon RDS must be authorized to access the Amazon S3 bucket and the data must be created using the Percona XtraBackup utility as described in <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3"> Migrating Data from MySQL by Using an Amazon S3 Bucket</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only restores the DB cluster, not the DB instances for that DB cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB instances for the restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>. You can create DB instances only after the <code>RestoreDBClusterFromS3</code> operation has completed and the DB cluster is available.</p> </note> <p>For more information on Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <note> <p>This operation only applies to Aurora DB clusters. The source DB engine must be MySQL.</p> </note> <p>You can use the <code>AssociatedRoles</code> parameter to associate one or more Amazon Web Services Identity and Access Management (IAM) roles with the Aurora DB cluster when you restore it from Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +94,12 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *           Value: "STRING_VALUE",
  *         },
  *       ],
+ *     },
+ *   ],
+ *   AssociatedRoles: [ // DBClusterAssociatedRoles
+ *     { // DBClusterAssociatedRole
+ *       RoleArn: "STRING_VALUE", // required
+ *       FeatureName: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -317,6 +323,9 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
  *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
  *
  * @throws {@link DBSubnetGroupNotFoundFault} (client fault)
  *  <p> <code>DBSubnetGroupName</code> doesn't refer to an existing DB subnet group.</p>

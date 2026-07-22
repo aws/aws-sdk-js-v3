@@ -36,6 +36,7 @@ const _CC = "CallingCountry";
 const _CCST = "ContactCenterSystemTypes";
 const _CCo = "CountryCode";
 const _CD = "CallDetails";
+const _CDT = "CallDistributionType";
 const _CE = "ConflictException";
 const _CL = "CallLeg";
 const _CLp = "CpsLimit";
@@ -290,8 +291,9 @@ const _OT = "OrderType";
 const _P = "Password";
 const _PC = "PostalCode";
 const _PN = "PhoneNumber";
-const _PNA = "PhoneNumberAssociation";
+const _PNA = "PhoneNumberArn";
 const _PNAL = "PhoneNumberAssociationList";
+const _PNAh = "PhoneNumberAssociation";
 const _PNC = "PhoneNumberCountries";
 const _PNCL = "PhoneNumberCountriesList";
 const _PNCh = "PhoneNumberCapabilities";
@@ -773,8 +775,8 @@ export var CreateSipMediaApplicationResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateSipRuleRequest$: StaticStructureSchema = [3, n0, _CSRR,
   0,
-  [_N, _TT, _TVr, _D, _TA],
-  [0, 0, 0, 2, () => SipRuleTargetApplicationList], 3
+  [_N, _TT, _TVr, _TA, _D],
+  [0, 0, 0, () => SipRuleTargetApplicationList, 2], 4
 ];
 export var CreateSipRuleResponse$: StaticStructureSchema = [3, n0, _CSRRr,
   0,
@@ -783,8 +785,8 @@ export var CreateSipRuleResponse$: StaticStructureSchema = [3, n0, _CSRRr,
 ];
 export var CreateVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _CVCGR,
   0,
-  [_N, _VCIo],
-  [0, () => VoiceConnectorItemList], 1
+  [_N, _VCIo, _CDT],
+  [0, () => VoiceConnectorItemList, 0], 1
 ];
 export var CreateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _CVCGRr,
   0,
@@ -1318,10 +1320,10 @@ export var Participant$: StaticStructureSchema = [3, n0, _Pa,
 ];
 export var PhoneNumber$: StaticStructureSchema = [3, n0, _PN,
   0,
-  [_PNIh, _EPN, _Co, _Ty, _PT, _S, _Ca, _As, _CN, _CNS, _CT, _UT, _DT, _OI, _N],
-  [[() => SensitiveNonEmptyString, 0], [() => E164PhoneNumber, 0], 0, 0, 0, 0, () => PhoneNumberCapabilities$, () => PhoneNumberAssociationList, [() => CallingName, 0], 0, 5, 5, 5, 0, [() => PhoneNumberName, 0]]
+  [_PNIh, _EPN, _PNA, _Co, _Ty, _PT, _S, _Ca, _As, _CN, _CNS, _CT, _UT, _DT, _OI, _N],
+  [[() => SensitiveNonEmptyString, 0], [() => E164PhoneNumber, 0], 0, 0, 0, 0, 0, () => PhoneNumberCapabilities$, () => PhoneNumberAssociationList, [() => CallingName, 0], 0, 5, 5, 5, 0, [() => PhoneNumberName, 0]]
 ];
-export var PhoneNumberAssociation$: StaticStructureSchema = [3, n0, _PNA,
+export var PhoneNumberAssociation$: StaticStructureSchema = [3, n0, _PNAh,
   0,
   [_V, _N, _AT],
   [0, 0, 5]
@@ -1344,7 +1346,7 @@ export var PhoneNumberError$: StaticStructureSchema = [3, n0, _PNEh,
 export var PhoneNumberOrder$: StaticStructureSchema = [3, n0, _PNO,
   0,
   [_PNOI, _PT, _S, _OT, _OPNr, _CT, _UT, _FD],
-  [0, 0, 0, 0, [() => OrderedPhoneNumberList, 0], 5, 5, 5]
+  [0, 0, 0, 0, [() => OrderedPhoneNumberList, 0], 5, 5, 0]
 ];
 export var Proxy$: StaticStructureSchema = [3, n0, _Pr,
   0,
@@ -1594,7 +1596,7 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 export var UpdateGlobalSettingsRequest$: StaticStructureSchema = [3, n0, _UGSR,
   0,
   [_VC],
-  [() => VoiceConnectorSettings$]
+  [() => VoiceConnectorSettings$], 1
 ];
 export var UpdatePhoneNumberRequest$: StaticStructureSchema = [3, n0, _UPNR,
   0,
@@ -1658,8 +1660,8 @@ export var UpdateSipRuleResponse$: StaticStructureSchema = [3, n0, _USRRp,
 ];
 export var UpdateVoiceConnectorGroupRequest$: StaticStructureSchema = [3, n0, _UVCGR,
   0,
-  [_VCGI, _N, _VCIo],
-  [[0, 1], 0, () => VoiceConnectorItemList], 3
+  [_VCGI, _N, _VCIo, _CDT],
+  [[0, 1], 0, () => VoiceConnectorItemList, 0], 3
 ];
 export var UpdateVoiceConnectorGroupResponse$: StaticStructureSchema = [3, n0, _UVCGRp,
   0,
@@ -1713,13 +1715,13 @@ export var VoiceConnector$: StaticStructureSchema = [3, n0, _VC,
 ];
 export var VoiceConnectorGroup$: StaticStructureSchema = [3, n0, _VCG,
   0,
-  [_VCGI, _N, _VCIo, _CT, _UT, _VCGA],
-  [0, 0, () => VoiceConnectorItemList, 5, 5, 0]
+  [_VCGI, _N, _VCIo, _CT, _UT, _VCGA, _CDT],
+  [0, 0, () => VoiceConnectorItemList, 5, 5, 0, 0]
 ];
 export var VoiceConnectorItem$: StaticStructureSchema = [3, n0, _VCIoi,
   0,
   [_VCI, _Pri],
-  [0, 1], 2
+  [0, 1], 1
 ];
 export var VoiceConnectorSettings$: StaticStructureSchema = [3, n0, _VCS,
   0,

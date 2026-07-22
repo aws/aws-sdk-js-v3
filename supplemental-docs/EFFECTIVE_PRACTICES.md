@@ -228,7 +228,7 @@ if (case1) {
   // because our stream type varies depending on your runtime platform,
   // .destroy() is used for Node.js Readable.
   // .cancel() is used for Web Streams' ReadableStream.
-  await(getObjectResponse.destroy?.() ?? getObjectResponse.cancel?.());
+  await (getObjectResponse.destroy?.() ?? getObjectResponse.cancel?.());
 }
 ```
 

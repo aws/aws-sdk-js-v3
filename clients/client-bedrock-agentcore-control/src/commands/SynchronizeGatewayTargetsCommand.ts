@@ -144,6 +144,7 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //           connector: { // ConnectorTargetConfiguration
  * //             source: { // ConnectorSource
  * //               connectorId: "STRING_VALUE", // required
+ * //               version: "STRING_VALUE",
  * //             },
  * //             enabled: [ // EnabledConnectors
  * //               "STRING_VALUE",

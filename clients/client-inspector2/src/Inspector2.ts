@@ -1,6 +1,11 @@
 // smithy-typescript generated code
-import { createAggregatedClient } from "@smithy/core/client";
-import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
+import { type WaiterResult, createAggregatedClient } from "@smithy/core/client";
+import type {
+  HttpHandlerOptions as __HttpHandlerOptions,
+  PaginationConfiguration,
+  Paginator,
+  WaiterConfiguration,
+} from "@smithy/types";
 
 import {
   type AssociateMemberCommandInput,
@@ -73,6 +78,11 @@ import {
   CreateCodeSecurityScanConfigurationCommand,
 } from "./commands/CreateCodeSecurityScanConfigurationCommand";
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
+  CreateConnectorCommand,
+} from "./commands/CreateConnectorCommand";
+import {
   type CreateFilterCommandInput,
   type CreateFilterCommandOutput,
   CreateFilterCommand,
@@ -102,6 +112,11 @@ import {
   type DeleteCodeSecurityScanConfigurationCommandOutput,
   DeleteCodeSecurityScanConfigurationCommand,
 } from "./commands/DeleteCodeSecurityScanConfigurationCommand";
+import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
+  DeleteConnectorCommand,
+} from "./commands/DeleteConnectorCommand";
 import {
   type DeleteFilterCommandInput,
   type DeleteFilterCommandOutput,
@@ -231,6 +246,16 @@ import {
   ListCodeSecurityScanConfigurationsCommand,
 } from "./commands/ListCodeSecurityScanConfigurationsCommand";
 import {
+  type ListConnectorScanConfigurationsCommandInput,
+  type ListConnectorScanConfigurationsCommandOutput,
+  ListConnectorScanConfigurationsCommand,
+} from "./commands/ListConnectorScanConfigurationsCommand";
+import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
+  ListConnectorsCommand,
+} from "./commands/ListConnectorsCommand";
+import {
   type ListCoverageCommandInput,
   type ListCoverageCommandOutput,
   ListCoverageCommand,
@@ -341,6 +366,16 @@ import {
   UpdateConfigurationCommand,
 } from "./commands/UpdateConfigurationCommand";
 import {
+  type UpdateConnectorCommandInput,
+  type UpdateConnectorCommandOutput,
+  UpdateConnectorCommand,
+} from "./commands/UpdateConnectorCommand";
+import {
+  type UpdateConnectorScanConfigurationCommandInput,
+  type UpdateConnectorScanConfigurationCommandOutput,
+  UpdateConnectorScanConfigurationCommand,
+} from "./commands/UpdateConnectorScanConfigurationCommand";
+import {
   type UpdateEc2DeepInspectionConfigurationCommandInput,
   type UpdateEc2DeepInspectionConfigurationCommandOutput,
   UpdateEc2DeepInspectionConfigurationCommand,
@@ -366,6 +401,7 @@ import {
   UpdateOrgEc2DeepInspectionConfigurationCommand,
 } from "./commands/UpdateOrgEc2DeepInspectionConfigurationCommand";
 import { Inspector2Client } from "./Inspector2Client";
+import type { Inspector2ServiceException } from "./models/Inspector2ServiceException";
 import { paginateGetCisScanResultDetails } from "./pagination/GetCisScanResultDetailsPaginator";
 import { paginateGetClustersForImage } from "./pagination/GetClustersForImagePaginator";
 import { paginateListAccountPermissions } from "./pagination/ListAccountPermissionsPaginator";
@@ -377,6 +413,8 @@ import {
   paginateListCisScanResultsAggregatedByTargetResource,
 } from "./pagination/ListCisScanResultsAggregatedByTargetResourcePaginator";
 import { paginateListCisScans } from "./pagination/ListCisScansPaginator";
+import { paginateListConnectorScanConfigurations } from "./pagination/ListConnectorScanConfigurationsPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { paginateListCoverage } from "./pagination/ListCoveragePaginator";
 import { paginateListCoverageStatistics } from "./pagination/ListCoverageStatisticsPaginator";
 import { paginateListDelegatedAdminAccounts } from "./pagination/ListDelegatedAdminAccountsPaginator";
@@ -386,6 +424,9 @@ import { paginateListFindings } from "./pagination/ListFindingsPaginator";
 import { paginateListMembers } from "./pagination/ListMembersPaginator";
 import { paginateListUsageTotals } from "./pagination/ListUsageTotalsPaginator";
 import { paginateSearchVulnerabilities } from "./pagination/SearchVulnerabilitiesPaginator";
+import { waitUntilConnectorConnected } from "./waiters/waitForConnectorConnected";
+import { waitUntilConnectorDeleted } from "./waiters/waitForConnectorDeleted";
+import { waitUntilConnectorEnabled } from "./waiters/waitForConnectorEnabled";
 
 const commands = {
   AssociateMemberCommand,
@@ -402,12 +443,14 @@ const commands = {
   CreateCisScanConfigurationCommand,
   CreateCodeSecurityIntegrationCommand,
   CreateCodeSecurityScanConfigurationCommand,
+  CreateConnectorCommand,
   CreateFilterCommand,
   CreateFindingsReportCommand,
   CreateSbomExportCommand,
   DeleteCisScanConfigurationCommand,
   DeleteCodeSecurityIntegrationCommand,
   DeleteCodeSecurityScanConfigurationCommand,
+  DeleteConnectorCommand,
   DeleteFilterCommand,
   DescribeOrganizationConfigurationCommand,
   DisableCommand,
@@ -436,6 +479,8 @@ const commands = {
   ListCodeSecurityIntegrationsCommand,
   ListCodeSecurityScanConfigurationAssociationsCommand,
   ListCodeSecurityScanConfigurationsCommand,
+  ListConnectorsCommand,
+  ListConnectorScanConfigurationsCommand,
   ListCoverageCommand,
   ListCoverageStatisticsCommand,
   ListDelegatedAdminAccountsCommand,
@@ -458,6 +503,8 @@ const commands = {
   UpdateCodeSecurityIntegrationCommand,
   UpdateCodeSecurityScanConfigurationCommand,
   UpdateConfigurationCommand,
+  UpdateConnectorCommand,
+  UpdateConnectorScanConfigurationCommand,
   UpdateEc2DeepInspectionConfigurationCommand,
   UpdateEncryptionKeyCommand,
   UpdateFilterCommand,
@@ -472,6 +519,8 @@ const paginators = {
   paginateListCisScanResultsAggregatedByChecks,
   paginateListCisScanResultsAggregatedByTargetResource,
   paginateListCisScans,
+  paginateListConnectors,
+  paginateListConnectorScanConfigurations,
   paginateListCoverage,
   paginateListCoverageStatistics,
   paginateListDelegatedAdminAccounts,
@@ -481,6 +530,11 @@ const paginators = {
   paginateListMembers,
   paginateListUsageTotals,
   paginateSearchVulnerabilities,
+};
+const waiters = {
+  waitUntilConnectorEnabled,
+  waitUntilConnectorDeleted,
+  waitUntilConnectorConnected,
 };
 
 export interface Inspector2 {
@@ -725,6 +779,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link CreateConnectorCommand}
+   */
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorCommandOutput>;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFilterCommand}
    */
   createFilter(
@@ -824,6 +895,23 @@ export interface Inspector2 {
     args: DeleteCodeSecurityScanConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorCommand}
+   */
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -1314,6 +1402,42 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectorScanConfigurationsCommand}
+   */
+  listConnectorScanConfigurations(): Promise<ListConnectorScanConfigurationsCommandOutput>;
+  listConnectorScanConfigurations(
+    args: ListConnectorScanConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorScanConfigurationsCommandOutput>;
+  listConnectorScanConfigurations(
+    args: ListConnectorScanConfigurationsCommandInput,
+    cb: (err: any, data?: ListConnectorScanConfigurationsCommandOutput) => void
+  ): void;
+  listConnectorScanConfigurations(
+    args: ListConnectorScanConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorScanConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCoverageCommand}
    */
   listCoverage(): Promise<ListCoverageCommandOutput>;
@@ -1696,6 +1820,40 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link UpdateConnectorCommand}
+   */
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorCommandOutput>;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConnectorScanConfigurationCommand}
+   */
+  updateConnectorScanConfiguration(
+    args: UpdateConnectorScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorScanConfigurationCommandOutput>;
+  updateConnectorScanConfiguration(
+    args: UpdateConnectorScanConfigurationCommandInput,
+    cb: (err: any, data?: UpdateConnectorScanConfigurationCommandOutput) => void
+  ): void;
+  updateConnectorScanConfiguration(
+    args: UpdateConnectorScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEc2DeepInspectionConfigurationCommand}
    */
   updateEc2DeepInspectionConfiguration(): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput>;
@@ -1859,6 +2017,28 @@ export interface Inspector2 {
   ): Paginator<ListCisScansCommandOutput>;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorScanConfigurationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorScanConfigurationsCommandOutput}.
+   */
+  paginateListConnectorScanConfigurations(
+    args?: ListConnectorScanConfigurationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorScanConfigurationsCommandOutput>;
+
+  /**
    * @see {@link ListCoverageCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1956,6 +2136,36 @@ export interface Inspector2 {
     args: SearchVulnerabilitiesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchVulnerabilitiesCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConnectorEnabled(
+    args: ListConnectorsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Inspector2>, "client">
+  ): Promise<WaiterResult<ListConnectorsCommandOutput>>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConnectorDeleted(
+    args: ListConnectorsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Inspector2>, "client">
+  ): Promise<WaiterResult<ListConnectorsCommandOutput>>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilConnectorConnected(
+    args: ListConnectorsCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Inspector2>, "client">
+  ): Promise<WaiterResult<ListConnectorsCommandOutput>>;
 }
 
 /**
@@ -1964,4 +2174,4 @@ export interface Inspector2 {
  * @public
  */
 export class Inspector2 extends Inspector2Client implements Inspector2 {}
-createAggregatedClient(commands, Inspector2, { paginators });
+createAggregatedClient(commands, Inspector2, { paginators, waiters });

@@ -518,6 +518,19 @@ export type ScheduledQueryDestinationType =
  * @public
  * @enum
  */
+export const StorageTier = {
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type StorageTier = (typeof StorageTier)[keyof typeof StorageTier];
+
+/**
+ * @public
+ * @enum
+ */
 export const OCSFVersion = {
   V1_1: "V1.1",
   V1_5: "V1.5",

@@ -45,6 +45,10 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  *       ],
  *       TransmissionInterval: Number("int"),
  *     },
+ *     DefaultSessionParameters: { // DefaultSessionParametersMulticast
+ *       DlDr: Number("int"),
+ *       DlFreq: Number("int"),
+ *     },
  *   },
  * };
  * const command = new UpdateMulticastGroupCommand(input);

@@ -1,8 +1,7 @@
-import { setCredentialFeature } from "@aws-sdk/core/client";
-import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { RemoteProviderConfig as _RemoteProviderInit } from "@smithy/credential-provider-imds";
-import { fromInstanceMetadata as _fromInstanceMetadata } from "@smithy/credential-provider-imds";
+import type { AwsIdentityProperties } from "@aws-sdk/types";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
+
+import type { RemoteProviderInit } from "./fromContainerMetadata";
 
 /**
  * Creates a credential provider function that reads from the EC2 instance metadata service.
@@ -25,10 +24,11 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *
  * @public
  */
-export const fromInstanceMetadata = (
-  init?: _RemoteProviderInit & CredentialProviderOptions
-): AwsCredentialIdentityProvider => {
-  init?.logger?.debug("@smithy/credential-provider-imds", "fromInstanceMetadata");
-  return async () =>
-    _fromInstanceMetadata(init)().then((creds) => setCredentialFeature(creds, "CREDENTIALS_IMDS", "0"));
+export const fromInstanceMetadata = (init?: RemoteProviderInit): AwsCredentialIdentityProvider => {
+  return async (props?: AwsIdentityProperties) => {
+    init?.logger?.debug("@smithy/credential-provider-imds", "fromInstanceMetadata");
+    const { setCredentialFeature } = await import("@aws-sdk/core/client");
+    const { fromInstanceMetadata: _fromInstanceMetadata } = await import("@smithy/credential-provider-imds");
+    return _fromInstanceMetadata(init)().then((creds) => setCredentialFeature(creds, "CREDENTIALS_IMDS", "0"));
+  };
 };

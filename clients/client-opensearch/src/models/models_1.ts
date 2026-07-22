@@ -21,6 +21,7 @@ import type {
   AIConfig,
   AIMLOptionsInput,
   AppConfig,
+  AuthorizedPrincipal,
   AutomatedSnapshotPauseRequestOptions,
   AutoTuneOptions,
   ChangeProgressDetails,
@@ -41,6 +42,7 @@ import type {
   IdentityCenterOptionsInput,
   InboundConnection,
   LogPublishingOption,
+  MigrationSource,
   NodeToNodeEncryptionOptions,
   OffPeakWindowOptions,
   PackageConfiguration,
@@ -53,8 +55,146 @@ import type {
   SnapshotOptions,
   SoftwareUpdateOptions,
   VpcEndpoint,
+  VpcEndpointSummary,
   VPCOptions,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointAccessRequest {
+  /**
+   * <p>The name of the OpenSearch Service domain to retrieve access information for.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListVpcEndpointAccess</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListVpcEndpointAccess</code> operations, which returns results in the
+   *             next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointAccessResponse {
+  /**
+   * <p>A list of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html">IAM
+   *                 principals</a> that can currently access the domain.</p>
+   * @public
+   */
+  AuthorizedPrincipalList: AuthorizedPrincipal[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsRequest {
+  /**
+   * <p>If your initial <code>ListVpcEndpoints</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListVpcEndpoints</code> operations, which returns results in the next
+   *             page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsResponse {
+  /**
+   * <p>Information about each endpoint.</p>
+   * @public
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsForDomainRequest {
+  /**
+   * <p>The name of the domain to list associated VPC endpoints for.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>If your initial <code>ListEndpointsForDomain</code> operation returns a
+   *                 <code>nextToken</code>, you can include the returned <code>nextToken</code> in
+   *             subsequent <code>ListEndpointsForDomain</code> operations, which returns results in the
+   *             next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVpcEndpointsForDomainResponse {
+  /**
+   * <p>Information about each endpoint associated with the domain.</p>
+   * @public
+   */
+  VpcEndpointSummaryList: VpcEndpointSummary[] | undefined;
+
+  /**
+   * <p>When <code>nextToken</code> is returned, there are more results available. The value
+   *             of <code>nextToken</code> is a unique pagination token for each page. Send the request
+   *             again using the returned token to retrieve the next page.</p>
+   * @public
+   */
+  NextToken: string | undefined;
+}
+
+/**
+ * <p>Container for request parameters to the <code>PurchaseReservedInstanceOffering</code>
+ *             operation.</p>
+ * @public
+ */
+export interface PurchaseReservedInstanceOfferingRequest {
+  /**
+   * <p>The ID of the Reserved Instance offering to purchase.</p>
+   * @public
+   */
+  ReservedInstanceOfferingId: string | undefined;
+
+  /**
+   * <p>A customer-specified identifier to track this reservation.</p>
+   * @public
+   */
+  ReservationName: string | undefined;
+
+  /**
+   * <p>The number of OpenSearch instances to reserve.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+}
 
 /**
  * <p>Represents the output of a <code>PurchaseReservedInstanceOffering</code>
@@ -411,6 +551,148 @@ export interface StartDomainMaintenanceResponse {
    * @public
    */
   MaintenanceId?: string | undefined;
+}
+
+/**
+ * <p>Identifies a specific saved object by its type and unique identifier.</p>
+ * @public
+ */
+export interface SavedObjectIdentifier {
+  /**
+   * <p>The type of the saved object, such as <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, or <code>query</code>.</p>
+   * @public
+   */
+  type: string | undefined;
+
+  /**
+   * <p>The unique identifier of the saved object.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * <p>Options to filter the scope of saved objects to export during a migration.</p>
+ * @public
+ */
+export interface ExportOptions {
+  /**
+   * <p>A list of saved object types to include in the migration. Valid values include <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, and <code>query</code>.</p>
+   * @public
+   */
+  types?: string[] | undefined;
+
+  /**
+   * <p>A list of specific saved objects to include in the migration, identified by type and ID.</p>
+   * @public
+   */
+  objects?: SavedObjectIdentifier[] | undefined;
+
+  /**
+   * <p>Specifies whether to include all objects referenced by the exported objects, recursively.</p>
+   * @public
+   */
+  includeReferencesDeep?: boolean | undefined;
+}
+
+/**
+ * <p>The target workspace configuration for a migration. You can specify an existing workspace by ID or request creation of a new workspace.</p>
+ * @public
+ */
+export interface MigrationWorkspace {
+  /**
+   * <p>The unique identifier of an existing workspace to use as the migration target. Specify either this parameter or <code>createWorkspace</code>.</p>
+   * @public
+   */
+  workspaceId?: string | undefined;
+
+  /**
+   * <p>Specifies whether to create a new workspace as the migration target. If <code>true</code>, you must also specify <code>name</code>.</p>
+   * @public
+   */
+  createWorkspace?: boolean | undefined;
+
+  /**
+   * <p>The name of the new workspace to create. Required when <code>createWorkspace</code> is <code>true</code>.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The type of the new workspace to create.</p>
+   * @public
+   */
+  type?: string | undefined;
+}
+
+/**
+ * <p>The configuration options for a saved objects migration job.</p>
+ * @public
+ */
+export interface MigrationOptions {
+  /**
+   * <p>The data source from which to export saved objects.</p>
+   * @public
+   */
+  source: MigrationSource | undefined;
+
+  /**
+   * <p>The target workspace configuration for importing saved objects. You can specify an existing workspace or request creation of a new workspace.</p>
+   * @public
+   */
+  workspace: MigrationWorkspace | undefined;
+
+  /**
+   * <p>Options to filter the scope of saved objects to export from the source.</p>
+   * @public
+   */
+  exportOptions?: ExportOptions | undefined;
+
+  /**
+   * <p>The strategy for resolving conflicts when saved objects already exist in the target workspace. Valid values are <code>CREATE_NEW_COPIES</code>, which creates new objects with unique IDs, and <code>overwrite</code>, which replaces existing objects.</p>
+   * @public
+   */
+  conflictResolution?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMigrationRequest {
+  /**
+   * <p>The unique identifier of the OpenSearch application to migrate saved objects into.</p>
+   * @public
+   */
+  applicationId: string | undefined;
+
+  /**
+   * <p>The configuration options for the migration, including the source data source, target workspace, export filters, and conflict resolution strategy.</p>
+   * @public
+   */
+  migrationOptions: MigrationOptions | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon OpenSearch Service ignores the request but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartMigrationResponse {
+  /**
+   * <p>The unique identifier of the migration job.</p>
+   * @public
+   */
+  migrationId?: string | undefined;
+
+  /**
+   * <p>The initial status of the migration job. The status is <code>PENDING</code> when a migration is first created.</p>
+   * @public
+   */
+  status?: string | undefined;
 }
 
 /**

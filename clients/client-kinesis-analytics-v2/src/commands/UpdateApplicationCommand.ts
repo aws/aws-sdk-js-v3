@@ -244,7 +244,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     },
  *   ],
  *   ConditionalToken: "STRING_VALUE",
- *   RuntimeEnvironmentUpdate: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20" || "FLINK-2_2",
+ *   RuntimeEnvironmentUpdate: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20" || "FLINK-2_2" || "FLINK-2_3",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
@@ -253,7 +253,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //     ApplicationARN: "STRING_VALUE", // required
  * //     ApplicationDescription: "STRING_VALUE",
  * //     ApplicationName: "STRING_VALUE", // required
- * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20" || "FLINK-2_2", // required
+ * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20" || "FLINK-2_2" || "FLINK-2_3", // required
  * //     ServiceExecutionRole: "STRING_VALUE",
  * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
  * //     ApplicationVersionId: Number("long"), // required

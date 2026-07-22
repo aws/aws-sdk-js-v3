@@ -1,8 +1,26 @@
 {
   "name": "aws-sdk-js-v3",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "description": "AWS SDK for JavaScript from the future",
+  "license": "UNLICENSED",
+  "author": {
+    "name": "Amazon Web Services",
+    "url": "http://aws.amazon.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aws/aws-sdk-js-v3.git"
+  },
+  "workspaces": {
+    "packages": [
+      "clients/*",
+      "lib/*",
+      "packages/*",
+      "packages-internal/*",
+      "private/*"
+    ]
+  },
   "main": "index.js",
   "scripts": {
     "benchmark:bundlers": "node ./tests/performance-tests/runner/run.mjs",
@@ -34,10 +52,11 @@
     "generate:client:tarball:since": "node ./scripts/generate-client-tarball/generate-client-tarball-since.mjs",
     "generate:defaults-mode-provider": "./scripts/generate-defaults-mode-provider/index.js",
     "lerna:version": "yarn update:versions:current && node ./scripts/update-versions/bumpReleaseCandidates.mjs && yarn update:versions:default",
+    "lint": "oxlint --fix packages/ packages-internal/ lib/ clients/ scripts/",
     "lint:api": "node scripts/validation/api-snapshot.js",
-    "lint:ci": "lerna exec --since origin/main --exclude-dependents --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
+    "lint:ci": "yarn lint",
     "lint:dependencies": "node scripts/runtime-dependency-version-check/check-dependencies.js",
-    "lint:release": "lerna exec --ignore '@aws-sdk/client-*' --ignore '@aws-sdk/aws-*' 'eslint --quiet src/**/*.ts'",
+    "lint:release": "yarn lint",
     "lint:versions": "node scripts/runtime-dependency-version-check/runtime-dep-version-check.js",
     "local-publish": "node ./scripts/verdaccio-publish/index.js",
     "pkg:changed": "node ./scripts/update-versions/getChangedPackages.mjs",
@@ -59,15 +78,6 @@
     "update:versions:default": "node ./scripts/update-versions/default.mjs",
     "update:versions:preview": "node ./scripts/update-versions/preview.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:aws/aws-sdk-js-v3.git"
-  },
-  "author": {
-    "name": "Amazon Web Services",
-    "url": "http://aws.amazon.com"
-  },
-  "license": "UNLICENSED",
   "devDependencies": {
     "@aws-crypto/crc32": "5.2.0",
     "@aws-crypto/crc32c": "5.2.0",
@@ -78,7 +88,6 @@
     "@fastify/formbody": "^7.4.0",
     "@jazzer.js/core": "^4.0.0",
     "@microsoft/api-extractor": "7.52.7",
-    "@mixer/parallel-prettier": "2.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.2",
     "@rollup/plugin-typescript": "^12.1.4",
@@ -86,21 +95,11 @@
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "29.5.11",
     "@types/jsdom": "20.0.1",
-    "@typescript-eslint/eslint-plugin": "5.55.0",
-    "@typescript-eslint/parser": "5.55.0",
     "async": "3.2.4",
     "concurrently": "7.0.0",
     "decomment": "0.9.5",
     "downlevel-dts": "0.10.1",
     "esbuild": "0.25.0",
-    "eslint": "8.36.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-n": "17.24.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-simple-import-sort": "7.0.0",
-    "eslint-plugin-sort-export-all": "1.2.2",
-    "eslint-plugin-tsdoc": "0.2.17",
-    "esprint": "3.6.0",
     "fast-check": "^4.8.0",
     "fast-xml-parser": "5.7.3",
     "fastify": "^4.11.0",
@@ -117,7 +116,10 @@
     "kill-port": "^2.0.1",
     "lerna": "5.5.2",
     "lint-staged": "^10.0.1",
-    "prettier": "2.8.5",
+    "oxc-parser": "^0.138.0",
+    "oxc-transform": "^0.138.0",
+    "oxfmt": "0.58.0",
+    "oxlint": "1.73.0",
     "rimraf": "5.0.10",
     "ts-jest": "29.1.1",
     "ts-loader": "9.4.2",
@@ -131,33 +133,20 @@
     "webpack-cli": "4.10.0",
     "yargs": "17.5.1"
   },
-  "overrides": {
-    "typescript": "~5.8.3"
-  },
   "resolutions": {
     "typescript": "~5.8.3"
   },
-  "workspaces": {
-    "packages": [
-      "clients/*",
-      "lib/*",
-      "packages/*",
-      "packages-internal/*",
-      "private/*"
-    ]
+  "overrides": {
+    "typescript": "~5.8.3"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && yarn lint:versions && yarn lint:dependencies",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "{lib,packages,packages-internal}/**/src/**/*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ],
-    "**/*.{ts,js,md,json}": "prettier --write"
+    "*": "make lint format"
   },
-  "packageManager": "yarn@4.17.0"
+  "packageManager": "yarn@4.17.1"
 }

@@ -120,7 +120,7 @@ export interface DescribeAssociationCommandOutput extends DescribeAssociationRes
  * //         ExcludeAccounts: [ // ExcludeAccounts
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: [
+ * //         Targets: [ // AutomationTargets
  * //           {
  * //             Key: "STRING_VALUE",
  * //             Values: [

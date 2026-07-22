@@ -19,6 +19,7 @@ import type {
   OfferStateString,
   OfferTargetingString,
   OwnershipType,
+  ResaleAuthorizationResellerRoleString,
   ResaleAuthorizationSortBy,
   ResaleAuthorizationStatusString,
   SaaSProductSortBy,
@@ -1795,6 +1796,18 @@ export interface ResaleAuthorizationResellerLegalNameFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization.</p>
+ * @public
+ */
+export interface ResaleAuthorizationResellerRoleFilter {
+  /**
+   * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization with list input.</p>
+   * @public
+   */
+  ValueList?: ResaleAuthorizationResellerRoleString[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
  * @public
  */
@@ -1888,6 +1901,12 @@ export interface ResaleAuthorizationFilters {
    * @public
    */
   LastModifiedDate?: ResaleAuthorizationLastModifiedDateFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>ResellerRole</code> of a ResaleAuthorization.</p>
+   * @public
+   */
+  ResellerRole?: ResaleAuthorizationResellerRoleFilter | undefined;
 }
 
 /**
@@ -2775,6 +2794,12 @@ export interface ResaleAuthorizationSummary {
    * @public
    */
   AvailabilityEndDate?: string | undefined;
+
+  /**
+   * <p>The reseller role of the ResaleAuthorization.</p>
+   * @public
+   */
+  ResellerRole?: ResaleAuthorizationResellerRoleString | undefined;
 }
 
 /**

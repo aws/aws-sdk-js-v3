@@ -24,12 +24,12 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
 
 /**
  * <p>Creates a rule for the specified listener. The listener must be associated with an
- *       Application Load Balancer.</p>
- *          <p>Each rule consists of a priority, one or more actions, one or more conditions, and
- *       up to two optional transforms. Rules are evaluated in priority order, from the lowest value
- *       to the highest value. When the conditions for a rule are met, its actions are performed.
- *       If the conditions for no rules are met, the actions for the default rule are performed.
- *       For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>
+ *       Application Load Balancer or a dual-stack Network Load Balancer.</p>
+ *          <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules
+ *       are evaluated in priority order, from the lowest value to the highest value. When the
+ *       conditions for a rule are met, its actions are performed. If the conditions for no rules are
+ *       met, the actions for the default rule are performed. For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Application Load Balancers Guide</i> or
+ *         <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#listener-rules">Listener rules</a> in the <i>Network Load Balancers Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +80,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       },
  *       SourceIpConfig: { // SourceIpConditionConfig
  *         Values: "<ListOfString>",
+ *         IpAddressType: "ipv4" || "ipv6",
  *       },
  *       RegexValues: "<ListOfString>",
  *     },
@@ -233,6 +234,7 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
+ * //             IpAddressType: "ipv4" || "ipv6",
  * //           },
  * //           RegexValues: "<ListOfString>",
  * //         },
@@ -441,6 +443,56 @@ export interface CreateRuleCommandOutput extends CreateRuleOutput, __MetadataBea
  *       IsDefault: false,
  *       Priority: "10",
  *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/app/my-load-balancer/50dc6c495c0c9188/f2f7dc8efc522ab2/9683b2d02a6cabee"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a listener rule that routes IPv4 traffic on a Network Load Balancer
+ * ```javascript
+ * // This example creates a rule on a dual-stack Network Load Balancer that routes IPv4 source traffic to an IPv4 target group.
+ * const input = {
+ *   Actions: [
+ *     {
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
+ *       Type: "forward"
+ *     }
+ *   ],
+ *   Conditions: [
+ *     {
+ *       Field: "source-ip",
+ *       SourceIpConfig: {
+ *         IpAddressType: "ipv4"
+ *       }
+ *     }
+ *   ],
+ *   ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/net/my-nlb/1234567890abcdef/1234567890abcdef",
+ *   Priority: 10
+ * };
+ * const command = new CreateRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Rules: [
+ *     {
+ *       Actions: [
+ *         {
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
+ *           Type: "forward"
+ *         }
+ *       ],
+ *       Conditions: [
+ *         {
+ *           Field: "source-ip",
+ *           SourceIpConfig: {
+ *             IpAddressType: "ipv4"
+ *           }
+ *         }
+ *       ],
+ *       IsDefault: false,
+ *       Priority: "10",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef"
  *     }
  *   ]
  * }

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListFindingsRequest, ListFindingsResponse } from "../models/models_0";
+import type { ListFindingsRequest, ListFindingsResponse } from "../models/models_1";
 import { ListFindings$ } from "../schemas/schemas_0";
 
 /**
@@ -172,6 +172,30 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *     ],
  *     codeRepositoryProjectName: "<StringFilterList>",
  *     codeRepositoryProviderType: "<StringFilterList>",
+ *     cloudProvider: "<StringFilterList>",
+ *     cloudProviderRegion: "<StringFilterList>",
+ *     cloudProviderAccountId: "<StringFilterList>",
+ *     cloudProviderOrgId: "<StringFilterList>",
+ *     cloudVmImageReference: "<StringFilterList>",
+ *     cloudVmNetworkId: "<StringFilterList>",
+ *     cloudVmSubnetIds: "<StringFilterList>",
+ *     cloudImageRepositoryName: "<StringFilterList>",
+ *     cloudImageRegistry: "<StringFilterList>",
+ *     cloudImageDigest: "<StringFilterList>",
+ *     cloudImageTags: "<StringFilterList>",
+ *     cloudImagePushedAt: "<DateFilterList>",
+ *     cloudImageArchitecture: "<StringFilterList>",
+ *     cloudImageLastInUseAt: "<DateFilterList>",
+ *     cloudImageInUseCount: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
+ *     cloudServerlessFunctionName: "<StringFilterList>",
+ *     cloudServerlessFunctionRuntime: "<StringFilterList>",
+ *     cloudServerlessFunctionLastModifiedAt: "<DateFilterList>",
+ *     cloudServerlessFunctionExecutionRole: "<StringFilterList>",
  *   },
  *   sortCriteria: { // SortCriteria
  *     field: "STRING_VALUE", // required
@@ -269,7 +293,68 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //               integrationArn: "STRING_VALUE",
  * //               providerType: "STRING_VALUE",
  * //             },
+ * //             vm: { // Vm
+ * //               type: "STRING_VALUE",
+ * //               vmName: "STRING_VALUE",
+ * //               vmImageReference: "STRING_VALUE",
+ * //               ipV4Addresses: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               ipV6Addresses: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               networkId: "STRING_VALUE",
+ * //               subnetIds: [ // CloudSubnetIdList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               securityGroupIds: [ // CloudSecurityGroupIdList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               launchedAt: new Date("TIMESTAMP"),
+ * //               platform: "STRING_VALUE",
+ * //               executionRole: "STRING_VALUE",
+ * //               keyName: "STRING_VALUE",
+ * //             },
+ * //             image: { // Image
+ * //               repositoryName: "STRING_VALUE",
+ * //               registry: "STRING_VALUE",
+ * //               imageTags: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               imageDigest: "STRING_VALUE",
+ * //               pushedAt: new Date("TIMESTAMP"),
+ * //               architecture: "STRING_VALUE",
+ * //               author: "STRING_VALUE",
+ * //               inUseCount: Number("long"),
+ * //               lastInUseAt: new Date("TIMESTAMP"),
+ * //               platform: "STRING_VALUE",
+ * //             },
+ * //             serverlessFunction: { // ServerlessFunction
+ * //               serverlessFunctionName: "STRING_VALUE",
+ * //               runtime: "STRING_VALUE",
+ * //               version: "STRING_VALUE",
+ * //               codeDigest: "STRING_VALUE",
+ * //               lastModifiedAt: new Date("TIMESTAMP"),
+ * //               networkId: "STRING_VALUE",
+ * //               subnetIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               securityGroupIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               executionRole: "STRING_VALUE",
+ * //               packageType: "STRING_VALUE",
+ * //               architectures: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               layers: [ // ServerlessFunctionLayerList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
  * //           },
+ * //           provider: "STRING_VALUE",
+ * //           providerAccountId: "STRING_VALUE",
+ * //           providerOrgId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       inspectorScore: Number("double"),

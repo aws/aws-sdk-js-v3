@@ -28,7 +28,11 @@ You can optionally attach a policy to a presigned post. It specifies a list of c
 For example:
 
 ```typescript
-const Conditions = [{ acl: "bucket-owner-full-control" }, { bucket: "johnsmith" }, ["starts-with", "$key", "user/eric/"]];
+const Conditions = [
+  { acl: "bucket-owner-full-control" },
+  { bucket: "johnsmith" },
+  ["starts-with", "$key", "user/eric/"],
+];
 ```
 
 Visit [S3 POST documentation](https://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-HTTPPOSTConstructPolicy.html)

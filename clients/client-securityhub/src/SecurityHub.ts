@@ -98,6 +98,11 @@ import {
   CreateConfigurationPolicyCommand,
 } from "./commands/CreateConfigurationPolicyCommand";
 import {
+  type CreateConnectorCommandInput,
+  type CreateConnectorCommandOutput,
+  CreateConnectorCommand,
+} from "./commands/CreateConnectorCommand";
+import {
   type CreateConnectorV2CommandInput,
   type CreateConnectorV2CommandOutput,
   CreateConnectorV2Command,
@@ -147,6 +152,11 @@ import {
   type DeleteConfigurationPolicyCommandOutput,
   DeleteConfigurationPolicyCommand,
 } from "./commands/DeleteConfigurationPolicyCommand";
+import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
+  DeleteConnectorCommand,
+} from "./commands/DeleteConnectorCommand";
 import {
   type DeleteConnectorV2CommandInput,
   type DeleteConnectorV2CommandOutput,
@@ -228,6 +238,11 @@ import {
   DisableSecurityHubCommand,
 } from "./commands/DisableSecurityHubCommand";
 import {
+  type DisableSecurityHubFeatureV2CommandInput,
+  type DisableSecurityHubFeatureV2CommandOutput,
+  DisableSecurityHubFeatureV2Command,
+} from "./commands/DisableSecurityHubFeatureV2Command";
+import {
   type DisableSecurityHubV2CommandInput,
   type DisableSecurityHubV2CommandOutput,
   DisableSecurityHubV2Command,
@@ -263,6 +278,11 @@ import {
   EnableSecurityHubCommand,
 } from "./commands/EnableSecurityHubCommand";
 import {
+  type EnableSecurityHubFeatureV2CommandInput,
+  type EnableSecurityHubFeatureV2CommandOutput,
+  EnableSecurityHubFeatureV2Command,
+} from "./commands/EnableSecurityHubFeatureV2Command";
+import {
   type EnableSecurityHubV2CommandInput,
   type EnableSecurityHubV2CommandOutput,
   EnableSecurityHubV2Command,
@@ -297,6 +317,11 @@ import {
   type GetConfigurationPolicyCommandOutput,
   GetConfigurationPolicyCommand,
 } from "./commands/GetConfigurationPolicyCommand";
+import {
+  type GetConnectorCommandInput,
+  type GetConnectorCommandOutput,
+  GetConnectorCommand,
+} from "./commands/GetConnectorCommand";
 import {
   type GetConnectorV2CommandInput,
   type GetConnectorV2CommandOutput,
@@ -418,6 +443,11 @@ import {
   ListConfigurationPolicyAssociationsCommand,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
+  ListConnectorsCommand,
+} from "./commands/ListConnectorsCommand";
+import {
   type ListConnectorsV2CommandInput,
   type ListConnectorsV2CommandOutput,
   ListConnectorsV2Command,
@@ -508,6 +538,11 @@ import {
   UpdateConfigurationPolicyCommand,
 } from "./commands/UpdateConfigurationPolicyCommand";
 import {
+  type UpdateConnectorCommandInput,
+  type UpdateConnectorCommandOutput,
+  UpdateConnectorCommand,
+} from "./commands/UpdateConnectorCommand";
+import {
   type UpdateConnectorV2CommandInput,
   type UpdateConnectorV2CommandOutput,
   UpdateConnectorV2Command,
@@ -593,6 +628,7 @@ const commands = {
   CreateAutomationRuleCommand,
   CreateAutomationRuleV2Command,
   CreateConfigurationPolicyCommand,
+  CreateConnectorCommand,
   CreateConnectorV2Command,
   CreateFindingAggregatorCommand,
   CreateInsightCommand,
@@ -603,6 +639,7 @@ const commands = {
   DeleteAggregatorV2Command,
   DeleteAutomationRuleV2Command,
   DeleteConfigurationPolicyCommand,
+  DeleteConnectorCommand,
   DeleteConnectorV2Command,
   DeleteFindingAggregatorCommand,
   DeleteInsightCommand,
@@ -619,6 +656,7 @@ const commands = {
   DisableImportFindingsForProductCommand,
   DisableOrganizationAdminAccountCommand,
   DisableSecurityHubCommand,
+  DisableSecurityHubFeatureV2Command,
   DisableSecurityHubV2Command,
   DisassociateFromAdministratorAccountCommand,
   DisassociateFromMasterAccountCommand,
@@ -626,6 +664,7 @@ const commands = {
   EnableImportFindingsForProductCommand,
   EnableOrganizationAdminAccountCommand,
   EnableSecurityHubCommand,
+  EnableSecurityHubFeatureV2Command,
   EnableSecurityHubV2Command,
   GenerateRecommendedPolicyV2Command,
   GetAdministratorAccountCommand,
@@ -633,6 +672,7 @@ const commands = {
   GetAutomationRuleV2Command,
   GetConfigurationPolicyCommand,
   GetConfigurationPolicyAssociationCommand,
+  GetConnectorCommand,
   GetConnectorV2Command,
   GetEnabledStandardsCommand,
   GetFindingAggregatorCommand,
@@ -657,6 +697,7 @@ const commands = {
   ListAutomationRulesV2Command,
   ListConfigurationPoliciesCommand,
   ListConfigurationPolicyAssociationsCommand,
+  ListConnectorsCommand,
   ListConnectorsV2Command,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
@@ -675,6 +716,7 @@ const commands = {
   UpdateAggregatorV2Command,
   UpdateAutomationRuleV2Command,
   UpdateConfigurationPolicyCommand,
+  UpdateConnectorCommand,
   UpdateConnectorV2Command,
   UpdateFindingAggregatorCommand,
   UpdateFindingsCommand,
@@ -1037,6 +1079,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateConnectorCommand}
+   */
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorCommandOutput>;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+  createConnector(
+    args: CreateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateConnectorV2Command}
    */
   createConnectorV2(
@@ -1204,6 +1263,23 @@ export interface SecurityHub {
     args: DeleteConfigurationPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorCommand}
+   */
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -1487,6 +1563,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link DisableSecurityHubFeatureV2Command}
+   */
+  disableSecurityHubFeatureV2(
+    args: DisableSecurityHubFeatureV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSecurityHubFeatureV2CommandOutput>;
+  disableSecurityHubFeatureV2(
+    args: DisableSecurityHubFeatureV2CommandInput,
+    cb: (err: any, data?: DisableSecurityHubFeatureV2CommandOutput) => void
+  ): void;
+  disableSecurityHubFeatureV2(
+    args: DisableSecurityHubFeatureV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSecurityHubFeatureV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableSecurityHubV2Command}
    */
   disableSecurityHubV2(): Promise<DisableSecurityHubV2CommandOutput>;
@@ -1610,6 +1703,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link EnableSecurityHubFeatureV2Command}
+   */
+  enableSecurityHubFeatureV2(
+    args: EnableSecurityHubFeatureV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSecurityHubFeatureV2CommandOutput>;
+  enableSecurityHubFeatureV2(
+    args: EnableSecurityHubFeatureV2CommandInput,
+    cb: (err: any, data?: EnableSecurityHubFeatureV2CommandOutput) => void
+  ): void;
+  enableSecurityHubFeatureV2(
+    args: EnableSecurityHubFeatureV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSecurityHubFeatureV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableSecurityHubV2Command}
    */
   enableSecurityHubV2(): Promise<EnableSecurityHubV2CommandOutput>;
@@ -1728,6 +1838,23 @@ export interface SecurityHub {
     args: GetConfigurationPolicyAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorCommand}
+   */
+  getConnector(
+    args: GetConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorCommandOutput>;
+  getConnector(
+    args: GetConnectorCommandInput,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
+  getConnector(
+    args: GetConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -2151,6 +2278,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListConnectorsV2Command}
    */
   listConnectorsV2(): Promise<ListConnectorsV2CommandOutput>;
@@ -2461,6 +2606,23 @@ export interface SecurityHub {
     args: UpdateConfigurationPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConnectorCommand}
+   */
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorCommandOutput>;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
+  ): void;
+  updateConnector(
+    args: UpdateConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorCommandOutput) => void
   ): void;
 
   /**

@@ -12,6 +12,66 @@ import type {
 } from "./enums";
 
 /**
+ * <p>IAM configuration for the security configuration.</p>
+ * @public
+ */
+export interface IAMConfiguration {
+  /**
+   * <p>The ARN of the system role used by the security configuration.</p>
+   * @public
+   */
+  systemRole?: string | undefined;
+}
+
+/**
+ * <p>Identity Center related configuration for the security configuration.</p>
+ * @public
+ */
+export interface IdentityCenterConfiguration {
+  /**
+   * <p>Determines whether Identity Center is enabled for the security configuration.</p>
+   * @public
+   */
+  enableIdentityCenter?: boolean | undefined;
+
+  /**
+   * <p>Determines whether user assignment is required for the Identity Center application.</p>
+   * @public
+   */
+  identityCenterApplicationAssignmentRequired?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the Identity Center instance.</p>
+   * @public
+   */
+  identityCenterInstanceARN?: string | undefined;
+
+  /**
+   * <p>The ARN of the EMR Identity Center application.</p>
+   * @public
+   */
+  emrIdentityCenterApplicationARN?: string | undefined;
+}
+
+/**
+ * <p>Authentication configuration for the security configuration.</p>
+ * @public
+ */
+export interface AuthenticationConfiguration {
+  /**
+   * <p>Identity Center configuration for authentication in the security configuration.</p>
+   * @public
+   */
+  identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
+
+  /**
+   * <p>IAM configuration for authentication in the security configuration.</p>
+   * @public
+   */
+  iamConfiguration?: IAMConfiguration | undefined;
+}
+
+/**
  * <p>Configurations related to the TLS certificate for the security configuration.</p>
  * @public
  */
@@ -393,6 +453,12 @@ export interface S3MonitoringConfiguration {
    * @public
    */
   logUri: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the encryption key for logs.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
 }
 
 /**
@@ -552,6 +618,12 @@ export interface SecurityConfigurationData {
    * @public
    */
   authorizationConfiguration?: AuthorizationConfiguration | undefined;
+
+  /**
+   * <p>Authentication-related configuration input for the security configuration.</p>
+   * @public
+   */
+  authenticationConfiguration?: AuthenticationConfiguration | undefined;
 }
 
 /**
@@ -645,6 +717,12 @@ export interface CreateVirtualClusterRequest {
    * @public
    */
   securityConfigurationId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the virtual cluster has session support enabled.</p>
+   * @public
+   */
+  sessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -724,6 +802,28 @@ export interface DeleteManagedEndpointResponse {
    * @public
    */
   virtualClusterId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityConfigurationRequest {
+  /**
+   * <p>The ID of the security configuration to delete.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSecurityConfigurationResponse {
+  /**
+   * <p>The ID of the security configuration that was deleted.</p>
+   * @public
+   */
+  id?: string | undefined;
 }
 
 /**
@@ -976,6 +1076,12 @@ export interface VirtualCluster {
    * @public
    */
   securityConfigurationId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the virtual cluster has session support enabled. </p>
+   * @public
+   */
+  sessionEnabled?: boolean | undefined;
 }
 
 /**
@@ -1092,6 +1198,12 @@ export interface GetManagedEndpointSessionCredentialsResponse {
    * @public
    */
   credentials?: Credentials | undefined;
+
+  /**
+   * <p>The structure containing the session token being returned.</p>
+   * @public
+   */
+  endpointCredentials?: Credentials | undefined;
 
   /**
    * <p>The date and time when the session token will expire.</p>
@@ -1562,6 +1674,12 @@ export interface CreateManagedEndpointRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The idle timeout in minutes for the managed endpoint session.</p>
+   * @public
+   */
+  sessionIdleTimeoutInMinutes?: number | undefined;
 }
 
 /**
@@ -1645,6 +1763,12 @@ export interface Endpoint {
    * @public
    */
   serverUrl?: string | undefined;
+
+  /**
+   * <p>The auth proxy URL of the endpoint.</p>
+   * @public
+   */
+  authProxyUrl?: string | undefined;
 
   /**
    * <p>The date and time when the endpoint was created.</p>

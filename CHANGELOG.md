@@ -3,6 +3,291 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+
+### Features
+
+* **client-amp:** Add CloudWatch dataset destinations for Amazon Managed Service for Prometheus collectors. ([3709a0b](https://github.com/aws/aws-sdk-js-v3/commit/3709a0bd52c24410dd5f5682929eefe581e681e4))
+* **client-arc-region-switch:** Adds support for a client token in StartPlanExecution to make plan execution requests idempotent for safe retries. ([6cfe2c0](https://github.com/aws/aws-sdk-js-v3/commit/6cfe2c059376935b80bb9b27835c6cdf34b41b6b))
+* **client-cloudwatch:** Adds documented value constraints for CloudWatch Log Alarm scheduled query configuration fields, and makes LogGroupIdentifiers optional for log alarms. ([5884c0d](https://github.com/aws/aws-sdk-js-v3/commit/5884c0d40e6e8af1b005e6b6c297137b780af470))
+* **client-guardduty:** Amazon GuardDuty now returns filter lifecycle metadata in GetFilter responses. The response includes createdAt and updatedAt timestamps and a version number that increments on each update, giving you visibility into when a filter was created and last modified. ([15117c9](https://github.com/aws/aws-sdk-js-v3/commit/15117c9160d49bbb3ea1ce84c44cfc8ff1211b04))
+* **client-observabilityadmin:** Enablement for ALB and Bedrock Knowledge Base logs via Observability Admin Telemetry Rule for account and organization level ([0bd549c](https://github.com/aws/aws-sdk-js-v3/commit/0bd549cf6e01adb650db7c826986fe0eb4d6776e))
+* **client-partnercentral-account:** Adds Qualifications Association APIs that enable partners to associate a subsidiary account's qualifications with a primary account. Once associated, qualifications are shared across all connected accounts and scorecards are consolidated. Partners can start and track association and disassociation. ([4b0d8db](https://github.com/aws/aws-sdk-js-v3/commit/4b0d8db8bf1cae2d72cda42abaf645a57a62d149))
+* **client-pcs:** AWS PCS Node Lifecycle Actions provides a structured way to run custom scripts at defined points in a compute node's lifecycle directly through the AWS PCS compute node group API. ([c3c4289](https://github.com/aws/aws-sdk-js-v3/commit/c3c4289aa7d277fdadecff25196911edfd43112b))
+* **client-sesv2:** Launching DEED and MREP in US GOV ([2971803](https://github.com/aws/aws-sdk-js-v3/commit/2971803946e47bc8dd0df6aa865d337370d8a657))
+* **clients:** update client endpoints as of 2026-07-22 ([8e084a4](https://github.com/aws/aws-sdk-js-v3/commit/8e084a494b75dc927c3202f12368aa31676b281c))
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+
+### Features
+
+* **client-emr-containers:** Added support for the DeleteSecurityConfiguration API, which allows customers to delete security configurations in Amazon EMR on EKS. Also added authenticationConfiguration in securityConfigurationdata structure. ([e344cea](https://github.com/aws/aws-sdk-js-v3/commit/e344cea997509a58334096da2269e7b61ae34b69))
+* **client-entityresolution:** Add support for real time matching with AWS Entity Resolution matching workflows with advanced rule sets. ([b92fd6c](https://github.com/aws/aws-sdk-js-v3/commit/b92fd6c4199c84eb85d1bb58056b0c2472b14fef))
+* **client-inspector2:** GA date - July 21st 2026, remove Tags field from ListCodeSecurityIntegration and ListCodeSecurityScanConfiguration. ([33a1778](https://github.com/aws/aws-sdk-js-v3/commit/33a1778dda593b289641717f0df9c08107d8a55d))
+* **client-invoicing:** Added the SendProcurementPortalValidation and VerifyProcurementPortalValidation APIs. You can use the AWS SDKs to self-service activate your Procurement Portal Preferences created on the Billing Preferences page with a one-time-passcode (OTP) delivered to your portal. ([35e023c](https://github.com/aws/aws-sdk-js-v3/commit/35e023c05d6a8671e5b6848d24c5d3addfe56c6d))
+* **client-redshift-data:** update the workgroupArn to include EUSC partition, tests in THF Gamma and Prod no issue ([4f372fc](https://github.com/aws/aws-sdk-js-v3/commit/4f372fc5411bc7336227df8a4af7bac4cdb73f4e))
+* **client-redshift:** Amazon Redshift - Added support for managing Query Editor V2 IAM Identity Center applications via new CreateQev2IdcApplication, DescribeQev2IdcApplications, ModifyQev2IdcApplication, and DeleteQev2IdcApplication API operations. ([17507f2](https://github.com/aws/aws-sdk-js-v3/commit/17507f23fa6a9baea128353c2819e4cc2e90c3e6))
+* **client-ssm:** Added a WarningMessage field to Automation along with corresponding public documentation. ([7af6eb5](https://github.com/aws/aws-sdk-js-v3/commit/7af6eb584260597163ef479eb86de199d3267e19))
+* **client-timestream-influxdb:** This release adds support for custom plugins in Amazon Timestream for InfluxDB. InfluxDB 3 Core and Enterprise DB parameter groups now accept a plugin repository URL and optional AWS Secrets Manager secret ARN, so the Processing Engine loads your Python plugins from a public or private repository. ([ade4b96](https://github.com/aws/aws-sdk-js-v3/commit/ade4b9693d2b2c9ea5f7a7f6c6bc534226e01e5d))
+* **core/protocols:** bytebuffer serializer and buffer deserializer for JSON ([#8202](https://github.com/aws/aws-sdk-js-v3/issues/8202)) ([f39955a](https://github.com/aws/aws-sdk-js-v3/commit/f39955afbdfdcf665a5cf43cab8a057c56744dc4))
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** This release adds support for specifying a connector version on Gateway targets to pin the connector's tool schema. It also introduces web-search connector version 1.2.0, which adds agent-side domain filtering, published date range filtering, and admin-side domain allowlisting. ([2c37055](https://github.com/aws/aws-sdk-js-v3/commit/2c37055a89a32783babd2ac3813d89b21d4bc7e9))
+* **client-bedrock-agentcore:** Add W3C trace context headers (traceparent, tracestate, baggage) and X-Amzn-Trace-Id to InvokeHarness request for end-to-end observability propagation. Add toolResultMetadata to the streaming content block delta for MCP tool result meta delivery without oversized SSE frames. ([4cf22ef](https://github.com/aws/aws-sdk-js-v3/commit/4cf22ef38ed3caa0e15c779e1d93f67ff5747288))
+* **client-inspector2:** Adds Windows path support for deep inspection. Fixes tag propagation for connector CloudFormation stack operations. ([2263613](https://github.com/aws/aws-sdk-js-v3/commit/2263613f795a6c5caaa421f529109436892a6faf))
+* **client-mediatailor:** This change adds api support for configuring ad decision server timeouts and concurrency fields on MediaTailor playback configurations ([97ea965](https://github.com/aws/aws-sdk-js-v3/commit/97ea965ee220d53cb041fe095f361a8caba729e6))
+* **client-quicksight:** Adds support for custom permissions for Triggers, allowing administrators to control user access to Schedule, Inbound Email and Quick Event triggers. ([fbe7d94](https://github.com/aws/aws-sdk-js-v3/commit/fbe7d94d5751c21ca65b96aff97786752aca884c))
+* **client-sesv2:** Amazon SES introduces three new Pricing Plans (Essentials, Pro, Enterprise), which bundle SES features under one pricing umbrella.  The new PutAccountPricingAttributes API lets the user set the account's plan, while current plan retrievalif done through the new PricingAttributes field on GetAccount. ([751dc8d](https://github.com/aws/aws-sdk-js-v3/commit/751dc8df47e1a2353680b45bc53b7f431f84123d))
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito user pools now support sending SMS via AWS End User Messaging. A new EumsSms object in SmsConfigurationType lets you deliver MFA and verification texts through AWS End User Messaging, alongside the existing Amazon SNS option. ([600cf8d](https://github.com/aws/aws-sdk-js-v3/commit/600cf8d5cb99b819ab1bbb0296d645ee8690a05f))
+* **client-gameliftstreams:** Amazon GameLift Streams now supports assigning an IAM role to a stream session, enabling your application to securely access resources in your AWS account, such as Amazon S3 buckets and DynamoDB tables. ([cf945cd](https://github.com/aws/aws-sdk-js-v3/commit/cf945cdbdfbcc0ea5bbf36b1f4048aef95097237))
+* **client-kinesis-analytics-v2:** Support for Flink 2.3 in Managed Service for Apache Flink ([1ad0421](https://github.com/aws/aws-sdk-js-v3/commit/1ad0421fb0f752af3417a9bb6b55280fa021a8f0))
+* **client-odb:** Adds support for sourcing Autonomous Database admin and wallet passwords from customer-managed AWS Secrets Manager secrets, including password source configuration and summaries, and enabling or disabling the OCI IAM service role for Secrets Manager integration via InitializeService. ([d5619c8](https://github.com/aws/aws-sdk-js-v3/commit/d5619c8bb18547fd7fe95bdf5f4ed8eff3178275))
+* **client-rds:** Adds the AssociatedRoles parameter to CreateDBCluster, RestoreDBClusterFromSnapshot, RestoreDBClusterToPointInTime, and RestoreDBClusterFromS3, letting customers associate IAM roles with an Aurora DB cluster at create or restore time instead of calling AddRoleToDBCluster afterward. ([48b74a4](https://github.com/aws/aws-sdk-js-v3/commit/48b74a4393b494e2e59b16d8a61ab47c385a0b05))
+* **clients:** update client endpoints as of 2026-07-17 ([857153f](https://github.com/aws/aws-sdk-js-v3/commit/857153f32bc002c6c13c784843c612e24c1ec3c2))
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+
+### Bug Fixes
+
+* **package.json:** run make lint format without file args ([#8201](https://github.com/aws/aws-sdk-js-v3/issues/8201)) ([33ac9c0](https://github.com/aws/aws-sdk-js-v3/commit/33ac9c0b184907603ea288f0b71c4cd9a77601d1))
+
+
+### Features
+
+* **client-chime-sdk-voice:** Marked CreateProxySession, DeleteProxySession, GetProxySession, ListProxySessions, UpdateProxySession, PutVoiceConnectorProxy, DeleteVoiceConnectorProxy, and GetVoiceConnectorProxy as deprecated. ([d706c45](https://github.com/aws/aws-sdk-js-v3/commit/d706c4567374de6cb774ec9e57440b6bee202fe7))
+* **client-emr:** Amazon EMR updates the Session object returned by GetSession API ([863234a](https://github.com/aws/aws-sdk-js-v3/commit/863234ad7a0f08a13d24aac2b31dbe12fc14d62f))
+* **client-omics:** Adds support for returning the task UUID (universally unique identifier) in GetRunTask and ListRunTasks responses ([bafd66d](https://github.com/aws/aws-sdk-js-v3/commit/bafd66dde7a91690c7a01a3da87709056f3aaca3))
+* **client-sagemaker:** Release support for g7 instance type for SageMaker inference endpoints. ([668f46c](https://github.com/aws/aws-sdk-js-v3/commit/668f46cb4b4da795b341153fded865aaf643a76f))
+* **client-sustainability:** Adds support for retrieving estimated water allocation data. ([432031b](https://github.com/aws/aws-sdk-js-v3/commit/432031b68ada0cb596f07e3747aec70adb1a39c8))
+* **clients:** update client endpoints as of 2026-07-16 ([c9150fe](https://github.com/aws/aws-sdk-js-v3/commit/c9150fe6891b8d1c9a8455ea8f32f403a43c464c))
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Fix HarnessEndpointArn pattern to match the actual service-emitted ARN format ('harness-endpoint' instead of 'endpoint'). Add additionalParams to Gemini model configuration for passing provider-specific parameters through to the model unchanged. ([5b7701e](https://github.com/aws/aws-sdk-js-v3/commit/5b7701e82520538b19cf739ba4445c32adbf6f6e))
+* **client-elastic-load-balancing-v2:** This release adds support for the IpAddressType field on SourceIpConfig, enabling Network Load Balancer listener rules to match traffic based on whether the source IP is IPv4 or IPv6. ([8012e14](https://github.com/aws/aws-sdk-js-v3/commit/8012e14ff65acf9340dd1fa12cfaba1fcb3c4c91))
+* **client-healthlake:** AWS HealthLake now offers data transformation in Preview to convert CSV and C-CDA data to FHIR R4. Customers can maintain reusable mapping profiles, run sync or async jobs with provenance tracking and drift detection, and use an AI agent to build and edit mapping logic from natural language. ([69cdbbc](https://github.com/aws/aws-sdk-js-v3/commit/69cdbbcc09d0d3f33625fd7d7703cb2964600d71))
+* **client-payment-cryptography-data:** Adds support for UnionPay session key derivation to the GenerateAuthRequestCryptogram, VerifyAuthRequestCryptogram, GenerateMac, and VerifyMac APIs. ([6188712](https://github.com/aws/aws-sdk-js-v3/commit/618871277ab613bae1fb60aa0da13014f031ad74))
+* **client-rds:** Adds support for modifying EngineLifecycleSupport on DB instances and DB clusters through ModifyDBInstance and ModifyDBCluster. ([faa78bc](https://github.com/aws/aws-sdk-js-v3/commit/faa78bc92ac9aa0a876f613869a6dd0bf7595acc))
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+
+### Bug Fixes
+
+* **scripts:** add typesVersions entries for submodules ([#8186](https://github.com/aws/aws-sdk-js-v3/issues/8186)) ([9eade26](https://github.com/aws/aws-sdk-js-v3/commit/9eade2692bd0f4486bc03c606a6963bc96706fd1))
+
+
+### Features
+
+* **client-connect:** This release adds SearchRules API which can be used to search for rules within an Amazon Connect instance. ([f29288c](https://github.com/aws/aws-sdk-js-v3/commit/f29288c751327448c91ad5e89ea25d702dadab96))
+* **client-drs:** Fast recovery of EC2 based drs workloads by skipping the conversion step ([89a090d](https://github.com/aws/aws-sdk-js-v3/commit/89a090d83c0d8413a849f56bde61feb59417e467))
+* **client-emr-containers:** Introduced 5 new fields across 3 APIs as part of Spark Connect server launch for EMR on EKS. The fields added are sessionIdleTimeoutInMinutes, sessionEnabled, endpointToken, authProxyUrl and encryptionKeyArn. ([a62275e](https://github.com/aws/aws-sdk-js-v3/commit/a62275e33d64fd761c495af7b3603fccef34f99f))
+* **client-lambda:** AWS Lambda now returns a new DependencyError value in StateReasonCode and LastUpdateStatusReasonCode to provide more actionable information when a function reaches a failed state due to an error from an upstream dependency or service. ([aa8732a](https://github.com/aws/aws-sdk-js-v3/commit/aa8732a0942c6bc2e9897ebab5f358e4041a1a6e))
+* **client-mq:** This release adds storage size parameter for Amazon MQ for RabbitMQ cluster deployment broker on engine version RabbitMQ 4.2. You can now set a configurable storage size within a range of sizes dependent on broker instance size. ([a19e4c8](https://github.com/aws/aws-sdk-js-v3/commit/a19e4c8be0c2e18081e0d5025905b2b850042231))
+* **client-securityhub:** AWS Security Hub now provides an AI inventory, giving central security teams a continuously updated, organization-wide view of AI assets and their security posture ([e5e2f52](https://github.com/aws/aws-sdk-js-v3/commit/e5e2f52e31e671a4115e0ac249e1ec1418a43674))
+* **client-servicediscovery:** Fixed Cloud Map endpoint resolution to correctly route to the dualstack endpoint when dualstack is enabled. ([f853718](https://github.com/aws/aws-sdk-js-v3/commit/f853718ec74623127a5789e00034f07411472f48))
+* **client-ssm:** Update AWS Systems Manager Automation Targets to be correct max value. ([7506cef](https://github.com/aws/aws-sdk-js-v3/commit/7506cef18526419998e08e8dd97c1a5d56534d3a))
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+
+### Bug Fixes
+
+* **credential-providers:** memoization in fromNodeProviderChain ([#8185](https://github.com/aws/aws-sdk-js-v3/issues/8185)) ([1f878ba](https://github.com/aws/aws-sdk-js-v3/commit/1f878badeb9c7c9484b6ce9dea3af36edd72ff13))
+
+
+### Features
+
+* **client-elasticsearch-service:** Adds support for the EngineMode and UseCase parameters on Amazon Elasticsearch Service domains, enabling GENERAL or OPTIMIZED engine modes and SEARCH, VECTOR, OBSERVABILITY, or MIXED usecases when creating and updating domain configurations. ([f8248f2](https://github.com/aws/aws-sdk-js-v3/commit/f8248f273eafd3d38a85b00a910e8361b88f4234))
+* **client-gamelift:** Amazon GameLift Servers now includes fleet expiration for managed fleets. A managed fleet expires one year after creation, transitioning to EXPIRED status, emitting a FLEET EXPIRED event, and scaling to zero instances. Expired fleets cannot host new game sessions or increase capacity. ([ca1487c](https://github.com/aws/aws-sdk-js-v3/commit/ca1487cad489ca2e88496be68c6357faf74bf492))
+* **client-guardduty:** GuardDuty AI Protection is now publicly available. Findings include Bedrock guardrail details, model details, observation numbers, and continuous scan details. GuardrailArn and GuardrailVersion are deprecated in favor of the guardrails list. ([7456bef](https://github.com/aws/aws-sdk-js-v3/commit/7456befb0b4c391b0038961f290afa9b8a1cc609))
+* **client-lambda:** Add Java 8, 11 and 17 on AL2023 (java8.al2023, java11.al2023, java17.al2023) support to AWS Lambda. ([b9cd8db](https://github.com/aws/aws-sdk-js-v3/commit/b9cd8db4e16718877328cdde9a8478ffecaee714))
+* **client-redshift-serverless:** Add support for preserving datasharing, zero-ETL and S3 event integrations on snapshot restore to serverless namespace. ([0ed5e33](https://github.com/aws/aws-sdk-js-v3/commit/0ed5e330fc88ba16a49ac673962622e8373f85b4))
+* **clients:** update client endpoints as of 2026-07-13 ([22a3bc5](https://github.com/aws/aws-sdk-js-v3/commit/22a3bc515d256663596f02b273aaf38b6bf91830))
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-cloudwatch:** CloudWatch now assigns a unique identifier to each anomaly detector. PutAnomalyDetector and DescribeAnomalyDetectors return this AnomalyDetectorId, which you can use to describe or delete a specific anomaly detector directly. ([36fc0ee](https://github.com/aws/aws-sdk-js-v3/commit/36fc0ee52f520bcd30676ec8954140309719677f))
+* **client-ec2:** New Amazon EC2 instances. M9g, M9gd, C9g, and C9gd on AWS Graviton5. C8in, M8in, and R8in add 600 Gbps network. C8ib, M8ib, and R8ib add 300 Gbps EBS. C8ine, M8ine, M8idn, R8idn, M8idb, and R8idb round out Intel Xeon 6. Mac-m3ultra with Apple M3 Ultra. G7 with NVIDIA RTX PRO 4500 Blackwell GPUs. ([35aaf38](https://github.com/aws/aws-sdk-js-v3/commit/35aaf38707d66fa250c40fbef879fb9254a38cab))
+* **client-inspector2:** Support for 3 day and 7 day ECR re-scan durations ([4b0b5c8](https://github.com/aws/aws-sdk-js-v3/commit/4b0b5c86d1c0c228751d3ad42287c96599982eab))
+* **client-lambda:** Added TelemetryConfig support for Managed Instances Capacity Provider, enabling customers to configure system log level and custom log group for managed instance logging. ([6338813](https://github.com/aws/aws-sdk-js-v3/commit/6338813981e21da09c2afff2774453bfeed8b0de))
+* **client-license-manager:** Added the ResetUsage field to the CreateLicenseVersion API. When set to true, the entitlement usage counts for the license are reset to 0. If it is false or not specified, entitlement usage is left unchanged. ([52f1c9c](https://github.com/aws/aws-sdk-js-v3/commit/52f1c9c03192532f8d7fd99fbd9a3a1a567df6ad))
+* **client-quicksight:** Provides CreateKnowledgeBase and UpdateKnowledgeBase APIs ([42de552](https://github.com/aws/aws-sdk-js-v3/commit/42de55235e68fccff5f36ba5dddd4f6026b9c4f4))
+* **client-sagemaker:** Release support for g4d, c6g, c7g, c8g instance types for SageMaker HyperPod ([800976d](https://github.com/aws/aws-sdk-js-v3/commit/800976de4cc075bdd3f835982236e646e2871566))
+* **clients:** update client endpoints as of 2026-07-10 ([dffbeab](https://github.com/aws/aws-sdk-js-v3/commit/dffbeab020cb30acaf3e126b70df855fbd644b38))
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+
+### Features
+
+* **client-connect:** Amazon Connect - Added DeleteContactData API to support PII deletion of customer endpoint, additional email recipients and email subject. ([87f4ae0](https://github.com/aws/aws-sdk-js-v3/commit/87f4ae0edee3b09fccf660a9ec06f3819c0de033))
+* **client-ec2:** Added support for additional override parameters in CreateFleet, including LaunchTemplateSpecificationUserData, KeyName, IamInstanceProfile, and MetadataOptions. The CreateFleet response now also includes SubnetId, AvailabilityZone, and AvailabilityZoneId for launched instances. ([6fcc95d](https://github.com/aws/aws-sdk-js-v3/commit/6fcc95d184daf8db8b4ab131932b86d011628deb))
+* **client-guardduty:** Adding "AI Analyst" enum value for detector ([20518a4](https://github.com/aws/aws-sdk-js-v3/commit/20518a4ffa622068a3452405a2d56565a5076ed3))
+* **client-ivs:** adds support for AWS IVS ad configuration APIs to allow for a postRollConfiguration object on the ad configuration resource ([7dd93c4](https://github.com/aws/aws-sdk-js-v3/commit/7dd93c48dbdb50fe7039cbb94071c73249bc6419))
+* **client-synthetics:** CloudWatch Synthetics adds support for customer managed KMS keys for canary environment variables. Customers can now encrypt their canary's Lambda function environment variables at rest using their own AWS KMS key, providing additional control over data protection. ([c737915](https://github.com/aws/aws-sdk-js-v3/commit/c7379151145d04c34200a72783f0439873519b6d))
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+
+### Features
+
+* **client-signin:** Adds support for OAuth 2.0 token operations in AWS Sign-In, CreateOAuth2TokenWithIAM (client credentials flow), IntrospectOAuth2TokenWithIAM (token inspection), and RevokeOAuth2TokenWithIAM (token revocation). ([bc64f6b](https://github.com/aws/aws-sdk-js-v3/commit/bc64f6b2017dedd2fd49a3f3a4a67a967ec5c2cf))
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** destroy orphaned response streams on abort ([#8165](https://github.com/aws/aws-sdk-js-v3/issues/8165)) ([8a5e590](https://github.com/aws/aws-sdk-js-v3/commit/8a5e590c9386c2106444971fc26dbb4f21926358))
+
+
+### Features
+
+* **client-appconfig:** Update ExperimentRun APIs to support ConflictExceptions. ([d985124](https://github.com/aws/aws-sdk-js-v3/commit/d985124fd39f761a7b65a2d467778cf03f8946c6))
+* **client-bedrock-agentcore-control:** AgentCore Gateway now supports mapping allowed scopes to separate advertised scopes on the inbound authorizer. ([bde793c](https://github.com/aws/aws-sdk-js-v3/commit/bde793c87392f5f6991790abe0f4f9a6f7fe2363))
+* **client-ec2:** Replace Root Volume now supports a VolumeId parameter. This allows the customer to pass in a pre-prepared volume as the target root volume for an RRV workflow. ([76859d4](https://github.com/aws/aws-sdk-js-v3/commit/76859d480e3786942a43b82e55b74632fdce0ee1))
+* **client-ecs:** Amazon ECS now automatically detects the correct CPU architecture for Express Mode services. ([a273b75](https://github.com/aws/aws-sdk-js-v3/commit/a273b75711e07dc1c0445880172ca76e6bfafb3c))
+* **client-geo-places:** Added AddressNamesMode, AddressNameTranslations, MobilityMode, PostalCodeMode, SecondaryAddresses, and DriveThrough features across Places V2 APIs to support address name formatting,  multilingual translations, travel-aware search, multi-city postal codes, and unit-level address resolution. ([81bbd67](https://github.com/aws/aws-sdk-js-v3/commit/81bbd6772403999d20f80bb4bd0e582769251751))
+* **client-iot-wireless:** Default session downlink transmission parameters have been added to the existing Multicast Group APIs. Explicit transmission parameters are no longer required when starting a multicast session during the FUOTA procedure. ([a2e2650](https://github.com/aws/aws-sdk-js-v3/commit/a2e2650398637a623a7f99eaddd2267f26c3f2e0))
+* **client-resiliencehubv2:** Next Generation Resilience Hub now supports filtering and sorting failure mode assessments, resource type filtering in ListResources, cross-region and cross-account topology edges, data recovery achievability status, and more granular dependency discovery progress tracking. ([572ad2c](https://github.com/aws/aws-sdk-js-v3/commit/572ad2cf71f6925d7ecef0affa0e82cef0ccc24a))
+* **core/client:** propagate w3c trace headers ([#8156](https://github.com/aws/aws-sdk-js-v3/issues/8156)) ([e5f383c](https://github.com/aws/aws-sdk-js-v3/commit/e5f383c77b935532ab183a43b139faf1d889a0fc))
+* **credential-providers:** deferred loading for credential providers aggregation package ([#8129](https://github.com/aws/aws-sdk-js-v3/issues/8129)) ([d0f426c](https://github.com/aws/aws-sdk-js-v3/commit/d0f426cb354454238efc135a059ee413406a196c))
+* **undici-http-handler:** bump version to 3.0.0 ([#8168](https://github.com/aws/aws-sdk-js-v3/issues/8168)) ([6c243a1](https://github.com/aws/aws-sdk-js-v3/commit/6c243a15d8e0b059098d547a7b48311d9e43e352))
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Bug Fixes
+
+* **credential-provider-http:** fix token and URI path priority resolution ([#8159](https://github.com/aws/aws-sdk-js-v3/issues/8159)) ([e9e857d](https://github.com/aws/aws-sdk-js-v3/commit/e9e857d324d216f705e5b2fe0e8f8c535e55d7fb))
+* **scripts:** publish unreleased X.0.0 baseline versions as-is ([#8160](https://github.com/aws/aws-sdk-js-v3/issues/8160)) ([ee9dc95](https://github.com/aws/aws-sdk-js-v3/commit/ee9dc9534e5979931167a39c98e330f9a6a79cee))
+* **tests:** use ES format for rollup bundle-size benchmark ([#8163](https://github.com/aws/aws-sdk-js-v3/issues/8163)) ([506e3ae](https://github.com/aws/aws-sdk-js-v3/commit/506e3aee8c6f66d91c1921b51779f76d8b4ac7b1))
+
+
+### Features
+
+* **client-config-service:** Added support for connecting AWS Config to third-party cloud service providers. New APIs include PutConnector, GetConnector, DeleteConnector, and ListConnectors for managing connectors, and PutThirdPartyServiceLinkedConfigurationRecorder for creating third-party service-linked recorders. ([df52cb1](https://github.com/aws/aws-sdk-js-v3/commit/df52cb13ddd306ff78731fc126e0b4b1b60bde4b))
+* **client-connect:** Adds support for CreateAuthCode and DeleteSession APIs. ([b84bbf6](https://github.com/aws/aws-sdk-js-v3/commit/b84bbf6f4aa3e3ed630d76029180872a5c3c99ee))
+* **client-ec2:** This launch surfaces the public SSM parameter associated with public AMIs in the AMI metadata. ([9e8f9fa](https://github.com/aws/aws-sdk-js-v3/commit/9e8f9fa870eab8f555c7caea5ca42a5e4a996533))
+* **client-inspector2:** This release extends vulnerability management to Azure VM, container registries and function apps. Adds support for per-member-account scan configuration settings. ([ae9b7bc](https://github.com/aws/aws-sdk-js-v3/commit/ae9b7bcfc791fa573cf258443e56ec3620e48783))
+* **client-lambda:** AWS Lambda Durable Functions now supports customer managed KMS keys. This allows customers to configure a KMS key in Durable Config to have all their durable execution data encrypted. ([796bc54](https://github.com/aws/aws-sdk-js-v3/commit/796bc54a27e4b180498f91c998553194a793d179))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support ResellerRole filter for ResaleAuthorization entity. ([d7b7cb7](https://github.com/aws/aws-sdk-js-v3/commit/d7b7cb79170267e6c6b7c38432a9d8ef8288d28c))
+* **client-partnercentral-revenue-measurement:** Add support for AWS Partner Central Revenue Measurement API for creating, managing, and tracking revenue attributions and marketplace revenue share allocations. ([9f3e80e](https://github.com/aws/aws-sdk-js-v3/commit/9f3e80e613d9c234ddc3dcd8a6916ee3d0653ab9))
+* **client-route53globalresolver:** Adds ListSharedDNSViews operation to list all DNS Views shared with caller using AWS Resource Access Manager. Also updates ListHostedZoneAssociations operation so that resource ARN param is optional, allowing caller to list all HostedZoneAssociations in account. ([0e11517](https://github.com/aws/aws-sdk-js-v3/commit/0e11517de3c81ff489ad83876301828ea7803a3b))
+* **client-securityhub:** release SecurityHub MultiCloud integration with Azure ([6f7d08e](https://github.com/aws/aws-sdk-js-v3/commit/6f7d08e01be650bfbc6fa76ccb87362bda1066b0))
+* **client-ssm:** Adding SSM Cloud Connector to support Azure Virtual Machines onboarding to AWS Systems Manager ([6efef57](https://github.com/aws/aws-sdk-js-v3/commit/6efef57f1f2da74e5765bc1de2bc16f89cc30253))
+* **clients:** update client endpoints as of 2026-07-07 ([fc9fb99](https://github.com/aws/aws-sdk-js-v3/commit/fc9fb9908ee490cb91e7e5b32a3875d8b54fdb5c))
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+
+### Features
+
+* **client-billing:** Adds support for managing AWS account credits and billing preferences, including retrieving credit details, viewing per-month credit allocation history, redeeming promotional codes, and configuring credit sharing and billing preferences. ([f710aa7](https://github.com/aws/aws-sdk-js-v3/commit/f710aa709dde305de0e40eb488fe52f97ba323b2))
+* **client-cloudwatch-logs:** Added PutStorageTierPolicy and GetStorageTierPolicy APIs to Amazon CloudWatch Logs. Customers can now configure account-level Intelligent Tiering to automatically optimize log storage costs by moving infrequently accessed data to lower-cost storage tiers. ([f3cba29](https://github.com/aws/aws-sdk-js-v3/commit/f3cba29f50f693632d3af11f4f9115647d2d107f))
+* **client-mailmanager:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([d929091](https://github.com/aws/aws-sdk-js-v3/commit/d929091bafbed2b5fe73fb47cf10c9797745f79b))
+* **client-opensearch:** This release introduces Saved Object Migration APIs, enabling users to migrate dashboards, visualizations, index patterns, and other saved objects from a data source into an Amazon OpenSearch Service application workspace with configurable export filters and conflict resolution strategies. ([1c8fbcf](https://github.com/aws/aws-sdk-js-v3/commit/1c8fbcf822e652bcc2ca8d4d14500f6a975b7231))
+* **clients:** update client endpoints as of 2026-07-06 ([fc19f57](https://github.com/aws/aws-sdk-js-v3/commit/fc19f57715455380d1af5f2c820639a79fd8b1d1))
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+
+### Bug Fixes
+
+* **core:** remove turbo.json ([#8141](https://github.com/aws/aws-sdk-js-v3/issues/8141)) ([91d738d](https://github.com/aws/aws-sdk-js-v3/commit/91d738d3ab851a8809f816584aaf4169fb23638e))
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add support for provisioned limit management, enabling customers to view and update their provisioned API rate limits for Amazon Cognito User Pools programmatically through the new GetProvisionedLimit and UpdateProvisionedLimit APIs. ([160778d](https://github.com/aws/aws-sdk-js-v3/commit/160778dc11e6b8e93c3a576dd9bca809498eebf2))
+* **client-config-service:** AWS Config now supports tag-on-create for organization-managed Config rules and conformance packs through the PutOrganizationConfigRule and PutOrganizationConformancePack APIs. ([2ca9232](https://github.com/aws/aws-sdk-js-v3/commit/2ca9232a8a31003d542403c0a31d5aaeada78b83))
+* **client-customer-profiles:** Amazon Connect Customer Profiles adds support for diversityConfig to recommenderConfig which can be used for diversifying the recommendations. This release also includes model versioning support which helps customer to rollback trained models. ([202ec32](https://github.com/aws/aws-sdk-js-v3/commit/202ec32a9586d6581485424c681626d49babaefe))
+* **client-elementalinference:** Adding new BDD representation of endpoint ruleset ([dd21a6e](https://github.com/aws/aws-sdk-js-v3/commit/dd21a6ecbf8dfbc6be8cc2fd8b07f81bde140978))
+* **client-mediatailor:** Added dual-stack (IPv4 and IPv6) endpoint fields to SSAI and Channel Assembly API responses. ([63a258c](https://github.com/aws/aws-sdk-js-v3/commit/63a258ce969e11cd16dbdcb3e4c994c2940fe618))
+* **client-odb:** Updated model definitions for ODB service. ([a9d3fd5](https://github.com/aws/aws-sdk-js-v3/commit/a9d3fd5e34e1fc223ce0a4c7db51306d8ebe2fb7))
+* **client-outposts:** Tighten Outpost site ContactPhoneNumber regex to perform phone number validation. ([4e2b31d](https://github.com/aws/aws-sdk-js-v3/commit/4e2b31dbebaa446b6d435756b1ccaa4807d82730))
+* **clients:** update client endpoints as of 2026-07-02 ([cc43668](https://github.com/aws/aws-sdk-js-v3/commit/cc43668e0ad4e748c61f38070cae026123fec751))
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 

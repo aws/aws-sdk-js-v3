@@ -129,6 +129,9 @@ export type OutputFormat = (typeof OutputFormat)[keyof typeof OutputFormat];
  */
 export const LogType = {
   ACCESS: "ACCESS_LOGS",
+  ALB_ACCESS: "ALB_ACCESS_LOGS",
+  ALB_CONNECTION: "ALB_CONNECTION_LOGS",
+  ALB_HEALTH_CHECK: "ALB_HEALTH_CHECK_LOGS",
   APPLICATION: "APPLICATION_LOGS",
   CONNECTION: "CONNECTION_LOGS",
   S3_SERVER_ACCESS: "S3_SERVER_ACCESS_LOGS",
@@ -204,6 +207,7 @@ export const ResourceType = {
   AWS_BEDROCK_AGENTCORE_MEMORY: "AWS::BedrockAgentCore::Memory",
   AWS_BEDROCK_AGENTCORE_RUNTIME: "AWS::BedrockAgentCore::Runtime",
   AWS_BEDROCK_AGENTCORE_WORKLOAD_IDENTITY: "AWS::BedrockAgentCore::WorkloadIdentity",
+  AWS_BEDROCK_KNOWLEDGEBASE: "AWS::Bedrock::KnowledgeBase",
   AWS_CLOUDFRONT_DISTRIBUTION: "AWS::CloudFront::Distribution",
   AWS_CLOUDTRAIL: "AWS::CloudTrail",
   AWS_EC2_INSTANCE: "AWS::EC2::Instance",

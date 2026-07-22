@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   Access,
+  AdminPasswordSource,
   AutonomousDatabaseBackupStatus,
   AutonomousDatabaseBackupType,
   AutonomousDatabaseResourceStatus,
@@ -32,6 +33,7 @@ import type {
   NetServicesArchitecture,
   Objective,
   OciAwsIntegration,
+  OciIamRoleStatus,
   OciOnboardingStatus,
   OpenMode,
   OperationsInsightsStatus,
@@ -47,6 +49,7 @@ import type {
   StandbyAllowlistedIpsSource,
   SupportedAwsIntegration,
   VpcEndpointType,
+  WalletPasswordSource,
   WalletType,
 } from "./enums";
 
@@ -82,6 +85,150 @@ export interface ValidationExceptionField {
    * @public
    */
   message: string | undefined;
+}
+
+/**
+ * <p>The configuration of a customer-managed Amazon Web Services Secrets Manager secret used to supply a password.</p>
+ * @public
+ */
+export interface CustomerManagedAwsSecretConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that OCI assumes to retrieve the secret value.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The identifier or ARN of the Amazon Web Services Secrets Manager secret that contains the password.</p>
+   * @public
+   */
+  secretId?: string | undefined;
+
+  /**
+   * <p>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the IAM role.</p>
+   * @public
+   */
+  externalIdType?: ExternalIdType | undefined;
+}
+
+/**
+ * <p>The configuration of the admin password source. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type AdminPasswordSourceConfiguration =
+  | AdminPasswordSourceConfiguration.CustomerManagedAwsSecretMember
+  | AdminPasswordSourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AdminPasswordSourceConfiguration {
+  /**
+   * <p>The configuration for a customer-managed Amazon Web Services Secrets Manager secret used as the admin password source.</p>
+   * @public
+   */
+  export interface CustomerManagedAwsSecretMember {
+    customerManagedAwsSecret: CustomerManagedAwsSecretConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customerManagedAwsSecret?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customerManagedAwsSecret: (value: CustomerManagedAwsSecretConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The input configuration for a customer-managed Amazon Web Services Secrets Manager secret used to supply a password.</p>
+ * @public
+ */
+export interface CustomerManagedAwsSecretConfigurationInput {
+  /**
+   * <p>The identifier or ARN of the Amazon Web Services Secrets Manager secret that contains the password.</p>
+   * @public
+   */
+  secretId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that OCI assumes to retrieve the secret value.</p>
+   * @public
+   */
+  iamRoleArn?: string | undefined;
+
+  /**
+   * <p>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the IAM role.</p>
+   * @public
+   */
+  externalIdType?: ExternalIdType | undefined;
+}
+
+/**
+ * <p>The input configuration for the admin password source. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type AdminPasswordSourceConfigurationInput =
+  | AdminPasswordSourceConfigurationInput.CustomerManagedAwsSecretMember
+  | AdminPasswordSourceConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AdminPasswordSourceConfigurationInput {
+  /**
+   * <p>The configuration for using a customer-managed Amazon Web Services Secrets Manager secret as the admin password source.</p>
+   * @public
+   */
+  export interface CustomerManagedAwsSecretMember {
+    customerManagedAwsSecret: CustomerManagedAwsSecretConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customerManagedAwsSecret?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customerManagedAwsSecret: (value: CustomerManagedAwsSecretConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of the admin password source configuration for an Autonomous Database.</p>
+ * @public
+ */
+export interface AdminPasswordSourceSummary {
+  /**
+   * <p>The source of the admin password for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSource?: AdminPasswordSource | undefined;
+
+  /**
+   * <p>The configuration of the admin password source for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSourceConfiguration?: AdminPasswordSourceConfiguration | undefined;
 }
 
 /**
@@ -1319,6 +1466,12 @@ export interface AutonomousDatabase {
    * @public
    */
   timeUndeleted?: Date | undefined;
+
+  /**
+   * <p>The summary of the admin password source configuration for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSourceSummary?: AdminPasswordSourceSummary | undefined;
 }
 
 /**
@@ -2347,6 +2500,12 @@ export interface AutonomousDatabaseSummary {
    * @public
    */
   timeUndeleted?: Date | undefined;
+
+  /**
+   * <p>The summary of the admin password source configuration for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSourceSummary?: AdminPasswordSourceSummary | undefined;
 }
 
 /**
@@ -2972,6 +3131,18 @@ export interface CreateAutonomousDatabaseInput {
   encryptionKeyConfiguration?: EncryptionKeyConfigurationInput | undefined;
 
   /**
+   * <p>The source of the admin password for the Autonomous Database. When set to <code>CUSTOMER_MANAGED_AWS_SECRET</code>, the admin password is retrieved from an Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  adminPasswordSource?: AdminPasswordSource | undefined;
+
+  /**
+   * <p>The configuration of the admin password source for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSourceConfiguration?: AdminPasswordSourceConfigurationInput | undefined;
+
+  /**
    * <p>A client-provided token to ensure the idempotency of the request.</p>
    * @public
    */
@@ -3014,6 +3185,45 @@ export interface CreateAutonomousDatabaseOutput {
 }
 
 /**
+ * <p>The input configuration for the wallet password source. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type WalletPasswordSourceConfigurationInput =
+  | WalletPasswordSourceConfigurationInput.CustomerManagedAwsSecretMember
+  | WalletPasswordSourceConfigurationInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WalletPasswordSourceConfigurationInput {
+  /**
+   * <p>The configuration for using a customer-managed Amazon Web Services Secrets Manager secret as the wallet password source.</p>
+   * @public
+   */
+  export interface CustomerManagedAwsSecretMember {
+    customerManagedAwsSecret: CustomerManagedAwsSecretConfigurationInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customerManagedAwsSecret?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customerManagedAwsSecret: (value: CustomerManagedAwsSecretConfigurationInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateAutonomousDatabaseWalletInput {
@@ -3033,7 +3243,19 @@ export interface CreateAutonomousDatabaseWalletInput {
    * <p>The password to encrypt the keys inside the wallet.</p>
    * @public
    */
-  password: string | undefined;
+  password?: string | undefined;
+
+  /**
+   * <p>The source of the password for encrypting the wallet. When set to <code>CUSTOMER_MANAGED_AWS_SECRET</code>, the password is retrieved from an Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  passwordSource?: WalletPasswordSource | undefined;
+
+  /**
+   * <p>The configuration of the password source for the Autonomous Database wallet.</p>
+   * @public
+   */
+  passwordSourceConfiguration?: WalletPasswordSourceConfigurationInput | undefined;
 
   /**
    * <p>A client-provided token to ensure the idempotency of the request.</p>
@@ -3149,6 +3371,63 @@ export interface GetAutonomousDatabaseWalletDetailsInput {
 }
 
 /**
+ * <p>The configuration of the wallet password source. This is a union, so only one of the following members can be specified.</p>
+ * @public
+ */
+export type WalletPasswordSourceConfiguration =
+  | WalletPasswordSourceConfiguration.CustomerManagedAwsSecretMember
+  | WalletPasswordSourceConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WalletPasswordSourceConfiguration {
+  /**
+   * <p>The configuration for a customer-managed Amazon Web Services Secrets Manager secret used as the wallet password source.</p>
+   * @public
+   */
+  export interface CustomerManagedAwsSecretMember {
+    customerManagedAwsSecret: CustomerManagedAwsSecretConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    customerManagedAwsSecret?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    customerManagedAwsSecret: (value: CustomerManagedAwsSecretConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A summary of the password source configuration for an Autonomous Database wallet.</p>
+ * @public
+ */
+export interface WalletPasswordSourceSummary {
+  /**
+   * <p>The source of the password for the Autonomous Database wallet.</p>
+   * @public
+   */
+  passwordSource?: WalletPasswordSource | undefined;
+
+  /**
+   * <p>The configuration of the password source for the Autonomous Database wallet.</p>
+   * @public
+   */
+  passwordSourceConfiguration?: WalletPasswordSourceConfiguration | undefined;
+}
+
+/**
  * <p>The wallet details for an Autonomous Database.</p>
  * @public
  */
@@ -3164,6 +3443,12 @@ export interface AutonomousDatabaseWalletDetails {
    * @public
    */
   timeRotated?: Date | undefined;
+
+  /**
+   * <p>The summary of the password source configuration for the Autonomous Database wallet.</p>
+   * @public
+   */
+  passwordSourceSummary?: WalletPasswordSourceSummary | undefined;
 }
 
 /**
@@ -3810,6 +4095,18 @@ export interface UpdateAutonomousDatabaseInput {
    * @public
    */
   encryptionKeyConfiguration?: EncryptionKeyConfigurationInput | undefined;
+
+  /**
+   * <p>The source of the admin password for the Autonomous Database. When set to <code>CUSTOMER_MANAGED_AWS_SECRET</code>, the admin password is retrieved from an Amazon Web Services Secrets Manager secret.</p>
+   * @public
+   */
+  adminPasswordSource?: AdminPasswordSource | undefined;
+
+  /**
+   * <p>The configuration of the admin password source for the Autonomous Database.</p>
+   * @public
+   */
+  adminPasswordSourceConfiguration?: AdminPasswordSourceConfigurationInput | undefined;
 }
 
 /**
@@ -7924,6 +8221,18 @@ export interface OciIamRole {
    * @public
    */
   awsIntegration?: OciAwsIntegration | undefined;
+
+  /**
+   * <p>The current lifecycle status of the IAM service role.</p>
+   * @public
+   */
+  status?: OciIamRoleStatus | undefined;
+
+  /**
+   * <p>Additional information about the current status of the IAM service role, if applicable.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
 }
 
 /**
@@ -8536,6 +8845,12 @@ export interface InitializeServiceInput {
    * @public
    */
   ociIdentityDomain?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable or disable the OCI service-account role for Amazon Web Services Secrets Manager integration with Autonomous Database.</p>
+   * @public
+   */
+  autonomousDatabaseOciAwsSecretsManagerIntegration?: Access | undefined;
 }
 
 /**

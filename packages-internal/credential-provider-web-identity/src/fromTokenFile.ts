@@ -19,8 +19,7 @@ const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
  * @public
  */
 export interface FromTokenFileInit
-  extends Partial<Omit<FromWebTokenInit, "webIdentityToken">>,
-    CredentialProviderOptions {
+  extends Partial<Omit<FromWebTokenInit, "webIdentityToken">>, CredentialProviderOptions {
   /**
    * File location of where the `OIDC` token is stored.
    */

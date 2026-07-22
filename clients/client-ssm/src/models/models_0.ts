@@ -747,9 +747,6 @@ export interface TargetLocation {
   /**
    * <p>Indicates whether to include child organizational units (OUs) that are children of the
    *    targeted OUs. The default is <code>false</code>.</p>
-   *          <note>
-   *             <p>This parameter is not supported by State Manager.</p>
-   *          </note>
    * @public
    */
   IncludeChildOrganizationUnits?: boolean | undefined;
@@ -961,7 +958,7 @@ export interface CreateAssociationRequest {
    *    association. Use this action to create an association in multiple Regions and multiple
    *    accounts.</p>
    *          <note>
-   *             <p>The <code>IncludeChildOrganizationUnits</code> parameter is not supported by State
+   *             <p>The <code>TargetLocationAlarmConfiguration</code> parameter is not supported by State
    *     Manager.</p>
    *          </note>
    * @public
@@ -1613,6 +1610,194 @@ export interface CreateAssociationBatchResult {
    * @public
    */
   Failed?: FailedCreateAssociation[] | undefined;
+}
+
+/**
+ * <p>Information about an Azure subscription targeted by the cloud connector.</p>
+ * @public
+ */
+export interface AzureSubscription {
+  /**
+   * <p>The ID of the Azure subscription.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The display name of the Azure subscription.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+}
+
+/**
+ * <p>The target resources in the third-party cloud environment.</p>
+ * @public
+ */
+export type ConfigurationTargets =
+  | ConfigurationTargets.SubscriptionsMember
+  | ConfigurationTargets.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationTargets {
+  /**
+   * <p>A list of Azure subscriptions to target.</p>
+   * @public
+   */
+  export interface SubscriptionsMember {
+    Subscriptions: AzureSubscription[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    Subscriptions?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    Subscriptions: (value: AzureSubscription[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The access details and targets for connecting to a Microsoft Azure tenant, including
+ *    the application registration used for authentication and the subscriptions to target.</p>
+ * @public
+ */
+export interface AzureConfiguration {
+  /**
+   * <p>The ID of the Azure tenant.</p>
+   * @public
+   */
+  TenantId: string | undefined;
+
+  /**
+   * <p>The display name of the Azure tenant.</p>
+   * @public
+   */
+  TenantDisplayName?: string | undefined;
+
+  /**
+   * <p>The ID of the Azure application registration used for authentication.</p>
+   * @public
+   */
+  ApplicationId: string | undefined;
+
+  /**
+   * <p>The display name of the Azure application registration.</p>
+   * @public
+   */
+  ApplicationDisplayName?: string | undefined;
+
+  /**
+   * <p>The target Azure subscriptions for the cloud connector.</p>
+   * @public
+   */
+  Targets?: ConfigurationTargets | undefined;
+}
+
+/**
+ * <p>The configuration that provides access details and targets for connecting to a third-party
+ *    cloud environment.</p>
+ * @public
+ */
+export type CloudConnectorConfiguration =
+  | CloudConnectorConfiguration.AzureConfigurationMember
+  | CloudConnectorConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CloudConnectorConfiguration {
+  /**
+   * <p>The access details and targets for connecting to a Microsoft Azure environment.</p>
+   * @public
+   */
+  export interface AzureConfigurationMember {
+    AzureConfiguration: AzureConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AzureConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    AzureConfiguration: (value: AzureConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateCloudConnectorRequest {
+  /**
+   * <p>A friendly name for the cloud connector.</p>
+   * @public
+   */
+  DisplayName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that the cloud connector
+   *    uses to communicate with the third-party cloud environment.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>A description for the cloud connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The configuration details for connecting to the third-party cloud environment.</p>
+   * @public
+   */
+  Configuration: CloudConnectorConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector.</p>
+   * @public
+   */
+  ConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>Optional metadata that you assign to a resource. Tags enable you to categorize a resource
+   *    in different ways, such as by purpose, owner, or environment.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCloudConnectorResult {
+  /**
+   * <p>The ID of the cloud connector that was created.</p>
+   * @public
+   */
+  CloudConnectorId?: string | undefined;
 }
 
 /**
@@ -2652,10 +2837,9 @@ export interface PatchRule {
    * <p>The number of days after the release date of each patch matched by the rule that the patch
    *    is marked as approved in the patch baseline. For example, a value of <code>7</code> means that
    *    patches are approved seven days after they are released.</p>
-   *          <p>Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If the
-   *    day represented by <code>7</code> is <code>2025-11-16</code>, patches released between
-   *     <code>2025-11-16T00:00:00Z</code> and <code>2025-11-16T23:59:59Z</code> will be included in the
-   *    approval.</p>
+   *          <p>Patch Manager evaluates patch release dates using Coordinated Universal Time (UTC). If a
+   *    patch is released at <code>2025-11-09T18:00:00Z</code> and <code>ApproveAfterDays</code> is set to
+   *     <code>7</code>, the patch will be approved after <code>2025-11-16T18:00:00Z</code>.</p>
    *          <p>This parameter is marked as <code>Required: No</code>, but your request must include a value
    *    for either <code>ApproveAfterDays</code> or <code>ApproveUntilDate</code>.</p>
    *          <p>Not supported for Debian Server or Ubuntu Server.</p>
@@ -3183,6 +3367,28 @@ export interface DeleteAssociationRequest {
  * @public
  */
 export interface DeleteAssociationResult {}
+
+/**
+ * @public
+ */
+export interface DeleteCloudConnectorRequest {
+  /**
+   * <p>The ID of the cloud connector to delete.</p>
+   * @public
+   */
+  CloudConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCloudConnectorResult {
+  /**
+   * <p>The ID of the cloud connector that was deleted.</p>
+   * @public
+   */
+  CloudConnectorId?: string | undefined;
+}
 
 /**
  * @public
@@ -4263,10 +4469,16 @@ export interface AutomationExecutionMetadata {
   CurrentAction?: string | undefined;
 
   /**
-   * <p>The list of execution outputs as defined in the Automation runbook.</p>
+   * <p>A message that describes a failure that occurred during the automation execution.</p>
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
 
   /**
    * <p>The list of execution outputs as defined in the Automation runbook.</p>
@@ -4604,6 +4816,12 @@ export interface StepExecution {
    * @public
    */
   FailureMessage?: string | undefined;
+
+  /**
+   * <p>A message that describes a non-critical issue that occurred during the step execution. Present only if the step status includes a warning.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
 
   /**
    * <p>Information about the Automation failure.</p>
@@ -5545,7 +5763,7 @@ export interface InstanceInformationStringFilter {
   /**
    * <p>The filter key name to describe your managed nodes.</p>
    *          <p>Valid filter key values: ActivationIds | AgentVersion | AssociationStatus | IamRole |
-   *    InstanceIds | PingStatus | PlatformType | ResourceType | SourceIds | SourceTypes | "tag-key" |
+   *    InstanceIds | PingStatus | PlatformTypes | ResourceType | SourceIds | SourceTypes | "tag-key" |
    *     "tag:<code>\{keyname\}</code>
    *          </p>
    *          <ul>
@@ -5558,7 +5776,7 @@ export interface InstanceInformationStringFilter {
    *      Inactive (deprecated)</p>
    *             </li>
    *             <li>
-   *                <p>Valid values for the <code>PlatformType</code> filter key: Windows | Linux | MacOS</p>
+   *                <p>Valid values for the <code>PlatformTypes</code> filter key: Windows | Linux | MacOS</p>
    *             </li>
    *             <li>
    *                <p>Valid values for the <code>ResourceType</code> filter key: EC2Instance |
@@ -5566,7 +5784,7 @@ export interface InstanceInformationStringFilter {
    *             </li>
    *             <li>
    *                <p>Valid values for the <code>SourceType</code> filter key: AWS::EC2::Instance |
-   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing</p>
+   *      AWS::SSM::ManagedInstance | AWS::IoT::Thing | Microsoft.Compute/virtualMachines</p>
    *             </li>
    *             <li>
    *                <p>Valid tag examples: <code>Key=tag-key,Values=Purpose</code> |
@@ -5816,10 +6034,17 @@ export interface InstanceInformation {
 
   /**
    * <p>The type of the source resource. For IoT Greengrass devices, <code>SourceType</code>
-   *    is <code>AWS::IoT::Thing</code>. </p>
+   *    is <code>AWS::IoT::Thing</code>. For Azure Virtual Machines, <code>SourceType</code> is
+   *     <code>Microsoft.Compute/virtualMachines</code>.</p>
    * @public
    */
   SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The location of the source resource in the third-party cloud environment.</p>
+   * @public
+   */
+  SourceLocation?: string | undefined;
 }
 
 /**
@@ -6647,10 +6872,24 @@ export interface InstanceProperty {
   SourceId?: string | undefined;
 
   /**
-   * <p>The type of the source resource.</p>
+   * <p>The type of the source resource. Valid values: <code>AWS::EC2::Instance</code> |
+   *     <code>AWS::SSM::ManagedInstance</code> | <code>AWS::IoT::Thing</code> |
+   *     <code>Microsoft.Compute/virtualMachines</code>.</p>
    * @public
    */
   SourceType?: SourceType | undefined;
+
+  /**
+   * <p>The location of the source resource in the third-party cloud environment.</p>
+   * @public
+   */
+  SourceLocation?: string | undefined;
+
+  /**
+   * <p>The Availability Zone where the managed node is located.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
 }
 
 /**
@@ -7671,6 +7910,10 @@ export interface MaintenanceWindowTask {
    *     <code>AUTOMATION</code> task types, <code>TaskArn</code> is the Amazon Web Services Systems Manager (SSM document) name or
    *    ARN. For <code>LAMBDA</code> tasks, it's the function name or ARN. For
    *     <code>STEP_FUNCTIONS</code> tasks, it's the state machine ARN.</p>
+   *          <note>
+   *             <p>Maintenance Window does not validate the TaskArn when you register a task.
+   *    A successful registration does not guarantee that the TaskArn is valid.</p>
+   *          </note>
    * @public
    */
   TaskArn?: string | undefined;
@@ -9108,6 +9351,12 @@ export interface AutomationExecution {
   FailureMessage?: string | undefined;
 
   /**
+   * <p>A message that describes a non-critical issue that occurred during the automation execution.</p>
+   * @public
+   */
+  WarningMessage?: string | undefined;
+
+  /**
    * <p>The automation execution mode.</p>
    * @public
    */
@@ -9319,6 +9568,70 @@ export interface GetCalendarStateResponse {
    * @public
    */
   NextTransitionTime?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCloudConnectorRequest {
+  /**
+   * <p>The ID of the cloud connector to retrieve information about.</p>
+   * @public
+   */
+  CloudConnectorId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCloudConnectorResult {
+  /**
+   * <p>The ARN of the cloud connector.</p>
+   * @public
+   */
+  CloudConnectorArn?: string | undefined;
+
+  /**
+   * <p>The friendly name of the cloud connector.</p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>The description of the cloud connector.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role used by the cloud connector.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The configuration details for the third-party cloud environment connection.</p>
+   * @public
+   */
+  Configuration?: CloudConnectorConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector associated with this cloud connector.</p>
+   * @public
+   */
+  ConfigConnectorArn?: string | undefined;
+
+  /**
+   * <p>The date and time the cloud connector was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time the cloud connector was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -11894,390 +12207,4 @@ export interface GetParametersResult {
    * @public
    */
   InvalidParameters?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParametersByPathRequest {
-  /**
-   * <p>The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy
-   *    is the parameter name except the last part of the parameter. For the API call to succeed, the
-   *    last part of the parameter name can't be in the path. A parameter name hierarchy can have a
-   *    maximum of 15 levels. Here is an example of a hierarchy:
-   *     <code>/Finance/Prod/IAD/WinServ2016/license33 </code>
-   *          </p>
-   * @public
-   */
-  Path: string | undefined;
-
-  /**
-   * <p>Retrieve all parameters within a hierarchy.</p>
-   *          <important>
-   *             <p>If a user has access to a path, then the user can access all levels of that path. For
-   *     example, if a user has permission to access path <code>/a</code>, then the user can also access
-   *      <code>/a/b</code>. Even if a user has explicitly been denied access in IAM for
-   *     parameter <code>/a/b</code>, they can still call the GetParametersByPath API operation
-   *     recursively for <code>/a</code> and view <code>/a/b</code>.</p>
-   *          </important>
-   * @public
-   */
-  Recursive?: boolean | undefined;
-
-  /**
-   * <p>Filters to limit the request results.</p>
-   *          <note>
-   *             <p>The following <code>Key</code> values are supported for <code>GetParametersByPath</code>:
-   *      <code>Type</code>, <code>KeyId</code>, and <code>Label</code>.</p>
-   *             <p>The following <code>Key</code> values aren't supported for
-   *     <code>GetParametersByPath</code>: <code>tag</code>, <code>DataType</code>, <code>Name</code>,
-   *      <code>Path</code>, and <code>Tier</code>.</p>
-   *          </note>
-   * @public
-   */
-  ParameterFilters?: ParameterStringFilter[] | undefined;
-
-  /**
-   * <p>Retrieve all parameters in a hierarchy with their value decrypted.</p>
-   * @public
-   */
-  WithDecryption?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetParametersByPathResult {
-  /**
-   * <p>A list of parameters found in the specified hierarchy.</p>
-   * @public
-   */
-  Parameters?: Parameter[] | undefined;
-
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPatchBaselineRequest {
-  /**
-   * <p>The ID of the patch baseline to retrieve.</p>
-   *          <note>
-   *             <p>To retrieve information about an Amazon Web Services managed patch baseline, specify the full Amazon
-   *     Resource Name (ARN) of the baseline. For example, for the baseline
-   *      <code>AWS-AmazonLinuxDefaultPatchBaseline</code>, specify
-   *      <code>arn:aws:ssm:us-east-2:733109147000:patchbaseline/pb-0e392de35e7c563b7</code> instead of
-   *      <code>pb-0e392de35e7c563b7</code>.</p>
-   *          </note>
-   * @public
-   */
-  BaselineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPatchBaselineResult {
-  /**
-   * <p>The ID of the retrieved patch baseline.</p>
-   * @public
-   */
-  BaselineId?: string | undefined;
-
-  /**
-   * <p>The name of the patch baseline.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Returns the operating system specified for the patch baseline.</p>
-   * @public
-   */
-  OperatingSystem?: OperatingSystem | undefined;
-
-  /**
-   * <p>A set of global filters used to exclude patches from the baseline.</p>
-   * @public
-   */
-  GlobalFilters?: PatchFilterGroup | undefined;
-
-  /**
-   * <p>A set of rules used to include patches in the baseline.</p>
-   * @public
-   */
-  ApprovalRules?: PatchRuleGroup | undefined;
-
-  /**
-   * <p>A list of explicitly approved patches for the baseline.</p>
-   * @public
-   */
-  ApprovedPatches?: string[] | undefined;
-
-  /**
-   * <p>Returns the specified compliance severity level for approved patches in the patch
-   *    baseline.</p>
-   * @public
-   */
-  ApprovedPatchesComplianceLevel?: PatchComplianceLevel | undefined;
-
-  /**
-   * <p>Indicates whether the list of approved patches includes non-security updates that should be
-   *    applied to the managed nodes. The default value is <code>false</code>. Applies to Linux managed
-   *    nodes only.</p>
-   * @public
-   */
-  ApprovedPatchesEnableNonSecurity?: boolean | undefined;
-
-  /**
-   * <p>A list of explicitly rejected patches for the baseline.</p>
-   * @public
-   */
-  RejectedPatches?: string[] | undefined;
-
-  /**
-   * <p>The action specified to take on patches included in the <code>RejectedPatches</code> list. A
-   *    patch can be allowed only if it is a dependency of another package, or blocked entirely along
-   *    with packages that include it as a dependency.</p>
-   * @public
-   */
-  RejectedPatchesAction?: PatchAction | undefined;
-
-  /**
-   * <p>Patch groups included in the patch baseline.</p>
-   * @public
-   */
-  PatchGroups?: string[] | undefined;
-
-  /**
-   * <p>The date the patch baseline was created.</p>
-   * @public
-   */
-  CreatedDate?: Date | undefined;
-
-  /**
-   * <p>The date the patch baseline was last modified.</p>
-   * @public
-   */
-  ModifiedDate?: Date | undefined;
-
-  /**
-   * <p>A description of the patch baseline.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the patches to use to update the managed nodes, including target operating
-   *    systems and source repositories. Applies to Linux managed nodes only.</p>
-   * @public
-   */
-  Sources?: PatchSource[] | undefined;
-
-  /**
-   * <p>Indicates the compliance status of managed nodes for which security-related patches are
-   *    available but were not approved. This preference is specified when the
-   *     <code>CreatePatchBaseline</code> or <code>UpdatePatchBaseline</code> commands are run.</p>
-   *          <p>Applies to Windows Server managed nodes only.</p>
-   * @public
-   */
-  AvailableSecurityUpdatesComplianceStatus?: PatchComplianceStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPatchBaselineForPatchGroupRequest {
-  /**
-   * <p>The name of the patch group whose patch baseline should be retrieved.</p>
-   * @public
-   */
-  PatchGroup: string | undefined;
-
-  /**
-   * <p>Returns the operating system rule specified for patch groups using the patch
-   *    baseline.</p>
-   * @public
-   */
-  OperatingSystem?: OperatingSystem | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPatchBaselineForPatchGroupResult {
-  /**
-   * <p>The ID of the patch baseline that should be used for the patch group.</p>
-   * @public
-   */
-  BaselineId?: string | undefined;
-
-  /**
-   * <p>The name of the patch group.</p>
-   * @public
-   */
-  PatchGroup?: string | undefined;
-
-  /**
-   * <p>The operating system rule specified for patch groups using the patch baseline.</p>
-   * @public
-   */
-  OperatingSystem?: OperatingSystem | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcePoliciesRequest {
-  /**
-   * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
-
-  /**
-   * <p>A token to start the list. Use this token to get the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this call. The call also returns a token that you
-   *    can specify in a subsequent call to get the next set of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A resource policy helps you to define the IAM entity (for example, an
- *    Amazon Web Services account) that can manage your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the
- *    only resource that supports Systems Manager resource policies. The resource policy for
- *     <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with OpsCenter operational
- *    work items (OpsItems).</p>
- * @public
- */
-export interface GetResourcePoliciesResponseEntry {
-  /**
-   * <p>A policy ID.</p>
-   * @public
-   */
-  PolicyId?: string | undefined;
-
-  /**
-   * <p>ID of the current policy version. The hash helps to prevent a situation where multiple users
-   *    attempt to overwrite a policy. You must provide this hash when updating or deleting a
-   *    policy.</p>
-   * @public
-   */
-  PolicyHash?: string | undefined;
-
-  /**
-   * <p>A resource policy helps you to define the IAM entity (for example, an
-   *    Amazon Web Services account) that can manage your Systems Manager resources. Currently, <code>OpsItemGroup</code> is the
-   *    only resource that supports Systems Manager resource policies. The resource policy for
-   *     <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with OpsCenter operational
-   *    work items (OpsItems).</p>
-   * @public
-   */
-  Policy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcePoliciesResponse {
-  /**
-   * <p>The token for the next set of items to return. Use this token to get the next set of
-   *    results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>An array of the <code>Policy</code> object.</p>
-   * @public
-   */
-  Policies?: GetResourcePoliciesResponseEntry[] | undefined;
-}
-
-/**
- * <p>The request body of the GetServiceSetting API operation.</p>
- * @public
- */
-export interface GetServiceSettingRequest {
-  /**
-   * <p>The ID of the service setting to get. The setting ID can be one of the following.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/appmanager/appmanager-enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-destination</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/automation/customer-script-log-group-name</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>/ssm/automation/enable-adaptive-concurrency</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/documents/console/public-sharing-permission</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/activation-tier</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/managed-instance/default-ec2-instance-management-role</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/opsinsights/opscenter</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/default-parameter-tier</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>/ssm/parameter-store/high-throughput-enabled</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SettingId: string | undefined;
 }

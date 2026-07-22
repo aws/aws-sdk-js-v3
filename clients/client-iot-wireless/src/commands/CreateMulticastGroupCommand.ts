@@ -45,6 +45,10 @@ export interface CreateMulticastGroupCommandOutput extends CreateMulticastGroupR
  *       ],
  *       TransmissionInterval: Number("int"),
  *     },
+ *     DefaultSessionParameters: { // DefaultSessionParametersMulticast
+ *       DlDr: Number("int"),
+ *       DlFreq: Number("int"),
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag

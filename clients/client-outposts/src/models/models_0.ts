@@ -58,7 +58,8 @@ export interface Address {
   ContactName: string | undefined;
 
   /**
-   * <p>The phone number of the contact.</p>
+   * <p>The phone number of the contact, including the country code (for example,
+   *       <code>+12065550100</code>).</p>
    * @public
    */
   ContactPhoneNumber: string | undefined;

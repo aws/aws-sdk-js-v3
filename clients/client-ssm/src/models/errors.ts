@@ -626,6 +626,79 @@ export class UnsupportedPlatformType extends __BaseException {
 }
 
 /**
+ * <p>An error occurred because of a conflict with a concurrent request or the current state of
+ *    the resource. Retry your request.</p>
+ * @public
+ */
+export class ConflictException extends __BaseException {
+  readonly name = "ConflictException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
+ *    maximum number of service resources or operations for your Amazon Web Services account.</p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name = "ServiceQuotaExceededException" as const;
+  readonly $fault = "client" as const;
+  Message: string | undefined;
+  /**
+   * <p>The unique ID of the resource referenced in the failed request.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The resource type of the resource referenced in the failed request.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
+   * @public
+   */
+  QuotaCode: string | undefined;
+
+  /**
+   * <p>The code for the Amazon Web Services service that owns the quota.</p>
+   * @public
+   */
+  ServiceCode: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+    this.ResourceId = opts.ResourceId;
+    this.ResourceType = opts.ResourceType;
+    this.QuotaCode = opts.QuotaCode;
+    this.ServiceCode = opts.ServiceCode;
+  }
+}
+
+/**
  * <p>The specified document already exists.</p>
  * @public
  */
@@ -1074,6 +1147,28 @@ export class AssociationDoesNotExist extends __BaseException {
 }
 
 /**
+ * <p>The specified parameter to be shared could not be found.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name = "ResourceNotFoundException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>You must disassociate a document from all managed nodes before you can delete it.</p>
  * @public
  */
@@ -1318,28 +1413,6 @@ export class MalformedResourcePolicyDocumentException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, MalformedResourcePolicyDocumentException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The specified parameter to be shared could not be found.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name = "ResourceNotFoundException" as const;
-  readonly $fault = "client" as const;
-  Message?: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2778,56 +2851,6 @@ export class InvalidRole extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidRole.prototype);
     this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request exceeds the service quota. Service quotas, also referred to as limits, are the
- *    maximum number of service resources or operations for your Amazon Web Services account.</p>
- * @public
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name = "ServiceQuotaExceededException" as const;
-  readonly $fault = "client" as const;
-  Message: string | undefined;
-  /**
-   * <p>The unique ID of the resource referenced in the failed request.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The resource type of the resource referenced in the failed request.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The quota code recognized by the Amazon Web Services Service Quotas service.</p>
-   * @public
-   */
-  QuotaCode: string | undefined;
-
-  /**
-   * <p>The code for the Amazon Web Services service that owns the quota.</p>
-   * @public
-   */
-  ServiceCode: string | undefined;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.Message = opts.Message;
-    this.ResourceId = opts.ResourceId;
-    this.ResourceType = opts.ResourceType;
-    this.QuotaCode = opts.QuotaCode;
-    this.ServiceCode = opts.ServiceCode;
   }
 }
 

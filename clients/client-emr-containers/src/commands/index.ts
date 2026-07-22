@@ -6,6 +6,7 @@ export * from "./CreateSecurityConfigurationCommand";
 export * from "./CreateVirtualClusterCommand";
 export * from "./DeleteJobTemplateCommand";
 export * from "./DeleteManagedEndpointCommand";
+export * from "./DeleteSecurityConfigurationCommand";
 export * from "./DeleteVirtualClusterCommand";
 export * from "./DescribeJobRunCommand";
 export * from "./DescribeJobTemplateCommand";

@@ -8,6 +8,11 @@ import {
   CreateOAuth2TokenCommand,
 } from "./commands/CreateOAuth2TokenCommand";
 import {
+  type CreateOAuth2TokenWithIAMCommandInput,
+  type CreateOAuth2TokenWithIAMCommandOutput,
+  CreateOAuth2TokenWithIAMCommand,
+} from "./commands/CreateOAuth2TokenWithIAMCommand";
+import {
   type DeleteConsoleAuthorizationConfigurationCommandInput,
   type DeleteConsoleAuthorizationConfigurationCommandOutput,
   DeleteConsoleAuthorizationConfigurationCommand,
@@ -28,6 +33,11 @@ import {
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  type IntrospectOAuth2TokenWithIAMCommandInput,
+  type IntrospectOAuth2TokenWithIAMCommandOutput,
+  IntrospectOAuth2TokenWithIAMCommand,
+} from "./commands/IntrospectOAuth2TokenWithIAMCommand";
+import {
   type ListResourcePermissionStatementsCommandInput,
   type ListResourcePermissionStatementsCommandOutput,
   ListResourcePermissionStatementsCommand,
@@ -42,18 +52,26 @@ import {
   type PutResourcePermissionStatementCommandOutput,
   PutResourcePermissionStatementCommand,
 } from "./commands/PutResourcePermissionStatementCommand";
+import {
+  type RevokeOAuth2TokenWithIAMCommandInput,
+  type RevokeOAuth2TokenWithIAMCommandOutput,
+  RevokeOAuth2TokenWithIAMCommand,
+} from "./commands/RevokeOAuth2TokenWithIAMCommand";
 import { paginateListResourcePermissionStatements } from "./pagination/ListResourcePermissionStatementsPaginator";
 import { SigninClient } from "./SigninClient";
 
 const commands = {
   CreateOAuth2TokenCommand,
+  CreateOAuth2TokenWithIAMCommand,
   DeleteConsoleAuthorizationConfigurationCommand,
   DeleteResourcePermissionStatementCommand,
   GetConsoleAuthorizationConfigurationCommand,
   GetResourcePolicyCommand,
+  IntrospectOAuth2TokenWithIAMCommand,
   ListResourcePermissionStatementsCommand,
   PutConsoleAuthorizationConfigurationCommand,
   PutResourcePermissionStatementCommand,
+  RevokeOAuth2TokenWithIAMCommand,
 };
 const paginators = {
   paginateListResourcePermissionStatements,
@@ -75,6 +93,23 @@ export interface Signin {
     args: CreateOAuth2TokenCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOAuth2TokenCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateOAuth2TokenWithIAMCommand}
+   */
+  createOAuth2TokenWithIAM(
+    args: CreateOAuth2TokenWithIAMCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOAuth2TokenWithIAMCommandOutput>;
+  createOAuth2TokenWithIAM(
+    args: CreateOAuth2TokenWithIAMCommandInput,
+    cb: (err: any, data?: CreateOAuth2TokenWithIAMCommandOutput) => void
+  ): void;
+  createOAuth2TokenWithIAM(
+    args: CreateOAuth2TokenWithIAMCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 
   /**
@@ -149,6 +184,23 @@ export interface Signin {
   ): void;
 
   /**
+   * @see {@link IntrospectOAuth2TokenWithIAMCommand}
+   */
+  introspectOAuth2TokenWithIAM(
+    args: IntrospectOAuth2TokenWithIAMCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IntrospectOAuth2TokenWithIAMCommandOutput>;
+  introspectOAuth2TokenWithIAM(
+    args: IntrospectOAuth2TokenWithIAMCommandInput,
+    cb: (err: any, data?: IntrospectOAuth2TokenWithIAMCommandOutput) => void
+  ): void;
+  introspectOAuth2TokenWithIAM(
+    args: IntrospectOAuth2TokenWithIAMCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: IntrospectOAuth2TokenWithIAMCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourcePermissionStatementsCommand}
    */
   listResourcePermissionStatements(): Promise<ListResourcePermissionStatementsCommandOutput>;
@@ -200,6 +252,23 @@ export interface Signin {
     args: PutResourcePermissionStatementCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutResourcePermissionStatementCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RevokeOAuth2TokenWithIAMCommand}
+   */
+  revokeOAuth2TokenWithIAM(
+    args: RevokeOAuth2TokenWithIAMCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeOAuth2TokenWithIAMCommandOutput>;
+  revokeOAuth2TokenWithIAM(
+    args: RevokeOAuth2TokenWithIAMCommandInput,
+    cb: (err: any, data?: RevokeOAuth2TokenWithIAMCommandOutput) => void
+  ): void;
+  revokeOAuth2TokenWithIAM(
+    args: RevokeOAuth2TokenWithIAMCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeOAuth2TokenWithIAMCommandOutput) => void
   ): void;
 
   /**

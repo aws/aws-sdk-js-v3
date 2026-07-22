@@ -265,6 +265,11 @@ import {
 } from "./commands/GetDomainMaintenanceStatusCommand";
 import { type GetIndexCommandInput, type GetIndexCommandOutput, GetIndexCommand } from "./commands/GetIndexCommand";
 import {
+  type GetMigrationCommandInput,
+  type GetMigrationCommandOutput,
+  GetMigrationCommand,
+} from "./commands/GetMigrationCommand";
+import {
   type GetPackageVersionHistoryCommandInput,
   type GetPackageVersionHistoryCommandOutput,
   GetPackageVersionHistoryCommand,
@@ -329,6 +334,11 @@ import {
   type ListInstanceTypeDetailsCommandOutput,
   ListInstanceTypeDetailsCommand,
 } from "./commands/ListInstanceTypeDetailsCommand";
+import {
+  type ListMigrationsCommandInput,
+  type ListMigrationsCommandOutput,
+  ListMigrationsCommand,
+} from "./commands/ListMigrationsCommand";
 import {
   type ListPackagesForDomainCommandInput,
   type ListPackagesForDomainCommandOutput,
@@ -400,6 +410,11 @@ import {
   type StartDomainMaintenanceCommandOutput,
   StartDomainMaintenanceCommand,
 } from "./commands/StartDomainMaintenanceCommand";
+import {
+  type StartMigrationCommandInput,
+  type StartMigrationCommandOutput,
+  StartMigrationCommand,
+} from "./commands/StartMigrationCommand";
 import {
   type StartServiceSoftwareUpdateCommandInput,
   type StartServiceSoftwareUpdateCommandOutput,
@@ -527,6 +542,7 @@ const commands = {
   GetDirectQueryDataSourceCommand,
   GetDomainMaintenanceStatusCommand,
   GetIndexCommand,
+  GetMigrationCommand,
   GetPackageVersionHistoryCommand,
   GetUpgradeHistoryCommand,
   GetUpgradeStatusCommand,
@@ -540,6 +556,7 @@ const commands = {
   ListDomainsForPackageCommand,
   ListInsightsCommand,
   ListInstanceTypeDetailsCommand,
+  ListMigrationsCommand,
   ListPackagesForDomainCommand,
   ListScheduledActionsCommand,
   ListTagsCommand,
@@ -555,6 +572,7 @@ const commands = {
   RevokeVpcEndpointAccessCommand,
   RollbackServiceSoftwareUpdateCommand,
   StartDomainMaintenanceCommand,
+  StartMigrationCommand,
   StartServiceSoftwareUpdateCommand,
   UpdateApplicationCommand,
   UpdateDataSourceCommand,
@@ -1512,6 +1530,23 @@ export interface OpenSearch {
   ): void;
 
   /**
+   * @see {@link GetMigrationCommand}
+   */
+  getMigration(
+    args: GetMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMigrationCommandOutput>;
+  getMigration(
+    args: GetMigrationCommandInput,
+    cb: (err: any, data?: GetMigrationCommandOutput) => void
+  ): void;
+  getMigration(
+    args: GetMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMigrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPackageVersionHistoryCommand}
    */
   getPackageVersionHistory(
@@ -1733,6 +1768,23 @@ export interface OpenSearch {
     args: ListInstanceTypeDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListInstanceTypeDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListMigrationsCommand}
+   */
+  listMigrations(
+    args: ListMigrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMigrationsCommandOutput>;
+  listMigrations(
+    args: ListMigrationsCommandInput,
+    cb: (err: any, data?: ListMigrationsCommandOutput) => void
+  ): void;
+  listMigrations(
+    args: ListMigrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMigrationsCommandOutput) => void
   ): void;
 
   /**
@@ -1990,6 +2042,23 @@ export interface OpenSearch {
     args: StartDomainMaintenanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartDomainMaintenanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMigrationCommand}
+   */
+  startMigration(
+    args: StartMigrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMigrationCommandOutput>;
+  startMigration(
+    args: StartMigrationCommandInput,
+    cb: (err: any, data?: StartMigrationCommandOutput) => void
+  ): void;
+  startMigration(
+    args: StartMigrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMigrationCommandOutput) => void
   ): void;
 
   /**

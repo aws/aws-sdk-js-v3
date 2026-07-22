@@ -52,6 +52,7 @@ export interface GetLaunchConfigurationCommandOutput extends LaunchConfiguration
  * //   launchIntoInstanceProperties: { // LaunchIntoInstanceProperties
  * //     launchIntoEC2InstanceID: "STRING_VALUE",
  * //   },
+ * //   recoveryMode: "STRING_VALUE",
  * // };
  *
  * ```

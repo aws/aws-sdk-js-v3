@@ -9,3 +9,4 @@ export * from "./ListFirewallRulesPaginator";
 export * from "./ListGlobalResolversPaginator";
 export * from "./ListHostedZoneAssociationsPaginator";
 export * from "./ListManagedFirewallDomainListsPaginator";
+export * from "./ListSharedDNSViewsPaginator";

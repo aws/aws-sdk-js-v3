@@ -23,7 +23,7 @@ export interface AutocompleteCommandInput extends AutocompleteRequest {}
 export interface AutocompleteCommandOutput extends AutocompleteResponse, __MetadataBearer {}
 
 /**
- * <p> <code>Autocomplete</code> completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html">Autocomplete</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * <p> <code>Autocomplete</code> completes potential places and addresses as the user types, based on the partial input. The API enhances the efficiency and accuracy of address by completing query based on a few entered keystrokes. It helps you by completing partial queries with valid address completion. Also, the API supports the filtering of results based on geographic location, country, or specific place types, and can be tailored using optional parameters like language and political views. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/autocomplete.html">Autocomplete</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +52,16 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  *       "STRING_VALUE",
  *     ],
  *     IncludePlaceTypes: [ // AutocompleteFilterPlaceTypeList
- *       "STRING_VALUE",
+ *       "Locality" || "PostalCode" || "Street" || "Intersection" || "PointAddress" || "InterpolatedAddress" || "Country" || "Region",
  *     ],
  *   },
- *   PostalCodeMode: "STRING_VALUE",
+ *   PostalCodeMode: "MergeAllSpannedLocalities" || "EnumerateSpannedLocalities" || "EnumerateSpannedDistricts",
  *   AdditionalFeatures: [ // AutocompleteAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "Core",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse",
  *   Key: "STRING_VALUE",
  * };
  * const command = new AutocompleteCommand(input);
@@ -71,7 +71,7 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * //   ResultItems: [ // AutocompleteResultItemList
  * //     { // AutocompleteResultItem
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: { // Address
  * //         Label: "STRING_VALUE",
@@ -102,7 +102,7 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * //           { // StreetComponents
  * //             BaseName: "STRING_VALUE",
  * //             Type: "STRING_VALUE",
- * //             TypePlacement: "STRING_VALUE",
+ * //             TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //             TypeSeparator: "STRING_VALUE",
  * //             Prefix: "STRING_VALUE",
  * //             Suffix: "STRING_VALUE",
@@ -164,6 +164,7 @@ export interface AutocompleteCommandOutput extends AutocompleteResponse, __Metad
  * //           Building: "<HighlightList>",
  * //         },
  * //       },
+ * //       EstimatedPointAddress: true || false,
  * //     },
  * //   ],
  * // };

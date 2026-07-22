@@ -267,6 +267,16 @@ export interface ListAutonomousDatabasesCommandOutput extends ListAutonomousData
  * //       timeUntilReconnectCloneEnabled: new Date("TIMESTAMP"),
  * //       nextLongTermBackupTimeStamp: new Date("TIMESTAMP"),
  * //       timeUndeleted: new Date("TIMESTAMP"),
+ * //       adminPasswordSourceSummary: { // AdminPasswordSourceSummary
+ * //         adminPasswordSource: "CUSTOMER_MANAGED_AWS_SECRET" || "API_REQUEST_PARAMETER",
+ * //         adminPasswordSourceConfiguration: { // AdminPasswordSourceConfiguration Union: only one key present
+ * //           customerManagedAwsSecret: { // CustomerManagedAwsSecretConfiguration
+ * //             iamRoleArn: "STRING_VALUE",
+ * //             secretId: "STRING_VALUE",
+ * //             externalIdType: "database_ocid" || "compartment_ocid" || "tenant_ocid",
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

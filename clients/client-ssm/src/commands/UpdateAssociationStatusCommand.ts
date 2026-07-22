@@ -127,7 +127,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * //         ExcludeAccounts: [ // ExcludeAccounts
  * //           "STRING_VALUE",
  * //         ],
- * //         Targets: [
+ * //         Targets: [ // AutomationTargets
  * //           {
  * //             Key: "STRING_VALUE",
  * //             Values: [

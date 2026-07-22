@@ -190,6 +190,9 @@ import {
   DetectProfileObjectTypeRequest$,
   DetectProfileObjectTypeResponse$,
   Dimension$,
+  DiversityCapType,
+  DiversityColumn$,
+  DiversityConfig$,
   DomainObjectTypeField$,
   DomainObjectTypesListItem$,
   DomainStats$,
@@ -530,6 +533,7 @@ import {
   Readiness$,
   ReadinessStatus,
   Recommendation$,
+  RecommendationDiversityConfig$,
   RecommenderConfig$,
   RecommenderFilter$,
   RecommenderFilterStatus,
@@ -977,6 +981,8 @@ assert(typeof DetectedProfileObjectType$ === "object");
 assert(typeof DetectProfileObjectTypeRequest$ === "object");
 assert(typeof DetectProfileObjectTypeResponse$ === "object");
 assert(typeof Dimension$ === "object");
+assert(typeof DiversityColumn$ === "object");
+assert(typeof DiversityConfig$ === "object");
 assert(typeof DomainObjectTypeField$ === "object");
 assert(typeof DomainObjectTypesListItem$ === "object");
 assert(typeof DomainStats$ === "object");
@@ -1159,6 +1165,7 @@ assert(typeof Range$ === "object");
 assert(typeof RangeOverride$ === "object");
 assert(typeof Readiness$ === "object");
 assert(typeof Recommendation$ === "object");
+assert(typeof RecommendationDiversityConfig$ === "object");
 assert(typeof RecommenderConfig$ === "object");
 assert(typeof RecommenderFilter$ === "object");
 assert(typeof RecommenderFilterSummary$ === "object");
@@ -1234,6 +1241,7 @@ assert(typeof ContentType === "object");
 assert(typeof DataFormat === "object");
 assert(typeof DataPullMode === "object");
 assert(typeof DateDimensionType === "object");
+assert(typeof DiversityCapType === "object");
 assert(typeof EstimateStatus === "object");
 assert(typeof EventStreamDestinationStatus === "object");
 assert(typeof EventStreamState === "object");

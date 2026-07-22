@@ -1,13 +1,19 @@
 // smithy-typescript generated code
 import type {
+  AccessPointType,
+  AddressTranslationComponent,
+  AdminNamesPreference,
   AutocompleteAdditionalFeature,
   AutocompleteFilterPlaceType,
   AutocompleteIntendedUse,
   GeocodeAdditionalFeature,
+  GeocodeAddressNamesMode,
   GeocodeFilterPlaceType,
   GeocodeIntendedUse,
   GetPlaceAdditionalFeature,
+  GetPlaceAddressNamesMode,
   GetPlaceIntendedUse,
+  PlaceAttribute,
   PlaceType,
   PostalAuthority,
   PostalCodeMode,
@@ -15,15 +21,19 @@ import type {
   QueryType,
   RecordTypeCode,
   ReverseGeocodeAdditionalFeature,
+  ReverseGeocodeAddressNamesMode,
   ReverseGeocodeFilterPlaceType,
   ReverseGeocodeIntendedUse,
   SearchNearbyAdditionalFeature,
   SearchNearbyIntendedUse,
   SearchTextAdditionalFeature,
   SearchTextIntendedUse,
+  SearchTextTravelMode,
   SuggestAdditionalFeature,
   SuggestIntendedUse,
   SuggestResultItemType,
+  SuggestTravelMode,
+  TranslationNameType,
   TypePlacement,
   ZipClassificationCode,
 } from "./enums";
@@ -38,6 +48,24 @@ export interface AccessPoint {
    * @public
    */
   Position?: number[] | undefined;
+
+  /**
+   * <p>The type of access point, indicating its intended use. Only applies to results of type place.</p>
+   * @public
+   */
+  Type?: AccessPointType | undefined;
+
+  /**
+   * <p>Set to <code>true</code> for the primary access position when the place has more than one access point.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+
+  /**
+   * <p>A short textual description of the access point, such as <code>"North Entrance"</code>.</p>
+   * @public
+   */
+  Label?: string | undefined;
 }
 
 /**
@@ -196,7 +224,7 @@ export interface StreetComponents {
   Direction?: string | undefined;
 
   /**
-   * <p>A <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -430,7 +458,7 @@ export interface PhonemeTranscription {
   Value?: string | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -500,6 +528,60 @@ export interface AddressComponentPhonemes {
    * @public
    */
   Street?: PhonemeTranscription[] | undefined;
+}
+
+/**
+ * <p>A translation or alternative name for an address component.</p>
+ * @public
+ */
+export interface TranslationName {
+  /**
+   * <p>The translated or alternative name value.</p>
+   * @public
+   */
+  Value: string | undefined;
+
+  /**
+   * <p>A <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language code for the translation name.</p>
+   * @public
+   */
+  Language?: string | undefined;
+
+  /**
+   * <p>The type of translation name. Valid values are <code>Abbreviation</code>, <code>AreaCode</code>, <code>BaseName</code>, <code>Exonym</code>, <code>Shortened</code>, and <code>Synonym</code>.</p>
+   * @public
+   */
+  Type: TranslationNameType | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates this is the primary name variant for the given language.</p>
+   * @public
+   */
+  Primary?: boolean | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates this name is a transliterated version rather than a native script translation.</p>
+   * @public
+   */
+  Transliterated?: boolean | undefined;
+}
+
+/**
+ * <p>The official administrative names for an address component, returned when <code>AddressNamesMode</code> is set to <code>Administrative</code>.</p>
+ * @public
+ */
+export interface AdminNames {
+  /**
+   * <p>A list of translation names for the administrative address component, including name variants and translations in available languages.</p>
+   * @public
+   */
+  Names: TranslationName[] | undefined;
+
+  /**
+   * <p>Indicates the preference level of the administrative name. Valid values are <code>Primary</code> and <code>Alternative</code>.</p>
+   * @public
+   */
+  Preference?: AdminNamesPreference | undefined;
 }
 
 /**
@@ -579,7 +661,7 @@ export interface AutocompleteRequest {
   Filter?: AutocompleteFilter | undefined;
 
   /**
-   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned.</p>
+   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
    * @public
    */
   PostalCodeMode?: PostalCodeMode | undefined;
@@ -591,7 +673,7 @@ export interface AutocompleteRequest {
   AdditionalFeatures?: AutocompleteAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -837,7 +919,7 @@ export interface AutocompleteResultItem {
   Distance?: number | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -853,6 +935,12 @@ export interface AutocompleteResultItem {
    * @public
    */
   Highlights?: AutocompleteHighlights | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * @public
+   */
+  EstimatedPointAddress?: boolean | undefined;
 }
 
 /**
@@ -978,6 +1066,30 @@ export interface Contacts {
    * @public
    */
   Emails?: ContactDetails[] | undefined;
+}
+
+/**
+ * <p>A reference to a third-party supplier's identifier for a place, enabling correlation of places across external systems.</p>
+ * @public
+ */
+export interface CrossReference {
+  /**
+   * <p>The name of the third-party data supplier (for example, <code>Yelp</code> or <code>TripAdvisor</code>).</p>
+   * @public
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The place identifier assigned by the third-party supplier.</p>
+   * @public
+   */
+  SourcePlaceId: string | undefined;
+
+  /**
+   * <p>The list of place category identifiers this supplier reference relates to.</p>
+   * @public
+   */
+  SourceCategories?: Category[] | undefined;
 }
 
 /**
@@ -1117,7 +1229,7 @@ export interface GeocodeRequest {
   AdditionalFeatures?: GeocodeAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -1139,6 +1251,24 @@ export interface GeocodeRequest {
    * @public
    */
   Key?: string | undefined;
+
+  /**
+   * <p>The <code>PostalCodeMode</code> affects how postal code results are returned. If a postal code spans multiple localities and this value is empty, partial district or locality information may be returned under a single postal code result entry. If it's populated with the value <code>EnumerateSpannedLocalities</code>, all cities in that postal code are returned. If it's populated with the value <code>EnumerateSpannedDistricts</code>, all combinations of the postal code with the corresponding district and city names are returned.</p>
+   * @public
+   */
+  PostalCodeMode?: PostalCodeMode | undefined;
+
+  /**
+   * <p>Specifies which address components to include translations for. Translations include all name variants and alternative names for the requested fields in all available languages. Valid values are <code>District</code>, <code>Locality</code>, <code>Region</code>, and <code>SubRegion</code>.</p>
+   * @public
+   */
+  AddressTranslations?: AddressTranslationComponent[] | undefined;
+
+  /**
+   * <p>Specifies how address names are returned. If not set, the service returns normalized (official) names by default. When set to <code>Matched</code>, address names in the response are based on the input query rather than official names. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * @public
+   */
+  AddressNamesMode?: GeocodeAddressNamesMode | undefined;
 }
 
 /**
@@ -1403,6 +1533,12 @@ export interface GeocodeParsedQueryAddressComponents {
    * @public
    */
   SecondaryAddressComponents?: ParsedQuerySecondaryAddressComponent[] | undefined;
+
+  /**
+   * <p>Additional information extracted from the query that does not correspond to standard address components.</p>
+   * @public
+   */
+  OtherComponents?: ParsedQueryComponent[] | undefined;
 }
 
 /**
@@ -1505,6 +1641,36 @@ export interface TimeZone {
    * @public
    */
   OffsetSeconds?: number | undefined;
+}
+
+/**
+ * <p>Translation details for the address, including alternative names and translations in available languages.</p>
+ * @public
+ */
+export interface TranslationDetails {
+  /**
+   * <p>A list of administrative names and translations for the locality address component.</p>
+   * @public
+   */
+  Locality?: AdminNames[] | undefined;
+
+  /**
+   * <p>A list of administrative names and translations for the region address component.</p>
+   * @public
+   */
+  Region?: AdminNames[] | undefined;
+
+  /**
+   * <p>A list of administrative names and translations for the district address component.</p>
+   * @public
+   */
+  District?: AdminNames[] | undefined;
+
+  /**
+   * <p>A list of administrative names and translations for the sub-region address component.</p>
+   * @public
+   */
+  SubRegion?: AdminNames[] | undefined;
 }
 
 /**
@@ -1625,6 +1791,18 @@ export interface GeocodeResultItem {
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
+
+  /**
+   * <p>All name translations and alternative names for the requested address fields in all available languages.</p>
+   * @public
+   */
+  Translations?: TranslationDetails | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * @public
+   */
+  EstimatedPointAddress?: boolean | undefined;
 }
 
 /**
@@ -1661,7 +1839,7 @@ export interface GetPlaceRequest {
   AdditionalFeatures?: GetPlaceAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
@@ -1683,6 +1861,12 @@ export interface GetPlaceRequest {
    * @public
    */
   Key?: string | undefined;
+
+  /**
+   * <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * @public
+   */
+  AddressNamesMode?: GetPlaceAddressNamesMode | undefined;
 }
 
 /**
@@ -1886,6 +2070,24 @@ export interface GetPlaceResponse {
    * @public
    */
   SecondaryAddresses?: RelatedPlace[] | undefined;
+
+  /**
+   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * @public
+   */
+  PlaceAttributes?: PlaceAttribute[] | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * @public
+   */
+  EstimatedPointAddress?: boolean | undefined;
+
+  /**
+   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * @public
+   */
+  CrossReferences?: CrossReference[] | undefined;
 }
 
 /**
@@ -1935,7 +2137,7 @@ export interface ReverseGeocodeRequest {
   AdditionalFeatures?: ReverseGeocodeAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
@@ -1963,6 +2165,12 @@ export interface ReverseGeocodeRequest {
    * @public
    */
   Heading?: number | undefined;
+
+  /**
+   * <p>Specifies how address names are returned. When set to <code>Administrative</code>, the service returns the official administrative names for address components. <code>Administrative</code> currently applies only to addresses in the United States.</p>
+   * @public
+   */
+  AddressNamesMode?: ReverseGeocodeAddressNamesMode | undefined;
 }
 
 /**
@@ -2059,6 +2267,18 @@ export interface ReverseGeocodeResultItem {
    * @public
    */
   Intersections?: Intersection[] | undefined;
+
+  /**
+   * <p>The main address corresponding to a place of type Secondary Address.</p>
+   * @public
+   */
+  MainAddress?: RelatedPlace | undefined;
+
+  /**
+   * <p>If <code>true</code>, indicates that the coordinates of the position and access points of the point address are estimated.</p>
+   * @public
+   */
+  EstimatedPointAddress?: boolean | undefined;
 }
 
 /**
@@ -2167,7 +2387,7 @@ export interface SearchNearbyRequest {
   AdditionalFeatures?: SearchNearbyAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry.</p>
    * @public
    */
   Language?: string | undefined;
@@ -2309,6 +2529,18 @@ export interface SearchNearbyResultItem {
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
+
+  /**
+   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * @public
+   */
+  PlaceAttributes?: PlaceAttribute[] | undefined;
+
+  /**
+   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * @public
+   */
+  CrossReferences?: CrossReference[] | undefined;
 }
 
 /**
@@ -2399,7 +2631,7 @@ export interface SearchTextRequest {
   AdditionalFeatures?: SearchTextAdditionalFeature[] | undefined;
 
   /**
-   * <p>A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * <p>A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
@@ -2421,6 +2653,12 @@ export interface SearchTextRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are <code>Car</code>, <code>Scooter</code>, and <code>Truck</code>.</p>
+   * @public
+   */
+  TravelMode?: SearchTextTravelMode | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
@@ -2507,7 +2745,7 @@ export interface SearchTextResultItem {
   Contacts?: Contacts | undefined;
 
   /**
-   * <p>List of opening hours objects.</p>
+   * <p> List of opening hours objects. Not available in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p>
    * @public
    */
   OpeningHours?: OpeningHours[] | undefined;
@@ -2541,6 +2779,18 @@ export interface SearchTextResultItem {
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
+
+  /**
+   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * @public
+   */
+  PlaceAttributes?: PlaceAttribute[] | undefined;
+
+  /**
+   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * @public
+   */
+  CrossReferences?: CrossReference[] | undefined;
 }
 
 /**
@@ -2631,7 +2881,7 @@ export interface SuggestRequest {
   AdditionalFeatures?: SuggestAdditionalFeature[] | undefined;
 
   /**
-   * <p> A list of <a href="https://en.wikipedia.org/wiki/IETF_language_tag">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
+   * <p> A list of <a href="https://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">BCP 47</a> compliant language codes for the results to be rendered in. If there is no data for the result in the requested language, data will be returned in the default language for the entry. For <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers, <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions support only the following codes: <code>en, id, km, lo, ms, my, pt, th, tl, vi, zh</code> </p>
    * @public
    */
   Language?: string | undefined;
@@ -2647,6 +2897,12 @@ export interface SuggestRequest {
    * @public
    */
   IntendedUse?: SuggestIntendedUse | undefined;
+
+  /**
+   * <p>Indicates the mode of mobility used by the end user. This is used to improve the relevance of search results. Valid values are <code>Car</code>, <code>Scooter</code>, and <code>Truck</code>.</p>
+   * @public
+   */
+  TravelMode?: SuggestTravelMode | undefined;
 
   /**
    * <p>Optional: The API key to be used for authorization. Either an API key or valid SigV4 signature must be provided when making a request.</p>
@@ -2803,6 +3059,18 @@ export interface SuggestPlaceResult {
    * @public
    */
   Phonemes?: PhonemeDetails | undefined;
+
+  /**
+   * <p>A list of place attributes for the result, such as whether the business offers drive-through service.</p>
+   * @public
+   */
+  PlaceAttributes?: PlaceAttribute[] | undefined;
+
+  /**
+   * <p>The list of supplier references available for this place. Requires the <code>CrossReferences</code> additional feature to be enabled.</p>
+   * @public
+   */
+  CrossReferences?: CrossReference[] | undefined;
 }
 
 /**

@@ -366,6 +366,11 @@ import {
   GetLogDeliveryConfigurationCommand,
 } from "./commands/GetLogDeliveryConfigurationCommand";
 import {
+  type GetProvisionedLimitCommandInput,
+  type GetProvisionedLimitCommandOutput,
+  GetProvisionedLimitCommand,
+} from "./commands/GetProvisionedLimitCommand";
+import {
   type GetSigningCertificateCommandInput,
   type GetSigningCertificateCommandOutput,
   GetSigningCertificateCommand,
@@ -565,6 +570,11 @@ import {
   UpdateManagedLoginBrandingCommand,
 } from "./commands/UpdateManagedLoginBrandingCommand";
 import {
+  type UpdateProvisionedLimitCommandInput,
+  type UpdateProvisionedLimitCommandOutput,
+  UpdateProvisionedLimitCommand,
+} from "./commands/UpdateProvisionedLimitCommand";
+import {
   type UpdateResourceServerCommandInput,
   type UpdateResourceServerCommandOutput,
   UpdateResourceServerCommand,
@@ -694,6 +704,7 @@ const commands = {
   GetGroupCommand,
   GetIdentityProviderByIdentifierCommand,
   GetLogDeliveryConfigurationCommand,
+  GetProvisionedLimitCommand,
   GetSigningCertificateCommand,
   GetTokensFromRefreshTokenCommand,
   GetUICustomizationCommand,
@@ -737,6 +748,7 @@ const commands = {
   UpdateGroupCommand,
   UpdateIdentityProviderCommand,
   UpdateManagedLoginBrandingCommand,
+  UpdateProvisionedLimitCommand,
   UpdateResourceServerCommand,
   UpdateTermsCommand,
   UpdateUserAttributesCommand,
@@ -2020,6 +2032,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link GetProvisionedLimitCommand}
+   */
+  getProvisionedLimit(
+    args: GetProvisionedLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProvisionedLimitCommandOutput>;
+  getProvisionedLimit(
+    args: GetProvisionedLimitCommandInput,
+    cb: (err: any, data?: GetProvisionedLimitCommandOutput) => void
+  ): void;
+  getProvisionedLimit(
+    args: GetProvisionedLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProvisionedLimitCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSigningCertificateCommand}
    */
   getSigningCertificate(
@@ -2749,6 +2778,23 @@ export interface CognitoIdentityProvider {
     args: UpdateManagedLoginBrandingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProvisionedLimitCommand}
+   */
+  updateProvisionedLimit(
+    args: UpdateProvisionedLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProvisionedLimitCommandOutput>;
+  updateProvisionedLimit(
+    args: UpdateProvisionedLimitCommandInput,
+    cb: (err: any, data?: UpdateProvisionedLimitCommandOutput) => void
+  ): void;
+  updateProvisionedLimit(
+    args: UpdateProvisionedLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProvisionedLimitCommandOutput) => void
   ): void;
 
   /**

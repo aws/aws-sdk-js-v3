@@ -37,6 +37,7 @@ import type {
   Scope,
   StandardUnit,
   State,
+  StorageTier,
   SuppressionState,
   SyslogSourceType,
   Type,
@@ -5981,6 +5982,29 @@ export interface GetScheduledQueryHistoryResponse {
 /**
  * @public
  */
+export interface GetStorageTierPolicyRequest {}
+
+/**
+ * @public
+ */
+export interface GetStorageTierPolicyResponse {
+  /**
+   * <p>The current storage tier for the account.</p>
+   * @public
+   */
+  storageTier?: StorageTier | undefined;
+
+  /**
+   * <p>The time when the storage tier policy was last updated, expressed as the number of
+   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetTransformerRequest {
   /**
    * <p>Specify either the name or ARN of the log group to return transformer information for. If
@@ -8121,8 +8145,8 @@ export interface PutDeliverySourceRequest {
    *             <code>EVENT_LOGS</code>.</p>
    *             </li>
    *             <li>
-   *                <p>For Amazon Bedrock Knowledge Bases, the valid value is
-   *             <code>APPLICATION_LOGS</code>.</p>
+   *                <p>For Amazon Bedrock Knowledge Bases, the valid values are
+   *             <code>APPLICATION_LOGS</code> and <code>TRACES</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Bedrock AgentCore Runtime, the valid values are
@@ -8209,6 +8233,10 @@ export interface PutDeliverySourceRequest {
    *             <li>
    *                <p>For Amazon Q, the valid values are <code>EVENT_LOGS</code> and
    *             <code>SYNC_JOB_LOGS</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For Amazon S3, the valid value is
+   *             <code>S3_SERVER_ACCESS_LOGS</code>.</p>
    *             </li>
    *             <li>
    *                <p>For Amazon Web Services Security Hub CSPM, the valid value is
@@ -8886,6 +8914,36 @@ export interface PutRetentionPolicyRequest {
 /**
  * @public
  */
+export interface PutStorageTierPolicyRequest {
+  /**
+   * <p>The storage tier to set for the account. Valid values are <code>STANDARD</code> and
+   *       <code>INTELLIGENT_TIERING</code>.</p>
+   * @public
+   */
+  storageTier: StorageTier | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutStorageTierPolicyResponse {
+  /**
+   * <p>The storage tier that was set.</p>
+   * @public
+   */
+  storageTier?: StorageTier | undefined;
+
+  /**
+   * <p>The time when the storage tier policy was last updated, expressed as the number of
+   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   * @public
+   */
+  lastUpdatedTime?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutSubscriptionFilterRequest {
   /**
    * <p>The name of the log group.</p>
@@ -9417,71 +9475,4 @@ export interface MetricFilterMatchRecord {
    * @public
    */
   extractedValues?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface TestMetricFilterResponse {
-  /**
-   * <p>The matched events.</p>
-   * @public
-   */
-  matches?: MetricFilterMatchRecord[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TestTransformerRequest {
-  /**
-   * <p>This structure contains the configuration of this log transformer that you want to test. A
-   *       log transformer is an array of processors, where each processor applies one type of
-   *       transformation to the log events that are ingested.</p>
-   * @public
-   */
-  transformerConfig: Processor[] | undefined;
-
-  /**
-   * <p>An array of the raw log events that you want to use to test this transformer.</p>
-   * @public
-   */
-  logEventMessages: string[] | undefined;
-}
-
-/**
- * <p>This structure contains information for one log event that has been processed by a log
- *       transformer.</p>
- * @public
- */
-export interface TransformedLogRecord {
-  /**
-   * <p>The event number.</p>
-   * @public
-   */
-  eventNumber?: number | undefined;
-
-  /**
-   * <p>The original log event message before it was transformed.</p>
-   * @public
-   */
-  eventMessage?: string | undefined;
-
-  /**
-   * <p>The log event message after being transformed.</p>
-   * @public
-   */
-  transformedEventMessage?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TestTransformerResponse {
-  /**
-   * <p>An array where each member of the array includes both the original version and the
-   *       transformed version of one of the log events that you input.</p>
-   * @public
-   */
-  transformedLogs?: TransformedLogRecord[] | undefined;
 }

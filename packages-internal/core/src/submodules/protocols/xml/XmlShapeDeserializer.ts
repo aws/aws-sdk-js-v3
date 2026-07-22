@@ -126,8 +126,8 @@ export class XmlShapeDeserializer extends SerdeContextConfig implements ShapeDes
         for (const [memberName, memberSchema] of ns.structIterator()) {
           const memberTraits = memberSchema.getMergedTraits();
           const xmlObjectKey = !memberTraits.httpPayload
-            ? memberSchema.getMemberTraits().xmlName ?? memberName
-            : memberTraits.xmlName ?? memberSchema.getName()!;
+            ? (memberSchema.getMemberTraits().xmlName ?? memberName)
+            : (memberTraits.xmlName ?? memberSchema.getName()!);
 
           if (union) {
             unionSerde!.mark(xmlObjectKey);

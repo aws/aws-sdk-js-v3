@@ -38,6 +38,9 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * const config = {}; // type is CloudWatchClientConfig
  * const client = new CloudWatchClient(config);
  * const input = { // DescribeAnomalyDetectorsInput
+ *   AnomalyDetectorIds: [ // AnomalyDetectorIds
+ *     "STRING_VALUE",
+ *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   Namespace: "STRING_VALUE",
@@ -57,6 +60,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * // { // DescribeAnomalyDetectorsOutput
  * //   AnomalyDetectors: [ // AnomalyDetectors
  * //     { // AnomalyDetector
+ * //       AnomalyDetectorId: "STRING_VALUE",
  * //       Namespace: "STRING_VALUE",
  * //       MetricName: "STRING_VALUE",
  * //       Dimensions: [ // Dimensions

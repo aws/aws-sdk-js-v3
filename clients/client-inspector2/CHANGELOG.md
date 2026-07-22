@@ -3,6 +3,135 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1092.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1091.0...v3.1092.0) (2026-07-21)
+
+
+### Features
+
+* **client-inspector2:** GA date - July 21st 2026, remove Tags field from ListCodeSecurityIntegration and ListCodeSecurityScanConfiguration. ([33a1778](https://github.com/aws/aws-sdk-js-v3/commit/33a1778dda593b289641717f0df9c08107d8a55d))
+
+
+
+
+
+# [3.1091.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1090.0...v3.1091.0) (2026-07-20)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1090.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1089.0...v3.1090.0) (2026-07-17)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1089.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1088.0...v3.1089.0) (2026-07-16)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1088.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1087.0...v3.1088.0) (2026-07-15)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1087.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1086.0...v3.1087.0) (2026-07-14)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1086.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1085.0...v3.1086.0) (2026-07-13)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1085.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1084.0...v3.1085.0) (2026-07-10)
+
+
+### Features
+
+* **client-inspector2:** Support for 3 day and 7 day ECR re-scan durations ([4b0b5c8](https://github.com/aws/aws-sdk-js-v3/commit/4b0b5c86d1c0c228751d3ad42287c96599982eab))
+
+
+
+
+
+# [3.1084.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1083.0...v3.1084.0) (2026-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1083.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1082.0...v3.1083.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1082.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1081.0...v3.1082.0) (2026-07-08)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1081.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1080.0...v3.1081.0) (2026-07-07)
+
+
+### Features
+
+* **client-inspector2:** This release extends vulnerability management to Azure VM, container registries and function apps. Adds support for per-member-account scan configuration settings. ([ae9b7bc](https://github.com/aws/aws-sdk-js-v3/commit/ae9b7bcfc791fa573cf258443e56ec3620e48783))
+
+
+
+
+
+# [3.1080.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1079.0...v3.1080.0) (2026-07-06)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
+# [3.1079.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1078.0...v3.1079.0) (2026-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-inspector2
+
+
+
+
+
 # [3.1078.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1077.0...v3.1078.0) (2026-07-01)
 
 **Note:** Version bump only for package @aws-sdk/client-inspector2

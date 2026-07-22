@@ -1,6 +1,6 @@
 // @ts-check
 import parallelLimit from "async/parallelLimit.js";
-import { cpus } from "os";
+import { cpus } from "node:os";
 import yargs from "yargs";
 
 import { downlevelWorkspace } from "./downlevelWorkspace.mjs";

@@ -1,25 +1,965 @@
 // smithy-typescript generated code
 import type {
+  AggregationType,
   CisSecurityLevel,
+  CloudProvider,
   CodeScanStatus,
+  Currency,
   Ec2DeepInspectionStatus,
   FilterAction,
+  GroupKey,
+  InheritanceMode,
   IntegrationStatus,
   ResourceType,
   ScanType,
+  SortField,
+  SortOrder,
   StopCisSessionStatus,
+  UsageType,
+  VulnerabilitySource,
 } from "./enums";
 import type {
+  AggregationRequest,
+  AggregationResponse,
+  AtigData,
   AutoEnable,
+  AzureProviderDetailUpdate,
+  CisaData,
+  CisSessionMessage,
   CodeSecurityResource,
   CodeSecurityScanConfiguration,
+  CodeSecurityScanConfigurationAssociationSummary,
+  CodeSecurityScanConfigurationSummary,
   ComputePlatform,
+  Connector,
+  ConnectorFilterCriteria,
+  ConnectorScanConfiguration,
+  ConnectorScanConfigurationItem,
+  Counts,
+  CoverageFilterCriteria,
+  CoveredResource,
+  Cvss2,
+  Cvss3,
+  Cvss4,
+  DelegatedAdminAccount,
   Ec2Configuration,
   EcrConfiguration,
+  Epss,
+  ExploitObserved,
+  Filter,
   FilterCriteria,
+  Finding,
+  Member,
   Schedule,
-  StartCisSessionMessage,
+  StringFilter,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListCodeSecurityScanConfigurationAssociationsResponse {
+  /**
+   * <p>A list of associations between code repositories and scan configurations.</p>
+   * @public
+   */
+  associations?: CodeSecurityScanConfigurationAssociationSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeSecurityScanConfigurationsRequest {
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
+   *          value returned from the previous request to continue listing results after the first
+   *          page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeSecurityScanConfigurationsResponse {
+  /**
+   * <p>A list of code security scan configuration summaries.</p>
+   * @public
+   */
+  configurations?: CodeSecurityScanConfigurationSummary[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request. For subsequent calls, use the NextToken
+   *          value returned from the previous request to continue listing results after the first
+   *          page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the <code>nextToken</code> value returned from this request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results. Set this value to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The filter criteria to apply to the list of connectors.</p>
+   * @public
+   */
+  filterCriteria?: ConnectorFilterCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * <p>A list of connectors.</p>
+   * @public
+   */
+  items: Connector[] | undefined;
+
+  /**
+   * <p>A pagination token. If this value is not null, there are additional results available. Use this token in the <code>nextToken</code> parameter of a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorScanConfigurationsRequest {
+  /**
+   * <p>The list of Amazon Web Services Config connector ARNs to filter results.</p>
+   * @public
+   */
+  awsConfigConnectorArns?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Valid range is 1 to 50. To retrieve the remaining results, make another request with the <code>nextToken</code> value returned from this request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results. Set this value to null for the first request. For subsequent calls, use the <code>nextToken</code> value returned from the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorScanConfigurationsResponse {
+  /**
+   * <p>A list of scan configuration items.</p>
+   * @public
+   */
+  scanConfigurations: ConnectorScanConfigurationItem[] | undefined;
+
+  /**
+   * <p>A pagination token. If this value is not null, there are additional results available. Use this token in the <code>nextToken</code> parameter of a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageRequest {
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An object that contains details on the filters to apply to the coverage data for your
+   *          environment.</p>
+   * @public
+   */
+  filterCriteria?: CoverageFilterCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageResponse {
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An object that contains details on the covered resources in your environment.</p>
+   * @public
+   */
+  coveredResources?: CoveredResource[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageStatisticsRequest {
+  /**
+   * <p>An object that contains details on the filters to apply to the coverage data for your
+   *          environment.</p>
+   * @public
+   */
+  filterCriteria?: CoverageFilterCriteria | undefined;
+
+  /**
+   * <p>The value to group the results by.</p>
+   * @public
+   */
+  groupBy?: GroupKey | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCoverageStatisticsResponse {
+  /**
+   * <p>An array with the number for each group.</p>
+   * @public
+   */
+  countsByGroup?: Counts[] | undefined;
+
+  /**
+   * <p>The total number for all groups.</p>
+   * @public
+   */
+  totalCounts: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDelegatedAdminAccountsRequest {
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDelegatedAdminAccountsResponse {
+  /**
+   * <p>Details of the Amazon Inspector delegated administrator of your organization.</p>
+   * @public
+   */
+  delegatedAdminAccounts?: DelegatedAdminAccount[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersRequest {
+  /**
+   * <p>The Amazon resource number (ARN) of the filter.</p>
+   * @public
+   */
+  arns?: string[] | undefined;
+
+  /**
+   * <p>The action the filter applies to matched findings.</p>
+   * @public
+   */
+  action?: FilterAction | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFiltersResponse {
+  /**
+   * <p>Contains details on the filters associated with your account.</p>
+   * @public
+   */
+  filters: Filter[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregationsRequest {
+  /**
+   * <p>The type of the aggregation request.</p>
+   * @public
+   */
+  aggregationType: AggregationType | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs to retrieve finding aggregation data for.</p>
+   * @public
+   */
+  accountIds?: StringFilter[] | undefined;
+
+  /**
+   * <p>Details of the aggregation request that is used to filter your aggregation
+   *          results.</p>
+   * @public
+   */
+  aggregationRequest?: AggregationRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingAggregationsResponse {
+  /**
+   * <p>The type of aggregation to perform.</p>
+   * @public
+   */
+  aggregationType: AggregationType | undefined;
+
+  /**
+   * <p>Objects that contain the results of an aggregation operation.</p>
+   * @public
+   */
+  responses?: AggregationResponse[] | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Details about the criteria used to sort finding results.</p>
+ * @public
+ */
+export interface SortCriteria {
+  /**
+   * <p>The finding detail field by which results are sorted.</p>
+   * @public
+   */
+  field: SortField | undefined;
+
+  /**
+   * <p>The order by which findings are sorted.</p>
+   * @public
+   */
+  sortOrder: SortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsRequest {
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Details on the filters to apply to your finding results.</p>
+   * @public
+   */
+  filterCriteria?: FilterCriteria | undefined;
+
+  /**
+   * <p>Details on the sort criteria to apply to your finding results.</p>
+   * @public
+   */
+  sortCriteria?: SortCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFindingsResponse {
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Contains details on the findings in your environment.</p>
+   * @public
+   */
+  findings?: Finding[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersRequest {
+  /**
+   * <p>Specifies whether to list only currently associated members if <code>True</code> or to
+   *          list all members within the organization if <code>False</code>.</p>
+   * @public
+   */
+  onlyAssociated?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMembersResponse {
+  /**
+   * <p>An object that contains details for each member account.</p>
+   * @public
+   */
+  members?: Member[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *          items.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The Amazon resource number (ARN) of the resource to list tags of.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The tags associated with the resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageTotalsRequest {
+  /**
+   * <p>The maximum number of results the response can return. If your request would return more
+   *          than the maximum the response will return a <code>nextToken</code> value, use this value
+   *          when you call the action again to get the remaining results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. If your response returns
+   *          more than the <code>maxResults</code> maximum value it will also return a
+   *             <code>nextToken</code> value. For subsequent calls, use the <code>nextToken</code> value
+   *          returned from the previous request to continue listing results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs to retrieve usage totals for.</p>
+   * @public
+   */
+  accountIds?: string[] | undefined;
+}
+
+/**
+ * <p>Contains usage information about the cost of Amazon Inspector operation.</p>
+ * @public
+ */
+export interface Usage {
+  /**
+   * <p>The type scan.</p>
+   * @public
+   */
+  type?: UsageType | undefined;
+
+  /**
+   * <p>The total of usage.</p>
+   * @public
+   */
+  total?: number | undefined;
+
+  /**
+   * <p>The estimated monthly cost of Amazon Inspector.</p>
+   * @public
+   */
+  estimatedMonthlyCost?: number | undefined;
+
+  /**
+   * <p>The currency type used when calculating usage data.</p>
+   * @public
+   */
+  currency?: Currency | undefined;
+
+  /**
+   * <p>The cloud provider associated with the usage information.</p>
+   * @public
+   */
+  cloudProvider?: CloudProvider | undefined;
+}
+
+/**
+ * <p>The total of usage for an account ID.</p>
+ * @public
+ */
+export interface UsageTotal {
+  /**
+   * <p>The account ID of the account that usage data was retrieved for.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>An object representing the total usage for an account.</p>
+   * @public
+   */
+  usage?: Usage[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsageTotalsResponse {
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *          items.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>An object with details on the total usage for the requested account.</p>
+   * @public
+   */
+  totals?: UsageTotal[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEncryptionKeyRequest {
+  /**
+   * <p>The scan type the key encrypts.</p>
+   * @public
+   */
+  scanType: ScanType | undefined;
+
+  /**
+   * <p>The resource type the key encrypts.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEncryptionKeyResponse {}
+
+/**
+ * <p>Details on the criteria used to define the filter for a vulnerability search. </p>
+ * @public
+ */
+export interface SearchVulnerabilitiesFilterCriteria {
+  /**
+   * <p>The IDs for specific vulnerabilities.</p>
+   * @public
+   */
+  vulnerabilityIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchVulnerabilitiesRequest {
+  /**
+   * <p>The criteria used to filter the results of a vulnerability search.</p>
+   * @public
+   */
+  filterCriteria: SearchVulnerabilitiesFilterCriteria | undefined;
+
+  /**
+   * <p>A token to use for paginating results that are returned in the response. Set the value
+   *          of this parameter to null for the first request to a list action. For subsequent calls, use
+   *          the <code>NextToken</code> value returned from the previous request to continue listing
+   *          results after the first page.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains details about a specific vulnerability Amazon Inspector can detect.</p>
+ * @public
+ */
+export interface Vulnerability {
+  /**
+   * <p>The ID for the specific vulnerability.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Common Weakness Enumeration (CWE) associated with the vulnerability.</p>
+   * @public
+   */
+  cwes?: string[] | undefined;
+
+  /**
+   * <p>An object that contains the Cybersecurity and Infrastructure Security Agency (CISA)
+   *          details for the vulnerability.</p>
+   * @public
+   */
+  cisaData?: CisaData | undefined;
+
+  /**
+   * <p>The source of the vulnerability information. Possible results are <code>RHEL</code>,
+   *             <code>AMAZON_CVE</code>, <code>DEBIAN</code> or <code>NVD</code>.</p>
+   * @public
+   */
+  source?: VulnerabilitySource | undefined;
+
+  /**
+   * <p>A description of the vulnerability.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>An object that contains information about the Amazon Web Services Threat Intel Group
+   *          (ATIG) details for the vulnerability.</p>
+   * @public
+   */
+  atigData?: AtigData | undefined;
+
+  /**
+   * <p>The severity assigned by the vendor.</p>
+   * @public
+   */
+  vendorSeverity?: string | undefined;
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 4 details for the vulnerability.</p>
+   * @public
+   */
+  cvss4?: Cvss4 | undefined;
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 3 details
+   *          for the vulnerability.</p>
+   * @public
+   */
+  cvss3?: Cvss3 | undefined;
+
+  /**
+   * <p>A list of related vulnerabilities.</p>
+   * @public
+   */
+  relatedVulnerabilities?: string[] | undefined;
+
+  /**
+   * <p>An object that contains the Common Vulnerability Scoring System (CVSS) Version 2 details
+   *          for the vulnerability.</p>
+   * @public
+   */
+  cvss2?: Cvss2 | undefined;
+
+  /**
+   * <p>The date and time when the vendor created this vulnerability.</p>
+   * @public
+   */
+  vendorCreatedAt?: Date | undefined;
+
+  /**
+   * <p>The date and time when the vendor last updated this vulnerability.</p>
+   * @public
+   */
+  vendorUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>A link to the official source material for this vulnerability.</p>
+   * @public
+   */
+  sourceUrl?: string | undefined;
+
+  /**
+   * <p>Links to various resources with more information on this vulnerability. </p>
+   * @public
+   */
+  referenceUrls?: string[] | undefined;
+
+  /**
+   * <p>An object that contains details on when the exploit was observed.</p>
+   * @public
+   */
+  exploitObserved?: ExploitObserved | undefined;
+
+  /**
+   * <p>Platforms that the vulnerability can be detected on.</p>
+   * @public
+   */
+  detectionPlatforms?: string[] | undefined;
+
+  /**
+   * <p>An object that contains the Exploit Prediction Scoring System (EPSS) score for a
+   *          vulnerability.</p>
+   * @public
+   */
+  epss?: Epss | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchVulnerabilitiesResponse {
+  /**
+   * <p>Details about the listed vulnerability.</p>
+   * @public
+   */
+  vulnerabilities: Vulnerability[] | undefined;
+
+  /**
+   * <p>The pagination parameter to be used on the next list operation to retrieve more
+   *          items.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendCisSessionHealthRequest {
+  /**
+   * <p>A unique identifier for the scan job.</p>
+   * @public
+   */
+  scanJobId: string | undefined;
+
+  /**
+   * <p>The unique token that identifies the CIS session.</p>
+   * @public
+   */
+  sessionToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendCisSessionHealthResponse {}
+
+/**
+ * @public
+ */
+export interface SendCisSessionTelemetryRequest {
+  /**
+   * <p>A unique identifier for the scan job.</p>
+   * @public
+   */
+  scanJobId: string | undefined;
+
+  /**
+   * <p>The unique token that identifies the CIS session.</p>
+   * @public
+   */
+  sessionToken: string | undefined;
+
+  /**
+   * <p>The CIS session telemetry messages.</p>
+   * @public
+   */
+  messages: CisSessionMessage[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendCisSessionTelemetryResponse {}
+
+/**
+ * <p>The start CIS session message.</p>
+ * @public
+ */
+export interface StartCisSessionMessage {
+  /**
+   * <p>The unique token that identifies the CIS session.</p>
+   * @public
+   */
+  sessionToken: string | undefined;
+}
 
 /**
  * @public
@@ -460,9 +1400,44 @@ export interface UpdateCodeSecurityScanConfigurationResponse {
 }
 
 /**
+ * <p>The per-scan-type inheritance reset settings for the <code>UpdateConfiguration</code>
+ *          operation. Each member is independently optional. Including a member in this structure
+ *          resets that scan type's configuration to inherit from the delegated administrator.</p>
+ * @public
+ */
+export interface UpdateConfigurationInheritance {
+  /**
+   * <p>The inheritance mode for Amazon EC2 scan configuration. Set to
+   *          <code>INHERIT_FROM_ADMIN</code> to reset the member account's Amazon EC2 scan configuration to
+   *          inherit from the delegated administrator. If omitted, the member account's existing Amazon EC2
+   *          scan configuration is not changed.</p>
+   * @public
+   */
+  ec2Configuration?: InheritanceMode | undefined;
+
+  /**
+   * <p>The inheritance mode for Amazon ECR scan configuration. Set to
+   *          <code>INHERIT_FROM_ADMIN</code> to reset the member account's Amazon ECR scan configuration to
+   *          inherit from the delegated administrator. If omitted, the member account's existing Amazon ECR
+   *          scan configuration is not changed.</p>
+   * @public
+   */
+  ecrConfiguration?: InheritanceMode | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateConfigurationRequest {
+  /**
+   * <p>The 12-digit Amazon Web Services account ID of the member account whose scan configuration you want
+   *          to update. When specified, you must be the delegated administrator for this member
+   *          account. If not specified, the operation updates your own configuration and
+   *          propagates changes to any member accounts that have not been individually configured.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
   /**
    * <p>Specifies how the ECR automated re-scan will be updated for your environment.</p>
    * @public
@@ -474,12 +1449,119 @@ export interface UpdateConfigurationRequest {
    * @public
    */
   ec2Configuration?: Ec2Configuration | undefined;
+
+  /**
+   * <p>Specifies which scan-type configurations to reset to the delegated administrator's
+   *          inherited values for the targeted member account. Each member of this structure is
+   *          independently optional. When specified, <code>ec2Configuration</code> and
+   *          <code>ecrConfiguration</code> must be absent, and <code>accountId</code> must also be
+   *          present. Only <code>INHERIT_FROM_ADMIN</code> is valid for each member. If not specified,
+   *          the operation uses the <code>ec2Configuration</code> and <code>ecrConfiguration</code>
+   *          parameters instead.</p>
+   * @public
+   */
+  updateConfigurationInheritance?: UpdateConfigurationInheritance | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateConfigurationResponse {}
+
+/**
+ * <p>The provider-specific configuration details for updating a connector.</p>
+ * @public
+ */
+export type ProviderDetailUpdate =
+  | ProviderDetailUpdate.AzureMember
+  | ProviderDetailUpdate.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderDetailUpdate {
+  /**
+   * <p>The Azure-specific details for updating a connector.</p>
+   * @public
+   */
+  export interface AzureMember {
+    azure: AzureProviderDetailUpdate;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    azure?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    azure: (value: AzureProviderDetailUpdate) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector to update.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>The updated description of the connector.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The updated provider-specific configuration details for the connector.</p>
+   * @public
+   */
+  providerDetail?: ProviderDetailUpdate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorScanConfigurationRequest {
+  /**
+   * <p>The ARN of the Amazon Web Services Config connector.</p>
+   * @public
+   */
+  awsConfigConnectorArn: string | undefined;
+
+  /**
+   * <p>The scan configuration settings to apply.</p>
+   * @public
+   */
+  scanConfiguration: ConnectorScanConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateConnectorScanConfigurationResponse {}
 
 /**
  * @public

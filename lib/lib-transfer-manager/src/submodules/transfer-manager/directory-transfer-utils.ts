@@ -1,4 +1,4 @@
-import { type Stats } from "node:fs";
+import type { Stats } from "node:fs";
 import { stat } from "node:fs/promises";
 import { resolve } from "node:path";
 

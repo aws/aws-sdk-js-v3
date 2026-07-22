@@ -1558,7 +1558,7 @@ export var DescribeFleetEventsInput$: StaticStructureSchema = [3, n0, _DFEI,
 export var DescribeFleetEventsOutput$: StaticStructureSchema = [3, n0, _DFEO,
   0,
   [_E, _NTe],
-  [() => EventList, 0]
+  [[() => EventList, 0], 0]
 ];
 export var DescribeFleetLocationAttributesInput$: StaticStructureSchema = [3, n0, _DFLAI,
   0,
@@ -1796,7 +1796,7 @@ export var EC2InstanceLimit$: StaticStructureSchema = [3, n0, _ECILn,
   [0, 1, 1, 0]
 ];
 export var Event$: StaticStructureSchema = [3, n0, _Ev,
-  0,
+  8,
   [_EI, _RI, _EC, _M, _ETv, _PSLU, _Cou],
   [0, 0, 0, 0, 4, 0, 1]
 ];
@@ -1926,7 +1926,7 @@ export var GetGameSessionLogUrlInput$: StaticStructureSchema = [3, n0, _GGSLUI,
   [0], 1
 ];
 export var GetGameSessionLogUrlOutput$: StaticStructureSchema = [3, n0, _GGSLUO,
-  0,
+  8,
   [_PSU],
   [0]
 ];
@@ -2694,7 +2694,8 @@ var EC2InstanceLimitList: StaticListSchema = [1, n0, _ECILL,
   0, () => EC2InstanceLimit$
 ];
 var EventList: StaticListSchema = [1, n0, _EL,
-  0, () => Event$
+  0, [() => Event$,
+    0]
 ];
 var FilterInstanceStatuses = 64 | 0;
 var FleetActionList = 64 | 0;

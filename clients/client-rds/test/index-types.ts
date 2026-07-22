@@ -607,6 +607,7 @@ export type {
   CreateTenantDatabaseResult,
   CustomDBEngineVersionAMI,
   DBCluster,
+  DBClusterAssociatedRole,
   DBClusterAutomatedBackup,
   DBClusterAutomatedBackupMessage,
   DBClusterBacktrack,

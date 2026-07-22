@@ -31,6 +31,8 @@ import type {
   IssuerConfigurationType,
   KeyConfigurationType,
   LambdaConfigType,
+  LimitDefinitionType,
+  LimitType,
   ManagedLoginBrandingType,
   RefreshTokenRotationType,
   ResourceServerScopeType,
@@ -40,12 +42,84 @@ import type {
   TermsType,
   TokenValidityUnitsType,
   UserAttributeUpdateSettingsType,
+  UserImportJobType,
   UserPoolAddOnsType,
   UserPoolClientType,
   UserPoolPolicyType,
   UserPoolReplicaType,
   VerificationMessageTemplateType,
 } from "./models_0";
+
+/**
+ * <p>Represents the request to stop the user import job.</p>
+ * @public
+ */
+export interface StopUserImportJobRequest {
+  /**
+   * <p>The ID of the user pool that you want to stop.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of a running user import job.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * <p>Represents the response from the server to the request to stop the user import
+ *             job.</p>
+ * @public
+ */
+export interface StopUserImportJobResponse {
+  /**
+   * <p>The details of the user import job. Includes logging destination, status, and the Amazon S3
+   *             pre-signed URL for CSV upload.</p>
+   * @public
+   */
+  UserImportJob?: UserImportJobType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user pool to assign the tags to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An array of tag keys and values that you want to assign to the user pool.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user pool that the tags are assigned to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>An array of tag keys that you want to remove from the user pool.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
 
 /**
  * @public
@@ -444,6 +518,35 @@ export interface UpdateManagedLoginBrandingResponse {
    * @public
    */
   ManagedLoginBranding?: ManagedLoginBrandingType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedLimitRequest {
+  /**
+   * <p>The limit to update. Specify the limit class and the attributes that identify the
+   *             limit.</p>
+   * @public
+   */
+  LimitDefinition: LimitDefinitionType | undefined;
+
+  /**
+   * <p>The provisioned rate to set, in requests per second (RPS).</p>
+   * @public
+   */
+  RequestedLimitValue: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProvisionedLimitResponse {
+  /**
+   * <p>The updated provisioned and default limit values.</p>
+   * @public
+   */
+  Limit: LimitType | undefined;
 }
 
 /**

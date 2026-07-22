@@ -59,6 +59,7 @@ export interface ListDurableExecutionsByFunctionCommandOutput extends ListDurabl
  * //       Status: "RUNNING" || "SUCCEEDED" || "FAILED" || "TIMED_OUT" || "STOPPED", // required
  * //       StartTimestamp: new Date("TIMESTAMP"), // required
  * //       EndTimestamp: new Date("TIMESTAMP"),
+ * //       KMSKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextMarker: "STRING_VALUE",

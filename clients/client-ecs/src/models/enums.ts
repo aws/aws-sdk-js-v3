@@ -1075,7 +1075,7 @@ export type ServiceDeploymentRollbackMonitorsStatus =
  */
 export const ThresholdType = {
   /**
-   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamps the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type.</p>
+   * <p>Amazon ECS calculates the failure threshold by multiplying <code>value</code> by the latest service desired count, then clamping the result to a minimum of <code>3</code> and a maximum of <code>200</code>. This is the default threshold type, with a default <code>value</code> of <code>50</code>.</p>
    */
   BOUNDED_PERCENT: "BOUNDED_PERCENT",
   /**

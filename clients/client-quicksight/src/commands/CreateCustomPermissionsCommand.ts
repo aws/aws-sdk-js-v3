@@ -264,6 +264,10 @@ export interface CreateCustomPermissionsCommandOutput extends CreateCustomPermis
  *     GenerateAnalyses: "DENY",
  *     Story: "DENY",
  *     Scenario: "DENY",
+ *     Trigger: "DENY",
+ *     ScheduleTrigger: "DENY",
+ *     InboundEmailTrigger: "DENY",
+ *     QuickEventTrigger: "DENY",
  *   },
  *   Tags: [ // TagList
  *     { // Tag

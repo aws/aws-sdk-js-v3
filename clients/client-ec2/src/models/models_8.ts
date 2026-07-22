@@ -1,6 +1,61 @@
 // smithy-typescript generated code
-import type { InterruptibleCapacityReservationAllocationStatus, InterruptionType } from "./enums";
+import type {
+  CapacityManagerStatus,
+  InterruptibleCapacityReservationAllocationStatus,
+  InterruptionType,
+} from "./enums";
 import type { ByoipCidr, IpPermission } from "./models_0";
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerOrganizationsAccessRequest {
+  /**
+   * <p>
+   *     Specifies whether to enable or disable cross-account access for Amazon Web Services Organizations. When enabled, Capacity Manager aggregates data from all accounts in your organization.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess: boolean | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If
+   * you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerOrganizationsAccessResult {
+  /**
+   * <p>
+   * The current status of Capacity Manager after the update operation.
+   * </p>
+   * @public
+   */
+  CapacityManagerStatus?: CapacityManagerStatus | undefined;
+
+  /**
+   * <p>
+   * The updated Organizations access setting indicating whether cross-account data aggregation is enabled.
+   * </p>
+   * @public
+   */
+  OrganizationsAccess?: boolean | undefined;
+}
 
 /**
  * @public

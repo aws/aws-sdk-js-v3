@@ -55,6 +55,8 @@ export interface UsageRecord {
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
    *          <p>Your application can meter usage for up to 24 hours in the past. Make sure the
    *                 <code>timestamp</code> value is not before the start of the software usage.</p>
+   *          <p>At the end of each billing cycle, you have a 6-hour grace period to submit usage
+   *                 records for the previous billing month before 06:00 UTC on the first day of the next month.</p>
    * @public
    */
   Timestamp: Date | undefined;
@@ -63,6 +65,10 @@ export interface UsageRecord {
    * <p>The <code>CustomerIdentifier</code> is obtained through the
    *                 <code>ResolveCustomer</code> operation and represents an individual buyer in your
    *             application.</p>
+   *          <important>
+   *             <p>
+   *                <code>CustomerIdentifier</code> is not supported for new SaaS product integrations. Use <code>CustomerAWSAccountId</code> to identify the buyer.</p>
+   *          </important>
    * @public
    */
   CustomerIdentifier?: string | undefined;
@@ -346,6 +352,9 @@ export interface ResolveCustomerRequest {
    *             registration token through the browser. The registration token is resolved to obtain a
    *                 <code>CustomerIdentifier</code> along with the <code>CustomerAWSAccountId</code>,
    *                 <code>ProductCode</code>, and <code>LicenseArn</code>.</p>
+   *          <note>
+   *             <p>For new SaaS product integrations, the <code>CustomerIdentifier</code> field is not populated. Use <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> for customer identification.</p>
+   *          </note>
    * @public
    */
   RegistrationToken: string | undefined;
@@ -361,6 +370,9 @@ export interface ResolveCustomerResult {
   /**
    * <p>The <code>CustomerIdentifier</code> is used to identify an individual customer in your
    *             application.</p>
+   *          <important>
+   *             <p>For new SaaS product integrations, this field is not populated. Use <code>CustomerAWSAccountId</code> and <code>LicenseArn</code> to identify customers instead.</p>
+   *          </important>
    * @public
    */
   CustomerIdentifier?: string | undefined;

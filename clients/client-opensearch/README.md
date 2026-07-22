@@ -563,6 +563,13 @@ GetIndex
 </details>
 <details>
 <summary>
+GetMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/GetMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetMigrationCommandOutput/)
+</details>
+<details>
+<summary>
 GetPackageVersionHistory
 </summary>
 
@@ -651,6 +658,13 @@ ListInstanceTypeDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListInstanceTypeDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListInstanceTypeDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListInstanceTypeDetailsCommandOutput/)
+</details>
+<details>
+<summary>
+ListMigrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListMigrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListMigrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListMigrationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -756,6 +770,13 @@ StartDomainMaintenance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/StartDomainMaintenanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/StartDomainMaintenanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/StartDomainMaintenanceCommandOutput/)
+</details>
+<details>
+<summary>
+StartMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/StartMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/StartMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/StartMigrationCommandOutput/)
 </details>
 <details>
 <summary>

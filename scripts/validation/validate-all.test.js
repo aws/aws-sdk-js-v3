@@ -22,6 +22,7 @@ const distEs = path.join(tmpPkgDir, "dist-es");
 function setup() {
   fs.mkdirSync(distCjs, { recursive: true });
   fs.mkdirSync(distEs, { recursive: true });
+  fs.mkdirSync(path.join(tmpPkgDir, "src"), { recursive: true });
 
   // package.json declares "tslib" (implicit, always passes) and "@aws-sdk/util-arn-parser" (unused).
   fs.writeFileSync(
@@ -74,6 +75,12 @@ module.exports = { blorp: toHex };
   // orphan.js — unreachable (not imported from index)
   fs.writeFileSync(path.join(distCjs, "orphan.js"), `"use strict";\nmodule.exports = {};\n`);
   fs.writeFileSync(path.join(distEs, "orphan.js"), `"use strict";\nmodule.exports = {};\n`);
+
+  // no-export-star violation: src/barrel.ts uses export * from
+  fs.writeFileSync(path.join(tmpPkgDir, "src", "barrel.ts"), `export * from "./blorp";\nexport * from "./utils";\n`);
+
+  // filenames violation: multi-dot filename that is not an allowed suffix
+  fs.writeFileSync(path.join(distCjs, "blorp.spec.js"), `"use strict";\nmodule.exports = {};\n`);
 }
 
 function teardown() {
@@ -144,12 +151,24 @@ function runTests() {
 
   // 5. unreachable-files
   const unreachable = runValidator("unreachable-files.js", [pkg]);
-  check(unreachable.output.includes("orphan.js"), "unreachable-files detects orphan.js");
+  check(unreachable.exitCode !== 0, "unreachable-files detects orphan.js as an error");
+  check(unreachable.output.includes("orphan.js"), "unreachable-files names the unreachable file");
 
   // 6. deps-used (@aws-sdk/util-endpoints is declared but never imported)
   const deps = runValidator("deps-used.js", [pkg]);
   check(deps.exitCode !== 0, "deps-used detects unused @aws-sdk/util-endpoints");
   check(deps.output.includes("@aws-sdk/util-endpoints"), "deps-used names the unused dependency");
+
+  // 7. no-export-star (src/barrel.ts uses export *)
+  const exportStar = runValidator("no-export-star.js", [pkg]);
+  check(exportStar.exitCode !== 0, "no-export-star detects export * in source");
+  check(exportStar.output.includes("barrel.ts"), "no-export-star identifies the offending file");
+  check(exportStar.output.includes("export *"), "no-export-star mentions 'export *' in the error");
+
+  // 8. filenames (blorp.spec.js has suspicious multi-dot name)
+  const filenames = runValidator("filenames.js", [pkg]);
+  check(filenames.exitCode !== 0, "filenames detects suspicious multi-dot filename");
+  check(filenames.output.includes("blorp.spec.js"), "filenames identifies the offending file");
 
   console.log(`\n${passed + failed} tests: ${passed} passed, ${failed} failed`);
   return failed === 0;

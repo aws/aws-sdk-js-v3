@@ -309,6 +309,9 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *     AwsAccountName: "<StringFilterList>",
  *     ResourceApplicationName: "<StringFilterList>",
  *     ResourceApplicationArn: "<StringFilterList>",
+ *     ResourceOwnerAccountId: "<StringFilterList>",
+ *     ResourceOwnerOrgId: "<StringFilterList>",
+ *     ResourceProvider: "<StringFilterList>",
  *   },
  *   GroupByAttribute: "STRING_VALUE", // required
  * };

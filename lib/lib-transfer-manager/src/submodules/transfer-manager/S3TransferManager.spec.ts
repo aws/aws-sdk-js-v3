@@ -1346,7 +1346,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       try {
         const mockClient = createMockClient();
-        const tm = new S3TransferManager({ s3: mockClient});
+        const tm = new S3TransferManager({ s3: mockClient });
 
         const result = await tm.uploadDirectory({
           bucket: "test-bucket",
@@ -1370,7 +1370,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       try {
         const mockClient = createMockClient();
-        const tm = new S3TransferManager({ s3: mockClient});
+        const tm = new S3TransferManager({ s3: mockClient });
 
         const result = await tm.uploadDirectory({
           bucket: "test-bucket",
@@ -1385,11 +1385,10 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should apply filter to skip files", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "file1.txt"), "file to include 1");
       await writeFile(join(tmpDir, "file2.log"), "don't include this file");
-      await writeFile(join(tmpDir, "file3.txt"), "file to include 2"); 
+      await writeFile(join(tmpDir, "file3.txt"), "file to include 2");
       try {
         const mockClient = createMockClient();
         const tm = new S3TransferManager({ s3: mockClient });
@@ -1407,7 +1406,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should apply RegExp filter to skip files", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "hello.txt"), "hello");
       await writeFile(join(tmpDir, "world.txt"), "world");
@@ -1430,7 +1428,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should prepend s3Prefix to keys", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "root.txt"), "root content");
       await mkdir(join(tmpDir, "subdir"));
@@ -1457,7 +1454,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should terminate on failure with terminate policy", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "file1.txt"), "content1");
       await writeFile(join(tmpDir, "file2.txt"), "content2");
@@ -1486,7 +1482,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should continue on failure with continue policy", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-test-"));
       await writeFile(join(tmpDir, "file1.txt"), "content1");
       await writeFile(join(tmpDir, "file2.txt"), "content2");
@@ -1549,7 +1544,11 @@ describe("S3TransferManager Unit Tests", () => {
 
         const customPolicy = async (context: any) => {
           const errorName = context.error?.name;
-          if (errorName === "TimeoutError" || errorName === "ServiceUnavailable" || errorName === "ThrottlingException") {
+          if (
+            errorName === "TimeoutError" ||
+            errorName === "ServiceUnavailable" ||
+            errorName === "ThrottlingException"
+          ) {
             return "continue" as const;
           }
           return "terminate" as const;
@@ -1601,7 +1600,11 @@ describe("S3TransferManager Unit Tests", () => {
 
         const customPolicy = async (context: any) => {
           const errorName = context.error?.name;
-          if (errorName === "TimeoutError" || errorName === "ServiceUnavailable" || errorName === "ThrottlingException") {
+          if (
+            errorName === "TimeoutError" ||
+            errorName === "ServiceUnavailable" ||
+            errorName === "ThrottlingException"
+          ) {
             return "continue" as const;
           }
           return "terminate" as const;
@@ -1625,7 +1628,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should apply uploadObjectRequestModifier to override request fields", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "file1.txt"), "content1");
       await writeFile(join(tmpDir, "file2.txt"), "content2");
@@ -1639,7 +1641,7 @@ describe("S3TransferManager Unit Tests", () => {
           source: tmpDir,
           uploadObjectRequestModifier: (req) => ({
             ...req,
-            Bucket: "override-bucket"
+            Bucket: "override-bucket",
           }),
         });
 
@@ -1688,7 +1690,6 @@ describe("S3TransferManager Unit Tests", () => {
     });
 
     it("should abort when transferOptions.abortSignal is triggered", async () => {
-
       const tmpDir = await mkdtemp(join(tmpdir(), "tm-uploadDir-test-"));
       await writeFile(join(tmpDir, "file.txt"), "content");
 
@@ -1700,10 +1701,13 @@ describe("S3TransferManager Unit Tests", () => {
         const tm = new S3TransferManager({ s3: mockClient });
 
         await expect(
-          tm.uploadDirectory({
-            bucket: "test-bucket",
-            source: tmpDir,
-          }, { abortSignal: ac.signal })
+          tm.uploadDirectory(
+            {
+              bucket: "test-bucket",
+              source: tmpDir,
+            },
+            { abortSignal: ac.signal }
+          )
         ).rejects.toThrow("Transfer aborted");
       } finally {
         await rm(tmpDir, { recursive: true });
@@ -1730,7 +1734,5 @@ describe("S3TransferManager Unit Tests", () => {
         await rm(tmpDir, { recursive: true });
       }
     });
-
   });
-
 });

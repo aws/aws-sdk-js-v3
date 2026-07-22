@@ -70,7 +70,7 @@ describe("@aws-sdk/config", () => {
           info: vi.fn(),
           warn: vi.fn(),
           error: vi.fn(),
-        } as Logger);
+        }) as Logger;
 
       {
         const logger = makeLogger();

@@ -37,7 +37,7 @@ export interface ListAssociationsCommandOutput extends ListAssociationsResult, _
  * const input = { // ListAssociationsRequest
  *   AssociationFilterList: [ // AssociationFilterList
  *     { // AssociationFilter
- *       key: "InstanceId" || "Name" || "AssociationId" || "AssociationStatusName" || "LastExecutedBefore" || "LastExecutedAfter" || "AssociationName" || "ResourceGroupName", // required
+ *       key: "InstanceId" || "Name" || "AssociationId" || "AssociationStatusName" || "LastExecutedBefore" || "LastExecutedAfter" || "AssociationName" || "ResourceGroupName" || "CloudConnectorId", // required
  *       value: "STRING_VALUE", // required
  *     },
  *   ],

@@ -49,6 +49,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends CreateLa
  *   exportBucketArn: "STRING_VALUE",
  *   postLaunchEnabled: true || false,
  *   launchIntoSourceInstance: true || false,
+ *   recoveryMode: "STRING_VALUE",
  * };
  * const command = new CreateLaunchConfigurationTemplateCommand(input);
  * const response = await client.send(command);
@@ -69,6 +70,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends CreateLa
  * //     exportBucketArn: "STRING_VALUE",
  * //     postLaunchEnabled: true || false,
  * //     launchIntoSourceInstance: true || false,
+ * //     recoveryMode: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -59,11 +59,13 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   },
  * //   DashConfiguration: { // DashConfiguration
  * //     ManifestEndpointPrefix: "STRING_VALUE",
+ * //     DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //     MpdLocation: "STRING_VALUE",
  * //     OriginManifestType: "SINGLE_PERIOD" || "MULTI_PERIOD",
  * //   },
  * //   HlsConfiguration: { // HlsConfiguration
  * //     ManifestEndpointPrefix: "STRING_VALUE",
+ * //     DualStackManifestEndpointPrefix: "STRING_VALUE",
  * //   },
  * //   InsertionMode: "STITCHED_ONLY" || "PLAYER_SELECT",
  * //   LivePreRollConfiguration: { // LivePreRollConfiguration
@@ -101,7 +103,9 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   PersonalizationThresholdSeconds: Number("int"),
  * //   PlaybackConfigurationArn: "STRING_VALUE",
  * //   PlaybackEndpointPrefix: "STRING_VALUE",
+ * //   DualStackPlaybackEndpointPrefix: "STRING_VALUE",
  * //   SessionInitializationEndpointPrefix: "STRING_VALUE",
+ * //   DualStackSessionInitializationEndpointPrefix: "STRING_VALUE",
  * //   SlateAdUrl: "STRING_VALUE",
  * //   Tags: {
  * //     "<keys>": "STRING_VALUE",
@@ -123,6 +127,17 @@ export interface GetPlaybackConfigurationCommandOutput extends GetPlaybackConfig
  * //   },
  * //   FunctionMapping: { // FunctionMapping
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   AdsPersonalizationTimeouts: { // AdsPersonalizationTimeouts
+ * //     AdsRequestTimeoutMilliseconds: Number("int"),
+ * //     LiveMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     VodMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //     PrefetchAdsRequestTimeoutMilliseconds: Number("int"),
+ * //     PrefetchMaximumAdsPersonalizationTimeMilliseconds: Number("int"),
+ * //   },
+ * //   AdsPersonalizationConcurrency: { // AdsPersonalizationConcurrency
+ * //     MaxConcurrentAdsRequests: Number("int"),
+ * //     EnableVodVastParallelization: true || false,
  * //   },
  * // };
  *

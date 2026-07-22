@@ -1,7 +1,7 @@
 # This is the public Makefile containing some build commands.
 # You can implement some additional personal commands such as login and sync in Makefile.private.mk (unversioned).
 
-.PHONY: login sync bundles test-unit test-types test-indices test-protocols test-schema test-integration test-endpoints test-e2e build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis
+.PHONY: login sync bundles test-unit test-types test-typescript-versions test-indices test-protocols test-schema test-integration test-endpoints test-e2e build build-s3-browser-bundle build-signature-v4-multi-region-browser-bundle clean-nested link-smithy unlink-smithy copy-smithy gen-auth b-auth tpk unbuilt turbo-clean server-protocols nested-clients clients static-analysis lint format
 
 # fetch AWS testing credentials
 login:
@@ -28,6 +28,7 @@ test-integration: bundles core-prebuild
 	yarn g:vitest run -c vitest.config.integ.mts
 	make test-protocols
 	make test-types
+	make test-typescript-versions
 	make snapshot-compare
 	make test-indices
 	make test-endpoints
@@ -51,6 +52,12 @@ test-codegen:
 test-types: reset-test-credentials
 	npx tsc -p tsconfig.test.json
 	npx tsc -p tsconfig.test.index-types.json
+
+# verify clients compile across supported TypeScript versions (see tests/ts-compat/README.md).
+# Downlevel the .d.ts first so TypeScript < 4.5 resolves the clients' dist-types/ts3.4 declarations.
+test-typescript-versions:
+	yarn build:types:downlevel
+	(cd ./tests/ts-compat && npm install --no-audit --no-fund && node ./run.mjs)
 
 test-indices:
 	node ./scripts/validation/client-indexes.mjs
@@ -103,6 +110,9 @@ test-bundlers:
 	node ./tests/bundlers/bundler-canary.mjs
 	(cd ./tests/bundler-compat && npm install && node ./run.mjs)
 
+build:
+	yarn build;
+
 build-s3-browser-bundle:
 	node ./clients/client-s3/test/browser-build/esbuild
 
@@ -144,6 +154,8 @@ unbuilt:
 static-analysis:
 	node ./scripts/validation/generic-byte-arrays.js
 	node ./scripts/validation/validate-all.js;
+	yarn lint:versions
+	yarn lint:dependencies
 	make api-snapshot
 
 # Clears the Turborepo local build cache
@@ -166,3 +178,9 @@ nested-clients:
 
 core-prebuild:
 	yarn workspace @aws-sdk/core run prebuild
+
+lint:
+	yarn lint
+
+format:
+	npx oxfmt --write .

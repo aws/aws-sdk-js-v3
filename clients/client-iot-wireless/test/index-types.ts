@@ -435,6 +435,7 @@ export type {
   CreateWirelessGatewayTaskRequest,
   CreateWirelessGatewayTaskResponse,
   DakCertificateMetadata,
+  DefaultSessionParametersMulticast,
   DeleteDestinationRequest,
   DeleteDestinationResponse,
   DeleteDeviceProfileRequest,

@@ -131,8 +131,10 @@ export interface DescribeBrokerCommandOutput extends DescribeBrokerResponse, __M
  * //     UserSearchSubtree: true || false,
  * //   },
  * //   PendingSecurityGroups: "<__listOf__string>",
+ * //   PendingStorageSize: Number("int"),
  * //   PubliclyAccessible: true || false,
  * //   SecurityGroups: "<__listOf__string>",
+ * //   StorageSize: Number("int"),
  * //   StorageType: "EBS" || "EFS",
  * //   SubnetIds: "<__listOf__string>",
  * //   Tags: { // __mapOf__string

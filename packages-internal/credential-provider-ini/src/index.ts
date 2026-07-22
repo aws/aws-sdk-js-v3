@@ -1,4 +1,2 @@
-/**
- * @internal
- */
-export * from "./fromIni";
+export { fromIni } from "./fromIni";
+export type { FromIniInit } from "./fromIni";

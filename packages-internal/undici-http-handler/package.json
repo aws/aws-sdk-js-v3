@@ -1,10 +1,32 @@
 {
   "name": "@aws-sdk/undici-http-handler",
-  "version": "2.1.4",
+  "version": "3.0.1",
   "description": "AWS SDK for JavaScript reqeust handler backed by modern, high performance Node.js undici client",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/undici-http-handler",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/undici-http-handler"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -18,7 +40,7 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/undici-http-handler": "^2.2.4",
+    "@smithy/undici-http-handler": "^3.0.3",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -30,27 +52,5 @@
   },
   "engines": {
     "node": ">=20.18.1"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/undici-http-handler",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/undici-http-handler"
-  },
-  "license": "Apache-2.0",
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
   }
 }

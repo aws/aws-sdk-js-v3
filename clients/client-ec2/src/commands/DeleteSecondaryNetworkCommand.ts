@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteSecondaryNetworkRequest } from "../models/models_2";
-import type { DeleteSecondaryNetworkResult } from "../models/models_3";
+import type { DeleteSecondaryNetworkRequest, DeleteSecondaryNetworkResult } from "../models/models_3";
 import { DeleteSecondaryNetwork$ } from "../schemas/schemas_0";
 
 /**

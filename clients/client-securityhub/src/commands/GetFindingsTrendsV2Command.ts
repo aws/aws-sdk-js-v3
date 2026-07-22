@@ -39,7 +39,7 @@ export interface GetFindingsTrendsV2CommandOutput extends GetFindingsTrendsV2Res
  *       { // FindingsTrendsCompositeFilter
  *         StringFilters: [ // FindingsTrendsStringFilterList
  *           { // FindingsTrendsStringFilter
- *             FieldName: "account_id" || "region" || "finding_types" || "finding_status" || "finding_cve_ids" || "finding_compliance_status" || "finding_control_id" || "finding_class_name" || "finding_provider" || "finding_activity_name",
+ *             FieldName: "account_id" || "region" || "finding_types" || "finding_status" || "finding_cve_ids" || "finding_compliance_status" || "finding_control_id" || "finding_class_name" || "finding_provider" || "finding_activity_name" || "resource_cloud_providers" || "resource_regions" || "resource_owner_ids" || "resource_owner_organization_ids",
  *             Filter: { // StringFilter
  *               Value: "STRING_VALUE",
  *               Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -50,7 +50,7 @@ export interface GetFindingsTrendsV2CommandOutput extends GetFindingsTrendsV2Res
  *           {
  *             StringFilters: [
  *               {
- *                 FieldName: "account_id" || "region" || "finding_types" || "finding_status" || "finding_cve_ids" || "finding_compliance_status" || "finding_control_id" || "finding_class_name" || "finding_provider" || "finding_activity_name",
+ *                 FieldName: "account_id" || "region" || "finding_types" || "finding_status" || "finding_cve_ids" || "finding_compliance_status" || "finding_control_id" || "finding_class_name" || "finding_provider" || "finding_activity_name" || "resource_cloud_providers" || "resource_regions" || "resource_owner_ids" || "resource_owner_organization_ids",
  *                 Filter: {
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",

@@ -1,10 +1,34 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.973.15",
+  "version": "3.974.2",
+  "description": "Types for the AWS SDK",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/types",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/types"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "browser": {},
   "types": "./dist-types/index.d.ts",
-  "description": "Types for the AWS SDK",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {},
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -16,33 +40,8 @@
     "extract:docs": "api-extractor run --local",
     "test": "tsc -p tsconfig.test.json"
   },
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/types",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/types"
-  },
   "dependencies": {
-    "@smithy/types": "^4.15.1",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -52,6 +51,7 @@
     "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
-  "browser": {},
-  "react-native": {}
+  "engines": {
+    "node": ">=20.0.0"
+  }
 }

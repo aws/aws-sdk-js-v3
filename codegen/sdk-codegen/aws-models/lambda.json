@@ -2694,6 +2694,13 @@
           "traits": {
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The telemetry configuration for the capacity provider, including logging settings.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
         }
       },
       "traits": {
@@ -2751,6 +2758,29 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 400,
         "smithy.api#tags": ["feature:public"]
+      }
+    },
+    "com.amazonaws.lambda#CapacityProviderLoggingConfig": {
+      "type": "structure",
+      "members": {
+        "SystemLogLevel": {
+          "target": "com.amazonaws.lambda#SystemLogLevel",
+          "traits": {
+            "smithy.api#documentation": "<p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        },
+        "LogGroup": {
+          "target": "com.amazonaws.lambda#LogGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>",
+        "smithy.api#tags": ["feature:lmi-system-log"]
       }
     },
     "com.amazonaws.lambda#CapacityProviderMaxVCpuCount": {
@@ -2984,6 +3014,22 @@
         "smithy.api#tags": ["feature:public"]
       }
     },
+    "com.amazonaws.lambda#CapacityProviderTelemetryConfig": {
+      "type": "structure",
+      "members": {
+        "LoggingConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderLoggingConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Configuration that specifies the telemetry collection for the capacity provider.</p>",
+        "smithy.api#tags": ["feature:lmi-system-log"]
+      }
+    },
     "com.amazonaws.lambda#CapacityProviderVpcConfig": {
       "type": "structure",
       "members": {
@@ -3196,6 +3242,18 @@
       "errors": [
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
         },
         {
           "target": "com.amazonaws.lambda#ServiceException"
@@ -4072,6 +4130,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The tag propagation configuration for the capacity provider. Specifies tags to apply to managed resources at launch.</p>",
             "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The telemetry configuration for the capacity provider. Specifies logging settings for managed resources.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
           }
         }
       },
@@ -5922,6 +5987,13 @@
     "com.amazonaws.lambda#DurableConfig": {
       "type": "structure",
       "members": {
+        "KMSKeyArn": {
+          "target": "com.amazonaws.lambda#KMSKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>",
+            "smithy.api#tags": ["feature:dar-cmkms"]
+          }
+        },
         "RetentionPeriodInDays": {
           "target": "com.amazonaws.lambda#RetentionPeriodInDays",
           "traits": {
@@ -5938,7 +6010,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout and retention period for execution history.</p>",
+        "smithy.api#documentation": "<p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>",
         "smithy.api#tags": ["feature:public"]
       }
     },
@@ -7458,11 +7530,24 @@
             "smithy.api#documentation": "<p>The date and time when the durable execution ended, in <a href=\"https://www.w3.org/TR/NOTE-datetime\">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>",
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "KMSKeyArn": {
+          "target": "com.amazonaws.lambda#KMSKeyArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>",
+            "smithy.api#tags": ["feature:dar-cmkms"]
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable execution</a>.</p>",
         "smithy.api#tags": ["feature:public"]
+      }
+    },
+    "com.amazonaws.lambda#ExecutionDataIncluded": {
+      "type": "boolean",
+      "traits": {
+        "smithy.api#tags": ["feature:dar-cmkms"]
       }
     },
     "com.amazonaws.lambda#ExecutionDetails": {
@@ -9158,6 +9243,18 @@
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
         },
         {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
+        },
+        {
           "target": "com.amazonaws.lambda#ResourceNotFoundException"
         },
         {
@@ -9198,6 +9295,18 @@
       "errors": [
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
         },
         {
           "target": "com.amazonaws.lambda#ResourceNotFoundException"
@@ -9322,6 +9431,15 @@
             "smithy.api#required": {},
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "IncludeExecutionData": {
+          "target": "com.amazonaws.lambda#IncludeExecutionData",
+          "traits": {
+            "smithy.api#default": true,
+            "smithy.api#documentation": "<p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>",
+            "smithy.api#httpQuery": "IncludeExecutionData",
+            "smithy.api#tags": ["feature:dar-cmkms"]
+          }
         }
       },
       "traits": {
@@ -9413,6 +9531,20 @@
             "smithy.api#documentation": "<p>The trace headers associated with the durable execution.</p>",
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "ExecutionDataIncluded": {
+          "target": "com.amazonaws.lambda#ExecutionDataIncluded",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>",
+            "smithy.api#tags": ["feature:dar-cmkms"]
+          }
+        },
+        "DurableConfig": {
+          "target": "com.amazonaws.lambda#DurableConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>",
+            "smithy.api#tags": ["feature:dar-cmkms"]
+          }
         }
       },
       "traits": {
@@ -9432,6 +9564,18 @@
       "errors": [
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
         },
         {
           "target": "com.amazonaws.lambda#ServiceException"
@@ -11817,7 +11961,7 @@
         "DurableExecutionName": {
           "target": "com.amazonaws.lambda#DurableExecutionName",
           "traits": {
-            "smithy.api#documentation": "<p>Optional unique name for the durable execution. When you start your special function, you can give it a unique name to identify this specific execution. It's like giving a nickname to a task.</p>",
+            "smithy.api#documentation": "<p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p> <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names\">Execution names</a>.</p>",
             "smithy.api#httpHeader": "X-Amz-Durable-Execution-Name",
             "smithy.api#tags": ["feature:public"]
           }
@@ -12546,14 +12690,6 @@
             "smithy.api#tags": ["feature:public"]
           }
         },
-        "InvocationType": {
-          "target": "com.amazonaws.lambda#ResponseStreamingInvocationType",
-          "traits": {
-            "smithy.api#documentation": "<p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>",
-            "smithy.api#httpHeader": "X-Amz-Invocation-Type",
-            "smithy.api#tags": ["feature:public"]
-          }
-        },
         "LogType": {
           "target": "com.amazonaws.lambda#LogType",
           "traits": {
@@ -12591,6 +12727,14 @@
           "traits": {
             "smithy.api#documentation": "<p>The identifier of the tenant in a multi-tenant Lambda function.</p>",
             "smithy.api#httpHeader": "X-Amz-Tenant-Id",
+            "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "InvocationType": {
+          "target": "com.amazonaws.lambda#ResponseStreamingInvocationType",
+          "traits": {
+            "smithy.api#documentation": "<p>Use one of the following options:</p> <ul> <li> <p> <code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API operation response includes the function response and additional data.</p> </li> <li> <p> <code>DryRun</code> – Validate parameter values and verify that the IAM user or role has permission to invoke the function.</p> </li> </ul>",
+            "smithy.api#httpHeader": "X-Amz-Invocation-Type",
             "smithy.api#tags": ["feature:public"]
           }
         }
@@ -13260,6 +13404,13 @@
           "traits": {
             "smithy.api#enumValue": "DisallowedByVpcEncryptionControl",
             "smithy.api#tags": ["feature:public"]
+          }
+        },
+        "DependencyError": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DependencyError",
+            "smithy.api#tags": ["feature:dependency-error"]
           }
         }
       },
@@ -15908,7 +16059,7 @@
           "min": 1,
           "max": 256
         },
-        "smithy.api#pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:)?((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?(function:)?([a-zA-Z0-9-_\\.]+)(:(\\$LATEST(\\.PUBLISHED)?|[a-zA-Z0-9-_]+))?$",
+        "smithy.api#pattern": "^(arn:(aws[a-zA-Z-]*)?:lambda:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:|(((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:)?(\\d{12}:)?))(function:)?([a-zA-Z0-9-_\\.]+)(:(\\$LATEST(\\.PUBLISHED)?|[a-zA-Z0-9-_]+))?$",
         "smithy.api#tags": ["feature:public"]
       }
     },
@@ -18841,6 +18992,27 @@
             "smithy.api#enumValue": "provided.al2023",
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "java8al2023": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "java8.al2023",
+            "smithy.api#tags": ["feature:java-al2023"]
+          }
+        },
+        "java11al2023": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "java11.al2023",
+            "smithy.api#tags": ["feature:java-al2023"]
+          }
+        },
+        "java17al2023": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "java17.al2023",
+            "smithy.api#tags": ["feature:java-al2023"]
+          }
         }
       },
       "traits": {
@@ -19168,6 +19340,18 @@
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
         },
         {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
+        },
+        {
           "target": "com.amazonaws.lambda#ResourceNotFoundException"
         },
         {
@@ -19312,6 +19496,18 @@
         },
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
         },
         {
           "target": "com.amazonaws.lambda#ResourceNotFoundException"
@@ -20135,6 +20331,13 @@
             "smithy.api#enumValue": "DrainingDurableExecutions",
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "DependencyError": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DependencyError",
+            "smithy.api#tags": ["feature:dependency-error"]
+          }
         }
       },
       "traits": {
@@ -20279,6 +20482,18 @@
       "errors": [
         {
           "target": "com.amazonaws.lambda#InvalidParameterValueException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSDisabledException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSInvalidStateException"
+        },
+        {
+          "target": "com.amazonaws.lambda#KMSNotFoundException"
         },
         {
           "target": "com.amazonaws.lambda#ResourceNotFoundException"
@@ -21287,6 +21502,13 @@
           "traits": {
             "smithy.api#tags": ["feature:public"]
           }
+        },
+        "TelemetryConfig": {
+          "target": "com.amazonaws.lambda#CapacityProviderTelemetryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The updated telemetry configuration for the capacity provider.</p>",
+            "smithy.api#tags": ["feature:lmi-system-log"]
+          }
         }
       },
       "traits": {
@@ -22071,7 +22293,7 @@
         "DurableConfig": {
           "target": "com.amazonaws.lambda#DurableConfig",
           "traits": {
-            "smithy.api#documentation": "<p>Configuration settings for durable functions. Allows updating execution timeout and retention period for functions with durability enabled.</p>",
+            "smithy.api#documentation": "<p>Configuration settings for <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html\">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>",
             "smithy.api#tags": ["feature:public"]
           }
         }

@@ -140,6 +140,7 @@ export type {
   SessionKeyEmv2000,
   SessionKeyEmvCommon,
   SessionKeyMastercard,
+  SessionKeyUnionPay,
   SessionKeyVisa,
   SymmetricEncryptionAttributes,
   TranslateKeyMaterialInput,

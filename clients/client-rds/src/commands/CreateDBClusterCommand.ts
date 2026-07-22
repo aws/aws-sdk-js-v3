@@ -23,7 +23,7 @@ export interface CreateDBClusterCommandInput extends CreateDBClusterMessage {}
 export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p> <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p> <p>You can use the <code>WithExpressConfiguration</code> parameter to create an Aurora DB Cluster with express configuration and create cluster in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p>
+ * <p>Creates a new Amazon Aurora DB cluster or Multi-AZ DB cluster.</p> <p>If you create an Aurora DB cluster, the request creates an empty cluster. You must explicitly create the writer instance for your DB cluster using the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html">CreateDBInstance</a> operation. If you create a Multi-AZ DB cluster, the request creates a writer and two reader DB instances for you, each in a different Availability Zone.</p> <p>You can use the <code>ReplicationSourceIdentifier</code> parameter to create an Amazon Aurora DB cluster as a read replica of another DB cluster or Amazon RDS for MySQL or PostgreSQL DB instance. For more information about Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p> <p>You can also use the <code>ReplicationSourceIdentifier</code> parameter to create a Multi-AZ DB cluster read replica with an RDS for MySQL or PostgreSQL DB instance as the source. For more information about Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">Multi-AZ DB cluster deployments</a> in the <i>Amazon RDS User Guide</i>.</p> <p>You can use the <code>WithExpressConfiguration</code> parameter to create an Aurora DB Cluster with express configuration and create cluster in seconds. Express configuration provides a cluster with a writer instance and feature specific values set to all other input parameters of this API. </p> <p>You can use the <code>AssociatedRoles</code> parameter to associate one or more Amazon Web Services Identity and Access Management (IAM) roles with an Aurora DB cluster. Each associated role lets the DB cluster access other Amazon Web Services on your behalf, such as Amazon S3 for data import and export, or Amazon Web Services Lambda for invoking functions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +128,12 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   ],
  *   MasterUserAuthenticationType: "password" || "iam-db-auth",
  *   WithExpressConfiguration: true || false,
+ *   AssociatedRoles: [ // DBClusterAssociatedRoles
+ *     { // DBClusterAssociatedRole
+ *       RoleArn: "STRING_VALUE", // required
+ *       FeatureName: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -349,6 +355,9 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *
  * @throws {@link DBClusterQuotaExceededFault} (client fault)
  *  <p>The user attempted to create a new DB cluster and the user has already reached the maximum allowed DB cluster quota.</p>
+ *
+ * @throws {@link DBClusterRoleQuotaExceededFault} (client fault)
+ *  <p>You have exceeded the maximum number of IAM roles that can be associated with the specified DB cluster.</p>
  *
  * @throws {@link DBInstanceNotFoundFault} (client fault)
  *  <p> <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
@@ -602,6 +611,71 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *     Status: "creating",
  *     StorageEncrypted: false,
  *     TagList:     [],
+ *     VpcSecurityGroups:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an Aurora DB cluster with an associated IAM role for Amazon S3 import
+ * ```javascript
+ * // The following example creates an Aurora PostgreSQL-compatible DB cluster and associates an IAM role for Amazon S3 import in a single call.
+ * const input = {
+ *   AssociatedRoles: [
+ *     {
+ *       FeatureName: "s3Import",
+ *       RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ *     }
+ *   ],
+ *   DBClusterIdentifier: "sample-cluster",
+ *   Engine: "aurora-postgresql",
+ *   MasterUserPassword: "mypassword",
+ *   MasterUsername: "admin"
+ * };
+ * const command = new CreateDBClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles: [
+ *       {
+ *         FeatureName: "s3Import",
+ *         RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3",
+ *         Status: "ACTIVE"
+ *       }
+ *     ],
+ *     AvailabilityZones: [
+ *       "us-east-1a",
+ *       "us-east-1b",
+ *       "us-east-1c"
+ *     ],
+ *     BackupRetentionPeriod: 1,
+ *     ClusterCreateTime: "2024-06-07T23:26:08.371Z",
+ *     CopyTagsToSnapshot: false,
+ *     DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:sample-cluster",
+ *     DBClusterIdentifier: "sample-cluster",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql17",
+ *     DBSubnetGroup: "default",
+ *     DbClusterResourceId: "cluster-ANPAJ4AE5446DAEXAMPLE",
+ *     DeletionProtection: false,
+ *     Endpoint: "sample-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "17.7",
+ *     HostedZoneId: "Z2R2ITUGPM61AM",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MasterUsername: "admin",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "09:56-10:26",
+ *     PreferredMaintenanceWindow: "wed:03:33-wed:04:03",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "sample-cluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *     Status: "creating",
+ *     StorageEncrypted: false,
  *     VpcSecurityGroups:     []
  *   }
  * }

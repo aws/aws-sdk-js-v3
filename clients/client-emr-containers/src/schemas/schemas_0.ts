@@ -1,4 +1,5 @@
-const _AC = "AuthorizationConfiguration";
+const _AC = "AuthenticationConfiguration";
+const _ACu = "AuthorizationConfiguration";
 const _C = "Certificate";
 const _CI = "ContainerInfo";
 const _CJR = "CancelJobRun";
@@ -38,9 +39,12 @@ const _DMERe = "DeleteManagedEndpointResponse";
 const _DMERes = "DescribeManagedEndpointRequest";
 const _DMEResc = "DescribeManagedEndpointResponse";
 const _DMEe = "DescribeManagedEndpoint";
-const _DSC = "DescribeSecurityConfiguration";
-const _DSCR = "DescribeSecurityConfigurationRequest";
-const _DSCRe = "DescribeSecurityConfigurationResponse";
+const _DSC = "DeleteSecurityConfiguration";
+const _DSCR = "DeleteSecurityConfigurationRequest";
+const _DSCRe = "DeleteSecurityConfigurationResponse";
+const _DSCRes = "DescribeSecurityConfigurationRequest";
+const _DSCResc = "DescribeSecurityConfigurationResponse";
+const _DSCe = "DescribeSecurityConfiguration";
 const _DVC = "DeleteVirtualCluster";
 const _DVCR = "DeleteVirtualClusterRequest";
 const _DVCRe = "DeleteVirtualClusterResponse";
@@ -58,6 +62,8 @@ const _En = "Endpoints";
 const _GMESC = "GetManagedEndpointSessionCredentials";
 const _GMESCR = "GetManagedEndpointSessionCredentialsRequest";
 const _GMESCRe = "GetManagedEndpointSessionCredentialsResponse";
+const _IAMC = "IAMConfiguration";
+const _ICC = "IdentityCenterConfiguration";
 const _ISE = "InternalServerException";
 const _ITEC = "InTransitEncryptionConfiguration";
 const _JD = "JobDriver";
@@ -125,6 +131,8 @@ const _a = "arn";
 const _aAWSTRL = "allowAWSToRetainLogs";
 const _aC = "applicationConfiguration";
 const _aCu = "authorizationConfiguration";
+const _aCut = "authenticationConfiguration";
+const _aPU = "authProxyUrl";
 const _aSTV = "authorizedSessionTagValue";
 const _c = "client";
 const _cA = "certificateArn";
@@ -155,7 +163,10 @@ const _e = "error";
 const _eA = "expiresAt";
 const _eAEI = "eksAccessEntryIntegrated";
 const _eC = "encryptionConfiguration";
+const _eCn = "endpointCredentials";
 const _eI = "endpointIdentifier";
+const _eIC = "enableIdentityCenter";
+const _eICAARN = "emrIdentityCenterApplicationARN";
 const _eIk = "eksInfo";
 const _eKA = "encryptionKeyArn";
 const _eP = "entryPoint";
@@ -169,6 +180,10 @@ const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
+const _iC = "iamConfiguration";
+const _iCAAR = "identityCenterApplicationAssignmentRequired";
+const _iCC = "identityCenterConfiguration";
+const _iCIARN = "identityCenterInstanceARN";
 const _iTEC = "inTransitEncryptionConfiguration";
 const _in = "info";
 const _jD = "jobDriver";
@@ -212,10 +227,13 @@ const _sCD = "securityConfigurationData";
 const _sCI = "securityConfigurationId";
 const _sCe = "securityConfigurations";
 const _sD = "stateDetails";
+const _sE = "sessionEnabled";
 const _sG = "securityGroup";
 const _sI = "subnetIds";
+const _sITIM = "sessionIdleTimeoutInMinutes";
 const _sMC = "s3MonitoringConfiguration";
 const _sNI = "secureNamespaceInfo";
+const _sR = "systemRole";
 const _sSJD = "sparkSubmitJobDriver";
 const _sSJDp = "sparkSqlJobDriver";
 const _sSP = "sparkSqlParameters";
@@ -307,7 +325,12 @@ var EntryPointPath: StaticSimpleSchema = [0, n0, _EPP, 8, 0];
 var SparkSqlParameters: StaticSimpleSchema = [0, n0, _SSP, 8, 0];
 var SparkSubmitParameters: StaticSimpleSchema = [0, n0, _SSPp, 8, 0];
 var Token: StaticSimpleSchema = [0, n0, _T, 8, 0];
-export var AuthorizationConfiguration$: StaticStructureSchema = [3, n0, _AC,
+export var AuthenticationConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_iCC, _iC],
+  [() => IdentityCenterConfiguration$, () => IAMConfiguration$]
+];
+export var AuthorizationConfiguration$: StaticStructureSchema = [3, n0, _ACu,
   0,
   [_lFC, _eC],
   [() => LakeFormationConfiguration$, () => EncryptionConfiguration$]
@@ -364,8 +387,8 @@ export var CreateJobTemplateResponse$: StaticStructureSchema = [3, n0, _CJTRr,
 ];
 export var CreateManagedEndpointRequest$: StaticStructureSchema = [3, n0, _CMER,
   0,
-  [_n, _vCI, _t, _rL, _eRA, _cA, _cO, _cT, _ta],
-  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0], 5
+  [_n, _vCI, _t, _rL, _eRA, _cA, _cO, _cT, _ta, _sITIM],
+  [0, [0, 1], 0, 0, 0, 0, [() => ConfigurationOverrides$, 0], [0, 4], 128 | 0, 1], 5
 ];
 export var CreateManagedEndpointResponse$: StaticStructureSchema = [3, n0, _CMERr,
   0,
@@ -384,8 +407,8 @@ export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateVirtualClusterRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
-  [_n, _cP, _cT, _ta, _sCI],
-  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0], 2
+  [_n, _cP, _cT, _ta, _sCI, _sE],
+  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0, 2], 2
 ];
 export var CreateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -411,6 +434,16 @@ export var DeleteManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DMER
   0,
   [_i, _vCI],
   [0, 0]
+];
+export var DeleteSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
+  0,
+  [_i],
+  [[0, 1]], 1
+];
+export var DeleteSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCRe,
+  0,
+  [_i],
+  [0]
 ];
 export var DeleteVirtualClusterRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
@@ -452,12 +485,12 @@ export var DescribeManagedEndpointResponse$: StaticStructureSchema = [3, n0, _DM
   [_en],
   [[() => Endpoint$, 0]]
 ];
-export var DescribeSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCR,
+export var DescribeSecurityConfigurationRequest$: StaticStructureSchema = [3, n0, _DSCRes,
   0,
   [_i],
   [[0, 1]], 1
 ];
-export var DescribeSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCRe,
+export var DescribeSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCResc,
   0,
   [_sC],
   [() => SecurityConfiguration$]
@@ -484,8 +517,8 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Endpoint$: StaticStructureSchema = [3, n0, _E,
   0,
-  [_i, _n, _a, _vCI, _t, _st, _rL, _eRA, _cA, _cAe, _cO, _sU, _cAr, _sG, _sI, _sD, _fR, _ta],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Certificate$, [() => ConfigurationOverrides$, 0], 0, 5, 0, 64 | 0, 0, 0, 128 | 0]
+  [_i, _n, _a, _vCI, _t, _st, _rL, _eRA, _cA, _cAe, _cO, _sU, _aPU, _cAr, _sG, _sI, _sD, _fR, _ta],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, () => Certificate$, [() => ConfigurationOverrides$, 0], 0, 0, 5, 0, 64 | 0, 0, 0, 128 | 0]
 ];
 export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema = [3, n0, _GMESCR,
   0,
@@ -494,8 +527,18 @@ export var GetManagedEndpointSessionCredentialsRequest$: StaticStructureSchema =
 ];
 export var GetManagedEndpointSessionCredentialsResponse$: StaticStructureSchema = [3, n0, _GMESCRe,
   0,
-  [_i, _cr, _eA],
-  [0, [() => Credentials$, 0], 5]
+  [_i, _cr, _eCn, _eA],
+  [0, [() => Credentials$, 0], [() => Credentials$, 0], 5]
+];
+export var IAMConfiguration$: StaticStructureSchema = [3, n0, _IAMC,
+  0,
+  [_sR],
+  [0]
+];
+export var IdentityCenterConfiguration$: StaticStructureSchema = [3, n0, _ICC,
+  0,
+  [_eIC, _iCAAR, _iCIARN, _eICAARN],
+  [2, 2, 0, 0]
 ];
 export var InTransitEncryptionConfiguration$: StaticStructureSchema = [3, n0, _ITEC,
   0,
@@ -629,8 +672,8 @@ export var RetryPolicyExecution$: StaticStructureSchema = [3, n0, _RPE,
 ];
 export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   0,
-  [_lU],
-  [0], 1
+  [_lU, _eKA],
+  [0, 0], 1
 ];
 export var SecureNamespaceInfo$: StaticStructureSchema = [3, n0, _SNI,
   0,
@@ -644,8 +687,8 @@ export var SecurityConfiguration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var SecurityConfigurationData$: StaticStructureSchema = [3, n0, _SCD,
   0,
-  [_aCu],
-  [() => AuthorizationConfiguration$]
+  [_aCu, _aCut],
+  [() => AuthorizationConfiguration$, () => AuthenticationConfiguration$]
 ];
 export var SparkSqlJobDriver$: StaticStructureSchema = [3, n0, _SSJD,
   0,
@@ -699,8 +742,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var VirtualCluster$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI],
-  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0]
+  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI, _sE],
+  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0, 2]
 ];
 var ConfigurationList: StaticListSchema = [1, n0, _CL,
   0, [() => Configuration$,
@@ -773,6 +816,9 @@ export var DeleteJobTemplate$: StaticOperationSchema = [9, n0, _DJT,
 export var DeleteManagedEndpoint$: StaticOperationSchema = [9, n0, _DME,
   { [_h]: ["DELETE", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200] }, () => DeleteManagedEndpointRequest$, () => DeleteManagedEndpointResponse$
 ];
+export var DeleteSecurityConfiguration$: StaticOperationSchema = [9, n0, _DSC,
+  { [_h]: ["DELETE", "/securityconfigurations/{id}", 200] }, () => DeleteSecurityConfigurationRequest$, () => DeleteSecurityConfigurationResponse$
+];
 export var DeleteVirtualCluster$: StaticOperationSchema = [9, n0, _DVC,
   { [_h]: ["DELETE", "/virtualclusters/{id}", 200] }, () => DeleteVirtualClusterRequest$, () => DeleteVirtualClusterResponse$
 ];
@@ -785,7 +831,7 @@ export var DescribeJobTemplate$: StaticOperationSchema = [9, n0, _DJTe,
 export var DescribeManagedEndpoint$: StaticOperationSchema = [9, n0, _DMEe,
   { [_h]: ["GET", "/virtualclusters/{virtualClusterId}/endpoints/{id}", 200] }, () => DescribeManagedEndpointRequest$, () => DescribeManagedEndpointResponse$
 ];
-export var DescribeSecurityConfiguration$: StaticOperationSchema = [9, n0, _DSC,
+export var DescribeSecurityConfiguration$: StaticOperationSchema = [9, n0, _DSCe,
   { [_h]: ["GET", "/securityconfigurations/{id}", 200] }, () => DescribeSecurityConfigurationRequest$, () => DescribeSecurityConfigurationResponse$
 ];
 export var DescribeVirtualCluster$: StaticOperationSchema = [9, n0, _DVCe,

@@ -656,6 +656,19 @@ export type WorkflowType = (typeof WorkflowType)[keyof typeof WorkflowType];
  * @public
  * @enum
  */
+export const DiversityCapType = {
+  PERCENTAGE: "PERCENTAGE",
+  VALUE: "VALUE",
+} as const;
+/**
+ * @public
+ */
+export type DiversityCapType = (typeof DiversityCapType)[keyof typeof DiversityCapType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RecommenderRecipeName = {
   FREQUENTLY_PAIRED_ITEMS: "frequently-paired-items",
   PERSONALIZED_RANKING: "personalized-ranking",

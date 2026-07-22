@@ -2,10 +2,14 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   AccessPoint$,
+  AccessPointType,
   AccessRestriction$,
   Address$,
   AddressComponentMatchScores$,
   AddressComponentPhonemes$,
+  AddressTranslationComponent,
+  AdminNames$,
+  AdminNamesPreference,
   Autocomplete$,
   AutocompleteAdditionalFeature,
   AutocompleteAddressHighlights$,
@@ -24,10 +28,12 @@ import {
   Contacts$,
   Country$,
   CountryHighlights$,
+  CrossReference$,
   FilterCircle$,
   FoodType$,
   Geocode$,
   GeocodeAdditionalFeature,
+  GeocodeAddressNamesMode,
   GeocodeCommand,
   GeocodeFilter$,
   GeocodeFilterPlaceType,
@@ -43,6 +49,7 @@ import {
   GeoPlacesServiceException,
   GetPlace$,
   GetPlaceAdditionalFeature,
+  GetPlaceAddressNamesMode,
   GetPlaceCommand,
   GetPlaceIntendedUse,
   GetPlaceRequest$,
@@ -58,6 +65,7 @@ import {
   ParsedQuerySecondaryAddressComponent$,
   PhonemeDetails$,
   PhonemeTranscription$,
+  PlaceAttribute,
   PlaceType,
   PostalAuthority,
   PostalCodeDetails$,
@@ -71,6 +79,7 @@ import {
   RelatedPlace$,
   ReverseGeocode$,
   ReverseGeocodeAdditionalFeature,
+  ReverseGeocodeAddressNamesMode,
   ReverseGeocodeCommand,
   ReverseGeocodeFilter$,
   ReverseGeocodeFilterPlaceType,
@@ -94,6 +103,7 @@ import {
   SearchTextRequest$,
   SearchTextResponse$,
   SearchTextResultItem$,
+  SearchTextTravelMode,
   SecondaryAddressComponent$,
   SecondaryAddressComponentMatchScore$,
   StreetComponents$,
@@ -112,9 +122,13 @@ import {
   SuggestResponse$,
   SuggestResultItem$,
   SuggestResultItemType,
+  SuggestTravelMode,
   ThrottlingException,
   ThrottlingException$,
   TimeZone$,
+  TranslationDetails$,
+  TranslationName$,
+  TranslationNameType,
   TypePlacement,
   UspsZip$,
   UspsZipPlus4$,
@@ -149,6 +163,7 @@ assert(typeof AccessRestriction$ === "object");
 assert(typeof Address$ === "object");
 assert(typeof AddressComponentMatchScores$ === "object");
 assert(typeof AddressComponentPhonemes$ === "object");
+assert(typeof AdminNames$ === "object");
 assert(typeof AutocompleteAddressHighlights$ === "object");
 assert(typeof AutocompleteFilter$ === "object");
 assert(typeof AutocompleteHighlights$ === "object");
@@ -162,6 +177,7 @@ assert(typeof ContactDetails$ === "object");
 assert(typeof Contacts$ === "object");
 assert(typeof Country$ === "object");
 assert(typeof CountryHighlights$ === "object");
+assert(typeof CrossReference$ === "object");
 assert(typeof FilterCircle$ === "object");
 assert(typeof FoodType$ === "object");
 assert(typeof GeocodeFilter$ === "object");
@@ -213,18 +229,26 @@ assert(typeof SuggestRequest$ === "object");
 assert(typeof SuggestResponse$ === "object");
 assert(typeof SuggestResultItem$ === "object");
 assert(typeof TimeZone$ === "object");
+assert(typeof TranslationDetails$ === "object");
+assert(typeof TranslationName$ === "object");
 assert(typeof UspsZip$ === "object");
 assert(typeof UspsZipPlus4$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof AccessPointType === "object");
+assert(typeof AddressTranslationComponent === "object");
+assert(typeof AdminNamesPreference === "object");
 assert(typeof AutocompleteAdditionalFeature === "object");
 assert(typeof AutocompleteFilterPlaceType === "object");
 assert(typeof AutocompleteIntendedUse === "object");
 assert(typeof GeocodeAdditionalFeature === "object");
+assert(typeof GeocodeAddressNamesMode === "object");
 assert(typeof GeocodeFilterPlaceType === "object");
 assert(typeof GeocodeIntendedUse === "object");
 assert(typeof GetPlaceAdditionalFeature === "object");
+assert(typeof GetPlaceAddressNamesMode === "object");
 assert(typeof GetPlaceIntendedUse === "object");
+assert(typeof PlaceAttribute === "object");
 assert(typeof PlaceType === "object");
 assert(typeof PostalAuthority === "object");
 assert(typeof PostalCodeMode === "object");
@@ -232,15 +256,19 @@ assert(typeof PostalCodeType === "object");
 assert(typeof QueryType === "object");
 assert(typeof RecordTypeCode === "object");
 assert(typeof ReverseGeocodeAdditionalFeature === "object");
+assert(typeof ReverseGeocodeAddressNamesMode === "object");
 assert(typeof ReverseGeocodeFilterPlaceType === "object");
 assert(typeof ReverseGeocodeIntendedUse === "object");
 assert(typeof SearchNearbyAdditionalFeature === "object");
 assert(typeof SearchNearbyIntendedUse === "object");
 assert(typeof SearchTextAdditionalFeature === "object");
 assert(typeof SearchTextIntendedUse === "object");
+assert(typeof SearchTextTravelMode === "object");
 assert(typeof SuggestAdditionalFeature === "object");
 assert(typeof SuggestIntendedUse === "object");
 assert(typeof SuggestResultItemType === "object");
+assert(typeof SuggestTravelMode === "object");
+assert(typeof TranslationNameType === "object");
 assert(typeof TypePlacement === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof ZipClassificationCode === "object");

@@ -74,6 +74,7 @@ export interface CreateLicenseVersionCommandOutput extends CreateLicenseVersionR
  *   Status: "AVAILABLE" || "PENDING_AVAILABLE" || "DEACTIVATED" || "SUSPENDED" || "EXPIRED" || "PENDING_DELETE" || "DELETED", // required
  *   ClientToken: "STRING_VALUE", // required
  *   SourceVersion: "STRING_VALUE",
+ *   ResetUsage: true || false,
  * };
  * const command = new CreateLicenseVersionCommand(input);
  * const response = await client.send(command);

@@ -70,7 +70,16 @@ import type {
   DisassociateSourceViewsCommandInput,
   DisassociateSourceViewsCommandOutput,
 } from "./commands/DisassociateSourceViewsCommand";
+import type {
+  GetBillingPreferencesCommandInput,
+  GetBillingPreferencesCommandOutput,
+} from "./commands/GetBillingPreferencesCommand";
 import type { GetBillingViewCommandInput, GetBillingViewCommandOutput } from "./commands/GetBillingViewCommand";
+import type {
+  GetCreditAllocationHistoryCommandInput,
+  GetCreditAllocationHistoryCommandOutput,
+} from "./commands/GetCreditAllocationHistoryCommand";
+import type { GetCreditsCommandInput, GetCreditsCommandOutput } from "./commands/GetCreditsCommand";
 import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -84,8 +93,13 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { RedeemCreditsCommandInput, RedeemCreditsCommandOutput } from "./commands/RedeemCreditsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateBillingPreferencesCommandInput,
+  UpdateBillingPreferencesCommandOutput,
+} from "./commands/UpdateBillingPreferencesCommand";
 import type {
   UpdateBillingViewCommandInput,
   UpdateBillingViewCommandOutput,
@@ -109,13 +123,18 @@ export type ServiceInputTypes =
   | CreateBillingViewCommandInput
   | DeleteBillingViewCommandInput
   | DisassociateSourceViewsCommandInput
+  | GetBillingPreferencesCommandInput
   | GetBillingViewCommandInput
+  | GetCreditAllocationHistoryCommandInput
+  | GetCreditsCommandInput
   | GetResourcePolicyCommandInput
   | ListBillingViewsCommandInput
   | ListSourceViewsForBillingViewCommandInput
   | ListTagsForResourceCommandInput
+  | RedeemCreditsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateBillingPreferencesCommandInput
   | UpdateBillingViewCommandInput;
 
 /**
@@ -126,13 +145,18 @@ export type ServiceOutputTypes =
   | CreateBillingViewCommandOutput
   | DeleteBillingViewCommandOutput
   | DisassociateSourceViewsCommandOutput
+  | GetBillingPreferencesCommandOutput
   | GetBillingViewCommandOutput
+  | GetCreditAllocationHistoryCommandOutput
+  | GetCreditsCommandOutput
   | GetResourcePolicyCommandOutput
   | ListBillingViewsCommandOutput
   | ListSourceViewsForBillingViewCommandOutput
   | ListTagsForResourceCommandOutput
+  | RedeemCreditsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateBillingPreferencesCommandOutput
   | UpdateBillingViewCommandOutput;
 
 /**

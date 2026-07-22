@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetSecurityControlDefinitionRequest, GetSecurityControlDefinitionResponse } from "../models/models_2";
+import type { GetSecurityControlDefinitionRequest, GetSecurityControlDefinitionResponse } from "../models/models_3";
 import { GetSecurityControlDefinition$ } from "../schemas/schemas_0";
 
 /**
@@ -106,6 +106,7 @@ export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityCo
  * //         },
  * //       },
  * //     },
+ * //     Provider: "AWS" || "Azure",
  * //   },
  * // };
  *
@@ -163,6 +164,7 @@ export interface GetSecurityControlDefinitionCommandOutput extends GetSecurityCo
  *         Description: "Number of days the EC2 instance is allowed to be in a stopped state before generating a failed finding"
  *       }
  *     },
+ *     Provider: "AWS",
  *     RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/EC2.4/remediation",
  *     SecurityControlId: "EC2.4",
  *     SeverityRating: "MEDIUM",

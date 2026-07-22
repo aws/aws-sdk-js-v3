@@ -100,7 +100,7 @@ export interface ListAssociationVersionsCommandOutput extends ListAssociationVer
  * //           ExcludeAccounts: [ // ExcludeAccounts
  * //             "STRING_VALUE",
  * //           ],
- * //           Targets: [
+ * //           Targets: [ // AutomationTargets
  * //             {
  * //               Key: "STRING_VALUE",
  * //               Values: [

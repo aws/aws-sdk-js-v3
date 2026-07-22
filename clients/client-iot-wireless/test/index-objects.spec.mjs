@@ -93,6 +93,7 @@ import {
   CreateWirelessGatewayTaskRequest$,
   CreateWirelessGatewayTaskResponse$,
   DakCertificateMetadata$,
+  DefaultSessionParametersMulticast$,
   DeleteDestination$,
   DeleteDestinationCommand,
   DeleteDestinationRequest$,
@@ -936,6 +937,7 @@ assert(typeof CreateWirelessGatewayTaskDefinitionResponse$ === "object");
 assert(typeof CreateWirelessGatewayTaskRequest$ === "object");
 assert(typeof CreateWirelessGatewayTaskResponse$ === "object");
 assert(typeof DakCertificateMetadata$ === "object");
+assert(typeof DefaultSessionParametersMulticast$ === "object");
 assert(typeof DeleteDestinationRequest$ === "object");
 assert(typeof DeleteDestinationResponse$ === "object");
 assert(typeof DeleteDeviceProfileRequest$ === "object");

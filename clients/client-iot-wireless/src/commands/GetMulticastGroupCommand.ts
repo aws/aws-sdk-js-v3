@@ -54,6 +54,10 @@ export interface GetMulticastGroupCommandOutput extends GetMulticastGroupRespons
  * //       ],
  * //       TransmissionInterval: Number("int"),
  * //     },
+ * //     DefaultSessionParameters: { // DefaultSessionParametersMulticast
+ * //       DlDr: Number("int"),
+ * //       DlFreq: Number("int"),
+ * //     },
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"),
  * // };

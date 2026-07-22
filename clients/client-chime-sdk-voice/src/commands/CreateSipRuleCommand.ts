@@ -38,7 +38,7 @@ export interface CreateSipRuleCommandOutput extends CreateSipRuleResponse, __Met
  *   TriggerType: "ToPhoneNumber" || "RequestUriHostname", // required
  *   TriggerValue: "STRING_VALUE", // required
  *   Disabled: true || false,
- *   TargetApplications: [ // SipRuleTargetApplicationList
+ *   TargetApplications: [ // SipRuleTargetApplicationList // required
  *     { // SipRuleTargetApplication
  *       SipMediaApplicationId: "STRING_VALUE",
  *       Priority: Number("int"),

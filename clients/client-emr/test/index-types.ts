@@ -267,7 +267,6 @@ export type {
   CancelStepsInfo,
   CancelStepsInput,
   CancelStepsOutput,
-  CertificateAuthority,
   CloudWatchAlarmDefinition,
   CloudWatchLogConfiguration,
   Cluster,

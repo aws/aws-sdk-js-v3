@@ -1,9 +1,43 @@
 {
   "name": "@aws-sdk/credential-provider-web-identity",
-  "version": "3.972.58",
+  "version": "3.972.66",
   "description": "AWS credential provider that calls STS assumeRole for temporary AWS credentials",
+  "keywords": [
+    "aws",
+    "credentials"
+  ],
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-web-identity",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/credential-provider-web-identity"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-cjs/fromTokenFile": false,
+    "./dist-es/fromTokenFile": false
+  },
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/fromTokenFile": false
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -15,29 +49,12 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
-  "browser": {
-    "./dist-cjs/fromTokenFile": false,
-    "./dist-es/fromTokenFile": false
-  },
-  "react-native": {
-    "./dist-es/fromTokenFile": false
-  },
-  "keywords": [
-    "aws",
-    "credentials"
-  ],
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
-    "@aws-sdk/nested-clients": "workspace:^3.997.26",
-    "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/nested-clients": "workspace:^3.997.34",
+    "@aws-sdk/types": "workspace:^3.974.2",
+    "@smithy/core": "^3.29.4",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -48,24 +65,7 @@
     "premove": "4.0.0",
     "typescript": "~5.8.3"
   },
-  "types": "./dist-types/index.d.ts",
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-web-identity",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/credential-provider-web-identity"
   }
 }

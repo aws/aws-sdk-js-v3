@@ -117,6 +117,12 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Tags: [ // TagsList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new PutOrganizationConfigRuleCommand(input);
  * const response = await client.send(command);
@@ -157,6 +163,9 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *             </li>
  *             <li>
  *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a>, a service-linked configuration recorder cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConnector.html">PutConnector</a>, a connector cannot be created because you do not have the following permissions: IAM <code>CreateServiceLinkedRole</code>.</p>
  *             </li>
  *          </ul>
  *
@@ -255,6 +264,15 @@ export interface PutOrganizationConfigRuleCommandOutput extends PutOrganizationC
  *             </li>
  *             <li>
  *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You have provided both <code>Arn</code> and <code>ServicePrincipal</code>. Only one of <code>Arn</code> or <code>ServicePrincipal</code> can be specified.</p>
+ *             </li>
+ *             <li>
+ *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
  *             </li>
  *          </ul>
  *

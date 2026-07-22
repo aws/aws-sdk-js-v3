@@ -101,6 +101,7 @@ const _CMRE = "CreateMultiRegionEndpoint";
 const _CMRER = "CreateMultiRegionEndpointRequest";
 const _CMRERr = "CreateMultiRegionEndpointResponse";
 const _CMS = "CustomerManagedStatus";
+const _CP = "CurrentPlan";
 const _CRD = "CustomRedirectDomain";
 const _CS = "ConfigurationSets";
 const _CSKL = "CurrentSigningKeyLength";
@@ -509,6 +510,7 @@ const _Me = "Message";
 const _Met = "Metrics";
 const _N = "Namespace";
 const _NFE = "NotFoundException";
+const _NP = "NextPlan";
 const _NSKL = "NextSigningKeyLength";
 const _NT = "NextToken";
 const _Na = "Name";
@@ -517,6 +519,7 @@ const _OP = "OverallPlacement";
 const _OSD = "OptimizedSharedDelivery";
 const _OV = "OverallVolume";
 const _P = "Policy";
+const _PA = "PricingAttributes";
 const _PAD = "PutAccountDetails";
 const _PADIWA = "PutAccountDedicatedIpWarmupAttributes";
 const _PADIWAR = "PutAccountDedicatedIpWarmupAttributesRequest";
@@ -524,6 +527,9 @@ const _PADIWARu = "PutAccountDedicatedIpWarmupAttributesResponse";
 const _PADR = "PutAccountDetailsRequest";
 const _PADRu = "PutAccountDetailsResponse";
 const _PAE = "ProductionAccessEnabled";
+const _PAPA = "PutAccountPricingAttributes";
+const _PAPAR = "PutAccountPricingAttributesRequest";
+const _PAPARu = "PutAccountPricingAttributesResponse";
 const _PASA = "PutAccountSendingAttributes";
 const _PASAR = "PutAccountSendingAttributesRequest";
 const _PASARu = "PutAccountSendingAttributesResponse";
@@ -599,6 +605,7 @@ const _PTSA = "PutTenantSuppressionAttributes";
 const _PTSAR = "PutTenantSuppressionAttributesRequest";
 const _PTSARu = "PutTenantSuppressionAttributesResponse";
 const _PV = "ProjectedVolume";
+const _Pl = "Plan";
 const _Po = "Policies";
 const _Q = "Queries";
 const _R = "Results";
@@ -1476,8 +1483,8 @@ export var GetAccountRequest$: StaticStructureSchema = [3, n0, _GAR,
 ];
 export var GetAccountResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_DIAWE, _ESn, _PAE, _SQ, _SEe, _SA, _Det, _VA],
-  [2, 0, 2, () => SendQuota$, 2, () => SuppressionAttributes$, [() => AccountDetails$, 0], () => VdmAttributes$]
+  [_DIAWE, _ESn, _PAE, _SQ, _SEe, _SA, _Det, _VA, _PA],
+  [2, 0, 2, () => SendQuota$, 2, () => SuppressionAttributes$, [() => AccountDetails$, 0], () => VdmAttributes$, () => PricingAttributes$]
 ];
 export var GetBlacklistReportsRequest$: StaticStructureSchema = [3, n0, _GBRR,
   0,
@@ -2039,6 +2046,11 @@ export var PlacementStatistics$: StaticStructureSchema = [3, n0, _PSl,
   [_IP, _SP, _MP, _SPp, _DP],
   [1, 1, 1, 1, 1]
 ];
+export var PricingAttributes$: StaticStructureSchema = [3, n0, _PA,
+  0,
+  [_CP, _NP],
+  [0, 0]
+];
 export var PutAccountDedicatedIpWarmupAttributesRequest$: StaticStructureSchema = [3, n0, _PADIWAR,
   0,
   [_AWE],
@@ -2055,6 +2067,16 @@ export var PutAccountDetailsRequest$: StaticStructureSchema = [3, n0, _PADR,
   [0, [() => WebsiteURL, 0], 0, [() => UseCaseDescription, 0], [() => AdditionalContactEmailAddresses, 0], 2], 2
 ];
 export var PutAccountDetailsResponse$: StaticStructureSchema = [3, n0, _PADRu,
+  0,
+  [],
+  []
+];
+export var PutAccountPricingAttributesRequest$: StaticStructureSchema = [3, n0, _PAPAR,
+  0,
+  [_Pl],
+  [0], 1
+];
+export var PutAccountPricingAttributesResponse$: StaticStructureSchema = [3, n0, _PAPARu,
   0,
   [],
   []
@@ -2993,6 +3015,9 @@ export var PutAccountDedicatedIpWarmupAttributes$: StaticOperationSchema = [9, n
 ];
 export var PutAccountDetails$: StaticOperationSchema = [9, n0, _PAD,
   { [_h]: ["POST", "/v2/email/account/details", 200] }, () => PutAccountDetailsRequest$, () => PutAccountDetailsResponse$
+];
+export var PutAccountPricingAttributes$: StaticOperationSchema = [9, n0, _PAPA,
+  { [_h]: ["PUT", "/v2/email/account/pricing-attributes", 200] }, () => PutAccountPricingAttributesRequest$, () => PutAccountPricingAttributesResponse$
 ];
 export var PutAccountSendingAttributes$: StaticOperationSchema = [9, n0, _PASA,
   { [_h]: ["PUT", "/v2/email/account/sending", 200] }, () => PutAccountSendingAttributesRequest$, () => PutAccountSendingAttributesResponse$

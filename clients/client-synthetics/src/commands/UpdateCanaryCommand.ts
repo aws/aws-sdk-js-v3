@@ -145,11 +145,13 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *         ],
  *         Ipv6AllowedForDualStack: true || false,
  *       },
+ *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   ],
  *   RemoveReplicaLocations: [ // RemoveReplicaLocations
  *     "STRING_VALUE",
  *   ],
+ *   KmsKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);

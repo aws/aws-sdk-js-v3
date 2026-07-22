@@ -7,8 +7,10 @@ import type {
   DeploymentStatus,
   DeploymentStrategy,
   DescribePackagesFilterName,
+  DomainEngineMode,
   DomainPackageStatus,
   DomainProcessingStatusType,
+  DomainUseCase,
   EngineType,
   ESPartitionInstanceType,
   ESWarmPartitionInstanceType,
@@ -1330,6 +1332,18 @@ export interface CreateElasticsearchDomainRequest {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+   * @public
+   */
+  EngineMode?: DomainEngineMode | undefined;
 }
 
 /**
@@ -1659,6 +1673,18 @@ export interface ElasticsearchDomainStatus {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain.</p>
+   * @public
+   */
+  EngineMode?: DomainEngineMode | undefined;
 }
 
 /**
@@ -2662,6 +2688,24 @@ export interface EncryptionAtRestOptionsStatus {
 }
 
 /**
+ * <p>The status of the engine mode for the domain.</p>
+ * @public
+ */
+export interface EngineModeStatus {
+  /**
+   * <p>The engine mode configured for the domain.</p>
+   * @public
+   */
+  Options: DomainEngineMode | undefined;
+
+  /**
+   * <p>The current status of the engine mode for the domain.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
  * <p>The configured log publishing options for the domain and their current status.</p>
  * @public
  */
@@ -2710,6 +2754,24 @@ export interface SnapshotOptionsStatus {
 
   /**
    * <p>Specifies the status of a daily automated snapshot.</p>
+   * @public
+   */
+  Status: OptionStatus | undefined;
+}
+
+/**
+ * <p>The status of the use case for the domain.</p>
+ * @public
+ */
+export interface UseCaseStatus {
+  /**
+   * <p>The use case configured for the domain.</p>
+   * @public
+   */
+  Options: DomainUseCase | undefined;
+
+  /**
+   * <p>The current status of the use case for the domain.</p>
    * @public
    */
   Status: OptionStatus | undefined;
@@ -2845,6 +2907,18 @@ export interface ElasticsearchDomainConfig {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseOptionsStatus | undefined;
+
+  /**
+   * <p>The use case configured for the domain.</p>
+   * @public
+   */
+  UseCase?: UseCaseStatus | undefined;
+
+  /**
+   * <p>The engine mode configured for the domain.</p>
+   * @public
+   */
+  EngineMode?: EngineModeStatus | undefined;
 }
 
 /**
@@ -4727,6 +4801,18 @@ export interface UpdateElasticsearchDomainConfigRequest {
    * @public
    */
   AutomatedSnapshotPauseOptions?: AutomatedSnapshotPauseRequestOptions | undefined;
+
+  /**
+   * <p>The primary use case for the domain. For valid values, see <code>DomainUseCase</code>.</p>
+   * @public
+   */
+  UseCase?: DomainUseCase | undefined;
+
+  /**
+   * <p>The engine mode for the domain. For valid values and requirements, see <code>DomainEngineMode</code>.</p>
+   * @public
+   */
+  EngineMode?: DomainEngineMode | undefined;
 }
 
 /**

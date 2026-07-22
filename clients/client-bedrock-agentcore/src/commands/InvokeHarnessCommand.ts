@@ -37,6 +37,10 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *   qualifier: "STRING_VALUE",
  *   runtimeSessionId: "STRING_VALUE", // required
  *   runtimeUserId: "STRING_VALUE",
+ *   traceParent: "STRING_VALUE",
+ *   traceState: "STRING_VALUE",
+ *   traceId: "STRING_VALUE",
+ *   baggage: "STRING_VALUE",
  *   messages: [ // HarnessMessages // required
  *     { // HarnessMessage
  *       role: "user" || "assistant", // required
@@ -97,6 +101,7 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  *       temperature: Number("float"),
  *       topP: Number("float"),
  *       topK: Number("int"),
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *     liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  *       modelId: "STRING_VALUE", // required
@@ -223,6 +228,9 @@ export interface InvokeHarnessCommandOutput extends InvokeHarnessResponse, __Met
  * //           text: "STRING_VALUE",
  * //           redactedContent: new Uint8Array(),
  * //           signature: "STRING_VALUE",
+ * //         },
+ * //         toolResultMetadata: { // HarnessToolResultMetadataBlockDelta
+ * //           metadata: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },

@@ -1,0 +1,17 @@
+{
+  "name": "@aws-sdk/ts-compat-test",
+  "private": true,
+  "description": "Verifies that one client per protocol compiles against every supported TypeScript minor version.",
+  "type": "module",
+  "scripts": {
+    "test": "node ./run.mjs"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-cloudwatch-logs": "file:../../clients/client-cloudwatch-logs",
+    "@aws-sdk/client-dynamodb": "file:../../clients/client-dynamodb",
+    "@aws-sdk/client-ec2": "file:../../clients/client-ec2",
+    "@aws-sdk/client-lambda": "file:../../clients/client-lambda",
+    "@aws-sdk/client-s3": "file:../../clients/client-s3",
+    "@aws-sdk/client-sts": "file:../../clients/client-sts"
+  }
+}

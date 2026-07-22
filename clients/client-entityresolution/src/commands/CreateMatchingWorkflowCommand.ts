@@ -23,7 +23,7 @@ export interface CreateMatchingWorkflowCommandInput extends CreateMatchingWorkfl
 export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a matching workflow that defines the configuration for a data processing job. The workflow name must be unique. To modify an existing workflow, use <code>UpdateMatchingWorkflow</code>. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>ML_MATCHING</code> or <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
+ * <p>Creates a matching workflow that defines the configuration for a data processing job. The workflow name must be unique. To modify an existing workflow, use <code>UpdateMatchingWorkflow</code>. </p> <important> <p>For workflows where <code>resolutionType</code> is <code>PROVIDER</code>, incremental processing is not supported. </p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +84,7 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  *         enableTransitiveMatching: true || false,
  *       },
  *     },
+ *     enableRealTimeMatching: true || false,
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
  *       providerConfiguration: "DOCUMENT_VALUE",
@@ -155,6 +156,7 @@ export interface CreateMatchingWorkflowCommandOutput extends CreateMatchingWorkf
  * //         enableTransitiveMatching: true || false,
  * //       },
  * //     },
+ * //     enableRealTimeMatching: true || false,
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
  * //       providerConfiguration: "DOCUMENT_VALUE",

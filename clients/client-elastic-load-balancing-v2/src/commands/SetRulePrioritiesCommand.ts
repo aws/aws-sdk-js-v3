@@ -89,6 +89,7 @@ export interface SetRulePrioritiesCommandOutput extends SetRulePrioritiesOutput,
  * //           },
  * //           SourceIpConfig: { // SourceIpConditionConfig
  * //             Values: "<ListOfString>",
+ * //             IpAddressType: "ipv4" || "ipv6",
  * //           },
  * //           RegexValues: "<ListOfString>",
  * //         },

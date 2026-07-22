@@ -264,6 +264,10 @@ export interface UpdateCustomPermissionsCommandOutput extends UpdateCustomPermis
  *     GenerateAnalyses: "DENY",
  *     Story: "DENY",
  *     Scenario: "DENY",
+ *     Trigger: "DENY",
+ *     ScheduleTrigger: "DENY",
+ *     InboundEmailTrigger: "DENY",
+ *     QuickEventTrigger: "DENY",
  *   },
  * };
  * const command = new UpdateCustomPermissionsCommand(input);

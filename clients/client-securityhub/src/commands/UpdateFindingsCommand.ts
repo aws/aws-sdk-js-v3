@@ -313,6 +313,9 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *     AwsAccountName: "<StringFilterList>",
  *     ResourceApplicationName: "<StringFilterList>",
  *     ResourceApplicationArn: "<StringFilterList>",
+ *     ResourceOwnerAccountId: "<StringFilterList>",
+ *     ResourceOwnerOrgId: "<StringFilterList>",
+ *     ResourceProvider: "<StringFilterList>",
  *   },
  *   Note: { // NoteUpdate
  *     Text: "STRING_VALUE", // required

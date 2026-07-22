@@ -66,6 +66,9 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *       allowedScopes: [ // AllowedScopesType
  *         "STRING_VALUE",
  *       ],
+ *       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ *         "<keys>": "STRING_VALUE",
+ *       },
  *       customClaims: [ // CustomClaimValidationsType
  *         { // CustomClaimValidationType
  *           inboundTokenClaimName: "STRING_VALUE", // required
@@ -210,6 +213,9 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * //       allowedScopes: [ // AllowedScopesType
  * //         "STRING_VALUE",
  * //       ],
+ * //       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       customClaims: [ // CustomClaimValidationsType
  * //         { // CustomClaimValidationType
  * //           inboundTokenClaimName: "STRING_VALUE", // required

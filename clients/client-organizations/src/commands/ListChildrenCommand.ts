@@ -142,7 +142,9 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *             </li>
  *             <li>
  *                <p>INVALID_PATTERN: You provided a value that doesn't match the required
- *                     pattern.</p>
+ *                     pattern. The service also validates your free-text field values against
+ *                     common cross-site scripting (XSS) patterns and rejects requests that
+ *                     contain matching values.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_PATTERN_TARGET_ID: You specified a policy target ID that doesn't match

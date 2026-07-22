@@ -174,6 +174,7 @@ export type {
   RedirectActionStatusCodeEnum,
   RemoveIpamPoolEnum,
   RevocationType,
+  SourceIpAddressTypeEnum,
   TargetAdministrativeOverrideReasonEnum,
   TargetAdministrativeOverrideStateEnum,
   TargetGroupIpAddressTypeEnum,

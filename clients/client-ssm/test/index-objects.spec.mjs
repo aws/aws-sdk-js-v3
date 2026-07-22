@@ -73,6 +73,8 @@ import {
   AutomationStepNotFoundException$,
   AutomationSubtype,
   AutomationType,
+  AzureConfiguration$,
+  AzureSubscription$,
   BaselineOverride$,
   CalendarState,
   CancelCommand$,
@@ -83,6 +85,10 @@ import {
   CancelMaintenanceWindowExecutionCommand,
   CancelMaintenanceWindowExecutionRequest$,
   CancelMaintenanceWindowExecutionResult$,
+  CloudConnectorConfiguration$,
+  CloudConnectorFilter$,
+  CloudConnectorFilterKey,
+  CloudConnectorSummary$,
   CloudWatchOutputConfig$,
   Command$,
   CommandFilter$,
@@ -104,6 +110,9 @@ import {
   ComplianceTypeCountLimitExceededException$,
   ComplianceUploadType,
   CompliantSummary$,
+  ConfigurationTargets$,
+  ConflictException,
+  ConflictException$,
   ConnectionStatus,
   CreateActivation$,
   CreateActivationCommand,
@@ -118,6 +127,10 @@ import {
   CreateAssociationCommand,
   CreateAssociationRequest$,
   CreateAssociationResult$,
+  CreateCloudConnector$,
+  CreateCloudConnectorCommand,
+  CreateCloudConnectorRequest$,
+  CreateCloudConnectorResult$,
   CreateDocument$,
   CreateDocumentCommand,
   CreateDocumentRequest$,
@@ -153,6 +166,10 @@ import {
   DeleteAssociationCommand,
   DeleteAssociationRequest$,
   DeleteAssociationResult$,
+  DeleteCloudConnector$,
+  DeleteCloudConnectorCommand,
+  DeleteCloudConnectorRequest$,
+  DeleteCloudConnectorResult$,
   DeleteDocument$,
   DeleteDocumentCommand,
   DeleteDocumentRequest$,
@@ -408,6 +425,10 @@ import {
   GetCalendarStateCommand,
   GetCalendarStateRequest$,
   GetCalendarStateResponse$,
+  GetCloudConnector$,
+  GetCloudConnectorCommand,
+  GetCloudConnectorRequest$,
+  GetCloudConnectorResult$,
   GetCommandInvocation$,
   GetCommandInvocationCommand,
   GetCommandInvocationRequest$,
@@ -668,6 +689,10 @@ import {
   ListAssociationVersionsCommand,
   ListAssociationVersionsRequest$,
   ListAssociationVersionsResult$,
+  ListCloudConnectors$,
+  ListCloudConnectorsCommand,
+  ListCloudConnectorsRequest$,
+  ListCloudConnectorsResult$,
   ListCommandInvocations$,
   ListCommandInvocationsCommand,
   ListCommandInvocationsRequest$,
@@ -870,6 +895,7 @@ import {
   paginateGetResourcePolicies,
   paginateListAssociations,
   paginateListAssociationVersions,
+  paginateListCloudConnectors,
   paginateListCommandInvocations,
   paginateListCommands,
   paginateListComplianceItems,
@@ -883,6 +909,7 @@ import {
   paginateListOpsMetadata,
   paginateListResourceComplianceSummaries,
   paginateListResourceDataSync,
+  paginateValidateCloudConnector,
   Parameter$,
   ParameterAlreadyExists,
   ParameterAlreadyExists$,
@@ -1131,6 +1158,10 @@ import {
   UpdateAssociationStatusCommand,
   UpdateAssociationStatusRequest$,
   UpdateAssociationStatusResult$,
+  UpdateCloudConnector$,
+  UpdateCloudConnectorCommand,
+  UpdateCloudConnectorRequest$,
+  UpdateCloudConnectorResult$,
   UpdateDocument$,
   UpdateDocumentCommand,
   UpdateDocumentDefaultVersion$,
@@ -1179,8 +1210,17 @@ import {
   UpdateServiceSettingCommand,
   UpdateServiceSettingRequest$,
   UpdateServiceSettingResult$,
+  ValidateCloudConnector$,
+  ValidateCloudConnectorCommand,
+  ValidateCloudConnectorRequest$,
+  ValidateCloudConnectorResult$,
   ValidationException,
   ValidationException$,
+  ValidationFinding$,
+  ValidationFindingCode,
+  ValidationFindingScope$,
+  ValidationFindingScopeType,
+  ValidationFindingType,
   waitForCommandExecuted,
   waitUntilCommandExecuted,
 } from "../dist-cjs/index.js";
@@ -1203,6 +1243,8 @@ assert(typeof CreateAssociationCommand === "function");
 assert(typeof CreateAssociation$ === "object");
 assert(typeof CreateAssociationBatchCommand === "function");
 assert(typeof CreateAssociationBatch$ === "object");
+assert(typeof CreateCloudConnectorCommand === "function");
+assert(typeof CreateCloudConnector$ === "object");
 assert(typeof CreateDocumentCommand === "function");
 assert(typeof CreateDocument$ === "object");
 assert(typeof CreateMaintenanceWindowCommand === "function");
@@ -1219,6 +1261,8 @@ assert(typeof DeleteActivationCommand === "function");
 assert(typeof DeleteActivation$ === "object");
 assert(typeof DeleteAssociationCommand === "function");
 assert(typeof DeleteAssociation$ === "object");
+assert(typeof DeleteCloudConnectorCommand === "function");
+assert(typeof DeleteCloudConnector$ === "object");
 assert(typeof DeleteDocumentCommand === "function");
 assert(typeof DeleteDocument$ === "object");
 assert(typeof DeleteInventoryCommand === "function");
@@ -1321,6 +1365,8 @@ assert(typeof GetAutomationExecutionCommand === "function");
 assert(typeof GetAutomationExecution$ === "object");
 assert(typeof GetCalendarStateCommand === "function");
 assert(typeof GetCalendarState$ === "object");
+assert(typeof GetCloudConnectorCommand === "function");
+assert(typeof GetCloudConnector$ === "object");
 assert(typeof GetCommandInvocationCommand === "function");
 assert(typeof GetCommandInvocation$ === "object");
 assert(typeof GetConnectionStatusCommand === "function");
@@ -1375,6 +1421,8 @@ assert(typeof ListAssociationsCommand === "function");
 assert(typeof ListAssociations$ === "object");
 assert(typeof ListAssociationVersionsCommand === "function");
 assert(typeof ListAssociationVersions$ === "object");
+assert(typeof ListCloudConnectorsCommand === "function");
+assert(typeof ListCloudConnectors$ === "object");
 assert(typeof ListCommandInvocationsCommand === "function");
 assert(typeof ListCommandInvocations$ === "object");
 assert(typeof ListCommandsCommand === "function");
@@ -1457,6 +1505,8 @@ assert(typeof UpdateAssociationCommand === "function");
 assert(typeof UpdateAssociation$ === "object");
 assert(typeof UpdateAssociationStatusCommand === "function");
 assert(typeof UpdateAssociationStatus$ === "object");
+assert(typeof UpdateCloudConnectorCommand === "function");
+assert(typeof UpdateCloudConnector$ === "object");
 assert(typeof UpdateDocumentCommand === "function");
 assert(typeof UpdateDocument$ === "object");
 assert(typeof UpdateDocumentDefaultVersionCommand === "function");
@@ -1481,6 +1531,8 @@ assert(typeof UpdateResourceDataSyncCommand === "function");
 assert(typeof UpdateResourceDataSync$ === "object");
 assert(typeof UpdateServiceSettingCommand === "function");
 assert(typeof UpdateServiceSetting$ === "object");
+assert(typeof ValidateCloudConnectorCommand === "function");
+assert(typeof ValidateCloudConnector$ === "object");
 // structural schemas
 assert(typeof AccountSharingInfo$ === "object");
 assert(typeof Activation$ === "object");
@@ -1509,11 +1561,16 @@ assert(typeof AutomationExecutionFilter$ === "object");
 assert(typeof AutomationExecutionInputs$ === "object");
 assert(typeof AutomationExecutionMetadata$ === "object");
 assert(typeof AutomationExecutionPreview$ === "object");
+assert(typeof AzureConfiguration$ === "object");
+assert(typeof AzureSubscription$ === "object");
 assert(typeof BaselineOverride$ === "object");
 assert(typeof CancelCommandRequest$ === "object");
 assert(typeof CancelCommandResult$ === "object");
 assert(typeof CancelMaintenanceWindowExecutionRequest$ === "object");
 assert(typeof CancelMaintenanceWindowExecutionResult$ === "object");
+assert(typeof CloudConnectorConfiguration$ === "object");
+assert(typeof CloudConnectorFilter$ === "object");
+assert(typeof CloudConnectorSummary$ === "object");
 assert(typeof CloudWatchOutputConfig$ === "object");
 assert(typeof Command$ === "object");
 assert(typeof CommandFilter$ === "object");
@@ -1525,6 +1582,7 @@ assert(typeof ComplianceItemEntry$ === "object");
 assert(typeof ComplianceStringFilter$ === "object");
 assert(typeof ComplianceSummaryItem$ === "object");
 assert(typeof CompliantSummary$ === "object");
+assert(typeof ConfigurationTargets$ === "object");
 assert(typeof CreateActivationRequest$ === "object");
 assert(typeof CreateActivationResult$ === "object");
 assert(typeof CreateAssociationBatchRequest$ === "object");
@@ -1532,6 +1590,8 @@ assert(typeof CreateAssociationBatchRequestEntry$ === "object");
 assert(typeof CreateAssociationBatchResult$ === "object");
 assert(typeof CreateAssociationRequest$ === "object");
 assert(typeof CreateAssociationResult$ === "object");
+assert(typeof CreateCloudConnectorRequest$ === "object");
+assert(typeof CreateCloudConnectorResult$ === "object");
 assert(typeof CreateDocumentRequest$ === "object");
 assert(typeof CreateDocumentResult$ === "object");
 assert(typeof CreateMaintenanceWindowRequest$ === "object");
@@ -1549,6 +1609,8 @@ assert(typeof DeleteActivationRequest$ === "object");
 assert(typeof DeleteActivationResult$ === "object");
 assert(typeof DeleteAssociationRequest$ === "object");
 assert(typeof DeleteAssociationResult$ === "object");
+assert(typeof DeleteCloudConnectorRequest$ === "object");
+assert(typeof DeleteCloudConnectorResult$ === "object");
 assert(typeof DeleteDocumentRequest$ === "object");
 assert(typeof DeleteDocumentResult$ === "object");
 assert(typeof DeleteInventoryRequest$ === "object");
@@ -1669,6 +1731,8 @@ assert(typeof GetAutomationExecutionRequest$ === "object");
 assert(typeof GetAutomationExecutionResult$ === "object");
 assert(typeof GetCalendarStateRequest$ === "object");
 assert(typeof GetCalendarStateResponse$ === "object");
+assert(typeof GetCloudConnectorRequest$ === "object");
+assert(typeof GetCloudConnectorResult$ === "object");
 assert(typeof GetCommandInvocationRequest$ === "object");
 assert(typeof GetCommandInvocationResult$ === "object");
 assert(typeof GetConnectionStatusRequest$ === "object");
@@ -1749,6 +1813,8 @@ assert(typeof ListAssociationsRequest$ === "object");
 assert(typeof ListAssociationsResult$ === "object");
 assert(typeof ListAssociationVersionsRequest$ === "object");
 assert(typeof ListAssociationVersionsResult$ === "object");
+assert(typeof ListCloudConnectorsRequest$ === "object");
+assert(typeof ListCloudConnectorsResult$ === "object");
 assert(typeof ListCommandInvocationsRequest$ === "object");
 assert(typeof ListCommandInvocationsResult$ === "object");
 assert(typeof ListCommandsRequest$ === "object");
@@ -1919,6 +1985,8 @@ assert(typeof UpdateAssociationRequest$ === "object");
 assert(typeof UpdateAssociationResult$ === "object");
 assert(typeof UpdateAssociationStatusRequest$ === "object");
 assert(typeof UpdateAssociationStatusResult$ === "object");
+assert(typeof UpdateCloudConnectorRequest$ === "object");
+assert(typeof UpdateCloudConnectorResult$ === "object");
 assert(typeof UpdateDocumentDefaultVersionRequest$ === "object");
 assert(typeof UpdateDocumentDefaultVersionResult$ === "object");
 assert(typeof UpdateDocumentMetadataRequest$ === "object");
@@ -1943,6 +2011,10 @@ assert(typeof UpdateResourceDataSyncRequest$ === "object");
 assert(typeof UpdateResourceDataSyncResult$ === "object");
 assert(typeof UpdateServiceSettingRequest$ === "object");
 assert(typeof UpdateServiceSettingResult$ === "object");
+assert(typeof ValidateCloudConnectorRequest$ === "object");
+assert(typeof ValidateCloudConnectorResult$ === "object");
+assert(typeof ValidationFinding$ === "object");
+assert(typeof ValidationFindingScope$ === "object");
 // enums
 assert(typeof AccessRequestStatus === "object");
 assert(typeof AccessType === "object");
@@ -1960,6 +2032,7 @@ assert(typeof AutomationExecutionStatus === "object");
 assert(typeof AutomationSubtype === "object");
 assert(typeof AutomationType === "object");
 assert(typeof CalendarState === "object");
+assert(typeof CloudConnectorFilterKey === "object");
 assert(typeof CommandFilterKey === "object");
 assert(typeof CommandInvocationStatus === "object");
 assert(typeof CommandPluginStatus === "object");
@@ -2042,6 +2115,9 @@ assert(typeof SignalType === "object");
 assert(typeof SourceType === "object");
 assert(typeof StepExecutionFilterKey === "object");
 assert(typeof StopType === "object");
+assert(typeof ValidationFindingCode === "object");
+assert(typeof ValidationFindingScopeType === "object");
+assert(typeof ValidationFindingType === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof SSMServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -2073,6 +2149,8 @@ assert(AutomationStepNotFoundException.prototype instanceof SSMServiceException)
 assert(typeof AutomationStepNotFoundException$ === "object");
 assert(ComplianceTypeCountLimitExceededException.prototype instanceof SSMServiceException);
 assert(typeof ComplianceTypeCountLimitExceededException$ === "object");
+assert(ConflictException.prototype instanceof SSMServiceException);
+assert(typeof ConflictException$ === "object");
 assert(CustomSchemaCountLimitExceededException.prototype instanceof SSMServiceException);
 assert(typeof CustomSchemaCountLimitExceededException$ === "object");
 assert(DocumentAlreadyExists.prototype instanceof SSMServiceException);
@@ -2363,6 +2441,7 @@ assert(typeof paginateGetParametersByPath === "function");
 assert(typeof paginateGetResourcePolicies === "function");
 assert(typeof paginateListAssociationVersions === "function");
 assert(typeof paginateListAssociations === "function");
+assert(typeof paginateListCloudConnectors === "function");
 assert(typeof paginateListCommandInvocations === "function");
 assert(typeof paginateListCommands === "function");
 assert(typeof paginateListComplianceItems === "function");
@@ -2376,4 +2455,5 @@ assert(typeof paginateListOpsItemRelatedItems === "function");
 assert(typeof paginateListOpsMetadata === "function");
 assert(typeof paginateListResourceComplianceSummaries === "function");
 assert(typeof paginateListResourceDataSync === "function");
+assert(typeof paginateValidateCloudConnector === "function");
 console.log(`SSM index test passed.`);

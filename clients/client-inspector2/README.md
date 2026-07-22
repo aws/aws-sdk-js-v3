@@ -280,6 +280,13 @@ CreateCodeSecurityScanConfiguration
 </details>
 <details>
 <summary>
+CreateConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/CreateConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 CreateFilter
 </summary>
 
@@ -319,6 +326,13 @@ DeleteCodeSecurityScanConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/DeleteCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityScanConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/DeleteConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteConnectorCommandOutput/)
 </details>
 <details>
 <summary>
@@ -518,6 +532,20 @@ ListCodeSecurityScanConfigurations
 </details>
 <details>
 <summary>
+ListConnectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListConnectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListConnectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListConnectorsCommandOutput/)
+</details>
+<details>
+<summary>
+ListConnectorScanConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListConnectorScanConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListConnectorScanConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListConnectorScanConfigurationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListCoverage
 </summary>
 
@@ -669,6 +697,20 @@ UpdateConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConnectorCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateConnectorScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateConnectorScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConnectorScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateConnectorScanConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

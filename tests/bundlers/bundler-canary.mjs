@@ -1,7 +1,7 @@
 import { execSync } from "node:child_process";
 import { mkdirSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { createRequire } from "node:module";
-import { dirname,join } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 const require = createRequire(import.meta.url);
 const { findGlobalBufferRefs } = require("./bundler-output-analysis.cjs");
@@ -35,7 +35,12 @@ if (!npmInstallWithRetry("npm install", "Installing dependencies")) {
   process.exit(0);
 }
 
-if (!npmInstallWithRetry("npm install --no-save vite webpack webpack-cli ts-loader typescript esbuild", "Installing bundlers")) {
+if (
+  !npmInstallWithRetry(
+    "npm install --no-save vite webpack webpack-cli ts-loader typescript@~5 esbuild",
+    "Installing bundlers"
+  )
+) {
   console.log("npm install (bundlers) failed after 4 attempts, skipping test.");
   process.exit(0);
 }
@@ -119,7 +124,9 @@ for (const { name, dir } of bundlerDirs) {
     }
 
     // Check that toStream uses ReadableStream (browser) and not Readable.from (node)
-    const toStreamMatch = content.match(/(?:function\s+toStream|(?:var|let|const)\s+toStream\s*=)\s*\(?[^)]*\)?\s*(?:=>)?\s*\{[^}]*\}/g) || [];
+    const toStreamMatch =
+      content.match(/(?:function\s+toStream|(?:var|let|const)\s+toStream\s*=)\s*\(?[^)]*\)?\s*(?:=>)?\s*\{[^}]*\}/g) ||
+      [];
     for (const fn of toStreamMatch) {
       if (!fn.includes("ReadableStream")) {
         console.error(`  ❌ FAIL: toStream does not use ReadableStream`);

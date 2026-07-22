@@ -72,6 +72,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  *   SecurityGroups: [
  *     "STRING_VALUE",
  *   ],
+ *   StorageSize: Number("int"),
  *   DataReplicationMode: "NONE" || "CRDR",
  * };
  * const command = new UpdateBrokerCommand(input);
@@ -131,6 +132,7 @@ export interface UpdateBrokerCommandOutput extends UpdateBrokerResponse, __Metad
  * //     DataReplicationRole: "STRING_VALUE", // required
  * //   },
  * //   PendingDataReplicationMode: "NONE" || "CRDR",
+ * //   StorageSize: Number("int"),
  * // };
  *
  * ```

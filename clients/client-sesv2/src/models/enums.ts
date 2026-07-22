@@ -380,6 +380,8 @@ export const DkimSigningAttributesOrigin = {
   AWS_SES_SA_EAST_1: "AWS_SES_SA_EAST_1",
   AWS_SES_US_EAST_1: "AWS_SES_US_EAST_1",
   AWS_SES_US_EAST_2: "AWS_SES_US_EAST_2",
+  AWS_SES_US_GOV_EAST_1: "AWS_SES_US_GOV_EAST_1",
+  AWS_SES_US_GOV_WEST_1: "AWS_SES_US_GOV_WEST_1",
   AWS_SES_US_WEST_1: "AWS_SES_US_WEST_1",
   AWS_SES_US_WEST_2: "AWS_SES_US_WEST_2",
   EXTERNAL: "EXTERNAL",
@@ -604,6 +606,21 @@ export const JobStatus = {
  * @public
  */
 export type JobStatus = (typeof JobStatus)[keyof typeof JobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const PricingPlan = {
+  ENTERPRISE: "ENTERPRISE",
+  ESSENTIALS: "ESSENTIALS",
+  NONE: "NONE",
+  PRO: "PRO",
+} as const;
+/**
+ * @public
+ */
+export type PricingPlan = (typeof PricingPlan)[keyof typeof PricingPlan];
 
 /**
  * @public

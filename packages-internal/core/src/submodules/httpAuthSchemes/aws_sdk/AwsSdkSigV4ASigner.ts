@@ -19,9 +19,8 @@ export class AwsSdkSigV4ASigner extends AwsSdkSigV4Signer {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
 
-    const { config, signer, signingRegion, signingRegionSet, signingName } = await validateSigningProperties(
-      signingProperties
-    );
+    const { config, signer, signingRegion, signingRegionSet, signingName } =
+      await validateSigningProperties(signingProperties);
 
     const configResolvedSigningRegionSet = await config.sigv4aSigningRegionSet?.();
 

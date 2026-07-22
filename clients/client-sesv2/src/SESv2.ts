@@ -379,6 +379,11 @@ import {
   PutAccountDetailsCommand,
 } from "./commands/PutAccountDetailsCommand";
 import {
+  type PutAccountPricingAttributesCommandInput,
+  type PutAccountPricingAttributesCommandOutput,
+  PutAccountPricingAttributesCommand,
+} from "./commands/PutAccountPricingAttributesCommand";
+import {
   type PutAccountSendingAttributesCommandInput,
   type PutAccountSendingAttributesCommandOutput,
   PutAccountSendingAttributesCommand,
@@ -649,6 +654,7 @@ const commands = {
   ListTenantsCommand,
   PutAccountDedicatedIpWarmupAttributesCommand,
   PutAccountDetailsCommand,
+  PutAccountPricingAttributesCommand,
   PutAccountSendingAttributesCommand,
   PutAccountSuppressionAttributesCommand,
   PutAccountVdmAttributesCommand,
@@ -2016,6 +2022,23 @@ export interface SESv2 {
     args: PutAccountDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountPricingAttributesCommand}
+   */
+  putAccountPricingAttributes(
+    args: PutAccountPricingAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountPricingAttributesCommandOutput>;
+  putAccountPricingAttributes(
+    args: PutAccountPricingAttributesCommandInput,
+    cb: (err: any, data?: PutAccountPricingAttributesCommandOutput) => void
+  ): void;
+  putAccountPricingAttributes(
+    args: PutAccountPricingAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountPricingAttributesCommandOutput) => void
   ): void;
 
   /**

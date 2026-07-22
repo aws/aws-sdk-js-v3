@@ -1,7 +1,22 @@
 {
   "name": "@aws-sdk/crc64-nvme-crt",
-  "version": "3.1078.0",
+  "version": "3.1093.0",
   "description": "An implementation of CRC64-NVME checksum based on AWS Common Runtime https://github.com/awslabs/aws-crt-nodejs",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/crc64-nvme-crt",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/crc64-nvme-crt"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": true,
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
@@ -17,17 +32,11 @@
     "test": "yarn g:vitest run",
     "test:watch": "yarn g:vitest watch"
   },
-  "sideEffects": true,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.11",
-    "@aws-sdk/crt-loader": "workspace:^3.972.56",
-    "@smithy/core": "^3.29.0",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/checksums": "workspace:^3.1000.19",
+    "@aws-sdk/crt-loader": "workspace:^3.972.64",
+    "@smithy/core": "^3.29.4",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -39,14 +48,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/crc64-nvme-crt",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages/crc64-nvme-crt"
   }
 }

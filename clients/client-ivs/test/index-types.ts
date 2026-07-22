@@ -217,6 +217,7 @@ export type {
   PlaybackKeyPairSummary,
   PlaybackRestrictionPolicy,
   PlaybackRestrictionPolicySummary,
+  PostRollConfiguration,
   PutMetadataRequest,
   RecordingConfiguration,
   RecordingConfigurationSummary,

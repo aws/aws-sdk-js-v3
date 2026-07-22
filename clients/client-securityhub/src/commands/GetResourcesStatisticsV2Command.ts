@@ -26,6 +26,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
 /**
  * <p>Retrieves statistical information about Amazon Web Services resources and their associated security findings.</p>
  *          <p>You can use the <code>Scopes</code> parameter to define the data boundary for the query. Currently, <code>Scopes</code> supports <code>AwsOrganizations</code>, which lets you aggregate resources from your entire organization or from specific organizational units. Only the delegated administrator account can use <code>Scopes</code>.</p>
+ *          <p>If you set <code>GroupByField</code> to <code>ResourceSubCategory</code>, <code>ResourceInfo.AIDetails.HostResourceType</code>, or <code>ResourceInfo.AIDetails.CanonicalId</code>, you must include a <code>ResourceCategory</code> string filter with comparison set to <code>EQUALS</code> and value <code>AI/ML</code> in the corresponding <code>ResourceGroupByRule</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,13 +38,13 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  * const input = { // GetResourcesStatisticsV2Request
  *   GroupByRules: [ // ResourceGroupByRules // required
  *     { // ResourceGroupByRule
- *       GroupByField: "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType", // required
+ *       GroupByField: "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId", // required
  *       Filters: { // ResourcesFilters
  *         CompositeFilters: [ // ResourcesCompositeFilterList
  *           { // ResourcesCompositeFilter
  *             StringFilters: [ // ResourcesStringFilterList
  *               { // ResourcesStringFilter
- *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *                 FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
  *                 Filter: { // StringFilter
  *                   Value: "STRING_VALUE",
  *                   Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -66,7 +67,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *             ],
  *             NumberFilters: [ // ResourcesNumberFilterList
  *               { // ResourcesNumberFilter
- *                 FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
+ *                 FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
  *                 Filter: { // NumberFilter
  *                   Gte: Number("double"),
  *                   Lte: Number("double"),
@@ -90,7 +91,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *               {
  *                 StringFilters: [
  *                   {
- *                     FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "Region" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName",
+ *                     FieldName: "ResourceGuid" || "ResourceId" || "AccountId" || "AccountName" || "Region" || "ResourceProvider" || "ResourceOwnerAccountId" || "ResourceOwnerOrgId" || "ResourceCloudPartition" || "ResourceRegion" || "ResourceCategory" || "ResourceType" || "ResourceName" || "FindingsSummary.FindingType" || "FindingsSummary.ProductName" || "ResourceSubCategory" || "DiscoveryType" || "ResourceInfo.AIDetails.HostResourceGuid" || "ResourceInfo.AIDetails.HostResourceType" || "ResourceInfo.AIDetails.CanonicalId",
  *                     Filter: {
  *                       Value: "STRING_VALUE",
  *                       Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
@@ -113,7 +114,7 @@ export interface GetResourcesStatisticsV2CommandOutput extends GetResourcesStati
  *                 ],
  *                 NumberFilters: [
  *                   {
- *                     FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown",
+ *                     FieldName: "FindingsSummary.TotalFindings" || "FindingsSummary.Severities.Other" || "FindingsSummary.Severities.Fatal" || "FindingsSummary.Severities.Critical" || "FindingsSummary.Severities.High" || "FindingsSummary.Severities.Medium" || "FindingsSummary.Severities.Low" || "FindingsSummary.Severities.Informational" || "FindingsSummary.Severities.Unknown" || "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount" || "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount" || "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
  *                     Filter: {
  *                       Gte: Number("double"),
  *                       Lte: Number("double"),

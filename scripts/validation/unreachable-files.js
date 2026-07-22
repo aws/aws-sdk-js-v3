@@ -9,53 +9,12 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const walk = require("../utils/walk");
-const { extractImports, resolveRelative, getPackageDirs, summarizePackages } = require("./validation-shared");
-
-/**
- * @param code - JS file contents.
- * @returns only the relative specifiers.
- */
-function extractRelativeImports(code) {
-  return extractImports(code).filter((s) => s.startsWith("."));
-}
-
-/**
- * BFS from entry points, following relative imports.
- *
- * @param entryPoints - absolute paths to start from.
- * @returns set of all reachable absolute file paths.
- */
-function collectReachable(entryPoints) {
-  const visited = new Set();
-  const queue = [...entryPoints];
-
-  while (queue.length) {
-    const file = queue.shift();
-    if (visited.has(file) || !fs.existsSync(file)) {
-      continue;
-    }
-    visited.add(file);
-
-    const code = fs.readFileSync(file, "utf-8");
-    for (const specifier of extractRelativeImports(code)) {
-      const target = resolveRelative(file, specifier);
-      if (target && !visited.has(target)) {
-        queue.push(target);
-      }
-    }
-  }
-  return visited;
-}
+const { createBus } = require("./ast-bus");
+const { resolveRelative, getPackageDirs } = require("./validation-shared");
 
 /**
  * Collects entry point paths for a dist directory from package.json fields:
  * main, module, exports, browser, react-native.
- *
- * @param pkgJson - parsed package.json.
- * @param packageDir - package root.
- * @param distName - "dist-cjs" or "dist-es".
- * @returns deduplicated absolute paths.
  */
 function getEntryPoints(pkgJson, packageDir, distName) {
   const entries = [];
@@ -107,72 +66,164 @@ function getEntryPoints(pkgJson, packageDir, distName) {
 }
 
 /**
- * @param packageDir - package root.
- * @param pkgJson - parsed package.json.
- * @param distName - "dist-cjs" or "dist-es".
- * @returns relative paths of unreachable files.
+ * BFS from entry points, following relative imports using the graph.
  */
-async function validateDist(packageDir, pkgJson, distName) {
-  const distDir = path.join(packageDir, distName);
-  if (!fs.existsSync(distDir)) {
-    return [];
-  }
+function collectReachable(entryPoints, graph) {
+  const visited = new Set();
+  const queue = [...entryPoints];
 
-  const entryPoints = getEntryPoints(pkgJson, packageDir, distName);
-  if (!entryPoints.length) {
-    return [];
-  }
-
-  const reachable = collectReachable(entryPoints);
-
-  const allFiles = [];
-  for await (const file of walk(distDir, ["node_modules"])) {
-    if (!file.endsWith(".js")) {
+  while (queue.length) {
+    const file = queue.shift();
+    if (visited.has(file) || !fs.existsSync(file)) {
       continue;
     }
-    // Type-only files compile to just "export {};".
-    const content = fs.readFileSync(file, "utf-8").trim();
-    if (content === "export {};" || content === '"use strict";') {
+    visited.add(file);
+
+    const imports = graph.get(file);
+    if (!imports) {
       continue;
     }
-    allFiles.push(file);
+    for (let i = 0; i < imports.length; ++i) {
+      const specifier = imports[i];
+      if (!specifier.startsWith(".")) {
+        continue;
+      }
+      const target = resolveRelative(file, specifier);
+      if (target && !visited.has(target)) {
+        queue.push(target);
+      }
+    }
   }
-
-  return allFiles
-    .filter((f) => !reachable.has(f))
-    .map((f) => path.relative(packageDir, f))
-    .filter((f) => f !== `${distName}/runtimeConfig.browser.js` && f !== `${distName}/runtimeConfig.native.js`);
+  return visited;
 }
 
 /**
- * @param packageDir - package root.
- * @returns formatted warning messages.
+ * Creates the unreachable-files validator.
  */
-async function validate(packageDir) {
-  const pkgJsonPath = path.join(packageDir, "package.json");
-  if (!fs.existsSync(pkgJsonPath)) {
-    return [];
-  }
-  const pkgJson = JSON.parse(fs.readFileSync(pkgJsonPath, "utf-8"));
+function createValidator() {
+  // Collect file lists during the walk so we can diff against reachability in onWalkComplete.
+  // Key format: `${packageDir}::${target}` → Set<filePath>
+  const filesByPkgTarget = new Map();
+  const pkgJsonByDir = new Map();
   const errors = [];
-  for (const dist of ["dist-cjs", "dist-es"]) {
-    const unreachable = await validateDist(packageDir, pkgJson, dist);
-    errors.push(...unreachable.map((f) => `[${pkgJson.name}] unreachable file: ${f}`));
-  }
-  return errors;
+
+  // Packages exempt entirely.
+  const EXEMPT_PACKAGES = new Set(["@aws-sdk/aws-client-api-test", "@aws-sdk/aws-client-retry-test"]);
+
+  // Package-specific file exemptions (relative paths from package root).
+  const EXEMPT_FILES = new Map([
+    [
+      "@aws-sdk/core",
+      new Set([
+        "dist-es/submodules/client/util-user-agent-browser/defaultUserAgent.browser.js",
+        "dist-es/submodules/protocols/json/experimental/BufferJsonShapeDeserializer.js",
+        "dist-es/submodules/protocols/json/experimental/ByteJsonShapeSerializer.js",
+        "dist-es/submodules/protocols/json/experimental/SinglePassJsonShapeSerializer.js",
+        "dist-es/submodules/protocols/xml/simpleFormatXml.js",
+      ]),
+    ],
+    [
+      "@aws-sdk/nested-clients",
+      new Set([
+        "dist-es/submodules/cognito-identity/runtimeConfig.native.js",
+        "dist-es/submodules/signin/runtimeConfig.native.js",
+        "dist-es/submodules/sso/runtimeConfig.native.js",
+        "dist-es/submodules/sso-oidc/runtimeConfig.native.js",
+        "dist-es/submodules/sts/runtimeConfig.native.js",
+      ]),
+    ],
+    ["@aws-sdk/util-dns", new Set(["dist-es/archive/NodeDnsResolveHostResolver.js"])],
+    [
+      "@aws-sdk/lib-transfer-manager",
+      new Set([
+        "dist-es/submodules/transfer-manager/join-streams.browser.js",
+        "dist-es/submodules/transfer-manager/worker-http-handler.browser.js",
+      ]),
+    ],
+  ]);
+
+  return {
+    name: "unreachable-files",
+    targets: ["dist-cjs", "dist-es"],
+
+    onFile(file, context) {
+      if (!file.endsWith(".js")) {
+        return;
+      }
+      const key = `${context.packageDir}::${context.target}`;
+      if (!filesByPkgTarget.has(key)) {
+        filesByPkgTarget.set(key, new Set());
+        pkgJsonByDir.set(context.packageDir, context.packageJson);
+      }
+      filesByPkgTarget.get(key).add(file);
+    },
+
+    onWalkComplete(graph) {
+      for (const [key, files] of filesByPkgTarget) {
+        const [packageDir, target] = key.split("::");
+        const pkgJson = pkgJsonByDir.get(packageDir);
+        if (!pkgJson) {
+          continue;
+        }
+        if (EXEMPT_PACKAGES.has(pkgJson.name)) {
+          continue;
+        }
+
+        const entryPoints = getEntryPoints(pkgJson, packageDir, target);
+        if (!entryPoints.length) {
+          continue;
+        }
+
+        const reachable = collectReachable(entryPoints, graph);
+        const pkgExemptions = EXEMPT_FILES.get(pkgJson.name);
+
+        for (const file of files) {
+          if (reachable.has(file)) {
+            continue;
+          }
+          // Type-only files compile to just "export {};".
+          const content = fs.readFileSync(file, "utf-8").trim();
+          if (content === "export {};" || content === '"use strict";') {
+            continue;
+          }
+          const rel = path.relative(packageDir, file);
+          // Skip known browser/native runtimeConfig alternates.
+          if (rel === `${target}/runtimeConfig.browser.js` || rel === `${target}/runtimeConfig.native.js`) {
+            continue;
+          }
+          // Skip package-specific exemptions.
+          if (pkgExemptions && pkgExemptions.has(rel)) {
+            continue;
+          }
+          errors.push(`[${pkgJson.name}] unreachable file: ${rel}`);
+        }
+      }
+    },
+
+    getErrors() {
+      return errors;
+    },
+  };
 }
 
 async function main() {
   const packages = getPackageDirs();
-  const errors = [];
-  for (const { dir } of packages) {
-    errors.push(...(await validate(dir)));
-  }
+  const validator = createValidator();
+  const bus = createBus({ packages });
+  bus.register(validator);
+  await bus.run();
+
+  const errors = validator.getErrors();
   if (errors.length) {
-    console.log(`⚠️  ${errors.length} unreachable file(s):\n  ${errors.join("\n  ")}`);
-  } else {
-    console.log(`✅ All dist files are reachable from entry points. (${summarizePackages(packages)})`);
+    console.error(`❌ ${errors.length} unreachable file(s):\n  ${errors.join("\n  ")}`);
+    process.exit(1);
   }
+  console.log(`✅ All dist files are reachable from entry points. (${bus.getSummary()})`);
+  console.log(`    [${(validator.inspects || validator.targets).join(", ")}]`);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { createValidator };

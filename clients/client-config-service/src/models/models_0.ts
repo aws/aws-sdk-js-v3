@@ -12,6 +12,7 @@ import type {
   ConfigurationRecorderFilterName,
   ConformancePackComplianceType,
   ConformancePackState,
+  ConnectorFilterName,
   DeliveryStatus,
   EvaluationMode,
   EventSource,
@@ -24,6 +25,7 @@ import type {
   OrganizationResourceStatus,
   OrganizationRuleStatus,
   Owner,
+  Provider,
   RecorderStatus,
   RecordingFrequency,
   RecordingScope,
@@ -1119,6 +1121,36 @@ export interface RecordingMode {
 }
 
 /**
+ * <p>Specifies the scope of resources to record from a third-party cloud service provider.</p>
+ * @public
+ */
+export interface ScopeConfiguration {
+  /**
+   * <p>The type of scope for the third-party cloud resources. Valid values include <code>tenant</code> and <code>subscription</code>.</p>
+   * @public
+   */
+  scopeType: string | undefined;
+
+  /**
+   * <p>The list of specific scope values for the third-party cloud resources. For example, a list of Azure subscriptions or management groups.</p>
+   * @public
+   */
+  scopeValues?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to record resources from all supported regions for the third-party cloud service provider.</p>
+   * @public
+   */
+  allRegions: boolean | undefined;
+
+  /**
+   * <p>The list of regions from the third-party cloud service provider to include when recording resources. Used when <code>allRegions</code> is set to <code>false</code>.</p>
+   * @public
+   */
+  includedRegions?: string[] | undefined;
+}
+
+/**
  * <p>Records configuration changes to the resource types in scope.</p>
  *          <p>For more information about the configuration recorder,
  * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">
@@ -1241,6 +1273,18 @@ export interface ConfigurationRecorder {
    * @public
    */
   servicePrincipal?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between a third-party cloud service provider and Config.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>Specifies the scope of resources to record from the third-party cloud service provider connected through the connector.</p>
+   * @public
+   */
+  scopeConfiguration?: ScopeConfiguration | undefined;
 }
 
 /**
@@ -1256,6 +1300,24 @@ export interface AssociateResourceTypesResponse {
    * @public
    */
   ConfigurationRecorder: ConfigurationRecorder | undefined;
+}
+
+/**
+ * <p>The configuration details for connecting to Microsoft Azure.</p>
+ * @public
+ */
+export interface AzureConnectorConfiguration {
+  /**
+   * <p>The Azure tenant identifier.</p>
+   * @public
+   */
+  tenantIdentifier: string | undefined;
+
+  /**
+   * <p>The Azure client identifier.</p>
+   * @public
+   */
+  clientIdentifier: string | undefined;
 }
 
 /**
@@ -2624,7 +2686,7 @@ export interface ConfigurationRecorderStatus {
 }
 
 /**
- * <p>A summary of a configuration recorder, including the <code>arn</code>, <code>name</code>, <code>servicePrincipal</code>, and <code>recordingScope</code>.</p>
+ * <p>A summary of a configuration recorder, including the <code>arn</code>, <code>name</code>, <code>servicePrincipal</code>, <code>recordingScope</code>, and <code>provider</code>.</p>
  * @public
  */
 export interface ConfigurationRecorderSummary {
@@ -2651,6 +2713,12 @@ export interface ConfigurationRecorderSummary {
    * @public
    */
   recordingScope: RecordingScope | undefined;
+
+  /**
+   * <p>For service-linked configuration recorders that record resources from a third-party cloud service provider, indicates the cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * @public
+   */
+  provider?: Provider | undefined;
 }
 
 /**
@@ -3006,6 +3074,102 @@ export interface ConformancePackStatusDetail {
 }
 
 /**
+ * <p>The provider-specific configuration for connecting to the third-party cloud service provider. You must specify exactly one provider configuration.</p>
+ * @public
+ */
+export interface ConnectorConfiguration {
+  /**
+   * <p>The configuration for an Azure connector.</p>
+   * @public
+   */
+  azure?: AzureConnectorConfiguration | undefined;
+}
+
+/**
+ * <p>The details of the connector, including the connector configuration and connector ARN.</p>
+ * @public
+ */
+export interface Connector {
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
+   * @public
+   */
+  connectorConfiguration: ConnectorConfiguration | undefined;
+
+  /**
+   * <p>The date and time that the connector was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+}
+
+/**
+ * <p>Filters connectors based on the connector provider.</p>
+ * @public
+ */
+export interface ConnectorFilter {
+  /**
+   * <p>The name of the filter. Currently, only <code>provider</code> is supported.</p>
+   * @public
+   */
+  filterName?: ConnectorFilterName | undefined;
+
+  /**
+   * <p>The value of the filter. For <code>provider</code>, valid values include: <code>AZURE</code>.</p>
+   * @public
+   */
+  filterValues?: string[] | undefined;
+}
+
+/**
+ * <p>A summary of a connector.</p>
+ * @public
+ */
+export interface ConnectorSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The name of the connector.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The third-party cloud service provider. Currently, <code>AZURE</code> is supported.</p>
+   * @public
+   */
+  provider: Provider | undefined;
+
+  /**
+   * <p>The Azure tenant identifier for the connector.</p>
+   * @public
+   */
+  tenantIdentifier: string | undefined;
+
+  /**
+   * <p>The date and time that the connector was created.</p>
+   * @public
+   */
+  createdTime: Date | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteAggregationAuthorizationRequest {
@@ -3070,6 +3234,17 @@ export interface DeleteConformancePackRequest {
    * @public
    */
   ConformancePackName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that you want to delete.</p>
+   * @public
+   */
+  Arn: string | undefined;
 }
 
 /**
@@ -3265,10 +3440,16 @@ export interface DeleteRetentionConfigurationRequest {
  */
 export interface DeleteServiceLinkedConfigurationRecorderRequest {
   /**
-   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete.</p>
+   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to delete. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
    * @public
    */
-  ServicePrincipal: string | undefined;
+  ServicePrincipal?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service-linked configuration recorder that you want to delete. For third-party service-linked configuration recorders, you must use <code>Arn</code>. You must specify exactly one of <code>Arn</code> or <code>ServicePrincipal</code>.</p>
+   * @public
+   */
+  Arn?: string | undefined;
 }
 
 /**
@@ -3766,14 +3947,6 @@ export interface DescribeConfigRulesRequest {
   ConfigRuleNames?: string[] | undefined;
 
   /**
-   * <p>The <code>nextToken</code> string returned on a previous page
-   * 			that you use to get the next page of results in a paginated
-   * 			response.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
    * <p>Returns a list of Detective or Proactive Config rules. By default, this API returns an unfiltered list. For more information on Detective or Proactive Config rules,
    * 			see <a href="https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config-rules.html">
    *                <b>Evaluation Mode</b>
@@ -3781,6 +3954,14 @@ export interface DescribeConfigRulesRequest {
    * @public
    */
   Filters?: DescribeConfigRulesFilters | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page
+   * 			that you use to get the next page of results in a paginated
+   * 			response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3926,7 +4107,7 @@ export interface DescribeConfigurationRecordersRequest {
   ConfigurationRecorderNames?: string[] | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder.</p>
+   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
    * @public
    */
   ServicePrincipal?: string | undefined;
@@ -3969,7 +4150,7 @@ export interface DescribeConfigurationRecorderStatusRequest {
   ConfigurationRecorderNames?: string[] | undefined;
 
   /**
-   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder.</p>
+   * <p>For service-linked configuration recorders, you can use the service principal of the linked Amazon Web Services service to specify the configuration recorder. This field is only supported for Amazon Web Services service principals. For third-party service-linked configuration recorders, use <code>Arn</code> instead.</p>
    * @public
    */
   ServicePrincipal?: string | undefined;
@@ -6204,6 +6385,28 @@ export interface GetConformancePackComplianceSummaryResponse {
 /**
  * @public
  */
+export interface GetConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetConnectorResponse {
+  /**
+   * <p>The details of the specified connector.</p>
+   * @public
+   */
+  Connector: Connector | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetCustomRulePolicyRequest {
   /**
    * <p>The name of your Config Custom Policy rule.</p>
@@ -7164,6 +7367,46 @@ export interface ListConformancePackComplianceScoresResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListConnectorsRequest {
+  /**
+   * <p>The maximum number of results to include in the response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Filters the results based on a list of <code>ConnectorFilter</code> objects that you specify.</p>
+   * @public
+   */
+  Filters?: ConnectorFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorsResponse {
+  /**
+   * <p>A list of <code>ConnectorSummary</code> objects.</p>
+   * @public
+   */
+  ConnectorSummaries: ConnectorSummary[] | undefined;
+
+  /**
+   * <p>The <code>NextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p></p>
  * @public
  */
@@ -7488,6 +7731,11 @@ export interface ListTagsForResourceRequest {
    *             <li>
    *                <p>
    *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Connector</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7835,6 +8083,34 @@ export interface PutConformancePackResponse {
 }
 
 /**
+ * @public
+ */
+export interface PutConnectorRequest {
+  /**
+   * <p>The provider-specific configuration for connecting to the third-party cloud service provider.</p>
+   * @public
+   */
+  ConnectorConfiguration: ConnectorConfiguration | undefined;
+
+  /**
+   * <p>The tags for the connector. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  Arn: string | undefined;
+}
+
+/**
  * <p>The input for the <a>PutDeliveryChannel</a>
  * 			action.</p>
  * @public
@@ -7959,6 +8235,12 @@ export interface PutOrganizationConfigRuleRequest {
    * @public
    */
   OrganizationCustomPolicyRuleMetadata?: OrganizationCustomPolicyRuleMetadata | undefined;
+
+  /**
+   * <p>The tags for the organization Config rule. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -8029,6 +8311,12 @@ export interface PutOrganizationConformancePackRequest {
    * @public
    */
   ExcludedAccounts?: string[] | undefined;
+
+  /**
+   * <p>The tags for the organization conformance pack. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -8249,6 +8537,52 @@ export interface PutStoredQueryResponse {
    * @public
    */
   QueryArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutThirdPartyServiceLinkedConfigurationRecorderRequest {
+  /**
+   * <p>The service principal of the Amazon Web Services service for the service-linked configuration recorder that you want to create.</p>
+   * @public
+   */
+  ServicePrincipal: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that specifies the connection between the third-party cloud service provider and Config. The specified connector must exist.</p>
+   * @public
+   */
+  ConnectorArn: string | undefined;
+
+  /**
+   * <p>Specifies the scope of resources to record from the third-party cloud service provider.</p>
+   * @public
+   */
+  ScopeConfiguration: ScopeConfiguration | undefined;
+
+  /**
+   * <p>The tags for a service-linked configuration recorder. Each tag consists of a key and an optional value, both of which you define.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutThirdPartyServiceLinkedConfigurationRecorderResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the specified configuration recorder.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the specified configuration recorder.</p>
+   * @public
+   */
+  Name: string | undefined;
 }
 
 /**
@@ -8551,6 +8885,11 @@ export interface TagResourceRequest {
    *                   <code>StoredQuery</code>
    *                </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Connector</code>
+   *                </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -8608,6 +8947,11 @@ export interface UntagResourceRequest {
    *             <li>
    *                <p>
    *                   <code>StoredQuery</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Connector</code>
    *                </p>
    *             </li>
    *          </ul>

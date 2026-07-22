@@ -62,6 +62,11 @@ export interface VerifyAuthRequestCryptogramCommandOutput extends VerifyAuthRequ
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *       PanSequenceNumber: "STRING_VALUE", // required
  *     },
+ *     UnionPay: { // SessionKeyUnionPay
+ *       PrimaryAccountNumber: "STRING_VALUE", // required
+ *       PanSequenceNumber: "STRING_VALUE", // required
+ *       ApplicationTransactionCounter: "STRING_VALUE", // required
+ *     },
  *   },
  *   AuthResponseAttributes: { // CryptogramAuthResponse Union: only one key present
  *     ArpcMethod1: { // CryptogramVerificationArpcMethod1

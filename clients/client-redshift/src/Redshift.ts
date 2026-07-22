@@ -123,6 +123,11 @@ import {
   CreateIntegrationCommand,
 } from "./commands/CreateIntegrationCommand";
 import {
+  type CreateQev2IdcApplicationCommandInput,
+  type CreateQev2IdcApplicationCommandOutput,
+  CreateQev2IdcApplicationCommand,
+} from "./commands/CreateQev2IdcApplicationCommand";
+import {
   type CreateRedshiftIdcApplicationCommandInput,
   type CreateRedshiftIdcApplicationCommandOutput,
   CreateRedshiftIdcApplicationCommand,
@@ -222,6 +227,11 @@ import {
   type DeletePartnerCommandOutput,
   DeletePartnerCommand,
 } from "./commands/DeletePartnerCommand";
+import {
+  type DeleteQev2IdcApplicationCommandInput,
+  type DeleteQev2IdcApplicationCommandOutput,
+  DeleteQev2IdcApplicationCommand,
+} from "./commands/DeleteQev2IdcApplicationCommand";
 import {
   type DeleteRedshiftIdcApplicationCommandInput,
   type DeleteRedshiftIdcApplicationCommandOutput,
@@ -407,6 +417,11 @@ import {
   type DescribePartnersCommandOutput,
   DescribePartnersCommand,
 } from "./commands/DescribePartnersCommand";
+import {
+  type DescribeQev2IdcApplicationsCommandInput,
+  type DescribeQev2IdcApplicationsCommandOutput,
+  DescribeQev2IdcApplicationsCommand,
+} from "./commands/DescribeQev2IdcApplicationsCommand";
 import {
   type DescribeRedshiftIdcApplicationsCommandInput,
   type DescribeRedshiftIdcApplicationsCommandOutput,
@@ -608,6 +623,11 @@ import {
   ModifyLakehouseConfigurationCommand,
 } from "./commands/ModifyLakehouseConfigurationCommand";
 import {
+  type ModifyQev2IdcApplicationCommandInput,
+  type ModifyQev2IdcApplicationCommandOutput,
+  ModifyQev2IdcApplicationCommand,
+} from "./commands/ModifyQev2IdcApplicationCommand";
+import {
   type ModifyRedshiftIdcApplicationCommandInput,
   type ModifyRedshiftIdcApplicationCommandOutput,
   ModifyRedshiftIdcApplicationCommand,
@@ -738,6 +758,7 @@ import { paginateDescribeInboundIntegrations } from "./pagination/DescribeInboun
 import { paginateDescribeIntegrations } from "./pagination/DescribeIntegrationsPaginator";
 import { paginateDescribeNodeConfigurationOptions } from "./pagination/DescribeNodeConfigurationOptionsPaginator";
 import { paginateDescribeOrderableClusterOptions } from "./pagination/DescribeOrderableClusterOptionsPaginator";
+import { paginateDescribeQev2IdcApplications } from "./pagination/DescribeQev2IdcApplicationsPaginator";
 import { paginateDescribeRedshiftIdcApplications } from "./pagination/DescribeRedshiftIdcApplicationsPaginator";
 import { paginateDescribeReservedNodeExchangeStatus } from "./pagination/DescribeReservedNodeExchangeStatusPaginator";
 import { paginateDescribeReservedNodeOfferings } from "./pagination/DescribeReservedNodeOfferingsPaginator";
@@ -783,6 +804,7 @@ const commands = {
   CreateHsmClientCertificateCommand,
   CreateHsmConfigurationCommand,
   CreateIntegrationCommand,
+  CreateQev2IdcApplicationCommand,
   CreateRedshiftIdcApplicationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCopyGrantCommand,
@@ -803,6 +825,7 @@ const commands = {
   DeleteHsmConfigurationCommand,
   DeleteIntegrationCommand,
   DeletePartnerCommand,
+  DeleteQev2IdcApplicationCommand,
   DeleteRedshiftIdcApplicationCommand,
   DeleteResourcePolicyCommand,
   DeleteScheduledActionCommand,
@@ -840,6 +863,7 @@ const commands = {
   DescribeNodeConfigurationOptionsCommand,
   DescribeOrderableClusterOptionsCommand,
   DescribePartnersCommand,
+  DescribeQev2IdcApplicationsCommand,
   DescribeRedshiftIdcApplicationsCommand,
   DescribeReservedNodeExchangeStatusCommand,
   DescribeReservedNodeOfferingsCommand,
@@ -880,6 +904,7 @@ const commands = {
   ModifyEventSubscriptionCommand,
   ModifyIntegrationCommand,
   ModifyLakehouseConfigurationCommand,
+  ModifyQev2IdcApplicationCommand,
   ModifyRedshiftIdcApplicationCommand,
   ModifyScheduledActionCommand,
   ModifySnapshotCopyRetentionPeriodCommand,
@@ -927,6 +952,7 @@ const paginators = {
   paginateDescribeIntegrations,
   paginateDescribeNodeConfigurationOptions,
   paginateDescribeOrderableClusterOptions,
+  paginateDescribeQev2IdcApplications,
   paginateDescribeRedshiftIdcApplications,
   paginateDescribeReservedNodeExchangeStatus,
   paginateDescribeReservedNodeOfferings,
@@ -1341,6 +1367,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link CreateQev2IdcApplicationCommand}
+   */
+  createQev2IdcApplication(
+    args: CreateQev2IdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQev2IdcApplicationCommandOutput>;
+  createQev2IdcApplication(
+    args: CreateQev2IdcApplicationCommandInput,
+    cb: (err: any, data?: CreateQev2IdcApplicationCommandOutput) => void
+  ): void;
+  createQev2IdcApplication(
+    args: CreateQev2IdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQev2IdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateRedshiftIdcApplicationCommand}
    */
   createRedshiftIdcApplication(
@@ -1679,6 +1722,23 @@ export interface Redshift {
     args: DeletePartnerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePartnerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteQev2IdcApplicationCommand}
+   */
+  deleteQev2IdcApplication(
+    args: DeleteQev2IdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQev2IdcApplicationCommandOutput>;
+  deleteQev2IdcApplication(
+    args: DeleteQev2IdcApplicationCommandInput,
+    cb: (err: any, data?: DeleteQev2IdcApplicationCommandOutput) => void
+  ): void;
+  deleteQev2IdcApplication(
+    args: DeleteQev2IdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQev2IdcApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -2332,6 +2392,24 @@ export interface Redshift {
     args: DescribePartnersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribePartnersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeQev2IdcApplicationsCommand}
+   */
+  describeQev2IdcApplications(): Promise<DescribeQev2IdcApplicationsCommandOutput>;
+  describeQev2IdcApplications(
+    args: DescribeQev2IdcApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQev2IdcApplicationsCommandOutput>;
+  describeQev2IdcApplications(
+    args: DescribeQev2IdcApplicationsCommandInput,
+    cb: (err: any, data?: DescribeQev2IdcApplicationsCommandOutput) => void
+  ): void;
+  describeQev2IdcApplications(
+    args: DescribeQev2IdcApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQev2IdcApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -3028,6 +3106,23 @@ export interface Redshift {
   ): void;
 
   /**
+   * @see {@link ModifyQev2IdcApplicationCommand}
+   */
+  modifyQev2IdcApplication(
+    args: ModifyQev2IdcApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyQev2IdcApplicationCommandOutput>;
+  modifyQev2IdcApplication(
+    args: ModifyQev2IdcApplicationCommandInput,
+    cb: (err: any, data?: ModifyQev2IdcApplicationCommandOutput) => void
+  ): void;
+  modifyQev2IdcApplication(
+    args: ModifyQev2IdcApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyQev2IdcApplicationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyRedshiftIdcApplicationCommand}
    */
   modifyRedshiftIdcApplication(
@@ -3648,6 +3743,17 @@ export interface Redshift {
     args?: DescribeOrderableClusterOptionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<DescribeOrderableClusterOptionsCommandOutput>;
+
+  /**
+   * @see {@link DescribeQev2IdcApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeQev2IdcApplicationsCommandOutput}.
+   */
+  paginateDescribeQev2IdcApplications(
+    args?: DescribeQev2IdcApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeQev2IdcApplicationsCommandOutput>;
 
   /**
    * @see {@link DescribeRedshiftIdcApplicationsCommand}

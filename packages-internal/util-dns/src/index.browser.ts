@@ -1,4 +1,4 @@
 /**
  * @internal
  */
-export * from "./HostResolver";
+export { HostResolver } from "./HostResolver";

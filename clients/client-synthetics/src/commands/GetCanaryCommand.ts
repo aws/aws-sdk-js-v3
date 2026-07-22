@@ -171,6 +171,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     KmsKeyArn: "STRING_VALUE",
  * //     DryRunConfig: { // DryRunConfigOutput
  * //       DryRunId: "STRING_VALUE",
  * //       LastDryRunExecutionStatus: "STRING_VALUE",

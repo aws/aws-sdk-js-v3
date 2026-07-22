@@ -1886,7 +1886,7 @@ export interface CopyObjectRequest {
  */
 export interface CreateBucketOutput {
   /**
-   * <p>A forward slash followed by the name of the bucket.</p>
+   * <p>A forward slash followed by the name of the bucket for all account regional namespace buckets and all global general purpose buckets created in us-east-1. For example, <code>/amzn-s3-demo-bucket</code>. For global general purpose buckets created in other Amazon Web Services Regions, the Location field is the global endpoint URL. For example, <code>http://amzn-s3-demo-bucket.s3.amazonaws.com/</code>.</p>
    * @public
    */
   Location?: string | undefined;
@@ -4025,7 +4025,10 @@ export interface DeletedObject {
 }
 
 /**
- * <p>Container for all error elements.</p>
+ * <note>
+ *             <p>For information about using the Amazon S3 API—including error handling—see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/developerguide/Welcome.html">Amazon S3 Developer Guide</a>.</p>
+ *          </note>
+ *          <p>Container for all error elements.</p>
  * @public
  */
 export interface _Error {
@@ -7503,10 +7506,7 @@ export interface Transition {
 
   /**
    * <p>Indicates the number of days after creation when objects are transitioned to the specified storage
-   *       class. If the specified storage class is <code>INTELLIGENT_TIERING</code>, <code>GLACIER_IR</code>,
-   *         <code>GLACIER</code>, or <code>DEEP_ARCHIVE</code>, valid values are <code>0</code> or positive
-   *       integers. If the specified storage class is <code>STANDARD_IA</code> or <code>ONEZONE_IA</code>, valid
-   *       values are positive integers greater than <code>30</code>. Be aware that some storage classes have a
+   *       class. The value can be <code>0</code> or any positive integer. Be aware that some storage classes have a
    *       minimum storage duration and that you're charged for transitioning objects before their minimum storage
    *       duration. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-transition-general-considerations.html#lifecycle-configuration-constraints"> Constraints and considerations for transitions</a> in the <i>Amazon S3 User
    *         Guide</i>.</p>

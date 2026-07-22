@@ -68,11 +68,6 @@ export interface UpdateObjectEncryptionCommandOutput extends UpdateObjectEncrypt
  *                      <ul>
  *                         <li>
  *                            <p>
- *                               <code>s3:PutObject</code>
- *                            </p>
- *                         </li>
- *                         <li>
- *                            <p>
  *                               <code>s3:UpdateObjectEncryption</code>
  *                            </p>
  *                         </li>

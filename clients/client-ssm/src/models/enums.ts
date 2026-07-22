@@ -35,6 +35,7 @@ export type AccessType = (typeof AccessType)[keyof typeof AccessType];
 export const ResourceTypeForTagging = {
   ASSOCIATION: "Association",
   AUTOMATION: "Automation",
+  CLOUD_CONNECTOR: "CloudConnector",
   DOCUMENT: "Document",
   MAINTENANCE_WINDOW: "MaintenanceWindow",
   MANAGED_INSTANCE: "ManagedInstance",
@@ -639,6 +640,7 @@ export const SourceType = {
   AWS_EC2_INSTANCE: "AWS::EC2::Instance",
   AWS_IOT_THING: "AWS::IoT::Thing",
   AWS_SSM_MANAGEDINSTANCE: "AWS::SSM::ManagedInstance",
+  AZURE_INSTANCE: "Microsoft.Compute/virtualMachines",
 } as const;
 /**
  * @public
@@ -1203,6 +1205,7 @@ export type OpsFilterOperatorType = (typeof OpsFilterOperatorType)[keyof typeof 
 export const AssociationFilterKey = {
   AssociationId: "AssociationId",
   AssociationName: "AssociationName",
+  CloudConnectorId: "CloudConnectorId",
   InstanceId: "InstanceId",
   LastExecutedAfter: "LastExecutedAfter",
   LastExecutedBefore: "LastExecutedBefore",
@@ -1214,6 +1217,19 @@ export const AssociationFilterKey = {
  * @public
  */
 export type AssociationFilterKey = (typeof AssociationFilterKey)[keyof typeof AssociationFilterKey];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudConnectorFilterKey = {
+  SubscriptionId: "SubscriptionId",
+  TenantId: "TenantId",
+} as const;
+/**
+ * @public
+ */
+export type CloudConnectorFilterKey = (typeof CloudConnectorFilterKey)[keyof typeof CloudConnectorFilterKey];
 
 /**
  * @public
@@ -1360,6 +1376,8 @@ export const NodeFilterKey = {
   ACCOUNT_ID: "AccountId",
   AGENT_TYPE: "AgentType",
   AGENT_VERSION: "AgentVersion",
+  AVAILABILITY_ZONE: "AvailabilityZone",
+  AVAILABILITY_ZONE_ID: "AvailabilityZoneId",
   COMPUTER_NAME: "ComputerName",
   INSTANCE_ID: "InstanceId",
   INSTANCE_STATUS: "InstanceStatus",
@@ -1372,6 +1390,9 @@ export const NodeFilterKey = {
   PLATFORM_VERSION: "PlatformVersion",
   REGION: "Region",
   RESOURCE_TYPE: "ResourceType",
+  SOURCE_ID: "SourceId",
+  SOURCE_LOCATION: "SourceLocation",
+  SOURCE_TYPE: "SourceType",
 } as const;
 /**
  * @public
@@ -1424,11 +1445,13 @@ export type NodeAggregatorType = (typeof NodeAggregatorType)[keyof typeof NodeAg
  */
 export const NodeAttributeName = {
   AGENT_VERSION: "AgentVersion",
+  AVAILABILITY_ZONE: "AvailabilityZone",
   PLATFORM_NAME: "PlatformName",
   PLATFORM_TYPE: "PlatformType",
   PLATFORM_VERSION: "PlatformVersion",
   REGION: "Region",
   RESOURCE_TYPE: "ResourceType",
+  SOURCE_TYPE: "SourceType",
 } as const;
 /**
  * @public
@@ -1570,3 +1593,50 @@ export const DocumentReviewAction = {
  * @public
  */
 export type DocumentReviewAction = (typeof DocumentReviewAction)[keyof typeof DocumentReviewAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationFindingCode = {
+  AWS_ROLE_ASSUMPTION_FAILED: "AwsRoleAssumptionFailed",
+  OUTBOUND_WEB_IDENTITY_FEDERATION_DISABLED: "OutboundWebIdentityFederationDisabled",
+  PROVIDER_CREDENTIAL_CREATION_FAILED: "ProviderCredentialCreationFailed",
+  SUBSCRIPTION_ACCESSIBLE: "SubscriptionAccessible",
+  TARGET_INACCESSIBLE: "TargetInaccessible",
+  TARGET_STATE_WARNING: "TargetStateWarning",
+  TARGET_UNUSABLE: "TargetUnusable",
+  TENANT_SUMMARY: "TenantSummary",
+  WEB_IDENTITY_TOKEN_FAILED: "WebIdentityTokenFailed",
+} as const;
+/**
+ * @public
+ */
+export type ValidationFindingCode = (typeof ValidationFindingCode)[keyof typeof ValidationFindingCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationFindingScopeType = {
+  AZURE_SUBSCRIPTION: "azure:subscription",
+  AZURE_TENANT: "azure:tenant",
+} as const;
+/**
+ * @public
+ */
+export type ValidationFindingScopeType = (typeof ValidationFindingScopeType)[keyof typeof ValidationFindingScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationFindingType = {
+  ERROR: "ERROR",
+  INFO: "INFO",
+  WARN: "WARN",
+} as const;
+/**
+ * @public
+ */
+export type ValidationFindingType = (typeof ValidationFindingType)[keyof typeof ValidationFindingType];

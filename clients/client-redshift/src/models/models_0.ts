@@ -3346,7 +3346,7 @@ export interface CreateClusterMessage {
    *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
    *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>rg.large</code> | <code>rg.xlarge</code> | <code>rg.4xlarge</code> | <code>rg.12xlarge</code> |
    *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
@@ -4646,6 +4646,94 @@ export interface Integration {
 }
 
 /**
+ * @public
+ */
+export interface CreateQev2IdcApplicationMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM Identity Center instance used to create the Amazon Redshift Query Editor (QEV2) managed application.</p>
+   * @public
+   */
+  IdcInstanceArn: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Redshift Query Editor (QEV2) application in IAM Identity Center.</p>
+   * @public
+   */
+  Qev2IdcApplicationName: string | undefined;
+
+  /**
+   * <p>The display name for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application. It appears in the console.</p>
+   * @public
+   */
+  IdcDisplayName: string | undefined;
+
+  /**
+   * <p>A list of tags to associate with the application. Tags are key-value pairs that you can use to organize and identify your resources.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * <p>Contains configuration and status information for an Amazon Redshift Query Editor (QEV2) application that is registered with IAM Identity Center.</p>
+ * @public
+ */
+export interface Qev2IdcApplication {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the IAM Identity Center instance that the Amazon Redshift Query Editor (QEV2) application integrates with.</p>
+   * @public
+   */
+  IdcInstanceArn?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon Redshift Query Editor (QEV2) application in IAM Identity Center.</p>
+   * @public
+   */
+  Qev2IdcApplicationName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) application that integrates with IAM Identity Center.</p>
+   * @public
+   */
+  Qev2IdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) IAM Identity Center managed application.</p>
+   * @public
+   */
+  IdcManagedApplicationArn?: string | undefined;
+
+  /**
+   * <p>The onboarding status for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application.</p>
+   * @public
+   */
+  IdcOnboardStatus?: string | undefined;
+
+  /**
+   * <p>The display name for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application. It appears in the console.</p>
+   * @public
+   */
+  IdcDisplayName?: string | undefined;
+
+  /**
+   * <p>A list of tags associated with the application. Tags are key-value pairs that you can use to organize and identify your resources.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateQev2IdcApplicationResult {
+  /**
+   * <p>Contains configuration and status information for an Amazon Redshift Query Editor (QEV2) application that is registered with IAM Identity Center.</p>
+   * @public
+   */
+  Qev2IdcApplication?: Qev2IdcApplication | undefined;
+}
+
+/**
  * <p>The Lake Formation scope.</p>
  * @public
  */
@@ -5905,6 +5993,17 @@ export interface DeleteIntegrationMessage {
    * @public
    */
   IntegrationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteQev2IdcApplicationMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) IAM Identity Center application to delete.</p>
+   * @public
+   */
+  Qev2IdcApplicationArn: string | undefined;
 }
 
 /**
@@ -8278,6 +8377,58 @@ export interface DescribePartnersOutputMessage {
 /**
  * @public
  */
+export interface DescribeQev2IdcApplicationsMessage {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the Amazon Redshift Query Editor (QEV2) application that integrates with IAM Identity Center.</p>
+   * @public
+   */
+  Qev2IdcApplicationArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records
+   *             exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve
+   *             the next set of records by retrying the command with the returned marker value.</p>
+   * @public
+   */
+  MaxRecords?: number | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a
+   *             value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeQev2IdcApplicationsResult {
+  /**
+   * <p>The list of Amazon Redshift Query Editor (QEV2) IAM Identity Center applications.</p>
+   * @public
+   */
+  Qev2IdcApplications?: Qev2IdcApplication[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent
+   *             request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   * @public
+   */
+  Marker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeRedshiftIdcApplicationsMessage {
   /**
    * <p>The ARN for the Redshift application that integrates with IAM Identity Center.</p>
@@ -10173,7 +10324,7 @@ export interface ModifyClusterMessage {
    * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/rs-resize-tutorial.html">Resizing Clusters in Amazon Redshift</a>
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    *          <p>Valid Values:
-   *             <code>dc2.large</code> | <code>dc2.8xlarge</code>| <code>rg.xlarge</code> | <code>rg.4xlarge</code> |
+   *             <code>dc2.large</code> | <code>dc2.8xlarge</code> | <code>rg.large</code> | <code>rg.xlarge</code> | <code>rg.4xlarge</code> | <code>rg.12xlarge</code> |
    *             <code>ra3.large</code> | <code>ra3.xlplus</code> | <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
    *          </p>
    * @public
@@ -10753,171 +10904,4 @@ export interface ModifyClusterSubnetGroupResult {
    * @public
    */
   ClusterSubnetGroup?: ClusterSubnetGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCustomDomainAssociationMessage {
-  /**
-   * <p>The custom domain name for a changed custom domain association.</p>
-   * @public
-   */
-  CustomDomainName: string | undefined;
-
-  /**
-   * <p>The certificate Amazon Resource Name (ARN) for the changed custom domain association.</p>
-   * @public
-   */
-  CustomDomainCertificateArn: string | undefined;
-
-  /**
-   * <p>The identifier of the cluster to change a custom domain association for.</p>
-   * @public
-   */
-  ClusterIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyCustomDomainAssociationResult {
-  /**
-   * <p>The custom domain name associated with the result for the changed custom domain association.</p>
-   * @public
-   */
-  CustomDomainName?: string | undefined;
-
-  /**
-   * <p>The certificate Amazon Resource Name (ARN) associated with the result for the changed custom domain association.</p>
-   * @public
-   */
-  CustomDomainCertificateArn?: string | undefined;
-
-  /**
-   * <p>The identifier of the cluster associated with the result for the changed custom domain association.</p>
-   * @public
-   */
-  ClusterIdentifier?: string | undefined;
-
-  /**
-   * <p>The certificate expiration time associated with the result for the changed custom domain association.</p>
-   * @public
-   */
-  CustomDomainCertExpiryTime?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyEndpointAccessMessage {
-  /**
-   * <p>The endpoint to be modified.</p>
-   * @public
-   */
-  EndpointName: string | undefined;
-
-  /**
-   * <p>The complete list of VPC security groups associated with the endpoint after the endpoint is modified.</p>
-   * @public
-   */
-  VpcSecurityGroupIds?: string[] | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface ModifyEventSubscriptionMessage {
-  /**
-   * <p>The name of the modified Amazon Redshift event notification subscription.</p>
-   * @public
-   */
-  SubscriptionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic to be used by the event
-   *             notification subscription.</p>
-   * @public
-   */
-  SnsTopicArn?: string | undefined;
-
-  /**
-   * <p>The type of source that will be generating the events. For example, if you want to
-   *             be notified of events generated by a cluster, you would set this parameter to cluster.
-   *             If this value is not specified, events are returned for all Amazon Redshift objects in your
-   *             Amazon Web Services account. You must specify a source type in order to specify source IDs.</p>
-   *          <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
-   * @public
-   */
-  SourceType?: string | undefined;
-
-  /**
-   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
-   *             must be of the same type as was specified in the source type parameter. The event
-   *             subscription will return only events generated by the specified objects. If not
-   *             specified, then events are returned for all objects within the source type
-   *             specified.</p>
-   *          <p>Example: my-cluster-1, my-cluster-2</p>
-   *          <p>Example: my-snapshot-20131010</p>
-   * @public
-   */
-  SourceIds?: string[] | undefined;
-
-  /**
-   * <p>Specifies the Amazon Redshift event categories to be published by the event notification
-   *             subscription.</p>
-   *          <p>Values: configuration, management, monitoring, security, pending</p>
-   * @public
-   */
-  EventCategories?: string[] | undefined;
-
-  /**
-   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
-   *             subscription.</p>
-   *          <p>Values: ERROR, INFO</p>
-   * @public
-   */
-  Severity?: string | undefined;
-
-  /**
-   * <p>A Boolean value indicating if the subscription is enabled. <code>true</code>
-   *             indicates the subscription is enabled </p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyEventSubscriptionResult {
-  /**
-   * <p>Describes event subscriptions.</p>
-   * @public
-   */
-  EventSubscription?: EventSubscription | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIntegrationMessage {
-  /**
-   * <p>The unique identifier of the integration to modify.</p>
-   * @public
-   */
-  IntegrationArn: string | undefined;
-
-  /**
-   * <p>A new description for the integration.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A new name for the integration.</p>
-   * @public
-   */
-  IntegrationName?: string | undefined;
 }

@@ -19,6 +19,7 @@ export const ErrorCode = {
   Throttling: "Throttling",
   Unauthorized: "Unauthorized",
   Unprocessable: "Unprocessable",
+  Validation: "Validation",
   VoiceConnectorGroupAssociationsExist: "VoiceConnectorGroupAssociationsExist",
 } as const;
 /**
@@ -51,6 +52,19 @@ export const PhoneNumberProductType = {
  * @public
  */
 export type PhoneNumberProductType = (typeof PhoneNumberProductType)[keyof typeof PhoneNumberProductType];
+
+/**
+ * @public
+ * @enum
+ */
+export const CallDistributionType = {
+  LoadBalancedDistribution: "LoadBalancedDistribution",
+  PriorityWeightedDistribution: "PriorityWeightedDistribution",
+} as const;
+/**
+ * @public
+ */
+export type CallDistributionType = (typeof CallDistributionType)[keyof typeof CallDistributionType];
 
 /**
  * @public

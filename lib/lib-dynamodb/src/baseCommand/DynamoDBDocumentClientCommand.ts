@@ -29,7 +29,7 @@ export abstract class DynamoDBDocumentClientCommand<
   Output extends object,
   BaseInput extends object,
   BaseOutput extends object,
-  ResolvedClientConfiguration
+  ResolvedClientConfiguration,
 > extends $Command<Input | BaseInput, Output | BaseOutput, ResolvedClientConfiguration> {
   protected abstract readonly inputKeyNodes: KeyNodeChildren;
   protected abstract readonly outputKeyNodes: KeyNodeChildren;

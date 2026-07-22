@@ -24,6 +24,9 @@ export interface StartExperimentRunCommandOutput extends ExperimentRun, __Metada
 
 /**
  * <p>Starts an experiment run for the specified experiment definition. An experiment run delivers treatments to the target audience and collects metrics. You can start multiple experiment runs from the same experiment definition.</p>
+ *          <note>
+ *             <p>Billing for this experiment begins when you call this operation and continues until the experiment is stopped. For pricing details, see <a href="https://aws.amazon.com/systems-manager/pricing/">AppConfig pricing</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

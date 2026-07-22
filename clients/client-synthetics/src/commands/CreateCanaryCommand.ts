@@ -114,6 +114,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *         ],
  *         Ipv6AllowedForDualStack: true || false,
  *       },
+ *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   ],
  *   Tags: { // TagMap
@@ -125,6 +126,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },
+ *   KmsKeyArn: "STRING_VALUE",
  * };
  * const command = new CreateCanaryCommand(input);
  * const response = await client.send(command);
@@ -259,6 +261,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     KmsKeyArn: "STRING_VALUE",
  * //     DryRunConfig: { // DryRunConfigOutput
  * //       DryRunId: "STRING_VALUE",
  * //       LastDryRunExecutionStatus: "STRING_VALUE",

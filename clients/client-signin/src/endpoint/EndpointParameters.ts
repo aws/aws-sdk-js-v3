@@ -56,4 +56,5 @@ export interface EndpointParameters extends __EndpointParameters {
   Endpoint?: string | undefined;
   Region?: string | undefined;
   IsControlPlane?: boolean | undefined;
+  IsOAuthEndpoint?: boolean | undefined;
 }

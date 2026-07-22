@@ -70,6 +70,7 @@ import type {
   WidgetStatus,
 } from "./enums";
 import type {
+  AggregationFunction,
   AxisDisplayOptions,
   BarChartDefaultSeriesSettings,
   BarChartFieldWells,
@@ -79,7 +80,6 @@ import type {
   ChartAxisLabelOptions,
   ColumnIdentifier,
   ColumnSort,
-  ColumnTooltipItem,
   ContributionAnalysisDefault,
   CustomActionFilterOperation,
   CustomActionNavigationOperation,
@@ -102,6 +102,42 @@ import type {
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The tooltip item for the columns that are not part of a field well.</p>
+ * @public
+ */
+export interface ColumnTooltipItem {
+  /**
+   * <p>The target column of the tooltip item.</p>
+   * @public
+   */
+  Column: ColumnIdentifier | undefined;
+
+  /**
+   * <p>The label of the tooltip item.</p>
+   * @public
+   */
+  Label?: string | undefined;
+
+  /**
+   * <p>The visibility of the tooltip item.</p>
+   * @public
+   */
+  Visibility?: Visibility | undefined;
+
+  /**
+   * <p>The aggregation function of the column tooltip item.</p>
+   * @public
+   */
+  Aggregation?: AggregationFunction | undefined;
+
+  /**
+   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
+   * @public
+   */
+  TooltipTarget?: TooltipTarget | undefined;
+}
 
 /**
  * <p>The tooltip item for the fields.</p>
@@ -8424,53 +8460,4 @@ export interface TreeMapConfiguration {
    * @public
    */
   Interactions?: VisualInteractionOptions | undefined;
-}
-
-/**
- * <p>A tree map.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/tree-map.html">Using tree maps</a> in the <i>Amazon Quick Suite User Guide</i>.</p>
- * @public
- */
-export interface TreeMapVisual {
-  /**
-   * <p>The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..</p>
-   * @public
-   */
-  VisualId: string | undefined;
-
-  /**
-   * <p>The title that is displayed on the visual.</p>
-   * @public
-   */
-  Title?: VisualTitleLabelOptions | undefined;
-
-  /**
-   * <p>The subtitle that is displayed on the visual.</p>
-   * @public
-   */
-  Subtitle?: VisualSubtitleLabelOptions | undefined;
-
-  /**
-   * <p>The configuration settings of the visual.</p>
-   * @public
-   */
-  ChartConfiguration?: TreeMapConfiguration | undefined;
-
-  /**
-   * <p>The list of custom actions that are configured for a visual.</p>
-   * @public
-   */
-  Actions?: VisualCustomAction[] | undefined;
-
-  /**
-   * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
-   * @public
-   */
-  ColumnHierarchies?: ColumnHierarchy[] | undefined;
-
-  /**
-   * <p>The alt text for the visual.</p>
-   * @public
-   */
-  VisualContentAltText?: string | undefined;
 }

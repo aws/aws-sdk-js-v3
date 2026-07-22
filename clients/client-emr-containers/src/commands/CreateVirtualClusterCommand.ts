@@ -52,6 +52,7 @@ export interface CreateVirtualClusterCommandOutput extends CreateVirtualClusterR
  *     "<keys>": "STRING_VALUE",
  *   },
  *   securityConfigurationId: "STRING_VALUE",
+ *   sessionEnabled: true || false,
  * };
  * const command = new CreateVirtualClusterCommand(input);
  * const response = await client.send(command);

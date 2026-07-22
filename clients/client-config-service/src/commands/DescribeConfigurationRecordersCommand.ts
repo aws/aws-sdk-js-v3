@@ -81,6 +81,17 @@ export interface DescribeConfigurationRecordersCommandOutput extends DescribeCon
  * //       },
  * //       recordingScope: "INTERNAL" || "PAID",
  * //       servicePrincipal: "STRING_VALUE",
+ * //       connectorArn: "STRING_VALUE",
+ * //       scopeConfiguration: { // ScopeConfiguration
+ * //         scopeType: "STRING_VALUE", // required
+ * //         scopeValues: [ // ScopeValues
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         allRegions: true || false, // required
+ * //         includedRegions: [ // IncludedRegions
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -130,6 +141,15 @@ export interface DescribeConfigurationRecordersCommandOutput extends DescribeCon
  *             </li>
  *             <li>
  *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You have provided both <code>Arn</code> and <code>ServicePrincipal</code>. Only one of <code>Arn</code> or <code>ServicePrincipal</code> can be specified.</p>
+ *             </li>
+ *             <li>
+ *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
  *             </li>
  *          </ul>
  *

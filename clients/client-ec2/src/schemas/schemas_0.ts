@@ -2661,8 +2661,10 @@ const _FIAil = "FilterInArn";
 const _FIGI = "FpgaImageGlobalId";
 const _FII = "FpgaImageId";
 const _FIIL = "FpgaImageIdList";
+const _FIIPSR = "FleetIamInstanceProfileSpecificationRequest";
 const _FIIp = "FpgaImageIds";
 const _FIL = "FpgaImageList";
+const _FIMOR = "FleetInstanceMetadataOptionsRequest";
 const _FIPSE = "FIPSEnabled";
 const _FIS = "FpgaImageState";
 const _FIl = "FleetId";
@@ -3772,6 +3774,7 @@ const _LTS = "LaunchTemplateSpecification";
 const _LTSMO = "LaunchTemplateSpotMarketOptions";
 const _LTSMOR = "LaunchTemplateSpotMarketOptionsRequest";
 const _LTST = "LastTieringStartTime";
+const _LTSUD = "LaunchTemplateSpecificationUserData";
 const _LTSa = "LaunchTemplateSet";
 const _LTTS = "LaunchTemplateTagSpecification";
 const _LTTSL = "LaunchTemplateTagSpecificationList";
@@ -4654,6 +4657,7 @@ const _PSKE = "PublicSigningKeyEndpoint";
 const _PSKS = "PreSharedKeyStorage";
 const _PSKU = "PublicSigningKeyUrl";
 const _PSL = "PriceScheduleList";
+const _PSPN = "PublicSsmParameterName";
 const _PSR = "ProvisioningStatusReason";
 const _PSRa = "PathStatementRequest";
 const _PSS = "PriceScheduleSpecification";
@@ -7565,6 +7569,7 @@ const _pSK = "preSharedKey";
 const _pSKA = "preSharedKeyArn";
 const _pSKE = "publicSigningKeyEndpoint";
 const _pSKU = "publicSigningKeyUrl";
+const _pSPN = "publicSsmParameterName";
 const _pSR = "provisioningStatusReason";
 const _pSe = "permissionState";
 const _pSee = "peeringStatus";
@@ -10512,13 +10517,16 @@ export var CreateFleetError$: StaticStructureSchema = [3, n0, _CFE,
 ];
 export var CreateFleetInstance$: StaticStructureSchema = [3, n0, _CFI,
   0,
-  [_LTAO, _Li, _IIns, _IT, _Pl],
+  [_LTAO, _Li, _IIns, _IT, _Pl, _AZI, _AZ, _SIu],
   [[() => LaunchTemplateAndOverridesResponse$, { [_eQN]: `LaunchTemplateAndOverrides`
   , [_xN]: _lTAO }], [0, { [_eQN]: `Lifecycle`
   , [_xN]: _li }], [() => InstanceIdsSet, { [_eQN]: `InstanceIds`
   , [_xN]: _iIns }], [0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }], [0, { [_eQN]: `Platform`
-  , [_xN]: _pl }]]
+  , [_xN]: _pl }], [0, { [_eQN]: `AvailabilityZoneId`
+  , [_xN]: _aZI }], [0, { [_eQN]: `AvailabilityZone`
+  , [_xN]: _aZ }], [0, { [_eQN]: `SubnetId`
+  , [_xN]: _sIu }]]
 ];
 export var CreateFleetRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
@@ -10977,8 +10985,8 @@ export var CreatePublicIpv4PoolResult$: StaticStructureSchema = [3, n0, _CPIPRr,
 ];
 export var CreateReplaceRootVolumeTaskRequest$: StaticStructureSchema = [3, n0, _CRRVTR,
   0,
-  [_II, _SIn, _CT, _DR, _TS, _IIm, _DRRV, _VIR],
-  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1], 1
+  [_II, _SIn, _CT, _DR, _TS, _IIm, _DRRV, _VIR, _VIo],
+  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }], 0, 2, 1, 0], 1
 ];
 export var CreateReplaceRootVolumeTaskResult$: StaticStructureSchema = [3, n0, _CRRVTRr,
   0,
@@ -16718,6 +16726,16 @@ export var FleetEbsBlockDeviceRequest$: StaticStructureSchema = [3, n0, _FEBDR,
   [_Enc, _DOT, _Io, _Th, _KKI, _SIn, _VSo, _VT],
   [2, 2, 1, 1, 0, 0, 1, 0]
 ];
+export var FleetIamInstanceProfileSpecificationRequest$: StaticStructureSchema = [3, n0, _FIIPSR,
+  0,
+  [_Ar, _N],
+  [0, 0]
+];
+export var FleetInstanceMetadataOptionsRequest$: StaticStructureSchema = [3, n0, _FIMOR,
+  0,
+  [_HT, _HPRHL, _HE],
+  [0, 1, 0]
+];
 export var FleetLaunchTemplateConfig$: StaticStructureSchema = [3, n0, _FLTC,
   0,
   [_LTS, _Ov],
@@ -16728,7 +16746,7 @@ export var FleetLaunchTemplateConfig$: StaticStructureSchema = [3, n0, _FLTC,
 export var FleetLaunchTemplateConfigRequest$: StaticStructureSchema = [3, n0, _FLTCR,
   0,
   [_LTS, _Ov],
-  [() => FleetLaunchTemplateSpecificationRequest$, [() => FleetLaunchTemplateOverridesListRequest, 0]]
+  [[() => FleetLaunchTemplateSpecificationRequest$, 0], [() => FleetLaunchTemplateOverridesListRequest, 0]]
 ];
 export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
   0,
@@ -16748,8 +16766,8 @@ export var FleetLaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _FLTO,
 ];
 export var FleetLaunchTemplateOverridesRequest$: StaticStructureSchema = [3, n0, _FLTOR,
   0,
-  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _BDMl, _IRn, _IIm, _AZI],
-  [0, 0, 0, 0, 1, 1, [() => Placement$, 0], [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }], [() => InstanceRequirementsRequest$, 0], 0, 0]
+  [_IT, _MPax, _SIu, _AZ, _WCe, _Prio, _Pla, _KN, _BDMl, _IIP, _MO, _IRn, _IIm, _AZI],
+  [0, 0, 0, 0, 1, 1, [() => Placement$, 0], 0, [() => FleetBlockDeviceMappingRequestList, { [_xN]: _BDM }], () => FleetIamInstanceProfileSpecificationRequest$, () => FleetInstanceMetadataOptionsRequest$, [() => InstanceRequirementsRequest$, 0], 0, 0]
 ];
 export var FleetLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _FLTS,
   0,
@@ -16761,8 +16779,8 @@ export var FleetLaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _F
 ];
 export var FleetLaunchTemplateSpecificationRequest$: StaticStructureSchema = [3, n0, _FLTSR,
   0,
-  [_LTI, _LTN, _Ver],
-  [0, 0, 0]
+  [_LTI, _LTN, _Ver, _LTSUD],
+  [0, 0, 0, [() => SensitiveUserData, 0]]
 ];
 export var FleetSpotCapacityRebalance$: StaticStructureSchema = [3, n0, _FSCR,
   0,
@@ -17940,7 +17958,7 @@ export var IKEVersionsRequestListValue$: StaticStructureSchema = [3, n0, _IKEVRL
 ];
 export var Image$: StaticStructureSchema = [3, n0, _Ima,
   0,
-  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
+  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
   [[0, { [_eQN]: `PlatformDetails`
   , [_xN]: _pDl }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
@@ -17966,7 +17984,8 @@ export var Image$: StaticStructureSchema = [3, n0, _Ima,
   , [_xN]: _iAm }], [0, { [_eQN]: `SourceImageId`
   , [_xN]: _sIIo }], [0, { [_eQN]: `SourceImageRegion`
   , [_xN]: _sIR }], [2, { [_eQN]: `FreeTierEligible`
-  , [_xN]: _fTE }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
+  , [_xN]: _fTE }], [0, { [_eQN]: `PublicSsmParameterName`
+  , [_xN]: _pSPN }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
   , [_xN]: _iWS }], [0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `ImageLocation`
   , [_xN]: _iL }], [0, { [_eQN]: `ImageState`

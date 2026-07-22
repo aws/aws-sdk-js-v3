@@ -217,6 +217,7 @@ import {
   RecoveryInstanceFailback$,
   RecoveryInstanceProperties$,
   RecoveryLifeCycle$,
+  RecoveryMode,
   RecoveryResult,
   RecoverySnapshot$,
   RecoverySnapshotsOrder,
@@ -600,6 +601,7 @@ assert(typeof ProductCodeMode === "object");
 assert(typeof RecoveryInstanceDataReplicationInitiationStepName === "object");
 assert(typeof RecoveryInstanceDataReplicationInitiationStepStatus === "object");
 assert(typeof RecoveryInstanceDataReplicationState === "object");
+assert(typeof RecoveryMode === "object");
 assert(typeof RecoveryResult === "object");
 assert(typeof RecoverySnapshotsOrder === "object");
 assert(typeof ReplicationConfigurationDataPlaneRouting === "object");

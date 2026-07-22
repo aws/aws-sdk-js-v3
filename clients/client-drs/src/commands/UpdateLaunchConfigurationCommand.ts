@@ -46,6 +46,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  *   launchIntoInstanceProperties: { // LaunchIntoInstanceProperties
  *     launchIntoEC2InstanceID: "STRING_VALUE",
  *   },
+ *   recoveryMode: "STRING_VALUE",
  * };
  * const command = new UpdateLaunchConfigurationCommand(input);
  * const response = await client.send(command);
@@ -64,6 +65,7 @@ export interface UpdateLaunchConfigurationCommandOutput extends LaunchConfigurat
  * //   launchIntoInstanceProperties: { // LaunchIntoInstanceProperties
  * //     launchIntoEC2InstanceID: "STRING_VALUE",
  * //   },
+ * //   recoveryMode: "STRING_VALUE",
  * // };
  *
  * ```

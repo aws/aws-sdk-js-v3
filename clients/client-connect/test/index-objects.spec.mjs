@@ -131,8 +131,10 @@ import {
   AttributeCondition$,
   AudioFeatures$,
   AudioQualityMetricsInfo$,
+  AuthCodeEntityType,
   AuthenticationProfile$,
   AuthenticationProfileSummary$,
+  AuthScope$,
   AutoAcceptConfig$,
   AutoEvaluationConfiguration$,
   AutoEvaluationDetails$,
@@ -231,6 +233,7 @@ import {
   ContactEvaluationAttributeFilter$,
   ContactEvaluationAttributeKey,
   ContactEvaluationAttributeValue$,
+  ContactField,
   ContactFilter$,
   ContactFlow$,
   ContactFlowAttributeAndCondition$,
@@ -263,6 +266,8 @@ import {
   ContactMetricValue$,
   ContactNotFoundException,
   ContactNotFoundException$,
+  ContactNotTerminatedException,
+  ContactNotTerminatedException$,
   ContactParticipantRole,
   ContactRecordingType,
   ContactSearchSummary$,
@@ -283,6 +288,10 @@ import {
   CreateAttachedFileCommand,
   CreateAttachedFileRequest$,
   CreateAttachedFileResponse$,
+  CreateAuthCode$,
+  CreateAuthCodeCommand,
+  CreateAuthCodeRequest$,
+  CreateAuthCodeResponse$,
   CreateCaseActionDefinition$,
   CreateContact$,
   CreateContactCommand,
@@ -470,6 +479,10 @@ import {
   DeleteAttachedFileCommand,
   DeleteAttachedFileRequest$,
   DeleteAttachedFileResponse$,
+  DeleteContactData$,
+  DeleteContactDataCommand,
+  DeleteContactDataRequest$,
+  DeleteContactDataResponse$,
   DeleteContactEvaluation$,
   DeleteContactEvaluationCommand,
   DeleteContactEvaluationRequest$,
@@ -549,6 +562,10 @@ import {
   DeleteSecurityProfile$,
   DeleteSecurityProfileCommand,
   DeleteSecurityProfileRequest$,
+  DeleteSession$,
+  DeleteSessionCommand,
+  DeleteSessionRequest$,
+  DeleteSessionResponse$,
   DeleteTaskTemplate$,
   DeleteTaskTemplateCommand,
   DeleteTaskTemplateRequest$,
@@ -1514,6 +1531,7 @@ import {
   paginateSearchQuickConnects,
   paginateSearchResourceTags,
   paginateSearchRoutingProfiles,
+  paginateSearchRules,
   paginateSearchSecurityProfiles,
   paginateSearchTestCases,
   paginateSearchUserHierarchyGroups,
@@ -1686,8 +1704,14 @@ import {
   RoutingProfileSummary$,
   Rule$,
   RuleAction$,
+  RuleAttributeAndCondition$,
+  RuleAttributeFilter$,
+  RuleCapabilityTier,
   RulePublishStatus,
   RulesConfiguration$,
+  RuleSearchSummary$,
+  RulesSearchCriteria$,
+  RulesSearchFilter$,
   RuleSummary$,
   RuleTriggerEventSource$,
   S3Config$,
@@ -1780,6 +1804,10 @@ import {
   SearchRoutingProfilesCommand,
   SearchRoutingProfilesRequest$,
   SearchRoutingProfilesResponse$,
+  SearchRules$,
+  SearchRulesCommand,
+  SearchRulesRequest$,
+  SearchRulesResponse$,
   SearchSecurityProfiles$,
   SearchSecurityProfilesCommand,
   SearchSecurityProfilesRequest$,
@@ -2378,6 +2406,8 @@ assert(typeof CreateAgentStatusCommand === "function");
 assert(typeof CreateAgentStatus$ === "object");
 assert(typeof CreateAttachedFileCommand === "function");
 assert(typeof CreateAttachedFile$ === "object");
+assert(typeof CreateAuthCodeCommand === "function");
+assert(typeof CreateAuthCode$ === "object");
 assert(typeof CreateContactCommand === "function");
 assert(typeof CreateContact$ === "object");
 assert(typeof CreateContactFlowCommand === "function");
@@ -2454,6 +2484,8 @@ assert(typeof DeactivateEvaluationFormCommand === "function");
 assert(typeof DeactivateEvaluationForm$ === "object");
 assert(typeof DeleteAttachedFileCommand === "function");
 assert(typeof DeleteAttachedFile$ === "object");
+assert(typeof DeleteContactDataCommand === "function");
+assert(typeof DeleteContactData$ === "object");
 assert(typeof DeleteContactEvaluationCommand === "function");
 assert(typeof DeleteContactEvaluation$ === "object");
 assert(typeof DeleteContactFlowCommand === "function");
@@ -2500,6 +2532,8 @@ assert(typeof DeleteRuleCommand === "function");
 assert(typeof DeleteRule$ === "object");
 assert(typeof DeleteSecurityProfileCommand === "function");
 assert(typeof DeleteSecurityProfile$ === "object");
+assert(typeof DeleteSessionCommand === "function");
+assert(typeof DeleteSession$ === "object");
 assert(typeof DeleteTaskTemplateCommand === "function");
 assert(typeof DeleteTaskTemplate$ === "object");
 assert(typeof DeleteTestCaseCommand === "function");
@@ -2854,6 +2888,8 @@ assert(typeof SearchResourceTagsCommand === "function");
 assert(typeof SearchResourceTags$ === "object");
 assert(typeof SearchRoutingProfilesCommand === "function");
 assert(typeof SearchRoutingProfiles$ === "object");
+assert(typeof SearchRulesCommand === "function");
+assert(typeof SearchRules$ === "object");
 assert(typeof SearchSecurityProfilesCommand === "function");
 assert(typeof SearchSecurityProfiles$ === "object");
 assert(typeof SearchTestCasesCommand === "function");
@@ -3137,6 +3173,7 @@ assert(typeof AudioFeatures$ === "object");
 assert(typeof AudioQualityMetricsInfo$ === "object");
 assert(typeof AuthenticationProfile$ === "object");
 assert(typeof AuthenticationProfileSummary$ === "object");
+assert(typeof AuthScope$ === "object");
 assert(typeof AutoAcceptConfig$ === "object");
 assert(typeof AutoEvaluationConfiguration$ === "object");
 assert(typeof AutoEvaluationDetails$ === "object");
@@ -3228,6 +3265,8 @@ assert(typeof CreateAgentStatusRequest$ === "object");
 assert(typeof CreateAgentStatusResponse$ === "object");
 assert(typeof CreateAttachedFileRequest$ === "object");
 assert(typeof CreateAttachedFileResponse$ === "object");
+assert(typeof CreateAuthCodeRequest$ === "object");
+assert(typeof CreateAuthCodeResponse$ === "object");
 assert(typeof CreateCaseActionDefinition$ === "object");
 assert(typeof CreateContactFlowModuleAliasRequest$ === "object");
 assert(typeof CreateContactFlowModuleAliasResponse$ === "object");
@@ -3332,6 +3371,8 @@ assert(typeof DecimalCondition$ === "object");
 assert(typeof DefaultVocabulary$ === "object");
 assert(typeof DeleteAttachedFileRequest$ === "object");
 assert(typeof DeleteAttachedFileResponse$ === "object");
+assert(typeof DeleteContactDataRequest$ === "object");
+assert(typeof DeleteContactDataResponse$ === "object");
 assert(typeof DeleteContactEvaluationRequest$ === "object");
 assert(typeof DeleteContactFlowModuleAliasRequest$ === "object");
 assert(typeof DeleteContactFlowModuleAliasResponse$ === "object");
@@ -3365,6 +3406,8 @@ assert(typeof DeleteQuickConnectRequest$ === "object");
 assert(typeof DeleteRoutingProfileRequest$ === "object");
 assert(typeof DeleteRuleRequest$ === "object");
 assert(typeof DeleteSecurityProfileRequest$ === "object");
+assert(typeof DeleteSessionRequest$ === "object");
+assert(typeof DeleteSessionResponse$ === "object");
 assert(typeof DeleteTaskTemplateRequest$ === "object");
 assert(typeof DeleteTaskTemplateResponse$ === "object");
 assert(typeof DeleteTestCaseRequest$ === "object");
@@ -3957,7 +4000,12 @@ assert(typeof RoutingProfileSearchFilter$ === "object");
 assert(typeof RoutingProfileSummary$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuleAction$ === "object");
+assert(typeof RuleAttributeAndCondition$ === "object");
+assert(typeof RuleAttributeFilter$ === "object");
 assert(typeof RulesConfiguration$ === "object");
+assert(typeof RuleSearchSummary$ === "object");
+assert(typeof RulesSearchCriteria$ === "object");
+assert(typeof RulesSearchFilter$ === "object");
 assert(typeof RuleSummary$ === "object");
 assert(typeof RuleTriggerEventSource$ === "object");
 assert(typeof S3Config$ === "object");
@@ -4009,6 +4057,8 @@ assert(typeof SearchResourceTagsRequest$ === "object");
 assert(typeof SearchResourceTagsResponse$ === "object");
 assert(typeof SearchRoutingProfilesRequest$ === "object");
 assert(typeof SearchRoutingProfilesResponse$ === "object");
+assert(typeof SearchRulesRequest$ === "object");
+assert(typeof SearchRulesResponse$ === "object");
 assert(typeof SearchSecurityProfilesRequest$ === "object");
 assert(typeof SearchSecurityProfilesResponse$ === "object");
 assert(typeof SearchTestCasesRequest$ === "object");
@@ -4303,6 +4353,7 @@ assert(typeof ArtifactStatus === "object");
 assert(typeof AttachedFileInvalidRequestExceptionReason === "object");
 assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
 assert(typeof AttachmentScope === "object");
+assert(typeof AuthCodeEntityType === "object");
 assert(typeof AutoEvaluationStatus === "object");
 assert(typeof Behavior === "object");
 assert(typeof BehaviorType === "object");
@@ -4313,6 +4364,7 @@ assert(typeof Comparison === "object");
 assert(typeof ConfigurableNotificationPriority === "object");
 assert(typeof ContactEvaluationAttributeComparisonType === "object");
 assert(typeof ContactEvaluationAttributeKey === "object");
+assert(typeof ContactField === "object");
 assert(typeof ContactFlowModuleState === "object");
 assert(typeof ContactFlowModuleStatus === "object");
 assert(typeof ContactFlowState === "object");
@@ -4435,6 +4487,7 @@ assert(typeof RehydrationType === "object");
 assert(typeof ResourceType === "object");
 assert(typeof ResponseMode === "object");
 assert(typeof RoutingCriteriaStepStatus === "object");
+assert(typeof RuleCapabilityTier === "object");
 assert(typeof RulePublishStatus === "object");
 assert(typeof ScreenShareCapability === "object");
 assert(typeof SearchableQueueType === "object");
@@ -4483,6 +4536,8 @@ assert(ContactFlowNotPublishedException.prototype instanceof ConnectServiceExcep
 assert(typeof ContactFlowNotPublishedException$ === "object");
 assert(ContactNotFoundException.prototype instanceof ConnectServiceException);
 assert(typeof ContactNotFoundException$ === "object");
+assert(ContactNotTerminatedException.prototype instanceof ConnectServiceException);
+assert(typeof ContactNotTerminatedException$ === "object");
 assert(DestinationNotAllowedException.prototype instanceof ConnectServiceException);
 assert(typeof DestinationNotAllowedException$ === "object");
 assert(DuplicateResourceException.prototype instanceof ConnectServiceException);
@@ -4609,6 +4664,7 @@ assert(typeof paginateSearchQueues === "function");
 assert(typeof paginateSearchQuickConnects === "function");
 assert(typeof paginateSearchResourceTags === "function");
 assert(typeof paginateSearchRoutingProfiles === "function");
+assert(typeof paginateSearchRules === "function");
 assert(typeof paginateSearchSecurityProfiles === "function");
 assert(typeof paginateSearchTestCases === "function");
 assert(typeof paginateSearchUserHierarchyGroups === "function");

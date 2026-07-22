@@ -279,6 +279,10 @@ import type {
   GetLogDeliveryConfigurationCommandOutput,
 } from "./commands/GetLogDeliveryConfigurationCommand";
 import type {
+  GetProvisionedLimitCommandInput,
+  GetProvisionedLimitCommandOutput,
+} from "./commands/GetProvisionedLimitCommand";
+import type {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand";
@@ -406,6 +410,10 @@ import type {
   UpdateManagedLoginBrandingCommandOutput,
 } from "./commands/UpdateManagedLoginBrandingCommand";
 import type {
+  UpdateProvisionedLimitCommandInput,
+  UpdateProvisionedLimitCommandOutput,
+} from "./commands/UpdateProvisionedLimitCommand";
+import type {
   UpdateResourceServerCommandInput,
   UpdateResourceServerCommandOutput,
 } from "./commands/UpdateResourceServerCommand";
@@ -524,6 +532,7 @@ export type ServiceInputTypes =
   | GetGroupCommandInput
   | GetIdentityProviderByIdentifierCommandInput
   | GetLogDeliveryConfigurationCommandInput
+  | GetProvisionedLimitCommandInput
   | GetSigningCertificateCommandInput
   | GetTokensFromRefreshTokenCommandInput
   | GetUICustomizationCommandInput
@@ -567,6 +576,7 @@ export type ServiceInputTypes =
   | UpdateGroupCommandInput
   | UpdateIdentityProviderCommandInput
   | UpdateManagedLoginBrandingCommandInput
+  | UpdateProvisionedLimitCommandInput
   | UpdateResourceServerCommandInput
   | UpdateTermsCommandInput
   | UpdateUserAttributesCommandInput
@@ -655,6 +665,7 @@ export type ServiceOutputTypes =
   | GetGroupCommandOutput
   | GetIdentityProviderByIdentifierCommandOutput
   | GetLogDeliveryConfigurationCommandOutput
+  | GetProvisionedLimitCommandOutput
   | GetSigningCertificateCommandOutput
   | GetTokensFromRefreshTokenCommandOutput
   | GetUICustomizationCommandOutput
@@ -698,6 +709,7 @@ export type ServiceOutputTypes =
   | UpdateGroupCommandOutput
   | UpdateIdentityProviderCommandOutput
   | UpdateManagedLoginBrandingCommandOutput
+  | UpdateProvisionedLimitCommandOutput
   | UpdateResourceServerCommandOutput
   | UpdateTermsCommandOutput
   | UpdateUserAttributesCommandOutput

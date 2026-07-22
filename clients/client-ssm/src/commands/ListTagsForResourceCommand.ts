@@ -34,7 +34,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // ListTagsForResourceRequest
- *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
+ *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association" || "CloudConnector", // required
  *   ResourceId: "STRING_VALUE", // required
  * };
  * const command = new ListTagsForResourceCommand(input);

@@ -56,8 +56,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The data store is in a transition state and the user requested action cannot be
- *          performed.</p>
+ *  <p>The data store is in a transition state and the user requested action cannot be performed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>

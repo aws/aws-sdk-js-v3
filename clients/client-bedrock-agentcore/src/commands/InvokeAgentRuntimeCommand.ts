@@ -51,6 +51,8 @@ export interface InvokeAgentRuntimeCommandOutput extends Omit<InvokeAgentRuntime
  *   mcpSessionId: "STRING_VALUE",
  *   runtimeSessionId: "STRING_VALUE",
  *   mcpProtocolVersion: "STRING_VALUE",
+ *   mcpMethod: "STRING_VALUE",
+ *   mcpName: "STRING_VALUE",
  *   runtimeUserId: "STRING_VALUE",
  *   traceId: "STRING_VALUE",
  *   traceParent: "STRING_VALUE",

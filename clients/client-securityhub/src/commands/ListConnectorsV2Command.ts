@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListConnectorsV2Request, ListConnectorsV2Response } from "../models/models_2";
+import type { ListConnectorsV2Request, ListConnectorsV2Response } from "../models/models_3";
 import { ListConnectorsV2$ } from "../schemas/schemas_0";
 
 /**
@@ -35,8 +35,9 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * const input = { // ListConnectorsV2Request
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
- *   ProviderName: "JIRA_CLOUD" || "SERVICENOW",
- *   ConnectorStatus: "CONNECTED" || "FAILED_TO_CONNECT" || "PENDING_CONFIGURATION" || "PENDING_AUTHORIZATION",
+ *   ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE",
+ *   ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
+ *   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
  * };
  * const command = new ListConnectorsV2Command(input);
  * const response = await client.send(command);
@@ -49,10 +50,38 @@ export interface ListConnectorsV2CommandOutput extends ListConnectorsV2Response,
  * //       Name: "STRING_VALUE", // required
  * //       Description: "STRING_VALUE",
  * //       ProviderSummary: { // ProviderSummary
- * //         ProviderName: "JIRA_CLOUD" || "SERVICENOW",
- * //         ConnectorStatus: "CONNECTED" || "FAILED_TO_CONNECT" || "PENDING_CONFIGURATION" || "PENDING_AUTHORIZATION",
+ * //         ProviderName: "JIRA_CLOUD" || "SERVICENOW" || "AZURE",
+ * //         ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN",
+ * //         ProviderConfiguration: { // ProviderDetail Union: only one key present
+ * //           JiraCloud: { // JiraCloudDetail
+ * //             CloudId: "STRING_VALUE",
+ * //             ProjectKey: "STRING_VALUE",
+ * //             Domain: "STRING_VALUE",
+ * //             AuthUrl: "STRING_VALUE",
+ * //             AuthStatus: "ACTIVE" || "FAILED",
+ * //           },
+ * //           ServiceNow: { // ServiceNowDetail
+ * //             InstanceName: "STRING_VALUE",
+ * //             SecretArn: "STRING_VALUE", // required
+ * //             AuthStatus: "ACTIVE" || "FAILED", // required
+ * //           },
+ * //           Azure: { // AzureDetail
+ * //             AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //             ScopeConfiguration: { // AzureScopeConfiguration
+ * //               ScopeType: "TENANT" || "SUBSCRIPTION", // required
+ * //               ScopeValues: [ // ScopeValueList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             AzureRegions: [ // AzureRegionList // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
  * //       },
  * //       CreatedAt: new Date("TIMESTAMP"), // required
+ * //       EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
+ * //       EnablementStatusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

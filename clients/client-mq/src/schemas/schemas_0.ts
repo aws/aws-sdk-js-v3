@@ -149,6 +149,7 @@ const _PLSM = "PendingLdapServerMetadata";
 const _PR = "PromoteRequest";
 const _PRr = "PromoteResponse";
 const _PSG = "PendingSecurityGroups";
+const _PSS = "PendingStorageSize";
 const _Pa = "Password";
 const _Pr = "Promote";
 const _R = "Revision";
@@ -178,6 +179,7 @@ const _SI = "SubnetIds";
 const _SR = "SharedResources";
 const _SRE = "SharedResourceError";
 const _SRh = "SharedResource";
+const _SS = "StorageSize";
 const _ST = "StorageType";
 const _SW = "SanitizationWarning";
 const _T = "Tags";
@@ -302,6 +304,7 @@ const _pEV = "pendingEngineVersion";
 const _pHIT = "pendingHostInstanceType";
 const _pLSM = "pendingLdapServerMetadata";
 const _pSG = "pendingSecurityGroups";
+const _pSS = "pendingStorageSize";
 const _pa = "password";
 const _r = "revision";
 const _rA = "resourceArn";
@@ -324,6 +327,7 @@ const _sEV = "supportedEngineVersions";
 const _sG = "securityGroups";
 const _sI = "subnetIds";
 const _sR = "sharedResources";
+const _sS = "storageSize";
 const _sT = "storageType";
 const _se = "server";
 const _st = "status";
@@ -464,8 +468,8 @@ export var Configurations$: StaticStructureSchema = [3, n0, _Con,
 ];
 export var CreateBrokerRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
-  [_BN, _DM, _ET, _HIT, _PA, _AS, _AMVU, _Co, _CRI, _EO, _EVn, _LSM, _L, _MWST, _SG, _ST, _SI, _T, _U, _DRM, _DRPBA],
-  [[0, { [_jN]: _bN }], [0, { [_jN]: _dM }], [0, { [_jN]: _eT }], [0, { [_jN]: _hIT }], [2, { [_jN]: _pA }], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_iT]: 1, [_jN]: _cRI }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eVn }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUser, { [_jN]: _u }], [0, { [_jN]: _dRM }], [0, { [_jN]: _dRPBA }]], 5
+  [_BN, _DM, _ET, _HIT, _PA, _AS, _AMVU, _Co, _CRI, _EO, _EVn, _LSM, _L, _MWST, _SG, _SS, _ST, _SI, _T, _U, _DRM, _DRPBA],
+  [[0, { [_jN]: _bN }], [0, { [_jN]: _dM }], [0, { [_jN]: _eT }], [0, { [_jN]: _hIT }], [2, { [_jN]: _pA }], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_iT]: 1, [_jN]: _cRI }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eVn }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _sG }], [1, { [_jN]: _sS }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUser, { [_jN]: _u }], [0, { [_jN]: _dRM }], [0, { [_jN]: _dRPBA }]], 5
 ];
 export var CreateBrokerResponse$: StaticStructureSchema = [3, n0, _CBRr,
   0,
@@ -569,8 +573,8 @@ export var DescribeBrokerRequest$: StaticStructureSchema = [3, n0, _DBRes,
 ];
 export var DescribeBrokerResponse$: StaticStructureSchema = [3, n0, _DBResc,
   0,
-  [_ARc, _AS, _AMVU, _BA, _BIr, _BIro, _BN, _BSr, _Con, _C, _DM, _EO, _ET, _EVn, _HIT, _LSM, _L, _MWST, _PAS, _PEV, _PHIT, _PLSM, _PSG, _PA, _SG, _ST, _SI, _T, _U, _DRMa, _DRM, _PDRM, _PDRMe],
-  [[() => __listOfActionRequired, { [_jN]: _aR }], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bA }], [0, { [_jN]: _bI }], [() => __listOfBrokerInstance, { [_jN]: _bIr }], [0, { [_jN]: _bN }], [0, { [_jN]: _bS }], [() => Configurations$, { [_jN]: _con }], [5, { [_jN]: _cr }], [0, { [_jN]: _dM }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => LogsSummary$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [0, { [_jN]: _pAS }], [0, { [_jN]: _pEV }], [0, { [_jN]: _pHIT }], [() => LdapServerMetadataOutput$, { [_jN]: _pLSM }], [64 | 0, { [_jN]: _pSG }], [2, { [_jN]: _pA }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUserSummary, { [_jN]: _u }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }]]
+  [_ARc, _AS, _AMVU, _BA, _BIr, _BIro, _BN, _BSr, _Con, _C, _DM, _EO, _ET, _EVn, _HIT, _LSM, _L, _MWST, _PAS, _PEV, _PHIT, _PLSM, _PSG, _PSS, _PA, _SG, _SS, _ST, _SI, _T, _U, _DRMa, _DRM, _PDRM, _PDRMe],
+  [[() => __listOfActionRequired, { [_jN]: _aR }], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bA }], [0, { [_jN]: _bI }], [() => __listOfBrokerInstance, { [_jN]: _bIr }], [0, { [_jN]: _bN }], [0, { [_jN]: _bS }], [() => Configurations$, { [_jN]: _con }], [5, { [_jN]: _cr }], [0, { [_jN]: _dM }], [() => EncryptionOptions$, { [_jN]: _eO }], [0, { [_jN]: _eT }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => LogsSummary$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [0, { [_jN]: _pAS }], [0, { [_jN]: _pEV }], [0, { [_jN]: _pHIT }], [() => LdapServerMetadataOutput$, { [_jN]: _pLSM }], [64 | 0, { [_jN]: _pSG }], [1, { [_jN]: _pSS }], [2, { [_jN]: _pA }], [64 | 0, { [_jN]: _sG }], [1, { [_jN]: _sS }], [0, { [_jN]: _sT }], [64 | 0, { [_jN]: _sI }], [128 | 0, { [_jN]: _t }], [() => __listOfUserSummary, { [_jN]: _u }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }]]
 ];
 export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRes,
   0,
@@ -739,13 +743,13 @@ export var SharedResourceError$: StaticStructureSchema = [3, n0, _SRE,
 ];
 export var UpdateBrokerRequest$: StaticStructureSchema = [3, n0, _UBR,
   0,
-  [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _DRM],
-  [[0, 1], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [0, { [_jN]: _dRM }]], 1
+  [_BIr, _AS, _AMVU, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _SS, _DRM],
+  [[0, 1], [0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataInput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [1, { [_jN]: _sS }], [0, { [_jN]: _dRM }]], 1
 ];
 export var UpdateBrokerResponse$: StaticStructureSchema = [3, n0, _UBRp,
   0,
-  [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _DRMa, _DRM, _PDRM, _PDRMe],
-  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bI }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }]]
+  [_AS, _AMVU, _BIr, _Co, _EVn, _HIT, _LSM, _L, _MWST, _RSAe, _SG, _DRMa, _DRM, _PDRM, _PDRMe, _SS],
+  [[0, { [_jN]: _aS }], [2, { [_jN]: _aMVU }], [0, { [_jN]: _bI }], [() => ConfigurationId$, { [_jN]: _co }], [0, { [_jN]: _eVn }], [0, { [_jN]: _hIT }], [() => LdapServerMetadataOutput$, { [_jN]: _lSM }], [() => Logs$, { [_jN]: _l }], [() => WeeklyStartTime$, { [_jN]: _mWST }], [64 | 0, { [_jN]: _rSAe }], [64 | 0, { [_jN]: _sG }], [() => DataReplicationMetadataOutput$, { [_jN]: _dRMa }], [0, { [_jN]: _dRM }], [() => DataReplicationMetadataOutput$, { [_jN]: _pDRM }], [0, { [_jN]: _pDRMe }], [1, { [_jN]: _sS }]]
 ];
 export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
   0,

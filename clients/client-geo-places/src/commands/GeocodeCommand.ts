@@ -23,7 +23,7 @@ export interface GeocodeCommandInput extends GeocodeRequest {}
 export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer {}
 
 /**
- * <p> <code>Geocode</code> converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/geocode.html">Geocode</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
+ * <p> <code>Geocode</code> converts a textual address or place into geographic coordinates. You can obtain geographic coordinates, address component, and other related information. It supports flexible queries, including free-form text or structured queries with components like street names, postal codes, and regions. The Geocode API can also provide additional features such as time zone information and the inclusion of political views. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/location/latest/developerguide/geocode.html">Geocode</a> in the <i>Amazon Location Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,16 +53,21 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  *       "STRING_VALUE",
  *     ],
  *     IncludePlaceTypes: [ // GeocodeFilterPlaceTypeList
- *       "STRING_VALUE",
+ *       "Locality" || "PostalCode" || "Intersection" || "Street" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "PointOfInterest" || "Country" || "Region",
  *     ],
  *   },
  *   AdditionalFeatures: [ // GeocodeAdditionalFeatureList
- *     "STRING_VALUE",
+ *     "TimeZone" || "Access" || "SecondaryAddresses" || "Intersections",
  *   ],
  *   Language: "STRING_VALUE",
  *   PoliticalView: "STRING_VALUE",
- *   IntendedUse: "STRING_VALUE",
+ *   IntendedUse: "SingleUse" || "Storage",
  *   Key: "STRING_VALUE",
+ *   PostalCodeMode: "MergeAllSpannedLocalities" || "EnumerateSpannedLocalities" || "EnumerateSpannedDistricts",
+ *   AddressTranslations: [ // AddressTranslationComponentList
+ *     "District" || "Locality" || "Region" || "SubRegion",
+ *   ],
+ *   AddressNamesMode: "Matched" || "Administrative",
  * };
  * const command = new GeocodeCommand(input);
  * const response = await client.send(command);
@@ -71,7 +76,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //   ResultItems: [ // GeocodeResultItemList
  * //     { // GeocodeResultItem
  * //       PlaceId: "STRING_VALUE", // required
- * //       PlaceType: "STRING_VALUE", // required
+ * //       PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //       Title: "STRING_VALUE", // required
  * //       Address: { // Address
  * //         Label: "STRING_VALUE",
@@ -102,7 +107,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //           { // StreetComponents
  * //             BaseName: "STRING_VALUE",
  * //             Type: "STRING_VALUE",
- * //             TypePlacement: "STRING_VALUE",
+ * //             TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //             TypeSeparator: "STRING_VALUE",
  * //             Prefix: "STRING_VALUE",
  * //             Suffix: "STRING_VALUE",
@@ -123,13 +128,13 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //       PostalCodeDetails: [ // PostalCodeDetailsList
  * //         { // PostalCodeDetails
  * //           PostalCode: "STRING_VALUE",
- * //           PostalAuthority: "STRING_VALUE",
- * //           PostalCodeType: "STRING_VALUE",
+ * //           PostalAuthority: "Usps",
+ * //           PostalCodeType: "UspsZip" || "UspsZipPlus4",
  * //           UspsZip: { // UspsZip
- * //             ZipClassificationCode: "STRING_VALUE",
+ * //             ZipClassificationCode: "Military" || "PostOfficeBoxes" || "Unique",
  * //           },
  * //           UspsZipPlus4: { // UspsZipPlus4
- * //             RecordTypeCode: "STRING_VALUE",
+ * //             RecordTypeCode: "Firm" || "General" || "HighRise" || "PostOfficeBox" || "Rural" || "Street",
  * //           },
  * //         },
  * //       ],
@@ -160,6 +165,9 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //           Position: [
  * //             Number("double"),
  * //           ],
+ * //           Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //           Primary: true || false,
+ * //           Label: "STRING_VALUE",
  * //         },
  * //       ],
  * //       TimeZone: { // TimeZone
@@ -254,6 +262,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //               Designator: "STRING_VALUE", // required
  * //             },
  * //           ],
+ * //           OtherComponents: "<ParsedQueryComponentList>",
  * //         },
  * //       },
  * //       Intersections: [ // IntersectionList
@@ -289,7 +298,7 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //               {
  * //                 BaseName: "STRING_VALUE",
  * //                 Type: "STRING_VALUE",
- * //                 TypePlacement: "STRING_VALUE",
+ * //                 TypePlacement: "BeforeBaseName" || "AfterBaseName",
  * //                 TypeSeparator: "STRING_VALUE",
  * //                 Prefix: "STRING_VALUE",
  * //                 Suffix: "STRING_VALUE",
@@ -317,13 +326,16 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //           AccessPoints: [
  * //             {
  * //               Position: "<Position>",
+ * //               Type: "Delivery" || "Emergency" || "Entrance" || "Loading" || "Other" || "Parking" || "Taxi",
+ * //               Primary: true || false,
+ * //               Label: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
  * //       ],
  * //       MainAddress: { // RelatedPlace
  * //         PlaceId: "STRING_VALUE", // required
- * //         PlaceType: "STRING_VALUE", // required
+ * //         PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //         Title: "STRING_VALUE", // required
  * //         Address: "<Address>",
  * //         Position: "<Position>",
@@ -332,13 +344,72 @@ export interface GeocodeCommandOutput extends GeocodeResponse, __MetadataBearer 
  * //       SecondaryAddresses: [ // RelatedPlaceList
  * //         {
  * //           PlaceId: "STRING_VALUE", // required
- * //           PlaceType: "STRING_VALUE", // required
+ * //           PlaceType: "Country" || "Region" || "SubRegion" || "Locality" || "District" || "SubDistrict" || "PostalCode" || "Block" || "SubBlock" || "Intersection" || "Street" || "PointOfInterest" || "PointAddress" || "InterpolatedAddress" || "SecondaryAddress" || "InferredSecondaryAddress", // required
  * //           Title: "STRING_VALUE", // required
  * //           Address: "<Address>",
  * //           Position: "<Position>",
  * //           AccessPoints: "<AccessPointList>",
  * //         },
  * //       ],
+ * //       Translations: { // TranslationDetails
+ * //         Locality: [ // AdminNamesList
+ * //           { // AdminNames
+ * //             Names: [ // TranslationNameList // required
+ * //               { // TranslationName
+ * //                 Value: "STRING_VALUE", // required
+ * //                 Language: "STRING_VALUE",
+ * //                 Type: "Abbreviation" || "AreaCode" || "BaseName" || "Exonym" || "Shortened" || "Synonym", // required
+ * //                 Primary: true || false,
+ * //                 Transliterated: true || false,
+ * //               },
+ * //             ],
+ * //             Preference: "Alternative" || "Primary",
+ * //           },
+ * //         ],
+ * //         Region: [
+ * //           {
+ * //             Names: [ // required
+ * //               {
+ * //                 Value: "STRING_VALUE", // required
+ * //                 Language: "STRING_VALUE",
+ * //                 Type: "Abbreviation" || "AreaCode" || "BaseName" || "Exonym" || "Shortened" || "Synonym", // required
+ * //                 Primary: true || false,
+ * //                 Transliterated: true || false,
+ * //               },
+ * //             ],
+ * //             Preference: "Alternative" || "Primary",
+ * //           },
+ * //         ],
+ * //         District: [
+ * //           {
+ * //             Names: [ // required
+ * //               {
+ * //                 Value: "STRING_VALUE", // required
+ * //                 Language: "STRING_VALUE",
+ * //                 Type: "Abbreviation" || "AreaCode" || "BaseName" || "Exonym" || "Shortened" || "Synonym", // required
+ * //                 Primary: true || false,
+ * //                 Transliterated: true || false,
+ * //               },
+ * //             ],
+ * //             Preference: "Alternative" || "Primary",
+ * //           },
+ * //         ],
+ * //         SubRegion: [
+ * //           {
+ * //             Names: [ // required
+ * //               {
+ * //                 Value: "STRING_VALUE", // required
+ * //                 Language: "STRING_VALUE",
+ * //                 Type: "Abbreviation" || "AreaCode" || "BaseName" || "Exonym" || "Shortened" || "Synonym", // required
+ * //                 Primary: true || false,
+ * //                 Transliterated: true || false,
+ * //               },
+ * //             ],
+ * //             Preference: "Alternative" || "Primary",
+ * //           },
+ * //         ],
+ * //       },
+ * //       EstimatedPointAddress: true || false,
  * //     },
  * //   ],
  * // };

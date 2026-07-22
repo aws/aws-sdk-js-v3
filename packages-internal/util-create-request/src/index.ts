@@ -4,7 +4,7 @@ import type { BuildMiddleware, HttpRequest, MetadataBearer } from "@smithy/types
 export async function createRequest<
   InputTypesUnion extends object,
   InputType extends InputTypesUnion,
-  OutputType extends MetadataBearer = MetadataBearer
+  OutputType extends MetadataBearer = MetadataBearer,
 >(
   client: Client<any, InputTypesUnion, MetadataBearer, any>,
   command: Command<InputType, OutputType, any, InputTypesUnion, MetadataBearer>

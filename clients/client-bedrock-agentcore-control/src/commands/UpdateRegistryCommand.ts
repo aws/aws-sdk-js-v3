@@ -51,6 +51,9 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  *         allowedScopes: [ // AllowedScopesType
  *           "STRING_VALUE",
  *         ],
+ *         advertisedScopeMapping: { // AdvertisedScopeMappingType
+ *           "<keys>": "STRING_VALUE",
+ *         },
  *         customClaims: [ // CustomClaimValidationsType
  *           { // CustomClaimValidationType
  *             inboundTokenClaimName: "STRING_VALUE", // required
@@ -148,6 +151,9 @@ export interface UpdateRegistryCommandOutput extends UpdateRegistryResponse, __M
  * //       allowedScopes: [ // AllowedScopesType
  * //         "STRING_VALUE",
  * //       ],
+ * //       advertisedScopeMapping: { // AdvertisedScopeMappingType
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //       customClaims: [ // CustomClaimValidationsType
  * //         { // CustomClaimValidationType
  * //           inboundTokenClaimName: "STRING_VALUE", // required

@@ -63,6 +63,7 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     securityConfigurationId: "STRING_VALUE",
+ * //     sessionEnabled: true || false,
  * //   },
  * // };
  *

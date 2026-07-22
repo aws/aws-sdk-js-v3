@@ -306,6 +306,9 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *     AwsAccountName: "<StringFilterList>",
  *     ResourceApplicationName: "<StringFilterList>",
  *     ResourceApplicationArn: "<StringFilterList>",
+ *     ResourceOwnerAccountId: "<StringFilterList>",
+ *     ResourceOwnerOrgId: "<StringFilterList>",
+ *     ResourceProvider: "<StringFilterList>",
  *   },
  *   SortCriteria: [ // SortCriteria
  *     { // SortCriterion
@@ -477,8 +480,17 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //         { // Resource
  * //           Type: "STRING_VALUE", // required
  * //           Id: "STRING_VALUE", // required
- * //           Partition: "aws" || "aws-cn" || "aws-us-gov",
+ * //           Partition: "aws" || "aws-cn" || "aws-us-gov" || "aws-us-iso" || "aws-us-iso-b" || "AzureCloud",
  * //           Region: "STRING_VALUE",
+ * //           Provider: "Azure" || "AWS",
+ * //           Owner: { // ResourceOwner
+ * //             Account: { // ResourceOwnerAccount
+ * //               Id: "STRING_VALUE",
+ * //             },
+ * //             Org: { // ResourceOwnerOrg
+ * //               Id: "STRING_VALUE",
+ * //             },
+ * //           },
  * //           ResourceRole: "STRING_VALUE",
  * //           Tags: {
  * //             "<keys>": "STRING_VALUE",
@@ -4256,6 +4268,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               ProjectName: "STRING_VALUE",
  * //               CodeSecurityIntegrationArn: "STRING_VALUE",
  * //             },
+ * //             AzureResource: "DOCUMENT_VALUE",
  * //           },
  * //           ApplicationName: "STRING_VALUE",
  * //           ApplicationArn: "STRING_VALUE",

@@ -134,11 +134,11 @@ const _DDRe = "DeleteDestinationResponse";
 const _DDe = "DeleteDestination";
 const _DE = "DevEui";
 const _DEET = "DevEuiEventTopic";
-const _DF = "DownlinkFrequency";
+const _DF = "DlFreq";
 const _DFT = "DeleteFuotaTask";
 const _DFTR = "DeleteFuotaTaskRequest";
 const _DFTRe = "DeleteFuotaTaskResponse";
-const _DFl = "DlFreq";
+const _DFo = "DownlinkFrequency";
 const _DL = "DestinationList";
 const _DLL = "DefaultLogLevel";
 const _DM = "DrMin";
@@ -171,9 +171,11 @@ const _DRSEC = "DeviceRegistrationStateEventConfiguration";
 const _DRSRTEC = "DeviceRegistrationStateResourceTypeEventConfiguration";
 const _DRl = "DlRate";
 const _DS = "DeviceState";
-const _DSP = "DeleteServiceProfile";
+const _DSP = "DefaultSessionParameters";
+const _DSPM = "DefaultSessionParametersMulticast";
 const _DSPR = "DeleteServiceProfileRequest";
 const _DSPRe = "DeleteServiceProfileResponse";
+const _DSPe = "DeleteServiceProfile";
 const _DSRF = "DevStatusReqFreq";
 const _DTI = "DeviceTypeId";
 const _DWD = "DeleteWirelessDevice";
@@ -1191,6 +1193,11 @@ export var DakCertificateMetadata$: StaticStructureSchema = [3, n0, _DCM,
   [_CI, _MAS, _FS, _AI, _DTI],
   [0, 1, 2, 0, 0], 1
 ];
+export var DefaultSessionParametersMulticast$: StaticStructureSchema = [3, n0, _DSPM,
+  0,
+  [_DD, _DF],
+  [1, 1]
+];
 export var DeleteDestinationRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
   [_N],
@@ -1453,7 +1460,7 @@ export var FuotaTaskLogOption$: StaticStructureSchema = [3, n0, _FTLO,
 ];
 export var GatewayListItem$: StaticStructureSchema = [3, n0, _GLI,
   0,
-  [_GI, _DF],
+  [_GI, _DFo],
   [0, 1], 2
 ];
 export var GetDestinationRequest$: StaticStructureSchema = [3, n0, _GDR,
@@ -2033,13 +2040,13 @@ export var LoRaWANListDevice$: StaticStructureSchema = [3, n0, _LRWANLD,
 ];
 export var LoRaWANMulticast$: StaticStructureSchema = [3, n0, _LRWANM,
   0,
-  [_RR, _DC, _PGa],
-  [0, 0, () => ParticipatingGatewaysMulticast$]
+  [_RR, _DC, _PGa, _DSP],
+  [0, 0, () => ParticipatingGatewaysMulticast$, () => DefaultSessionParametersMulticast$]
 ];
 export var LoRaWANMulticastGet$: StaticStructureSchema = [3, n0, _LRWANMG,
   0,
-  [_RR, _DC, _NODR, _NODIG, _PGa],
-  [0, 0, 1, 1, () => ParticipatingGatewaysMulticast$]
+  [_RR, _DC, _NODR, _NODIG, _PGa, _DSP],
+  [0, 0, 1, 1, () => ParticipatingGatewaysMulticast$, () => DefaultSessionParametersMulticast$]
 ];
 export var LoRaWANMulticastMetadata$: StaticStructureSchema = [3, n0, _LRWANMM,
   0,
@@ -2048,7 +2055,7 @@ export var LoRaWANMulticastMetadata$: StaticStructureSchema = [3, n0, _LRWANMM,
 ];
 export var LoRaWANMulticastSession$: StaticStructureSchema = [3, n0, _LRWANMS,
   0,
-  [_DD, _DFl, _SST, _STes, _PSP],
+  [_DD, _DF, _SST, _STes, _PSP],
   [1, 1, 5, 1, 1]
 ];
 export var LoRaWANPublicGatewayMetadata$: StaticStructureSchema = [3, n0, _LRWANPGM,
@@ -2951,7 +2958,7 @@ export var DeleteNetworkAnalyzerConfiguration$: StaticOperationSchema = [9, n0, 
 export var DeleteQueuedMessages$: StaticOperationSchema = [9, n0, _DQMe,
   { [_h]: ["DELETE", "/wireless-devices/{Id}/data", 204] }, () => DeleteQueuedMessagesRequest$, () => DeleteQueuedMessagesResponse$
 ];
-export var DeleteServiceProfile$: StaticOperationSchema = [9, n0, _DSP,
+export var DeleteServiceProfile$: StaticOperationSchema = [9, n0, _DSPe,
   { [_h]: ["DELETE", "/service-profiles/{Id}", 204] }, () => DeleteServiceProfileRequest$, () => DeleteServiceProfileResponse$
 ];
 export var DeleteWirelessDevice$: StaticOperationSchema = [9, n0, _DWD,

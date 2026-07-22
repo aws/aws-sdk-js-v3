@@ -57,7 +57,6 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       throw new Error("Eventstream payload must be a Readable stream.");
     }
 
-    const payloadStream = payload as Readable;
     request.body = new PassThrough({
       objectMode: true,
     });
@@ -81,7 +80,7 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
     let resolvePipeline: () => void;
     const pipelineError = new Promise<FinalizeHandlerOutput<any>>((resolve, reject) => {
       resolvePipeline = () => resolve(undefined as any);
-      pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
+      pipeline(payload, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
         if (err) {
           reject(new Error(`Pipeline error in @aws-sdk/eventstream-handler-node: ${err.message}`, { cause: err }));
         }

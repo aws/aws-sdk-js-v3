@@ -178,6 +178,20 @@ export type OfferSetStateString = (typeof OfferSetStateString)[keyof typeof Offe
  * @public
  * @enum
  */
+export const ResaleAuthorizationResellerRoleString = {
+  ChannelPartner: "ChannelPartner",
+  Distributor: "Distributor",
+} as const;
+/**
+ * @public
+ */
+export type ResaleAuthorizationResellerRoleString =
+  (typeof ResaleAuthorizationResellerRoleString)[keyof typeof ResaleAuthorizationResellerRoleString];
+
+/**
+ * @public
+ * @enum
+ */
 export const ResaleAuthorizationStatusString = {
   Active: "Active",
   Draft: "Draft",

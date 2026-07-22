@@ -82,6 +82,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  *       },
  *       s3MonitoringConfiguration: { // S3MonitoringConfiguration
  *         logUri: "STRING_VALUE", // required
+ *         encryptionKeyArn: "STRING_VALUE",
  *       },
  *       containerLogRotationConfiguration: { // ContainerLogRotationConfiguration
  *         rotationSize: "STRING_VALUE", // required

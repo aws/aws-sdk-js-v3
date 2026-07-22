@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 vi.mock("@aws-sdk/credential-provider-sso", () => ({
-  fromSSO: vi.fn(),
+  fromSSO: vi.fn().mockReturnValue(vi.fn()),
 }));
 
 import { fromSSO as OG } from "@aws-sdk/credential-provider-sso";
@@ -14,7 +14,8 @@ describe("fromSSO", () => {
   });
 
   it("defers to credential-provider-sso", async () => {
-    fromSSO();
+    const provider = fromSSO();
+    await provider({});
     expect(vi.mocked(OG)).toHaveBeenCalled();
   });
 });

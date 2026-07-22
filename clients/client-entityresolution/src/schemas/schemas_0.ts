@@ -216,6 +216,7 @@ const _de = "description";
 const _e = "error";
 const _eD = "errorDetails";
 const _eM = "errorMessage";
+const _eRTM = "enableRealTimeMatching";
 const _eT = "errorType";
 const _eTM = "enableTransitiveMatching";
 const _eTn = "endTime";
@@ -919,8 +920,8 @@ export var _Record$: StaticStructureSchema = [3, n0, _R,
 ];
 export var ResolutionTechniques$: StaticStructureSchema = [3, n0, _RT,
   0,
-  [_rTe, _rBP, _rCP, _pP],
-  [0, () => RuleBasedProperties$, () => RuleConditionProperties$, () => ProviderProperties$], 1
+  [_rTe, _rBP, _rCP, _eRTM, _pP],
+  [0, () => RuleBasedProperties$, () => RuleConditionProperties$, 2, () => ProviderProperties$], 1
 ];
 export var Rule$: StaticStructureSchema = [3, n0, _Ru,
   0,

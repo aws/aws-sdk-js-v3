@@ -194,6 +194,7 @@ export type {
   UpdatePlanResponse,
   Workflow,
   AccessDeniedException,
+  ConflictException,
   IllegalArgumentException,
   IllegalStateException,
   InternalServerException,

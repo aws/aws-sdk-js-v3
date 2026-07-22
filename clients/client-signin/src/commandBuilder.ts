@@ -23,6 +23,13 @@ export const _ep0: EndpointParameterInstructions = {
  * @internal
  */
 export const _ep1: EndpointParameterInstructions = {
+  IsOAuthEndpoint: { type: "staticContextParams", value: true },
+};
+
+/**
+ * @internal
+ */
+export const _ep2: EndpointParameterInstructions = {
   IsControlPlane: { type: "staticContextParams", value: true },
 };
 

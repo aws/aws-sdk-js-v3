@@ -287,6 +287,7 @@ import {
   HarnessToolResultBlockDelta$,
   HarnessToolResultBlockStart$,
   HarnessToolResultContentBlock$,
+  HarnessToolResultMetadataBlockDelta$,
   HarnessToolType,
   HarnessToolUseBlock$,
   HarnessToolUseBlockDelta$,
@@ -925,6 +926,7 @@ assert(typeof HarnessToolResultBlock$ === "object");
 assert(typeof HarnessToolResultBlockDelta$ === "object");
 assert(typeof HarnessToolResultBlockStart$ === "object");
 assert(typeof HarnessToolResultContentBlock$ === "object");
+assert(typeof HarnessToolResultMetadataBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlock$ === "object");
 assert(typeof HarnessToolUseBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlockStart$ === "object");

@@ -377,11 +377,27 @@ export const Partition = {
   AWS: "aws",
   AWS_CN: "aws-cn",
   AWS_US_GOV: "aws-us-gov",
+  AWS_US_ISO: "aws-us-iso",
+  AWS_US_ISO_B: "aws-us-iso-b",
+  AZURE_CLOUD: "AzureCloud",
 } as const;
 /**
  * @public
  */
 export type Partition = (typeof Partition)[keyof typeof Partition];
+
+/**
+ * @public
+ * @enum
+ */
+export const CloudProviderName = {
+  AWS: "AWS",
+  AZURE: "Azure",
+} as const;
+/**
+ * @public
+ */
+export type CloudProviderName = (typeof CloudProviderName)[keyof typeof CloudProviderName];
 
 /**
  * @public
@@ -471,6 +487,32 @@ export type WorkflowState = (typeof WorkflowState)[keyof typeof WorkflowState];
  * @public
  * @enum
  */
+export const ScopeType = {
+  SUBSCRIPTION: "SUBSCRIPTION",
+  TENANT: "TENANT",
+} as const;
+/**
+ * @public
+ */
+export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StandardsProvider = {
+  AWS: "AWS",
+  Azure: "Azure",
+} as const;
+/**
+ * @public
+ */
+export type StandardsProvider = (typeof StandardsProvider)[keyof typeof StandardsProvider];
+
+/**
+ * @public
+ * @enum
+ */
 export const StandardsControlsUpdatable = {
   NOT_READY_FOR_UPDATES: "NOT_READY_FOR_UPDATES",
   READY_FOR_UPDATES: "READY_FOR_UPDATES",
@@ -504,6 +546,7 @@ export const StatusReasonCode = {
   INTERNAL_ERROR: "INTERNAL_ERROR",
   MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED: "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED",
   NO_AVAILABLE_CONFIGURATION_RECORDER: "NO_AVAILABLE_CONFIGURATION_RECORDER",
+  NO_AVAILABLE_MULTICLOUD_CONNECTOR: "NO_AVAILABLE_MULTICLOUD_CONNECTOR",
 } as const;
 /**
  * @public
@@ -536,6 +579,19 @@ export const ParameterValueType = {
  * @public
  */
 export type ParameterValueType = (typeof ParameterValueType)[keyof typeof ParameterValueType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SecurityControlsProvider = {
+  AWS: "AWS",
+  Azure: "Azure",
+} as const;
+/**
+ * @public
+ */
+export type SecurityControlsProvider = (typeof SecurityControlsProvider)[keyof typeof SecurityControlsProvider];
 
 /**
  * @public
@@ -757,6 +813,11 @@ export const OcsfStringField = {
   RESOURCES_IMAGE_REGISTRY_UID: "resources.image.registry_uid",
   RESOURCES_IMAGE_REPOSITORY_NAME: "resources.image.repository_name",
   RESOURCES_IMAGE_UID: "resources.image.uid",
+  RESOURCES_NAME: "resources.name",
+  RESOURCES_OWNER_ACCOUNT_NAME: "resources.owner.account.name",
+  RESOURCES_OWNER_ACCOUNT_UID: "resources.owner.account.uid",
+  RESOURCES_OWNER_ORG_UID: "resources.owner.org.uid",
+  RESOURCES_PROVIDER: "resources.provider",
   RESOURCES_REGION: "resources.region",
   RESOURCES_SUBNET_INFO_UID: "resources.subnet_info.uid",
   RESOURCES_TYPE: "resources.type",
@@ -795,6 +856,7 @@ export type ConnectorAuthStatus = (typeof ConnectorAuthStatus)[keyof typeof Conn
  * @enum
  */
 export const ConnectorProviderName = {
+  AZURE: "AZURE",
   JIRA_CLOUD: "JIRA_CLOUD",
   SERVICENOW: "SERVICENOW",
 } as const;
@@ -809,14 +871,34 @@ export type ConnectorProviderName = (typeof ConnectorProviderName)[keyof typeof 
  */
 export const ConnectorStatus = {
   CONNECTED: "CONNECTED",
+  DEGRADED: "DEGRADED",
   FAILED_TO_CONNECT: "FAILED_TO_CONNECT",
   PENDING_AUTHORIZATION: "PENDING_AUTHORIZATION",
   PENDING_CONFIGURATION: "PENDING_CONFIGURATION",
+  UNKNOWN: "UNKNOWN",
 } as const;
 /**
  * @public
  */
 export type ConnectorStatus = (typeof ConnectorStatus)[keyof typeof ConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EnablementStatus = {
+  ENABLED: "ENABLED",
+  FAILED_TO_DELETE: "FAILED_TO_DELETE",
+  FAILED_TO_ENABLE: "FAILED_TO_ENABLE",
+  FAILED_TO_UPDATE: "FAILED_TO_UPDATE",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_ENABLEMENT: "PENDING_ENABLEMENT",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
 
 /**
  * @public
@@ -835,6 +917,36 @@ export type ControlFindingGenerator = (typeof ControlFindingGenerator)[keyof typ
  * @public
  * @enum
  */
+export const CspmConnectorStatus = {
+  CONNECTED: "CONNECTED",
+  DEGRADED: "DEGRADED",
+  FAILED_TO_CONNECT: "FAILED_TO_CONNECT",
+  UNKNOWN: "UNKNOWN",
+} as const;
+/**
+ * @public
+ */
+export type CspmConnectorStatus = (typeof CspmConnectorStatus)[keyof typeof CspmConnectorStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CspmEnablementStatus = {
+  ENABLED: "ENABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_ENABLEMENT: "PENDING_ENABLEMENT",
+  PENDING_UPDATE: "PENDING_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type CspmEnablementStatus = (typeof CspmEnablementStatus)[keyof typeof CspmEnablementStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const TicketCreationMode = {
   DRYRUN: "DRYRUN",
 } as const;
@@ -842,6 +954,36 @@ export const TicketCreationMode = {
  * @public
  */
 export type TicketCreationMode = (typeof TicketCreationMode)[keyof typeof TicketCreationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const CspmConnectorProviderName = {
+  AZURE: "AZURE",
+} as const;
+/**
+ * @public
+ */
+export type CspmConnectorProviderName = (typeof CspmConnectorProviderName)[keyof typeof CspmConnectorProviderName];
+
+/**
+ * @public
+ * @enum
+ */
+export const HealthIssueCode = {
+  AUTHENTICATION_FAILURE: "AUTHENTICATION_FAILURE",
+  DISCOVERY_FAILURE: "DISCOVERY_FAILURE",
+  NO_HEALTH_DATA: "NO_HEALTH_DATA",
+  RECORDING_FAILURE: "RECORDING_FAILURE",
+  STREAM_AUTHORIZATION_FAILURE: "STREAM_AUTHORIZATION_FAILURE",
+  STREAM_DISCONNECTED: "STREAM_DISCONNECTED",
+  STREAM_LIMIT_EXCEEDED: "STREAM_LIMIT_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type HealthIssueCode = (typeof HealthIssueCode)[keyof typeof HealthIssueCode];
 
 /**
  * @public
@@ -917,6 +1059,19 @@ export type IntegrationV2Type = (typeof IntegrationV2Type)[keyof typeof Integrat
  * @public
  * @enum
  */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SecurityHubFeature = {
   SECURITY_HUB: "SecurityHub",
   SECURITY_HUB_V2: "SecurityHubV2",
@@ -925,6 +1080,31 @@ export const SecurityHubFeature = {
  * @public
  */
 export type SecurityHubFeature = (typeof SecurityHubFeature)[keyof typeof SecurityHubFeature];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeatureName = {
+  NETWORK_SCANNING: "NETWORK_SCANNING",
+} as const;
+/**
+ * @public
+ */
+export type FeatureName = (typeof FeatureName)[keyof typeof FeatureName];
+
+/**
+ * @public
+ * @enum
+ */
+export const DiscoveryType = {
+  MANAGED: "Managed",
+  SELF_HOSTED: "SelfHosted",
+} as const;
+/**
+ * @public
+ */
+export type DiscoveryType = (typeof DiscoveryType)[keyof typeof DiscoveryType];
 
 /**
  * @public
@@ -955,6 +1135,10 @@ export const FindingsTrendsStringField = {
   FINDING_TYPE: "finding_types",
   PROVIDER_NAME: "finding_provider",
   REGION: "region",
+  RESOURCE_CLOUD_PROVIDERS: "resource_cloud_providers",
+  RESOURCE_OWNER_IDS: "resource_owner_ids",
+  RESOURCE_OWNER_ORGANIZATION_IDS: "resource_owner_organization_ids",
+  RESOURCE_REGIONS: "resource_regions",
 } as const;
 /**
  * @public
@@ -996,6 +1180,13 @@ export const GroupByField = {
   METADATA_PRODUCT_NAME: "metadata.product.name",
   METADATA_PRODUCT_UID: "metadata.product.uid",
   METADATA_PRODUCT_VENDOR_NAME: "metadata.product.vendor_name",
+  RESOURCES_CLOUD_PARTITION: "resources.cloud_partition",
+  RESOURCES_NAME: "resources.name",
+  RESOURCES_OWNER_ACCOUNT_NAME: "resources.owner.account.name",
+  RESOURCES_OWNER_ACCOUNT_UID: "resources.owner.account.uid",
+  RESOURCES_OWNER_ORG_UID: "resources.owner.org.uid",
+  RESOURCES_PROVIDER: "resources.provider",
+  RESOURCES_REGION: "resources.region",
   RESOURCES_TYPE: "resources.type",
   RESOURCES_UID: "resources.uid",
   SEVERITY: "severity",
@@ -1079,6 +1270,14 @@ export type ResourcesMapField = (typeof ResourcesMapField)[keyof typeof Resource
  * @enum
  */
 export const ResourcesNumberField = {
+  SELF_HOSTED_AI_AGENT_FRAMEWORK_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentFrameworkResourceCount",
+  SELF_HOSTED_AI_AGENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentResourceCount",
+  SELF_HOSTED_AI_AGENT_TOOLS_AND_IDENTITY_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIAgentToolsAndIdentityResourceCount",
+  SELF_HOSTED_AI_DEVELOPMENT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIDevelopmentResourceCount",
+  SELF_HOSTED_AI_EXTERNAL_ENDPOINT_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIExternalEndpointResourceCount",
+  SELF_HOSTED_AI_MODEL_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelResourceCount",
+  SELF_HOSTED_AI_MODEL_SERVING_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedAIModelServingResourceCount",
+  SELF_HOSTED_TOTAL_AI_RESOURCE_COUNT: "ResourceInfo.AIDetails.SelfHostedTotalAIResourceCount",
   SEVERITY_CRITICAL: "FindingsSummary.Severities.Critical",
   SEVERITY_FATAL: "FindingsSummary.Severities.Fatal",
   SEVERITY_HIGH: "FindingsSummary.Severities.High",
@@ -1100,13 +1299,24 @@ export type ResourcesNumberField = (typeof ResourcesNumberField)[keyof typeof Re
  */
 export const ResourcesStringField = {
   ACCOUNT_ID: "AccountId",
+  ACCOUNT_NAME: "AccountName",
+  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
+  DISCOVERY_TYPE: "DiscoveryType",
   FINDING_TYPE: "FindingsSummary.FindingType",
+  HOST_RESOURCE_GUID: "ResourceInfo.AIDetails.HostResourceGuid",
+  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
   PRODUCT_NAME: "FindingsSummary.ProductName",
   REGION: "Region",
   RESOURCE_CATEGORY: "ResourceCategory",
+  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
   RESOURCE_GUID: "ResourceGuid",
   RESOURCE_ID: "ResourceId",
   RESOURCE_NAME: "ResourceName",
+  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
+  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
+  RESOURCE_PROVIDER: "ResourceProvider",
+  RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
   RESOURCE_TYPE: "ResourceType",
 } as const;
 /**
@@ -1120,10 +1330,20 @@ export type ResourcesStringField = (typeof ResourcesStringField)[keyof typeof Re
  */
 export const ResourceGroupByField = {
   ACCOUNT_ID: "AccountId",
+  ACCOUNT_NAME: "AccountName",
+  CANONICAL_ID: "ResourceInfo.AIDetails.CanonicalId",
+  DISCOVERY_TYPE: "DiscoveryType",
   FINDING_TYPE: "FindingsSummary.FindingType",
+  HOST_RESOURCE_TYPE: "ResourceInfo.AIDetails.HostResourceType",
   REGION: "Region",
   RESOURCE_CATEGORY: "ResourceCategory",
+  RESOURCE_CLOUD_PARTITION: "ResourceCloudPartition",
   RESOURCE_NAME: "ResourceName",
+  RESOURCE_OWNER_ACCOUNT_ID: "ResourceOwnerAccountId",
+  RESOURCE_OWNER_ORG_ID: "ResourceOwnerOrgId",
+  RESOURCE_PROVIDER: "ResourceProvider",
+  RESOURCE_REGION: "ResourceRegion",
+  RESOURCE_SUB_CATEGORY: "ResourceSubCategory",
   RESOURCE_TYPE: "ResourceType",
 } as const;
 /**
@@ -1139,6 +1359,10 @@ export const ResourcesTrendsStringField = {
   ACCOUNT_ID: "account_id",
   REGION: "region",
   RESOURCE_CATEGORY: "resource_category",
+  RESOURCE_CLOUD_PROVIDER: "resource_cloud_provider",
+  RESOURCE_OWNER_ID: "resource_owner_id",
+  RESOURCE_OWNER_ORGANIZATION_ID: "resource_owner_organization_id",
+  RESOURCE_REGION: "resource_region",
   RESOURCE_TYPE: "resource_type",
 } as const;
 /**
@@ -1156,6 +1380,7 @@ export const ResourceCategory = {
   COMPUTE: "Compute",
   DATABASE: "Database",
   IDENTITY: "Identity",
+  MESSAGING: "Messaging",
   NETWORK: "Network",
   OTHER: "Other",
   STORAGE: "Storage",
@@ -1164,6 +1389,28 @@ export const ResourceCategory = {
  * @public
  */
 export type ResourceCategory = (typeof ResourceCategory)[keyof typeof ResourceCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceSubCategory = {
+  AGENT: "Agent",
+  AGENT_FRAMEWORK: "AgentFramework",
+  AGENT_TOOLS_AND_IDENTITY: "AgentToolsAndIdentity",
+  DEVELOPMENT: "Development",
+  EXTERNAL_ENDPOINT: "ExternalEndpoint",
+  KNOWLEDGE_AND_DATA: "KnowledgeAndData",
+  MODEL: "Model",
+  MODEL_SERVING: "ModelServing",
+  ORCHESTRATION_AND_PIPELINE: "OrchestrationAndPipeline",
+  OTHER: "Other",
+  SAFETY_AND_GUARDRAIL: "SafetyAndGuardrail",
+} as const;
+/**
+ * @public
+ */
+export type ResourceSubCategory = (typeof ResourceSubCategory)[keyof typeof ResourceSubCategory];
 
 /**
  * @public

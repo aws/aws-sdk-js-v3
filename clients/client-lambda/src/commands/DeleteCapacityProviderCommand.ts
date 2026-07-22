@@ -81,6 +81,12 @@ export interface DeleteCapacityProviderCommandOutput extends DeleteCapacityProvi
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
+ * //     TelemetryConfig: { // CapacityProviderTelemetryConfig
+ * //       LoggingConfig: { // CapacityProviderLoggingConfig
+ * //         SystemLogLevel: "DEBUG" || "INFO" || "WARN",
+ * //         LogGroup: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

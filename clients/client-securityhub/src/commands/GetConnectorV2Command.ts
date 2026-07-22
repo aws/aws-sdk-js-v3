@@ -46,9 +46,15 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   LastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   Health: { // HealthCheck
- * //     ConnectorStatus: "CONNECTED" || "FAILED_TO_CONNECT" || "PENDING_CONFIGURATION" || "PENDING_AUTHORIZATION", // required
+ * //     ConnectorStatus: "CONNECTED" || "DEGRADED" || "FAILED_TO_CONNECT" || "PENDING_AUTHORIZATION" || "PENDING_CONFIGURATION" || "UNKNOWN", // required
  * //     Message: "STRING_VALUE",
  * //     LastCheckedAt: new Date("TIMESTAMP"), // required
+ * //     Issues: [ // HealthIssueList
+ * //       { // HealthIssue
+ * //         Code: "AUTHENTICATION_FAILURE" || "STREAM_AUTHORIZATION_FAILURE" || "DISCOVERY_FAILURE" || "STREAM_LIMIT_EXCEEDED" || "STREAM_DISCONNECTED" || "RECORDING_FAILURE" || "NO_HEALTH_DATA", // required
+ * //         Message: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * //   ProviderDetail: { // ProviderDetail Union: only one key present
  * //     JiraCloud: { // JiraCloudDetail
@@ -63,7 +69,21 @@ export interface GetConnectorV2CommandOutput extends GetConnectorV2Response, __M
  * //       SecretArn: "STRING_VALUE", // required
  * //       AuthStatus: "ACTIVE" || "FAILED", // required
  * //     },
+ * //     Azure: { // AzureDetail
+ * //       AWSConfigConnectorArn: "STRING_VALUE", // required
+ * //       ScopeConfiguration: { // AzureScopeConfiguration
+ * //         ScopeType: "TENANT" || "SUBSCRIPTION", // required
+ * //         ScopeValues: [ // ScopeValueList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       AzureRegions: [ // AzureRegionList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
+ * //   EnablementStatus: "ENABLED" || "PENDING_ENABLEMENT" || "FAILED_TO_ENABLE" || "PENDING_UPDATE" || "FAILED_TO_UPDATE" || "PENDING_DELETION" || "FAILED_TO_DELETE",
+ * //   EnablementStatusReason: "STRING_VALUE",
  * // };
  *
  * ```

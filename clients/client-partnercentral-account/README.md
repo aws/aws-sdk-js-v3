@@ -286,6 +286,27 @@ GetProfileVisibility
 </details>
 <details>
 <summary>
+GetQualificationsAssociationDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/GetQualificationsAssociationDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsAssociationDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsAssociationDetailsCommandOutput/)
+</details>
+<details>
+<summary>
+GetQualificationsAssociationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/GetQualificationsAssociationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsAssociationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsAssociationTaskCommandOutput/)
+</details>
+<details>
+<summary>
+GetQualificationsDisassociationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/GetQualificationsDisassociationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsDisassociationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/GetQualificationsDisassociationTaskCommandOutput/)
+</details>
+<details>
+<summary>
 GetVerification
 </summary>
 
@@ -353,6 +374,20 @@ StartProfileUpdateTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/StartProfileUpdateTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartProfileUpdateTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartProfileUpdateTaskCommandOutput/)
+</details>
+<details>
+<summary>
+StartQualificationsAssociationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/StartQualificationsAssociationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartQualificationsAssociationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartQualificationsAssociationTaskCommandOutput/)
+</details>
+<details>
+<summary>
+StartQualificationsDisassociationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/partnercentral-account/command/StartQualificationsDisassociationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartQualificationsDisassociationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-partnercentral-account/Interface/StartQualificationsDisassociationTaskCommandOutput/)
 </details>
 <details>
 <summary>

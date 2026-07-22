@@ -50,7 +50,9 @@ export interface GetOciOnboardingStatusCommandOutput extends GetOciOnboardingSta
  * //   autonomousDatabaseOciIntegrationIamRoles: [ // OciIamRoleList
  * //     { // OciIamRole
  * //       iamRoleArn: "STRING_VALUE",
- * //       awsIntegration: "KmsTde",
+ * //       awsIntegration: "KmsTde" || "SecretsManager",
+ * //       status: "PROVISIONING" || "AVAILABLE" || "PROVISION_FAILED" || "TERMINATING" || "TERMINATE_FAILED",
+ * //       statusReason: "STRING_VALUE",
  * //     },
  * //   ],
  * //   linkedOciTenancyId: "STRING_VALUE",

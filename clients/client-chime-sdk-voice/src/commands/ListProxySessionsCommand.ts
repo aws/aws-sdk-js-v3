@@ -24,6 +24,11 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
 
 /**
  * <p>Lists the proxy sessions for the specified Amazon Chime SDK Voice Connector.</p>
+ *          <important>
+ *             <p>End of support notice: On April 7, 2026, AWS will end support for Amazon Chime SDK proxy sessions.</p>
+ *          </important>
+ *
+ * @deprecated (since 2026-04-07) End of support notice: On April 7, 2026, AWS ended support for Amazon Chime SDK proxy sessions. For more information, refer to https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_voice-chime_ListProxySessions.html.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

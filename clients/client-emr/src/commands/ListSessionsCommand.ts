@@ -104,10 +104,6 @@ export interface ListSessionsCommandOutput extends ListSessionsOutput, __Metadat
  * //         },
  * //       },
  * //       SessionIdleTimeoutInMinutes: Number("long"),
- * //       CertificateAuthority: { // CertificateAuthority
- * //         CertificateArn: "STRING_VALUE",
- * //         CertificateData: "STRING_VALUE",
- * //       },
  * //       ServerUrl: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag

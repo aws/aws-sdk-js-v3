@@ -333,6 +333,7 @@ const _lRS = "lakehouseRegistrationStatus";
 const _m = "message";
 const _mAP = "manageAdminPassword";
 const _mC = "maxCapacity";
+const _mI = "maintainIntegration";
 const _mR = "maxResults";
 const _mW = "managedWorkgroups";
 const _mWI = "managedWorkgroupId";
@@ -1133,8 +1134,8 @@ export var ResourcePolicy$: StaticStructureSchema = [3, n0, _RPe,
 ];
 export var RestoreFromRecoveryPointRequest$: StaticStructureSchema = [3, n0, _RFRPR,
   0,
-  [_rPI, _nN, _wN],
-  [0, 0, 0], 3
+  [_rPI, _nN, _wN, _mI],
+  [0, 0, 0, 2], 3
 ];
 export var RestoreFromRecoveryPointResponse$: StaticStructureSchema = [3, n0, _RFRPRe,
   0,
@@ -1143,8 +1144,8 @@ export var RestoreFromRecoveryPointResponse$: StaticStructureSchema = [3, n0, _R
 ];
 export var RestoreFromSnapshotRequest$: StaticStructureSchema = [3, n0, _RFSR,
   0,
-  [_nN, _wN, _sN, _sAn, _oA, _mAP, _aPSKKI],
-  [0, 0, 0, 0, 0, 2, 0], 2
+  [_nN, _wN, _sN, _sAn, _oA, _mAP, _aPSKKI, _mI],
+  [0, 0, 0, 0, 0, 2, 0, 2], 2
 ];
 export var RestoreFromSnapshotResponse$: StaticStructureSchema = [3, n0, _RFSRe,
   0,

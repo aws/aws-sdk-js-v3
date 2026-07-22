@@ -8,6 +8,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+# 3.996.7 (2026-07-15)
+### Chores
+* migrate eslint/prettier to oxlint/oxfmt ([#8192](https://github.com/aws/aws-sdk-js-v3/issues/8192)) ([7d14409](https://github.com/aws/aws-sdk-js-v3/commit/7d144094844d078a2ec15c6ecbd054f9e127fa11))
+
+
+
+# 3.996.6 (2026-07-08)
+### Chores
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+
+
+
 # 3.996.5 (2026-06-13)
 ### Chores
 * **scripts:** tuning the build graph ([#8095](https://github.com/aws/aws-sdk-js-v3/issues/8095)) ([67981c5](https://github.com/aws/aws-sdk-js-v3/commit/67981c5a65d6dd797a065df034a8d0fcdaa9b7bd))

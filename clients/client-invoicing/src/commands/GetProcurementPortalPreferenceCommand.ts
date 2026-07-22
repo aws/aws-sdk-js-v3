@@ -91,9 +91,9 @@ export interface GetProcurementPortalPreferenceCommandOutput extends GetProcurem
  * //         Email: "STRING_VALUE",
  * //       },
  * //     ],
- * //     EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
+ * //     EinvoiceDeliveryPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
  * //     EinvoiceDeliveryPreferenceStatusReason: "STRING_VALUE",
- * //     PurchaseOrderRetrievalPreferenceStatus: "PENDING_VERIFICATION" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
+ * //     PurchaseOrderRetrievalPreferenceStatus: "PENDING_VERIFICATION" || "VALIDATED" || "TEST_INITIALIZED" || "TEST_INITIALIZATION_FAILED" || "TEST_FAILED" || "ACTIVE" || "SUSPENDED",
  * //     PurchaseOrderRetrievalPreferenceStatusReason: "STRING_VALUE",
  * //     Version: Number("long"), // required
  * //     CreateDate: new Date("TIMESTAMP"), // required

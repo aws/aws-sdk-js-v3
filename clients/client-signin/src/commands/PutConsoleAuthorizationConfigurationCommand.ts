@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep1, _mw0, command } from "../commandBuilder";
+import { _ep2, _mw0, command } from "../commandBuilder";
 import type {
   PutConsoleAuthorizationConfigurationInput,
   PutConsoleAuthorizationConfigurationOutput,
@@ -114,7 +114,7 @@ export interface PutConsoleAuthorizationConfigurationCommandOutput extends PutCo
  * @public
  */
 export class PutConsoleAuthorizationConfigurationCommand extends command<PutConsoleAuthorizationConfigurationCommandInput, PutConsoleAuthorizationConfigurationCommandOutput>(
-  _ep1,
+  _ep2,
   _mw0,
   "PutConsoleAuthorizationConfiguration",
   PutConsoleAuthorizationConfiguration$

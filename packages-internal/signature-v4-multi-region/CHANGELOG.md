@@ -41,6 +41,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+# 3.996.41 (2026-07-15)
+### Chores
+* **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))
+* migrate eslint/prettier to oxlint/oxfmt ([#8192](https://github.com/aws/aws-sdk-js-v3/issues/8192)) ([7d14409](https://github.com/aws/aws-sdk-js-v3/commit/7d144094844d078a2ec15c6ecbd054f9e127fa11))
+
+
+
+# 3.996.40 (2026-07-14)
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
+# 3.996.39 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* **deps:** bump versions which are not code generated ([#8171](https://github.com/aws/aws-sdk-js-v3/issues/8171)) ([7279203](https://github.com/aws/aws-sdk-js-v3/commit/7279203b7999a06408044f7c06021d6355b28ca9))
+
+
+
 # 3.996.38 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

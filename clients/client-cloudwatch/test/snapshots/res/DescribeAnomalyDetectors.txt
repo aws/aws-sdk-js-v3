@@ -30,6 +30,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   "AnomalyDetectors": [
     {
+      "AnomalyDetectorId": "__AnomalyDetectorId__",
       "Namespace": "__Namespace__",
       "MetricName": "__MetricName__",
       "Dimensions": [
@@ -136,6 +137,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     {
+      "AnomalyDetectorId": "__AnomalyDetectorId__",
       "Namespace": "__Namespace__",
       "MetricName": "__MetricName__",
       "Dimensions": [
@@ -242,6 +244,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     {
+      "AnomalyDetectorId": "__AnomalyDetectorId__",
       "Namespace": "__Namespace__",
       "MetricName": "__MetricName__",
       "Dimensions": [
@@ -356,6 +359,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   AnomalyDetectors: [
     {
+      AnomalyDetectorId: "__AnomalyDetectorId__",
       Namespace: "__Namespace__",
       MetricName: "__MetricName__",
       Dimensions: [
@@ -462,6 +466,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     {
+      AnomalyDetectorId: "__AnomalyDetectorId__",
       Namespace: "__Namespace__",
       MetricName: "__MetricName__",
       Dimensions: [
@@ -568,6 +573,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       }
     },
     {
+      AnomalyDetectorId: "__AnomalyDetectorId__",
       Namespace: "__Namespace__",
       MetricName: "__MetricName__",
       Dimensions: [

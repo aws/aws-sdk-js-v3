@@ -1,10 +1,37 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.972.33",
+  "version": "3.972.36",
   "description": "XML utilities for the AWS SDK",
-  "dependencies": {
-    "@smithy/types": "^4.15.1",
-    "tslib": "^2.6.2"
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/xml-builder",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages-internal/xml-builder"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
+  },
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
@@ -19,39 +46,9 @@
     "test:watch": "yarn g:vitest watch",
     "test:fuzz": "jazzer tests/xml-parser.fuzz.js corpus --sync -i xml-parser -- -max_total_time=300"
   },
-  "sideEffects": false,
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "main": "./dist-cjs/index.js",
-  "module": "./dist-es/index.js",
-  "types": "./dist-types/index.d.ts",
-  "engines": {
-    "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "browser": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
-  },
-  "react-native": {
-    "./dist-es/xml-parser": "./dist-es/xml-parser.browser"
-  },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/xml-builder",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "packages-internal/xml-builder"
+  "dependencies": {
+    "@smithy/types": "^4.16.1",
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
@@ -59,5 +56,8 @@
     "downlevel-dts": "0.10.1",
     "premove": "4.0.0",
     "typescript": "~5.8.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

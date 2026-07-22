@@ -30,6 +30,62 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+
+
+
+
+
+# 3.972.35 (2026-07-21)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.34 (2026-07-15)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.33 (2026-07-14)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.32 (2026-07-08)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.31 (2026-07-08)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.30 (2026-07-07)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.29 (2026-07-06)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
+# 3.972.28 (2026-07-02)
+### Chores
+* **util-user-agent-browser:** update dependencies.
+
+
+
 # 3.972.27 (2026-07-01)
 ### Chores
 * **util-user-agent-browser:** update dependencies.

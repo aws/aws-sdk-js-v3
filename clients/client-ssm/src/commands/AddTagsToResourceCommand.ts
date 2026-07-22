@@ -79,7 +79,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * const config = {}; // type is SSMClientConfig
  * const client = new SSMClient(config);
  * const input = { // AddTagsToResourceRequest
- *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association", // required
+ *   ResourceType: "Document" || "ManagedInstance" || "MaintenanceWindow" || "Parameter" || "PatchBaseline" || "OpsItem" || "OpsMetadata" || "Automation" || "Association" || "CloudConnector", // required
  *   ResourceId: "STRING_VALUE", // required
  *   Tags: [ // TagList // required
  *     { // Tag

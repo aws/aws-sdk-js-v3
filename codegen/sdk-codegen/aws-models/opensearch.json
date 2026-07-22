@@ -940,6 +940,9 @@
           "target": "com.amazonaws.opensearch#GetIndex"
         },
         {
+          "target": "com.amazonaws.opensearch#GetMigration"
+        },
+        {
           "target": "com.amazonaws.opensearch#GetPackageVersionHistory"
         },
         {
@@ -977,6 +980,9 @@
         },
         {
           "target": "com.amazonaws.opensearch#ListInstanceTypeDetails"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ListMigrations"
         },
         {
           "target": "com.amazonaws.opensearch#ListPackagesForDomain"
@@ -1022,6 +1028,9 @@
         },
         {
           "target": "com.amazonaws.opensearch#StartDomainMaintenance"
+        },
+        {
+          "target": "com.amazonaws.opensearch#StartMigration"
         },
         {
           "target": "com.amazonaws.opensearch#StartServiceSoftwareUpdate"
@@ -9119,6 +9128,32 @@
     "com.amazonaws.opensearch#ErrorType": {
       "type": "string"
     },
+    "com.amazonaws.opensearch#ExportOptions": {
+      "type": "structure",
+      "members": {
+        "types": {
+          "target": "com.amazonaws.opensearch#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of saved object types to include in the migration. Valid values include <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, and <code>query</code>.</p>"
+          }
+        },
+        "objects": {
+          "target": "com.amazonaws.opensearch#SavedObjectIdentifierList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of specific saved objects to include in the migration, identified by type and ID.</p>"
+          }
+        },
+        "includeReferencesDeep": {
+          "target": "com.amazonaws.opensearch#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to include all objects referenced by the exported objects, recursively.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Options to filter the scope of saved objects to export during a migration.</p>"
+      }
+    },
     "com.amazonaws.opensearch#Filter": {
       "type": "structure",
       "members": {
@@ -9861,6 +9896,120 @@
           "traits": {
             "smithy.api#documentation": "<p>The JSON schema of the index including mappings, settings, and semantic enrichment configuration.</p>",
             "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.opensearch#GetMigration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.opensearch#GetMigrationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.opensearch#GetMigrationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.opensearch#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#DisabledOperationException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#InternalException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the current status and progress of a migration job, including the number of exported and imported objects and error details if the migration failed.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2021-01-01/opensearch/app-migrations/{migrationId}",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.opensearch#GetMigrationRequest": {
+      "type": "structure",
+      "members": {
+        "migrationId": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the migration job to retrieve.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.opensearch#GetMigrationResponse": {
+      "type": "structure",
+      "members": {
+        "migrationId": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the migration job.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the migration job. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>"
+          }
+        },
+        "applicationId": {
+          "target": "com.amazonaws.opensearch#ApplicationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the OpenSearch application associated with the migration.</p>"
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.opensearch#MigrationSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source configuration for the migration, including the data source ARN.</p>"
+          }
+        },
+        "exportedCount": {
+          "target": "com.amazonaws.opensearch#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of saved objects exported from the source data source.</p>"
+          }
+        },
+        "importedCount": {
+          "target": "com.amazonaws.opensearch#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of saved objects successfully imported into the target workspace.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.opensearch#MigrationError",
+          "traits": {
+            "smithy.api#documentation": "<p>Error details if the migration failed or completed with errors.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.opensearch#UpdateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the migration job was created.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.opensearch#UpdateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the migration job was last updated.</p>"
           }
         }
       },
@@ -11379,7 +11528,7 @@
           "min": 0,
           "max": 2048
         },
-        "smithy.api#pattern": "^$|^https://(?!(?:10|127|169\\.254|192\\.168|172\\.(?:1[6-9]|2[0-9]|3[01]))\\.)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\\.[a-zA-Z]{2,}(?::[0-9]{1,5})?(?:/[a-zA-Z0-9\\-._~%!$&'()*+,;=:']*)?$"
+        "smithy.api#pattern": "^$|^https://(?!(?:10|127|169\\.254|192\\.168|172\\.(?:1[6-9]|2[0-9]|3[01]))\\.)[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\\.[a-zA-Z]{2,}(?::[0-9]{1,5})?(?:/[a-zA-Z0-9\\-._~%!$&'()*+,;=:'@]*(?:/[a-zA-Z0-9\\-._~%!$&'()*+,;=:'@]*)*)?(?:\\?[a-zA-Z0-9\\-._~%!$&'()*+,;=:'/@?]+)?$"
       }
     },
     "com.amazonaws.opensearch#KeyStoreAccessOption": {
@@ -12267,6 +12416,95 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.opensearch#ListMigrations": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.opensearch#ListMigrationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.opensearch#ListMigrationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.opensearch#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#DisabledOperationException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#InternalException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists migration jobs for an Amazon OpenSearch Service application. You can filter results by migration status. Use pagination to ensure that the operation returns quickly and successfully.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/2021-01-01/opensearch/app-migrations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.opensearch#ListMigrationsRequest": {
+      "type": "structure",
+      "members": {
+        "applicationId": {
+          "target": "com.amazonaws.opensearch#ApplicationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the OpenSearch application to list migrations for.</p>",
+            "smithy.api#httpQuery": "applicationId",
+            "smithy.api#required": {}
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters the results by migration status. Valid values are <code>PENDING</code>, <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>, and <code>FAILED</code>.</p>",
+            "smithy.api#httpQuery": "status"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.opensearch#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The maximum number of results to return in a single call.</p>",
+            "smithy.api#httpQuery": "maxResults"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token from a previous call to retrieve the next set of results.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.opensearch#ListMigrationsResponse": {
+      "type": "structure",
+      "members": {
+        "migrations": {
+          "target": "com.amazonaws.opensearch#MigrationSummaryList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of migration job summaries for the specified application.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token to use in a subsequent call to retrieve the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.opensearch#ListPackagesForDomain": {
       "type": "operation",
       "input": {
@@ -13029,6 +13267,177 @@
           "min": 0,
           "max": 1024
         }
+      }
+    },
+    "com.amazonaws.opensearch#MigrationError": {
+      "type": "structure",
+      "members": {
+        "code": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code identifying the type of failure.</p>"
+          }
+        },
+        "message": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A human-readable description of the error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains error details for a migration that failed or completed with errors.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#MigrationOptions": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.opensearch#MigrationSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The data source from which to export saved objects.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workspace": {
+          "target": "com.amazonaws.opensearch#MigrationWorkspace",
+          "traits": {
+            "smithy.api#documentation": "<p>The target workspace configuration for importing saved objects. You can specify an existing workspace or request creation of a new workspace.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "exportOptions": {
+          "target": "com.amazonaws.opensearch#ExportOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>Options to filter the scope of saved objects to export from the source.</p>"
+          }
+        },
+        "conflictResolution": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The strategy for resolving conflicts when saved objects already exist in the target workspace. Valid values are <code>CREATE_NEW_COPIES</code>, which creates new objects with unique IDs, and <code>overwrite</code>, which replaces existing objects.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The configuration options for a saved objects migration job.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#MigrationSource": {
+      "type": "structure",
+      "members": {
+        "datasourceArn": {
+          "target": "com.amazonaws.opensearch#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the data source to migrate saved objects from.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The source configuration for a migration, specifying the data source from which to export saved objects.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#MigrationSummary": {
+      "type": "structure",
+      "members": {
+        "migrationId": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the migration job.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the migration job.</p>"
+          }
+        },
+        "applicationId": {
+          "target": "com.amazonaws.opensearch#ApplicationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the OpenSearch application associated with the migration.</p>"
+          }
+        },
+        "source": {
+          "target": "com.amazonaws.opensearch#MigrationSource",
+          "traits": {
+            "smithy.api#documentation": "<p>The source configuration for the migration.</p>"
+          }
+        },
+        "exportedCount": {
+          "target": "com.amazonaws.opensearch#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of saved objects exported from the source data source.</p>"
+          }
+        },
+        "importedCount": {
+          "target": "com.amazonaws.opensearch#Integer",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The number of saved objects successfully imported into the target workspace.</p>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.opensearch#MigrationError",
+          "traits": {
+            "smithy.api#documentation": "<p>Error details if the migration failed or completed with errors.</p>"
+          }
+        },
+        "createdAt": {
+          "target": "com.amazonaws.opensearch#UpdateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the migration job was created.</p>"
+          }
+        },
+        "updatedAt": {
+          "target": "com.amazonaws.opensearch#UpdateTimestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the migration job was last updated.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A summary of a migration job, including its status and progress.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#MigrationSummaryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.opensearch#MigrationSummary"
+      }
+    },
+    "com.amazonaws.opensearch#MigrationWorkspace": {
+      "type": "structure",
+      "members": {
+        "workspaceId": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of an existing workspace to use as the migration target. Specify either this parameter or <code>createWorkspace</code>.</p>"
+          }
+        },
+        "createWorkspace": {
+          "target": "com.amazonaws.opensearch#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether to create a new workspace as the migration target. If <code>true</code>, you must also specify <code>name</code>.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the new workspace to create. Required when <code>createWorkspace</code> is <code>true</code>.</p>"
+          }
+        },
+        "type": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the new workspace to create.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The target workspace configuration for a migration. You can specify an existing workspace by ID or request creation of a new workspace.</p>"
       }
     },
     "com.amazonaws.opensearch#MinimumInstanceCount": {
@@ -16035,6 +16444,34 @@
         "smithy.api#documentation": "<p>Describes the SAML application configured for the domain.</p>"
       }
     },
+    "com.amazonaws.opensearch#SavedObjectIdentifier": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of the saved object, such as <code>dashboard</code>, <code>visualization</code>, <code>index-pattern</code>, <code>search</code>, or <code>query</code>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "id": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the saved object.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Identifies a specific saved object by its type and unique identifier.</p>"
+      }
+    },
+    "com.amazonaws.opensearch#SavedObjectIdentifierList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.opensearch#SavedObjectIdentifier"
+      }
+    },
     "com.amazonaws.opensearch#ScheduleAt": {
       "type": "enum",
       "members": {
@@ -16555,6 +16992,91 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The result of a <code>StartDomainMaintenance</code> request that information about the\n            requested action. </p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.opensearch#StartMigration": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.opensearch#StartMigrationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.opensearch#StartMigrationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.opensearch#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#DisabledOperationException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#InternalException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.opensearch#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Initiates a migration job to migrate saved objects from a data source to an Amazon OpenSearch Service application workspace. Saved objects include dashboards, visualizations, index patterns, and searches. You can specify export filters to control the scope of the migration and a conflict resolution strategy for handling existing objects in the target workspace.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/2021-01-01/opensearch/app-migrations",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.opensearch#StartMigrationRequest": {
+      "type": "structure",
+      "members": {
+        "applicationId": {
+          "target": "com.amazonaws.opensearch#ApplicationId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the OpenSearch application to migrate saved objects into.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "migrationOptions": {
+          "target": "com.amazonaws.opensearch#MigrationOptions",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration options for the migration, including the source data source, target workspace, export filters, and conflict resolution strategy.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "clientToken": {
+          "target": "com.amazonaws.opensearch#ClientToken",
+          "traits": {
+            "smithy.api#documentation": "<p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon OpenSearch Service ignores the request but does not return an error.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.opensearch#StartMigrationResponse": {
+      "type": "structure",
+      "members": {
+        "migrationId": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier of the migration job.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.opensearch#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The initial status of the migration job. The status is <code>PENDING</code> when a migration is first created.</p>"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#output": {}
       }
     },

@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  ListCodeSecurityScanConfigurationAssociationsRequest,
-  ListCodeSecurityScanConfigurationAssociationsResponse,
-} from "../models/models_0";
+import type { ListCodeSecurityScanConfigurationAssociationsRequest } from "../models/models_0";
+import type { ListCodeSecurityScanConfigurationAssociationsResponse } from "../models/models_1";
 import { ListCodeSecurityScanConfigurationAssociations$ } from "../schemas/schemas_0";
 
 /**

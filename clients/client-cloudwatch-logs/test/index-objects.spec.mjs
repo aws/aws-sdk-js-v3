@@ -314,6 +314,10 @@ import {
   GetScheduledQueryHistoryResponse$,
   GetScheduledQueryRequest$,
   GetScheduledQueryResponse$,
+  GetStorageTierPolicy$,
+  GetStorageTierPolicyCommand,
+  GetStorageTierPolicyRequest$,
+  GetStorageTierPolicyResponse$,
   GetTransformer$,
   GetTransformerCommand,
   GetTransformerRequest$,
@@ -521,6 +525,10 @@ import {
   PutRetentionPolicy$,
   PutRetentionPolicyCommand,
   PutRetentionPolicyRequest$,
+  PutStorageTierPolicy$,
+  PutStorageTierPolicyCommand,
+  PutStorageTierPolicyRequest$,
+  PutStorageTierPolicyResponse$,
   PutSubscriptionFilter$,
   PutSubscriptionFilterCommand,
   PutSubscriptionFilterRequest$,
@@ -587,6 +595,7 @@ import {
   StopQueryCommand,
   StopQueryRequest$,
   StopQueryResponse$,
+  StorageTier,
   SubscriptionFilter$,
   SubstituteString$,
   SubstituteStringEntry$,
@@ -798,6 +807,8 @@ assert(typeof GetScheduledQueryCommand === "function");
 assert(typeof GetScheduledQuery$ === "object");
 assert(typeof GetScheduledQueryHistoryCommand === "function");
 assert(typeof GetScheduledQueryHistory$ === "object");
+assert(typeof GetStorageTierPolicyCommand === "function");
+assert(typeof GetStorageTierPolicy$ === "object");
 assert(typeof GetTransformerCommand === "function");
 assert(typeof GetTransformer$ === "object");
 assert(typeof ListAggregateLogGroupSummariesCommand === "function");
@@ -854,6 +865,8 @@ assert(typeof PutResourcePolicyCommand === "function");
 assert(typeof PutResourcePolicy$ === "object");
 assert(typeof PutRetentionPolicyCommand === "function");
 assert(typeof PutRetentionPolicy$ === "object");
+assert(typeof PutStorageTierPolicyCommand === "function");
+assert(typeof PutStorageTierPolicy$ === "object");
 assert(typeof PutSubscriptionFilterCommand === "function");
 assert(typeof PutSubscriptionFilter$ === "object");
 assert(typeof PutSyslogConfigurationCommand === "function");
@@ -1039,6 +1052,8 @@ assert(typeof GetScheduledQueryHistoryRequest$ === "object");
 assert(typeof GetScheduledQueryHistoryResponse$ === "object");
 assert(typeof GetScheduledQueryRequest$ === "object");
 assert(typeof GetScheduledQueryResponse$ === "object");
+assert(typeof GetStorageTierPolicyRequest$ === "object");
+assert(typeof GetStorageTierPolicyResponse$ === "object");
 assert(typeof GetTransformerRequest$ === "object");
 assert(typeof GetTransformerResponse$ === "object");
 assert(typeof Grok$ === "object");
@@ -1142,6 +1157,8 @@ assert(typeof PutQueryDefinitionResponse$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof PutRetentionPolicyRequest$ === "object");
+assert(typeof PutStorageTierPolicyRequest$ === "object");
+assert(typeof PutStorageTierPolicyResponse$ === "object");
 assert(typeof PutSubscriptionFilterRequest$ === "object");
 assert(typeof PutSyslogConfigurationRequest$ === "object");
 assert(typeof PutTransformerRequest$ === "object");
@@ -1241,6 +1258,7 @@ assert(typeof ScheduleType === "object");
 assert(typeof Scope === "object");
 assert(typeof StandardUnit === "object");
 assert(typeof State === "object");
+assert(typeof StorageTier === "object");
 assert(typeof SuppressionState === "object");
 assert(typeof SuppressionType === "object");
 assert(typeof SuppressionUnit === "object");

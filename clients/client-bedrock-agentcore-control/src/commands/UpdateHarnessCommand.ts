@@ -94,6 +94,9 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *         allowedScopes: [ // AllowedScopesType
  *           "STRING_VALUE",
  *         ],
+ *         advertisedScopeMapping: { // AdvertisedScopeMappingType
+ *           "<keys>": "STRING_VALUE",
+ *         },
  *         customClaims: [ // CustomClaimValidationsType
  *           { // CustomClaimValidationType
  *             inboundTokenClaimName: "STRING_VALUE", // required
@@ -190,6 +193,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  *       temperature: Number("float"),
  *       topP: Number("float"),
  *       topK: Number("int"),
+ *       additionalParams: "DOCUMENT_VALUE",
  *     },
  *     liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  *       modelId: "STRING_VALUE", // required
@@ -351,6 +355,7 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //         temperature: Number("float"),
  * //         topP: Number("float"),
  * //         topK: Number("int"),
+ * //         additionalParams: "DOCUMENT_VALUE",
  * //       },
  * //       liteLlmModelConfig: { // HarnessLiteLlmModelConfig
  * //         modelId: "STRING_VALUE", // required
@@ -504,6 +509,9 @@ export interface UpdateHarnessCommandOutput extends UpdateHarnessResponse, __Met
  * //         allowedScopes: [ // AllowedScopesType
  * //           "STRING_VALUE",
  * //         ],
+ * //         advertisedScopeMapping: { // AdvertisedScopeMappingType
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //         customClaims: [ // CustomClaimValidationsType
  * //           { // CustomClaimValidationType
  * //             inboundTokenClaimName: "STRING_VALUE", // required

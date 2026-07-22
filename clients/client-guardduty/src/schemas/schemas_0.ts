@@ -80,6 +80,9 @@ const _Ar = "Arn";
 const _Arc = "Archived";
 const _As = "Asn";
 const _B = "Behavior";
+const _BG = "BedrockGuardrail";
+const _BGD = "BedrockGuardrailDetails";
+const _BGe = "BedrockGuardrails";
 const _BLP = "BucketLevelPermissions";
 const _BN = "BucketName";
 const _BP = "BucketPolicy";
@@ -144,6 +147,8 @@ const _CP = "CloudPartition";
 const _CPD = "CreatePublishingDestination";
 const _CPDR = "CreatePublishingDestinationRequest";
 const _CPDRr = "CreatePublishingDestinationResponse";
+const _CPF = "ContentPolicyFilters";
+const _CPFo = "ContentPolicyFilter";
 const _CPR = "CreateProtectedResource";
 const _CR = "ContainerRuntime";
 const _CRD = "CoverageResourceDetails";
@@ -381,10 +386,12 @@ const _Fil = "Files";
 const _Fin = "Findings";
 const _Fl = "Flags";
 const _Fo = "Format";
-const _G = "Gt";
+const _G = "Guardrails";
+const _GA = "GuardrailArn";
 const _GAA = "GetAdministratorAccount";
 const _GAAR = "GetAdministratorAccountRequest";
 const _GAARe = "GetAdministratorAccountResponse";
+const _GAu = "GuardrailAction";
 const _GB = "GroupBy";
 const _GBA = "GroupedByAccount";
 const _GBD = "GroupedByDate";
@@ -443,6 +450,7 @@ const _GOSR = "GetOrganizationStatisticsResponse";
 const _GRFTD = "GetRemainingFreeTrialDays";
 const _GRFTDR = "GetRemainingFreeTrialDaysRequest";
 const _GRFTDRe = "GetRemainingFreeTrialDaysResponse";
+const _GS = "GuardrailSource";
 const _GT = "GreaterThan";
 const _GTES = "GetThreatEntitySet";
 const _GTESR = "GetThreatEntitySetRequest";
@@ -457,9 +465,11 @@ const _GTOE = "GreaterThanOrEqual";
 const _GUS = "GetUsageStatistics";
 const _GUSR = "GetUsageStatisticsRequest";
 const _GUSRe = "GetUsageStatisticsResponse";
+const _GV = "GuardrailVersion";
 const _Gr = "Group";
 const _Gro = "Groups";
-const _Gt = "Gte";
+const _Gt = "Gt";
+const _Gte = "Gte";
 const _H = "Hash";
 const _HIPC = "HostIPC";
 const _HN = "HostNetwork";
@@ -621,8 +631,10 @@ const _MACRe = "MemberAdditionalConfigurationResults";
 const _MACe = "MemberAccountsCount";
 const _MACem = "MemberAdditionalConfigurations";
 const _MALR = "MemberAccountLimitReached";
+const _MD = "ModelDetail";
 const _MDSC = "MemberDataSourceConfigurations";
 const _MDSCe = "MemberDataSourceConfiguration";
+const _MDo = "ModelDetails";
 const _ME = "MapEquals";
 const _MFC = "MemberFeaturesConfiguration";
 const _MFCR = "MemberFeaturesConfigurationResult";
@@ -630,6 +642,7 @@ const _MFCRe = "MemberFeaturesConfigurationsResults";
 const _MFCe = "MemberFeaturesConfigurations";
 const _MFP = "ModuleFilePath";
 const _MI = "MasterId";
+const _MIo = "ModelId";
 const _MN = "ModuleName";
 const _MP = "MalwareProtection";
 const _MPC = "MalwareProtectionConfiguration";
@@ -1112,6 +1125,7 @@ const _ar = "arn";
 const _arc = "archived";
 const _as = "asn";
 const _b = "behavior";
+const _bGD = "bedrockGuardrailDetails";
 const _bLP = "bucketLevelPermissions";
 const _bN = "bucketName";
 const _bP = "bucketPolicy";
@@ -1144,6 +1158,7 @@ const _cNo = "countryName";
 const _cNom = "compatibleNodes";
 const _cNov = "coveredNodes";
 const _cP = "cloudPartition";
+const _cPF = "contentPolicyFilters";
 const _cR = "containerRuntime";
 const _cS = "coverageStatus";
 const _cSD = "continuousScanDetails";
@@ -1157,10 +1172,10 @@ const _cU = "containerUids";
 const _cUr = "credentialUid";
 const _ci = "city";
 const _cl = "cloud";
-const _co = "containers";
+const _co = "confidence";
 const _cod = "code";
 const _com = "comments";
-const _con = "confidence";
+const _con = "containers";
 const _conn = "connection";
 const _cont = "container";
 const _conte = "context";
@@ -1281,7 +1296,9 @@ const _fi = "findings";
 const _fil = "files";
 const _fl = "flags";
 const _fo = "format";
-const _g = "gt";
+const _g = "guardrails";
+const _gA = "guardrailArn";
+const _gAu = "guardrailAction";
 const _gB = "groupBy";
 const _gBA = "groupedByAccount";
 const _gBD = "groupedByDate";
@@ -1292,11 +1309,14 @@ const _gDFI = "guardDutyFindingId";
 const _gI = "groupId";
 const _gL = "geoLocation";
 const _gN = "groupName";
+const _gS = "guardrailSource";
 const _gT = "greaterThan";
 const _gTOE = "greaterThanOrEqual";
+const _gV = "guardrailVersion";
 const _gr = "group";
 const _gro = "groups";
-const _gt = "gte";
+const _gt = "gt";
+const _gte = "gte";
 const _h = "hash";
 const _hE = "httpError";
 const _hIPC = "hostIPC";
@@ -1383,9 +1403,11 @@ const _m = "message";
 const _mA = "modifiedAt";
 const _mAC = "memberAccountsCount";
 const _mALR = "memberAccountLimitReached";
+const _mD = "modelDetails";
 const _mE = "mapEquals";
 const _mFP = "moduleFilePath";
 const _mI = "masterId";
+const _mIo = "modelId";
 const _mN = "moduleName";
 const _mP = "malwareProtection";
 const _mPP = "malwareProtectionPlans";
@@ -1861,6 +1883,16 @@ export var AwsApiCallAction$: StaticStructureSchema = [3, n0, _AACA,
   [_Ap, _CT, _DD, _EC, _UA, _RID, _SN, _RAD, _AR],
   [[0, { [_jN]: _ap }], [0, { [_jN]: _cT }], [() => DomainDetails$, { [_jN]: _dD }], [0, { [_jN]: _eC }], [0, { [_jN]: _uA }], [() => RemoteIpDetails$, { [_jN]: _rID }], [0, { [_jN]: _sN }], [() => RemoteAccountDetails$, { [_jN]: _rAD }], [128 | 0, { [_jN]: _aR }]]
 ];
+export var BedrockGuardrail$: StaticStructureSchema = [3, n0, _BG,
+  0,
+  [_Ar, _V],
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _v }]]
+];
+export var BedrockGuardrailDetails$: StaticStructureSchema = [3, n0, _BGD,
+  0,
+  [_GA, _GV, _G, _GAu, _GS, _CPF],
+  [[0, { [_jN]: _gA }], [0, { [_jN]: _gV }], [() => BedrockGuardrails, { [_jN]: _g }], [0, { [_jN]: _gAu }], [0, { [_jN]: _gS }], [() => ContentPolicyFilters, { [_jN]: _cPF }]]
+];
 export var BlockPublicAccess$: StaticStructureSchema = [3, n0, _BPA,
   0,
   [_IPA, _RPB, _BPAl, _BPP],
@@ -1898,8 +1930,8 @@ export var CloudTrailConfigurationResult$: StaticStructureSchema = [3, n0, _CTCR
 ];
 export var Condition$: StaticStructureSchema = [3, n0, _Co,
   0,
-  [_Eq, _Ne, _G, _Gt, _L, _Lt, _Equ, _NE, _GT, _GTOE, _LT, _LTOE, _Ma, _NM],
-  [[64 | 0, { [_jN]: _eq }], [64 | 0, { [_jN]: _ne }], [1, { [_jN]: _g }], [1, { [_jN]: _gt }], [1, { [_jN]: _l }], [1, { [_jN]: _lt }], [64 | 0, { [_jN]: _equ }], [64 | 0, { [_jN]: _nE }], [1, { [_jN]: _gT }], [1, { [_jN]: _gTOE }], [1, { [_jN]: _lT }], [1, { [_jN]: _lTOE }], [64 | 0, { [_jN]: _ma }], [64 | 0, { [_jN]: _nM }]]
+  [_Eq, _Ne, _Gt, _Gte, _L, _Lt, _Equ, _NE, _GT, _GTOE, _LT, _LTOE, _Ma, _NM],
+  [[64 | 0, { [_jN]: _eq }], [64 | 0, { [_jN]: _ne }], [1, { [_jN]: _gt }], [1, { [_jN]: _gte }], [1, { [_jN]: _l }], [1, { [_jN]: _lt }], [64 | 0, { [_jN]: _equ }], [64 | 0, { [_jN]: _nE }], [1, { [_jN]: _gT }], [1, { [_jN]: _gTOE }], [1, { [_jN]: _lT }], [1, { [_jN]: _lTOE }], [64 | 0, { [_jN]: _ma }], [64 | 0, { [_jN]: _nM }]]
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Con,
   0,
@@ -1915,6 +1947,11 @@ export var ContainerInstanceDetails$: StaticStructureSchema = [3, n0, _CID,
   0,
   [_CCI, _CCIo],
   [[1, { [_jN]: _cCI }], [1, { [_jN]: _cCIo }]]
+];
+export var ContentPolicyFilter$: StaticStructureSchema = [3, n0, _CPFo,
+  0,
+  [_T, _Conf, _Ac],
+  [[0, { [_jN]: _t }], [0, { [_jN]: _co }], [0, { [_jN]: _ac }]]
 ];
 export var ContinuousScanDetails$: StaticStructureSchema = [3, n0, _CSD,
   0,
@@ -2424,7 +2461,7 @@ export var EcsTask$: StaticStructureSchema = [3, n0, _ETc,
 export var EcsTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
   0,
   [_Ar, _DAe, _V, _TCA, _SAt, _SBt, _Ta, _Vo, _Cont, _Gr, _LTa],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _dAe }], [0, { [_jN]: _v }], [4, { [_jN]: _cAr }], [4, { [_jN]: _sAt }], [0, { [_jN]: _sBt }], [() => Tags, { [_jN]: _ta }], [() => Volumes, { [_jN]: _vo }], [() => Containers, { [_jN]: _co }], [0, { [_jN]: _gr }], [0, { [_jN]: _lTa }]]
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _dAe }], [0, { [_jN]: _v }], [4, { [_jN]: _cAr }], [4, { [_jN]: _sAt }], [0, { [_jN]: _sBt }], [() => Tags, { [_jN]: _ta }], [() => Volumes, { [_jN]: _vo }], [() => Containers, { [_jN]: _con }], [0, { [_jN]: _gr }], [0, { [_jN]: _lTa }]]
 ];
 export var EksCluster$: StaticStructureSchema = [3, n0, _ECk,
   0,
@@ -2474,7 +2511,7 @@ export var FilterCriterion$: StaticStructureSchema = [3, n0, _FC,
 export var Finding$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_AIc, _Ar, _CAr, _I, _R, _Res, _SV, _Se, _T, _UAp, _Conf, _D, _Par, _Ser, _Ti, _AASA],
-  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _r }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _con }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
+  [[0, { [_jN]: _aIc }], [0, { [_jN]: _ar }], [0, { [_jN]: _cAr }], [0, { [_jN]: _i }], [0, { [_jN]: _r }], [() => Resource$, { [_jN]: _res }], [0, { [_jN]: _sV }], [1, { [_jN]: _sev }], [0, { [_jN]: _t }], [0, { [_jN]: _uAp }], [1, { [_jN]: _co }], [0, { [_jN]: _d }], [0, { [_jN]: _par }], [() => Service$, { [_jN]: _ser }], [0, { [_jN]: _ti }], [0, { [_jN]: _aASA }]], 10
 ];
 export var FindingCriteria$: StaticStructureSchema = [3, n0, _FCin,
   0,
@@ -2543,8 +2580,8 @@ export var GetFilterRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFilterResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_N, _Ac, _FCin, _D, _Ra, _Ta],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _ra }], [128 | 0, { [_jN]: _ta }]], 3
+  [_N, _Ac, _FCin, _D, _Ra, _Ta, _CAr, _UAp, _V],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ac }], [() => FindingCriteria$, { [_jN]: _fCin }], [0, { [_jN]: _d }], [1, { [_jN]: _ra }], [128 | 0, { [_jN]: _ta }], [4, { [_jN]: _cAr }], [4, { [_jN]: _uAp }], [1, { [_jN]: _v }]], 3
 ];
 export var GetFindingsRequest$: StaticStructureSchema = [3, n0, _GFRet,
   0,
@@ -2759,7 +2796,7 @@ export var InstanceDetails$: StaticStructureSchema = [3, n0, _IDn,
 export var Investigation$: StaticStructureSchema = [3, n0, _In,
   0,
   [_IInv, _St, _TP, _TBr, _Met, _Cl, _RL, _Ri, _Conf, _Su, _ST, _ET, _Er],
-  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _tBr }], [() => InvestigationMetadata$, { [_jN]: _met }], [() => CloudDetails$, { [_jN]: _cl }], [0, { [_jN]: _rL }], [0, { [_jN]: _ri }], [0, { [_jN]: _con }], [0, { [_jN]: _su }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }], [0, { [_jN]: _e }]], 4
+  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _tBr }], [() => InvestigationMetadata$, { [_jN]: _met }], [() => CloudDetails$, { [_jN]: _cl }], [0, { [_jN]: _rL }], [0, { [_jN]: _ri }], [0, { [_jN]: _co }], [0, { [_jN]: _su }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }], [0, { [_jN]: _e }]], 4
 ];
 export var InvestigationMetadata$: StaticStructureSchema = [3, n0, _IM,
   0,
@@ -2774,7 +2811,7 @@ export var InvestigationSortCriteria$: StaticStructureSchema = [3, n0, _ISC,
 export var InvestigationSummary$: StaticStructureSchema = [3, n0, _ISn,
   0,
   [_IInv, _St, _TP, _RL, _Conf, _Ti, _AIc, _ST, _ET],
-  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _rL }], [0, { [_jN]: _con }], [0, { [_jN]: _ti }], [0, { [_jN]: _aIc }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }]]
+  [[0, { [_jN]: _iInv }], [0, { [_jN]: _st }], [0, { [_jN]: _tP }], [0, { [_jN]: _rL }], [0, { [_jN]: _co }], [0, { [_jN]: _ti }], [0, { [_jN]: _aIc }], [4, { [_jN]: _sT }], [4, { [_jN]: _eT }]]
 ];
 export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   0,
@@ -2864,7 +2901,7 @@ export var KubernetesWorkload$: StaticStructureSchema = [3, n0, _KW,
 export var KubernetesWorkloadDetails$: StaticStructureSchema = [3, n0, _KWD,
   0,
   [_N, _T, _U, _Na, _HN, _SAN, _Cont, _Vo, _HIPC, _HPID],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _t }], [0, { [_jN]: _u }], [0, { [_jN]: _na }], [2, { [_jN]: _hN }], [0, { [_jN]: _sAN }], [() => Containers, { [_jN]: _co }], [() => Volumes, { [_jN]: _vo }], [2, { [_jN]: _hIPC }], [2, { [_jN]: _hPID }]]
+  [[0, { [_jN]: _n }], [0, { [_jN]: _t }], [0, { [_jN]: _u }], [0, { [_jN]: _na }], [2, { [_jN]: _hN }], [0, { [_jN]: _sAN }], [() => Containers, { [_jN]: _con }], [() => Volumes, { [_jN]: _vo }], [2, { [_jN]: _hIPC }], [2, { [_jN]: _hPID }]]
 ];
 export var LambdaDetails$: StaticStructureSchema = [3, n0, _LD,
   0,
@@ -3146,6 +3183,11 @@ export var MemberFeaturesConfigurationResult$: StaticStructureSchema = [3, n0, _
   [_N, _St, _UAp, _AC],
   [[0, { [_jN]: _n }], [0, { [_jN]: _st }], [4, { [_jN]: _uAp }], [() => MemberAdditionalConfigurationResults, { [_jN]: _aC }]]
 ];
+export var ModelDetail$: StaticStructureSchema = [3, n0, _MD,
+  0,
+  [_MIo],
+  [[0, { [_jN]: _mIo }]]
+];
 export var NetworkConnection$: StaticStructureSchema = [3, n0, _NC,
   0,
   [_Di],
@@ -3173,8 +3215,8 @@ export var NetworkInterface$: StaticStructureSchema = [3, n0, _NIe,
 ];
 export var Observations$: StaticStructureSchema = [3, n0, _O,
   0,
-  [_Te],
-  [[64 | 0, { [_jN]: _te }]]
+  [_Te, _Nu],
+  [[64 | 0, { [_jN]: _te }], [64 | 1, { [_jN]: _nu }]]
 ];
 export var Organization$: StaticStructureSchema = [3, n0, _Or,
   0,
@@ -3368,8 +3410,8 @@ export var RecoveryPoint$: StaticStructureSchema = [3, n0, _RP,
 ];
 export var RecoveryPointDetails$: StaticStructureSchema = [3, n0, _RPDe,
   0,
-  [_RPA, _BVN],
-  [[0, { [_jN]: _rPA }], [0, { [_jN]: _bVN }]]
+  [_RPA, _BVN, _CSD],
+  [[0, { [_jN]: _rPA }], [0, { [_jN]: _bVN }], [() => ScanConfigurationContinuousScanDetails$, { [_jN]: _cSD }]]
 ];
 export var RemoteAccountDetails$: StaticStructureSchema = [3, n0, _RAD,
   0,
@@ -3388,8 +3430,8 @@ export var RemotePortDetails$: StaticStructureSchema = [3, n0, _RPD,
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _Res,
   0,
-  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDon, _LD, _RDID, _RLDD, _RDUD, _ESD, _EIDc, _RPDe],
-  [[() => AccessKeyDetails$, { [_jN]: _aKD }], [() => S3BucketDetails, { [_jN]: _sBD }], [() => InstanceDetails$, { [_jN]: _iDn }], [() => EksClusterDetails$, { [_jN]: _eCD }], [() => KubernetesDetails$, { [_jN]: _kD }], [0, { [_jN]: _rT }], [() => EbsVolumeDetails$, { [_jN]: _eVD }], [() => EcsClusterDetails$, { [_jN]: _eCDc }], [() => Container$, { [_jN]: _cDo }], [() => LambdaDetails$, { [_jN]: _lD }], [() => RdsDbInstanceDetails$, { [_jN]: _rDID }], [() => RdsLimitlessDbDetails$, { [_jN]: _rLDD }], [() => RdsDbUserDetails$, { [_jN]: _rDUD }], [() => EbsSnapshotDetails$, { [_jN]: _eSD }], [() => Ec2ImageDetails$, { [_jN]: _eIDc }], [() => RecoveryPointDetails$, { [_jN]: _rPDe }]]
+  [_AKD, _SBD, _IDn, _ECD, _KD, _RT, _EVD, _ECDc, _CDon, _LD, _RDID, _RLDD, _RDUD, _ESD, _EIDc, _RPDe, _BGD, _MDo],
+  [[() => AccessKeyDetails$, { [_jN]: _aKD }], [() => S3BucketDetails, { [_jN]: _sBD }], [() => InstanceDetails$, { [_jN]: _iDn }], [() => EksClusterDetails$, { [_jN]: _eCD }], [() => KubernetesDetails$, { [_jN]: _kD }], [0, { [_jN]: _rT }], [() => EbsVolumeDetails$, { [_jN]: _eVD }], [() => EcsClusterDetails$, { [_jN]: _eCDc }], [() => Container$, { [_jN]: _cDo }], [() => LambdaDetails$, { [_jN]: _lD }], [() => RdsDbInstanceDetails$, { [_jN]: _rDID }], [() => RdsLimitlessDbDetails$, { [_jN]: _rLDD }], [() => RdsDbUserDetails$, { [_jN]: _rDUD }], [() => EbsSnapshotDetails$, { [_jN]: _eSD }], [() => Ec2ImageDetails$, { [_jN]: _eIDc }], [() => RecoveryPointDetails$, { [_jN]: _rPDe }], [() => BedrockGuardrailDetails$, { [_jN]: _bGD }], [() => ModelDetails, { [_jN]: _mD }]]
 ];
 export var ResourceData$: StaticStructureSchema = [3, n0, _RDe,
   0,
@@ -3920,11 +3962,19 @@ var AnomalyProfileFeatureObjects: StaticListSchema = [1, n0, _APFO,
   0, [() => AnomalyObject$,
     0]
 ];
+var BedrockGuardrails: StaticListSchema = [1, n0, _BGe,
+  0, [() => BedrockGuardrail$,
+    0]
+];
 var Containers: StaticListSchema = [1, n0, _Cont,
   0, [() => Container$,
     0]
 ];
 var ContainerUids = 64 | 0;
+var ContentPolicyFilters: StaticListSchema = [1, n0, _CPF,
+  0, [() => ContentPolicyFilter$,
+    0]
+];
 var CoverageFilterCriterionList: StaticListSchema = [1, n0, _CFCL,
   0, [() => CoverageFilterCriterion$,
     0]
@@ -4082,6 +4132,10 @@ var Members: StaticListSchema = [1, n0, _Me,
     0]
 ];
 var MemoryRegionsList = 64 | 0;
+var ModelDetails: StaticListSchema = [1, n0, _MDo,
+  0, [() => ModelDetail$,
+    0]
+];
 var Neq = 64 | 0;
 var NetworkEndpoints: StaticListSchema = [1, n0, _NEet,
   0, [() => NetworkEndpoint$,
@@ -4093,6 +4147,7 @@ var NetworkInterfaces: StaticListSchema = [1, n0, _NI,
 ];
 var NotEquals = 64 | 0;
 var NotMatches = 64 | 0;
+var ObservationNumbers = 64 | 1;
 var ObservationTexts = 64 | 0;
 var OrganizationAdditionalConfigurationResults: StaticListSchema = [1, n0, _OACRr,
   0, [() => OrganizationAdditionalConfigurationResult$,

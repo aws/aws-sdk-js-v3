@@ -94,13 +94,13 @@ export interface BatchGetChannelCommandOutput extends BatchGetChannelResponse, _
  * @see {@link IvsClientResolvedConfig | config} for IvsClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p/>
+ *  <p>User does not have sufficient access to perform this action.</p>
  *
  * @throws {@link ServiceUnavailable} (server fault)
- *  <p/>
+ *  <p>The service is temporarily unavailable.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p/>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>

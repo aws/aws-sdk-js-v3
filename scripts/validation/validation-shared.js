@@ -178,9 +178,18 @@ const GENERATED_ROOTS = new Set(["clients", "private"]);
  * Each entry has .dir (absolute path) and .generated (boolean).
  */
 function getPackageDirs() {
-  const args = process.argv.slice(2).filter((a) => !a.startsWith("--"));
-  if (args.length) {
-    return args.map((d) => ({ dir: path.resolve(d), generated: false }));
+  // Extract positional args (package dirs), skipping --flag and its value.
+  const argv = process.argv.slice(2);
+  const positional = [];
+  for (let i = 0; i < argv.length; ++i) {
+    if (argv[i].startsWith("--")) {
+      ++i; // skip the flag's value
+    } else {
+      positional.push(argv[i]);
+    }
+  }
+  if (positional.length) {
+    return positional.map((d) => ({ dir: path.resolve(d), generated: false }));
   }
   const root = path.join(__dirname, "..", "..");
   const results = [];

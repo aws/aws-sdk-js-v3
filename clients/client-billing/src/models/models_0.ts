@@ -1,5 +1,17 @@
 // smithy-typescript generated code
-import type { BillingViewStatus, BillingViewStatusReason, BillingViewType, Dimension, SearchOption } from "./enums";
+import type {
+  ApplicationType,
+  BillingFeature,
+  BillingFeatureFilterName,
+  BillingViewStatus,
+  BillingViewStatusReason,
+  BillingViewType,
+  CreditSharingType,
+  CreditStatus,
+  Dimension,
+  PreferenceValue,
+  SearchOption,
+} from "./enums";
 
 /**
  * <p>A time range with a start and end time.</p>
@@ -17,6 +29,24 @@ export interface ActiveTimeRange {
    * @public
    */
   activeBeforeInclusive: Date | undefined;
+}
+
+/**
+ * <p>A monetary amount with a currency code. Used throughout the Billing API to represent credit balances, allocations, and adjustments.</p>
+ * @public
+ */
+export interface Amount {
+  /**
+   * <p>The ISO 4217 currency code for the amount (for example, <code>USD</code>).</p>
+   * @public
+   */
+  currencyCode: string | undefined;
+
+  /**
+   * <p>The amount as a decimal string (for example, <code>"743.21"</code>). Negative values represent credits that reduce a bill.</p>
+   * @public
+   */
+  currencyAmount: string | undefined;
 }
 
 /**
@@ -300,6 +330,130 @@ export interface DisassociateSourceViewsResponse {
 }
 
 /**
+ * <p>A filter that narrows the set of preferences returned by <code>GetBillingPreferences</code>.</p>
+ * @public
+ */
+export interface BillingFeatureFilter {
+  /**
+   * <p>The filter name. Currently the only supported value is <code>PREFERENCE_KEY</code>.</p>
+   * @public
+   */
+  name?: BillingFeatureFilterName | undefined;
+
+  /**
+   * <p>The filter values to match. For <code>PREFERENCE_KEY</code>, supply 1 to 10 preference key values to match.</p>
+   * @public
+   */
+  value?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBillingPreferencesRequest {
+  /**
+   * <p>Pagination token from a previous response. Pass the value returned in <code>nextToken</code> to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to return per page. Range: 1 to 50. Default: 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The feature to retrieve. Specify exactly one value. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>RI_SHARING_HISTORY</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_SHARING_HISTORY</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>.</p>
+   * @public
+   */
+  features: BillingFeature[] | undefined;
+
+  /**
+   * <p>Filters to narrow results. Specify exactly one filter when supplied. The supported filter name is <code>PREFERENCE_KEY</code>, which accepts 1 to 10 values to match preference keys.</p>
+   * @public
+   */
+  filters?: BillingFeatureFilter[] | undefined;
+}
+
+/**
+ * <p>A specific billing period identified by year and month.</p>
+ * @public
+ */
+export interface BillingPeriod {
+  /**
+   * <p>The four-digit year of the billing period.</p>
+   * @public
+   */
+  year: number | undefined;
+
+  /**
+   * <p>The month of the billing period as an integer between 1 and 12.</p>
+   * @public
+   */
+  month: number | undefined;
+}
+
+/**
+ * <p>A single billing preference entry returned by <code>GetBillingPreferences</code>.</p>
+ * @public
+ */
+export interface BillingPreferenceSummary {
+  /**
+   * <p>The feature this preference belongs to.</p>
+   * @public
+   */
+  feature: BillingFeature | undefined;
+
+  /**
+   * <p>The preference key. Format depends on the feature.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The preference value. Valid values: <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * @public
+   */
+  value: PreferenceValue | undefined;
+
+  /**
+   * <p>The display name of the account. Populated together with <code>accountId</code>; <code>null</code> otherwise.</p>
+   * @public
+   */
+  accountName?: string | undefined;
+
+  /**
+   * <p>The associated Amazon Web Services account ID. Populated for account-list keys; <code>null</code> otherwise.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The billing period associated with the preference change. Populated only for the history features <code>RI_SHARING_HISTORY</code> and <code>CREDIT_SHARING_HISTORY</code>.</p>
+   * @public
+   */
+  billingPeriod?: BillingPeriod | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBillingPreferencesResponse {
+  /**
+   * <p>The list of preference entries matching the request.</p>
+   * @public
+   */
+  billingPreferences: BillingPreferenceSummary[] | undefined;
+
+  /**
+   * <p>Pagination token. Present when more pages are available; <code>null</code> when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface GetBillingViewRequest {
@@ -421,6 +575,290 @@ export interface GetBillingViewResponse {
    * @public
    */
   billingView: BillingViewElement | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCreditAllocationHistoryRequest {
+  /**
+   * <p>The Amazon Web Services account ID whose allocation history to retrieve. Must be a 12-digit numeric string.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>Filters the result to a single credit. When omitted, returns allocation entries for all credits.</p>
+   * @public
+   */
+  creditId?: number | undefined;
+
+  /**
+   * <p>Inclusive start date as Unix epoch seconds. Must be on or before <code>endDate</code>. The range from <code>startDate</code> to <code>endDate</code> cannot exceed 24 billing months.</p>
+   * @public
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>Inclusive end date as Unix epoch seconds.</p>
+   * @public
+   */
+  endDate: Date | undefined;
+
+  /**
+   * <p>Pagination token from a previous response. Pass the value returned in <code>nextToken</code> to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of records to return per page. Range: 1 to 1000. Default: 100.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>A single entry in the credit allocation history, representing how a credit was applied to a specific service during a billing month.</p>
+ * @public
+ */
+export interface CreditAllocationHistoryEntry {
+  /**
+   * <p>The identifier of the credit that was applied.</p>
+   * @public
+   */
+  creditId: string | undefined;
+
+  /**
+   * <p>The amount of credit applied. Negative values represent credits that reduced the bill.</p>
+   * @public
+   */
+  creditAmount: Amount | undefined;
+
+  /**
+   * <p>A human-readable description of the credit allocation.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account the credit was applied to.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service the credit was applied to.</p>
+   * @public
+   */
+  appliedServiceName: string | undefined;
+
+  /**
+   * <p>The billing month of the application in <code>YYYY-MM</code> format.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+
+  /**
+   * <p> <code>true</code> when the entry was applied to an in-flight bill that has not yet been finalized.</p>
+   * @public
+   */
+  isEstimatedBill: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCreditAllocationHistoryResponse {
+  /**
+   * <p>Allocation entries sorted by <code>billingMonth</code> in descending order.</p>
+   * @public
+   */
+  creditAllocationHistoryList?: CreditAllocationHistoryEntry[] | undefined;
+
+  /**
+   * <p> <code>true</code> when data could not be retrieved for one or more billing months. The <code>failedMonths</code> field lists which months are missing.</p>
+   * @public
+   */
+  partialResults: boolean | undefined;
+
+  /**
+   * <p>Billing months in <code>YYYY-MM</code> format that failed to return data. Non-empty only when <code>partialResults</code> is <code>true</code>.</p>
+   * @public
+   */
+  failedMonths?: string[] | undefined;
+
+  /**
+   * <p>Pagination token. Present when more pages are available; <code>null</code> when there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCreditsRequest {
+  /**
+   * <p>The Amazon Web Services account ID. Must be a 12-digit numeric string.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The start date for the credit period as Unix epoch seconds. Must be a past date that is not more than one year before the current date.</p>
+   * @public
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The end date for the credit period as Unix epoch seconds. Must not be a future date and must be on or after <code>startDate</code>. Defaults to the current date when omitted.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+
+  /**
+   * <p>When <code>true</code> and the caller is the management account, the response aggregates credits across the entire consolidated billing family. When <code>false</code> or omitted, returns only credits for the specified <code>accountId</code>.</p>
+   * @public
+   */
+  payerAccountFlag?: boolean | undefined;
+}
+
+/**
+ * <p>Detailed information about an Amazon Web Services credit, including its identifier, type, monetary amounts, applicable products, sharing configuration, and current enabled status.</p>
+ * @public
+ */
+export interface CreditData {
+  /**
+   * <p>The unique identifier for the credit.</p>
+   * @public
+   */
+  creditId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that owns the credit.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The type of credit. Examples: <code>Promotion</code>, <code>Refund</code>, <code>TrueUp</code>.</p>
+   * @public
+   */
+  creditType: string | undefined;
+
+  /**
+   * <p>The initial amount of the credit when it was issued.</p>
+   * @public
+   */
+  initialAmount: Amount | undefined;
+
+  /**
+   * <p>The unused balance of the credit.</p>
+   * @public
+   */
+  remainingAmount: Amount | undefined;
+
+  /**
+   * <p>The estimated remaining balance, including in-flight (open) bills that have not yet been finalized.</p>
+   * @public
+   */
+  estimatedAmount?: Amount | undefined;
+
+  /**
+   * <p>The names of Amazon Web Services services this credit applies to.</p>
+   * @public
+   */
+  applicableProductNames?: string[] | undefined;
+
+  /**
+   * <p>A human-readable description of the credit.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The date the credit becomes valid, as Unix epoch seconds.</p>
+   * @public
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The date the credit expires, as Unix epoch seconds.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+
+  /**
+   * <p>The date the credit balance reached zero, as Unix epoch seconds.</p>
+   * @public
+   */
+  exhaustDate?: Date | undefined;
+
+  /**
+   * <p>When the credit is applied during bill computation. Valid values: <code>BEFORE_CROSS_SERVICE_DISCOUNTS</code>, <code>AFTER_DISCOUNTS</code>.</p>
+   * @public
+   */
+  applicationType?: ApplicationType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs entitled to apply this credit.</p>
+   * @public
+   */
+  shareableAccounts?: string[] | undefined;
+
+  /**
+   * <p>Whether the owning account has account-level credit sharing turned on.</p>
+   * @public
+   */
+  accountHasCreditSharingEnabled?: boolean | undefined;
+
+  /**
+   * <p>The display configuration for the credit in the Amazon Web Services Billing console.</p>
+   * @public
+   */
+  creditConsoleVisibility?: string | undefined;
+
+  /**
+   * <p>The sharing configuration for the credit. Valid values: <code>DEFAULT</code>, <code>DISABLED</code>, <code>CUSTOM</code>, <code>COST_CATEGORY_RULE</code>.</p>
+   * @public
+   */
+  creditSharingType?: CreditSharingType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Cost Category controlling the credit's sharing scope. Present only when <code>creditSharingType</code> is <code>COST_CATEGORY_RULE</code>.</p>
+   * @public
+   */
+  costCategoryArn?: string | undefined;
+
+  /**
+   * <p>The rule name within the Cost Category. Present only when <code>creditSharingType</code> is <code>COST_CATEGORY_RULE</code>.</p>
+   * @public
+   */
+  ruleName?: string | undefined;
+
+  /**
+   * <p>Whether the credit participates in billing runs. Valid values: <code>ENABLED</code>, <code>DISABLED</code>.</p>
+   * @public
+   */
+  creditStatus?: CreditStatus | undefined;
+
+  /**
+   * <p>Restricts which purchase types this credit applies to. When <code>null</code> or omitted, the credit applies to all purchase types.</p>
+   * @public
+   */
+  purchaseTypeApplications?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCreditsResponse {
+  /**
+   * <p>The list of credits matching the request. Returns an empty list when no credits exist.</p>
+   * @public
+   */
+  credits?: CreditData[] | undefined;
 }
 
 /**
@@ -652,6 +1090,22 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface RedeemCreditsRequest {
+  /**
+   * <p>The promotional credit code to redeem.</p>
+   * @public
+   */
+  promoCode: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RedeemCreditsResponse {}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p> The Amazon Resource Name (ARN) of the resource. </p>
@@ -692,6 +1146,46 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>A single key/value entry used to update a billing preference.</p>
+ * @public
+ */
+export interface BillingPreferenceForKey {
+  /**
+   * <p>The preference key. Format depends on the feature being updated.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The preference value. Valid values: <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   * @public
+   */
+  value: PreferenceValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBillingPreferencesRequest {
+  /**
+   * <p>The feature to update. Valid values: <code>BILLING_ALERTS</code>, <code>RI_SHARING</code>, <code>CREDIT_SHARING</code>, <code>CREDIT_LEVEL_SHARING</code>, <code>CREDIT_PREFERENCE_OPTIONS</code>. The history features (<code>RI_SHARING_HISTORY</code> and <code>CREDIT_SHARING_HISTORY</code>) are read-only and cannot be updated.</p>
+   * @public
+   */
+  feature: BillingFeature | undefined;
+
+  /**
+   * <p>Key/value pairs to apply. All keys in a single request must be valid for the specified <code>feature</code> and must not be duplicated. For <code>CREDIT_PREFERENCE_OPTIONS</code>, all keys must reference the same <code>creditId</code>.</p>
+   * @public
+   */
+  billingPreferencesPerKey: BillingPreferenceForKey[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateBillingPreferencesResponse {}
 
 /**
  * @public

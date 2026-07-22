@@ -99,10 +99,6 @@ export interface GetSessionCommandOutput extends GetSessionOutput, __MetadataBea
  * //       },
  * //     },
  * //     SessionIdleTimeoutInMinutes: Number("long"),
- * //     CertificateAuthority: { // CertificateAuthority
- * //       CertificateArn: "STRING_VALUE",
- * //       CertificateData: "STRING_VALUE",
- * //     },
  * //     ServerUrl: "STRING_VALUE",
  * //     Tags: [ // TagList
  * //       { // Tag

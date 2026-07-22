@@ -1,5 +1,6 @@
 import {
   _Parameters$,
+  AccessControlConfiguration$,
   AccessDeniedException,
   AccessDeniedException$,
   AccountCustomization$,
@@ -145,6 +146,7 @@ import {
   AuthorizationCodeGrantMetadata$,
   AuthorizedTargetsByService$,
   AuthorSpecifiedAggregation,
+  AuthType,
   AutomationJobStatus,
   AwsIotAnalyticsParameters$,
   AxisBinding,
@@ -386,6 +388,10 @@ import {
   CreateIngestionCommand,
   CreateIngestionRequest$,
   CreateIngestionResponse$,
+  CreateKnowledgeBase$,
+  CreateKnowledgeBaseCommand,
+  CreateKnowledgeBaseRequest$,
+  CreateKnowledgeBaseResponse$,
   CreateNamespace$,
   CreateNamespaceCommand,
   CreateNamespaceRequest$,
@@ -436,6 +442,7 @@ import {
   CreateVPCConnectionRequest$,
   CreateVPCConnectionResponse$,
   CredentialPair$,
+  CredentialStatus,
   CrossDatasetTypes,
   CurrencyDisplayFormatConfiguration$,
   CustomActionFilterOperation$,
@@ -1087,6 +1094,7 @@ import {
   FlowDetail$,
   FlowPublishState,
   FlowSummary$,
+  FMKBParameters$,
   Folder$,
   FolderFilterAttribute,
   FolderMember$,
@@ -1213,6 +1221,7 @@ import {
   GetSessionEmbedUrlRequest$,
   GetSessionEmbedUrlResponse$,
   GlobalTableBorderOptions$,
+  GoogleDriveParameters$,
   GradientColor$,
   GradientStop$,
   GridLayoutCanvasSizeOptions$,
@@ -1613,6 +1622,7 @@ import {
   OAuthClientAuthenticationType,
   OAuthClientCredentials$,
   OAuthParameters$,
+  OneDriveParameters$,
   OracleParameters$,
   OtherCategories,
   OutputColumn$,
@@ -1966,6 +1976,7 @@ import {
   ShapeConditionalFormat$,
   SharedColumnSemanticMetadata$,
   SharedViewConfigurations$,
+  SharePointParameters$,
   SharingModel,
   Sheet$,
   SheetBackgroundStyle$,
@@ -2392,10 +2403,14 @@ import {
   UpdateKeyRegistrationCommand,
   UpdateKeyRegistrationRequest$,
   UpdateKeyRegistrationResponse$,
+  UpdateKnowledgeBase$,
+  UpdateKnowledgeBaseCommand,
   UpdateKnowledgeBasePermissions$,
   UpdateKnowledgeBasePermissionsCommand,
   UpdateKnowledgeBasePermissionsRequest$,
   UpdateKnowledgeBasePermissionsResponse$,
+  UpdateKnowledgeBaseRequest$,
+  UpdateKnowledgeBaseResponse$,
   UpdateOAuthClientApplication$,
   UpdateOAuthClientApplicationCommand,
   UpdateOAuthClientApplicationRequest$,
@@ -2610,6 +2625,8 @@ assert(typeof CreateIAMPolicyAssignmentCommand === "function");
 assert(typeof CreateIAMPolicyAssignment$ === "object");
 assert(typeof CreateIngestionCommand === "function");
 assert(typeof CreateIngestion$ === "object");
+assert(typeof CreateKnowledgeBaseCommand === "function");
+assert(typeof CreateKnowledgeBase$ === "object");
 assert(typeof CreateNamespaceCommand === "function");
 assert(typeof CreateNamespace$ === "object");
 assert(typeof CreateOAuthClientApplicationCommand === "function");
@@ -3052,6 +3069,8 @@ assert(typeof UpdateIpRestrictionCommand === "function");
 assert(typeof UpdateIpRestriction$ === "object");
 assert(typeof UpdateKeyRegistrationCommand === "function");
 assert(typeof UpdateKeyRegistration$ === "object");
+assert(typeof UpdateKnowledgeBaseCommand === "function");
+assert(typeof UpdateKnowledgeBase$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsCommand === "function");
 assert(typeof UpdateKnowledgeBasePermissions$ === "object");
 assert(typeof UpdateOAuthClientApplicationCommand === "function");
@@ -3103,6 +3122,7 @@ assert(typeof UpdateUserCustomPermission$ === "object");
 assert(typeof UpdateVPCConnectionCommand === "function");
 assert(typeof UpdateVPCConnection$ === "object");
 // structural schemas
+assert(typeof AccessControlConfiguration$ === "object");
 assert(typeof AccountCustomization$ === "object");
 assert(typeof AccountInfo$ === "object");
 assert(typeof AccountSettings$ === "object");
@@ -3375,6 +3395,8 @@ assert(typeof CreateIAMPolicyAssignmentRequest$ === "object");
 assert(typeof CreateIAMPolicyAssignmentResponse$ === "object");
 assert(typeof CreateIngestionRequest$ === "object");
 assert(typeof CreateIngestionResponse$ === "object");
+assert(typeof CreateKnowledgeBaseRequest$ === "object");
+assert(typeof CreateKnowledgeBaseResponse$ === "object");
 assert(typeof CreateNamespaceRequest$ === "object");
 assert(typeof CreateNamespaceResponse$ === "object");
 assert(typeof CreateOAuthClientApplicationRequest$ === "object");
@@ -3801,6 +3823,7 @@ assert(typeof FilterTextAreaControl$ === "object");
 assert(typeof FilterTextFieldControl$ === "object");
 assert(typeof FlowDetail$ === "object");
 assert(typeof FlowSummary$ === "object");
+assert(typeof FMKBParameters$ === "object");
 assert(typeof Folder$ === "object");
 assert(typeof FolderMember$ === "object");
 assert(typeof FolderSearchFilter$ === "object");
@@ -3897,6 +3920,7 @@ assert(typeof GetIdentityContextResponse$ === "object");
 assert(typeof GetSessionEmbedUrlRequest$ === "object");
 assert(typeof GetSessionEmbedUrlResponse$ === "object");
 assert(typeof GlobalTableBorderOptions$ === "object");
+assert(typeof GoogleDriveParameters$ === "object");
 assert(typeof GradientColor$ === "object");
 assert(typeof GradientStop$ === "object");
 assert(typeof GridLayoutCanvasSizeOptions$ === "object");
@@ -4141,6 +4165,7 @@ assert(typeof OAuthClientApplication$ === "object");
 assert(typeof OAuthClientApplicationSummary$ === "object");
 assert(typeof OAuthClientCredentials$ === "object");
 assert(typeof OAuthParameters$ === "object");
+assert(typeof OneDriveParameters$ === "object");
 assert(typeof OracleParameters$ === "object");
 assert(typeof OutputColumn$ === "object");
 assert(typeof OutputColumnNameOverride$ === "object");
@@ -4356,6 +4381,7 @@ assert(typeof SetParameterValueConfiguration$ === "object");
 assert(typeof ShapeConditionalFormat$ === "object");
 assert(typeof SharedColumnSemanticMetadata$ === "object");
 assert(typeof SharedViewConfigurations$ === "object");
+assert(typeof SharePointParameters$ === "object");
 assert(typeof Sheet$ === "object");
 assert(typeof SheetBackgroundStyle$ === "object");
 assert(typeof SheetControlInfoIconLabelOptions$ === "object");
@@ -4640,6 +4666,8 @@ assert(typeof UpdateKeyRegistrationRequest$ === "object");
 assert(typeof UpdateKeyRegistrationResponse$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsRequest$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsResponse$ === "object");
+assert(typeof UpdateKnowledgeBaseRequest$ === "object");
+assert(typeof UpdateKnowledgeBaseResponse$ === "object");
 assert(typeof UpdateOAuthClientApplicationRequest$ === "object");
 assert(typeof UpdateOAuthClientApplicationResponse$ === "object");
 assert(typeof UpdatePublicSharingSettingsRequest$ === "object");
@@ -4770,6 +4798,7 @@ assert(typeof AuthenticationMethodOption === "object");
 assert(typeof AuthenticationType === "object");
 assert(typeof AuthorizationCodeGrantCredentialsSource === "object");
 assert(typeof AuthorSpecifiedAggregation === "object");
+assert(typeof AuthType === "object");
 assert(typeof AutomationJobStatus === "object");
 assert(typeof AxisBinding === "object");
 assert(typeof BarChartOrientation === "object");
@@ -4803,6 +4832,7 @@ assert(typeof ConstantType === "object");
 assert(typeof ContributionAnalysisDirection === "object");
 assert(typeof ContributionAnalysisSortType === "object");
 assert(typeof ControlSortDirection === "object");
+assert(typeof CredentialStatus === "object");
 assert(typeof CrossDatasetTypes === "object");
 assert(typeof CustomContentImageScalingConfiguration === "object");
 assert(typeof CustomContentType === "object");

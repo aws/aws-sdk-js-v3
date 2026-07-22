@@ -8,7 +8,74 @@ import type {
   SuppressionType,
   SuppressionUnit,
 } from "./enums";
-import type { DestinationConfiguration, S3DeliveryConfiguration } from "./models_0";
+import type { DestinationConfiguration, MetricFilterMatchRecord, Processor, S3DeliveryConfiguration } from "./models_0";
+
+/**
+ * @public
+ */
+export interface TestMetricFilterResponse {
+  /**
+   * <p>The matched events.</p>
+   * @public
+   */
+  matches?: MetricFilterMatchRecord[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestTransformerRequest {
+  /**
+   * <p>This structure contains the configuration of this log transformer that you want to test. A
+   *       log transformer is an array of processors, where each processor applies one type of
+   *       transformation to the log events that are ingested.</p>
+   * @public
+   */
+  transformerConfig: Processor[] | undefined;
+
+  /**
+   * <p>An array of the raw log events that you want to use to test this transformer.</p>
+   * @public
+   */
+  logEventMessages: string[] | undefined;
+}
+
+/**
+ * <p>This structure contains information for one log event that has been processed by a log
+ *       transformer.</p>
+ * @public
+ */
+export interface TransformedLogRecord {
+  /**
+   * <p>The event number.</p>
+   * @public
+   */
+  eventNumber?: number | undefined;
+
+  /**
+   * <p>The original log event message before it was transformed.</p>
+   * @public
+   */
+  eventMessage?: string | undefined;
+
+  /**
+   * <p>The log event message after being transformed.</p>
+   * @public
+   */
+  transformedEventMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TestTransformerResponse {
+  /**
+   * <p>An array where each member of the array includes both the original version and the
+   *       transformed version of one of the log events that you input.</p>
+   * @public
+   */
+  transformedLogs?: TransformedLogRecord[] | undefined;
+}
 
 /**
  * @deprecated Please use the generic tagging API model UntagResourceRequest.

@@ -43,6 +43,11 @@ import {
   DeleteConformancePackCommand,
 } from "./commands/DeleteConformancePackCommand";
 import {
+  type DeleteConnectorCommandInput,
+  type DeleteConnectorCommandOutput,
+  DeleteConnectorCommand,
+} from "./commands/DeleteConnectorCommand";
+import {
   type DeleteDeliveryChannelCommandInput,
   type DeleteDeliveryChannelCommandOutput,
   DeleteDeliveryChannelCommand,
@@ -288,6 +293,11 @@ import {
   GetConformancePackComplianceSummaryCommand,
 } from "./commands/GetConformancePackComplianceSummaryCommand";
 import {
+  type GetConnectorCommandInput,
+  type GetConnectorCommandOutput,
+  GetConnectorCommand,
+} from "./commands/GetConnectorCommand";
+import {
   type GetCustomRulePolicyCommandInput,
   type GetCustomRulePolicyCommandOutput,
   GetCustomRulePolicyCommand,
@@ -343,6 +353,11 @@ import {
   ListConformancePackComplianceScoresCommand,
 } from "./commands/ListConformancePackComplianceScoresCommand";
 import {
+  type ListConnectorsCommandInput,
+  type ListConnectorsCommandOutput,
+  ListConnectorsCommand,
+} from "./commands/ListConnectorsCommand";
+import {
   type ListDiscoveredResourcesCommandInput,
   type ListDiscoveredResourcesCommandOutput,
   ListDiscoveredResourcesCommand,
@@ -387,6 +402,11 @@ import {
   type PutConformancePackCommandOutput,
   PutConformancePackCommand,
 } from "./commands/PutConformancePackCommand";
+import {
+  type PutConnectorCommandInput,
+  type PutConnectorCommandOutput,
+  PutConnectorCommand,
+} from "./commands/PutConnectorCommand";
 import {
   type PutDeliveryChannelCommandInput,
   type PutDeliveryChannelCommandOutput,
@@ -442,6 +462,11 @@ import {
   type PutStoredQueryCommandOutput,
   PutStoredQueryCommand,
 } from "./commands/PutStoredQueryCommand";
+import {
+  type PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
+  type PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput,
+  PutThirdPartyServiceLinkedConfigurationRecorderCommand,
+} from "./commands/PutThirdPartyServiceLinkedConfigurationRecorderCommand";
 import {
   type SelectAggregateResourceConfigCommandInput,
   type SelectAggregateResourceConfigCommandOutput,
@@ -547,6 +572,7 @@ import { paginateGetResourceConfigHistory } from "./pagination/GetResourceConfig
 import { paginateListAggregateDiscoveredResources } from "./pagination/ListAggregateDiscoveredResourcesPaginator";
 import { paginateListConfigurationRecorders } from "./pagination/ListConfigurationRecordersPaginator";
 import { paginateListConformancePackComplianceScores } from "./pagination/ListConformancePackComplianceScoresPaginator";
+import { paginateListConnectors } from "./pagination/ListConnectorsPaginator";
 import { paginateListDiscoveredResources } from "./pagination/ListDiscoveredResourcesPaginator";
 import { paginateListResourceEvaluations } from "./pagination/ListResourceEvaluationsPaginator";
 import { paginateListStoredQueries } from "./pagination/ListStoredQueriesPaginator";
@@ -563,6 +589,7 @@ const commands = {
   DeleteConfigurationAggregatorCommand,
   DeleteConfigurationRecorderCommand,
   DeleteConformancePackCommand,
+  DeleteConnectorCommand,
   DeleteDeliveryChannelCommand,
   DeleteEvaluationResultsCommand,
   DeleteOrganizationConfigRuleCommand,
@@ -612,6 +639,7 @@ const commands = {
   GetComplianceSummaryByResourceTypeCommand,
   GetConformancePackComplianceDetailsCommand,
   GetConformancePackComplianceSummaryCommand,
+  GetConnectorCommand,
   GetCustomRulePolicyCommand,
   GetDiscoveredResourceCountsCommand,
   GetOrganizationConfigRuleDetailedStatusCommand,
@@ -623,6 +651,7 @@ const commands = {
   ListAggregateDiscoveredResourcesCommand,
   ListConfigurationRecordersCommand,
   ListConformancePackComplianceScoresCommand,
+  ListConnectorsCommand,
   ListDiscoveredResourcesCommand,
   ListResourceEvaluationsCommand,
   ListStoredQueriesCommand,
@@ -632,6 +661,7 @@ const commands = {
   PutConfigurationAggregatorCommand,
   PutConfigurationRecorderCommand,
   PutConformancePackCommand,
+  PutConnectorCommand,
   PutDeliveryChannelCommand,
   PutEvaluationsCommand,
   PutExternalEvaluationCommand,
@@ -643,6 +673,7 @@ const commands = {
   PutRetentionConfigurationCommand,
   PutServiceLinkedConfigurationRecorderCommand,
   PutStoredQueryCommand,
+  PutThirdPartyServiceLinkedConfigurationRecorderCommand,
   SelectAggregateResourceConfigCommand,
   SelectResourceConfigCommand,
   StartConfigRulesEvaluationCommand,
@@ -689,6 +720,7 @@ const paginators = {
   paginateListAggregateDiscoveredResources,
   paginateListConfigurationRecorders,
   paginateListConformancePackComplianceScores,
+  paginateListConnectors,
   paginateListDiscoveredResources,
   paginateListResourceEvaluations,
   paginateListStoredQueries,
@@ -832,6 +864,23 @@ export interface ConfigService {
     args: DeleteConformancePackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConformancePackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorCommand}
+   */
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorCommandOutput>;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
+  ): void;
+  deleteConnector(
+    args: DeleteConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -990,6 +1039,7 @@ export interface ConfigService {
   /**
    * @see {@link DeleteServiceLinkedConfigurationRecorderCommand}
    */
+  deleteServiceLinkedConfigurationRecorder(): Promise<DeleteServiceLinkedConfigurationRecorderCommandOutput>;
   deleteServiceLinkedConfigurationRecorder(
     args: DeleteServiceLinkedConfigurationRecorderCommandInput,
     options?: __HttpHandlerOptions
@@ -1689,6 +1739,23 @@ export interface ConfigService {
   ): void;
 
   /**
+   * @see {@link GetConnectorCommand}
+   */
+  getConnector(
+    args: GetConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorCommandOutput>;
+  getConnector(
+    args: GetConnectorCommandInput,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
+  getConnector(
+    args: GetConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCustomRulePolicyCommand}
    */
   getCustomRulePolicy(): Promise<GetCustomRulePolicyCommandOutput>;
@@ -1880,6 +1947,24 @@ export interface ConfigService {
   ): void;
 
   /**
+   * @see {@link ListConnectorsCommand}
+   */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsCommandOutput>;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+  listConnectors(
+    args: ListConnectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDiscoveredResourcesCommand}
    */
   listDiscoveredResources(
@@ -2032,6 +2117,23 @@ export interface ConfigService {
     args: PutConformancePackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutConformancePackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutConnectorCommand}
+   */
+  putConnector(
+    args: PutConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutConnectorCommandOutput>;
+  putConnector(
+    args: PutConnectorCommandInput,
+    cb: (err: any, data?: PutConnectorCommandOutput) => void
+  ): void;
+  putConnector(
+    args: PutConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutConnectorCommandOutput) => void
   ): void;
 
   /**
@@ -2219,6 +2321,23 @@ export interface ConfigService {
     args: PutStoredQueryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutStoredQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutThirdPartyServiceLinkedConfigurationRecorderCommand}
+   */
+  putThirdPartyServiceLinkedConfigurationRecorder(
+    args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput>;
+  putThirdPartyServiceLinkedConfigurationRecorder(
+    args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
+    cb: (err: any, data?: PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput) => void
+  ): void;
+  putThirdPartyServiceLinkedConfigurationRecorder(
+    args: PutThirdPartyServiceLinkedConfigurationRecorderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutThirdPartyServiceLinkedConfigurationRecorderCommandOutput) => void
   ): void;
 
   /**
@@ -2759,6 +2878,17 @@ export interface ConfigService {
     args?: ListConformancePackComplianceScoresCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListConformancePackComplianceScoresCommandOutput>;
+
+  /**
+   * @see {@link ListConnectorsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListConnectorsCommandOutput}.
+   */
+  paginateListConnectors(
+    args?: ListConnectorsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListConnectorsCommandOutput>;
 
   /**
    * @see {@link ListDiscoveredResourcesCommand}

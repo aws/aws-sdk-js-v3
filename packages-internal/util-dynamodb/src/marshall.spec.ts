@@ -173,7 +173,7 @@ describe("marshall", () => {
     } as Record<string, AttributeValue>);
 
     // this strange cast asserts that untyped fallback results in the `any` type.
-    const untyped: Symbol = marshall(null as any) as Symbol;
+    const untyped: symbol = marshall(null as any) as symbol;
     expect(untyped).toEqual({
       NULL: true,
     });
@@ -187,7 +187,10 @@ describe("marshall", () => {
 
   it("with class instance as an input", () => {
     class TestInputClass {
-      constructor(private readonly a: string, private readonly b: string) {}
+      constructor(
+        private readonly a: string,
+        private readonly b: string
+      ) {}
     }
     const input = new TestInputClass("A", "B");
 

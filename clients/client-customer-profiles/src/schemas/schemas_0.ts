@@ -19,6 +19,7 @@ const _APC = "AllowProfileCreation";
 const _APK = "AddProfileKey";
 const _APKR = "AddProfileKeyRequest";
 const _APKRd = "AddProfileKeyResponse";
+const _ARVN = "ActiveRecommenderVersionName";
 const _ASK = "AdditionalSearchKey";
 const _ASKd = "AdditionalSearchKeys";
 const _AT = "ActionType";
@@ -127,6 +128,7 @@ const _CSS = "CreateSegmentSnapshot";
 const _CSSR = "CreateSegmentSnapshotRequest";
 const _CSSRr = "CreateSegmentSnapshotResponse";
 const _CT = "ContactType";
+const _CTa = "CapType";
 const _CTl = "ClientToken";
 const _CTo = "ContentType";
 const _CTon = "ConnectorType";
@@ -142,9 +144,13 @@ const _Cont = "Content";
 const _Conte = "Context";
 const _Cou = "Country";
 const _D = "Description";
+const _DC = "DiversityColumn";
 const _DCAD = "DeleteCalculatedAttributeDefinition";
 const _DCADR = "DeleteCalculatedAttributeDefinitionRequest";
 const _DCADRe = "DeleteCalculatedAttributeDefinitionResponse";
+const _DCL = "DiversityColumnsList";
+const _DCi = "DiversityConfig";
+const _DCiv = "DiversityColumns";
 const _DD = "DateDimension";
 const _DDL = "DeleteDomainLayout";
 const _DDLR = "DeleteDomainLayoutRequest";
@@ -631,6 +637,7 @@ const _RBMR = "RuleBasedMatchingRequest";
 const _RBMRu = "RuleBasedMatchingResponse";
 const _RC = "RecommenderConfig";
 const _RCe = "RecommenderContext";
+const _RDC = "RecommendationDiversityConfig";
 const _RF = "RecommenderFilters";
 const _RFA = "RecommenderFilterArn";
 const _RFAV = "RecommenderFilterAttributeValue";
@@ -664,6 +671,7 @@ const _RSSL = "RecommenderSchemaSummaryList";
 const _RSe = "RecommenderSchemas";
 const _RSec = "RecommenderSummary";
 const _RU = "RecommenderUpdate";
+const _RVN = "RecommenderVersionName";
 const _Re = "Readiness";
 const _Rec = "Recommendations";
 const _Reco = "Recommenders";
@@ -1454,6 +1462,16 @@ export var DetectProfileObjectTypeResponse$: StaticStructureSchema = [3, n0, _DP
   [_DPOTe],
   [[() => DetectedProfileObjectTypes, 0]]
 ];
+export var DiversityColumn$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_N, _CTa, _Tar],
+  [0, 0, 0], 3
+];
+export var DiversityConfig$: StaticStructureSchema = [3, n0, _DCi,
+  0,
+  [_DCiv],
+  [() => DiversityColumnsList]
+];
 export var DomainObjectTypeField$: StaticStructureSchema = [3, n0, _DOTF,
   0,
   [_So, _Tar, _CTo, _FT],
@@ -1726,8 +1744,8 @@ export var GetProfileObjectTypeTemplateResponse$: StaticStructureSchema = [3, n0
 ];
 export var GetProfileRecommendationsRequest$: StaticStructureSchema = [3, n0, _GPRR,
   0,
-  [_DN, _PI, _RN, _Conte, _RF, _RPF, _CIa, _MR, _MC],
-  [[0, 1], [0, 1], 0, [() => RecommenderContext, 0], [() => RecommenderFilters, 0], [() => RecommenderPromotionalFilters, 0], 64 | 0, 1, () => MetadataConfig$], 3
+  [_DN, _PI, _RN, _Conte, _RF, _RPF, _CIa, _MR, _MC, _DCi],
+  [[0, 1], [0, 1], 0, [() => RecommenderContext, 0], [() => RecommenderFilters, 0], [() => RecommenderPromotionalFilters, 0], 64 | 0, 1, () => MetadataConfig$, () => RecommendationDiversityConfig$], 3
 ];
 export var GetProfileRecommendationsResponse$: StaticStructureSchema = [3, n0, _GPRRe,
   0,
@@ -1751,8 +1769,8 @@ export var GetRecommenderRequest$: StaticStructureSchema = [3, n0, _GRR,
 ];
 export var GetRecommenderResponse$: StaticStructureSchema = [3, n0, _GRRe,
   0,
-  [_RN, _RRN, _RSN, _RC, _D, _Sta, _LUA, _CA, _FR, _LRU, _TM, _Ta],
-  [0, 0, 0, () => RecommenderConfig$, [() => sensitiveText, 0], 0, 4, 4, 0, () => RecommenderUpdate$, () => TrainingMetricsList, 128 | 0], 2
+  [_RN, _RRN, _RSN, _RC, _D, _Sta, _LUA, _CA, _FR, _LRU, _ARVN, _TM, _Ta],
+  [0, 0, 0, () => RecommenderConfig$, [() => sensitiveText, 0], 0, 4, 4, 0, () => RecommenderUpdate$, 0, () => TrainingMetricsList, 128 | 0], 2
 ];
 export var GetRecommenderSchemaRequest$: StaticStructureSchema = [3, n0, _GRSR,
   0,
@@ -2364,10 +2382,15 @@ export var Recommendation$: StaticStructureSchema = [3, n0, _Recom,
   [_CI, _Sco],
   [[() => CatalogItem$, 0], 1]
 ];
+export var RecommendationDiversityConfig$: StaticStructureSchema = [3, n0, _RDC,
+  0,
+  [_En, _V],
+  [2, 128 | 1], 1
+];
 export var RecommenderConfig$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_EC, _TFr, _ICn, _ICnc, _ECxc],
-  [() => EventsConfig$, 1, () => InferenceConfig$, [2, n0, _ICnc, 0, 0, 64 | 0], [2, n0, _ICnc, 0, 0, 64 | 0]]
+  [_EC, _TFr, _ICn, _ICnc, _ECxc, _DCi],
+  [() => EventsConfig$, 1, () => InferenceConfig$, [2, n0, _ICnc, 0, 0, 64 | 0], [2, n0, _ICnc, 0, 0, 64 | 0], () => DiversityConfig$]
 ];
 export var RecommenderFilter$: StaticStructureSchema = [3, n0, _RFe,
   0,
@@ -2406,8 +2429,8 @@ export var RecommenderSummary$: StaticStructureSchema = [3, n0, _RSec,
 ];
 export var RecommenderUpdate$: StaticStructureSchema = [3, n0, _RU,
   0,
-  [_RC, _Sta, _CA, _LUA, _FR],
-  [() => RecommenderConfig$, 0, 4, 4, 0]
+  [_RC, _Sta, _CA, _LUA, _FR, _RVN],
+  [() => RecommenderConfig$, 0, 4, 4, 0, 0]
 ];
 export var ResultsSummary$: StaticStructureSchema = [3, n0, _RS,
   0,
@@ -2566,8 +2589,8 @@ export var Threshold$: StaticStructureSchema = [3, n0, _Th,
 ];
 export var TrainingMetrics$: StaticStructureSchema = [3, n0, _TM,
   0,
-  [_Ti, _Me],
-  [4, 128 | 1]
+  [_Ti, _Me, _RVN],
+  [4, 128 | 1, 0]
 ];
 export var TriggerConfig$: StaticStructureSchema = [3, n0, _TC,
   0,
@@ -2646,8 +2669,8 @@ export var UpdateProfileResponse$: StaticStructureSchema = [3, n0, _UPRp,
 ];
 export var UpdateRecommenderRequest$: StaticStructureSchema = [3, n0, _URRp,
   0,
-  [_DN, _RN, _D, _RC],
-  [[0, 1], [0, 1], [() => sensitiveText, 0], () => RecommenderConfig$], 2
+  [_DN, _RN, _D, _RC, _RVN],
+  [[0, 1], [0, 1], [() => sensitiveText, 0], () => RecommenderConfig$, 0], 2
 ];
 export var UpdateRecommenderResponse$: StaticStructureSchema = [3, n0, _URRpd,
   0,
@@ -2735,6 +2758,9 @@ var DetectedProfileObjectTypes: StaticListSchema = [1, n0, _DPOTe,
 var DimensionList: StaticListSchema = [1, n0, _DL,
   0, [() => Dimension$,
     0]
+];
+var DiversityColumnsList: StaticListSchema = [1, n0, _DCL,
+  0, () => DiversityColumn$
 ];
 var DomainList: StaticListSchema = [1, n0, _DLo,
   0, () => ListDomainItem$
@@ -2940,6 +2966,7 @@ var CustomAttributes: StaticMapSchema = [2, n0, _CAu,
   , [() => AttributeDimension$,
     0]
 ];
+var DiversityValuesMap = 128 | 1;
 var DomainObjectTypeFields: StaticMapSchema = [2, n0, _DOTFo,
   0, 0, () => DomainObjectTypeField$
 ];

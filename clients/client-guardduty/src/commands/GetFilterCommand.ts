@@ -78,6 +78,9 @@ export interface GetFilterCommandOutput extends GetFilterResponse, __MetadataBea
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   CreatedAt: new Date("TIMESTAMP"),
+ * //   UpdatedAt: new Date("TIMESTAMP"),
+ * //   Version: Number("long"),
  * // };
  *
  * ```

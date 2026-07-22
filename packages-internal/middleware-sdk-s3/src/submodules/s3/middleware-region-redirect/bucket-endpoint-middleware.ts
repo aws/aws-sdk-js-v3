@@ -17,9 +17,9 @@ interface PreviouslyResolved {
  */
 export function bucketEndpointMiddleware(options: PreviouslyResolved): SerializeMiddleware<any, any> {
   return <Output extends MetadataBearer>(
-      next: SerializeHandler<any, Output>,
-      context: HandlerExecutionContext
-    ): SerializeHandler<any, Output> =>
+    next: SerializeHandler<any, Output>,
+    context: HandlerExecutionContext
+  ): SerializeHandler<any, Output> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       if (options.bucketEndpoint) {
         const endpoint = context.endpointV2;

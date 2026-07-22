@@ -35,11 +35,11 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * const input = { // UpdateFHIRDatastoreRequest
  *   DatastoreId: "STRING_VALUE", // required
  *   DatastoreName: "STRING_VALUE",
- *   NlpConfiguration: { // NlpConfiguration
- *     Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
- *   },
  *   AnalyticsConfiguration: { // AnalyticsConfiguration
  *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
+ *   },
+ *   NlpConfiguration: { // NlpConfiguration
+ *     Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
  *   },
  *   ProfileConfiguration: { // ProfileConfiguration
  *     DefaultProfiles: [ // DefaultProfiles
@@ -84,7 +84,7 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * //       ErrorCategory: "RETRYABLE_ERROR" || "NON_RETRYABLE_ERROR",
  * //     },
  * //     NlpConfiguration: { // NlpConfiguration
- * //       Status: "ENABLED" || "DISABLED" || "ENABLING" || "DISABLING",
+ * //       Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING",
  * //     },
  * //     AnalyticsConfiguration: { // AnalyticsConfiguration
  * //       Status: "ENABLED" || "ENABLING" || "DISABLED" || "DISABLING" || "PAUSING" || "PAUSED",
@@ -109,8 +109,7 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The data store is in a transition state and the user requested action cannot be
- *          performed.</p>
+ *  <p>The data store is in a transition state and the user requested action cannot be performed.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>

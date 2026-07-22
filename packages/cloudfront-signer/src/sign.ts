@@ -528,7 +528,7 @@ class CloudfrontSignBuilder {
   }
 
   createCloudfrontAttribute(): CloudfrontAttributes {
-    if (!Boolean(this.policy)) {
+    if (!this.policy) {
       throw new Error("Invalid policy");
     }
     const signature = this.signPolicy(this.policy, this.privateKey, this.passphrase);

@@ -22,6 +22,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+
+
+
+# 3.972.23 (2026-07-20)
+### Tests
+* **middleware-sdk-route53:** loosen date in path assertion ([#8212](https://github.com/aws/aws-sdk-js-v3/issues/8212)) ([e522518](https://github.com/aws/aws-sdk-js-v3/commit/e52251827b3b4e718dda1936e8c5a24ff74671e4))
+
+
+
+# 3.972.22 (2026-07-15)
+### Chores
+* **middleware-sdk-route53:** update dependencies.
+
+
+
+# 3.972.21 (2026-07-14)
+### Chores
+* **codegen:** sync for codegen and include OAuthIAM operation for signin list ([#8190](https://github.com/aws/aws-sdk-js-v3/issues/8190)) ([a20c28d](https://github.com/aws/aws-sdk-js-v3/commit/a20c28def4c915546f0579dbfa50a736bd9fae57))
+
+
+
+# 3.972.20 (2026-07-08)
+### Chores
+* **codegen:** sync for isolatedModules tsconfig and server metrics recorder ([#8174](https://github.com/aws/aws-sdk-js-v3/issues/8174)) ([f8b4987](https://github.com/aws/aws-sdk-js-v3/commit/f8b4987c1d5b52966d536b36200496ea490327b1))
+* use isolatedModules for types ([#8164](https://github.com/aws/aws-sdk-js-v3/issues/8164)) ([f274899](https://github.com/aws/aws-sdk-js-v3/commit/f274899d4ecfef189ed7f9b4d5d02c450e11d84d))
+
+
+
 # 3.972.19 (2026-07-01)
 ### Chores
 * **codegen:** sync for thinner command classes, endpoint parameter type fix ([#8136](https://github.com/aws/aws-sdk-js-v3/issues/8136)) ([c39b676](https://github.com/aws/aws-sdk-js-v3/commit/c39b6765a3b49a48a9e2f4000cc6e97e82f4ae2e))

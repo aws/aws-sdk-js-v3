@@ -63,6 +63,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //       },
  * //       ManifestName: "STRING_VALUE", // required
  * //       PlaybackUrl: "STRING_VALUE", // required
+ * //       DualStackPlaybackUrl: "STRING_VALUE",
  * //       SourceGroup: "STRING_VALUE", // required
  * //     },
  * //   ],

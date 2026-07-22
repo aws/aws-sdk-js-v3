@@ -80,7 +80,6 @@ import type {
   SpecialValue,
   TargetVisualOptions,
   TimeGranularity,
-  TooltipTarget,
   TopicTimeGranularity,
   URLTargetConfiguration,
   ValueWhenUnsetOption,
@@ -89,6 +88,18 @@ import type {
   VisualHighlightTrigger,
   WidgetStatus,
 } from "./enums";
+
+/**
+ * <p>The access control settings for a knowledge base. Use this structure to enable or disable document-level access control lists (ACLs) that filter query results based on the permissions from the source data connector.</p>
+ * @public
+ */
+export interface AccessControlConfiguration {
+  /**
+   * <p>Specifies whether ACLs are enabled for the knowledge base.</p>
+   * @public
+   */
+  isACLEnabled?: boolean | undefined;
+}
 
 /**
  * <p>The Quick Sight customizations associated with your Amazon Web Services account or a Quick Sight namespace in a specific Amazon Web Services Region.</p>
@@ -8647,40 +8658,4 @@ export interface BarChartSortConfiguration {
    * @public
    */
   SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
-}
-
-/**
- * <p>The tooltip item for the columns that are not part of a field well.</p>
- * @public
- */
-export interface ColumnTooltipItem {
-  /**
-   * <p>The target column of the tooltip item.</p>
-   * @public
-   */
-  Column: ColumnIdentifier | undefined;
-
-  /**
-   * <p>The label of the tooltip item.</p>
-   * @public
-   */
-  Label?: string | undefined;
-
-  /**
-   * <p>The visibility of the tooltip item.</p>
-   * @public
-   */
-  Visibility?: Visibility | undefined;
-
-  /**
-   * <p>The aggregation function of the column tooltip item.</p>
-   * @public
-   */
-  Aggregation?: AggregationFunction | undefined;
-
-  /**
-   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
-   * @public
-   */
-  TooltipTarget?: TooltipTarget | undefined;
 }

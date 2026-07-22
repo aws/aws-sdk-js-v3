@@ -1,7 +1,38 @@
 {
   "name": "@aws-sdk/client-elasticsearch-service",
+  "version": "3.1093.0",
   "description": "AWS SDK for JavaScript Elasticsearch Service Client for Node.js, Browser and React Native",
-  "version": "3.1078.0",
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-elasticsearch-service",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/sdk-for-javascript/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "clients/client-elasticsearch-service"
+  },
+  "files": [
+    "dist-*/**"
+  ],
+  "sideEffects": false,
+  "main": "./dist-cjs/index.js",
+  "module": "./dist-es/index.js",
+  "browser": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
+  },
+  "types": "./dist-types/index.d.ts",
+  "typesVersions": {
+    "<4.5": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "react-native": {
+    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
+  },
   "scripts": {
     "build": "concurrently 'yarn:build:types' 'yarn:build:es' && yarn build:cjs",
     "build:cjs": "node ../../scripts/compilation/inline",
@@ -16,18 +47,14 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts",
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
-  "main": "./dist-cjs/index.js",
-  "types": "./dist-types/index.d.ts",
-  "module": "./dist-es/index.js",
-  "sideEffects": false,
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.974.26",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.61",
-    "@aws-sdk/types": "workspace:^3.973.15",
-    "@smithy/core": "^3.29.0",
-    "@smithy/fetch-http-handler": "^5.6.2",
-    "@smithy/node-http-handler": "^4.9.2",
-    "@smithy/types": "^4.15.1",
+    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
+    "@aws-sdk/types": "workspace:^3.974.2",
+    "@smithy/core": "^3.29.4",
+    "@smithy/fetch-http-handler": "^5.6.6",
+    "@smithy/node-http-handler": "^4.9.6",
+    "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -40,32 +67,5 @@
   },
   "engines": {
     "node": ">=20.0.0"
-  },
-  "typesVersions": {
-    "<4.5": {
-      "dist-types/*": [
-        "dist-types/ts3.4/*"
-      ]
-    }
-  },
-  "files": [
-    "dist-*/**"
-  ],
-  "author": {
-    "name": "AWS SDK for JavaScript Team",
-    "url": "https://aws.amazon.com/sdk-for-javascript/"
-  },
-  "license": "Apache-2.0",
-  "browser": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
-  },
-  "react-native": {
-    "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.native"
-  },
-  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-elasticsearch-service",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "clients/client-elasticsearch-service"
   }
 }

@@ -444,6 +444,13 @@ CreateAttachedFile
 </details>
 <details>
 <summary>
+CreateAuthCode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateAuthCodeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateAuthCodeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateAuthCodeCommandOutput/)
+</details>
+<details>
+<summary>
 CreateContact
 </summary>
 
@@ -710,6 +717,13 @@ DeleteAttachedFile
 </details>
 <details>
 <summary>
+DeleteContactData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteContactDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactDataCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteContactEvaluation
 </summary>
 
@@ -868,6 +882,13 @@ DeleteSecurityProfile
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteSecurityProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteSecurityProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteSecurityProfileCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteSessionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2107,6 +2128,13 @@ SearchRoutingProfiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchRoutingProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchRoutingProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchRoutingProfilesCommandOutput/)
+</details>
+<details>
+<summary>
+SearchRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchRulesCommandOutput/)
 </details>
 <details>
 <summary>
