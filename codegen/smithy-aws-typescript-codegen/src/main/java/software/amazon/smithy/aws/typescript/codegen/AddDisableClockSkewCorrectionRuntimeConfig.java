@@ -5,7 +5,6 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
-import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +38,7 @@ public final class AddDisableClockSkewCorrectionRuntimeConfig implements TypeScr
         LanguageTarget target
     ) {
         Map<String, Consumer<TypeScriptWriter>> runtimeConfigs = new HashMap<>();
-        if (isAwsService(settings, model) || isSigV4Service(settings, model)) {
+        if (isAwsService(settings, model)) {
             switch (target) {
                 case BROWSER:
                     runtimeConfigs.put("disableClockSkewCorrection", writer -> {

@@ -27,7 +27,6 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentials: config?.credentials ?? (() => () => Promise.reject(new Error("Credentials are missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({clientVersion: packageInfo.version}),
-    disableClockSkewCorrection: config?.disableClockSkewCorrection ?? false,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
