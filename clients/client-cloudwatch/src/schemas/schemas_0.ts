@@ -1178,7 +1178,7 @@ export var Schedule$: StaticStructureSchema = [3, n0, _Sch,
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_SE, _STO, _ETO],
-  [0, 1, 1], 1
+  [0, 1, 1], 2
 ];
 export var ScheduledQueryConfiguration$: StaticStructureSchema = [3, n0, _SQC,
   0,

@@ -187,7 +187,7 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //         ScheduledQueryRoleARN: "STRING_VALUE", // required
  * //         ScheduleConfiguration: { // ScheduleConfiguration
  * //           ScheduleExpression: "STRING_VALUE", // required
- * //           StartTimeOffset: Number("long"),
+ * //           StartTimeOffset: Number("long"), // required
  * //           EndTimeOffset: Number("long"),
  * //         },
  * //         AggregationExpression: "STRING_VALUE", // required
