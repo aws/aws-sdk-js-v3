@@ -41,7 +41,7 @@ export interface ListResourceTelemetryForOrganizationCommandOutput extends ListR
  *   ],
  *   ResourceIdentifierPrefix: "STRING_VALUE",
  *   ResourceTypes: [ // ResourceTypes
- *     "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster" || "AWS::S3::Bucket",
+ *     "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster" || "AWS::S3::Bucket" || "AWS::Bedrock::KnowledgeBase",
  *   ],
  *   TelemetryConfigurationState: { // TelemetryConfigurationState
  *     "<keys>": "Enabled" || "Disabled" || "NotApplicable",
@@ -61,7 +61,7 @@ export interface ListResourceTelemetryForOrganizationCommandOutput extends ListR
  * //       TelemetryConfigurationState: { // TelemetryConfigurationState
  * //         "<keys>": "Enabled" || "Disabled" || "NotApplicable",
  * //       },
- * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster" || "AWS::S3::Bucket",
+ * //       ResourceType: "AWS::EC2::Instance" || "AWS::EC2::VPC" || "AWS::Lambda::Function" || "AWS::CloudTrail" || "AWS::EKS::Cluster" || "AWS::WAFv2::WebACL" || "AWS::ElasticLoadBalancingV2::LoadBalancer" || "AWS::Route53Resolver::ResolverEndpoint" || "AWS::BedrockAgentCore::Runtime" || "AWS::BedrockAgentCore::Browser" || "AWS::BedrockAgentCore::CodeInterpreter" || "AWS::BedrockAgentCore::Gateway" || "AWS::BedrockAgentCore::Memory" || "AWS::BedrockAgentCore::WorkloadIdentity" || "AWS::SecurityHub::Hub" || "AWS::CloudFront::Distribution" || "AWS::SecurityHub::HubV2" || "AWS::CloudWatch::OTelEnrichment" || "AWS::MSK::Cluster" || "AWS::S3::Bucket" || "AWS::Bedrock::KnowledgeBase",
  * //       ResourceIdentifier: "STRING_VALUE",
  * //       ResourceTags: { // TagMapOutput
  * //         "<keys>": "STRING_VALUE",
