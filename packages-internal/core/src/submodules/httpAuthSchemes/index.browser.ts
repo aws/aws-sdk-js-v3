@@ -24,5 +24,4 @@ export type {
 export { getBearerTokenEnvKey } from "./utils/getBearerTokenEnvKey";
 
 export const NODE_AUTH_SCHEME_PREFERENCE_OPTIONS = no;
-export const NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS = no;
 export const NODE_SIGV4A_CONFIG_OPTIONS = no;

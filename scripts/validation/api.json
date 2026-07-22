@@ -338,7 +338,6 @@
     "AWSSDKSigV4Signer": "function",
     "getBearerTokenEnvKey": "function",
     "NODE_AUTH_SCHEME_PREFERENCE_OPTIONS": "object",
-    "NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS": "object",
     "NODE_SIGV4A_CONFIG_OPTIONS": "object",
     "resolveAwsSdkSigV4AConfig": "function",
     "resolveAwsSdkSigV4Config": "function",

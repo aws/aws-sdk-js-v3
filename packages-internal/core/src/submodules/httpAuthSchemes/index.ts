@@ -4,7 +4,6 @@ export {
   validateSigningProperties,
   AwsSdkSigV4ASigner,
   NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
-  NODE_DISABLE_CLOCK_SKEW_CORRECTION_CONFIG_OPTIONS,
   resolveAwsSdkSigV4AConfig,
   NODE_SIGV4A_CONFIG_OPTIONS,
   resolveAwsSdkSigV4Config,
