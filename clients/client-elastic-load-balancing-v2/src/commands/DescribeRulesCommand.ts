@@ -251,6 +251,72 @@ export interface DescribeRulesCommandOutput extends DescribeRulesOutput, __Metad
  * *\/
  * ```
  *
+ * @example To describe rules for a Network Load Balancer listener
+ * ```javascript
+ * // This example describes the rules for the specified Network Load Balancer listener, including rules that route based on source IP address type.
+ * const input = {
+ *   ListenerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/net/my-nlb/1234567890abcdef/1234567890abcdef"
+ * };
+ * const command = new DescribeRulesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Rules: [
+ *     {
+ *       Actions: [
+ *         {
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
+ *           Type: "forward"
+ *         }
+ *       ],
+ *       Conditions: [
+ *         {
+ *           Field: "source-ip",
+ *           SourceIpConfig: {
+ *             IpAddressType: "ipv4"
+ *           }
+ *         }
+ *       ],
+ *       IsDefault: false,
+ *       Priority: "10",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/aabbccdd11223344"
+ *     },
+ *     {
+ *       Actions: [
+ *         {
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv6-targets/abcdef1234567890",
+ *           Type: "forward"
+ *         }
+ *       ],
+ *       Conditions: [
+ *         {
+ *           Field: "source-ip",
+ *           SourceIpConfig: {
+ *             IpAddressType: "ipv6"
+ *           }
+ *         }
+ *       ],
+ *       IsDefault: false,
+ *       Priority: "20",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/eeff00112233aabb"
+ *     },
+ *     {
+ *       Actions: [
+ *         {
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
+ *           Type: "forward"
+ *         }
+ *       ],
+ *       Conditions:       [],
+ *       IsDefault: true,
+ *       Priority: "default",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/default"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeRulesCommand extends command<DescribeRulesCommandInput, DescribeRulesCommandOutput>(

@@ -1550,7 +1550,7 @@
                 }
             ],
             "traits": {
-                "smithy.api#documentation": "<p>Creates a rule for the specified listener. The listener must be associated with an\n      Application Load Balancer.</p>\n         <p>Each rule consists of a priority, one or more actions, one or more conditions, and\n      up to two optional transforms. Rules are evaluated in priority order, from the lowest value \n      to the highest value. When the conditions for a rule are met, its actions are performed. \n      If the conditions for no rules are met, the actions for the default rule are performed. \n      For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules\">Listener rules</a> in the <i>Application Load Balancers Guide</i>.</p>",
+                "smithy.api#documentation": "<p>Creates a rule for the specified listener. The listener must be associated with an\n      Application Load Balancer or a dual-stack Network Load Balancer.</p>\n         <p>Each rule consists of a priority, one or more actions, and one or more conditions. Rules\n      are evaluated in priority order, from the lowest value to the highest value. When the\n      conditions for a rule are met, its actions are performed. If the conditions for no rules are\n      met, the actions for the default rule are performed. For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules\">Listener rules</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#listener-rules\">Listener rules</a> in the <i>Network Load Balancers Guide</i>.</p>",
                 "smithy.api#examples": [
                     {
                         "title": "To create a rule",
@@ -1590,6 +1590,51 @@
                                     "Actions": [
                                         {
                                             "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                                            "Type": "forward"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "title": "To create a listener rule that routes IPv4 traffic on a Network Load Balancer",
+                        "documentation": "This example creates a rule on a dual-stack Network Load Balancer that routes IPv4 source traffic to an IPv4 target group.",
+                        "input": {
+                            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/net/my-nlb/1234567890abcdef/1234567890abcdef",
+                            "Conditions": [
+                                {
+                                    "Field": "source-ip",
+                                    "SourceIpConfig": {
+                                        "IpAddressType": "ipv4"
+                                    }
+                                }
+                            ],
+                            "Priority": 10,
+                            "Actions": [
+                                {
+                                    "Type": "forward",
+                                    "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef"
+                                }
+                            ]
+                        },
+                        "output": {
+                            "Rules": [
+                                {
+                                    "Priority": "10",
+                                    "Conditions": [
+                                        {
+                                            "Field": "source-ip",
+                                            "SourceIpConfig": {
+                                                "IpAddressType": "ipv4"
+                                            }
+                                        }
+                                    ],
+                                    "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef",
+                                    "IsDefault": false,
+                                    "Actions": [
+                                        {
+                                            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
                                             "Type": "forward"
                                         }
                                     ]
@@ -3038,6 +3083,67 @@
                                     "Actions": [
                                         {
                                             "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+                                            "Type": "forward"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "title": "To describe rules for a Network Load Balancer listener",
+                        "documentation": "This example describes the rules for the specified Network Load Balancer listener, including rules that route based on source IP address type.",
+                        "input": {
+                            "ListenerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener/net/my-nlb/1234567890abcdef/1234567890abcdef"
+                        },
+                        "output": {
+                            "Rules": [
+                                {
+                                    "Priority": "10",
+                                    "Conditions": [
+                                        {
+                                            "Field": "source-ip",
+                                            "SourceIpConfig": {
+                                                "IpAddressType": "ipv4"
+                                            }
+                                        }
+                                    ],
+                                    "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/aabbccdd11223344",
+                                    "IsDefault": false,
+                                    "Actions": [
+                                        {
+                                            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
+                                            "Type": "forward"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Priority": "20",
+                                    "Conditions": [
+                                        {
+                                            "Field": "source-ip",
+                                            "SourceIpConfig": {
+                                                "IpAddressType": "ipv6"
+                                            }
+                                        }
+                                    ],
+                                    "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/eeff00112233aabb",
+                                    "IsDefault": false,
+                                    "Actions": [
+                                        {
+                                            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv6-targets/abcdef1234567890",
+                                            "Type": "forward"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "Priority": "default",
+                                    "Conditions": [],
+                                    "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/default",
+                                    "IsDefault": true,
+                                    "Actions": [
+                                        {
+                                            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-ipv4-targets/1234567890abcdef",
                                             "Type": "forward"
                                         }
                                     ]
@@ -7450,6 +7556,42 @@
                                 }
                             ]
                         }
+                    },
+                    {
+                        "title": "To modify a Network Load Balancer listener rule",
+                        "documentation": "This example modifies an NLB listener rule to forward traffic to a different target group.",
+                        "input": {
+                            "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef",
+                            "Actions": [
+                                {
+                                    "Type": "forward",
+                                    "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-ipv4-targets/1234567890abcdef"
+                                }
+                            ]
+                        },
+                        "output": {
+                            "Rules": [
+                                {
+                                    "Priority": "10",
+                                    "Conditions": [
+                                        {
+                                            "Field": "source-ip",
+                                            "SourceIpConfig": {
+                                                "IpAddressType": "ipv4"
+                                            }
+                                        }
+                                    ],
+                                    "RuleArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef",
+                                    "IsDefault": false,
+                                    "Actions": [
+                                        {
+                                            "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-ipv4-targets/1234567890abcdef",
+                                            "Type": "forward"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
                     }
                 ]
             }
@@ -8701,7 +8843,7 @@
                 "Field": {
                     "target": "com.amazonaws.elasticloadbalancingv2#ConditionFieldName",
                     "traits": {
-                        "smithy.api#documentation": "<p>The field in the HTTP request. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>http-header</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>http-request-method</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>host-header</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>path-pattern</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>query-string</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>source-ip</code>\n               </p>\n            </li>\n         </ul>"
+                        "smithy.api#documentation": "<p>The name of the field. The possible values are:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>http-header</code> – [ALB] Matches on an HTTP header field.</p>\n            </li>\n            <li>\n               <p>\n                  <code>http-request-method</code> – [ALB] Matches on the HTTP request method.</p>\n            </li>\n            <li>\n               <p>\n                  <code>host-header</code> – [ALB] Matches on the host header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>path-pattern</code> – [ALB] Matches on the URL path of the request.</p>\n            </li>\n            <li>\n               <p>\n                  <code>query-string</code> – [ALB] Matches on a query string parameter.</p>\n            </li>\n            <li>\n               <p>\n                  <code>source-ip</code> – [ALB, NLB] Matches on the source IP address. For ALB, use\n            <code>SourceIpConfig</code> with <code>Values</code> to specify CIDR ranges. For NLB,\n          use <code>SourceIpConfig</code> with <code>IpAddressType</code> to match the IP address\n          type (<code>ipv4</code> or <code>ipv6</code>).</p>\n            </li>\n         </ul>"
                     }
                 },
                 "Values": {
@@ -8754,7 +8896,7 @@
                 }
             },
             "traits": {
-                "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition can't be empty.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n      Application Load Balancers</a>.</p>"
+                "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition can't be empty.</p>\n         <p>For Network Load Balancer listener rules, the only supported condition is\n        <code>source-ip</code>. Use <code>SourceIpConfig</code> with <code>IpAddressType</code> to\n      match on the IP address type of the source traffic (<code>ipv4</code> or\n      <code>ipv6</code>).</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n      Application Load Balancers</a>.</p>"
             }
         },
         "com.amazonaws.elasticloadbalancingv2#RuleConditionList": {
@@ -9291,7 +9433,7 @@
                 }
             },
             "traits": {
-                "smithy.api#documentation": "<p>Information about a source IP condition.</p>\n         <p>You can use this condition to route based on the IP address of the source that connects to\n      the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the\n      IP address of the client.</p>"
+                "smithy.api#documentation": "<p>Information about a source IP condition.</p>\n         <p>You can use this condition to route based on the IP address of the source that connects to\n      the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the\n      IP address of the client.</p>\n         <p>For Application Load Balancers, use <code>Values</code> to specify CIDR ranges. For\n      Network Load Balancers, use <code>IpAddressType</code> to match on the IP address type of\n      the source traffic.</p>"
             }
         },
         "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefix": {

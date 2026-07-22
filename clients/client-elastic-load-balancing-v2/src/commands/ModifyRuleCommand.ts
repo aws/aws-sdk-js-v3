@@ -421,6 +421,47 @@ export interface ModifyRuleCommandOutput extends ModifyRuleOutput, __MetadataBea
  * *\/
  * ```
  *
+ * @example To modify a Network Load Balancer listener rule
+ * ```javascript
+ * // This example modifies an NLB listener rule to forward traffic to a different target group.
+ * const input = {
+ *   Actions: [
+ *     {
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-ipv4-targets/1234567890abcdef",
+ *       Type: "forward"
+ *     }
+ *   ],
+ *   RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef"
+ * };
+ * const command = new ModifyRuleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Rules: [
+ *     {
+ *       Actions: [
+ *         {
+ *           TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-new-ipv4-targets/1234567890abcdef",
+ *           Type: "forward"
+ *         }
+ *       ],
+ *       Conditions: [
+ *         {
+ *           Field: "source-ip",
+ *           SourceIpConfig: {
+ *             IpAddressType: "ipv4"
+ *           }
+ *         }
+ *       ],
+ *       IsDefault: false,
+ *       Priority: "10",
+ *       RuleArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:listener-rule/net/my-nlb/1234567890abcdef/1234567890abcdef/1234567890abcdef"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ModifyRuleCommand extends command<ModifyRuleCommandInput, ModifyRuleCommandOutput>(
