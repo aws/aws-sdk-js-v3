@@ -82,6 +82,18 @@ import {
   GetProfileVisibilityCommand,
   GetProfileVisibilityRequest$,
   GetProfileVisibilityResponse$,
+  GetQualificationsAssociationDetails$,
+  GetQualificationsAssociationDetailsCommand,
+  GetQualificationsAssociationDetailsRequest$,
+  GetQualificationsAssociationDetailsResponse$,
+  GetQualificationsAssociationTask$,
+  GetQualificationsAssociationTaskCommand,
+  GetQualificationsAssociationTaskRequest$,
+  GetQualificationsAssociationTaskResponse$,
+  GetQualificationsDisassociationTask$,
+  GetQualificationsDisassociationTaskCommand,
+  GetQualificationsDisassociationTaskRequest$,
+  GetQualificationsDisassociationTaskResponse$,
   GetVerification$,
   GetVerificationCommand,
   GetVerificationRequest$,
@@ -131,6 +143,10 @@ import {
   PutProfileVisibilityCommand,
   PutProfileVisibilityRequest$,
   PutProfileVisibilityResponse$,
+  QualificationsAssociationPartner$,
+  QualificationsAssociationStatus,
+  QualificationsAssociationTaskStatus,
+  QualificationsDisassociationTaskStatus,
   RegistrantVerificationDetails$,
   RegistrantVerificationResponse$,
   RejectConnectionInvitation$,
@@ -152,6 +168,14 @@ import {
   StartProfileUpdateTaskCommand,
   StartProfileUpdateTaskRequest$,
   StartProfileUpdateTaskResponse$,
+  StartQualificationsAssociationTask$,
+  StartQualificationsAssociationTaskCommand,
+  StartQualificationsAssociationTaskRequest$,
+  StartQualificationsAssociationTaskResponse$,
+  StartQualificationsDisassociationTask$,
+  StartQualificationsDisassociationTaskCommand,
+  StartQualificationsDisassociationTaskRequest$,
+  StartQualificationsDisassociationTaskResponse$,
   StartVerification$,
   StartVerificationCommand,
   StartVerificationRequest$,
@@ -216,6 +240,12 @@ assert(typeof GetProfileUpdateTaskCommand === "function");
 assert(typeof GetProfileUpdateTask$ === "object");
 assert(typeof GetProfileVisibilityCommand === "function");
 assert(typeof GetProfileVisibility$ === "object");
+assert(typeof GetQualificationsAssociationDetailsCommand === "function");
+assert(typeof GetQualificationsAssociationDetails$ === "object");
+assert(typeof GetQualificationsAssociationTaskCommand === "function");
+assert(typeof GetQualificationsAssociationTask$ === "object");
+assert(typeof GetQualificationsDisassociationTaskCommand === "function");
+assert(typeof GetQualificationsDisassociationTask$ === "object");
 assert(typeof GetVerificationCommand === "function");
 assert(typeof GetVerification$ === "object");
 assert(typeof ListConnectionInvitationsCommand === "function");
@@ -236,6 +266,10 @@ assert(typeof SendEmailVerificationCodeCommand === "function");
 assert(typeof SendEmailVerificationCode$ === "object");
 assert(typeof StartProfileUpdateTaskCommand === "function");
 assert(typeof StartProfileUpdateTask$ === "object");
+assert(typeof StartQualificationsAssociationTaskCommand === "function");
+assert(typeof StartQualificationsAssociationTask$ === "object");
+assert(typeof StartQualificationsDisassociationTaskCommand === "function");
+assert(typeof StartQualificationsDisassociationTask$ === "object");
 assert(typeof StartVerificationCommand === "function");
 assert(typeof StartVerification$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -287,6 +321,12 @@ assert(typeof GetProfileUpdateTaskRequest$ === "object");
 assert(typeof GetProfileUpdateTaskResponse$ === "object");
 assert(typeof GetProfileVisibilityRequest$ === "object");
 assert(typeof GetProfileVisibilityResponse$ === "object");
+assert(typeof GetQualificationsAssociationDetailsRequest$ === "object");
+assert(typeof GetQualificationsAssociationDetailsResponse$ === "object");
+assert(typeof GetQualificationsAssociationTaskRequest$ === "object");
+assert(typeof GetQualificationsAssociationTaskResponse$ === "object");
+assert(typeof GetQualificationsDisassociationTaskRequest$ === "object");
+assert(typeof GetQualificationsDisassociationTaskResponse$ === "object");
 assert(typeof GetVerificationRequest$ === "object");
 assert(typeof GetVerificationResponse$ === "object");
 assert(typeof ListConnectionInvitationsRequest$ === "object");
@@ -307,6 +347,7 @@ assert(typeof PutAllianceLeadContactRequest$ === "object");
 assert(typeof PutAllianceLeadContactResponse$ === "object");
 assert(typeof PutProfileVisibilityRequest$ === "object");
 assert(typeof PutProfileVisibilityResponse$ === "object");
+assert(typeof QualificationsAssociationPartner$ === "object");
 assert(typeof RegistrantVerificationDetails$ === "object");
 assert(typeof RegistrantVerificationResponse$ === "object");
 assert(typeof RejectConnectionInvitationRequest$ === "object");
@@ -316,6 +357,10 @@ assert(typeof SendEmailVerificationCodeRequest$ === "object");
 assert(typeof SendEmailVerificationCodeResponse$ === "object");
 assert(typeof StartProfileUpdateTaskRequest$ === "object");
 assert(typeof StartProfileUpdateTaskResponse$ === "object");
+assert(typeof StartQualificationsAssociationTaskRequest$ === "object");
+assert(typeof StartQualificationsAssociationTaskResponse$ === "object");
+assert(typeof StartQualificationsDisassociationTaskRequest$ === "object");
+assert(typeof StartQualificationsDisassociationTaskResponse$ === "object");
 assert(typeof StartVerificationRequest$ === "object");
 assert(typeof StartVerificationResponse$ === "object");
 assert(typeof Tag$ === "object");
@@ -344,6 +389,9 @@ assert(typeof PrimarySolutionType === "object");
 assert(typeof ProfileTaskStatus === "object");
 assert(typeof ProfileValidationErrorReason === "object");
 assert(typeof ProfileVisibility === "object");
+assert(typeof QualificationsAssociationStatus === "object");
+assert(typeof QualificationsAssociationTaskStatus === "object");
+assert(typeof QualificationsDisassociationTaskStatus === "object");
 assert(typeof ResourceNotFoundExceptionReason === "object");
 assert(typeof ServiceQuotaExceededExceptionReason === "object");
 assert(typeof ValidationExceptionReason === "object");

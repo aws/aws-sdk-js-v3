@@ -102,6 +102,18 @@ import type {
   GetProfileVisibilityCommandInput,
   GetProfileVisibilityCommandOutput,
 } from "./commands/GetProfileVisibilityCommand";
+import type {
+  GetQualificationsAssociationDetailsCommandInput,
+  GetQualificationsAssociationDetailsCommandOutput,
+} from "./commands/GetQualificationsAssociationDetailsCommand";
+import type {
+  GetQualificationsAssociationTaskCommandInput,
+  GetQualificationsAssociationTaskCommandOutput,
+} from "./commands/GetQualificationsAssociationTaskCommand";
+import type {
+  GetQualificationsDisassociationTaskCommandInput,
+  GetQualificationsDisassociationTaskCommandOutput,
+} from "./commands/GetQualificationsDisassociationTaskCommand";
 import type { GetVerificationCommandInput, GetVerificationCommandOutput } from "./commands/GetVerificationCommand";
 import type {
   ListConnectionInvitationsCommandInput,
@@ -133,6 +145,14 @@ import type {
   StartProfileUpdateTaskCommandInput,
   StartProfileUpdateTaskCommandOutput,
 } from "./commands/StartProfileUpdateTaskCommand";
+import type {
+  StartQualificationsAssociationTaskCommandInput,
+  StartQualificationsAssociationTaskCommandOutput,
+} from "./commands/StartQualificationsAssociationTaskCommand";
+import type {
+  StartQualificationsDisassociationTaskCommandInput,
+  StartQualificationsDisassociationTaskCommandOutput,
+} from "./commands/StartQualificationsDisassociationTaskCommand";
 import type {
   StartVerificationCommandInput,
   StartVerificationCommandOutput,
@@ -173,6 +193,9 @@ export type ServiceInputTypes =
   | GetPartnerCommandInput
   | GetProfileUpdateTaskCommandInput
   | GetProfileVisibilityCommandInput
+  | GetQualificationsAssociationDetailsCommandInput
+  | GetQualificationsAssociationTaskCommandInput
+  | GetQualificationsDisassociationTaskCommandInput
   | GetVerificationCommandInput
   | ListConnectionInvitationsCommandInput
   | ListConnectionsCommandInput
@@ -183,6 +206,8 @@ export type ServiceInputTypes =
   | RejectConnectionInvitationCommandInput
   | SendEmailVerificationCodeCommandInput
   | StartProfileUpdateTaskCommandInput
+  | StartQualificationsAssociationTaskCommandInput
+  | StartQualificationsDisassociationTaskCommandInput
   | StartVerificationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -207,6 +232,9 @@ export type ServiceOutputTypes =
   | GetPartnerCommandOutput
   | GetProfileUpdateTaskCommandOutput
   | GetProfileVisibilityCommandOutput
+  | GetQualificationsAssociationDetailsCommandOutput
+  | GetQualificationsAssociationTaskCommandOutput
+  | GetQualificationsDisassociationTaskCommandOutput
   | GetVerificationCommandOutput
   | ListConnectionInvitationsCommandOutput
   | ListConnectionsCommandOutput
@@ -217,6 +245,8 @@ export type ServiceOutputTypes =
   | RejectConnectionInvitationCommandOutput
   | SendEmailVerificationCodeCommandOutput
   | StartProfileUpdateTaskCommandOutput
+  | StartQualificationsAssociationTaskCommandOutput
+  | StartQualificationsDisassociationTaskCommandOutput
   | StartVerificationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

@@ -78,6 +78,21 @@ import {
   GetProfileVisibilityCommand,
 } from "./commands/GetProfileVisibilityCommand";
 import {
+  type GetQualificationsAssociationDetailsCommandInput,
+  type GetQualificationsAssociationDetailsCommandOutput,
+  GetQualificationsAssociationDetailsCommand,
+} from "./commands/GetQualificationsAssociationDetailsCommand";
+import {
+  type GetQualificationsAssociationTaskCommandInput,
+  type GetQualificationsAssociationTaskCommandOutput,
+  GetQualificationsAssociationTaskCommand,
+} from "./commands/GetQualificationsAssociationTaskCommand";
+import {
+  type GetQualificationsDisassociationTaskCommandInput,
+  type GetQualificationsDisassociationTaskCommandOutput,
+  GetQualificationsDisassociationTaskCommand,
+} from "./commands/GetQualificationsDisassociationTaskCommand";
+import {
   type GetVerificationCommandInput,
   type GetVerificationCommandOutput,
   GetVerificationCommand,
@@ -128,6 +143,16 @@ import {
   StartProfileUpdateTaskCommand,
 } from "./commands/StartProfileUpdateTaskCommand";
 import {
+  type StartQualificationsAssociationTaskCommandInput,
+  type StartQualificationsAssociationTaskCommandOutput,
+  StartQualificationsAssociationTaskCommand,
+} from "./commands/StartQualificationsAssociationTaskCommand";
+import {
+  type StartQualificationsDisassociationTaskCommandInput,
+  type StartQualificationsDisassociationTaskCommandOutput,
+  StartQualificationsDisassociationTaskCommand,
+} from "./commands/StartQualificationsDisassociationTaskCommand";
+import {
   type StartVerificationCommandInput,
   type StartVerificationCommandOutput,
   StartVerificationCommand,
@@ -168,6 +193,9 @@ const commands = {
   GetPartnerCommand,
   GetProfileUpdateTaskCommand,
   GetProfileVisibilityCommand,
+  GetQualificationsAssociationDetailsCommand,
+  GetQualificationsAssociationTaskCommand,
+  GetQualificationsDisassociationTaskCommand,
   GetVerificationCommand,
   ListConnectionInvitationsCommand,
   ListConnectionsCommand,
@@ -178,6 +206,8 @@ const commands = {
   RejectConnectionInvitationCommand,
   SendEmailVerificationCodeCommand,
   StartProfileUpdateTaskCommand,
+  StartQualificationsAssociationTaskCommand,
+  StartQualificationsDisassociationTaskCommand,
   StartVerificationCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -446,6 +476,57 @@ export interface PartnerCentralAccount {
   ): void;
 
   /**
+   * @see {@link GetQualificationsAssociationDetailsCommand}
+   */
+  getQualificationsAssociationDetails(
+    args: GetQualificationsAssociationDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQualificationsAssociationDetailsCommandOutput>;
+  getQualificationsAssociationDetails(
+    args: GetQualificationsAssociationDetailsCommandInput,
+    cb: (err: any, data?: GetQualificationsAssociationDetailsCommandOutput) => void
+  ): void;
+  getQualificationsAssociationDetails(
+    args: GetQualificationsAssociationDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQualificationsAssociationDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQualificationsAssociationTaskCommand}
+   */
+  getQualificationsAssociationTask(
+    args: GetQualificationsAssociationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQualificationsAssociationTaskCommandOutput>;
+  getQualificationsAssociationTask(
+    args: GetQualificationsAssociationTaskCommandInput,
+    cb: (err: any, data?: GetQualificationsAssociationTaskCommandOutput) => void
+  ): void;
+  getQualificationsAssociationTask(
+    args: GetQualificationsAssociationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQualificationsAssociationTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQualificationsDisassociationTaskCommand}
+   */
+  getQualificationsDisassociationTask(
+    args: GetQualificationsDisassociationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQualificationsDisassociationTaskCommandOutput>;
+  getQualificationsDisassociationTask(
+    args: GetQualificationsDisassociationTaskCommandInput,
+    cb: (err: any, data?: GetQualificationsDisassociationTaskCommandOutput) => void
+  ): void;
+  getQualificationsDisassociationTask(
+    args: GetQualificationsDisassociationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQualificationsDisassociationTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetVerificationCommand}
    */
   getVerification(
@@ -613,6 +694,40 @@ export interface PartnerCentralAccount {
     args: StartProfileUpdateTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartProfileUpdateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQualificationsAssociationTaskCommand}
+   */
+  startQualificationsAssociationTask(
+    args: StartQualificationsAssociationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQualificationsAssociationTaskCommandOutput>;
+  startQualificationsAssociationTask(
+    args: StartQualificationsAssociationTaskCommandInput,
+    cb: (err: any, data?: StartQualificationsAssociationTaskCommandOutput) => void
+  ): void;
+  startQualificationsAssociationTask(
+    args: StartQualificationsAssociationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQualificationsAssociationTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQualificationsDisassociationTaskCommand}
+   */
+  startQualificationsDisassociationTask(
+    args: StartQualificationsDisassociationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQualificationsDisassociationTaskCommandOutput>;
+  startQualificationsDisassociationTask(
+    args: StartQualificationsDisassociationTaskCommandInput,
+    cb: (err: any, data?: StartQualificationsDisassociationTaskCommandOutput) => void
+  ): void;
+  startQualificationsDisassociationTask(
+    args: StartQualificationsDisassociationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQualificationsDisassociationTaskCommandOutput) => void
   ): void;
 
   /**

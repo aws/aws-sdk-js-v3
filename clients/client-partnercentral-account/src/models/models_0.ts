@@ -12,6 +12,9 @@ import type {
   ProfileTaskStatus,
   ProfileValidationErrorReason,
   ProfileVisibility,
+  QualificationsAssociationStatus,
+  QualificationsAssociationTaskStatus,
+  QualificationsDisassociationTaskStatus,
   VerificationStatus,
   VerificationType,
 } from "./enums";
@@ -421,6 +424,24 @@ export interface AssociateAwsTrainingCertificationEmailDomainRequest {
  * @public
  */
 export interface AssociateAwsTrainingCertificationEmailDomainResponse {}
+
+/**
+ * <p>Identifies a partner in a qualifications association group. Contains the partner's profile identifier and AWS account identifier. In requests, provide at least one of <code>ProfileId</code> or <code>AccountId</code>. In responses, both fields are populated.</p>
+ * @public
+ */
+export interface QualificationsAssociationPartner {
+  /**
+   * <p>The unique identifier for the partner profile, in the format <code>pprofile-*</code>. Required in requests if <code>AccountId</code> is not provided.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>The 12-digit AWS account ID linked to the partner profile. Required in requests if <code>ProfileId</code> is not provided.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+}
 
 /**
  * <p>Contains the business information required for verifying a company's legal status and registration details within AWS Partner Central.</p>
@@ -2125,6 +2146,210 @@ export interface GetProfileVisibilityResponse {
 /**
  * @public
  */
+export interface GetQualificationsAssociationDetailsRequest {
+  /**
+   * <p>The catalog in which to look up the qualifications association. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQualificationsAssociationDetailsResponse {
+  /**
+   * <p>The catalog identifier echoed from the request.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current qualifications association status. Valid values: <code>ASSOCIATED</code> (the partner is associated with a primary), <code>NOT_ASSOCIATED</code> (the partner has no active association).</p>
+   * @public
+   */
+  Status: QualificationsAssociationStatus | undefined;
+
+  /**
+   * <p>The primary partner's profile and account identifiers. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * @public
+   */
+  PrimaryPartner?: QualificationsAssociationPartner | undefined;
+
+  /**
+   * <p>The list of all partner profile and account identifiers currently associated under the primary partner. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * @public
+   */
+  AssociatedPartners?: QualificationsAssociationPartner[] | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications association was last updated, in ISO 8601 format. This field is null when the status is <code>NOT_ASSOCIATED</code>.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQualificationsAssociationTaskRequest {
+  /**
+   * <p>The catalog in which to look up the qualifications association task. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQualificationsAssociationTaskResponse {
+  /**
+   * <p>The catalog identifier echoed from the request.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the qualifications association task, in the format <code>pqatask-[a-z2-7]\{13\}</code>.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The current status of the qualifications association task. Valid values: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  Status: QualificationsAssociationTaskStatus | undefined;
+
+  /**
+   * <p>The primary partner's profile and account identifiers that the task is associating qualifications with.</p>
+   * @public
+   */
+  PrimaryPartner: QualificationsAssociationPartner | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications association task started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications association task ended, in ISO 8601 format. This field is present only when the status is <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQualificationsDisassociationTaskRequest {
+  /**
+   * <p>The catalog in which to look up the qualifications disassociation task. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetQualificationsDisassociationTaskResponse {
+  /**
+   * <p>The catalog identifier echoed from the request.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the qualifications disassociation task, in the format <code>pqdtask-[a-z2-7]\{13\}</code>.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The current status of the qualifications disassociation task. Valid values: <code>IN_PROGRESS</code>, <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  Status: QualificationsDisassociationTaskStatus | undefined;
+
+  /**
+   * <p>The primary partner's profile and account identifiers that the task is disassociating qualifications from.</p>
+   * @public
+   */
+  AssociatedPartner: QualificationsAssociationPartner | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications disassociation task started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications disassociation task ended, in ISO 8601 format. This field is present only when the status is <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  EndedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetVerificationRequest {
   /**
    * <p>The type of verification to retrieve information for. Valid values include business verification for company registration details and registrant verification for individual identity confirmation.</p>
@@ -2545,6 +2770,158 @@ export interface StartProfileUpdateTaskResponse {
    * @public
    */
   ErrorDetailList?: ErrorDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartQualificationsAssociationTaskRequest {
+  /**
+   * <p>The catalog in which to perform the qualifications association. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The primary (acquiring) partner's profile and account identifier to associate qualifications with. You must provide at least one of <code>ProfileId</code> or <code>AccountId</code>. You cannot specify yourself as the primary partner.</p>
+   * @public
+   */
+  PrimaryPartner: QualificationsAssociationPartner | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartQualificationsAssociationTaskResponse {
+  /**
+   * <p>The catalog identifier echoed from the request.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started qualifications association task, in the format <code>pqatask-[a-z2-7]\{13\}</code>.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The current status of the qualifications association task. The initial value is <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Status: QualificationsAssociationTaskStatus | undefined;
+
+  /**
+   * <p>The resolved primary partner's profile and account identifiers, including both <code>ProfileId</code> and <code>AccountId</code>.</p>
+   * @public
+   */
+  PrimaryPartner: QualificationsAssociationPartner | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications association task started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartQualificationsDisassociationTaskRequest {
+  /**
+   * <p>The catalog in which to perform the qualifications disassociation. Valid values: <code>AWS</code>, <code>Sandbox</code>.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>Your partner identifier. You can provide either a partner ID (for example, <code>partner-abc123</code>) or a partner ARN. You must own this identifier.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The primary partner's profile and account identifier that you are currently associated with and will disassociate from. You must provide at least one of <code>ProfileId</code> or <code>AccountId</code>. The specified partner must match your current primary association.</p>
+   * @public
+   */
+  AssociatedPartner: QualificationsAssociationPartner | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartQualificationsDisassociationTaskResponse {
+  /**
+   * <p>The catalog identifier echoed from the request.</p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies your partner resource.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>Your unique partner identifier in the AWS Partner Network.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The unique identifier of the started qualifications disassociation task, in the format <code>pqdtask-[a-z2-7]\{13\}</code>.</p>
+   * @public
+   */
+  TaskId: string | undefined;
+
+  /**
+   * <p>The current status of the qualifications disassociation task. The initial value is <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  Status: QualificationsDisassociationTaskStatus | undefined;
+
+  /**
+   * <p>The resolved primary partner's profile and account identifiers that the task is disassociating qualifications from.</p>
+   * @public
+   */
+  AssociatedPartner: QualificationsAssociationPartner | undefined;
+
+  /**
+   * <p>The timestamp when the qualifications disassociation task started, in ISO 8601 format.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
 }
 
 /**

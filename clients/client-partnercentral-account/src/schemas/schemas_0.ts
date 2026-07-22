@@ -6,7 +6,11 @@ const _ACI = "AcceptConnectionInvitation";
 const _ACIR = "AcceptConnectionInvitationRequest";
 const _ACIRc = "AcceptConnectionInvitationResponse";
 const _ADE = "AccessDeniedException";
+const _AI = "AccountId";
 const _ALC = "AllianceLeadContact";
+const _AP = "AssociatedPartners";
+const _APL = "AssociatedPartnerList";
+const _APs = "AssociatedPartner";
 const _AS = "AccountSummary";
 const _AT = "AccessType";
 const _ATCED = "AwsTrainingCertificationEmailDomains";
@@ -93,6 +97,15 @@ const _GPUTRe = "GetProfileUpdateTaskResponse";
 const _GPV = "GetProfileVisibility";
 const _GPVR = "GetProfileVisibilityRequest";
 const _GPVRe = "GetProfileVisibilityResponse";
+const _GQAD = "GetQualificationsAssociationDetails";
+const _GQADR = "GetQualificationsAssociationDetailsRequest";
+const _GQADRe = "GetQualificationsAssociationDetailsResponse";
+const _GQAT = "GetQualificationsAssociationTask";
+const _GQATR = "GetQualificationsAssociationTaskRequest";
+const _GQATRe = "GetQualificationsAssociationTaskResponse";
+const _GQDT = "GetQualificationsDisassociationTask";
+const _GQDTR = "GetQualificationsDisassociationTaskRequest";
+const _GQDTRe = "GetQualificationsDisassociationTaskResponse";
 const _GV = "GetVerification";
 const _GVR = "GetVerificationRequest";
 const _GVRe = "GetVerificationResponse";
@@ -139,16 +152,18 @@ const _PALCRu = "PutAllianceLeadContactResponse";
 const _PD = "PartnerDomain";
 const _PDL = "PartnerDomainList";
 const _PI = "ProfileId";
-const _PP = "PartnerProfile";
+const _PP = "PrimaryPartner";
 const _PPS = "PartnerProfileSummary";
 const _PPV = "PutProfileVisibility";
 const _PPVR = "PutProfileVisibilityRequest";
 const _PPVRu = "PutProfileVisibilityResponse";
+const _PPa = "PartnerProfile";
 const _PS = "PartnerSummary";
 const _PSL = "PartnerSummaryList";
 const _PST = "PrimarySolutionType";
 const _PT = "ParticipantType";
 const _Pa = "Participant";
+const _QAP = "QualificationsAssociationPartner";
 const _QC = "QuotaCode";
 const _R = "Reason";
 const _RA = "ResourceArn";
@@ -173,6 +188,12 @@ const _SPS = "SellerProfileSummary";
 const _SPUT = "StartProfileUpdateTask";
 const _SPUTR = "StartProfileUpdateTaskRequest";
 const _SPUTRt = "StartProfileUpdateTaskResponse";
+const _SQAT = "StartQualificationsAssociationTask";
+const _SQATR = "StartQualificationsAssociationTaskRequest";
+const _SQATRt = "StartQualificationsAssociationTaskResponse";
+const _SQDT = "StartQualificationsDisassociationTask";
+const _SQDTR = "StartQualificationsDisassociationTaskRequest";
+const _SQDTRt = "StartQualificationsDisassociationTaskResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _SUS = "SensitiveUnicodeString";
 const _SV = "StartVerification";
@@ -507,6 +528,36 @@ export var GetProfileVisibilityResponse$: StaticStructureSchema = [3, n0, _GPVRe
   [_C, _A, _Id, _V, _PI],
   [0, 0, 0, 0, 0], 5
 ];
+export var GetQualificationsAssociationDetailsRequest$: StaticStructureSchema = [3, n0, _GQADR,
+  0,
+  [_C, _I],
+  [0, 0], 2
+];
+export var GetQualificationsAssociationDetailsResponse$: StaticStructureSchema = [3, n0, _GQADRe,
+  0,
+  [_C, _A, _Id, _S, _PP, _AP, _UA],
+  [0, 0, 0, 0, () => QualificationsAssociationPartner$, () => AssociatedPartnerList, 5], 4
+];
+export var GetQualificationsAssociationTaskRequest$: StaticStructureSchema = [3, n0, _GQATR,
+  0,
+  [_C, _I],
+  [0, 0], 2
+];
+export var GetQualificationsAssociationTaskResponse$: StaticStructureSchema = [3, n0, _GQATRe,
+  0,
+  [_C, _A, _Id, _TI, _S, _PP, _SA, _EAn],
+  [0, 0, 0, 0, 0, () => QualificationsAssociationPartner$, 5, 5], 7
+];
+export var GetQualificationsDisassociationTaskRequest$: StaticStructureSchema = [3, n0, _GQDTR,
+  0,
+  [_C, _I],
+  [0, 0], 2
+];
+export var GetQualificationsDisassociationTaskResponse$: StaticStructureSchema = [3, n0, _GQDTRe,
+  0,
+  [_C, _A, _Id, _TI, _S, _APs, _SA, _EAn],
+  [0, 0, 0, 0, 0, () => QualificationsAssociationPartner$, 5, 5], 7
+];
 export var GetVerificationRequest$: StaticStructureSchema = [3, n0, _GVR,
   0,
   [_VT],
@@ -567,7 +618,7 @@ export var PartnerDomain$: StaticStructureSchema = [3, n0, _PD,
   [_DN, _RAe],
   [0, 5], 2
 ];
-export var PartnerProfile$: StaticStructureSchema = [3, n0, _PP,
+export var PartnerProfile$: StaticStructureSchema = [3, n0, _PPa,
   0,
   [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo, _PI],
   [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, 0], 7
@@ -601,6 +652,11 @@ export var PutProfileVisibilityResponse$: StaticStructureSchema = [3, n0, _PPVRu
   0,
   [_C, _A, _Id, _V, _PI],
   [0, 0, 0, 0, 0], 5
+];
+export var QualificationsAssociationPartner$: StaticStructureSchema = [3, n0, _QAP,
+  0,
+  [_PI, _AI],
+  [0, 0]
 ];
 export var RegistrantVerificationDetails$: StaticStructureSchema = [3, n0, _RVD,
   0,
@@ -646,6 +702,26 @@ export var StartProfileUpdateTaskResponse$: StaticStructureSchema = [3, n0, _SPU
   0,
   [_C, _A, _Id, _TI, _TD, _SA, _S, _EAn, _EDL],
   [0, 0, 0, 0, () => TaskDetails$, 5, 0, 5, () => ErrorDetailList], 7
+];
+export var StartQualificationsAssociationTaskRequest$: StaticStructureSchema = [3, n0, _SQATR,
+  0,
+  [_C, _I, _PP, _CT],
+  [0, 0, () => QualificationsAssociationPartner$, [0, 4]], 3
+];
+export var StartQualificationsAssociationTaskResponse$: StaticStructureSchema = [3, n0, _SQATRt,
+  0,
+  [_C, _A, _Id, _TI, _S, _PP, _SA],
+  [0, 0, 0, 0, 0, () => QualificationsAssociationPartner$, 5], 7
+];
+export var StartQualificationsDisassociationTaskRequest$: StaticStructureSchema = [3, n0, _SQDTR,
+  0,
+  [_C, _I, _APs, _CT],
+  [0, 0, () => QualificationsAssociationPartner$, [0, 4]], 3
+];
+export var StartQualificationsDisassociationTaskResponse$: StaticStructureSchema = [3, n0, _SQDTRt,
+  0,
+  [_C, _A, _Id, _TI, _S, _APs, _SA],
+  [0, 0, 0, 0, 0, () => QualificationsAssociationPartner$, 5], 7
 ];
 export var StartVerificationRequest$: StaticStructureSchema = [3, n0, _SVR,
   0,
@@ -697,6 +773,9 @@ export var UpdateConnectionPreferencesResponse$: StaticStructureSchema = [3, n0,
   [_C, _A, _AT, _UA, _Re, _EPI],
   [0, 0, 0, 5, 1, 64 | 0], 5
 ];
+var AssociatedPartnerList: StaticListSchema = [1, n0, _APL,
+  0, () => QualificationsAssociationPartner$
+];
 var ConnectionInvitationSummaryList: StaticListSchema = [1, n0, _CISL,
   0, () => ConnectionInvitationSummary$
 ];
@@ -736,7 +815,7 @@ var ConnectionTypeSummaryMap: StaticMapSchema = [2, n0, _CTSM,
 ];
 export var Participant$: StaticUnionSchema = [4, n0, _Pa,
   0,
-  [_PP, _SP, _Ac],
+  [_PPa, _SP, _Ac],
   [() => PartnerProfileSummary$, () => SellerProfileSummary$, () => AccountSummary$]
 ];
 export var ValidationError$: StaticUnionSchema = [4, n0, _VEa,
@@ -799,6 +878,15 @@ export var GetProfileUpdateTask$: StaticOperationSchema = [9, n0, _GPUT,
 export var GetProfileVisibility$: StaticOperationSchema = [9, n0, _GPV,
   0, () => GetProfileVisibilityRequest$, () => GetProfileVisibilityResponse$
 ];
+export var GetQualificationsAssociationDetails$: StaticOperationSchema = [9, n0, _GQAD,
+  0, () => GetQualificationsAssociationDetailsRequest$, () => GetQualificationsAssociationDetailsResponse$
+];
+export var GetQualificationsAssociationTask$: StaticOperationSchema = [9, n0, _GQAT,
+  0, () => GetQualificationsAssociationTaskRequest$, () => GetQualificationsAssociationTaskResponse$
+];
+export var GetQualificationsDisassociationTask$: StaticOperationSchema = [9, n0, _GQDT,
+  0, () => GetQualificationsDisassociationTaskRequest$, () => GetQualificationsDisassociationTaskResponse$
+];
 export var GetVerification$: StaticOperationSchema = [9, n0, _GV,
   0, () => GetVerificationRequest$, () => GetVerificationResponse$
 ];
@@ -828,6 +916,12 @@ export var SendEmailVerificationCode$: StaticOperationSchema = [9, n0, _SEVC,
 ];
 export var StartProfileUpdateTask$: StaticOperationSchema = [9, n0, _SPUT,
   2, () => StartProfileUpdateTaskRequest$, () => StartProfileUpdateTaskResponse$
+];
+export var StartQualificationsAssociationTask$: StaticOperationSchema = [9, n0, _SQAT,
+  2, () => StartQualificationsAssociationTaskRequest$, () => StartQualificationsAssociationTaskResponse$
+];
+export var StartQualificationsDisassociationTask$: StaticOperationSchema = [9, n0, _SQDT,
+  2, () => StartQualificationsDisassociationTaskRequest$, () => StartQualificationsDisassociationTaskResponse$
 ];
 export var StartVerification$: StaticOperationSchema = [9, n0, _SV,
   2, () => StartVerificationRequest$, () => StartVerificationResponse$
