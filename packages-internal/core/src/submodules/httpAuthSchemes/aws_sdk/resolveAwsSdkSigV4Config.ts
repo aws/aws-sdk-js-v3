@@ -21,8 +21,6 @@ import type {
   RequestSigner,
 } from "@smithy/types";
 
-import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./clock-skew-defaults";
-
 /**
  * @public
  */
@@ -134,160 +132,163 @@ export interface AwsSdkSigV4AuthResolvedConfig {
 }
 
 /**
+ * Accepts a platform-specific default for disableClockSkewCorrection and
+ * returns the resolver function. Called from the index (node vs browser).
+ *
  * @internal
  */
-export const resolveAwsSdkSigV4Config = <T>(
-  config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved
-): T & AwsSdkSigV4AuthResolvedConfig => {
-  let inputCredentials = config.credentials;
-  let isUserSupplied = !!config.credentials;
-  let resolvedCredentials: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined = undefined;
+export const bindResolveAwsSdkSigV4Config =
+  (defaultDisableClockSkewCorrection: boolean | Provider<boolean>) =>
+  <T>(config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved): T & AwsSdkSigV4AuthResolvedConfig => {
+    let inputCredentials = config.credentials;
+    let isUserSupplied = !!config.credentials;
+    let resolvedCredentials: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined = undefined;
 
-  Object.defineProperty(config, "credentials", {
-    set(credentials: AwsSdkSigV4AuthInputConfig["credentials"]) {
-      if (credentials && credentials !== inputCredentials && credentials !== resolvedCredentials) {
-        isUserSupplied = true;
-      }
-      inputCredentials = credentials;
-      const memoizedProvider = normalizeCredentialProvider(config, {
-        credentials: inputCredentials,
-        credentialDefaultProvider: config.credentialDefaultProvider,
-      });
-      const boundProvider = bindCallerConfig(config, memoizedProvider);
-      if (isUserSupplied && !boundProvider.attributed) {
-        // Check if the original input was a credential object
-        const isCredentialObject = typeof inputCredentials === "object" && inputCredentials !== null;
-
-        resolvedCredentials = async (options: Record<string, any> | undefined) => {
-          const creds = await boundProvider(options);
-          const attributedCreds = creds as AttributedAwsCredentialIdentity;
-
-          // Only set CREDENTIALS_CODE if user provided a credential object and no source attribution exists
-          if (isCredentialObject && (!attributedCreds.$source || Object.keys(attributedCreds.$source).length === 0)) {
-            return setCredentialFeature(attributedCreds, "CREDENTIALS_CODE", "e");
-          }
-          return attributedCreds;
-        };
-        resolvedCredentials.memoized = boundProvider.memoized;
-        resolvedCredentials.configBound = boundProvider.configBound;
-        resolvedCredentials.attributed = true;
-      } else {
-        resolvedCredentials = boundProvider;
-      }
-    },
-    get(): AwsSdkSigV4AuthResolvedConfig["credentials"] {
-      return resolvedCredentials!;
-    },
-    enumerable: true,
-    configurable: true,
-  });
-
-  // invoke setter so that resolvedCredentials is set.
-  config.credentials = inputCredentials;
-
-  // Populate sigv4 arguments
-  const {
-    // Default for signingEscapePath
-    signingEscapePath = true,
-    // Default for systemClockOffset
-    systemClockOffset = config.systemClockOffset || 0,
-    // No default for sha256 since it is platform dependent
-    sha256,
-  } = config;
-
-  // Resolve signer
-  let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
-  if (config.signer) {
-    // if signer is supplied by user, normalize it to a function returning a promise for signer.
-    signer = normalizeProvider(config.signer);
-  } else if (config.regionInfoProvider) {
-    // This branch is for endpoints V1.
-    // construct a provider inferring signing from region.
-    signer = () =>
-      normalizeProvider(config.region)()
-        .then(
-          async (region) =>
-            [
-              (await config.regionInfoProvider!(region, {
-                useFipsEndpoint: await config.useFipsEndpoint(),
-                useDualstackEndpoint: await config.useDualstackEndpoint(),
-              })) || {},
-              region,
-            ] as [RegionInfo, string]
-        )
-        .then(([regionInfo, region]) => {
-          const { signingRegion, signingService } = regionInfo;
-          // update client's singing region and signing service config if they are resolved.
-          // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
-          config.signingRegion = config.signingRegion || signingRegion || region;
-          // signing name resolving order:
-          // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
-          config.signingName = config.signingName || signingService || config.serviceId;
-
-          const params: SignatureV4Init & SignatureV4CryptoInit = {
-            ...config,
-            credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
-            region: config.signingRegion,
-            service: config.signingName,
-            sha256,
-            uriEscapePath: signingEscapePath,
-          };
-          const SignerCtor = config.signerConstructor || SignatureV4;
-          return new SignerCtor(params);
+    Object.defineProperty(config, "credentials", {
+      set(credentials: AwsSdkSigV4AuthInputConfig["credentials"]) {
+        if (credentials && credentials !== inputCredentials && credentials !== resolvedCredentials) {
+          isUserSupplied = true;
+        }
+        inputCredentials = credentials;
+        const memoizedProvider = normalizeCredentialProvider(config, {
+          credentials: inputCredentials,
+          credentialDefaultProvider: config.credentialDefaultProvider,
         });
-  } else {
-    // This branch is for endpoints V2.
-    // Handle endpoints v2 that resolved per-command
-    // TODO: need total refactor for reference auth architecture.
-    signer = async (authScheme?: AuthScheme) => {
-      authScheme = Object.assign(
-        {},
-        {
-          name: "sigv4",
-          signingName: config.signingName || config.defaultSigningName!,
-          signingRegion: await normalizeProvider(config.region)(),
-          properties: {},
-        },
-        authScheme
-      );
+        const boundProvider = bindCallerConfig(config, memoizedProvider);
+        if (isUserSupplied && !boundProvider.attributed) {
+          // Check if the original input was a credential object
+          const isCredentialObject = typeof inputCredentials === "object" && inputCredentials !== null;
 
-      const signingRegion = authScheme.signingRegion;
-      const signingService = authScheme.signingName;
-      // update client's singing region and signing service config if they are resolved.
-      // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
-      config.signingRegion = config.signingRegion || signingRegion;
-      // signing name resolving order:
-      // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
-      config.signingName = config.signingName || signingService || config.serviceId;
+          resolvedCredentials = async (options: Record<string, any> | undefined) => {
+            const creds = await boundProvider(options);
+            const attributedCreds = creds as AttributedAwsCredentialIdentity;
 
-      const params: SignatureV4Init & SignatureV4CryptoInit = {
-        ...config,
-        credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
-        region: config.signingRegion,
-        service: config.signingName,
-        sha256,
-        uriEscapePath: signingEscapePath,
+            // Only set CREDENTIALS_CODE if user provided a credential object and no source attribution exists
+            if (isCredentialObject && (!attributedCreds.$source || Object.keys(attributedCreds.$source).length === 0)) {
+              return setCredentialFeature(attributedCreds, "CREDENTIALS_CODE", "e");
+            }
+            return attributedCreds;
+          };
+          resolvedCredentials.memoized = boundProvider.memoized;
+          resolvedCredentials.configBound = boundProvider.configBound;
+          resolvedCredentials.attributed = true;
+        } else {
+          resolvedCredentials = boundProvider;
+        }
+      },
+      get(): AwsSdkSigV4AuthResolvedConfig["credentials"] {
+        return resolvedCredentials!;
+      },
+      enumerable: true,
+      configurable: true,
+    });
+
+    // invoke setter so that resolvedCredentials is set.
+    config.credentials = inputCredentials;
+
+    // Populate sigv4 arguments
+    const {
+      // Default for signingEscapePath
+      signingEscapePath = true,
+      // Default for systemClockOffset
+      systemClockOffset = config.systemClockOffset || 0,
+      // No default for sha256 since it is platform dependent
+      sha256,
+    } = config;
+
+    // Resolve signer
+    let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
+    if (config.signer) {
+      // if signer is supplied by user, normalize it to a function returning a promise for signer.
+      signer = normalizeProvider(config.signer);
+    } else if (config.regionInfoProvider) {
+      // This branch is for endpoints V1.
+      // construct a provider inferring signing from region.
+      signer = () =>
+        normalizeProvider(config.region)()
+          .then(
+            async (region) =>
+              [
+                (await config.regionInfoProvider!(region, {
+                  useFipsEndpoint: await config.useFipsEndpoint(),
+                  useDualstackEndpoint: await config.useDualstackEndpoint(),
+                })) || {},
+                region,
+              ] as [RegionInfo, string]
+          )
+          .then(([regionInfo, region]) => {
+            const { signingRegion, signingService } = regionInfo;
+            // update client's singing region and signing service config if they are resolved.
+            // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+            config.signingRegion = config.signingRegion || signingRegion || region;
+            // signing name resolving order:
+            // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+            config.signingName = config.signingName || signingService || config.serviceId;
+
+            const params: SignatureV4Init & SignatureV4CryptoInit = {
+              ...config,
+              credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
+              region: config.signingRegion,
+              service: config.signingName,
+              sha256,
+              uriEscapePath: signingEscapePath,
+            };
+            const SignerCtor = config.signerConstructor || SignatureV4;
+            return new SignerCtor(params);
+          });
+    } else {
+      // This branch is for endpoints V2.
+      // Handle endpoints v2 that resolved per-command
+      // TODO: need total refactor for reference auth architecture.
+      signer = async (authScheme?: AuthScheme) => {
+        authScheme = Object.assign(
+          {},
+          {
+            name: "sigv4",
+            signingName: config.signingName || config.defaultSigningName!,
+            signingRegion: await normalizeProvider(config.region)(),
+            properties: {},
+          },
+          authScheme
+        );
+
+        const signingRegion = authScheme.signingRegion;
+        const signingService = authScheme.signingName;
+        // update client's singing region and signing service config if they are resolved.
+        // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
+        config.signingRegion = config.signingRegion || signingRegion;
+        // signing name resolving order:
+        // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+        config.signingName = config.signingName || signingService || config.serviceId;
+
+        const params: SignatureV4Init & SignatureV4CryptoInit = {
+          ...config,
+          credentials: config.credentials as AwsSdkSigV4AuthResolvedConfig["credentials"],
+          region: config.signingRegion,
+          service: config.signingName,
+          sha256,
+          uriEscapePath: signingEscapePath,
+        };
+
+        const SignerCtor = config.signerConstructor || SignatureV4;
+        return new SignerCtor(params);
       };
+    }
 
-      const SignerCtor = config.signerConstructor || SignatureV4;
-      return new SignerCtor(params);
+    const resolvedConfig = Object.assign(config, {
+      systemClockOffset,
+      signingEscapePath,
+      signer,
+      disableClockSkewCorrection: normalizeProvider(
+        config.disableClockSkewCorrection ?? defaultDisableClockSkewCorrection
+      ),
+    });
+
+    return resolvedConfig as typeof resolvedConfig & {
+      // this was set earlier with Object.defineProperty.
+      credentials: AwsSdkSigV4AuthResolvedConfig["credentials"];
     };
-  }
-
-  const resolvedConfig = Object.assign(config, {
-    systemClockOffset,
-    signingEscapePath,
-    signer,
-    disableClockSkewCorrection: normalizeProvider(
-      config.disableClockSkewCorrection ?? DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION
-    ),
-  });
-
-  return resolvedConfig as typeof resolvedConfig & {
-    // this was set earlier with Object.defineProperty.
-    credentials: AwsSdkSigV4AuthResolvedConfig["credentials"];
   };
-};
 
 /**
  * @internal
@@ -308,21 +309,22 @@ export interface AWSSDKSigV4PreviouslyResolved extends AwsSdkSigV4PreviouslyReso
 export interface AWSSDKSigV4AuthResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {}
 
 /**
+ * @deprecated renamed to {@link bindResolveAwsSdkSigV4Config}
+ *
  * @internal
- * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
  */
-export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;
+export const resolveAWSSDKSigV4Config = bindResolveAwsSdkSigV4Config;
 
 /**
  * Normalizes the credentials to a memoized provider and sets memoized=true on the function
  * object. This prevents multiple layering of the memoization process.
  */
 function normalizeCredentialProvider(
-  config: Parameters<typeof resolveAwsSdkSigV4Config>[0],
+  config: AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
   {
     credentials,
     credentialDefaultProvider,
-  }: Pick<Parameters<typeof resolveAwsSdkSigV4Config>[0], "credentials" | "credentialDefaultProvider">
+  }: Pick<AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved, "credentials" | "credentialDefaultProvider">
 ): AwsSdkSigV4AuthResolvedConfig["credentials"] {
   let credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined;
 
@@ -360,7 +362,7 @@ function normalizeCredentialProvider(
  * Uses a state marker on the function to avoid doing this more than once.
  */
 function bindCallerConfig(
-  config: Parameters<typeof resolveAwsSdkSigV4Config>[0],
+  config: AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
   credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"]
 ): AwsSdkSigV4AuthResolvedConfig["credentials"] {
   if (credentialsProvider.configBound) {

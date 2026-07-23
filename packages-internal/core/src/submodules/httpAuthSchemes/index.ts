@@ -6,7 +6,7 @@ export {
   NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
   resolveAwsSdkSigV4AConfig,
   NODE_SIGV4A_CONFIG_OPTIONS,
-  resolveAwsSdkSigV4Config,
+  bindResolveAwsSdkSigV4Config,
   resolveAWSSDKSigV4Config,
 } from "./aws_sdk";
 export type {
@@ -22,3 +22,8 @@ export type {
   AWSSDKSigV4AuthResolvedConfig,
 } from "./aws_sdk";
 export { getBearerTokenEnvKey } from "./utils/getBearerTokenEnvKey";
+
+import { bindResolveAwsSdkSigV4Config } from "./aws_sdk";
+import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./aws_sdk/clock-skew-defaults";
+
+export const resolveAwsSdkSigV4Config = bindResolveAwsSdkSigV4Config(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION);
