@@ -1330,6 +1330,20 @@
                 "smithy.api#output": {}
             }
         },
+        "com.amazonaws.gameliftstreams#DisplayConfiguration": {
+            "type": "structure",
+            "members": {
+                "Resolution": {
+                    "target": "com.amazonaws.gameliftstreams#Resolution",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The resolution to apply to the stream session's virtual monitor. When specified, this value overrides the default resolution of 1920 × 1080.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The virtual monitor settings for a stream session, including the resolution. If not specified, the stream session uses the default resolution of 1920 × 1080.</p>"
+            }
+        },
         "com.amazonaws.gameliftstreams#EnvironmentVariables": {
             "type": "map",
             "key": {
@@ -2683,6 +2697,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>"
                     }
+                },
+                "DisplayConfiguration": {
+                    "target": "com.amazonaws.gameliftstreams#DisplayConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration for the stream session's virtual monitor.</p>"
+                    }
                 }
             },
             "traits": {
@@ -3651,6 +3671,46 @@
                 "target": "com.amazonaws.gameliftstreams#ReplicationStatus"
             }
         },
+        "com.amazonaws.gameliftstreams#Resolution": {
+            "type": "structure",
+            "members": {
+                "Width": {
+                    "target": "com.amazonaws.gameliftstreams#ResolutionWidth",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The width of the stream session's virtual monitor, in pixels. The value must be an even number.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "Height": {
+                    "target": "com.amazonaws.gameliftstreams#ResolutionHeight",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The height of the stream session's virtual monitor, in pixels. The value must be an even number.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Contains the width and height dimensions, in pixels, that define the resolution of the stream session's virtual monitor. The total number of pixels (width × height) must not exceed 2,073,600 (equivalent to 1920 × 1080).</p>"
+            }
+        },
+        "com.amazonaws.gameliftstreams#ResolutionHeight": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 320,
+                    "max": 4096
+                }
+            }
+        },
+        "com.amazonaws.gameliftstreams#ResolutionWidth": {
+            "type": "integer",
+            "traits": {
+                "smithy.api#range": {
+                    "min": 320,
+                    "max": 4096
+                }
+            }
+        },
         "com.amazonaws.gameliftstreams#ResourceNotFoundException": {
             "type": "structure",
             "members": {
@@ -3913,6 +3973,12 @@
                     "traits": {
                         "smithy.api#documentation": "<p>The ARN of an AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on your behalf during the stream session. The role grants Amazon GameLift Streams permission to obtain temporary credentials for your application. The role's trust policy must allow the <code>gameliftstreams.amazonaws.com</code> service principal to assume it. The role name must start with <code>GameLiftStreams-</code>.</p>"
                     }
+                },
+                "DisplayConfiguration": {
+                    "target": "com.amazonaws.gameliftstreams#DisplayConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration for the stream session's virtual monitor, including the resolution settings.</p> <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>"
+                    }
                 }
             },
             "traits": {
@@ -4052,6 +4118,12 @@
                     "target": "com.amazonaws.gameliftstreams#IamRoleArn",
                     "traits": {
                         "smithy.api#documentation": "<p>The ARN of the AWS Identity and Access Management (IAM) role that Amazon GameLift Streams assumes on behalf of your application during the stream session.</p>"
+                    }
+                },
+                "DisplayConfiguration": {
+                    "target": "com.amazonaws.gameliftstreams#DisplayConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration for the stream session's virtual monitor.</p>"
                     }
                 }
             },

@@ -41,6 +41,7 @@ import {
   DisassociateApplicationsCommand,
   DisassociateApplicationsInput$,
   DisassociateApplicationsOutput$,
+  DisplayConfiguration$,
   ExportFilesMetadata$,
   ExportFilesStatus,
   ExportStreamSessionFiles$,
@@ -97,6 +98,7 @@ import {
   RemoveStreamGroupLocationsInput$,
   ReplicationStatus$,
   ReplicationStatusType,
+  Resolution$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   RuntimeEnvironment$,
@@ -227,6 +229,7 @@ assert(typeof DeleteApplicationInput$ === "object");
 assert(typeof DeleteStreamGroupInput$ === "object");
 assert(typeof DisassociateApplicationsInput$ === "object");
 assert(typeof DisassociateApplicationsOutput$ === "object");
+assert(typeof DisplayConfiguration$ === "object");
 assert(typeof ExportFilesMetadata$ === "object");
 assert(typeof ExportStreamSessionFilesInput$ === "object");
 assert(typeof ExportStreamSessionFilesOutput$ === "object");
@@ -251,6 +254,7 @@ assert(typeof LocationState$ === "object");
 assert(typeof PerformanceStatsConfiguration$ === "object");
 assert(typeof RemoveStreamGroupLocationsInput$ === "object");
 assert(typeof ReplicationStatus$ === "object");
+assert(typeof Resolution$ === "object");
 assert(typeof RuntimeEnvironment$ === "object");
 assert(typeof StartStreamSessionInput$ === "object");
 assert(typeof StartStreamSessionOutput$ === "object");

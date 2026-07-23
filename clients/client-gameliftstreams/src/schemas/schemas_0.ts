@@ -45,6 +45,7 @@ const _DAIi = "DisassociateApplicationsInput";
 const _DAO = "DisassociateApplicationsOutput";
 const _DAe = "DeleteApplication";
 const _DAi = "DisassociateApplications";
+const _DC = "DisplayConfiguration";
 const _DSG = "DeleteStreamGroup";
 const _DSGI = "DeleteStreamGroupInput";
 const _EA = "ExpiresAt";
@@ -63,6 +64,7 @@ const _GSGO = "GetStreamGroupOutput";
 const _GSS = "GetStreamSession";
 const _GSSI = "GetStreamSessionInput";
 const _GSSO = "GetStreamSessionOutput";
+const _H = "Height";
 const _I = "Identifier";
 const _IC = "IdleCapacity";
 const _ICB = "Ipv4CidrBlocks";
@@ -103,6 +105,7 @@ const _ODC = "OnDemandCapacity";
 const _OU = "OutputUri";
 const _P = "Protocol";
 const _PSC = "PerformanceStatsConfiguration";
+const _R = "Resolution";
 const _RA = "RoleArn";
 const _RAe = "ResourceArn";
 const _RC = "RequestedCapacity";
@@ -160,6 +163,7 @@ const _VE = "ValidationException";
 const _VI = "VpcId";
 const _VTC = "VpcTransitConfiguration";
 const _VTCR = "VpcTransitConfigurationResponse";
+const _W = "Width";
 const _WSPU = "WebSdkProtocolUrl";
 const _c = "client";
 const _e = "error";
@@ -351,6 +355,11 @@ export var DisassociateApplicationsOutput$: StaticStructureSchema = [3, n0, _DAO
   [_A, _AA],
   [0, 64 | 0]
 ];
+export var DisplayConfiguration$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_R],
+  [() => Resolution$]
+];
 export var ExportFilesMetadata$: StaticStructureSchema = [3, n0, _EFM,
   0,
   [_S, _SRt, _OU],
@@ -393,8 +402,8 @@ export var GetStreamSessionInput$: StaticStructureSchema = [3, n0, _GSSI,
 ];
 export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0]]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$]
 ];
 export var ListApplicationsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -471,6 +480,11 @@ export var ReplicationStatus$: StaticStructureSchema = [3, n0, _RSe,
   [_Lo, _S],
   [0, 0]
 ];
+export var Resolution$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_W, _H],
+  [1, 1], 2
+];
 export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_Ty, _V],
@@ -478,13 +492,13 @@ export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
 ];
 export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
   0,
-  [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC, _RA],
-  [[0, 1], 0, [() => SignalRequest, 0], 0, [0, 4], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, [() => IamRoleArn, 0]], 4
+  [_I, _P, _SR, _AIp, _CT, _D, _UI, _L, _CTS, _SLS, _ALA, _AEV, _PSC, _RA, _DC],
+  [[0, 1], 0, [() => SignalRequest, 0], 0, [0, 4], 0, 0, 64 | 0, 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, [() => IamRoleArn, 0], () => DisplayConfiguration$], 4
 ];
 export var StartStreamSessionOutput$: StaticStructureSchema = [3, n0, _SSSO,
   0,
-  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA],
-  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0]]
+  [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC],
+  [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$]
 ];
 export var StreamGroupSummary$: StaticStructureSchema = [3, n0, _SGS,
   0,

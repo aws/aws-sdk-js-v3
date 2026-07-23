@@ -55,6 +55,12 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  *     SharedWithClient: true || false,
  *   },
  *   RoleArn: "STRING_VALUE",
+ *   DisplayConfiguration: { // DisplayConfiguration
+ *     Resolution: { // Resolution
+ *       Width: Number("int"), // required
+ *       Height: Number("int"), // required
+ *     },
+ *   },
  * };
  * const command = new StartStreamSessionCommand(input);
  * const response = await client.send(command);
@@ -91,6 +97,12 @@ export interface StartStreamSessionCommandOutput extends StartStreamSessionOutpu
  * //     OutputUri: "STRING_VALUE",
  * //   },
  * //   RoleArn: "STRING_VALUE",
+ * //   DisplayConfiguration: { // DisplayConfiguration
+ * //     Resolution: { // Resolution
+ * //       Width: Number("int"), // required
+ * //       Height: Number("int"), // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

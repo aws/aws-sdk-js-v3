@@ -997,6 +997,36 @@ export interface DisassociateApplicationsOutput {
 }
 
 /**
+ * <p>Contains the width and height dimensions, in pixels, that define the resolution of the stream session's virtual monitor. The total number of pixels (width × height) must not exceed 2,073,600 (equivalent to 1920 × 1080).</p>
+ * @public
+ */
+export interface Resolution {
+  /**
+   * <p>The width of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
+   * @public
+   */
+  Width: number | undefined;
+
+  /**
+   * <p>The height of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
+   * @public
+   */
+  Height: number | undefined;
+}
+
+/**
+ * <p>The virtual monitor settings for a stream session, including the resolution. If not specified, the stream session uses the default resolution of 1920 × 1080.</p>
+ * @public
+ */
+export interface DisplayConfiguration {
+  /**
+   * <p>The resolution to apply to the stream session's virtual monitor. When specified, this value overrides the default resolution of 1920 × 1080.</p>
+   * @public
+   */
+  Resolution?: Resolution | undefined;
+}
+
+/**
  * <p>Provides details about the stream session's exported files. </p>
  * @public
  */
@@ -1212,6 +1242,12 @@ export interface GetStreamSessionOutput {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>The configuration for the stream session's virtual monitor.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
 }
 
 /**
@@ -1510,6 +1546,12 @@ export interface StartStreamSessionInput {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>The configuration for the stream session's virtual monitor, including the resolution settings.</p> <p>If not specified, Amazon GameLift Streams uses the default resolution of 1920 × 1080.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
 }
 
 /**
@@ -1647,6 +1689,12 @@ export interface StartStreamSessionOutput {
    * @public
    */
   RoleArn?: string | undefined;
+
+  /**
+   * <p>The configuration for the stream session's virtual monitor.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
 }
 
 /**

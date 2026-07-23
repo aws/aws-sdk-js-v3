@@ -71,6 +71,12 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionOutput, _
  * //     OutputUri: "STRING_VALUE",
  * //   },
  * //   RoleArn: "STRING_VALUE",
+ * //   DisplayConfiguration: { // DisplayConfiguration
+ * //     Resolution: { // Resolution
+ * //       Width: Number("int"), // required
+ * //       Height: Number("int"), // required
+ * //     },
+ * //   },
  * // };
  *
  * ```
