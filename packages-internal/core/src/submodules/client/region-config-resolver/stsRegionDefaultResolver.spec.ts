@@ -8,10 +8,13 @@ describe("stsRegionDefaultResolver", () => {
   for (const impl of [stsRegionDefaultResolver, native, browser]) {
     it(`should default to us-east-1`, async () => {
       delete process.env.AWS_REGION;
+      // Skip IMDS so the test reaches the us-east-1 fallback deterministically.
+      process.env.AWS_EC2_METADATA_DISABLED = "true";
       const regionProvider = impl({
         profile: "non-existent P R O F I L E",
       });
       const region = await regionProvider();
+      delete process.env.AWS_EC2_METADATA_DISABLED;
       expect(region).toBe("us-east-1");
     });
   }

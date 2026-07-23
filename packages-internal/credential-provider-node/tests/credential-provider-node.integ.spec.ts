@@ -1599,10 +1599,9 @@ describe("credential-provider-node integration test", () => {
       }).rejects.toThrow("Region is missing");
     });
 
-    it("nested STS client uses its us-east-1 fallback instead of IMDS", async () => {
-      // The nested STS client (stsRegionDefaultResolver) overrides the region
-      // chain's default with us-east-1, so it never reaches the IMDS step —
-      // unlike direct client instantiation. See credential-providers README.
+    it("should use IMDS region for the nested STS client before the us-east-1 fallback", async () => {
+      // The nested STS client (stsRegionDefaultResolver) tries IMDSv2 before
+      // falling back to us-east-1.
       delete process.env.AWS_REGION;
       delete process.env.AWS_EC2_METADATA_DISABLED;
       setIniProfileData({
@@ -1625,7 +1624,7 @@ describe("credential-provider-node integration test", () => {
           secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         })
       );
-      expect(credentials.sessionToken).toContain("us-east-1");
+      expect(credentials.sessionToken).toContain("ap-southeast-1");
     });
   });
 
@@ -1702,6 +1701,8 @@ describe("credential-provider-node integration test", () => {
     describe("uses a variant of the default region resolution where us-east-1 is the last resort", async () => {
       it("no env or profile region", async () => {
         delete process.env.AWS_REGION;
+        // IMDS is tried before the us-east-1 fallback; disable it here to test the fallback itself.
+        process.env.AWS_EC2_METADATA_DISABLED = "true";
         setIniProfileData({
           assume: {
             aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
