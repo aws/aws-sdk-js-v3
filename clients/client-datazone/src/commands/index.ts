@@ -163,6 +163,7 @@ export * from "./StartMetadataGenerationRunCommand";
 export * from "./StartNotebookExportCommand";
 export * from "./StartNotebookImportCommand";
 export * from "./StartNotebookRunCommand";
+export * from "./StartNotebookSyncCommand";
 export * from "./StopNotebookRunCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

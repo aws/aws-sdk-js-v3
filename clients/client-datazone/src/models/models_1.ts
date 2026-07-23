@@ -41,6 +41,7 @@ import type {
   ProjectStatus,
   ResolutionStrategy,
   RuleAction,
+  RuleScopeSelectionMode,
   RuleTargetType,
   RuleType,
   SelfGrantStatus,
@@ -97,6 +98,7 @@ import type {
   EnvironmentDeploymentDetails,
   FormInput,
   FormOutput,
+  GitMetadata,
   MatchRationaleItem,
   Member,
   Model,
@@ -106,7 +108,6 @@ import type {
   PolicyGrantDetail,
   PolicyGrantPrincipal,
   ProjectDeletionError,
-  ProjectsForRule,
   ProvisioningProperties,
   RecommendationConfiguration,
   Resource,
@@ -121,6 +122,24 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>Specifies projects in which the rule is created.</p>
+ * @public
+ */
+export interface ProjectsForRule {
+  /**
+   * <p>The selection mode of the rule.</p>
+   * @public
+   */
+  selectionMode: RuleScopeSelectionMode | undefined;
+
+  /**
+   * <p>The specific projects in which the rule is created.</p>
+   * @public
+   */
+  specificProjects?: string[] | undefined;
+}
 
 /**
  * <p>The scope of a rule.</p>
@@ -10875,6 +10894,12 @@ export interface GetNotebookOutput {
    * @public
    */
   error?: NotebookError | undefined;
+
+  /**
+   * <p>The Git metadata associated with the notebook.</p>
+   * @public
+   */
+  gitMetadata?: GitMetadata | undefined;
 }
 
 /**
@@ -11189,6 +11214,12 @@ export interface UpdateNotebookOutput {
    * @public
    */
   error?: NotebookError | undefined;
+
+  /**
+   * <p>The Git metadata associated with the notebook.</p>
+   * @public
+   */
+  gitMetadata?: GitMetadata | undefined;
 }
 
 /**
@@ -11428,21 +11459,4 @@ export interface StartNotebookExportOutput {
    * @public
    */
   createdBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetNotebookRunInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook run.</p>
-   * @public
-   */
-  identifier: string | undefined;
 }

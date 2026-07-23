@@ -38,7 +38,7 @@ export interface ListNotebooksCommandOutput extends ListNotebooksOutput, __Metad
  *   maxResults: Number("int"),
  *   sortOrder: "ASCENDING" || "DESCENDING",
  *   sortBy: "CREATED_AT" || "UPDATED_AT",
- *   status: "ACTIVE" || "ARCHIVED",
+ *   status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED",
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListNotebooksCommand(input);
@@ -50,7 +50,7 @@ export interface ListNotebooksCommandOutput extends ListNotebooksOutput, __Metad
  * //       name: "STRING_VALUE", // required
  * //       owningProjectId: "STRING_VALUE", // required
  * //       domainId: "STRING_VALUE", // required
- * //       status: "ACTIVE" || "ARCHIVED", // required
+ * //       status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED", // required
  * //       description: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       createdBy: "STRING_VALUE",

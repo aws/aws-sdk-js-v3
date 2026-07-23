@@ -503,6 +503,10 @@ import type {
   StartNotebookImportCommandOutput,
 } from "./commands/StartNotebookImportCommand";
 import type { StartNotebookRunCommandInput, StartNotebookRunCommandOutput } from "./commands/StartNotebookRunCommand";
+import type {
+  StartNotebookSyncCommandInput,
+  StartNotebookSyncCommandOutput,
+} from "./commands/StartNotebookSyncCommand";
 import type { StopNotebookRunCommandInput, StopNotebookRunCommandOutput } from "./commands/StopNotebookRunCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -749,6 +753,7 @@ export type ServiceInputTypes =
   | StartNotebookExportCommandInput
   | StartNotebookImportCommandInput
   | StartNotebookRunCommandInput
+  | StartNotebookSyncCommandInput
   | StopNotebookRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -943,6 +948,7 @@ export type ServiceOutputTypes =
   | StartNotebookExportCommandOutput
   | StartNotebookImportCommandOutput
   | StartNotebookRunCommandOutput
+  | StartNotebookSyncCommandOutput
   | StopNotebookRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

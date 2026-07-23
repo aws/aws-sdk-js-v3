@@ -169,10 +169,11 @@ const _CI = "CellInformation";
 const _CLCS = "CreateListingChangeSet";
 const _CLCSI = "CreateListingChangeSetInput";
 const _CLCSO = "CreateListingChangeSetOutput";
-const _CM = "CredentialMap";
+const _CM = "CommitMessage";
 const _CMGR = "CancelMetadataGenerationRun";
 const _CMGRI = "CancelMetadataGenerationRunInput";
 const _CMGRO = "CancelMetadataGenerationRunOutput";
+const _CMr = "CredentialMap";
 const _CN = "CreateNotebook";
 const _CNI = "CreateNotebookInput";
 const _CNO = "CreateNotebookOutput";
@@ -414,6 +415,7 @@ const _GAPO = "GetAccountPoolOutput";
 const _GAT = "GetAssetType";
 const _GATI = "GetAssetTypeInput";
 const _GATO = "GetAssetTypeOutput";
+const _GB = "GitBranch";
 const _GC = "GlueConnection";
 const _GCI = "GetConnectionInput";
 const _GCIl = "GlueConnectionInput";
@@ -489,6 +491,7 @@ const _GLN = "GetLineageNode";
 const _GLNI = "GetLineageNodeInput";
 const _GLNO = "GetLineageNodeOutput";
 const _GLO = "GetListingOutput";
+const _GM = "GitMetadata";
 const _GMGR = "GetMetadataGenerationRun";
 const _GMGRI = "GetMetadataGenerationRunInput";
 const _GMGRO = "GetMetadataGenerationRunOutput";
@@ -516,11 +519,12 @@ const _GPPO = "GetProjectProfileOutput";
 const _GPPe = "GetProjectProfile";
 const _GPS = "GroupProfileSummary";
 const _GPSr = "GroupProfileSummaries";
-const _GR = "GetRule";
+const _GR = "GitRepository";
 const _GRCI = "GlueRunConfigurationInput";
 const _GRCO = "GlueRunConfigurationOutput";
 const _GRI = "GetRuleInput";
 const _GRO = "GetRuleOutput";
+const _GRe = "GetRule";
 const _GS = "GetSubscription";
 const _GSG = "GetSubscriptionGrant";
 const _GSGI = "GetSubscriptionGrantInput";
@@ -929,6 +933,9 @@ const _SNRIt = "StopNotebookRunInput";
 const _SNRO = "StartNotebookRunOutput";
 const _SNROt = "StopNotebookRunOutput";
 const _SNRt = "StopNotebookRun";
+const _SNS = "StartNotebookSync";
+const _SNSI = "StartNotebookSyncInput";
+const _SNSO = "StartNotebookSyncOutput";
 const _SO = "SearchOutput";
 const _SP = "SubscribedProject";
 const _SPI = "S3PropertiesInput";
@@ -1143,6 +1150,7 @@ const _ar = "arn";
 const _as = "assets";
 const _at = "attributes";
 const _au = "auth";
+const _b = "branch";
 const _bAC = "basicAuthenticationCredentials";
 const _bNG = "businessNameGeneration";
 const _bT = "beforeTimestamp";
@@ -1154,7 +1162,8 @@ const _cAPH = "customAccountPoolHandler";
 const _cAT = "createAssetType";
 const _cAl = "clusterArn";
 const _cAo = "completedAt";
-const _cAom = "computeArn";
+const _cAom = "committedAt";
+const _cAomp = "computeArn";
 const _cB = "createdBy";
 const _cC = "connectionCredentials";
 const _cCE = "compatibleComputeEnvironments";
@@ -1169,9 +1178,11 @@ const _cEr = "createEnvironment";
 const _cF = "cloudFormation";
 const _cFT = "createFormType";
 const _cG = "createGlossary";
+const _cH = "commitHash";
 const _cI = "connectionId";
 const _cIo = "connectionIdentifier";
 const _cIom = "computeId";
+const _cM = "commitMessage";
 const _cN = "columnName";
 const _cNa = "catalogName";
 const _cNl = "clusterName";
@@ -1307,7 +1318,8 @@ const _fF = "fileFormat";
 const _fI = "filterIds";
 const _fIo = "formsInput";
 const _fN = "formNames";
-const _fNi = "firstName";
+const _fNi = "fileName";
+const _fNir = "firstName";
 const _fNo = "formName";
 const _fO = "formsOutput";
 const _fR = "failureReasons";
@@ -1338,6 +1350,7 @@ const _gIra = "grantIdentifier";
 const _gIro = "groupId";
 const _gL = "grantList";
 const _gLSE = "glueLineageSyncEnabled";
+const _gM = "gitMetadata";
 const _gN = "groupName";
 const _gP = "globalParameters";
 const _gPI = "groupProfileId";
@@ -1610,6 +1623,7 @@ const _rTu = "ruleType";
 const _rU = "redirectUri";
 const _re = "recommendation";
 const _reg = "region";
+const _rep = "repository";
 const _req = "required";
 const _res = "resource";
 const _ro = "role";
@@ -1857,6 +1871,7 @@ var AccountPoolName: StaticSimpleSchema = [0, n0, _APN, 8, 0];
 var ActionLink: StaticSimpleSchema = [0, n0, _AL, 8, 0];
 var AssetName: StaticSimpleSchema = [0, n0, _AN, 8, 0];
 var AwsAccountName: StaticSimpleSchema = [0, n0, _AAN, 8, 0];
+var CommitMessage: StaticSimpleSchema = [0, n0, _CM, 8, 0];
 var DataProductDescription: StaticSimpleSchema = [0, n0, _DPD, 8, 0];
 var DataProductName: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
 var DecisionComment: StaticSimpleSchema = [0, n0, _DC, 8, 0];
@@ -1873,6 +1888,8 @@ var EnvironmentProfileName: StaticSimpleSchema = [0, n0, _EPN, 8, 0];
 var FilterName: StaticSimpleSchema = [0, n0, _FN, 8, 0];
 var FirstName: StaticSimpleSchema = [0, n0, _FNi, 8, 0];
 var FormTypeName: StaticSimpleSchema = [0, n0, _FTN, 8, 0];
+var GitBranch: StaticSimpleSchema = [0, n0, _GB, 8, 0];
+var GitRepository: StaticSimpleSchema = [0, n0, _GR, 8, 0];
 var GlossaryDescription: StaticSimpleSchema = [0, n0, _GD, 8, 0];
 var GlossaryName: StaticSimpleSchema = [0, n0, _GN, 8, 0];
 var GlossaryTermName: StaticSimpleSchema = [0, n0, _GTN, 8, 0];
@@ -2504,8 +2521,8 @@ export var CreateNotebookInput$: StaticStructureSchema = [3, n0, _CNI,
 ];
 export var CreateNotebookOutput$: StaticStructureSchema = [3, n0, _CNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var CreateProjectFromProjectProfilePolicyGrantDetail$: StaticStructureSchema = [3, n0, _CPFPPPGD,
   0,
@@ -3404,8 +3421,8 @@ export var GetNotebookInput$: StaticStructureSchema = [3, n0, _GNI,
 ];
 export var GetNotebookOutput$: StaticStructureSchema = [3, n0, _GNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var GetNotebookRunInput$: StaticStructureSchema = [3, n0, _GNRI,
   0,
@@ -3506,6 +3523,11 @@ export var GetUserProfileOutput$: StaticStructureSchema = [3, n0, _GUPO,
   0,
   [_dIo, _id, _ty, _st, _det],
   [0, 0, 0, 0, [() => UserProfileDetails$, 0]]
+];
+export var GitMetadata$: StaticStructureSchema = [3, n0, _GM,
+  0,
+  [_cI, _rep, _b, _cH, _fNi, _cAom, _cM],
+  [0, [() => GitRepository, 0], [() => GitBranch, 0], 0, 0, 4, [() => CommitMessage, 0]], 4
 ];
 export var GlossaryItem$: StaticStructureSchema = [3, n0, _GI,
   0,
@@ -4694,17 +4716,17 @@ export var SnowflakePropertiesPatch$: StaticStructureSchema = [3, n0, _SPPn,
 ];
 export var SparkEmrPropertiesInput$: StaticStructureSchema = [3, n0, _SEPI,
   0,
-  [_cAom, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
+  [_cAomp, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SparkEmrPropertiesOutput$: StaticStructureSchema = [3, n0, _SEPO,
   0,
-  [_cAom, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cD, _mEA, _mEC],
+  [_cAomp, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cD, _mEA, _mEC],
   [0, [() => UsernamePassword$, 0], 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => ManagedEndpointCredentials$, 0]]
 ];
 export var SparkEmrPropertiesPatch$: StaticStructureSchema = [3, n0, _SEPP,
   0,
-  [_cAom, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
+  [_cAomp, _iPA, _jVE, _lU, _pVE, _rRu, _tCSU, _mEA],
   [0, 0, 0, 0, 0, 0, 0, 0]
 ];
 export var SparkGlueArgs$: StaticStructureSchema = [3, n0, _SGA,
@@ -4724,7 +4746,7 @@ export var SparkGluePropertiesOutput$: StaticStructureSchema = [3, n0, _SGPOp,
 ];
 export var SsoUserProfileDetails$: StaticStructureSchema = [3, n0, _SUPD,
   0,
-  [_us, _fNi, _lN],
+  [_us, _fNir, _lN],
   [[() => UserProfileName, 0], [() => FirstName, 0], [() => LastName, 0]]
 ];
 export var StartDataSourceRunInput$: StaticStructureSchema = [3, n0, _SDSRI,
@@ -4776,6 +4798,16 @@ export var StartNotebookRunOutput$: StaticStructureSchema = [3, n0, _SNRO,
   0,
   [_id, _dIo, _oPI, _nI, _st, _sIc, _cO, _me, _par, _cCo, _nC, _tC, _eC, _sC, _tSr, _e, _cA, _cB, _uA, _uB, _sAt, _cAo],
   [0, 0, 0, 0, 0, 0, () => CellOrder, [() => Metadata, 0], [() => _Parameters, 0], () => ComputeConfig$, () => NetworkConfig$, () => TimeoutConfig$, () => EnvironmentConfig$, () => StorageConfig$, () => TriggerSource$, () => NotebookRunError$, 4, 0, 4, 0, 4, 4], 5
+];
+export var StartNotebookSyncInput$: StaticStructureSchema = [3, n0, _SNSI,
+  0,
+  [_dI, _oPIw, _sLo, _gM, _nI, _n, _de, _cT],
+  [[0, 1], 0, [() => SourceLocation$, 0], [() => GitMetadata$, 0], 0, [() => NotebookName, 0], [() => Description, 0], [0, 4]], 3
+];
+export var StartNotebookSyncOutput$: StaticStructureSchema = [3, n0, _SNSO,
+  0,
+  [_nI, _st, _dIo, _oPI, _sLo, _gM, _n, _de, _cA, _cB],
+  [0, 0, 0, 0, [() => SourceLocation$, 0], [() => GitMetadata$, 0], [() => NotebookName, 0], [() => Description, 0], 4, 0]
 ];
 export var StopNotebookRunInput$: StaticStructureSchema = [3, n0, _SNRIt,
   0,
@@ -5084,8 +5116,8 @@ export var UpdateNotebookInput$: StaticStructureSchema = [3, n0, _UNI,
 ];
 export var UpdateNotebookOutput$: StaticStructureSchema = [3, n0, _UNO,
   0,
-  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e],
-  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$], 6
+  [_id, _n, _oPI, _dIo, _cO, _st, _de, _cA, _cB, _uA, _uB, _lB, _lA, _lEA, _cIom, _me, _par, _eC, _e, _gM],
+  [0, [() => NotebookName, 0], 0, 0, () => CellOrder, 0, [() => Description, 0], 4, 0, 4, 0, 0, 4, 4, 0, [() => Metadata, 0], [() => _Parameters, 0], () => EnvironmentConfig$, () => NotebookError$, [() => GitMetadata$, 0]], 6
 ];
 export var UpdateProjectInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
@@ -5621,7 +5653,7 @@ var UserProfileSummaries: StaticListSchema = [1, n0, _UPSs,
 ];
 var VpcConnectionSubnetIdList = 64 | 0;
 var ConnectionProperties = 128 | 0;
-var CredentialMap: StaticMapSchema = [2, n0, _CM,
+var CredentialMap: StaticMapSchema = [2, n0, _CMr,
   8, 0, 0
 ];
 var EnvironmentFailureReasons: StaticMapSchema = [2, n0, _EFR,
@@ -6219,7 +6251,7 @@ export var GetProject$: StaticOperationSchema = [9, n0, _GP,
 export var GetProjectProfile$: StaticOperationSchema = [9, n0, _GPPe,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/project-profiles/{identifier}", 200] }, () => GetProjectProfileInput$, () => GetProjectProfileOutput$
 ];
-export var GetRule$: StaticOperationSchema = [9, n0, _GR,
+export var GetRule$: StaticOperationSchema = [9, n0, _GRe,
   { [_ht]: ["GET", "/v2/domains/{domainIdentifier}/rules/{identifier}", 200] }, () => GetRuleInput$, () => GetRuleOutput$
 ];
 export var GetSubscription$: StaticOperationSchema = [9, n0, _GS,
@@ -6404,6 +6436,9 @@ export var StartNotebookImport$: StaticOperationSchema = [9, n0, _SNI,
 ];
 export var StartNotebookRun$: StaticOperationSchema = [9, n0, _SNR,
   { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/notebook-runs", 201] }, () => StartNotebookRunInput$, () => StartNotebookRunOutput$
+];
+export var StartNotebookSync$: StaticOperationSchema = [9, n0, _SNS,
+  { [_ht]: ["POST", "/v2/domains/{domainIdentifier}/notebook-syncs", 201] }, () => StartNotebookSyncInput$, () => StartNotebookSyncOutput$
 ];
 export var StopNotebookRun$: StaticOperationSchema = [9, n0, _SNRt,
   { [_ht]: ["PUT", "/v2/domains/{domainIdentifier}/notebook-runs/{identifier}/stop", 200] }, () => StopNotebookRunInput$, () => StopNotebookRunOutput$

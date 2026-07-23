@@ -593,6 +593,7 @@ import {
   GetUserProfileCommand,
   GetUserProfileInput$,
   GetUserProfileOutput$,
+  GitMetadata$,
   GlossaryItem$,
   GlossaryItemAdditionalAttributes$,
   GlossaryStatus,
@@ -1088,6 +1089,10 @@ import {
   StartNotebookRunCommand,
   StartNotebookRunInput$,
   StartNotebookRunOutput$,
+  StartNotebookSync$,
+  StartNotebookSyncCommand,
+  StartNotebookSyncInput$,
+  StartNotebookSyncOutput$,
   Status,
   StopNotebookRun$,
   StopNotebookRunCommand,
@@ -1590,6 +1595,8 @@ assert(typeof StartNotebookImportCommand === "function");
 assert(typeof StartNotebookImport$ === "object");
 assert(typeof StartNotebookRunCommand === "function");
 assert(typeof StartNotebookRun$ === "object");
+assert(typeof StartNotebookSyncCommand === "function");
+assert(typeof StartNotebookSync$ === "object");
 assert(typeof StopNotebookRunCommand === "function");
 assert(typeof StopNotebookRun$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -1976,6 +1983,7 @@ assert(typeof GetTimeSeriesDataPointInput$ === "object");
 assert(typeof GetTimeSeriesDataPointOutput$ === "object");
 assert(typeof GetUserProfileInput$ === "object");
 assert(typeof GetUserProfileOutput$ === "object");
+assert(typeof GitMetadata$ === "object");
 assert(typeof GlossaryItem$ === "object");
 assert(typeof GlossaryItemAdditionalAttributes$ === "object");
 assert(typeof GlossaryTermEnforcementDetail$ === "object");
@@ -2263,6 +2271,8 @@ assert(typeof StartNotebookImportInput$ === "object");
 assert(typeof StartNotebookImportOutput$ === "object");
 assert(typeof StartNotebookRunInput$ === "object");
 assert(typeof StartNotebookRunOutput$ === "object");
+assert(typeof StartNotebookSyncInput$ === "object");
+assert(typeof StartNotebookSyncOutput$ === "object");
 assert(typeof StopNotebookRunInput$ === "object");
 assert(typeof StopNotebookRunOutput$ === "object");
 assert(typeof StorageConfig$ === "object");

@@ -818,6 +818,14 @@ export const NotebookStatus = {
    * <p>The notebook is archived.</p>
    */
   ARCHIVED: "ARCHIVED",
+  /**
+   * <p>The notebook sync failed.</p>
+   */
+  SYNC_FAILED: "SYNC_FAILED",
+  /**
+   * <p>The notebook sync is in progress.</p>
+   */
+  SYNC_IN_PROGRESS: "SYNC_IN_PROGRESS",
 } as const;
 /**
  * @public

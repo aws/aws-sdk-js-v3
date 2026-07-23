@@ -799,6 +799,11 @@ import {
   StartNotebookRunCommand,
 } from "./commands/StartNotebookRunCommand";
 import {
+  type StartNotebookSyncCommandInput,
+  type StartNotebookSyncCommandOutput,
+  StartNotebookSyncCommand,
+} from "./commands/StartNotebookSyncCommand";
+import {
   type StopNotebookRunCommandInput,
   type StopNotebookRunCommandOutput,
   StopNotebookRunCommand,
@@ -1132,6 +1137,7 @@ const commands = {
   StartNotebookExportCommand,
   StartNotebookImportCommand,
   StartNotebookRunCommand,
+  StartNotebookSyncCommand,
   StopNotebookRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -3989,6 +3995,23 @@ export interface DataZone {
     args: StartNotebookRunCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartNotebookRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartNotebookSyncCommand}
+   */
+  startNotebookSync(
+    args: StartNotebookSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartNotebookSyncCommandOutput>;
+  startNotebookSync(
+    args: StartNotebookSyncCommandInput,
+    cb: (err: any, data?: StartNotebookSyncCommandOutput) => void
+  ): void;
+  startNotebookSync(
+    args: StartNotebookSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartNotebookSyncCommandOutput) => void
   ): void;
 
   /**

@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartNotebookImportInput, StartNotebookImportOutput } from "../models/models_2";
-import { StartNotebookImport$ } from "../schemas/schemas_0";
+import type { StartNotebookSyncInput, StartNotebookSyncOutput } from "../models/models_2";
+import { StartNotebookSync$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,58 +12,77 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link StartNotebookImportCommand}.
+ * The input for {@link StartNotebookSyncCommand}.
  */
-export interface StartNotebookImportCommandInput extends StartNotebookImportInput {}
+export interface StartNotebookSyncCommandInput extends StartNotebookSyncInput {}
 /**
  * @public
  *
- * The output of {@link StartNotebookImportCommand}.
+ * The output of {@link StartNotebookSyncCommand}.
  */
-export interface StartNotebookImportCommandOutput extends StartNotebookImportOutput, __MetadataBearer {}
+export interface StartNotebookSyncCommandOutput extends StartNotebookSyncOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a notebook import in Amazon SageMaker Unified Studio. This operation imports a notebook from an Amazon Simple Storage Service location into a project.</p>
+ * <p>Starts a notebook sync in Amazon SageMaker Unified Studio. This operation syncs a notebook from a Git repository into a project.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DataZoneClient, StartNotebookImportCommand } from "@aws-sdk/client-datazone"; // ES Modules import
- * // const { DataZoneClient, StartNotebookImportCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
+ * import { DataZoneClient, StartNotebookSyncCommand } from "@aws-sdk/client-datazone"; // ES Modules import
+ * // const { DataZoneClient, StartNotebookSyncCommand } = require("@aws-sdk/client-datazone"); // CommonJS import
  * // import type { DataZoneClientConfig } from "@aws-sdk/client-datazone";
  * const config = {}; // type is DataZoneClientConfig
  * const client = new DataZoneClient(config);
- * const input = { // StartNotebookImportInput
+ * const input = { // StartNotebookSyncInput
  *   domainIdentifier: "STRING_VALUE", // required
  *   owningProjectIdentifier: "STRING_VALUE", // required
  *   sourceLocation: { // SourceLocation Union: only one key present
  *     s3: "STRING_VALUE",
  *   },
- *   name: "STRING_VALUE", // required
+ *   gitMetadata: { // GitMetadata
+ *     connectionId: "STRING_VALUE", // required
+ *     repository: "STRING_VALUE", // required
+ *     branch: "STRING_VALUE", // required
+ *     commitHash: "STRING_VALUE", // required
+ *     fileName: "STRING_VALUE",
+ *     committedAt: new Date("TIMESTAMP"),
+ *     commitMessage: "STRING_VALUE",
+ *   },
+ *   notebookId: "STRING_VALUE",
+ *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
- * const command = new StartNotebookImportCommand(input);
+ * const command = new StartNotebookSyncCommand(input);
  * const response = await client.send(command);
- * // { // StartNotebookImportOutput
+ * // { // StartNotebookSyncOutput
  * //   notebookId: "STRING_VALUE",
  * //   status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED",
  * //   domainId: "STRING_VALUE",
  * //   owningProjectId: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   description: "STRING_VALUE",
  * //   sourceLocation: { // SourceLocation Union: only one key present
  * //     s3: "STRING_VALUE",
  * //   },
+ * //   gitMetadata: { // GitMetadata
+ * //     connectionId: "STRING_VALUE", // required
+ * //     repository: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     commitHash: "STRING_VALUE", // required
+ * //     fileName: "STRING_VALUE",
+ * //     committedAt: new Date("TIMESTAMP"),
+ * //     commitMessage: "STRING_VALUE",
+ * //   },
+ * //   name: "STRING_VALUE",
+ * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param StartNotebookImportCommandInput - {@link StartNotebookImportCommandInput}
- * @returns {@link StartNotebookImportCommandOutput}
- * @see {@link StartNotebookImportCommandInput} for command's `input` shape.
- * @see {@link StartNotebookImportCommandOutput} for command's `response` shape.
+ * @param StartNotebookSyncCommandInput - {@link StartNotebookSyncCommandInput}
+ * @returns {@link StartNotebookSyncCommandOutput}
+ * @see {@link StartNotebookSyncCommandInput} for command's `input` shape.
+ * @see {@link StartNotebookSyncCommandOutput} for command's `response` shape.
  * @see {@link DataZoneClientResolvedConfig | config} for DataZoneClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -96,21 +115,21 @@ export interface StartNotebookImportCommandOutput extends StartNotebookImportOut
  *
  * @public
  */
-export class StartNotebookImportCommand extends command<StartNotebookImportCommandInput, StartNotebookImportCommandOutput>(
+export class StartNotebookSyncCommand extends command<StartNotebookSyncCommandInput, StartNotebookSyncCommandOutput>(
   _ep0,
   _mw0,
-  "StartNotebookImport",
-  StartNotebookImport$
+  "StartNotebookSync",
+  StartNotebookSync$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: StartNotebookImportInput;
-      output: StartNotebookImportOutput;
+      input: StartNotebookSyncInput;
+      output: StartNotebookSyncOutput;
     };
     sdk: {
-      input: StartNotebookImportCommandInput;
-      output: StartNotebookImportCommandOutput;
+      input: StartNotebookSyncCommandInput;
+      output: StartNotebookSyncCommandOutput;
     };
   };
 }

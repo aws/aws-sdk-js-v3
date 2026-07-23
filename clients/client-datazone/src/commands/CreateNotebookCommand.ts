@@ -55,7 +55,7 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * //   cellOrder: [ // CellOrder // required
  * //     {},
  * //   ],
- * //   status: "ACTIVE" || "ARCHIVED", // required
+ * //   status: "ACTIVE" || "ARCHIVED" || "SYNC_IN_PROGRESS" || "SYNC_FAILED", // required
  * //   description: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"),
  * //   createdBy: "STRING_VALUE",
@@ -80,6 +80,15 @@ export interface CreateNotebookCommandOutput extends CreateNotebookOutput, __Met
  * //   },
  * //   error: { // NotebookError
  * //     message: "STRING_VALUE", // required
+ * //   },
+ * //   gitMetadata: { // GitMetadata
+ * //     connectionId: "STRING_VALUE", // required
+ * //     repository: "STRING_VALUE", // required
+ * //     branch: "STRING_VALUE", // required
+ * //     commitHash: "STRING_VALUE", // required
+ * //     fileName: "STRING_VALUE",
+ * //     committedAt: new Date("TIMESTAMP"),
+ * //     commitMessage: "STRING_VALUE",
  * //   },
  * // };
  *

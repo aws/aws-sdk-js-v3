@@ -69,6 +69,7 @@ import type {
   EnvironmentParameter,
   FormEntryOutput,
   FormOutput,
+  GitMetadata,
   MatchRationaleItem,
   Model,
   OwnerProperties,
@@ -99,6 +100,23 @@ import type {
   SubscriptionTargetForm,
   TimeSeriesDataPointFormOutput,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetNotebookRunInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which the notebook run exists.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the notebook run.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
 
 /**
  * <p>The error details of a failed notebook run in Amazon SageMaker Unified Studio.</p>
@@ -2897,6 +2915,124 @@ export interface StartNotebookImportOutput {
 
   /**
    * <p>The identifier of the user who started the notebook import.</p>
+   * @public
+   */
+  createdBy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookSyncInput {
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to sync the notebook.</p>
+   * @public
+   */
+  domainIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier of the project that will own the synced notebook.</p>
+   * @public
+   */
+  owningProjectIdentifier: string | undefined;
+
+  /**
+   * <p>The source location of the notebook to sync. This specifies the Amazon Simple Storage Service URI of the notebook file.</p>
+   * @public
+   */
+  sourceLocation: SourceLocation | undefined;
+
+  /**
+   * <p>The Git metadata for the notebook sync, including repository, branch, and commit information.</p>
+   * @public
+   */
+  gitMetadata?: GitMetadata | undefined;
+
+  /**
+   * <p>The identifier of an existing notebook to sync. If not specified, a new notebook is created.</p>
+   * @public
+   */
+  notebookId?: string | undefined;
+
+  /**
+   * <p>The name of the notebook. The name must be between 1 and 256 characters.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartNotebookSyncOutput {
+  /**
+   * <p>The identifier of the synced notebook.</p>
+   * @public
+   */
+  notebookId?: string | undefined;
+
+  /**
+   * <p>The status of the notebook sync.</p>
+   * @public
+   */
+  status?: NotebookStatus | undefined;
+
+  /**
+   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
+   * @public
+   */
+  domainId?: string | undefined;
+
+  /**
+   * <p>The identifier of the project that owns the synced notebook.</p>
+   * @public
+   */
+  owningProjectId?: string | undefined;
+
+  /**
+   * <p>The source location from which the notebook was synced.</p>
+   * @public
+   */
+  sourceLocation?: SourceLocation | undefined;
+
+  /**
+   * <p>The Git metadata associated with the synced notebook.</p>
+   * @public
+   */
+  gitMetadata?: GitMetadata | undefined;
+
+  /**
+   * <p>The name of the synced notebook.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The description of the synced notebook.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the notebook sync was started.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the user who started the notebook sync.</p>
    * @public
    */
   createdBy?: string | undefined;

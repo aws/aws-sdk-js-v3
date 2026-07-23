@@ -10891,6 +10891,54 @@ export interface NotebookError {
 }
 
 /**
+ * <p>The Git metadata for a notebook sync operation in Amazon SageMaker Unified Studio. Contains information about the Git repository, branch, and commit associated with the notebook.</p>
+ * @public
+ */
+export interface GitMetadata {
+  /**
+   * <p>The identifier of the Git connection.</p>
+   * @public
+   */
+  connectionId: string | undefined;
+
+  /**
+   * <p>The name of the Git repository.</p>
+   * @public
+   */
+  repository: string | undefined;
+
+  /**
+   * <p>The name of the Git branch.</p>
+   * @public
+   */
+  branch: string | undefined;
+
+  /**
+   * <p>The commit hash in the Git repository.</p>
+   * @public
+   */
+  commitHash: string | undefined;
+
+  /**
+   * <p>The name of the file in the Git repository.</p>
+   * @public
+   */
+  fileName?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the commit was made.</p>
+   * @public
+   */
+  committedAt?: Date | undefined;
+
+  /**
+   * <p>The commit message associated with the Git commit.</p>
+   * @public
+   */
+  commitMessage?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateNotebookOutput {
@@ -11007,6 +11055,12 @@ export interface CreateNotebookOutput {
    * @public
    */
   error?: NotebookError | undefined;
+
+  /**
+   * <p>The Git metadata associated with the notebook.</p>
+   * @public
+   */
+  gitMetadata?: GitMetadata | undefined;
 }
 
 /**
@@ -11826,22 +11880,4 @@ export namespace RuleDetail {
     glossaryTermEnforcementDetail: (value: GlossaryTermEnforcementDetail) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>Specifies projects in which the rule is created.</p>
- * @public
- */
-export interface ProjectsForRule {
-  /**
-   * <p>The selection mode of the rule.</p>
-   * @public
-   */
-  selectionMode: RuleScopeSelectionMode | undefined;
-
-  /**
-   * <p>The specific projects in which the rule is created.</p>
-   * @public
-   */
-  specificProjects?: string[] | undefined;
 }

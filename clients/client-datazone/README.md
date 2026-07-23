@@ -1329,6 +1329,13 @@ StartNotebookRun
 </details>
 <details>
 <summary>
+StartNotebookSync
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/datazone/command/StartNotebookSyncCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartNotebookSyncCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-datazone/Interface/StartNotebookSyncCommandOutput/)
+</details>
+<details>
+<summary>
 StopNotebookRun
 </summary>
 
