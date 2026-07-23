@@ -266,31 +266,94 @@ Cg==
       }
     },
     {
-      ResourceNotFoundException: {}
+      ResourceNotFoundException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ResourceNotFoundException",
+        message: "Unknown"
+      }
     },
     {
-      ResourceInUseException: {}
+      ResourceInUseException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ResourceInUseException",
+        message: "Unknown"
+      }
     },
     {
-      KMSDisabledException: {}
+      KMSDisabledException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSDisabledException",
+        message: "Unknown"
+      }
     },
     {
-      KMSInvalidStateException: {}
+      KMSInvalidStateException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSInvalidStateException",
+        message: "Unknown"
+      }
     },
     {
-      KMSAccessDeniedException: {}
+      KMSAccessDeniedException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSAccessDeniedException",
+        message: "Unknown"
+      }
     },
     {
-      KMSNotFoundException: {}
+      KMSNotFoundException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSNotFoundException",
+        message: "Unknown"
+      }
     },
     {
-      KMSOptInRequired: {}
+      KMSOptInRequired: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSOptInRequired",
+        message: "Unknown"
+      }
     },
     {
-      KMSThrottlingException: {}
+      KMSThrottlingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSThrottlingException",
+        message: "Unknown"
+      }
     },
     {
-      InternalFailureException: {}
+      InternalFailureException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalFailureException",
+        message: "Unknown"
+      }
     }
   ],
   $metadata: {
@@ -590,46 +653,91 @@ Cg==
     },
     {
       ResourceNotFoundException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ResourceNotFoundException",
         message: "__message__"
       }
     },
     {
       ResourceInUseException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ResourceInUseException",
         message: "__message__"
       }
     },
     {
       KMSDisabledException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSDisabledException",
         message: "__message__"
       }
     },
     {
       KMSInvalidStateException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSInvalidStateException",
         message: "__message__"
       }
     },
     {
       KMSAccessDeniedException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSAccessDeniedException",
         message: "__message__"
       }
     },
     {
       KMSNotFoundException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSNotFoundException",
         message: "__message__"
       }
     },
     {
       KMSOptInRequired: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSOptInRequired",
         message: "__message__"
       }
     },
     {
       KMSThrottlingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "KMSThrottlingException",
         message: "__message__"
       }
     },
     {
       InternalFailureException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalFailureException",
         message: "__message__"
       }
     }

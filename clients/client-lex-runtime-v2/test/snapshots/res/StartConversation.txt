@@ -2280,41 +2280,81 @@ Cg==
     },
     {
       AccessDeniedException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "AccessDeniedException",
         message: "__message__"
       }
     },
     {
       ResourceNotFoundException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ResourceNotFoundException",
         message: "__message__"
       }
     },
     {
       ValidationException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ValidationException",
         message: "__message__"
       }
     },
     {
       ThrottlingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ThrottlingException",
         message: "__message__"
       }
     },
     {
       InternalServerException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalServerException",
         message: "__message__"
       }
     },
     {
       ConflictException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ConflictException",
         message: "__message__"
       }
     },
     {
       DependencyFailedException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "DependencyFailedException",
         message: "__message__"
       }
     },
     {
       BadGatewayException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "BadGatewayException",
         message: "__message__"
       }
     }

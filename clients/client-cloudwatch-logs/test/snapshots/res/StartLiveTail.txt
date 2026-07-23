@@ -190,11 +190,21 @@ Cg==
     },
     {
       SessionTimeoutException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "SessionTimeoutException",
         message: "__message__"
       }
     },
     {
       SessionStreamingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "SessionStreamingException",
         message: "__message__"
       }
     }

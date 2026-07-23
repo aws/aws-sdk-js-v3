@@ -365,10 +365,10 @@ const compareEquivalentUnknownTypeBodies = (
   expectedBody: string,
   generatedBody: string | Uint8Array
 ): Object => {
-  const expectedParts = {Value: expectedBody};
+  const expectedParts = { Value: expectedBody };
   const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
   };
 
   return compareParts(expectedParts, generatedParts);
-}
+};

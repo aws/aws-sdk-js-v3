@@ -151,27 +151,57 @@ Cg==
     },
     {
       BadRequestException: {
-        Message: "__Message__"
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "BadRequestException",
+        Message: "__Message__",
+        message: "__Message__"
       }
     },
     {
       LimitExceededException: {
-        Message: "__Message__"
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "LimitExceededException",
+        Message: "__Message__",
+        message: "__Message__"
       }
     },
     {
       InternalFailureException: {
-        Message: "__Message__"
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalFailureException",
+        Message: "__Message__",
+        message: "__Message__"
       }
     },
     {
       ConflictException: {
-        Message: "__Message__"
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ConflictException",
+        Message: "__Message__",
+        message: "__Message__"
       }
     },
     {
       ServiceUnavailableException: {
-        Message: "__Message__"
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ServiceUnavailableException",
+        Message: "__Message__",
+        message: "__Message__"
       }
     }
   ],

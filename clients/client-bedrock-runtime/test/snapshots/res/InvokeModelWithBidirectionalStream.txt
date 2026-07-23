@@ -102,22 +102,66 @@ Cg==
       chunk: {}
     },
     {
-      internalServerException: {}
+      internalServerException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalServerException",
+        message: "Unknown"
+      }
     },
     {
-      modelStreamErrorException: {}
+      modelStreamErrorException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ModelStreamErrorException",
+        originalStatusCode: (undefined),
+        originalMessage: (undefined),
+        message: "Unknown"
+      }
     },
     {
-      validationException: {}
+      validationException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ValidationException",
+        message: "Unknown"
+      }
     },
     {
-      throttlingException: {}
+      throttlingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ThrottlingException",
+        message: "Unknown"
+      }
     },
     {
-      modelTimeoutException: {}
+      modelTimeoutException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ModelTimeoutException",
+        message: "Unknown"
+      }
     },
     {
-      serviceUnavailableException: {}
+      serviceUnavailableException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ServiceUnavailableException",
+        message: "Unknown"
+      }
     }
   ],
   $metadata: {
@@ -253,33 +297,63 @@ Cg==
     },
     {
       internalServerException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalServerException",
         message: "__message__"
       }
     },
     {
       modelStreamErrorException: {
-        message: "__message__",
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ModelStreamErrorException",
         originalStatusCode: (number) 0,
-        originalMessage: "__originalMessage__"
+        originalMessage: "__originalMessage__",
+        message: "__message__"
       }
     },
     {
       validationException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ValidationException",
         message: "__message__"
       }
     },
     {
       throttlingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ThrottlingException",
         message: "__message__"
       }
     },
     {
       modelTimeoutException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ModelTimeoutException",
         message: "__message__"
       }
     },
     {
       serviceUnavailableException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ServiceUnavailableException",
         message: "__message__"
       }
     }

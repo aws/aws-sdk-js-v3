@@ -43,7 +43,7 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/core": "^3.29.4",
+    "@smithy/core": "^3.29.8",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

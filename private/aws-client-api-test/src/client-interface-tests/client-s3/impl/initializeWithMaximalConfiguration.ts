@@ -57,6 +57,7 @@ export const initializeWithMaximalConfiguration = () => {
     region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     credentials: defaultProvider({}),
     endpoint: "endpoint",
+    ignoreConfiguredEndpointUrls: true,
     cacheMiddleware: true,
     requestHandler: new NodeHttpHandler({
       httpsAgent: new https.Agent({
