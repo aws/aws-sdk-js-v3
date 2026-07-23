@@ -23,9 +23,7 @@ export interface GetHypervisorCommandInput extends GetHypervisorInput {}
 export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __MetadataBearer {}
 
 /**
- * <p>This action requests information about the specified hypervisor to which the gateway will connect.
- *       A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
- *       and allocates resources to them.</p>
+ * <p>This action requests information about the specified hypervisor to which the gateway will connect. A hypervisor is hardware, software, or firmware that creates and manages virtual machines, and allocates resources to them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,8 +66,7 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

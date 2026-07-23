@@ -91,16 +91,14 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ * <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name = "ThrottlingException" as const;
   readonly $fault = "client" as const;
   /**
-   * <p>Error: TPS has been limited to protect against intentional or unintentional
-   *       high request volumes.</p>
+   * <p>Error: TPS has been limited to protect against intentional or unintentional high request volumes.</p>
    * @public
    */
   ErrorCode: string | undefined;

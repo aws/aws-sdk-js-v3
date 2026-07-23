@@ -23,8 +23,7 @@ export interface AssociateGatewayToServerCommandInput extends AssociateGatewayTo
 export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayToServerOutput, __MetadataBearer {}
 
 /**
- * <p>Associates a backup gateway with your server. After you complete the association process,
- *       you can back up and restore your VMs through the gateway.</p>
+ * <p>Associates a backup gateway with your server. After you complete the association process, you can back up and restore your VMs through the gateway.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,8 +57,7 @@ export interface AssociateGatewayToServerCommandOutput extends AssociateGatewayT
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

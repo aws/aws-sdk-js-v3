@@ -23,13 +23,7 @@ export interface UpdateGatewaySoftwareNowCommandInput extends UpdateGatewaySoftw
 export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoftwareNowOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the gateway virtual machine (VM) software.
- *       The request immediately triggers the software update.</p>
- *          <note>
- *             <p>When you make this request, you get a <code>200 OK</code>
- *         success response immediately. However, it might take some
- *         time for the update to complete.</p>
- *          </note>
+ * <p>Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.</p> <note> <p>When you make this request, you get a <code>200 OK</code> success response immediately. However, it might take some time for the update to complete.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +56,7 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

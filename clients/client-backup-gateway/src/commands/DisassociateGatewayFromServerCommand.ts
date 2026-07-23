@@ -23,8 +23,7 @@ export interface DisassociateGatewayFromServerCommandInput extends DisassociateG
 export interface DisassociateGatewayFromServerCommandOutput extends DisassociateGatewayFromServerOutput, __MetadataBearer {}
 
 /**
- * <p>Disassociates a backup gateway from the specified server. After the disassociation process
- *       finishes, the gateway can no longer access the virtual machines on the server.</p>
+ * <p>Disassociates a backup gateway from the specified server. After the disassociation process finishes, the gateway can no longer access the virtual machines on the server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,8 +59,7 @@ export interface DisassociateGatewayFromServerCommandOutput extends Disassociate
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

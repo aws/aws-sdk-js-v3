@@ -23,9 +23,7 @@ export interface GetHypervisorPropertyMappingsCommandInput extends GetHypervisor
 export interface GetHypervisorPropertyMappingsCommandOutput extends GetHypervisorPropertyMappingsOutput, __MetadataBearer {}
 
 /**
- * <p>This action retrieves the property mappings for the specified hypervisor.
- *       A hypervisor property mapping displays the relationship of entity properties
- *       available from the hypervisor to the properties available in Amazon Web Services.</p>
+ * <p>This action retrieves the property mappings for the specified hypervisor. A hypervisor property mapping displays the relationship of entity properties available from the hypervisor to the properties available in Amazon Web Services.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,8 +65,7 @@ export interface GetHypervisorPropertyMappingsCommandOutput extends GetHyperviso
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

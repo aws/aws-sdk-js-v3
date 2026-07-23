@@ -6,15 +6,7 @@
 
 AWS SDK for JavaScript BackupGateway Client for Node.js, Browser and React Native.
 
-<fullname>Backup gateway</fullname>
-<p>Backup gateway connects Backup to your hypervisor, so you can
-create, store, and restore backups of your virtual machines (VMs) anywhere, whether
-on-premises or in the VMware Cloud (VMC) on Amazon Web Services.</p>
-<p>Add on-premises resources by connecting to a hypervisor through a gateway. Backup will automatically discover the resources in your hypervisor.</p>
-<p>Use Backup to assign virtual or on-premises resources to a backup plan, or run
-on-demand backups. Once you have backed up your resources, you can view them and restore them
-like any resource supported by Backup.</p>
-<p>To download the Amazon Web Services software to get started, navigate to the Backup console, choose <b>Gateways</b>, then choose <b>Create gateway</b>.</p>
+<fullname>Backup gateway</fullname> <p>Backup gateway connects Backup to your hypervisor, so you can create, store, and restore backups of your virtual machines (VMs) anywhere, whether on-premises or in the VMware Cloud (VMC) on Amazon Web Services.</p> <p>Add on-premises resources by connecting to a hypervisor through a gateway. Backup will automatically discover the resources in your hypervisor.</p> <p>Use Backup to assign virtual or on-premises resources to a backup plan, or run on-demand backups. Once you have backed up your resources, you can view them and restore them like any resource supported by Backup.</p> <p>To download the Amazon Web Services software to get started, navigate to the Backup console, choose <b>Gateways</b>, then choose <b>Create gateway</b>.</p>
 
 ## Installing
 
@@ -57,6 +49,45 @@ const client = new BackupGatewayClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
 const command = new ListGatewaysCommand(params);
+```
+
+#### Supported Message Protocols
+
+This client supports multiple protocols.
+
+The default for this client is **AWS JSON (RPC) 1.0**.
+
+We have selected this default based on our evaluation of the
+performance characteristics of this protocol format in JavaScript. You don't need to change it,
+but you have the option to do so, for example to support existing integrations or tests.
+Selecting a non-default protocol changes the format
+of the data sent over the network, but does not affect how you interact with the
+client using JavaScript objects.
+
+Install the `@aws-sdk/config` package to access alternate protocols.
+
+See [AWS Protocols](https://smithy.io/2.0/aws/protocols/index.html) for more information.
+
+##### AWS JSON (RPC) 1.0
+
+This protocol uses JSON payloads.
+```js
+import { AwsJson1_0Protocol } from "@aws-sdk/config/protocol";
+
+const client = new BackupGatewayClient({
+  protocol: AwsJson1_0Protocol
+});
+```
+
+##### Smithy RPC v2 CBOR
+
+This protocol uses CBOR payloads.
+```js
+import { AwsSmithyRpcV2CborProtocol } from "@aws-sdk/config/protocol";
+
+const client = new BackupGatewayClient({
+  protocol: AwsSmithyRpcV2CborProtocol
+});
 ```
 
 #### Async/await

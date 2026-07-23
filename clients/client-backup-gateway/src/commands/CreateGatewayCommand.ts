@@ -23,8 +23,7 @@ export interface CreateGatewayCommandInput extends CreateGatewayInput {}
 export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server
- *       using the <code>AssociateGatewayToServer</code> operation.</p>
+ * <p>Creates a backup gateway. After you create a gateway, you can associate it with a server using the <code>AssociateGatewayToServer</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +61,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayOutput, __Metad
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>

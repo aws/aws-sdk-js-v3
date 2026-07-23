@@ -23,9 +23,7 @@ export interface UpdateHypervisorCommandInput extends UpdateHypervisorInput {}
 export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a hypervisor metadata, including its host, username, and password. Specify which
- *       hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your
- *       request.</p>
+ * <p>Updates a hypervisor metadata, including its host, username, and password. Specify which hypervisor to update using the Amazon Resource Name (ARN) of the hypervisor in your request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,8 +67,7 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  *  <p>The operation did not succeed because an internal error occurred. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>TPS has been limited to protect against intentional or unintentional
- *     high request volumes.</p>
+ *  <p>TPS has been limited to protect against intentional or unintentional high request volumes.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation did not succeed because a validation error occurred.</p>
