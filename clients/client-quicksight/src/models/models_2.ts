@@ -9065,6 +9065,36 @@ export interface Capabilities {
   Extension?: CapabilityState | undefined;
 
   /**
+   * <p>The ability to use Amazon Quick through the browser extension for Chrome, Firefox, and Edge.</p>
+   * @public
+   */
+  UseBrowserExtension?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Amazon Quick through the Microsoft Word add-in.</p>
+   * @public
+   */
+  UseWordAddInExtension?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Amazon Quick through the Microsoft Outlook add-in.</p>
+   * @public
+   */
+  UseOutlookAddInExtension?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Amazon Quick through the Microsoft Excel add-in.</p>
+   * @public
+   */
+  UseExcelAddInExtension?: CapabilityState | undefined;
+
+  /**
+   * <p>The ability to use Amazon Quick through the Microsoft PowerPoint add-in.</p>
+   * @public
+   */
+  UsePowerpointAddInExtension?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to create, update, delete and view shared folders (both restricted and unrestricted), ability to add any asset to shared folders, and ability to share the folders.</p>
    *          <p>
    *             <b>Note:</b> This does <i>not</i> prevent inheriting access to assets that others share with them through folder membership.</p>
