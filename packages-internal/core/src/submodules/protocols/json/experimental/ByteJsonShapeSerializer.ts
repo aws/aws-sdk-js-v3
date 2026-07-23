@@ -67,8 +67,6 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
   private json: Uint8Array;
   private i = 0;
   private rootSchema: NormalizedSchema | undefined;
-  private readonly sizeHistory = new Uint32Array(20);
-  private sizeHistoryIndex = 0;
 
   public constructor(public readonly settings: JsonSettings) {
     super();
@@ -130,17 +128,14 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     const finalPosition = this.i;
     this.i = 0;
 
-    // Track the last 20 output sizes and keep sizeHistoryMax = max of those
-    this.sizeHistory[this.sizeHistoryIndex] = finalPosition;
-    this.sizeHistoryIndex = (this.sizeHistoryIndex + 1) % 20;
-    let max = INITIAL_BUFFER_SIZE;
-    for (let i = 0; i < 20; i++) {
-      if (this.sizeHistory[i] > max) max = this.sizeHistory[i];
-    }
-    if (this.json.byteLength < max) {
-      this.json = alloc(max);
-    }
-    return this.json.slice(0, finalPosition);
+    // Hand off the current buffer (subarray view) to the caller.
+    // Allocate a fresh buffer for the next write so the caller owns the data.
+    // Start small; ensure() will grow as needed during the next write().
+    // This was benchmarked to perform better overall than e.g.
+    // maintaining a larger buffer but copying out the bytes.
+    const result = this.json.subarray(0, finalPosition);
+    this.json = alloc(INITIAL_BUFFER_SIZE);
+    return result;
   }
 
   private ensure(byteCount: number): void {
