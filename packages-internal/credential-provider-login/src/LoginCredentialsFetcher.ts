@@ -1,6 +1,10 @@
 import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
-import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
-import { CredentialsProviderError, readFile } from "@smithy/core/config";
+import type {
+  AwsCredentialIdentity,
+  AwsIdentityProperties,
+  Logger,
+} from "@aws-sdk/types";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { HttpRequest } from "@smithy/core/protocols";
 import type {
   FinalizeHandler,
@@ -9,7 +13,12 @@ import type {
   IniSection,
   MetadataBearer,
 } from "@smithy/types";
-import { createHash, createPrivateKey, createPublicKey, sign } from "node:crypto";
+import {
+  createHash,
+  createPrivateKey,
+  createPublicKey,
+  sign,
+} from "node:crypto";
 import { promises as fs } from "node:fs";
 import { homedir } from "node:os";
 import { dirname, join } from "node:path";
@@ -26,8 +35,8 @@ export class LoginCredentialsFetcher {
   public constructor(
     private readonly profileData: IniSection,
     private readonly init?: FromLoginCredentialsInit,
-    private readonly callerClientConfig?: AwsIdentityProperties["callerClientConfig"]
-  ) {}
+    private readonly callerClientConfig?: AwsIdentityProperties["callerClientConfig"],
+  ) { }
 
   /**
    * Loads credentials and refreshes if necessary
@@ -38,7 +47,7 @@ export class LoginCredentialsFetcher {
     if (!token) {
       throw new CredentialsProviderError(
         `Failed to load a token for session ${this.loginSession}, please re-authenticate using aws login`,
-        { tryNextLink: false, logger: this.logger }
+        { tryNextLink: false, logger: this.logger },
       );
     }
 
@@ -70,7 +79,22 @@ export class LoginCredentialsFetcher {
   }
 
   private async refresh(token: LoginToken): Promise<AwsCredentialIdentity> {
-    const { SigninClient, CreateOAuth2TokenCommand } = await import("@aws-sdk/nested-clients/signin");
+    // first reload the token from disk to ensure the token hasn't already been refreshed externally.
+    const freshToken = await this.loadToken();
+    const freshExpiry = new Date(freshToken.accessToken.expiresAt).getTime();
+    if (freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
+      return {
+        accessKeyId: freshToken.accessToken.accessKeyId,
+        secretAccessKey: freshToken.accessToken.secretAccessKey,
+        sessionToken: freshToken.accessToken.sessionToken,
+        accountId: freshToken.accessToken.accountId,
+        expiration: new Date(freshToken.accessToken.expiresAt),
+      };
+    }
+
+    const { SigninClient, CreateOAuth2TokenCommand } = await import(
+      "@aws-sdk/nested-clients/signin"
+    );
 
     // Extract config from caller client
     const { logger, userAgentAppId } = this.callerClientConfig ?? {};
@@ -81,7 +105,10 @@ export class LoginCredentialsFetcher {
       ? undefined
       : this.callerClientConfig?.requestHandler;
 
-    const region = this.profileData.region ?? (await this.callerClientConfig?.region?.()) ?? process.env.AWS_REGION;
+    const region =
+      this.profileData.region ??
+      (await this.callerClientConfig?.region?.()) ??
+      process.env.AWS_REGION;
 
     const client = new SigninClient({
       credentials: {
@@ -100,32 +127,38 @@ export class LoginCredentialsFetcher {
 
     const commandInput: CreateOAuth2TokenCommandInput = {
       tokenInput: {
-        clientId: token.clientId,
-        refreshToken: token.refreshToken,
+        clientId: freshToken.clientId,
+        refreshToken: freshToken.refreshToken,
         grantType: "refresh_token",
       },
     };
 
     try {
-      const response = await client.send(new CreateOAuth2TokenCommand(commandInput));
+      const response = await client.send(
+        new CreateOAuth2TokenCommand(commandInput),
+      );
 
-      const { accessKeyId, secretAccessKey, sessionToken } = response.tokenOutput?.accessToken ?? {};
+      const { accessKeyId, secretAccessKey, sessionToken } =
+        response.tokenOutput?.accessToken ?? {};
       const { refreshToken, expiresIn } = response.tokenOutput ?? {};
 
       if (!accessKeyId || !secretAccessKey || !sessionToken || !refreshToken) {
-        throw new CredentialsProviderError("Token refresh response missing required fields", {
-          logger: this.logger,
-          tryNextLink: false,
-        });
+        throw new CredentialsProviderError(
+          "Token refresh response missing required fields",
+          {
+            logger: this.logger,
+            tryNextLink: false,
+          },
+        );
       }
 
       const expiresInMs = (expiresIn ?? 900) * 1000; // Default to 15 minutes in ms
       const expiration = new Date(Date.now() + expiresInMs);
 
       const updatedToken: LoginToken = {
-        ...token,
+        ...freshToken,
         accessToken: {
-          ...token.accessToken, // Preserve existing fields like accountId
+          ...freshToken.accessToken, // Preserve existing fields like accountId
           accessKeyId,
           secretAccessKey,
           sessionToken,
@@ -164,15 +197,22 @@ export class LoginCredentialsFetcher {
               "Unable to refresh credentials due to insufficient permissions. You may be missing permission for the 'CreateOAuth2Token' action.";
             break;
           default:
-            message = `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``;
+            message = `Failed to refresh token: ${String(
+              error,
+            )}. Please re-authenticate using \`aws login\``;
         }
 
-        throw new CredentialsProviderError(message, { logger: this.logger, tryNextLink: false });
+        throw new CredentialsProviderError(message, {
+          logger: this.logger,
+          tryNextLink: false,
+        });
       }
 
       throw new CredentialsProviderError(
-        `Failed to refresh token: ${String(error)}. Please re-authenticate using aws login`,
-        { logger: this.logger }
+        `Failed to refresh token: ${String(
+          error,
+        )}. Please re-authenticate using aws login`,
+        { logger: this.logger },
       );
     }
   }
@@ -180,32 +220,40 @@ export class LoginCredentialsFetcher {
   private async loadToken(): Promise<LoginToken> {
     const tokenFilePath = this.getTokenFilePath();
     try {
-      let tokenData: string;
-      try {
-        tokenData = await readFile(tokenFilePath, { ignoreCache: this.init?.ignoreCache });
-      } catch {
-        tokenData = await fs.readFile(tokenFilePath, "utf8");
-      }
+      const tokenData = await fs.readFile(tokenFilePath, "utf8");
       const token = JSON.parse(tokenData);
 
-      const missingFields = ["accessToken", "clientId", "refreshToken", "dpopKey"].filter((k) => !token[k]);
+      const missingFields = [
+        "accessToken",
+        "clientId",
+        "refreshToken",
+        "dpopKey",
+      ].filter((k) => !token[k]);
       if (!token.accessToken?.accountId) {
         missingFields.push("accountId");
       }
 
       if (missingFields.length > 0) {
-        throw new CredentialsProviderError(`Token validation failed, missing fields: ${missingFields.join(", ")}`, {
-          logger: this.logger,
-          tryNextLink: false,
-        });
+        throw new CredentialsProviderError(
+          `Token validation failed, missing fields: ${missingFields.join(
+            ", ",
+          )}`,
+          {
+            logger: this.logger,
+            tryNextLink: false,
+          },
+        );
       }
 
       return token;
     } catch (error) {
-      throw new CredentialsProviderError(`Failed to load token from ${tokenFilePath}: ${String(error)}`, {
-        logger: this.logger,
-        tryNextLink: false,
-      });
+      throw new CredentialsProviderError(
+        `Failed to load token from ${tokenFilePath}: ${String(error)}`,
+        {
+          logger: this.logger,
+          tryNextLink: false,
+        },
+      );
     }
   }
 
@@ -223,9 +271,13 @@ export class LoginCredentialsFetcher {
   }
 
   private getTokenFilePath(): string {
-    const directory = process.env.AWS_LOGIN_CACHE_DIRECTORY ?? join(homedir(), ".aws", "login", "cache");
+    const directory =
+      process.env.AWS_LOGIN_CACHE_DIRECTORY ??
+      join(homedir(), ".aws", "login", "cache");
     const loginSessionBytes = Buffer.from(this.loginSession, "utf8");
-    const loginSessionSha256 = createHash("sha256").update(loginSessionBytes).digest("hex");
+    const loginSessionSha256 = createHash("sha256")
+      .update(loginSessionBytes)
+      .digest("hex");
     return join(directory, `${loginSessionSha256}.json`);
   }
 
@@ -277,17 +329,23 @@ export class LoginCredentialsFetcher {
    */
   private createDPoPInterceptor(middlewareStack: any) {
     middlewareStack.add(
-      <Output extends MetadataBearer>(next: FinalizeHandler<any, Output>): FinalizeHandler<any, Output> =>
-        async (args: FinalizeHandlerArguments<any>): Promise<FinalizeHandlerOutput<Output>> => {
+      <Output extends MetadataBearer>(
+        next: FinalizeHandler<any, Output>,
+      ): FinalizeHandler<any, Output> =>
+        async (
+          args: FinalizeHandlerArguments<any>,
+        ): Promise<FinalizeHandlerOutput<Output>> => {
           if (HttpRequest.isInstance(args.request)) {
             const request = args.request as HttpRequest;
             // Extract the actual endpoint URL after resolution
-            const actualEndpoint = `${request.protocol}//${request.hostname}${request.port ? `:${request.port}` : ""}${
-              request.path
-            }`;
+            const actualEndpoint = `${request.protocol}//${request.hostname}${request.port ? `:${request.port}` : ""
+              }${request.path}`;
 
             // Generate DPoP proof with correct endpoint
-            const dpop = await this.generateDpop(request.method, actualEndpoint);
+            const dpop = await this.generateDpop(
+              request.method,
+              actualEndpoint,
+            );
 
             // Add the DPoP header
             request.headers = {
@@ -302,11 +360,14 @@ export class LoginCredentialsFetcher {
         step: "finalizeRequest",
         name: "dpopInterceptor",
         override: true,
-      }
+      },
     );
   }
 
-  private async generateDpop(method = "POST", endpoint?: string): Promise<string> {
+  private async generateDpop(
+    method = "POST",
+    endpoint?: string,
+  ): Promise<string> {
     const token = await this.loadToken();
 
     try {
@@ -349,8 +410,12 @@ export class LoginCredentialsFetcher {
         iat: Math.floor(Date.now() / 1000),
       };
 
-      const headerB64 = Buffer.from(JSON.stringify(header)).toString("base64url");
-      const payloadB64 = Buffer.from(JSON.stringify(payload)).toString("base64url");
+      const headerB64 = Buffer.from(JSON.stringify(header)).toString(
+        "base64url",
+      );
+      const payloadB64 = Buffer.from(JSON.stringify(payload)).toString(
+        "base64url",
+      );
       const message = `${headerB64}.${payloadB64}`;
 
       // Sign using Node.js crypto (returns ASN.1 DER format)
@@ -363,8 +428,9 @@ export class LoginCredentialsFetcher {
       return `${message}.${signatureB64}`;
     } catch (error) {
       throw new CredentialsProviderError(
-        `Failed to generate Dpop proof: ${error instanceof Error ? error.message : String(error)}`,
-        { logger: this.logger, tryNextLink: false }
+        `Failed to generate Dpop proof: ${error instanceof Error ? error.message : String(error)
+        }`,
+        { logger: this.logger, tryNextLink: false },
       );
     }
   }
