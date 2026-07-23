@@ -3,6 +3,8 @@ import {
   ActiveSessionsExceededException$,
   ActiveStatementsExceededException,
   ActiveStatementsExceededException$,
+  ActiveWaitingRequestsExceededException,
+  ActiveWaitingRequestsExceededException$,
   BatchExecuteStatement$,
   BatchExecuteStatementCommand,
   BatchExecuteStatementException,
@@ -30,6 +32,7 @@ import {
   ExecuteStatementException$,
   ExecuteStatementInput$,
   ExecuteStatementOutput$,
+  ExecutionMode,
   Field$,
   GetStatementResult$,
   GetStatementResultCommand,
@@ -49,6 +52,10 @@ import {
   ListSchemasCommand,
   ListSchemasRequest$,
   ListSchemasResponse$,
+  ListSessions$,
+  ListSessionsCommand,
+  ListSessionsRequest$,
+  ListSessionsResponse$,
   ListStatements$,
   ListStatementsCommand,
   ListStatementsRequest$,
@@ -62,6 +69,7 @@ import {
   paginateGetStatementResultV2,
   paginateListDatabases,
   paginateListSchemas,
+  paginateListSessions,
   paginateListStatements,
   paginateListTables,
   QueryRecords$,
@@ -73,6 +81,8 @@ import {
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ResultFormatString,
+  SessionData$,
+  SessionStatusString,
   SqlParameter$,
   StatementData$,
   StatementStatusString,
@@ -105,6 +115,8 @@ assert(typeof ListDatabasesCommand === "function");
 assert(typeof ListDatabases$ === "object");
 assert(typeof ListSchemasCommand === "function");
 assert(typeof ListSchemas$ === "object");
+assert(typeof ListSessionsCommand === "function");
+assert(typeof ListSessions$ === "object");
 assert(typeof ListStatementsCommand === "function");
 assert(typeof ListStatements$ === "object");
 assert(typeof ListTablesCommand === "function");
@@ -130,17 +142,22 @@ assert(typeof ListDatabasesRequest$ === "object");
 assert(typeof ListDatabasesResponse$ === "object");
 assert(typeof ListSchemasRequest$ === "object");
 assert(typeof ListSchemasResponse$ === "object");
+assert(typeof ListSessionsRequest$ === "object");
+assert(typeof ListSessionsResponse$ === "object");
 assert(typeof ListStatementsRequest$ === "object");
 assert(typeof ListStatementsResponse$ === "object");
 assert(typeof ListTablesRequest$ === "object");
 assert(typeof ListTablesResponse$ === "object");
 assert(typeof QueryRecords$ === "object");
+assert(typeof SessionData$ === "object");
 assert(typeof SqlParameter$ === "object");
 assert(typeof StatementData$ === "object");
 assert(typeof SubStatementData$ === "object");
 assert(typeof TableMember$ === "object");
 // enums
+assert(typeof ExecutionMode === "object");
 assert(typeof ResultFormatString === "object");
+assert(typeof SessionStatusString === "object");
 assert(typeof StatementStatusString === "object");
 assert(typeof StatusString === "object");
 // errors
@@ -148,6 +165,8 @@ assert(ActiveSessionsExceededException.prototype instanceof RedshiftDataServiceE
 assert(typeof ActiveSessionsExceededException$ === "object");
 assert(ActiveStatementsExceededException.prototype instanceof RedshiftDataServiceException);
 assert(typeof ActiveStatementsExceededException$ === "object");
+assert(ActiveWaitingRequestsExceededException.prototype instanceof RedshiftDataServiceException);
+assert(typeof ActiveWaitingRequestsExceededException$ === "object");
 assert(BatchExecuteStatementException.prototype instanceof RedshiftDataServiceException);
 assert(typeof BatchExecuteStatementException$ === "object");
 assert(DatabaseConnectionException.prototype instanceof RedshiftDataServiceException);
@@ -169,6 +188,7 @@ assert(typeof paginateGetStatementResult === "function");
 assert(typeof paginateGetStatementResultV2 === "function");
 assert(typeof paginateListDatabases === "function");
 assert(typeof paginateListSchemas === "function");
+assert(typeof paginateListSessions === "function");
 assert(typeof paginateListStatements === "function");
 assert(typeof paginateListTables === "function");
 console.log(`RedshiftData index test passed.`);

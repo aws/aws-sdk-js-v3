@@ -8,5 +8,6 @@ export * from "./GetStatementResultCommand";
 export * from "./GetStatementResultV2Command";
 export * from "./ListDatabasesCommand";
 export * from "./ListSchemasCommand";
+export * from "./ListSessionsCommand";
 export * from "./ListStatementsCommand";
 export * from "./ListTablesCommand";

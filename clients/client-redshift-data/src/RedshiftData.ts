@@ -48,6 +48,11 @@ import {
   ListSchemasCommand,
 } from "./commands/ListSchemasCommand";
 import {
+  type ListSessionsCommandInput,
+  type ListSessionsCommandOutput,
+  ListSessionsCommand,
+} from "./commands/ListSessionsCommand";
+import {
   type ListStatementsCommandInput,
   type ListStatementsCommandOutput,
   ListStatementsCommand,
@@ -62,6 +67,7 @@ import { paginateGetStatementResult } from "./pagination/GetStatementResultPagin
 import { paginateGetStatementResultV2 } from "./pagination/GetStatementResultV2Paginator";
 import { paginateListDatabases } from "./pagination/ListDatabasesPaginator";
 import { paginateListSchemas } from "./pagination/ListSchemasPaginator";
+import { paginateListSessions } from "./pagination/ListSessionsPaginator";
 import { paginateListStatements } from "./pagination/ListStatementsPaginator";
 import { paginateListTables } from "./pagination/ListTablesPaginator";
 import { RedshiftDataClient } from "./RedshiftDataClient";
@@ -76,6 +82,7 @@ const commands = {
   GetStatementResultV2Command,
   ListDatabasesCommand,
   ListSchemasCommand,
+  ListSessionsCommand,
   ListStatementsCommand,
   ListTablesCommand,
 };
@@ -85,6 +92,7 @@ const paginators = {
   paginateGetStatementResultV2,
   paginateListDatabases,
   paginateListSchemas,
+  paginateListSessions,
   paginateListStatements,
   paginateListTables,
 };
@@ -244,6 +252,24 @@ export interface RedshiftData {
   ): void;
 
   /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSessionsCommandOutput>;
+  listSessions(
+    args: ListSessionsCommandInput,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListStatementsCommand}
    */
   listStatements(): Promise<ListStatementsCommandOutput>;
@@ -332,6 +358,17 @@ export interface RedshiftData {
     args: ListSchemasCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSchemasCommandOutput>;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSessionsCommandOutput}.
+   */
+  paginateListSessions(
+    args?: ListSessionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSessionsCommandOutput>;
 
   /**
    * @see {@link ListStatementsCommand}

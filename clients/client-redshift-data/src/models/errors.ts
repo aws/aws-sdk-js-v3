@@ -48,6 +48,28 @@ export class ActiveStatementsExceededException extends __BaseException {
 }
 
 /**
+ * <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
+ * @public
+ */
+export class ActiveWaitingRequestsExceededException extends __BaseException {
+  readonly name = "ActiveWaitingRequestsExceededException" as const;
+  readonly $fault = "client" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActiveWaitingRequestsExceededException, __BaseException>) {
+    super({
+      name: "ActiveWaitingRequestsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActiveWaitingRequestsExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>An SQL statement encountered an environmental error while running.</p>
  * @public
  */

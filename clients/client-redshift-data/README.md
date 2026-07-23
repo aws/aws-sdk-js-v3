@@ -244,6 +244,13 @@ ListSchemas
 </details>
 <details>
 <summary>
+ListSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift-data/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift-data/Interface/ListSessionsCommandOutput/)
+</details>
+<details>
+<summary>
 ListStatements
 </summary>
 

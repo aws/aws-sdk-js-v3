@@ -75,6 +75,7 @@ import type {
 } from "./commands/GetStatementResultV2Command";
 import type { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import type { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
+import type { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import type { ListStatementsCommandInput, ListStatementsCommandOutput } from "./commands/ListStatementsCommand";
 import type { ListTablesCommandInput, ListTablesCommandOutput } from "./commands/ListTablesCommand";
 import {
@@ -101,6 +102,7 @@ export type ServiceInputTypes =
   | GetStatementResultV2CommandInput
   | ListDatabasesCommandInput
   | ListSchemasCommandInput
+  | ListSessionsCommandInput
   | ListStatementsCommandInput
   | ListTablesCommandInput;
 
@@ -117,6 +119,7 @@ export type ServiceOutputTypes =
   | GetStatementResultV2CommandOutput
   | ListDatabasesCommandOutput
   | ListSchemasCommandOutput
+  | ListSessionsCommandOutput
   | ListStatementsCommandOutput
   | ListTablesCommandOutput;
 

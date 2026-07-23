@@ -51,6 +51,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *   ResultFormat: "STRING_VALUE",
  *   SessionKeepAliveSeconds: Number("int"),
  *   SessionId: "STRING_VALUE",
+ *   WaitTimeSeconds: Number("int"),
  * };
  * const command = new ExecuteStatementCommand(input);
  * const response = await client.send(command);
@@ -66,6 +67,9 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * //   SecretArn: "STRING_VALUE",
  * //   WorkgroupName: "STRING_VALUE",
  * //   SessionId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   RedshiftPid: Number("long"),
+ * //   HasResultSet: true || false,
  * // };
  *
  * ```

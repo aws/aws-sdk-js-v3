@@ -35,6 +35,7 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * const input = { // GetStatementResultRequest
  *   Id: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
+ *   WaitTimeSeconds: Number("int"),
  * };
  * const command = new GetStatementResultCommand(input);
  * const response = await client.send(command);
@@ -79,6 +80,9 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * @see {@link GetStatementResultCommandInput} for command's `input` shape.
  * @see {@link GetStatementResultCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link ActiveWaitingRequestsExceededException} (client fault)
+ *  <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>

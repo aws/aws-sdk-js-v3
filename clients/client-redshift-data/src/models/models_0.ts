@@ -1,5 +1,11 @@
 // smithy-typescript generated code
-import type { ResultFormatString, StatementStatusString, StatusString } from "./enums";
+import type {
+  ExecutionMode,
+  ResultFormatString,
+  SessionStatusString,
+  StatementStatusString,
+  StatusString,
+} from "./enums";
 
 /**
  * <p>A parameter used in a SQL statement.</p>
@@ -24,7 +30,7 @@ export interface SqlParameter {
  */
 export interface BatchExecuteStatementInput {
   /**
-   * <p>One or more SQL statements to run. The SQL statements are run as a single transaction. They run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. If any SQL statement fails, then because they are run as one transaction, all work is rolled back.</p>
+   * <p>One or more SQL statements to run. The SQL statements run serially in the order of the array. Subsequent SQL statements don't start until the previous statement in the array completes. By default, the SQL statements are run as a single transaction. If any SQL statement fails, all work is rolled back. To change this behavior, see the <code>ExecutionMode</code> parameter.</p>
    * @public
    */
   Sqls: string[] | undefined;
@@ -66,7 +72,7 @@ export interface BatchExecuteStatementInput {
   StatementName?: string | undefined;
 
   /**
-   * <p>The parameters for the SQL statements. The parameters are shared across all SQL statements in the batch.</p>
+   * <p>The parameters for the SQL statements. The parameters are available to all SQL statements in the batch. Each statement can reference any subset of the provided parameters. Each provided parameter must be referenced by at least one SQL statement in the batch.</p>
    * @public
    */
   Parameters?: SqlParameter[] | undefined;
@@ -100,6 +106,18 @@ export interface BatchExecuteStatementInput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>Determines how the SQL statements in the batch are run. If set to <code>TRANSACTION</code> (the default), all SQL statements are run as a single transaction and they are committed or rolled back together. If set to <code>AUTO_COMMIT</code>, each SQL statement is committed individually, and a failure of one statement does not affect the others.</p>
+   * @public
+   */
+  ExecutionMode?: ExecutionMode | undefined;
+
+  /**
+   * <p>The number of seconds to wait for all SQL statements in the batch to complete execution before returning the response. If the SQL statements do not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -159,6 +177,24 @@ export interface BatchExecuteStatementOutput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>The status of the SQL statement. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * @public
+   */
+  Status?: StatementStatusString | undefined;
+
+  /**
+   * <p>The process identifier from Amazon Redshift. </p>
+   * @public
+   */
+  RedshiftPid?: number | undefined;
+
+  /**
+   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set. The value is true if any substatement returns a result set.</p>
+   * @public
+   */
+  HasResultSet?: boolean | undefined;
 }
 
 /**
@@ -276,6 +312,12 @@ export interface DescribeStatementRequest {
    * @public
    */
   Id: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the description. The maximum value is 30 seconds.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -479,6 +521,12 @@ export interface DescribeStatementResponse {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>The execution mode of the batch request. <code>TRANSACTION</code> indicates all SQL statements are run as a single transaction. <code>AUTO_COMMIT</code> indicates each SQL statement is committed individually.</p>
+   * @public
+   */
+  ExecutionMode?: ExecutionMode | undefined;
 }
 
 /**
@@ -650,6 +698,12 @@ export interface ExecuteStatementInput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the response. If the SQL statement does not complete within the specified time, the response returns the current status. The maximum value is 30 seconds.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -709,6 +763,24 @@ export interface ExecuteStatementOutput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>The status of the SQL statement. Status values are defined as follows: </p> <ul> <li> <p>ABORTED - The query run was stopped by the user. </p> </li> <li> <p>FAILED - The query run failed. </p> </li> <li> <p>FINISHED - The query has finished running. </p> </li> <li> <p>PICKED - The query has been chosen to be run. </p> </li> <li> <p>STARTED - The query run has started. </p> </li> <li> <p>SUBMITTED - The query was submitted, but not yet processed. </p> </li> </ul>
+   * @public
+   */
+  Status?: StatementStatusString | undefined;
+
+  /**
+   * <p>The process identifier from Amazon Redshift. </p>
+   * @public
+   */
+  RedshiftPid?: number | undefined;
+
+  /**
+   * <p>A value that indicates whether the statement has a result set. The result set can be empty. The value is true for an empty result set.</p>
+   * @public
+   */
+  HasResultSet?: boolean | undefined;
 }
 
 /**
@@ -894,6 +966,12 @@ export interface GetStatementResultRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -940,6 +1018,12 @@ export interface GetStatementResultV2Request {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait for the SQL statement to complete execution before returning the result. The maximum value is 30 seconds.</p>
+   * @public
+   */
+  WaitTimeSeconds?: number | undefined;
 }
 
 /**
@@ -1112,6 +1196,148 @@ export interface ListSchemasResponse {
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsRequest {
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of sessions to return in the response. If more sessions exist than fit in one response, the operation returns <code>NextToken</code> to paginate the results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The identifier of a specific session to return metadata for. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. When you provide <code>SessionId</code>, you can't specify <code>Status</code>, <code>ClusterIdentifier</code>, <code>WorkgroupName</code>, or <code>Database</code>.</p>
+   * @public
+   */
+  SessionId?: string | undefined;
+
+  /**
+   * <p>The status of the sessions to list. If no status is specified, sessions with a status of <code>AVAILABLE</code> or <code>BUSY</code> are returned. Status values are defined as follows:</p> <ul> <li> <p>AVAILABLE – The session is open and ready to run a SQL statement.</p> </li> <li> <p>BUSY – The session is currently running a SQL statement.</p> </li> <li> <p>CLOSED – The session is closed and can no longer run SQL statements.</p> </li> </ul>
+   * @public
+   */
+  Status?: SessionStatusString | undefined;
+
+  /**
+   * <p>Specifies whether to return all sessions created by the caller's IAM role, including sessions from previous IAM sessions. If false, only sessions created in the current IAM session are returned. The default is true.</p>
+   * @public
+   */
+  RoleLevel?: boolean | undefined;
+
+  /**
+   * <p>The cluster identifier. Only sessions on this cluster are returned. When providing <code>ClusterIdentifier</code>, then <code>WorkgroupName</code> can't be specified.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). Only sessions on this workgroup are returned. When providing <code>WorkgroupName</code>, then <code>ClusterIdentifier</code> can't be specified.</p>
+   * @public
+   */
+  WorkgroupName?: string | undefined;
+
+  /**
+   * <p>The name of the database. Only sessions connected to this database are returned.</p>
+   * @public
+   */
+  Database?: string | undefined;
+}
+
+/**
+ * <p>Contains the metadata for a session returned by <code>ListSessions</code>, including its status, compute target, database connection, and lifecycle timestamps.</p>
+ * @public
+ */
+export interface SessionData {
+  /**
+   * <p>The session identifier. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The status of the session. Status values are defined as follows:</p> <ul> <li> <p>AVAILABLE – The session is open and ready to run a SQL statement.</p> </li> <li> <p>BUSY – The session is currently running a SQL statement.</p> </li> <li> <p>CLOSED – The session is closed and can no longer run SQL statements.</p> </li> </ul>
+   * @public
+   */
+  Status: SessionStatusString | undefined;
+
+  /**
+   * <p>The date and time (UTC) when the session was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time (UTC) that the session metadata was last updated. An example is the time the status last changed.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The name of the database that the session is connected to.</p>
+   * @public
+   */
+  Database?: string | undefined;
+
+  /**
+   * <p>The database user name.</p>
+   * @public
+   */
+  DbUser?: string | undefined;
+
+  /**
+   * <p>The cluster identifier. This element is not returned when connecting to a serverless workgroup.</p>
+   * @public
+   */
+  ClusterIdentifier?: string | undefined;
+
+  /**
+   * <p>The serverless workgroup name or Amazon Resource Name (ARN). This element is not returned when connecting to a provisioned cluster.</p>
+   * @public
+   */
+  WorkgroupName?: string | undefined;
+
+  /**
+   * <p>The number of seconds that the session is kept alive after a query finishes.</p>
+   * @public
+   */
+  SessionAliveSeconds?: number | undefined;
+
+  /**
+   * <p>The date and time (UTC) when the session is set to expire and be closed.</p>
+   * @public
+   */
+  SessionTtl?: Date | undefined;
+
+  /**
+   * <p>The identifier of the SQL statement currently running in the session. This value is a universally unique identifier (UUID) generated by Amazon Redshift Data API. This element is returned only when the session status is <code>BUSY</code>.</p>
+   * @public
+   */
+  CurrentStatementId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSessionsResponse {
+  /**
+   * <p>The sessions that match the request.</p>
+   * @public
+   */
+  Sessions: SessionData[] | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a value is returned in a response, you can retrieve the next set of records by providing this returned NextToken value in the next NextToken parameter and retrying the command. If the NextToken field is empty, all response records have been retrieved for the request.</p>
    * @public
    */
   NextToken?: string | undefined;

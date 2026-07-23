@@ -53,6 +53,8 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *   ResultFormat: "STRING_VALUE",
  *   SessionKeepAliveSeconds: Number("int"),
  *   SessionId: "STRING_VALUE",
+ *   ExecutionMode: "STRING_VALUE",
+ *   WaitTimeSeconds: Number("int"),
  * };
  * const command = new BatchExecuteStatementCommand(input);
  * const response = await client.send(command);
@@ -68,6 +70,9 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * //   SecretArn: "STRING_VALUE",
  * //   WorkgroupName: "STRING_VALUE",
  * //   SessionId: "STRING_VALUE",
+ * //   Status: "STRING_VALUE",
+ * //   RedshiftPid: Number("long"),
+ * //   HasResultSet: true || false,
  * // };
  *
  * ```

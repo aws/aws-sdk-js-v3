@@ -1,5 +1,6 @@
 const _ASEE = "ActiveSessionsExceededException";
 const _ASEEc = "ActiveStatementsExceededException";
+const _AWREE = "ActiveWaitingRequestsExceededException";
 const _BES = "BatchExecuteStatement";
 const _BESE = "BatchExecuteStatementException";
 const _BESI = "BatchExecuteStatementInput";
@@ -11,6 +12,7 @@ const _CL = "ColumnList";
 const _CM = "ColumnMetadata";
 const _CML = "ColumnMetadataList";
 const _CS = "CancelStatement";
+const _CSI = "CurrentStatementId";
 const _CSR = "CancelStatementRequest";
 const _CSRa = "CancelStatementResponse";
 const _CSVR = "CSVRecords";
@@ -28,6 +30,7 @@ const _DU = "DbUser";
 const _Da = "Databases";
 const _Du = "Duration";
 const _E = "Error";
+const _EM = "ExecutionMode";
 const _ES = "ExecuteStatement";
 const _ESE = "ExecuteStatementException";
 const _ESI = "ExecuteStatementInput";
@@ -51,9 +54,12 @@ const _LDRi = "ListDatabasesResponse";
 const _LS = "ListSchemas";
 const _LSR = "ListSchemasRequest";
 const _LSRi = "ListSchemasResponse";
-const _LSRis = "ListStatementsRequest";
-const _LSRist = "ListStatementsResponse";
-const _LSi = "ListStatements";
+const _LSRis = "ListSessionsRequest";
+const _LSRist = "ListSessionsResponse";
+const _LSRistt = "ListStatementsRequest";
+const _LSRistta = "ListStatementsResponse";
+const _LSi = "ListSessions";
+const _LSis = "ListStatements";
 const _LT = "ListTables";
 const _LTR = "ListTablesRequest";
 const _LTRi = "ListTablesResponse";
@@ -77,11 +83,14 @@ const _RR = "ResultRows";
 const _RS = "ResultSize";
 const _S = "Sqls";
 const _SA = "SecretArn";
-const _SD = "StatementData";
+const _SAS = "SessionAliveSeconds";
+const _SD = "SessionData";
+const _SDt = "StatementData";
 const _SI = "StatementId";
 const _SIe = "SessionId";
 const _SKAS = "SessionKeepAliveSeconds";
-const _SL = "StatementList";
+const _SL = "SessionList";
+const _SLt = "StatementList";
 const _SN = "StatementName";
 const _SP = "SchemaPattern";
 const _SPL = "SqlParametersList";
@@ -90,8 +99,10 @@ const _SR = "SqlRecords";
 const _SS = "SubStatements";
 const _SSD = "SubStatementData";
 const _SSL = "SubStatementList";
+const _ST = "SessionTtl";
 const _Sc = "Schema";
 const _Sch = "Schemas";
+const _Se = "Sessions";
 const _Sq = "Sql";
 const _St = "Status";
 const _Sta = "Statements";
@@ -106,6 +117,7 @@ const _UA = "UpdatedAt";
 const _VE = "ValidationException";
 const _WE = "WithEvent";
 const _WN = "WorkgroupName";
+const _WTS = "WaitTimeSeconds";
 const _bV = "booleanValue";
 const _bVl = "blobValue";
 const _c = "client";
@@ -148,6 +160,7 @@ import type {
 import {
   ActiveSessionsExceededException,
   ActiveStatementsExceededException,
+  ActiveWaitingRequestsExceededException,
   BatchExecuteStatementException,
   DatabaseConnectionException,
   ExecuteStatementException,
@@ -175,6 +188,12 @@ export var ActiveStatementsExceededException$: StaticErrorSchema = [-3, n0, _ASE
   [0]
 ];
 n0_registry.registerError(ActiveStatementsExceededException$, ActiveStatementsExceededException);
+export var ActiveWaitingRequestsExceededException$: StaticErrorSchema = [-3, n0, _AWREE,
+  { [_e]: _c, [_hE]: 400 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(ActiveWaitingRequestsExceededException$, ActiveWaitingRequestsExceededException);
 export var BatchExecuteStatementException$: StaticErrorSchema = [-3, n0, _BESE,
   { [_e]: _se, [_hE]: 500 },
   [_M, _SI],
@@ -228,13 +247,13 @@ export const errorTypeRegistries = [
 ]
 export var BatchExecuteStatementInput$: StaticStructureSchema = [3, n0, _BESI,
   0,
-  [_S, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
-  [64 | 0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0], 1
+  [_S, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe, _EM, _WTS],
+  [64 | 0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0, 0, 1], 1
 ];
 export var BatchExecuteStatementOutput$: StaticStructureSchema = [3, n0, _BESO,
   0,
-  [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe],
-  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0]
+  [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe, _St, _RP, _HRS],
+  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1, 2]
 ];
 export var CancelStatementRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -253,13 +272,13 @@ export var ColumnMetadata$: StaticStructureSchema = [3, n0, _CM,
 ];
 export var DescribeStatementRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_I],
-  [0], 1
+  [_I, _WTS],
+  [0, 1], 1
 ];
 export var DescribeStatementResponse$: StaticStructureSchema = [3, n0, _DSRe,
   0,
-  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _RF, _SIe],
-  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0], 1
+  [_I, _SA, _DU, _D, _CI, _Du, _E, _St, _CA, _UA, _RP, _HRS, _QS, _RR, _RS, _RQI, _QP, _SS, _WN, _RF, _SIe, _EM],
+  [0, 0, 0, 0, 0, 1, 0, 0, 4, 4, 1, 2, 0, 1, 1, 1, () => SqlParametersList, () => SubStatementList, 0, 0, 0, 0], 1
 ];
 export var DescribeTableRequest$: StaticStructureSchema = [3, n0, _DTR,
   0,
@@ -273,18 +292,18 @@ export var DescribeTableResponse$: StaticStructureSchema = [3, n0, _DTRe,
 ];
 export var ExecuteStatementInput$: StaticStructureSchema = [3, n0, _ESI,
   0,
-  [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe],
-  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0], 1
+  [_Sq, _CI, _SA, _DU, _D, _WE, _SN, _P, _WN, _CT, _RF, _SKAS, _SIe, _WTS],
+  [0, 0, 0, 0, 0, 2, 0, () => SqlParametersList, 0, [0, 4], 0, 1, 0, 1], 1
 ];
 export var ExecuteStatementOutput$: StaticStructureSchema = [3, n0, _ESO,
   0,
-  [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe],
-  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0]
+  [_I, _CA, _CI, _DU, _DG, _D, _SA, _WN, _SIe, _St, _RP, _HRS],
+  [0, 4, 0, 0, 64 | 0, 0, 0, 0, 0, 0, 1, 2]
 ];
 export var GetStatementResultRequest$: StaticStructureSchema = [3, n0, _GSRR,
   0,
-  [_I, _NT],
-  [0, 0], 1
+  [_I, _NT, _WTS],
+  [0, 0, 1], 1
 ];
 export var GetStatementResultResponse$: StaticStructureSchema = [3, n0, _GSRRe,
   0,
@@ -293,8 +312,8 @@ export var GetStatementResultResponse$: StaticStructureSchema = [3, n0, _GSRRe,
 ];
 export var GetStatementResultV2Request$: StaticStructureSchema = [3, n0, _GSRVR,
   0,
-  [_I, _NT],
-  [0, 0], 1
+  [_I, _NT, _WTS],
+  [0, 0, 1], 1
 ];
 export var GetStatementResultV2Response$: StaticStructureSchema = [3, n0, _GSRVRe,
   0,
@@ -321,12 +340,22 @@ export var ListSchemasResponse$: StaticStructureSchema = [3, n0, _LSRi,
   [_Sch, _NT],
   [64 | 0, 0]
 ];
-export var ListStatementsRequest$: StaticStructureSchema = [3, n0, _LSRis,
+export var ListSessionsRequest$: StaticStructureSchema = [3, n0, _LSRis,
+  0,
+  [_NT, _MR, _SIe, _St, _RL, _CI, _WN, _D],
+  [0, 1, 0, 0, 2, 0, 0, 0]
+];
+export var ListSessionsResponse$: StaticStructureSchema = [3, n0, _LSRist,
+  0,
+  [_Se, _NT],
+  [() => SessionList, 0], 1
+];
+export var ListStatementsRequest$: StaticStructureSchema = [3, n0, _LSRistt,
   0,
   [_NT, _MR, _SN, _St, _RL, _D, _CI, _WN],
   [0, 1, 0, 0, 2, 0, 0, 0]
 ];
-export var ListStatementsResponse$: StaticStructureSchema = [3, n0, _LSRist,
+export var ListStatementsResponse$: StaticStructureSchema = [3, n0, _LSRistta,
   0,
   [_Sta, _NT],
   [() => StatementList, 0], 1
@@ -341,12 +370,17 @@ export var ListTablesResponse$: StaticStructureSchema = [3, n0, _LTRi,
   [_Ta, _NT],
   [() => TableList, 0]
 ];
+export var SessionData$: StaticStructureSchema = [3, n0, _SD,
+  0,
+  [_SIe, _St, _CA, _UA, _D, _DU, _CI, _WN, _SAS, _ST, _CSI],
+  [0, 0, 4, 4, 0, 0, 0, 0, 1, 4, 0], 3
+];
 export var SqlParameter$: StaticStructureSchema = [3, n0, _SPq,
   0,
   [_n, _v],
   [0, 0], 2
 ];
-export var StatementData$: StaticStructureSchema = [3, n0, _SD,
+export var StatementData$: StaticStructureSchema = [3, n0, _SDt,
   0,
   [_I, _QS, _QSu, _SA, _St, _SN, _CA, _UA, _QP, _IBS, _RF, _SIe],
   [0, 0, 64 | 0, 0, 0, 0, 4, 4, () => SqlParametersList, 2, 0, 0], 1
@@ -376,6 +410,9 @@ var FormattedSqlRecords: StaticListSchema = [1, n0, _FSR,
   0, () => QueryRecords$
 ];
 var SchemaList = 64 | 0;
+var SessionList: StaticListSchema = [1, n0, _SL,
+  0, () => SessionData$
+];
 var SqlList = 64 | 0;
 var SqlParametersList: StaticListSchema = [1, n0, _SPL,
   0, () => SqlParameter$
@@ -383,7 +420,7 @@ var SqlParametersList: StaticListSchema = [1, n0, _SPL,
 var SqlRecords: StaticListSchema = [1, n0, _SR,
   0, () => FieldList
 ];
-var StatementList: StaticListSchema = [1, n0, _SL,
+var StatementList: StaticListSchema = [1, n0, _SLt,
   0, () => StatementData$
 ];
 var StatementStringList = 64 | 0;
@@ -430,7 +467,10 @@ export var ListDatabases$: StaticOperationSchema = [9, n0, _LD,
 export var ListSchemas$: StaticOperationSchema = [9, n0, _LS,
   0, () => ListSchemasRequest$, () => ListSchemasResponse$
 ];
-export var ListStatements$: StaticOperationSchema = [9, n0, _LSi,
+export var ListSessions$: StaticOperationSchema = [9, n0, _LSi,
+  0, () => ListSessionsRequest$, () => ListSessionsResponse$
+];
+export var ListStatements$: StaticOperationSchema = [9, n0, _LSis,
   0, () => ListStatementsRequest$, () => ListStatementsResponse$
 ];
 export var ListTables$: StaticOperationSchema = [9, n0, _LT,

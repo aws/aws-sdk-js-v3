@@ -34,6 +34,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * const client = new RedshiftDataClient(config);
  * const input = { // DescribeStatementRequest
  *   Id: "STRING_VALUE", // required
+ *   WaitTimeSeconds: Number("int"),
  * };
  * const command = new DescribeStatementCommand(input);
  * const response = await client.send(command);
@@ -78,6 +79,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * //   WorkgroupName: "STRING_VALUE",
  * //   ResultFormat: "STRING_VALUE",
  * //   SessionId: "STRING_VALUE",
+ * //   ExecutionMode: "STRING_VALUE",
  * // };
  *
  * ```
@@ -87,6 +89,9 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @see {@link DescribeStatementCommandInput} for command's `input` shape.
  * @see {@link DescribeStatementCommandOutput} for command's `response` shape.
  * @see {@link RedshiftDataClientResolvedConfig | config} for RedshiftDataClient's `config` shape.
+ *
+ * @throws {@link ActiveWaitingRequestsExceededException} (client fault)
+ *  <p>The number of active requests with <code>WaitTimeSeconds</code> for the same SQL statement exceeds the limit.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The Amazon Redshift Data API operation failed due to invalid input. </p>
