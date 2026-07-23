@@ -16,6 +16,7 @@ import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
+import { createServer, type Server } from "node:http";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
@@ -1506,6 +1507,127 @@ describe("credential-provider-node integration test", () => {
     });
   });
 
+  describe("IMDSv2 region fallback", () => {
+    let imdsServer: Server;
+    let imdsPort: number;
+
+    beforeEach(async () => {
+      imdsServer = createServer((req, res) => {
+        if (req.method === "PUT" && req.url === "/latest/api/token") {
+          res.writeHead(200);
+          res.end("mock-imds-token");
+        } else if (req.method === "GET" && req.url === "/latest/meta-data/placement/region") {
+          res.writeHead(200);
+          res.end("ap-southeast-1");
+        } else {
+          res.writeHead(404);
+          res.end();
+        }
+      });
+      await new Promise<void>((resolve) => imdsServer.listen(0, "127.0.0.1", resolve));
+      imdsPort = (imdsServer.address() as any).port;
+      process.env.AWS_EC2_METADATA_SERVICE_ENDPOINT = `http://127.0.0.1:${imdsPort}`;
+    });
+
+    afterEach(() => {
+      imdsServer.close();
+      delete process.env.AWS_EC2_METADATA_SERVICE_ENDPOINT;
+    });
+
+    it("should resolve region from IMDS when env and profile region are unset", async () => {
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_EC2_METADATA_DISABLED;
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "STATIC_ACCESS_KEY",
+          aws_secret_access_key: "STATIC_SECRET_KEY",
+        },
+      });
+
+      sts = new STS({});
+      await sts.getCallerIdentity({});
+      const region = await sts.config.region();
+      expect(region).toBe("ap-southeast-1");
+    });
+
+    it("should prefer env region over IMDS", async () => {
+      process.env.AWS_REGION = "us-west-2";
+      delete process.env.AWS_EC2_METADATA_DISABLED;
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "STATIC_ACCESS_KEY",
+          aws_secret_access_key: "STATIC_SECRET_KEY",
+        },
+      });
+
+      sts = new STS({});
+      await sts.getCallerIdentity({});
+      const region = await sts.config.region();
+      expect(region).toBe("us-west-2");
+    });
+
+    it("should prefer profile region over IMDS", async () => {
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_EC2_METADATA_DISABLED;
+      setIniProfileData({
+        default: {
+          region: "eu-west-1",
+          aws_access_key_id: "STATIC_ACCESS_KEY",
+          aws_secret_access_key: "STATIC_SECRET_KEY",
+        },
+      });
+
+      sts = new STS({});
+      await sts.getCallerIdentity({});
+      const region = await sts.config.region();
+      expect(region).toBe("eu-west-1");
+    });
+
+    it("should not call IMDS when AWS_EC2_METADATA_DISABLED is set", async () => {
+      delete process.env.AWS_REGION;
+      process.env.AWS_EC2_METADATA_DISABLED = "true";
+      setIniProfileData({
+        default: {
+          aws_access_key_id: "STATIC_ACCESS_KEY",
+          aws_secret_access_key: "STATIC_SECRET_KEY",
+        },
+      });
+
+      await expect(async () => {
+        sts = new STS({});
+        await sts.getCallerIdentity({});
+      }).rejects.toThrow("Region is missing");
+    });
+
+    it("should use IMDS region for the nested STS client before the us-east-1 fallback", async () => {
+      // The nested STS client (stsRegionDefaultResolver) tries IMDSv2 before
+      // falling back to us-east-1.
+      delete process.env.AWS_REGION;
+      delete process.env.AWS_EC2_METADATA_DISABLED;
+      setIniProfileData({
+        assume: {
+          aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+          aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+        },
+        default: {
+          role_arn: "ROLE_ARN",
+          role_session_name: "ROLE_SESSION_NAME",
+          source_profile: "assume",
+        },
+      });
+
+      const provider = defaultProvider({});
+      const credentials = await provider();
+      expect(credentials).toEqual(
+        expect.objectContaining({
+          accessKeyId: "STS_AR_ACCESS_KEY_ID",
+          secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        })
+      );
+      expect(credentials.sessionToken).toContain("ap-southeast-1");
+    });
+  });
+
   describe("nested STS client", () => {
     it("the clientConfig is propagated to the inner STS client used for AssumeRole", async () => {
       setIniProfileData({
@@ -1579,6 +1701,8 @@ describe("credential-provider-node integration test", () => {
     describe("uses a variant of the default region resolution where us-east-1 is the last resort", async () => {
       it("no env or profile region", async () => {
         delete process.env.AWS_REGION;
+        // IMDS is tried before the us-east-1 fallback; disable it here to test the fallback itself.
+        process.env.AWS_EC2_METADATA_DISABLED = "true";
         setIniProfileData({
           assume: {
             aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",

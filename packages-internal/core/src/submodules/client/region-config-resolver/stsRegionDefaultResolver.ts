@@ -16,6 +16,10 @@ export function stsRegionDefaultResolver(loaderConfig: LocalConfigOptions = {}) 
     {
       ...NODE_REGION_CONFIG_OPTIONS,
       async default() {
+        try {
+          // the base default tries IMDSv2 before throwing "Region is missing".
+          return await (NODE_REGION_CONFIG_OPTIONS.default as () => Promise<string>)();
+        } catch (e) {}
         if (!warning.silence) {
           console.warn(
             "@aws-sdk - WARN - default STS region of us-east-1 used. See @aws-sdk/credential-providers README and set a region explicitly."
