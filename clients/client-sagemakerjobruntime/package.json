@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-sagemakerjobruntime",
-  "version": "3.1093.0",
+  "version": "3.1094.0",
   "description": "AWS SDK for JavaScript Sagemakerjobruntime Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-sagemakerjobruntime",
   "license": "Apache-2.0",

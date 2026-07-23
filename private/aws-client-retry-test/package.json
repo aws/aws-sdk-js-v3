@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-client-retry-test",
-  "version": "3.1093.0",
+  "version": "3.1094.0",
   "private": true,
   "description": "Integration test suite for middleware-retry",
   "license": "Apache-2.0",
@@ -39,7 +39,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/client-lambda": "workspace:3.1093.0",
+    "@aws-sdk/client-lambda": "workspace:3.1094.0",
     "@smithy/core": "^3.29.4",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

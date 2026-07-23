@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-datazone:** Adds support for notebook sync with S3 ipynb files ([ce84e9c](https://github.com/aws/aws-sdk-js-v3/commit/ce84e9c6c7097b0b781d2e3b849c727c4d6a9dbc))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

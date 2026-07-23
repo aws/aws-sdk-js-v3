@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-quicksight:** Added new capabilities to custom permissions profiles to control access to Amazon Quick through the browser extension and Microsoft Word, Outlook, Excel, and PowerPoint add-ins. ([59a1b6e](https://github.com/aws/aws-sdk-js-v3/commit/59a1b6ebbaccbe4628dbfb38c047a38162ae3e54))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

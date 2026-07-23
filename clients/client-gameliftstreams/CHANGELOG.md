@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-gameliftstreams:** GameLift Streams now supports configuring a custom aspect ratio per stream session to accommodate different player devices. Supported aspect ratios include landscape, portrait, and square - delivering a full-screen experience without letterboxing or cropping. ([77119b6](https://github.com/aws/aws-sdk-js-v3/commit/77119b6b736ab9a2527c0644e52520a5bc935b1d))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 **Note:** Version bump only for package @aws-sdk/client-gameliftstreams

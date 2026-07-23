@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-kendra-ranking:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([1b65b73](https://github.com/aws/aws-sdk-js-v3/commit/1b65b736404e1af8cb7ac1f30a61a2c07ec51abb))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 **Note:** Version bump only for package @aws-sdk/client-kendra-ranking

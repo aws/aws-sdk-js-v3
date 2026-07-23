@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor",
-  "version": "3.1093.0",
+  "version": "3.1094.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-smithy-rpcv2-cbor",

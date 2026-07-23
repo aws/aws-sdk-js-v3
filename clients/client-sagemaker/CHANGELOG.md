@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-sagemaker:** Release support for c6a, m6a, m6g, m7g, m8g instance types for SageMaker HyperPod ([9af2f24](https://github.com/aws/aws-sdk-js-v3/commit/9af2f2475fe226005bb7f3908d832fe0e4f16300))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

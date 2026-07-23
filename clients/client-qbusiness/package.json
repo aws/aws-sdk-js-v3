@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-qbusiness",
-  "version": "3.1093.0",
+  "version": "3.1094.0",
   "description": "AWS SDK for JavaScript Qbusiness Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-qbusiness",
   "license": "Apache-2.0",

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
+
+
+### Features
+
+* **client-appstream:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([aa5d998](https://github.com/aws/aws-sdk-js-v3/commit/aa5d998da6e3d2f946567d5554ea33cde36c0a76))
+* **client-backup-gateway:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([2bfb991](https://github.com/aws/aws-sdk-js-v3/commit/2bfb9913655bffb903981a7d5e9c4f0a12872c8f))
+* **client-bcm-pricing-calculator:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([f47c152](https://github.com/aws/aws-sdk-js-v3/commit/f47c152c3ba9f85ffcc4234bd254d74062f5648c))
+* **client-bcm-recommended-actions:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([635ae75](https://github.com/aws/aws-sdk-js-v3/commit/635ae75d08e18385cd05f624a2264a2cca6e4b6f))
+* **client-bedrock-agentcore-control:** Adds support for the Bring Your Own Storage(BYOS) feature in AgentCore Browser and Code Interpreter. Enables mounting S3Files and EFS File Systems via Access points. ([f845b47](https://github.com/aws/aws-sdk-js-v3/commit/f845b470deac54bc4d5eb7337289a962a00079e2))
+* **client-bedrock-agentcore:** Adds support for the Bring Your Own Storage(BYOS) feature in AgentCore Browser and Code Interpreter. Enables mounting S3Files and EFS File Systems via Access points. ([a689531](https://github.com/aws/aws-sdk-js-v3/commit/a689531c7675e2743a2416620603afcc6df01419))
+* **client-datazone:** Adds support for notebook sync with S3 ipynb files ([ce84e9c](https://github.com/aws/aws-sdk-js-v3/commit/ce84e9c6c7097b0b781d2e3b849c727c4d6a9dbc))
+* **client-gameliftstreams:** GameLift Streams now supports configuring a custom aspect ratio per stream session to accommodate different player devices. Supported aspect ratios include landscape, portrait, and square - delivering a full-screen experience without letterboxing or cropping. ([77119b6](https://github.com/aws/aws-sdk-js-v3/commit/77119b6b736ab9a2527c0644e52520a5bc935b1d))
+* **client-kendra-ranking:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([1b65b73](https://github.com/aws/aws-sdk-js-v3/commit/1b65b736404e1af8cb7ac1f30a61a2c07ec51abb))
+* **client-mediapackagev2:** This release adds support for non-epoch-locked CMAF ingest in MediaPackageV2 channels. ([024499b](https://github.com/aws/aws-sdk-js-v3/commit/024499b2c569634bc810d76217c7f3ff78c7d454))
+* **client-quicksight:** Added new capabilities to custom permissions profiles to control access to Amazon Quick through the browser extension and Microsoft Word, Outlook, Excel, and PowerPoint add-ins. ([59a1b6e](https://github.com/aws/aws-sdk-js-v3/commit/59a1b6ebbaccbe4628dbfb38c047a38162ae3e54))
+* **client-redshift-data:** This release include long polling provids a new parameter wait-time-seconds to 5 API operations, new API ListSessions, and a new parameter execution-mode to BatchExecuteStatement ([ad898eb](https://github.com/aws/aws-sdk-js-v3/commit/ad898eba1b45e4a0b3495bf73ea98070e9ea747d))
+* **client-sagemaker:** Release support for c6a, m6a, m6g, m7g, m8g instance types for SageMaker HyperPod ([9af2f24](https://github.com/aws/aws-sdk-js-v3/commit/9af2f2475fe226005bb7f3908d832fe0e4f16300))
+* **client-workspaces-instances:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.0. The SDK will prioritize its most performant protocol. ([ce7eec0](https://github.com/aws/aws-sdk-js-v3/commit/ce7eec0f798fb57569e12755b59bc8a352a49216))
+
+
+
+
+
 # [3.1093.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1092.0...v3.1093.0) (2026-07-22)
 
 
