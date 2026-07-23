@@ -137,6 +137,7 @@ import {
   DescriptorType,
   DuplicateIdException,
   DuplicateIdException$,
+  EfsConfiguration$,
   EmbeddedCryptoWallet$,
   Evaluate$,
   EvaluateCommand,
@@ -485,6 +486,7 @@ import {
   RootCauseCluster$,
   RuntimeClientError,
   RuntimeClientError$,
+  S3FilesConfiguration$,
   S3Location$,
   SaveBrowserSessionProfile$,
   SaveBrowserSessionProfileCommand,
@@ -576,6 +578,7 @@ import {
   ToolName,
   ToolResultStructuredContent$,
   ToolsDefinition$,
+  ToolsFileSystemConfiguration$,
   UnauthorizedException,
   UnauthorizedException$,
   UpdateABTest$,
@@ -819,6 +822,7 @@ assert(typeof DeletePaymentSessionResponse$ === "object");
 assert(typeof DeleteRecommendationRequest$ === "object");
 assert(typeof DeleteRecommendationResponse$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof EfsConfiguration$ === "object");
 assert(typeof EmbeddedCryptoWallet$ === "object");
 assert(typeof EvaluateRequest$ === "object");
 assert(typeof EvaluateResponse$ === "object");
@@ -1041,6 +1045,7 @@ assert(typeof RetrieveMemoryRecordsInput$ === "object");
 assert(typeof RetrieveMemoryRecordsOutput$ === "object");
 assert(typeof RightExpression$ === "object");
 assert(typeof RootCauseCluster$ === "object");
+assert(typeof S3FilesConfiguration$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof SaveBrowserSessionProfileRequest$ === "object");
 assert(typeof SaveBrowserSessionProfileResponse$ === "object");
@@ -1098,6 +1103,7 @@ assert(typeof ToolDescriptionSource$ === "object");
 assert(typeof ToolDescriptionTextInput$ === "object");
 assert(typeof ToolResultStructuredContent$ === "object");
 assert(typeof ToolsDefinition$ === "object");
+assert(typeof ToolsFileSystemConfiguration$ === "object");
 assert(typeof UpdateABTestRequest$ === "object");
 assert(typeof UpdateABTestResponse$ === "object");
 assert(typeof UpdateBrowserStreamRequest$ === "object");

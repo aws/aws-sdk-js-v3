@@ -123,9 +123,10 @@ const _DRRe = "DeleteRecommendationResponse";
 const _DSC = "DataSourceConfig";
 const _De = "Descriptors";
 const _E = "Email";
-const _EC = "EvaluationContent";
+const _EC = "EfsConfiguration";
 const _ECL = "EvaluationContentList";
 const _ECW = "EmbeddedCryptoWallet";
+const _ECv = "EvaluationContent";
 const _EE = "EvaluationExplanation";
 const _EET = "EvaluationExpectedTrajectory";
 const _EI = "EvaluationInput";
@@ -475,7 +476,8 @@ const _SD = "ServerDefinition";
 const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SF = "SessionFilter";
-const _SFC = "SessionFilterConfig";
+const _SFC = "S3FilesConfiguration";
+const _SFCe = "SessionFilterConfig";
 const _SJ = "SensitiveJson";
 const _SL = "S3Location";
 const _SLe = "SessionLimits";
@@ -529,6 +531,8 @@ const _TDT = "ToolDescriptionText";
 const _TDTI = "ToolDescriptionTextInput";
 const _TE = "ThrottledException";
 const _TEh = "ThrottlingException";
+const _TFSC = "ToolsFileSystemConfigurations";
+const _TFSCo = "ToolsFileSystemConfiguration";
 const _TR = "TargetRef";
 const _TRSC = "ToolResultStructuredContent";
 const _TU = "TokenUsage";
@@ -579,6 +583,7 @@ const _aKA = "apiKeyArn";
 const _aL = "availableLimits";
 const _aN = "agentName";
 const _aP = "additionalParams";
+const _aPA = "accessPointArn";
 const _aRA = "agentRuntimeArn";
 const _aS = "automationStream";
 const _aSA = "availableSpendAmount";
@@ -694,6 +699,7 @@ const _eA = "evaluatorArn";
 const _eAm = "emailAddress";
 const _eC = "exitCode";
 const _eCW = "embeddedCryptoWallet";
+const _eCf = "efsConfiguration";
 const _eCr = "errorCode";
 const _eCv = "evaluationConfig";
 const _eD = "errorDetails";
@@ -737,11 +743,13 @@ const _f = "filters";
 const _fA = "forceAuthentication";
 const _fAR = "failureAnalysisResult";
 const _fC = "filterConfig";
+const _fCi = "filesystemConfigurations";
 const _fL = "fieldList";
 const _fO = "finalOutcome";
 const _fR = "failedRecords";
 const _fRa = "failureReason";
 const _fS = "failureSpans";
+const _fSA = "fileSystemArn";
 const _fT = "fixType";
 const _fa = "failures";
 const _fi = "filter";
@@ -819,6 +827,7 @@ const _mL = "messagesList";
 const _mM = "mcpMethod";
 const _mMo = "mouseMove";
 const _mN = "mcpName";
+const _mP = "mountPath";
 const _mPV = "mcpProtocolVersion";
 const _mR = "memoryRecord";
 const _mRI = "memoryRecordId";
@@ -952,6 +961,7 @@ const _sCu = "subCategories";
 const _sD = "skillDefinition";
 const _sE = "streamEndpoint";
 const _sF = "statusFilter";
+const _sFC = "s3FilesConfiguration";
 const _sI = "sessionId";
 const _sIe = "sessionIds";
 const _sIp = "spanId";
@@ -1615,6 +1625,11 @@ export var Descriptors$: StaticStructureSchema = [3, n0, _De,
   [_mc, _a, _cus, _aSg],
   [() => McpDescriptor$, () => A2aDescriptor$, () => CustomDescriptor$, () => AgentSkillsDescriptor$]
 ];
+export var EfsConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_aPA, _mP, _fSA],
+  [0, 0, 0], 3
+];
 export var EmbeddedCryptoWallet$: StaticStructureSchema = [3, n0, _ECW,
   0,
   [_ne, _lA, _wA, _rU],
@@ -1782,8 +1797,8 @@ export var GetBrowserSessionRequest$: StaticStructureSchema = [3, n0, _GBSR,
 ];
 export var GetBrowserSessionResponse$: StaticStructureSchema = [3, n0, _GBSRe,
   0,
-  [_bI, _sI, _cA, _n, _vP, _ext, _eP, _pC, _sTS, _sta, _str, _pCr, _ce, _sRA, _lUA],
-  [0, 0, 5, 0, () => ViewPort$, () => BrowserExtensions, () => BrowserEnterprisePolicies, () => BrowserProfileConfiguration$, 1, 0, () => BrowserSessionStream$, () => ProxyConfiguration$, () => Certificates, 0, 5], 3
+  [_bI, _sI, _cA, _n, _vP, _ext, _eP, _pC, _sTS, _sta, _str, _pCr, _ce, _fCi, _sRA, _lUA],
+  [0, 0, 5, 0, () => ViewPort$, () => BrowserExtensions, () => BrowserEnterprisePolicies, () => BrowserProfileConfiguration$, 1, 0, () => BrowserSessionStream$, () => ProxyConfiguration$, () => Certificates, () => ToolsFileSystemConfigurations, 0, 5], 3
 ];
 export var GetCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _GCISR,
   0,
@@ -1792,8 +1807,8 @@ export var GetCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _G
 ];
 export var GetCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _GCISRe,
   0,
-  [_cII, _sI, _cA, _n, _sTS, _sta, _ce],
-  [0, 0, 5, 0, 1, 0, () => Certificates], 3
+  [_cII, _sI, _cA, _n, _sTS, _sta, _ce, _fCi],
+  [0, 0, 5, 0, 1, 0, () => Certificates, () => ToolsFileSystemConfigurations], 3
 ];
 export var GetEventInput$: StaticStructureSchema = [3, n0, _GEI,
   0,
@@ -2510,6 +2525,11 @@ export var RootCauseCluster$: StaticStructureSchema = [3, n0, _RCC,
   [_cI, _n, _rCo, _re, _aSC, _aSf],
   [1, 0, 0, 0, 1, () => AffectedSessionList], 6
 ];
+export var S3FilesConfiguration$: StaticStructureSchema = [3, n0, _SFC,
+  0,
+  [_aPA, _mP, _fSA],
+  [0, 0, 0], 3
+];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_buc, _pre, _vI],
@@ -2565,7 +2585,7 @@ export var SessionFilter$: StaticStructureSchema = [3, n0, _SF,
   [_eF],
   [0]
 ];
-export var SessionFilterConfig$: StaticStructureSchema = [3, n0, _SFC,
+export var SessionFilterConfig$: StaticStructureSchema = [3, n0, _SFCe,
   0,
   [_sT, _eT],
   [5, 5]
@@ -2612,8 +2632,8 @@ export var StartBatchEvaluationResponse$: StaticStructureSchema = [3, n0, _SBERt
 ];
 export var StartBrowserSessionRequest$: StaticStructureSchema = [3, n0, _SBSR,
   0,
-  [_bI, _tI, _tPr, _n, _sTS, _vP, _ext, _pC, _pCr, _eP, _ce, _cT],
-  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, () => BrowserProfileConfiguration$, () => ProxyConfiguration$, () => BrowserEnterprisePolicies, () => Certificates, [0, 4]], 1
+  [_bI, _tI, _tPr, _n, _sTS, _vP, _ext, _pC, _pCr, _eP, _ce, _fCi, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => ViewPort$, () => BrowserExtensions, () => BrowserProfileConfiguration$, () => ProxyConfiguration$, () => BrowserEnterprisePolicies, () => Certificates, () => ToolsFileSystemConfigurations, [0, 4]], 1
 ];
 export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
   0,
@@ -2622,8 +2642,8 @@ export var StartBrowserSessionResponse$: StaticStructureSchema = [3, n0, _SBSRt,
 ];
 export var StartCodeInterpreterSessionRequest$: StaticStructureSchema = [3, n0, _SCISR,
   0,
-  [_cII, _tI, _tPr, _n, _sTS, _ce, _cT],
-  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => Certificates, [0, 4]], 1
+  [_cII, _tI, _tPr, _n, _sTS, _ce, _fCi, _cT],
+  [[0, 1], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], 0, 1, () => Certificates, () => ToolsFileSystemConfigurations, [0, 4]], 1
 ];
 export var StartCodeInterpreterSessionResponse$: StaticStructureSchema = [3, n0, _SCISRt,
   0,
@@ -3050,6 +3070,9 @@ var ToolDescriptionResultList: StaticListSchema = [1, n0, _TDRL,
   0, [() => ToolDescriptionOutput$,
     0]
 ];
+var ToolsFileSystemConfigurations: StaticListSchema = [1, n0, _TFSC,
+  0, () => ToolsFileSystemConfiguration$
+];
 var TraceIds = 64 | 0;
 var UserIntentAffectedSessionList: StaticListSchema = [1, n0, _UIASL,
   0, () => UserIntentAffectedSession$
@@ -3135,7 +3158,7 @@ export var DataSourceConfig$: StaticUnionSchema = [4, n0, _DSC,
   [_cWL, _oECS],
   [() => CloudWatchLogsSource$, () => OnlineEvaluationConfigSource$]
 ];
-export var EvaluationContent$: StaticUnionSchema = [4, n0, _EC,
+export var EvaluationContent$: StaticUnionSchema = [4, n0, _ECv,
   0,
   [_te],
   [0]
@@ -3369,6 +3392,11 @@ export var ToolDescriptionSource$: StaticUnionSchema = [4, n0, _TDS,
   0,
   [_tDT, _cB],
   [[() => ToolDescriptionTextInput$, 0], () => ToolDescriptionConfigurationBundle$]
+];
+export var ToolsFileSystemConfiguration$: StaticUnionSchema = [4, n0, _TFSCo,
+  0,
+  [_sFC, _eCf],
+  [() => S3FilesConfiguration$, () => EfsConfiguration$]
 ];
 export var UserIdentifier$: StaticUnionSchema = [4, n0, _UI,
   0,

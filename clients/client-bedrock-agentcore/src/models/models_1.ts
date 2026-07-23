@@ -20,13 +20,71 @@ import type {
 } from "./enums";
 import type {
   A2aDescriptor,
+  ActorSummary,
   AgentSkillsDescriptor,
-  BranchFilter,
   Event,
   MemoryContent,
   MemoryRecordMetadataValue,
   MetadataValue,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListActorsInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListActorsOutput {
+  /**
+   * <p>The list of actor summaries.</p>
+   * @public
+   */
+  actorSummaries: ActorSummary[] | undefined;
+
+  /**
+   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains filter criteria for branches when listing events.</p>
+ * @public
+ */
+export interface BranchFilter {
+  /**
+   * <p>The name of the branch to filter by.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Specifies whether to include parent branches in the results. Set to true to include parent branches, or false to exclude them.</p>
+   * @public
+   */
+  includeParentBranches?: boolean | undefined;
+}
 
 /**
  * <p>Left expression of the event metadata filter.</p>

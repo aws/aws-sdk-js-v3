@@ -1623,6 +1623,107 @@ export interface BrowserExtension {
 }
 
 /**
+ * <p>The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.</p>
+ * @public
+ */
+export interface EfsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.</p>
+   * @public
+   */
+  accessPointArn: string | undefined;
+
+  /**
+   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/efs</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+}
+
+/**
+ * <p>The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.</p>
+ * @public
+ */
+export interface S3FilesConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.</p>
+   * @public
+   */
+  accessPointArn: string | undefined;
+
+  /**
+   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/s3data</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+}
+
+/**
+ * <p>Specifies a file system to mount into the session by providing exactly one of the following:</p> <ul> <li> <p> <code>s3FilesConfiguration</code> - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.</p> </li> <li> <p> <code>efsConfiguration</code> - Mounts an Amazon Elastic File System (Amazon EFS) access point.</p> </li> </ul>
+ * @public
+ */
+export type ToolsFileSystemConfiguration =
+  | ToolsFileSystemConfiguration.EfsConfigurationMember
+  | ToolsFileSystemConfiguration.S3FilesConfigurationMember
+  | ToolsFileSystemConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolsFileSystemConfiguration {
+  /**
+   * <p>The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.</p>
+   * @public
+   */
+  export interface S3FilesConfigurationMember {
+    s3FilesConfiguration: S3FilesConfiguration;
+    efsConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.</p>
+   * @public
+   */
+  export interface EfsConfigurationMember {
+    s3FilesConfiguration?: never;
+    efsConfiguration: EfsConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3FilesConfiguration?: never;
+    efsConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3FilesConfiguration: (value: S3FilesConfiguration) => T;
+    efsConfiguration: (value: EfsConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The configuration for a browser profile in Amazon Bedrock AgentCore. A browser profile contains persistent browser data such as cookies and local storage that can be saved from one browser session and reused in subsequent sessions. Browser profiles enable continuity for tasks that require authentication, maintain user preferences, or depend on previously stored browser state.</p>
  * @public
  */
@@ -1931,6 +2032,12 @@ export interface GetBrowserSessionResponse {
    * @public
    */
   certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>The file system configurations for the browser session. Each entry describes an access point and its mount path.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
    * <p>The artifact containing the session replay information.</p>
@@ -2822,6 +2929,12 @@ export interface StartBrowserSessionRequest {
   certificates?: Certificate[] | undefined;
 
   /**
+   * <p>The file system configurations to mount into the browser session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
    * @public
    */
@@ -3086,6 +3199,12 @@ export interface GetCodeInterpreterSessionResponse {
    * @public
    */
   certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>The file system configurations for the code interpreter session. Each entry describes an access point and its mount path.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 }
 
 /**
@@ -3215,6 +3334,12 @@ export interface StartCodeInterpreterSessionRequest {
    * @public
    */
   certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>The file system configurations to mount into the code interpreter session. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your session can then read and write your data. If you don't specify this field, no additional file systems are mounted.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request, but does not return an error. This parameter helps prevent the creation of duplicate sessions if there are temporary network issues.</p>
@@ -9931,62 +10056,4 @@ export interface GetMemoryRecordOutput {
    * @public
    */
   memoryRecord: MemoryRecord | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActorsInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource for which to list actors.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call. The default value is 20.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActorsOutput {
-  /**
-   * <p>The list of actor summaries.</p>
-   * @public
-   */
-  actorSummaries: ActorSummary[] | undefined;
-
-  /**
-   * <p>The token to use in a subsequent request to get the next set of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains filter criteria for branches when listing events.</p>
- * @public
- */
-export interface BranchFilter {
-  /**
-   * <p>The name of the branch to filter by.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Specifies whether to include parent branches in the results. Set to true to include parent branches, or false to exclude them.</p>
-   * @public
-   */
-  includeParentBranches?: boolean | undefined;
 }
