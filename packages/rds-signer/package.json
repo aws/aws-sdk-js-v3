@@ -50,8 +50,8 @@
   "dependencies": {
     "@aws-sdk/core": "workspace:^3.976.0",
     "@aws-sdk/credential-providers": "workspace:3.1094.0",
-    "@smithy/core": "^3.29.4",
-    "@smithy/signature-v4": "^5.6.5",
+    "@smithy/core": "^3.29.8",
+    "@smithy/signature-v4": "^5.6.9",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },

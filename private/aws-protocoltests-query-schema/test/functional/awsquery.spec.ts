@@ -3845,7 +3845,7 @@ const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBo
   const fromEntries = (components: string[][]): Record<string, string> => {
     const parts: Record<string, string> = {};
 
-    components.forEach(component => {
+    components.forEach((component) => {
       parts[component[0]] = component[1];
     });
 
@@ -3853,11 +3853,11 @@ const compareEquivalentFormUrlencodedBodies = (expectedBody: string, generatedBo
   };
 
   // Generate to k:v maps from query components
-  const expectedParts = fromEntries(expectedBody.split("&").map(part => part.trim().split("=")));
-  const generatedParts = fromEntries(generatedBody.split("&").map(part => part.trim().split("=")));
+  const expectedParts = fromEntries(expectedBody.split("&").map((part) => part.trim().split("=")));
+  const generatedParts = fromEntries(generatedBody.split("&").map((part) => part.trim().split("=")));
 
   return compareParts(expectedParts, generatedParts);
-}
+};
 
 /**
  * Returns a map of key names that were un-equal to value objects showing the
@@ -3868,10 +3868,10 @@ const compareEquivalentUnknownTypeBodies = (
   expectedBody: string,
   generatedBody: string | Uint8Array
 ): Object => {
-  const expectedParts = {Value: expectedBody};
+  const expectedParts = { Value: expectedBody };
   const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
   };
 
   return compareParts(expectedParts, generatedParts);
-}
+};

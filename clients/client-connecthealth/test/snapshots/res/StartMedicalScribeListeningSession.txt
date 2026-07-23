@@ -115,11 +115,21 @@ Cg==
     },
     {
       internalFailureException: {
+        $fault: "server",
+        $response: (undefined),
+        $retryable: {},
+        $metadata: (undefined),
+        name: "InternalServerException",
         message: "__message__"
       }
     },
     {
       validationException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "ValidationException",
         message: "__message__"
       }
     }

@@ -11254,7 +11254,7 @@ const compareEquivalentJsonBodies = (expectedBody: string, generatedBody: string
   const generatedParts = JSON.parse(generatedBody);
 
   return compareParts(expectedParts, generatedParts);
-}
+};
 
 /**
  * Returns a map of key names that were un-equal to value objects showing the
@@ -11265,22 +11265,22 @@ const compareEquivalentOctetStreamBodies = (
   expectedBody: string,
   generatedBody: Uint8Array
 ): Object => {
-  const expectedParts = {Value: expectedBody};
-  const generatedParts = {Value: utf8Encoder(generatedBody)};
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = { Value: utf8Encoder(generatedBody) };
 
   return compareParts(expectedParts, generatedParts);
-}
+};
 
 /**
  * Returns a map of key names that were un-equal to value objects showing the
  * discrepancies between the components.
  */
 const compareEquivalentTextBodies = (expectedBody: string, generatedBody: string): Object => {
-  const expectedParts = {Value: expectedBody};
-  const generatedParts = {Value: generatedBody};
+  const expectedParts = { Value: expectedBody };
+  const generatedParts = { Value: generatedBody };
 
   return compareParts(expectedParts, generatedParts);
-}
+};
 
 /**
  * Returns a map of key names that were un-equal to value objects showing the
@@ -11291,10 +11291,10 @@ const compareEquivalentUnknownTypeBodies = (
   expectedBody: string,
   generatedBody: string | Uint8Array
 ): Object => {
-  const expectedParts = {Value: expectedBody};
+  const expectedParts = { Value: expectedBody };
   const generatedParts = {
-    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody
+    Value: generatedBody instanceof Uint8Array ? utf8Encoder(generatedBody) : generatedBody,
   };
 
   return compareParts(expectedParts, generatedParts);
-}
+};

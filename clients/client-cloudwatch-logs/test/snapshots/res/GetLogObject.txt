@@ -73,6 +73,11 @@ Cg==
     },
     {
       InternalStreamingException: {
+        $fault: "client",
+        $response: (undefined),
+        $retryable: (undefined),
+        $metadata: (undefined),
+        name: "InternalStreamingException",
         message: "__message__"
       }
     }
