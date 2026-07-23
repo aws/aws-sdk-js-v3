@@ -65,6 +65,20 @@ export interface GetCodeInterpreterCommandOutput extends GetCodeInterpreterRespo
  * //       },
  * //     },
  * //   ],
+ * //   filesystemConfigurations: [ // ToolsFileSystemConfigurations
+ * //     { // ToolsFileSystemConfiguration Union: only one key present
+ * //       s3FilesConfiguration: { // S3FilesConfiguration
+ * //         accessPointArn: "STRING_VALUE", // required
+ * //         mountPath: "STRING_VALUE", // required
+ * //         fileSystemArn: "STRING_VALUE", // required
+ * //       },
+ * //       efsConfiguration: { // EfsConfiguration
+ * //         accessPointArn: "STRING_VALUE", // required
+ * //         mountPath: "STRING_VALUE", // required
+ * //         fileSystemArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
  * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required

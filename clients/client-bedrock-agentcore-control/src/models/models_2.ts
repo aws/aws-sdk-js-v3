@@ -31,13 +31,208 @@ import type {
 import type {
   CustomDescriptor,
   Descriptors,
-  RegistryRecordSummary,
   ServerDefinition,
   SynchronizationConfiguration,
   ToolsDefinition,
   UpdatedAuthorizerConfiguration,
   UpdatedDescription,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetRegistryRecordResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The name of the registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. For details, see the <code>Descriptors</code> data type.</p>
+   * @public
+   */
+  descriptors: Descriptors | undefined;
+
+  /**
+   * <p>The version of the registry record.</p>
+   * @public
+   */
+  recordVersion?: string | undefined;
+
+  /**
+   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>. A record transitions from <code>CREATING</code> to <code>DRAFT</code>, then to <code>PENDING_APPROVAL</code> (via <code>SubmitRegistryRecordForApproval</code>), and finally to <code>APPROVED</code> upon approval.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The reason for the current status, typically set when the status is a failure state.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The type of synchronization used for this record.</p>
+   * @public
+   */
+  synchronizationType?: SynchronizationType | undefined;
+
+  /**
+   * <p>The configuration for synchronizing registry record metadata from an external source.</p>
+   * @public
+   */
+  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegistryRecordsRequest {
+  /**
+   * <p>The identifier of the registry to list records from. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Filter registry records by name.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Filter registry records by their current status. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  status?: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>Filter registry records by their descriptor type. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType?: DescriptorType | undefined;
+}
+
+/**
+ * <p>Contains summary information about a registry record.</p>
+ * @public
+ */
+export interface RegistryRecordSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
+   * @public
+   */
+  registryArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
+   * @public
+   */
+  recordArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the registry record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+
+  /**
+   * <p>The name of the registry record.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the registry record.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
+   * @public
+   */
+  descriptorType: DescriptorType | undefined;
+
+  /**
+   * <p>The version of the registry record.</p>
+   * @public
+   */
+  recordVersion: string | undefined;
+
+  /**
+   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
+   * @public
+   */
+  status: RegistryRecordStatus | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the registry record was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
 
 /**
  * @public

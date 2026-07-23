@@ -280,9 +280,10 @@ const _DWIRe = "DeleteWorkloadIdentityResponse";
 const _De = "Description";
 const _Des = "Descriptors";
 const _EAPC = "EfsAccessPointConfiguration";
-const _EC = "EvaluatorConfig";
+const _EC = "EfsConfiguration";
 const _ECD = "EvaluationConfigDescription";
 const _ECO = "EpisodicConsolidationOverride";
+const _ECv = "EvaluatorConfig";
 const _ECx = "ExtractionConfig";
 const _ECxt = "ExtractionConfiguration";
 const _ED = "EvaluatorDescription";
@@ -756,6 +757,7 @@ const _SDk = "SkillDefinition";
 const _SE = "ServiceException";
 const _SEO = "SemanticExtractionOverride";
 const _SFAPC = "S3FilesAccessPointConfiguration";
+const _SFC = "S3FilesConfiguration";
 const _SGT = "SynchronizeGatewayTargets";
 const _SGTR = "SynchronizeGatewayTargetsRequest";
 const _SGTRy = "SynchronizeGatewayTargetsResponse";
@@ -815,6 +817,8 @@ const _TDool = "ToolDefinitions";
 const _TE = "ThrottledException";
 const _TEGTCT = "TokenExchangeGrantTypeConfigType";
 const _TEh = "ThrottlingException";
+const _TFSC = "ToolsFileSystemConfigurations";
+const _TFSCo = "ToolsFileSystemConfiguration";
 const _TN = "TargetName";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -1126,6 +1130,7 @@ const _eAP = "efsAccessPoint";
 const _eAn = "environmentArtifact";
 const _eC = "evaluatorConfig";
 const _eCO = "episodicConsolidationOverride";
+const _eCf = "efsConfiguration";
 const _eCx = "exampleCount";
 const _eCxt = "extractionConfig";
 const _eED = "eventExpiryDuration";
@@ -1166,6 +1171,7 @@ const _fL = "fieldList";
 const _fM = "failureMode";
 const _fP = "filterPath";
 const _fR = "failureReason";
+const _fSA = "fileSystemArn";
 const _fU = "fromUrl";
 const _fi = "findings";
 const _fie = "field";
@@ -1428,6 +1434,7 @@ const _sD = "skillDefinition";
 const _sDR = "streamDeliveryResources";
 const _sEO = "semanticExtractionOverride";
 const _sFAP = "s3FilesAccessPoint";
+const _sFC = "s3FilesConfiguration";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "strategyId";
@@ -1981,8 +1988,8 @@ export var CreateBrowserProfileResponse$: StaticStructureSchema = [3, n0, _CBPRr
 ];
 export var CreateBrowserRequest$: StaticStructureSchema = [3, n0, _CBRr,
   0,
-  [_n, _nC, _d, _eRA, _re, _bS, _ePn, _ce, _cT, _ta],
-  [0, () => BrowserNetworkConfiguration$, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigInput$, () => BrowserEnterprisePolicies, () => Certificates, [0, 4], 128 | 0], 2
+  [_n, _nC, _d, _eRA, _re, _bS, _ePn, _ce, _fC, _cT, _ta],
+  [0, () => BrowserNetworkConfiguration$, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigInput$, () => BrowserEnterprisePolicies, () => Certificates, () => ToolsFileSystemConfigurations, [0, 4], 128 | 0], 2
 ];
 export var CreateBrowserResponse$: StaticStructureSchema = [3, n0, _CBRre,
   0,
@@ -1991,8 +1998,8 @@ export var CreateBrowserResponse$: StaticStructureSchema = [3, n0, _CBRre,
 ];
 export var CreateCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _CCIR,
   0,
-  [_n, _nC, _d, _eRA, _ce, _cT, _ta],
-  [0, () => CodeInterpreterNetworkConfiguration$, [() => Description, 0], 0, () => Certificates, [0, 4], 128 | 0], 2
+  [_n, _nC, _d, _eRA, _ce, _fC, _cT, _ta],
+  [0, () => CodeInterpreterNetworkConfiguration$, [() => Description, 0], 0, () => Certificates, () => ToolsFileSystemConfigurations, [0, 4], 128 | 0], 2
 ];
 export var CreateCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _CCIRr,
   0,
@@ -2534,6 +2541,11 @@ export var EfsAccessPointConfiguration$: StaticStructureSchema = [3, n0, _EAPC,
   [_aPA, _mP],
   [0, 0], 2
 ];
+export var EfsConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_aPA, _mP, _fSA],
+  [0, 0, 0], 3
+];
 export var EpisodicConsolidationOverride$: StaticStructureSchema = [3, n0, _ECO,
   0,
   [_aTP, _mI],
@@ -2681,8 +2693,8 @@ export var GetBrowserRequest$: StaticStructureSchema = [3, n0, _GBR,
 ];
 export var GetBrowserResponse$: StaticStructureSchema = [3, n0, _GBRe,
   0,
-  [_bI, _bA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _re, _bS, _ePn, _ce, _fR],
-  [0, 0, 0, () => BrowserNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigOutput$, () => BrowserEnterprisePolicies, () => Certificates, 0], 7
+  [_bI, _bA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _re, _bS, _ePn, _ce, _fC, _fR],
+  [0, 0, 0, () => BrowserNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => RecordingConfig$, () => BrowserSigningConfigOutput$, () => BrowserEnterprisePolicies, () => Certificates, () => ToolsFileSystemConfigurations, 0], 7
 ];
 export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
   0,
@@ -2691,8 +2703,8 @@ export var GetCodeInterpreterRequest$: StaticStructureSchema = [3, n0, _GCIR,
 ];
 export var GetCodeInterpreterResponse$: StaticStructureSchema = [3, n0, _GCIRe,
   0,
-  [_cII, _cIA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _ce, _fR],
-  [0, 0, 0, () => CodeInterpreterNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => Certificates, 0], 7
+  [_cII, _cIA, _n, _nC, _st, _cA, _lUA, _d, _eRA, _ce, _fC, _fR],
+  [0, 0, 0, () => CodeInterpreterNetworkConfiguration$, 0, 5, 5, [() => Description, 0], 0, () => Certificates, () => ToolsFileSystemConfigurations, 0], 7
 ];
 export var GetConfigurationBundleRequest$: StaticStructureSchema = [3, n0, _GCBR,
   0,
@@ -3934,6 +3946,11 @@ export var S3FilesAccessPointConfiguration$: StaticStructureSchema = [3, n0, _SF
   [_aPA, _mP],
   [0, 0], 2
 ];
+export var S3FilesConfiguration$: StaticStructureSchema = [3, n0, _SFC,
+  0,
+  [_aPA, _mP, _fSA],
+  [0, 0, 0], 3
+];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bu, _pre, _vI],
@@ -4955,6 +4972,9 @@ var ToolDefinitions: StaticListSchema = [1, n0, _TDool,
   0, [() => ToolDefinition$,
     0]
 ];
+var ToolsFileSystemConfigurations: StaticListSchema = [1, n0, _TFSC,
+  0, () => ToolsFileSystemConfiguration$
+];
 var TrafficSplitEntries: StaticListSchema = [1, n0, _TSEr,
   0, () => TrafficSplitEntry$
 ];
@@ -5119,7 +5139,7 @@ export var DataSourceType$: StaticUnionSchema = [4, n0, _DST,
   [_iE, _sSo],
   [[() => InlineExamplesSource$, 0], () => S3Source$]
 ];
-export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _EC,
+export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _ECv,
   0,
   [_lAAJ, _cBod],
   [[() => LlmAsAJudgeEvaluatorConfig$, 0], () => CodeBasedEvaluatorConfig$]
@@ -5353,6 +5373,11 @@ export var ToolSchema$: StaticUnionSchema = [4, n0, _TSo,
   0,
   [_s_, _iPn],
   [() => S3Configuration$, [() => ToolDefinitions, 0]]
+];
+export var ToolsFileSystemConfiguration$: StaticUnionSchema = [4, n0, _TFSCo,
+  0,
+  [_sFC, _eCf],
+  [() => S3FilesConfiguration$, () => EfsConfiguration$]
 ];
 export var TriggerCondition$: StaticUnionSchema = [4, n0, _TCr,
   0,

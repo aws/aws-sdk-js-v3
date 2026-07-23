@@ -13,6 +13,7 @@ import type {
   ExtractionType,
   FilterOperator,
   FindingType,
+  HarnessOpenAiApiFormat,
   HarnessStatus,
   HarnessToolType,
   HarnessTruncationStrategy,
@@ -46,11 +47,12 @@ import type {
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
   FilesystemConfiguration,
+  HarnessBedrockModelConfig,
   HarnessEnvironmentArtifact,
   HarnessEnvironmentProviderRequest,
+  HarnessGeminiModelConfig,
+  HarnessLiteLlmModelConfig,
   HarnessMemoryConfiguration,
-  HarnessModelConfiguration,
-  HarnessSkillAwsSkillsSource,
   LifecycleConfiguration,
   NetworkConfiguration,
   OAuthCredentialProvider,
@@ -61,6 +63,153 @@ import type {
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
+ * @public
+ */
+export interface HarnessOpenAiModelConfig {
+  /**
+   * <p>The OpenAI model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of your OpenAI API key on AgentCore Identity.</p>
+   * @public
+   */
+  apiKeyArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the OpenAI provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessOpenAiApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Specification of which model to use.</p>
+ * @public
+ */
+export type HarnessModelConfiguration =
+  | HarnessModelConfiguration.BedrockModelConfigMember
+  | HarnessModelConfiguration.GeminiModelConfigMember
+  | HarnessModelConfiguration.LiteLlmModelConfigMember
+  | HarnessModelConfiguration.OpenAiModelConfigMember
+  | HarnessModelConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessModelConfiguration {
+  /**
+   * <p>Configuration for an Amazon Bedrock model.</p>
+   * @public
+   */
+  export interface BedrockModelConfigMember {
+    bedrockModelConfig: HarnessBedrockModelConfig;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for an OpenAI model.</p>
+   * @public
+   */
+  export interface OpenAiModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig: HarnessOpenAiModelConfig;
+    geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for a Google Gemini model.</p>
+   * @public
+   */
+  export interface GeminiModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig: HarnessGeminiModelConfig;
+    liteLlmModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
+   * @public
+   */
+  export interface LiteLlmModelConfigMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    liteLlmModelConfig: HarnessLiteLlmModelConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    bedrockModelConfig?: never;
+    openAiModelConfig?: never;
+    geminiModelConfig?: never;
+    liteLlmModelConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    bedrockModelConfig: (value: HarnessBedrockModelConfig) => T;
+    openAiModelConfig: (value: HarnessOpenAiModelConfig) => T;
+    geminiModelConfig: (value: HarnessGeminiModelConfig) => T;
+    liteLlmModelConfig: (value: HarnessLiteLlmModelConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Passed to show that AWS Skills should be included.</p>
+ * @public
+ */
+export interface HarnessSkillAwsSkillsSource {
+  /**
+   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
+   * @public
+   */
+  paths?: string[] | undefined;
+}
 
 /**
  * <p>Authentication configuration for accessing a private git repository.</p>
@@ -10141,200 +10290,4 @@ export interface GetRegistryRecordRequest {
    * @public
    */
   recordId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetRegistryRecordResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The name of the registry record.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the registry record.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  descriptorType: DescriptorType | undefined;
-
-  /**
-   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. For details, see the <code>Descriptors</code> data type.</p>
-   * @public
-   */
-  descriptors: Descriptors | undefined;
-
-  /**
-   * <p>The version of the registry record.</p>
-   * @public
-   */
-  recordVersion?: string | undefined;
-
-  /**
-   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>. A record transitions from <code>CREATING</code> to <code>DRAFT</code>, then to <code>PENDING_APPROVAL</code> (via <code>SubmitRegistryRecordForApproval</code>), and finally to <code>APPROVED</code> upon approval.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The reason for the current status, typically set when the status is a failure state.</p>
-   * @public
-   */
-  statusReason?: string | undefined;
-
-  /**
-   * <p>The type of synchronization used for this record.</p>
-   * @public
-   */
-  synchronizationType?: SynchronizationType | undefined;
-
-  /**
-   * <p>The configuration for synchronizing registry record metadata from an external source.</p>
-   * @public
-   */
-  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface ListRegistryRecordsRequest {
-  /**
-   * <p>The identifier of the registry to list records from. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Filter registry records by name.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>Filter registry records by their current status. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
-   * @public
-   */
-  status?: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>Filter registry records by their descriptor type. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  descriptorType?: DescriptorType | undefined;
-}
-
-/**
- * <p>Contains summary information about a registry record.</p>
- * @public
- */
-export interface RegistryRecordSummary {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>
-   * @public
-   */
-  registryArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the registry record.</p>
-   * @public
-   */
-  recordId: string | undefined;
-
-  /**
-   * <p>The name of the registry record.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the registry record.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The descriptor type of the registry record. Possible values are <code>MCP</code>, <code>A2A</code>, <code>CUSTOM</code>, and <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  descriptorType: DescriptorType | undefined;
-
-  /**
-   * <p>The version of the registry record.</p>
-   * @public
-   */
-  recordVersion: string | undefined;
-
-  /**
-   * <p>The current status of the registry record. Possible values include <code>CREATING</code>, <code>DRAFT</code>, <code>APPROVED</code>, <code>PENDING_APPROVAL</code>, <code>REJECTED</code>, <code>DEPRECATED</code>, <code>UPDATING</code>, <code>CREATE_FAILED</code>, and <code>UPDATE_FAILED</code>.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the registry record was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
 }

@@ -32,7 +32,6 @@ import type {
   HarnessBedrockApiFormat,
   HarnessEndpointStatus,
   HarnessManagedMemoryStrategyType,
-  HarnessOpenAiApiFormat,
   InboundTokenClaimValueType,
   IncludedData,
   InterceptorPayloadExclusion,
@@ -3073,6 +3072,107 @@ export interface BrowserEnterprisePolicy {
 }
 
 /**
+ * <p>The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.</p>
+ * @public
+ */
+export interface EfsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.</p>
+   * @public
+   */
+  accessPointArn: string | undefined;
+
+  /**
+   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/efs</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+}
+
+/**
+ * <p>The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.</p>
+ * @public
+ */
+export interface S3FilesConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.</p>
+   * @public
+   */
+  accessPointArn: string | undefined;
+
+  /**
+   * <p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/s3data</code>. Each mount path must be unique across all file system configurations in the session.</p>
+   * @public
+   */
+  mountPath: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.</p>
+   * @public
+   */
+  fileSystemArn: string | undefined;
+}
+
+/**
+ * <p>Specifies a file system to mount into the session by providing exactly one of the following:</p> <ul> <li> <p> <code>s3FilesConfiguration</code> - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.</p> </li> <li> <p> <code>efsConfiguration</code> - Mounts an Amazon Elastic File System (Amazon EFS) access point.</p> </li> </ul>
+ * @public
+ */
+export type ToolsFileSystemConfiguration =
+  | ToolsFileSystemConfiguration.EfsConfigurationMember
+  | ToolsFileSystemConfiguration.S3FilesConfigurationMember
+  | ToolsFileSystemConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ToolsFileSystemConfiguration {
+  /**
+   * <p>The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.</p>
+   * @public
+   */
+  export interface S3FilesConfigurationMember {
+    s3FilesConfiguration: S3FilesConfiguration;
+    efsConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.</p>
+   * @public
+   */
+  export interface EfsConfigurationMember {
+    s3FilesConfiguration?: never;
+    efsConfiguration: EfsConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3FilesConfiguration?: never;
+    efsConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3FilesConfiguration: (value: S3FilesConfiguration) => T;
+    efsConfiguration: (value: EfsConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>The network configuration for a browser. This structure defines how the browser connects to the network.</p>
  * @public
  */
@@ -3159,6 +3259,12 @@ export interface CreateBrowserRequest {
    * @public
    */
   certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
@@ -3330,6 +3436,12 @@ export interface GetBrowserResponse {
   certificates?: Certificate[] | undefined;
 
   /**
+   * <p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
+
+  /**
    * <p>The current status of the browser.</p>
    * @public
    */
@@ -3495,6 +3607,12 @@ export interface CreateCodeInterpreterRequest {
   certificates?: Certificate[] | undefined;
 
   /**
+   * <p>The file system configurations to mount into the code interpreter. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, Amazon Bedrock AgentCore ignores the request but does not return an error.</p>
    * @public
    */
@@ -3638,6 +3756,12 @@ export interface GetCodeInterpreterResponse {
    * @public
    */
   certificates?: Certificate[] | undefined;
+
+  /**
+   * <p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>
+   * @public
+   */
+  filesystemConfigurations?: ToolsFileSystemConfiguration[] | undefined;
 
   /**
    * <p>The reason for failure if the code interpreter is in a failed state.</p>
@@ -9202,153 +9326,6 @@ export interface HarnessLiteLlmModelConfig {
    * @public
    */
   additionalParams?: __DocumentType | undefined;
-}
-
-/**
- * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
- * @public
- */
-export interface HarnessOpenAiModelConfig {
-  /**
-   * <p>The OpenAI model ID.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The ARN of your OpenAI API key on AgentCore Identity.</p>
-   * @public
-   */
-  apiKeyArn: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The temperature to set when calling the model.</p>
-   * @public
-   */
-  temperature?: number | undefined;
-
-  /**
-   * <p>The topP set when calling the model.</p>
-   * @public
-   */
-  topP?: number | undefined;
-
-  /**
-   * <p>The API format to use when calling the OpenAI provider.</p>
-   * @public
-   */
-  apiFormat?: HarnessOpenAiApiFormat | undefined;
-
-  /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
-   * @public
-   */
-  additionalParams?: __DocumentType | undefined;
-}
-
-/**
- * <p>Specification of which model to use.</p>
- * @public
- */
-export type HarnessModelConfiguration =
-  | HarnessModelConfiguration.BedrockModelConfigMember
-  | HarnessModelConfiguration.GeminiModelConfigMember
-  | HarnessModelConfiguration.LiteLlmModelConfigMember
-  | HarnessModelConfiguration.OpenAiModelConfigMember
-  | HarnessModelConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessModelConfiguration {
-  /**
-   * <p>Configuration for an Amazon Bedrock model.</p>
-   * @public
-   */
-  export interface BedrockModelConfigMember {
-    bedrockModelConfig: HarnessBedrockModelConfig;
-    openAiModelConfig?: never;
-    geminiModelConfig?: never;
-    liteLlmModelConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for an OpenAI model.</p>
-   * @public
-   */
-  export interface OpenAiModelConfigMember {
-    bedrockModelConfig?: never;
-    openAiModelConfig: HarnessOpenAiModelConfig;
-    geminiModelConfig?: never;
-    liteLlmModelConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Configuration for a Google Gemini model.</p>
-   * @public
-   */
-  export interface GeminiModelConfigMember {
-    bedrockModelConfig?: never;
-    openAiModelConfig?: never;
-    geminiModelConfig: HarnessGeminiModelConfig;
-    liteLlmModelConfig?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The LiteLLM model configuration for connecting to third-party model providers.</p>
-   * @public
-   */
-  export interface LiteLlmModelConfigMember {
-    bedrockModelConfig?: never;
-    openAiModelConfig?: never;
-    geminiModelConfig?: never;
-    liteLlmModelConfig: HarnessLiteLlmModelConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    bedrockModelConfig?: never;
-    openAiModelConfig?: never;
-    geminiModelConfig?: never;
-    liteLlmModelConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    bedrockModelConfig: (value: HarnessBedrockModelConfig) => T;
-    openAiModelConfig: (value: HarnessOpenAiModelConfig) => T;
-    geminiModelConfig: (value: HarnessGeminiModelConfig) => T;
-    liteLlmModelConfig: (value: HarnessLiteLlmModelConfig) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Passed to show that AWS Skills should be included.</p>
- * @public
- */
-export interface HarnessSkillAwsSkillsSource {
-  /**
-   * <p>Optionally filter allowed skills with glob syntax, e.g., ['core-skills/*'].</p>
-   * @public
-   */
-  paths?: string[] | undefined;
 }
 
 /**

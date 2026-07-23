@@ -87,6 +87,20 @@ export interface GetBrowserCommandOutput extends GetBrowserResponse, __MetadataB
  * //       },
  * //     },
  * //   ],
+ * //   filesystemConfigurations: [ // ToolsFileSystemConfigurations
+ * //     { // ToolsFileSystemConfiguration Union: only one key present
+ * //       s3FilesConfiguration: { // S3FilesConfiguration
+ * //         accessPointArn: "STRING_VALUE", // required
+ * //         mountPath: "STRING_VALUE", // required
+ * //         fileSystemArn: "STRING_VALUE", // required
+ * //       },
+ * //       efsConfiguration: { // EfsConfiguration
+ * //         accessPointArn: "STRING_VALUE", // required
+ * //         mountPath: "STRING_VALUE", // required
+ * //         fileSystemArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
  * //   status: "CREATING" || "CREATE_FAILED" || "READY" || "DELETING" || "DELETE_FAILED" || "DELETED", // required
  * //   failureReason: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required

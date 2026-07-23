@@ -330,6 +330,7 @@ import {
   DescriptorType,
   DraftStatus,
   EfsAccessPointConfiguration$,
+  EfsConfiguration$,
   EncryptionFailure,
   EncryptionFailure$,
   EndpointIpAddressType,
@@ -889,6 +890,7 @@ import {
   RuntimeTargetConfiguration$,
   S3Configuration$,
   S3FilesAccessPointConfiguration$,
+  S3FilesConfiguration$,
   S3Location$,
   S3Source$,
   SalesforceOauth2ProviderConfigInput$,
@@ -980,6 +982,7 @@ import {
   ToolDefinition$,
   ToolSchema$,
   ToolsDefinition$,
+  ToolsFileSystemConfiguration$,
   TrafficSplitEntry$,
   TriggerCondition$,
   TriggerConditionInput$,
@@ -1638,6 +1641,7 @@ assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
 assert(typeof Descriptors$ === "object");
 assert(typeof EfsAccessPointConfiguration$ === "object");
+assert(typeof EfsConfiguration$ === "object");
 assert(typeof EpisodicConsolidationOverride$ === "object");
 assert(typeof EpisodicExtractionOverride$ === "object");
 assert(typeof EpisodicMemoryStrategyInput$ === "object");
@@ -1961,6 +1965,7 @@ assert(typeof RuntimeMetadataConfiguration$ === "object");
 assert(typeof RuntimeTargetConfiguration$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof S3FilesAccessPointConfiguration$ === "object");
+assert(typeof S3FilesConfiguration$ === "object");
 assert(typeof S3Location$ === "object");
 assert(typeof S3Source$ === "object");
 assert(typeof SalesforceOauth2ProviderConfigInput$ === "object");
@@ -2025,6 +2030,7 @@ assert(typeof TokenExchangeGrantTypeConfigType$ === "object");
 assert(typeof ToolDefinition$ === "object");
 assert(typeof ToolSchema$ === "object");
 assert(typeof ToolsDefinition$ === "object");
+assert(typeof ToolsFileSystemConfiguration$ === "object");
 assert(typeof TrafficSplitEntry$ === "object");
 assert(typeof TriggerCondition$ === "object");
 assert(typeof TriggerConditionInput$ === "object");

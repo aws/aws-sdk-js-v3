@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetRegistryRecordRequest, GetRegistryRecordResponse } from "../models/models_1";
+import type { GetRegistryRecordRequest } from "../models/models_1";
+import type { GetRegistryRecordResponse } from "../models/models_2";
 import { GetRegistryRecord$ } from "../schemas/schemas_0";
 
 /**

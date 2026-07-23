@@ -409,7 +409,7 @@
                 "aws.api#arnReference": {
                     "type": "AWS::BedrockAgentCore::Runtime"
                 },
-                "smithy.api#pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:agent/[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}:([0-9]{0,4}[1-9][0-9]{0,4})$"
+                "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$"
             }
         },
         "com.amazonaws.bedrockagentcorecontrol#AgentRuntimeArtifact": {
@@ -513,7 +513,7 @@
                 "aws.api#arnReference": {
                     "type": "AWS::BedrockAgentCore::RuntimeEndpoint"
                 },
-                "smithy.api#pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:agentEndpoint/[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{4}-[A-Fa-f0-9]{12}$"
+                "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:runtime/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}/runtime-endpoint/[a-zA-Z][a-zA-Z0-9_]{0,47}$"
             }
         },
         "com.amazonaws.bedrockagentcorecontrol#AgentRuntimeEndpointId": {
@@ -2360,7 +2360,7 @@
                 "aws.api#arnReference": {
                     "type": "AWS::BedrockAgentCore::BrowserProfile"
                 },
-                "smithy.api#pattern": "^arn:(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:browser-profile/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$"
+                "smithy.api#pattern": "^arn:aws(-[^:]+)?:bedrock-agentcore:[a-z0-9-]+:[0-9]{12}:browser-profile/[a-zA-Z][a-zA-Z0-9_]{0,47}-[a-zA-Z0-9]{10}$"
             }
         },
         "com.amazonaws.bedrockagentcorecontrol#BrowserProfileId": {
@@ -4549,6 +4549,12 @@
                         "smithy.api#documentation": "<p>A list of certificates to install in the browser.</p>"
                     }
                 },
+                "filesystemConfigurations": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfigurations",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The file system configurations to mount into the browser. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>"
+                    }
+                },
                 "clientToken": {
                     "target": "com.amazonaws.bedrockagentcorecontrol#ClientToken",
                     "traits": {
@@ -4674,6 +4680,12 @@
                     "target": "com.amazonaws.bedrockagentcorecontrol#Certificates",
                     "traits": {
                         "smithy.api#documentation": "<p>A list of certificates to install in the code interpreter.</p>"
+                    }
+                },
+                "filesystemConfigurations": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfigurations",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The file system configurations to mount into the code interpreter. Use these configurations to mount your own Amazon Simple Storage Service (Amazon S3) Files or Amazon Elastic File System (Amazon EFS) access points. Your sessions can then access your data. If you don't specify this field, no file systems are mounted.</p>"
                     }
                 },
                 "clientToken": {
@@ -11417,6 +11429,45 @@
                 "smithy.api#documentation": "<p>Configuration for an Amazon EFS access point filesystem mounted into the AgentCore Runtime. EFS access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>"
             }
         },
+        "com.amazonaws.bedrockagentcorecontrol#EfsConfiguration": {
+            "type": "structure",
+            "members": {
+                "accessPointArn": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#EfsAccessPointArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) access point to mount.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "mountPath": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#MountPath",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/efs</code>. Each mount path must be unique across all file system configurations in the session.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "fileSystemArn": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#EfsFileSystemArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Elastic File System (Amazon EFS) file system that owns the access point.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The configuration for mounting an Amazon Elastic File System (Amazon EFS) access point that you own into a session.</p>"
+            }
+        },
+        "com.amazonaws.bedrockagentcorecontrol#EfsFileSystemArn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an Amazon Elastic File System (Amazon EFS) file system. The access points you specify must belong to this file system.</p>",
+                "smithy.api#length": {
+                    "max": 256
+                },
+                "smithy.api#pattern": "^arn:aws[-a-z]*:elasticfilesystem:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{8,40}$"
+            }
+        },
         "com.amazonaws.bedrockagentcorecontrol#EnabledConnectors": {
             "type": "list",
             "member": {
@@ -13866,6 +13917,12 @@
                         "smithy.api#documentation": "<p>The list of certificates configured for the browser.</p>"
                     }
                 },
+                "filesystemConfigurations": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfigurations",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The file system configurations mounted into the browser. Each entry describes an access point and its mount path.</p>"
+                    }
+                },
                 "status": {
                     "target": "com.amazonaws.bedrockagentcorecontrol#BrowserStatus",
                     "traits": {
@@ -14002,6 +14059,12 @@
                     "target": "com.amazonaws.bedrockagentcorecontrol#Certificates",
                     "traits": {
                         "smithy.api#documentation": "<p>The list of certificates configured for the code interpreter.</p>"
+                    }
+                },
+                "filesystemConfigurations": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfigurations",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The file system configurations mounted into the code interpreter. Each entry describes an access point and its mount path.</p>"
                     }
                 },
                 "failureReason": {
@@ -28816,6 +28879,45 @@
                 "smithy.api#documentation": "<p>Configuration for an Amazon S3 Files access point filesystem mounted into the AgentCore Runtime. S3 Files access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>"
             }
         },
+        "com.amazonaws.bedrockagentcorecontrol#S3FilesConfiguration": {
+            "type": "structure",
+            "members": {
+                "accessPointArn": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#S3FilesAccessPointArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files access point to mount.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "mountPath": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#MountPath",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The absolute path within the session at which the access point is mounted, for example <code>/mnt/s3data</code>. Each mount path must be unique across all file system configurations in the session.</p>",
+                        "smithy.api#required": {}
+                    }
+                },
+                "fileSystemArn": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#S3FilesFileSystemArn",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon Simple Storage Service (Amazon S3) Files file system that owns the access point.</p>",
+                        "smithy.api#required": {}
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The configuration for mounting an Amazon Simple Storage Service (Amazon S3) Files access point that you own into a session.</p>"
+            }
+        },
+        "com.amazonaws.bedrockagentcorecontrol#S3FilesFileSystemArn": {
+            "type": "string",
+            "traits": {
+                "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an Amazon Simple Storage Service (Amazon S3) Files file system. The access points you specify must belong to this file system.</p>",
+                "smithy.api#length": {
+                    "max": 256
+                },
+                "smithy.api#pattern": "^arn:aws[-a-z]*:s3files:[a-z0-9-]+:[0-9]{12}:file-system/fs-[0-9a-f]{17,40}$"
+            }
+        },
         "com.amazonaws.bedrockagentcorecontrol#S3Location": {
             "type": "structure",
             "members": {
@@ -31482,6 +31584,39 @@
             },
             "traits": {
                 "smithy.api#documentation": "<p>The tools definition for an MCP descriptor. Contains the protocol version and inline content describing the available tools.</p>"
+            }
+        },
+        "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfiguration": {
+            "type": "union",
+            "members": {
+                "s3FilesConfiguration": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#S3FilesConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration for mounting your own Amazon Simple Storage Service (Amazon S3) Files access point into the session.</p>"
+                    }
+                },
+                "efsConfiguration": {
+                    "target": "com.amazonaws.bedrockagentcorecontrol#EfsConfiguration",
+                    "traits": {
+                        "smithy.api#documentation": "<p>The configuration for mounting your own Amazon Elastic File System (Amazon EFS) access point into the session.</p>"
+                    }
+                }
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>Specifies a file system to mount into the session by providing exactly one of the following:</p> <ul> <li> <p> <code>s3FilesConfiguration</code> - Mounts an Amazon Simple Storage Service (Amazon S3) Files access point.</p> </li> <li> <p> <code>efsConfiguration</code> - Mounts an Amazon Elastic File System (Amazon EFS) access point.</p> </li> </ul>"
+            }
+        },
+        "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfigurations": {
+            "type": "list",
+            "member": {
+                "target": "com.amazonaws.bedrockagentcorecontrol#ToolsFileSystemConfiguration"
+            },
+            "traits": {
+                "smithy.api#documentation": "<p>The file system configurations to mount into the session. Each configuration maps an access point to a path inside the session. You can specify up to 4 configurations. The maximum is 2 Amazon Simple Storage Service (Amazon S3) Files access points and 2 Amazon Elastic File System (Amazon EFS) access points.</p>",
+                "smithy.api#length": {
+                    "min": 0,
+                    "max": 10
+                }
             }
         },
         "com.amazonaws.bedrockagentcorecontrol#TopK": {

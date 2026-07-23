@@ -80,6 +80,20 @@ export interface CreateBrowserCommandOutput extends CreateBrowserResponse, __Met
  *       },
  *     },
  *   ],
+ *   filesystemConfigurations: [ // ToolsFileSystemConfigurations
+ *     { // ToolsFileSystemConfiguration Union: only one key present
+ *       s3FilesConfiguration: { // S3FilesConfiguration
+ *         accessPointArn: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *         fileSystemArn: "STRING_VALUE", // required
+ *       },
+ *       efsConfiguration: { // EfsConfiguration
+ *         accessPointArn: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *         fileSystemArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  *   clientToken: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
