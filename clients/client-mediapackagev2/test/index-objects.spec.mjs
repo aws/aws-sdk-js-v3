@@ -152,6 +152,8 @@ import {
   MssManifestLayout,
   OriginEndpointListConfiguration$,
   OutputHeaderConfiguration$,
+  OutputLockingMode,
+  OutputTimestampMode,
   paginateListChannelGroups,
   paginateListChannels,
   paginateListHarvestJobs,
@@ -410,6 +412,8 @@ assert(typeof HarvestJobStatus === "object");
 assert(typeof InputType === "object");
 assert(typeof IsmEncryptionMethod === "object");
 assert(typeof MssManifestLayout === "object");
+assert(typeof OutputLockingMode === "object");
+assert(typeof OutputTimestampMode === "object");
 assert(typeof PresetSpeke20Audio === "object");
 assert(typeof PresetSpeke20Video === "object");
 assert(typeof ResourceTypeNotFound === "object");

@@ -75,6 +75,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *         CertificateArn: "STRING_VALUE",
  *       },
  *     },
+ *     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
  *   },
  *   ClientToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
@@ -274,6 +275,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
@@ -867,6 +869,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       }
  *     },
  *     IncludeIframeOnlyStreams: true,
+ *     OutputTimestampMode: "REBASED_TO_CHANNEL_START",
  *     Scte: {
  *       ScteFilter: [
  *         "SPLICE_INSERT",
@@ -1088,6 +1091,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *       }
  *     },
  *     IncludeIframeOnlyStreams: true,
+ *     OutputTimestampMode: "REBASED_TO_CHANNEL_START",
  *     Scte: {
  *       ScteFilter: [
  *         "SPLICE_INSERT",

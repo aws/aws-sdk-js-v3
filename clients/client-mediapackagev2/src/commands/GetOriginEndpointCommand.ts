@@ -83,6 +83,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         CertificateArn: "STRING_VALUE",
  * //       },
  * //     },
+ * //     OutputTimestampMode: "PASSTHROUGH" || "REBASED_TO_CHANNEL_START",
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required

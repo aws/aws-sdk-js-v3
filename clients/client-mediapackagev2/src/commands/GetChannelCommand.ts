@@ -64,6 +64,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
  * //     PublishMQCS: true || false,
  * //   },
+ * //   OutputLockingMode: "EPOCH_LOCKED" || "NON_EPOCH_LOCKED",
  * // };
  *
  * ```
@@ -122,6 +123,44 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  *   ],
  *   InputType: "HLS",
  *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Getting a CMAF Channel with non-epoch-locked output locking mode
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleCmafChannel"
+ * };
+ * const command = new GetChannelCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleCmafChannel",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleCmafChannel",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Non-epoch-locked CMAF channel",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   IngestEndpoints: [
+ *     {
+ *       Id: "1",
+ *       Url: "https://abcde-1.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleCmafChannel"
+ *     },
+ *     {
+ *       Id: "2",
+ *       Url: "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleCmafChannel"
+ *     }
+ *   ],
+ *   InputType: "CMAF",
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   OutputLockingMode: "NON_EPOCH_LOCKED",
  *   Tags: {
  *     key1: "value1",
  *     key2: "value2"

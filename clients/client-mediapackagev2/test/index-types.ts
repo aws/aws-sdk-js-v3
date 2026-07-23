@@ -112,6 +112,8 @@ export type {
   InputType,
   IsmEncryptionMethod,
   MssManifestLayout,
+  OutputLockingMode,
+  OutputTimestampMode,
   PresetSpeke20Audio,
   PresetSpeke20Video,
   ResourceTypeNotFound,

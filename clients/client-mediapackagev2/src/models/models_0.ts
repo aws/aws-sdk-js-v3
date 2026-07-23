@@ -19,6 +19,8 @@ import type {
   InputType,
   IsmEncryptionMethod,
   MssManifestLayout,
+  OutputLockingMode,
+  OutputTimestampMode,
   PresetSpeke20Audio,
   PresetSpeke20Video,
   ScteFilter,
@@ -290,6 +292,12 @@ export interface CreateChannelRequest {
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
 
   /**
+   * <p>The output locking mode for the channel. This setting is only valid when <code>InputType</code> is <code>CMAF</code>. This value is immutable after channel creation. If you don't specify a value, the default is <code>EPOCH_LOCKED</code>.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time. This mode supports cross-region synchronization and failover.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0. This mode does not support cross-region synchronization or failover.</p> </li> </ul>
+   * @public
+   */
+  OutputLockingMode?: OutputLockingMode | undefined;
+
+  /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
@@ -389,6 +397,12 @@ export interface CreateChannelResponse {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
+
+  /**
+   * <p>The output locking mode configured for the channel.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p> </li> </ul>
+   * @public
+   */
+  OutputLockingMode?: OutputLockingMode | undefined;
 }
 
 /**
@@ -511,6 +525,12 @@ export interface GetChannelResponse {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
+
+  /**
+   * <p>The output locking mode configured for the channel.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p> </li> </ul>
+   * @public
+   */
+  OutputLockingMode?: OutputLockingMode | undefined;
 }
 
 /**
@@ -582,6 +602,12 @@ export interface ChannelListConfiguration {
    * @public
    */
   InputType?: InputType | undefined;
+
+  /**
+   * <p>The output locking mode configured for the channel.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p> </li> </ul>
+   * @public
+   */
+  OutputLockingMode?: OutputLockingMode | undefined;
 }
 
 /**
@@ -1382,6 +1408,12 @@ export interface Segment {
    * @public
    */
   Encryption?: Encryption | undefined;
+
+  /**
+   * <p>The output timestamp mode for the origin endpoint's segments. This setting is only configurable on channels with <code>OutputLockingMode</code> set to <code>NON_EPOCH_LOCKED</code>. This value is immutable after endpoint creation. If you don't specify a value, the default is <code>PASSTHROUGH</code>.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>PASSTHROUGH</code> - Output PTS (Presentation Timestamp) values pass through unchanged from the input.</p> </li> <li> <p> <code>REBASED_TO_CHANNEL_START</code> - Output PTS is rebased relative to the channel start time.</p> </li> </ul>
+   * @public
+   */
+  OutputTimestampMode?: OutputTimestampMode | undefined;
 }
 
 /**
@@ -2830,6 +2862,12 @@ export interface UpdateChannelResponse {
    * @public
    */
   OutputHeaderConfiguration?: OutputHeaderConfiguration | undefined;
+
+  /**
+   * <p>The output locking mode configured for the channel. This value is immutable after channel creation.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>EPOCH_LOCKED</code> - The channel uses epoch-locked behavior with deterministic sequence numbering and fixed segment boundaries aligned to epoch time.</p> </li> <li> <p> <code>NON_EPOCH_LOCKED</code> - The channel uses non-epoch-locked behavior with duration-based segment combining and monotonically increasing sequence numbers starting from 0.</p> </li> </ul>
+   * @public
+   */
+  OutputLockingMode?: OutputLockingMode | undefined;
 }
 
 /**

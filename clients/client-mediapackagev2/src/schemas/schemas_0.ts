@@ -194,6 +194,8 @@ const _OEL = "OriginEndpointsList";
 const _OELC = "OriginEndpointListConfiguration";
 const _OEN = "OriginEndpointName";
 const _OHC = "OutputHeaderConfiguration";
+const _OLM = "OutputLockingMode";
+const _OTM = "OutputTimestampMode";
 const _P = "Profiles";
 const _PCP = "PutChannelPolicy";
 const _PCPR = "PutChannelPolicyRequest";
@@ -403,8 +405,8 @@ export var ChannelGroupListConfiguration$: StaticStructureSchema = [3, n0, _CGLC
 ];
 export var ChannelListConfiguration$: StaticStructureSchema = [3, n0, _CLC,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IT],
-  [0, 0, 0, 4, 4, 0, 0], 5
+  [_A, _CN, _CGN, _CA, _MA, _D, _IT, _OLM],
+  [0, 0, 0, 4, 4, 0, 0, 0], 5
 ];
 export var CreateChannelGroupRequest$: StaticStructureSchema = [3, n0, _CCGR,
   0,
@@ -418,13 +420,13 @@ export var CreateChannelGroupResponse$: StaticStructureSchema = [3, n0, _CCGRr,
 ];
 export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_CGN, _CN, _CT, _IT, _D, _ISC, _OHC, _T],
-  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, [128 | 0, { [_jN]: _t }]], 2
+  [_CGN, _CN, _CT, _IT, _D, _ISC, _OHC, _OLM, _T],
+  [[0, 1], 0, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0, [128 | 0, { [_jN]: _t }]], 2
 ];
 export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
+  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var CreateDashManifestConfiguration$: StaticStructureSchema = [3, n0, _CDMC,
   0,
@@ -613,8 +615,8 @@ export var GetChannelRequest$: StaticStructureSchema = [3, n0, _GCR,
 ];
 export var GetChannelResponse$: StaticStructureSchema = [3, n0, _GCRe,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _RA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
+  [_A, _CN, _CGN, _CA, _MA, _RA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, 4, 0, () => IngestEndpointList, 0, 0, 128 | 0, () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var GetDashManifestConfiguration$: StaticStructureSchema = [3, n0, _GDMC,
   0,
@@ -848,8 +850,8 @@ export var ScteHls$: StaticStructureSchema = [3, n0, _SH,
 ];
 export var Segment$: StaticStructureSchema = [3, n0, _Se,
   0,
-  [_SDS, _SN, _TUARG, _IIOS, _TIDS, _Sc, _E],
-  [1, 0, 2, 2, 2, () => Scte$, () => Encryption$]
+  [_SDS, _SN, _TUARG, _IIOS, _TIDS, _Sc, _E, _OTM],
+  [1, 0, 2, 2, 2, () => Scte$, () => Encryption$, 0]
 ];
 export var SpekeKeyProvider$: StaticStructureSchema = [3, n0, _SKP,
   0,
@@ -888,8 +890,8 @@ export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
 ];
 export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
   0,
-  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC],
-  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$], 5
+  [_A, _CN, _CGN, _CA, _MA, _D, _IE, _IT, _ET, _T, _ISC, _OHC, _OLM],
+  [0, 0, 0, 4, 4, 0, () => IngestEndpointList, 0, 0, [128 | 0, { [_jN]: _t }], () => InputSwitchConfiguration$, () => OutputHeaderConfiguration$, 0], 5
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
