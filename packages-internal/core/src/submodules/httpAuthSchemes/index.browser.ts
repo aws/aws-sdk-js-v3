@@ -6,8 +6,6 @@ export {
   validateSigningProperties,
   AwsSdkSigV4ASigner,
   resolveAwsSdkSigV4AConfig,
-  resolveAWSSDKSigV4Config,
-  bindResolveAwsSdkSigV4Config,
 } from "./aws_sdk";
 export type {
   AwsSdkSigV4AAuthInputConfig,
@@ -30,3 +28,9 @@ import { bindResolveAwsSdkSigV4Config } from "./aws_sdk";
 import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./aws_sdk/clock-skew-defaults.browser";
 
 export const resolveAwsSdkSigV4Config = bindResolveAwsSdkSigV4Config(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION);
+
+/**
+ * @internal
+ * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
+ */
+export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;

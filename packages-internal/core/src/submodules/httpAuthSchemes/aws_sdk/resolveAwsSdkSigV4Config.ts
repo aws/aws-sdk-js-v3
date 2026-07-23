@@ -132,6 +132,12 @@ export interface AwsSdkSigV4AuthResolvedConfig {
 }
 
 /**
+ * Combined input config type used internally by the resolver and helper functions.
+ * @internal
+ */
+type AwsSdkSigV4ConfigInput = AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved;
+
+/**
  * Accepts a platform-specific default for disableClockSkewCorrection and
  * returns the resolver function. Called from the index (node vs browser).
  *
@@ -139,7 +145,7 @@ export interface AwsSdkSigV4AuthResolvedConfig {
  */
 export const bindResolveAwsSdkSigV4Config =
   (defaultDisableClockSkewCorrection: boolean | Provider<boolean>) =>
-  <T>(config: T & AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved): T & AwsSdkSigV4AuthResolvedConfig => {
+  <T>(config: T & AwsSdkSigV4ConfigInput): T & AwsSdkSigV4AuthResolvedConfig => {
     let inputCredentials = config.credentials;
     let isUserSupplied = !!config.credentials;
     let resolvedCredentials: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined = undefined;
@@ -309,22 +315,12 @@ export interface AWSSDKSigV4PreviouslyResolved extends AwsSdkSigV4PreviouslyReso
 export interface AWSSDKSigV4AuthResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {}
 
 /**
- * @deprecated renamed to {@link bindResolveAwsSdkSigV4Config}
- *
- * @internal
- */
-export const resolveAWSSDKSigV4Config = bindResolveAwsSdkSigV4Config;
-
-/**
  * Normalizes the credentials to a memoized provider and sets memoized=true on the function
  * object. This prevents multiple layering of the memoization process.
  */
 function normalizeCredentialProvider(
-  config: AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
-  {
-    credentials,
-    credentialDefaultProvider,
-  }: Pick<AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved, "credentials" | "credentialDefaultProvider">
+  config: AwsSdkSigV4ConfigInput,
+  { credentials, credentialDefaultProvider }: Pick<AwsSdkSigV4ConfigInput, "credentials" | "credentialDefaultProvider">
 ): AwsSdkSigV4AuthResolvedConfig["credentials"] {
   let credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"] | undefined;
 
@@ -362,7 +358,7 @@ function normalizeCredentialProvider(
  * Uses a state marker on the function to avoid doing this more than once.
  */
 function bindCallerConfig(
-  config: AwsSdkSigV4AuthInputConfig & AwsSdkSigV4PreviouslyResolved,
+  config: AwsSdkSigV4ConfigInput,
   credentialsProvider: AwsSdkSigV4AuthResolvedConfig["credentials"]
 ): AwsSdkSigV4AuthResolvedConfig["credentials"] {
   if (credentialsProvider.configBound) {

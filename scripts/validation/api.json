@@ -336,7 +336,6 @@
     "AWSSDKSigV4PreviouslyResolved": "type(interface)",
     "AwsSdkSigV4Signer": "function",
     "AWSSDKSigV4Signer": "function",
-    "bindResolveAwsSdkSigV4Config": "function",
     "getBearerTokenEnvKey": "function",
     "NODE_AUTH_SCHEME_PREFERENCE_OPTIONS": "object",
     "NODE_SIGV4A_CONFIG_OPTIONS": "object",

@@ -1,9 +1,7 @@
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { describe, expect, test as it, vi } from "vitest";
 
-import { bindResolveAwsSdkSigV4Config } from "./resolveAwsSdkSigV4Config";
-
-const resolveAwsSdkSigV4Config = bindResolveAwsSdkSigV4Config(false);
+import { resolveAwsSdkSigV4Config } from "../index";
 
 describe(resolveAwsSdkSigV4Config.name, () => {
   it("maintains object custody", () => {

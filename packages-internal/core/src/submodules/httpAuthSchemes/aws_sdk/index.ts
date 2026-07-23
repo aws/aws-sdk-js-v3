@@ -7,7 +7,7 @@ export type {
   AwsSdkSigV4APreviouslyResolved,
   AwsSdkSigV4AAuthResolvedConfig,
 } from "./resolveAwsSdkSigV4AConfig";
-export { bindResolveAwsSdkSigV4Config, resolveAWSSDKSigV4Config } from "./resolveAwsSdkSigV4Config";
+export { bindResolveAwsSdkSigV4Config } from "./resolveAwsSdkSigV4Config";
 export type {
   AwsSdkSigV4AuthInputConfig,
   AwsSdkSigV4Memoized,

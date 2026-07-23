@@ -6,8 +6,6 @@ export {
   NODE_AUTH_SCHEME_PREFERENCE_OPTIONS,
   resolveAwsSdkSigV4AConfig,
   NODE_SIGV4A_CONFIG_OPTIONS,
-  bindResolveAwsSdkSigV4Config,
-  resolveAWSSDKSigV4Config,
 } from "./aws_sdk";
 export type {
   AwsSdkSigV4AAuthInputConfig,
@@ -27,3 +25,9 @@ import { bindResolveAwsSdkSigV4Config } from "./aws_sdk";
 import { DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION } from "./aws_sdk/clock-skew-defaults";
 
 export const resolveAwsSdkSigV4Config = bindResolveAwsSdkSigV4Config(DEFAULT_DISABLE_CLOCK_SKEW_CORRECTION);
+
+/**
+ * @internal
+ * @deprecated renamed to {@link resolveAwsSdkSigV4Config}
+ */
+export const resolveAWSSDKSigV4Config = resolveAwsSdkSigV4Config;
