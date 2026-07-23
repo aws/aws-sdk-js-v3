@@ -7,10 +7,11 @@ import type {
   HttpRequest as IHttpRequest,
   HttpResponse,
   HttpSigner,
+  Provider,
   RequestSigner,
 } from "@smithy/types";
 
-import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
+import { getAgeHeader, getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
 import type { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
@@ -29,6 +30,7 @@ const throwSigningPropertyError = <T>(name: string, property: T | undefined): T 
 interface AwsSdkSigV4Config extends AwsSdkSigV4AAuthResolvedConfig {
   systemClockOffset: number;
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
+  disableClockSkewCorrection?: Provider<boolean>;
 }
 
 /**
@@ -116,10 +118,18 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       }
     }
 
-    // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
-    signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
+    const noSkewCorrection = (await config.disableClockSkewCorrection?.()) === true;
+    signingProperties._disableClockSkewCorrection = noSkewCorrection;
+
+    if (!noSkewCorrection) {
+      // Capture the clock offset before signing so errorHandler can detect concurrent corrections.
+      signingProperties._preRequestSystemClockOffset = config.systemClockOffset;
+      // Capture the raw send time (no skew applied) for the midpoint skew formula.
+      signingProperties._requestSentAt = Date.now();
+    }
+
     const signedRequest = await signer.sign(httpRequest, {
-      signingDate: getSkewCorrectedDate(config.systemClockOffset),
+      signingDate: noSkewCorrection ? new Date() : getSkewCorrectedDate(config.systemClockOffset),
       signingRegion: signingRegion,
       signingService: signingName,
     });
@@ -129,19 +139,33 @@ export class AwsSdkSigV4Signer implements HttpSigner {
   errorHandler(signingProperties: Record<string, unknown>): (error: Error) => never {
     return (error: Error) => {
       const errorException = error as AwsSdkSigV4Exception;
-      const serverTime: string | undefined = errorException.ServerTime ?? getDateHeader(errorException.$response);
-      if (serverTime) {
-        const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
-        const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
-        const newOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
+      if (!signingProperties._disableClockSkewCorrection) {
+        const serverTime: string | undefined = errorException.ServerTime ?? getDateHeader(errorException.$response);
+        if (serverTime) {
+          const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
+          const preRequestOffset = signingProperties._preRequestSystemClockOffset as number | undefined;
+          const timeRequestSent = signingProperties._requestSentAt as number | undefined;
+          const ageHeader = getAgeHeader(errorException.$response);
+          const newOffset = getUpdatedSystemClockOffset(
+            serverTime,
+            config.systemClockOffset,
+            timeRequestSent,
+            ageHeader
+          );
 
-        const isLocalCorrection = newOffset !== config.systemClockOffset;
-        const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
-
-        const clockSkewCorrected = isLocalCorrection || isConcurrentCorrection;
-        if (clockSkewCorrected && errorException.$metadata) {
+          // Unconditionally record the offset to heal clock drift over time,
+          // even when the skew doesn't breach the retry threshold.
           config.systemClockOffset = newOffset;
-          errorException.$metadata.clockSkewCorrected = true;
+
+          // Only mark as clockSkewCorrected (enabling retry) if the skew
+          // exceeds the 4-minute detection threshold.
+          const skewExceedsThreshold = Math.abs(newOffset) >= 240_000;
+          const isLocalCorrection = newOffset !== preRequestOffset;
+          const isConcurrentCorrection = preRequestOffset !== undefined && preRequestOffset !== newOffset;
+
+          if (skewExceedsThreshold && (isLocalCorrection || isConcurrentCorrection) && errorException.$metadata) {
+            errorException.$metadata.clockSkewCorrected = true;
+          }
         }
       }
       throw error;
@@ -149,10 +173,20 @@ export class AwsSdkSigV4Signer implements HttpSigner {
   }
 
   successHandler(httpResponse: HttpResponse | unknown, signingProperties: Record<string, unknown>): void {
+    if (signingProperties._disableClockSkewCorrection) {
+      return;
+    }
     const dateHeader = getDateHeader(httpResponse);
     if (dateHeader) {
       const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
-      config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset);
+      const timeRequestSent = signingProperties._requestSentAt as number | undefined;
+      const ageHeader = getAgeHeader(httpResponse);
+      config.systemClockOffset = getUpdatedSystemClockOffset(
+        dateHeader,
+        config.systemClockOffset,
+        timeRequestSent,
+        ageHeader
+      );
     }
   }
 }

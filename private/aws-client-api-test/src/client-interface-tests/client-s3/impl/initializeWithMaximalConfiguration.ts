@@ -152,6 +152,7 @@ export const initializeWithMaximalConfiguration = () => {
     disableS3ExpressSessionAuth: false,
     useGlobalEndpoint: false,
     signingEscapePath: false,
+    disableClockSkewCorrection: false,
     bucketEndpoint: false,
     requestChecksumCalculation: DEFAULT_REQUEST_CHECKSUM_CALCULATION,
     responseChecksumValidation: DEFAULT_RESPONSE_CHECKSUM_VALIDATION,
