@@ -9,9 +9,9 @@ const { FuzzedDataProvider } = require("@jazzer.js/core");
 /** @type {import('../src/xml-parser')['parseXML']} */
 let parseXML;
 try {
-  parseXML = require("../dist-cjs/xml-parser").parseXML;
+  parseXML = require("../dist-cjs/index").parseXML;
 } catch {
-  parseXML = require("./xml-parser").parseXML;
+  parseXML = require("../src/xml-parser").parseXML;
 }
 
 /**

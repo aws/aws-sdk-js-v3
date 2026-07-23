@@ -1,6 +1,15 @@
 /* eslint-disable @typescript-eslint/no-this-alias */
 
 /**
+ * Prepares __proto__ as a writable own property on the target object.
+ * After this call, normal assignment to obj["__proto__"] writes the own
+ * property instead of triggering the prototype setter.
+ */
+function writeKey(obj: any): void {
+  Object.defineProperty(obj, "__proto__", { value: undefined, writable: true, enumerable: true, configurable: true });
+}
+
+/**
  * AWS SDK XML to object converter.
  * @internal
  */
@@ -120,7 +129,7 @@ class AwsXmlParser {
     }
 
     let hasAttrs = false;
-    const attrs: Record<string, string> = Object.create(null);
+    const attrs: Record<string, string> = {};
 
     // attributes.
     while (p.i < p.z) {
@@ -138,6 +147,9 @@ class AwsXmlParser {
       }
       ++p.i; // =
       p.trim();
+      if (name === "__proto__") {
+        writeKey(attrs);
+      }
       attrs[name] = p.readAttrValue();
       hasAttrs = true;
     }
@@ -155,7 +167,6 @@ class AwsXmlParser {
       }
 
       ++p.i; // >
-      Object.setPrototypeOf(attrs, Object.prototype);
       return { tag, value: hasAttrs ? attrs : "" };
     }
 
@@ -224,7 +235,7 @@ class AwsXmlParser {
       return { tag, value: text };
     }
 
-    const obj: any = Object.create(null);
+    const obj: any = {};
 
     for (const text of textParts) {
       if (text.trim() === "" && text.includes("\n")) {
@@ -235,6 +246,9 @@ class AwsXmlParser {
     }
 
     for (const child of childTags) {
+      if (child.tag === "__proto__") {
+        writeKey(obj);
+      }
       if (child.tag in obj) {
         if (Array.isArray(obj[child.tag])) {
           obj[child.tag].push(child.value);
@@ -251,10 +265,12 @@ class AwsXmlParser {
 
     // Add attributes after children (fxp puts attrs after children)
     for (const [k, v] of Object.entries(attrs)) {
+      if (k === "__proto__") {
+        writeKey(obj);
+      }
       obj[k] = v;
     }
 
-    Object.setPrototypeOf(obj, Object.prototype);
     return { tag, value: obj };
   }
 

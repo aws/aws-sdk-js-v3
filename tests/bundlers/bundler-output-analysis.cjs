@@ -221,6 +221,10 @@ function collectGuardedRanges(ast) {
     },
   });
 
+  // Functions whose bodies contain typeof Buffer checks (e.g. detectBufferParsing).
+  // Calling these functions in a condition is equivalent to a typeof Buffer guard.
+  const guardFunctionNames = collectGuardFunctionNames(ast);
+
   function isTypeofBufferVar(node) {
     if (node.type === IDENTIFIER && typeofBufferVars.has(node.name)) {
       return true;
@@ -231,25 +235,113 @@ function collectGuardedRanges(ast) {
     return false;
   }
 
+  function isGuardFunctionCall(node) {
+    if (node.type === "CallExpression" && isGuardCallee(node.callee)) {
+      return true;
+    }
+    // !guardFn()
+    if (node.type === UNARY_EXPRESSION && node.operator === NOT && isGuardFunctionCall(node.argument)) {
+      return true;
+    }
+    // guardFn() && expr  or  expr && guardFn()
+    if (node.type === BINARY_EXPRESSION || node.type === LOGICAL_EXPRESSION) {
+      return isGuardFunctionCall(node.left) || isGuardFunctionCall(node.right);
+    }
+    return false;
+  }
+
+  // Checks if a callee node refers to a guard function.
+  // Handles: direct call `guardFn()`, member `mod.guardFn()`,
+  // and webpack's `(0, mod.guardFn)()` (SequenceExpression callee).
+  function isGuardCallee(callee) {
+    if (callee.type === IDENTIFIER && guardFunctionNames.has(callee.name)) {
+      return true;
+    }
+    if (
+      callee.type === MEMBER_EXPRESSION &&
+      callee.property.type === IDENTIFIER &&
+      guardFunctionNames.has(callee.property.name)
+    ) {
+      return true;
+    }
+    if (callee.type === "SequenceExpression" && callee.expressions.length > 0) {
+      const last = callee.expressions[callee.expressions.length - 1];
+      return isGuardCallee(last);
+    }
+    return false;
+  }
+
+  function isGuardTest(node) {
+    return containsTypeofBuffer(node) || isTypeofBufferVar(node) || isGuardFunctionCall(node);
+  }
+
   const ranges = [];
   walk.simple(ast, {
     ConditionalExpression(node) {
-      if (containsTypeofBuffer(node.test) || isTypeofBufferVar(node.test)) {
+      if (isGuardTest(node.test)) {
         ranges.push(node);
       }
     },
     IfStatement(node) {
-      if (containsTypeofBuffer(node.test) || isTypeofBufferVar(node.test)) {
+      if (isGuardTest(node.test)) {
         ranges.push(node);
       }
     },
     LogicalExpression(node) {
-      if (node.operator === LOGICAL_AND && (containsTypeofBuffer(node.left) || isTypeofBufferVar(node.left))) {
+      if (node.operator === LOGICAL_AND && isGuardTest(node.left)) {
         ranges.push(node);
       }
     },
   });
   return ranges;
+}
+
+/**
+ * Finds names of functions whose bodies contain typeof Buffer checks.
+ * These act as indirect guards: calling them in a condition means
+ * the guarded branch only executes when Buffer is available.
+ */
+function collectGuardFunctionNames(ast) {
+  const names = new Set();
+
+  walk.simple(ast, {
+    FunctionDeclaration(node) {
+      if (node.id && node.id.type === IDENTIFIER && functionBodyContainsTypeofBuffer(node)) {
+        names.add(node.id.name);
+      }
+    },
+    VariableDeclarator(node) {
+      if (
+        node.id.type === IDENTIFIER &&
+        node.init &&
+        (node.init.type === FUNCTION_EXPRESSION || node.init.type === ARROW_FUNCTION_EXPRESSION) &&
+        functionBodyContainsTypeofBuffer(node.init)
+      ) {
+        names.add(node.id.name);
+      }
+    },
+  });
+
+  return names;
+}
+
+/**
+ * Checks if a function node's body contains a typeof Buffer expression.
+ */
+function functionBodyContainsTypeofBuffer(fnNode) {
+  let found = false;
+  const body = fnNode.body;
+  if (!body) return false;
+
+  walk.simple(body, {
+    UnaryExpression(node) {
+      if (!found && node.operator === TYPEOF && node.argument.type === IDENTIFIER && node.argument.name === BUFFER) {
+        found = true;
+      }
+    },
+  });
+
+  return found;
 }
 
 /**

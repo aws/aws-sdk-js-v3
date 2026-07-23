@@ -13,6 +13,7 @@ import type {
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
 import type { JsonSettings } from "./JsonCodec";
 import { JsonReplacer } from "./jsonReplacer";
+import { writeKey } from "../writeKey";
 
 /**
  * @public
@@ -96,6 +97,9 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
           const { $unknown } = record;
           if (Array.isArray($unknown)) {
             const [k, v] = $unknown;
+            if (k === "__proto__") {
+              writeKey(out);
+            }
             out[k] = this._write(15 satisfies DocumentSchema, v);
           }
         } else if (typeof record.__type === "string") {
@@ -132,6 +136,9 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         for (const _k in value as Record<string, unknown>) {
           const _v = (value as Record<string, unknown>)[_k];
           if (sparse || _v != null) {
+            if (_k === "__proto__") {
+              writeKey(out);
+            }
             out[_k] = this._write(mapMember, _v);
           }
         }
@@ -208,6 +215,9 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         const out = Array.isArray(value) ? [] : ({} as any);
         for (const k in value as Record<string, unknown>) {
           const v = (value as Record<string, unknown>)[k];
+          if (k === "__proto__") {
+            writeKey(out);
+          }
           if (v instanceof NumericValue) {
             this.useReplacer = true;
             out[k] = v;

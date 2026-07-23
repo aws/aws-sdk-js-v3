@@ -1,26 +1,62 @@
-import type { HttpResponse, SerdeFunctions } from "@smithy/types";
-
+import type { HttpResponse, Schema, SerdeFunctions } from "@smithy/types";
+import { collectBody } from "@smithy/core/protocols";
 import { collectBodyString } from "../common";
+import { detectBufferParsing } from "./detectBufferParsing";
+import { jsonReviver } from "./jsonReviver";
+import { needsReviver } from "./needsReviver";
 
+/**
+ * @deprecated new calls to parseJsonBody must pass schema.
+ * @internal
+ */
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions): Promise<any>;
 /**
  * @internal
  */
-export const parseJsonBody = (streamBody: any, context: SerdeFunctions): any =>
-  collectBodyString(streamBody, context).then((encoded) => {
-    if (encoded.length) {
-      try {
-        return JSON.parse(encoded);
-      } catch (e: any) {
-        if (e?.name === "SyntaxError") {
-          Object.defineProperty(e, "$responseBodyText", {
-            value: encoded,
-          });
-        }
-        throw e;
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions, schema: Schema): Promise<any>;
+/**
+ * @internal
+ */
+export async function parseJsonBody(streamBody: any, context: SerdeFunctions, schema?: Schema): Promise<any> {
+  // Fast path: if streamBody is an async iterable and JSON.parse(Buffer) is supported,
+  // collect chunks directly and parse the concatenated Buffer without UTF-8 decode.
+  let parsingInput: any;
+
+  if (detectBufferParsing() && typeof streamBody?.[Symbol.asyncIterator] === "function") {
+    const buffer = await collectBody(streamBody, context);
+    if (typeof Buffer === "function") {
+      if (Buffer.isBuffer(buffer)) {
+        parsingInput = buffer;
+      } else {
+        parsingInput = Buffer.from(buffer.buffer, buffer.byteOffset, buffer.byteLength);
       }
     }
+  }
+  if (!parsingInput) {
+    // Fallback: collect to string
+    parsingInput = await collectBodyString(streamBody, context);
+  }
+  if (parsingInput.length === 0) {
     return {};
-  });
+  }
+
+  /**
+   * We require a schema to use the reviver, because in the pre-schema implementation
+   * of this function, no reviver was used to parse JSON.
+   */
+  const reviver = schema && needsReviver(schema) ? jsonReviver : undefined;
+
+  try {
+    return JSON.parse(parsingInput, reviver);
+  } catch (e: any) {
+    if (e?.name === "SyntaxError") {
+      Object.defineProperty(e, "$responseBodyText", {
+        value: typeof parsingInput === "string" ? parsingInput : parsingInput.toString("utf8"),
+      });
+    }
+    throw e;
+  }
+}
 
 /**
  * @internal
