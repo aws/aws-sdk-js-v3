@@ -168,7 +168,7 @@ export interface CustomerManagedAwsSecretConfigurationInput {
   iamRoleArn?: string | undefined;
 
   /**
-   * <p>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the IAM role.</p>
+   * <p>The type of Oracle Cloud Identifier (OCID) used as the external ID when assuming the IAM role.</p> <p>The valid values depend on the operation. For the <code>CreateAutonomousDatabase</code> operation, only <code>compartment_ocid</code> and <code>tenant_ocid</code> are allowed. For the <code>UpdateAutonomousDatabase</code> and <code>CreateAutonomousDatabaseWallet</code> operations, <code>database_ocid</code>, <code>compartment_ocid</code>, and <code>tenant_ocid</code> are all allowed.</p>
    * @public
    */
   externalIdType?: ExternalIdType | undefined;
