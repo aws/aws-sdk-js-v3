@@ -1,6 +1,6 @@
 import type { CreateOAuth2TokenCommandInput } from "@aws-sdk/nested-clients/signin";
 import type { AwsCredentialIdentity, AwsIdentityProperties, Logger } from "@aws-sdk/types";
-import { CredentialsProviderError, readFile } from "@smithy/core/config";
+import { CredentialsProviderError } from "@smithy/core/config";
 import { HttpRequest } from "@smithy/core/protocols";
 import type {
   FinalizeHandler,
@@ -52,13 +52,7 @@ export class LoginCredentialsFetcher {
       return this.refresh(token);
     }
 
-    return {
-      accessKeyId: accessToken.accessKeyId,
-      secretAccessKey: accessToken.secretAccessKey,
-      sessionToken: accessToken.sessionToken,
-      accountId: accessToken.accountId,
-      expiration: new Date(accessToken.expiresAt),
-    };
+    return this.toCredentials(token.accessToken);
   }
 
   private get logger(): Logger | undefined {
@@ -69,7 +63,28 @@ export class LoginCredentialsFetcher {
     return this.profileData.login_session!;
   }
 
+  private toCredentials(token: LoginToken["accessToken"]): AwsCredentialIdentity {
+    return {
+      accessKeyId: token.accessKeyId,
+      secretAccessKey: token.secretAccessKey,
+      sessionToken: token.sessionToken,
+      accountId: token.accountId,
+      expiration: new Date(token.expiresAt),
+    };
+  }
+
   private async refresh(token: LoginToken): Promise<AwsCredentialIdentity> {
+    // first reload the token from disk to ensure the token hasn't already been refreshed externally.
+    // Pick whichever token has the later expiry.
+    const diskToken = await this.loadToken().catch(() => token);
+    const tokenExpiry = new Date(token.accessToken.expiresAt).getTime();
+    const diskExpiry = new Date(diskToken.accessToken.expiresAt).getTime();
+    const freshToken = diskExpiry >= tokenExpiry ? diskToken : token;
+    const freshExpiry = new Date(freshToken.accessToken.expiresAt).getTime();
+    if (freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
+      return this.toCredentials(freshToken.accessToken);
+    }
+
     const { SigninClient, CreateOAuth2TokenCommand } = await import("@aws-sdk/nested-clients/signin");
 
     // Extract config from caller client
@@ -100,8 +115,8 @@ export class LoginCredentialsFetcher {
 
     const commandInput: CreateOAuth2TokenCommandInput = {
       tokenInput: {
-        clientId: token.clientId,
-        refreshToken: token.refreshToken,
+        clientId: freshToken.clientId,
+        refreshToken: freshToken.refreshToken,
         grantType: "refresh_token",
       },
     };
@@ -123,9 +138,9 @@ export class LoginCredentialsFetcher {
       const expiration = new Date(Date.now() + expiresInMs);
 
       const updatedToken: LoginToken = {
-        ...token,
+        ...freshToken,
         accessToken: {
-          ...token.accessToken, // Preserve existing fields like accountId
+          ...freshToken.accessToken, // Preserve existing fields like accountId
           accessKeyId,
           secretAccessKey,
           sessionToken,
@@ -136,15 +151,7 @@ export class LoginCredentialsFetcher {
 
       await this.saveToken(updatedToken);
 
-      const newAccessToken = updatedToken.accessToken;
-
-      return {
-        accessKeyId: newAccessToken.accessKeyId,
-        secretAccessKey: newAccessToken.secretAccessKey,
-        sessionToken: newAccessToken.sessionToken,
-        accountId: newAccessToken.accountId,
-        expiration,
-      };
+      return this.toCredentials(updatedToken.accessToken);
     } catch (error) {
       // Handle specific AccessDeniedException according to specification
       if (error.name === "AccessDeniedException") {
@@ -167,7 +174,17 @@ export class LoginCredentialsFetcher {
             message = `Failed to refresh token: ${String(error)}. Please re-authenticate using \`aws login\``;
         }
 
-        throw new CredentialsProviderError(message, { logger: this.logger, tryNextLink: false });
+        throw new CredentialsProviderError(message, {
+          logger: this.logger,
+          tryNextLink: false,
+        });
+      }
+
+      // If the token hasn't fully expired.
+      const tokenExpiry = new Date(freshToken.accessToken.expiresAt).getTime();
+      if (tokenExpiry > Date.now()) {
+        this.logger?.warn?.(`Failed to refresh token: ${String(error)}. Using existing token until expiry.`);
+        return this.toCredentials(freshToken.accessToken);
       }
 
       throw new CredentialsProviderError(
@@ -180,12 +197,7 @@ export class LoginCredentialsFetcher {
   private async loadToken(): Promise<LoginToken> {
     const tokenFilePath = this.getTokenFilePath();
     try {
-      let tokenData: string;
-      try {
-        tokenData = await readFile(tokenFilePath, { ignoreCache: this.init?.ignoreCache });
-      } catch {
-        tokenData = await fs.readFile(tokenFilePath, "utf8");
-      }
+      const tokenData = await fs.readFile(tokenFilePath, "utf8");
       const token = JSON.parse(tokenData);
 
       const missingFields = ["accessToken", "clientId", "refreshToken", "dpopKey"].filter((k) => !token[k]);
@@ -282,9 +294,9 @@ export class LoginCredentialsFetcher {
           if (HttpRequest.isInstance(args.request)) {
             const request = args.request as HttpRequest;
             // Extract the actual endpoint URL after resolution
-            const actualEndpoint = `${request.protocol}//${request.hostname}${request.port ? `:${request.port}` : ""}${
-              request.path
-            }`;
+            const actualEndpoint = `${request.protocol}//${request.hostname}${
+              request.port ? `:${request.port}` : ""
+            }${request.path}`;
 
             // Generate DPoP proof with correct endpoint
             const dpop = await this.generateDpop(request.method, actualEndpoint);

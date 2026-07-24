@@ -258,6 +258,48 @@ describe("LoginCredentialsFetcher", () => {
     expect(mockMkdir).toHaveBeenCalledWith("/custom/cache/dir", { recursive: true });
   });
 
+  it("should always read token from disk", async () => {
+    mockReadFile
+      .mockResolvedValueOnce(JSON.stringify(mockExpiredCreds))
+      .mockResolvedValueOnce(JSON.stringify(mockValidCreds));
+
+    const fetcher = new LoginCredentialsFetcher(mockProfile);
+
+    const firstToken = await (fetcher as any).loadToken();
+    expect(firstToken.accessToken.accessKeyId).toBe("OLDEXPIREDKEY");
+
+    const secondToken = await (fetcher as any).loadToken();
+    expect(secondToken.accessToken.accessKeyId).toBe("AKIAIOSFODNN7EXAMPLE");
+  });
+
+  it("should re-read token from disk before refresh and skip API call if externally refreshed", async () => {
+    const freshCreds = {
+      ...mockExpiredCreds,
+      accessToken: {
+        ...mockExpiredCreds.accessToken,
+        accessKeyId: "FRESH_KEY",
+        secretAccessKey: "FRESH_SECRET",
+        sessionToken: "FRESH_SESSION",
+        expiresAt: "3000-01-01T00:00:00.000Z",
+      },
+    };
+
+    // First read returns expired token (triggers refresh path),
+    // second read returns fresh token (simulating external refresh)
+    mockReadFile
+      .mockResolvedValueOnce(JSON.stringify(mockExpiredCreds))
+      .mockResolvedValueOnce(JSON.stringify(freshCreds));
+
+    const fetcher = new LoginCredentialsFetcher(mockProfile);
+    const result = await fetcher.loadCredentials();
+
+    expect(result.accessKeyId).toBe("FRESH_KEY");
+    expect(result.secretAccessKey).toBe("FRESH_SECRET");
+    expect(result.sessionToken).toBe("FRESH_SESSION");
+    // Should NOT have called the API since the re-read token was fresh
+    expect(mockClient.send).not.toHaveBeenCalled();
+  });
+
   describe("DER to Raw Signature Conversion", () => {
     it("should convert valid DER signature to raw format", () => {
       const fetcher = new LoginCredentialsFetcher(mockProfile);

@@ -16,6 +16,7 @@ import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpRequest, MiddlewareStack, ParsedIniData } from "@smithy/types";
 import child_process from "node:child_process";
 import { createHash } from "node:crypto";
+import { promises as fsPromises } from "node:fs";
 import { homedir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
@@ -586,7 +587,8 @@ describe("credential-provider-node integration test", () => {
         dpopKey: "test-dpop-key",
       };
 
-      externalDataInterceptor.interceptFile(tokenPath, JSON.stringify(mockToken));
+      await fsPromises.mkdir(dir, { recursive: true });
+      await fsPromises.writeFile(tokenPath, JSON.stringify(mockToken), "utf8");
 
       setIniProfileData({
         default: {
@@ -596,6 +598,7 @@ describe("credential-provider-node integration test", () => {
       });
       await sts.getCallerIdentity({});
       const credentials = await sts.config.credentials();
+      await fsPromises.rm(tokenPath, { force: true });
       expect(credentials).toEqual({
         accessKeyId: "LOGIN_ACCESS_KEY_ID",
         secretAccessKey: "LOGIN_SECRET_ACCESS_KEY",
