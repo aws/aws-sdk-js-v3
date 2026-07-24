@@ -101,6 +101,10 @@ import type {
   PutAccountSettingsCommandInput,
   PutAccountSettingsCommandOutput,
 } from "./commands/PutAccountSettingsCommand";
+import type {
+  PutComplianceInquiryFeedbackCommandInput,
+  PutComplianceInquiryFeedbackCommandOutput,
+} from "./commands/PutComplianceInquiryFeedbackCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -132,6 +136,7 @@ export type ServiceInputTypes =
   | ListReportsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountSettingsCommandInput
+  | PutComplianceInquiryFeedbackCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
@@ -153,6 +158,7 @@ export type ServiceOutputTypes =
   | ListReportsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountSettingsCommandOutput
+  | PutComplianceInquiryFeedbackCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

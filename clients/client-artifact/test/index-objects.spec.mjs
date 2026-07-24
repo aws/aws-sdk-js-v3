@@ -20,6 +20,8 @@ import {
   ExportComplianceInquiryCommand,
   ExportComplianceInquiryRequest$,
   ExportComplianceInquiryResponse$,
+  FeedbackRating,
+  FeedbackReasonCode,
   GetAccountSettings$,
   GetAccountSettingsCommand,
   GetAccountSettingsRequest$,
@@ -85,6 +87,10 @@ import {
   PutAccountSettingsCommand,
   PutAccountSettingsRequest$,
   PutAccountSettingsResponse$,
+  PutComplianceInquiryFeedback$,
+  PutComplianceInquiryFeedbackCommand,
+  PutComplianceInquiryFeedbackRequest$,
+  PutComplianceInquiryFeedbackResponse$,
   QueryStatus,
   QueryStatusMessage,
   QuerySummary$,
@@ -145,6 +151,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutAccountSettingsCommand === "function");
 assert(typeof PutAccountSettings$ === "object");
+assert(typeof PutComplianceInquiryFeedbackCommand === "function");
+assert(typeof PutComplianceInquiryFeedback$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -185,6 +193,8 @@ assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof PutAccountSettingsRequest$ === "object");
 assert(typeof PutAccountSettingsResponse$ === "object");
+assert(typeof PutComplianceInquiryFeedbackRequest$ === "object");
+assert(typeof PutComplianceInquiryFeedbackResponse$ === "object");
 assert(typeof QuerySummary$ === "object");
 assert(typeof ReportDetail$ === "object");
 assert(typeof ReportSummary$ === "object");
@@ -198,6 +208,8 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof AcceptanceType === "object");
 assert(typeof AgreementType === "object");
 assert(typeof CustomerAgreementState === "object");
+assert(typeof FeedbackRating === "object");
+assert(typeof FeedbackReasonCode === "object");
 assert(typeof InputSource === "object");
 assert(typeof InquiryStatus === "object");
 assert(typeof InquiryStatusMessage === "object");

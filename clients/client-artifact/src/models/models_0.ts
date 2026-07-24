@@ -3,6 +3,8 @@ import type {
   AcceptanceType,
   AgreementType,
   CustomerAgreementState,
+  FeedbackRating,
+  FeedbackReasonCode,
   InputSource,
   InquiryStatus,
   InquiryStatusMessage,
@@ -556,6 +558,64 @@ export interface ListComplianceInquiryQueriesResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutComplianceInquiryFeedbackRequest {
+  /**
+   * <p>The unique identifier for the compliance inquiry.</p>
+   * @public
+   */
+  complianceInquiryId: string | undefined;
+
+  /**
+   * <p>The sequential identifier of the query to provide feedback on.</p>
+   * @public
+   */
+  queryIdentifier?: number | undefined;
+
+  /**
+   * <p>The rating for the feedback. Valid values are THUMBS_UP and THUMBS_DOWN.</p>
+   * @public
+   */
+  rating: FeedbackRating | undefined;
+
+  /**
+   * <p>The response revision ID. Use this value to prevent submitting feedback on a stale response.</p>
+   * @public
+   */
+  responseRevisionId?: number | undefined;
+
+  /**
+   * <p>The reason codes that describe why you rated the response. Valid values are OTHER, PARTIAL_RESPONSE, and IRRELEVANT_RESPONSE.</p>
+   * @public
+   */
+  reasonCodes?: FeedbackReasonCode[] | undefined;
+
+  /**
+   * <p>An optional comment for the feedback.</p>
+   * @public
+   */
+  comment?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutComplianceInquiryFeedbackResponse {
+  /**
+   * <p>The timestamp when the feedback was submitted.</p>
+   * @public
+   */
+  submittedAt: Date | undefined;
 }
 
 /**

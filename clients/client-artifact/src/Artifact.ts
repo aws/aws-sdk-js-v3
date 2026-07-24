@@ -70,6 +70,11 @@ import {
   PutAccountSettingsCommand,
 } from "./commands/PutAccountSettingsCommand";
 import {
+  type PutComplianceInquiryFeedbackCommandInput,
+  type PutComplianceInquiryFeedbackCommandOutput,
+  PutComplianceInquiryFeedbackCommand,
+} from "./commands/PutComplianceInquiryFeedbackCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -100,6 +105,7 @@ const commands = {
   ListReportVersionsCommand,
   ListTagsForResourceCommand,
   PutAccountSettingsCommand,
+  PutComplianceInquiryFeedbackCommand,
   TagResourceCommand,
   UntagResourceCommand,
 };
@@ -353,6 +359,23 @@ export interface Artifact {
     args: PutAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutComplianceInquiryFeedbackCommand}
+   */
+  putComplianceInquiryFeedback(
+    args: PutComplianceInquiryFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutComplianceInquiryFeedbackCommandOutput>;
+  putComplianceInquiryFeedback(
+    args: PutComplianceInquiryFeedbackCommandInput,
+    cb: (err: any, data?: PutComplianceInquiryFeedbackCommandOutput) => void
+  ): void;
+  putComplianceInquiryFeedback(
+    args: PutComplianceInquiryFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutComplianceInquiryFeedbackCommandOutput) => void
   ): void;
 
   /**

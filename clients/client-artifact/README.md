@@ -279,6 +279,13 @@ PutAccountSettings
 </details>
 <details>
 <summary>
+PutComplianceInquiryFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/artifact/command/PutComplianceInquiryFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/PutComplianceInquiryFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/PutComplianceInquiryFeedbackCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

@@ -169,6 +169,33 @@ export type QueryStatusMessage = (typeof QueryStatusMessage)[keyof typeof QueryS
  * @public
  * @enum
  */
+export const FeedbackRating = {
+  THUMBS_DOWN: "THUMBS_DOWN",
+  THUMBS_UP: "THUMBS_UP",
+} as const;
+/**
+ * @public
+ */
+export type FeedbackRating = (typeof FeedbackRating)[keyof typeof FeedbackRating];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeedbackReasonCode = {
+  IRRELEVANT_RESPONSE: "IRRELEVANT_RESPONSE",
+  OTHER: "OTHER",
+  PARTIAL_RESPONSE: "PARTIAL_RESPONSE",
+} as const;
+/**
+ * @public
+ */
+export type FeedbackReasonCode = (typeof FeedbackReasonCode)[keyof typeof FeedbackReasonCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const CustomerAgreementState = {
   ACTIVE: "ACTIVE",
   AWS_TERMINATED: "AWS_TERMINATED",

@@ -11,6 +11,7 @@ const _CL = "CitationList";
 const _ECI = "ExportComplianceInquiry";
 const _ECIR = "ExportComplianceInquiryRequest";
 const _ECIRx = "ExportComplianceInquiryResponse";
+const _FCA = "FeedbackCommentAttribute";
 const _GAS = "GetAccountSettings";
 const _GASR = "GetAccountSettingsRequest";
 const _GASRe = "GetAccountSettingsResponse";
@@ -30,6 +31,7 @@ const _IC = "InquiryContent";
 const _ID = "InquiryDetail";
 const _IFC = "InquiryFileContent";
 const _IL = "InquiriesList";
+const _IN = "InquiryName";
 const _IS = "InquirySummary";
 const _ISE = "InternalServerException";
 const _LCA = "ListCustomerAgreements";
@@ -53,6 +55,9 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _PAS = "PutAccountSettings";
 const _PASR = "PutAccountSettingsRequest";
 const _PASRu = "PutAccountSettingsResponse";
+const _PCIF = "PutComplianceInquiryFeedback";
+const _PCIFR = "PutComplianceInquiryFeedbackRequest";
+const _PCIFRu = "PutComplianceInquiryFeedbackResponse";
 const _PU = "PresignedUrl";
 const _QL = "QueriesList";
 const _QS = "QuerySummary";
@@ -92,6 +97,7 @@ const _cT = "clientToken";
 const _ca = "category";
 const _ci = "citations";
 const _co = "content";
+const _com = "comment";
 const _d = "description";
 const _dA = "deletedAt";
 const _dPU = "documentPresignedUrl";
@@ -127,16 +133,20 @@ const _qu = "query";
 const _r = "reason";
 const _rA = "resourceArn";
 const _rAS = "retryAfterSeconds";
+const _rC = "reasonCodes";
 const _rD = "reportDetails";
 const _rI = "resourceId";
 const _rIe = "reportId";
+const _rRI = "responseRevisionId";
 const _rT = "resourceType";
 const _rTe = "reviewType";
 const _rTes = "responseText";
 const _rV = "reportVersion";
+const _ra = "rating";
 const _re = "reports";
 const _res = "response";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.artifact";
+const _sA = "submittedAt";
 const _sC = "serviceCode";
 const _sCo = "sourceContent";
 const _sL = "sourceLabel";
@@ -240,6 +250,8 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var FeedbackCommentAttribute: StaticSimpleSchema = [0, n0, _FCA, 8, 0];
+var InquiryName: StaticSimpleSchema = [0, n0, _IN, 8, 0];
 var PresignedUrl: StaticSimpleSchema = [0, n0, _PU, 8, 0];
 export var AccountSettings$: StaticStructureSchema = [3, n0, _AS,
   0,
@@ -254,7 +266,7 @@ export var Citation$: StaticStructureSchema = [3, n0, _C,
 export var CreateComplianceInquiryRequest$: StaticStructureSchema = [3, n0, _CCIR,
   0,
   [_n, _iC, _cT, _sM, _t],
-  [0, [() => InquiryContent$, 0], [0, 4], 0, 128 | 0], 2
+  [[() => InquiryName, 0], [() => InquiryContent$, 0], [0, 4], 0, 128 | 0], 2
 ];
 export var CreateComplianceInquiryResponse$: StaticStructureSchema = [3, n0, _CCIRr,
   0,
@@ -411,6 +423,16 @@ export var PutAccountSettingsResponse$: StaticStructureSchema = [3, n0, _PASRu,
   [_aS],
   [() => AccountSettings$]
 ];
+export var PutComplianceInquiryFeedbackRequest$: StaticStructureSchema = [3, n0, _PCIFR,
+  0,
+  [_cII, _ra, _qIu, _rRI, _rC, _com, _cT],
+  [0, 0, 1, 1, 64 | 0, [() => FeedbackCommentAttribute, 0], [0, 4]], 2
+];
+export var PutComplianceInquiryFeedbackResponse$: StaticStructureSchema = [3, n0, _PCIFRu,
+  0,
+  [_sA],
+  [5], 1
+];
 export var QuerySummary$: StaticStructureSchema = [3, n0, _QS,
   0,
   [_qIu, _qu, _sta, _sMt, _cA, _res, _rTe, _ci, _uRV],
@@ -463,6 +485,7 @@ var CitationList: StaticListSchema = [1, n0, _CL,
 var CustomerAgreementList: StaticListSchema = [1, n0, _CAL,
   0, () => CustomerAgreementSummary$
 ];
+var FeedbackReasonCodeList = 64 | 0;
 var FileSectionList = 64 | 0;
 var InquiriesList: StaticListSchema = [1, n0, _IL,
   0, () => InquirySummary$
@@ -528,6 +551,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var PutAccountSettings$: StaticOperationSchema = [9, n0, _PAS,
   { [_h]: ["PUT", "/v1/account-settings/put", 200] }, () => PutAccountSettingsRequest$, () => PutAccountSettingsResponse$
+];
+export var PutComplianceInquiryFeedback$: StaticOperationSchema = [9, n0, _PCIF,
+  { [_h]: ["PUT", "/v1/compliance-inquiry/putFeedback", 200] }, () => PutComplianceInquiryFeedbackRequest$, () => PutComplianceInquiryFeedbackResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => TagResourceResponse$

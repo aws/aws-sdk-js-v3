@@ -13,5 +13,6 @@ export * from "./ListReportVersionsCommand";
 export * from "./ListReportsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PutAccountSettingsCommand";
+export * from "./PutComplianceInquiryFeedbackCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
