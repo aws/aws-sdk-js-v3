@@ -319,7 +319,12 @@ const documentValue: fc.Arbitrary<any> = fc.letrec((tie) => ({
 
 // ─── Fuzz Tests ──────────────────────────────────────────────────────────────
 
-describe("JSON serde fuzz testing", () => {
+/**
+ * todo: can't run fuzz tests because they might slam into
+ * todo: https://github.com/nodejs/node/issues/63785
+ * todo: https://issues.chromium.org/issues/521080746
+ */
+describe.skipIf(process.env.CODEBUILD_BUILD_ID || process.env.AWS_EXECUTION_ENV)("JSON serde fuzz testing", () => {
   describe("Serializer: ByteJsonShapeSerializer matches JsonShapeSerializer", () => {
     it("string maps", { timeout: 30_000 }, () => {
       fc.assert(
