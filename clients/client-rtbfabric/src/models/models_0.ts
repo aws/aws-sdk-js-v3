@@ -2671,14 +2671,6 @@ export interface GetResponderGatewayResponse {
   totalLinksCount?: number | undefined;
 
   /**
-   * <p>Deprecated. Use 'linksRequestedCount' instead.</p>
-   *
-   * @deprecated (since 2026-05-11) Use linksRequestedCount instead.
-   * @public
-   */
-  inboundLinksCount?: number | undefined;
-
-  /**
    * <p>The count of requested links waiting for the responder gateway to accept or reject.</p>
    * @public
    */
