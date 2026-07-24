@@ -1,8 +1,16 @@
-import { describe, expect, test as it } from "vitest";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { AwsSdkSigV4Signer } from "./AwsSdkSigV4Signer";
 
 describe(AwsSdkSigV4Signer.name, () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it("sets clockSkewCorrected when skew exceeds detection threshold", async () => {
     const signer = new AwsSdkSigV4Signer();
     const fiveMinMs = 5 * 60 * 1000;
