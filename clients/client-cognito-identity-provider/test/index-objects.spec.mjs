@@ -53,6 +53,10 @@ import {
   AdminGetDeviceRequest$,
   AdminGetDeviceResponse$,
   AdminGetUser$,
+  AdminGetUserAuthFactors$,
+  AdminGetUserAuthFactorsCommand,
+  AdminGetUserAuthFactorsRequest$,
+  AdminGetUserAuthFactorsResponse$,
   AdminGetUserCommand,
   AdminGetUserRequest$,
   AdminGetUserResponse$,
@@ -813,6 +817,8 @@ assert(typeof AdminGetDeviceCommand === "function");
 assert(typeof AdminGetDevice$ === "object");
 assert(typeof AdminGetUserCommand === "function");
 assert(typeof AdminGetUser$ === "object");
+assert(typeof AdminGetUserAuthFactorsCommand === "function");
+assert(typeof AdminGetUserAuthFactors$ === "object");
 assert(typeof AdminInitiateAuthCommand === "function");
 assert(typeof AdminInitiateAuth$ === "object");
 assert(typeof AdminLinkProviderForUserCommand === "function");
@@ -1070,6 +1076,8 @@ assert(typeof AdminEnableUserResponse$ === "object");
 assert(typeof AdminForgetDeviceRequest$ === "object");
 assert(typeof AdminGetDeviceRequest$ === "object");
 assert(typeof AdminGetDeviceResponse$ === "object");
+assert(typeof AdminGetUserAuthFactorsRequest$ === "object");
+assert(typeof AdminGetUserAuthFactorsResponse$ === "object");
 assert(typeof AdminGetUserRequest$ === "object");
 assert(typeof AdminGetUserResponse$ === "object");
 assert(typeof AdminInitiateAuthRequest$ === "object");

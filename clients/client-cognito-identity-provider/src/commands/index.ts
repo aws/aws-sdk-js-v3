@@ -11,6 +11,7 @@ export * from "./AdminDisableUserCommand";
 export * from "./AdminEnableUserCommand";
 export * from "./AdminForgetDeviceCommand";
 export * from "./AdminGetDeviceCommand";
+export * from "./AdminGetUserAuthFactorsCommand";
 export * from "./AdminGetUserCommand";
 export * from "./AdminInitiateAuthCommand";
 export * from "./AdminLinkProviderForUserCommand";

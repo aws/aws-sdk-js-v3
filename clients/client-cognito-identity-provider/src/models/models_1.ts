@@ -51,6 +51,30 @@ import type {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface StartWebAuthnRegistrationRequest {
+  /**
+   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
+   * <code>aws.cognito.signin.user.admin</code>.</p>
+   * @public
+   */
+  AccessToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartWebAuthnRegistrationResponse {
+  /**
+   * <p>The information that a user can provide in their request to register with their
+   *             passkey provider.</p>
+   * @public
+   */
+  CredentialCreationOptions: __DocumentType | undefined;
+}
+
+/**
  * <p>Represents the request to stop the user import job.</p>
  * @public
  */

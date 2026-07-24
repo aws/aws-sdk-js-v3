@@ -302,6 +302,13 @@ AdminGetUser
 </details>
 <details>
 <summary>
+AdminGetUserAuthFactors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminGetUserAuthFactorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AdminGetUserAuthFactorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AdminGetUserAuthFactorsCommandOutput/)
+</details>
+<details>
+<summary>
 AdminInitiateAuth
 </summary>
 

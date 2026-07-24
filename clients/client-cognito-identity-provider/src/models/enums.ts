@@ -93,6 +93,22 @@ export type UserStatusType = (typeof UserStatusType)[keyof typeof UserStatusType
  * @public
  * @enum
  */
+export const AuthFactorType = {
+  EMAIL_OTP: "EMAIL_OTP",
+  PASSWORD: "PASSWORD",
+  SMS_OTP: "SMS_OTP",
+  SOFTWARE_TOKEN: "SOFTWARE_TOKEN",
+  WEB_AUTHN: "WEB_AUTHN",
+} as const;
+/**
+ * @public
+ */
+export type AuthFactorType = (typeof AuthFactorType)[keyof typeof AuthFactorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AuthFlowType = {
   ADMIN_NO_SRP_AUTH: "ADMIN_NO_SRP_AUTH",
   ADMIN_USER_PASSWORD_AUTH: "ADMIN_USER_PASSWORD_AUTH",
@@ -286,21 +302,6 @@ export const AliasAttributeType = {
  * @public
  */
 export type AliasAttributeType = (typeof AliasAttributeType)[keyof typeof AliasAttributeType];
-
-/**
- * @public
- * @enum
- */
-export const AuthFactorType = {
-  EMAIL_OTP: "EMAIL_OTP",
-  PASSWORD: "PASSWORD",
-  SMS_OTP: "SMS_OTP",
-  WEB_AUTHN: "WEB_AUTHN",
-} as const;
-/**
- * @public
- */
-export type AuthFactorType = (typeof AuthFactorType)[keyof typeof AuthFactorType];
 
 /**
  * @public

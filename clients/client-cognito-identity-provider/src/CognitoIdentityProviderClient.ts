@@ -87,6 +87,10 @@ import type {
   AdminForgetDeviceCommandOutput,
 } from "./commands/AdminForgetDeviceCommand";
 import type { AdminGetDeviceCommandInput, AdminGetDeviceCommandOutput } from "./commands/AdminGetDeviceCommand";
+import type {
+  AdminGetUserAuthFactorsCommandInput,
+  AdminGetUserAuthFactorsCommandOutput,
+} from "./commands/AdminGetUserAuthFactorsCommand";
 import type { AdminGetUserCommandInput, AdminGetUserCommandOutput } from "./commands/AdminGetUserCommand";
 import type {
   AdminInitiateAuthCommandInput,
@@ -470,6 +474,7 @@ export type ServiceInputTypes =
   | AdminEnableUserCommandInput
   | AdminForgetDeviceCommandInput
   | AdminGetDeviceCommandInput
+  | AdminGetUserAuthFactorsCommandInput
   | AdminGetUserCommandInput
   | AdminInitiateAuthCommandInput
   | AdminLinkProviderForUserCommandInput
@@ -603,6 +608,7 @@ export type ServiceOutputTypes =
   | AdminEnableUserCommandOutput
   | AdminForgetDeviceCommandOutput
   | AdminGetDeviceCommandOutput
+  | AdminGetUserAuthFactorsCommandOutput
   | AdminGetUserCommandOutput
   | AdminInitiateAuthCommandOutput
   | AdminLinkProviderForUserCommandOutput

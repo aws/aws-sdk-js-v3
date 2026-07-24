@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetUserAuthFactorsRequest, GetUserAuthFactorsResponse } from "../models/models_0";
-import { GetUserAuthFactors$ } from "../schemas/schemas_0";
+import type { AdminGetUserAuthFactorsRequest, AdminGetUserAuthFactorsResponse } from "../models/models_0";
+import { AdminGetUserAuthFactors$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,18 +12,18 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link GetUserAuthFactorsCommand}.
+ * The input for {@link AdminGetUserAuthFactorsCommand}.
  */
-export interface GetUserAuthFactorsCommandInput extends GetUserAuthFactorsRequest {}
+export interface AdminGetUserAuthFactorsCommandInput extends AdminGetUserAuthFactorsRequest {}
 /**
  * @public
  *
- * The output of {@link GetUserAuthFactorsCommand}.
+ * The output of {@link AdminGetUserAuthFactorsCommand}.
  */
-export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsResponse, __MetadataBearer {}
+export interface AdminGetUserAuthFactorsCommandOutput extends AdminGetUserAuthFactorsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the authentication options for the currently signed-in user. Returns the
+ * <p>Lists the authentication options for a user in a user pool. Returns the
  *             following:</p>
  *          <ol>
  *             <li>
@@ -34,27 +34,41 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  *                         <code>USER_AUTH</code> flow.</p>
  *             </li>
  *          </ol>
- *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
- *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
- *     this operation, you can't use IAM credentials to authorize requests, and you can't
- *     grant IAM permissions in policies. For more information about authorization models in
- *     Amazon Cognito, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>.</p>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, GetUserAuthFactorsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminGetUserAuthFactorsCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminGetUserAuthFactorsCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
  * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
- * const input = { // GetUserAuthFactorsRequest
- *   AccessToken: "STRING_VALUE", // required
+ * const input = { // AdminGetUserAuthFactorsRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
  * };
- * const command = new GetUserAuthFactorsCommand(input);
+ * const command = new AdminGetUserAuthFactorsCommand(input);
  * const response = await client.send(command);
- * // { // GetUserAuthFactorsResponse
+ * // { // AdminGetUserAuthFactorsResponse
  * //   Username: "STRING_VALUE", // required
  * //   PreferredMfaSetting: "STRING_VALUE",
  * //   UserMFASettingList: [ // UserMFASettingListType
@@ -67,15 +81,11 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  *
  * ```
  *
- * @param GetUserAuthFactorsCommandInput - {@link GetUserAuthFactorsCommandInput}
- * @returns {@link GetUserAuthFactorsCommandOutput}
- * @see {@link GetUserAuthFactorsCommandInput} for command's `input` shape.
- * @see {@link GetUserAuthFactorsCommandOutput} for command's `response` shape.
+ * @param AdminGetUserAuthFactorsCommandInput - {@link AdminGetUserAuthFactorsCommandInput}
+ * @returns {@link AdminGetUserAuthFactorsCommandOutput}
+ * @see {@link AdminGetUserAuthFactorsCommandInput} for command's `input` shape.
+ * @see {@link AdminGetUserAuthFactorsCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
- *
- * @throws {@link ForbiddenException} (client fault)
- *  <p>This exception is thrown when WAF doesn't allow your request based on a web
- *             ACL that's associated with your user pool.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -90,9 +100,6 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  * @throws {@link OperationNotEnabledException} (client fault)
  *  <p>This exception is thrown when an operation is not available in the current region or for the current user pool configuration. This can occur when attempting to perform operations that are not supported in secondary replica regions.</p>
  *
- * @throws {@link PasswordResetRequiredException} (client fault)
- *  <p>This exception is thrown when a password reset is required.</p>
- *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
@@ -100,9 +107,6 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>This exception is thrown when the user has made too many requests for a given
  *             operation.</p>
- *
- * @throws {@link UserNotConfirmedException} (client fault)
- *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
  *
  * @throws {@link UserNotFoundException} (client fault)
  *  <p>This exception is thrown when a user isn't found.</p>
@@ -113,21 +117,21 @@ export interface GetUserAuthFactorsCommandOutput extends GetUserAuthFactorsRespo
  *
  * @public
  */
-export class GetUserAuthFactorsCommand extends command<GetUserAuthFactorsCommandInput, GetUserAuthFactorsCommandOutput>(
+export class AdminGetUserAuthFactorsCommand extends command<AdminGetUserAuthFactorsCommandInput, AdminGetUserAuthFactorsCommandOutput>(
   _ep0,
   _mw0,
-  "GetUserAuthFactors",
-  GetUserAuthFactors$
+  "AdminGetUserAuthFactors",
+  AdminGetUserAuthFactors$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: GetUserAuthFactorsRequest;
-      output: GetUserAuthFactorsResponse;
+      input: AdminGetUserAuthFactorsRequest;
+      output: AdminGetUserAuthFactorsResponse;
     };
     sdk: {
-      input: GetUserAuthFactorsCommandInput;
-      output: GetUserAuthFactorsCommandOutput;
+      input: AdminGetUserAuthFactorsCommandInput;
+      output: AdminGetUserAuthFactorsCommandOutput;
     };
   };
 }

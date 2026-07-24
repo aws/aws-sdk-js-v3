@@ -1390,6 +1390,69 @@ export interface AdminGetUserResponse {
 }
 
 /**
+ * @public
+ */
+export interface AdminGetUserAuthFactorsRequest {
+  /**
+   * <p>The ID of the user pool where you want to get information about the user's
+   *             authentication factors.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The name of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
+   * @public
+   */
+  Username: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AdminGetUserAuthFactorsResponse {
+  /**
+   * <p>The name of the user who is eligible for the authentication factors in the
+   *             response.</p>
+   * @public
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The challenge method that Amazon Cognito returns to the user in response to sign-in requests.
+   *             Users can prefer SMS message, email message, or TOTP MFA.</p>
+   * @public
+   */
+  PreferredMfaSetting?: string | undefined;
+
+  /**
+   * <p>The MFA options that are activated for the user. The possible values in this list are
+   *                 <code>SMS_MFA</code>, <code>EMAIL_OTP</code>, and
+   *             <code>SOFTWARE_TOKEN_MFA</code>.</p>
+   * @public
+   */
+  UserMFASettingList?: string[] | undefined;
+
+  /**
+   * <p>The authentication types that are available to the user with <code>USER_AUTH</code>
+   *             sign-in, for example <code>["PASSWORD", "WEB_AUTHN"]</code>.</p>
+   *          <p>
+   *             <code>PASSWORD</code> can only be used as a first authentication factor.
+   *             <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor.
+   *             <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be
+   *             used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code>
+   *             is available as an MFA factor only when passkey MFA is enabled at the user pool
+   *             level.</p>
+   * @public
+   */
+  ConfiguredUserAuthFactors?: AuthFactorType[] | undefined;
+}
+
+/**
  * <p>Information that your application adds to authentication requests. Applies an endpoint
  *             ID to the analytics data that your user pool sends to Amazon Pinpoint.</p>
  *          <p>An endpoint ID uniquely identifies a mobile device, email address or phone number that
@@ -5736,6 +5799,11 @@ export interface SignInPolicyType {
    * <p>The sign-in methods that a user pool supports as the first factor. You can permit
    *             users to start authentication with a standard username and password, or with other
    *             one-time password and hardware factors.</p>
+   *          <note>
+   *             <p>
+   *                <code>SOFTWARE_TOKEN</code> is not currently supported as a first auth factor.
+   *                 Do not include this value in <code>AllowedFirstAuthFactors</code>.</p>
+   *          </note>
    * @public
    */
   AllowedFirstAuthFactors?: AuthFactorType[] | undefined;
@@ -6145,6 +6213,22 @@ export interface CreateUserPoolRequest {
    *             doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in
    *             API responses and in managed login for users who have chosen and configured a preferred
    *             MFA factor.</p>
+   *          <p>The <code>CreateUserPool</code> operation supports only SMS MFA configuration. If you
+   *             set <code>MfaConfiguration</code> to either of these values, include an
+   *                 <code>SmsConfiguration</code> in the same request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ON</code> – Requires MFA for all users</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OPTIONAL</code> – Makes MFA optional for each user</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you omit <code>SmsConfiguration</code>, the operation returns an
+   *                 <code>InvalidParameterException</code>. To configure TOTP or email MFA, use the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html">SetUserPoolMfaConfig</a> operation. You can also use
+   *                 <code>SetUserPoolMfaConfig</code> to add MFA factors later.</p>
    * @public
    */
   MfaConfiguration?: UserPoolMfaType | undefined;
@@ -7586,6 +7670,12 @@ export interface CreateUserPoolDomainRequest {
    *             of <code>1</code> indicates hosted UI (classic) and a version of <code>2</code>
    *             indicates managed login.</p>
    *          <p>Managed login requires that your user pool be configured for any <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html">feature plan</a> other than <code>Lite</code>.</p>
+   *          <p>A <code>ManagedLoginVersion</code> value of <code>2</code> does not activate managed
+   *             login pages for your app client. When you create an app client programmatically,
+   *             your app client has no branding style. To use managed login, create a branding style
+   *             using the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateManagedLoginBranding.html">CreateManagedLoginBranding</a> operation. When you use the console, Amazon Cognito assigns
+   *             a default branding style automatically. When you use the API or an SDK, you must create a
+   *             branding style yourself.</p>
    * @public
    */
   ManagedLoginVersion?: number | undefined;
@@ -9331,6 +9421,13 @@ export interface GetUserAuthFactorsResponse {
   /**
    * <p>The authentication types that are available to the user with <code>USER_AUTH</code>
    *             sign-in, for example <code>["PASSWORD", "WEB_AUTHN"]</code>.</p>
+   *          <p>
+   *             <code>PASSWORD</code> can only be used as a first authentication factor.
+   *             <code>SOFTWARE_TOKEN</code> can only be used as an MFA factor.
+   *             <code>EMAIL_OTP</code>, <code>SMS_OTP</code>, and <code>WEB_AUTHN</code> can be
+   *             used as either a first authentication factor or an MFA factor. <code>WEB_AUTHN</code>
+   *             is available as an MFA factor only when passkey MFA is enabled at the user pool
+   *             level.</p>
    * @public
    */
   ConfiguredUserAuthFactors?: AuthFactorType[] | undefined;
@@ -12079,28 +12176,4 @@ export interface StartUserImportJobResponse {
    * @public
    */
   UserImportJob?: UserImportJobType | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWebAuthnRegistrationRequest {
-  /**
-   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
-   * <code>aws.cognito.signin.user.admin</code>.</p>
-   * @public
-   */
-  AccessToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWebAuthnRegistrationResponse {
-  /**
-   * <p>The information that a user can provide in their request to register with their
-   *             passkey provider.</p>
-   * @public
-   */
-  CredentialCreationOptions: __DocumentType | undefined;
 }

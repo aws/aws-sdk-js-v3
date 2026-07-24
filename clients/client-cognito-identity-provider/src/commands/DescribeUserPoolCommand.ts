@@ -75,7 +75,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //       },
  * //       SignInPolicy: { // SignInPolicyType
  * //         AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
- * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN" || "SOFTWARE_TOKEN",
  * //         ],
  * //       },
  * //     },

@@ -64,6 +64,11 @@ import {
   AdminGetDeviceCommand,
 } from "./commands/AdminGetDeviceCommand";
 import {
+  type AdminGetUserAuthFactorsCommandInput,
+  type AdminGetUserAuthFactorsCommandOutput,
+  AdminGetUserAuthFactorsCommand,
+} from "./commands/AdminGetUserAuthFactorsCommand";
+import {
   type AdminGetUserCommandInput,
   type AdminGetUserCommandOutput,
   AdminGetUserCommand,
@@ -643,6 +648,7 @@ const commands = {
   AdminForgetDeviceCommand,
   AdminGetDeviceCommand,
   AdminGetUserCommand,
+  AdminGetUserAuthFactorsCommand,
   AdminInitiateAuthCommand,
   AdminLinkProviderForUserCommand,
   AdminListDevicesCommand,
@@ -991,6 +997,23 @@ export interface CognitoIdentityProvider {
     args: AdminGetUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AdminGetUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AdminGetUserAuthFactorsCommand}
+   */
+  adminGetUserAuthFactors(
+    args: AdminGetUserAuthFactorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AdminGetUserAuthFactorsCommandOutput>;
+  adminGetUserAuthFactors(
+    args: AdminGetUserAuthFactorsCommandInput,
+    cb: (err: any, data?: AdminGetUserAuthFactorsCommandOutput) => void
+  ): void;
+  adminGetUserAuthFactors(
+    args: AdminGetUserAuthFactorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AdminGetUserAuthFactorsCommandOutput) => void
   ): void;
 
   /**

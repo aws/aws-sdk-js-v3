@@ -87,7 +87,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  *     },
  *     SignInPolicy: { // SignInPolicyType
  *       AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
- *         "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ *         "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN" || "SOFTWARE_TOKEN",
  *       ],
  *     },
  *   },
@@ -246,7 +246,7 @@ export interface CreateUserPoolCommandOutput extends CreateUserPoolResponse, __M
  * //       },
  * //       SignInPolicy: { // SignInPolicyType
  * //         AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
- * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN" || "SOFTWARE_TOKEN",
  * //         ],
  * //       },
  * //     },

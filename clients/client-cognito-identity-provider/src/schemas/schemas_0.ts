@@ -48,6 +48,9 @@ const _AGD = "AdminGetDevice";
 const _AGDR = "AdminGetDeviceRequest";
 const _AGDRd = "AdminGetDeviceResponse";
 const _AGU = "AdminGetUser";
+const _AGUAF = "AdminGetUserAuthFactors";
+const _AGUAFR = "AdminGetUserAuthFactorsRequest";
+const _AGUAFRd = "AdminGetUserAuthFactorsResponse";
 const _AGUR = "AdminGetUserRequest";
 const _AGURd = "AdminGetUserResponse";
 const _AI = "ApplicationId";
@@ -1542,6 +1545,16 @@ export var AdminGetDeviceResponse$: StaticStructureSchema = [3, n0, _AGDRd,
   0,
   [_D],
   [[() => DeviceType$, 0]], 1
+];
+export var AdminGetUserAuthFactorsRequest$: StaticStructureSchema = [3, n0, _AGUAFR,
+  0,
+  [_UPI, _U],
+  [0, [() => UsernameType, 0]], 2
+];
+export var AdminGetUserAuthFactorsResponse$: StaticStructureSchema = [3, n0, _AGUAFRd,
+  0,
+  [_U, _PMS, _UMFASL, _CUAF],
+  [[() => UsernameType, 0], 0, 64 | 0, 64 | 0], 1
 ];
 export var AdminGetUserRequest$: StaticStructureSchema = [3, n0, _AGUR,
   0,
@@ -3248,6 +3261,9 @@ export var AdminGetDevice$: StaticOperationSchema = [9, n0, _AGD,
 ];
 export var AdminGetUser$: StaticOperationSchema = [9, n0, _AGU,
   0, () => AdminGetUserRequest$, () => AdminGetUserResponse$
+];
+export var AdminGetUserAuthFactors$: StaticOperationSchema = [9, n0, _AGUAF,
+  0, () => AdminGetUserAuthFactorsRequest$, () => AdminGetUserAuthFactorsResponse$
 ];
 export var AdminInitiateAuth$: StaticOperationSchema = [9, n0, _AIA,
   0, () => AdminInitiateAuthRequest$, () => AdminInitiateAuthResponse$
