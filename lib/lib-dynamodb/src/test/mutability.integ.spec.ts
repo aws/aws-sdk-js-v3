@@ -1,4 +1,5 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
+import type { ScanCommandInput as BaseScanCommandInput } from "@aws-sdk/client-dynamodb";
 import { DynamoDB, ScanCommand } from "@aws-sdk/client-dynamodb";
 import type { HeadBucketCommandInput } from "@aws-sdk/client-s3";
 import { HeadBucketCommand, S3Client } from "@aws-sdk/client-s3";
@@ -165,7 +166,7 @@ describe("DynamoDBDocument command mutability", () => {
       },
     });
 
-    const params: ScanCommandInput = {
+    const params: BaseScanCommandInput = {
       TableName: "test",
       FilterExpression: "id = :id",
       ExpressionAttributeValues: {

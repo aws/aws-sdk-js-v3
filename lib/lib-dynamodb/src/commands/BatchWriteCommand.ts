@@ -25,10 +25,10 @@ export type BatchWriteCommandInput = Omit<__BatchWriteItemCommandInput, "Request
     (
       Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
         PutRequest?: Omit<PutRequest, "Item"> & {
-          Item: Record<string, NativeAttributeValue> | undefined;
+          Item: Record<string, JsAttributeValue> | undefined;
         } | undefined;
         DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-          Key: Record<string, NativeAttributeValue> | undefined;
+          Key: Record<string, JsAttributeValue> | undefined;
         } | undefined;
       }
     )[]
@@ -44,10 +44,10 @@ export type BatchWriteCommandOutput = Omit<__BatchWriteItemCommandOutput, "Unpro
     (
       Omit<WriteRequest, "PutRequest" | "DeleteRequest"> & {
         PutRequest?: Omit<PutRequest, "Item"> & {
-          Item: Record<string, NativeAttributeValue> | undefined;
+          Item: Record<string, JsAttributeValue> | undefined;
         } | undefined;
         DeleteRequest?: Omit<DeleteRequest, "Key"> & {
-          Key: Record<string, NativeAttributeValue> | undefined;
+          Key: Record<string, JsAttributeValue> | undefined;
         } | undefined;
       }
     )[]
@@ -56,7 +56,7 @@ export type BatchWriteCommandOutput = Omit<__BatchWriteItemCommandOutput, "Unpro
     string,
     (
       Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+        ItemCollectionKey?: Record<string, JsAttributeValue> | undefined;
       }
     )[]
   > | undefined;
@@ -115,8 +115,7 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __BatchWriteItemCommand;
-  public readonly middlewareStack: MiddlewareStack<BatchWriteCommandInput | __BatchWriteItemCommandInput,
-  BatchWriteCommandOutput | __BatchWriteItemCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: BatchWriteCommandInput) {
     super();
@@ -136,7 +135,7 @@ export class BatchWriteCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -149,5 +148,5 @@ import type {
   WriteRequest,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

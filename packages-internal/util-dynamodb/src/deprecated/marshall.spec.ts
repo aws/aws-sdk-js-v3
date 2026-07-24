@@ -2,7 +2,7 @@ import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 import { describe, expect, test as it } from "vitest";
 
 import { marshall } from "./marshall";
-import { NumberValue } from "./NumberValue";
+import { NumberValue } from "../NumberValue";
 
 describe("marshall", () => {
   it("with object as an input", () => {

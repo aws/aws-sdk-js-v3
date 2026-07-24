@@ -1622,6 +1622,12 @@
   "@aws-sdk/util-dynamodb": {
     "convertToAttr": "function",
     "convertToNative": "function",
+    "decode": "function",
+    "DecodeOptions": "type(interface)",
+    "encode": "function",
+    "EncodeOptions": "type(interface)",
+    "JsAttributeValue": "type(union)",
+    "JsScalarAttributeValue": "type(union)",
     "marshall": "function",
     "marshallOptions": "type(interface)",
     "NativeAttributeBinary": "type(union)",

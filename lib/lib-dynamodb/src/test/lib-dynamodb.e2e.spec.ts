@@ -588,7 +588,7 @@ describe(
                   return "ownFunction";
                 };
               })(),
-            },
+            } as Record<string, any>,
           },
         })
         .catch(passError);
@@ -718,7 +718,7 @@ describe(
       const results = log.batchRead?.Responses?.[TableName] ?? [];
 
       for (const result of results) {
-        expect(result.data).toEqual(data[result.id.replace("-batch", "")]);
+        expect(result.data).toEqual(data[(result.id as string).replace("-batch", "")]);
       }
     });
 
@@ -731,7 +731,8 @@ describe(
       const results = log.transactRead?.Responses ?? [];
 
       for (const result of results) {
-        expect(result.Item?.data).toEqual(data[result.Item?.id.replace("-transact", "")]);
+        const id = result.Item?.id as string;
+        expect(result.Item?.data).toEqual(data[id.replace("-transact", "")]);
       }
     });
 
@@ -745,7 +746,7 @@ describe(
       expect(log.batchExecuteStatementReadBack?.Responses).toBeInstanceOf(Array);
       expect(log.batchExecuteStatementReadBack?.Responses?.length).toBeGreaterThan(0);
       for (const response of log.batchExecuteStatementReadBack?.Responses ?? []) {
-        expect(response.Item?.data).toEqual(data[response.Item?.id?.replace("-batch-statement", "")]);
+        expect(response.Item?.data).toEqual(data[(response.Item?.id as string)?.replace("-batch-statement", "")]);
       }
     });
 
@@ -837,6 +838,50 @@ describe(
           },
         },
       });
+    });
+
+    it("can decode with useMaps=true to return Map instances", async () => {
+      const docWithMaps = DynamoDBDocument.from(dynamodb, {
+        decodeOptions: {
+          useMaps: true,
+        },
+      });
+
+      await docWithMaps.put({
+        TableName,
+        // Item (AttributeValueMap), ironically, is not M and will
+        // not convert to Map.
+        Item: {
+          id: "map-decode",
+          maybeAMap: {
+            a: 1,
+            b: 2,
+            nestedMap: {
+              c: 3,
+              d: 4,
+            },
+          },
+        },
+      });
+
+      const result: any = await docWithMaps.get({ TableName, Key: { id: "map-decode" }, ConsistentRead: true });
+      // Item itself is always a plain object (reconstructed by processAllKeysInObj).
+      // useMaps affects nested M attributes within the item.
+      expect(result.Item.id).toBe("map-decode");
+      expect(result.Item.maybeAMap).toBeInstanceOf(Map);
+      expect(result.Item.maybeAMap).toEqual(
+        new Map<any, any>([
+          ["a", 1],
+          ["b", 2],
+          [
+            "nestedMap",
+            new Map([
+              ["c", 3],
+              ["d", 4],
+            ]),
+          ],
+        ])
+      );
     });
   },
   180_000

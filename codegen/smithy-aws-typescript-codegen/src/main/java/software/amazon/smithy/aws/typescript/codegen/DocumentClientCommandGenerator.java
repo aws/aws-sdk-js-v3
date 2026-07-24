@@ -150,9 +150,7 @@ final class DocumentClientCommandGenerator implements Runnable {
 
                 writer.write("protected readonly clientCommand: $L;", clientCommandLocalName);
                 writer.write(
-                    "public readonly middlewareStack: MiddlewareStack<$L>;",
-                    inputTypeName + " | __" + originalInputTypeName
-                        + ", \n" + outputTypeName + " | __" + originalOutputTypeName
+                    "public readonly middlewareStack: MiddlewareStack<any, any>;"
                 );
                 writer.write("");
 
@@ -228,11 +226,7 @@ final class DocumentClientCommandGenerator implements Runnable {
             );
             writer.write("");
 
-            if (outputMembersWithAttr.isEmpty()) {
-                writer.write("return $L;", handlerVarName);
-            } else {
-                writer.write("return async () => handler($L);", commandVarName);
-            }
+            writer.write("return async () => handler($L) as any;", commandVarName);
         });
     }
 
@@ -449,7 +443,7 @@ final class DocumentClientCommandGenerator implements Runnable {
         } else if (memberTarget.isUnionShape()) {
             if (symbolProvider.toSymbol(memberTarget).getName().equals("AttributeValue")) {
                 registerNativeAttributeValueImport();
-                writeTypeLeaf("NativeAttributeValue" + suffix, terminator);
+                writeTypeLeaf("JsAttributeValue" + suffix, terminator);
             } else {
                 // An AttributeValue inside Union is not present as of Q1 2021, and is less
                 // likely to appear in future. Writing Omit for it is not straightforward, skipping.
@@ -468,7 +462,7 @@ final class DocumentClientCommandGenerator implements Runnable {
                     && symbolProvider.toSymbol(mapMemberTarget).getName().equals("AttributeValue")
             ) {
                 registerNativeAttributeValueImport();
-                writeTypeLeaf("Record<string, NativeAttributeValue>" + suffix, terminator);
+                writeTypeLeaf("Record<string, JsAttributeValue>" + suffix, terminator);
             } else {
                 String closeRecord = ">" + suffix;
                 writer.openBlock("Record<", closeRecord, () -> {
@@ -485,14 +479,14 @@ final class DocumentClientCommandGenerator implements Runnable {
                     && symbolProvider.toSymbol(collectionMemberTarget).getName().equals("AttributeValue")
             ) {
                 registerNativeAttributeValueImport();
-                writeTypeLeaf("NativeAttributeValue[]" + suffix, terminator);
+                writeTypeLeaf("JsAttributeValue[]" + suffix, terminator);
             } else if (
                 collectionMemberTarget.isMapShape()
                     && isSimpleNativeAttributeValueMap(collectionMemberTarget)
             ) {
-                // Simple case: Record<string, NativeAttributeValue>[]
+                // Simple case: Record<string, JsAttributeValue>[]
                 registerNativeAttributeValueImport();
-                writeTypeLeaf("Record<string, NativeAttributeValue>[]" + suffix, terminator);
+                writeTypeLeaf("Record<string, JsAttributeValue>[]" + suffix, terminator);
             } else {
                 String closeArray = ")[]" + suffix;
                 writer.openBlock("(", closeArray, () -> {
@@ -510,7 +504,7 @@ final class DocumentClientCommandGenerator implements Runnable {
     }
 
     private void registerNativeAttributeValueImport() {
-        String nativeAttributeValue = "NativeAttributeValue";
+        String nativeAttributeValue = "JsAttributeValue";
         registerTypeImport(
             nativeAttributeValue,
             nativeAttributeValue,

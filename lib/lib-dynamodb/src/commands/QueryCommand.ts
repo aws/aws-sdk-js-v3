@@ -23,25 +23,25 @@ export type QueryCommandInput = Omit<__QueryCommandInput, "KeyConditions" | "Que
   KeyConditions?: Record<
     string,
     Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
+      AttributeValueList?: JsAttributeValue[] | undefined;
     }
   > | undefined;
   QueryFilter?: Record<
     string,
     Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
+      AttributeValueList?: JsAttributeValue[] | undefined;
     }
   > | undefined;
-  ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+  ExclusiveStartKey?: Record<string, JsAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[] | undefined;
-  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
+  Items?: Record<string, JsAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
@@ -82,8 +82,7 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __QueryCommand;
-  public readonly middlewareStack: MiddlewareStack<QueryCommandInput | __QueryCommandInput,
-  QueryCommandOutput | __QueryCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: QueryCommandInput) {
     super();
@@ -103,7 +102,7 @@ export class QueryCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -113,5 +112,5 @@ import type {
   QueryCommandOutput as __QueryCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

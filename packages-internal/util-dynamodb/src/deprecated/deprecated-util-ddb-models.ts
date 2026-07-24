@@ -1,17 +1,8 @@
-/**
- * A interface recognizable as a numeric value that stores the underlying number
- * as a string.
- *
- * Intended to be a deserialization target for the DynamoDB Document Client when
- * the `wrapNumbers` flag is set. This allows for numeric values that lose
- * precision when converted to JavaScript's `number` type.
- */
-export interface NumberValue {
-  readonly value: string;
-}
+import type { NumberValue } from "../JsAttributeValue";
 
 /**
  * @public
+ * @deprecated Set and InstanceType declarations are incorrect, use instead JsAttributeValue.
  */
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
@@ -22,6 +13,7 @@ export type NativeAttributeValue =
 
 /**
  * @public
+ * @deprecated use instead JsScalarAttributeValue.
  */
 export type NativeScalarAttributeValue =
   | null
@@ -46,6 +38,8 @@ type IfDefined<T> = {} extends T ? never : T;
 
 /**
  * @public
+ * @deprecated this type is incorrect, only Uint8Array is an acceptable JS representation of binary data
+ * that will be transmitted to DynamoDB AttributeValue.B.
  */
 export type NativeAttributeBinary =
   | ArrayBuffer

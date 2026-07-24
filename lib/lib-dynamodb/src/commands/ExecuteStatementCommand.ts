@@ -20,15 +20,15 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, "Parameters"> & {
-  Parameters?: NativeAttributeValue[] | undefined;
+  Parameters?: JsAttributeValue[] | undefined;
 };
 
 /**
  * @public
  */
 export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[] | undefined;
-  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
+  Items?: Record<string, JsAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
@@ -58,8 +58,7 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __ExecuteStatementCommand;
-  public readonly middlewareStack: MiddlewareStack<ExecuteStatementCommandInput | __ExecuteStatementCommandInput,
-  ExecuteStatementCommandOutput | __ExecuteStatementCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: ExecuteStatementCommandInput) {
     super();
@@ -79,7 +78,7 @@ export class ExecuteStatementCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -88,5 +87,5 @@ import type {
   ExecuteStatementCommandOutput as __ExecuteStatementCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";
