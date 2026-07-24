@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+
+### Features
+
+* **client-rtbfabric:** The deprecated inboundLinksCount field has been removed from the GetResponderGateway API response. Customers who previously relied on this field should use linksRequestedCount instead. ([70e61b3](https://github.com/aws/aws-sdk-js-v3/commit/70e61b39cf2be0a5168a6cf7f9febd545670586c))
+
+
+
+
+
 # [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
 
 **Note:** Version bump only for package @aws-sdk/client-rtbfabric

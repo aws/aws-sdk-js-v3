@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-location-constraint",
-  "version": "3.972.31",
+  "version": "3.972.32",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-location-constraint",
   "license": "Apache-2.0",
   "author": {
@@ -28,7 +28,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.65",
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.66",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

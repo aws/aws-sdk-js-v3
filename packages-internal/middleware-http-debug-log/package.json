@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-http-debug-log",
-  "version": "3.972.30",
+  "version": "3.972.31",
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-http-debug-log",
   "license": "Apache-2.0",

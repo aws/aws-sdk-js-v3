@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/cloudfront-signer",
-  "version": "3.1088.0",
+  "version": "3.1095.0",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/cloudfront-signer",
   "license": "Apache-2.0",
   "author": {

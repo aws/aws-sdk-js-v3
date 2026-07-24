@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-gameliftstreams",
-  "version": "3.1094.0",
+  "version": "3.1095.0",
   "description": "AWS SDK for JavaScript Gameliftstreams Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-gameliftstreams",
   "license": "Apache-2.0",
@@ -46,8 +46,8 @@
     "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.976.0",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
+    "@aws-sdk/core": "workspace:^3.977.0",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.72",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.8",
     "@smithy/fetch-http-handler": "^5.6.10",

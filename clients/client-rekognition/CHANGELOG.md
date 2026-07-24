@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+**Note:** Version bump only for package @aws-sdk/client-rekognition
+
+
+
+
+
 # [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition

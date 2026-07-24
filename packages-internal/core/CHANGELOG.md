@@ -66,6 +66,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.0 (2026-07-24)
+### Features
+* **core:** update clock skew detection threshold and configs ([#8189](https://github.com/aws/aws-sdk-js-v3/issues/8189)) ([a2773d5](https://github.com/aws/aws-sdk-js-v3/commit/a2773d5663965069fbe650815d2a45f1f95a645e))
+### Bug Fixes
+* **core/protocols:** avoid Buffer.slice in return ByteJsonShapeSerializer.flush ([#8222](https://github.com/aws/aws-sdk-js-v3/issues/8222)) ([d4f2aeb](https://github.com/aws/aws-sdk-js-v3/commit/d4f2aeb5fa98a6596baef04779a365498f327755))
+### Chores
+* **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))
+* **core/protocols:** JSON serde consistency testing and perf tuning ([#8214](https://github.com/aws/aws-sdk-js-v3/issues/8214)) ([8dac251](https://github.com/aws/aws-sdk-js-v3/commit/8dac2514c811d8b903ae905f72efa5d6abb73029))
+### Tests
+* **core/httpAuthSchemes:** fix test race condition ([#8223](https://github.com/aws/aws-sdk-js-v3/issues/8223)) ([a4dd3de](https://github.com/aws/aws-sdk-js-v3/commit/a4dd3ded1a9ca165d60b93d5061813c27b85e0f7))
+
+
+
 # 3.976.0 (2026-07-20)
 ### Features
 * **core/protocols:** bytebuffer serializer and buffer deserializer for JSON ([#8202](https://github.com/aws/aws-sdk-js-v3/issues/8202)) ([f39955a](https://github.com/aws/aws-sdk-js-v3/commit/f39955afbdfdcf665a5cf43cab8a057c56744dc4))

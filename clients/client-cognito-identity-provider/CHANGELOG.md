@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Amazon Cognito user pools now support the AdminGetUserAuthFactors operation, which lets administrators retrieve the configured authentication factors (such as password, SMS, email, and TOTP) available for a specific user in a user pool. ([fb3d908](https://github.com/aws/aws-sdk-js-v3/commit/fb3d908c1173ced1d17b98adcfab35bbcd562d74))
+
+
+
+
+
 # [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

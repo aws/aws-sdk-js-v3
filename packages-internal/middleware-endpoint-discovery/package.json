@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-endpoint-discovery",
-  "version": "3.972.25",
+  "version": "3.972.26",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-endpoint-discovery",
   "license": "Apache-2.0",
   "author": {

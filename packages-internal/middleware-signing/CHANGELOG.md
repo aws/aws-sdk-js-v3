@@ -27,6 +27,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.0 (2026-07-23)
+### Features
+* **core:** update clock skew detection threshold and configs ([#8189](https://github.com/aws/aws-sdk-js-v3/issues/8189)) ([a2773d5](https://github.com/aws/aws-sdk-js-v3/commit/a2773d5663965069fbe650815d2a45f1f95a645e))
+### Chores
+* **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))
+
+
+
 # 3.972.24 (2026-07-15)
 ### Chores
 * **codegen:** sync to use typesVersions entries for submodules ([#8195](https://github.com/aws/aws-sdk-js-v3/issues/8195)) ([d43e5bf](https://github.com/aws/aws-sdk-js-v3/commit/d43e5bfc231fee6cbcf6024b6ed6b69e3864068c))

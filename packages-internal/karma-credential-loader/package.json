@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/karma-credential-loader",
-  "version": "3.972.70",
+  "version": "3.972.71",
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/karma-credential-loader",
   "license": "Apache-2.0",
@@ -38,8 +38,8 @@
     "test": "(exit 0)"
   },
   "dependencies": {
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.71",
-    "@aws-sdk/nested-clients": "workspace:^3.997.34",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.72",
+    "@aws-sdk/nested-clients": "workspace:^3.997.35",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

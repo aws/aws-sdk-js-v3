@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-arn-parser",
-  "version": "3.972.29",
+  "version": "3.972.30",
   "description": "A parser to Amazon Resource Names",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-arn-parser",
   "license": "Apache-2.0",
@@ -29,7 +29,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/core": "workspace:^3.977.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

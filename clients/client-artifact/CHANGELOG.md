@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+
+### Features
+
+* **client-artifact:** Added the PutComplianceInquiryFeedback API, enabling customers to submit feedback on compliance inquiry responses. Customers can rate responses as helpful or not helpful and provide optional reason codes and comments. ([e2d5f0e](https://github.com/aws/aws-sdk-js-v3/commit/e2d5f0e29e79b765d767fdee08a6360758388b40))
+
+
+
+
+
 # [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
 
 **Note:** Version bump only for package @aws-sdk/client-artifact

@@ -32,6 +32,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.30 (2026-07-23)
+### Chores
+* **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))
+
+
+
 # 3.972.29 (2026-07-15)
 ### Chores
 * remove redundant type assertions ([#8193](https://github.com/aws/aws-sdk-js-v3/issues/8193)) ([b41fbb0](https://github.com/aws/aws-sdk-js-v3/commit/b41fbb0e0c92877fc891b3e85a7e716cc29e6965))

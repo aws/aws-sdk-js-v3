@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor",
-  "version": "3.1094.0",
+  "version": "3.1095.0",
   "private": true,
   "description": "@aws-sdk/aws-protocoltests-smithy-rpcv2-cbor client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-protocoltests-smithy-rpcv2-cbor",
@@ -48,7 +48,7 @@
     "test:integration:watch": "yarn g:vitest watch --passWithNoTests -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.976.0",
+    "@aws-sdk/core": "workspace:^3.977.0",
     "@smithy/core": "^3.29.8",
     "@smithy/fetch-http-handler": "^5.6.10",
     "@smithy/node-http-handler": "^4.9.10",

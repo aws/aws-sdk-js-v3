@@ -68,6 +68,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.66 (2026-07-23)
+### Chores
+* **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))
+
+
+
 # 3.972.65 (2026-07-21)
 ### Chores
 * **middleware-sdk-s3:** update dependencies.

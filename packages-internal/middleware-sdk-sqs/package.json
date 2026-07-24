@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-sqs",
-  "version": "3.972.37",
+  "version": "3.972.38",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-sdk-sqs",
   "license": "Apache-2.0",
   "author": {

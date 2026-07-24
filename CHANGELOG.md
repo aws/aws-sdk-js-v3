@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
+
+
+### Bug Fixes
+
+* **core/protocols:** avoid Buffer.slice in return ByteJsonShapeSerializer.flush ([#8222](https://github.com/aws/aws-sdk-js-v3/issues/8222)) ([d4f2aeb](https://github.com/aws/aws-sdk-js-v3/commit/d4f2aeb5fa98a6596baef04779a365498f327755))
+
+
+### Features
+
+* **client-application-insights:** This release adds Smithy RPC v2 CBOR as an additional protocol alongside the existing AWS JSON 1.1. The SDK will prioritize its most performant protocol. ([20dd588](https://github.com/aws/aws-sdk-js-v3/commit/20dd58867268d9aae3926c5917be30bcd680189c))
+* **client-artifact:** Added the PutComplianceInquiryFeedback API, enabling customers to submit feedback on compliance inquiry responses. Customers can rate responses as helpful or not helpful and provide optional reason codes and comments. ([e2d5f0e](https://github.com/aws/aws-sdk-js-v3/commit/e2d5f0e29e79b765d767fdee08a6360758388b40))
+* **client-cognito-identity-provider:** Amazon Cognito user pools now support the AdminGetUserAuthFactors operation, which lets administrators retrieve the configured authentication factors (such as password, SMS, email, and TOTP) available for a specific user in a user pool. ([fb3d908](https://github.com/aws/aws-sdk-js-v3/commit/fb3d908c1173ced1d17b98adcfab35bbcd562d74))
+* **client-dynamodb:** Endpoint test standardizations ([2e9ccdb](https://github.com/aws/aws-sdk-js-v3/commit/2e9ccdb423e85835fc0be463f2189da9cb2067ef))
+* **client-neptune-graph:** Update validations for Tag Keys and KMS Key ARNs. ([9109ccf](https://github.com/aws/aws-sdk-js-v3/commit/9109ccf7a34856eb9e23b6cd03fe1fb471e087cf))
+* **client-rtbfabric:** The deprecated inboundLinksCount field has been removed from the GetResponderGateway API response. Customers who previously relied on this field should use linksRequestedCount instead. ([70e61b3](https://github.com/aws/aws-sdk-js-v3/commit/70e61b39cf2be0a5168a6cf7f9febd545670586c))
+* **clients:** update client endpoints as of 2026-07-24 ([f84113a](https://github.com/aws/aws-sdk-js-v3/commit/f84113a78811741bf8e1469b3e71997bf21d5abf))
+* **core:** update clock skew detection threshold and configs ([#8189](https://github.com/aws/aws-sdk-js-v3/issues/8189)) ([a2773d5](https://github.com/aws/aws-sdk-js-v3/commit/a2773d5663965069fbe650815d2a45f1f95a645e))
+
+
+
+
+
 # [3.1094.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1093.0...v3.1094.0) (2026-07-23)
 
 

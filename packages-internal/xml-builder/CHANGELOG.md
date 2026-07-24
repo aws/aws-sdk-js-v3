@@ -20,6 +20,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.37 (2026-07-23)
+### Chores
+* **core/protocols:** JSON serde consistency testing and perf tuning ([#8214](https://github.com/aws/aws-sdk-js-v3/issues/8214)) ([8dac251](https://github.com/aws/aws-sdk-js-v3/commit/8dac2514c811d8b903ae905f72efa5d6abb73029))
+
+
+
 # 3.972.36 (2026-07-15)
 ### Chores
 * migrate eslint/prettier to oxlint/oxfmt ([#8192](https://github.com/aws/aws-sdk-js-v3/issues/8192)) ([7d14409](https://github.com/aws/aws-sdk-js-v3/commit/7d144094844d078a2ec15c6ecbd054f9e127fa11))

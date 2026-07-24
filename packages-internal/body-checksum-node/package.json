@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "3.972.25",
+  "version": "3.972.26",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/body-checksum-node",
   "license": "Apache-2.0",
   "author": {

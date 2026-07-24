@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/undici-http-handler",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "AWS SDK for JavaScript reqeust handler backed by modern, high performance Node.js undici client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/undici-http-handler",
   "license": "Apache-2.0",

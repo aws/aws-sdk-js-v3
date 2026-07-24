@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4-multi-region",
-  "version": "3.996.41",
+  "version": "3.996.42",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4-multi-region",
   "license": "Apache-2.0",
   "author": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/smithy-client",
-  "version": "3.993.25",
+  "version": "3.993.26",
   "private": true,
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/smithy-client",
   "license": "Apache-2.0",

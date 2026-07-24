@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/eventstream-handler-node",
-  "version": "3.972.29",
+  "version": "3.972.30",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/eventstream-handler-node",
   "license": "Apache-2.0",
   "author": {

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-token",
-  "version": "3.972.25",
+  "version": "3.972.26",
   "description": "Middleware and Plugin for setting token authentication",
   "keywords": [
     "aws",
@@ -53,7 +53,7 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/token-providers": "workspace:3.1094.0",
+    "@aws-sdk/token-providers": "workspace:3.1095.0",
     "@aws-sdk/types": "workspace:^3.974.2",
     "@smithy/core": "^3.29.8",
     "@smithy/types": "^4.16.1",

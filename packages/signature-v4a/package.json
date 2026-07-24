@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/signature-v4a",
-  "version": "3.1088.0",
+  "version": "3.1095.0",
   "description": "AWS SDK for JavaScript SignatureV4a package",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/signature-v4a",
   "license": "Apache-2.0",
