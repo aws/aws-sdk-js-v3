@@ -75,11 +75,12 @@ export class LoginCredentialsFetcher {
 
   private async refresh(token: LoginToken): Promise<AwsCredentialIdentity> {
     // first reload the token from disk to ensure the token hasn't already been refreshed externally.
-    // Pick whichever token has the later expiry.
+    // Use disk token unless it's expired and the in-memory token is unexpired.
     const diskToken = await this.loadToken().catch(() => token);
-    const tokenExpiry = new Date(token.accessToken.expiresAt).getTime();
+    const now = Date.now();
     const diskExpiry = new Date(diskToken.accessToken.expiresAt).getTime();
-    const freshToken = diskExpiry >= tokenExpiry ? diskToken : token;
+    const tokenExpiry = new Date(token.accessToken.expiresAt).getTime();
+    const freshToken = diskExpiry <= now && tokenExpiry > now ? token : diskToken;
     const freshExpiry = new Date(freshToken.accessToken.expiresAt).getTime();
     if (freshExpiry - Date.now() > LoginCredentialsFetcher.REFRESH_THRESHOLD) {
       return this.toCredentials(freshToken.accessToken);
