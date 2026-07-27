@@ -11,11 +11,12 @@ import type {
 } from "@smithy/types";
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
-import type { JsonSettings } from "../JsonCodec";
+import type { JsonSettings } from "./JsonSettings";
 import { JsonReplacer } from "../jsonReplacer";
 import { writeKey } from "../../writeKey";
 
 /**
+ * @deprecated prefer byte-targeting JsonShapeSerializer or its string adapter StringJsonShapeSerializer in codec-v2.
  * @public
  */
 export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string> {

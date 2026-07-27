@@ -2,6 +2,7 @@ import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import type { ScanCommandInput } from "@aws-sdk/client-dynamodb";
 import { DynamoDB, paginateScan } from "@aws-sdk/client-dynamodb";
 import { HttpResponse } from "@smithy/core/protocols";
+import { toUtf8 } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
 describe("pagination", () => {
@@ -19,6 +20,7 @@ describe("pagination", () => {
         {
           hostname: /dynamodb/,
           body(b) {
+            b = toUtf8(b);
             expect(b).toContain("TableName");
             expect(b).not.toContain("ExclusiveStartKey");
           },

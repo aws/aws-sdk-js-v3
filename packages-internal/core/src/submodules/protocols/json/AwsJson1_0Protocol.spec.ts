@@ -184,7 +184,7 @@ describe(AwsJson1_0Protocol.name, () => {
         "x-amz-target": "JsonRpc10.MyOperation",
       });
       expect(request.query).toEqual({});
-      expect(request.body).toEqual(`{"header":"hello","query":"world","headerMap":{"a":1,"b":2}}`);
+      expect(toUtf8(request.body)).toEqual(`{"header":"hello","query":"world","headerMap":{"a":1,"b":2}}`);
     });
   });
 });

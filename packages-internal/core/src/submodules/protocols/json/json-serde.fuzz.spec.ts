@@ -18,10 +18,10 @@ import type {
 } from "@smithy/types";
 import { describe, expect, it } from "vitest";
 
-import { ByteJsonShapeSerializer } from "./codec-v2/ByteJsonShapeSerializer";
-import { BufferJsonShapeDeserializer } from "./codec-v2/BufferJsonShapeDeserializer";
-import { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
+import { JsonShapeSerializer2 } from "./codec-v2/JsonShapeSerializer2";
+import { JsonShapeDeserializer2 } from "./codec-v2/JsonShapeDeserializer2";
+import { JsonShapeDeserializer as V1JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer as V1JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
 
 // ─── Settings ────────────────────────────────────────────────────────────────
 
@@ -32,13 +32,13 @@ const settings = {
 
 // ─── Production (reference) implementations ──────────────────────────────────
 
-const refSerializer = new JsonShapeSerializer(settings);
-const refDeserializer = new JsonShapeDeserializer(settings);
+const refSerializer = new V1JsonShapeSerializer(settings);
+const refDeserializer = new V1JsonShapeDeserializer(settings);
 
 // ─── Experimental (candidate) implementations ────────────────────────────────
 
-const byteSerializer = new ByteJsonShapeSerializer(settings);
-const bufferDeserializer = new BufferJsonShapeDeserializer(settings);
+const byteSerializer = new JsonShapeSerializer2(settings);
+const bufferDeserializer = new JsonShapeDeserializer2(settings);
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -325,7 +325,7 @@ const documentValue: fc.Arbitrary<any> = fc.letrec((tie) => ({
  * todo: https://issues.chromium.org/issues/521080746
  */
 describe.skipIf(process.env.CODEBUILD_BUILD_ID || process.env.AWS_EXECUTION_ENV)("JSON serde fuzz testing", () => {
-  describe("Serializer: ByteJsonShapeSerializer matches JsonShapeSerializer", () => {
+  describe("Serializer: codec-v2 JsonShapeSerializer matches codec-v1 JsonShapeSerializer", () => {
     it("string maps", { timeout: 30_000 }, () => {
       fc.assert(
         fc.property(stringMap, (tags) => {
@@ -480,7 +480,7 @@ describe.skipIf(process.env.CODEBUILD_BUILD_ID || process.env.AWS_EXECUTION_ENV)
     });
   });
 
-  describe("Deserializer: BufferJsonShapeDeserializer matches JsonShapeDeserializer", () => {
+  describe("Deserializer: codec-v2 JsonShapeDeserializer matches codec-v1 JsonShapeDeserializer", () => {
     it("string maps", { timeout: 30_000 }, async () => {
       await fc.assert(
         fc.asyncProperty(stringMap, async (tags) => {

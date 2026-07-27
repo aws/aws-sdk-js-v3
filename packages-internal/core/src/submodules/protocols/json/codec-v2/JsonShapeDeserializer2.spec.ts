@@ -3,11 +3,11 @@ import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../../test-schema.spec";
-import { JsonShapeDeserializer } from "../codec-v1/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "../codec-v1/JsonShapeSerializer";
-import { BufferJsonShapeDeserializer } from "./BufferJsonShapeDeserializer";
+import { JsonShapeDeserializer as V1JsonShapeDeserializer } from "../codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer as V1JsonShapeSerializer } from "../codec-v1/JsonShapeSerializer";
+import { JsonShapeDeserializer2 } from "./JsonShapeDeserializer2";
 
-describe(BufferJsonShapeDeserializer.name, () => {
+describe(JsonShapeDeserializer2.name, () => {
   let contextSourceAvailable = false;
   JSON.parse(`{ "key": 1 }`, function (key, value, context?: { source?: string }) {
     if (context?.source) {
@@ -15,7 +15,7 @@ describe(BufferJsonShapeDeserializer.name, () => {
     }
   });
 
-  const deserializer = new BufferJsonShapeDeserializer({
+  const deserializer = new JsonShapeDeserializer2({
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
   });
@@ -202,8 +202,115 @@ describe(BufferJsonShapeDeserializer.name, () => {
     });
   });
 
+  // ─── Exponent notation number deserialization (v1/v2 equivalence) ──────────
+
+  describe("exponent notation numbers (v1/v2 equivalence)", () => {
+    const v1Deserializer = new V1JsonShapeDeserializer({
+      jsonName: true,
+      timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
+    });
+
+    // Permutations: integral vs non-integral, safe vs unsafe, positive vs negative
+
+    const exponentCases = [
+      // ─── Integral, within safe integer range ─────────────────────
+      { label: "positive integral, safe (1.23E8)", json: `{"scalar": 1.23E8}` },
+      { label: "negative integral, safe (-1.23E8)", json: `{"scalar": -1.23E8}` },
+      { label: "positive integral, safe (1E9)", json: `{"scalar": 1E9}` },
+      { label: "negative integral, safe (-1E9)", json: `{"scalar": -1E9}` },
+      { label: "positive integral, safe (5e+4)", json: `{"scalar": 5e+4}` },
+      { label: "negative integral, safe (-5e+4)", json: `{"scalar": -5e+4}` },
+
+      // ─── Integral, outside safe integer range ────────────────────
+      { label: "positive integral, unsafe (1E19)", json: `{"scalar": 1E19}` },
+      { label: "negative integral, unsafe (-1E19)", json: `{"scalar": -1E19}` },
+      { label: "positive integral, unsafe (9.007199254740993E15)", json: `{"scalar": 9.007199254740993E15}` },
+      { label: "negative integral, unsafe (-9.007199254740993E15)", json: `{"scalar": -9.007199254740993E15}` },
+      { label: "positive integral, unsafe (1.23E100)", json: `{"scalar": 1.23E100}` },
+      { label: "negative integral, unsafe (-1.23E100)", json: `{"scalar": -1.23E100}` },
+
+      // ─── Non-integral (fractional), within safe range ────────────
+      { label: "positive fractional, safe (1.5e-3)", json: `{"scalar": 1.5e-3}` },
+      { label: "negative fractional, safe (-1.5e-3)", json: `{"scalar": -1.5e-3}` },
+      { label: "positive fractional, safe (1.784316439424E9)", json: `{"scalar": 1.784316439424E9}` },
+      { label: "negative fractional, safe (-1.784316439424E9)", json: `{"scalar": -1.784316439424E9}` },
+      { label: "positive fractional, safe (3.14e+2)", json: `{"scalar": 3.14e+2}` },
+      { label: "negative fractional, safe (-3.14e+2)", json: `{"scalar": -3.14e+2}` },
+
+      // ─── Non-integral (fractional), outside safe range ───────────
+      // Note: these use values where isFractionalNumeric returns true AND the value
+      // exceeds MAX_SAFE_INTEGER. The reviver correctly identifies them as needing
+      // BigDecimal treatment, but values with many fractional digits and a large
+      // exponent (e.g. 18 frac digits, exp 16) trigger a known limitation where
+      // exponent-notation source strings aren't normalized before NumericValue creation.
+      // Use cases that don't trigger the bug (exponent pushes value just past safe range
+      // but decimal portion is short enough to be fully shifted):
+      { label: "positive fractional, unsafe (9.999999999999999E20)", json: `{"scalar": 9.999999999999999E20}` },
+      { label: "negative fractional, unsafe (-9.999999999999999E20)", json: `{"scalar": -9.999999999999999E20}` },
+      { label: "positive fractional, unsafe (1.23456E16)", json: `{"scalar": 1.23456E16}` },
+      { label: "negative fractional, unsafe (-1.23456E16)", json: `{"scalar": -1.23456E16}` },
+
+      // ─── Edge cases ──────────────────────────────────────────────
+      { label: "zero exponent (1.5E0)", json: `{"scalar": 1.5E0}` },
+      { label: "negative zero exponent (1.5e-0)", json: `{"scalar": 1.5e-0}` },
+      { label: "uppercase E (1.23E+5)", json: `{"scalar": 1.23E+5}` },
+      { label: "lowercase e (1.23e+5)", json: `{"scalar": 1.23e+5}` },
+    ];
+
+    it.each(exponentCases)("$label", async ({ json }) => {
+      const v1Result = await v1Deserializer.read(widget, json);
+      const v2Result = await deserializer.read(widget, json);
+      expect(v2Result).toEqual(v1Result);
+    });
+
+    // Verify specific known values parse correctly (not just equivalence)
+    it("1.23E8 deserializes to 123000000", async () => {
+      const result = await deserializer.read(widget, `{"scalar": 1.23E8}`);
+      expect(result.scalar).toBe(123000000);
+    });
+
+    it("1.784316439424E9 deserializes to 1784316439.424", async () => {
+      const result = await deserializer.read(widget, `{"scalar": 1.784316439424E9}`);
+      expect(result.scalar).toBe(1784316439.424);
+    });
+
+    it("1.5e-3 deserializes to 0.0015", async () => {
+      const result = await deserializer.read(widget, `{"scalar": 1.5e-3}`);
+      expect(result.scalar).toBe(0.0015);
+    });
+
+    // Exponent notation in timestamp fields (real-world: ECS createdAt)
+    it("deserializes exponent-notation epoch timestamp", async () => {
+      const v1Result = await v1Deserializer.read(widget, `{"timestamp": 1.784316439424E9}`);
+      const v2Result = await deserializer.read(widget, `{"timestamp": 1.784316439424E9}`);
+      expect(v2Result).toEqual(v1Result);
+      expect(v2Result.timestamp).toEqual(new Date(1784316439424));
+    });
+
+    // Exponent in bigint field
+    (contextSourceAvailable ? it : it.skip)("deserializes large exponent as bigint", async () => {
+      const v1Result = await v1Deserializer.read(widget, `{"bigint": 1E19}`);
+      const v2Result = await deserializer.read(widget, `{"bigint": 1E19}`);
+      expect(v2Result).toEqual(v1Result);
+      expect(v2Result.bigint).toBe(10000000000000000000n);
+    });
+
+    // Known limitation: exponent-notation fractional numbers with many decimal digits
+    // outside safe range throw because NumericValue rejects 'E' in the source string.
+    // e.g. "1.123456789012345678E16" (18 frac digits > exp 16 → fractional → NumericValue)
+    // Both v1 and v2 share this behavior via jsonReviver.
+    (contextSourceAvailable ? it : it.skip)(
+      "known limitation: fractional exponent with many digits throws in reviver",
+      async () => {
+        const json = `{"scalar": 1.123456789012345678E16}`;
+        await expect(v1Deserializer.read(widget, json)).rejects.toThrow(/NumericValue/);
+        await expect(deserializer.read(widget, json)).rejects.toThrow(/NumericValue/);
+      }
+    );
+  });
+
   describe("in-place mutation identity checks", () => {
-    const noRenameDeserializer = new BufferJsonShapeDeserializer({
+    const noRenameDeserializer = new JsonShapeDeserializer2({
       jsonName: false,
       timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
     });
@@ -252,11 +359,11 @@ describe(BufferJsonShapeDeserializer.name, () => {
   });
 
   describe("performance comparison: MutatingJsonShapeDeserializer vs JsonShapeDeserializer", () => {
-    const originalDeserializer = new JsonShapeDeserializer({
+    const originalDeserializer = new V1JsonShapeDeserializer({
       jsonName: true,
       timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
     });
-    const serializer = new JsonShapeSerializer({
+    const serializer = new V1JsonShapeSerializer({
       jsonName: true,
       timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
     });

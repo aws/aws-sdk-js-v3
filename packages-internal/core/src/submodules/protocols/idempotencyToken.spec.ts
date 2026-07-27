@@ -2,7 +2,7 @@ import { CborShapeSerializer } from "@smithy/core/cbor";
 import type { StaticSimpleSchema, StaticStructureSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { JsonShapeSerializer } from "./json/codec-v1/JsonShapeSerializer";
+import { JsonShapeSerializer2 } from "./json/codec-v2/JsonShapeSerializer2";
 import { QueryShapeSerializer } from "./query/QueryShapeSerializer";
 import { XmlShapeSerializer } from "./xml/XmlShapeSerializer";
 
@@ -21,7 +21,7 @@ describe("idempotencyToken", () => {
 
   it("all ShapeSerializer implementations should generate an idempotency token if no input was provided by the caller", () => {
     const serializers = [
-      new JsonShapeSerializer({
+      new JsonShapeSerializer2({
         timestampFormat: { default: 7, useTrait: true },
         jsonName: true,
       }),

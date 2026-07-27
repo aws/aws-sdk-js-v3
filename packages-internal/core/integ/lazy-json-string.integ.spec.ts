@@ -1,6 +1,6 @@
 import { requireRequestsFrom } from "@aws-sdk/aws-util-test/src";
 import { Schemas } from "@aws-sdk/client-schemas";
-import { LazyJsonString } from "@smithy/core/serde";
+import { LazyJsonString, toUtf8 } from "@smithy/core/serde";
 import { describe, expect, test as it } from "vitest";
 
 describe(LazyJsonString.name, () => {
@@ -13,6 +13,7 @@ describe(LazyJsonString.name, () => {
 
     requireRequestsFrom(client).toMatch({
       body(b) {
+        b = toUtf8(b);
         if (request === 0) {
           expect(b).toEqual(`{"Policy":"this is a plain string"}`);
           request += 1;

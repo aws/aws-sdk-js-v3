@@ -358,9 +358,12 @@
     "AwsRestXmlProtocol": "function",
     "AwsSmithyRpcV2CborProtocol": "function",
     "JsonCodec": "function",
+    "JsonCodec2": "function",
     "JsonSettings": "type(intersection)",
     "JsonShapeDeserializer": "function",
+    "JsonShapeDeserializer2": "function",
     "JsonShapeSerializer": "function",
+    "JsonShapeSerializer2": "function",
     "loadJsonRpcErrorCode": "function",
     "loadRestJsonErrorCode": "function",
     "loadRestXmlErrorCode": "function",
@@ -504,7 +507,8 @@
     "DsqlSignerConfig": "type(interface)"
   },
   "@aws-sdk/dynamodb-codec": {
-    "DynamoDBJsonCodec": "function"
+    "DynamoDBJsonCodec": "function",
+    "DynamoDBJsonCodec2": "function"
   },
   "@aws-sdk/ec2-metadata-service": {
     "MetadataService": "function"

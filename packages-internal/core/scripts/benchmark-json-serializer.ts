@@ -28,12 +28,14 @@ import type {
   StaticListSchema,
 } from "@smithy/types";
 
-import { ByteJsonShapeSerializer } from "../src/submodules/protocols/json/codec-v2/ByteJsonShapeSerializer";
-import { BufferJsonShapeDeserializer } from "../src/submodules/protocols/json/codec-v2/BufferJsonShapeDeserializer";
-import { JsonShapeDeserializer } from "../src/submodules/protocols/json/codec-v1/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "../src/submodules/protocols/json/codec-v1/JsonShapeSerializer";
-import { AttributeValue$ } from "../../../clients/client-dynamodb/src/schemas/schemas_0";
-import { DynamoDBJsonCodec } from "../../../packages-internal/dynamodb-codec/src/index";
+import {
+  JsonShapeSerializer,
+  JsonShapeDeserializer,
+  JsonShapeSerializer2,
+  JsonShapeDeserializer2,
+} from "@aws-sdk/core/protocols";
+import { AttributeValue$ } from "@aws-sdk/client-dynamodb";
+import { DynamoDBJsonCodec, DynamoDBJsonCodec2 } from "@aws-sdk/dynamodb-codec";
 
 // ─── Schemas ─────────────────────────────────────────────────────────────────
 
@@ -302,8 +304,7 @@ function runVariant(variant: "multipass" | "byte"): BenchResult[] {
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
   };
 
-  const serializer =
-    variant === "multipass" ? new JsonShapeSerializer(settings) : new ByteJsonShapeSerializer(settings);
+  const serializer = variant === "multipass" ? new JsonShapeSerializer(settings) : new JsonShapeSerializer2(settings);
 
   const scenarios = getScenarios();
   const results: BenchResult[] = [];
@@ -348,7 +349,7 @@ async function runDeserVariant(variant: DeserVariant): Promise<BenchResult[]> {
   } as any);
 
   const deserializer =
-    variant === "deser-original" ? new JsonShapeDeserializer(settings) : new BufferJsonShapeDeserializer(settings);
+    variant === "deser-original" ? new JsonShapeDeserializer(settings) : new JsonShapeDeserializer2(settings);
 
   const useBytes = variant === "deser-buffer-bytes";
   const encoder = new TextEncoder();
@@ -404,11 +405,13 @@ type DdbVariant =
   | "ddb-multipass"
   | "ddb-byte"
   | "ddb-codec-ser"
+  | "ddb-codec2-ser"
   | "ddb-codec-deser"
+  | "ddb-codec2-deser"
   | "ddb-deser-original"
   | "ddb-deser-buffer";
 
-function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser"): BenchResult[] {
+function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser" | "ddb-codec2-ser"): BenchResult[] {
   const settings = {
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
@@ -419,8 +422,12 @@ function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser
     const codec = new DynamoDBJsonCodec();
     codec.setSerdeContext({ base64Encoder: (input: Uint8Array) => Buffer.from(input).toString("base64") } as any);
     serializer = codec.createSerializer();
+  } else if (variant === "ddb-codec2-ser") {
+    const codec = new DynamoDBJsonCodec2();
+    codec.setSerdeContext({ base64Encoder: (input: Uint8Array) => Buffer.from(input).toString("base64") } as any);
+    serializer = codec.createSerializer();
   } else if (variant === "ddb-byte") {
-    serializer = new ByteJsonShapeSerializer(settings);
+    serializer = new JsonShapeSerializer2(settings);
   } else {
     serializer = new JsonShapeSerializer(settings);
   }
@@ -450,7 +457,7 @@ function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser
 }
 
 async function runDdbDeserVariant(
-  variant: "ddb-deser-original" | "ddb-deser-buffer" | "ddb-codec-deser"
+  variant: "ddb-deser-original" | "ddb-deser-buffer" | "ddb-codec-deser" | "ddb-codec2-deser"
 ): Promise<BenchResult[]> {
   const settings = {
     jsonName: true,
@@ -465,8 +472,12 @@ async function runDdbDeserVariant(
     const codec = new DynamoDBJsonCodec();
     codec.setSerdeContext({ base64Decoder: (input: string) => Buffer.from(input, "base64") } as any);
     deserializer = codec.createDeserializer();
+  } else if (variant === "ddb-codec2-deser") {
+    const codec = new DynamoDBJsonCodec2();
+    codec.setSerdeContext({ base64Decoder: (input: string) => Buffer.from(input, "base64") } as any);
+    deserializer = codec.createDeserializer();
   } else if (variant === "ddb-deser-buffer") {
-    deserializer = new BufferJsonShapeDeserializer(settings);
+    deserializer = new JsonShapeDeserializer2(settings);
   } else {
     deserializer = new JsonShapeDeserializer(settings);
   }
@@ -558,7 +569,7 @@ const variantArg = process.argv.find((a) => a.startsWith("--variant="));
 if (variantArg) {
   // Child process mode: run one variant, output JSON
   const variant = variantArg.split("=")[1] as string;
-  if (variant.startsWith("ddb-deser") || variant === "ddb-codec-deser") {
+  if (variant.startsWith("ddb-deser") || variant === "ddb-codec-deser" || variant === "ddb-codec2-deser") {
     runDdbDeserVariant(variant as any).then((results) => {
       process.stdout.write(JSON.stringify(results));
     });
@@ -701,35 +712,29 @@ if (variantArg) {
   process.stdout.write("Running DDB codec serializer...         ");
   const ddbCodecSerResults = runChild("ddb-codec-ser");
   console.log("done.");
+
+  process.stdout.write("Running DDB codec2 serializer...        ");
+  const ddbCodec2SerResults = runChild("ddb-codec2-ser");
+  console.log("done.");
   console.log();
 
-  const ddbSerHeader = `${col("Scenario", 20)} │ ${colR("Size", 8)} │ ${colR("Multipass", 12)} │ ${colR("Byte", 12)} │ ${colR("DDB Codec", 12)} │ ${colR("Byte vs MP", 10)} │ ${colR("Codec vs MP", 11)}`;
+  const ddbSerHeader = `${col("Scenario", 20)} │ ${colR("Size", 8)} │ ${colR("DDB Codec", 12)} │ ${colR("DDB Codec2", 12)} │ ${colR("Codec2 vs Codec", 15)}`;
   console.log(ddbSerHeader);
   console.log(
-    "─".repeat(20) +
-      "─┼─" +
-      "─".repeat(8) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(10) +
-      "─┼─" +
-      "─".repeat(11)
+    "─".repeat(20) + "─┼─" + "─".repeat(8) + "─┼─" + "─".repeat(12) + "─┼─" + "─".repeat(12) + "─┼─" + "─".repeat(15)
   );
 
   for (let i = 0; i < ddbMultipassResults.length; i++) {
     const mp = ddbMultipassResults[i];
     const bp = ddbByteResults[i];
     const codec = ddbCodecSerResults[i];
+    const codec2 = ddbCodec2SerResults[i];
     const size = mp.size < 1024 ? `${mp.size} B` : `${(mp.size / 1024).toFixed(1)} KB`;
     const byteVsMp = ((mp.ms - bp.ms) / mp.ms) * 100;
     const codecVsMp = ((mp.ms - codec.ms) / mp.ms) * 100;
+    const codec2VsCodec = ((codec.ms - codec2.ms) / codec.ms) * 100;
     console.log(
-      `${col(mp.name, 20)} │ ${colR(size, 8)} │ ${colR(`${mp.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${bp.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${byteVsMp > 0 ? "+" : ""}${byteVsMp.toFixed(1)}%`, 10)} │ ${colR(`${codecVsMp > 0 ? "+" : ""}${codecVsMp.toFixed(1)}%`, 11)}`
+      `${col(mp.name, 20)} │ ${colR(size, 8)} │ ${colR(`${codec.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec2.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec2VsCodec > 0 ? "+" : ""}${codec2VsCodec.toFixed(1)}%`, 15)}`
     );
   }
 
@@ -750,39 +755,32 @@ if (variantArg) {
   process.stdout.write("Running DDB codec deserializer...       ");
   const ddbCodecDeserResults = runChild("ddb-codec-deser");
   console.log("done.");
+
+  process.stdout.write("Running DDB codec2 deserializer...      ");
+  const ddbCodec2DeserResults = runChild("ddb-codec2-deser");
+  console.log("done.");
   console.log();
 
-  const ddbDeserHeader = `${col("Scenario", 20)} │ ${colR("Size", 8)} │ ${colR("Original", 12)} │ ${colR("Buffer", 12)} │ ${colR("DDB Codec", 12)} │ ${colR("Buf vs Orig", 11)} │ ${colR("Codec vs Orig", 13)}`;
+  const ddbDeserHeader = `${col("Scenario", 20)} │ ${colR("Size", 8)} │ ${colR("DDB Codec", 12)} │ ${colR("DDB Codec2", 12)} │ ${colR("Codec2 vs Codec", 15)}`;
   console.log(ddbDeserHeader);
   console.log(
-    "─".repeat(20) +
-      "─┼─" +
-      "─".repeat(8) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(12) +
-      "─┼─" +
-      "─".repeat(11) +
-      "─┼─" +
-      "─".repeat(13)
+    "─".repeat(20) + "─┼─" + "─".repeat(8) + "─┼─" + "─".repeat(12) + "─┼─" + "─".repeat(12) + "─┼─" + "─".repeat(15)
   );
 
   for (let i = 0; i < ddbDeserOrigResults.length; i++) {
     const orig = ddbDeserOrigResults[i];
     const buf = ddbDeserBufResults[i];
     const codec = ddbCodecDeserResults[i];
+    const codec2 = ddbCodec2DeserResults[i];
     const size = orig.size < 1024 ? `${orig.size} B` : `${(orig.size / 1024).toFixed(1)} KB`;
     const bufVsOrig = ((orig.ms - buf.ms) / orig.ms) * 100;
     const codecVsOrig = ((orig.ms - codec.ms) / orig.ms) * 100;
+    const codec2VsCodec = ((codec.ms - codec2.ms) / codec.ms) * 100;
     console.log(
-      `${col(orig.name, 20)} │ ${colR(size, 8)} │ ${colR(`${orig.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${buf.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${bufVsOrig > 0 ? "+" : ""}${bufVsOrig.toFixed(1)}%`, 11)} │ ${colR(`${codecVsOrig > 0 ? "+" : ""}${codecVsOrig.toFixed(1)}%`, 13)}`
+      `${col(orig.name, 20)} │ ${colR(size, 8)} │ ${colR(`${codec.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec2.kbPerMs.toFixed(1)} kb/ms`, 12)} │ ${colR(`${codec2VsCodec > 0 ? "+" : ""}${codec2VsCodec.toFixed(1)}%`, 15)}`
     );
   }
 
   console.log();
-  console.log("Buf vs Orig   = BufferJsonShapeDeserializer speed improvement over original (positive = faster)");
-  console.log("Codec vs Orig = DynamoDBJsonCodec deserializer speed improvement over original (positive = faster)");
+  console.log("Codec2 vs Codec = DynamoDBJsonCodec2 speed improvement over DynamoDBJsonCodec (positive = faster)");
 }

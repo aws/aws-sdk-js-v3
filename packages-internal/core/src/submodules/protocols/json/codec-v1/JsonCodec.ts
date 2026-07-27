@@ -1,17 +1,12 @@
-import type { Codec, CodecSettings } from "@smithy/types";
+import type { Codec } from "@smithy/types";
 
-import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
-
-/**
- * @public
- */
-export type JsonSettings = CodecSettings & {
-  jsonName: boolean;
-};
+import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
+import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
+import { JsonShapeSerializer } from "./JsonShapeSerializer";
+import type { JsonSettings } from "./JsonSettings";
 
 /**
+ * @deprecated use JsonCodec2.
  * @public
  */
 export class JsonCodec extends SerdeContextConfig implements Codec<string, string> {

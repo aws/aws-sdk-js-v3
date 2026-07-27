@@ -20,7 +20,7 @@ import type {
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import { UnionSerde } from "../../UnionSerde";
 import { detectBufferParsing } from "../detectBufferParsing";
-import type { JsonSettings } from "../JsonCodec";
+import type { JsonSettings } from "../JsonSettings";
 import { jsonReviver } from "../jsonReviver";
 import { needsReviver } from "../needsReviver";
 import { parseJsonBody } from "../parseJsonBody";
@@ -42,9 +42,9 @@ import { writeKey } from "../../writeKey";
  * after JSON.parse with no external references, so rewriting values avoids
  * redundant allocation and GC pressure.
  *
- * @internal
+ * @public
  */
-export class BufferJsonShapeDeserializer extends SerdeContextConfig implements ShapeDeserializer<string> {
+export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeDeserializer<string> {
   public constructor(public readonly settings: JsonSettings) {
     super();
   }
