@@ -1,7 +1,7 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
-import type { NativeAttributeValue, NumberValue as INumberValue } from "./models";
-import { NumberValue } from "./NumberValue";
+import type { NativeAttributeValue } from "./deprecated-util-ddb-models";
+import { NumberValue } from "../NumberValue";
 import type { unmarshallOptions } from "./unmarshall";
 
 /**
@@ -9,6 +9,8 @@ import type { unmarshallOptions } from "./unmarshall";
  *
  * @param data - The DynamoDB record to convert to JavaScript type.
  * @param options - An optional configuration object for `convertToNative`.
+ *
+ * @deprecated use encode/decode api.
  */
 export const convertToNative = (data: AttributeValue, options?: unmarshallOptions): NativeAttributeValue => {
   for (const [key, value] of Object.entries(data)) {

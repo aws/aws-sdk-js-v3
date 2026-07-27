@@ -18,7 +18,10 @@ const ALLOWED_SUFFIXES = [".native.js", ".browser.js", ".shared.js", ".base.js"]
 const IGNORED_PACKAGES = new Set(["@aws-sdk/aws-client-api-test", "@aws-sdk/aws-client-retry-test"]);
 
 function isAllowedMultiDot(fileName) {
-  return ALLOWED_SUFFIXES.some((suffix) => fileName.endsWith(suffix));
+  if (ALLOWED_SUFFIXES.some((suffix) => fileName.endsWith(suffix))) return true;
+  // Numeric prefix like 0.encode.js or 1.decode.ts
+  if (/^\d+\./.test(fileName)) return true;
+  return false;
 }
 
 function walkDir(dir, callback) {

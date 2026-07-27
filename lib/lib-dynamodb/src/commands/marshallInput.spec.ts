@@ -1,30 +1,26 @@
 import { describe, expect, test as it } from "vitest";
 
-import { marshallInput } from "./utils";
+import { encodeInput } from "./utils";
 
-describe("marshallInput and processObj", () => {
-  it("marshallInput should not ignore falsy values", () => {
-    expect(marshallInput({ Items: [0, false, null, ""] }, { Items: null }, { convertTopLevelContainer: true })).toEqual(
-      {
-        Items: {
-          L: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
-        },
-      }
-    );
+describe("encodeInput and processObj", () => {
+  it("encodeInput should not ignore falsy values", () => {
+    expect(encodeInput({ Items: [0, false, null, ""] }, { Items: null })).toEqual({
+      Items: {
+        L: [{ N: "0" }, { BOOL: false }, { NULL: true }, { S: "" }],
+      },
+    });
   });
 
-  it("marshallInput should ignore function properties", () => {
+  it("encodeInput should ignore function properties", () => {
     const input = { Items: [() => {}, 1, "test"] };
     const inputKeyNodes = { Items: null };
     const output = { Items: { L: [{ N: "1" }, { S: "test" }] } };
-    expect(
-      marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
-    ).toEqual(output);
+    expect(encodeInput(input, inputKeyNodes, { convertClassInstanceToMap: true })).toEqual(output);
   });
 });
 
-describe("marshallInput for commands", () => {
-  it("marshals QueryCommand input", () => {
+describe("encodeInput for commands", () => {
+  it("encodes QueryCommand input", () => {
     const input = {
       TableName: "TestTable",
       KeyConditions: {
@@ -55,9 +51,9 @@ describe("marshallInput for commands", () => {
       ExclusiveStartKey: undefined,
       ExpressionAttributeValues: undefined,
     };
-    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
+    expect(encodeInput(input, inputKeyNodes)).toEqual(output);
   });
-  it("marshals ExecuteStatementCommand input", () => {
+  it("encodes ExecuteStatementCommand input", () => {
     const input = {
       Statement: `SELECT col_1
                         FROM some_table
@@ -71,9 +67,9 @@ describe("marshallInput for commands", () => {
       Statement: input.Statement,
       Parameters: [{ S: "some_param" }],
     };
-    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
+    expect(encodeInput(input, inputKeyNodes)).toEqual(output);
   });
-  it("marshals BatchExecuteStatementCommand input", () => {
+  it("encodes BatchExecuteStatementCommand input", () => {
     const input = {
       Statements: [
         {
@@ -108,6 +104,6 @@ describe("marshallInput for commands", () => {
         },
       ],
     };
-    expect(marshallInput(input, inputKeyNodes, { convertTopLevelContainer: true })).toEqual(output);
+    expect(encodeInput(input, inputKeyNodes)).toEqual(output);
   });
 });

@@ -20,14 +20,14 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type GetCommandInput = Omit<__GetItemCommandInput, "Key"> & {
-  Key: Record<string, NativeAttributeValue> | undefined;
+  Key: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type GetCommandOutput = Omit<__GetItemCommandOutput, "Item"> & {
-  Item?: Record<string, NativeAttributeValue> | undefined;
+  Item?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
@@ -54,8 +54,7 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __GetItemCommand;
-  public readonly middlewareStack: MiddlewareStack<GetCommandInput | __GetItemCommandInput,
-  GetCommandOutput | __GetItemCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: GetCommandInput) {
     super();
@@ -75,7 +74,7 @@ export class GetCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -84,5 +83,5 @@ import type {
   GetItemCommandOutput as __GetItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

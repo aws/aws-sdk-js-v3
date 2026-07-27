@@ -23,20 +23,20 @@ export type TransactWriteCommandInput = Omit<__TransactWriteItemsCommandInput, "
   TransactItems: (
     Omit<TransactWriteItem, "ConditionCheck" | "Put" | "Delete" | "Update"> & {
       ConditionCheck?: Omit<ConditionCheck, "Key" | "ExpressionAttributeValues"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
-        ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+        Key: Record<string, JsAttributeValue> | undefined;
+        ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
       } | undefined;
       Put?: Omit<Put, "Item" | "ExpressionAttributeValues"> & {
-        Item: Record<string, NativeAttributeValue> | undefined;
-        ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+        Item: Record<string, JsAttributeValue> | undefined;
+        ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
       } | undefined;
       Delete?: Omit<Delete, "Key" | "ExpressionAttributeValues"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
-        ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+        Key: Record<string, JsAttributeValue> | undefined;
+        ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
       } | undefined;
       Update?: Omit<Update, "Key" | "ExpressionAttributeValues"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
-        ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+        Key: Record<string, JsAttributeValue> | undefined;
+        ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
       } | undefined;
     }
   )[] | undefined;
@@ -50,7 +50,7 @@ export type TransactWriteCommandOutput = Omit<__TransactWriteItemsCommandOutput,
     string,
     (
       Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-        ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+        ItemCollectionKey?: Record<string, JsAttributeValue> | undefined;
       }
     )[]
   > | undefined;
@@ -105,8 +105,7 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __TransactWriteItemsCommand;
-  public readonly middlewareStack: MiddlewareStack<TransactWriteCommandInput | __TransactWriteItemsCommandInput,
-  TransactWriteCommandOutput | __TransactWriteItemsCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: TransactWriteCommandInput) {
     super();
@@ -126,7 +125,7 @@ export class TransactWriteCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -141,5 +140,5 @@ import type {
   Update,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

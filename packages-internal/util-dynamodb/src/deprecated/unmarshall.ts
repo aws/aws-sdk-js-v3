@@ -1,11 +1,12 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { convertToNative } from "./convertToNative";
-import type { NativeAttributeValue } from "./models";
-import type { NumberValue } from "./NumberValue";
+import type { NativeAttributeValue } from "./deprecated-util-ddb-models";
+import type { NumberValue } from "../NumberValue";
 
 /**
  * An optional configuration object for `convertToNative`
+ * @deprecated use DecodeOptions and decode function.
  */
 export interface unmarshallOptions {
   /**
@@ -31,16 +32,14 @@ export interface unmarshallOptions {
  *
  * @param data - The DynamoDB record
  * @param options - An optional configuration object for `unmarshall`
+ * @deprecated use DecodeOptions and decode function.
  */
 export const unmarshall = (
   data: Record<string, AttributeValue> | AttributeValue,
   options?: unmarshallOptions
-): Record<string, NativeAttributeValue> => {
+): NativeAttributeValue => {
   if (options?.convertWithoutMapWrapper) {
     return convertToNative(data as AttributeValue, options);
   }
-  return convertToNative({ M: data as Record<string, AttributeValue> }, options) as Record<
-    string,
-    NativeAttributeValue
-  >;
+  return convertToNative({ M: data as Record<string, AttributeValue> }, options);
 };

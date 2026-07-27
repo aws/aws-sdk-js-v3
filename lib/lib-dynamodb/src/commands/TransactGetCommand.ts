@@ -23,7 +23,7 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
   TransactItems: (
     Omit<TransactGetItem, "Get"> & {
       Get: Omit<Get, "Key"> & {
-        Key: Record<string, NativeAttributeValue> | undefined;
+        Key: Record<string, JsAttributeValue> | undefined;
       } | undefined;
     }
   )[] | undefined;
@@ -35,7 +35,7 @@ export type TransactGetCommandInput = Omit<__TransactGetItemsCommandInput, "Tran
 export type TransactGetCommandOutput = Omit<__TransactGetItemsCommandOutput, "Responses"> & {
   Responses?: (
     Omit<ItemResponse, "Item"> & {
-      Item?: Record<string, NativeAttributeValue> | undefined;
+      Item?: Record<string, JsAttributeValue> | undefined;
     }
   )[] | undefined;
 };
@@ -74,8 +74,7 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __TransactGetItemsCommand;
-  public readonly middlewareStack: MiddlewareStack<TransactGetCommandInput | __TransactGetItemsCommandInput,
-  TransactGetCommandOutput | __TransactGetItemsCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: TransactGetCommandInput) {
     super();
@@ -95,7 +94,7 @@ export class TransactGetCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -107,5 +106,5 @@ import type {
   TransactGetItemsCommandOutput as __TransactGetItemsCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

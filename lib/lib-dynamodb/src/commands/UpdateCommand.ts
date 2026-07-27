@@ -20,30 +20,30 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type UpdateCommandInput = Omit<__UpdateItemCommandInput, "Key" | "AttributeUpdates" | "Expected" | "ExpressionAttributeValues"> & {
-  Key: Record<string, NativeAttributeValue> | undefined;
+  Key: Record<string, JsAttributeValue> | undefined;
   AttributeUpdates?: Record<
     string,
     Omit<AttributeValueUpdate, "Value"> & {
-      Value?: NativeAttributeValue | undefined;
+      Value?: JsAttributeValue | undefined;
     }
   > | undefined;
   Expected?: Record<
     string,
     Omit<ExpectedAttributeValue, "Value" | "AttributeValueList"> & {
-      Value?: NativeAttributeValue | undefined;
-      AttributeValueList?: NativeAttributeValue[] | undefined;
+      Value?: JsAttributeValue | undefined;
+      AttributeValueList?: JsAttributeValue[] | undefined;
     }
   > | undefined;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type UpdateCommandOutput = Omit<__UpdateItemCommandOutput, "Attributes" | "ItemCollectionMetrics"> & {
-  Attributes?: Record<string, NativeAttributeValue> | undefined;
+  Attributes?: Record<string, JsAttributeValue> | undefined;
   ItemCollectionMetrics?: Omit<ItemCollectionMetrics, "ItemCollectionKey"> & {
-    ItemCollectionKey?: Record<string, NativeAttributeValue> | undefined;
+    ItemCollectionKey?: Record<string, JsAttributeValue> | undefined;
   } | undefined;
 };
 
@@ -86,8 +86,7 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __UpdateItemCommand;
-  public readonly middlewareStack: MiddlewareStack<UpdateCommandInput | __UpdateItemCommandInput,
-  UpdateCommandOutput | __UpdateItemCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: UpdateCommandInput) {
     super();
@@ -107,7 +106,7 @@ export class UpdateCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -119,5 +118,5 @@ import type {
   UpdateItemCommandOutput as __UpdateItemCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

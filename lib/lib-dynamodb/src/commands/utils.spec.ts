@@ -1,6 +1,6 @@
 import { describe, expect, test as it } from "vitest";
 
-import { marshallInput, unmarshallOutput } from "./utils";
+import { encodeInput, decodeOutput } from "./utils";
 
 describe("utils", () => {
   const notAttrValue = { NotAttrValue: "NotAttrValue" };
@@ -138,12 +138,12 @@ describe("utils", () => {
 
   testCases.forEach(({ testName, keyNodes, attrObj, nativeAttrObj }) => {
     describe(testName, () => {
-      it(marshallInput.name, () => {
-        expect(marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true })).toEqual(attrObj);
+      it(encodeInput.name, () => {
+        expect(encodeInput(nativeAttrObj, keyNodes)).toEqual(attrObj);
       });
 
-      it(unmarshallOutput.name, () => {
-        expect(unmarshallOutput(attrObj, keyNodes, { convertWithoutMapWrapper: true })).toEqual(nativeAttrObj);
+      it(decodeOutput.name, () => {
+        expect(decodeOutput(attrObj, keyNodes)).toEqual(nativeAttrObj);
       });
     });
   });
@@ -156,16 +156,15 @@ describe("object with function property", () => {
   const attrObj = { Item: { id: { N: "1" } }, ...notAttrValue };
 
   it("should remove functions", () => {
-    expect(
-      marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
-    ).toEqual(attrObj);
+    expect(encodeInput(nativeAttrObj, keyNodes, { convertClassInstanceToMap: true })).toEqual(attrObj);
   });
 
   it("should remove functions from lists", () => {
     const listOfFunctions = { Item: { id: 1, funcs: [() => {}, () => {}] }, ...notAttrValue };
-    expect(
-      marshallInput(listOfFunctions, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
-    ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [] } }, ...notAttrValue });
+    expect(encodeInput(listOfFunctions, keyNodes, { convertClassInstanceToMap: true })).toEqual({
+      Item: { id: { N: "1" }, funcs: { L: [] } },
+      ...notAttrValue,
+    });
   });
 
   it("should remove functions from nested lists", () => {
@@ -180,8 +179,7 @@ describe("object with function property", () => {
       ...notAttrValue,
     };
     expect(
-      marshallInput(nestedListOfFunctions, keyNodes, {
-        convertTopLevelContainer: true,
+      encodeInput(nestedListOfFunctions, keyNodes, {
         convertClassInstanceToMap: true,
       })
     ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [{ L: [] }, { L: [] }] } }, ...notAttrValue });
@@ -219,8 +217,7 @@ describe("object with function property", () => {
       ...notAttrValue,
     };
     expect(
-      marshallInput(nestedListOfFunctions3Levels, keyNodes, {
-        convertTopLevelContainer: true,
+      encodeInput(nestedListOfFunctions3Levels, keyNodes, {
         convertClassInstanceToMap: true,
       })
     ).toEqual({
@@ -285,8 +282,7 @@ describe("object with function property", () => {
       ...notAttrValue,
     };
     expect(
-      marshallInput(nestedListOfFunctions3Levels, keyNodes, {
-        convertTopLevelContainer: true,
+      encodeInput(nestedListOfFunctions3Levels, keyNodes, {
         convertClassInstanceToMap: true,
       })
     ).toEqual({

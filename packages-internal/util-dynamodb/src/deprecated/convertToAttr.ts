@@ -1,14 +1,16 @@
 import type { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import type { marshallOptions } from "./marshall";
-import type { NativeAttributeBinary, NativeAttributeValue } from "./models";
-import { NumberValue } from "./NumberValue";
+import type { NativeAttributeBinary, NativeAttributeValue } from "./deprecated-util-ddb-models";
+import { NumberValue } from "../NumberValue";
 
 /**
  * Convert a JavaScript value to its equivalent DynamoDB AttributeValue type.
  *
  * @param data - The data to convert to a DynamoDB AttributeValue.
  * @param options - An optional configuration object for `convertToAttr`.
+ *
+ * @deprecated use encode/decode api.
  */
 export const convertToAttr = (data: NativeAttributeValue, options?: marshallOptions): AttributeValue => {
   if (data === undefined) {

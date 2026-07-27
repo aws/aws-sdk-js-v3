@@ -23,19 +23,19 @@ export type ScanCommandInput = Omit<__ScanCommandInput, "ScanFilter" | "Exclusiv
   ScanFilter?: Record<
     string,
     Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[] | undefined;
+      AttributeValueList?: JsAttributeValue[] | undefined;
     }
   > | undefined;
-  ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
+  ExclusiveStartKey?: Record<string, JsAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type ScanCommandOutput = Omit<__ScanCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[] | undefined;
-  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
+  Items?: Record<string, JsAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, JsAttributeValue> | undefined;
 };
 
 /**
@@ -71,8 +71,7 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __ScanCommand;
-  public readonly middlewareStack: MiddlewareStack<ScanCommandInput | __ScanCommandInput,
-  ScanCommandOutput | __ScanCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: ScanCommandInput) {
     super();
@@ -92,7 +91,7 @@ export class ScanCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -102,5 +101,5 @@ import type {
   ScanCommandOutput as __ScanCommandOutput,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

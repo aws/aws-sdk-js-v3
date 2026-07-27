@@ -23,7 +23,7 @@ export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItem
   RequestItems: Record<
     string,
     Omit<KeysAndAttributes, "Keys"> & {
-      Keys: Record<string, NativeAttributeValue>[] | undefined;
+      Keys: Record<string, JsAttributeValue>[] | undefined;
     }
   > | undefined;
 };
@@ -34,12 +34,12 @@ export type BatchGetCommandInput = Omit<__BatchGetItemCommandInput, "RequestItem
 export type BatchGetCommandOutput = Omit<__BatchGetItemCommandOutput, "Responses" | "UnprocessedKeys"> & {
   Responses?: Record<
     string,
-    Record<string, NativeAttributeValue>[]
+    Record<string, JsAttributeValue>[]
   > | undefined;
   UnprocessedKeys?: Record<
     string,
     Omit<KeysAndAttributes, "Keys"> & {
-      Keys: Record<string, NativeAttributeValue>[] | undefined;
+      Keys: Record<string, JsAttributeValue>[] | undefined;
     }
   > | undefined;
 };
@@ -85,8 +85,7 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
   };
 
   protected readonly clientCommand: __BatchGetItemCommand;
-  public readonly middlewareStack: MiddlewareStack<BatchGetCommandInput | __BatchGetItemCommandInput,
-  BatchGetCommandOutput | __BatchGetItemCommandOutput>;
+  public readonly middlewareStack: MiddlewareStack<any, any>;
 
   constructor(readonly input: BatchGetCommandInput) {
     super();
@@ -106,7 +105,7 @@ export class BatchGetCommand extends DynamoDBDocumentClientCommand<
     const stack = clientStack.concat(this.middlewareStack as typeof clientStack);
     const handler = this.clientCommand.resolveMiddleware(stack, configuration, options);
 
-    return async () => handler(this.clientCommand);
+    return async () => handler(this.clientCommand) as any;
   }
 }
 
@@ -116,5 +115,5 @@ import type {
   KeysAndAttributes,
 } from "@aws-sdk/client-dynamodb";
 import type {
-  NativeAttributeValue,
+  JsAttributeValue,
 } from "@aws-sdk/util-dynamodb";

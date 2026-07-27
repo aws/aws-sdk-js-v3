@@ -1,5 +1,5 @@
-import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
-import { marshall, unmarshall } from "@aws-sdk/util-dynamodb";
+import type { EncodeOptions, DecodeOptions } from "@aws-sdk/util-dynamodb";
+import { encode, decode } from "@aws-sdk/util-dynamodb";
 
 /**
  * @internal
@@ -110,15 +110,15 @@ const processAllKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNodes
 /**
  * @internal
  */
-export const marshallInput = (obj: any, keyNodes: KeyNodeChildren, options?: marshallOptions) => {
-  const marshallFunc = (toMarshall: any) => marshall(toMarshall, options);
-  return processKeysInObj(obj, marshallFunc, keyNodes);
+export const encodeInput = (obj: any, keyNodes: KeyNodeChildren, options?: EncodeOptions) => {
+  const encodingFunc = (toEncode: any) => encode(toEncode, options);
+  return processKeysInObj(obj, encodingFunc, keyNodes);
 };
 
 /**
  * @internal
  */
-export const unmarshallOutput = (obj: any, keyNodes: KeyNodeChildren, options?: unmarshallOptions) => {
-  const unmarshallFunc = (toMarshall: any) => unmarshall(toMarshall, options);
-  return processKeysInObj(obj, unmarshallFunc, keyNodes);
+export const decodeOutput = (obj: any, keyNodes: KeyNodeChildren, options?: DecodeOptions) => {
+  const decodingFunc = (toDecode: any) => decode(toDecode, options);
+  return processKeysInObj(obj, decodingFunc, keyNodes);
 };

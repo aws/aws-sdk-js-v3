@@ -27,7 +27,7 @@ import type {
   ServiceInputTypes as __ServiceInputTypes,
   ServiceOutputTypes as __ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
-import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
+import type { EncodeOptions, DecodeOptions, marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
 /**
  * @public
@@ -75,7 +75,16 @@ export type ServiceOutputTypes =
  * @public
  */
 export type TranslateConfig = {
+  encodeOptions?: EncodeOptions;
+  decodeOptions?: DecodeOptions;
+
+  /**
+   * @deprecated use encodeOptions.
+   */
   marshallOptions?: marshallOptions;
+  /**
+   * @deprecated use decodeOptions.
+   */
   unmarshallOptions?: unmarshallOptions;
 };
 
@@ -135,12 +144,12 @@ export type DynamoDBDocumentClientResolvedConfig = DynamoDBClientResolvedConfig 
  * @public
  */
 export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, ServiceInputTypes, ServiceOutputTypes, DynamoDBDocumentClientResolvedConfig> {
-  readonly config: DynamoDBDocumentClientResolvedConfig;
+  public readonly config: DynamoDBDocumentClientResolvedConfig;
 
   protected constructor(client: DynamoDBClient, translateConfig?: TranslateConfig) {
     super(client.config);
     this.config = client.config;
-    this.config.translateConfig = translateConfig;
+    this.config.translateConfig = this.mapConfig(translateConfig ?? {});
     this.middlewareStack = client.middlewareStack;
     if (this.config?.cacheMiddleware) {
       throw new Error(
@@ -150,11 +159,32 @@ export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, Servi
     }
   }
 
-  static from(client: DynamoDBClient, translateConfig?: TranslateConfig) {
+  public static from(client: DynamoDBClient, translateConfig?: TranslateConfig) {
     return new DynamoDBDocumentClient(client, translateConfig);
   }
 
-  destroy(): void {
+  public destroy(): void {
     // A no-op, since client is passed in constructor
+  }
+
+  private mapConfig(translateConfig: TranslateConfig): TranslateConfig {
+    const legacyConfig = !("encodeOptions" in translateConfig) && !("decodeOptions" in translateConfig);
+    if (legacyConfig) {
+      // Map deprecated marshallOptions/unmarshallOptions to encode/decode options
+      // with defaults that match the old DynamoDBDocumentClient behavior.
+      const { marshallOptions = {}, unmarshallOptions = {} } = translateConfig;
+      translateConfig.encodeOptions = {
+        convertEmptyValues: marshallOptions.convertEmptyValues ?? false,
+        convertEmptySetsToNull: marshallOptions.convertEmptyValues ?? false,
+        removeUndefinedValues: marshallOptions.removeUndefinedValues ?? false,
+        convertClassInstanceToMap: marshallOptions.convertClassInstanceToMap ?? false,
+        allowImpreciseNumbers: marshallOptions.allowImpreciseNumbers ?? false,
+      };
+      translateConfig.decodeOptions = {
+        wrapNumbers: unmarshallOptions.wrapNumbers ?? false,
+        useMaps: false,
+      };
+    }
+    return translateConfig;
   }
 }
