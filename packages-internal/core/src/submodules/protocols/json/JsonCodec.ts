@@ -1,8 +1,8 @@
 import type { Codec, CodecSettings } from "@smithy/types";
 
 import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
-import { JsonShapeSerializer } from "./JsonShapeSerializer";
+import { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
 
 /**
  * @public

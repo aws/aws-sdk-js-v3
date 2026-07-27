@@ -116,9 +116,10 @@ function createValidator() {
       "@aws-sdk/core",
       new Set([
         "dist-es/submodules/client/util-user-agent-browser/defaultUserAgent.browser.js",
-        "dist-es/submodules/protocols/json/experimental/BufferJsonShapeDeserializer.js",
-        "dist-es/submodules/protocols/json/experimental/ByteJsonShapeSerializer.js",
-        "dist-es/submodules/protocols/json/experimental/SinglePassJsonShapeSerializer.js",
+        "dist-es/submodules/protocols/json/codec-v1/JsonShapeDeserializer.js",
+        "dist-es/submodules/protocols/json/codec-v1/JsonShapeSerializer.js",
+        "dist-es/submodules/protocols/json/codec-v2/BufferJsonShapeDeserializer.js",
+        "dist-es/submodules/protocols/json/codec-v2/ByteJsonShapeSerializer.js",
         "dist-es/submodules/protocols/xml/simpleFormatXml.js",
       ]),
     ],

@@ -18,10 +18,10 @@ import type {
 } from "@smithy/types";
 import { describe, expect, it } from "vitest";
 
-import { ByteJsonShapeSerializer } from "./experimental/ByteJsonShapeSerializer";
-import { BufferJsonShapeDeserializer } from "./experimental/BufferJsonShapeDeserializer";
-import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
-import { JsonShapeSerializer } from "./JsonShapeSerializer";
+import { ByteJsonShapeSerializer } from "./codec-v2/ByteJsonShapeSerializer";
+import { BufferJsonShapeDeserializer } from "./codec-v2/BufferJsonShapeDeserializer";
+import { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
 
 // ─── Settings ────────────────────────────────────────────────────────────────
 

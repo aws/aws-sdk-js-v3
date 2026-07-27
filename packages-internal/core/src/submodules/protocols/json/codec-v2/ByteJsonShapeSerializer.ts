@@ -1,6 +1,13 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue, toBase64 } from "@smithy/core/serde";
+import {
+  dateToUtcString,
+  generateIdempotencyToken,
+  LazyJsonString,
+  NumericValue,
+  toBase64,
+  toUtf8,
+} from "@smithy/core/serde";
 import type {
   DocumentSchema,
   Schema,
@@ -609,5 +616,33 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
         return;
       }
     }
+  }
+}
+
+/**
+ * A string adapter for the byte serializer, for backwards compatibility.
+ * @public
+ */
+export class StringJsonShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string> {
+  private byteSerializer: ByteJsonShapeSerializer;
+
+  public constructor(public readonly settings: JsonSettings) {
+    super();
+    this.byteSerializer = new ByteJsonShapeSerializer(settings);
+  }
+
+  public write(schema: Schema, value: unknown): void {
+    this.byteSerializer.write(schema, value);
+  }
+
+  /**
+   * @internal
+   */
+  public writeDiscriminatedDocument(schema: Schema, value: unknown): void {
+    this.byteSerializer.writeDiscriminatedDocument(schema, value);
+  }
+
+  public flush(): string {
+    return (this.serdeContext?.utf8Encoder ?? toUtf8)(this.byteSerializer.flush());
   }
 }

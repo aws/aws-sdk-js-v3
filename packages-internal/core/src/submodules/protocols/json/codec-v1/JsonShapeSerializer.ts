@@ -10,10 +10,10 @@ import type {
   TimestampHttpDateSchema,
 } from "@smithy/types";
 
-import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import type { JsonSettings } from "./JsonCodec";
-import { JsonReplacer } from "./jsonReplacer";
-import { writeKey } from "../writeKey";
+import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
+import type { JsonSettings } from "../JsonCodec";
+import { JsonReplacer } from "../jsonReplacer";
+import { writeKey } from "../../writeKey";
 
 /**
  * @public

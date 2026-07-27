@@ -28,10 +28,10 @@ import type {
   StaticListSchema,
 } from "@smithy/types";
 
-import { ByteJsonShapeSerializer } from "../src/submodules/protocols/json/experimental/ByteJsonShapeSerializer";
-import { BufferJsonShapeDeserializer } from "../src/submodules/protocols/json/experimental/BufferJsonShapeDeserializer";
-import { JsonShapeDeserializer } from "../src/submodules/protocols/json/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "../src/submodules/protocols/json/JsonShapeSerializer";
+import { ByteJsonShapeSerializer } from "../src/submodules/protocols/json/codec-v2/ByteJsonShapeSerializer";
+import { BufferJsonShapeDeserializer } from "../src/submodules/protocols/json/codec-v2/BufferJsonShapeDeserializer";
+import { JsonShapeDeserializer } from "../src/submodules/protocols/json/codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer } from "../src/submodules/protocols/json/codec-v1/JsonShapeSerializer";
 import { AttributeValue$ } from "../../../clients/client-dynamodb/src/schemas/schemas_0";
 import { DynamoDBJsonCodec } from "../../../packages-internal/dynamodb-codec/src/index";
 

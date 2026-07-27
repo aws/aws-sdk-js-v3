@@ -2,7 +2,7 @@ import { NumericValue } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../test-schema.spec";
+import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../../test-schema.spec";
 import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 

@@ -2,8 +2,8 @@ import { NumericValue } from "@smithy/core/serde";
 import type { StaticSimpleSchema, StaticStructureSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import { createNestingWidget, nestingWidget, unionStruct, widget } from "../test-schema.spec";
-import { ByteJsonShapeSerializer } from "./experimental/ByteJsonShapeSerializer";
+import { createNestingWidget, nestingWidget, unionStruct, widget } from "../../test-schema.spec";
+import { ByteJsonShapeSerializer } from "../codec-v2/ByteJsonShapeSerializer";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
 const decoder = new TextDecoder();
