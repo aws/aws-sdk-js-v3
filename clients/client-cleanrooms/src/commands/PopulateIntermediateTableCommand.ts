@@ -40,7 +40,7 @@ export interface PopulateIntermediateTableCommandOutput extends PopulateIntermed
  *   },
  *   computeConfiguration: { // IntermediateTableComputeConfiguration Union: only one key present
  *     queryComputeConfiguration: { // WorkerComputeConfiguration
- *       type: "CR.1X" || "CR.4X",
+ *       type: "CR.1X" || "CR.4X" || "CR.8X",
  *       number: Number("int"),
  *       properties: { // WorkerComputeConfigurationProperties Union: only one key present
  *         spark: { // SparkProperties
