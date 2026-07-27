@@ -89,6 +89,10 @@ import type {
   BatchGetDataQualityResultCommandOutput,
 } from "./commands/BatchGetDataQualityResultCommand";
 import type {
+  BatchGetDataQualityRulesetEvaluationRunCommandInput,
+  BatchGetDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/BatchGetDataQualityRulesetEvaluationRunCommand";
+import type {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
@@ -828,6 +832,7 @@ export type ServiceInputTypes =
   | BatchGetCrawlersCommandInput
   | BatchGetCustomEntityTypesCommandInput
   | BatchGetDataQualityResultCommandInput
+  | BatchGetDataQualityRulesetEvaluationRunCommandInput
   | BatchGetDevEndpointsCommandInput
   | BatchGetIterableFormsCommandInput
   | BatchGetJobsCommandInput
@@ -1129,6 +1134,7 @@ export type ServiceOutputTypes =
   | BatchGetCrawlersCommandOutput
   | BatchGetCustomEntityTypesCommandOutput
   | BatchGetDataQualityResultCommandOutput
+  | BatchGetDataQualityRulesetEvaluationRunCommandOutput
   | BatchGetDevEndpointsCommandOutput
   | BatchGetIterableFormsCommandOutput
   | BatchGetJobsCommandOutput

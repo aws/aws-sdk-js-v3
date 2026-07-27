@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetDataQualityModelResultRequest, GetDataQualityModelResultResponse } from "../models/models_1";
+import type { GetDataQualityModelResultRequest, GetDataQualityModelResultResponse } from "../models/models_2";
 import { GetDataQualityModelResult$ } from "../schemas/schemas_0";
 
 /**

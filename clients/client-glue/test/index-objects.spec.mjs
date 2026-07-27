@@ -72,6 +72,10 @@ import {
   BatchGetDataQualityResultCommand,
   BatchGetDataQualityResultRequest$,
   BatchGetDataQualityResultResponse$,
+  BatchGetDataQualityRulesetEvaluationRun$,
+  BatchGetDataQualityRulesetEvaluationRunCommand,
+  BatchGetDataQualityRulesetEvaluationRunRequest$,
+  BatchGetDataQualityRulesetEvaluationRunResponse$,
   BatchGetDevEndpoints$,
   BatchGetDevEndpointsCommand,
   BatchGetDevEndpointsRequest$,
@@ -157,6 +161,7 @@ import {
   CatalogPropertiesOutput$,
   CatalogSchemaChangePolicy$,
   CatalogSource$,
+  CatalogTableConfigOptions$,
   CatalogTarget$,
   CheckSchemaVersionValidity$,
   CheckSchemaVersionValidityCommand,
@@ -403,10 +408,13 @@ import {
   DataQualityResult$,
   DataQualityResultDescription$,
   DataQualityResultFilterCriteria$,
+  DataQualityRuleRecommendationRunAdditionalRunOptions$,
   DataQualityRuleRecommendationRunDescription$,
   DataQualityRuleRecommendationRunFilter$,
   DataQualityRuleResult$,
+  DataQualityRuleResultsOptions$,
   DataQualityRuleResultStatus,
+  DataQualityRulesetEvaluationRun$,
   DataQualityRulesetEvaluationRunDescription$,
   DataQualityRulesetEvaluationRunFilter$,
   DataQualityRulesetFilterCriteria$,
@@ -609,6 +617,8 @@ import {
   DisassociateGlossaryTermsCommand,
   DisassociateGlossaryTermsRequest$,
   DisassociateGlossaryTermsResponse$,
+  DistributionData$,
+  DistributionResultsOptions$,
   DoubleColumnStatisticsData$,
   DQCompositeRuleEvaluationMethod,
   DQResultsPublishingOptions$,
@@ -1314,6 +1324,9 @@ import {
   OAuth2GrantType,
   OAuth2Properties$,
   OAuth2PropertiesInput$,
+  ObservationConfiguration,
+  ObservationMode,
+  ObservationResultsOptions$,
   OffsetConfiguration$,
   OpenTableFormatInput$,
   OperationNotSupportedException,
@@ -1404,6 +1417,7 @@ import {
   PrincipalPermissions$,
   PrincipalType,
   ProfileConfiguration$,
+  ProfilingResultsOptions$,
   Property$,
   PropertyLocation,
   PropertyPredicate$,
@@ -1493,6 +1507,7 @@ import {
   ResponseConfiguration$,
   ResponseExtractionMapping$,
   RestConfiguration$,
+  ResultTypeEnum,
   ResumeWorkflowRun$,
   ResumeWorkflowRunCommand,
   ResumeWorkflowRunRequest$,
@@ -1500,6 +1515,7 @@ import {
   RetentionConfiguration$,
   RetentionMetrics$,
   Route$,
+  RowLevelResultsOptions$,
   RunIdentifier$,
   RunMetrics$,
   RunStatement$,
@@ -1951,6 +1967,8 @@ assert(typeof BatchGetCustomEntityTypesCommand === "function");
 assert(typeof BatchGetCustomEntityTypes$ === "object");
 assert(typeof BatchGetDataQualityResultCommand === "function");
 assert(typeof BatchGetDataQualityResult$ === "object");
+assert(typeof BatchGetDataQualityRulesetEvaluationRunCommand === "function");
+assert(typeof BatchGetDataQualityRulesetEvaluationRun$ === "object");
 assert(typeof BatchGetDevEndpointsCommand === "function");
 assert(typeof BatchGetDevEndpoints$ === "object");
 assert(typeof BatchGetIterableFormsCommand === "function");
@@ -2568,6 +2586,8 @@ assert(typeof BatchGetCustomEntityTypesRequest$ === "object");
 assert(typeof BatchGetCustomEntityTypesResponse$ === "object");
 assert(typeof BatchGetDataQualityResultRequest$ === "object");
 assert(typeof BatchGetDataQualityResultResponse$ === "object");
+assert(typeof BatchGetDataQualityRulesetEvaluationRunRequest$ === "object");
+assert(typeof BatchGetDataQualityRulesetEvaluationRunResponse$ === "object");
 assert(typeof BatchGetDevEndpointsRequest$ === "object");
 assert(typeof BatchGetDevEndpointsResponse$ === "object");
 assert(typeof BatchGetIterableFormsRequest$ === "object");
@@ -2622,6 +2642,7 @@ assert(typeof CatalogProperties$ === "object");
 assert(typeof CatalogPropertiesOutput$ === "object");
 assert(typeof CatalogSchemaChangePolicy$ === "object");
 assert(typeof CatalogSource$ === "object");
+assert(typeof CatalogTableConfigOptions$ === "object");
 assert(typeof CatalogTarget$ === "object");
 assert(typeof CheckSchemaVersionValidityInput$ === "object");
 assert(typeof CheckSchemaVersionValidityResponse$ === "object");
@@ -2758,9 +2779,12 @@ assert(typeof DataQualityObservation$ === "object");
 assert(typeof DataQualityResult$ === "object");
 assert(typeof DataQualityResultDescription$ === "object");
 assert(typeof DataQualityResultFilterCriteria$ === "object");
+assert(typeof DataQualityRuleRecommendationRunAdditionalRunOptions$ === "object");
 assert(typeof DataQualityRuleRecommendationRunDescription$ === "object");
 assert(typeof DataQualityRuleRecommendationRunFilter$ === "object");
 assert(typeof DataQualityRuleResult$ === "object");
+assert(typeof DataQualityRuleResultsOptions$ === "object");
+assert(typeof DataQualityRulesetEvaluationRun$ === "object");
 assert(typeof DataQualityRulesetEvaluationRunDescription$ === "object");
 assert(typeof DataQualityRulesetEvaluationRunFilter$ === "object");
 assert(typeof DataQualityRulesetFilterCriteria$ === "object");
@@ -2870,6 +2894,8 @@ assert(typeof DirectKinesisSource$ === "object");
 assert(typeof DirectSchemaChangePolicy$ === "object");
 assert(typeof DisassociateGlossaryTermsRequest$ === "object");
 assert(typeof DisassociateGlossaryTermsResponse$ === "object");
+assert(typeof DistributionData$ === "object");
+assert(typeof DistributionResultsOptions$ === "object");
 assert(typeof DoubleColumnStatisticsData$ === "object");
 assert(typeof DQResultsPublishingOptions$ === "object");
 assert(typeof DQStopJobOnFailureOptions$ === "object");
@@ -3239,6 +3265,7 @@ assert(typeof OAuth2ClientApplication$ === "object");
 assert(typeof OAuth2Credentials$ === "object");
 assert(typeof OAuth2Properties$ === "object");
 assert(typeof OAuth2PropertiesInput$ === "object");
+assert(typeof ObservationResultsOptions$ === "object");
 assert(typeof OffsetConfiguration$ === "object");
 assert(typeof OpenTableFormatInput$ === "object");
 assert(typeof Option$ === "object");
@@ -3263,6 +3290,7 @@ assert(typeof Predecessor$ === "object");
 assert(typeof Predicate$ === "object");
 assert(typeof PrincipalPermissions$ === "object");
 assert(typeof ProfileConfiguration$ === "object");
+assert(typeof ProfilingResultsOptions$ === "object");
 assert(typeof Property$ === "object");
 assert(typeof PropertyPredicate$ === "object");
 assert(typeof PutAssetRequest$ === "object");
@@ -3314,6 +3342,7 @@ assert(typeof ResumeWorkflowRunResponse$ === "object");
 assert(typeof RetentionConfiguration$ === "object");
 assert(typeof RetentionMetrics$ === "object");
 assert(typeof Route$ === "object");
+assert(typeof RowLevelResultsOptions$ === "object");
 assert(typeof RunIdentifier$ === "object");
 assert(typeof RunMetrics$ === "object");
 assert(typeof RunStatementRequest$ === "object");
@@ -3650,6 +3679,8 @@ assert(typeof MetadataOperation === "object");
 assert(typeof MLUserDataEncryptionModeString === "object");
 assert(typeof NodeType === "object");
 assert(typeof OAuth2GrantType === "object");
+assert(typeof ObservationConfiguration === "object");
+assert(typeof ObservationMode === "object");
 assert(typeof OverwriteChildResourcePermissionsWithDefaultEnum === "object");
 assert(typeof ParamType === "object");
 assert(typeof ParquetCompressionType === "object");
@@ -3667,6 +3698,7 @@ assert(typeof ResourceAction === "object");
 assert(typeof ResourceShareType === "object");
 assert(typeof ResourceState === "object");
 assert(typeof ResourceType === "object");
+assert(typeof ResultTypeEnum === "object");
 assert(typeof S3EncryptionMode === "object");
 assert(typeof ScheduleState === "object");
 assert(typeof ScheduleType === "object");

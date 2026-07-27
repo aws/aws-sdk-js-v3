@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  Comparator,
   Compatibility,
   ConnectionPropertyKey,
   ConnectionType,
@@ -10,7 +11,9 @@ import type {
   JobMode,
   Permission,
   ResourceAction,
+  ResourceShareType,
   ResourceState,
+  Sort,
   SourceControlAuthStrategy,
   SourceControlProvider,
   TableOptimizerType,
@@ -33,12 +36,12 @@ import type {
   CatalogKinesisSource,
   CatalogSource,
   Column,
-  ConnectionInput,
   ConnectionsList,
   ConnectorDataSource,
   ConnectorDataTarget,
   CrawlerTargets,
   CustomCode,
+  DataQualityEvaluationRunAdditionalRunOptions,
   DataSource,
   DirectJDBCSource,
   DirectKafkaSource,
@@ -123,6 +126,7 @@ import type {
 } from "./models_0";
 import type {
   ColumnStatistics,
+  ConnectionInput,
   DatabaseInput,
   IcebergPartitionSpec,
   IcebergSchema,
@@ -140,7 +144,7 @@ import type {
 } from "./models_1";
 import type {
   ColumnRowFilter,
-  DataQualityEvaluationRunAdditionalRunOptions,
+  DataQualityRuleRecommendationRunAdditionalRunOptions,
   FederatedTable,
   IcebergTableMetadata,
   SchemaVersionNumber,
@@ -150,6 +154,243 @@ import type {
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>Defines a property predicate.</p>
+ * @public
+ */
+export interface PropertyPredicate {
+  /**
+   * <p>The key of the property.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the property.</p>
+   * @public
+   */
+  Value?: string | undefined;
+
+  /**
+   * <p>The comparator used to compare this property to others.</p>
+   * @public
+   */
+  Comparator?: Comparator | undefined;
+}
+
+/**
+ * <p>Specifies a field to sort by and a sort order.</p>
+ * @public
+ */
+export interface SortCriterion {
+  /**
+   * <p>The name of the field on which to sort.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>An ascending or descending sort.</p>
+   * @public
+   */
+  Sort?: Sort | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchTablesRequest {
+  /**
+   * <p>A unique identifier, consisting of <code>
+   *                <i>account_id</i>
+   *             </code>.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>A continuation token, included if this is a continuation call.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
+   *          <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
+   * @public
+   */
+  Filters?: PropertyPredicate[] | undefined;
+
+  /**
+   * <p>A string used for a text search.</p>
+   *          <p>Specifying a value in quotes filters based on an exact match to the value.</p>
+   * @public
+   */
+  SearchText?: string | undefined;
+
+  /**
+   * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
+   * @public
+   */
+  SortCriteria?: SortCriterion[] | undefined;
+
+  /**
+   * <p>The maximum number of tables to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>
+   *             </li>
+   *             <li>
+   *                <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceShareType?: ResourceShareType | undefined;
+
+  /**
+   * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
+   * @public
+   */
+  IncludeStatusDetails?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBlueprintRunRequest {
+  /**
+   * <p>The name of the blueprint.</p>
+   * @public
+   */
+  BlueprintName: string | undefined;
+
+  /**
+   * <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
+   * @public
+   */
+  Parameters?: string | undefined;
+
+  /**
+   * <p>Specifies the IAM role used to create the workflow.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartBlueprintRunResponse {
+  /**
+   * <p>The run ID for this blueprint run.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table to generate statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>A list of the column names to generate statistics. If none is supplied, all column names for the table will be used by default.</p>
+   * @public
+   */
+  ColumnNameList?: string[] | undefined;
+
+  /**
+   * <p>The IAM role that the service assumes to generate statistics.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
+   * @public
+   */
+  SampleSize?: number | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog where the table reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
+
+  /**
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
+   * @public
+   */
+  SecurityConfiguration?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunResponse {
+  /**
+   * <p>The identifier for the column statistics task run.</p>
+   * @public
+   */
+  ColumnStatisticsTaskRunId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunScheduleRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to start a column statistic task run schedule.</p>
+   * @public
+   */
+  TableName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartColumnStatisticsTaskRunScheduleResponse {}
+
+/**
+ * @public
+ */
+export interface StartCrawlerRequest {
+  /**
+   * <p>Name of the crawler to start.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartCrawlerResponse {}
 
 /**
  * @public
@@ -213,6 +454,12 @@ export interface StartDataQualityRuleRecommendationRunRequest {
    * @public
    */
   ClientToken?: string | undefined;
+
+  /**
+   * <p>Additional run options you can specify for a recommendation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityRuleRecommendationRunAdditionalRunOptions | undefined;
 }
 
 /**

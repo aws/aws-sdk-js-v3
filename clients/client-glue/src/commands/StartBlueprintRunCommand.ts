@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_2";
+import type { StartBlueprintRunRequest, StartBlueprintRunResponse } from "../models/models_3";
 import { StartBlueprintRun$ } from "../schemas/schemas_0";
 
 /**

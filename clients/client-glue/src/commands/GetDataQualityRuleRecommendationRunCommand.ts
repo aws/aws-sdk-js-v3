@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   GetDataQualityRuleRecommendationRunRequest,
   GetDataQualityRuleRecommendationRunResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import { GetDataQualityRuleRecommendationRun$ } from "../schemas/schemas_0";
 
 /**
@@ -75,6 +75,9 @@ export interface GetDataQualityRuleRecommendationRunCommandOutput extends GetDat
  * //   RecommendedRuleset: "STRING_VALUE",
  * //   CreatedRulesetName: "STRING_VALUE",
  * //   DataQualitySecurityConfiguration: "STRING_VALUE",
+ * //   AdditionalRunOptions: { // DataQualityRuleRecommendationRunAdditionalRunOptions
+ * //     CustomLogGroupPrefix: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

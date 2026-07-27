@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetDataQualityResultRequest, GetDataQualityResultResponse } from "../models/models_1";
+import type { GetDataQualityResultRequest, GetDataQualityResultResponse } from "../models/models_2";
 import { GetDataQualityResult$ } from "../schemas/schemas_0";
 
 /**
@@ -94,6 +94,17 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       EvaluationMessage: "STRING_VALUE",
  * //       EvaluatedMetrics: {
  * //         "<keys>": Number("double"),
+ * //       },
+ * //       EvaluatedDistributions: { // EvaluatedDistributionsMap
+ * //         "<keys>": { // DistributionData
+ * //           BinEdges: [ // BinEdges
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Count: [ // Count
+ * //             Number("int"),
+ * //           ],
+ * //           DataType: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],

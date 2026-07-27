@@ -64,6 +64,9 @@ export interface StartDataQualityRuleRecommendationRunCommandOutput extends Star
  *   CreatedRulesetName: "STRING_VALUE",
  *   DataQualitySecurityConfiguration: "STRING_VALUE",
  *   ClientToken: "STRING_VALUE",
+ *   AdditionalRunOptions: { // DataQualityRuleRecommendationRunAdditionalRunOptions
+ *     CustomLogGroupPrefix: "STRING_VALUE",
+ *   },
  * };
  * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);

@@ -282,6 +282,78 @@ export type DataQualityRuleResultStatus =
  * @public
  * @enum
  */
+export const DQCompositeRuleEvaluationMethod = {
+  COLUMN: "COLUMN",
+  ROW: "ROW",
+} as const;
+/**
+ * @public
+ */
+export type DQCompositeRuleEvaluationMethod =
+  (typeof DQCompositeRuleEvaluationMethod)[keyof typeof DQCompositeRuleEvaluationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObservationMode = {
+  FIXED: "FIXED",
+  SCHEDULED: "SCHEDULED",
+} as const;
+/**
+ * @public
+ */
+export type ObservationMode = (typeof ObservationMode)[keyof typeof ObservationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ObservationConfiguration = {
+  ALL: "ALL",
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type ObservationConfiguration = (typeof ObservationConfiguration)[keyof typeof ObservationConfiguration];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResultTypeEnum = {
+  ALL: "ALL",
+  FAILED_ONLY: "FAILED_ONLY",
+  PASSED_ONLY: "PASSED_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ResultTypeEnum = (typeof ResultTypeEnum)[keyof typeof ResultTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const TaskStatusType = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STARTING: "STARTING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+  SUCCEEDED: "SUCCEEDED",
+  TIMEOUT: "TIMEOUT",
+} as const;
+/**
+ * @public
+ */
+export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
+
+/**
+ * @public
+ * @enum
+ */
 export const WorkerType = {
   G_025X: "G.025X",
   G_1X: "G.1X",
@@ -957,24 +1029,6 @@ export const WorkflowRunStatus = {
  * @public
  */
 export type WorkflowRunStatus = (typeof WorkflowRunStatus)[keyof typeof WorkflowRunStatus];
-
-/**
- * @public
- * @enum
- */
-export const TaskStatusType = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STARTING: "STARTING",
-  STOPPED: "STOPPED",
-  STOPPING: "STOPPING",
-  SUCCEEDED: "SUCCEEDED",
-  TIMEOUT: "TIMEOUT",
-} as const;
-/**
- * @public
- */
-export type TaskStatusType = (typeof TaskStatusType)[keyof typeof TaskStatusType];
 
 /**
  * @public
@@ -1807,20 +1861,6 @@ export const DataQualityModelStatus = {
  * @public
  */
 export type DataQualityModelStatus = (typeof DataQualityModelStatus)[keyof typeof DataQualityModelStatus];
-
-/**
- * @public
- * @enum
- */
-export const DQCompositeRuleEvaluationMethod = {
-  COLUMN: "COLUMN",
-  ROW: "ROW",
-} as const;
-/**
- * @public
- */
-export type DQCompositeRuleEvaluationMethod =
-  (typeof DQCompositeRuleEvaluationMethod)[keyof typeof DQCompositeRuleEvaluationMethod];
 
 /**
  * @public

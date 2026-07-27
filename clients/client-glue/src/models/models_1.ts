@@ -21,7 +21,6 @@ import type {
   DataFormat,
   DataOperation,
   DataQualityEncryptionMode,
-  DataQualityModelStatus,
   ExecutionStatus,
   FieldDataType,
   FieldFilterOperator,
@@ -31,7 +30,6 @@ import type {
   IcebergNullOrder,
   IcebergSortDirection,
   IcebergStructTypeEnum,
-  InclusionAnnotationValue,
   IntegrationStatus,
   JobBookmarksEncryptionMode,
   Language,
@@ -52,7 +50,6 @@ import type {
   SessionType,
   SettingSource,
   TableOptimizerType,
-  TaskStatusType,
   TransformType,
   TriggerType,
   UnnestSpec,
@@ -65,30 +62,522 @@ import type {
   AssetTypeFormReference,
   AuthConfiguration,
   AuthenticationConfiguration,
+  AuthenticationConfigurationInput,
   Blueprint,
   Column,
   ConnectionsList,
   Crawler,
-  DataQualityAggregatedMetrics,
-  DataQualityAnalyzerResult,
-  DataQualityObservation,
-  DataQualityRuleResult,
-  DataSource,
+  CrawlerTargets,
+  CreateCsvClassifierRequest,
+  CreateGrokClassifierRequest,
   ErrorDetail,
   EventBatchingCondition,
   FederatedCatalog,
   GlueTable,
+  LakeFormationConfiguration,
+  LineageConfiguration,
   PartitionInput,
-  PhysicalConnectionRequirements,
   Predicate,
   PrincipalPermissions,
   Property,
+  RecrawlPolicy,
   Schedule,
+  SchemaChangePolicy,
   SchemaId,
   StorageDescriptor,
   TableOptimizerConfiguration,
   TargetRedshiftCatalog,
 } from "./models_0";
+
+/**
+ * <p>Specifies a JSON classifier for <code>CreateClassifier</code> to create.</p>
+ * @public
+ */
+export interface CreateJsonClassifierRequest {
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A <code>JsonPath</code> string defining the JSON data for the classifier to classify.
+   *       Glue supports a subset of JsonPath, as described in <a href="https://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html#custom-classifier-json">Writing JsonPath Custom Classifiers</a>.</p>
+   * @public
+   */
+  JsonPath: string | undefined;
+}
+
+/**
+ * <p>Specifies an XML classifier for <code>CreateClassifier</code> to create.</p>
+ * @public
+ */
+export interface CreateXMLClassifierRequest {
+  /**
+   * <p>An identifier of the data format that the classifier matches.</p>
+   * @public
+   */
+  Classification: string | undefined;
+
+  /**
+   * <p>The name of the classifier.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The XML tag designating the element that contains each record in an XML document being
+   *       parsed. This can't identify a self-closing element (closed by <code>/></code>). An empty
+   *       row element that contains only attributes can be parsed as long as it ends with a closing tag
+   *       (for example, <code><row item_a="A" item_b="B"></row></code> is okay, but
+   *         <code><row item_a="A" item_b="B" /></code> is not).</p>
+   * @public
+   */
+  RowTag?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClassifierRequest {
+  /**
+   * <p>A <code>GrokClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  GrokClassifier?: CreateGrokClassifierRequest | undefined;
+
+  /**
+   * <p>An <code>XMLClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  XMLClassifier?: CreateXMLClassifierRequest | undefined;
+
+  /**
+   * <p>A <code>JsonClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  JsonClassifier?: CreateJsonClassifierRequest | undefined;
+
+  /**
+   * <p>A <code>CsvClassifier</code> object specifying the classifier
+   *       to create.</p>
+   * @public
+   */
+  CsvClassifier?: CreateCsvClassifierRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClassifierResponse {}
+
+/**
+ * @public
+ */
+export interface CreateColumnStatisticsTaskSettingsRequest {
+  /**
+   * <p>The name of the database where the table resides.</p>
+   * @public
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>The name of the table for which to generate column statistics.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The role used for running the column statistics.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>A schedule for running the column statistics, specified in CRON syntax.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>A list of column names for which to run statistics.</p>
+   * @public
+   */
+  ColumnNameList?: string[] | undefined;
+
+  /**
+   * <p>The percentage of data to sample.</p>
+   * @public
+   */
+  SampleSize?: number | undefined;
+
+  /**
+   * <p>The ID of the Data Catalog in which the database resides.</p>
+   * @public
+   */
+  CatalogID?: string | undefined;
+
+  /**
+   * <p>Name of the security configuration that is used to encrypt CloudWatch logs.</p>
+   * @public
+   */
+  SecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>A map of tags.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateColumnStatisticsTaskSettingsResponse {}
+
+/**
+ * <p>The OAuth client app in GetConnection response.</p>
+ * @public
+ */
+export interface PhysicalConnectionRequirements {
+  /**
+   * <p>The subnet ID used by the connection.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The security group ID list used by the connection.</p>
+   * @public
+   */
+  SecurityGroupIdList?: string[] | undefined;
+
+  /**
+   * <p>The connection's Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+}
+
+/**
+ * <p>A structure that is used to specify a connection to create or update.</p>
+ * @public
+ */
+export interface ConnectionInput {
+  /**
+   * <p>The name of the connection.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the connection.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The type of the connection. Currently, these types are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>
+   *                <p>
+   *                   <code>JDBC</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: All of (<code>HOST</code>, <code>PORT</code>, <code>JDBC_ENGINE</code>) or <code>JDBC_CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>JDBC_ENFORCE_SSL</code>, <code>CUSTOM_JDBC_CERT</code>, <code>CUSTOM_JDBC_CERT_STRING</code>, <code>SKIP_CUSTOM_JDBC_CERT_VALIDATION</code>.  These parameters are used to configure SSL with JDBC.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KAFKA</code> - Designates a connection to an Apache Kafka streaming platform.</p>
+   *                <p>
+   *                   <code>KAFKA</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>KAFKA_BOOTSTRAP_SERVERS</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SSL_ENABLED</code>, <code>KAFKA_CUSTOM_CERT</code>, <code>KAFKA_SKIP_CUSTOM_CERT_VALIDATION</code>. These parameters are used to configure SSL with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_CLIENT_KEYSTORE</code>, <code>KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>KAFKA_CLIENT_KEY_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEYSTORE_PASSWORD</code>, <code>ENCRYPTED_KAFKA_CLIENT_KEY_PASSWORD</code>. These parameters are used to configure TLS client configuration with SSL in <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_MECHANISM</code>. Can be specified as <code>SCRAM-SHA-512</code>, <code>GSSAPI</code>, or <code>AWS_MSK_IAM</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_SCRAM_USERNAME</code>, <code>KAFKA_SASL_SCRAM_PASSWORD</code>, <code>ENCRYPTED_KAFKA_SASL_SCRAM_PASSWORD</code>. These parameters are used to configure SASL/SCRAM-SHA-512 authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Optional: <code>KAFKA_SASL_GSSAPI_KEYTAB</code>, <code>KAFKA_SASL_GSSAPI_KRB5_CONF</code>, <code>KAFKA_SASL_GSSAPI_SERVICE</code>, <code>KAFKA_SASL_GSSAPI_PRINCIPAL</code>. These parameters are used to configure SASL/GSSAPI authentication with <code>KAFKA</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MONGODB</code> - Designates a connection to a MongoDB document database.</p>
+   *                <p>
+   *                   <code>MONGODB</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIEW_VALIDATION_REDSHIFT</code> - Designates a connection used for view validation by Amazon Redshift.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VIEW_VALIDATION_ATHENA</code> - Designates a connection used for view validation by Amazon Athena.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NETWORK</code> - Designates a network connection to a data source within an Amazon Virtual Private Cloud environment (Amazon VPC).</p>
+   *                <p>
+   *                   <code>NETWORK</code> Connections do not require ConnectionParameters. Instead, provide a PhysicalConnectionRequirements.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MARKETPLACE</code> - Uses configuration settings contained in a connector purchased from Amazon Web Services Marketplace to read from and write to data stores that are not natively supported by Glue.</p>
+   *                <p>
+   *                   <code>MARKETPLACE</code> Connections use the following ConnectionParameters.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Required: <code>CONNECTOR_TYPE</code>, <code>CONNECTOR_URL</code>, <code>CONNECTOR_CLASS_NAME</code>, <code>CONNECTION_URL</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Required for <code>JDBC</code>
+   *                         <code>CONNECTOR_TYPE</code> connections: All of (<code>USERNAME</code>, <code>PASSWORD</code>) or <code>SECRET_ID</code>.</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> - Uses configuration settings contained in a custom connector to read from and write to data stores that are not natively supported by Glue.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on the connection parameters needed for a particular connector, see the documentation for the connector in <a href="https://docs.aws.amazon.com/glue/latest/dg/console-connections.html">Adding an Glue connection</a>in the Glue User Guide.</p>
+   *          <p>
+   *             <code>SFTP</code> is not supported.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue, consult <a href="https://docs.aws.amazon.com/glue/latest/dg/connection-defining.html">Glue connection properties</a>.</p>
+   *          <p>For more information about how optional ConnectionProperties are used to configure features in Glue Studio, consult <a href="https://docs.aws.amazon.com/glue/latest/ug/connectors-chapter.html">Using connectors and connections</a>.</p>
+   * @public
+   */
+  ConnectionType: ConnectionType | undefined;
+
+  /**
+   * <p>A list of criteria that can be used in selecting this connection.</p>
+   * @public
+   */
+  MatchCriteria?: string[] | undefined;
+
+  /**
+   * <p>These key-value pairs define parameters for the connection.</p>
+   * @public
+   */
+  ConnectionProperties: Partial<Record<ConnectionPropertyKey, string>> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Spark compute environment.</p>
+   * @public
+   */
+  SparkProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Athena compute environment.</p>
+   * @public
+   */
+  AthenaProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>Connection properties specific to the Python compute environment.</p>
+   * @public
+   */
+  PythonProperties?: Record<string, string> | undefined;
+
+  /**
+   * <p>The physical connection requirements, such as virtual private cloud (VPC) and <code>SecurityGroup</code>, that are needed to successfully make this connection.</p>
+   * @public
+   */
+  PhysicalConnectionRequirements?: PhysicalConnectionRequirements | undefined;
+
+  /**
+   * <p>The authentication properties of the connection.</p>
+   * @public
+   */
+  AuthenticationConfiguration?: AuthenticationConfigurationInput | undefined;
+
+  /**
+   * <p>A flag to validate the credentials during create connection. Default is true. </p>
+   * @public
+   */
+  ValidateCredentials?: boolean | undefined;
+
+  /**
+   * <p>The compute environments that the specified connection properties are validated against.</p>
+   * @public
+   */
+  ValidateForComputeEnvironments?: ComputeEnvironment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionRequest {
+  /**
+   * <p>The ID of the Data Catalog in which to create the connection. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   * @public
+   */
+  CatalogId?: string | undefined;
+
+  /**
+   * <p>A <code>ConnectionInput</code> object defining the connection
+   *       to create.</p>
+   * @public
+   */
+  ConnectionInput: ConnectionInput | undefined;
+
+  /**
+   * <p>The tags you assign to the connection.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateConnectionResponse {
+  /**
+   * <p>The status of the connection creation request. The request can take some time for certain authentication types, for example when creating an OAuth connection with token exchange over VPC.</p>
+   * @public
+   */
+  CreateConnectionStatus?: ConnectionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCrawlerRequest {
+  /**
+   * <p>Name of the new crawler.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The IAM role or Amazon Resource Name (ARN) of an IAM role used by the new crawler to
+   *       access customer resources.</p>
+   * @public
+   */
+  Role: string | undefined;
+
+  /**
+   * <p>The Glue database where results are written, such as:
+   *         <code>arn:aws:daylight:us-east-1::database/sometable/*</code>.</p>
+   * @public
+   */
+  DatabaseName?: string | undefined;
+
+  /**
+   * <p>A description of the new crawler.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of collection of targets to crawl.</p>
+   * @public
+   */
+  Targets: CrawlerTargets | undefined;
+
+  /**
+   * <p>A <code>cron</code> expression used to specify the schedule (see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based Schedules for Jobs and Crawlers</a>. For example, to run
+   *       something every day at 12:15 UTC, you would specify:
+   *       <code>cron(15 12 * * ? *)</code>.</p>
+   * @public
+   */
+  Schedule?: string | undefined;
+
+  /**
+   * <p>A list of custom classifiers that the user has registered. By default, all built-in
+   *       classifiers are included in a crawl, but these custom classifiers always override the default
+   *       classifiers for a given classification.</p>
+   * @public
+   */
+  Classifiers?: string[] | undefined;
+
+  /**
+   * <p>The table prefix used for catalog tables that are created.</p>
+   * @public
+   */
+  TablePrefix?: string | undefined;
+
+  /**
+   * <p>The policy for the crawler's update and deletion behavior.</p>
+   * @public
+   */
+  SchemaChangePolicy?: SchemaChangePolicy | undefined;
+
+  /**
+   * <p>A policy that specifies whether to crawl the entire dataset again, or to crawl only folders that were added since the last crawler run.</p>
+   * @public
+   */
+  RecrawlPolicy?: RecrawlPolicy | undefined;
+
+  /**
+   * <p>Specifies data lineage configuration settings for the crawler.</p>
+   * @public
+   */
+  LineageConfiguration?: LineageConfiguration | undefined;
+
+  /**
+   * <p>Specifies Lake Formation configuration settings for the crawler.</p>
+   * @public
+   */
+  LakeFormationConfiguration?: LakeFormationConfiguration | undefined;
+
+  /**
+   * <p>Crawler configuration information. This versioned JSON
+   *       string allows users to specify aspects of a crawler's behavior.
+   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
+   * @public
+   */
+  Configuration?: string | undefined;
+
+  /**
+   * <p>The name of the <code>SecurityConfiguration</code> structure to be used by this
+   *       crawler.</p>
+   * @public
+   */
+  CrawlerSecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>The tags to use with this crawler request. You may use tags to limit access to the
+   *             crawler. For more information about tags in Glue, see <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-tags.html">Amazon Web Services Tags in Glue</a> in the developer
+   *             guide.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -7975,400 +8464,4 @@ export interface GetDataflowGraphResponse {
    * @public
    */
   DagEdges?: CodeGenEdge[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelRequest {
-  /**
-   * <p>The Statistic ID.</p>
-   * @public
-   */
-  StatisticId?: string | undefined;
-
-  /**
-   * <p>The Profile ID.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelResponse {
-  /**
-   * <p>The training status of the data quality model.</p>
-   * @public
-   */
-  Status?: DataQualityModelStatus | undefined;
-
-  /**
-   * <p>The timestamp when the data quality model training started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The timestamp when the data quality model training completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The training failure reason.</p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelResultRequest {
-  /**
-   * <p>The Statistic ID.</p>
-   * @public
-   */
-  StatisticId: string | undefined;
-
-  /**
-   * <p>The Profile ID.</p>
-   * @public
-   */
-  ProfileId: string | undefined;
-}
-
-/**
- * <p>The statistic model result.</p>
- * @public
- */
-export interface StatisticModelResult {
-  /**
-   * <p>The lower bound.</p>
-   * @public
-   */
-  LowerBound?: number | undefined;
-
-  /**
-   * <p>The upper bound.</p>
-   * @public
-   */
-  UpperBound?: number | undefined;
-
-  /**
-   * <p>The predicted value.</p>
-   * @public
-   */
-  PredictedValue?: number | undefined;
-
-  /**
-   * <p>The actual value.</p>
-   * @public
-   */
-  ActualValue?: number | undefined;
-
-  /**
-   * <p>The date.</p>
-   * @public
-   */
-  Date?: Date | undefined;
-
-  /**
-   * <p>The inclusion annotation.</p>
-   * @public
-   */
-  InclusionAnnotation?: InclusionAnnotationValue | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityModelResultResponse {
-  /**
-   * <p>The timestamp when the data quality model training completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>A list of <code>StatisticModelResult</code>
-   *          </p>
-   * @public
-   */
-  Model?: StatisticModelResult[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityResultRequest {
-  /**
-   * <p>A unique result ID for the data quality result.</p>
-   * @public
-   */
-  ResultId: string | undefined;
-}
-
-/**
- * <p>The response for the data quality result.</p>
- * @public
- */
-export interface GetDataQualityResultResponse {
-  /**
-   * <p>A unique result ID for the data quality result.</p>
-   * @public
-   */
-  ResultId?: string | undefined;
-
-  /**
-   * <p>The Profile ID for the data quality result.</p>
-   * @public
-   */
-  ProfileId?: string | undefined;
-
-  /**
-   * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
-   * @public
-   */
-  Score?: number | undefined;
-
-  /**
-   * <p>The table associated with the data quality result, if any.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>The name of the ruleset associated with the data quality result.</p>
-   * @public
-   */
-  RulesetName?: string | undefined;
-
-  /**
-   * <p>In the context of a job in Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the <code>evaluationContext</code> can differentiate the nodes.</p>
-   * @public
-   */
-  EvaluationContext?: string | undefined;
-
-  /**
-   * <p>The date and time when the run for this data quality result started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when the run for this data quality result was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The job name associated with the data quality result, if any.</p>
-   * @public
-   */
-  JobName?: string | undefined;
-
-  /**
-   * <p>The job run ID associated with the data quality result, if any.</p>
-   * @public
-   */
-  JobRunId?: string | undefined;
-
-  /**
-   * <p>The unique run ID associated with the ruleset evaluation.</p>
-   * @public
-   */
-  RulesetEvaluationRunId?: string | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
-   * @public
-   */
-  RuleResults?: DataQualityRuleResult[] | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
-   * @public
-   */
-  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
-
-  /**
-   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
-   * @public
-   */
-  Observations?: DataQualityObservation[] | undefined;
-
-  /**
-   * <p> A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. </p>
-   * @public
-   */
-  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRuleRecommendationRunRequest {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId: string | undefined;
-}
-
-/**
- * <p>The response for the Data Quality rule recommendation run.</p>
- * @public
- */
-export interface GetDataQualityRuleRecommendationRunResponse {
-  /**
-   * <p>The unique run identifier associated with this run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-
-  /**
-   * <p>The data source (an Glue table) associated with this run.</p>
-   * @public
-   */
-  DataSource?: DataSource | undefined;
-
-  /**
-   * <p>An IAM role supplied to encrypt the results of the run.</p>
-   * @public
-   */
-  Role?: string | undefined;
-
-  /**
-   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
-   * @public
-   */
-  NumberOfWorkers?: number | undefined;
-
-  /**
-   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-
-  /**
-   * <p>The status for this run.</p>
-   * @public
-   */
-  Status?: TaskStatusType | undefined;
-
-  /**
-   * <p>The error strings that are associated with the run.</p>
-   * @public
-   */
-  ErrorString?: string | undefined;
-
-  /**
-   * <p>The date and time when this run started.</p>
-   * @public
-   */
-  StartedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality rule recommendation run was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>The date and time when this run was completed.</p>
-   * @public
-   */
-  CompletedOn?: Date | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that the run consumed resources.</p>
-   * @public
-   */
-  ExecutionTime?: number | undefined;
-
-  /**
-   * <p>When a start rule recommendation run completes, it creates a recommended ruleset (a set of rules). This member has those rules in Data Quality Definition Language (DQDL) format.</p>
-   * @public
-   */
-  RecommendedRuleset?: string | undefined;
-
-  /**
-   * <p>The name of the ruleset that was created by the run.</p>
-   * @public
-   */
-  CreatedRulesetName?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration created with the data quality encryption option.</p>
-   * @public
-   */
-  DataQualitySecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataQualityRulesetRequest {
-  /**
-   * <p>The name of the ruleset.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * <p>Returns the data quality ruleset response.</p>
- * @public
- */
-export interface GetDataQualityRulesetResponse {
-  /**
-   * <p>The name of the ruleset.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>A description of the ruleset.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
-   * @public
-   */
-  Ruleset?: string | undefined;
-
-  /**
-   * <p>The name and database name of the target table.</p>
-   * @public
-   */
-  TargetTable?: DataQualityTargetTable | undefined;
-
-  /**
-   * <p>A timestamp. The time and date that this data quality ruleset was created.</p>
-   * @public
-   */
-  CreatedOn?: Date | undefined;
-
-  /**
-   * <p>A timestamp. The last point in time when this data quality ruleset was modified.</p>
-   * @public
-   */
-  LastModifiedOn?: Date | undefined;
-
-  /**
-   * <p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>
-   * @public
-   */
-  RecommendationRunId?: string | undefined;
-
-  /**
-   * <p>The name of the security configuration created with the data quality encryption option.</p>
-   * @public
-   */
-  DataQualitySecurityConfiguration?: string | undefined;
 }

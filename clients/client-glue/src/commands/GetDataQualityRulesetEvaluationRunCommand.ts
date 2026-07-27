@@ -71,6 +71,54 @@ export interface GetDataQualityRulesetEvaluationRunCommandOutput extends GetData
  * //     ResultsS3Prefix: "STRING_VALUE",
  * //     CompositeRuleEvaluationMethod: "COLUMN" || "ROW",
  * //     CustomLogGroupPrefix: "STRING_VALUE",
+ * //     RowLevelResults: { // RowLevelResultsOptions
+ * //       MaxRowsToWrite: Number("int"),
+ * //       ResultType: "ALL" || "PASSED_ONLY" || "FAILED_ONLY",
+ * //       CatalogTableConfig: { // CatalogTableConfigOptions
+ * //         DatabaseName: "STRING_VALUE",
+ * //         TableName: "STRING_VALUE",
+ * //         S3Location: "STRING_VALUE",
+ * //         CatalogId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ProfilingResults: { // ProfilingResultsOptions
+ * //       WriteProfilingResultsEnabled: true || false,
+ * //       CatalogTableConfig: {
+ * //         DatabaseName: "STRING_VALUE",
+ * //         TableName: "STRING_VALUE",
+ * //         S3Location: "STRING_VALUE",
+ * //         CatalogId: "STRING_VALUE",
+ * //       },
+ * //       DistributionResults: { // DistributionResultsOptions
+ * //         WriteDistributionResultsEnabled: true || false,
+ * //         CatalogTableConfig: {
+ * //           DatabaseName: "STRING_VALUE",
+ * //           TableName: "STRING_VALUE",
+ * //           S3Location: "STRING_VALUE",
+ * //           CatalogId: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
+ * //     ObservationScope: "ALL" || "NONE",
+ * //     ObservationMode: "SCHEDULED" || "FIXED",
+ * //     DataQualityRuleResults: { // DataQualityRuleResultsOptions
+ * //       WriteDataQualityRuleResultsEnabled: true || false,
+ * //       CatalogTableConfig: {
+ * //         DatabaseName: "STRING_VALUE",
+ * //         TableName: "STRING_VALUE",
+ * //         S3Location: "STRING_VALUE",
+ * //         CatalogId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ObservationResults: { // ObservationResultsOptions
+ * //       WriteObservationResultsEnabled: true || false,
+ * //       CatalogTableConfig: {
+ * //         DatabaseName: "STRING_VALUE",
+ * //         TableName: "STRING_VALUE",
+ * //         S3Location: "STRING_VALUE",
+ * //         CatalogId: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   Status: "STARTING" || "RUNNING" || "STOPPING" || "STOPPED" || "SUCCEEDED" || "FAILED" || "TIMEOUT",
  * //   ErrorString: "STRING_VALUE",

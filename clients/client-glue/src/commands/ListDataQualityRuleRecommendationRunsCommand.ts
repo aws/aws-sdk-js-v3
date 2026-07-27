@@ -63,6 +63,9 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput extends List
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   Tags: { // TagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new ListDataQualityRuleRecommendationRunsCommand(input);
  * const response = await client.send(command);
@@ -93,6 +96,7 @@ export interface ListDataQualityRuleRecommendationRunsCommandOutput extends List
  * //           PreProcessingQuery: "STRING_VALUE",
  * //         },
  * //       },
+ * //       CreatedRulesetName: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

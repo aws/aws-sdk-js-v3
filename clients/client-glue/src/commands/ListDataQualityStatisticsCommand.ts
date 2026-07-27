@@ -55,6 +55,15 @@ export interface ListDataQualityStatisticsCommandOutput extends ListDataQualityS
  * //       },
  * //       StatisticName: "STRING_VALUE",
  * //       DoubleValue: Number("double"),
+ * //       DistributionValue: { // DistributionData
+ * //         BinEdges: [ // BinEdges
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Count: [ // Count
+ * //           Number("int"),
+ * //         ],
+ * //         DataType: "STRING_VALUE",
+ * //       },
  * //       EvaluationLevel: "Dataset" || "Column" || "Multicolumn",
  * //       ColumnsReferenced: [ // ColumnNameList
  * //         "STRING_VALUE",

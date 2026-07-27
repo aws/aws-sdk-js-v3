@@ -53,6 +53,11 @@ import {
   BatchGetDataQualityResultCommand,
 } from "./commands/BatchGetDataQualityResultCommand";
 import {
+  type BatchGetDataQualityRulesetEvaluationRunCommandInput,
+  type BatchGetDataQualityRulesetEvaluationRunCommandOutput,
+  BatchGetDataQualityRulesetEvaluationRunCommand,
+} from "./commands/BatchGetDataQualityRulesetEvaluationRunCommand";
+import {
   type BatchGetDevEndpointsCommandInput,
   type BatchGetDevEndpointsCommandOutput,
   BatchGetDevEndpointsCommand,
@@ -1495,6 +1500,7 @@ const commands = {
   BatchGetCrawlersCommand,
   BatchGetCustomEntityTypesCommand,
   BatchGetDataQualityResultCommand,
+  BatchGetDataQualityRulesetEvaluationRunCommand,
   BatchGetDevEndpointsCommand,
   BatchGetIterableFormsCommand,
   BatchGetJobsCommand,
@@ -2006,6 +2012,23 @@ export interface Glue {
     args: BatchGetDataQualityResultCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchGetDataQualityResultCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetDataQualityRulesetEvaluationRunCommand}
+   */
+  batchGetDataQualityRulesetEvaluationRun(
+    args: BatchGetDataQualityRulesetEvaluationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDataQualityRulesetEvaluationRunCommandOutput>;
+  batchGetDataQualityRulesetEvaluationRun(
+    args: BatchGetDataQualityRulesetEvaluationRunCommandInput,
+    cb: (err: any, data?: BatchGetDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  batchGetDataQualityRulesetEvaluationRun(
+    args: BatchGetDataQualityRulesetEvaluationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDataQualityRulesetEvaluationRunCommandOutput) => void
   ): void;
 
   /**

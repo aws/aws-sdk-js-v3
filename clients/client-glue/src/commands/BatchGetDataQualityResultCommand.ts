@@ -99,6 +99,17 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           EvaluatedMetrics: {
  * //             "<keys>": Number("double"),
  * //           },
+ * //           EvaluatedDistributions: { // EvaluatedDistributionsMap
+ * //             "<keys>": { // DistributionData
+ * //               BinEdges: [ // BinEdges
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               Count: [ // Count
+ * //                 Number("int"),
+ * //               ],
+ * //               DataType: "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //       ],
  * //       Observations: [ // DataQualityObservations

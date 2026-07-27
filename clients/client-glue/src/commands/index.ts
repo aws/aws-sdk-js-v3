@@ -9,6 +9,7 @@ export * from "./BatchGetBlueprintsCommand";
 export * from "./BatchGetCrawlersCommand";
 export * from "./BatchGetCustomEntityTypesCommand";
 export * from "./BatchGetDataQualityResultCommand";
+export * from "./BatchGetDataQualityRulesetEvaluationRunCommand";
 export * from "./BatchGetDevEndpointsCommand";
 export * from "./BatchGetIterableFormsCommand";
 export * from "./BatchGetJobsCommand";

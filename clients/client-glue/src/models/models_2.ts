@@ -4,14 +4,13 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   AuthenticationType,
   BackfillErrorCode,
-  Comparator,
   Compatibility,
   ConnectionType,
   ConnectorOAuth2GrantType,
   ContentType,
   CrawlerHistoryState,
   DataFormat,
-  DQCompositeRuleEvaluationMethod,
+  DataQualityModelStatus,
   EnableHybridValues,
   ExistCondition,
   FieldName,
@@ -30,14 +29,12 @@ import type {
   PermissionType,
   PrincipalType,
   RegistryStatus,
-  ResourceShareType,
   ResourceState,
   SchemaDiffType,
   SchemaStatus,
   SchemaVersionStatus,
   SearchFilterOperator,
   SearchSortOrder,
-  Sort,
   SortDirectionType,
   StatementState,
   StatisticEvaluationLevel,
@@ -58,8 +55,14 @@ import type {
   AssetTypeItem,
   AuditContext,
   CustomEntityType,
+  DataQualityAggregatedMetrics,
+  DataQualityAnalyzerResult,
+  DataQualityEvaluationRunAdditionalRunOptions,
+  DataQualityObservation,
+  DataQualityRuleResult,
   DataSource,
   DevEndpoint,
+  DistributionData,
   ErrorDetail,
   GlueTable,
   JobRun,
@@ -104,7 +107,237 @@ import type {
 /**
  * @public
  */
-export interface GetDataQualityRulesetEvaluationRunRequest {
+export interface GetDataQualityModelRequest {
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId?: string | undefined;
+
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityModelResponse {
+  /**
+   * <p>The training status of the data quality model.</p>
+   * @public
+   */
+  Status?: DataQualityModelStatus | undefined;
+
+  /**
+   * <p>The timestamp when the data quality model training started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The timestamp when the data quality model training completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The training failure reason.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityModelResultRequest {
+  /**
+   * <p>The Statistic ID.</p>
+   * @public
+   */
+  StatisticId: string | undefined;
+
+  /**
+   * <p>The Profile ID.</p>
+   * @public
+   */
+  ProfileId: string | undefined;
+}
+
+/**
+ * <p>The statistic model result.</p>
+ * @public
+ */
+export interface StatisticModelResult {
+  /**
+   * <p>The lower bound.</p>
+   * @public
+   */
+  LowerBound?: number | undefined;
+
+  /**
+   * <p>The upper bound.</p>
+   * @public
+   */
+  UpperBound?: number | undefined;
+
+  /**
+   * <p>The predicted value.</p>
+   * @public
+   */
+  PredictedValue?: number | undefined;
+
+  /**
+   * <p>The actual value.</p>
+   * @public
+   */
+  ActualValue?: number | undefined;
+
+  /**
+   * <p>The date.</p>
+   * @public
+   */
+  Date?: Date | undefined;
+
+  /**
+   * <p>The inclusion annotation.</p>
+   * @public
+   */
+  InclusionAnnotation?: InclusionAnnotationValue | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityModelResultResponse {
+  /**
+   * <p>The timestamp when the data quality model training completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>A list of <code>StatisticModelResult</code>
+   *          </p>
+   * @public
+   */
+  Model?: StatisticModelResult[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityResultRequest {
+  /**
+   * <p>A unique result ID for the data quality result.</p>
+   * @public
+   */
+  ResultId: string | undefined;
+}
+
+/**
+ * <p>The response for the data quality result.</p>
+ * @public
+ */
+export interface GetDataQualityResultResponse {
+  /**
+   * <p>A unique result ID for the data quality result.</p>
+   * @public
+   */
+  ResultId?: string | undefined;
+
+  /**
+   * <p>The Profile ID for the data quality result.</p>
+   * @public
+   */
+  ProfileId?: string | undefined;
+
+  /**
+   * <p>An aggregate data quality score. Represents the ratio of rules that passed to the total number of rules.</p>
+   * @public
+   */
+  Score?: number | undefined;
+
+  /**
+   * <p>The table associated with the data quality result, if any.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>The name of the ruleset associated with the data quality result.</p>
+   * @public
+   */
+  RulesetName?: string | undefined;
+
+  /**
+   * <p>In the context of a job in Glue Studio, each node in the canvas is typically assigned some sort of name and data quality nodes will have names. In the case of multiple nodes, the <code>evaluationContext</code> can differentiate the nodes.</p>
+   * @public
+   */
+  EvaluationContext?: string | undefined;
+
+  /**
+   * <p>The date and time when the run for this data quality result started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when the run for this data quality result was completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The job name associated with the data quality result, if any.</p>
+   * @public
+   */
+  JobName?: string | undefined;
+
+  /**
+   * <p>The job run ID associated with the data quality result, if any.</p>
+   * @public
+   */
+  JobRunId?: string | undefined;
+
+  /**
+   * <p>The unique run ID associated with the ruleset evaluation.</p>
+   * @public
+   */
+  RulesetEvaluationRunId?: string | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityRuleResult</code> objects representing the results for each rule. </p>
+   * @public
+   */
+  RuleResults?: DataQualityRuleResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityAnalyzerResult</code> objects representing the results for each analyzer. </p>
+   * @public
+   */
+  AnalyzerResults?: DataQualityAnalyzerResult[] | undefined;
+
+  /**
+   * <p>A list of <code>DataQualityObservation</code> objects representing the observations generated after evaluating the rules and analyzers. </p>
+   * @public
+   */
+  Observations?: DataQualityObservation[] | undefined;
+
+  /**
+   * <p> A summary of <code>DataQualityAggregatedMetrics</code> objects showing the total counts of processed rows and rules, including their pass/fail statistics based on row-level results. </p>
+   * @public
+   */
+  AggregatedMetrics?: DataQualityAggregatedMetrics | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityRuleRecommendationRunRequest {
   /**
    * <p>The unique run identifier associated with this run.</p>
    * @public
@@ -113,33 +346,187 @@ export interface GetDataQualityRulesetEvaluationRunRequest {
 }
 
 /**
- * <p>Additional run options you can specify for an evaluation run.</p>
+ * <p>Additional run options you can specify for a recommendation run.</p>
  * @public
  */
-export interface DataQualityEvaluationRunAdditionalRunOptions {
+export interface DataQualityRuleRecommendationRunAdditionalRunOptions {
   /**
-   * <p>Whether or not to enable CloudWatch metrics.</p>
-   * @public
-   */
-  CloudWatchMetricsEnabled?: boolean | undefined;
-
-  /**
-   * <p>Prefix for Amazon S3 to store results.</p>
-   * @public
-   */
-  ResultsS3Prefix?: string | undefined;
-
-  /**
-   * <p>Set the evaluation method for composite rules in the ruleset to ROW/COLUMN</p>
-   * @public
-   */
-  CompositeRuleEvaluationMethod?: DQCompositeRuleEvaluationMethod | undefined;
-
-  /**
-   * <p>A custom prefix for the CloudWatch log group names. When specified, evaluation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>
+   * <p>A custom prefix for the CloudWatch log group names. When specified, recommendation run logs are written to <code><CustomLogGroupPrefix>/error</code> and <code><CustomLogGroupPrefix>/output</code> instead of the default <code>/aws-glue/data-quality/error</code> and <code>/aws-glue/data-quality/output</code> log groups.</p>
    * @public
    */
   CustomLogGroupPrefix?: string | undefined;
+}
+
+/**
+ * <p>The response for the Data Quality rule recommendation run.</p>
+ * @public
+ */
+export interface GetDataQualityRuleRecommendationRunResponse {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   * @public
+   */
+  RunId?: string | undefined;
+
+  /**
+   * <p>The data source (an Glue table) associated with this run.</p>
+   * @public
+   */
+  DataSource?: DataSource | undefined;
+
+  /**
+   * <p>An IAM role supplied to encrypt the results of the run.</p>
+   * @public
+   */
+  Role?: string | undefined;
+
+  /**
+   * <p>The number of <code>G.1X</code> workers to be used in the run. The default is 5.</p>
+   * @public
+   */
+  NumberOfWorkers?: number | undefined;
+
+  /**
+   * <p>The timeout for a run in minutes. This is the maximum time that a run can consume resources before it is terminated and enters <code>TIMEOUT</code> status. The default is 2,880 minutes (48 hours).</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The status for this run.</p>
+   * @public
+   */
+  Status?: TaskStatusType | undefined;
+
+  /**
+   * <p>The error strings that are associated with the run.</p>
+   * @public
+   */
+  ErrorString?: string | undefined;
+
+  /**
+   * <p>The date and time when this run started.</p>
+   * @public
+   */
+  StartedOn?: Date | undefined;
+
+  /**
+   * <p>A timestamp. The last point in time when this data quality rule recommendation run was modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time when this run was completed.</p>
+   * @public
+   */
+  CompletedOn?: Date | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that the run consumed resources.</p>
+   * @public
+   */
+  ExecutionTime?: number | undefined;
+
+  /**
+   * <p>When a start rule recommendation run completes, it creates a recommended ruleset (a set of rules). This member has those rules in Data Quality Definition Language (DQDL) format.</p>
+   * @public
+   */
+  RecommendedRuleset?: string | undefined;
+
+  /**
+   * <p>The name of the ruleset that was created by the run.</p>
+   * @public
+   */
+  CreatedRulesetName?: string | undefined;
+
+  /**
+   * <p>The name of the security configuration created with the data quality encryption option.</p>
+   * @public
+   */
+  DataQualitySecurityConfiguration?: string | undefined;
+
+  /**
+   * <p>Additional run options you can specify for a recommendation run.</p>
+   * @public
+   */
+  AdditionalRunOptions?: DataQualityRuleRecommendationRunAdditionalRunOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityRulesetRequest {
+  /**
+   * <p>The name of the ruleset.</p>
+   * @public
+   */
+  Name: string | undefined;
+}
+
+/**
+ * <p>Returns the data quality ruleset response.</p>
+ * @public
+ */
+export interface GetDataQualityRulesetResponse {
+  /**
+   * <p>The name of the ruleset.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the ruleset.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A Data Quality Definition Language (DQDL) ruleset. For more information, see the Glue developer guide.</p>
+   * @public
+   */
+  Ruleset?: string | undefined;
+
+  /**
+   * <p>The name and database name of the target table.</p>
+   * @public
+   */
+  TargetTable?: DataQualityTargetTable | undefined;
+
+  /**
+   * <p>A timestamp. The time and date that this data quality ruleset was created.</p>
+   * @public
+   */
+  CreatedOn?: Date | undefined;
+
+  /**
+   * <p>A timestamp. The last point in time when this data quality ruleset was modified.</p>
+   * @public
+   */
+  LastModifiedOn?: Date | undefined;
+
+  /**
+   * <p>When a ruleset was created from a recommendation run, this run ID is generated to link the two together.</p>
+   * @public
+   */
+  RecommendationRunId?: string | undefined;
+
+  /**
+   * <p>The name of the security configuration created with the data quality encryption option.</p>
+   * @public
+   */
+  DataQualitySecurityConfiguration?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataQualityRulesetEvaluationRunRequest {
+  /**
+   * <p>The unique run identifier associated with this run.</p>
+   * @public
+   */
+  RunId: string | undefined;
 }
 
 /**
@@ -5296,6 +5683,12 @@ export interface ListDataQualityRuleRecommendationRunsRequest {
    * @public
    */
   MaxResults?: number | undefined;
+
+  /**
+   * <p>A list of key-value pair tags to filter recommendation runs.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5326,6 +5719,12 @@ export interface DataQualityRuleRecommendationRunDescription {
    * @public
    */
   DataSource?: DataSource | undefined;
+
+  /**
+   * <p>The name of the ruleset that was created by the recommendation run.</p>
+   * @public
+   */
+  CreatedRulesetName?: string | undefined;
 }
 
 /**
@@ -5744,6 +6143,12 @@ export interface StatisticSummary {
    * @public
    */
   DoubleValue?: number | undefined;
+
+  /**
+   * <p>The distribution value for the statistic.</p>
+   * @public
+   */
+  DistributionValue?: DistributionData | undefined;
 
   /**
    * <p>The evaluation level of the statistic. Possible values: <code>Dataset</code>, <code>Column</code>, <code>Multicolumn</code>.</p>
@@ -8485,240 +8890,3 @@ export interface SearchAssetsOutput {
    */
   NextToken?: string | undefined;
 }
-
-/**
- * <p>Defines a property predicate.</p>
- * @public
- */
-export interface PropertyPredicate {
-  /**
-   * <p>The key of the property.</p>
-   * @public
-   */
-  Key?: string | undefined;
-
-  /**
-   * <p>The value of the property.</p>
-   * @public
-   */
-  Value?: string | undefined;
-
-  /**
-   * <p>The comparator used to compare this property to others.</p>
-   * @public
-   */
-  Comparator?: Comparator | undefined;
-}
-
-/**
- * <p>Specifies a field to sort by and a sort order.</p>
- * @public
- */
-export interface SortCriterion {
-  /**
-   * <p>The name of the field on which to sort.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>An ascending or descending sort.</p>
-   * @public
-   */
-  Sort?: Sort | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTablesRequest {
-  /**
-   * <p>A unique identifier, consisting of <code>
-   *                <i>account_id</i>
-   *             </code>.</p>
-   * @public
-   */
-  CatalogId?: string | undefined;
-
-  /**
-   * <p>A continuation token, included if this is a continuation call.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
-   *          <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
-   * @public
-   */
-  Filters?: PropertyPredicate[] | undefined;
-
-  /**
-   * <p>A string used for a text search.</p>
-   *          <p>Specifying a value in quotes filters based on an exact match to the value.</p>
-   * @public
-   */
-  SearchText?: string | undefined;
-
-  /**
-   * <p>A list of criteria for sorting the results by a field name, in an ascending or descending order.</p>
-   * @public
-   */
-  SortCriteria?: SortCriterion[] | undefined;
-
-  /**
-   * <p>The maximum number of tables to return in a single response.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>
-   *             </li>
-   *             <li>
-   *                <p>If set to <code>ALL</code>, will search the tables shared with your account, as well as the tables in yor local account. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceShareType?: ResourceShareType | undefined;
-
-  /**
-   * <p>Specifies whether to include status details related to a request to create or update an Glue Data Catalog view.</p>
-   * @public
-   */
-  IncludeStatusDetails?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface StartBlueprintRunRequest {
-  /**
-   * <p>The name of the blueprint.</p>
-   * @public
-   */
-  BlueprintName: string | undefined;
-
-  /**
-   * <p>Specifies the parameters as a <code>BlueprintParameters</code> object.</p>
-   * @public
-   */
-  Parameters?: string | undefined;
-
-  /**
-   * <p>Specifies the IAM role used to create the workflow.</p>
-   * @public
-   */
-  RoleArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartBlueprintRunResponse {
-  /**
-   * <p>The run ID for this blueprint run.</p>
-   * @public
-   */
-  RunId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartColumnStatisticsTaskRunRequest {
-  /**
-   * <p>The name of the database where the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table to generate statistics.</p>
-   * @public
-   */
-  TableName: string | undefined;
-
-  /**
-   * <p>A list of the column names to generate statistics. If none is supplied, all column names for the table will be used by default.</p>
-   * @public
-   */
-  ColumnNameList?: string[] | undefined;
-
-  /**
-   * <p>The IAM role that the service assumes to generate statistics.</p>
-   * @public
-   */
-  Role: string | undefined;
-
-  /**
-   * <p>The percentage of rows used to generate statistics. If none is supplied, the entire table will be used to generate stats.</p>
-   * @public
-   */
-  SampleSize?: number | undefined;
-
-  /**
-   * <p>The ID of the Data Catalog where the table reside. If none is supplied, the Amazon Web Services account ID is used by default.</p>
-   * @public
-   */
-  CatalogID?: string | undefined;
-
-  /**
-   * <p>Name of the security configuration that is used to encrypt CloudWatch logs for the column stats task run.</p>
-   * @public
-   */
-  SecurityConfiguration?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartColumnStatisticsTaskRunResponse {
-  /**
-   * <p>The identifier for the column statistics task run.</p>
-   * @public
-   */
-  ColumnStatisticsTaskRunId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartColumnStatisticsTaskRunScheduleRequest {
-  /**
-   * <p>The name of the database where the table resides.</p>
-   * @public
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>The name of the table for which to start a column statistic task run schedule.</p>
-   * @public
-   */
-  TableName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartColumnStatisticsTaskRunScheduleResponse {}
-
-/**
- * @public
- */
-export interface StartCrawlerRequest {
-  /**
-   * <p>Name of the crawler to start.</p>
-   * @public
-   */
-  Name: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartCrawlerResponse {}
