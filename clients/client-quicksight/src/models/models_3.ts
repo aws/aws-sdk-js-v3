@@ -135,12 +135,12 @@ import type {
   DisplayFormatOptions,
   FilterOperation,
   FiltersOperation,
-  ImportTableOperation,
+  Governance,
+  ImportTableOperationSource,
   InputColumn,
   LinkSharingConfiguration,
   ResourcePermission,
   SheetDefinition,
-  SnapshotS3DestinationConfiguration,
   SourceTable,
   SslProperties,
   StaticFile,
@@ -149,6 +149,24 @@ import type {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A transform operation that imports data from a source table.</p>
+ * @public
+ */
+export interface ImportTableOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source configuration that specifies which source table to import and any column mappings.</p>
+   * @public
+   */
+  Source: ImportTableOperationSource | undefined;
+}
 
 /**
  * <p>Specifies a mapping to override the name of an output column from a transform operation.</p>
@@ -5703,6 +5721,12 @@ export interface CustomPermissions {
    * @public
    */
   Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The governance configuration for the custom permissions profile. When you enable governance for a category, Amazon Quick denies access to any current or new capability in that category unless you explicitly set that capability to <code>ALLOW</code> in <code>Capabilities</code>.</p>
+   * @public
+   */
+  Governance?: Governance | undefined;
 }
 
 /**
@@ -9702,18 +9726,4 @@ export interface DescribeDashboardSnapshotJobRequest {
    * @public
    */
   SnapshotJobId: string | undefined;
-}
-
-/**
- * <p>A structure that contains information on the Amazon S3 destinations of the generated snapshot.</p>
- * @public
- */
-export interface SnapshotDestinationConfiguration {
-  /**
-   * <p>
-   *             A list of <code>SnapshotS3DestinationConfiguration</code> objects that contain Amazon S3 destination configurations. This structure can hold a maximum of 1 <code>S3DestinationConfiguration</code>.
-   *         </p>
-   * @public
-   */
-  S3Destinations?: SnapshotS3DestinationConfiguration[] | undefined;
 }

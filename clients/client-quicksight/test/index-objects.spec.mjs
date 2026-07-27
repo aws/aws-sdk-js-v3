@@ -593,6 +593,7 @@ import {
   DecimalPlacesConfiguration$,
   DecimalValueWhenUnsetConfiguration$,
   DefaultAggregation,
+  DefaultCategoryEffect,
   DefaultDateTimePickerControlOptions$,
   DefaultFilterControlConfiguration$,
   DefaultFilterControlOptions$,
@@ -1222,6 +1223,7 @@ import {
   GetSessionEmbedUrlResponse$,
   GlobalTableBorderOptions$,
   GoogleDriveParameters$,
+  Governance$,
   GradientColor$,
   GradientStop$,
   GridLayoutCanvasSizeOptions$,
@@ -3921,6 +3923,7 @@ assert(typeof GetSessionEmbedUrlRequest$ === "object");
 assert(typeof GetSessionEmbedUrlResponse$ === "object");
 assert(typeof GlobalTableBorderOptions$ === "object");
 assert(typeof GoogleDriveParameters$ === "object");
+assert(typeof Governance$ === "object");
 assert(typeof GradientColor$ === "object");
 assert(typeof GradientStop$ === "object");
 assert(typeof GridLayoutCanvasSizeOptions$ === "object");
@@ -4864,6 +4867,7 @@ assert(typeof DayOfWeek === "object");
 assert(typeof DecalPatternType === "object");
 assert(typeof DecalStyleType === "object");
 assert(typeof DefaultAggregation === "object");
+assert(typeof DefaultCategoryEffect === "object");
 assert(typeof DigitGroupingStyle === "object");
 assert(typeof DisplayFormat === "object");
 assert(typeof Edition === "object");

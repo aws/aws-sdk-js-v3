@@ -43,6 +43,7 @@ import type {
   DataSetNumericComparisonFilterOperator,
   DataSetStringComparisonFilterOperator,
   DataSetStringListFilterOperator,
+  DefaultCategoryEffect,
   DisplayFormat,
   Edition,
   FilterClass,
@@ -10452,6 +10453,18 @@ export interface CreateColumnsOperation {
 }
 
 /**
+ * <p>Contains the governance configuration for a custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
+ * @public
+ */
+export interface Governance {
+  /**
+   * <p>A map of <code>DefaultCategoryEffects</code>.</p>
+   * @public
+   */
+  DefaultCategoryEffects?: Record<string, DefaultCategoryEffect> | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateCustomPermissionsRequest {
@@ -10472,6 +10485,12 @@ export interface CreateCustomPermissionsRequest {
    * @public
    */
   Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The governance configuration for the custom permissions profile. When governance controls are defined for a category, any capabilities in that category not explicitly set to <code>ALLOW</code> in <code>Capabilities</code> are denied. Even newly added capabilities in the category are implicitly disabled when Amazon Quick releases them.</p>
+   * @public
+   */
+  Governance?: Governance | undefined;
 
   /**
    * <p>The tags to associate with the custom permissions profile.</p>
@@ -11526,22 +11545,4 @@ export interface ImportTableOperationSource {
    * @public
    */
   ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
-}
-
-/**
- * <p>A transform operation that imports data from a source table.</p>
- * @public
- */
-export interface ImportTableOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source configuration that specifies which source table to import and any column mappings.</p>
-   * @public
-   */
-  Source: ImportTableOperationSource | undefined;
 }

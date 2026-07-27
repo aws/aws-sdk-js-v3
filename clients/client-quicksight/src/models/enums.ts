@@ -2952,6 +2952,7 @@ export type BrandVersionStatus = (typeof BrandVersionStatus)[keyof typeof BrandV
  * @enum
  */
 export const CapabilityState = {
+  ALLOW: "ALLOW",
   DENY: "DENY",
 } as const;
 /**
@@ -3110,6 +3111,18 @@ export const ValidationStrategyMode = {
  * @public
  */
 export type ValidationStrategyMode = (typeof ValidationStrategyMode)[keyof typeof ValidationStrategyMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const DefaultCategoryEffect = {
+  DENY_BY_DEFAULT: "DENY_BY_DEFAULT",
+} as const;
+/**
+ * @public
+ */
+export type DefaultCategoryEffect = (typeof DefaultCategoryEffect)[keyof typeof DefaultCategoryEffect];
 
 /**
  * @public

@@ -47,6 +47,7 @@ import type {
   DashboardSourceEntity,
   DashboardVersionDefinition,
   DataSourceParameters,
+  Governance,
   LinkSharingConfiguration,
   ResourcePermission,
   SslProperties,
@@ -91,9 +92,39 @@ import type {
   SessionTag,
   SnapshotConfiguration,
   SpaceQuickSightResourceDetails,
+  TopicSearchFilter,
   TopicSummary,
   User,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface SearchTopicsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to find.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters that you want to use to search for the topic.</p>
+   * @public
+   */
+  Filters: TopicSearchFilter[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
 
 /**
  * @public
@@ -1465,6 +1496,12 @@ export interface UpdateCustomPermissionsRequest {
    * @public
    */
   Capabilities?: Capabilities | undefined;
+
+  /**
+   * <p>The governance configuration for the custom permissions profile. The <code>UpdateCustomPermissions</code> operation replaces all existing <code>Capabilities</code> and <code>Governance</code> values. If you omit this parameter, Amazon Quick removes governance from the profile and the existing custom permission behavior applies.</p>
+   * @public
+   */
+  Governance?: Governance | undefined;
 }
 
 /**

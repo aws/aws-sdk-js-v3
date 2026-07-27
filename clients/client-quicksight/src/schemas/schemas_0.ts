@@ -918,6 +918,7 @@ const _DBe = "DeleteBrand";
 const _DBes = "DescribeBrand";
 const _DC = "DimensionConfigurations";
 const _DCDC = "DynamicCategoryDimensionConfiguration";
+const _DCE = "DefaultCategoryEffects";
 const _DCO = "DonutCenterOptions";
 const _DCP = "DataColorPalette";
 const _DCPR = "DeleteCustomPermissionsRequest";
@@ -1790,6 +1791,7 @@ const _GTBO = "GlobalTableBorderOptions";
 const _GV = "GutterVisibility";
 const _GWO = "GeospatialWindowOptions";
 const _Ge = "Geospatial";
+const _Go = "Governance";
 const _Gr = "Group";
 const _Gra = "Granularity";
 const _Gri = "Grid";
@@ -5565,8 +5567,8 @@ export var CreateColumnsOperation$: StaticStructureSchema = [3, n0, _CCO,
 ];
 export var CreateCustomPermissionsRequest$: StaticStructureSchema = [3, n0, _CCPR,
   0,
-  [_AAI, _CPN, _Cap, _Ta],
-  [[0, 1], 0, () => Capabilities$, () => TagList], 2
+  [_AAI, _CPN, _Cap, _Go, _Ta],
+  [[0, 1], 0, () => Capabilities$, () => Governance$, () => TagList], 2
 ];
 export var CreateCustomPermissionsResponse$: StaticStructureSchema = [3, n0, _CCPRr,
   0,
@@ -5890,8 +5892,8 @@ export var CustomParameterValues$: StaticStructureSchema = [3, n0, _CPV,
 ];
 export var CustomPermissions$: StaticStructureSchema = [3, n0, _CPu,
   0,
-  [_A, _CPN, _Cap],
-  [0, 0, () => Capabilities$]
+  [_A, _CPN, _Cap, _Go],
+  [0, 0, () => Capabilities$, () => Governance$]
 ];
 export var CustomPromptInputParameters$: StaticStructureSchema = [3, n0, _CPIP,
   0,
@@ -8287,6 +8289,11 @@ export var GoogleDriveParameters$: StaticStructureSchema = [3, n0, _GDP,
   0,
   [_ATut],
   [0]
+];
+export var Governance$: StaticStructureSchema = [3, n0, _Go,
+  0,
+  [_DCE],
+  [128 | 0]
 ];
 export var GradientColor$: StaticStructureSchema = [3, n0, _GCr,
   0,
@@ -11770,8 +11777,8 @@ export var UpdateBrandResponse$: StaticStructureSchema = [3, n0, _UBRp,
 ];
 export var UpdateCustomPermissionsRequest$: StaticStructureSchema = [3, n0, _UCPR,
   0,
-  [_AAI, _CPN, _Cap],
-  [[0, 1], [0, 1], () => Capabilities$], 2
+  [_AAI, _CPN, _Cap, _Go],
+  [[0, 1], [0, 1], () => Capabilities$, () => Governance$], 2
 ];
 export var UpdateCustomPermissionsResponse$: StaticStructureSchema = [3, n0, _UCPRp,
   0,
@@ -13556,6 +13563,7 @@ var WordCloudMeasureFieldList: StaticListSchema = [1, n0, _WCMFL,
 ];
 var AggFunctionParamMap = 128 | 0;
 var AggregationFunctionParameters = 128 | 0;
+var DefaultCategoryEffectsMap = 128 | 0;
 var DestinationTableMap: StaticMapSchema = [2, n0, _DTM,
   0, 0, () => DestinationTable$
 ];

@@ -89,6 +89,7 @@ import type {
   SharedViewConfigurations,
   SnapshotFile,
   SnapshotJobResultFileGroup,
+  SnapshotS3DestinationConfiguration,
   Tag,
   VpcConnectionProperties,
 } from "./models_2";
@@ -113,7 +114,6 @@ import type {
   MediaExtractionConfiguration,
   Permission,
   RefreshSchedule,
-  SnapshotDestinationConfiguration,
   TemplateAlias,
   TemplateVersionDefinition,
   ThemeAlias,
@@ -121,6 +121,20 @@ import type {
   TopicDetails,
   TopicRefreshSchedule,
 } from "./models_3";
+
+/**
+ * <p>A structure that contains information on the Amazon S3 destinations of the generated snapshot.</p>
+ * @public
+ */
+export interface SnapshotDestinationConfiguration {
+  /**
+   * <p>
+   *             A list of <code>SnapshotS3DestinationConfiguration</code> objects that contain Amazon S3 destination configurations. This structure can hold a maximum of 1 <code>S3DestinationConfiguration</code>.
+   *         </p>
+   * @public
+   */
+  S3Destinations?: SnapshotS3DestinationConfiguration[] | undefined;
+}
 
 /**
  * <p>A structure that contains the information on the snapshot files.</p>
@@ -9649,33 +9663,4 @@ export interface TopicSearchFilter {
    * @public
    */
   Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchTopicsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the topic that you want to find.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters that you want to use to search for the topic.</p>
-   * @public
-   */
-  Filters: TopicSearchFilter[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
 }
