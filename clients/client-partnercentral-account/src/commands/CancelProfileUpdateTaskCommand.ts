@@ -64,6 +64,10 @@ export interface CancelProfileUpdateTaskCommandOutput extends CancelProfileUpdat
  * //         Locale: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Headquarters: { // Headquarters
+ * //       CountryCode: "STRING_VALUE", // required
+ * //       SubdivisionCode: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   StartedAt: new Date("TIMESTAMP"), // required
  * //   Status: "IN_PROGRESS" || "CANCELED" || "SUCCEEDED" || "FAILED", // required

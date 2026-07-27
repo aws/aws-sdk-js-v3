@@ -739,6 +739,24 @@ export interface ErrorDetail {
 }
 
 /**
+ * <p>Contains the partner's headquarters location using International Organization for Standardization (ISO) 3166 country and subdivision codes.</p>
+ * @public
+ */
+export interface Headquarters {
+  /**
+   * <p>The ISO 3166-1 alpha-2 country code of the partner's headquarters. For example, <code>US</code>, <code>BR</code>, or <code>DE</code>.</p>
+   * @public
+   */
+  CountryCode: string | undefined;
+
+  /**
+   * <p>The subdivision portion of the ISO 3166-2 code for the partner's headquarters (for example, <code>SP</code> from <code>BR-SP</code>, <code>NSW</code> from <code>AU-NSW</code>, or <code>13</code> from <code>JP-13</code>).</p>
+   * @public
+   */
+  SubdivisionCode: string | undefined;
+}
+
+/**
  * <p>Contains localized content for a partner profile in a specific language or locale.</p>
  * @public
  */
@@ -826,6 +844,12 @@ export interface TaskDetails {
    * @public
    */
   LocalizedContents?: LocalizedContent[] | undefined;
+
+  /**
+   * <p>The ISO 3166 country and subdivision codes for the partner's headquarters location. If you omit this field, the service retains the existing headquarters value.</p>
+   * @public
+   */
+  Headquarters?: Headquarters | undefined;
 }
 
 /**
@@ -1810,6 +1834,12 @@ export interface PartnerProfile {
    * @public
    */
   LocalizedContents?: LocalizedContent[] | undefined;
+
+  /**
+   * <p>The ISO 3166 country and subdivision codes for the partner's headquarters location. If no headquarters location is set, this field is not included in the response.</p>
+   * @public
+   */
+  Headquarters?: Headquarters | undefined;
 
   /**
    * <p>The unique identifier of the partner profile.</p>

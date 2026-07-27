@@ -98,6 +98,7 @@ import {
   GetVerificationCommand,
   GetVerificationRequest$,
   GetVerificationResponse$,
+  Headquarters$,
   IndustrySegment,
   InternalServerException,
   InternalServerException$,
@@ -329,6 +330,7 @@ assert(typeof GetQualificationsDisassociationTaskRequest$ === "object");
 assert(typeof GetQualificationsDisassociationTaskResponse$ === "object");
 assert(typeof GetVerificationRequest$ === "object");
 assert(typeof GetVerificationResponse$ === "object");
+assert(typeof Headquarters$ === "object");
 assert(typeof ListConnectionInvitationsRequest$ === "object");
 assert(typeof ListConnectionInvitationsResponse$ === "object");
 assert(typeof ListConnectionsRequest$ === "object");

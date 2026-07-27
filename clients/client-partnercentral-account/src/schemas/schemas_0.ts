@@ -109,6 +109,7 @@ const _GQDTRe = "GetQualificationsDisassociationTaskResponse";
 const _GV = "GetVerification";
 const _GVR = "GetVerificationRequest";
 const _GVRe = "GetVerificationResponse";
+const _H = "Headquarters";
 const _I = "Identifier";
 const _IE = "InviterEmail";
 const _IM = "InvitationMessage";
@@ -180,6 +181,7 @@ const _Re = "Revision";
 const _S = "Status";
 const _SA = "StartedAt";
 const _SC = "ServiceCode";
+const _SCu = "SubdivisionCode";
 const _SEVC = "SendEmailVerificationCode";
 const _SEVCR = "SendEmailVerificationCodeRequest";
 const _SEVCRe = "SendEmailVerificationCodeResponse";
@@ -568,6 +570,11 @@ export var GetVerificationResponse$: StaticStructureSchema = [3, n0, _GVRe,
   [_VT, _VS, _VRD, _SA, _VSR, _CAo],
   [0, 0, [() => VerificationResponseDetails$, 0], 5, 0, 5], 4
 ];
+export var Headquarters$: StaticStructureSchema = [3, n0, _H,
+  0,
+  [_CC, _SCu],
+  [0, 0], 2
+];
 export var ListConnectionInvitationsRequest$: StaticStructureSchema = [3, n0, _LCIR,
   0,
   [_C, _NT, _CTo, _MR, _OPIt, _PT, _S],
@@ -620,8 +627,8 @@ export var PartnerDomain$: StaticStructureSchema = [3, n0, _PD,
 ];
 export var PartnerProfile$: StaticStructureSchema = [3, n0, _PPa,
   0,
-  [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo, _PI],
-  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, 0], 7
+  [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo, _H, _PI],
+  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, () => Headquarters$, 0], 7
 ];
 export var PartnerProfileSummary$: StaticStructureSchema = [3, n0, _PPS,
   0,
@@ -750,8 +757,8 @@ export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
 ];
 export var TaskDetails$: StaticStructureSchema = [3, n0, _TD,
   0,
-  [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo],
-  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList], 7
+  [_DNi, _D, _WU, _LU, _PST, _IS, _TSL, _LCo, _H],
+  [0, 0, 0, 0, 0, 64 | 0, 0, () => LocalizedContentList, () => Headquarters$], 7
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,

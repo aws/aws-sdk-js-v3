@@ -176,6 +176,7 @@ export type {
   GetQualificationsDisassociationTaskResponse,
   GetVerificationRequest,
   GetVerificationResponse,
+  Headquarters,
   ListConnectionInvitationsRequest,
   ListConnectionInvitationsResponse,
   ListConnectionsRequest,

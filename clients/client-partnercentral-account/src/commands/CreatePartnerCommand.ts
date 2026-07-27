@@ -78,6 +78,10 @@ export interface CreatePartnerCommandOutput extends CreatePartnerResponse, __Met
  * //         Locale: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Headquarters: { // Headquarters
+ * //       CountryCode: "STRING_VALUE", // required
+ * //       SubdivisionCode: "STRING_VALUE", // required
+ * //     },
  * //     ProfileId: "STRING_VALUE",
  * //   },
  * //   AwsTrainingCertificationEmailDomains: [ // PartnerDomainList

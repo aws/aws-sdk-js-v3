@@ -63,6 +63,10 @@ export interface GetPartnerCommandOutput extends GetPartnerResponse, __MetadataB
  * //         Locale: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Headquarters: { // Headquarters
+ * //       CountryCode: "STRING_VALUE", // required
+ * //       SubdivisionCode: "STRING_VALUE", // required
+ * //     },
  * //     ProfileId: "STRING_VALUE",
  * //   },
  * //   AwsTrainingCertificationEmailDomains: [ // PartnerDomainList
