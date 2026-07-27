@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
+
+
+### Features
+
+* **client-emr-containers:** With this launch, you can now set concurrent job limits on a virtual cluster, giving you fine-grained control over how many job runs execute at once and how many can wait in queue. ([b6c745a](https://github.com/aws/aws-sdk-js-v3/commit/b6c745a4d078196ad443468940ee75728cd46368))
+
+
+
+
+
 # [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-containers

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
+
+
+### Features
+
+* **client-quicksight:** Added new Governance fields to Custom Permissions API to support Deny By Default functionality. ([730d471](https://github.com/aws/aws-sdk-js-v3/commit/730d471635dbf602fc4128eb280bbf20836f0e18))
+
+
+
+
+
 # [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

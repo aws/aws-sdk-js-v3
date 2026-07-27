@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
+
+
+### Features
+
+* **client-cleanroomsml:** This release adds support for the CR.8X worker type for SQL (32 vCPU) ([bcabd86](https://github.com/aws/aws-sdk-js-v3/commit/bcabd86abe463c536f8d8e5eccbc15f4cf69a8c8))
+
+
+
+
+
 # [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanroomsml

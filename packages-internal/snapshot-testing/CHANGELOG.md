@@ -47,6 +47,13 @@
 
 
 
+
+# 3.0.48 (2026-07-27)
+### Chores
+* **snapshot-testing:** update dependencies.
+
+
+
 # 3.0.47 (2026-07-23)
 ### Chores
 * **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))

@@ -33,6 +33,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.31 (2026-07-27)
+### Chores
+* **crc64-nvme:** update dependencies.
+
+
+
 # 3.972.30 (2026-07-24)
 ### Chores
 * **crc64-nvme:** update dependencies.

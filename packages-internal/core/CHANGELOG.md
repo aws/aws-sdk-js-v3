@@ -67,6 +67,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.1 (2026-07-24)
+### Bug Fixes
+* **core/protocols:** handle JSON exponent notation in jsonReviver ([#8226](https://github.com/aws/aws-sdk-js-v3/issues/8226)) ([c3b27fd](https://github.com/aws/aws-sdk-js-v3/commit/c3b27fd34b72822c9b0a05f0ded228e4247206ce))
+
+
+
 # 3.977.0 (2026-07-24)
 ### Features
 * **core:** update clock skew detection threshold and configs ([#8189](https://github.com/aws/aws-sdk-js-v3/issues/8189)) ([a2773d5](https://github.com/aws/aws-sdk-js-v3/commit/a2773d5663965069fbe650815d2a45f1f95a645e))

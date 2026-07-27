@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
+
+
+### Bug Fixes
+
+* **core/protocols:** handle JSON exponent notation in jsonReviver ([#8226](https://github.com/aws/aws-sdk-js-v3/issues/8226)) ([c3b27fd](https://github.com/aws/aws-sdk-js-v3/commit/c3b27fd34b72822c9b0a05f0ded228e4247206ce))
+
+
+### Features
+
+* **client-account:** This release adds support for the GetPrimaryEmailUpdateStatus API operation, which allows customers to retrieve the current status of a primary email address update request for an AWS account. The operation returns status information including whether the update is pending, completed, or failed. ([d633065](https://github.com/aws/aws-sdk-js-v3/commit/d633065c50c147dac19c7315e137d6c08c502112))
+* **client-bcm-data-exports:** With this release, customers can configure their data exports to deliver CSV reports in ZIP compressed format. ([bf6df63](https://github.com/aws/aws-sdk-js-v3/commit/bf6df63c8e938853a644e8434dd863881bf0609c))
+* **client-cleanroomsml:** This release adds support for the CR.8X worker type for SQL (32 vCPU) ([bcabd86](https://github.com/aws/aws-sdk-js-v3/commit/bcabd86abe463c536f8d8e5eccbc15f4cf69a8c8))
+* **client-cleanrooms:** This release adds support for the CR.8X worker type for SQL (32 vCPU) ([4c53218](https://github.com/aws/aws-sdk-js-v3/commit/4c532188997ad62ee62191fbe49597f591614868))
+* **client-emr-containers:** With this launch, you can now set concurrent job limits on a virtual cluster, giving you fine-grained control over how many job runs execute at once and how many can wait in queue. ([b6c745a](https://github.com/aws/aws-sdk-js-v3/commit/b6c745a4d078196ad443468940ee75728cd46368))
+* **client-glue:** Adds BatchGetDataQualityRulesetEvaluationRun API to retrieve multiple runs in one call, ObservationScope and ObservationMode parameters for anomaly detection, writing evaluation results to Data Catalog tables, and custom log group paths for recommendation runs. ([70d8b71](https://github.com/aws/aws-sdk-js-v3/commit/70d8b71e930d7997c7b9a9326890452d3e686866))
+* **client-partnercentral-account:** Adds optional headquarters location to StartProfileUpdateTask, letting partners record their headquarters as an ISO 3166 country and subdivision code on their profile. When headquarters is provided, both the country and subdivision codes are required. ([db69aaa](https://github.com/aws/aws-sdk-js-v3/commit/db69aaa763209fd5f580fb01b000adb14cdc157c))
+* **client-quicksight:** Added new Governance fields to Custom Permissions API to support Deny By Default functionality. ([730d471](https://github.com/aws/aws-sdk-js-v3/commit/730d471635dbf602fc4128eb280bbf20836f0e18))
+* **client-sagemaker:** This release adds LoRA adapters, training plans, and new instance types to SageMaker inference optimization. CreateAIRecommendationJob accepts optional AdapterSource and CreateOptimizationJob accepts optional TrainingPlanArns and the ml.g7e and ml.p6-b200 families. ([587c643](https://github.com/aws/aws-sdk-js-v3/commit/587c6437b3ebb47920ebe1dc1709e1666f750133))
+* **client-securityagent:** AWS Security Agent adds a new task hours field that reflects the active work done for a task. ([6419f79](https://github.com/aws/aws-sdk-js-v3/commit/6419f7932493dac015f47cf095c563b2367064e3))
+* **clients:** update client endpoints as of 2026-07-27 ([24e536e](https://github.com/aws/aws-sdk-js-v3/commit/24e536eedc9e6fd9b0023346005660bfef74201e))
+
+
+
+
+
 # [3.1095.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1094.0...v3.1095.0) (2026-07-24)
 
 
