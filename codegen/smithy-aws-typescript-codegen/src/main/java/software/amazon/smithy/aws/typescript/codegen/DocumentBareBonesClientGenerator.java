@@ -63,11 +63,11 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         // Add required imports.
         // Note: using addImport would register these dependencies on the dynamodb client, which must be avoided.
         writer.write("""
-                     import type {
+                     import {
                        DynamoDBClient,
-                       DynamoDBClientResolvedConfig,
-                       ServiceInputTypes as __ServiceInputTypes,
-                       ServiceOutputTypes as __ServiceOutputTypes,
+                       type DynamoDBClientResolvedConfig,
+                       type ServiceInputTypes as __ServiceInputTypes,
+                       type ServiceOutputTypes as __ServiceOutputTypes,
                      } from "@aws-sdk/client-dynamodb";
                      import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
                      """);
@@ -205,6 +205,73 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                     writer.write("  \" DynamoDBDocumentClient. This option must be set to false.\"");
                     writer.dedent();
                     writer.write(");");
+                });
+                writer.writeDocs(
+                    """
+                    The code below checks for incompatibility between the supplied
+                    DynamoDBClient and this DynamoDBDocumentClient.
+
+                    This can happen when the dependency graph is invalid, including
+                    for example, a Lambda layer exposing certain packages being merged
+                    with the Lambda Node.js runtime-bundled AWS SDK.
+
+                    This is not supported and we can only make a best-effort attempt
+                    to repair the error if there is a 2nd client-dynamodb within the
+                    dependency enclosure."""
+                );
+                writer.write(
+                    "const middlewares = client.middlewareStack.identify?.() ?? [];"
+                );
+                writer.write(
+                    "const hasSerializer = middlewares.some((m) => m.includes?.(\"serializerMiddleware\"));"
+                );
+                writer.openBlock("if (!hasSerializer) {", "}", () -> {
+                    writer.write("const configuredLogger = this.config.logger;");
+                    writer.openBlock("const logger =", ";", () -> {
+                        writer.write(
+                            "configuredLogger && !configuredLogger.constructor?.name.includes(\"NoOp\")"
+                        );
+                        writer.indent();
+                        writer.write("? configuredLogger");
+                        writer.write(": console");
+                        writer.dedent();
+                    });
+                    writer.write("const substituteClient = new $L(this.config as any);", symbol.getName());
+                    writer.write("const substituteClientHasSerializer = substituteClient.middlewareStack");
+                    writer.indent();
+                    writer.write(".identify?.()");
+                    writer.write(".some((m) => m.includes?.(\"serializerMiddleware\"));");
+                    writer.dedent();
+                    writer.openBlock("if (!substituteClientHasSerializer) {", "}", () -> {
+                        writer.write("throw new Error(");
+                        writer.indent();
+                        writer.write(
+                            "\"@aws-sdk/lib-dynamodb - ERROR: incompatible version of DynamoDBClient"
+                                + " given to DynamoDBDocumentClient. \" +"
+                        );
+                        writer.write("  \"Check @aws-sdk/lib-dynamodb package.json requirements.\"");
+                        writer.dedent();
+                        writer.write(");");
+                    });
+                    writer.openBlock("else {", "}", () -> {
+                        writer.write("this.middlewareStack = substituteClient.middlewareStack;");
+                        writer.write("this.config = substituteClient.config;");
+                        writer.write("this.config.translateConfig = translateConfig;");
+                        writer.write("logger.warn(");
+                        writer.indent();
+                        writer.write(
+                            "\"@aws-sdk/lib-dynamodb - WARN: incompatible version of DynamoDBClient"
+                                + " given to DynamoDBDocumentClient. \" +"
+                        );
+                        writer.write(
+                            "  \"We have forwarded your client's configuration to a newer version of DynamoDBClient in \" +"
+                        );
+                        writer.write(
+                            "  \"the dependency closure to instantiate DynamoDBDocumentClient.\""
+                        );
+                        writer.dedent();
+                        writer.write(");");
+                    });
                 });
                 writer.popState();
             }

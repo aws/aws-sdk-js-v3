@@ -38,6 +38,57 @@ describe(DynamoDBDocument.name, () => {
       DynamoDBDocument.from(dynamodb);
     }).toThrow();
   });
+
+  it("should fallback to a substitute client when serializerMiddleware is missing", async () => {
+    // Simulate an old/incompatible DynamoDBClient whose middlewareStack
+    // does not contain serializerMiddleware (pre-v3.928.0 behavior where
+    // commands, not the client, registered the serializer).
+    const realClient = new DynamoDB({
+      region: "us-west-2",
+      credentials: { accessKeyId: "test", secretAccessKey: "test" },
+    });
+
+    // Overwrite the middlewareStack's identify to simulate an old client
+    // that never registered serializerMiddleware.
+    const originalIdentify = realClient.middlewareStack.identify.bind(realClient.middlewareStack);
+    realClient.middlewareStack.identify = () => {
+      return originalIdentify().filter((m) => !m.includes("serializerMiddleware"));
+    };
+
+    // DynamoDBDocument.from should detect the missing serializer and substitute.
+    const doc = DynamoDBDocument.from(realClient);
+
+    // Prove the fallback produces a working client by performing a put and get
+    // using a middleware to intercept before the network call.
+    const captured: string[] = [];
+    doc.middlewareStack.add(
+      (next, context) => async (args) => {
+        captured.push(context.commandName ?? "unknown");
+        return {
+          output: {
+            $metadata: { httpStatusCode: 200 },
+            Item: context.commandName === "GetItemCommand" ? { id: "fallback-test", data: "hello" } : undefined,
+          },
+        } as any;
+      },
+      { step: "serialize", name: "MockDDBResponse", override: true }
+    );
+
+    await doc.put({
+      TableName: "test-table",
+      Item: { id: "fallback-test", data: "hello" },
+    });
+
+    const result = await doc.get({
+      TableName: "test-table",
+      Key: { id: "fallback-test" },
+    });
+
+    // Verify both operations went through the middleware stack without error.
+    expect(captured).toContain("PutItemCommand");
+    expect(captured).toContain("GetItemCommand");
+    expect(result.Item).toEqual({ id: "fallback-test", data: "hello" });
+  });
 });
 
 describe(
