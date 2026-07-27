@@ -703,6 +703,95 @@ export interface AgentVersion {
 }
 
 /**
+ * <p>A LoRA adapter entry identified by a model package ARN.</p>
+ * @public
+ */
+export interface AIAdapterModelPackageEntry {
+  /**
+   * <p>A unique identifier for the adapter. This ID is used as the inference component name when the adapter is deployed. The ID must start and end with an alphanumeric character, can contain hyphens between alphanumeric characters, and can be up to 63 characters long.</p>
+   * @public
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the model package that contains the LoRA adapter artifacts.</p>
+   * @public
+   */
+  ModelPackageArn: string | undefined;
+}
+
+/**
+ * <p>A LoRA adapter entry identified by an Amazon S3 URI.</p>
+ * @public
+ */
+export interface AIAdapterS3Entry {
+  /**
+   * <p>A unique identifier for the adapter. This ID is used as the inference component name when the adapter is deployed. The ID must start and end with an alphanumeric character, can contain hyphens between alphanumeric characters, and can be up to 63 characters long.</p>
+   * @public
+   */
+  AdapterId: string | undefined;
+
+  /**
+   * <p>The Amazon S3 URI of the directory that contains the LoRA adapter artifacts in PEFT format.</p>
+   * @public
+   */
+  S3Uri: string | undefined;
+}
+
+/**
+ * <p>The source of LoRA adapters for an AI recommendation job. This is a union type — specify exactly one of the members.</p>
+ * @public
+ */
+export type AIAdapterSource =
+  | AIAdapterSource.ModelPackageArnsMember
+  | AIAdapterSource.S3UrisMember
+  | AIAdapterSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AIAdapterSource {
+  /**
+   * <p>A list of LoRA adapters identified by their model package ARNs. Use this when your adapters were produced by a SageMaker AI fine-tuning workflow that registers model packages.</p>
+   * @public
+   */
+  export interface ModelPackageArnsMember {
+    ModelPackageArns: AIAdapterModelPackageEntry[];
+    S3Uris?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of LoRA adapters identified by their Amazon S3 URIs. Use this when your adapters are stored as raw artifacts in Amazon S3.</p>
+   * @public
+   */
+  export interface S3UrisMember {
+    ModelPackageArns?: never;
+    S3Uris: AIAdapterS3Entry[];
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ModelPackageArns?: never;
+    S3Uris?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ModelPackageArns: (value: AIAdapterModelPackageEntry[]) => T;
+    S3Uris: (value: AIAdapterS3Entry[]) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>An inference component to benchmark.</p>
  * @public
  */
@@ -1084,6 +1173,24 @@ export namespace AIModelSource {
 }
 
 /**
+ * <p>The per-recommendation LoRA adapter details. Contains both the model package ARNs and Amazon S3 URIs for each adapter, regardless of which form was originally supplied in the request. When the customer supplies only Amazon S3 URIs, Amazon SageMaker AI creates model packages on their behalf.</p>
+ * @public
+ */
+export interface AIRecommendationAdapterDetails {
+  /**
+   * <p>The list of LoRA adapters with their model package ARNs.</p>
+   * @public
+   */
+  ModelPackageArns: AIAdapterModelPackageEntry[] | undefined;
+
+  /**
+   * <p>The list of LoRA adapters with their Amazon S3 URIs.</p>
+   * @public
+   */
+  S3Uris: AIAdapterS3Entry[] | undefined;
+}
+
+/**
  * <p>An Amazon S3 data channel for a recommended deployment configuration, containing model artifacts or optimized model outputs.</p>
  * @public
  */
@@ -1141,6 +1248,12 @@ export interface AIRecommendationDeploymentConfiguration {
    * @public
    */
   EnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The minimum host (CPU) memory, in MiB, to reserve per model copy when deploying the recommendation as an Inference Component. This value maps to the base Inference Component's <code>ComputeResourceRequirements$MinMemoryRequiredInMb</code> and is sized so that <code>CopyCountPerInstance</code> copies co-place within the instance's allocatable host memory.</p>
+   * @public
+   */
+  MinCpuMemoryRequiredInMb?: number | undefined;
 }
 
 /**
@@ -1279,6 +1392,12 @@ export interface AIRecommendation {
    * @public
    */
   ExpectedPerformance?: AIRecommendationPerformanceMetric[] | undefined;
+
+  /**
+   * <p>The LoRA adapter details for this recommendation. This field contains both the model package ARNs and Amazon S3 URIs for each adapter, regardless of which form was originally supplied. This field is absent when the job was created without LoRA adapters.</p>
+   * @public
+   */
+  AdapterDetails?: AIRecommendationAdapterDetails | undefined;
 }
 
 /**
@@ -8100,97 +8219,4 @@ export interface CodeRepositorySummary {
    * @public
    */
   GitConfig?: GitConfig | undefined;
-}
-
-/**
- * <p>Use this parameter to configure your Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
- * @public
- */
-export interface CognitoConfig {
-  /**
-   * <p>A <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> user pool</a> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.</p>
-   * @public
-   */
-  UserPool: string | undefined;
-
-  /**
-   * <p>The client ID for your Amazon Cognito user pool.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-}
-
-/**
- * <p>Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.</p>
- * @public
- */
-export interface CognitoMemberDefinition {
-  /**
-   * <p>An identifier for a user pool. The user pool must be in the same region as the service that you are calling.</p>
-   * @public
-   */
-  UserPool: string | undefined;
-
-  /**
-   * <p>An identifier for a user group.</p>
-   * @public
-   */
-  UserGroup: string | undefined;
-
-  /**
-   * <p>An identifier for an application client. You must create the app client ID using Amazon Cognito.</p>
-   * @public
-   */
-  ClientId: string | undefined;
-}
-
-/**
- * <p>Configuration for your vector collection type.</p>
- * @public
- */
-export interface VectorConfig {
-  /**
-   * <p>The number of elements in your vector.</p>
-   * @public
-   */
-  Dimension: number | undefined;
-}
-
-/**
- * <p>Configuration for your collection.</p>
- * @public
- */
-export type CollectionConfig =
-  | CollectionConfig.VectorConfigMember
-  | CollectionConfig.$UnknownMember;
-
-/**
- * @public
- */
-export namespace CollectionConfig {
-  /**
-   * <p>Configuration for your vector collection type.</p> <ul> <li> <p> <code>Dimension</code>: The number of elements in your vector.</p> </li> </ul>
-   * @public
-   */
-  export interface VectorConfigMember {
-    VectorConfig: VectorConfig;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    VectorConfig?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    VectorConfig: (value: VectorConfig) => T;
-    _: (name: string, value: any) => T;
-  }
 }

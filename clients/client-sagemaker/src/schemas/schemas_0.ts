@@ -25,11 +25,12 @@ const _ACc = "AccessConfig";
 const _ACl = "AlgorithmsConfig";
 const _ACp = "ApplicationConfig";
 const _ACt = "AttemptCount";
-const _AD = "AlarmDetails";
+const _AD = "AdapterDetails";
 const _ADC = "ActiveDeviceCount";
 const _ADD = "AthenaDatasetDefinition";
 const _ADS = "AccountDefaultStatus";
-const _ADl = "AlgorithmDescription";
+const _ADl = "AlarmDetails";
+const _ADlg = "AlgorithmDescription";
 const _ADp = "AppDetails";
 const _ADpp = "ApprovalDescription";
 const _ADr = "ArtifactDigest";
@@ -39,7 +40,12 @@ const _AEu = "AuthorizationEndpoint";
 const _AFRA = "AmazonForecastRoleArn";
 const _AGEN = "AutoGenerateEndpointName";
 const _AGP = "AssignedGroupPatterns";
-const _AI = "AssociationInfo";
+const _AI = "AdapterId";
+const _AIAMPE = "AIAdapterModelPackageEntry";
+const _AIAMPEL = "AIAdapterModelPackageEntryList";
+const _AIAS = "AIAdapterSource";
+const _AIASE = "AIAdapterS3Entry";
+const _AIASEL = "AIAdapterS3EntryList";
 const _AIBE = "AIBenchmarkEndpoint";
 const _AIBIC = "AIBenchmarkInferenceComponent";
 const _AIBICL = "AIBenchmarkInferenceComponentList";
@@ -72,6 +78,7 @@ const _AIMSS = "AIModelSourceS3";
 const _AINC = "AsyncInferenceNotificationConfig";
 const _AIOC = "AsyncInferenceOutputConfig";
 const _AIR = "AIRecommendation";
+const _AIRAD = "AIRecommendationAdapterDetails";
 const _AIRC = "AIRecommendationConstraint";
 const _AIRCL = "AIRecommendationConstraintList";
 const _AIRCS = "AIRecommendationComputeSpec";
@@ -109,6 +116,7 @@ const _AIWDS = "AIWorkloadDataSource";
 const _AIWIDC = "AIWorkloadInputDataConfig";
 const _AIWIDCL = "AIWorkloadInputDataConfigList";
 const _AIWSDS = "AIWorkloadS3DataSource";
+const _AIs = "AssociationInfo";
 const _AL = "AlarmList";
 const _ALM = "AppLifecycleManagement";
 const _ALp = "AppList";
@@ -194,6 +202,7 @@ const _ASc = "ActionSummary";
 const _AScc = "AccessStatus";
 const _ASct = "ActivationState";
 const _AScti = "ActionSummaries";
+const _ASd = "AdapterSource";
 const _ASl = "AlgorithmSpecification";
 const _ASle = "AlertStatus";
 const _ASlg = "AlgorithmSummary";
@@ -2292,6 +2301,7 @@ const _MCEJSL = "ModelCardExportJobSummaryList";
 const _MCEJSo = "ModelCardExportJobSummary";
 const _MCEOC = "ModelCardExportOutputConfig";
 const _MCIPI = "MaxConcurrentInvocationsPerInstance";
+const _MCMRIM = "MinCpuMemoryRequiredInMb";
 const _MCN = "ModelCardName";
 const _MCPS = "ModelCardProcessingStatus";
 const _MCR = "MonitoringConstraintsResource";
@@ -2424,6 +2434,7 @@ const _MOo = "MonitoringOutputs";
 const _MP = "MountPath";
 const _MPA = "ModelPackageArn";
 const _MPAL = "ModelPackageArnList";
+const _MPAo = "ModelPackageArns";
 const _MPC = "ModelPackageConfig";
 const _MPCD = "ModelPackageContainerDefinition";
 const _MPCDL = "ModelPackageContainerDefinitionList";
@@ -3264,6 +3275,7 @@ const _SUCe = "ServerlessUpdateConfig";
 const _SUM = "S3UploadMode";
 const _SUS = "SoftwareUpdateStatus";
 const _SUr = "S3Uri";
+const _SUri = "S3Uris";
 const _SUt = "StreamUrl";
 const _SV = "StringValue";
 const _SW = "SubscribedWorkteam";
@@ -3837,6 +3849,16 @@ export var AgentVersion$: StaticStructureSchema = [3, n0, _AV,
   [_V, _AC],
   [0, 1], 2
 ];
+export var AIAdapterModelPackageEntry$: StaticStructureSchema = [3, n0, _AIAMPE,
+  0,
+  [_AI, _MPA],
+  [0, 0], 2
+];
+export var AIAdapterS3Entry$: StaticStructureSchema = [3, n0, _AIASE,
+  0,
+  [_AI, _SUr],
+  [0, 0], 2
+];
 export var AIBenchmarkEndpoint$: StaticStructureSchema = [3, n0, _AIBE,
   0,
   [_I, _TCH, _IC],
@@ -3889,8 +3911,13 @@ export var AIModelSourceS3$: StaticStructureSchema = [3, n0, _AIMSS,
 ];
 export var AIRecommendation$: StaticStructureSchema = [3, n0, _AIR,
   0,
-  [_RD, _OD, _MD, _DC, _AIBJA, _EP],
-  [0, () => AIRecommendationOptimizationDetailList, () => AIRecommendationModelDetails$, () => AIRecommendationDeploymentConfiguration$, 0, () => ExpectedPerformanceList]
+  [_RD, _OD, _MD, _DC, _AIBJA, _EP, _AD],
+  [0, () => AIRecommendationOptimizationDetailList, () => AIRecommendationModelDetails$, () => AIRecommendationDeploymentConfiguration$, 0, () => ExpectedPerformanceList, () => AIRecommendationAdapterDetails$]
+];
+export var AIRecommendationAdapterDetails$: StaticStructureSchema = [3, n0, _AIRAD,
+  0,
+  [_MPAo, _SUri],
+  [() => AIAdapterModelPackageEntryList, () => AIAdapterS3EntryList], 2
 ];
 export var AIRecommendationComputeSpec$: StaticStructureSchema = [3, n0, _AIRCS,
   0,
@@ -3904,8 +3931,8 @@ export var AIRecommendationConstraint$: StaticStructureSchema = [3, n0, _AIRC,
 ];
 export var AIRecommendationDeploymentConfiguration$: StaticStructureSchema = [3, n0, _AIRDC,
   0,
-  [_S_, _IU, _ITn, _ICn, _CCPI, _EV],
-  [() => AIRecommendationDeploymentS3ChannelList, 0, 0, 1, 1, 128 | 0]
+  [_S_, _IU, _ITn, _ICn, _CCPI, _EV, _MCMRIM],
+  [() => AIRecommendationDeploymentS3ChannelList, 0, 0, 1, 1, 128 | 0, 1]
 ];
 export var AIRecommendationDeploymentS3Channel$: StaticStructureSchema = [3, n0, _AIRDSC,
   0,
@@ -3987,7 +4014,7 @@ export var Alarm$: StaticStructureSchema = [3, n0, _A,
   [_ANl],
   [0]
 ];
-export var AlarmDetails$: StaticStructureSchema = [3, n0, _AD,
+export var AlarmDetails$: StaticStructureSchema = [3, n0, _ADl,
   0,
   [_ANl],
   [0], 1
@@ -4009,7 +4036,7 @@ export var AlgorithmStatusItem$: StaticStructureSchema = [3, n0, _ASI,
 ];
 export var AlgorithmSummary$: StaticStructureSchema = [3, n0, _ASlg,
   0,
-  [_ANlg, _AAl, _CT, _ASlgo, _ADl],
+  [_ANlg, _AAl, _CT, _ASlgo, _ADlg],
   [0, 0, 4, 0, 0], 4
 ];
 export var AlgorithmValidationProfile$: StaticStructureSchema = [3, n0, _AVP,
@@ -4077,7 +4104,7 @@ export var AssociateTrialComponentResponse$: StaticStructureSchema = [3, n0, _AT
   [_TCA, _TA],
   [0, 0]
 ];
-export var AssociationInfo$: StaticStructureSchema = [3, n0, _AI,
+export var AssociationInfo$: StaticStructureSchema = [3, n0, _AIs,
   0,
   [_SA, _DA],
   [0, 0], 2
@@ -4899,8 +4926,8 @@ export var CreateAIBenchmarkJobResponse$: StaticStructureSchema = [3, n0, _CAIBJ
 ];
 export var CreateAIRecommendationJobRequest$: StaticStructureSchema = [3, n0, _CAIRJR,
   0,
-  [_AIRJN, _MS, _OCu, _AIWCI, _PT, _RAo, _ISn, _OM, _CSom, _Ta],
-  [0, () => AIModelSource$, () => AIRecommendationOutputConfig$, 0, () => AIRecommendationPerformanceTarget$, 0, () => AIRecommendationInferenceSpecification$, 2, () => AIRecommendationComputeSpec$, () => TagList], 6
+  [_AIRJN, _MS, _OCu, _AIWCI, _PT, _RAo, _ISn, _OM, _CSom, _ASd, _Ta],
+  [0, () => AIModelSource$, () => AIRecommendationOutputConfig$, 0, () => AIRecommendationPerformanceTarget$, 0, () => AIRecommendationInferenceSpecification$, 2, () => AIRecommendationComputeSpec$, () => AIAdapterSource$, () => TagList], 6
 ];
 export var CreateAIRecommendationJobResponse$: StaticStructureSchema = [3, n0, _CAIRJRr,
   0,
@@ -4919,7 +4946,7 @@ export var CreateAIWorkloadConfigResponse$: StaticStructureSchema = [3, n0, _CAI
 ];
 export var CreateAlgorithmInput$: StaticStructureSchema = [3, n0, _CAI,
   0,
-  [_ANlg, _TS, _ADl, _ISn, _VSa, _CFM, _Ta],
+  [_ANlg, _TS, _ADlg, _ISn, _VSa, _CFM, _Ta],
   [0, () => TrainingSpecification$, 0, () => InferenceSpecification$, () => AlgorithmValidationSpecification$, 2, () => TagList], 2
 ];
 export var CreateAlgorithmOutput$: StaticStructureSchema = [3, n0, _CAO,
@@ -5384,8 +5411,8 @@ export var CreateNotebookInstanceOutput$: StaticStructureSchema = [3, n0, _CNIO,
 ];
 export var CreateOptimizationJobRequest$: StaticStructureSchema = [3, n0, _COJR,
   0,
-  [_OJN, _RAo, _MS, _DITe, _OCp, _OCu, _SCt, _MICa, _OE, _Ta, _VC],
-  [0, 0, () => OptimizationJobModelSource$, 0, () => OptimizationConfigs, () => OptimizationJobOutputConfig$, () => StoppingCondition$, 1, 128 | 0, () => TagList, () => OptimizationVpcConfig$], 7
+  [_OJN, _RAo, _MS, _DITe, _OCp, _OCu, _SCt, _MICa, _OE, _Ta, _VC, _TPAr],
+  [0, 0, () => OptimizationJobModelSource$, 0, () => OptimizationConfigs, () => OptimizationJobOutputConfig$, () => StoppingCondition$, 1, 128 | 0, () => TagList, () => OptimizationVpcConfig$, 64 | 0], 7
 ];
 export var CreateOptimizationJobResponse$: StaticStructureSchema = [3, n0, _COJRr,
   0,
@@ -6179,8 +6206,8 @@ export var DescribeAIRecommendationJobRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var DescribeAIRecommendationJobResponse$: StaticStructureSchema = [3, n0, _DAIRJResc,
   0,
-  [_AIRJN, _AIRJA, _AIRJSe, _MS, _OCu, _AIWCI, _RAo, _CT, _FR, _ISn, _OM, _PT, _Re, _CSom, _STt, _ETn, _Ta],
-  [0, 0, 0, () => AIModelSource$, () => AIRecommendationOutputResult$, 0, 0, 4, 0, () => AIRecommendationInferenceSpecification$, 2, () => AIRecommendationPerformanceTarget$, () => AIRecommendationList, () => AIRecommendationComputeSpec$, 4, 4, () => TagList], 8
+  [_AIRJN, _AIRJA, _AIRJSe, _MS, _OCu, _AIWCI, _RAo, _CT, _FR, _ISn, _OM, _PT, _Re, _CSom, _ASd, _STt, _ETn, _Ta],
+  [0, 0, 0, () => AIModelSource$, () => AIRecommendationOutputResult$, 0, 0, 4, 0, () => AIRecommendationInferenceSpecification$, 2, () => AIRecommendationPerformanceTarget$, () => AIRecommendationList, () => AIRecommendationComputeSpec$, () => AIAdapterSource$, 4, 4, () => TagList], 8
 ];
 export var DescribeAIWorkloadConfigRequest$: StaticStructureSchema = [3, n0, _DAIWCRes,
   0,
@@ -6199,7 +6226,7 @@ export var DescribeAlgorithmInput$: StaticStructureSchema = [3, n0, _DAIe,
 ];
 export var DescribeAlgorithmOutput$: StaticStructureSchema = [3, n0, _DAO,
   0,
-  [_ANlg, _AAl, _CT, _TS, _ASlgo, _ASD, _ADl, _ISn, _VSa, _PIrod, _CFM],
+  [_ANlg, _AAl, _CT, _TS, _ASlgo, _ASD, _ADlg, _ISn, _VSa, _PIrod, _CFM],
   [0, 0, 4, () => TrainingSpecification$, 0, () => AlgorithmStatusDetails$, 0, () => InferenceSpecification$, () => AlgorithmValidationSpecification$, 0, 2], 6
 ];
 export var DescribeAppImageConfigRequest$: StaticStructureSchema = [3, n0, _DAICRe,
@@ -6719,8 +6746,8 @@ export var DescribeOptimizationJobRequest$: StaticStructureSchema = [3, n0, _DOJ
 ];
 export var DescribeOptimizationJobResponse$: StaticStructureSchema = [3, n0, _DOJRes,
   0,
-  [_OJA, _OJS, _CT, _LMT, _OJN, _MS, _DITe, _OCp, _OCu, _RAo, _SCt, _OST, _OET, _FR, _OE, _MICa, _OO, _VC],
-  [0, 0, 4, 4, 0, () => OptimizationJobModelSource$, 0, () => OptimizationConfigs, () => OptimizationJobOutputConfig$, 0, () => StoppingCondition$, 4, 4, 0, 128 | 0, 1, () => OptimizationOutput$, () => OptimizationVpcConfig$], 11
+  [_OJA, _OJS, _CT, _LMT, _OJN, _MS, _DITe, _OCp, _OCu, _RAo, _SCt, _OST, _OET, _FR, _OE, _MICa, _OO, _VC, _TPAr],
+  [0, 0, 4, 4, 0, () => OptimizationJobModelSource$, 0, () => OptimizationConfigs, () => OptimizationJobOutputConfig$, 0, () => StoppingCondition$, 4, 4, 0, 128 | 0, 1, () => OptimizationOutput$, () => OptimizationVpcConfig$, 64 | 0], 11
 ];
 export var DescribePartnerAppRequest$: StaticStructureSchema = [3, n0, _DPARes,
   0,
@@ -11402,6 +11429,12 @@ var AdditionalModelDataSources: StaticListSchema = [1, n0, _AMDSd,
 var AgentVersions: StaticListSchema = [1, n0, _AVg,
   0, () => AgentVersion$
 ];
+var AIAdapterModelPackageEntryList: StaticListSchema = [1, n0, _AIAMPEL,
+  0, () => AIAdapterModelPackageEntry$
+];
+var AIAdapterS3EntryList: StaticListSchema = [1, n0, _AIASEL,
+  0, () => AIAdapterS3Entry$
+];
 var AIBenchmarkInferenceComponentList: StaticListSchema = [1, n0, _AIBICL,
   0, () => AIBenchmarkInferenceComponent$
 ];
@@ -11995,6 +12028,7 @@ var OptimizationConfigs: StaticListSchema = [1, n0, _OCp,
 var OptimizationJobSummaries: StaticListSchema = [1, n0, _OJSp,
   0, () => OptimizationJobSummary$
 ];
+var OptimizationJobTrainingPlanArns = 64 | 0;
 var OptimizationTypes = 64 | 0;
 var OptimizationVpcSecurityGroupIds = 64 | 0;
 var OptimizationVpcSubnets = 64 | 0;
@@ -12266,6 +12300,11 @@ var TrialComponentArtifacts: StaticMapSchema = [2, n0, _TCAri,
 ];
 var TrialComponentParameters: StaticMapSchema = [2, n0, _TCP,
   0, 0, () => TrialComponentParameterValue$
+];
+export var AIAdapterSource$: StaticUnionSchema = [4, n0, _AIAS,
+  0,
+  [_MPAo, _SUri],
+  [() => AIAdapterModelPackageEntryList, () => AIAdapterS3EntryList]
 ];
 export var AIBenchmarkTarget$: StaticUnionSchema = [4, n0, _AIBT,
   0,

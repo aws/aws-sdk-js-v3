@@ -107,6 +107,7 @@ import type {
   AdditionalInferenceSpecificationDefinition,
   AdditionalModelDataSource,
   AdditionalS3DataSource,
+  AIAdapterSource,
   AIBenchmarkNetworkConfig,
   AIBenchmarkOutputConfig,
   AIBenchmarkTarget,
@@ -160,7 +161,6 @@ import type {
   CodeEditorAppImageConfig,
   CodeEditorAppSettings,
   CodeRepository,
-  CollectionConfig,
   ComputeQuotaResourceConfig,
   CustomImage,
   GitConfig,
@@ -178,6 +178,99 @@ import type {
   TransformJobDefinition,
   VpcConfig,
 } from "./models_0";
+
+/**
+ * <p>Use this parameter to configure your Amazon Cognito workforce. A single Cognito workforce is created using and corresponds to a single <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> Amazon Cognito user pool</a>.</p>
+ * @public
+ */
+export interface CognitoConfig {
+  /**
+   * <p>A <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html"> user pool</a> is a user directory in Amazon Cognito. With a user pool, your users can sign in to your web or mobile app through Amazon Cognito. Your users can also sign in through social identity providers like Google, Facebook, Amazon, or Apple, and through SAML identity providers.</p>
+   * @public
+   */
+  UserPool: string | undefined;
+
+  /**
+   * <p>The client ID for your Amazon Cognito user pool.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+}
+
+/**
+ * <p>Identifies a Amazon Cognito user group. A user group can be used in on or more work teams.</p>
+ * @public
+ */
+export interface CognitoMemberDefinition {
+  /**
+   * <p>An identifier for a user pool. The user pool must be in the same region as the service that you are calling.</p>
+   * @public
+   */
+  UserPool: string | undefined;
+
+  /**
+   * <p>An identifier for a user group.</p>
+   * @public
+   */
+  UserGroup: string | undefined;
+
+  /**
+   * <p>An identifier for an application client. You must create the app client ID using Amazon Cognito.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+}
+
+/**
+ * <p>Configuration for your vector collection type.</p>
+ * @public
+ */
+export interface VectorConfig {
+  /**
+   * <p>The number of elements in your vector.</p>
+   * @public
+   */
+  Dimension: number | undefined;
+}
+
+/**
+ * <p>Configuration for your collection.</p>
+ * @public
+ */
+export type CollectionConfig =
+  | CollectionConfig.VectorConfigMember
+  | CollectionConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CollectionConfig {
+  /**
+   * <p>Configuration for your vector collection type.</p> <ul> <li> <p> <code>Dimension</code>: The number of elements in your vector.</p> </li> </ul>
+   * @public
+   */
+  export interface VectorConfigMember {
+    VectorConfig: VectorConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    VectorConfig?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    VectorConfig: (value: VectorConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
@@ -904,6 +997,12 @@ export interface CreateAIRecommendationJobRequest {
    * @public
    */
   ComputeSpec?: AIRecommendationComputeSpec | undefined;
+
+  /**
+   * <p>The LoRA adapter source for the recommendation job. Specify either a list of model package ARNs or Amazon S3 URIs for your LoRA adapters. When this parameter is absent, the recommendation job runs without LoRA adapter support.</p>
+   * @public
+   */
+  AdapterSource?: AIAdapterSource | undefined;
 
   /**
    * <p>The metadata that you apply to Amazon Web Services resources to help you categorize and organize them.</p>
@@ -8478,67 +8577,4 @@ export interface CreateNotebookInstanceInput {
    * @public
    */
   InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNotebookInstanceOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
-   * @public
-   */
-  NotebookInstanceArn?: string | undefined;
-}
-
-/**
- * <p>Contains the notebook instance lifecycle configuration script.</p> <p>Each lifecycle configuration script has a limit of 16384 characters.</p> <p>The value of the <code>$PATH</code> environment variable that is available to both scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p> <p>View Amazon CloudWatch Logs for notebook instance lifecycle configurations in log group <code>/aws/sagemaker/NotebookInstances</code> in log stream <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p> <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.</p> <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
- * @public
- */
-export interface NotebookInstanceLifecycleHook {
-  /**
-   * <p>A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.</p>
-   * @public
-   */
-  Content?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNotebookInstanceLifecycleConfigInput {
-  /**
-   * <p>The name of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigName: string | undefined;
-
-  /**
-   * <p>A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
-   * @public
-   */
-  OnCreate?: NotebookInstanceLifecycleHook[] | undefined;
-
-  /**
-   * <p>A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
-   * @public
-   */
-  OnStart?: NotebookInstanceLifecycleHook[] | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNotebookInstanceLifecycleConfigOutput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
-   * @public
-   */
-  NotebookInstanceLifecycleConfigArn?: string | undefined;
 }

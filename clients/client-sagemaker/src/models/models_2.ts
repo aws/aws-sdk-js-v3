@@ -47,7 +47,6 @@ import type {
   LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
-  ObjectiveStatus,
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   PartnerAppAuthType,
@@ -76,13 +75,13 @@ import type {
   StudioLifecycleConfigAppType,
   TagPropagation,
   ThroughputMode,
-  TrainingJobStatus,
   TrialComponentPrimaryStatus,
   VariantStatus,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
   ActionSource,
+  AIAdapterSource,
   AIBenchmarkNetworkConfig,
   AIBenchmarkOutputResult,
   AIBenchmarkTarget,
@@ -129,8 +128,6 @@ import type {
   ClusterTieredStorageConfig,
   CodeEditorAppImageConfig,
   CodeRepository,
-  CognitoConfig,
-  CognitoMemberDefinition,
   GitConfig,
   InferenceSpecification,
   JupyterLabAppImageConfig,
@@ -147,6 +144,8 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CognitoConfig,
+  CognitoMemberDefinition,
   CollectionConfiguration,
   ComputeQuotaConfig,
   ComputeQuotaTarget,
@@ -193,6 +192,69 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNotebookInstanceOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the notebook instance. </p>
+   * @public
+   */
+  NotebookInstanceArn?: string | undefined;
+}
+
+/**
+ * <p>Contains the notebook instance lifecycle configuration script.</p> <p>Each lifecycle configuration script has a limit of 16384 characters.</p> <p>The value of the <code>$PATH</code> environment variable that is available to both scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p> <p>View Amazon CloudWatch Logs for notebook instance lifecycle configurations in log group <code>/aws/sagemaker/NotebookInstances</code> in log stream <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p> <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs for longer than 5 minutes, it fails and the notebook instance is not created or started.</p> <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ * @public
+ */
+export interface NotebookInstanceLifecycleHook {
+  /**
+   * <p>A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.</p>
+   * @public
+   */
+  Content?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNotebookInstanceLifecycleConfigInput {
+  /**
+   * <p>The name of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigName: string | undefined;
+
+  /**
+   * <p>A shell script that runs only once, when you create a notebook instance. The shell script must be a base64-encoded string.</p>
+   * @public
+   */
+  OnCreate?: NotebookInstanceLifecycleHook[] | undefined;
+
+  /**
+   * <p>A shell script that runs every time you start a notebook instance, including when you create the notebook instance. The shell script must be a base64-encoded string.</p>
+   * @public
+   */
+  OnStart?: NotebookInstanceLifecycleHook[] | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateNotebookInstanceLifecycleConfigOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the lifecycle configuration.</p>
+   * @public
+   */
+  NotebookInstanceLifecycleConfigArn?: string | undefined;
+}
 
 /**
  * <p>The access configuration settings for the source ML model for an optimization job, where you can accept the model end-user license agreement (EULA).</p>
@@ -542,6 +604,12 @@ export interface CreateOptimizationJobRequest {
    * @public
    */
   VpcConfig?: OptimizationVpcConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan to use for this optimization job.</p> <p>When you use reserved capacity from a training plan, the optimization job runs on that reserved capacity instead of on-demand capacity. If you omit this field, the job uses on-demand capacity. Currently, you can specify at most one training plan.</p> <p>For more information about how to reserve GPU capacity for your optimization jobs using Amazon SageMaker Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">Reserve capacity with training plans</a>.</p>
+   * @public
+   */
+  TrainingPlanArns?: string[] | undefined;
 }
 
 /**
@@ -4746,6 +4814,12 @@ export interface DescribeAIRecommendationJobResponse {
   ComputeSpec?: AIRecommendationComputeSpec | undefined;
 
   /**
+   * <p>The LoRA adapter source that was specified when the recommendation job was created. This field is absent when the job was created without LoRA adapters.</p>
+   * @public
+   */
+  AdapterSource?: AIAdapterSource | undefined;
+
+  /**
    * <p>A timestamp that indicates when the recommendation job was created.</p>
    * @public
    */
@@ -8135,154 +8209,4 @@ export interface FinalHyperParameterTuningJobObjectiveMetric {
    * @public
    */
   Value: number | undefined;
-}
-
-/**
- * <p>The container for the summary information about a training job.</p>
- * @public
- */
-export interface HyperParameterTrainingJobSummary {
-  /**
-   * <p>The training job definition name.</p>
-   * @public
-   */
-  TrainingJobDefinitionName?: string | undefined;
-
-  /**
-   * <p>The name of the training job.</p>
-   * @public
-   */
-  TrainingJobName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the training job.</p>
-   * @public
-   */
-  TrainingJobArn: string | undefined;
-
-  /**
-   * <p>The HyperParameter tuning job that launched the training job.</p>
-   * @public
-   */
-  TuningJobName?: string | undefined;
-
-  /**
-   * <p>The date and time that the training job was created.</p>
-   * @public
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The date and time that the training job started.</p>
-   * @public
-   */
-  TrainingStartTime?: Date | undefined;
-
-  /**
-   * <p>Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
-   * @public
-   */
-  TrainingEndTime?: Date | undefined;
-
-  /**
-   * <p>The status of the training job.</p>
-   * @public
-   */
-  TrainingJobStatus: TrainingJobStatus | undefined;
-
-  /**
-   * <p>A list of the hyperparameters for which you specified ranges to search.</p>
-   * @public
-   */
-  TunedHyperParameters: Record<string, string> | undefined;
-
-  /**
-   * <p>The reason that the training job failed. </p>
-   * @public
-   */
-  FailureReason?: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html">FinalHyperParameterTuningJobObjectiveMetric</a> object that specifies the value of the objective metric of the tuning job that launched this training job.</p>
-   * @public
-   */
-  FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric | undefined;
-
-  /**
-   * <p>The status of the objective metric for the training job:</p> <ul> <li> <p>Succeeded: The final objective metric for the training job was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.</p> </li> </ul> <ul> <li> <p>Pending: The training job is in progress and evaluation of its final objective metric is pending.</p> </li> </ul> <ul> <li> <p>Failed: The final objective metric for the training job was not evaluated, and was not used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.</p> </li> </ul>
-   * @public
-   */
-  ObjectiveStatus?: ObjectiveStatus | undefined;
-}
-
-/**
- * <p>The total resources consumed by your hyperparameter tuning job.</p>
- * @public
- */
-export interface HyperParameterTuningJobConsumedResources {
-  /**
-   * <p>The wall clock runtime in seconds used by your hyperparameter tuning job.</p>
-   * @public
-   */
-  RuntimeInSeconds?: number | undefined;
-}
-
-/**
- * <p>Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.</p>
- * @public
- */
-export interface ObjectiveStatusCounters {
-  /**
-   * <p>The number of training jobs whose final objective metric was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.</p>
-   * @public
-   */
-  Succeeded?: number | undefined;
-
-  /**
-   * <p>The number of training jobs that are in progress and pending evaluation of their final objective metric.</p>
-   * @public
-   */
-  Pending?: number | undefined;
-
-  /**
-   * <p>The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.</p>
-   * @public
-   */
-  Failed?: number | undefined;
-}
-
-/**
- * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.</p>
- * @public
- */
-export interface TrainingJobStatusCounters {
-  /**
-   * <p>The number of completed training jobs launched by the hyperparameter tuning job.</p>
-   * @public
-   */
-  Completed?: number | undefined;
-
-  /**
-   * <p>The number of in-progress training jobs launched by a hyperparameter tuning job.</p>
-   * @public
-   */
-  InProgress?: number | undefined;
-
-  /**
-   * <p>The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred.</p>
-   * @public
-   */
-  RetryableError?: number | undefined;
-
-  /**
-   * <p>The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.</p>
-   * @public
-   */
-  NonRetryableError?: number | undefined;
-
-  /**
-   * <p>The number of training jobs launched by a hyperparameter tuning job that were manually stopped.</p>
-   * @public
-   */
-  Stopped?: number | undefined;
 }

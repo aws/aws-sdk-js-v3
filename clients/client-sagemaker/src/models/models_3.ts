@@ -44,11 +44,7 @@ import type {
   HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobStrategyType,
-  ImageSortBy,
-  ImageSortOrder,
   ImageStatus,
-  ImageVersionSortBy,
-  ImageVersionSortOrder,
   ImageVersionStatus,
   IncludedData,
   InferenceComponentCapacitySizeType,
@@ -85,6 +81,7 @@ import type {
   MonitoringType,
   NotebookInstanceAcceleratorType,
   NotebookInstanceStatus,
+  ObjectiveStatus,
   OfflineStoreStatusValue,
   Operator,
   OptimizationJobDeploymentInstanceType,
@@ -168,7 +165,6 @@ import type {
   ClusterSchedulerConfigSummary,
   ClusterSummary,
   CodeRepositorySummary,
-  CognitoConfig,
   InferenceSpecification,
   OutputDataConfig,
   OutputParameter,
@@ -183,6 +179,7 @@ import type {
   VpcConfig,
 } from "./models_0";
 import type {
+  CognitoConfig,
   CompilationJobSummary,
   ComputeQuotaSummary,
   ContainerDefinition,
@@ -233,7 +230,6 @@ import type {
   MonitoringScheduleConfig,
   MonitoringStoppingCondition,
   NetworkConfig,
-  NotebookInstanceLifecycleHook,
   OfflineStoreConfig,
   OnlineStoreConfig,
   ProductionVariantServerlessConfig,
@@ -259,8 +255,7 @@ import type {
   ExperimentConfig,
   ExperimentSource,
   FeatureParameter,
-  HyperParameterTrainingJobSummary,
-  HyperParameterTuningJobConsumedResources,
+  FinalHyperParameterTuningJobObjectiveMetric,
   InfraCheckConfig,
   LastUpdateStatus,
   MemberDefinition,
@@ -268,8 +263,8 @@ import type {
   ModelArtifacts,
   ModelClientConfig,
   ModelPackageConfig,
+  NotebookInstanceLifecycleHook,
   NotificationConfiguration,
-  ObjectiveStatusCounters,
   OfflineStoreStatus,
   OptimizationConfig,
   OptimizationJobModelSource,
@@ -293,12 +288,161 @@ import type {
   SpaceSettings,
   SpaceSharingSettings,
   TensorBoardOutputConfig,
-  TrainingJobStatusCounters,
   TrialComponentArtifact,
   TrialComponentParameterValue,
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>The container for the summary information about a training job.</p>
+ * @public
+ */
+export interface HyperParameterTrainingJobSummary {
+  /**
+   * <p>The training job definition name.</p>
+   * @public
+   */
+  TrainingJobDefinitionName?: string | undefined;
+
+  /**
+   * <p>The name of the training job.</p>
+   * @public
+   */
+  TrainingJobName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training job.</p>
+   * @public
+   */
+  TrainingJobArn: string | undefined;
+
+  /**
+   * <p>The HyperParameter tuning job that launched the training job.</p>
+   * @public
+   */
+  TuningJobName?: string | undefined;
+
+  /**
+   * <p>The date and time that the training job was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The date and time that the training job started.</p>
+   * @public
+   */
+  TrainingStartTime?: Date | undefined;
+
+  /**
+   * <p>Specifies the time when the training job ends on training instances. You are billed for the time interval between the value of <code>TrainingStartTime</code> and this time. For successful jobs and stopped jobs, this is the time after model artifacts are uploaded. For failed jobs, this is the time when SageMaker detects a job failure.</p>
+   * @public
+   */
+  TrainingEndTime?: Date | undefined;
+
+  /**
+   * <p>The status of the training job.</p>
+   * @public
+   */
+  TrainingJobStatus: TrainingJobStatus | undefined;
+
+  /**
+   * <p>A list of the hyperparameters for which you specified ranges to search.</p>
+   * @public
+   */
+  TunedHyperParameters: Record<string, string> | undefined;
+
+  /**
+   * <p>The reason that the training job failed. </p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_FinalHyperParameterTuningJobObjectiveMetric.html">FinalHyperParameterTuningJobObjectiveMetric</a> object that specifies the value of the objective metric of the tuning job that launched this training job.</p>
+   * @public
+   */
+  FinalHyperParameterTuningJobObjectiveMetric?: FinalHyperParameterTuningJobObjectiveMetric | undefined;
+
+  /**
+   * <p>The status of the objective metric for the training job:</p> <ul> <li> <p>Succeeded: The final objective metric for the training job was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.</p> </li> </ul> <ul> <li> <p>Pending: The training job is in progress and evaluation of its final objective metric is pending.</p> </li> </ul> <ul> <li> <p>Failed: The final objective metric for the training job was not evaluated, and was not used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.</p> </li> </ul>
+   * @public
+   */
+  ObjectiveStatus?: ObjectiveStatus | undefined;
+}
+
+/**
+ * <p>The total resources consumed by your hyperparameter tuning job.</p>
+ * @public
+ */
+export interface HyperParameterTuningJobConsumedResources {
+  /**
+   * <p>The wall clock runtime in seconds used by your hyperparameter tuning job.</p>
+   * @public
+   */
+  RuntimeInSeconds?: number | undefined;
+}
+
+/**
+ * <p>Specifies the number of training jobs that this hyperparameter tuning job launched, categorized by the status of their objective metric. The objective metric status shows whether the final objective metric for the training job has been evaluated by the tuning job and used in the hyperparameter tuning process.</p>
+ * @public
+ */
+export interface ObjectiveStatusCounters {
+  /**
+   * <p>The number of training jobs whose final objective metric was evaluated by the hyperparameter tuning job and used in the hyperparameter tuning process.</p>
+   * @public
+   */
+  Succeeded?: number | undefined;
+
+  /**
+   * <p>The number of training jobs that are in progress and pending evaluation of their final objective metric.</p>
+   * @public
+   */
+  Pending?: number | undefined;
+
+  /**
+   * <p>The number of training jobs whose final objective metric was not evaluated and used in the hyperparameter tuning process. This typically occurs when the training job failed or did not emit an objective metric.</p>
+   * @public
+   */
+  Failed?: number | undefined;
+}
+
+/**
+ * <p>The numbers of training jobs launched by a hyperparameter tuning job, categorized by status.</p>
+ * @public
+ */
+export interface TrainingJobStatusCounters {
+  /**
+   * <p>The number of completed training jobs launched by the hyperparameter tuning job.</p>
+   * @public
+   */
+  Completed?: number | undefined;
+
+  /**
+   * <p>The number of in-progress training jobs launched by a hyperparameter tuning job.</p>
+   * @public
+   */
+  InProgress?: number | undefined;
+
+  /**
+   * <p>The number of training jobs that failed, but can be retried. A failed training job can be retried only if it failed because an internal service error occurred.</p>
+   * @public
+   */
+  RetryableError?: number | undefined;
+
+  /**
+   * <p>The number of training jobs that failed and can't be retried. A failed training job can't be retried if it failed because a client error occurred.</p>
+   * @public
+   */
+  NonRetryableError?: number | undefined;
+
+  /**
+   * <p>The number of training jobs launched by a hyperparameter tuning job that were manually stopped.</p>
+   * @public
+   */
+  Stopped?: number | undefined;
+}
 
 /**
  * <p>A structure that contains runtime information about both current and completed hyperparameter tuning jobs.</p>
@@ -3353,6 +3497,12 @@ export interface DescribeOptimizationJobResponse {
    * @public
    */
   VpcConfig?: OptimizationVpcConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the training plan associated with this optimization job. This field appears only when you specified a training plan when you created the job. Optimization jobs that use on-demand capacity don't return this field.</p>
+   * @public
+   */
+  TrainingPlanArns?: string[] | undefined;
 }
 
 /**
@@ -11672,158 +11822,6 @@ export interface ListHyperParameterTuningJobsResponse {
 
   /**
    * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImagesRequest {
-  /**
-   * <p>A filter that returns only images created on or after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only images created on or before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only images modified on or after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only images modified on or before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of images to return in the response. The default value is 10. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>A filter that returns only images whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListImages</code> didn't return the full set of images, the call returns a token for getting the next set of images.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ImageSortBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
-   * @public
-   */
-  SortOrder?: ImageSortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImagesResponse {
-  /**
-   * <p>A list of images and their properties.</p>
-   * @public
-   */
-  Images?: Image[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of images, if there are any.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImageVersionsRequest {
-  /**
-   * <p>A filter that returns only versions created on or after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only versions created on or before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The name of the image to list the versions of.</p>
-   * @public
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>A filter that returns only versions modified on or after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only versions modified on or before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>The maximum number of versions to return in the response. The default value is 10. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>If the previous call to <code>ListImageVersions</code> didn't return the full set of versions, the call returns a token for getting the next set of versions.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
-   * @public
-   */
-  SortBy?: ImageVersionSortBy | undefined;
-
-  /**
-   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
-   * @public
-   */
-  SortOrder?: ImageVersionSortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface ListImageVersionsResponse {
-  /**
-   * <p>A list of versions and their properties.</p>
-   * @public
-   */
-  ImageVersions?: ImageVersion[] | undefined;
-
-  /**
-   * <p>A token for getting the next set of versions, if there are any.</p>
    * @public
    */
   NextToken?: string | undefined;

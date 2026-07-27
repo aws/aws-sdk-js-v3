@@ -44,6 +44,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {}
   ],
   "ComputeSpec": {},
+  "AdapterSource": {},
   "StartTime": 946702799.999,
   "EndTime": 946702799.999,
   "Tags": [
@@ -103,6 +104,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     {}
   ],
   ComputeSpec: {},
+  AdapterSource: {},
   StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   Tags: [
@@ -248,7 +250,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
-        }
+        },
+        "MinCpuMemoryRequiredInMb": 0
       },
       "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
       "ExpectedPerformance": [
@@ -270,7 +273,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Stat": "__Stat__",
           "Unit": "__Unit__"
         }
-      ]
+      ],
+      "AdapterDetails": {
+        "ModelPackageArns": [
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          }
+        ],
+        "S3Uris": [
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          }
+        ]
+      }
     },
     {
       "RecommendationDescription": "__RecommendationDescription__",
@@ -344,7 +377,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
-        }
+        },
+        "MinCpuMemoryRequiredInMb": 0
       },
       "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
       "ExpectedPerformance": [
@@ -366,7 +400,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Stat": "__Stat__",
           "Unit": "__Unit__"
         }
-      ]
+      ],
+      "AdapterDetails": {
+        "ModelPackageArns": [
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          }
+        ],
+        "S3Uris": [
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          }
+        ]
+      }
     },
     {
       "RecommendationDescription": "__RecommendationDescription__",
@@ -440,7 +504,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "key1": "__value__",
           "key2": "__value__",
           "key3": "__value__"
-        }
+        },
+        "MinCpuMemoryRequiredInMb": 0
       },
       "AIBenchmarkJobArn": "__AIBenchmarkJobArn__",
       "ExpectedPerformance": [
@@ -462,7 +527,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Stat": "__Stat__",
           "Unit": "__Unit__"
         }
-      ]
+      ],
+      "AdapterDetails": {
+        "ModelPackageArns": [
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "ModelPackageArn": "__ModelPackageArn__"
+          }
+        ],
+        "S3Uris": [
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          },
+          {
+            "AdapterId": "__AdapterId__",
+            "S3Uri": "__S3Uri__"
+          }
+        ]
+      }
     }
   ],
   "ComputeSpec": {
@@ -479,6 +574,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__"
       ]
     }
+  },
+  "AdapterSource": {
+    "ModelPackageArns": [
+      {
+        "AdapterId": "__AdapterId__",
+        "ModelPackageArn": "__ModelPackageArn__"
+      },
+      {
+        "AdapterId": "__AdapterId__",
+        "ModelPackageArn": "__ModelPackageArn__"
+      },
+      {
+        "AdapterId": "__AdapterId__",
+        "ModelPackageArn": "__ModelPackageArn__"
+      }
+    ]
   },
   "StartTime": 946702799.999,
   "EndTime": 946702799.999,
@@ -612,7 +723,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
-        }
+        },
+        MinCpuMemoryRequiredInMb: (number) 0
       },
       AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
       ExpectedPerformance: [
@@ -634,7 +746,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Stat: "__Stat__",
           Unit: "__Unit__"
         }
-      ]
+      ],
+      AdapterDetails: {
+        ModelPackageArns: [
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          }
+        ],
+        S3Uris: [
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          }
+        ]
+      }
     },
     {
       RecommendationDescription: "__RecommendationDescription__",
@@ -708,7 +850,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
-        }
+        },
+        MinCpuMemoryRequiredInMb: (number) 0
       },
       AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
       ExpectedPerformance: [
@@ -730,7 +873,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Stat: "__Stat__",
           Unit: "__Unit__"
         }
-      ]
+      ],
+      AdapterDetails: {
+        ModelPackageArns: [
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          }
+        ],
+        S3Uris: [
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          }
+        ]
+      }
     },
     {
       RecommendationDescription: "__RecommendationDescription__",
@@ -804,7 +977,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           key1: "__value__",
           key2: "__value__",
           key3: "__value__"
-        }
+        },
+        MinCpuMemoryRequiredInMb: (number) 0
       },
       AIBenchmarkJobArn: "__AIBenchmarkJobArn__",
       ExpectedPerformance: [
@@ -826,7 +1000,37 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Stat: "__Stat__",
           Unit: "__Unit__"
         }
-      ]
+      ],
+      AdapterDetails: {
+        ModelPackageArns: [
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            ModelPackageArn: "__ModelPackageArn__"
+          }
+        ],
+        S3Uris: [
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          },
+          {
+            AdapterId: "__AdapterId__",
+            S3Uri: "__S3Uri__"
+          }
+        ]
+      }
     }
   ],
   ComputeSpec: {
@@ -843,6 +1047,22 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "__member__"
       ]
     }
+  },
+  AdapterSource: {
+    ModelPackageArns: [
+      {
+        AdapterId: "__AdapterId__",
+        ModelPackageArn: "__ModelPackageArn__"
+      },
+      {
+        AdapterId: "__AdapterId__",
+        ModelPackageArn: "__ModelPackageArn__"
+      },
+      {
+        AdapterId: "__AdapterId__",
+        ModelPackageArn: "__ModelPackageArn__"
+      }
+    ]
   },
   StartTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
   EndTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,

@@ -72,6 +72,20 @@ export interface CreateAIRecommendationJobCommandOutput extends CreateAIRecommen
  *       ],
  *     },
  *   },
+ *   AdapterSource: { // AIAdapterSource Union: only one key present
+ *     ModelPackageArns: [ // AIAdapterModelPackageEntryList
+ *       { // AIAdapterModelPackageEntry
+ *         AdapterId: "STRING_VALUE", // required
+ *         ModelPackageArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     S3Uris: [ // AIAdapterS3EntryList
+ *       { // AIAdapterS3Entry
+ *         AdapterId: "STRING_VALUE", // required
+ *         S3Uri: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *   },
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

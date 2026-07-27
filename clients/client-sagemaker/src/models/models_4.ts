@@ -18,6 +18,10 @@ import type {
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
+  ImageSortBy,
+  ImageSortOrder,
+  ImageVersionSortBy,
+  ImageVersionSortOrder,
   InferenceComponentSortKey,
   InferenceComponentStatus,
   InferenceExperimentStatus,
@@ -201,7 +205,6 @@ import type {
   DeploymentRecommendation,
   ExperimentConfig,
   FeatureParameter,
-  HyperParameterTrainingJobSummary,
   InstanceGroupHealthCheckConfiguration,
   ModelArtifacts,
   ModelClientConfig,
@@ -235,7 +238,10 @@ import type {
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSearchEntity,
+  Image,
+  ImageVersion,
   InferenceComponentDeploymentConfig,
   InferenceComponentMetadata,
   InferenceComponentSummary,
@@ -269,6 +275,158 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListImagesRequest {
+  /**
+   * <p>A filter that returns only images created on or after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only images created on or before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only images modified on or after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only images modified on or before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of images to return in the response. The default value is 10. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A filter that returns only images whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListImages</code> didn't return the full set of images, the call returns a token for getting the next set of images.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   * @public
+   */
+  SortBy?: ImageSortBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+   * @public
+   */
+  SortOrder?: ImageSortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImagesResponse {
+  /**
+   * <p>A list of images and their properties.</p>
+   * @public
+   */
+  Images?: Image[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of images, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImageVersionsRequest {
+  /**
+   * <p>A filter that returns only versions created on or after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only versions created on or before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The name of the image to list the versions of.</p>
+   * @public
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>A filter that returns only versions modified on or after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only versions modified on or before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>The maximum number of versions to return in the response. The default value is 10. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the previous call to <code>ListImageVersions</code> didn't return the full set of versions, the call returns a token for getting the next set of versions.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The property used to sort results. The default value is <code>CREATION_TIME</code>.</p>
+   * @public
+   */
+  SortBy?: ImageVersionSortBy | undefined;
+
+  /**
+   * <p>The sort order. The default value is <code>DESCENDING</code>.</p>
+   * @public
+   */
+  SortOrder?: ImageVersionSortOrder | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImageVersionsResponse {
+  /**
+   * <p>A list of versions and their properties.</p>
+   * @public
+   */
+  ImageVersions?: ImageVersion[] | undefined;
+
+  /**
+   * <p>A token for getting the next set of versions, if there are any.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -10338,126 +10496,4 @@ export interface UpdateMlflowTrackingServerRequest {
    * @public
    */
   S3BucketOwnerVerification?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMlflowTrackingServerResponse {
-  /**
-   * <p>The ARN of the updated MLflow Tracking Server.</p>
-   * @public
-   */
-  TrackingServerArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateModelCardRequest {
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of the model card to update.</p>
-   * @public
-   */
-  ModelCardName: string | undefined;
-
-  /**
-   * <p>The updated model card content. Content must be in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema">model card JSON schema</a> and provided as a string.</p> <p>When updating model card content, be sure to include the full content and not just updated content.</p>
-   * @public
-   */
-  Content?: string | undefined;
-
-  /**
-   * <p>The approval status of the model card within your organization. Different organizations might have different criteria for model card review and approval.</p> <ul> <li> <p> <code>Draft</code>: The model card is a work in progress.</p> </li> <li> <p> <code>PendingReview</code>: The model card is pending review.</p> </li> <li> <p> <code>Approved</code>: The model card is approved.</p> </li> <li> <p> <code>Archived</code>: The model card is archived. No more updates should be made to the model card, but it can still be exported.</p> </li> </ul>
-   * @public
-   */
-  ModelCardStatus?: ModelCardStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateModelCardResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated model card.</p>
-   * @public
-   */
-  ModelCardArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateModelPackageInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the model package.</p>
-   * @public
-   */
-  ModelPackageArn: string | undefined;
-
-  /**
-   * <p>The approval status of the model.</p>
-   * @public
-   */
-  ModelApprovalStatus?: ModelApprovalStatus | undefined;
-
-  /**
-   * <p> The package registration type of the model package input. </p>
-   * @public
-   */
-  ModelPackageRegistrationType?: ModelPackageRegistrationType | undefined;
-
-  /**
-   * <p>A description for the approval status of the model.</p>
-   * @public
-   */
-  ApprovalDescription?: string | undefined;
-
-  /**
-   * <p>The metadata properties associated with the model package versions.</p>
-   * @public
-   */
-  CustomerMetadataProperties?: Record<string, string> | undefined;
-
-  /**
-   * <p>The metadata properties associated with the model package versions to remove.</p>
-   * @public
-   */
-  CustomerMetadataPropertiesToRemove?: string[] | undefined;
-
-  /**
-   * <p>An array of additional Inference Specification objects to be added to the existing array additional Inference Specification. Total number of additional Inference Specifications can not exceed 15. Each additional Inference Specification specifies artifacts based on this model package that can be used on inference endpoints. Generally used with SageMaker Neo to store the compiled artifacts.</p>
-   * @public
-   */
-  AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[] | undefined;
-
-  /**
-   * <p>Specifies details about inference jobs that you can run with models based on this model package, including the following information:</p> <ul> <li> <p>The Amazon ECR paths of containers that contain the inference code and model artifacts.</p> </li> <li> <p>The instance types that the model package supports for transform jobs and real-time endpoints used for inference.</p> </li> <li> <p>The input and output content formats that the model package supports for inference.</p> </li> </ul>
-   * @public
-   */
-  InferenceSpecification?: InferenceSpecification | undefined;
-
-  /**
-   * <p>The URI of the source for the model package.</p>
-   * @public
-   */
-  SourceUri?: string | undefined;
-
-  /**
-   * <p>The model card associated with the model package. Since <code>ModelPackageModelCard</code> is tied to a model package, it is a specific usage of a model card and its schema is simplified compared to the schema of <code>ModelCard</code>. The <code>ModelPackageModelCard</code> schema does not include <code>model_package_details</code>, and <code>model_overview</code> is composed of the <code>model_creator</code> and <code>model_artifact</code> properties. For more information about the model package model card schema, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html#model-card-schema">Model package model card schema</a>. For more information about the model card associated with the model package, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-registry-details.html">View the Details of a Model Version</a>.</p>
-   * @public
-   */
-  ModelCard?: ModelPackageModelCard | undefined;
-
-  /**
-   * <p> A structure describing the current state of the model in its life cycle. </p>
-   * @public
-   */
-  ModelLifeCycle?: ModelLifeCycle | undefined;
-
-  /**
-   * <p> A unique token that guarantees that the call to this API is idempotent. </p>
-   * @public
-   */
-  ClientToken?: string | undefined;
 }

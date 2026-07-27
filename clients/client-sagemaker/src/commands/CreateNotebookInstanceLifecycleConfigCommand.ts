@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   CreateNotebookInstanceLifecycleConfigInput,
   CreateNotebookInstanceLifecycleConfigOutput,
-} from "../models/models_1";
+} from "../models/models_2";
 import { CreateNotebookInstanceLifecycleConfig$ } from "../schemas/schemas_0";
 
 /**

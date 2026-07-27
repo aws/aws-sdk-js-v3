@@ -23,6 +23,9 @@ import {
   AddTagsOutput$,
   AgentVersion$,
   AggregationTransformationValue,
+  AIAdapterModelPackageEntry$,
+  AIAdapterS3Entry$,
+  AIAdapterSource$,
   AIBenchmarkEndpoint$,
   AIBenchmarkInferenceComponent$,
   AIBenchmarkJobStatus,
@@ -39,6 +42,7 @@ import {
   AIModelSource$,
   AIModelSourceS3$,
   AIRecommendation$,
+  AIRecommendationAdapterDetails$,
   AIRecommendationComputeSpec$,
   AIRecommendationConstraint$,
   AIRecommendationDeploymentConfiguration$,
@@ -3663,6 +3667,9 @@ assert(typeof AdditionalS3DataSource$ === "object");
 assert(typeof AddTagsInput$ === "object");
 assert(typeof AddTagsOutput$ === "object");
 assert(typeof AgentVersion$ === "object");
+assert(typeof AIAdapterModelPackageEntry$ === "object");
+assert(typeof AIAdapterS3Entry$ === "object");
+assert(typeof AIAdapterSource$ === "object");
 assert(typeof AIBenchmarkEndpoint$ === "object");
 assert(typeof AIBenchmarkInferenceComponent$ === "object");
 assert(typeof AIBenchmarkJobSummary$ === "object");
@@ -3677,6 +3684,7 @@ assert(typeof AIMlflowConfig$ === "object");
 assert(typeof AIModelSource$ === "object");
 assert(typeof AIModelSourceS3$ === "object");
 assert(typeof AIRecommendation$ === "object");
+assert(typeof AIRecommendationAdapterDetails$ === "object");
 assert(typeof AIRecommendationComputeSpec$ === "object");
 assert(typeof AIRecommendationConstraint$ === "object");
 assert(typeof AIRecommendationDeploymentConfiguration$ === "object");

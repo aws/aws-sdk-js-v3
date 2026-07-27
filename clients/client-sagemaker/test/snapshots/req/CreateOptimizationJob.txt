@@ -3,14 +3,14 @@ POST https://api.sagemaker.us-east-1.amazonaws.com
 
 content-type: application/x-amz-json-1.1
 x-amz-target: SageMaker.CreateOptimizationJob
-content-length: 1266
+content-length: 1326
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/sagemaker#_.__ m/E,e
 host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: f0ffca08cfe7c9fd003d210b56ebbd430982f579bb15e0d43dcfc11e6cf4b482
+x-amz-content-sha256: 13d55271aa9023e762a593b6e03b8eba60bb3b37d311fef89e41396544c2b2f4
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -103,5 +103,10 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
       "__member__",
       "__member__"
     ]
-  }
+  },
+  "TrainingPlanArns": [
+    "__member__",
+    "__member__",
+    "__member__"
+  ]
 }

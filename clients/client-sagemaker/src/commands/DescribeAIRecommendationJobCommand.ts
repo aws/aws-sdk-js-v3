@@ -104,6 +104,7 @@ export interface DescribeAIRecommendationJobCommandOutput extends DescribeAIReco
  * //         EnvironmentVariables: { // EnvironmentMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         MinCpuMemoryRequiredInMb: Number("int"),
  * //       },
  * //       AIBenchmarkJobArn: "STRING_VALUE",
  * //       ExpectedPerformance: [ // ExpectedPerformanceList
@@ -114,6 +115,20 @@ export interface DescribeAIRecommendationJobCommandOutput extends DescribeAIReco
  * //           Unit: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       AdapterDetails: { // AIRecommendationAdapterDetails
+ * //         ModelPackageArns: [ // AIAdapterModelPackageEntryList // required
+ * //           { // AIAdapterModelPackageEntry
+ * //             AdapterId: "STRING_VALUE", // required
+ * //             ModelPackageArn: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         S3Uris: [ // AIAdapterS3EntryList // required
+ * //           { // AIAdapterS3Entry
+ * //             AdapterId: "STRING_VALUE", // required
+ * //             S3Uri: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   RoleArn: "STRING_VALUE", // required
@@ -127,6 +142,20 @@ export interface DescribeAIRecommendationJobCommandOutput extends DescribeAIReco
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //   },
+ * //   AdapterSource: { // AIAdapterSource Union: only one key present
+ * //     ModelPackageArns: [
+ * //       {
+ * //         AdapterId: "STRING_VALUE", // required
+ * //         ModelPackageArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     S3Uris: [
+ * //       {
+ * //         AdapterId: "STRING_VALUE", // required
+ * //         S3Uri: "STRING_VALUE", // required
+ * //       },
+ * //     ],
  * //   },
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   StartTime: new Date("TIMESTAMP"),
