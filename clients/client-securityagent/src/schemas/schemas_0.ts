@@ -722,6 +722,7 @@ const _tDN = "targetDomainName";
 const _tDS = "targetDomainSummaries";
 const _tDa = "taskDetails";
 const _tE = "targetEndpoint";
+const _tH = "taskHours";
 const _tI = "taskIds";
 const _tIa = "taskId";
 const _tIh = "threatIds";
@@ -2049,13 +2050,13 @@ export var TargetDomainSummary$: StaticStructureSchema = [3, n0, _TDS,
 ];
 export var Task$: StaticStructureSchema = [3, n0, _T,
   0,
-  [_tIa, _pIen, _pJIe, _aSI, _ti, _d, _ca, _rT, _tE, _eS, _lL, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, () => CategoryList, 0, () => Endpoint$, 0, () => LogLocation$, 5, 5], 1
+  [_tIa, _pIen, _pJIe, _aSI, _ti, _d, _ca, _rT, _tE, _eS, _lL, _tH, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, () => CategoryList, 0, () => Endpoint$, 0, () => LogLocation$, 1, 5, 5], 1
 ];
 export var TaskSummary$: StaticStructureSchema = [3, n0, _TS,
   0,
-  [_tIa, _pIen, _pJIe, _aSI, _ti, _rT, _eS, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5], 1
+  [_tIa, _pIen, _pJIe, _aSI, _ti, _rT, _eS, _tH, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 1, 5, 5], 1
 ];
 export var Threat$: StaticStructureSchema = [3, n0, _Th,
   0,

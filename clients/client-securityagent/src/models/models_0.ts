@@ -2633,6 +2633,12 @@ export interface Task {
   logsLocation?: LogLocation | undefined;
 
   /**
+   * <p>The number of active work hours consumed by the task during execution.</p>
+   * @public
+   */
+  taskHours?: number | undefined;
+
+  /**
    * <p>The date and time the task was created, in UTC format.</p>
    * @public
    */
@@ -7273,6 +7279,12 @@ export interface TaskSummary {
    * @public
    */
   executionStatus?: TaskExecutionStatus | undefined;
+
+  /**
+   * <p>The number of active work hours consumed by the task during execution.</p>
+   * @public
+   */
+  taskHours?: number | undefined;
 
   /**
    * <p>The date and time the task was created, in UTC format.</p>
