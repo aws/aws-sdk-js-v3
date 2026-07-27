@@ -70,7 +70,7 @@ export interface S3Destination {
   S3Bucket: string | undefined;
 
   /**
-   * <p>The AWS Account ID that owns the S3 bucket used as the destination for the data export.</p>
+   * <p>The Amazon Web Services account ID that owns the S3 bucket used as the destination for the data export.</p>
    * @public
    */
   S3BucketOwner?: string | undefined;

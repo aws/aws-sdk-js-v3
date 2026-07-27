@@ -59,7 +59,7 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * //         S3OutputConfigurations: { // S3OutputConfigurations
  * //           OutputType: "CUSTOM" || "ATHENA" || "REDSHIFT", // required
  * //           Format: "TEXT_OR_CSV" || "PARQUET", // required
- * //           Compression: "GZIP" || "PARQUET", // required
+ * //           Compression: "GZIP" || "PARQUET" || "ZIP", // required
  * //           Overwrite: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT", // required
  * //         },
  * //       },
@@ -70,7 +70,7 @@ export interface GetExportCommandOutput extends GetExportResponse, __MetadataBea
  * //   },
  * //   ExportStatus: { // ExportStatus
  * //     StatusCode: "HEALTHY" || "UNHEALTHY",
- * //     StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE",
+ * //     StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE" || "DEPRECATED",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     LastUpdatedAt: new Date("TIMESTAMP"),
  * //     LastRefreshedAt: new Date("TIMESTAMP"),

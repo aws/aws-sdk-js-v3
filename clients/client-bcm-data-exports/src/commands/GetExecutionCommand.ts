@@ -61,7 +61,7 @@ export interface GetExecutionCommandOutput extends GetExecutionResponse, __Metad
  * //         S3OutputConfigurations: { // S3OutputConfigurations
  * //           OutputType: "CUSTOM" || "ATHENA" || "REDSHIFT", // required
  * //           Format: "TEXT_OR_CSV" || "PARQUET", // required
- * //           Compression: "GZIP" || "PARQUET", // required
+ * //           Compression: "GZIP" || "PARQUET" || "ZIP", // required
  * //           Overwrite: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT", // required
  * //         },
  * //       },
@@ -72,7 +72,7 @@ export interface GetExecutionCommandOutput extends GetExecutionResponse, __Metad
  * //   },
  * //   ExecutionStatus: { // ExecutionStatus
  * //     StatusCode: "INITIATION_IN_PROCESS" || "QUERY_QUEUED" || "QUERY_IN_PROCESS" || "QUERY_FAILURE" || "DELIVERY_IN_PROCESS" || "DELIVERY_SUCCESS" || "DELIVERY_FAILURE",
- * //     StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE",
+ * //     StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE" || "DEPRECATED",
  * //     CreatedAt: new Date("TIMESTAMP"),
  * //     CompletedAt: new Date("TIMESTAMP"),
  * //     LastUpdatedAt: new Date("TIMESTAMP"),

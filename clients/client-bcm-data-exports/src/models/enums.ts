@@ -6,6 +6,7 @@
 export const CompressionOption = {
   GZIP: "GZIP",
   PARQUET: "PARQUET",
+  ZIP: "ZIP",
 } as const;
 /**
  * @public
@@ -98,6 +99,7 @@ export type ExportStatusCode = (typeof ExportStatusCode)[keyof typeof ExportStat
  */
 export const ExecutionStatusReason = {
   BILL_OWNER_CHANGED: "BILL_OWNER_CHANGED",
+  DEPRECATED: "DEPRECATED",
   INSUFFICIENT_PERMISSION: "INSUFFICIENT_PERMISSION",
   INTERNAL_FAILURE: "INTERNAL_FAILURE",
 } as const;

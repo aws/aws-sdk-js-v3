@@ -45,7 +45,7 @@ export interface ListExportsCommandOutput extends ListExportsResponse, __Metadat
  * //       ExportName: "STRING_VALUE", // required
  * //       ExportStatus: { // ExportStatus
  * //         StatusCode: "HEALTHY" || "UNHEALTHY",
- * //         StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE",
+ * //         StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE" || "DEPRECATED",
  * //         CreatedAt: new Date("TIMESTAMP"),
  * //         LastUpdatedAt: new Date("TIMESTAMP"),
  * //         LastRefreshedAt: new Date("TIMESTAMP"),

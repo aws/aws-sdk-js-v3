@@ -54,7 +54,7 @@ export interface CreateExportCommandOutput extends CreateExportResponse, __Metad
  *         S3OutputConfigurations: { // S3OutputConfigurations
  *           OutputType: "CUSTOM" || "ATHENA" || "REDSHIFT", // required
  *           Format: "TEXT_OR_CSV" || "PARQUET", // required
- *           Compression: "GZIP" || "PARQUET", // required
+ *           Compression: "GZIP" || "PARQUET" || "ZIP", // required
  *           Overwrite: "CREATE_NEW_REPORT" || "OVERWRITE_REPORT", // required
  *         },
  *       },

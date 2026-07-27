@@ -45,7 +45,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * //       ExecutionId: "STRING_VALUE", // required
  * //       ExecutionStatus: { // ExecutionStatus
  * //         StatusCode: "INITIATION_IN_PROCESS" || "QUERY_QUEUED" || "QUERY_IN_PROCESS" || "QUERY_FAILURE" || "DELIVERY_IN_PROCESS" || "DELIVERY_SUCCESS" || "DELIVERY_FAILURE",
- * //         StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE",
+ * //         StatusReason: "INSUFFICIENT_PERMISSION" || "BILL_OWNER_CHANGED" || "INTERNAL_FAILURE" || "DEPRECATED",
  * //         CreatedAt: new Date("TIMESTAMP"),
  * //         CompletedAt: new Date("TIMESTAMP"),
  * //         LastUpdatedAt: new Date("TIMESTAMP"),
