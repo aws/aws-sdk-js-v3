@@ -129,6 +129,10 @@ import type {
 import type { StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import type {
+  UpdateVirtualClusterCommandInput,
+  UpdateVirtualClusterCommandOutput,
+} from "./commands/UpdateVirtualClusterCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -167,7 +171,8 @@ export type ServiceInputTypes =
   | ListVirtualClustersCommandInput
   | StartJobRunCommandInput
   | TagResourceCommandInput
-  | UntagResourceCommandInput;
+  | UntagResourceCommandInput
+  | UpdateVirtualClusterCommandInput;
 
 /**
  * @public
@@ -196,7 +201,8 @@ export type ServiceOutputTypes =
   | ListVirtualClustersCommandOutput
   | StartJobRunCommandOutput
   | TagResourceCommandOutput
-  | UntagResourceCommandOutput;
+  | UntagResourceCommandOutput
+  | UpdateVirtualClusterCommandOutput;
 
 /**
  * @public

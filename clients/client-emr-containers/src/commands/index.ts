@@ -23,3 +23,4 @@ export * from "./ListVirtualClustersCommand";
 export * from "./StartJobRunCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateVirtualClusterCommand";

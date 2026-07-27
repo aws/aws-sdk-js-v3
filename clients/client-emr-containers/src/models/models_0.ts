@@ -12,60 +12,60 @@ import type {
 } from "./enums";
 
 /**
- * <p>IAM configuration for the security configuration.</p>
+ * <p>Contains the IAM settings for a security configuration, including the system role used for authentication.</p>
  * @public
  */
 export interface IAMConfiguration {
   /**
-   * <p>The ARN of the system role used by the security configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the system role used by the security configuration.</p>
    * @public
    */
   systemRole?: string | undefined;
 }
 
 /**
- * <p>Identity Center related configuration for the security configuration.</p>
+ * <p>Contains the IAM Identity Center settings for a security configuration, including instance ARN, application assignment requirements, and application ARN.</p>
  * @public
  */
 export interface IdentityCenterConfiguration {
   /**
-   * <p>Determines whether Identity Center is enabled for the security configuration.</p>
+   * <p>Specifies whether Identity Center is enabled for the security configuration.</p>
    * @public
    */
   enableIdentityCenter?: boolean | undefined;
 
   /**
-   * <p>Determines whether user assignment is required for the Identity Center application.</p>
+   * <p>Specifies whether user assignment is required for the Identity Center application.</p>
    * @public
    */
   identityCenterApplicationAssignmentRequired?: boolean | undefined;
 
   /**
-   * <p>The ARN of the Identity Center instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the Identity Center instance.</p>
    * @public
    */
   identityCenterInstanceARN?: string | undefined;
 
   /**
-   * <p>The ARN of the EMR Identity Center application.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon EMR Identity Center application.</p>
    * @public
    */
   emrIdentityCenterApplicationARN?: string | undefined;
 }
 
 /**
- * <p>Authentication configuration for the security configuration.</p>
+ * <p>Contains the authentication settings for a security configuration, including Identity Center and IAM configuration options.</p>
  * @public
  */
 export interface AuthenticationConfiguration {
   /**
-   * <p>Identity Center configuration for authentication in the security configuration.</p>
+   * <p>The IAM Identity Center configuration to use for authentication.</p>
    * @public
    */
   identityCenterConfiguration?: IdentityCenterConfiguration | undefined;
 
   /**
-   * <p>IAM configuration for authentication in the security configuration.</p>
+   * <p>The IAM configuration to use for authentication.</p>
    * @public
    */
   iamConfiguration?: IAMConfiguration | undefined;
@@ -455,7 +455,7 @@ export interface S3MonitoringConfiguration {
   logUri: string | undefined;
 
   /**
-   * <p>The Amazon resource name (ARN) of the encryption key for logs.</p>
+   * <p>The Amazon Resource Name (ARN) of the encryption key for logs.</p>
    * @public
    */
   encryptionKeyArn?: string | undefined;
@@ -685,6 +685,31 @@ export interface CreateSecurityConfigurationResponse {
 }
 
 /**
+ * <p>The scheduler configuration for a virtual cluster on Amazon EMR on EKS. It controls how
+ *          many job runs can run concurrently and how many can wait in the queue. When not set, no
+ *          concurrency or queue limits are applied.</p>
+ * @public
+ */
+export interface SchedulerConfiguration {
+  /**
+   * <p>The maximum number of job runs that can be in the <code>PENDING</code> or
+   *          <code>SUBMITTED</code> state at any time for the virtual cluster. When the queue is full,
+   *          the service rejects <code>StartJobRun</code> requests with a <code>ValidationException</code>. If you omit
+   *          this field, the service applies no queue-depth limit.</p>
+   * @public
+   */
+  maxInQueueJobRuns?: number | undefined;
+
+  /**
+   * <p>The maximum number of job runs that can be in the <code>RUNNING</code> state at any time
+   *          for the virtual cluster. As running slots free up, queued job runs start automatically. If
+   *          you omit this field, the service applies no concurrency limit.</p>
+   * @public
+   */
+  maxConcurrentJobRuns?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateVirtualClusterRequest {
@@ -723,6 +748,13 @@ export interface CreateVirtualClusterRequest {
    * @public
    */
   sessionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The scheduler configuration (concurrency and queue limits) to apply to the virtual
+   *          cluster at creation time. When omitted, no limits are applied.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration | undefined;
 }
 
 /**
@@ -820,7 +852,7 @@ export interface DeleteSecurityConfigurationRequest {
  */
 export interface DeleteSecurityConfigurationResponse {
   /**
-   * <p>The ID of the security configuration that was deleted.</p>
+   * <p>The ID of the deleted security configuration.</p>
    * @public
    */
   id?: string | undefined;
@@ -1020,6 +1052,27 @@ export interface DescribeVirtualClusterRequest {
 }
 
 /**
+ * <p>The current job-run counts for a virtual cluster, reflecting how much of the configured
+ *          scheduler capacity is in use.</p>
+ * @public
+ */
+export interface SchedulerStatus {
+  /**
+   * <p>The number of job runs currently waiting in the queue (<code>PENDING</code> or
+   *          <code>SUBMITTED</code>) for the virtual cluster.</p>
+   * @public
+   */
+  currentInQueueJobRuns?: number | undefined;
+
+  /**
+   * <p>The number of job runs currently in the <code>RUNNING</code> state for the virtual
+   *          cluster.</p>
+   * @public
+   */
+  currentConcurrentJobRuns?: number | undefined;
+}
+
+/**
  * <p>This entity describes a virtual cluster. A virtual cluster is a Kubernetes namespace
  *          that Amazon EMR is registered with. Amazon EMR uses virtual clusters to run
  *          jobs and host endpoints. Multiple virtual clusters can be backed by the same physical
@@ -1078,10 +1131,23 @@ export interface VirtualCluster {
   securityConfigurationId?: string | undefined;
 
   /**
-   * <p>Indicates whether the virtual cluster has session support enabled. </p>
+   * <p>Specifies whether the virtual cluster has session support enabled. </p>
    * @public
    */
   sessionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The scheduler configuration (concurrency and queue limits) applied to the virtual
+   *          cluster. The service does not return this field when no scheduler limits are configured.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration | undefined;
+
+  /**
+   * <p>The current in-queue and concurrent job-run counts for the virtual cluster.</p>
+   * @public
+   */
+  schedulerStatus?: SchedulerStatus | undefined;
 }
 
 /**
@@ -1200,7 +1266,7 @@ export interface GetManagedEndpointSessionCredentialsResponse {
   credentials?: Credentials | undefined;
 
   /**
-   * <p>The structure containing the session token being returned.</p>
+   * <p>The session credentials that the operation returns.</p>
    * @public
    */
   endpointCredentials?: Credentials | undefined;
@@ -1550,6 +1616,45 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Contains the parameters for a request to update a virtual cluster on Amazon EMR on EKS.</p>
+ * @public
+ */
+export interface UpdateVirtualClusterRequest {
+  /**
+   * <p>The ID of the virtual cluster to update.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The scheduler configuration to apply to the virtual cluster. The new configuration fully
+   *          replaces the existing one. If you omit a field, the corresponding limit is removed.</p>
+   * @public
+   */
+  schedulerConfiguration?: SchedulerConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the operation
+   *          completes no more than one time. If this token matches a previous request, the service
+   *          ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the virtual cluster returned after a successful update request.</p>
+ * @public
+ */
+export interface UpdateVirtualClusterResponse {
+  /**
+   * <p>The updated virtual cluster.</p>
+   * @public
+   */
+  virtualCluster?: VirtualCluster | undefined;
+}
+
+/**
  * <p>A configuration specification to be used when provisioning virtual clusters, which can
  *          include configurations for applications and software bundled with Amazon EMR on EKS. A
  *          configuration consists of a classification, properties, and optional nested configurations.
@@ -1676,7 +1781,7 @@ export interface CreateManagedEndpointRequest {
   tags?: Record<string, string> | undefined;
 
   /**
-   * <p>The idle timeout in minutes for the managed endpoint session.</p>
+   * <p>The number of idle minutes before the managed endpoint session times out.</p>
    * @public
    */
   sessionIdleTimeoutInMinutes?: number | undefined;
@@ -1765,7 +1870,7 @@ export interface Endpoint {
   serverUrl?: string | undefined;
 
   /**
-   * <p>The auth proxy URL of the endpoint.</p>
+   * <p>The authentication proxy URL of the endpoint.</p>
    * @public
    */
   authProxyUrl?: string | undefined;

@@ -136,6 +136,8 @@ import {
   RetryPolicyConfiguration$,
   RetryPolicyExecution$,
   S3MonitoringConfiguration$,
+  SchedulerConfiguration$,
+  SchedulerStatus$,
   SecureNamespaceInfo$,
   SecurityConfiguration$,
   SecurityConfigurationData$,
@@ -156,6 +158,10 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateVirtualCluster$,
+  UpdateVirtualClusterCommand,
+  UpdateVirtualClusterRequest$,
+  UpdateVirtualClusterResponse$,
   ValidationException,
   ValidationException$,
   VirtualCluster$,
@@ -214,6 +220,8 @@ assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateVirtualClusterCommand === "function");
+assert(typeof UpdateVirtualCluster$ === "object");
 // structural schemas
 assert(typeof AuthenticationConfiguration$ === "object");
 assert(typeof AuthorizationConfiguration$ === "object");
@@ -287,6 +295,8 @@ assert(typeof ParametricS3MonitoringConfiguration$ === "object");
 assert(typeof RetryPolicyConfiguration$ === "object");
 assert(typeof RetryPolicyExecution$ === "object");
 assert(typeof S3MonitoringConfiguration$ === "object");
+assert(typeof SchedulerConfiguration$ === "object");
+assert(typeof SchedulerStatus$ === "object");
 assert(typeof SecureNamespaceInfo$ === "object");
 assert(typeof SecurityConfiguration$ === "object");
 assert(typeof SecurityConfigurationData$ === "object");
@@ -300,6 +310,8 @@ assert(typeof TemplateParameterConfiguration$ === "object");
 assert(typeof TLSCertificateConfiguration$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof UpdateVirtualClusterRequest$ === "object");
+assert(typeof UpdateVirtualClusterResponse$ === "object");
 assert(typeof VirtualCluster$ === "object");
 // enums
 assert(typeof AllowAWSToRetainLogs === "object");

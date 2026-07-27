@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeVirtualClusterRequest, DescribeVirtualClusterResponse } from "../models/models_0";
-import { DescribeVirtualCluster$ } from "../schemas/schemas_0";
+import type { UpdateVirtualClusterRequest, UpdateVirtualClusterResponse } from "../models/models_0";
+import { UpdateVirtualCluster$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,37 +12,40 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DescribeVirtualClusterCommand}.
+ * The input for {@link UpdateVirtualClusterCommand}.
  */
-export interface DescribeVirtualClusterCommandInput extends DescribeVirtualClusterRequest {}
+export interface UpdateVirtualClusterCommandInput extends UpdateVirtualClusterRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeVirtualClusterCommand}.
+ * The output of {@link UpdateVirtualClusterCommand}.
  */
-export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClusterResponse, __MetadataBearer {}
+export interface UpdateVirtualClusterCommandOutput extends UpdateVirtualClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Displays detailed information about a specified virtual cluster. Virtual cluster is a
- *          managed entity on Amazon EMR on EKS. You can create, update, describe, list and delete virtual
- *          clusters. They do not consume any additional resource in your system. A single virtual
- *          cluster maps to a single Kubernetes namespace. Given this relationship, you can model
- *          virtual clusters the same way you model Kubernetes namespaces to meet your
- *          requirements.</p>
+ * <p>Updates a virtual cluster. Virtual cluster is a managed entity on Amazon EMR on EKS. You can create, update, describe, list and delete virtual clusters. They do not consume any
+ *          additional resource in your system. A single virtual cluster maps to a single Kubernetes
+ *          namespace. Given this relationship, you can model virtual clusters the same way you model
+ *          Kubernetes namespaces to meet your requirements.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EMRContainersClient, DescribeVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
- * // const { EMRContainersClient, DescribeVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
+ * import { EMRContainersClient, UpdateVirtualClusterCommand } from "@aws-sdk/client-emr-containers"; // ES Modules import
+ * // const { EMRContainersClient, UpdateVirtualClusterCommand } = require("@aws-sdk/client-emr-containers"); // CommonJS import
  * // import type { EMRContainersClientConfig } from "@aws-sdk/client-emr-containers";
  * const config = {}; // type is EMRContainersClientConfig
  * const client = new EMRContainersClient(config);
- * const input = { // DescribeVirtualClusterRequest
+ * const input = { // UpdateVirtualClusterRequest
  *   id: "STRING_VALUE", // required
+ *   schedulerConfiguration: { // SchedulerConfiguration
+ *     maxInQueueJobRuns: Number("int"),
+ *     maxConcurrentJobRuns: Number("int"),
+ *   },
+ *   clientToken: "STRING_VALUE", // required
  * };
- * const command = new DescribeVirtualClusterCommand(input);
+ * const command = new UpdateVirtualClusterCommand(input);
  * const response = await client.send(command);
- * // { // DescribeVirtualClusterResponse
+ * // { // UpdateVirtualClusterResponse
  * //   virtualCluster: { // VirtualCluster
  * //     id: "STRING_VALUE",
  * //     name: "STRING_VALUE",
@@ -77,10 +80,10 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  *
  * ```
  *
- * @param DescribeVirtualClusterCommandInput - {@link DescribeVirtualClusterCommandInput}
- * @returns {@link DescribeVirtualClusterCommandOutput}
- * @see {@link DescribeVirtualClusterCommandInput} for command's `input` shape.
- * @see {@link DescribeVirtualClusterCommandOutput} for command's `response` shape.
+ * @param UpdateVirtualClusterCommandInput - {@link UpdateVirtualClusterCommandInput}
+ * @returns {@link UpdateVirtualClusterCommandOutput}
+ * @see {@link UpdateVirtualClusterCommandInput} for command's `input` shape.
+ * @see {@link UpdateVirtualClusterCommandOutput} for command's `response` shape.
  * @see {@link EMRContainersClientResolvedConfig | config} for EMRContainersClient's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -98,21 +101,21 @@ export interface DescribeVirtualClusterCommandOutput extends DescribeVirtualClus
  *
  * @public
  */
-export class DescribeVirtualClusterCommand extends command<DescribeVirtualClusterCommandInput, DescribeVirtualClusterCommandOutput>(
+export class UpdateVirtualClusterCommand extends command<UpdateVirtualClusterCommandInput, UpdateVirtualClusterCommandOutput>(
   _ep0,
   _mw0,
-  "DescribeVirtualCluster",
-  DescribeVirtualCluster$
+  "UpdateVirtualCluster",
+  UpdateVirtualCluster$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeVirtualClusterRequest;
-      output: DescribeVirtualClusterResponse;
+      input: UpdateVirtualClusterRequest;
+      output: UpdateVirtualClusterResponse;
     };
     sdk: {
-      input: DescribeVirtualClusterCommandInput;
-      output: DescribeVirtualClusterCommandOutput;
+      input: UpdateVirtualClusterCommandInput;
+      output: UpdateVirtualClusterCommandOutput;
     };
   };
 }

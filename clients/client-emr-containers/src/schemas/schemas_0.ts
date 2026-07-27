@@ -101,15 +101,17 @@ const _RNFE = "ResourceNotFoundException";
 const _RPC = "RetryPolicyConfiguration";
 const _RPE = "RetryPolicyExecution";
 const _RTE = "RequestThrottledException";
-const _SC = "SecurityConfiguration";
+const _SC = "SchedulerConfiguration";
 const _SCD = "SecurityConfigurationData";
-const _SCe = "SecurityConfigurations";
+const _SCe = "SecurityConfiguration";
+const _SCec = "SecurityConfigurations";
 const _SJR = "StartJobRun";
 const _SJRR = "StartJobRunRequest";
 const _SJRRt = "StartJobRunResponse";
 const _SMC = "S3MonitoringConfiguration";
 const _SNI = "SecureNamespaceInfo";
 const _SPM = "SensitivePropertiesMap";
+const _SS = "SchedulerStatus";
 const _SSJD = "SparkSqlJobDriver";
 const _SSJDp = "SparkSubmitJobDriver";
 const _SSP = "SparkSqlParameters";
@@ -124,6 +126,9 @@ const _TRRa = "TagResourceResponse";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
+const _UVC = "UpdateVirtualCluster";
+const _UVCR = "UpdateVirtualClusterRequest";
+const _UVCRp = "UpdateVirtualClusterResponse";
 const _VC = "VirtualCluster";
 const _VCi = "VirtualClusters";
 const _VE = "ValidationException";
@@ -142,8 +147,10 @@ const _cAr = "createdAt";
 const _cAre = "createdAfter";
 const _cB = "createdBy";
 const _cBr = "createdBefore";
+const _cCJR = "currentConcurrentJobRuns";
 const _cD = "certificateData";
 const _cI = "clusterId";
+const _cIQJR = "currentInQueueJobRuns";
 const _cLRC = "containerLogRotationConfiguration";
 const _cO = "configurationOverrides";
 const _cP = "containerProvider";
@@ -203,7 +210,9 @@ const _lU = "logUri";
 const _m = "message";
 const _mA = "maxAttempts";
 const _mC = "monitoringConfiguration";
+const _mCJR = "maxConcurrentJobRuns";
 const _mFTK = "maxFilesToKeep";
+const _mIQJR = "maxInQueueJobRuns";
 const _mL = "managedLogs";
 const _mR = "maxResults";
 const _n = "name";
@@ -222,10 +231,11 @@ const _rPC = "retryPolicyConfiguration";
 const _rPE = "retryPolicyExecution";
 const _rS = "rotationSize";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.emrcontainers";
-const _sC = "securityConfiguration";
+const _sC = "schedulerConfiguration";
 const _sCD = "securityConfigurationData";
 const _sCI = "securityConfigurationId";
-const _sCe = "securityConfigurations";
+const _sCe = "securityConfiguration";
+const _sCec = "securityConfigurations";
 const _sD = "stateDetails";
 const _sE = "sessionEnabled";
 const _sG = "securityGroup";
@@ -234,6 +244,7 @@ const _sITIM = "sessionIdleTimeoutInMinutes";
 const _sMC = "s3MonitoringConfiguration";
 const _sNI = "secureNamespaceInfo";
 const _sR = "systemRole";
+const _sS = "schedulerStatus";
 const _sSJD = "sparkSubmitJobDriver";
 const _sSJDp = "sparkSqlJobDriver";
 const _sSP = "sparkSqlParameters";
@@ -407,8 +418,8 @@ export var CreateSecurityConfigurationResponse$: StaticStructureSchema = [3, n0,
 ];
 export var CreateVirtualClusterRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
-  [_n, _cP, _cT, _ta, _sCI, _sE],
-  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0, 2], 2
+  [_n, _cP, _cT, _ta, _sCI, _sE, _sC],
+  [0, () => ContainerProvider$, [0, 4], 128 | 0, 0, 2, () => SchedulerConfiguration$], 2
 ];
 export var CreateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
@@ -492,7 +503,7 @@ export var DescribeSecurityConfigurationRequest$: StaticStructureSchema = [3, n0
 ];
 export var DescribeSecurityConfigurationResponse$: StaticStructureSchema = [3, n0, _DSCResc,
   0,
-  [_sC],
+  [_sCe],
   [() => SecurityConfiguration$]
 ];
 export var DescribeVirtualClusterRequest$: StaticStructureSchema = [3, n0, _DVCRes,
@@ -607,7 +618,7 @@ export var ListSecurityConfigurationsRequest$: StaticStructureSchema = [3, n0, _
 ];
 export var ListSecurityConfigurationsResponse$: StaticStructureSchema = [3, n0, _LSCRi,
   0,
-  [_sCe, _nT],
+  [_sCec, _nT],
   [() => SecurityConfigurations, 0]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
@@ -675,12 +686,22 @@ export var S3MonitoringConfiguration$: StaticStructureSchema = [3, n0, _SMC,
   [_lU, _eKA],
   [0, 0], 1
 ];
+export var SchedulerConfiguration$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_mIQJR, _mCJR],
+  [1, 1]
+];
+export var SchedulerStatus$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_cIQJR, _cCJR],
+  [1, 1]
+];
 export var SecureNamespaceInfo$: StaticStructureSchema = [3, n0, _SNI,
   0,
   [_cI, _na],
   [0, 0]
 ];
-export var SecurityConfiguration$: StaticStructureSchema = [3, n0, _SC,
+export var SecurityConfiguration$: StaticStructureSchema = [3, n0, _SCe,
   0,
   [_i, _n, _a, _cAr, _cB, _sCD, _ta],
   [0, 0, 0, 5, 0, () => SecurityConfigurationData$, 128 | 0]
@@ -740,10 +761,20 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var UpdateVirtualClusterRequest$: StaticStructureSchema = [3, n0, _UVCR,
+  0,
+  [_i, _sC, _cT],
+  [[0, 1], () => SchedulerConfiguration$, [0, 4]], 1
+];
+export var UpdateVirtualClusterResponse$: StaticStructureSchema = [3, n0, _UVCRp,
+  0,
+  [_vC],
+  [() => VirtualCluster$]
+];
 export var VirtualCluster$: StaticStructureSchema = [3, n0, _VC,
   0,
-  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI, _sE],
-  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0, 2]
+  [_i, _n, _a, _st, _cP, _cAr, _ta, _sCI, _sE, _sC, _sS],
+  [0, 0, 0, 0, () => ContainerProvider$, 5, 128 | 0, 0, 2, () => SchedulerConfiguration$, () => SchedulerStatus$]
 ];
 var ConfigurationList: StaticListSchema = [1, n0, _CL,
   0, [() => Configuration$,
@@ -768,7 +799,7 @@ var JobTemplates: StaticListSchema = [1, n0, _JTo,
   0, [() => JobTemplate$,
     0]
 ];
-var SecurityConfigurations: StaticListSchema = [1, n0, _SCe,
+var SecurityConfigurations: StaticListSchema = [1, n0, _SCec,
   0, () => SecurityConfiguration$
 ];
 var SubnetIds = 64 | 0;
@@ -866,4 +897,7 @@ export var TagResource$: StaticOperationSchema = [9, n0, _TR,
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
   { [_h]: ["DELETE", "/tags/{resourceArn}", 200] }, () => UntagResourceRequest$, () => UntagResourceResponse$
+];
+export var UpdateVirtualCluster$: StaticOperationSchema = [9, n0, _UVC,
+  { [_h]: ["PATCH", "/virtualclusters/{id}", 200] }, () => UpdateVirtualClusterRequest$, () => UpdateVirtualClusterResponse$
 ];

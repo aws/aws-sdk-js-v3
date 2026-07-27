@@ -122,6 +122,11 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateVirtualClusterCommandInput,
+  type UpdateVirtualClusterCommandOutput,
+  UpdateVirtualClusterCommand,
+} from "./commands/UpdateVirtualClusterCommand";
 import { EMRContainersClient } from "./EMRContainersClient";
 import { paginateListJobRuns } from "./pagination/ListJobRunsPaginator";
 import { paginateListJobTemplates } from "./pagination/ListJobTemplatesPaginator";
@@ -154,6 +159,7 @@ const commands = {
   StartJobRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateVirtualClusterCommand,
 };
 const paginators = {
   paginateListJobRuns,
@@ -573,6 +579,23 @@ export interface EMRContainers {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateVirtualClusterCommand}
+   */
+  updateVirtualCluster(
+    args: UpdateVirtualClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVirtualClusterCommandOutput>;
+  updateVirtualCluster(
+    args: UpdateVirtualClusterCommandInput,
+    cb: (err: any, data?: UpdateVirtualClusterCommandOutput) => void
+  ): void;
+  updateVirtualCluster(
+    args: UpdateVirtualClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVirtualClusterCommandOutput) => void
   ): void;
 
   /**
