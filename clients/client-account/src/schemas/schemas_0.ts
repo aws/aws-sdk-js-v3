@@ -43,6 +43,9 @@ const _GGCAIRe = "GetGovCloudAccountInformationResponse";
 const _GPE = "GetPrimaryEmail";
 const _GPER = "GetPrimaryEmailRequest";
 const _GPERe = "GetPrimaryEmailResponse";
+const _GPEUS = "GetPrimaryEmailUpdateStatus";
+const _GPEUSR = "GetPrimaryEmailUpdateStatusRequest";
+const _GPEUSRe = "GetPrimaryEmailUpdateStatusResponse";
 const _GROS = "GetRegionOptStatus";
 const _GROSR = "GetRegionOptStatusRequest";
 const _GROSRe = "GetRegionOptStatusResponse";
@@ -81,6 +84,7 @@ const _SPEURt = "StartPrimaryEmailUpdateResponse";
 const _SS = "SensitiveString";
 const _T = "Title";
 const _TMRE = "TooManyRequestsException";
+const _UA = "UpdatedAt";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
@@ -280,6 +284,16 @@ export var GetPrimaryEmailResponse$: StaticStructureSchema = [3, n0, _GPERe,
   [_PE],
   [[() => PrimaryEmailAddress, 0]]
 ];
+export var GetPrimaryEmailUpdateStatusRequest$: StaticStructureSchema = [3, n0, _GPEUSR,
+  0,
+  [_AI],
+  [0]
+];
+export var GetPrimaryEmailUpdateStatusResponse$: StaticStructureSchema = [3, n0, _GPEUSRe,
+  0,
+  [_S, _UA],
+  [0, 4], 1
+];
 export var GetRegionOptStatusRequest$: StaticStructureSchema = [3, n0, _GROSR,
   0,
   [_RN, _AI],
@@ -370,6 +384,9 @@ export var GetGovCloudAccountInformation$: StaticOperationSchema = [9, n0, _GGCA
 ];
 export var GetPrimaryEmail$: StaticOperationSchema = [9, n0, _GPE,
   { [_h]: ["POST", "/getPrimaryEmail", 200] }, () => GetPrimaryEmailRequest$, () => GetPrimaryEmailResponse$
+];
+export var GetPrimaryEmailUpdateStatus$: StaticOperationSchema = [9, n0, _GPEUS,
+  { [_h]: ["POST", "/getPrimaryEmailUpdateStatus", 200] }, () => GetPrimaryEmailUpdateStatusRequest$, () => GetPrimaryEmailUpdateStatusResponse$
 ];
 export var GetRegionOptStatus$: StaticOperationSchema = [9, n0, _GROS,
   { [_h]: ["POST", "/getRegionOptStatus", 200] }, () => GetRegionOptStatusRequest$, () => GetRegionOptStatusResponse$

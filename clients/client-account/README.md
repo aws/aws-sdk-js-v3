@@ -244,6 +244,13 @@ GetPrimaryEmail
 </details>
 <details>
 <summary>
+GetPrimaryEmailUpdateStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetPrimaryEmailUpdateStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetPrimaryEmailUpdateStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetPrimaryEmailUpdateStatusCommandOutput/)
+</details>
+<details>
+<summary>
 GetRegionOptStatus
 </summary>
 

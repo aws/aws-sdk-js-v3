@@ -8,6 +8,7 @@ export * from "./GetAlternateContactCommand";
 export * from "./GetContactInformationCommand";
 export * from "./GetGovCloudAccountInformationCommand";
 export * from "./GetPrimaryEmailCommand";
+export * from "./GetPrimaryEmailUpdateStatusCommand";
 export * from "./GetRegionOptStatusCommand";
 export * from "./ListRegionsCommand";
 export * from "./PutAccountNameCommand";

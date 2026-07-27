@@ -44,6 +44,10 @@ import {
   GetPrimaryEmailCommand,
   GetPrimaryEmailRequest$,
   GetPrimaryEmailResponse$,
+  GetPrimaryEmailUpdateStatus$,
+  GetPrimaryEmailUpdateStatusCommand,
+  GetPrimaryEmailUpdateStatusRequest$,
+  GetPrimaryEmailUpdateStatusResponse$,
   GetRegionOptStatus$,
   GetRegionOptStatusCommand,
   GetRegionOptStatusRequest$,
@@ -105,6 +109,8 @@ assert(typeof GetGovCloudAccountInformationCommand === "function");
 assert(typeof GetGovCloudAccountInformation$ === "object");
 assert(typeof GetPrimaryEmailCommand === "function");
 assert(typeof GetPrimaryEmail$ === "object");
+assert(typeof GetPrimaryEmailUpdateStatusCommand === "function");
+assert(typeof GetPrimaryEmailUpdateStatus$ === "object");
 assert(typeof GetRegionOptStatusCommand === "function");
 assert(typeof GetRegionOptStatus$ === "object");
 assert(typeof ListRegionsCommand === "function");
@@ -135,6 +141,8 @@ assert(typeof GetGovCloudAccountInformationRequest$ === "object");
 assert(typeof GetGovCloudAccountInformationResponse$ === "object");
 assert(typeof GetPrimaryEmailRequest$ === "object");
 assert(typeof GetPrimaryEmailResponse$ === "object");
+assert(typeof GetPrimaryEmailUpdateStatusRequest$ === "object");
+assert(typeof GetPrimaryEmailUpdateStatusResponse$ === "object");
 assert(typeof GetRegionOptStatusRequest$ === "object");
 assert(typeof GetRegionOptStatusResponse$ === "object");
 assert(typeof ListRegionsRequest$ === "object");

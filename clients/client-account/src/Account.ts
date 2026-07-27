@@ -49,6 +49,11 @@ import {
   GetPrimaryEmailCommand,
 } from "./commands/GetPrimaryEmailCommand";
 import {
+  type GetPrimaryEmailUpdateStatusCommandInput,
+  type GetPrimaryEmailUpdateStatusCommandOutput,
+  GetPrimaryEmailUpdateStatusCommand,
+} from "./commands/GetPrimaryEmailUpdateStatusCommand";
+import {
   type GetRegionOptStatusCommandInput,
   type GetRegionOptStatusCommandOutput,
   GetRegionOptStatusCommand,
@@ -90,6 +95,7 @@ const commands = {
   GetContactInformationCommand,
   GetGovCloudAccountInformationCommand,
   GetPrimaryEmailCommand,
+  GetPrimaryEmailUpdateStatusCommand,
   GetRegionOptStatusCommand,
   ListRegionsCommand,
   PutAccountNameCommand,
@@ -256,6 +262,24 @@ export interface Account {
     args: GetPrimaryEmailCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPrimaryEmailUpdateStatusCommand}
+   */
+  getPrimaryEmailUpdateStatus(): Promise<GetPrimaryEmailUpdateStatusCommandOutput>;
+  getPrimaryEmailUpdateStatus(
+    args: GetPrimaryEmailUpdateStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrimaryEmailUpdateStatusCommandOutput>;
+  getPrimaryEmailUpdateStatus(
+    args: GetPrimaryEmailUpdateStatusCommandInput,
+    cb: (err: any, data?: GetPrimaryEmailUpdateStatusCommandOutput) => void
+  ): void;
+  getPrimaryEmailUpdateStatus(
+    args: GetPrimaryEmailUpdateStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrimaryEmailUpdateStatusCommandOutput) => void
   ): void;
 
   /**

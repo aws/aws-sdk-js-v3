@@ -5,6 +5,8 @@
  */
 export const PrimaryEmailUpdateStatus = {
   ACCEPTED: "ACCEPTED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
   PENDING: "PENDING",
 } as const;
 /**
