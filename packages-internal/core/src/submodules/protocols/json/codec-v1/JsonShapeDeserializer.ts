@@ -17,13 +17,13 @@ import type {
   TimestampHttpDateSchema,
 } from "@smithy/types";
 
-import { SerdeContextConfig } from "../ConfigurableSerdeContext";
-import { UnionSerde } from "../UnionSerde";
-import type { JsonSettings } from "./JsonCodec";
-import { jsonReviver } from "./jsonReviver";
-import { needsReviver } from "./needsReviver";
-import { parseJsonBody } from "./parseJsonBody";
-import { writeKey } from "../writeKey";
+import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
+import { UnionSerde } from "../../UnionSerde";
+import type { JsonSettings } from "../JsonCodec";
+import { jsonReviver } from "../jsonReviver";
+import { needsReviver } from "../needsReviver";
+import { parseJsonBody } from "../parseJsonBody";
+import { writeKey } from "../../writeKey";
 
 /**
  * @public

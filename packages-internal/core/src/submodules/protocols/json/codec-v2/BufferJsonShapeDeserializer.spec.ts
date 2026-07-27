@@ -3,8 +3,8 @@ import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../../test-schema.spec";
-import { JsonShapeDeserializer } from "../JsonShapeDeserializer";
-import { JsonShapeSerializer } from "../JsonShapeSerializer";
+import { JsonShapeDeserializer } from "../codec-v1/JsonShapeDeserializer";
+import { JsonShapeSerializer } from "../codec-v1/JsonShapeSerializer";
 import { BufferJsonShapeDeserializer } from "./BufferJsonShapeDeserializer";
 
 describe(BufferJsonShapeDeserializer.name, () => {
@@ -106,7 +106,7 @@ describe(BufferJsonShapeDeserializer.name, () => {
       await deserializer.read(
         widget,
         `{
-      "bigint": "1000000000000000000000000000000000000" 
+      "bigint": "1000000000000000000000000000000000000"
     }`
       )
     ).toEqual({
@@ -132,7 +132,7 @@ describe(BufferJsonShapeDeserializer.name, () => {
       await deserializer.read(
         widget,
         `{
-      "bigdecimal": "0.0000000000000000000000000000000000001" 
+      "bigdecimal": "0.0000000000000000000000000000000000001"
     }`
       )
     ).toEqual({
@@ -143,7 +143,7 @@ describe(BufferJsonShapeDeserializer.name, () => {
       await deserializer.read(
         widget,
         `{
-      "bigdecimal": 0.0001 
+      "bigdecimal": 0.0001
     }`
       )
     ).toEqual({
