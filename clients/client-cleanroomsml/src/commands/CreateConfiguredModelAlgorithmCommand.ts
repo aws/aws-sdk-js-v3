@@ -82,6 +82,9 @@ export interface CreateConfiguredModelAlgorithmCommandOutput extends CreateConfi
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded your service quota.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>
  *

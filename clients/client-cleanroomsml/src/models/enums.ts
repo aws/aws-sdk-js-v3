@@ -62,6 +62,7 @@ export type AudienceExportJobStatus = (typeof AudienceExportJobStatus)[keyof typ
 export const WorkerComputeType = {
   CR1X: "CR.1X",
   CR4X: "CR.4X",
+  CR8X: "CR.8X",
 } as const;
 /**
  * @public

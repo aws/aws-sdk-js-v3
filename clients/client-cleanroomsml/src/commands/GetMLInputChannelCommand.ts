@@ -115,7 +115,7 @@ export interface GetMLInputChannelCommandOutput extends GetMLInputChannelRespons
  * //         },
  * //         computeConfiguration: { // ComputeConfiguration Union: only one key present
  * //           worker: { // WorkerComputeConfiguration
- * //             type: "CR.1X" || "CR.4X",
+ * //             type: "CR.1X" || "CR.4X" || "CR.8X",
  * //             number: Number("int"),
  * //             properties: { // WorkerComputeConfigurationProperties Union: only one key present
  * //               spark: { // SparkProperties

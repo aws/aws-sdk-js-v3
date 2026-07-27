@@ -219,6 +219,7 @@ const _PCAMPR = "PutConfiguredAudienceModelPolicyRequest";
 const _PCAMPRu = "PutConfiguredAudienceModelPolicyResponse";
 const _PCP = "PrivacyConfigurationPolicies";
 const _PCr = "PrivacyConfiguration";
+const _PM = "ParameterMap";
 const _PMLC = "PutMLConfiguration";
 const _PMLCR = "PutMLConfigurationRequest";
 const _PQIP = "ProtectedQueryInputParameters";
@@ -1238,7 +1239,7 @@ export var ProtectedQueryInputParameters$: StaticStructureSchema = [3, n0, _PQIP
 export var ProtectedQuerySQLParameters$: StaticStructureSchema = [3, n0, _PQSQLP,
   8,
   [_qS, _aTA, _pa],
-  [0, 0, 128 | 0]
+  [0, 0, [() => ParameterMap, 0]]
 ];
 export var PutConfiguredAudienceModelPolicyRequest$: StaticStructureSchema = [3, n0, _PCAMPR,
   0,
@@ -1517,7 +1518,9 @@ var TrainingDatasetList: StaticListSchema = [1, n0, _TDL,
 var Environment = 128 | 0;
 var HyperParameters = 128 | 0;
 var InferenceEnvironmentMap = 128 | 0;
-var ParameterMap = 128 | 0;
+var ParameterMap: StaticMapSchema = [2, n0, _PM,
+  8, 0, 0
+];
 var SparkProperties = 128 | 0;
 var TagMap = 128 | 0;
 export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CCo,

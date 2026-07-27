@@ -82,6 +82,9 @@ export interface CreateTrainingDatasetCommandOutput extends CreateTrainingDatase
  * @throws {@link ConflictException} (client fault)
  *  <p>You can't complete this action because another resource depends on this resource.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The request parameters for this request are incorrect.</p>
  *
