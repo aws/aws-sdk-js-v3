@@ -1098,7 +1098,19 @@ export interface CreateLocationHdfsRequest {
   /**
    * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
    *       opening, closing, and renaming files and directories. The NameNode contains the information to
-   *       map blocks of data to the DataNodes. You can use only one NameNode.</p>
+   *       map blocks of data to the DataNodes.</p>
+   *          <p>The number of NameNodes you can specify depends on the task mode:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Enhanced mode</b> – You can specify multiple NameNodes for HDFS High Availability (HA)
+   *           configurations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Basic mode</b> – You can specify only one NameNode.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   NameNodes: HdfsNameNode[] | undefined;
@@ -1964,10 +1976,12 @@ export interface Options {
    *             </li>
    *          </ul>
    *          <note>
+   *             <p>The following applies only to Basic mode tasks:</p>
    *             <p>If <code>Atime</code> is set to <code>BEST_EFFORT</code>, <code>Mtime</code> must be set
    *         to <code>PRESERVE</code>. </p>
    *             <p>If <code>Atime</code> is set to <code>NONE</code>, <code>Mtime</code> must also be
    *           <code>NONE</code>. </p>
+   *             <p>Enhanced mode tasks support configuring <code>Atime</code> independently of <code>Mtime</code>.</p>
    *          </note>
    * @public
    */
@@ -1989,10 +2003,12 @@ export interface Options {
    *             </li>
    *          </ul>
    *          <note>
+   *             <p>The following applies only to Basic mode tasks:</p>
    *             <p>If <code>Mtime</code> is set to <code>PRESERVE</code>, <code>Atime</code> must be set to
    *           <code>BEST_EFFORT</code>.</p>
    *             <p>If <code>Mtime</code> is set to <code>NONE</code>, <code>Atime</code> must also be set
    *         to <code>NONE</code>. </p>
+   *             <p>Enhanced mode tasks don't support <code>Mtime</code> set to <code>NONE</code>.</p>
    *          </note>
    * @public
    */
@@ -5414,7 +5430,17 @@ export interface UpdateLocationHdfsRequest {
   /**
    * <p>The NameNode that manages the HDFS namespace. The NameNode performs operations such as
    *       opening, closing, and renaming files and directories. The NameNode contains the information to
-   *       map blocks of data to the DataNodes. You can use only one NameNode.</p>
+   *       map blocks of data to the DataNodes.</p>
+   *          <p>The number of NameNodes you can specify depends on the task mode:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Enhanced mode – You can specify multiple NameNodes for HDFS High Availability (HA)
+   *           configurations.</p>
+   *             </li>
+   *             <li>
+   *                <p>Basic mode – You can specify only one NameNode.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   NameNodes?: HdfsNameNode[] | undefined;
