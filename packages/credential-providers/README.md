@@ -141,7 +141,8 @@ As shown above, there are many sources of region information. The priority order
 4. `env-region` - AWS_REGION environment variable.
 5. `profile-region` **\*** - if credential provider is not resolving credentials from the config file, the config file's
    region is lower priority than AWS_REGION env.
-6. `us-east-1` (fallback) - this is a legacy fallback value. It's more likely that the client will fail to execute any
+6. EC2 IMDSv2 (`/latest/meta-data/placement/region`). Opt out with `AWS_EC2_METADATA_DISABLED=true`.
+7. `us-east-1` (fallback) - this is a legacy fallback value. It's more likely that the client will fail to execute any
    operation if none of the other region sources were set.
 
 This differs from _direct_ instantiation of the STSClient, which follows this order, which is the same for all clients:
@@ -164,7 +165,8 @@ const client = new STSClient({
 1. `client-region`
 2. `env-region`
 3. `profile-region` (config file)
-4. thrown error (no us-east-1 fallback)
+4. EC2 IMDSv2 (`/latest/meta-data/placement/region`). Opt out with `AWS_EC2_METADATA_DISABLED=true`.
+5. thrown error (no us-east-1 fallback)
 
 # Credential providers
 
