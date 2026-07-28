@@ -1870,7 +1870,9 @@ export interface AssociateRoutingProfileQueuesRequest {
 
   /**
    * <p>The manual assignment queues to associate with this routing profile.</p>
-   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
+   *          <note>
+   *             <p>For voice contacts, manual assignment supports only agent-first callback contacts. Chat, email, and task contacts are fully supported.</p>
+   *          </note>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -6525,7 +6527,9 @@ export interface CreateRoutingProfileRequest {
    *    can't pick or assign any contacts from this routing profile. The limit of 10 array members applies to the maximum
    *    number of RoutingProfileManualAssignmentQueueConfig objects that can be passed during a CreateRoutingProfile API
    *    request. It is different from the quota of 50 queues per routing profile per instance that is listed in Connect Customer service quotas.</p>
-   *          <p>Note: Use this config for chat, email, and task contacts. It does not support voice contacts.</p>
+   *          <note>
+   *             <p>For voice contacts, manual assignment supports only agent-first callback contacts. Chat, email, and task contacts are fully supported.</p>
+   *          </note>
    * @public
    */
   ManualAssignmentQueueConfigs?: RoutingProfileManualAssignmentQueueConfig[] | undefined;
@@ -7362,6 +7366,7 @@ export interface CreateTaskTemplateRequest {
 
   /**
    * <p>The identifier of the flow that runs by default when a task is created by referencing this template.</p>
+   *          <p>Although this parameter is marked as optional, the request must contain either a <code>ContactFlowId</code> or a field of type <code>QUICK_CONNECT</code>.</p>
    * @public
    */
   ContactFlowId?: string | undefined;
@@ -7373,7 +7378,9 @@ export interface CreateTaskTemplateRequest {
   SelfAssignFlowId?: string | undefined;
 
   /**
-   * <p>Constraints that are applicable to the fields listed.</p>
+   * <p>Constraints that are applicable to the fields listed.
+   * Although this parameter is marked as optional in the API model, the service requires it when calling <code>CreateTaskTemplate</code> or <code>UpdateTaskTemplate</code>.
+   * The <code>RequiredFields</code> array must contain at least one element, and the field of type <code>NAME</code> must be included in <code>RequiredFields</code>.</p>
    * @public
    */
   Constraints?: TaskTemplateConstraints | undefined;
@@ -7394,6 +7401,7 @@ export interface CreateTaskTemplateRequest {
 
   /**
    * <p>Fields that are part of the template.</p>
+   *          <p>The request must contain exactly one field of type <code>NAME</code>. This field must also be listed in the <code>RequiredFields</code> array within the <code>Constraints</code> parameter.</p>
    * @public
    */
   Fields: TaskTemplateField[] | undefined;

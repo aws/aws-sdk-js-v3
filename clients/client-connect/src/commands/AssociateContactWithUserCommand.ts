@@ -42,7 +42,11 @@ export interface AssociateContactWithUserCommandOutput extends AssociateContactW
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Use this API with chat, email, and task contacts. It does not support voice contacts.</p>
+ *                <p>Use this API with chat, email, task, and voice contacts. For voice callbacks, this API does not support customer-first mode.</p>
+ *             </li>
+ *             <li>
+ *                <p>This API can be used to offer a contact to an agent even if the agent is currently at maximum concurrency
+ *      for the channel.</p>
  *             </li>
  *             <li>
  *                <p>Use it to associate contacts with users regardless of their current state, including custom states. Ensure
