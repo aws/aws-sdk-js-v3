@@ -73,6 +73,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.8 (2026-07-28)
+### Chores
+* **credential-provider-ini:** update dependencies.
+
+
+
 # 3.973.7 (2026-07-27)
 ### Chores
 * **credential-provider-ini:** update dependencies.

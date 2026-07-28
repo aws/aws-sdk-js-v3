@@ -68,6 +68,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.2 (2026-07-27)
+### Chores
+* **core/protocols:** organize json codec folders ([#8230](https://github.com/aws/aws-sdk-js-v3/issues/8230)) ([8c117e3](https://github.com/aws/aws-sdk-js-v3/commit/8c117e3b6a794c528be6cf7f2474fe959e6f2659))
+
+
+
 # 3.977.1 (2026-07-24)
 ### Bug Fixes
 * **core/protocols:** handle JSON exponent notation in jsonReviver ([#8226](https://github.com/aws/aws-sdk-js-v3/issues/8226)) ([c3b27fd](https://github.com/aws/aws-sdk-js-v3/commit/c3b27fd34b72822c9b0a05f0ded228e4247206ce))

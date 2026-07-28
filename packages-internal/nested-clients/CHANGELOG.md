@@ -61,6 +61,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.997.37 (2026-07-28)
+### Chores
+* **nested-clients:** update dependencies.
+
+
+
 # 3.997.36 (2026-07-27)
 ### Chores
 * **nested-clients:** update dependencies.

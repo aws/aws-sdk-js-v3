@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1097.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1096.0...v3.1097.0) (2026-07-28)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Identity now supports Private Key JWT client authentication for OAuth 2.0 credential providers. Agents can authenticate to identity provider token endpoints with a JWT client assertion signed by a customer-managed AWS KMS asymmetric key, eliminating the need for client secrets. ([fa2b1a0](https://github.com/aws/aws-sdk-js-v3/commit/fa2b1a0adcc10d747c0fe81a33391417c41d067d))
+
+
+
+
+
 # [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

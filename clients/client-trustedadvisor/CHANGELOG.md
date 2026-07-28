@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1097.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1096.0...v3.1097.0) (2026-07-28)
+
+
+### Features
+
+* **client-trustedadvisor:** Adds ListRecommendationsForResource API and four CheckSummary fields (resourceArnQueryable, awsResourceTypes, checkGranularity, recommendationId) to retrieve recommendations for a given resource ARN. ([16e67f1](https://github.com/aws/aws-sdk-js-v3/commit/16e67f168da8d32de2ca85b1783b3829e02cfb5a))
+
+
+
+
+
 # [3.1096.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1095.0...v3.1096.0) (2026-07-27)
 
 **Note:** Version bump only for package @aws-sdk/client-trustedadvisor

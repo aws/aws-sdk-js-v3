@@ -47,6 +47,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.45 (2026-07-28)
+### Chores
+* **middleware-websocket:** update dependencies.
+
+
+
 # 3.972.44 (2026-07-27)
 ### Chores
 * **middleware-websocket:** update dependencies.

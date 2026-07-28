@@ -68,6 +68,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.37 (2026-07-28)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.36 (2026-07-27)
 ### Chores
 * **dynamodb-codec:** update dependencies.

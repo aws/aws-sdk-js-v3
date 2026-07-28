@@ -38,6 +38,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.996.36 (2026-07-28)
+### Chores
+* **util-endpoints:** update dependencies.
+
+
+
 # 3.996.35 (2026-07-27)
 ### Chores
 * **util-endpoints:** update dependencies.
