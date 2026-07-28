@@ -1036,6 +1036,7 @@ export const ClientAuthenticationMethodType = {
   AWS_IAM_ID_TOKEN_JWT: "AWS_IAM_ID_TOKEN_JWT",
   CLIENT_SECRET_BASIC: "CLIENT_SECRET_BASIC",
   CLIENT_SECRET_POST: "CLIENT_SECRET_POST",
+  PRIVATE_KEY_JWT: "PRIVATE_KEY_JWT",
 } as const;
 /**
  * @public
@@ -1062,6 +1063,20 @@ export const OnBehalfOfTokenExchangeGrantTypeType = {
  */
 export type OnBehalfOfTokenExchangeGrantTypeType =
   (typeof OnBehalfOfTokenExchangeGrantTypeType)[keyof typeof OnBehalfOfTokenExchangeGrantTypeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const SigningAlgorithm = {
+  ES256: "ES256",
+  PS256: "PS256",
+  RS256: "RS256",
+} as const;
+/**
+ * @public
+ */
+export type SigningAlgorithm = (typeof SigningAlgorithm)[keyof typeof SigningAlgorithm];
 
 /**
  * @public

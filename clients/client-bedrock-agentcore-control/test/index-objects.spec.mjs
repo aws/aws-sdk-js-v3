@@ -581,6 +581,7 @@ import {
   KeyType,
   KinesisResource$,
   KmsConfiguration$,
+  KmsKeySourceType$,
   LambdaEvaluatorConfig$,
   LambdaInterceptorConfiguration$,
   LambdaTransformConfiguration$,
@@ -855,6 +856,8 @@ import {
   PrincipalMatchOperator,
   PrivateEndpoint$,
   PrivateEndpointOverride$,
+  PrivateKeyJwtConfig$,
+  PrivateKeySource$,
   ProtocolConfiguration$,
   ProviderPrefix$,
   PutResourcePolicy$,
@@ -925,6 +928,7 @@ import {
   SetTokenVaultCMKCommand,
   SetTokenVaultCMKRequest$,
   SetTokenVaultCMKResponse$,
+  SigningAlgorithm,
   SkillDefinition$,
   SkillMdDefinition$,
   SlackOauth2ProviderConfigInput$,
@@ -1799,6 +1803,7 @@ assert(typeof InvocationConfiguration$ === "object");
 assert(typeof InvocationConfigurationInput$ === "object");
 assert(typeof KinesisResource$ === "object");
 assert(typeof KmsConfiguration$ === "object");
+assert(typeof KmsKeySourceType$ === "object");
 assert(typeof LambdaEvaluatorConfig$ === "object");
 assert(typeof LambdaInterceptorConfiguration$ === "object");
 assert(typeof LambdaTransformConfiguration$ === "object");
@@ -1943,6 +1948,8 @@ assert(typeof PolicyStatement$ === "object");
 assert(typeof PolicySummary$ === "object");
 assert(typeof PrivateEndpoint$ === "object");
 assert(typeof PrivateEndpointOverride$ === "object");
+assert(typeof PrivateKeyJwtConfig$ === "object");
+assert(typeof PrivateKeySource$ === "object");
 assert(typeof ProtocolConfiguration$ === "object");
 assert(typeof ProviderPrefix$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
@@ -2204,6 +2211,7 @@ assert(typeof SchemaType === "object");
 assert(typeof SearchType === "object");
 assert(typeof SecretSourceType === "object");
 assert(typeof ServerProtocol === "object");
+assert(typeof SigningAlgorithm === "object");
 assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");
 assert(typeof TargetProtocolType === "object");

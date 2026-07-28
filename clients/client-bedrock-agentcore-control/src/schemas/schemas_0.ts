@@ -2,6 +2,8 @@ const _A = "Actions";
 const _AC = "ApprovalConfiguration";
 const _ACD = "AgentCardDefinition";
 const _ACMVT = "AuthorizingClaimMatchValueType";
+const _ACV = "AdditionalClaimValue";
+const _ACd = "AdditionalClaims";
 const _ACu = "AuthorizerConfiguration";
 const _AD = "A2aDescriptor";
 const _ADE = "AccessDeniedException";
@@ -503,6 +505,7 @@ const _IPa = "IamPrincipal";
 const _ISE = "InternalServerException";
 const _ITC = "InferenceTargetConfiguration";
 const _KC = "KmsConfiguration";
+const _KKST = "KmsKeySourceType";
 const _KR = "KinesisResource";
 const _LAAJEC = "LlmAsAJudgeEvaluatorConfig";
 const _LAKCP = "ListApiKeyCredentialProviders";
@@ -702,6 +705,8 @@ const _PGD = "PolicyGenerationDetails";
 const _PGS = "PolicyGenerationSummary";
 const _PGSL = "PolicyGenerationSummaryList";
 const _PGo = "PolicyGenerations";
+const _PKJC = "PrivateKeyJwtConfig";
+const _PKS = "PrivateKeySource";
 const _PMS = "PaymentManagerSummary";
 const _PMSa = "PaymentManagerSummaries";
 const _PP = "ProviderPrefix";
@@ -965,6 +970,7 @@ const _aE = "authorizationEndpoint";
 const _aF = "apiFormat";
 const _aG = "apiGateway";
 const _aGTC = "apiGatewayToolConfiguration";
+const _aHC = "additionalHeaderClaims";
 const _aI = "actorId";
 const _aIK = "addIndexedKeys";
 const _aIp = "appId";
@@ -985,6 +991,7 @@ const _aO = "anyOf";
 const _aOPC = "atlassianOauth2ProviderConfig";
 const _aP = "additionalParams";
 const _aPA = "accessPointArn";
+const _aPC = "additionalPayloadClaims";
 const _aPK = "authorizationPrivateKey";
 const _aPKA = "authorizationPrivateKeyArn";
 const _aPKC = "authorizationPrivateKeyConfig";
@@ -1232,6 +1239,7 @@ const _jK = "jsonKey";
 const _k = "key";
 const _kC = "kmsConfiguration";
 const _kKA = "kmsKeyArn";
+const _kKS = "kmsKeySource";
 const _kT = "keyType";
 const _ki = "kinesis";
 const _l = "location";
@@ -1359,6 +1367,8 @@ const _pGI = "policyGenerationId";
 const _pGo = "policyGeneration";
 const _pI = "profileId";
 const _pIo = "policyId";
+const _pKJC = "privateKeyJwtConfig";
+const _pKS = "privateKeySource";
 const _pM = "paymentManagers";
 const _pMA = "paymentManagerArn";
 const _pMI = "paymentManagerId";
@@ -1421,7 +1431,8 @@ const _reso = "resources";
 const _ru = "runtime";
 const _rul = "rule";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentcorecontrol";
-const _sA = "secretArn";
+const _sA = "signingAlgorithm";
+const _sAe = "secretArn";
 const _sC = "synchronizationConfiguration";
 const _sCO = "semanticConsolidationOverride";
 const _sCOu = "summaryConsolidationOverride";
@@ -1694,6 +1705,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var AdditionalClaimValue: StaticSimpleSchema = [0, n0, _ACV, 8, 0];
 var ConfigurationBundleDescription: StaticSimpleSchema = [0, n0, _CBD, 8, 0];
 var DefaultApiKeyType: StaticSimpleSchema = [0, n0, _DAKT, 8, 0];
 var DefaultClientSecretType: StaticSimpleSchema = [0, n0, _DCST, 8, 0];
@@ -2114,7 +2126,7 @@ export var CreateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 export var CreateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _COCPRr,
   0,
   [_cSA, _n, _cPA, _cSJK, _cSS, _cUa, _oPCO, _st],
-  [() => Secret$, 0, 0, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 0], 3
+  [() => Secret$, 0, 0, 0, 0, 0, [() => Oauth2ProviderConfigOutput$, 0], 0], 3
 ];
 export var CreateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _COECR,
   0,
@@ -2233,13 +2245,13 @@ export var CustomMemoryStrategyInput$: StaticStructureSchema = [3, n0, _CMSI,
 ];
 export var CustomOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _COPCI,
   0,
-  [_oD, _cI, _cS, _cSC, _cSS, _oBOTEC, _cAM, _pE, _pEO],
-  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
+  [_oD, _cI, _cS, _cSC, _cSS, _oBOTEC, _cAM, _pKJC, _pE, _pEO],
+  [() => Oauth2Discovery$, 0, [() => DefaultClientSecretType, 0], () => SecretReference$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, [() => PrivateKeyJwtConfig$, 0], () => PrivateEndpoint$, () => PrivateEndpointOverrides], 1
 ];
 export var CustomOauth2ProviderConfigOutput$: StaticStructureSchema = [3, n0, _COPCO,
   0,
-  [_oD, _cI, _pE, _pEO, _oBOTEC, _cAM],
-  [() => Oauth2Discovery$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, () => OnBehalfOfTokenExchangeConfigType$, 0], 1
+  [_oD, _cI, _oBOTEC, _cAM, _pE, _pEO, _pKJC],
+  [() => Oauth2Discovery$, 0, () => OnBehalfOfTokenExchangeConfigType$, 0, () => PrivateEndpoint$, () => PrivateEndpointOverrides, [() => PrivateKeyJwtConfig$, 0]], 1
 ];
 export var CustomTransformConfiguration$: StaticStructureSchema = [3, n0, _CTCu,
   0,
@@ -2814,7 +2826,7 @@ export var GetOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n0, 
 export var GetOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _GOCPRe,
   0,
   [_cSA, _n, _cPA, _cPV, _oPCO, _cTr, _lUT, _cSJK, _cSS, _cUa, _st, _fR],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0, 0, 0], 7
+  [() => Secret$, 0, 0, 0, [() => Oauth2ProviderConfigOutput$, 0], 4, 4, 0, 0, 0, 0, 0], 7
 ];
 export var GetOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _GOECR,
   0,
@@ -3220,6 +3232,11 @@ export var KmsConfiguration$: StaticStructureSchema = [3, n0, _KC,
   0,
   [_kT, _kKA],
   [0, 0], 1
+];
+export var KmsKeySourceType$: StaticStructureSchema = [3, n0, _KKST,
+  0,
+  [_kKA],
+  [0], 1
 ];
 export var LambdaEvaluatorConfig$: StaticStructureSchema = [3, n0, _LEC,
   0,
@@ -3871,6 +3888,11 @@ export var PrivateEndpointOverride$: StaticStructureSchema = [3, n0, _PEO,
   [_do, _pE],
   [0, () => PrivateEndpoint$], 2
 ];
+export var PrivateKeyJwtConfig$: StaticStructureSchema = [3, n0, _PKJC,
+  0,
+  [_pKS, _sA, _aHC, _aPC],
+  [() => PrivateKeySource$, 0, [() => AdditionalClaims, 0], [() => AdditionalClaims, 0]]
+];
 export var ProtocolConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
   [_sPe],
@@ -3983,7 +4005,7 @@ export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
 ];
 export var Secret$: StaticStructureSchema = [3, n0, _S,
   0,
-  [_sA],
+  [_sAe],
   [0], 1
 ];
 export var SecretReference$: StaticStructureSchema = [3, n0, _SR,
@@ -3993,7 +4015,7 @@ export var SecretReference$: StaticStructureSchema = [3, n0, _SR,
 ];
 export var SecretsManagerLocation$: StaticStructureSchema = [3, n0, _SML,
   0,
-  [_sA],
+  [_sAe],
   [0], 1
 ];
 export var SelfManagedConfiguration$: StaticStructureSchema = [3, n0, _SMC,
@@ -4499,7 +4521,7 @@ export var UpdateOauth2CredentialProviderRequest$: StaticStructureSchema = [3, n
 export var UpdateOauth2CredentialProviderResponse$: StaticStructureSchema = [3, n0, _UOCPRp,
   0,
   [_cSA, _n, _cPV, _cPA, _oPCO, _cTr, _lUT, _cSJK, _cSS, _cUa, _st],
-  [() => Secret$, 0, 0, 0, () => Oauth2ProviderConfigOutput$, 4, 4, 0, 0, 0, 0], 7
+  [() => Secret$, 0, 0, 0, [() => Oauth2ProviderConfigOutput$, 0], 4, 4, 0, 0, 0, 0], 7
 ];
 export var UpdateOnlineEvaluationConfigRequest$: StaticStructureSchema = [3, n0, _UOECR,
   0,
@@ -4991,6 +5013,12 @@ var WorkloadIdentityList: StaticListSchema = [1, n0, _WIL,
   0, () => WorkloadIdentityType$
 ];
 var WorkloadIdentityNameListType = 64 | 0;
+var AdditionalClaims: StaticMapSchema = [2, n0, _ACd,
+  0, [0,
+    0]
+  , [() => AdditionalClaimValue,
+    0]
+];
 var AdvertisedScopeMappingType = 128 | 0;
 var ComponentConfigurationMap: StaticMapSchema = [2, n0, _CCM,
   0, [0,
@@ -5297,7 +5325,7 @@ export var Oauth2ProviderConfigInput$: StaticUnionSchema = [4, n0, _OPCI,
 export var Oauth2ProviderConfigOutput$: StaticUnionSchema = [4, n0, _OPCO,
   0,
   [_cOPC, _gOPC, _gOPCi, _sOPC, _sOPCa, _mOPC, _aOPC, _lOPC, _iOPC],
-  [() => CustomOauth2ProviderConfigOutput$, () => GoogleOauth2ProviderConfigOutput$, () => GithubOauth2ProviderConfigOutput$, () => SlackOauth2ProviderConfigOutput$, () => SalesforceOauth2ProviderConfigOutput$, () => MicrosoftOauth2ProviderConfigOutput$, () => AtlassianOauth2ProviderConfigOutput$, () => LinkedinOauth2ProviderConfigOutput$, () => IncludedOauth2ProviderConfigOutput$]
+  [[() => CustomOauth2ProviderConfigOutput$, 0], () => GoogleOauth2ProviderConfigOutput$, () => GithubOauth2ProviderConfigOutput$, () => SlackOauth2ProviderConfigOutput$, () => SalesforceOauth2ProviderConfigOutput$, () => MicrosoftOauth2ProviderConfigOutput$, () => AtlassianOauth2ProviderConfigOutput$, () => LinkedinOauth2ProviderConfigOutput$, () => IncludedOauth2ProviderConfigOutput$]
 ];
 export var PaymentProviderConfigurationInput$: StaticUnionSchema = [4, n0, _PPCI,
   0,
@@ -5318,6 +5346,11 @@ export var PrivateEndpoint$: StaticUnionSchema = [4, n0, _PEr,
   0,
   [_sMLR, _mVR],
   [() => SelfManagedLatticeResource$, () => ManagedVpcResource$]
+];
+export var PrivateKeySource$: StaticUnionSchema = [4, n0, _PKS,
+  0,
+  [_kKS],
+  [() => KmsKeySourceType$]
 ];
 export var RatingScale$: StaticUnionSchema = [4, n0, _RSa,
   8,

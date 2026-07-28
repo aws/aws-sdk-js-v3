@@ -41,6 +41,45 @@ import type {
 /**
  * @public
  */
+export interface DeleteRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to delete. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRegistryRecordResponse {}
+
+/**
+ * @public
+ */
+export interface GetRegistryRecordRequest {
+  /**
+   * <p>The identifier of the registry containing the record. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
+   * @public
+   */
+  registryId: string | undefined;
+
+  /**
+   * <p>The identifier of the registry record to retrieve. You can specify either the Amazon Resource Name (ARN) or the ID of the record.</p>
+   * @public
+   */
+  recordId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetRegistryRecordResponse {
   /**
    * <p>The Amazon Resource Name (ARN) of the registry that contains the record.</p>

@@ -64,6 +64,16 @@ export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2Crede
  * //         },
  * //       },
  * //       clientId: "STRING_VALUE",
+ * //       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
+ * //         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
+ * //         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
+ * //           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
+ * //           actorTokenScopes: [ // ScopesListType
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT" || "PRIVATE_KEY_JWT",
  * //       privateEndpoint: { // PrivateEndpoint Union: only one key present
  * //         selfManagedLatticeResource: { // SelfManagedLatticeResource Union: only one key present
  * //           resourceConfigurationIdentifier: "STRING_VALUE",
@@ -107,16 +117,20 @@ export interface GetOauth2CredentialProviderCommandOutput extends GetOauth2Crede
  * //           },
  * //         },
  * //       ],
- * //       onBehalfOfTokenExchangeConfig: { // OnBehalfOfTokenExchangeConfigType
- * //         grantType: "TOKEN_EXCHANGE" || "JWT_AUTHORIZATION_GRANT", // required
- * //         tokenExchangeGrantTypeConfig: { // TokenExchangeGrantTypeConfigType
- * //           actorTokenContent: "NONE" || "M2M" || "AWS_IAM_ID_TOKEN_JWT", // required
- * //           actorTokenScopes: [ // ScopesListType
- * //             "STRING_VALUE",
- * //           ],
+ * //       privateKeyJwtConfig: { // PrivateKeyJwtConfig
+ * //         privateKeySource: { // PrivateKeySource Union: only one key present
+ * //           kmsKeySource: { // KmsKeySourceType
+ * //             kmsKeyArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         signingAlgorithm: "RS256" || "PS256" || "ES256",
+ * //         additionalHeaderClaims: { // AdditionalClaims
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         additionalPayloadClaims: {
+ * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
- * //       clientAuthenticationMethod: "CLIENT_SECRET_BASIC" || "CLIENT_SECRET_POST" || "AWS_IAM_ID_TOKEN_JWT",
  * //     },
  * //     googleOauth2ProviderConfig: { // GoogleOauth2ProviderConfigOutput
  * //       oauthDiscovery: {//  Union: only one key present
