@@ -48,6 +48,11 @@ import {
   ListRecommendationsCommand,
 } from "./commands/ListRecommendationsCommand";
 import {
+  type ListRecommendationsForResourceCommandInput,
+  type ListRecommendationsForResourceCommandOutput,
+  ListRecommendationsForResourceCommand,
+} from "./commands/ListRecommendationsForResourceCommand";
+import {
   type UpdateOrganizationRecommendationLifecycleCommandInput,
   type UpdateOrganizationRecommendationLifecycleCommandOutput,
   UpdateOrganizationRecommendationLifecycleCommand,
@@ -66,6 +71,7 @@ import {
 } from "./pagination/ListOrganizationRecommendationResourcesPaginator";
 import { paginateListOrganizationRecommendations } from "./pagination/ListOrganizationRecommendationsPaginator";
 import { paginateListRecommendationResources } from "./pagination/ListRecommendationResourcesPaginator";
+import { paginateListRecommendationsForResource } from "./pagination/ListRecommendationsForResourcePaginator";
 import { paginateListRecommendations } from "./pagination/ListRecommendationsPaginator";
 import { TrustedAdvisorClient } from "./TrustedAdvisorClient";
 
@@ -79,6 +85,7 @@ const commands = {
   ListOrganizationRecommendationsCommand,
   ListRecommendationResourcesCommand,
   ListRecommendationsCommand,
+  ListRecommendationsForResourceCommand,
   UpdateOrganizationRecommendationLifecycleCommand,
   UpdateRecommendationLifecycleCommand,
 };
@@ -89,6 +96,7 @@ const paginators = {
   paginateListOrganizationRecommendations,
   paginateListRecommendationResources,
   paginateListRecommendations,
+  paginateListRecommendationsForResource,
 };
 
 export interface TrustedAdvisor {
@@ -249,6 +257,23 @@ export interface TrustedAdvisor {
   ): void;
 
   /**
+   * @see {@link ListRecommendationsForResourceCommand}
+   */
+  listRecommendationsForResource(
+    args: ListRecommendationsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationsForResourceCommandOutput>;
+  listRecommendationsForResource(
+    args: ListRecommendationsForResourceCommandInput,
+    cb: (err: any, data?: ListRecommendationsForResourceCommandOutput) => void
+  ): void;
+  listRecommendationsForResource(
+    args: ListRecommendationsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateOrganizationRecommendationLifecycleCommand}
    */
   updateOrganizationRecommendationLifecycle(
@@ -347,6 +372,17 @@ export interface TrustedAdvisor {
     args?: ListRecommendationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListRecommendationsCommandOutput>;
+
+  /**
+   * @see {@link ListRecommendationsForResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecommendationsForResourceCommandOutput}.
+   */
+  paginateListRecommendationsForResource(
+    args: ListRecommendationsForResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecommendationsForResourceCommandOutput>;
 }
 
 /**

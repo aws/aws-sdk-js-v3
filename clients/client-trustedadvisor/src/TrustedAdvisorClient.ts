@@ -88,6 +88,10 @@ import type {
   ListRecommendationsCommandOutput,
 } from "./commands/ListRecommendationsCommand";
 import type {
+  ListRecommendationsForResourceCommandInput,
+  ListRecommendationsForResourceCommandOutput,
+} from "./commands/ListRecommendationsForResourceCommand";
+import type {
   UpdateOrganizationRecommendationLifecycleCommandInput,
   UpdateOrganizationRecommendationLifecycleCommandOutput,
 } from "./commands/UpdateOrganizationRecommendationLifecycleCommand";
@@ -119,6 +123,7 @@ export type ServiceInputTypes =
   | ListOrganizationRecommendationsCommandInput
   | ListRecommendationResourcesCommandInput
   | ListRecommendationsCommandInput
+  | ListRecommendationsForResourceCommandInput
   | UpdateOrganizationRecommendationLifecycleCommandInput
   | UpdateRecommendationLifecycleCommandInput;
 
@@ -135,6 +140,7 @@ export type ServiceOutputTypes =
   | ListOrganizationRecommendationsCommandOutput
   | ListRecommendationResourcesCommandOutput
   | ListRecommendationsCommandOutput
+  | ListRecommendationsForResourceCommandOutput
   | UpdateOrganizationRecommendationLifecycleCommandOutput
   | UpdateRecommendationLifecycleCommandOutput;
 

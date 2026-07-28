@@ -183,6 +183,30 @@ export interface CheckSummary {
    * @public
    */
   metadata: Record<string, string> | undefined;
+
+  /**
+   * <p>Indicates whether this check is supported by the ListRecommendationsForResource API.</p>
+   * @public
+   */
+  resourceArnQueryable?: boolean | undefined;
+
+  /**
+   * <p>The AWS resource types that this check evaluates (for example, AWS::EC2::Instance).</p>
+   * @public
+   */
+  awsResourceTypes?: string[] | undefined;
+
+  /**
+   * <p>The granularity level at which the check operates: resource, account, or account_region.</p>
+   * @public
+   */
+  checkGranularity?: string | undefined;
+
+  /**
+   * <p>The recommendation identifier associated with the check.</p>
+   * @public
+   */
+  recommendationId?: string | undefined;
 }
 
 /**
@@ -1277,6 +1301,124 @@ export interface ListRecommendationsResponse {
    * @public
    */
   recommendationSummaries: RecommendationSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsForResourceRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The ARN of the AWS resource to query recommendations for</p>
+   * @public
+   */
+  awsResourceArn: string | undefined;
+
+  /**
+   * <p>The pillar that the recommendation belongs to</p>
+   * @public
+   */
+  pillar?: RecommendationPillar | undefined;
+
+  /**
+   * <p>The current status of the Recommendation Resource</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>The AWS Trusted Advisor Check ARN that relates to the Recommendation</p>
+   * @public
+   */
+  checkArn?: string | undefined;
+
+  /**
+   * <p>The ISO 639-1 code for the language that you want your recommendations to appear in.</p>
+   * @public
+   */
+  language?: RecommendationLanguage | undefined;
+}
+
+/**
+ * <p>Summary of a Recommendation for a specific AWS Resource</p>
+ * @public
+ */
+export interface RecommendationForResourceSummary {
+  /**
+   * <p>The Check ARN</p>
+   * @public
+   */
+  checkArn: string | undefined;
+
+  /**
+   * <p>The Recommendation ARN</p>
+   * @public
+   */
+  recommendationArn: string | undefined;
+
+  /**
+   * <p>The AWS Resource ARN</p>
+   * @public
+   */
+  awsResourceArn: string | undefined;
+
+  /**
+   * <p>The current status of the recommendation</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
+
+  /**
+   * <p>When the recommendation was last updated</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The exclusion status of the recommendation</p>
+   * @public
+   */
+  exclusionStatus: ExclusionStatus | undefined;
+
+  /**
+   * <p>Metadata associated with the recommendation</p>
+   * @public
+   */
+  metadata: Record<string, string> | undefined;
+
+  /**
+   * <p>The Pillars that the Recommendation is optimizing</p>
+   * @public
+   */
+  pillars: RecommendationPillar[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsForResourceResponse {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>List of Trusted Advisor recommendations associated with the given AWS resource</p>
+   * @public
+   */
+  recommendationForResourceSummaries: RecommendationForResourceSummary[] | undefined;
 }
 
 /**

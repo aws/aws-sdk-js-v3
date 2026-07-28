@@ -60,6 +60,12 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  * //       metadata: { // StringMap // required
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       resourceArnQueryable: true || false,
+ * //       awsResourceTypes: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       checkGranularity: "STRING_VALUE",
+ * //       recommendationId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -99,9 +105,13 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  *   checkSummaries: [
  *     {
  *       arn: "arn:aws:trustedadvisor:::check/1iG5NDGVre",
+ *       awsResourceTypes: [
+ *         "AWS::EC2::SecurityGroup"
+ *       ],
  *       awsServices: [
  *         "EC2"
  *       ],
+ *       checkGranularity: "resource",
  *       description: `Checks security groups for rules that allow unrestricted access to a resource. Unrestricted access increases opportunities for malicious activity (hacking, denial-of-service attacks, loss of data).
  * <br>
  * <br>Note: This check only evaluates security groups that you create and their inbound rules for IPv4 addresses. Security groups created by AWS Directory Services are flagged as red or yellow, but they don’t pose a security risk and can be safely ignored or excluded. For more information, see the <a href="https://aws.amazon.com/premiumsupport/faqs/#AWS_Trusted_Advisor" target="_blank">Trusted Advisor FAQ</a>.
@@ -134,13 +144,17 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  *       pillars: [
  *         "security"
  *       ],
+ *       recommendationId: "9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       resourceArnQueryable: true,
  *       source: "ta_check"
  *     },
  *     {
  *       arn: "arn:aws:trustedadvisor:::check/1qazXsw23e",
+ *       awsResourceTypes:       [],
  *       awsServices: [
  *         "RDS"
  *       ],
+ *       checkGranularity: "account",
  *       description: `Checks your usage of RDS and provides recommendations on purchase of Reserved Instances to help reduce costs incurred from using RDS On-Demand. AWS generates these recommendations by analyzing your On-Demand usage for the past 30 days. We then simulate every combination of reservations in the generated category of usage in order to identify the best number of each type of Reserved Instance to purchase to maximize your savings. This check covers recommendations based on partial upfront payment option with 1-year or 3-year commitment. This check is not available to accounts linked in Consolidated Billing. Recommendations are only available for the Paying Account.<br/><br/>
  * <h4 class='headerBodyStyle'>Alert Criteria</h4><br/>
  * Yellow: Optimizing the purchase of RDS Reserved Instances can help reduce costs.<br/><br/>
@@ -175,13 +189,17 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  *       pillars: [
  *         "cost_optimizing"
  *       ],
+ *       recommendationId: "8b602b6f-452d-4cb2-8a9e-c7650955d9cd",
+ *       resourceArnQueryable: false,
  *       source: "ta_check"
  *     },
  *     {
  *       arn: "arn:aws:trustedadvisor:::check/1qw23er45t",
+ *       awsResourceTypes:       [],
  *       awsServices: [
  *         "Redshift"
  *       ],
+ *       checkGranularity: "account",
  *       description: `Checks your usage of Redshift and provides recommendations on purchase of Reserved Nodes to help reduce costs incurred from using Redshift On-Demand. AWS generates these recommendations by analyzing your On-Demand usage for the past 30 days. We then simulate every combination of reservations in the generated category of usage in order to identify the best number of each type of Reserved Nodes to purchase to maximize your savings. This check covers recommendations based on partial upfront payment option with 1-year or 3-year commitment. This check is not available to accounts linked in Consolidated Billing. Recommendations are only available for the Paying Account.<br/><br/>
  * <h4 class='headerBodyStyle'>Alert Criteria</h4><br/>Yellow: Optimizing the purchase of Redshift Reserved Nodes can help reduce costs.<br/><br/>
  * <h4 class='headerBodyStyle'>Recommended Action</h4><br/>See the <a href="https://console.aws.amazon.com/billing/home?/costexplorer#/costexplorer" target="_blank">Cost Explorer</a> page for more detailed recommendations, customization options (e.g. look-back period, payment option, etc.) and to purchase Redshift Reserved Nodes.<br/><br/>
@@ -207,6 +225,8 @@ export interface ListChecksCommandOutput extends ListChecksResponse, __MetadataB
  *       pillars: [
  *         "cost_optimizing"
  *       ],
+ *       recommendationId: "4ecff4d4-1bc1-4c99-a5b8-0fff9ee500d6",
+ *       resourceArnQueryable: false,
  *       source: "ta_check"
  *     }
  *   ],

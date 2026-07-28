@@ -27,6 +27,9 @@ const _LORRRi = "ListOrganizationRecommendationResourcesResponse";
 const _LORRi = "ListOrganizationRecommendationsResponse";
 const _LORRis = "ListOrganizationRecommendationResources";
 const _LR = "ListRecommendations";
+const _LRFR = "ListRecommendationsForResource";
+const _LRFRR = "ListRecommendationsForResourceRequest";
+const _LRFRRi = "ListRecommendationsForResourceResponse";
 const _LRR = "ListRecommendationsRequest";
 const _LRRR = "ListRecommendationResourcesRequest";
 const _LRRRi = "ListRecommendationResourcesResponse";
@@ -39,6 +42,8 @@ const _ORS = "OrganizationRecommendationSummary";
 const _ORSL = "OrganizationRecommendationSummaryList";
 const _R = "Recommendation";
 const _RCOA = "RecommendationCostOptimizingAggregates";
+const _RFRS = "RecommendationForResourceSummary";
+const _RFRSL = "RecommendationForResourceSummaryList";
 const _RNFE = "ResourceNotFoundException";
 const _RPSA = "RecommendationPillarSpecificAggregates";
 const _RRA = "RecommendationResourcesAggregates";
@@ -62,8 +67,10 @@ const _aAI = "affectedAccountId";
 const _aI = "accountId";
 const _aLUA = "afterLastUpdatedAt";
 const _aRA = "accountRecommendationArn";
+const _aRAw = "awsResourceArn";
 const _aRI = "awsResourceId";
 const _aRLS = "accountRecommendationLifecycleSummaries";
+const _aRT = "awsResourceTypes";
 const _aS = "awsServices";
 const _aSw = "awsService";
 const _bLUA = "beforeLastUpdatedAt";
@@ -72,6 +79,7 @@ const _c = "client";
 const _cA = "checkArn";
 const _cAr = "createdAt";
 const _cB = "createdBy";
+const _cG = "checkGranularity";
 const _cI = "checkIdentifier";
 const _cO = "costOptimizing";
 const _cS = "checkSummaries";
@@ -107,10 +115,13 @@ const _pSA = "pillarSpecificAggregates";
 const _pi = "pillar";
 const _r = "recommendation";
 const _rA = "resourcesAggregates";
+const _rAQ = "resourceArnQueryable";
 const _rAe = "resolvedAt";
 const _rAec = "recommendationArn";
 const _rC = "regionCode";
-const _rI = "recommendationIdentifier";
+const _rFRS = "recommendationForResourceSummaries";
+const _rI = "recommendationId";
+const _rIe = "recommendationIdentifier";
 const _rRE = "recommendationResourceExclusions";
 const _rRS = "recommendationResourceSummaries";
 const _rS = "recommendationSummaries";
@@ -216,8 +227,8 @@ export var BatchUpdateRecommendationResourceExclusionResponse$: StaticStructureS
 ];
 export var CheckSummary$: StaticStructureSchema = [3, n0, _CS,
   0,
-  [_i, _a, _n, _d, _p, _aS, _so, _me],
-  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0], 8
+  [_i, _a, _n, _d, _p, _aS, _so, _me, _rAQ, _aRT, _cG, _rI],
+  [0, 0, 0, 0, 64 | 0, 64 | 0, 0, 128 | 0, 2, 64 | 0, 0, 0], 8
 ];
 export var GetOrganizationRecommendationRequest$: StaticStructureSchema = [3, n0, _GORR,
   0,
@@ -231,7 +242,7 @@ export var GetOrganizationRecommendationResponse$: StaticStructureSchema = [3, n
 ];
 export var GetRecommendationRequest$: StaticStructureSchema = [3, n0, _GRR,
   0,
-  [_rI, _l],
+  [_rIe, _l],
   [[0, 1], [0, { [_hQ]: _l }]], 1
 ];
 export var GetRecommendationResponse$: StaticStructureSchema = [3, n0, _GRRe,
@@ -281,13 +292,23 @@ export var ListOrganizationRecommendationsResponse$: StaticStructureSchema = [3,
 ];
 export var ListRecommendationResourcesRequest$: StaticStructureSchema = [3, n0, _LRRR,
   0,
-  [_rI, _nT, _mR, _st, _eS, _rC, _l],
+  [_rIe, _nT, _mR, _st, _eS, _rC, _l],
   [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _st }], [0, { [_hQ]: _eS }], [0, { [_hQ]: _rC }], [0, { [_hQ]: _l }]], 1
 ];
 export var ListRecommendationResourcesResponse$: StaticStructureSchema = [3, n0, _LRRRi,
   0,
   [_rRS, _nT],
   [() => RecommendationResourceSummaryList, 0], 1
+];
+export var ListRecommendationsForResourceRequest$: StaticStructureSchema = [3, n0, _LRFRR,
+  0,
+  [_aRAw, _nT, _mR, _pi, _st, _cA, _l],
+  [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _pi }], [0, { [_hQ]: _st }], [0, { [_hQ]: _cA }], [0, { [_hQ]: _l }]], 1
+];
+export var ListRecommendationsForResourceResponse$: StaticStructureSchema = [3, n0, _LRFRRi,
+  0,
+  [_rFRS, _nT],
+  [() => RecommendationForResourceSummaryList, 0], 1
 ];
 export var ListRecommendationsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
@@ -324,6 +345,11 @@ export var RecommendationCostOptimizingAggregates$: StaticStructureSchema = [3, 
   [_eMS, _ePMS],
   [1, 1], 2
 ];
+export var RecommendationForResourceSummary$: StaticStructureSchema = [3, n0, _RFRS,
+  0,
+  [_cA, _rAec, _aRAw, _st, _lUA, _eS, _me, _p],
+  [0, 0, 0, 0, 5, 0, 128 | 0, 64 | 0], 8
+];
 export var RecommendationPillarSpecificAggregates$: StaticStructureSchema = [3, n0, _RPSA,
   0,
   [_cO],
@@ -356,7 +382,7 @@ export var UpdateOrganizationRecommendationLifecycleRequest$: StaticStructureSch
 ];
 export var UpdateRecommendationLifecycleRequest$: StaticStructureSchema = [3, n0, _URLR,
   0,
-  [_lS, _rI, _uR, _uRC],
+  [_lS, _rIe, _uR, _uRC],
   [0, [0, 1], [() => RecommendationUpdateReason, 0], 0], 2
 ];
 export var UpdateRecommendationResourceExclusionError$: StaticStructureSchema = [3, n0, _URREE,
@@ -379,6 +405,9 @@ var OrganizationRecommendationSummaryList: StaticListSchema = [1, n0, _ORSL,
   0, () => OrganizationRecommendationSummary$
 ];
 var RecommendationAwsServiceList = 64 | 0;
+var RecommendationForResourceSummaryList: StaticListSchema = [1, n0, _RFRSL,
+  0, () => RecommendationForResourceSummary$
+];
 var RecommendationPillarList = 64 | 0;
 var RecommendationResourceExclusionList: StaticListSchema = [1, n0, _RREL,
   0, () => RecommendationResourceExclusion$
@@ -389,6 +418,7 @@ var RecommendationResourceSummaryList: StaticListSchema = [1, n0, _RRSL,
 var RecommendationSummaryList: StaticListSchema = [1, n0, _RSL,
   0, () => RecommendationSummary$
 ];
+var StringList = 64 | 0;
 var UpdateRecommendationResourceExclusionErrorList: StaticListSchema = [1, n0, _URREEL,
   0, () => UpdateRecommendationResourceExclusionError$
 ];
@@ -419,6 +449,9 @@ export var ListRecommendationResources$: StaticOperationSchema = [9, n0, _LRRis,
 ];
 export var ListRecommendations$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["GET", "/v1/recommendations", 200] }, () => ListRecommendationsRequest$, () => ListRecommendationsResponse$
+];
+export var ListRecommendationsForResource$: StaticOperationSchema = [9, n0, _LRFR,
+  { [_h]: ["GET", "/v1/recommendations-for-resource/{awsResourceArn}", 200] }, () => ListRecommendationsForResourceRequest$, () => ListRecommendationsForResourceResponse$
 ];
 export var UpdateOrganizationRecommendationLifecycle$: StaticOperationSchema = [9, n0, _UORL,
   { [_h]: ["PUT", "/v1/organization-recommendations/{organizationRecommendationIdentifier}/lifecycle", 200] }, () => UpdateOrganizationRecommendationLifecycleRequest$, () => __Unit

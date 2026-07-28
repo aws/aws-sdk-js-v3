@@ -6,3 +6,4 @@ export * from "./ListOrganizationRecommendationResourcesPaginator";
 export * from "./ListOrganizationRecommendationsPaginator";
 export * from "./ListRecommendationResourcesPaginator";
 export * from "./ListRecommendationsPaginator";
+export * from "./ListRecommendationsForResourcePaginator";

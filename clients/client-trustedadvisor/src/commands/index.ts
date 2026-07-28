@@ -8,5 +8,6 @@ export * from "./ListOrganizationRecommendationResourcesCommand";
 export * from "./ListOrganizationRecommendationsCommand";
 export * from "./ListRecommendationResourcesCommand";
 export * from "./ListRecommendationsCommand";
+export * from "./ListRecommendationsForResourceCommand";
 export * from "./UpdateOrganizationRecommendationLifecycleCommand";
 export * from "./UpdateRecommendationLifecycleCommand";

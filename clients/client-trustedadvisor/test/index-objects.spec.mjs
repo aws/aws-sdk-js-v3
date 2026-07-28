@@ -42,6 +42,10 @@ import {
   ListRecommendationResourcesResponse$,
   ListRecommendations$,
   ListRecommendationsCommand,
+  ListRecommendationsForResource$,
+  ListRecommendationsForResourceCommand,
+  ListRecommendationsForResourceRequest$,
+  ListRecommendationsForResourceResponse$,
   ListRecommendationsRequest$,
   ListRecommendationsResponse$,
   OrganizationRecommendation$,
@@ -53,8 +57,10 @@ import {
   paginateListOrganizationRecommendations,
   paginateListRecommendationResources,
   paginateListRecommendations,
+  paginateListRecommendationsForResource,
   Recommendation$,
   RecommendationCostOptimizingAggregates$,
+  RecommendationForResourceSummary$,
   RecommendationLanguage,
   RecommendationLifecycleStage,
   RecommendationPillar,
@@ -110,6 +116,8 @@ assert(typeof ListRecommendationResourcesCommand === "function");
 assert(typeof ListRecommendationResources$ === "object");
 assert(typeof ListRecommendationsCommand === "function");
 assert(typeof ListRecommendations$ === "object");
+assert(typeof ListRecommendationsForResourceCommand === "function");
+assert(typeof ListRecommendationsForResource$ === "object");
 assert(typeof UpdateOrganizationRecommendationLifecycleCommand === "function");
 assert(typeof UpdateOrganizationRecommendationLifecycle$ === "object");
 assert(typeof UpdateRecommendationLifecycleCommand === "function");
@@ -133,6 +141,8 @@ assert(typeof ListOrganizationRecommendationsRequest$ === "object");
 assert(typeof ListOrganizationRecommendationsResponse$ === "object");
 assert(typeof ListRecommendationResourcesRequest$ === "object");
 assert(typeof ListRecommendationResourcesResponse$ === "object");
+assert(typeof ListRecommendationsForResourceRequest$ === "object");
+assert(typeof ListRecommendationsForResourceResponse$ === "object");
 assert(typeof ListRecommendationsRequest$ === "object");
 assert(typeof ListRecommendationsResponse$ === "object");
 assert(typeof OrganizationRecommendation$ === "object");
@@ -140,6 +150,7 @@ assert(typeof OrganizationRecommendationResourceSummary$ === "object");
 assert(typeof OrganizationRecommendationSummary$ === "object");
 assert(typeof Recommendation$ === "object");
 assert(typeof RecommendationCostOptimizingAggregates$ === "object");
+assert(typeof RecommendationForResourceSummary$ === "object");
 assert(typeof RecommendationPillarSpecificAggregates$ === "object");
 assert(typeof RecommendationResourceExclusion$ === "object");
 assert(typeof RecommendationResourcesAggregates$ === "object");
@@ -181,4 +192,5 @@ assert(typeof paginateListOrganizationRecommendationResources === "function");
 assert(typeof paginateListOrganizationRecommendations === "function");
 assert(typeof paginateListRecommendationResources === "function");
 assert(typeof paginateListRecommendations === "function");
+assert(typeof paginateListRecommendationsForResource === "function");
 console.log(`TrustedAdvisor index test passed.`);

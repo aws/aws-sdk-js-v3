@@ -244,6 +244,13 @@ ListRecommendations
 </details>
 <details>
 <summary>
+ListRecommendationsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/trustedadvisor/command/ListRecommendationsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-trustedadvisor/Interface/ListRecommendationsForResourceCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateOrganizationRecommendationLifecycle
 </summary>
 
