@@ -1,4 +1,4 @@
-import { NumericValue } from "@smithy/core/serde";
+import { nv, NumericValue } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
@@ -295,16 +295,16 @@ describe(JsonShapeDeserializer2.name, () => {
       expect(v2Result.bigint).toBe(10000000000000000000n);
     });
 
-    // Known limitation: exponent-notation fractional numbers with many decimal digits
-    // outside safe range throw because NumericValue rejects 'E' in the source string.
-    // e.g. "1.123456789012345678E16" (18 frac digits > exp 16 → fractional → NumericValue)
-    // Both v1 and v2 share this behavior via jsonReviver.
     (contextSourceAvailable ? it : it.skip)(
-      "known limitation: fractional exponent with many digits throws in reviver",
+      "fractional exponent with many digits does not throw in reviver",
       async () => {
         const json = `{"scalar": 1.123456789012345678E16}`;
-        await expect(v1Deserializer.read(widget, json)).rejects.toThrow(/NumericValue/);
-        await expect(deserializer.read(widget, json)).rejects.toThrow(/NumericValue/);
+        await expect(v1Deserializer.read(widget, json)).resolves.toEqual({
+          scalar: nv("1.123456789012345678E16"),
+        });
+        await expect(deserializer.read(widget, json)).resolves.toEqual({
+          scalar: nv("1.123456789012345678E16"),
+        });
       }
     );
   });
