@@ -544,6 +544,10 @@ import type {
   CreateTransitGatewayPolicyTableCommandOutput,
 } from "./commands/CreateTransitGatewayPolicyTableCommand";
 import type {
+  CreateTransitGatewayPolicyTableEntryCommandInput,
+  CreateTransitGatewayPolicyTableEntryCommandOutput,
+} from "./commands/CreateTransitGatewayPolicyTableEntryCommand";
+import type {
   CreateTransitGatewayPrefixListReferenceCommandInput,
   CreateTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/CreateTransitGatewayPrefixListReferenceCommand";
@@ -855,6 +859,10 @@ import type {
   DeleteTransitGatewayPolicyTableCommandInput,
   DeleteTransitGatewayPolicyTableCommandOutput,
 } from "./commands/DeleteTransitGatewayPolicyTableCommand";
+import type {
+  DeleteTransitGatewayPolicyTableEntryCommandInput,
+  DeleteTransitGatewayPolicyTableEntryCommandOutput,
+} from "./commands/DeleteTransitGatewayPolicyTableEntryCommand";
 import type {
   DeleteTransitGatewayPrefixListReferenceCommandInput,
   DeleteTransitGatewayPrefixListReferenceCommandOutput,
@@ -2430,6 +2438,10 @@ import type {
   ModifyTransitGatewayMeteringPolicyCommandOutput,
 } from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
 import type {
+  ModifyTransitGatewayPolicyTableEntryCommandInput,
+  ModifyTransitGatewayPolicyTableEntryCommandOutput,
+} from "./commands/ModifyTransitGatewayPolicyTableEntryCommand";
+import type {
   ModifyTransitGatewayPrefixListReferenceCommandInput,
   ModifyTransitGatewayPrefixListReferenceCommandOutput,
 } from "./commands/ModifyTransitGatewayPrefixListReferenceCommand";
@@ -2974,6 +2986,7 @@ export type ServiceInputTypes =
   | CreateTransitGatewayMulticastDomainCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
   | CreateTransitGatewayPolicyTableCommandInput
+  | CreateTransitGatewayPolicyTableEntryCommandInput
   | CreateTransitGatewayPrefixListReferenceCommandInput
   | CreateTransitGatewayRouteCommandInput
   | CreateTransitGatewayRouteTableAnnouncementCommandInput
@@ -3067,6 +3080,7 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayMulticastDomainCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
   | DeleteTransitGatewayPolicyTableCommandInput
+  | DeleteTransitGatewayPolicyTableEntryCommandInput
   | DeleteTransitGatewayPrefixListReferenceCommandInput
   | DeleteTransitGatewayRouteCommandInput
   | DeleteTransitGatewayRouteTableAnnouncementCommandInput
@@ -3492,6 +3506,7 @@ export type ServiceInputTypes =
   | ModifyTrafficMirrorSessionCommandInput
   | ModifyTransitGatewayCommandInput
   | ModifyTransitGatewayMeteringPolicyCommandInput
+  | ModifyTransitGatewayPolicyTableEntryCommandInput
   | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
   | ModifyVerifiedAccessEndpointCommandInput
@@ -3751,6 +3766,7 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayMulticastDomainCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
   | CreateTransitGatewayPolicyTableCommandOutput
+  | CreateTransitGatewayPolicyTableEntryCommandOutput
   | CreateTransitGatewayPrefixListReferenceCommandOutput
   | CreateTransitGatewayRouteCommandOutput
   | CreateTransitGatewayRouteTableAnnouncementCommandOutput
@@ -3844,6 +3860,7 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayMulticastDomainCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
   | DeleteTransitGatewayPolicyTableCommandOutput
+  | DeleteTransitGatewayPolicyTableEntryCommandOutput
   | DeleteTransitGatewayPrefixListReferenceCommandOutput
   | DeleteTransitGatewayRouteCommandOutput
   | DeleteTransitGatewayRouteTableAnnouncementCommandOutput
@@ -4269,6 +4286,7 @@ export type ServiceOutputTypes =
   | ModifyTrafficMirrorSessionCommandOutput
   | ModifyTransitGatewayCommandOutput
   | ModifyTransitGatewayMeteringPolicyCommandOutput
+  | ModifyTransitGatewayPolicyTableEntryCommandOutput
   | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput
   | ModifyVerifiedAccessEndpointCommandOutput

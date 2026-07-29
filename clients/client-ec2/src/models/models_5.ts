@@ -26,6 +26,7 @@ import type {
   MetricType,
   OnDemandAllocationStrategy,
   PayerResponsibility,
+  ReplacementStrategy,
   ResourceType,
   RIProductDescription,
   RouteServerPropagationState,
@@ -53,7 +54,6 @@ import type {
   VpcBlockPublicAccessState,
 } from "./enums";
 import type {
-  ActiveVpnTunnelStatus,
   AddressTransfer,
   AllowedPrincipal,
   AsnAssociation,
@@ -82,7 +82,15 @@ import type {
   VpcIpv6CidrBlockAssociation,
   VpcPeeringConnection,
 } from "./models_0";
-import type { BlockDeviceMapping, GroupIdentifier, Subnet, Vpc, VpcEncryptionControl } from "./models_1";
+import type {
+  BlockDeviceMapping,
+  FleetLaunchTemplateSpecification,
+  GroupIdentifier,
+  InstanceRequirements,
+  Subnet,
+  Vpc,
+  VpcEncryptionControl,
+} from "./models_1";
 import type {
   ConnectionNotification,
   DnsEntry,
@@ -120,13 +128,394 @@ import type {
 import type {
   AttributeBooleanValue,
   InstanceNetworkInterfaceSpecification,
-  LaunchTemplateConfig,
-  LoadBalancersConfig,
   RegisteredInstance,
-  SpotCapacityRebalance,
-  SpotFleetLaunchSpecification,
+  SpotFleetMonitoring,
+  SpotFleetTagSpecification,
   SpotPlacement,
 } from "./models_4";
+
+/**
+ * <p>Describes the launch specification for one or more Spot Instances. If you include
+ *           On-Demand capacity in your fleet request or want to specify an EFA network device, you
+ *           can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+ * @public
+ */
+export interface SpotFleetLaunchSpecification {
+  /**
+   * <p>Deprecated.</p>
+   * @public
+   */
+  AddressingType?: string | undefined;
+
+  /**
+   * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
+   *             a snapshot ID and an encryption value. This is because only blank volumes can be
+   *             encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its
+   *             encryption status is used for the volume encryption status.</p>
+   * @public
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
+
+  /**
+   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   * @public
+   */
+  EbsOptimized?: boolean | undefined;
+
+  /**
+   * <p>The IAM instance profile.</p>
+   * @public
+   */
+  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The ID of the kernel.</p>
+   * @public
+   */
+  KernelId?: string | undefined;
+
+  /**
+   * <p>The name of the key pair.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>Enable or disable monitoring for the instances.</p>
+   * @public
+   */
+  Monitoring?: SpotFleetMonitoring | undefined;
+
+  /**
+   * <p>The network interfaces.</p>
+   *          <note>
+   *             <p>
+   *                <code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA).
+   *              You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p>
+   *          </note>
+   * @public
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
+
+  /**
+   * <p>The placement information.</p>
+   * @public
+   */
+  Placement?: SpotPlacement | undefined;
+
+  /**
+   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel
+   *           requirements for information about whether you need to specify a RAM disk. To find kernel
+   *           requirements, refer to the Amazon Web Services Resource Center and search for the kernel ID.</p>
+   * @public
+   */
+  RamdiskId?: string | undefined;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
+   *           increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   * @public
+   */
+  SpotPrice?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
+   *          them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
+   *          <p>If you specify a network interface, you must specify any subnets as part of the
+   *          network interface instead of using this parameter.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
+   * @public
+   */
+  UserData?: string | undefined;
+
+  /**
+   * <p>The number of units provided by the specified instance type. These are the same units
+   *         that you chose to set the target capacity in terms of instances, or a performance
+   *         characteristic such as vCPUs, memory, or I/O.</p>
+   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
+   *         number of instances to the next whole number. If this value is not specified, the default
+   *         is 1.</p>
+   *          <note>
+   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
+   *            <code>priceCapacityOptimized</code> allocation strategies is per
+   *            <i>unit</i> hour (where the instance price is divided by the specified
+   *            weight). However, if all the specified weights are above the requested
+   *            <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
+   *            used is per <i>instance</i> hour.</p>
+   *          </note>
+   * @public
+   */
+  WeightedCapacity?: number | undefined;
+
+  /**
+   * <p>The tags to apply during creation.</p>
+   * @public
+   */
+  TagSpecifications?: SpotFleetTagSpecification[] | undefined;
+
+  /**
+   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
+   *          identify instance types with those attributes.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceType</code>.</p>
+   *          </note>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The security groups.</p>
+   *          <p>If you specify a network interface, you must specify any security groups as part of
+   *         the network interface instead of using this parameter.</p>
+   * @public
+   */
+  SecurityGroups?: GroupIdentifier[] | undefined;
+}
+
+/**
+ * <p>Describes overrides for a launch template.</p>
+ * @public
+ */
+export interface LaunchTemplateOverrides {
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: _InstanceType | undefined;
+
+  /**
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
+   *          increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   *          <important>
+   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *          </important>
+   * @public
+   */
+  SpotPrice?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet in which to launch the instances.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone in which to launch the instances. For example,
+   *             <code>us-east-2a</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of units provided by the specified instance type. These are the same units
+   *          that you chose to set the target capacity in terms of instances, or a performance
+   *          characteristic such as vCPUs, memory, or I/O.</p>
+   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
+   *          number of instances to the next whole number. If this value is not specified, the default
+   *          is 1.</p>
+   *          <note>
+   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
+   *             <code>priceCapacityOptimized</code> allocation strategies is per
+   *             <i>unit</i> hour (where the instance price is divided by the specified
+   *             weight). However, if all the specified weights are above the requested
+   *             <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
+   *             used is per <i>instance</i> hour.</p>
+   *          </note>
+   * @public
+   */
+  WeightedCapacity?: number | undefined;
+
+  /**
+   * <p>The priority for the launch template override. The highest priority is launched
+   *          first.</p>
+   *          <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
+   *          uses priority to determine which launch template override to use first in fulfilling
+   *          On-Demand capacity.</p>
+   *          <p>If the Spot <code>AllocationStrategy</code> is set to
+   *          <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
+   *          to determine which launch template override to use in fulfilling Spot capacity, but
+   *          optimizes for capacity first.</p>
+   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
+   *          higher the priority. If no number is set, the launch template override has the lowest
+   *          priority. You can set the same priority for different launch template overrides.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify
+   *          instance types with the provided requirements, and then use your On-Demand and Spot
+   *          allocation strategies to launch instances from these instance types, in the same way as
+   *          when you specify a list of instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
+   *             <code>InstanceType</code>.</p>
+   *          </note>
+   * @public
+   */
+  InstanceRequirements?: InstanceRequirements | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone in which to launch the instances. For example,
+   *             <code>use2-az1</code>.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
+   *          specified in the request, but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+}
+
+/**
+ * <p>Describes a launch template and overrides.</p>
+ * @public
+ */
+export interface LaunchTemplateConfig {
+  /**
+   * <p>The launch template to use. Make sure that the launch template does not contain the
+   *             <code>NetworkInterfaceId</code> parameter because you can't specify a network interface
+   *          ID in a Spot Fleet.</p>
+   * @public
+   */
+  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification | undefined;
+
+  /**
+   * <p>Any parameters that you specify override the same parameters in the launch
+   *          template.</p>
+   * @public
+   */
+  Overrides?: LaunchTemplateOverrides[] | undefined;
+}
+
+/**
+ * <p>Describes a Classic Load Balancer.</p>
+ * @public
+ */
+export interface ClassicLoadBalancer {
+  /**
+   * <p>The name of the load balancer.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
+ *             the running Spot Instances with these Classic Load Balancers.</p>
+ * @public
+ */
+export interface ClassicLoadBalancersConfig {
+  /**
+   * <p>One or more Classic Load Balancers.</p>
+   * @public
+   */
+  ClassicLoadBalancers?: ClassicLoadBalancer[] | undefined;
+}
+
+/**
+ * <p>Describes a load balancer target group.</p>
+ * @public
+ */
+export interface TargetGroup {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the target group.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
+ *             running Spot Instances with these target groups.</p>
+ * @public
+ */
+export interface TargetGroupsConfig {
+  /**
+   * <p>One or more target groups.</p>
+   * @public
+   */
+  TargetGroups?: TargetGroup[] | undefined;
+}
+
+/**
+ * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
+ *             request.</p>
+ * @public
+ */
+export interface LoadBalancersConfig {
+  /**
+   * <p>The Classic Load Balancers.</p>
+   * @public
+   */
+  ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig | undefined;
+
+  /**
+   * <p>The target groups.</p>
+   * @public
+   */
+  TargetGroupsConfig?: TargetGroupsConfig | undefined;
+}
+
+/**
+ * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
+ *             Spot Instance is at an elevated risk of being interrupted. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
+ *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface SpotCapacityRebalance {
+  /**
+   * <p>The replacement strategy to use. Only available for fleets of type
+   *             <code>maintain</code>.</p>
+   *          <p>
+   *             <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
+   *             rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet
+   *             does not terminate the instances that receive a rebalance notification. You can
+   *             terminate the old instances, or you can leave them running. You are charged for all
+   *             instances while they are running. </p>
+   *          <p>
+   *             <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
+   *             Instance when a rebalance notification is emitted for an existing Spot Instance in the
+   *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
+   *             terminates the instances that received a rebalance notification.</p>
+   * @public
+   */
+  ReplacementStrategy?: ReplacementStrategy | undefined;
+
+  /**
+   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
+   *             Instance after launching a new replacement Spot Instance.</p>
+   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
+   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
+   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
+   * @public
+   */
+  TerminationDelay?: number | undefined;
+}
 
 /**
  * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
@@ -2242,6 +2631,12 @@ export interface TransitGatewayAttachmentAssociation {
    * @public
    */
   TransitGatewayRouteTableId?: string | undefined;
+
+  /**
+   * <p>The ID of the transit gateway policy table associated with the attachment.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId?: string | undefined;
 
   /**
    * <p>The state of the association.</p>
@@ -9627,284 +10022,4 @@ export interface ExportVerifiedAccessInstanceClientConfigurationResult {
    * @public
    */
   OpenVpnConfigurations?: VerifiedAccessInstanceOpenVpnClientConfiguration[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetActiveVpnTunnelStatusRequest {
-  /**
-   * <p>The ID of the VPN connection for which to retrieve the active tunnel status.</p>
-   * @public
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>The external IP address of the VPN tunnel for which to retrieve the active status.</p>
-   * @public
-   */
-  VpnTunnelOutsideIpAddress: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface GetActiveVpnTunnelStatusResult {
-  /**
-   * <p>Information about the current security configuration of the VPN tunnel.</p>
-   * @public
-   */
-  ActiveVpnTunnelStatus?: ActiveVpnTunnelStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAllowedImagesSettingsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>The maximum age for allowed images.</p>
- * @public
- */
-export interface CreationDateCondition {
-  /**
-   * <p>The maximum number of days that have elapsed since the image was created. For example, a
-   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
-   * @public
-   */
-  MaximumDaysSinceCreated?: number | undefined;
-}
-
-/**
- * <p>The maximum period since deprecation for allowed images.</p>
- * @public
- */
-export interface DeprecationTimeCondition {
-  /**
-   * <p>The maximum number of days that have elapsed since the image was deprecated. When set to
-   *       <code>0</code>, no deprecated images are allowed.</p>
-   * @public
-   */
-  MaximumDaysSinceDeprecated?: number | undefined;
-}
-
-/**
- * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
- *       fields. All specified fields must match the same watermark on the image.</p>
- * @public
- */
-export interface ImageWatermarkFilterResponse {
-  /**
-   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
-   *       <code>?</code>).</p>
-   * @public
-   */
-  WatermarkKey?: string | undefined;
-
-  /**
-   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
-   *       <code>?</code>).</p>
-   * @public
-   */
-  SourceImageRegion?: string | undefined;
-
-  /**
-   * <p>The maximum number of days that have elapsed since the source image was
-   *       created.</p>
-   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
-   * @public
-   */
-  MaximumDaysSinceSourceImageCreated?: number | undefined;
-
-  /**
-   * <p>The maximum number of days that have elapsed since the watermark was attached to the
-   *       image.</p>
-   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
-   * @public
-   */
-  MaximumDaysSinceWatermarkCreated?: number | undefined;
-}
-
-/**
- * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
- *       your account for the specified Amazon Web Services Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
- *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface ImageCriterion {
-  /**
-   * <p>The image providers whose images are allowed.</p>
-   *          <p>Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
-   *           Marketplace.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
-   *             </li>
-   *             <li>
-   *                <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
-   *           specified.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>none</code>: Allow AMIs created by your own account only.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Maximum: 200 values</p>
-   * @public
-   */
-  ImageProviders?: string[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
-   *          <p>Length: 1-25 characters</p>
-   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  MarketplaceProductCodes?: string[] | undefined;
-
-  /**
-   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
-   *         <code>*</code>).</p>
-   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
-   *          <p>Valid characters:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Letters: <code>A–Z, a–z</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Numbers: <code>0–9</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>Spaces</p>
-   *             </li>
-   *          </ul>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  ImageNames?: string[] | undefined;
-
-  /**
-   * <p>The maximum period since deprecation for allowed images.</p>
-   * @public
-   */
-  DeprecationTimeCondition?: DeprecationTimeCondition | undefined;
-
-  /**
-   * <p>The maximum age for allowed images.</p>
-   * @public
-   */
-  CreationDateCondition?: CreationDateCondition | undefined;
-
-  /**
-   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
-   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
-   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
-   *       the watermark of the AMI.</p>
-   *          <p>Maximum: 50 values</p>
-   * @public
-   */
-  ImageWatermarks?: ImageWatermarkFilterResponse[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAllowedImagesSettingsResult {
-  /**
-   * <p>The current state of the Allowed AMIs setting at the account level in the specified Amazon Web Services
-   *       Region.</p>
-   *          <p>Possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>disabled</code>: All AMIs are allowed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>audit-mode</code>: All AMIs are allowed, but the <code>ImageAllowed</code> field
-   *           is set to <code>true</code> if the AMI would be allowed with the current list of criteria
-   *           if allowed AMIs was enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>enabled</code>: Only AMIs matching the image criteria are discoverable and
-   *           available for use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The list of criteria for images that are discoverable and usable in the account in the
-   *       specified Amazon Web Services Region.</p>
-   * @public
-   */
-  ImageCriteria?: ImageCriterion[] | undefined;
-
-  /**
-   * <p>The entity that manages the Allowed AMIs settings. Possible values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account</code> - The Allowed AMIs settings is managed by the account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>declarative-policy</code> - The Allowed AMIs settings is managed by a
-   *                     declarative policy and can't be modified by the account.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ManagedBy?: ManagedBy | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssociatedEnclaveCertificateIamRolesRequest {
-  /**
-   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
-   * 			S3 object information.</p>
-   * @public
-   */
-  CertificateArn: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

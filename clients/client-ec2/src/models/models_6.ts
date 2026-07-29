@@ -97,6 +97,7 @@ import type {
 import type {
   AccessScopeAnalysisFinding,
   AccountVpcEncryptionControl,
+  ActiveVpnTunnelStatus,
   AddIpamOperatingRegion,
   AddressAttribute,
   ClientConnectOptions,
@@ -123,8 +124,6 @@ import type {
   FleetLaunchTemplateConfigRequest,
   InstanceEventWindowTimeRangeRequest,
   InstanceRequirementsRequest,
-  Ipam,
-  IpamPool,
   IpamResourceTag,
   NetworkInsightsAccessScopeContent,
   Placement,
@@ -135,6 +134,7 @@ import type {
 import type {
   SubnetCidrReservation,
   TransitGatewayMeteringPolicyEntry,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
 } from "./models_2";
 import type { ConversionTask, Filter, FpgaImageAttribute, IpamPoolCidr, LaunchPermission } from "./models_3";
@@ -147,6 +147,286 @@ import type {
   SnapshotTaskDetail,
 } from "./models_4";
 import type { RouteServerPropagation } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetActiveVpnTunnelStatusRequest {
+  /**
+   * <p>The ID of the VPN connection for which to retrieve the active tunnel status.</p>
+   * @public
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>The external IP address of the VPN tunnel for which to retrieve the active status.</p>
+   * @public
+   */
+  VpnTunnelOutsideIpAddress: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetActiveVpnTunnelStatusResult {
+  /**
+   * <p>Information about the current security configuration of the VPN tunnel.</p>
+   * @public
+   */
+  ActiveVpnTunnelStatus?: ActiveVpnTunnelStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAllowedImagesSettingsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>The maximum age for allowed images.</p>
+ * @public
+ */
+export interface CreationDateCondition {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was created. For example, a
+   *       value of <code>300</code> allows images that were created within the last 300 days.</p>
+   * @public
+   */
+  MaximumDaysSinceCreated?: number | undefined;
+}
+
+/**
+ * <p>The maximum period since deprecation for allowed images.</p>
+ * @public
+ */
+export interface DeprecationTimeCondition {
+  /**
+   * <p>The maximum number of days that have elapsed since the image was deprecated. When set to
+   *       <code>0</code>, no deprecated images are allowed.</p>
+   * @public
+   */
+  MaximumDaysSinceDeprecated?: number | undefined;
+}
+
+/**
+ * <p>The watermark filter criteria for an allowed image. Each entry can specify one or more
+ *       fields. All specified fields must match the same watermark on the image.</p>
+ * @public
+ */
+export interface ImageWatermarkFilterResponse {
+  /**
+   * <p>The <code>accountId:name</code> of the watermark. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally created. Supports wildcards (<code>*</code>,
+   *       <code>?</code>).</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the source image was
+   *       created.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceSourceImageCreated?: number | undefined;
+
+  /**
+   * <p>The maximum number of days that have elapsed since the watermark was attached to the
+   *       image.</p>
+   *          <p>Constraints: Minimum value of 0. Maximum value of 2147483647.</p>
+   * @public
+   */
+  MaximumDaysSinceWatermarkCreated?: number | undefined;
+}
+
+/**
+ * <p>The criteria that are evaluated to determine which AMIs are discoverable and usable in
+ *       your account for the specified Amazon Web Services Region.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html#how-allowed-amis-works">How Allowed AMIs
+ *         works</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ * @public
+ */
+export interface ImageCriterion {
+  /**
+   * <p>The image providers whose images are allowed.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>amazon</code>: Allow AMIs created by Amazon or verified providers.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-marketplace</code>: Allow AMIs created by verified providers in the Amazon Web Services
+   *           Marketplace.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws-backup-vault</code>: Allow AMIs created by Amazon Web Services Backup. </p>
+   *             </li>
+   *             <li>
+   *                <p>12-digit account ID: Allow AMIs created by this account. One or more account IDs can be
+   *           specified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: Allow AMIs created by your own account only.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 200 values</p>
+   * @public
+   */
+  ImageProviders?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services Marketplace product codes for allowed images.</p>
+   *          <p>Length: 1-25 characters</p>
+   *          <p>Valid characters: Letters (<code>A–Z, a–z</code>) and numbers (<code>0–9</code>)</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  MarketplaceProductCodes?: string[] | undefined;
+
+  /**
+   * <p>The names of allowed images. Names can include wildcards (<code>?</code> and
+   *         <code>*</code>).</p>
+   *          <p>Length: 1–128 characters. With <code>?</code>, the minimum is 3 characters.</p>
+   *          <p>Valid characters:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Letters: <code>A–Z, a–z</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Numbers: <code>0–9</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Special characters: <code>( ) [ ] . / - ' @ _ * ?</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Spaces</p>
+   *             </li>
+   *          </ul>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageNames?: string[] | undefined;
+
+  /**
+   * <p>The maximum period since deprecation for allowed images.</p>
+   * @public
+   */
+  DeprecationTimeCondition?: DeprecationTimeCondition | undefined;
+
+  /**
+   * <p>The maximum age for allowed images.</p>
+   * @public
+   */
+  CreationDateCondition?: CreationDateCondition | undefined;
+
+  /**
+   * <p>The watermark criteria that an AMI must match to be allowed. An AMI is allowed if it
+   *       carries at least one watermark that satisfies an ImageWatermarkFilter. A watermark satisfies a
+   *       filter when all specified fields in the ImageWatermarkFilter match the corresponding values on
+   *       the watermark of the AMI.</p>
+   *          <p>Maximum: 50 values</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermarkFilterResponse[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAllowedImagesSettingsResult {
+  /**
+   * <p>The current state of the Allowed AMIs setting at the account level in the specified Amazon Web Services
+   *       Region.</p>
+   *          <p>Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>disabled</code>: All AMIs are allowed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>audit-mode</code>: All AMIs are allowed, but the <code>ImageAllowed</code> field
+   *           is set to <code>true</code> if the AMI would be allowed with the current list of criteria
+   *           if allowed AMIs was enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enabled</code>: Only AMIs matching the image criteria are discoverable and
+   *           available for use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  State?: string | undefined;
+
+  /**
+   * <p>The list of criteria for images that are discoverable and usable in the account in the
+   *       specified Amazon Web Services Region.</p>
+   * @public
+   */
+  ImageCriteria?: ImageCriterion[] | undefined;
+
+  /**
+   * <p>The entity that manages the Allowed AMIs settings. Possible values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account</code> - The Allowed AMIs settings is managed by the account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>declarative-policy</code> - The Allowed AMIs settings is managed by a
+   *                     declarative policy and can't be modified by the account.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ManagedBy?: ManagedBy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAssociatedEnclaveCertificateIamRolesRequest {
+  /**
+   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
+   * 			S3 object information.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * <p>Information about the associated IAM roles.</p>
@@ -5565,7 +5845,45 @@ export interface GetTransitGatewayPolicyTableEntriesRequest {
   TransitGatewayPolicyTableId: string | undefined;
 
   /**
-   * <p>The filters associated with the transit gateway policy table.</p>
+   * <p>One or more filters. The possible values are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule-number</code> - The rule number for the transit gateway policy table entry.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-route-table-id</code> - The ID of the target route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.source-ip</code> - The source CIDR block for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.destination-ip</code> - The destination CIDR block for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.source-port</code> - The source port or port range for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.destination-port</code> - The destination port or port range for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.protocol</code> - The protocol for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.meta-data.key</code> - The metadata key for the policy rule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>policy-rule.meta-data.value</code> - The metadata value for the policy rule.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -5593,90 +5911,6 @@ export interface GetTransitGatewayPolicyTableEntriesRequest {
 }
 
 /**
- * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
- * @public
- */
-export interface TransitGatewayPolicyRuleMetaData {
-  /**
-   * <p>The key name for the transit gateway policy rule meta data tag.</p>
-   * @public
-   */
-  MetaDataKey?: string | undefined;
-
-  /**
-   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
-   * @public
-   */
-  MetaDataValue?: string | undefined;
-}
-
-/**
- * <p>Describes a rule associated with a transit gateway policy.</p>
- * @public
- */
-export interface TransitGatewayPolicyRule {
-  /**
-   * <p>The source CIDR block for the transit gateway policy rule.</p>
-   * @public
-   */
-  SourceCidrBlock?: string | undefined;
-
-  /**
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   * @public
-   */
-  SourcePortRange?: string | undefined;
-
-  /**
-   * <p>The destination CIDR block for the transit gateway policy rule.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The port range for the transit gateway policy rule. Currently this is set to * (all).</p>
-   * @public
-   */
-  DestinationPortRange?: string | undefined;
-
-  /**
-   * <p>The protocol used by the transit gateway policy rule.</p>
-   * @public
-   */
-  Protocol?: string | undefined;
-
-  /**
-   * <p>The meta data tags used for the transit gateway policy rule.</p>
-   * @public
-   */
-  MetaData?: TransitGatewayPolicyRuleMetaData | undefined;
-}
-
-/**
- * <p>Describes a transit gateway policy table entry</p>
- * @public
- */
-export interface TransitGatewayPolicyTableEntry {
-  /**
-   * <p>The rule number for the transit gateway policy table entry.</p>
-   * @public
-   */
-  PolicyRuleNumber?: string | undefined;
-
-  /**
-   * <p>The policy rule associated with the transit gateway policy table.</p>
-   * @public
-   */
-  PolicyRule?: TransitGatewayPolicyRule | undefined;
-
-  /**
-   * <p>The ID of the target route table.</p>
-   * @public
-   */
-  TargetRouteTableId?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface GetTransitGatewayPolicyTableEntriesResult {
@@ -5685,6 +5919,12 @@ export interface GetTransitGatewayPolicyTableEntriesResult {
    * @public
    */
   TransitGatewayPolicyTableEntries?: TransitGatewayPolicyTableEntry[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -10007,173 +10247,4 @@ export interface ModifyIpamRequest {
    * @public
    */
   MeteredAccount?: IpamMeteredAccount | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamResult {
-  /**
-   * <p>The results of the modification.</p>
-   * @public
-   */
-  Ipam?: Ipam | undefined;
-}
-
-/**
- * <p>Information about a requested IPAM policy allocation rule.</p>
- *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
- * @public
- */
-export interface IpamPolicyAllocationRuleRequest {
-  /**
-   * <p>The ID of the source IPAM pool for the requested allocation rule.</p>
-   *          <p>An IPAM pool is a collection of IP addresses in IPAM that can be allocated to Amazon Web Services resources.</p>
-   * @public
-   */
-  SourceIpamPoolId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPolicyAllocationRulesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM policy whose allocation rules you want to modify.</p>
-   * @public
-   */
-  IpamPolicyId: string | undefined;
-
-  /**
-   * <p>The locale for which to modify the allocation rules.</p>
-   * @public
-   */
-  Locale: string | undefined;
-
-  /**
-   * <p>The resource type for which to modify the allocation rules.</p>
-   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Elastic IP addresses</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceType: IpamPolicyResourceType | undefined;
-
-  /**
-   * <p>The new allocation rules to apply to the IPAM policy.</p>
-   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
-   * @public
-   */
-  AllocationRules?: IpamPolicyAllocationRuleRequest[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPolicyAllocationRulesResult {
-  /**
-   * <p>The modified IPAM policy containing the updated allocation rules.</p>
-   * @public
-   */
-  IpamPolicyDocument?: IpamPolicyDocument | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the IPAM pool you want to modify.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The description of the IPAM pool you want to modify.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>If true, IPAM will continuously look for resources within the CIDR range of this pool
-   *          and automatically import them as allocations into your IPAM. The CIDRs that will be allocated for
-   *          these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import
-   *          a CIDR regardless of its compliance with the pool's allocation rules, so a resource might be imported and subsequently
-   *          marked as noncompliant. If IPAM discovers multiple CIDRs that overlap, IPAM will import the largest CIDR only. If IPAM
-   *          discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
-   *       </p>
-   *          <p>A locale must be set on the pool for this feature to work.</p>
-   * @public
-   */
-  AutoImport?: boolean | undefined;
-
-  /**
-   * <p>The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant. Possible
-   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128. The minimum netmask
-   *          length must be less than the maximum netmask length.</p>
-   * @public
-   */
-  AllocationMinNetmaskLength?: number | undefined;
-
-  /**
-   * <p>The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant. Possible
-   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128.The maximum netmask
-   *          length must be greater than the minimum netmask length.</p>
-   * @public
-   */
-  AllocationMaxNetmaskLength?: number | undefined;
-
-  /**
-   * <p>The default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.</p>
-   * @public
-   */
-  AllocationDefaultNetmaskLength?: number | undefined;
-
-  /**
-   * <p>Clear the default netmask length allocation rule for this pool.</p>
-   * @public
-   */
-  ClearAllocationDefaultNetmaskLength?: boolean | undefined;
-
-  /**
-   * <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
-   * @public
-   */
-  AddAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
-
-  /**
-   * <p>Remove tag allocation rules from a pool.</p>
-   * @public
-   */
-  RemoveAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyIpamPoolResult {
-  /**
-   * <p>The results of the modification.</p>
-   * @public
-   */
-  IpamPool?: IpamPool | undefined;
 }

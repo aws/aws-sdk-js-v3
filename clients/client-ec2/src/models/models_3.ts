@@ -6,13 +6,11 @@ import type {
   AllocationState,
   AllowsMultipleInstanceTypes,
   AmdSevSnp,
-  ArchitectureValues,
   AsnState,
   AssociatedNetworkType,
   AutoPlacement,
   AvailabilityZoneOptInStatus,
   AvailabilityZoneState,
-  BootModeValues,
   CallerRole,
   CapacityBlockExtensionStatus,
   CapacityBlockInterconnectStatus,
@@ -28,7 +26,6 @@ import type {
   CurrencyCodeValues,
   DefaultTargetCapacityType,
   DestinationFileFormat,
-  DeviceType,
   DiskImageFormat,
   ElasticGpuState,
   ElasticGpuStatus,
@@ -51,13 +48,9 @@ import type {
   FpgaImageStateCode,
   HostMaintenance,
   HostRecovery,
-  HypervisorType,
   ImageAttributeName,
   ImageReferenceOptionName,
   ImageReferenceResourceType,
-  ImageState,
-  ImageTypeValues,
-  ImdsSupportValues,
   InstanceLifecycle,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
@@ -78,11 +71,9 @@ import type {
   StatisticType,
   TaggableResourceType,
   TargetCapacityUnitType,
-  TpmSupportValues,
   TrafficIpAddressType,
   TrafficType,
   TransportProtocol,
-  VirtualizationType,
   VpnProtocol,
 } from "./enums";
 import type {
@@ -123,10 +114,12 @@ import type {
   FleetLaunchTemplateSpecification,
   GroupIdentifier,
   LaunchTemplateAndOverridesResponse,
-  StateReason,
+  RouteServer,
+  RouteServerEndpoint,
   VpcEncryptionControl,
 } from "./models_1";
 import type {
+  RouteServerPeer,
   SecondaryNetwork,
   SecondarySubnet,
   SubnetCidrReservation,
@@ -137,6 +130,7 @@ import type {
   TransitGatewayMeteringPolicyEntry,
   TransitGatewayMulticastDomain,
   TransitGatewayPolicyTable,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
   TransitGatewayRoute,
   TransitGatewayRouteTable,
@@ -145,6 +139,133 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteRouteRequest {
+  /**
+   * <p>The ID of the prefix list for the route.</p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
+   * @public
+   */
+  DestinationIpv6CidrBlock?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerRequest {
+  /**
+   * <p>The ID of the route server to delete.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerResult {
+  /**
+   * <p>Information about the deleted route server.</p>
+   * @public
+   */
+  RouteServer?: RouteServer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerEndpointRequest {
+  /**
+   * <p>The ID of the route server endpoint to delete.</p>
+   * @public
+   */
+  RouteServerEndpointId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerEndpointResult {
+  /**
+   * <p>Information about the deleted route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpoint?: RouteServerEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerPeerRequest {
+  /**
+   * <p>The ID of the route server peer to delete.</p>
+   * @public
+   */
+  RouteServerPeerId: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRouteServerPeerResult {
+  /**
+   * <p>Information about the deleted route server peer.</p>
+   * @public
+   */
+  RouteServerPeer?: RouteServerPeer | undefined;
+}
 
 /**
  * @public
@@ -797,6 +918,42 @@ export interface DeleteTransitGatewayPolicyTableResult {
    * @public
    */
   TransitGatewayPolicyTable?: TransitGatewayPolicyTable | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayPolicyTableEntryRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The rule number of the policy table entry to delete.</p>
+   * @public
+   */
+  PolicyRuleNumber: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTransitGatewayPolicyTableEntryResult {
+  /**
+   * <p>Describes a transit gateway policy table entry</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntry?: TransitGatewayPolicyTableEntry | undefined;
 }
 
 /**
@@ -9895,880 +10052,4 @@ export interface DescribeImageReferencesResult {
    * @public
    */
   ImageReferences?: ImageReference[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImagesRequest {
-  /**
-   * <p>Scopes the images by users with explicit launch permissions. Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request), or <code>all</code>
-   *       (public AMIs).</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs shared
-   *           with that specific Amazon Web Services account ID are returned. However, AMIs that are
-   *           shared with the account’s organization or organizational unit (OU) are not
-   *           returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
-   *           shared with your account are returned. In addition, AMIs that are shared with the
-   *           organization or OU of which you are member are also returned. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ExecutableUsers?: string[] | undefined;
-
-  /**
-   * <p>The image IDs.</p>
-   *          <p>Default: Describes all images available to you.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *         Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>,
-   *         <code>aws-backup-vault</code>, and <code>aws-marketplace</code>. If you omit this parameter,
-   *       the results include all images for which you have launch permissions, regardless of
-   *       ownership.</p>
-   * @public
-   */
-  Owners?: string[] | undefined;
-
-  /**
-   * <p>Specifies whether to include deprecated AMIs.</p>
-   *          <p>Default: No deprecated AMIs are included in the response.</p>
-   *          <note>
-   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
-   *         you specify for this parameter.</p>
-   *          </note>
-   * @public
-   */
-  IncludeDeprecated?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether to include disabled AMIs.</p>
-   *          <p>Default: No disabled AMIs are included in the response.</p>
-   * @public
-   */
-  IncludeDisabled?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
-   *             <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> |
-   *             <code>arm64_mac</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *           whether the Amazon EBS volume is deleted on instance termination.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block
-   *           device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
-   *           volume.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in
-   *           GiB.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
-   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
-   *           </code>| <code>st1</code> | <code>standard</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS
-   *           volume is encrypted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
-   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2021-09-29T*</code>, which matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>description</code> - The description of the image (provided during image
-   *           creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking with
-   *           ENA is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be
-   *           used under the Amazon Web Services Free Tier  (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
-   *           <code>xen</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-allowed</code> - A Boolean that indicates whether the image meets the
-   *           criteria specified for Allowed AMIs.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-id</code> - The ID of the image.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-watermark.source-image-creation-time</code> - The creation date of the
-   *           source AMI, in the ISO 8601 format in the UTC time zone
-   *             (<code>
-   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
-   *                   </code>).
-   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
-   *           matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-watermark.source-image-id</code> - The ID of the AMI to which the
-   *           watermark was originally attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-watermark.source-image-region</code> - The Region where the watermark
-   *           was originally attached.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-watermark.watermark-creation-time</code> - The date and time the
-   *           watermark was attached to the AMI, in the ISO 8601 format in the UTC time zone
-   *             (<code>
-   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
-   *                   </code>).
-   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
-   *           matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-watermark.watermark-key</code> - The watermark identifier, in
-   *             <code>accountId:watermarkName</code> format (for example,
-   *             <code>123456789012:approvedAmi</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
-   *             <code>ramdisk</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>kernel-id</code> - The kernel ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>manifest-location</code> - The location of the image manifest.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
-   *             <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are
-   *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias
-   *           that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
-   *           that you use the <b>Owner</b> request parameter instead of this
-   *           filter.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform. The only supported value is
-   *           <code>windows</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code.type</code> - The type of the product code
-   *           (<code>marketplace</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>public-ssm-parameter-name</code> - The name of a public Systems Manager
-   *           parameter associated with the AMI. The parameter must be in a trusted Amazon Web Services namespace
-   *           under <code>aws/service/</code>. Returns all AMIs that have ever been associated with
-   *           the parameter, including previous versions.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
-   *             <code>instance-store</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-image-id</code> - The ID of the source AMI from which the AMI was
-   *           created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-image-region</code> - The Region of the source AMI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>source-instance-id</code> - The ID of the instance that the AMI was created from
-   *           if the AMI was created using CreateImage. This filter is applicable only if the AMI was
-   *           created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
-   *           | <code>failed</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state-reason-message</code> - The message for the state change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates that
-   *           enhanced networking with the Intel 82599 VF interface is enabled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
-   *             <code>hvm</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-}
-
-/**
- * <p>Describes a watermark attached to an AMI.</p>
- * @public
- */
-export interface ImageWatermark {
-  /**
-   * <p>The watermark identifier, in <code>accountId:watermarkName</code> format (for example,
-   *         <code>123456789012:approvedAmi</code>). The <code>accountId</code> portion is the Amazon Web Services account
-   *       ID of the watermark creator. The <code>watermarkName</code> portion is customer-provided.</p>
-   * @public
-   */
-  WatermarkKey?: string | undefined;
-
-  /**
-   * <p>The Region where the watermark was originally attached.</p>
-   * @public
-   */
-  SourceImageRegion?: string | undefined;
-
-  /**
-   * <p>The ID of the AMI to which the watermark was originally attached.</p>
-   * @public
-   */
-  SourceImageId?: string | undefined;
-
-  /**
-   * <p>The creation date of the source AMI, in the
-   *       following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
-   * @public
-   */
-  SourceImageCreationTime?: Date | undefined;
-
-  /**
-   * <p>The date and time the watermark was attached to the AMI, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
-   * @public
-   */
-  WatermarkCreationTime?: Date | undefined;
-}
-
-/**
- * <p>Describes an image.</p>
- * @public
- */
-export interface Image {
-  /**
-   * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
-   *         AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  PlatformDetails?: string | undefined;
-
-  /**
-   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
-   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         List API</a>. You can view these fields on the <b>Instances</b> or <b>AMIs</b> pages in the Amazon EC2 console,
-   *       or in the responses that are returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> command in
-   *       the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a> command in the
-   *       CLI.</p>
-   * @public
-   */
-  UsageOperation?: string | undefined;
-
-  /**
-   * <p>Any block device mapping entries.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>The description of the AMI that was provided during image creation.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
-   * @public
-   */
-  EnaSupport?: boolean | undefined;
-
-  /**
-   * <p>The hypervisor type of the image. Only <code>xen</code> is supported. <code>ovm</code> is
-   *       not supported.</p>
-   * @public
-   */
-  Hypervisor?: HypervisorType | undefined;
-
-  /**
-   * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> |
-   *         <code>aws-marketplace</code>).</p>
-   * @public
-   */
-  ImageOwnerAlias?: string | undefined;
-
-  /**
-   * <p>The name of the AMI that was provided during image creation.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
-   * @public
-   */
-  RootDeviceName?: string | undefined;
-
-  /**
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance
-   *       store volume.</p>
-   * @public
-   */
-  RootDeviceType?: DeviceType | undefined;
-
-  /**
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is
-   *       enabled.</p>
-   * @public
-   */
-  SriovNetSupport?: string | undefined;
-
-  /**
-   * <p>The reason for the state change.</p>
-   * @public
-   */
-  StateReason?: StateReason | undefined;
-
-  /**
-   * <p>Any tags assigned to the image.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The type of virtualization of the AMI.</p>
-   * @public
-   */
-  VirtualizationType?: VirtualizationType | undefined;
-
-  /**
-   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2
-   *         boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BootMode?: BootModeValues | undefined;
-
-  /**
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  TpmSupport?: TpmSupportValues | undefined;
-
-  /**
-   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
-   * @public
-   */
-  DeprecationTime?: string | undefined;
-
-  /**
-   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
-   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
-   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
-   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ImdsSupport?: ImdsSupportValues | undefined;
-
-  /**
-   * <p>The ID of the instance that the AMI was created from if the AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>. This field only appears if the AMI was created using
-   *       CreateImage.</p>
-   * @public
-   */
-  SourceInstanceId?: string | undefined;
-
-  /**
-   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
-   * @public
-   */
-  DeregistrationProtection?: string | undefined;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
-   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
-   *          <note>
-   *             <p>
-   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
-   *          </note>
-   * @public
-   */
-  LastLaunchedTime?: string | undefined;
-
-  /**
-   * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
-   *       discovered and used in the account. If <code>false</code> and Allowed AMIs is set to
-   *       <code>enabled</code>, the AMI can't be discovered or used in the account. If
-   *       <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
-   *       discovered and used in the account.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
-   *       Amazon EC2 with Allowed AMIs</a> in
-   *       <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ImageAllowed?: boolean | undefined;
-
-  /**
-   * <p>The ID of the source AMI from which the AMI was created.</p>
-   * @public
-   */
-  SourceImageId?: string | undefined;
-
-  /**
-   * <p>The Region of the source AMI.</p>
-   * @public
-   */
-  SourceImageRegion?: string | undefined;
-
-  /**
-   * <p>Indicates whether the image is eligible for Amazon Web Services Free Tier.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If <code>true</code>, the AMI is eligible for Free Tier and can be used to launch
-   *           instances under the Free Tier limits.</p>
-   *             </li>
-   *             <li>
-   *                <p>If <code>false</code>, the AMI is not eligible for Free Tier.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  FreeTierEligible?: boolean | undefined;
-
-  /**
-   * <p>The name of the public Systems Manager parameter that resolves to this AMI, under the
-   *       <code>aws/service/</code> namespace.</p>
-   * @public
-   */
-  PublicSsmParameterName?: string | undefined;
-
-  /**
-   * <p>The watermarks attached to the AMI.</p>
-   * @public
-   */
-  ImageWatermarks?: ImageWatermark[] | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The location of the AMI.</p>
-   * @public
-   */
-  ImageLocation?: string | undefined;
-
-  /**
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is
-   *       successfully registered and can be used to launch an instance.</p>
-   * @public
-   */
-  State?: ImageState | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the image.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The date and time the image was created.</p>
-   * @public
-   */
-  CreationDate?: string | undefined;
-
-  /**
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code>
-   *       if this image has public launch permissions or <code>false</code> if it has only implicit and
-   *       explicit launch permissions.</p>
-   * @public
-   */
-  Public?: boolean | undefined;
-
-  /**
-   * <p>Any product codes associated with the AMI.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>The architecture of the image.</p>
-   * @public
-   */
-  Architecture?: ArchitectureValues | undefined;
-
-  /**
-   * <p>The type of image.</p>
-   * @public
-   */
-  ImageType?: ImageTypeValues | undefined;
-
-  /**
-   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
-   * @public
-   */
-  Platform?: PlatformValues | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImagesResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the images.</p>
-   * @public
-   */
-  Images?: Image[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageUsageReportEntriesRequest {
-  /**
-   * <p>The IDs of the images for filtering the report entries. If specified, only report entries
-   *       containing these images are returned.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the usage reports.</p>
-   * @public
-   */
-  ReportIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>account-id</code> - A 12-digit Amazon Web Services account ID.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
-   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>ec2:Instance</code> |
-   *           <code>ec2:LaunchTemplate</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>A single entry in an image usage report, detailing how an image is being used by a
- *       specific Amazon Web Services account and resource type.</p>
- * @public
- */
-export interface ImageUsageReportEntry {
-  /**
-   * <p>The type of resource (<code>ec2:Instance</code> or
-   *       <code>ec2:LaunchTemplate</code>).</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>The ID of the report.</p>
-   * @public
-   */
-  ReportId?: string | undefined;
-
-  /**
-   * <p>The number of times resources of this type reference this image in the account.</p>
-   * @public
-   */
-  UsageCount?: number | undefined;
-
-  /**
-   * <p>The ID of the account that uses the image.</p>
-   * @public
-   */
-  AccountId?: string | undefined;
-
-  /**
-   * <p>The ID of the image.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The date and time the report creation was initiated.</p>
-   * @public
-   */
-  ReportCreationTime?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageUsageReportEntriesResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The content of the usage reports.</p>
-   * @public
-   */
-  ImageUsageReportEntries?: ImageUsageReportEntry[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeImageUsageReportsRequest {
-  /**
-   * <p>The IDs of the images for filtering the reports. If specified, only reports containing
-   *       these images are returned.</p>
-   * @public
-   */
-  ImageIds?: string[] | undefined;
-
-  /**
-   * <p>The IDs of the image usage reports.</p>
-   * @public
-   */
-  ReportIds?: string[] | undefined;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
-   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
-   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
-   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the report (<code>available</code> |
-   *           <code>pending</code> | <code>error</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>The options that affect the scope of the report.</p>
- * @public
- */
-export interface ImageUsageResourceTypeOption {
-  /**
-   * <p>The name of the option.</p>
-   * @public
-   */
-  OptionName?: string | undefined;
-
-  /**
-   * <p>The number of launch template versions to check.</p>
-   * @public
-   */
-  OptionValues?: string[] | undefined;
 }

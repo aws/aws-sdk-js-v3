@@ -160,6 +160,7 @@ export * from "./GetSpotPlacementScoresPaginator";
 export * from "./GetTransitGatewayAttachmentPropagationsPaginator";
 export * from "./GetTransitGatewayMulticastDomainAssociationsPaginator";
 export * from "./GetTransitGatewayPolicyTableAssociationsPaginator";
+export * from "./GetTransitGatewayPolicyTableEntriesPaginator";
 export * from "./GetTransitGatewayPrefixListReferencesPaginator";
 export * from "./GetTransitGatewayRouteTableAssociationsPaginator";
 export * from "./GetTransitGatewayRouteTablePropagationsPaginator";

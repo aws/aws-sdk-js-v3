@@ -66,6 +66,7 @@ export interface DescribeTransitGatewayAttachmentsCommandOutput extends Describe
  * //       State: "initiating" || "initiatingRequest" || "pendingAcceptance" || "rollingBack" || "pending" || "available" || "modifying" || "deleting" || "deleted" || "failed" || "rejected" || "rejecting" || "failing",
  * //       Association: { // TransitGatewayAttachmentAssociation
  * //         TransitGatewayRouteTableId: "STRING_VALUE",
+ * //         TransitGatewayPolicyTableId: "STRING_VALUE",
  * //         State: "associating" || "associated" || "disassociating" || "disassociated",
  * //       },
  * //       CreationTime: new Date("TIMESTAMP"),

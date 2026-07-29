@@ -28,6 +28,8 @@ import type {
   HttpTokensState,
   HypervisorType,
   ImageState,
+  ImageTypeValues,
+  ImdsSupportValues,
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
@@ -59,7 +61,6 @@ import type {
   PlatformValues,
   RebootMigrationSupport,
   RecurringChargeFrequency,
-  ReplacementStrategy,
   ReservedInstanceState,
   ResourceType,
   RIProductDescription,
@@ -80,6 +81,7 @@ import type {
   SupportedAdditionalProcessorFeature,
   Tenancy,
   TieringOperationStatus,
+  TpmSupportValues,
   UsageClassType,
   VirtualizationType,
 } from "./enums";
@@ -88,7 +90,6 @@ import type {
   AlternatePathHint,
   Explanation,
   IamInstanceProfile,
-  IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
@@ -106,10 +107,8 @@ import type {
   ConnectionTrackingSpecificationRequest,
   Ec2InstanceConnectEndpoint,
   EnaSrdSpecificationRequest,
-  FleetLaunchTemplateSpecification,
   GroupIdentifier,
   InstanceIpv6Address,
-  InstanceRequirements,
   InternetGateway,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -158,11 +157,885 @@ import type {
   EventInformation,
   Filter,
   IdFormat,
-  ImageUsageResourceTypeOption,
-  ImageWatermark,
   InstanceTagNotificationAttribute,
   ProductCode,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeImagesRequest {
+  /**
+   * <p>Scopes the images by users with explicit launch permissions. Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request), or <code>all</code>
+   *       (public AMIs).</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs shared
+   *           with that specific Amazon Web Services account ID are returned. However, AMIs that are
+   *           shared with the account’s organization or organizational unit (OU) are not
+   *           returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>self</code> or your own Amazon Web Services account ID, AMIs
+   *           shared with your account are returned. In addition, AMIs that are shared with the
+   *           organization or OU of which you are member are also returned. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <code>all</code>, all public AMIs are returned.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExecutableUsers?: string[] | undefined;
+
+  /**
+   * <p>The image IDs.</p>
+   *          <p>Default: Describes all images available to you.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>Scopes the results to images with the specified owners. You can specify a combination of
+   *         Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>,
+   *         <code>aws-backup-vault</code>, and <code>aws-marketplace</code>. If you omit this parameter,
+   *       the results include all images for which you have launch permissions, regardless of
+   *       ownership.</p>
+   * @public
+   */
+  Owners?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to include deprecated AMIs.</p>
+   *          <p>Default: No deprecated AMIs are included in the response.</p>
+   *          <note>
+   *             <p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of what
+   *         you specify for this parameter.</p>
+   *          </note>
+   * @public
+   */
+  IncludeDeprecated?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to include disabled AMIs.</p>
+   *          <p>Default: No disabled AMIs are included in the response.</p>
+   * @public
+   */
+  IncludeDisabled?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
+   *             <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> |
+   *             <code>arm64_mac</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
+   *           whether the Amazon EBS volume is deleted on instance termination.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block
+   *           device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the Amazon EBS
+   *           volume.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in
+   *           GiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.volume-type</code> - The volume type of the Amazon EBS volume
+   *             (<code>io1</code> | <code>io2</code> | <code>gp2</code> | <code>gp3</code> | <code>sc1
+   *           </code>| <code>st1</code> | <code>standard</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS
+   *           volume is encrypted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2021-09-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>description</code> - The description of the image (provided during image
+   *           creation).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking with
+   *           ENA is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>free-tier-eligible</code> - A Boolean that indicates whether this image can be
+   *           used under the Amazon Web Services Free Tier  (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>hypervisor</code> - The hypervisor type (<code>ovm</code> |
+   *           <code>xen</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-allowed</code> - A Boolean that indicates whether the image meets the
+   *           criteria specified for Allowed AMIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-id</code> - The ID of the image.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.source-image-creation-time</code> - The creation date of the
+   *           source AMI, in the ISO 8601 format in the UTC time zone
+   *             (<code>
+   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
+   *                   </code>).
+   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+   *           matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.source-image-id</code> - The ID of the AMI to which the
+   *           watermark was originally attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.source-image-region</code> - The Region where the watermark
+   *           was originally attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.watermark-creation-time</code> - The date and time the
+   *           watermark was attached to the AMI, in the ISO 8601 format in the UTC time zone
+   *             (<code>
+   *                      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>
+   *                   </code>).
+   *           You can use a wildcard (<code>*</code>), for example, <code>2021-09-29T*</code>, which
+   *           matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-watermark.watermark-key</code> - The watermark identifier, in
+   *             <code>accountId:watermarkName</code> format (for example,
+   *             <code>123456789012:approvedAmi</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
+   *             <code>ramdisk</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>is-public</code> - A Boolean that indicates whether the image is public.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>kernel-id</code> - The kernel ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>manifest-location</code> - The location of the image manifest.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>name</code> - The name of the AMI (provided during image creation).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
+   *             <code>aws-backup-vault</code> | <code>aws-marketplace</code>). The valid aliases are
+   *           defined in an Amazon-maintained list. This is not the Amazon Web Services account alias
+   *           that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
+   *           that you use the <b>Owner</b> request parameter instead of this
+   *           filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform. The only supported value is
+   *           <code>windows</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-code</code> - The product code.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>product-code.type</code> - The type of the product code
+   *           (<code>marketplace</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public-ssm-parameter-name</code> - The name of a public Systems Manager
+   *           parameter associated with the AMI. The parameter must be in a trusted Amazon Web Services namespace
+   *           under <code>aws/service/</code>. Returns all AMIs that have ever been associated with
+   *           the parameter, including previous versions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ramdisk-id</code> - The RAM disk ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>root-device-name</code> - The device name of the root device volume (for example,
+   *             <code>/dev/sda1</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>root-device-type</code> - The type of the root device volume (<code>ebs</code> |
+   *             <code>instance-store</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-image-id</code> - The ID of the source AMI from which the AMI was
+   *           created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-image-region</code> - The Region of the source AMI.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-instance-id</code> - The ID of the instance that the AMI was created from
+   *           if the AMI was created using CreateImage. This filter is applicable only if the AMI was
+   *           created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
+   *           | <code>failed</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state-reason-code</code> - The reason code for the state change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state-reason-message</code> - The message for the state change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates that
+   *           enhanced networking with the Intel 82599 VF interface is enabled.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> |
+   *             <code>hvm</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+}
+
+/**
+ * <p>Describes a watermark attached to an AMI.</p>
+ * @public
+ */
+export interface ImageWatermark {
+  /**
+   * <p>The watermark identifier, in <code>accountId:watermarkName</code> format (for example,
+   *         <code>123456789012:approvedAmi</code>). The <code>accountId</code> portion is the Amazon Web Services account
+   *       ID of the watermark creator. The <code>watermarkName</code> portion is customer-provided.</p>
+   * @public
+   */
+  WatermarkKey?: string | undefined;
+
+  /**
+   * <p>The Region where the watermark was originally attached.</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>The ID of the AMI to which the watermark was originally attached.</p>
+   * @public
+   */
+  SourceImageId?: string | undefined;
+
+  /**
+   * <p>The creation date of the source AMI, in the
+   *       following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
+   * @public
+   */
+  SourceImageCreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time the watermark was attached to the AMI, in the following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>.<i>ssssss</i>+<i>HH</i>:<i>MM</i>.</p>
+   * @public
+   */
+  WatermarkCreationTime?: Date | undefined;
+}
+
+/**
+ * <p>Describes an image.</p>
+ * @public
+ */
+export interface Image {
+  /**
+   * <p>The platform details associated with the billing code of the AMI. For more information,
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+   *         AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  PlatformDetails?: string | undefined;
+
+  /**
+   * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
+   *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
+   *         List API</a>. You can view these fields on the <b>Instances</b> or <b>AMIs</b> pages in the Amazon EC2 console,
+   *       or in the responses that are returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> command in
+   *       the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a> command in the
+   *       CLI.</p>
+   * @public
+   */
+  UsageOperation?: string | undefined;
+
+  /**
+   * <p>Any block device mapping entries.</p>
+   * @public
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
+
+  /**
+   * <p>The description of the AMI that was provided during image creation.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether enhanced networking with ENA is enabled.</p>
+   * @public
+   */
+  EnaSupport?: boolean | undefined;
+
+  /**
+   * <p>The hypervisor type of the image. Only <code>xen</code> is supported. <code>ovm</code> is
+   *       not supported.</p>
+   * @public
+   */
+  Hypervisor?: HypervisorType | undefined;
+
+  /**
+   * <p>The owner alias (<code>amazon</code> | <code>aws-backup-vault</code> |
+   *         <code>aws-marketplace</code>).</p>
+   * @public
+   */
+  ImageOwnerAlias?: string | undefined;
+
+  /**
+   * <p>The name of the AMI that was provided during image creation.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
+   * @public
+   */
+  RootDeviceName?: string | undefined;
+
+  /**
+   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance
+   *       store volume.</p>
+   * @public
+   */
+  RootDeviceType?: DeviceType | undefined;
+
+  /**
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is
+   *       enabled.</p>
+   * @public
+   */
+  SriovNetSupport?: string | undefined;
+
+  /**
+   * <p>The reason for the state change.</p>
+   * @public
+   */
+  StateReason?: StateReason | undefined;
+
+  /**
+   * <p>Any tags assigned to the image.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The type of virtualization of the AMI.</p>
+   * @public
+   */
+  VirtualizationType?: VirtualizationType | undefined;
+
+  /**
+   * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Instance launch behavior with Amazon EC2
+   *         boot modes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  BootMode?: BootModeValues | undefined;
+
+  /**
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  TpmSupport?: TpmSupportValues | undefined;
+
+  /**
+   * <p>The date and time to deprecate the AMI, in UTC, in the following format:
+   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
+   * @public
+   */
+  DeprecationTime?: string | undefined;
+
+  /**
+   * <p>If <code>v2.0</code>, it indicates that IMDSv2 is specified in the AMI. Instances launched
+   *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
+   *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
+   *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImdsSupport?: ImdsSupportValues | undefined;
+
+  /**
+   * <p>The ID of the instance that the AMI was created from if the AMI was created using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>. This field only appears if the AMI was created using
+   *       CreateImage.</p>
+   * @public
+   */
+  SourceInstanceId?: string | undefined;
+
+  /**
+   * <p>Indicates whether deregistration protection is enabled for the AMI.</p>
+   * @public
+   */
+  DeregistrationProtection?: string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *         format</a>, when the AMI was last used to launch an EC2 instance. When the AMI is used
+   *       to launch an instance, there is a 24-hour delay before that usage is reported.</p>
+   *          <note>
+   *             <p>
+   *                <code>lastLaunchedTime</code> data is available starting April 2017.</p>
+   *          </note>
+   * @public
+   */
+  LastLaunchedTime?: string | undefined;
+
+  /**
+   * <p>If <code>true</code>, the AMI satisfies the criteria for Allowed AMIs and can be
+   *       discovered and used in the account. If <code>false</code> and Allowed AMIs is set to
+   *       <code>enabled</code>, the AMI can't be discovered or used in the account. If
+   *       <code>false</code> and Allowed AMIs is set to <code>audit-mode</code>, the AMI can be
+   *       discovered and used in the account.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-allowed-amis.html">Control the discovery and use of AMIs in
+   *       Amazon EC2 with Allowed AMIs</a> in
+   *       <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  ImageAllowed?: boolean | undefined;
+
+  /**
+   * <p>The ID of the source AMI from which the AMI was created.</p>
+   * @public
+   */
+  SourceImageId?: string | undefined;
+
+  /**
+   * <p>The Region of the source AMI.</p>
+   * @public
+   */
+  SourceImageRegion?: string | undefined;
+
+  /**
+   * <p>Indicates whether the image is eligible for Amazon Web Services Free Tier.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If <code>true</code>, the AMI is eligible for Free Tier and can be used to launch
+   *           instances under the Free Tier limits.</p>
+   *             </li>
+   *             <li>
+   *                <p>If <code>false</code>, the AMI is not eligible for Free Tier.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FreeTierEligible?: boolean | undefined;
+
+  /**
+   * <p>The name of the public Systems Manager parameter that resolves to this AMI, under the
+   *       <code>aws/service/</code> namespace.</p>
+   * @public
+   */
+  PublicSsmParameterName?: string | undefined;
+
+  /**
+   * <p>The watermarks attached to the AMI.</p>
+   * @public
+   */
+  ImageWatermarks?: ImageWatermark[] | undefined;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The location of the AMI.</p>
+   * @public
+   */
+  ImageLocation?: string | undefined;
+
+  /**
+   * <p>The current state of the AMI. If the state is <code>available</code>, the image is
+   *       successfully registered and can be used to launch an instance.</p>
+   * @public
+   */
+  State?: ImageState | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the image.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The date and time the image was created.</p>
+   * @public
+   */
+  CreationDate?: string | undefined;
+
+  /**
+   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code>
+   *       if this image has public launch permissions or <code>false</code> if it has only implicit and
+   *       explicit launch permissions.</p>
+   * @public
+   */
+  Public?: boolean | undefined;
+
+  /**
+   * <p>Any product codes associated with the AMI.</p>
+   * @public
+   */
+  ProductCodes?: ProductCode[] | undefined;
+
+  /**
+   * <p>The architecture of the image.</p>
+   * @public
+   */
+  Architecture?: ArchitectureValues | undefined;
+
+  /**
+   * <p>The type of image.</p>
+   * @public
+   */
+  ImageType?: ImageTypeValues | undefined;
+
+  /**
+   * <p>The kernel associated with the image, if any. Only applicable for machine images.</p>
+   * @public
+   */
+  KernelId?: string | undefined;
+
+  /**
+   * <p>The RAM disk associated with the image, if any. Only applicable for machine images.</p>
+   * @public
+   */
+  RamdiskId?: string | undefined;
+
+  /**
+   * <p>This value is set to <code>windows</code> for Windows AMIs; otherwise, it is blank.</p>
+   * @public
+   */
+  Platform?: PlatformValues | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImagesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the images.</p>
+   * @public
+   */
+  Images?: Image[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportEntriesRequest {
+  /**
+   * <p>The IDs of the images for filtering the report entries. If specified, only report entries
+   *       containing these images are returned.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the usage reports.</p>
+   * @public
+   */
+  ReportIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>account-id</code> - A 12-digit Amazon Web Services account ID.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-type</code> - The resource type (<code>ec2:Instance</code> |
+   *           <code>ec2:LaunchTemplate</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A single entry in an image usage report, detailing how an image is being used by a
+ *       specific Amazon Web Services account and resource type.</p>
+ * @public
+ */
+export interface ImageUsageReportEntry {
+  /**
+   * <p>The type of resource (<code>ec2:Instance</code> or
+   *       <code>ec2:LaunchTemplate</code>).</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The ID of the report.</p>
+   * @public
+   */
+  ReportId?: string | undefined;
+
+  /**
+   * <p>The number of times resources of this type reference this image in the account.</p>
+   * @public
+   */
+  UsageCount?: number | undefined;
+
+  /**
+   * <p>The ID of the account that uses the image.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The ID of the image.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The date and time the report creation was initiated.</p>
+   * @public
+   */
+  ReportCreationTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportEntriesResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The content of the usage reports.</p>
+   * @public
+   */
+  ImageUsageReportEntries?: ImageUsageReportEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeImageUsageReportsRequest {
+  /**
+   * <p>The IDs of the images for filtering the reports. If specified, only reports containing
+   *       these images are returned.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>The IDs of the image usage reports.</p>
+   * @public
+   */
+  ReportIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>creation-time</code> - The time when the report was created, in the ISO 8601
+   *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
+   *           <code>2025-11-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
+   *           example, <code>2025-11-29T*</code>, which matches an entire day.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the report (<code>available</code> |
+   *           <code>pending</code> | <code>error</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The options that affect the scope of the report.</p>
+ * @public
+ */
+export interface ImageUsageResourceTypeOption {
+  /**
+   * <p>The name of the option.</p>
+   * @public
+   */
+  OptionName?: string | undefined;
+
+  /**
+   * <p>The number of launch template versions to check.</p>
+   * @public
+   */
+  OptionValues?: string[] | undefined;
+}
 
 /**
  * <p>A resource type to include in the report. Associated options can also be specified if the
@@ -13779,387 +14652,4 @@ export interface SpotFleetTagSpecification {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Describes the launch specification for one or more Spot Instances. If you include
- *           On-Demand capacity in your fleet request or want to specify an EFA network device, you
- *           can't use <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
- * @public
- */
-export interface SpotFleetLaunchSpecification {
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AddressingType?: string | undefined;
-
-  /**
-   * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
-   *             a snapshot ID and an encryption value. This is because only blank volumes can be
-   *             encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its
-   *             encryption status is used for the volume encryption status.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>Enable or disable monitoring for the instances.</p>
-   * @public
-   */
-  Monitoring?: SpotFleetMonitoring | undefined;
-
-  /**
-   * <p>The network interfaces.</p>
-   *          <note>
-   *             <p>
-   *                <code>SpotFleetLaunchSpecification</code> does not support Elastic Fabric Adapter (EFA).
-   *              You must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a> instead.</p>
-   *          </note>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
-
-  /**
-   * <p>The placement information.</p>
-   * @public
-   */
-  Placement?: SpotPlacement | undefined;
-
-  /**
-   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel
-   *           requirements for information about whether you need to specify a RAM disk. To find kernel
-   *           requirements, refer to the Amazon Web Services Resource Center and search for the kernel ID.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
-   *           increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
-   *          them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
-   *          <p>If you specify a network interface, you must specify any subnets as part of the
-   *          network interface instead of using this parameter.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   * @public
-   */
-  UserData?: string | undefined;
-
-  /**
-   * <p>The number of units provided by the specified instance type. These are the same units
-   *         that you chose to set the target capacity in terms of instances, or a performance
-   *         characteristic such as vCPUs, memory, or I/O.</p>
-   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
-   *         number of instances to the next whole number. If this value is not specified, the default
-   *         is 1.</p>
-   *          <note>
-   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
-   *            <code>priceCapacityOptimized</code> allocation strategies is per
-   *            <i>unit</i> hour (where the instance price is divided by the specified
-   *            weight). However, if all the specified weights are above the requested
-   *            <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
-   *            used is per <i>instance</i> hour.</p>
-   *          </note>
-   * @public
-   */
-  WeightedCapacity?: number | undefined;
-
-  /**
-   * <p>The tags to apply during creation.</p>
-   * @public
-   */
-  TagSpecifications?: SpotFleetTagSpecification[] | undefined;
-
-  /**
-   * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
-   *          identify instance types with those attributes.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceType</code>.</p>
-   *          </note>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirements | undefined;
-
-  /**
-   * <p>The security groups.</p>
-   *          <p>If you specify a network interface, you must specify any security groups as part of
-   *         the network interface instead of using this parameter.</p>
-   * @public
-   */
-  SecurityGroups?: GroupIdentifier[] | undefined;
-}
-
-/**
- * <p>Describes overrides for a launch template.</p>
- * @public
- */
-export interface LaunchTemplateOverrides {
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend using this parameter because it can lead to
-   *          increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instances.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone in which to launch the instances. For example,
-   *             <code>us-east-2a</code>.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
-   *          specified in the request, but not both.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of units provided by the specified instance type. These are the same units
-   *          that you chose to set the target capacity in terms of instances, or a performance
-   *          characteristic such as vCPUs, memory, or I/O.</p>
-   *          <p>If the target capacity divided by this value is not a whole number, Amazon EC2 rounds the
-   *          number of instances to the next whole number. If this value is not specified, the default
-   *          is 1.</p>
-   *          <note>
-   *             <p>When specifying weights, the price used in the <code>lowestPrice</code> and
-   *             <code>priceCapacityOptimized</code> allocation strategies is per
-   *             <i>unit</i> hour (where the instance price is divided by the specified
-   *             weight). However, if all the specified weights are above the requested
-   *             <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
-   *             used is per <i>instance</i> hour.</p>
-   *          </note>
-   * @public
-   */
-  WeightedCapacity?: number | undefined;
-
-  /**
-   * <p>The priority for the launch template override. The highest priority is launched
-   *          first.</p>
-   *          <p>If <code>OnDemandAllocationStrategy</code> is set to <code>prioritized</code>, Spot Fleet
-   *          uses priority to determine which launch template override to use first in fulfilling
-   *          On-Demand capacity.</p>
-   *          <p>If the Spot <code>AllocationStrategy</code> is set to
-   *          <code>capacityOptimizedPrioritized</code>, Spot Fleet uses priority on a best-effort basis
-   *          to determine which launch template override to use in fulfilling Spot capacity, but
-   *          optimizes for capacity first.</p>
-   *          <p>Valid values are whole numbers starting at <code>0</code>. The lower the number, the
-   *          higher the priority. If no number is set, the launch template override has the lowest
-   *          priority. You can set the same priority for different launch template overrides.</p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The instance requirements. When you specify instance requirements, Amazon EC2 will identify
-   *          instance types with the provided requirements, and then use your On-Demand and Spot
-   *          allocation strategies to launch instances from these instance types, in the same way as
-   *          when you specify a list of instance types.</p>
-   *          <note>
-   *             <p>If you specify <code>InstanceRequirements</code>, you can't specify
-   *             <code>InstanceType</code>.</p>
-   *          </note>
-   * @public
-   */
-  InstanceRequirements?: InstanceRequirements | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone in which to launch the instances. For example,
-   *             <code>use2-az1</code>.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be
-   *          specified in the request, but not both.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
-}
-
-/**
- * <p>Describes a launch template and overrides.</p>
- * @public
- */
-export interface LaunchTemplateConfig {
-  /**
-   * <p>The launch template to use. Make sure that the launch template does not contain the
-   *             <code>NetworkInterfaceId</code> parameter because you can't specify a network interface
-   *          ID in a Spot Fleet.</p>
-   * @public
-   */
-  LaunchTemplateSpecification?: FleetLaunchTemplateSpecification | undefined;
-
-  /**
-   * <p>Any parameters that you specify override the same parameters in the launch
-   *          template.</p>
-   * @public
-   */
-  Overrides?: LaunchTemplateOverrides[] | undefined;
-}
-
-/**
- * <p>Describes a Classic Load Balancer.</p>
- * @public
- */
-export interface ClassicLoadBalancer {
-  /**
-   * <p>The name of the load balancer.</p>
-   * @public
-   */
-  Name?: string | undefined;
-}
-
-/**
- * <p>Describes the Classic Load Balancers to attach to a Spot Fleet. Spot Fleet registers
- *             the running Spot Instances with these Classic Load Balancers.</p>
- * @public
- */
-export interface ClassicLoadBalancersConfig {
-  /**
-   * <p>One or more Classic Load Balancers.</p>
-   * @public
-   */
-  ClassicLoadBalancers?: ClassicLoadBalancer[] | undefined;
-}
-
-/**
- * <p>Describes a load balancer target group.</p>
- * @public
- */
-export interface TargetGroup {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the target group.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * <p>Describes the target groups to attach to a Spot Fleet. Spot Fleet registers the
- *             running Spot Instances with these target groups.</p>
- * @public
- */
-export interface TargetGroupsConfig {
-  /**
-   * <p>One or more target groups.</p>
-   * @public
-   */
-  TargetGroups?: TargetGroup[] | undefined;
-}
-
-/**
- * <p>Describes the Classic Load Balancers and target groups to attach to a Spot Fleet
- *             request.</p>
- * @public
- */
-export interface LoadBalancersConfig {
-  /**
-   * <p>The Classic Load Balancers.</p>
-   * @public
-   */
-  ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig | undefined;
-
-  /**
-   * <p>The target groups.</p>
-   * @public
-   */
-  TargetGroupsConfig?: TargetGroupsConfig | undefined;
-}
-
-/**
- * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
- *             Spot Instance is at an elevated risk of being interrupted. For more information, see
- *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-capacity-rebalance.html">Capacity
- *                 rebalancing</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface SpotCapacityRebalance {
-  /**
-   * <p>The replacement strategy to use. Only available for fleets of type
-   *             <code>maintain</code>.</p>
-   *          <p>
-   *             <code>launch</code> - Spot Fleet launches a new replacement Spot Instance when a
-   *             rebalance notification is emitted for an existing Spot Instance in the fleet. Spot Fleet
-   *             does not terminate the instances that receive a rebalance notification. You can
-   *             terminate the old instances, or you can leave them running. You are charged for all
-   *             instances while they are running. </p>
-   *          <p>
-   *             <code>launch-before-terminate</code> - Spot Fleet launches a new replacement Spot
-   *             Instance when a rebalance notification is emitted for an existing Spot Instance in the
-   *             fleet, and then, after a delay that you specify (in <code>TerminationDelay</code>),
-   *             terminates the instances that received a rebalance notification.</p>
-   * @public
-   */
-  ReplacementStrategy?: ReplacementStrategy | undefined;
-
-  /**
-   * <p>The amount of time (in seconds) that Amazon EC2 waits before terminating the old Spot
-   *             Instance after launching a new replacement Spot Instance.</p>
-   *          <p>Required when <code>ReplacementStrategy</code> is set to <code>launch-before-terminate</code>.</p>
-   *          <p>Not valid when <code>ReplacementStrategy</code> is set to <code>launch</code>.</p>
-   *          <p>Valid values: Minimum value of <code>120</code> seconds. Maximum value of <code>7200</code> seconds.</p>
-   * @public
-   */
-  TerminationDelay?: number | undefined;
 }

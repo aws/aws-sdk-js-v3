@@ -4,7 +4,168 @@ import type {
   InterruptibleCapacityReservationAllocationStatus,
   InterruptionType,
 } from "./enums";
-import type { ByoipCidr, IpPermission } from "./models_0";
+import type { ByoipCidr, IpPermission, NatGatewayAddress } from "./models_0";
+import type { CapacityManagerMonitoredTagKey } from "./models_6";
+import type { InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface UnassignPrivateNatGatewayAddressRequest {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The private IPv4 addresses you want to unassign.</p>
+   * @public
+   */
+  PrivateIpAddresses: string[] | undefined;
+
+  /**
+   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
+   * @public
+   */
+  MaxDrainDurationSeconds?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnassignPrivateNatGatewayAddressResult {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+
+  /**
+   * <p>Information about the NAT gateway IP addresses.</p>
+   * @public
+   */
+  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnlockSnapshotRequest {
+  /**
+   * <p>The ID of the snapshot to unlock.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnlockSnapshotResult {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnmonitorInstancesRequest {
+  /**
+   * <p>The IDs of the instances.</p>
+   * @public
+   */
+  InstanceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UnmonitorInstancesResult {
+  /**
+   * <p>The monitoring information.</p>
+   * @public
+   */
+  InstanceMonitorings?: InstanceMonitoring[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerMonitoredTagKeysRequest {
+  /**
+   * <p>
+   * The tag keys to activate for monitoring. Once activated, these tag keys will be included as dimensions in capacity metric data.
+   * </p>
+   * @public
+   */
+  ActivateTagKeys?: string[] | undefined;
+
+  /**
+   * <p>
+   * The tag keys to deactivate. Deactivated tag keys will no longer be included as dimensions in capacity metric data.
+   * </p>
+   * @public
+   */
+  DeactivateTagKeys?: string[] | undefined;
+
+  /**
+   * <p>
+   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
+   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
+   * </p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>
+   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * </p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityManagerMonitoredTagKeysResult {
+  /**
+   * <p>
+   * The list of tag keys affected by the update, including their current status and metadata.
+   * </p>
+   * @public
+   */
+  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
+}
 
 /**
  * @public

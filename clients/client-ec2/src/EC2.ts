@@ -739,6 +739,11 @@ import {
   CreateTransitGatewayPolicyTableCommand,
 } from "./commands/CreateTransitGatewayPolicyTableCommand";
 import {
+  type CreateTransitGatewayPolicyTableEntryCommandInput,
+  type CreateTransitGatewayPolicyTableEntryCommandOutput,
+  CreateTransitGatewayPolicyTableEntryCommand,
+} from "./commands/CreateTransitGatewayPolicyTableEntryCommand";
+import {
   type CreateTransitGatewayPrefixListReferenceCommandInput,
   type CreateTransitGatewayPrefixListReferenceCommandOutput,
   CreateTransitGatewayPrefixListReferenceCommand,
@@ -1199,6 +1204,11 @@ import {
   type DeleteTransitGatewayPolicyTableCommandOutput,
   DeleteTransitGatewayPolicyTableCommand,
 } from "./commands/DeleteTransitGatewayPolicyTableCommand";
+import {
+  type DeleteTransitGatewayPolicyTableEntryCommandInput,
+  type DeleteTransitGatewayPolicyTableEntryCommandOutput,
+  DeleteTransitGatewayPolicyTableEntryCommand,
+} from "./commands/DeleteTransitGatewayPolicyTableEntryCommand";
 import {
   type DeleteTransitGatewayPrefixListReferenceCommandInput,
   type DeleteTransitGatewayPrefixListReferenceCommandOutput,
@@ -3321,6 +3331,11 @@ import {
   ModifyTransitGatewayMeteringPolicyCommand,
 } from "./commands/ModifyTransitGatewayMeteringPolicyCommand";
 import {
+  type ModifyTransitGatewayPolicyTableEntryCommandInput,
+  type ModifyTransitGatewayPolicyTableEntryCommandOutput,
+  ModifyTransitGatewayPolicyTableEntryCommand,
+} from "./commands/ModifyTransitGatewayPolicyTableEntryCommand";
+import {
   type ModifyTransitGatewayPrefixListReferenceCommandInput,
   type ModifyTransitGatewayPrefixListReferenceCommandOutput,
   ModifyTransitGatewayPrefixListReferenceCommand,
@@ -4079,6 +4094,7 @@ import {
 import {
   paginateGetTransitGatewayPolicyTableAssociations,
 } from "./pagination/GetTransitGatewayPolicyTableAssociationsPaginator";
+import { paginateGetTransitGatewayPolicyTableEntries } from "./pagination/GetTransitGatewayPolicyTableEntriesPaginator";
 import {
   paginateGetTransitGatewayPrefixListReferences,
 } from "./pagination/GetTransitGatewayPrefixListReferencesPaginator";
@@ -4288,6 +4304,7 @@ const commands = {
   CreateTransitGatewayMulticastDomainCommand,
   CreateTransitGatewayPeeringAttachmentCommand,
   CreateTransitGatewayPolicyTableCommand,
+  CreateTransitGatewayPolicyTableEntryCommand,
   CreateTransitGatewayPrefixListReferenceCommand,
   CreateTransitGatewayRouteCommand,
   CreateTransitGatewayRouteTableCommand,
@@ -4381,6 +4398,7 @@ const commands = {
   DeleteTransitGatewayMulticastDomainCommand,
   DeleteTransitGatewayPeeringAttachmentCommand,
   DeleteTransitGatewayPolicyTableCommand,
+  DeleteTransitGatewayPolicyTableEntryCommand,
   DeleteTransitGatewayPrefixListReferenceCommand,
   DeleteTransitGatewayRouteCommand,
   DeleteTransitGatewayRouteTableCommand,
@@ -4806,6 +4824,7 @@ const commands = {
   ModifyTrafficMirrorSessionCommand,
   ModifyTransitGatewayCommand,
   ModifyTransitGatewayMeteringPolicyCommand,
+  ModifyTransitGatewayPolicyTableEntryCommand,
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayVpcAttachmentCommand,
   ModifyVerifiedAccessEndpointCommand,
@@ -5075,6 +5094,7 @@ const paginators = {
   paginateGetTransitGatewayAttachmentPropagations,
   paginateGetTransitGatewayMulticastDomainAssociations,
   paginateGetTransitGatewayPolicyTableAssociations,
+  paginateGetTransitGatewayPolicyTableEntries,
   paginateGetTransitGatewayPrefixListReferences,
   paginateGetTransitGatewayRouteTableAssociations,
   paginateGetTransitGatewayRouteTablePropagations,
@@ -7650,6 +7670,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateTransitGatewayPolicyTableEntryCommand}
+   */
+  createTransitGatewayPolicyTableEntry(
+    args: CreateTransitGatewayPolicyTableEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTransitGatewayPolicyTableEntryCommandOutput>;
+  createTransitGatewayPolicyTableEntry(
+    args: CreateTransitGatewayPolicyTableEntryCommandInput,
+    cb: (err: any, data?: CreateTransitGatewayPolicyTableEntryCommandOutput) => void
+  ): void;
+  createTransitGatewayPolicyTableEntry(
+    args: CreateTransitGatewayPolicyTableEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTransitGatewayPolicyTableEntryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateTransitGatewayPrefixListReferenceCommand}
    */
   createTransitGatewayPrefixListReference(
@@ -9236,6 +9273,23 @@ export interface EC2 {
     args: DeleteTransitGatewayPolicyTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTransitGatewayPolicyTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTransitGatewayPolicyTableEntryCommand}
+   */
+  deleteTransitGatewayPolicyTableEntry(
+    args: DeleteTransitGatewayPolicyTableEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTransitGatewayPolicyTableEntryCommandOutput>;
+  deleteTransitGatewayPolicyTableEntry(
+    args: DeleteTransitGatewayPolicyTableEntryCommandInput,
+    cb: (err: any, data?: DeleteTransitGatewayPolicyTableEntryCommandOutput) => void
+  ): void;
+  deleteTransitGatewayPolicyTableEntry(
+    args: DeleteTransitGatewayPolicyTableEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTransitGatewayPolicyTableEntryCommandOutput) => void
   ): void;
 
   /**
@@ -16665,6 +16719,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link ModifyTransitGatewayPolicyTableEntryCommand}
+   */
+  modifyTransitGatewayPolicyTableEntry(
+    args: ModifyTransitGatewayPolicyTableEntryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyTransitGatewayPolicyTableEntryCommandOutput>;
+  modifyTransitGatewayPolicyTableEntry(
+    args: ModifyTransitGatewayPolicyTableEntryCommandInput,
+    cb: (err: any, data?: ModifyTransitGatewayPolicyTableEntryCommandOutput) => void
+  ): void;
+  modifyTransitGatewayPolicyTableEntry(
+    args: ModifyTransitGatewayPolicyTableEntryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyTransitGatewayPolicyTableEntryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyTransitGatewayPrefixListReferenceCommand}
    */
   modifyTransitGatewayPrefixListReference(
@@ -20251,6 +20322,17 @@ export interface EC2 {
     args: GetTransitGatewayPolicyTableAssociationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<GetTransitGatewayPolicyTableAssociationsCommandOutput>;
+
+  /**
+   * @see {@link GetTransitGatewayPolicyTableEntriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetTransitGatewayPolicyTableEntriesCommandOutput}.
+   */
+  paginateGetTransitGatewayPolicyTableEntries(
+    args: GetTransitGatewayPolicyTableEntriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetTransitGatewayPolicyTableEntriesCommandOutput>;
 
   /**
    * @see {@link GetTransitGatewayPrefixListReferencesCommand}

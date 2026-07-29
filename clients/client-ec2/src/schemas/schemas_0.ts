@@ -1030,6 +1030,9 @@ const _CTGPLR = "CreateTransitGatewayPrefixListReference";
 const _CTGPLRR = "CreateTransitGatewayPrefixListReferenceRequest";
 const _CTGPLRRr = "CreateTransitGatewayPrefixListReferenceResult";
 const _CTGPT = "CreateTransitGatewayPolicyTable";
+const _CTGPTE = "CreateTransitGatewayPolicyTableEntry";
+const _CTGPTER = "CreateTransitGatewayPolicyTableEntryRequest";
+const _CTGPTERr = "CreateTransitGatewayPolicyTableEntryResult";
 const _CTGPTR = "CreateTransitGatewayPolicyTableRequest";
 const _CTGPTRr = "CreateTransitGatewayPolicyTableResult";
 const _CTGR = "CreateTransitGatewayRequest";
@@ -2109,6 +2112,9 @@ const _DTGPLR = "DeleteTransitGatewayPrefixListReference";
 const _DTGPLRR = "DeleteTransitGatewayPrefixListReferenceRequest";
 const _DTGPLRRe = "DeleteTransitGatewayPrefixListReferenceResult";
 const _DTGPT = "DeleteTransitGatewayPolicyTable";
+const _DTGPTE = "DeleteTransitGatewayPolicyTableEntry";
+const _DTGPTER = "DeleteTransitGatewayPolicyTableEntryRequest";
+const _DTGPTERe = "DeleteTransitGatewayPolicyTableEntryResult";
 const _DTGPTR = "DeleteTransitGatewayPolicyTableRequest";
 const _DTGPTRe = "DeleteTransitGatewayPolicyTableResult";
 const _DTGPTRes = "DescribeTransitGatewayPolicyTablesRequest";
@@ -4075,6 +4081,9 @@ const _MTGO = "ModifyTransitGatewayOptions";
 const _MTGPLR = "ModifyTransitGatewayPrefixListReference";
 const _MTGPLRR = "ModifyTransitGatewayPrefixListReferenceRequest";
 const _MTGPLRRo = "ModifyTransitGatewayPrefixListReferenceResult";
+const _MTGPTE = "ModifyTransitGatewayPolicyTableEntry";
+const _MTGPTER = "ModifyTransitGatewayPolicyTableEntryRequest";
+const _MTGPTERo = "ModifyTransitGatewayPolicyTableEntryResult";
 const _MTGR = "ModifyTransitGatewayRequest";
 const _MTGRo = "ModifyTransitGatewayResult";
 const _MTGVA = "ModifyTransitGatewayVpcAttachment";
@@ -5660,9 +5669,9 @@ const _TGPRMD = "TransitGatewayPolicyRuleMetaData";
 const _TGPT = "TransitGatewayPolicyTable";
 const _TGPTA = "TransitGatewayPolicyTableAssociation";
 const _TGPTAL = "TransitGatewayPolicyTableAssociationList";
-const _TGPTE = "TransitGatewayPolicyTableEntries";
+const _TGPTE = "TransitGatewayPolicyTableEntry";
 const _TGPTEL = "TransitGatewayPolicyTableEntryList";
-const _TGPTEr = "TransitGatewayPolicyTableEntry";
+const _TGPTEr = "TransitGatewayPolicyTableEntries";
 const _TGPTI = "TransitGatewayPolicyTableId";
 const _TGPTISL = "TransitGatewayPolicyTableIdStringList";
 const _TGPTIr = "TransitGatewayPolicyTableIds";
@@ -5673,6 +5682,8 @@ const _TGRA = "TransitGatewayRouteAttachment";
 const _TGRAL = "TransitGatewayRouteAttachmentList";
 const _TGRL = "TransitGatewayRouteList";
 const _TGRO = "TransitGatewayRequestOptions";
+const _TGRPR = "TransitGatewayRequestPolicyRule";
+const _TGRPRMD = "TransitGatewayRequestPolicyRuleMetaData";
 const _TGRT = "TransitGatewayRouteTable";
 const _TGRTA = "TransitGatewayRouteTableAnnouncement";
 const _TGRTAI = "TransitGatewayRouteTableAnnouncementId";
@@ -8027,7 +8038,8 @@ const _tGPAr = "transitGatewayPeeringAttachments";
 const _tGPLR = "transitGatewayPrefixListReference";
 const _tGPLRS = "transitGatewayPrefixListReferenceSet";
 const _tGPT = "transitGatewayPolicyTable";
-const _tGPTE = "transitGatewayPolicyTableEntries";
+const _tGPTE = "transitGatewayPolicyTableEntry";
+const _tGPTEr = "transitGatewayPolicyTableEntries";
 const _tGPTI = "transitGatewayPolicyTableId";
 const _tGPTr = "transitGatewayPolicyTables";
 const _tGRT = "transitGatewayRouteTable";
@@ -11326,6 +11338,17 @@ export var CreateTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
   [[() => TransitGatewayPeeringAttachment$, { [_eQN]: `TransitGatewayPeeringAttachment`
   , [_xN]: _tGPA }]]
 ];
+export var CreateTransitGatewayPolicyTableEntryRequest$: StaticStructureSchema = [3, n0, _CTGPTER,
+  0,
+  [_TGPTI, _PRN, _TRTI, _PRol, _DR],
+  [0, 0, 0, () => TransitGatewayRequestPolicyRule$, 2], 3
+];
+export var CreateTransitGatewayPolicyTableEntryResult$: StaticStructureSchema = [3, n0, _CTGPTERr,
+  0,
+  [_TGPTE],
+  [[() => TransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }]]
+];
 export var CreateTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _CTGPTR,
   0,
   [_TGI, _TS, _DR],
@@ -12492,6 +12515,17 @@ export var DeleteTransitGatewayPeeringAttachmentResult$: StaticStructureSchema =
   [_TGPA],
   [[() => TransitGatewayPeeringAttachment$, { [_eQN]: `TransitGatewayPeeringAttachment`
   , [_xN]: _tGPA }]]
+];
+export var DeleteTransitGatewayPolicyTableEntryRequest$: StaticStructureSchema = [3, n0, _DTGPTER,
+  0,
+  [_TGPTI, _PRN, _DR],
+  [0, 0, 2], 2
+];
+export var DeleteTransitGatewayPolicyTableEntryResult$: StaticStructureSchema = [3, n0, _DTGPTERe,
+  0,
+  [_TGPTE],
+  [[() => TransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }]]
 ];
 export var DeleteTransitGatewayPolicyTableRequest$: StaticStructureSchema = [3, n0, _DTGPTR,
   0,
@@ -17634,9 +17668,10 @@ export var GetTransitGatewayPolicyTableEntriesRequest$: StaticStructureSchema = 
 ];
 export var GetTransitGatewayPolicyTableEntriesResult$: StaticStructureSchema = [3, n0, _GTGPTERe,
   0,
-  [_TGPTE],
+  [_TGPTEr, _NTe],
   [[() => TransitGatewayPolicyTableEntryList, { [_eQN]: `TransitGatewayPolicyTableEntries`
-  , [_xN]: _tGPTE }]]
+  , [_xN]: _tGPTEr }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
 ];
 export var GetTransitGatewayPrefixListReferencesRequest$: StaticStructureSchema = [3, n0, _GTGPLRR,
   0,
@@ -20907,6 +20942,17 @@ export var ModifyTransitGatewayOptions$: StaticStructureSchema = [3, n0, _MTGO,
   0,
   [_ATGCB, _RTGCB, _VESp, _DSn, _SGRS, _AASAu, _DRTA, _ADRTI, _DRTP, _PDRTI, _ASA, _ESn],
   [[() => TransitGatewayCidrBlockStringList, 0], [() => TransitGatewayCidrBlockStringList, 0], 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]
+];
+export var ModifyTransitGatewayPolicyTableEntryRequest$: StaticStructureSchema = [3, n0, _MTGPTER,
+  0,
+  [_TGPTI, _PRN, _PRol, _TRTI, _DR],
+  [0, 0, () => TransitGatewayRequestPolicyRule$, 0, 2], 2
+];
+export var ModifyTransitGatewayPolicyTableEntryResult$: StaticStructureSchema = [3, n0, _MTGPTERo,
+  0,
+  [_TGPTE],
+  [[() => TransitGatewayPolicyTableEntry$, { [_eQN]: `TransitGatewayPolicyTableEntry`
+  , [_xN]: _tGPTE }]]
 ];
 export var ModifyTransitGatewayPrefixListReferenceRequest$: StaticStructureSchema = [3, n0, _MTGPLRR,
   0,
@@ -24565,9 +24611,10 @@ export var TransitGatewayAttachment$: StaticStructureSchema = [3, n0, _TGAra,
 ];
 export var TransitGatewayAttachmentAssociation$: StaticStructureSchema = [3, n0, _TGAA,
   0,
-  [_TGRTI, _St],
+  [_TGRTI, _TGPTI, _St],
   [[0, { [_eQN]: `TransitGatewayRouteTableId`
-  , [_xN]: _tGRTI }], [0, { [_eQN]: `State`
+  , [_xN]: _tGRTI }], [0, { [_eQN]: `TransitGatewayPolicyTableId`
+  , [_xN]: _tGPTI }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
 export var TransitGatewayAttachmentBgpConfiguration$: StaticStructureSchema = [3, n0, _TGABC,
@@ -24857,13 +24904,14 @@ export var TransitGatewayPolicyTableAssociation$: StaticStructureSchema = [3, n0
   , [_xN]: _rTe }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
-export var TransitGatewayPolicyTableEntry$: StaticStructureSchema = [3, n0, _TGPTEr,
+export var TransitGatewayPolicyTableEntry$: StaticStructureSchema = [3, n0, _TGPTE,
   0,
-  [_PRN, _PRol, _TRTI],
+  [_PRN, _PRol, _TRTI, _St],
   [[0, { [_eQN]: `PolicyRuleNumber`
   , [_xN]: _pRN }], [() => TransitGatewayPolicyRule$, { [_eQN]: `PolicyRule`
   , [_xN]: _pRol }], [0, { [_eQN]: `TargetRouteTableId`
-  , [_xN]: _tRTI }]]
+  , [_xN]: _tRTI }], [0, { [_eQN]: `State`
+  , [_xN]: _st }]]
 ];
 export var TransitGatewayPrefixListAttachment$: StaticStructureSchema = [3, n0, _TGPLA,
   0,
@@ -24899,6 +24947,16 @@ export var TransitGatewayRequestOptions$: StaticStructureSchema = [3, n0, _TGRO,
   0,
   [_ASA, _AASAu, _DRTA, _DRTP, _VESp, _DSn, _SGRS, _MSu, _TGCB],
   [1, 0, 0, 0, 0, 0, 0, 0, [() => TransitGatewayCidrBlockStringList, 0]]
+];
+export var TransitGatewayRequestPolicyRule$: StaticStructureSchema = [3, n0, _TGRPR,
+  0,
+  [_SCB, _SPRo, _DCB, _DPRe, _Pr, _MDe],
+  [0, 0, 0, 0, 0, () => TransitGatewayRequestPolicyRuleMetaData$]
+];
+export var TransitGatewayRequestPolicyRuleMetaData$: StaticStructureSchema = [3, n0, _TGRPRMD,
+  0,
+  [_MDK, _MDV],
+  [0, 0]
 ];
 export var TransitGatewayRoute$: StaticStructureSchema = [3, n0, _TGR,
   0,
@@ -29362,6 +29420,9 @@ export var CreateTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n
 export var CreateTransitGatewayPolicyTable$: StaticOperationSchema = [9, n0, _CTGPT,
   0, () => CreateTransitGatewayPolicyTableRequest$, () => CreateTransitGatewayPolicyTableResult$
 ];
+export var CreateTransitGatewayPolicyTableEntry$: StaticOperationSchema = [9, n0, _CTGPTE,
+  0, () => CreateTransitGatewayPolicyTableEntryRequest$, () => CreateTransitGatewayPolicyTableEntryResult$
+];
 export var CreateTransitGatewayPrefixListReference$: StaticOperationSchema = [9, n0, _CTGPLR,
   0, () => CreateTransitGatewayPrefixListReferenceRequest$, () => CreateTransitGatewayPrefixListReferenceResult$
 ];
@@ -29640,6 +29701,9 @@ export var DeleteTransitGatewayPeeringAttachment$: StaticOperationSchema = [9, n
 ];
 export var DeleteTransitGatewayPolicyTable$: StaticOperationSchema = [9, n0, _DTGPT,
   0, () => DeleteTransitGatewayPolicyTableRequest$, () => DeleteTransitGatewayPolicyTableResult$
+];
+export var DeleteTransitGatewayPolicyTableEntry$: StaticOperationSchema = [9, n0, _DTGPTE,
+  0, () => DeleteTransitGatewayPolicyTableEntryRequest$, () => DeleteTransitGatewayPolicyTableEntryResult$
 ];
 export var DeleteTransitGatewayPrefixListReference$: StaticOperationSchema = [9, n0, _DTGPLR,
   0, () => DeleteTransitGatewayPrefixListReferenceRequest$, () => DeleteTransitGatewayPrefixListReferenceResult$
@@ -30915,6 +30979,9 @@ export var ModifyTransitGateway$: StaticOperationSchema = [9, n0, _MTG,
 ];
 export var ModifyTransitGatewayMeteringPolicy$: StaticOperationSchema = [9, n0, _MTGMP,
   0, () => ModifyTransitGatewayMeteringPolicyRequest$, () => ModifyTransitGatewayMeteringPolicyResult$
+];
+export var ModifyTransitGatewayPolicyTableEntry$: StaticOperationSchema = [9, n0, _MTGPTE,
+  0, () => ModifyTransitGatewayPolicyTableEntryRequest$, () => ModifyTransitGatewayPolicyTableEntryResult$
 ];
 export var ModifyTransitGatewayPrefixListReference$: StaticOperationSchema = [9, n0, _MTGPLR,
   0, () => ModifyTransitGatewayPrefixListReferenceRequest$, () => ModifyTransitGatewayPrefixListReferenceResult$

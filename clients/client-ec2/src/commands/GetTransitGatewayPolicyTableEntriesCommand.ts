@@ -67,8 +67,10 @@ export interface GetTransitGatewayPolicyTableEntriesCommandOutput extends GetTra
  * //         },
  * //       },
  * //       TargetRouteTableId: "STRING_VALUE",
+ * //       State: "active" || "deleted",
  * //     },
  * //   ],
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```

@@ -5252,6 +5252,20 @@ export type TransitGatewayPolicyTableState =
  * @public
  * @enum
  */
+export const TransitGatewayPolicyTableEntryState = {
+  active: "active",
+  deleted: "deleted",
+} as const;
+/**
+ * @public
+ */
+export type TransitGatewayPolicyTableEntryState =
+  (typeof TransitGatewayPolicyTableEntryState)[keyof typeof TransitGatewayPolicyTableEntryState];
+
+/**
+ * @public
+ * @enum
+ */
 export const TransitGatewayPrefixListReferenceState = {
   available: "available",
   deleting: "deleting",

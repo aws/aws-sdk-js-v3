@@ -68,6 +68,7 @@ import type {
   TransitGatewayMeteringPolicyEntryState,
   TransitGatewayMeteringPolicyState,
   TransitGatewayMulticastDomainState,
+  TransitGatewayPolicyTableEntryState,
   TransitGatewayPolicyTableState,
   TransitGatewayPrefixListReferenceState,
   TransitGatewayRouteState,
@@ -131,8 +132,6 @@ import type {
   LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
   OperatorRequest,
-  RouteServer,
-  RouteServerEndpoint,
   Subnet,
   Vpc,
   VpcEncryptionControl,
@@ -3635,6 +3634,204 @@ export interface CreateTransitGatewayPolicyTableResult {
 }
 
 /**
+ * <p>A metadata key-value pair for a transit gateway policy rule.</p>
+ * @public
+ */
+export interface TransitGatewayRequestPolicyRuleMetaData {
+  /**
+   * <p>The key of the metadata pair for the policy rule.</p>
+   * @public
+   */
+  MetaDataKey?: string | undefined;
+
+  /**
+   * <p>The value of the metadata pair for the policy rule.</p>
+   * @public
+   */
+  MetaDataValue?: string | undefined;
+}
+
+/**
+ * <p>The matching criteria for a transit gateway policy table entry.</p>
+ * @public
+ */
+export interface TransitGatewayRequestPolicyRule {
+  /**
+   * <p>The source CIDR block for the policy rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source port or port range for the policy rule. You can specify a port range only when <code>Protocol</code> is <code>6</code> (TCP) or <code>17</code> (UDP); for all other protocols, this value must be <code>*</code>.</p>
+   * @public
+   */
+  SourcePortRange?: string | undefined;
+
+  /**
+   * <p>The destination CIDR block for the policy rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The destination port or port range for the policy rule. You can specify a port range only when <code>Protocol</code> is <code>6</code> (TCP) or <code>17</code> (UDP); for all other protocols, this value must be <code>*</code>.</p>
+   * @public
+   */
+  DestinationPortRange?: string | undefined;
+
+  /**
+   * <p>The protocol for the policy rule. Valid values are <code>1</code> (ICMP), <code>6</code> (TCP), <code>17</code> (UDP), <code>47</code> (GRE), or <code>*</code> for all protocols.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The metadata key-value pair for the policy rule.</p>
+   * @public
+   */
+  MetaData?: TransitGatewayRequestPolicyRuleMetaData | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayPolicyTableEntryRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The rule number for the policy table entry. Lower rule numbers are evaluated first and take precedence.</p>
+   * @public
+   */
+  PolicyRuleNumber: string | undefined;
+
+  /**
+   * <p>The matching criteria for the policy table entry.</p>
+   * @public
+   */
+  PolicyRule?: TransitGatewayRequestPolicyRule | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table to use for traffic matching this rule.</p>
+   * @public
+   */
+  TargetRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the meta data tags associated with a transit gateway policy rule.</p>
+ * @public
+ */
+export interface TransitGatewayPolicyRuleMetaData {
+  /**
+   * <p>The key name for the transit gateway policy rule meta data tag.</p>
+   * @public
+   */
+  MetaDataKey?: string | undefined;
+
+  /**
+   * <p>The value of the key for the transit gateway policy rule meta data tag.</p>
+   * @public
+   */
+  MetaDataValue?: string | undefined;
+}
+
+/**
+ * <p>Describes a rule associated with a transit gateway policy.</p>
+ * @public
+ */
+export interface TransitGatewayPolicyRule {
+  /**
+   * <p>The source CIDR block for the transit gateway policy rule.</p>
+   * @public
+   */
+  SourceCidrBlock?: string | undefined;
+
+  /**
+   * <p>The source port or port range for the transit gateway policy rule.</p>
+   * @public
+   */
+  SourcePortRange?: string | undefined;
+
+  /**
+   * <p>The destination CIDR block for the transit gateway policy rule.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The destination port or port range for the transit gateway policy rule.</p>
+   * @public
+   */
+  DestinationPortRange?: string | undefined;
+
+  /**
+   * <p>The protocol used by the transit gateway policy rule.</p>
+   * @public
+   */
+  Protocol?: string | undefined;
+
+  /**
+   * <p>The meta data tags used for the transit gateway policy rule.</p>
+   * @public
+   */
+  MetaData?: TransitGatewayPolicyRuleMetaData | undefined;
+}
+
+/**
+ * <p>Describes a transit gateway policy table entry</p>
+ * @public
+ */
+export interface TransitGatewayPolicyTableEntry {
+  /**
+   * <p>The rule number for the transit gateway policy table entry.</p>
+   * @public
+   */
+  PolicyRuleNumber?: string | undefined;
+
+  /**
+   * <p>The policy rule associated with the transit gateway policy table.</p>
+   * @public
+   */
+  PolicyRule?: TransitGatewayPolicyRule | undefined;
+
+  /**
+   * <p>The ID of the target route table.</p>
+   * @public
+   */
+  TargetRouteTableId?: string | undefined;
+
+  /**
+   * <p>The state of the transit gateway policy table entry.</p>
+   * @public
+   */
+  State?: TransitGatewayPolicyTableEntryState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTransitGatewayPolicyTableEntryResult {
+  /**
+   * <p>Describes a transit gateway policy table entry</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntry?: TransitGatewayPolicyTableEntry | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateTransitGatewayPrefixListReferenceRequest {
@@ -4081,7 +4278,7 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
 
   /**
-   * <p>Enable or disable IPv6 support.  The default is <code>disable</code>.</p>
+   * <p>Specifies whether IPv6 support is enabled for the attachment. When enabled, the transit gateway network interface receives an IPv6 address. When you enable route propagation, IPv6 VPC CIDRs propagate to the transit gateway route tables. When disabled, the network interface does not receive an IPv6 address, and IPv6 routes do not propagate. The setting does not filter IPv6 traffic. The default is <code>disable</code>.</p>
    * @public
    */
   Ipv6Support?: Ipv6SupportValue | undefined;
@@ -9756,131 +9953,4 @@ export interface DeleteQueuedReservedInstancesResult {
    * @public
    */
   FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteRequest {
-  /**
-   * <p>The ID of the prefix list for the route.</p>
-   * @public
-   */
-  DestinationPrefixListId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the route table.</p>
-   * @public
-   */
-  RouteTableId: string | undefined;
-
-  /**
-   * <p>The IPv4 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   * @public
-   */
-  DestinationCidrBlock?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR range for the route. The value you specify must match the CIDR for the route exactly.</p>
-   * @public
-   */
-  DestinationIpv6CidrBlock?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerRequest {
-  /**
-   * <p>The ID of the route server to delete.</p>
-   * @public
-   */
-  RouteServerId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerResult {
-  /**
-   * <p>Information about the deleted route server.</p>
-   * @public
-   */
-  RouteServer?: RouteServer | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerEndpointRequest {
-  /**
-   * <p>The ID of the route server endpoint to delete.</p>
-   * @public
-   */
-  RouteServerEndpointId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerEndpointResult {
-  /**
-   * <p>Information about the deleted route server endpoint.</p>
-   * @public
-   */
-  RouteServerEndpoint?: RouteServerEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerPeerRequest {
-  /**
-   * <p>The ID of the route server peer to delete.</p>
-   * @public
-   */
-  RouteServerPeerId: string | undefined;
-
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteRouteServerPeerResult {
-  /**
-   * <p>Information about the deleted route server peer.</p>
-   * @public
-   */
-  RouteServerPeer?: RouteServerPeer | undefined;
 }

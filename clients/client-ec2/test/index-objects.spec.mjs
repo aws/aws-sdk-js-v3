@@ -803,6 +803,10 @@ import {
   CreateTransitGatewayPeeringAttachmentResult$,
   CreateTransitGatewayPolicyTable$,
   CreateTransitGatewayPolicyTableCommand,
+  CreateTransitGatewayPolicyTableEntry$,
+  CreateTransitGatewayPolicyTableEntryCommand,
+  CreateTransitGatewayPolicyTableEntryRequest$,
+  CreateTransitGatewayPolicyTableEntryResult$,
   CreateTransitGatewayPolicyTableRequest$,
   CreateTransitGatewayPolicyTableResult$,
   CreateTransitGatewayPrefixListReference$,
@@ -1197,6 +1201,10 @@ import {
   DeleteTransitGatewayPeeringAttachmentResult$,
   DeleteTransitGatewayPolicyTable$,
   DeleteTransitGatewayPolicyTableCommand,
+  DeleteTransitGatewayPolicyTableEntry$,
+  DeleteTransitGatewayPolicyTableEntryCommand,
+  DeleteTransitGatewayPolicyTableEntryRequest$,
+  DeleteTransitGatewayPolicyTableEntryResult$,
   DeleteTransitGatewayPolicyTableRequest$,
   DeleteTransitGatewayPolicyTableResult$,
   DeleteTransitGatewayPrefixListReference$,
@@ -3409,6 +3417,10 @@ import {
   ModifyTransitGatewayMeteringPolicyRequest$,
   ModifyTransitGatewayMeteringPolicyResult$,
   ModifyTransitGatewayOptions$,
+  ModifyTransitGatewayPolicyTableEntry$,
+  ModifyTransitGatewayPolicyTableEntryCommand,
+  ModifyTransitGatewayPolicyTableEntryRequest$,
+  ModifyTransitGatewayPolicyTableEntryResult$,
   ModifyTransitGatewayPrefixListReference$,
   ModifyTransitGatewayPrefixListReferenceCommand,
   ModifyTransitGatewayPrefixListReferenceRequest$,
@@ -3766,6 +3778,7 @@ import {
   paginateGetTransitGatewayAttachmentPropagations,
   paginateGetTransitGatewayMulticastDomainAssociations,
   paginateGetTransitGatewayPolicyTableAssociations,
+  paginateGetTransitGatewayPolicyTableEntries,
   paginateGetTransitGatewayPrefixListReferences,
   paginateGetTransitGatewayRouteTableAssociations,
   paginateGetTransitGatewayRouteTablePropagations,
@@ -4391,6 +4404,7 @@ import {
   TransitGatewayPolicyTable$,
   TransitGatewayPolicyTableAssociation$,
   TransitGatewayPolicyTableEntry$,
+  TransitGatewayPolicyTableEntryState,
   TransitGatewayPolicyTableState,
   TransitGatewayPrefixListAttachment$,
   TransitGatewayPrefixListReference$,
@@ -4398,6 +4412,8 @@ import {
   TransitGatewayPropagation$,
   TransitGatewayPropagationState,
   TransitGatewayRequestOptions$,
+  TransitGatewayRequestPolicyRule$,
+  TransitGatewayRequestPolicyRuleMetaData$,
   TransitGatewayRoute$,
   TransitGatewayRouteAttachment$,
   TransitGatewayRouteState,
@@ -4969,6 +4985,8 @@ assert(typeof CreateTransitGatewayPeeringAttachmentCommand === "function");
 assert(typeof CreateTransitGatewayPeeringAttachment$ === "object");
 assert(typeof CreateTransitGatewayPolicyTableCommand === "function");
 assert(typeof CreateTransitGatewayPolicyTable$ === "object");
+assert(typeof CreateTransitGatewayPolicyTableEntryCommand === "function");
+assert(typeof CreateTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof CreateTransitGatewayPrefixListReferenceCommand === "function");
 assert(typeof CreateTransitGatewayPrefixListReference$ === "object");
 assert(typeof CreateTransitGatewayRouteCommand === "function");
@@ -5155,6 +5173,8 @@ assert(typeof DeleteTransitGatewayPeeringAttachmentCommand === "function");
 assert(typeof DeleteTransitGatewayPeeringAttachment$ === "object");
 assert(typeof DeleteTransitGatewayPolicyTableCommand === "function");
 assert(typeof DeleteTransitGatewayPolicyTable$ === "object");
+assert(typeof DeleteTransitGatewayPolicyTableEntryCommand === "function");
+assert(typeof DeleteTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof DeleteTransitGatewayPrefixListReferenceCommand === "function");
 assert(typeof DeleteTransitGatewayPrefixListReference$ === "object");
 assert(typeof DeleteTransitGatewayRouteCommand === "function");
@@ -6005,6 +6025,8 @@ assert(typeof ModifyTransitGatewayCommand === "function");
 assert(typeof ModifyTransitGateway$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyCommand === "function");
 assert(typeof ModifyTransitGatewayMeteringPolicy$ === "object");
+assert(typeof ModifyTransitGatewayPolicyTableEntryCommand === "function");
+assert(typeof ModifyTransitGatewayPolicyTableEntry$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceCommand === "function");
 assert(typeof ModifyTransitGatewayPrefixListReference$ === "object");
 assert(typeof ModifyTransitGatewayVpcAttachmentCommand === "function");
@@ -6646,6 +6668,8 @@ assert(typeof CreateTransitGatewayMulticastDomainResult$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentRequest$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentRequestOptions$ === "object");
 assert(typeof CreateTransitGatewayPeeringAttachmentResult$ === "object");
+assert(typeof CreateTransitGatewayPolicyTableEntryRequest$ === "object");
+assert(typeof CreateTransitGatewayPolicyTableEntryResult$ === "object");
 assert(typeof CreateTransitGatewayPolicyTableRequest$ === "object");
 assert(typeof CreateTransitGatewayPolicyTableResult$ === "object");
 assert(typeof CreateTransitGatewayPrefixListReferenceRequest$ === "object");
@@ -6844,6 +6868,8 @@ assert(typeof DeleteTransitGatewayMulticastDomainRequest$ === "object");
 assert(typeof DeleteTransitGatewayMulticastDomainResult$ === "object");
 assert(typeof DeleteTransitGatewayPeeringAttachmentRequest$ === "object");
 assert(typeof DeleteTransitGatewayPeeringAttachmentResult$ === "object");
+assert(typeof DeleteTransitGatewayPolicyTableEntryRequest$ === "object");
+assert(typeof DeleteTransitGatewayPolicyTableEntryResult$ === "object");
 assert(typeof DeleteTransitGatewayPolicyTableRequest$ === "object");
 assert(typeof DeleteTransitGatewayPolicyTableResult$ === "object");
 assert(typeof DeleteTransitGatewayPrefixListReferenceRequest$ === "object");
@@ -8031,6 +8057,8 @@ assert(typeof ModifyTrafficMirrorSessionResult$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyRequest$ === "object");
 assert(typeof ModifyTransitGatewayMeteringPolicyResult$ === "object");
 assert(typeof ModifyTransitGatewayOptions$ === "object");
+assert(typeof ModifyTransitGatewayPolicyTableEntryRequest$ === "object");
+assert(typeof ModifyTransitGatewayPolicyTableEntryResult$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceRequest$ === "object");
 assert(typeof ModifyTransitGatewayPrefixListReferenceResult$ === "object");
 assert(typeof ModifyTransitGatewayRequest$ === "object");
@@ -8516,6 +8544,8 @@ assert(typeof TransitGatewayPrefixListAttachment$ === "object");
 assert(typeof TransitGatewayPrefixListReference$ === "object");
 assert(typeof TransitGatewayPropagation$ === "object");
 assert(typeof TransitGatewayRequestOptions$ === "object");
+assert(typeof TransitGatewayRequestPolicyRule$ === "object");
+assert(typeof TransitGatewayRequestPolicyRuleMetaData$ === "object");
 assert(typeof TransitGatewayRoute$ === "object");
 assert(typeof TransitGatewayRouteAttachment$ === "object");
 assert(typeof TransitGatewayRouteTable$ === "object");
@@ -9038,6 +9068,7 @@ assert(typeof TransitGatewayMeteringPolicyEntryState === "object");
 assert(typeof TransitGatewayMeteringPolicyState === "object");
 assert(typeof TransitGatewayMulitcastDomainAssociationState === "object");
 assert(typeof TransitGatewayMulticastDomainState === "object");
+assert(typeof TransitGatewayPolicyTableEntryState === "object");
 assert(typeof TransitGatewayPolicyTableState === "object");
 assert(typeof TransitGatewayPrefixListReferenceState === "object");
 assert(typeof TransitGatewayPropagationState === "object");
@@ -9339,6 +9370,7 @@ assert(typeof paginateGetSpotPlacementScores === "function");
 assert(typeof paginateGetTransitGatewayAttachmentPropagations === "function");
 assert(typeof paginateGetTransitGatewayMulticastDomainAssociations === "function");
 assert(typeof paginateGetTransitGatewayPolicyTableAssociations === "function");
+assert(typeof paginateGetTransitGatewayPolicyTableEntries === "function");
 assert(typeof paginateGetTransitGatewayPrefixListReferences === "function");
 assert(typeof paginateGetTransitGatewayRouteTableAssociations === "function");
 assert(typeof paginateGetTransitGatewayRouteTablePropagations === "function");

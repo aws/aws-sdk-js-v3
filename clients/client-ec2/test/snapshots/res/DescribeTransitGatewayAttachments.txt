@@ -55,6 +55,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <transitGatewayRouteTableId>
                     __TransitGatewayRouteTableId__
                 </transitGatewayRouteTableId>
+                <transitGatewayPolicyTableId>
+                    __TransitGatewayPolicyTableId__
+                </transitGatewayPolicyTableId>
                 <state>
                     __State__
                 </state>
@@ -115,6 +118,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <transitGatewayRouteTableId>
                     __TransitGatewayRouteTableId__
                 </transitGatewayRouteTableId>
+                <transitGatewayPolicyTableId>
+                    __TransitGatewayPolicyTableId__
+                </transitGatewayPolicyTableId>
                 <state>
                     __State__
                 </state>
@@ -175,6 +181,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <transitGatewayRouteTableId>
                     __TransitGatewayRouteTableId__
                 </transitGatewayRouteTableId>
+                <transitGatewayPolicyTableId>
+                    __TransitGatewayPolicyTableId__
+                </transitGatewayPolicyTableId>
                 <state>
                     __State__
                 </state>
@@ -229,6 +238,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       State: "__State__",
       Association: {
         TransitGatewayRouteTableId: "__TransitGatewayRouteTableId__",
+        TransitGatewayPolicyTableId: "__TransitGatewayPolicyTableId__",
         State: "__State__"
       },
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -257,6 +267,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       State: "__State__",
       Association: {
         TransitGatewayRouteTableId: "__TransitGatewayRouteTableId__",
+        TransitGatewayPolicyTableId: "__TransitGatewayPolicyTableId__",
         State: "__State__"
       },
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
@@ -285,6 +296,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       State: "__State__",
       Association: {
         TransitGatewayRouteTableId: "__TransitGatewayRouteTableId__",
+        TransitGatewayPolicyTableId: "__TransitGatewayPolicyTableId__",
         State: "__State__"
       },
       CreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,

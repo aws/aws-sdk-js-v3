@@ -61,6 +61,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <targetRouteTableId>
                 __TargetRouteTableId__
             </targetRouteTableId>
+            <state>
+                __State__
+            </state>
         </item>
         <item>
             <policyRuleNumber>
@@ -94,6 +97,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <targetRouteTableId>
                 __TargetRouteTableId__
             </targetRouteTableId>
+            <state>
+                __State__
+            </state>
         </item>
         <item>
             <policyRuleNumber>
@@ -127,8 +133,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <targetRouteTableId>
                 __TargetRouteTableId__
             </targetRouteTableId>
+            <state>
+                __State__
+            </state>
         </item>
     </transitGatewayPolicyTableEntries>
+    <nextToken>
+        __NextToken__
+    </nextToken>
 </GetTransitGatewayPolicyTableEntriesResult>
 
 
@@ -148,7 +160,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MetaDataValue: "__MetaDataValue__"
         }
       },
-      TargetRouteTableId: "__TargetRouteTableId__"
+      TargetRouteTableId: "__TargetRouteTableId__",
+      State: "__State__"
     },
     {
       PolicyRuleNumber: "__PolicyRuleNumber__",
@@ -163,7 +176,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MetaDataValue: "__MetaDataValue__"
         }
       },
-      TargetRouteTableId: "__TargetRouteTableId__"
+      TargetRouteTableId: "__TargetRouteTableId__",
+      State: "__State__"
     },
     {
       PolicyRuleNumber: "__PolicyRuleNumber__",
@@ -178,9 +192,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           MetaDataValue: "__MetaDataValue__"
         }
       },
-      TargetRouteTableId: "__TargetRouteTableId__"
+      TargetRouteTableId: "__TargetRouteTableId__",
+      State: "__State__"
     }
   ],
+  NextToken: "__NextToken__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

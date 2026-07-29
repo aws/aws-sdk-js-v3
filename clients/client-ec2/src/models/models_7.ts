@@ -27,6 +27,7 @@ import type {
   InternetGatewayBlockMode,
   InternetGatewayExclusionMode,
   IpAddressType,
+  IpamPolicyResourceType,
   Ipv6SupportValue,
   ManagedResourceDefaultVisibility,
   MarketType,
@@ -82,7 +83,6 @@ import type {
   IamInstanceProfileSpecification,
   IpamPoolAllocation,
   IpPermission,
-  NatGatewayAddress,
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
@@ -104,6 +104,8 @@ import type {
   ExternalAuthorityConfiguration,
   IcmpTypeCode,
   InstanceIpv6Address,
+  Ipam,
+  IpamPool,
   IpamPrefixListResolver,
   IpamPrefixListResolverRuleRequest,
   IpamPrefixListResolverTarget,
@@ -114,6 +116,7 @@ import type {
   ManagedPrefixList,
   OperatorRequest,
   Placement,
+  RequestIpamResourceTag,
   RouteServer,
   VpcEncryptionControl,
 } from "./models_1";
@@ -134,7 +137,9 @@ import type {
   TrafficMirrorSession,
   TransitGateway,
   TransitGatewayMeteringPolicy,
+  TransitGatewayPolicyTableEntry,
   TransitGatewayPrefixListReference,
+  TransitGatewayRequestPolicyRule,
   TransitGatewayRoute,
   VerifiedAccessEndpoint,
   VerifiedAccessGroup,
@@ -157,7 +162,6 @@ import type {
   CreateVolumePermission,
   InstanceNetworkInterfaceSpecification,
   InstanceState,
-  LaunchTemplateConfig,
   Monitoring,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
@@ -167,6 +171,7 @@ import type {
   SpotPlacement,
 } from "./models_4";
 import type {
+  LaunchTemplateConfig,
   RunInstancesMonitoringEnabled,
   SpotFleetRequestConfigData,
   SpotInstanceRequest,
@@ -175,14 +180,183 @@ import type {
   VpcBlockPublicAccessOptions,
 } from "./models_5";
 import type {
-  CapacityManagerMonitoredTagKey,
   CapacityReservationSpecification,
   EnclaveOptionsRequest,
+  IpamPolicyDocument,
   IpamResourceCidr,
   ManagedResourceVisibilitySettings,
   Purchase,
   RemoveIpamOperatingRegion,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ModifyIpamResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  Ipam?: Ipam | undefined;
+}
+
+/**
+ * <p>Information about a requested IPAM policy allocation rule.</p>
+ *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+ * @public
+ */
+export interface IpamPolicyAllocationRuleRequest {
+  /**
+   * <p>The ID of the source IPAM pool for the requested allocation rule.</p>
+   *          <p>An IPAM pool is a collection of IP addresses in IPAM that can be allocated to Amazon Web Services resources.</p>
+   * @public
+   */
+  SourceIpamPoolId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPolicyAllocationRulesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM policy whose allocation rules you want to modify.</p>
+   * @public
+   */
+  IpamPolicyId: string | undefined;
+
+  /**
+   * <p>The locale for which to modify the allocation rules.</p>
+   * @public
+   */
+  Locale: string | undefined;
+
+  /**
+   * <p>The resource type for which to modify the allocation rules.</p>
+   *          <p>The Amazon Web Services service or resource type that can use IP addresses through IPAM policies. Supported services and resource types include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Elastic IP addresses</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType: IpamPolicyResourceType | undefined;
+
+  /**
+   * <p>The new allocation rules to apply to the IPAM policy.</p>
+   *          <p>Allocation rules are optional configurations within an IPAM policy that map Amazon Web Services resource types to specific IPAM pools. If no rules are defined, the resource types default to using Amazon-provided IP addresses.</p>
+   * @public
+   */
+  AllocationRules?: IpamPolicyAllocationRuleRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPolicyAllocationRulesResult {
+  /**
+   * <p>The modified IPAM policy containing the updated allocation rules.</p>
+   * @public
+   */
+  IpamPolicyDocument?: IpamPolicyDocument | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool you want to modify.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The description of the IPAM pool you want to modify.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>If true, IPAM will continuously look for resources within the CIDR range of this pool
+   *          and automatically import them as allocations into your IPAM. The CIDRs that will be allocated for
+   *          these resources must not already be allocated to other resources in order for the import to succeed. IPAM will import
+   *          a CIDR regardless of its compliance with the pool's allocation rules, so a resource might be imported and subsequently
+   *          marked as noncompliant. If IPAM discovers multiple CIDRs that overlap, IPAM will import the largest CIDR only. If IPAM
+   *          discovers multiple CIDRs with matching CIDRs, IPAM will randomly import one of them only.
+   *       </p>
+   *          <p>A locale must be set on the pool for this feature to work.</p>
+   * @public
+   */
+  AutoImport?: boolean | undefined;
+
+  /**
+   * <p>The minimum netmask length required for CIDR allocations in this IPAM pool to be compliant. Possible
+   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128. The minimum netmask
+   *          length must be less than the maximum netmask length.</p>
+   * @public
+   */
+  AllocationMinNetmaskLength?: number | undefined;
+
+  /**
+   * <p>The maximum netmask length possible for CIDR allocations in this IPAM pool to be compliant. Possible
+   *          netmask lengths for IPv4 addresses are 0 - 32. Possible netmask lengths for IPv6 addresses are  0 - 128.The maximum netmask
+   *          length must be greater than the minimum netmask length.</p>
+   * @public
+   */
+  AllocationMaxNetmaskLength?: number | undefined;
+
+  /**
+   * <p>The default netmask length for allocations added to this pool. If, for example, the CIDR assigned to this pool is 10.0.0.0/8 and you enter 16 here, new allocations will default to 10.0.0.0/16.</p>
+   * @public
+   */
+  AllocationDefaultNetmaskLength?: number | undefined;
+
+  /**
+   * <p>Clear the default netmask length allocation rule for this pool.</p>
+   * @public
+   */
+  ClearAllocationDefaultNetmaskLength?: boolean | undefined;
+
+  /**
+   * <p>Add tag allocation rules to a pool. For more information about allocation rules, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/create-top-ipam.html">Create a top-level pool</a> in the <i>Amazon VPC IPAM User Guide</i>.</p>
+   * @public
+   */
+  AddAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
+
+  /**
+   * <p>Remove tag allocation rules from a pool.</p>
+   * @public
+   */
+  RemoveAllocationResourceTags?: RequestIpamResourceTag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamPoolResult {
+  /**
+   * <p>The results of the modification.</p>
+   * @public
+   */
+  IpamPool?: IpamPool | undefined;
+}
 
 /**
  * @public
@@ -1910,6 +2084,54 @@ export interface ModifyTransitGatewayMeteringPolicyResult {
 /**
  * @public
  */
+export interface ModifyTransitGatewayPolicyTableEntryRequest {
+  /**
+   * <p>The ID of the transit gateway policy table.</p>
+   * @public
+   */
+  TransitGatewayPolicyTableId: string | undefined;
+
+  /**
+   * <p>The rule number of the policy table entry to modify.</p>
+   * @public
+   */
+  PolicyRuleNumber: string | undefined;
+
+  /**
+   * <p>The updated matching criteria for the policy table entry. Unspecified fields retain their current values.</p>
+   * @public
+   */
+  PolicyRule?: TransitGatewayRequestPolicyRule | undefined;
+
+  /**
+   * <p>The ID of the transit gateway route table to use for traffic matching this rule.</p>
+   * @public
+   */
+  TargetRouteTableId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyTransitGatewayPolicyTableEntryResult {
+  /**
+   * <p>Describes a transit gateway policy table entry</p>
+   * @public
+   */
+  TransitGatewayPolicyTableEntry?: TransitGatewayPolicyTableEntry | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ModifyTransitGatewayPrefixListReferenceRequest {
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -1977,7 +2199,7 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue | undefined;
 
   /**
-   * <p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>
+   * <p>Specifies whether IPv6 support is enabled for the attachment. When enabled, the transit gateway network interface receives an IPv6 address. When you enable route propagation, IPv6 VPC CIDRs propagate to the transit gateway route tables. When disabled, the network interface does not receive an IPv6 address, and IPv6 routes do not propagate. The setting does not filter IPv6 traffic.</p>
    * @public
    */
   Ipv6Support?: Ipv6SupportValue | undefined;
@@ -9565,163 +9787,4 @@ export interface UnassignPrivateIpAddressesRequest {
    * @public
    */
   PrivateIpAddresses?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignPrivateNatGatewayAddressRequest {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-
-  /**
-   * <p>The private IPv4 addresses you want to unassign.</p>
-   * @public
-   */
-  PrivateIpAddresses: string[] | undefined;
-
-  /**
-   * <p>The maximum amount of time to wait (in seconds) before forcibly releasing the IP addresses if connections are still in progress. Default value is 350 seconds.</p>
-   * @public
-   */
-  MaxDrainDurationSeconds?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnassignPrivateNatGatewayAddressResult {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-
-  /**
-   * <p>Information about the NAT gateway IP addresses.</p>
-   * @public
-   */
-  NatGatewayAddresses?: NatGatewayAddress[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UnlockSnapshotRequest {
-  /**
-   * <p>The ID of the snapshot to unlock.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnlockSnapshotResult {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UnmonitorInstancesRequest {
-  /**
-   * <p>The IDs of the instances.</p>
-   * @public
-   */
-  InstanceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UnmonitorInstancesResult {
-  /**
-   * <p>The monitoring information.</p>
-   * @public
-   */
-  InstanceMonitorings?: InstanceMonitoring[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCapacityManagerMonitoredTagKeysRequest {
-  /**
-   * <p>
-   * The tag keys to activate for monitoring. Once activated, these tag keys will be included as dimensions in capacity metric data.
-   * </p>
-   * @public
-   */
-  ActivateTagKeys?: string[] | undefined;
-
-  /**
-   * <p>
-   * The tag keys to deactivate. Deactivated tag keys will no longer be included as dimensions in capacity metric data.
-   * </p>
-   * @public
-   */
-  DeactivateTagKeys?: string[] | undefined;
-
-  /**
-   * <p>
-   * Checks whether you have the required permissions for the action, without actually making the request, and provides an error response.
-   * If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.
-   * </p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>
-   * Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   * </p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCapacityManagerMonitoredTagKeysResult {
-  /**
-   * <p>
-   * The list of tag keys affected by the update, including their current status and metadata.
-   * </p>
-   * @public
-   */
-  CapacityManagerTagKeys?: CapacityManagerMonitoredTagKey[] | undefined;
 }
