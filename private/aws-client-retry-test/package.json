@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-lambda": "workspace:3.1097.0",
-    "@smithy/core": "^3.29.8",
+    "@smithy/core": "^3.31.1",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
   },
