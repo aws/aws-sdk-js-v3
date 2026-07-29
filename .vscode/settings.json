@@ -5,7 +5,7 @@
   },
   "java.format.enabled": false,
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.rulers": [80, 120],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
