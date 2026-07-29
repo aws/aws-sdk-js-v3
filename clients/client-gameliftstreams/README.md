@@ -223,6 +223,13 @@ CreateStreamSessionConnection
 </details>
 <details>
 <summary>
+CreateStreamUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/CreateStreamUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/CreateStreamUrlCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteApplication
 </summary>
 
@@ -272,10 +279,24 @@ GetStreamSession
 </details>
 <details>
 <summary>
+GetStreamUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/GetStreamUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/GetStreamUrlCommandOutput/)
+</details>
+<details>
+<summary>
 ListApplications
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListApplicationShaderCaches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListApplicationShaderCachesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationShaderCachesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListApplicationShaderCachesCommandOutput/)
 </details>
 <details>
 <summary>
@@ -300,6 +321,13 @@ ListStreamSessionsByAccount
 </details>
 <details>
 <summary>
+ListStreamUrls
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/ListStreamUrlsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamUrlsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/ListStreamUrlsCommandOutput/)
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -311,6 +339,13 @@ RemoveStreamGroupLocations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/RemoveStreamGroupLocationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RemoveStreamGroupLocationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RemoveStreamGroupLocationsCommandOutput/)
+</details>
+<details>
+<summary>
+RevokeStreamUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/gameliftstreams/command/RevokeStreamUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RevokeStreamUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-gameliftstreams/Interface/RevokeStreamUrlCommandOutput/)
 </details>
 <details>
 <summary>

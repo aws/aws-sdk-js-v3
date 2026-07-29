@@ -78,6 +78,7 @@ import type {
   CreateStreamSessionConnectionCommandInput,
   CreateStreamSessionConnectionCommandOutput,
 } from "./commands/CreateStreamSessionConnectionCommand";
+import type { CreateStreamUrlCommandInput, CreateStreamUrlCommandOutput } from "./commands/CreateStreamUrlCommand";
 import type {
   DeleteApplicationCommandInput,
   DeleteApplicationCommandOutput,
@@ -97,7 +98,12 @@ import type {
 import type { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import type { GetStreamGroupCommandInput, GetStreamGroupCommandOutput } from "./commands/GetStreamGroupCommand";
 import type { GetStreamSessionCommandInput, GetStreamSessionCommandOutput } from "./commands/GetStreamSessionCommand";
+import type { GetStreamUrlCommandInput, GetStreamUrlCommandOutput } from "./commands/GetStreamUrlCommand";
 import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
+import type {
+  ListApplicationShaderCachesCommandInput,
+  ListApplicationShaderCachesCommandOutput,
+} from "./commands/ListApplicationShaderCachesCommand";
 import type { ListStreamGroupsCommandInput, ListStreamGroupsCommandOutput } from "./commands/ListStreamGroupsCommand";
 import type {
   ListStreamSessionsByAccountCommandInput,
@@ -107,6 +113,7 @@ import type {
   ListStreamSessionsCommandInput,
   ListStreamSessionsCommandOutput,
 } from "./commands/ListStreamSessionsCommand";
+import type { ListStreamUrlsCommandInput, ListStreamUrlsCommandOutput } from "./commands/ListStreamUrlsCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -115,6 +122,7 @@ import type {
   RemoveStreamGroupLocationsCommandInput,
   RemoveStreamGroupLocationsCommandOutput,
 } from "./commands/RemoveStreamGroupLocationsCommand";
+import type { RevokeStreamUrlCommandInput, RevokeStreamUrlCommandOutput } from "./commands/RevokeStreamUrlCommand";
 import type {
   StartStreamSessionCommandInput,
   StartStreamSessionCommandOutput,
@@ -154,6 +162,7 @@ export type ServiceInputTypes =
   | CreateStreamGroupCommandInput
   | CreateStreamSessionAdminShellCommandInput
   | CreateStreamSessionConnectionCommandInput
+  | CreateStreamUrlCommandInput
   | DeleteApplicationCommandInput
   | DeleteStreamGroupCommandInput
   | DisassociateApplicationsCommandInput
@@ -161,12 +170,16 @@ export type ServiceInputTypes =
   | GetApplicationCommandInput
   | GetStreamGroupCommandInput
   | GetStreamSessionCommandInput
+  | GetStreamUrlCommandInput
+  | ListApplicationShaderCachesCommandInput
   | ListApplicationsCommandInput
   | ListStreamGroupsCommandInput
   | ListStreamSessionsByAccountCommandInput
   | ListStreamSessionsCommandInput
+  | ListStreamUrlsCommandInput
   | ListTagsForResourceCommandInput
   | RemoveStreamGroupLocationsCommandInput
+  | RevokeStreamUrlCommandInput
   | StartStreamSessionCommandInput
   | TagResourceCommandInput
   | TerminateStreamSessionCommandInput
@@ -184,6 +197,7 @@ export type ServiceOutputTypes =
   | CreateStreamGroupCommandOutput
   | CreateStreamSessionAdminShellCommandOutput
   | CreateStreamSessionConnectionCommandOutput
+  | CreateStreamUrlCommandOutput
   | DeleteApplicationCommandOutput
   | DeleteStreamGroupCommandOutput
   | DisassociateApplicationsCommandOutput
@@ -191,12 +205,16 @@ export type ServiceOutputTypes =
   | GetApplicationCommandOutput
   | GetStreamGroupCommandOutput
   | GetStreamSessionCommandOutput
+  | GetStreamUrlCommandOutput
+  | ListApplicationShaderCachesCommandOutput
   | ListApplicationsCommandOutput
   | ListStreamGroupsCommandOutput
   | ListStreamSessionsByAccountCommandOutput
   | ListStreamSessionsCommandOutput
+  | ListStreamUrlsCommandOutput
   | ListTagsForResourceCommandOutput
   | RemoveStreamGroupLocationsCommandOutput
+  | RevokeStreamUrlCommandOutput
   | StartStreamSessionCommandOutput
   | TagResourceCommandOutput
   | TerminateStreamSessionCommandOutput

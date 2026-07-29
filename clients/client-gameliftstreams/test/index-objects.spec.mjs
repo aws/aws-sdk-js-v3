@@ -30,6 +30,10 @@ import {
   CreateStreamSessionConnectionCommand,
   CreateStreamSessionConnectionInput$,
   CreateStreamSessionConnectionOutput$,
+  CreateStreamUrl$,
+  CreateStreamUrlCommand,
+  CreateStreamUrlInput$,
+  CreateStreamUrlOutput$,
   DefaultApplication$,
   DeleteApplication$,
   DeleteApplicationCommand,
@@ -63,10 +67,18 @@ import {
   GetStreamSessionCommand,
   GetStreamSessionInput$,
   GetStreamSessionOutput$,
+  GetStreamUrl$,
+  GetStreamUrlCommand,
+  GetStreamUrlInput$,
+  GetStreamUrlOutput$,
   InternalServerException,
   InternalServerException$,
   ListApplications$,
   ListApplicationsCommand,
+  ListApplicationShaderCaches$,
+  ListApplicationShaderCachesCommand,
+  ListApplicationShaderCachesInput$,
+  ListApplicationShaderCachesOutput$,
   ListApplicationsInput$,
   ListApplicationsOutput$,
   ListStreamGroups$,
@@ -81,6 +93,10 @@ import {
   ListStreamSessionsCommand,
   ListStreamSessionsInput$,
   ListStreamSessionsOutput$,
+  ListStreamUrls$,
+  ListStreamUrlsCommand,
+  ListStreamUrlsInput$,
+  ListStreamUrlsOutput$,
   ListTagsForResource$,
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
@@ -91,6 +107,7 @@ import {
   paginateListStreamGroups,
   paginateListStreamSessions,
   paginateListStreamSessionsByAccount,
+  paginateListStreamUrls,
   PerformanceStatsConfiguration$,
   Protocol,
   RemoveStreamGroupLocations$,
@@ -101,10 +118,16 @@ import {
   Resolution$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RevocationMode,
+  RevokeStreamUrl$,
+  RevokeStreamUrlCommand,
+  RevokeStreamUrlInput$,
   RuntimeEnvironment$,
   RuntimeEnvironmentType,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ShaderCacheStatus,
+  ShaderCacheSummary$,
   StartStreamSession$,
   StartStreamSessionCommand,
   StartStreamSessionInput$,
@@ -119,6 +142,9 @@ import {
   StreamSessionStatus,
   StreamSessionStatusReason,
   StreamSessionSummary$,
+  StreamUrlStatus,
+  StreamUrlStatusReason,
+  StreamUrlSummary$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -172,6 +198,8 @@ assert(typeof CreateStreamSessionAdminShellCommand === "function");
 assert(typeof CreateStreamSessionAdminShell$ === "object");
 assert(typeof CreateStreamSessionConnectionCommand === "function");
 assert(typeof CreateStreamSessionConnection$ === "object");
+assert(typeof CreateStreamUrlCommand === "function");
+assert(typeof CreateStreamUrl$ === "object");
 assert(typeof DeleteApplicationCommand === "function");
 assert(typeof DeleteApplication$ === "object");
 assert(typeof DeleteStreamGroupCommand === "function");
@@ -186,18 +214,26 @@ assert(typeof GetStreamGroupCommand === "function");
 assert(typeof GetStreamGroup$ === "object");
 assert(typeof GetStreamSessionCommand === "function");
 assert(typeof GetStreamSession$ === "object");
+assert(typeof GetStreamUrlCommand === "function");
+assert(typeof GetStreamUrl$ === "object");
 assert(typeof ListApplicationsCommand === "function");
 assert(typeof ListApplications$ === "object");
+assert(typeof ListApplicationShaderCachesCommand === "function");
+assert(typeof ListApplicationShaderCaches$ === "object");
 assert(typeof ListStreamGroupsCommand === "function");
 assert(typeof ListStreamGroups$ === "object");
 assert(typeof ListStreamSessionsCommand === "function");
 assert(typeof ListStreamSessions$ === "object");
 assert(typeof ListStreamSessionsByAccountCommand === "function");
 assert(typeof ListStreamSessionsByAccount$ === "object");
+assert(typeof ListStreamUrlsCommand === "function");
+assert(typeof ListStreamUrls$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof RemoveStreamGroupLocationsCommand === "function");
 assert(typeof RemoveStreamGroupLocations$ === "object");
+assert(typeof RevokeStreamUrlCommand === "function");
+assert(typeof RevokeStreamUrl$ === "object");
 assert(typeof StartStreamSessionCommand === "function");
 assert(typeof StartStreamSession$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -224,6 +260,8 @@ assert(typeof CreateStreamSessionAdminShellInput$ === "object");
 assert(typeof CreateStreamSessionAdminShellOutput$ === "object");
 assert(typeof CreateStreamSessionConnectionInput$ === "object");
 assert(typeof CreateStreamSessionConnectionOutput$ === "object");
+assert(typeof CreateStreamUrlInput$ === "object");
+assert(typeof CreateStreamUrlOutput$ === "object");
 assert(typeof DefaultApplication$ === "object");
 assert(typeof DeleteApplicationInput$ === "object");
 assert(typeof DeleteStreamGroupInput$ === "object");
@@ -239,6 +277,10 @@ assert(typeof GetStreamGroupInput$ === "object");
 assert(typeof GetStreamGroupOutput$ === "object");
 assert(typeof GetStreamSessionInput$ === "object");
 assert(typeof GetStreamSessionOutput$ === "object");
+assert(typeof GetStreamUrlInput$ === "object");
+assert(typeof GetStreamUrlOutput$ === "object");
+assert(typeof ListApplicationShaderCachesInput$ === "object");
+assert(typeof ListApplicationShaderCachesOutput$ === "object");
 assert(typeof ListApplicationsInput$ === "object");
 assert(typeof ListApplicationsOutput$ === "object");
 assert(typeof ListStreamGroupsInput$ === "object");
@@ -247,6 +289,8 @@ assert(typeof ListStreamSessionsByAccountInput$ === "object");
 assert(typeof ListStreamSessionsByAccountOutput$ === "object");
 assert(typeof ListStreamSessionsInput$ === "object");
 assert(typeof ListStreamSessionsOutput$ === "object");
+assert(typeof ListStreamUrlsInput$ === "object");
+assert(typeof ListStreamUrlsOutput$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LocationConfiguration$ === "object");
@@ -255,11 +299,14 @@ assert(typeof PerformanceStatsConfiguration$ === "object");
 assert(typeof RemoveStreamGroupLocationsInput$ === "object");
 assert(typeof ReplicationStatus$ === "object");
 assert(typeof Resolution$ === "object");
+assert(typeof RevokeStreamUrlInput$ === "object");
 assert(typeof RuntimeEnvironment$ === "object");
+assert(typeof ShaderCacheSummary$ === "object");
 assert(typeof StartStreamSessionInput$ === "object");
 assert(typeof StartStreamSessionOutput$ === "object");
 assert(typeof StreamGroupSummary$ === "object");
 assert(typeof StreamSessionSummary$ === "object");
+assert(typeof StreamUrlSummary$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TerminateStreamSessionInput$ === "object");
@@ -277,13 +324,17 @@ assert(typeof ApplicationStatusReason === "object");
 assert(typeof ExportFilesStatus === "object");
 assert(typeof Protocol === "object");
 assert(typeof ReplicationStatusType === "object");
+assert(typeof RevocationMode === "object");
 assert(typeof RuntimeEnvironmentType === "object");
+assert(typeof ShaderCacheStatus === "object");
 assert(typeof StreamClass === "object");
 assert(typeof StreamGroupLocationStatus === "object");
 assert(typeof StreamGroupStatus === "object");
 assert(typeof StreamGroupStatusReason === "object");
 assert(typeof StreamSessionStatus === "object");
 assert(typeof StreamSessionStatusReason === "object");
+assert(typeof StreamUrlStatus === "object");
+assert(typeof StreamUrlStatusReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof GameLiftStreamsServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -318,4 +369,5 @@ assert(typeof paginateListApplications === "function");
 assert(typeof paginateListStreamGroups === "function");
 assert(typeof paginateListStreamSessions === "function");
 assert(typeof paginateListStreamSessionsByAccount === "function");
+assert(typeof paginateListStreamUrls === "function");
 console.log(`GameLiftStreams index test passed.`);

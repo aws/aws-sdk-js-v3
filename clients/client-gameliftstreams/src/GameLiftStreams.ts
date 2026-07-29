@@ -38,6 +38,11 @@ import {
   CreateStreamSessionConnectionCommand,
 } from "./commands/CreateStreamSessionConnectionCommand";
 import {
+  type CreateStreamUrlCommandInput,
+  type CreateStreamUrlCommandOutput,
+  CreateStreamUrlCommand,
+} from "./commands/CreateStreamUrlCommand";
+import {
   type DeleteApplicationCommandInput,
   type DeleteApplicationCommandOutput,
   DeleteApplicationCommand,
@@ -73,10 +78,20 @@ import {
   GetStreamSessionCommand,
 } from "./commands/GetStreamSessionCommand";
 import {
+  type GetStreamUrlCommandInput,
+  type GetStreamUrlCommandOutput,
+  GetStreamUrlCommand,
+} from "./commands/GetStreamUrlCommand";
+import {
   type ListApplicationsCommandInput,
   type ListApplicationsCommandOutput,
   ListApplicationsCommand,
 } from "./commands/ListApplicationsCommand";
+import {
+  type ListApplicationShaderCachesCommandInput,
+  type ListApplicationShaderCachesCommandOutput,
+  ListApplicationShaderCachesCommand,
+} from "./commands/ListApplicationShaderCachesCommand";
 import {
   type ListStreamGroupsCommandInput,
   type ListStreamGroupsCommandOutput,
@@ -93,6 +108,11 @@ import {
   ListStreamSessionsCommand,
 } from "./commands/ListStreamSessionsCommand";
 import {
+  type ListStreamUrlsCommandInput,
+  type ListStreamUrlsCommandOutput,
+  ListStreamUrlsCommand,
+} from "./commands/ListStreamUrlsCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
@@ -102,6 +122,11 @@ import {
   type RemoveStreamGroupLocationsCommandOutput,
   RemoveStreamGroupLocationsCommand,
 } from "./commands/RemoveStreamGroupLocationsCommand";
+import {
+  type RevokeStreamUrlCommandInput,
+  type RevokeStreamUrlCommandOutput,
+  RevokeStreamUrlCommand,
+} from "./commands/RevokeStreamUrlCommand";
 import {
   type StartStreamSessionCommandInput,
   type StartStreamSessionCommandOutput,
@@ -139,6 +164,7 @@ import { paginateListApplications } from "./pagination/ListApplicationsPaginator
 import { paginateListStreamGroups } from "./pagination/ListStreamGroupsPaginator";
 import { paginateListStreamSessionsByAccount } from "./pagination/ListStreamSessionsByAccountPaginator";
 import { paginateListStreamSessions } from "./pagination/ListStreamSessionsPaginator";
+import { paginateListStreamUrls } from "./pagination/ListStreamUrlsPaginator";
 import { waitUntilApplicationDeleted } from "./waiters/waitForApplicationDeleted";
 import { waitUntilApplicationReady } from "./waiters/waitForApplicationReady";
 import { waitUntilStreamGroupActive } from "./waiters/waitForStreamGroupActive";
@@ -152,6 +178,7 @@ const commands = {
   CreateStreamGroupCommand,
   CreateStreamSessionAdminShellCommand,
   CreateStreamSessionConnectionCommand,
+  CreateStreamUrlCommand,
   DeleteApplicationCommand,
   DeleteStreamGroupCommand,
   DisassociateApplicationsCommand,
@@ -159,12 +186,16 @@ const commands = {
   GetApplicationCommand,
   GetStreamGroupCommand,
   GetStreamSessionCommand,
+  GetStreamUrlCommand,
   ListApplicationsCommand,
+  ListApplicationShaderCachesCommand,
   ListStreamGroupsCommand,
   ListStreamSessionsCommand,
   ListStreamSessionsByAccountCommand,
+  ListStreamUrlsCommand,
   ListTagsForResourceCommand,
   RemoveStreamGroupLocationsCommand,
+  RevokeStreamUrlCommand,
   StartStreamSessionCommand,
   TagResourceCommand,
   TerminateStreamSessionCommand,
@@ -177,6 +208,7 @@ const paginators = {
   paginateListStreamGroups,
   paginateListStreamSessions,
   paginateListStreamSessionsByAccount,
+  paginateListStreamUrls,
 };
 const waiters = {
   waitUntilApplicationReady,
@@ -287,6 +319,23 @@ export interface GameLiftStreams {
     args: CreateStreamSessionConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStreamSessionConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStreamUrlCommand}
+   */
+  createStreamUrl(
+    args: CreateStreamUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStreamUrlCommandOutput>;
+  createStreamUrl(
+    args: CreateStreamUrlCommandInput,
+    cb: (err: any, data?: CreateStreamUrlCommandOutput) => void
+  ): void;
+  createStreamUrl(
+    args: CreateStreamUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStreamUrlCommandOutput) => void
   ): void;
 
   /**
@@ -409,6 +458,23 @@ export interface GameLiftStreams {
   ): void;
 
   /**
+   * @see {@link GetStreamUrlCommand}
+   */
+  getStreamUrl(
+    args: GetStreamUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStreamUrlCommandOutput>;
+  getStreamUrl(
+    args: GetStreamUrlCommandInput,
+    cb: (err: any, data?: GetStreamUrlCommandOutput) => void
+  ): void;
+  getStreamUrl(
+    args: GetStreamUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStreamUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListApplicationsCommand}
    */
   listApplications(): Promise<ListApplicationsCommandOutput>;
@@ -424,6 +490,23 @@ export interface GameLiftStreams {
     args: ListApplicationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationShaderCachesCommand}
+   */
+  listApplicationShaderCaches(
+    args: ListApplicationShaderCachesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationShaderCachesCommandOutput>;
+  listApplicationShaderCaches(
+    args: ListApplicationShaderCachesCommandInput,
+    cb: (err: any, data?: ListApplicationShaderCachesCommandOutput) => void
+  ): void;
+  listApplicationShaderCaches(
+    args: ListApplicationShaderCachesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationShaderCachesCommandOutput) => void
   ): void;
 
   /**
@@ -480,6 +563,24 @@ export interface GameLiftStreams {
   ): void;
 
   /**
+   * @see {@link ListStreamUrlsCommand}
+   */
+  listStreamUrls(): Promise<ListStreamUrlsCommandOutput>;
+  listStreamUrls(
+    args: ListStreamUrlsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStreamUrlsCommandOutput>;
+  listStreamUrls(
+    args: ListStreamUrlsCommandInput,
+    cb: (err: any, data?: ListStreamUrlsCommandOutput) => void
+  ): void;
+  listStreamUrls(
+    args: ListStreamUrlsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStreamUrlsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -511,6 +612,23 @@ export interface GameLiftStreams {
     args: RemoveStreamGroupLocationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RemoveStreamGroupLocationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RevokeStreamUrlCommand}
+   */
+  revokeStreamUrl(
+    args: RevokeStreamUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeStreamUrlCommandOutput>;
+  revokeStreamUrl(
+    args: RevokeStreamUrlCommandInput,
+    cb: (err: any, data?: RevokeStreamUrlCommandOutput) => void
+  ): void;
+  revokeStreamUrl(
+    args: RevokeStreamUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeStreamUrlCommandOutput) => void
   ): void;
 
   /**
@@ -658,6 +776,17 @@ export interface GameLiftStreams {
     args?: ListStreamSessionsByAccountCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListStreamSessionsByAccountCommandOutput>;
+
+  /**
+   * @see {@link ListStreamUrlsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListStreamUrlsCommandOutput}.
+   */
+  paginateListStreamUrls(
+    args?: ListStreamUrlsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListStreamUrlsCommandOutput>;
 
   /**
    * @see {@link GetApplicationCommand}

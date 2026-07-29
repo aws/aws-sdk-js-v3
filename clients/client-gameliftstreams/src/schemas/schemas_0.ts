@@ -35,6 +35,9 @@ const _CSSASO = "CreateStreamSessionAdminShellOutput";
 const _CSSC = "CreateStreamSessionConnection";
 const _CSSCI = "CreateStreamSessionConnectionInput";
 const _CSSCO = "CreateStreamSessionConnectionOutput";
+const _CSU = "CreateStreamUrl";
+const _CSUI = "CreateStreamUrlInput";
+const _CSUO = "CreateStreamUrlOutput";
 const _CT = "ClientToken";
 const _CTS = "ConnectionTimeoutSeconds";
 const _D = "Description";
@@ -64,6 +67,9 @@ const _GSGO = "GetStreamGroupOutput";
 const _GSS = "GetStreamSession";
 const _GSSI = "GetStreamSessionInput";
 const _GSSO = "GetStreamSessionOutput";
+const _GSU = "GetStreamUrl";
+const _GSUI = "GetStreamUrlInput";
+const _GSUO = "GetStreamUrlOutput";
 const _H = "Height";
 const _I = "Identifier";
 const _IC = "IdleCapacity";
@@ -77,6 +83,9 @@ const _L = "Locations";
 const _LA = "ListApplications";
 const _LAI = "ListApplicationsInput";
 const _LAO = "ListApplicationsOutput";
+const _LASC = "ListApplicationShaderCaches";
+const _LASCI = "ListApplicationShaderCachesInput";
+const _LASCO = "ListApplicationShaderCachesOutput";
 const _LC = "LocationConfigurations";
 const _LCo = "LocationConfiguration";
 const _LFLU = "LogFileLocationUri";
@@ -91,6 +100,9 @@ const _LSSBAI = "ListStreamSessionsByAccountInput";
 const _LSSBAO = "ListStreamSessionsByAccountOutput";
 const _LSSI = "ListStreamSessionsInput";
 const _LSSO = "ListStreamSessionsOutput";
+const _LSU = "ListStreamUrls";
+const _LSUI = "ListStreamUrlsInput";
+const _LSUO = "ListStreamUrlsOutput";
 const _LSo = "LocationState";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
@@ -110,14 +122,23 @@ const _RA = "RoleArn";
 const _RAe = "ResourceArn";
 const _RC = "RequestedCapacity";
 const _RE = "RuntimeEnvironment";
+const _RM = "RevocationMode";
 const _RNFE = "ResourceNotFoundException";
 const _RS = "ReplicationStatuses";
 const _RSGL = "RemoveStreamGroupLocations";
 const _RSGLI = "RemoveStreamGroupLocationsInput";
+const _RSU = "RevokeStreamUrl";
+const _RSUI = "RevokeStreamUrlInput";
 const _RSe = "ReplicationStatus";
+const _RU = "RemainingUses";
 const _S = "Status";
+const _SB = "StorageBytes";
 const _SC = "StreamClass";
+const _SCS = "ShaderCacheSummary";
+const _SCSL = "ShaderCacheSummaryList";
+const _SGA = "StreamGroupArn";
 const _SGI = "StreamGroupId";
+const _SGIt = "StreamGroupIdentifier";
 const _SGS = "StreamGroupSummary";
 const _SGSL = "StreamGroupSummaryList";
 const _SI = "SessionId";
@@ -126,14 +147,20 @@ const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SignalRequest";
 const _SRi = "SignalResponse";
 const _SRt = "StatusReason";
+const _SS = "StreamSessions";
 const _SSANRE = "StreamSessionAccessNotReadyException";
 const _SSI = "StreamSessionIdentifier";
 const _SSS = "StreamSessionSummary";
 const _SSSI = "StartStreamSessionInput";
 const _SSSL = "StreamSessionSummaryList";
 const _SSSO = "StartStreamSessionOutput";
+const _SSSU = "StreamSessionStreamUrl";
 const _SSSt = "StartStreamSession";
 const _SU = "StreamUrl";
+const _SUI = "StreamUrlId";
+const _SUIt = "StreamUrlIdentifier";
+const _SUS = "StreamUrlSummary";
+const _SUSL = "StreamUrlSummaryList";
 const _SWC = "SharedWithClient";
 const _T = "Tags";
 const _TE = "ThrottlingException";
@@ -151,7 +178,9 @@ const _Ty = "Type";
 const _UA = "UpdateApplication";
 const _UAI = "UpdateApplicationInput";
 const _UAO = "UpdateApplicationOutput";
+const _UEAM = "UrlExpiresAfterMinutes";
 const _UI = "UserId";
+const _UL = "UsageLimit";
 const _UR = "UntagResource";
 const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
@@ -264,6 +293,7 @@ export const errorTypeRegistries = [
 var IamRoleArn: StaticSimpleSchema = [0, n0, _IRA, 8, 0];
 var SignalRequest: StaticSimpleSchema = [0, n0, _SR, 8, 0];
 var SignalResponse: StaticSimpleSchema = [0, n0, _SRi, 8, 0];
+var StreamSessionStreamUrl: StaticSimpleSchema = [0, n0, _SSSU, 8, 0];
 var TokenValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 export var AddStreamGroupLocationsInput$: StaticStructureSchema = [3, n0, _ASGLI,
   0,
@@ -329,6 +359,16 @@ export var CreateStreamSessionConnectionOutput$: StaticStructureSchema = [3, n0,
   0,
   [_SRi],
   [[() => SignalResponse, 0]]
+];
+export var CreateStreamUrlInput$: StaticStructureSchema = [3, n0, _CSUI,
+  0,
+  [_I, _AIp, _P, _UEAM, _L, _UL, _D, _SLS, _ALA, _AEV, _RA, _DC, _CT],
+  [[0, 1], 0, 0, 1, 64 | 0, 1, 0, 1, 64 | 0, 128 | 0, [() => IamRoleArn, 0], () => DisplayConfiguration$, [0, 4]], 5
+];
+export var CreateStreamUrlOutput$: StaticStructureSchema = [3, n0, _CSUO,
+  0,
+  [_A, _SUI, _SU, _S, _SRt, _EA, _CA, _UL, _RU, _SGA, _AAp, _P, _L, _SLS, _D, _ALA, _AEV, _RA, _DC],
+  [0, 0, [() => StreamSessionStreamUrl, 0], 0, 0, 4, 4, 1, 1, 0, 0, 0, 64 | 0, 1, 0, 64 | 0, 128 | 0, [() => IamRoleArn, 0], () => DisplayConfiguration$], 1
 ];
 export var DefaultApplication$: StaticStructureSchema = [3, n0, _DA,
   0,
@@ -405,6 +445,26 @@ export var GetStreamSessionOutput$: StaticStructureSchema = [3, n0, _GSSO,
   [_A, _D, _SGI, _UI, _S, _SRt, _P, _Lo, _SR, _SRi, _CTS, _SLS, _ALA, _AEV, _PSC, _LFLU, _WSPU, _LUA, _CA, _AAp, _EFM, _RA, _DC],
   [0, 0, 0, 0, 0, 0, 0, 0, [() => SignalRequest, 0], [() => SignalResponse, 0], 1, 1, 64 | 0, 128 | 0, () => PerformanceStatsConfiguration$, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, [() => IamRoleArn, 0], () => DisplayConfiguration$]
 ];
+export var GetStreamUrlInput$: StaticStructureSchema = [3, n0, _GSUI,
+  0,
+  [_I, _SUIt],
+  [[0, 1], [0, 1]], 2
+];
+export var GetStreamUrlOutput$: StaticStructureSchema = [3, n0, _GSUO,
+  0,
+  [_A, _SUI, _SU, _S, _SRt, _EA, _CA, _UL, _RU, _SGA, _AAp, _P, _L, _SLS, _D, _ALA, _AEV, _RA, _DC, _SS],
+  [0, 0, [() => StreamSessionStreamUrl, 0], 0, 0, 4, 4, 1, 1, 0, 0, 0, 64 | 0, 1, 0, 64 | 0, 128 | 0, [() => IamRoleArn, 0], () => DisplayConfiguration$, [() => StreamSessionSummaryList, 0]], 1
+];
+export var ListApplicationShaderCachesInput$: StaticStructureSchema = [3, n0, _LASCI,
+  0,
+  [_I],
+  [[0, 1]], 1
+];
+export var ListApplicationShaderCachesOutput$: StaticStructureSchema = [3, n0, _LASCO,
+  0,
+  [_It],
+  [() => ShaderCacheSummaryList]
+];
 export var ListApplicationsInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
   [_NT, _MR],
@@ -444,6 +504,16 @@ export var ListStreamSessionsOutput$: StaticStructureSchema = [3, n0, _LSSO,
   0,
   [_It, _NT],
   [[() => StreamSessionSummaryList, 0], 0]
+];
+export var ListStreamUrlsInput$: StaticStructureSchema = [3, n0, _LSUI,
+  0,
+  [_S, _SGIt, _NT, _MR],
+  [[0, { [_hQ]: _S }], [0, { [_hQ]: _SGIt }], [0, { [_hQ]: _NT }], [1, { [_hQ]: _MR }]]
+];
+export var ListStreamUrlsOutput$: StaticStructureSchema = [3, n0, _LSUO,
+  0,
+  [_It, _NT],
+  [[() => StreamUrlSummaryList, 0], 0]
 ];
 export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
   0,
@@ -485,10 +555,20 @@ export var Resolution$: StaticStructureSchema = [3, n0, _R,
   [_W, _H],
   [1, 1], 2
 ];
+export var RevokeStreamUrlInput$: StaticStructureSchema = [3, n0, _RSUI,
+  0,
+  [_I, _SUIt, _RM],
+  [[0, 1], [0, 1], 0], 2
+];
 export var RuntimeEnvironment$: StaticStructureSchema = [3, n0, _RE,
   0,
   [_Ty, _V],
   [0, 0], 2
+];
+export var ShaderCacheSummary$: StaticStructureSchema = [3, n0, _SCS,
+  0,
+  [_I, _AAp, _S, _LUA, _SB, _ASG],
+  [0, 0, 0, 4, 1, 64 | 0], 2
 ];
 export var StartStreamSessionInput$: StaticStructureSchema = [3, n0, _SSSI,
   0,
@@ -509,6 +589,11 @@ export var StreamSessionSummary$: StaticStructureSchema = [3, n0, _SSS,
   0,
   [_A, _UI, _S, _SRt, _P, _LUA, _CA, _AAp, _EFM, _Lo, _RA],
   [0, 0, 0, 0, 0, 4, 4, 0, () => ExportFilesMetadata$, 0, [() => IamRoleArn, 0]]
+];
+export var StreamUrlSummary$: StaticStructureSchema = [3, n0, _SUS,
+  0,
+  [_A, _SUI, _SU, _S, _SRt, _EA, _CA, _UL, _RU, _SGA, _AAp, _SLS, _D],
+  [0, 0, [() => StreamSessionStreamUrl, 0], 0, 0, 4, 4, 1, 1, 0, 0, 1, 0], 1
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -585,11 +670,18 @@ var LocationStates: StaticListSchema = [1, n0, _LS,
 var ReplicationStatuses: StaticListSchema = [1, n0, _RS,
   0, () => ReplicationStatus$
 ];
+var ShaderCacheSummaryList: StaticListSchema = [1, n0, _SCSL,
+  0, () => ShaderCacheSummary$
+];
 var StreamGroupSummaryList: StaticListSchema = [1, n0, _SGSL,
   0, () => StreamGroupSummary$
 ];
 var StreamSessionSummaryList: StaticListSchema = [1, n0, _SSSL,
   0, [() => StreamSessionSummary$,
+    0]
+];
+var StreamUrlSummaryList: StaticListSchema = [1, n0, _SUSL,
+  0, [() => StreamUrlSummary$,
     0]
 ];
 var TagKeyList = 64 | 0;
@@ -613,6 +705,9 @@ export var CreateStreamSessionAdminShell$: StaticOperationSchema = [9, n0, _CSSA
 export var CreateStreamSessionConnection$: StaticOperationSchema = [9, n0, _CSSC,
   { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}/connections", 200] }, () => CreateStreamSessionConnectionInput$, () => CreateStreamSessionConnectionOutput$
 ];
+export var CreateStreamUrl$: StaticOperationSchema = [9, n0, _CSU,
+  { [_h]: ["POST", "/streamgroups/{Identifier}/streamurls", 201] }, () => CreateStreamUrlInput$, () => CreateStreamUrlOutput$
+];
 export var DeleteApplication$: StaticOperationSchema = [9, n0, _DAe,
   { [_h]: ["DELETE", "/applications/{Identifier}", 204] }, () => DeleteApplicationInput$, () => __Unit
 ];
@@ -634,8 +729,14 @@ export var GetStreamGroup$: StaticOperationSchema = [9, n0, _GSG,
 export var GetStreamSession$: StaticOperationSchema = [9, n0, _GSS,
   { [_h]: ["GET", "/streamgroups/{Identifier}/streamsessions/{StreamSessionIdentifier}", 200] }, () => GetStreamSessionInput$, () => GetStreamSessionOutput$
 ];
+export var GetStreamUrl$: StaticOperationSchema = [9, n0, _GSU,
+  { [_h]: ["GET", "/streamgroups/{Identifier}/streamurls/{StreamUrlIdentifier}", 200] }, () => GetStreamUrlInput$, () => GetStreamUrlOutput$
+];
 export var ListApplications$: StaticOperationSchema = [9, n0, _LA,
   { [_h]: ["GET", "/applications", 200] }, () => ListApplicationsInput$, () => ListApplicationsOutput$
+];
+export var ListApplicationShaderCaches$: StaticOperationSchema = [9, n0, _LASC,
+  { [_h]: ["GET", "/applications/{Identifier}/shadercaches", 200] }, () => ListApplicationShaderCachesInput$, () => ListApplicationShaderCachesOutput$
 ];
 export var ListStreamGroups$: StaticOperationSchema = [9, n0, _LSG,
   { [_h]: ["GET", "/streamgroups", 200] }, () => ListStreamGroupsInput$, () => ListStreamGroupsOutput$
@@ -646,11 +747,17 @@ export var ListStreamSessions$: StaticOperationSchema = [9, n0, _LSS,
 export var ListStreamSessionsByAccount$: StaticOperationSchema = [9, n0, _LSSBA,
   { [_h]: ["GET", "/streamsessions", 200] }, () => ListStreamSessionsByAccountInput$, () => ListStreamSessionsByAccountOutput$
 ];
+export var ListStreamUrls$: StaticOperationSchema = [9, n0, _LSU,
+  { [_h]: ["GET", "/streamurls", 200] }, () => ListStreamUrlsInput$, () => ListStreamUrlsOutput$
+];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/tags/{ResourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
 export var RemoveStreamGroupLocations$: StaticOperationSchema = [9, n0, _RSGL,
   { [_h]: ["DELETE", "/streamgroups/{Identifier}/locations", 204] }, () => RemoveStreamGroupLocationsInput$, () => __Unit
+];
+export var RevokeStreamUrl$: StaticOperationSchema = [9, n0, _RSU,
+  { [_h]: ["POST", "/streamgroups/{Identifier}/streamurls/{StreamUrlIdentifier}/revoke", 204] }, () => RevokeStreamUrlInput$, () => __Unit
 ];
 export var StartStreamSession$: StaticOperationSchema = [9, n0, _SSSt,
   { [_h]: ["POST", "/streamgroups/{Identifier}/streamsessions", 201] }, () => StartStreamSessionInput$, () => StartStreamSessionOutput$

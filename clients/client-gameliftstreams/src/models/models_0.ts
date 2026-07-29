@@ -5,13 +5,17 @@ import type {
   ExportFilesStatus,
   Protocol,
   ReplicationStatusType,
+  RevocationMode,
   RuntimeEnvironmentType,
+  ShaderCacheStatus,
   StreamClass,
   StreamGroupLocationStatus,
   StreamGroupStatus,
   StreamGroupStatusReason,
   StreamSessionStatus,
   StreamSessionStatusReason,
+  StreamUrlStatus,
+  StreamUrlStatusReason,
 } from "./enums";
 
 /**
@@ -952,6 +956,238 @@ export interface CreateStreamSessionConnectionOutput {
 }
 
 /**
+ * <p>Contains the width and height dimensions, in pixels, that define the resolution of the stream session's virtual monitor. The total number of pixels (width × height) must not exceed 2,073,600 (equivalent to 1920 × 1080).</p>
+ * @public
+ */
+export interface Resolution {
+  /**
+   * <p>The width of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
+   * @public
+   */
+  Width: number | undefined;
+
+  /**
+   * <p>The height of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
+   * @public
+   */
+  Height: number | undefined;
+}
+
+/**
+ * <p>The virtual monitor settings for a stream session, including the resolution. If not specified, the stream session uses the default resolution of 1920 × 1080.</p>
+ * @public
+ */
+export interface DisplayConfiguration {
+  /**
+   * <p>The resolution to apply to the stream session's virtual monitor. When specified, this value overrides the default resolution of 1920 × 1080.</p>
+   * @public
+   */
+  Resolution?: Resolution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStreamUrlInput {
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p>The stream session runs in this stream group.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p> <p>This application must be associated with the stream group.</p>
+   * @public
+   */
+  ApplicationIdentifier: string | undefined;
+
+  /**
+   * <p>The data transport protocol for the stream session. Amazon GameLift Streams supports <code>WebRTC</code>.</p>
+   * @public
+   */
+  Protocol: Protocol | undefined;
+
+  /**
+   * <p>The number of minutes after creation that the stream URL remains valid. After this period, the status of the stream URL changes to <code>EXPIRED</code> and it can no longer start stream sessions. The minimum is 1 minute. For the maximum, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p>
+   * @public
+   */
+  UrlExpiresAfterMinutes: number | undefined;
+
+  /**
+   * <p>The maximum number of times the stream URL can start a stream session. Each successful use reduces the remaining uses by one. The minimum is 1, and the default is 1. For the maximum, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p>
+   * @public
+   */
+  UsageLimit?: number | undefined;
+
+  /**
+   * <p>A descriptive label for the stream URL.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A list of locations, in order of preference, where Amazon GameLift Streams can place the stream session. Specify each location by its Amazon Web Services Region code, for example <code>us-east-1</code>. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * @public
+   */
+  Locations: string[] | undefined;
+
+  /**
+   * <p>The maximum length of time, in seconds, that a stream session started from this stream URL can run. Valid values are 1-86400 seconds (1 second to 24 hours). The default is 43200 seconds (12 hours).</p>
+   * @public
+   */
+  SessionLengthSeconds?: number | undefined;
+
+  /**
+   * <p>A list of CLI arguments that are sent to the streaming server when a stream session launches. You can use this to configure the application or stream session details. You can also provide custom arguments that Amazon GameLift Streams passes to your game client.</p> <p> <code>AdditionalEnvironmentVariables</code> and <code>AdditionalLaunchArgs</code> have similar purposes. <code>AdditionalEnvironmentVariables</code> passes data using environment variables; while <code>AdditionalLaunchArgs</code> passes data using command-line arguments.</p>
+   * @public
+   */
+  AdditionalLaunchArgs?: string[] | undefined;
+
+  /**
+   * <p>A set of options that you can use to control the stream session runtime environment, expressed as a set of key-value pairs. You can use this to configure the application or stream session details. You can also provide custom environment variables that Amazon GameLift Streams passes to your game client.</p> <note> <p>If you want to debug your application with environment variables, we recommend that you do so in a local environment outside of Amazon GameLift Streams. For more information, refer to the Compatibility Guidance in the troubleshooting section of the Developer Guide.</p> </note> <p> <code>AdditionalEnvironmentVariables</code> and <code>AdditionalLaunchArgs</code> have similar purposes. <code>AdditionalEnvironmentVariables</code> passes data using environment variables; while <code>AdditionalLaunchArgs</code> passes data using command-line arguments.</p>
+   * @public
+   */
+  AdditionalEnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon GameLift Streams assumes during stream sessions started from this stream URL. For more information, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/session-credentials.html">Provide AWS credentials to your streaming application</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The display settings, such as resolution, for stream sessions started from this stream URL.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure this request is idempotent. If you retry a request with the same <code>ClientToken</code>, Amazon GameLift Streams returns the original response without performing the operation again.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateStreamUrlOutput {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream URL across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamurl/[stream group resource ID]/[stream URL resource ID]</code>.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the stream URL resource, for example <code>su-1AB2C3De4</code>.</p>
+   * @public
+   */
+  StreamUrlId?: string | undefined;
+
+  /**
+   * <p>The shareable stream URL. Distribute this URL to end users so that they can start and play a stream session in a hosted web player. Treat the stream URL as a secret. Anyone who has it can start a stream session until the stream URL expires, is revoked, or reaches its usage limit.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the stream URL. Possible statuses include the following:</p> <ul> <li> <p> <code>ACTIVE</code>: The stream URL is valid and can start stream sessions.</p> </li> <li> <p> <code>EXPIRED</code>: The stream URL has passed its expiration time and can no longer start stream sessions.</p> </li> <li> <p> <code>REVOKED</code>: The stream URL was revoked and can no longer start stream sessions.</p> </li> <li> <p> <code>LIMIT_REACHED</code>: The stream URL has been used the maximum number of times and can no longer start stream sessions.</p> </li> </ul>
+   * @public
+   */
+  Status?: StreamUrlStatus | undefined;
+
+  /**
+   * <p>Additional information about why the stream URL is in its current status. Amazon GameLift Streams populates this value when the status is <code>REVOKED</code>. Possible values include the following:</p> <ul> <li> <p> <code>userRevoked</code>: You revoked the stream URL.</p> </li> <li> <p> <code>revokedAndTerminatingSessions</code>: You revoked the stream URL and Amazon GameLift Streams is ending its running stream sessions.</p> </li> <li> <p> <code>revokedAndSessionsTerminated</code>: You revoked the stream URL and its running stream sessions have ended.</p> </li> <li> <p> <code>streamGroupDeleted</code>: The stream group was deleted, which revoked the stream URL.</p> </li> <li> <p> <code>applicationDeleted</code>: The application was deleted, which revoked the stream URL.</p> </li> </ul>
+   * @public
+   */
+  StatusReason?: StreamUrlStatusReason | undefined;
+
+  /**
+   * <p>The date and time when the stream URL expires and stops accepting new stream sessions. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when this resource was created. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The maximum number of times the stream URL can start a stream session.</p>
+   * @public
+   */
+  UsageLimit?: number | undefined;
+
+  /**
+   * <p>The number of times the stream URL can still be used to start a stream session.</p>
+   * @public
+   */
+  RemainingUses?: number | undefined;
+
+  /**
+   * <p>The stream group that runs the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  StreamGroupArn?: string | undefined;
+
+  /**
+   * <p>The application that runs in the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The data transport protocol used for stream sessions started from this stream URL.</p>
+   * @public
+   */
+  Protocol?: Protocol | undefined;
+
+  /**
+   * <p>The list of locations, in order of preference, where Amazon GameLift Streams places the stream session. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * @public
+   */
+  Locations?: string[] | undefined;
+
+  /**
+   * <p>The maximum length of time, in seconds, that a stream session started from this stream URL can run.</p>
+   * @public
+   */
+  SessionLengthSeconds?: number | undefined;
+
+  /**
+   * <p>The descriptive label for the stream URL.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The command-line arguments passed to the application when a stream session starts.</p>
+   * @public
+   */
+  AdditionalLaunchArgs?: string[] | undefined;
+
+  /**
+   * <p>The environment variables made available to the application when a stream session starts.</p>
+   * @public
+   */
+  AdditionalEnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon GameLift Streams assumes during stream sessions started from this stream URL. For more information, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/session-credentials.html">Provide AWS credentials to your streaming application</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The display settings, such as resolution, for stream sessions started from this stream URL.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteStreamGroupInput {
@@ -994,36 +1230,6 @@ export interface DisassociateApplicationsOutput {
    * @public
    */
   ApplicationArns?: string[] | undefined;
-}
-
-/**
- * <p>Contains the width and height dimensions, in pixels, that define the resolution of the stream session's virtual monitor. The total number of pixels (width × height) must not exceed 2,073,600 (equivalent to 1920 × 1080).</p>
- * @public
- */
-export interface Resolution {
-  /**
-   * <p>The width of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
-   * @public
-   */
-  Width: number | undefined;
-
-  /**
-   * <p>The height of the stream session's virtual monitor, in pixels. The value must be an even number.</p>
-   * @public
-   */
-  Height: number | undefined;
-}
-
-/**
- * <p>The virtual monitor settings for a stream session, including the resolution. If not specified, the stream session uses the default resolution of 1920 × 1080.</p>
- * @public
- */
-export interface DisplayConfiguration {
-  /**
-   * <p>The resolution to apply to the stream session's virtual monitor. When specified, this value overrides the default resolution of 1920 × 1080.</p>
-   * @public
-   */
-  Resolution?: Resolution | undefined;
 }
 
 /**
@@ -1253,36 +1459,18 @@ export interface GetStreamSessionOutput {
 /**
  * @public
  */
-export interface ListStreamSessionsInput {
+export interface GetStreamUrlInput {
   /**
-   * <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that status.</p>
-   * @public
-   */
-  Status?: StreamSessionStatus | undefined;
-
-  /**
-   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p> <p> Exported files can be in one of the following states: </p> <ul> <li> <p> <code>SUCCEEDED</code>: The exported files are successfully stored in an S3 bucket.</p> </li> <li> <p> <code>FAILED</code>: The session ended but Amazon GameLift Streams couldn't collect and upload the files to S3.</p> </li> <li> <p> <code>PENDING</code>: Either the stream session is still in progress, or uploading the exported files to the S3 bucket is in progress.</p> </li> </ul>
-   * @public
-   */
-  ExportFilesStatus?: ExportFilesStatus | undefined;
-
-  /**
-   * <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>. </p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a>.</p>
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p>This is the stream group that owns the stream URL.</p>
    * @public
    */
   Identifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the stream URL. Specify a stream URL ID or Amazon Resource Name (ARN). Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamurl/sg-1AB2C3De4/su-1AB2C3De4</code>. Example ID: <code>su-1AB2C3De4</code>.</p>
+   * @public
+   */
+  StreamUrlIdentifier: string | undefined;
 }
 
 /**
@@ -1360,6 +1548,230 @@ export interface StreamSessionSummary {
 /**
  * @public
  */
+export interface GetStreamUrlOutput {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream URL across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamurl/[stream group resource ID]/[stream URL resource ID]</code>.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the stream URL resource, for example <code>su-1AB2C3De4</code>.</p>
+   * @public
+   */
+  StreamUrlId?: string | undefined;
+
+  /**
+   * <p>The shareable stream URL. Distribute this URL to end users so that they can start and play a stream session in a hosted web player. Treat the stream URL as a secret. Anyone who has it can start a stream session until the stream URL expires, is revoked, or reaches its usage limit.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the stream URL. Possible statuses include the following:</p> <ul> <li> <p> <code>ACTIVE</code>: The stream URL is valid and can start stream sessions.</p> </li> <li> <p> <code>EXPIRED</code>: The stream URL has passed its expiration time and can no longer start stream sessions.</p> </li> <li> <p> <code>REVOKED</code>: The stream URL was revoked and can no longer start stream sessions.</p> </li> <li> <p> <code>LIMIT_REACHED</code>: The stream URL has been used the maximum number of times and can no longer start stream sessions.</p> </li> </ul>
+   * @public
+   */
+  Status?: StreamUrlStatus | undefined;
+
+  /**
+   * <p>Additional information about why the stream URL is in its current status. Amazon GameLift Streams populates this value when the status is <code>REVOKED</code>. Possible values include the following:</p> <ul> <li> <p> <code>userRevoked</code>: You revoked the stream URL.</p> </li> <li> <p> <code>revokedAndTerminatingSessions</code>: You revoked the stream URL and Amazon GameLift Streams is ending its running stream sessions.</p> </li> <li> <p> <code>revokedAndSessionsTerminated</code>: You revoked the stream URL and its running stream sessions have ended.</p> </li> <li> <p> <code>streamGroupDeleted</code>: The stream group was deleted, which revoked the stream URL.</p> </li> <li> <p> <code>applicationDeleted</code>: The application was deleted, which revoked the stream URL.</p> </li> </ul>
+   * @public
+   */
+  StatusReason?: StreamUrlStatusReason | undefined;
+
+  /**
+   * <p>The date and time when the stream URL expires and stops accepting new stream sessions. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when this resource was created. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The maximum number of times the stream URL can start a stream session.</p>
+   * @public
+   */
+  UsageLimit?: number | undefined;
+
+  /**
+   * <p>The number of times the stream URL can still be used to start a stream session.</p>
+   * @public
+   */
+  RemainingUses?: number | undefined;
+
+  /**
+   * <p>The stream group that runs the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  StreamGroupArn?: string | undefined;
+
+  /**
+   * <p>The application that runs in the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The data transport protocol used for stream sessions started from this stream URL.</p>
+   * @public
+   */
+  Protocol?: Protocol | undefined;
+
+  /**
+   * <p>The list of locations, in order of preference, where Amazon GameLift Streams places the stream session. For a complete list of locations that Amazon GameLift Streams supports, refer to <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/regions-quotas.html">Regions, quotas, and limitations</a> in the <i>Amazon GameLift Streams Developer Guide</i>. </p>
+   * @public
+   */
+  Locations?: string[] | undefined;
+
+  /**
+   * <p>The maximum length of time, in seconds, that a stream session started from this stream URL can run.</p>
+   * @public
+   */
+  SessionLengthSeconds?: number | undefined;
+
+  /**
+   * <p>The descriptive label for the stream URL.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The command-line arguments passed to the application when a stream session starts.</p>
+   * @public
+   */
+  AdditionalLaunchArgs?: string[] | undefined;
+
+  /**
+   * <p>The environment variables made available to the application when a stream session starts.</p>
+   * @public
+   */
+  AdditionalEnvironmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon GameLift Streams assumes during stream sessions started from this stream URL. For more information, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/session-credentials.html">Provide AWS credentials to your streaming application</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The display settings, such as resolution, for stream sessions started from this stream URL.</p>
+   * @public
+   */
+  DisplayConfiguration?: DisplayConfiguration | undefined;
+
+  /**
+   * <p>A list of the stream sessions that have been started through this stream URL.</p>
+   * @public
+   */
+  StreamSessions?: StreamSessionSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationShaderCachesInput {
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. Example ID: <code>a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * <p>Describes a shader cache associated with an Amazon GameLift Streams application.</p>
+ * @public
+ */
+export interface ShaderCacheSummary {
+  /**
+   * <p>A unique identifier for the shader cache, formatted as a 32-character hexadecimal string. Format is <code>1271e693c50b940e228582f1ccdd4e27</code>.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  ApplicationArn: string | undefined;
+
+  /**
+   * <p>The current status of the shader cache. Possible statuses include the following:</p> <ul> <li> <p> <code>INITIALIZED</code>: Amazon GameLift Streams received the request and is preparing the shader cache.</p> </li> <li> <p> <code>PROCESSING</code>: Amazon GameLift Streams is replicating the shader cache to the streaming locations in the associated stream groups.</p> </li> <li> <p> <code>READY</code>: The shader cache is replicated and available for use in stream sessions.</p> </li> <li> <p> <code>DELETING</code>: Amazon GameLift Streams is deleting the shader cache.</p> </li> <li> <p> <code>ERROR</code>: An error occurred during shader cache processing. Create a new shader cache to try again.</p> </li> </ul>
+   * @public
+   */
+  Status?: ShaderCacheStatus | undefined;
+
+  /**
+   * <p>A timestamp that indicates when this resource was last updated. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The total storage used by all compiled shader files in this shader cache, in bytes.</p>
+   * @public
+   */
+  StorageBytes?: number | undefined;
+
+  /**
+   * <p>The stream groups compatible with this shader cache. Compatibility is based on GPU type and GPU driver version. For more information on shader cache compatibility, see <a href="https://docs.aws.amazon.com/gameliftstreams/latest/developerguide/shader-caches.html">Shader caches</a> in the <i>Amazon GameLift Streams Developer Guide</i>.</p> <p>This value is a set of <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a> that uniquely identify stream group resources. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  AssociatedStreamGroups?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListApplicationShaderCachesOutput {
+  /**
+   * <p>A collection of shader cache metadata for the specified Amazon GameLift Streams application. Each item includes the shader cache status, associated stream groups, and storage size.</p>
+   * @public
+   */
+  Items?: ShaderCacheSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStreamSessionsInput {
+  /**
+   * <p>Filter by the stream session status. You can specify one status in each request to retrieve only sessions that are currently in that status.</p>
+   * @public
+   */
+  Status?: StreamSessionStatus | undefined;
+
+  /**
+   * <p>Filter by the exported files status. You can specify one status in each request to retrieve only sessions that currently have that exported files status.</p> <p> Exported files can be in one of the following states: </p> <ul> <li> <p> <code>SUCCEEDED</code>: The exported files are successfully stored in an S3 bucket.</p> </li> <li> <p> <code>FAILED</code>: The session ended but Amazon GameLift Streams couldn't collect and upload the files to S3.</p> </li> <li> <p> <code>PENDING</code>: Either the stream session is still in progress, or uploading the exported files to the S3 bucket is in progress.</p> </li> </ul>
+   * @public
+   */
+  ExportFilesStatus?: ExportFilesStatus | undefined;
+
+  /**
+   * <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The number of results to return. Use this parameter with <code>NextToken</code> to return results in sequential pages. Default value is <code>25</code>. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The unique identifier of a Amazon GameLift Streams stream group to retrieve the stream session for. You can use either the stream group ID or the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a>.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListStreamSessionsOutput {
   /**
    * <p>A collection of Amazon GameLift Streams stream sessions that are associated with a stream group and returned in response to a list request. Each item includes stream session metadata and status.</p>
@@ -1423,6 +1835,136 @@ export interface ListStreamSessionsByAccountOutput {
 /**
  * @public
  */
+export interface ListStreamUrlsInput {
+  /**
+   * <p>Filters the list to stream URLs with the specified status.</p> <ul> <li> <p> <code>ACTIVE</code>: The stream URL is valid and can start stream sessions.</p> </li> <li> <p> <code>EXPIRED</code>: The stream URL has passed its expiration time and can no longer start stream sessions.</p> </li> <li> <p> <code>REVOKED</code>: The stream URL was revoked and can no longer start stream sessions.</p> </li> <li> <p> <code>LIMIT_REACHED</code>: The stream URL has been used the maximum number of times and can no longer start stream sessions.</p> </li> </ul>
+   * @public
+   */
+  Status?: StreamUrlStatus | undefined;
+
+  /**
+   * <p>Filters the list to stream URLs that belong to the specified stream group.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  StreamGroupIdentifier?: string | undefined;
+
+  /**
+   * <p>The token that marks the start of the next set of results. Use this token when you retrieve results as sequential pages. To get the first page of results, omit a token value. To get the remaining pages, provide the token returned with the previous result set. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. Valid values are 1-100. The default is 25.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Describes a stream URL. This is a summary view that omits the full configuration, such as launch arguments and display settings. To retrieve the complete configuration, call <a href="https://docs.aws.amazon.com/gameliftstreams/latest/apireference/API_GetStreamUrl.html">GetStreamUrl</a>.</p>
+ * @public
+ */
+export interface StreamUrlSummary {
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream URL across all Amazon Web Services Regions. Format is <code>arn:aws:gameliftstreams:[AWS Region]:[AWS account]:streamurl/[stream group resource ID]/[stream URL resource ID]</code>.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the stream URL resource, for example <code>su-1AB2C3De4</code>.</p>
+   * @public
+   */
+  StreamUrlId?: string | undefined;
+
+  /**
+   * <p>The shareable stream URL. Distribute this URL to end users so that they can start and play a stream session in a hosted web player. Treat the stream URL as a secret. Anyone who has it can start a stream session until the stream URL expires, is revoked, or reaches its usage limit.</p>
+   * @public
+   */
+  StreamUrl?: string | undefined;
+
+  /**
+   * <p>The current status of the stream URL. Possible statuses include the following:</p> <ul> <li> <p> <code>ACTIVE</code>: The stream URL is valid and can start stream sessions.</p> </li> <li> <p> <code>EXPIRED</code>: The stream URL has passed its expiration time and can no longer start stream sessions.</p> </li> <li> <p> <code>REVOKED</code>: The stream URL was revoked and can no longer start stream sessions.</p> </li> <li> <p> <code>LIMIT_REACHED</code>: The stream URL has been used the maximum number of times and can no longer start stream sessions.</p> </li> </ul>
+   * @public
+   */
+  Status?: StreamUrlStatus | undefined;
+
+  /**
+   * <p>Additional information about why the stream URL is in its current status. Amazon GameLift Streams populates this value when the status is <code>REVOKED</code>. Possible values include the following:</p> <ul> <li> <p> <code>userRevoked</code>: You revoked the stream URL.</p> </li> <li> <p> <code>revokedAndTerminatingSessions</code>: You revoked the stream URL and Amazon GameLift Streams is ending its running stream sessions.</p> </li> <li> <p> <code>revokedAndSessionsTerminated</code>: You revoked the stream URL and its running stream sessions have ended.</p> </li> <li> <p> <code>streamGroupDeleted</code>: The stream group was deleted, which revoked the stream URL.</p> </li> <li> <p> <code>applicationDeleted</code>: The application was deleted, which revoked the stream URL.</p> </li> </ul>
+   * @public
+   */
+  StatusReason?: StreamUrlStatusReason | undefined;
+
+  /**
+   * <p>The date and time when the stream URL expires and stops accepting new stream sessions. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  ExpiresAt?: Date | undefined;
+
+  /**
+   * <p>A timestamp that indicates when this resource was created. Timestamps are expressed using in ISO8601 format, such as: <code>2022-12-27T22:29:40+00:00</code> (UTC).</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The maximum number of times the stream URL can start a stream session.</p>
+   * @public
+   */
+  UsageLimit?: number | undefined;
+
+  /**
+   * <p>The number of times the stream URL can still be used to start a stream session.</p>
+   * @public
+   */
+  RemainingUses?: number | undefined;
+
+  /**
+   * <p>The stream group that runs the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. </p>
+   * @public
+   */
+  StreamGroupArn?: string | undefined;
+
+  /**
+   * <p>The application that runs in the stream sessions.</p> <p>This value is an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that uniquely identifies the application resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:application/a-9ZY8X7Wv6</code>. </p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+
+  /**
+   * <p>The maximum length of time, in seconds, that a stream session started from this stream URL can run.</p>
+   * @public
+   */
+  SessionLengthSeconds?: number | undefined;
+
+  /**
+   * <p>The descriptive label for the stream URL.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStreamUrlsOutput {
+  /**
+   * <p>A collection of stream URL summaries. Each summary includes the identity, status, and usage of the stream URL, but not its full configuration.</p>
+   * @public
+   */
+  Items?: StreamUrlSummary[] | undefined;
+
+  /**
+   * <p>A token that marks the start of the next sequential page of results. If an operation doesn't return a token, you've reached the end of the list. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListTagsForResourceRequest {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> that you want to retrieve tags for. To get an Amazon GameLift Streams resource ARN, call a List or Get operation for the resource.</p>
@@ -1457,6 +1999,29 @@ export interface RemoveStreamGroupLocationsInput {
    * @public
    */
   Locations: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RevokeStreamUrlInput {
+  /**
+   * <p>An <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Name (ARN)</a> or ID that uniquely identifies the stream group resource. Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamgroup/sg-1AB2C3De4</code>. Example ID: <code>sg-1AB2C3De4</code>. </p> <p>This is the stream group that owns the stream URL.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the stream URL to revoke. Specify a stream URL ID or Amazon Resource Name (ARN). Example ARN: <code>arn:aws:gameliftstreams:us-west-2:111122223333:streamurl/sg-1AB2C3De4/su-1AB2C3De4</code>. Example ID: <code>su-1AB2C3De4</code>.</p>
+   * @public
+   */
+  StreamUrlIdentifier: string | undefined;
+
+  /**
+   * <p>Controls what happens to running stream sessions when you revoke the stream URL. If you do not specify a value, the default is <code>REVOKE_URL</code>. Possible values include the following:</p> <ul> <li> <p> <code>REVOKE_URL</code>: Stops the stream URL from starting new stream sessions. Running sessions continue until they end.</p> </li> <li> <p> <code>REVOKE_AND_TERMINATE_SESSIONS</code>: Stops new stream sessions and ends any running stream sessions.</p> </li> </ul>
+   * @public
+   */
+  RevocationMode?: RevocationMode | undefined;
 }
 
 /**

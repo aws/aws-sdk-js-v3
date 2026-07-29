@@ -134,6 +134,49 @@ export type StreamGroupStatusReason = (typeof StreamGroupStatusReason)[keyof typ
  * @public
  * @enum
  */
+export const Protocol = {
+  WEBRTC: "WebRTC",
+} as const;
+/**
+ * @public
+ */
+export type Protocol = (typeof Protocol)[keyof typeof Protocol];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamUrlStatus = {
+  ACTIVE: "ACTIVE",
+  EXPIRED: "EXPIRED",
+  LIMIT_REACHED: "LIMIT_REACHED",
+  REVOKED: "REVOKED",
+} as const;
+/**
+ * @public
+ */
+export type StreamUrlStatus = (typeof StreamUrlStatus)[keyof typeof StreamUrlStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const StreamUrlStatusReason = {
+  APPLICATION_DELETED: "applicationDeleted",
+  REVOKED_AND_SESSIONS_TERMINATED: "revokedAndSessionsTerminated",
+  REVOKED_AND_TERMINATING_SESSIONS: "revokedAndTerminatingSessions",
+  STREAM_GROUP_DELETED: "streamGroupDeleted",
+  USER_REVOKED: "userRevoked",
+} as const;
+/**
+ * @public
+ */
+export type StreamUrlStatusReason = (typeof StreamUrlStatusReason)[keyof typeof StreamUrlStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExportFilesStatus = {
   FAILED: "FAILED",
   PENDING: "PENDING",
@@ -143,18 +186,6 @@ export const ExportFilesStatus = {
  * @public
  */
 export type ExportFilesStatus = (typeof ExportFilesStatus)[keyof typeof ExportFilesStatus];
-
-/**
- * @public
- * @enum
- */
-export const Protocol = {
-  WEBRTC: "WebRTC",
-} as const;
-/**
- * @public
- */
-export type Protocol = (typeof Protocol)[keyof typeof Protocol];
 
 /**
  * @public
@@ -196,3 +227,32 @@ export const StreamSessionStatusReason = {
  * @public
  */
 export type StreamSessionStatusReason = (typeof StreamSessionStatusReason)[keyof typeof StreamSessionStatusReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ShaderCacheStatus = {
+  DELETING: "DELETING",
+  ERROR: "ERROR",
+  INITIALIZED: "INITIALIZED",
+  PROCESSING: "PROCESSING",
+  READY: "READY",
+} as const;
+/**
+ * @public
+ */
+export type ShaderCacheStatus = (typeof ShaderCacheStatus)[keyof typeof ShaderCacheStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RevocationMode = {
+  REVOKE_AND_TERMINATE_SESSIONS: "REVOKE_AND_TERMINATE_SESSIONS",
+  REVOKE_URL: "REVOKE_URL",
+} as const;
+/**
+ * @public
+ */
+export type RevocationMode = (typeof RevocationMode)[keyof typeof RevocationMode];
