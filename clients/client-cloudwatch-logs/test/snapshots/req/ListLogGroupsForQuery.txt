@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 4afa0d26057889c777d30c104244ad471bb23c7913ef4c4fd2705e6fbdd16900
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/logs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "queryId": "__queryId__",
   "nextToken": "__nextToken__",

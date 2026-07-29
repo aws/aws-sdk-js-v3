@@ -14,7 +14,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: dec02ef817241f3bcab86f98677589bd9ed4d7c72245d0a065514188d1cc1a97
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "Namespace": "__Namespace__",
   "MetricName": "__MetricName__",

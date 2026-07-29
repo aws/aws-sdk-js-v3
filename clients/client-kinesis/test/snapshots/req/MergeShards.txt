@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: c1053c0f9f2f0e1c3c0c3c5935abb2160c9545b813392ebc3997aae759fbb74f
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/kinesis/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "ShardToMerge": "__ShardToMerge__",
   "AdjacentShardToMerge": "__AdjacentShardToMerge__",

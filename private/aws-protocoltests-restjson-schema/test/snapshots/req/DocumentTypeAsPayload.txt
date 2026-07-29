@@ -2,26 +2,21 @@ PUT https://restjson.us-east-1.amazonaws.com
 /DocumentTypeAsPayload
 
 content-type: application/json
-content-length: 120
+content-length: 105
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/rest-json-protocol#_.__ m/E,e
 host: restjson.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: a2a2659c3ed05b4fdcae6ef11a4e58ad77764922d3a0647d3ca76e2ccc7b62b1
+x-amz-content-sha256: 9f3f2c7088281489d7c980bed1befed11ce4cffc3ed65cf2bff2cef387d296bf
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "doc_note": "this is a document",
   "doc_date": 946702799.999,
-  "doc_blob": {
-    "0": 1,
-    "1": 0,
-    "2": 0,
-    "3": 1
-  },
+  "doc_blob": "AQAAAQ==",
   "doc_list": [
     -7,
     -3,

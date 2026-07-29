@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: b87b4d27d7c9c5cd09a34987a694a1b4a7a7d1c2e5a8f7680a2648ac12e4411e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "AppImageConfigName": "__AppImageConfigName__",
   "KernelGatewayImageConfig": {

@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: a909ff24e7f68194f82ce1d5296a026359c2a75e1b1f5c85c7e2bd4319791eb6
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "MonitoringScheduleName": "__MonitoringScheduleName__",
   "MonitoringScheduleConfig": {

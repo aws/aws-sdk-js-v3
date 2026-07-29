@@ -12,7 +12,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 0419375ccd97a95722cfc484e3ee5c82a3b62b03ee97e70bbd27bf8c2d124873
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/restjson/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "timestamp": "Sat, 01 Jan 2000 04:59:59 GMT"
 }

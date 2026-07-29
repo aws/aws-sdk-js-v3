@@ -14,7 +14,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: b969395284c9594933a773e2d2d8a5fbf8f06b926d3b317da9c873e3ac561a6a
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "DashboardName": "__DashboardName__"
 }

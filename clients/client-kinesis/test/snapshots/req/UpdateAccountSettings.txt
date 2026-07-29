@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 5a87ca3eb407f1eb3b1c03453999055b8ba8f13754a34d50f1d149d41e771639
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/kinesis/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "MinimumThroughputBillingCommitment": {
     "Status": "__Status__"

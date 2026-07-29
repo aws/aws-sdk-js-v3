@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 86c4bdb705880ba5206283972f36cb6ffacbfa0644bf6528e1f4f68363e00190
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "InferenceRecommendationsJobName": "__InferenceRecommendationsJobName__",
   "RecommendationId": "__RecommendationId__",

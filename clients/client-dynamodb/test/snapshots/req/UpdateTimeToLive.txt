@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 93ee8c1925f329146d2b643e336c475d4610651d80083b60c59cfe00349a230e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "TableName": "__TableName__",
   "TimeToLiveSpecification": {

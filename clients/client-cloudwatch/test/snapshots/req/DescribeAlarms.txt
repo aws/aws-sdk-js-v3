@@ -14,7 +14,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 5564e76eb676e32a04fe4fa9fb4bbb5e82b5a46c19fe391c63c9bac0d076ec9b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/monitoring/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "AlarmNames": [
     "__member__",

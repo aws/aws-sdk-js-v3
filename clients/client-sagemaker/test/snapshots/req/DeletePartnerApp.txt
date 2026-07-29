@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 211375761a1a5ba84a681f3618d1a53a568bfa3526bb7e4ec904c384f41ed2b0
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "Arn": "__Arn__",
   "ClientToken": "1111abcd-uuid-uuid-uuid-000000001111"

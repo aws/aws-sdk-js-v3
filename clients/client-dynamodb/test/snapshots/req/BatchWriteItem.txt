@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 64fd9549689c385dbbc3708c9de20be22c6f0bc23c9fa8ed93b06c63602af583
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "RequestItems": {
     "key1": [

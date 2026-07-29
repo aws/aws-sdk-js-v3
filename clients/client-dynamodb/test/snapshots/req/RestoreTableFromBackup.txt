@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 2234f1e1ffd74e1cdaa3360ed7cf6cdc4769d2b0ea1256476f922ee07ff50b18
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "TargetTableName": "__TargetTableName__",
   "BackupArn": "__BackupArn__",

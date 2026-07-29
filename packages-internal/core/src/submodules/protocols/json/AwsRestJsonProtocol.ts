@@ -21,9 +21,10 @@ import type {
 
 import { ProtocolLib } from "../ProtocolLib";
 import type { JsonSettings } from "./JsonSettings";
-import { JsonCodec } from "./codec-v1/JsonCodec";
+import type { JsonCodec } from "./codec-v1/JsonCodec";
+import { JsonCodec2 } from "./codec-v2/JsonCodec2";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
-import type { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
+import type { JsonShapeDeserializer2 } from "./codec-v2/JsonShapeDeserializer2";
 
 /**
  * @public
@@ -31,15 +32,17 @@ import type { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
 export class AwsRestJsonProtocol extends HttpBindingProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
-  private readonly codec: JsonCodec;
+  private readonly codec: JsonCodec | JsonCodec2;
   private readonly mixin = new ProtocolLib();
 
   public constructor({
     defaultNamespace,
     errorTypeRegistries,
+    jsonCodec,
   }: {
     defaultNamespace: string;
     errorTypeRegistries?: TypeRegistry[];
+    jsonCodec?: JsonCodec | JsonCodec2;
   }) {
     super({
       defaultNamespace,
@@ -53,7 +56,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
       httpBindings: true,
       jsonName: true,
     };
-    this.codec = new JsonCodec(settings);
+    this.codec = jsonCodec ?? new JsonCodec2(settings);
     this.serializer = new HttpInterceptingShapeSerializer(this.codec.createSerializer(), settings);
     this.deserializer = new HttpInterceptingShapeDeserializer(this.codec.createDeserializer(), settings);
   }
@@ -145,7 +148,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
-    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer;
+    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer2;
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
       output[name] = errorDeserializer.readObject(member, dataObject[target]);

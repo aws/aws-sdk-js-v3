@@ -12,7 +12,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 9c7975b8031b79ec9d5eb191697d8c7eeedac2e46613cd0822bf0de0472cbe6b
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "source": "__source__",
   "content": [

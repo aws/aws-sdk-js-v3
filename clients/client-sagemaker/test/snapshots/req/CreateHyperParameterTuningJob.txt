@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: a0b3023b6a03497ea406ef1edd165c7e40a1285bc64c1470d3a9940c0d1f8926
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "HyperParameterTuningJobName": "__HyperParameterTuningJobName__",
   "HyperParameterTuningJobConfig": {

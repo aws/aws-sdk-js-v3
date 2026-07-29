@@ -15,9 +15,10 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import { JsonCodec } from "./codec-v1/JsonCodec";
+import type { JsonCodec } from "./codec-v1/JsonCodec";
+import { JsonCodec2 } from "./codec-v2/JsonCodec2";
 import { loadJsonRpcErrorCode } from "./parseJsonBody";
-import type { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
+import type { JsonShapeDeserializer2 } from "./codec-v2/JsonShapeDeserializer2";
 
 /**
  * @public
@@ -26,7 +27,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
   protected serializer: ShapeSerializer<string | Uint8Array>;
   protected deserializer: ShapeDeserializer<string | Uint8Array>;
   protected serviceTarget: string;
-  private readonly codec: JsonCodec;
+  private readonly codec: JsonCodec | JsonCodec2;
   private readonly mixin: ProtocolLib;
   private readonly awsQueryCompatible: boolean;
 
@@ -41,7 +42,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     errorTypeRegistries?: TypeRegistry[];
     serviceTarget: string;
     awsQueryCompatible?: boolean;
-    jsonCodec?: JsonCodec;
+    jsonCodec?: JsonCodec | JsonCodec2;
   }) {
     super({
       defaultNamespace,
@@ -50,7 +51,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     this.serviceTarget = serviceTarget;
     this.codec =
       jsonCodec ??
-      new JsonCodec({
+      new JsonCodec2({
         timestampFormat: {
           useTrait: true,
           default: 7 as const satisfies TimestampEpochSecondsSchema,
@@ -124,7 +125,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const exception = new ErrorCtor({});
 
     const output = {} as any;
-    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer;
+    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer2;
     for (const [name, member] of ns.structIterator()) {
       if (dataObject[name] != null) {
         output[name] = errorDeserializer.readObject(member, dataObject[name]);

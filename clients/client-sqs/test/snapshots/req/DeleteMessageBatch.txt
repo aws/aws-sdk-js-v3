@@ -14,7 +14,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 7ff1f694c3d0dfe066d9229773b5bec5a12c633155cd939933457f4947d3f8a1
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sqs/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent;x-amzn-query-mode, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "QueueUrl": "https://sqs.us-east-1.amazonaws.com/012345678901/MyQueue",
   "Entries": [

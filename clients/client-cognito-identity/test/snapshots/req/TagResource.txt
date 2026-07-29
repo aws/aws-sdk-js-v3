@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 1c06a582174e19580e09e3eaa8c65fb4d4cb96a8aa62c70f60717b758c4f9c3e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cognito-identity/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "ResourceArn": "__ResourceArn__",
   "Tags": {

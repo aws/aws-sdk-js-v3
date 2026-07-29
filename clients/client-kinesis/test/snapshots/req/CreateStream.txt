@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 01155eb82bc8eca1963e82b2a0b76b264349b682d12a6361feaee850c70441f5
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/kinesis/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "StreamName": "__StreamName__",
   "ShardCount": 0,
