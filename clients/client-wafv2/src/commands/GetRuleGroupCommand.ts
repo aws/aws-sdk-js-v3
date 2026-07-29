@@ -121,7 +121,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
  * //                 Priority: Number("int"), // required
- * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ * //               },
+ * //             ],
+ * //             PreParseTextTransformations: [ // PreParseTextTransformations
+ * //               { // PreParseTextTransformation
+ * //                 Priority: Number("int"), // required
+ * //                 Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  * //               },
  * //             ],
  * //             PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required
@@ -194,7 +200,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             TextTransformations: [ // required
  * //               {
  * //                 Priority: Number("int"), // required
- * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ * //               },
+ * //             ],
+ * //             PreParseTextTransformations: [
+ * //               {
+ * //                 Priority: Number("int"), // required
+ * //                 Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  * //               },
  * //             ],
  * //             SensitivityLevel: "LOW" || "HIGH",
@@ -263,7 +275,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             TextTransformations: [ // required
  * //               {
  * //                 Priority: Number("int"), // required
- * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ * //               },
+ * //             ],
+ * //             PreParseTextTransformations: [
+ * //               {
+ * //                 Priority: Number("int"), // required
+ * //                 Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  * //               },
  * //             ],
  * //           },
@@ -329,7 +347,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             TextTransformations: [ // required
  * //               {
  * //                 Priority: Number("int"), // required
- * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ * //               },
+ * //             ],
+ * //             PreParseTextTransformations: [
+ * //               {
+ * //                 Priority: Number("int"), // required
+ * //                 Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  * //               },
  * //             ],
  * //           },
@@ -481,7 +505,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             TextTransformations: [ // required
  * //               {
  * //                 Priority: Number("int"), // required
- * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ * //                 Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ * //               },
+ * //             ],
+ * //             PreParseTextTransformations: [
+ * //               {
+ * //                 Priority: Number("int"), // required
+ * //                 Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  * //               },
  * //             ],
  * //           },
@@ -494,22 +524,26 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 SearchString: new Uint8Array(), // required
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //                 PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required
  * //               },
  * //               SqliMatchStatement: {
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //                 SensitivityLevel: "LOW" || "HIGH",
  * //               },
  * //               XssMatchStatement: {
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //               },
  * //               SizeConstraintStatement: {
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
  * //                 Size: Number("long"), // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //               },
  * //               GeoMatchStatement: {
  * //                 CountryCodes: [
@@ -571,6 +605,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 ARN: "STRING_VALUE", // required
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //               },
  * //               RateBasedStatement: {
  * //                 Limit: Number("long"), // required
@@ -820,6 +855,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 RegexString: "STRING_VALUE", // required
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //                 PreParseTextTransformations: "<PreParseTextTransformations>",
  * //               },
  * //               AsnMatchStatement: { // AsnMatchStatement
  * //                 AsnList: [ // AsnList // required
@@ -1062,6 +1098,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             RegexString: "STRING_VALUE", // required
  * //             FieldToMatch: "<FieldToMatch>", // required
  * //             TextTransformations: "<TextTransformations>", // required
+ * //             PreParseTextTransformations: "<PreParseTextTransformations>",
  * //           },
  * //           AsnMatchStatement: {
  * //             AsnList: [ // required

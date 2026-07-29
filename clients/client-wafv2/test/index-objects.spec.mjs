@@ -319,6 +319,8 @@ import {
   PhoneNumberField$,
   Platform,
   PositionalConstraint,
+  PreParseTextTransformation$,
+  PreParseTextTransformationType,
   Price$,
   PutLoggingConfiguration$,
   PutLoggingConfigurationCommand,
@@ -793,6 +795,7 @@ assert(typeof PasswordField$ === "object");
 assert(typeof PathStatistics$ === "object");
 assert(typeof PaymentNetwork$ === "object");
 assert(typeof PhoneNumberField$ === "object");
+assert(typeof PreParseTextTransformation$ === "object");
 assert(typeof Price$ === "object");
 assert(typeof PutLoggingConfigurationRequest$ === "object");
 assert(typeof PutLoggingConfigurationResponse$ === "object");
@@ -905,6 +908,7 @@ assert(typeof ParameterExceptionField === "object");
 assert(typeof PayloadType === "object");
 assert(typeof Platform === "object");
 assert(typeof PositionalConstraint === "object");
+assert(typeof PreParseTextTransformationType === "object");
 assert(typeof RankingSortBy === "object");
 assert(typeof RankingStatisticType === "object");
 assert(typeof RateBasedStatementAggregateKeyType === "object");

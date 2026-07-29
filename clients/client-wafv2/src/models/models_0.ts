@@ -30,6 +30,7 @@ import type {
   PayloadType,
   Platform,
   PositionalConstraint,
+  PreParseTextTransformationType,
   RankingSortBy,
   RankingStatisticType,
   RateBasedStatementAggregateKeyType,
@@ -1052,6 +1053,28 @@ export interface FieldToMatch {
 }
 
 /**
+ * <p>A pre-parse text transformation that normalizes the raw query string before WAF parses
+ *          it into individual query arguments. Pre-parse text transformations are only supported when
+ *          <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or <code>AllQueryArguments</code>. </p>
+ * @public
+ */
+export interface PreParseTextTransformation {
+  /**
+   * <p>Sets the relative processing order for the pre-parse text transformations that you define.
+   *          WAF processes all transformations, from lowest priority value to highest,
+   *          before inspecting the transformed content. </p>
+   * @public
+   */
+  Priority: number | undefined;
+
+  /**
+   * <p>The type of pre-parse text transformation to apply to the raw query string.</p>
+   * @public
+   */
+  Type: PreParseTextTransformationType | undefined;
+}
+
+/**
  * <p>Text transformations eliminate some of the unusual formatting that attackers use in web
  *          requests in an effort to bypass detection. </p>
  * @public
@@ -1143,6 +1166,15 @@ export interface ByteMatchStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 
   /**
    * <p>The area within the portion of the web request that you want WAF to search for
@@ -1852,7 +1884,7 @@ export interface AWSManagedRulesACFPRuleSet {
  */
 export interface Regex {
   /**
-   * <p>The string representing the regular expression.</p>
+   * <p>The string representing the regular expression. WAF enforces a quota on the maximum number of characters in a regex pattern. For the current limit, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
   RegexString?: string | undefined;
@@ -2788,7 +2820,7 @@ export interface RateBasedStatementCustomKey {
  */
 export interface RegexMatchStatement {
   /**
-   * <p>The string representing the regular expression.</p>
+   * <p>The string representing the regular expression. WAF enforces a quota on the maximum number of characters in a regex pattern. For the current limit, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/limits.html">WAF quotas</a> in the <i>WAF Developer Guide</i>.</p>
    * @public
    */
   RegexString: string | undefined;
@@ -2804,6 +2836,15 @@ export interface RegexMatchStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 }
 
 /**
@@ -2830,6 +2871,15 @@ export interface RegexPatternSetReferenceStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 }
 
 /**
@@ -2895,6 +2945,15 @@ export interface SizeConstraintStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 }
 
 /**
@@ -2913,6 +2972,15 @@ export interface SqliMatchStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 
   /**
    * <p>The sensitivity that you want WAF to use to inspect for SQL injection attacks. </p>
@@ -2949,6 +3017,15 @@ export interface XssMatchStatement {
    * @public
    */
   TextTransformations: TextTransformation[] | undefined;
+
+  /**
+   * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
+   *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
+   *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
+   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   * @public
+   */
+  PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
 }
 
 /**
@@ -9312,7 +9389,7 @@ export interface GetRuleGroupResponse {
 }
 
 /**
- * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.  </p>
+ * <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore Gateway.  </p>
  * @public
  */
 export interface WebACL {

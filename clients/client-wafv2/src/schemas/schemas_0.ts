@@ -410,6 +410,8 @@ const _PPFMRGo = "PostProcessFirewallManagerRuleGroups";
 const _PPP = "PutPermissionPolicy";
 const _PPPR = "PutPermissionPolicyRequest";
 const _PPPRu = "PutPermissionPolicyResponse";
+const _PPTT = "PreParseTextTransformations";
+const _PPTTr = "PreParseTextTransformation";
 const _PS = "PopulationSize";
 const _PSL = "PathStatisticsList";
 const _PSa = "PathStatistics";
@@ -912,8 +914,8 @@ export var BotStatistics$: StaticStructureSchema = [3, n0, _BS,
 ];
 export var ByteMatchStatement$: StaticStructureSchema = [3, n0, _BMS,
   0,
-  [_SS, _FTM, _TT, _PC],
-  [21, () => FieldToMatch$, () => TextTransformations, 0], 4
+  [_SS, _FTM, _TT, _PC, _PPTT],
+  [21, () => FieldToMatch$, () => TextTransformations, 0, () => PreParseTextTransformations], 4
 ];
 export var CaptchaAction$: StaticStructureSchema = [3, n0, _CA,
   0,
@@ -1765,6 +1767,11 @@ export var PhoneNumberField$: StaticStructureSchema = [3, n0, _PNF,
   [_I],
   [0], 1
 ];
+export var PreParseTextTransformation$: StaticStructureSchema = [3, n0, _PPTTr,
+  0,
+  [_Pr, _Ty],
+  [1, 0], 2
+];
 export var Price$: StaticStructureSchema = [3, n0, _Pric,
   0,
   [_Am, _Cu],
@@ -1887,8 +1894,8 @@ export var Regex$: StaticStructureSchema = [3, n0, _Reg,
 ];
 export var RegexMatchStatement$: StaticStructureSchema = [3, n0, _RMS,
   0,
-  [_RSe, _FTM, _TT],
-  [0, () => FieldToMatch$, () => TextTransformations], 3
+  [_RSe, _FTM, _TT, _PPTT],
+  [0, () => FieldToMatch$, () => TextTransformations, () => PreParseTextTransformations], 3
 ];
 export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS,
   0,
@@ -1897,8 +1904,8 @@ export var RegexPatternSet$: StaticStructureSchema = [3, n0, _RPS,
 ];
 export var RegexPatternSetReferenceStatement$: StaticStructureSchema = [3, n0, _RPSRS,
   0,
-  [_ARN, _FTM, _TT],
-  [0, () => FieldToMatch$, () => TextTransformations], 3
+  [_ARN, _FTM, _TT, _PPTT],
+  [0, () => FieldToMatch$, () => TextTransformations, () => PreParseTextTransformations], 3
 ];
 export var RegexPatternSetSummary$: StaticStructureSchema = [3, n0, _RPSS,
   0,
@@ -2017,8 +2024,8 @@ export var SingleQueryArgument$: StaticStructureSchema = [3, n0, _SQA,
 ];
 export var SizeConstraintStatement$: StaticStructureSchema = [3, n0, _SCS,
   0,
-  [_FTM, _CO, _Si, _TT],
-  [() => FieldToMatch$, 0, 1, () => TextTransformations], 4
+  [_FTM, _CO, _Si, _TT, _PPTT],
+  [() => FieldToMatch$, 0, 1, () => TextTransformations, () => PreParseTextTransformations], 4
 ];
 export var SourceStatistics$: StaticStructureSchema = [3, n0, _SSo,
   0,
@@ -2027,8 +2034,8 @@ export var SourceStatistics$: StaticStructureSchema = [3, n0, _SSo,
 ];
 export var SqliMatchStatement$: StaticStructureSchema = [3, n0, _SMS,
   0,
-  [_FTM, _TT, _SL],
-  [() => FieldToMatch$, () => TextTransformations, 0], 2
+  [_FTM, _TT, _PPTT, _SL],
+  [() => FieldToMatch$, () => TextTransformations, () => PreParseTextTransformations, 0], 2
 ];
 export var Statement$: StaticStructureSchema = [3, n0, _St,
   0,
@@ -2162,8 +2169,8 @@ export var WebACLSummary$: StaticStructureSchema = [3, n0, _WACLS,
 ];
 export var XssMatchStatement$: StaticStructureSchema = [3, n0, _XMS,
   0,
-  [_FTM, _TT],
-  [() => FieldToMatch$, () => TextTransformations], 2
+  [_FTM, _TT, _PPTT],
+  [() => FieldToMatch$, () => TextTransformations, () => PreParseTextTransformations], 2
 ];
 var AddressFields: StaticListSchema = [1, n0, _AFd,
   0, () => AddressField$
@@ -2253,6 +2260,9 @@ var PaymentNetworks: StaticListSchema = [1, n0, _PN,
 ];
 var PhoneNumberFields: StaticListSchema = [1, n0, _PNFh,
   0, () => PhoneNumberField$
+];
+var PreParseTextTransformations: StaticListSchema = [1, n0, _PPTT,
+  0, () => PreParseTextTransformation$
 ];
 var Prices: StaticListSchema = [1, n0, _Pri,
   0, () => Price$

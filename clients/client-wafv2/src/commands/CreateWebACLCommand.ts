@@ -24,7 +24,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
 
 /**
  * <p>Creates a <a>WebACL</a> per the specifications provided.</p>
- *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance.  </p>
+ *          <p> A web ACL defines a collection of rules to use to inspect and control web requests. Each rule has a statement that defines what to look for in web requests and an action that WAF applies to requests that match the statement. In the web ACL, you assign a default action to take (allow, block) for any request that does not match any of the rules. The rules in a web ACL can be a combination of the types <a>Rule</a>, <a>RuleGroup</a>, and managed rule group. You can associate a web ACL with one or more Amazon Web Services resources to protect. The resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, Amazon Web Services Verified Access instance, and Amazon Bedrock AgentCore Gateway.  </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,7 +135,13 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           TextTransformations: [ // TextTransformations // required
  *             { // TextTransformation
  *               Priority: Number("int"), // required
- *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ *             },
+ *           ],
+ *           PreParseTextTransformations: [ // PreParseTextTransformations
+ *             { // PreParseTextTransformation
+ *               Priority: Number("int"), // required
+ *               Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  *             },
  *           ],
  *           PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required
@@ -208,7 +214,13 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           TextTransformations: [ // required
  *             {
  *               Priority: Number("int"), // required
- *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ *             },
+ *           ],
+ *           PreParseTextTransformations: [
+ *             {
+ *               Priority: Number("int"), // required
+ *               Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  *             },
  *           ],
  *           SensitivityLevel: "LOW" || "HIGH",
@@ -277,7 +289,13 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           TextTransformations: [ // required
  *             {
  *               Priority: Number("int"), // required
- *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ *             },
+ *           ],
+ *           PreParseTextTransformations: [
+ *             {
+ *               Priority: Number("int"), // required
+ *               Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  *             },
  *           ],
  *         },
@@ -343,7 +361,13 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           TextTransformations: [ // required
  *             {
  *               Priority: Number("int"), // required
- *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ *             },
+ *           ],
+ *           PreParseTextTransformations: [
+ *             {
+ *               Priority: Number("int"), // required
+ *               Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  *             },
  *           ],
  *         },
@@ -485,7 +509,13 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           TextTransformations: [ // required
  *             {
  *               Priority: Number("int"), // required
- *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE", // required
+ *               Type: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE" || "BASE64_DECODE" || "HEX_DECODE" || "MD5" || "REPLACE_COMMENTS" || "ESCAPE_SEQ_DECODE" || "SQL_HEX_DECODE" || "CSS_DECODE" || "JS_DECODE" || "NORMALIZE_PATH" || "NORMALIZE_PATH_WIN" || "REMOVE_NULLS" || "REPLACE_NULLS" || "BASE64_DECODE_EXT" || "URL_DECODE_UNI" || "UTF8_TO_UNICODE" || "REMOVE_WHITESPACE" || "TRIM" || "TRIM_LEFT" || "TRIM_RIGHT" || "REMOVE_COMMENTS_CHAR" || "UPPERCASE" || "CMD_LINE_WIN" || "CMD_LINE_UNIX" || "JS_DECODE_EXT" || "SHA256", // required
+ *             },
+ *           ],
+ *           PreParseTextTransformations: [
+ *             {
+ *               Priority: Number("int"), // required
+ *               Type: "NONE" || "URL_DECODE" || "URL_DECODE_UNI" || "COMBINE_DUPLICATE_QUERY_ARGS_BY_COMMA" || "REPLACE_SEMICOLONS_WITH_AMPERSANDS", // required
  *             },
  *           ],
  *         },
@@ -498,22 +528,26 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               SearchString: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")               // required
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *               PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required
  *             },
  *             SqliMatchStatement: {
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *               SensitivityLevel: "LOW" || "HIGH",
  *             },
  *             XssMatchStatement: {
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *             },
  *             SizeConstraintStatement: {
  *               FieldToMatch: "<FieldToMatch>", // required
  *               ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
  *               Size: Number("long"), // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *             },
  *             GeoMatchStatement: {
  *               CountryCodes: [
@@ -565,6 +599,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               ARN: "STRING_VALUE", // required
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *             },
  *             RateBasedStatement: {
  *               Limit: Number("long"), // required
@@ -806,6 +841,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *               RegexString: "STRING_VALUE", // required
  *               FieldToMatch: "<FieldToMatch>", // required
  *               TextTransformations: "<TextTransformations>", // required
+ *               PreParseTextTransformations: "<PreParseTextTransformations>",
  *             },
  *             AsnMatchStatement: { // AsnMatchStatement
  *               AsnList: [ // AsnList // required
@@ -1040,6 +1076,7 @@ export interface CreateWebACLCommandOutput extends CreateWebACLResponse, __Metad
  *           RegexString: "STRING_VALUE", // required
  *           FieldToMatch: "<FieldToMatch>", // required
  *           TextTransformations: "<TextTransformations>", // required
+ *           PreParseTextTransformations: "<PreParseTextTransformations>",
  *         },
  *         AsnMatchStatement: {
  *           AsnList: [ // required
