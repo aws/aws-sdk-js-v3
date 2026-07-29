@@ -24,6 +24,10 @@ export interface ModifyConversionConfigurationCommandOutput extends ModifyConver
 
 /**
  * <p>Modifies the specified schema conversion configuration using the provided parameters. </p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:UpdateConversionConfiguration</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,18 +64,18 @@ export interface ModifyConversionConfigurationCommandOutput extends ModifyConver
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Modify Conversion Configuration
+ * @example Modifying conversion configuration for a migration project
  * ```javascript
- * // Modifies the specified schema conversion configuration using the provided parameters.
+ * // The following example enables generative AI assisted conversion and updates a conversion pair setting for a migration project.
  * const input = {
- *   ConversionConfiguration: `{"Common project settings":{"ShowSeverityLevelInSql":"CRITICAL"},"ORACLE_TO_POSTGRESQL" : {"ToTimeZone":false,"LastDayBuiltinFunctionOracle":false,   "NextDayBuiltinFunctionOracle":false,"ConvertProceduresToFunction":false,"NvlBuiltinFunctionOracle":false,"DbmsAssertBuiltinFunctionOracle":false}}`,
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   ConversionConfiguration: `{"Common project settings":{"EnableGenAiConversion":true},"MSSQL_TO_AURORA_POSTGRESQL":{"ConvertProceduresToFunction":false}}`,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new ModifyConversionConfigurationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * }
  * *\/
  * ```

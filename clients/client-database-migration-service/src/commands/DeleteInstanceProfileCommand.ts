@@ -24,6 +24,10 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
 
 /**
  * <p>Deletes the specified instance profile.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DeleteInstanceProfile</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  *          <note>
  *             <p>All migration projects associated with the instance profile must be deleted or
  *             modified before you can delete the instance profile.</p>
@@ -83,25 +87,27 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Delete Instance Profile
+ * @example Delete an instance profile
  * ```javascript
- * // Deletes the specified instance profile.
+ * // The following example deletes an instance profile identified by its ARN.
  * const input = {
- *   InstanceProfileIdentifier: "arn:aws:dms:us-east-1:012345678901:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   InstanceProfileIdentifier: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DeleteInstanceProfileCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
  *   InstanceProfile: {
- *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
- *     InstanceProfileCreationTime: "2022-12-16T09:44:43.543246Z",
- *     InstanceProfileName: "my-instance-profile",
- *     KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *     PubliclyAccessible: true,
- *     SubnetGroupIdentifier: "public-subnets",
+ *     Description: "Example instance profile for documentation",
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     InstanceProfileCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     InstanceProfileName: "example-instance-profile",
+ *     KmsKeyArn: "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     NetworkType: "IPV4",
+ *     PubliclyAccessible: false,
+ *     SubnetGroupIdentifier: "example-replication-subnet-group",
  *     VpcSecurityGroups: [
- *       "sg-0123456"
+ *       "sg-0123456789abcdef0"
  *     ]
  *   }
  * }

@@ -24,6 +24,10 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
 
 /**
  * <p>Creates the instance profile using the specified parameters.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:CreateInstanceProfile</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,21 +115,18 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Create Instance Profile
+ * @example Create an instance profile
  * ```javascript
- * // Creates the instance profile using the specified parameters.
+ * // The following example creates an instance profile.
  * const input = {
- *   Description: "Description",
- *   InstanceProfileName: "my-instance-profile",
- *   KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *   NetworkType: "DUAL",
- *   PubliclyAccessible: true,
- *   SubnetGroupIdentifier: "my-subnet-group",
- *   Tags: [
- *     {
- *       Key: "access",
- *       Value: "authorizedusers"
- *     }
+ *   Description: "Example instance profile for documentation",
+ *   InstanceProfileName: "example-instance-profile",
+ *   KmsKeyArn: "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   NetworkType: "IPV4",
+ *   PubliclyAccessible: false,
+ *   SubnetGroupIdentifier: "example-replication-subnet-group",
+ *   VpcSecurityGroups: [
+ *     "sg-0123456789abcdef0"
  *   ]
  * };
  * const command = new CreateInstanceProfileCommand(input);
@@ -133,14 +134,16 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * /* response is
  * {
  *   InstanceProfile: {
- *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
- *     InstanceProfileCreationTime: "2022-12-16T09:44:43.543246Z",
- *     InstanceProfileName: "my-instance-profile",
- *     KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *     PubliclyAccessible: true,
- *     SubnetGroupIdentifier: "public-subnets",
+ *     Description: "Example instance profile for documentation",
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     InstanceProfileCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     InstanceProfileName: "example-instance-profile",
+ *     KmsKeyArn: "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     NetworkType: "IPV4",
+ *     PubliclyAccessible: false,
+ *     SubnetGroupIdentifier: "example-replication-subnet-group",
  *     VpcSecurityGroups: [
- *       "sg-0123456"
+ *       "sg-0123456789abcdef0"
  *     ]
  *   }
  * }

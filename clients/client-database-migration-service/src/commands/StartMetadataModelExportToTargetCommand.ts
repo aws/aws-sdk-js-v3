@@ -26,7 +26,26 @@ export interface StartMetadataModelExportToTargetCommandInput extends StartMetad
 export interface StartMetadataModelExportToTargetCommandOutput extends StartMetadataModelExportToTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Applies converted database objects to your target database. </p>
+ * <p>Queues an export of the selected converted metadata models (database objects such as
+ *          tables, views, and procedures) to your target database. If other requests created by
+ *          <code>Start*</code> operations are already in the migration project's queue, the export
+ *          begins after they complete.</p>
+ *          <p>This operation requires a non-virtual target data provider.</p>
+ *          <p>The export applies only metadata models created by conversion. Metadata models
+ *          imported from the database are skipped.</p>
+ *          <note>
+ *             <p>If objects with the same name already exist on the target database, the export
+ *             overwrites them.</p>
+ *          </note>
+ *          <p>The operation installs the extension pack on the target database. For more
+ *          information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/extension-pack.html">Using extension packs in DMS Schema Conversion</a>.</p>
+ *          <p>To check the status of the export request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsToTarget.html">DescribeMetadataModelExportsToTarget</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelExportToTarget</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,19 +103,19 @@ export interface StartMetadataModelExportToTargetCommandOutput extends StartMeta
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Metadata Model Export To Target
+ * @example Export converted metadata models to the target database
  * ```javascript
- * // Applies converted database objects to your target database.
+ * // The following example queues an export of converted metadata models for all objects in the ExampleSchema schema to the target database.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
  *   OverwriteExtensionPack: true,
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "example-target-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"},"rule-action": "explicit"}]}`
  * };
  * const command = new StartMetadataModelExportToTargetCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

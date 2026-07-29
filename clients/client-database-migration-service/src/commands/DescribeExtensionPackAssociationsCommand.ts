@@ -26,9 +26,13 @@ export interface DescribeExtensionPackAssociationsCommandInput extends DescribeE
 export interface DescribeExtensionPackAssociationsCommandOutput extends DescribeExtensionPackAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of extension pack associations for the specified migration
- *          project. An extension pack is an add-on module that emulates functions present in a source
- *          database that are required when converting objects to the target database.</p>
+ * <p>Returns a paginated list of extension pack installation requests for a migration
+ *          project, initiated by
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartExtensionPackAssociation.html">StartExtensionPackAssociation</a>.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:ListExtensionPacks</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,32 +98,50 @@ export interface DescribeExtensionPackAssociationsCommandOutput extends Describe
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Extension Pack Associations
+ * @example Retrieve the status of extension pack associations
  * ```javascript
- * // Returns a paginated list of extension pack associations for the specified migration project.
+ * // The following example retrieves the status of operations that apply an extension pack to the target database, identified by their request IDs.
  * const input = {
  *   Filters: [
  *     {
- *       Name: "instance-profile-identifier",
+ *       Name: "request-id",
  *       Values: [
- *         "arn:aws:dms:us-east-1:012345678901:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
  *       ]
  *     }
  *   ],
- *   Marker: "0123456789abcdefghijklmnopqrs",
- *   MaxRecords: 20,
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DescribeExtensionPackAssociationsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Marker: "0123456789abcdefghijklmnopqrs",
  *   Requests: [
  *     {
- *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *       Status: "SUCCESS"
+ *     },
+ *     {
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       Progress: {
+ *         ProgressPercent: 50.0,
+ *         ProgressStep: "IN_PROGRESS"
+ *       },
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       Status: "IN_PROGRESS"
+ *     },
+ *     {
+ *       Error: {
+ *         defaultErrorDetails: {
+ *           Message: "The database user in your target secret does not have sufficient privileges. Grant the required privileges and try again."
+ *         }
+ *       },
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       Status: "FAILED"
  *     }
  *   ]
  * }

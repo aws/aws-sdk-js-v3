@@ -24,6 +24,10 @@ export interface CancelMetadataModelCreationCommandOutput extends CancelMetadata
 
 /**
  * <p>Cancels a single metadata model creation operation that was started with <code>StartMetadataModelCreation</code>.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:CancelMetadataModelCreation</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +90,26 @@ export interface CancelMetadataModelCreationCommandOutput extends CancelMetadata
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
+ * @example Cancel a metadata model creation
+ * ```javascript
+ * // The following example cancels a metadata model creation operation.
+ * const input = {
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * };
+ * const command = new CancelMetadataModelCreationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Request: {
+ *     MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     Status: "CANCELING"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

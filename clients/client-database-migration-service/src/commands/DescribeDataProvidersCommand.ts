@@ -25,6 +25,10 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
 /**
  * <p>Returns a paginated list of data providers for your account in the current
  *          region.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:ListDataProviders</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -185,20 +189,18 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Data Providers
+ * @example Describe data providers with a filter
  * ```javascript
- * //
+ * // The following example retrieves the details of a data provider identified by its ARN.
  * const input = {
  *   Filters: [
  *     {
  *       Name: "data-provider-identifier",
  *       Values: [
- *         "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *         "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS"
  *       ]
  *     }
- *   ],
- *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   MaxRecords: 20
+ *   ]
  * };
  * const command = new DescribeDataProvidersCommand(input);
  * const response = await client.send(command);
@@ -206,21 +208,22 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * {
  *   DataProviders: [
  *     {
- *       DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *       DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
- *       DataProviderName: "my-target-data-provider",
- *       Engine: "postgres",
+ *       DataProviderArn: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       DataProviderCreationTime: "2026-01-09T12:30:00.000000Z",
+ *       DataProviderName: "example-data-provider",
+ *       Description: "Example data provider for documentation",
+ *       Engine: "sqlserver",
  *       Settings: {
- *         PostgreSqlSettings: {
- *           DatabaseName: "target",
- *           Port: 5432,
- *           ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *           SslMode: "none"
+ *         MicrosoftSqlServerSettings: {
+ *           CertificateArn: "arn:aws:dms:us-east-1:111122223333:cert:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *           DatabaseName: "ExampleDatabase",
+ *           Port: 1433,
+ *           ServerName: "example-source-server.us-east-1.rds.amazonaws.com",
+ *           SslMode: "verify-full"
  *         }
  *       }
  *     }
- *   ],
- *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   ]
  * }
  * *\/
  * ```

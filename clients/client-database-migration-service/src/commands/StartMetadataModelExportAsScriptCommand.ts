@@ -26,8 +26,21 @@ export interface StartMetadataModelExportAsScriptCommandInput extends StartMetad
 export interface StartMetadataModelExportAsScriptCommandOutput extends StartMetadataModelExportAsScriptResponse, __MetadataBearer {}
 
 /**
- * <p>Saves your converted code to a file as a SQL script, and stores this file on your Amazon S3
- *          bucket.</p>
+ * <p>Queues an export of metadata models (database objects such as tables, views, and
+ *          procedures) as a data definition language (DDL) script. The script is stored as a ZIP
+ *          archive in the Amazon S3 bucket associated with the migration project. If other requests
+ *          created by <code>Start*</code> operations are already in the migration project's queue,
+ *          the export begins after they complete.</p>
+ *          <p>When exporting from the target metadata tree, the export applies only to metadata
+ *          models created by conversion. Metadata models imported from the database are
+ *          skipped.</p>
+ *          <p>To check the status of the export request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelExportsAsScript.html">DescribeMetadataModelExportsAsScript</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelExportAsScripts</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,20 +99,20 @@ export interface StartMetadataModelExportAsScriptCommandOutput extends StartMeta
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Metadata Model Export As Script
+ * @example Export converted metadata models as DDL scripts
  * ```javascript
- * // Saves your converted code to a file as a SQL script, and stores this file on your S3 bucket.
+ * // The following example queues an export of converted metadata models for all objects in the ExampleSchema schema as data definition language (DDL) scripts to the S3 bucket associated with the migration project.
  * const input = {
- *   FileName: "FILE",
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   Origin: "SOURCE",
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   FileName: "ExampleScript",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   Origin: "TARGET",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "example-target-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"},"rule-action": "explicit"}]}`
  * };
  * const command = new StartMetadataModelExportAsScriptCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

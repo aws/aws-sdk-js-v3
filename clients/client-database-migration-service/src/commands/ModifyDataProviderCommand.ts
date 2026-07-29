@@ -24,6 +24,10 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
 
 /**
  * <p>Modifies the specified data provider using the provided settings.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:UpdateDataProvider</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  *          <note>
  *             <p>You must remove the data provider from all migration projects before you can modify
  *             it.</p>
@@ -286,20 +290,16 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Modify Data Provider
+ * @example Modify a data provider
  * ```javascript
- * // Modifies the specified data provider using the provided settings.
+ * // The following example updates the description and server name of a data provider.
  * const input = {
- *   DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   DataProviderName: "new-name",
- *   Description: "description",
+ *   DataProviderIdentifier: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   Description: "Updated data provider description",
  *   Engine: "sqlserver",
  *   Settings: {
  *     MicrosoftSqlServerSettings: {
- *       DatabaseName: "DatabaseName",
- *       Port: 11112,
- *       ServerName: "ServerName2",
- *       SslMode: "none"
+ *       ServerName: "new-source-server.us-east-1.rds.amazonaws.com"
  *     }
  *   }
  * };
@@ -308,16 +308,18 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * /* response is
  * {
  *   DataProvider: {
- *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
- *     DataProviderName: "my-target-data-provider",
- *     Engine: "postgres",
+ *     DataProviderArn: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     DataProviderCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     DataProviderName: "example-data-provider",
+ *     Description: "Updated data provider description",
+ *     Engine: "sqlserver",
  *     Settings: {
- *       PostgreSqlSettings: {
- *         DatabaseName: "target",
- *         Port: 5432,
- *         ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *         SslMode: "none"
+ *       MicrosoftSqlServerSettings: {
+ *         CertificateArn: "arn:aws:dms:us-east-1:111122223333:cert:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *         DatabaseName: "ExampleDatabase",
+ *         Port: 1433,
+ *         ServerName: "new-source-server.us-east-1.rds.amazonaws.com",
+ *         SslMode: "verify-full"
  *       }
  *     }
  *   }

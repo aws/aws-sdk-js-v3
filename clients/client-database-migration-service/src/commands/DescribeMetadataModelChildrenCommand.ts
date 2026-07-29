@@ -24,6 +24,10 @@ export interface DescribeMetadataModelChildrenCommandOutput extends DescribeMeta
 
 /**
  * <p>Gets a list of child metadata models for the specified metadata model in the database hierarchy.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DescribeMetadataModelChildren</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +73,40 @@ export interface DescribeMetadataModelChildrenCommandOutput extends DescribeMeta
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
+ * @example Retrieve children of a schema
+ * ```javascript
+ * // The following example retrieves the child metadata models of the ExampleSchema schema from the source metadata tree.
+ * const input = {
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   Origin: "SOURCE",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"}, "rule-action": "explicit"}]}`
+ * };
+ * const command = new DescribeMetadataModelChildrenCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   MetadataModelChildren: [
+ *     {
+ *       MetadataModelName: "Tables",
+ *       SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema", "category-name": "Tables"}, "rule-action": "explicit"}]}`
+ *     },
+ *     {
+ *       MetadataModelName: "Views",
+ *       SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "2", "rule-name": "2", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema", "category-name": "Views"}, "rule-action": "explicit"}]}`
+ *     },
+ *     {
+ *       MetadataModelName: "Functions",
+ *       SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "3", "rule-name": "3", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema", "category-name": "Functions"}, "rule-action": "explicit"}]}`
+ *     },
+ *     {
+ *       MetadataModelName: "Sequences",
+ *       SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "4", "rule-name": "4", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema", "category-name": "Sequences"}, "rule-action": "explicit"}]}`
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

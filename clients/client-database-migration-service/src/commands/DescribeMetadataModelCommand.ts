@@ -24,6 +24,10 @@ export interface DescribeMetadataModelCommandOutput extends DescribeMetadataMode
 
 /**
  * <p>Gets detailed information about the specified metadata model, including its definition and corresponding converted objects in the target database if applicable.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DescribeMetadataModel</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +73,31 @@ export interface DescribeMetadataModelCommandOutput extends DescribeMetadataMode
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
+ * @example Retrieve a source table metadata model
+ * ```javascript
+ * // The following example retrieves detailed information about the ExampleTable table in the ExampleSchema schema from the source metadata tree, including its SQL definition and references to the corresponding converted metadata models in the target database.
+ * const input = {
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   Origin: "SOURCE",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema", "table-name": "ExampleTable"}, "rule-action": "explicit"}]}`
+ * };
+ * const command = new DescribeMetadataModelCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Definition: "CREATE TABLE ExampleTable (ExampleColumn INTEGER NOT NULL);",
+ *   MetadataModelName: "ExampleTable",
+ *   MetadataModelType: "table",
+ *   TargetMetadataModels: [
+ *     {
+ *       MetadataModelName: "exampletable",
+ *       SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-target-server.us-east-1.rds.amazonaws.com", "schema-name": "exampleschema", "table-name": "exampletable"}, "rule-action": "explicit"}]}`
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

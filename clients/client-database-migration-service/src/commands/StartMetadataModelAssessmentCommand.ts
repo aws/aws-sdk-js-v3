@@ -23,10 +23,23 @@ export interface StartMetadataModelAssessmentCommandInput extends StartMetadataM
 export interface StartMetadataModelAssessmentCommandOutput extends StartMetadataModelAssessmentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a database migration assessment report by assessing the migration complexity for
- *          your source database. A database migration assessment report summarizes all of the schema
- *          conversion tasks. It also details the action items for database objects that can't be
- *          converted to the database engine of your target database instance. </p>
+ * <p>Queues an assessment of the selected source metadata models (database objects such as
+ *          tables, views, and procedures) to evaluate conversion complexity to the target database
+ *          format. If other requests created by <code>Start*</code> operations are already in the
+ *          migration project's queue, the assessment begins after they complete.</p>
+ *          <p>The assessment request loads metadata models that are not yet in the metadata tree, but
+ *          does not reload metadata models that are already present. If your source database has
+ *          changed since the metadata was loaded, refresh the affected metadata models with
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a> before calling this operation.</p>
+ *          <p>To check the status of the assessment request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelAssessments.html">DescribeMetadataModelAssessments</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>To export the conversion assessment report after the request completes successfully,
+ *          call <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">ExportMetadataModelAssessment</a>.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelAssessment</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,19 +96,18 @@ export interface StartMetadataModelAssessmentCommandOutput extends StartMetadata
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Metadata Model Assessment
+ * @example Assess all objects in a schema
  * ```javascript
- * // Creates a database migration assessment report by assessing the migration complexity for
- *          your source database.
+ * // The following example queues an assessment of the conversion complexity for all objects in the ExampleSchema schema.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"},"rule-action": "explicit"}]}`
  * };
  * const command = new StartMetadataModelAssessmentCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

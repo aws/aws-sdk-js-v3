@@ -25,6 +25,10 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
 /**
  * <p>Returns a paginated list of instance profiles for your account in the current
  *          region.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:ListInstanceProfiles</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,20 +93,18 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Instance Profiles
+ * @example Describe instance profiles with a filter
  * ```javascript
- * // Returns a paginated list of instance profiles for your account in the current region.
+ * // The following example retrieves the details of an instance profile identified by its ARN.
  * const input = {
  *   Filters: [
  *     {
  *       Name: "instance-profile-identifier",
  *       Values: [
- *         "arn:aws:dms:us-east-1:012345678901:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *         "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS"
  *       ]
  *     }
- *   ],
- *   Marker: "0123456789abcdefghijklmnopqrs",
- *   MaxRecords: 20
+ *   ]
  * };
  * const command = new DescribeInstanceProfilesCommand(input);
  * const response = await client.send(command);
@@ -110,15 +112,19 @@ export interface DescribeInstanceProfilesCommandOutput extends DescribeInstanceP
  * {
  *   InstanceProfiles: [
  *     {
- *       InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
- *       InstanceProfileCreationTime: "2022-12-16T09:44:43.543246Z",
- *       InstanceProfileName: "my-instance-profile",
- *       KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *       PubliclyAccessible: true,
- *       SubnetGroupIdentifier: "public-subnets"
+ *       Description: "Example instance profile for documentation",
+ *       InstanceProfileArn: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       InstanceProfileCreationTime: "2026-01-09T12:30:00.000000Z",
+ *       InstanceProfileName: "example-instance-profile",
+ *       KmsKeyArn: "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       NetworkType: "IPV4",
+ *       PubliclyAccessible: false,
+ *       SubnetGroupIdentifier: "example-replication-subnet-group",
+ *       VpcSecurityGroups: [
+ *         "sg-0123456789abcdef0"
+ *       ]
  *     }
- *   ],
- *   Marker: "0123456789abcdefghijklmnopqrs"
+ *   ]
  * }
  * *\/
  * ```

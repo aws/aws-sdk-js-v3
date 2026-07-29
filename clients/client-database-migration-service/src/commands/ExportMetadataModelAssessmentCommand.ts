@@ -25,6 +25,10 @@ export interface ExportMetadataModelAssessmentCommandOutput extends ExportMetada
 /**
  * <p>Saves a copy of a database migration assessment report to your Amazon S3 bucket. DMS can
  *          save your assessment report as a comma-separated value (CSV) or a PDF file. </p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:ExportMetadataModelAssessment</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,28 +73,29 @@ export interface ExportMetadataModelAssessmentCommandOutput extends ExportMetada
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Export Metadata Model Assessment
+ * @example Export a conversion assessment report
  * ```javascript
- * // Saves a copy of a database migration assessment report to your S3 bucket. DMS can save your assessment report as a comma-separated value (CSV) or a PDF file.
+ * // The following example exports a conversion assessment report for all objects in the ExampleSchema schema.
  * const input = {
  *   AssessmentReportTypes: [
- *     "pdf"
+ *     "pdf",
+ *     "csv"
  *   ],
- *   FileName: "file",
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-a1b2c3d4e5f6.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   FileName: "example-assessment-report",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"}, "rule-action": "explicit"}]}`
  * };
  * const command = new ExportMetadataModelAssessmentCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
  *   CsvReport: {
- *     ObjectURL: "url",
- *     S3ObjectKey: "object-name"
+ *     ObjectURL: "https://amzn-s3-demo-bucket.s3.amazonaws.com/example-migration-project/example-assessment-report.zip",
+ *     S3ObjectKey: "example-migration-project/example-assessment-report.zip"
  *   },
  *   PdfReport: {
- *     ObjectURL: "url",
- *     S3ObjectKey: "object-name"
+ *     ObjectURL: "https://amzn-s3-demo-bucket.s3.amazonaws.com/example-migration-project/example-assessment-report.pdf",
+ *     S3ObjectKey: "example-migration-project/example-assessment-report.pdf"
  *   }
  * }
  * *\/

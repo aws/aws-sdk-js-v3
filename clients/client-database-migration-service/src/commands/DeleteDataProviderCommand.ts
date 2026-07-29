@@ -24,6 +24,10 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
 
 /**
  * <p>Deletes the specified data provider.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DeleteDataProvider</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  *          <note>
  *             <p>All migration projects associated with the data provider must be deleted or modified
  *             before you can delete the data provider.</p>
@@ -179,27 +183,29 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Delete Data Provider
+ * @example Delete a data provider
  * ```javascript
- * // Deletes the specified data provider.
+ * // The following example deletes a data provider identified by its ARN.
  * const input = {
- *   DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   DataProviderIdentifier: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DeleteDataProviderCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
  *   DataProvider: {
- *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
- *     DataProviderName: "my-target-data-provider",
- *     Engine: "postgres",
+ *     DataProviderArn: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     DataProviderCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     DataProviderName: "example-data-provider",
+ *     Description: "Example data provider for documentation",
+ *     Engine: "sqlserver",
  *     Settings: {
- *       PostgreSqlSettings: {
- *         DatabaseName: "target",
- *         Port: 5432,
- *         ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *         SslMode: "none"
+ *       MicrosoftSqlServerSettings: {
+ *         CertificateArn: "arn:aws:dms:us-east-1:111122223333:cert:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *         DatabaseName: "ExampleDatabase",
+ *         Port: 1433,
+ *         ServerName: "example-source-server.us-east-1.rds.amazonaws.com",
+ *         SslMode: "verify-full"
  *       }
  *     }
  *   }

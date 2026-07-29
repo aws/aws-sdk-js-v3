@@ -23,7 +23,57 @@ export interface StartMetadataModelConversionCommandInput extends StartMetadataM
 export interface StartMetadataModelConversionCommandOutput extends StartMetadataModelConversionResponse, __MetadataBearer {}
 
 /**
- * <p>Converts your source database objects to a format compatible with the target database. </p>
+ * <p>Queues a conversion of the selected source metadata models (database objects such as
+ *          tables, views, and procedures) to the target database format. If other requests created
+ *          by <code>Start*</code> operations are already in the migration project's queue, the
+ *          conversion begins after they complete.</p>
+ *          <p>The conversion request loads metadata models that are not yet in the metadata tree, but
+ *          does not reload metadata models that are already present. If your source database has
+ *          changed since the metadata was loaded, refresh the affected metadata models with
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a> before calling this operation.</p>
+ *          <note>
+ *             <p>If converted objects already exist in the target metadata tree, the conversion
+ *             overwrites them, including any manual edits.</p>
+ *          </note>
+ *          <p>To check the status of the conversion request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelConversions.html">DescribeMetadataModelConversions</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>To cancel a queued or in-progress request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelConversion.html">CancelMetadataModelConversion</a> with the returned
+ *          <code>RequestIdentifier</code>.</p>
+ *          <p>After the conversion completes successfully:</p>
+ *          <ul>
+ *             <li>
+ *                <p>To export a post-conversion assessment report, call
+ *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_ExportMetadataModelAssessment.html">ExportMetadataModelAssessment</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To retrieve converted code, use any of the following
+ *             options:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModel.html">DescribeMetadataModel</a> and
+ *                   <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelChildren.html">DescribeMetadataModelChildren</a> – navigate the target metadata
+ *                   tree and retrieve converted definitions.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportAsScript.html">StartMetadataModelExportAsScript</a> – export as data definition
+ *                   language (DDL) scripts to your Amazon S3 bucket.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelExportToTarget.html">StartMetadataModelExportToTarget</a> – apply directly to your
+ *                   target database.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelConversion</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,18 +130,18 @@ export interface StartMetadataModelConversionCommandOutput extends StartMetadata
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Metadata Model Conversion
+ * @example Convert all objects in a schema
  * ```javascript
- * // Converts your source database objects to a format compatible with the target database.
+ * // The following example queues a conversion of all objects in the ExampleSchema schema to the target database format.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"},"rule-action": "explicit"}]}`
  * };
  * const command = new StartMetadataModelConversionCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

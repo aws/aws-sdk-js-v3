@@ -23,10 +23,39 @@ export interface StartMetadataModelCreationCommandInput extends StartMetadataMod
 export interface StartMetadataModelCreationCommandOutput extends StartMetadataModelCreationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates source metadata model of the given type with the specified properties for schema conversion operations.</p>
+ * <p>Queues the creation of a metadata model in the source metadata tree. If other requests
+ *          created by <code>Start*</code> operations are already in the migration project's queue, the
+ *          creation begins after they complete.</p>
  *          <note>
- *             <p>This action supports only these directions: from SQL Server to Aurora PostgreSQL, or from SQL Server to RDS for PostgreSQL.</p>
+ *             <p>This operation supports only Microsoft SQL Server to Aurora PostgreSQL and
+ *          Microsoft SQL Server to Amazon RDS for PostgreSQL conversion paths.</p>
  *          </note>
+ *          <p>To check the status of the creation request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelCreations.html">DescribeMetadataModelCreations</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>To cancel a queued or in-progress request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelCreation.html">CancelMetadataModelCreation</a> with the returned
+ *          <code>RequestIdentifier</code>.</p>
+ *          <important>
+ *             <p>Calling
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a> with <code>Refresh</code> deletes metadata models
+ *          created by this operation.</p>
+ *          </important>
+ *          <p>After the creation completes successfully:</p>
+ *          <ul>
+ *             <li>
+ *                <p>To evaluate conversion complexity, call
+ *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelAssessment.html">StartMetadataModelAssessment</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>To convert to the target database format, call
+ *             <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html">StartMetadataModelConversion</a>.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelCreation</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +104,28 @@ export interface StartMetadataModelCreationCommandOutput extends StartMetadataMo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
+ * @example Create a metadata model for a SQL statement
+ * ```javascript
+ * // The following example queues the creation of a metadata model for a SQL statement. The selection rule specifies the schema where the metadata model is placed, and MetadataModelName provides a unique identifier for use in subsequent operations.
+ * const input = {
+ *   MetadataModelName: "ExampleStatement",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   Properties: {
+ *     StatementProperties: {
+ *       Definition: "SELECT * FROM ExampleTable;"
+ *     }
+ *   },
+ *   SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "database-name": "ExampleDatabase", "schema-name": "ExampleSchema"}, "rule-action": "explicit"}]}`
+ * };
+ * const command = new StartMetadataModelCreationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

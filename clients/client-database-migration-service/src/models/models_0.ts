@@ -435,18 +435,18 @@ export namespace ErrorDetails {
 }
 
 /**
- * <p>Provides information about a metadata model assessment exported to SQL.</p>
+ * <p>The Amazon S3 location of the ZIP archive that contains the exported data definition language (DDL) scripts.</p>
  * @public
  */
 export interface ExportSqlDetails {
   /**
-   * <p>The Amazon S3 object key for the object containing the exported metadata model assessment.</p>
+   * <p>The Amazon S3 URI of the object that contains the ZIP archive with exported DDL scripts.</p>
    * @public
    */
   S3ObjectKey?: string | undefined;
 
   /**
-   * <p>The URL for the object containing the exported metadata model assessment.</p>
+   * <p>The URL of the Amazon S3 object that contains the ZIP archive with exported DDL scripts.</p>
    * @public
    */
   ObjectURL?: string | undefined;
@@ -545,7 +545,33 @@ export interface Progress {
  */
 export interface SchemaConversionRequest {
   /**
-   * <p>The schema conversion action status.</p>
+   * <p>The schema conversion operation status. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RECEIVED</code> – The operation is received but not yet queued for processing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> – The operation is queued or actively running.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> – The operation completed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The operation did not complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELING</code> – The operation is being canceled. The operation might still succeed or fail before cancellation takes effect.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CANCELED</code> – The operation was canceled before completion.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Status?: string | undefined;
@@ -569,7 +595,10 @@ export interface SchemaConversionRequest {
   Error?: ErrorDetails | undefined;
 
   /**
-   * <p>Provides information about a metadata model assessment exported to SQL.</p>
+   * <p>The Amazon S3 location of the ZIP archive that contains the exported data definition language (DDL) scripts.</p>
+   *          <note>
+   *             <p>DMS populates this field only for the <code>DescribeMetadataModelExportsAsScript</code> operation.</p>
+   *          </note>
    * @public
    */
   ExportSqlDetails?: ExportSqlDetails | undefined;
@@ -586,7 +615,10 @@ export interface SchemaConversionRequest {
  */
 export interface CancelMetadataModelConversionResponse {
   /**
-   * <p>Provides information about a schema conversion action.</p>
+   * <p>The metadata model conversion request.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Request?: SchemaConversionRequest | undefined;
@@ -614,7 +646,10 @@ export interface CancelMetadataModelCreationMessage {
  */
 export interface CancelMetadataModelCreationResponse {
   /**
-   * <p>Provides information about a schema conversion action.</p>
+   * <p>The metadata model creation request.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Request?: SchemaConversionRequest | undefined;
@@ -2050,9 +2085,12 @@ export interface CreateDataProviderMessage {
   Description?: string | undefined;
 
   /**
-   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   * <p>The type of database engine for the data provider.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-postgresql</code>, <code>db2</code>,
+   *          <code>db2-zos</code>, <code>docdb</code>, <code>mariadb</code>, <code>mongodb</code>,
+   *          <code>mysql</code>, <code>oracle</code>, <code>postgres</code>, <code>redshift</code>,
+   *          <code>sqlserver</code>, and <code>sybase</code>. A value of <code>aurora</code> represents
+   *          Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine: string | undefined;
@@ -2108,9 +2146,12 @@ export interface DataProvider {
   Description?: string | undefined;
 
   /**
-   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   * <p>The type of database engine for the data provider.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-postgresql</code>, <code>db2</code>,
+   *          <code>db2-zos</code>, <code>docdb</code>, <code>mariadb</code>, <code>mongodb</code>,
+   *          <code>mysql</code>, <code>oracle</code>, <code>postgres</code>, <code>redshift</code>,
+   *          <code>sqlserver</code>, and <code>sybase</code>. A value of <code>aurora</code> represents
+   *          Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -2203,9 +2244,14 @@ export interface DocDbSettings {
   NestingLevel?: NestingLevelValue | undefined;
 
   /**
-   * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
-   *             <code>"none"</code>. </p>
-   *          <p>Default value is <code>"false"</code>. </p>
+   * <p>Specifies whether the document ID is added to the target table. Use this setting when
+   *            <code>NestingLevel</code> is set to <code>"none"</code>.
+   *        </p>
+   *          <p>Set <code>ExtractDocId</code> to <code>true</code> when using
+   *            <a href="https://www.mongodb.com/docs/manual/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction">multi-document transactions</a>
+   *            with CDC.
+   *        </p>
+   *          <p>Default value is <code>false</code>.</p>
    * @public
    */
   ExtractDocId?: boolean | undefined;
@@ -3087,9 +3133,14 @@ export interface MongoDbSettings {
   NestingLevel?: NestingLevelValue | undefined;
 
   /**
-   * <p> Specifies the document ID. Use this setting when <code>NestingLevel</code> is set to
-   *             <code>"none"</code>. </p>
-   *          <p>Default value is <code>"false"</code>. </p>
+   * <p>Specifies whether the document ID is added to the target table. Use this setting when
+   *            <code>NestingLevel</code> is set to <code>"none"</code>.
+   *        </p>
+   *          <p>Set <code>ExtractDocId</code> to <code>"true"</code> when using
+   *            <a href="https://www.mongodb.com/docs/manual/reference/method/Session.startTransaction/#mongodb-method-Session.startTransaction">multi-document transactions</a>
+   *            with CDC.
+   *        </p>
+   *          <p>Default value is <code>"false"</code>.</p>
    * @public
    */
   ExtractDocId?: string | undefined;
@@ -3651,12 +3702,12 @@ export interface OracleSettings {
 
   /**
    * <p>For an Oracle source endpoint, the transparent data encryption (TDE) password required
-   *          by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is also the
+   *          by DMS to access Oracle redo logs encrypted by TDE using Binary Reader. It is also the
    *                <code>
    *                <i>TDE_Password</i>
    *             </code> part of the comma-separated value you
    *          set to the <code>Password</code> request parameter when you create the endpoint. The
-   *             <code>SecurityDbEncryptian</code> setting is related to this
+   *             <code>SecurityDbEncryption</code> setting is related to this
    *             <code>SecurityDbEncryptionName</code> setting. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.Encryption"> Supported encryption methods for using Oracle as a source for
    *             DMS </a> in the <i>Database Migration Service User Guide</i>. </p>
    * @public
@@ -6212,9 +6263,14 @@ export interface CreateMigrationProjectMessage {
   InstanceProfileIdentifier: string | undefined;
 
   /**
-   * <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change
-   *          the object names according to the rules that you specify. For example, you can change an object name
-   *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
+   * <p>A JSON string that specifies the transformation rules for the migration project.
+   *          Transformation rules let you customize how DMS Schema Conversion converts your source
+   *          database objects, including renaming, adding prefixes or suffixes, and changing data types.
+   *          For the transformation rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-transformation-rules.html">Transformation rules in DMS
+   *             Schema Conversion</a>.</p>
+   *          <note>
+   *             <p>Homogeneous data migrations do not support transformation rules.</p>
+   *          </note>
    * @public
    */
   TransformationRules?: string | undefined;
@@ -6316,9 +6372,14 @@ export interface MigrationProject {
   InstanceProfileName?: string | undefined;
 
   /**
-   * <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change
-   *          the object names according to the rules that you specify. For example, you can change an object name
-   *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
+   * <p>The transformation rules for the migration project in JSON format.
+   *          Transformation rules let you customize how DMS Schema Conversion converts your source
+   *          database objects, including renaming, adding prefixes or suffixes, and changing data types.
+   *          For the transformation rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-transformation-rules.html">Transformation rules in DMS
+   *             Schema Conversion</a>.</p>
+   *          <note>
+   *             <p>Homogeneous data migrations do not support transformation rules.</p>
+   *          </note>
    * @public
    */
   TransformationRules?: string | undefined;
@@ -8655,7 +8716,10 @@ export interface DescribeConversionConfigurationResponse {
   MigrationProjectIdentifier?: string | undefined;
 
   /**
-   * <p>The configuration parameters for the schema conversion project.</p>
+   * <p>A JSON string that contains the schema conversion settings for the migration project.
+   *          For the format and available settings, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-settings.html">Specifying schema conversion
+   *             settings for migration projects</a>.</p>
    * @public
    */
   ConversionConfiguration?: string | undefined;
@@ -8728,8 +8792,14 @@ export interface DescribeDataMigrationsResponse {
  */
 export interface DescribeDataProvidersMessage {
   /**
-   * <p>Filters applied to the data providers described in the form of key-value pairs.</p>
-   *          <p>Valid filter names and values: data-provider-identifier, data provider arn or name</p>
+   * <p>The filters to apply to the data providers.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>data-provider-identifier</code> – The data provider name or ARN.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -9380,13 +9450,24 @@ export interface DescribeEventSubscriptionsResponse {
  */
 export interface DescribeExtensionPackAssociationsMessage {
   /**
-   * <p>The name or Amazon Resource Name (ARN) for the migration project.</p>
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
    * @public
    */
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the extension pack associations described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the extension pack installation requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -9427,7 +9508,10 @@ export interface DescribeExtensionPackAssociationsResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of extension pack associations for the specified migration project.</p>
+   * <p>A paginated list of extension pack installation requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10266,8 +10350,14 @@ export interface DescribeFleetAdvisorSchemasResponse {
  */
 export interface DescribeInstanceProfilesMessage {
   /**
-   * <p>Filters applied to the instance profiles described in the form of key-value pairs.</p>
-   *          <p>Valid filter names and values: instance-profile-identifier, instance profile arn or name</p>
+   * <p>The filters to apply to the instance profiles.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>instance-profile-identifier</code> – The instance profile name or ARN.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10319,7 +10409,19 @@ export interface DescribeInstanceProfilesResponse {
  */
 export interface DescribeMetadataModelMessage {
   /**
-   * <p>The JSON string that specifies which metadata model to retrieve. Only one selection rule with "rule-action": "explicit" can be provided. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection Rules</a> in the DMS User Guide.</p>
+   * <p>A JSON string that identifies the metadata model to retrieve. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts source or target selection rules depending on the <code>Origin</code> parameter. The <code>server-name</code> in the object locator must match the corresponding data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports only <code>explicit</code> rule actions.</p>
+   *             </li>
+   *             <li>
+   *                <p>Exactly one rule is allowed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -10349,7 +10451,13 @@ export interface MetadataModelReference {
   MetadataModelName?: string | undefined;
 
   /**
-   * <p>The JSON string representing metadata model location.</p>
+   * <p>A JSON string that identifies this metadata model in the metadata tree. For the selection rule format, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You can pass this value as the <code>SelectionRules</code> parameter to any operation that accepts selection rules, such as <code>DescribeMetadataModel</code>, <code>StartMetadataModelConversion</code>, and others.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules?: string | undefined;
@@ -10389,13 +10497,24 @@ export interface DescribeMetadataModelResponse {
  */
 export interface DescribeMetadataModelAssessmentsMessage {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the migration project.</p>
+   * <p>The migration project name or Amazon Resource Name (ARN).</p>
    * @public
    */
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the metadata model assessments described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the metadata model assessment requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10405,8 +10524,8 @@ export interface DescribeMetadataModelAssessmentsMessage {
    *          If this parameter is specified, the response includes only records beyond the marker, up to the
    *          value specified by <code>MaxRecords</code>.</p>
    *          <p>If <code>Marker</code> is returned by a previous response, there are more results available.
-   *             The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page,
-   *             make the call again using the returned token and keeping all other arguments unchanged.</p>
+   *          The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page,
+   *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
   Marker?: string | undefined;
@@ -10436,7 +10555,10 @@ export interface DescribeMetadataModelAssessmentsResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model assessments for the specified migration project.</p>
+   * <p>A paginated list of metadata model assessment requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10447,7 +10569,19 @@ export interface DescribeMetadataModelAssessmentsResponse {
  */
 export interface DescribeMetadataModelChildrenMessage {
   /**
-   * <p>The JSON string that specifies which metadata model's children to retrieve. Only one selection rule with "rule-action": "explicit" can be provided. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Selections.html">Selection Rules</a> in the DMS User Guide.</p>
+   * <p>A JSON string that identifies the metadata model whose children to retrieve. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts source or target selection rules depending on the <code>Origin</code> parameter. The <code>server-name</code> in the object locator must match the corresponding data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports only <code>explicit</code> rule actions.</p>
+   *             </li>
+   *             <li>
+   *                <p>Exactly one rule is allowed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -10505,7 +10639,18 @@ export interface DescribeMetadataModelConversionsMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the metadata model conversions described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the metadata model conversion requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>, <code>CANCELING</code>, <code>CANCELED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10546,7 +10691,10 @@ export interface DescribeMetadataModelConversionsResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model conversions.</p>
+   * <p>A paginated list of metadata model conversion requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10557,19 +10705,37 @@ export interface DescribeMetadataModelConversionsResponse {
  */
 export interface DescribeMetadataModelCreationsMessage {
   /**
-   * <p>Filters applied to the metadata model creation requests described in the form of key-value pairs. The supported filters are request-id and status.</p>
+   * <p>The filters to apply to the metadata model creation requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>, <code>CANCELING</code>, <code>CANCELED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
 
   /**
-   * <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model creation requests. If Marker is returned by a previous response, there are more metadata model creation requests available.</p>
+   * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
+   *          If this parameter is specified, the response includes only records beyond the marker, up to the
+   *          value specified by <code>MaxRecords</code>.</p>
+   *          <p>If <code>Marker</code> is returned by a previous response, there are more results available.
+   *          The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page,
+   *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>The maximum number of metadata model creation requests to include in the response. If more requests exist than the specified MaxRecords value, a pagination token is provided in the response so that you can retrieve the remaining results.</p>
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, DMS includes a pagination token
+   *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -10586,13 +10752,21 @@ export interface DescribeMetadataModelCreationsMessage {
  */
 export interface DescribeMetadataModelCreationsResponse {
   /**
-   * <p>Specifies the unique pagination token that makes it possible to display the next page of metadata model creation requests. If Marker is returned, there are more metadata model creation requests available.</p>
+   * <p>Specifies the unique pagination token that makes it possible to display the next page of results.
+   *          If this parameter is specified, the response includes only records beyond the marker, up to the
+   *          value specified by <code>MaxRecords</code>.</p>
+   *          <p>If <code>Marker</code> is returned by a previous response, there are more results available.
+   *          The value of <code>Marker</code> is a unique pagination token for each page. To retrieve the next page,
+   *          make the call again using the returned token and keeping all other arguments unchanged.</p>
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>A list of metadata model creation requests. The ExportSqlDetails field will never be populated for the DescribeMetadataModelCreations operation.</p>
+   * <p>A paginated list of metadata model creation requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10609,7 +10783,18 @@ export interface DescribeMetadataModelExportsAsScriptMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the metadata model exports described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the metadata model export requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10650,7 +10835,7 @@ export interface DescribeMetadataModelExportsAsScriptResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model exports.</p>
+   * <p>A paginated list of metadata model export requests.</p>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10667,7 +10852,18 @@ export interface DescribeMetadataModelExportsToTargetMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the metadata model exports described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the metadata model export requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10708,7 +10904,10 @@ export interface DescribeMetadataModelExportsToTargetResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model exports.</p>
+   * <p>A paginated list of metadata model export requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10725,7 +10924,18 @@ export interface DescribeMetadataModelImportsMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>Filters applied to the metadata model imports described in the form of key-value pairs.</p>
+   * <p>The filters to apply to the metadata model import requests.</p>
+   *          <p>The following filter names are supported:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>request-id</code> – The request identifier.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>status</code> – The request status. Valid values: <code>RECEIVED</code>, <code>IN_PROGRESS</code>, <code>SUCCESS</code>, <code>FAILED</code>.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   Filters?: Filter[] | undefined;
@@ -10742,7 +10952,9 @@ export interface DescribeMetadataModelImportsMessage {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model imports.</p>
+   * <p>The maximum number of records to include in the response. If more records exist than
+   *          the specified <code>MaxRecords</code> value, DMS includes a pagination token
+   *          in the response so that you can retrieve the remaining results.</p>
    * @public
    */
   MaxRecords?: number | undefined;
@@ -10764,7 +10976,10 @@ export interface DescribeMetadataModelImportsResponse {
   Marker?: string | undefined;
 
   /**
-   * <p>A paginated list of metadata model imports.</p>
+   * <p>A paginated list of metadata model import requests.</p>
+   *          <note>
+   *             <p>DMS never populates the <code>ExportSqlDetails</code> field for this operation.</p>
+   *          </note>
    * @public
    */
   Requests?: SchemaConversionRequest[] | undefined;
@@ -10775,17 +10990,28 @@ export interface DescribeMetadataModelImportsResponse {
  */
 export interface DescribeMigrationProjectsMessage {
   /**
-   * <p>Filters applied to the migration projects described in the form of key-value pairs.</p>
-   *          <p>Valid filter names and values:</p>
+   * <p>The filters to apply to the migration projects.</p>
+   *          <p>The following filter names are supported:</p>
    *          <ul>
    *             <li>
-   *                <p>instance-profile-identifier, instance profile arn or name</p>
+   *                <p>
+   *                   <code>migration-project-identifier</code> – The migration project name or ARN.</p>
    *             </li>
    *             <li>
-   *                <p>data-provider-identifier, data provider arn or name</p>
+   *                <p>
+   *                   <code>instance-profile-identifier</code> – The instance profile name or ARN.</p>
    *             </li>
    *             <li>
-   *                <p>migration-project-identifier, migration project arn or name</p>
+   *                <p>
+   *                   <code>data-provider-identifier</code> – The source or target data provider name or ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>source-data-provider-identifier</code> – The source data provider name or ARN.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target-data-provider-identifier</code> – The target data provider name or ARN.</p>
    *             </li>
    *          </ul>
    * @public
@@ -12999,7 +13225,16 @@ export interface ExportMetadataModelAssessmentMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to assess.</p>
+   * <p>A JSON string that identifies the metadata models to export a conversion assessment report for. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only source selection rules, where <code>server-name</code> in the object locator matches the source data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports only <code>explicit</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -13063,7 +13298,22 @@ export interface GetTargetSelectionRulesMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>The JSON string representing the source selection rules for conversion. Selection rules must contain only supported metadata model types. For more information, see Selection Rules in the DMS User Guide.</p>
+   * <p>A JSON string that contains the source selection rules to convert into their target counterparts. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only source selection rules, where <code>server-name</code> in the object locator matches the source data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports only <code>explicit</code> rule actions.</p>
+   *             </li>
+   *             <li>
+   *                <p>Does not support <code>category-name</code> in the object locator.</p>
+   *             </li>
+   *             <li>
+   *                <p>Up to 10 rules are allowed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -13182,7 +13432,17 @@ export interface ModifyConversionConfigurationMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>The new conversion configuration.</p>
+   * <p>A JSON string that contains the schema conversion settings to update.
+   *          For the format and available settings, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/schema-conversion-settings.html">Specifying schema conversion
+   *             settings for migration projects</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Include only the sections and keys to change. The operation merges supplied
+   *             values with the existing configuration.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ConversionConfiguration: string | undefined;
@@ -13296,9 +13556,12 @@ export interface ModifyDataProviderMessage {
   Description?: string | undefined;
 
   /**
-   * <p>The type of database engine for the data provider. Valid values include <code>"aurora"</code>,
-   *          <code>"aurora-postgresql"</code>, <code>"mysql"</code>, <code>"oracle"</code>, <code>"postgres"</code>,
-   *          <code>"sqlserver"</code>, <code>redshift</code>, <code>mariadb</code>, <code>mongodb</code>, <code>db2</code>, <code>db2-zos</code>, <code>docdb</code>, and <code>sybase</code>. A value of <code>"aurora"</code> represents Amazon Aurora MySQL-Compatible Edition.</p>
+   * <p>The type of database engine for the data provider.</p>
+   *          <p>Valid values: <code>aurora</code>, <code>aurora-postgresql</code>, <code>db2</code>,
+   *          <code>db2-zos</code>, <code>docdb</code>, <code>mariadb</code>, <code>mongodb</code>,
+   *          <code>mysql</code>, <code>oracle</code>, <code>postgres</code>, <code>redshift</code>,
+   *          <code>sqlserver</code>, and <code>sybase</code>. A value of <code>aurora</code> represents
+   *          Amazon Aurora MySQL-Compatible Edition.</p>
    * @public
    */
   Engine?: string | undefined;
@@ -13840,9 +14103,14 @@ export interface ModifyMigrationProjectMessage {
   InstanceProfileIdentifier?: string | undefined;
 
   /**
-   * <p>The settings in JSON format for migration rules. Migration rules make it possible for you to change
-   *          the object names according to the rules that you specify. For example, you can change an object name
-   *          to lowercase or uppercase, add or remove a prefix or suffix, or rename objects.</p>
+   * <p>A JSON string that specifies the transformation rules for the migration project.
+   *          Transformation rules let you customize how DMS Schema Conversion converts your source
+   *          database objects, including renaming, adding prefixes or suffixes, and changing data types.
+   *          For the transformation rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-transformation-rules.html">Transformation rules in DMS
+   *             Schema Conversion</a>.</p>
+   *          <note>
+   *             <p>Homogeneous data migrations do not support transformation rules.</p>
+   *          </note>
    * @public
    */
   TransformationRules?: string | undefined;

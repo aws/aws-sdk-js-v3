@@ -23,9 +23,20 @@ export interface StartExtensionPackAssociationCommandInput extends StartExtensio
 export interface StartExtensionPackAssociationCommandOutput extends StartExtensionPackAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Applies the extension pack to your target database. An extension pack is an add-on
- *          module that emulates functions present in a source database that are required when
- *          converting objects to the target database. </p>
+ * <p>Queues the installation of the extension pack on your target database. If other
+ *          requests created by <code>Start*</code> operations are already in the migration project's
+ *          queue, the installation begins after they complete.</p>
+ *          <p>This operation requires a non-virtual target data provider.</p>
+ *          <p>If the extension pack already exists, the operation reinstalls it. To ensure
+ *          compatibility, reconvert your database objects if the version has changed since your last
+ *          conversion. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/extension-pack.html">Using extension packs in DMS Schema Conversion</a>.</p>
+ *          <p>To check the status of the request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeExtensionPackAssociations.html">DescribeExtensionPackAssociations</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:AssociateExtensionPack</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,17 +92,17 @@ export interface StartExtensionPackAssociationCommandOutput extends StartExtensi
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Extension Pack Association
+ * @example Install the extension pack on the target database
  * ```javascript
- * // Applies the extension pack to your target database.
+ * // The following example queues the installation of the extension pack on the target database.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new StartExtensionPackAssociationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

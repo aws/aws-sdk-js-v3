@@ -23,7 +23,13 @@ export interface DescribeMetadataModelImportsCommandInput extends DescribeMetada
 export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetadataModelImportsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model imports.</p>
+ * <p>Returns a paginated list of metadata model import requests for a migration
+ *          project, initiated by
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelImport.html">StartMetadataModelImport</a>.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DescribeMetadataModelImports</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,32 +98,54 @@ export interface DescribeMetadataModelImportsCommandOutput extends DescribeMetad
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Metadata Model Imports
+ * @example Retrieve the status of metadata model imports
  * ```javascript
- * // Returns a paginated list of metadata model imports.
+ * // The following example retrieves the status of metadata import operations identified by their request IDs.
  * const input = {
  *   Filters: [
  *     {
  *       Name: "request-id",
  *       Values: [
- *         "01234567-89ab-cdef-0123-456789abcdef"
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
  *       ]
  *     }
  *   ],
- *   Marker: "0123456789abcdefghijklmnopqrs",
- *   MaxRecords: 20,
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DescribeMetadataModelImportsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Marker: "0123456789abcdefghijklmnopqrs",
  *   Requests: [
  *     {
- *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *       Status: "SUCCESS"
+ *     },
+ *     {
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       Progress: {
+ *         ProcessedObject: {
+ *           EndpointType: "SOURCE"
+ *         },
+ *         ProgressPercent: 50.0,
+ *         ProgressStep: "IN_PROGRESS",
+ *         TotalObjects: 100
+ *       },
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       Status: "IN_PROGRESS"
+ *     },
+ *     {
+ *       Error: {
+ *         defaultErrorDetails: {
+ *           Message: "No objects were found according to the specified selection rules. Please review your selection rules and try again."
+ *         }
+ *       },
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       Status: "FAILED"
  *     }
  *   ]
  * }

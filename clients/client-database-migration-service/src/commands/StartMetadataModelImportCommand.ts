@@ -23,9 +23,17 @@ export interface StartMetadataModelImportCommandInput extends StartMetadataModel
 export interface StartMetadataModelImportCommandOutput extends StartMetadataModelImportResponse, __MetadataBearer {}
 
 /**
- * <p>Loads the metadata for all the dependent database objects of the parent object.</p>
- *          <p>This operation uses your project's Amazon S3 bucket as a metadata cache to improve
- *          performance.</p>
+ * <p>Queues an import of metadata models (database objects such as tables, views, and
+ *          procedures) from your data provider into the metadata tree. If other requests created
+ *          by <code>Start*</code> operations are already in the migration project's queue, the
+ *          import begins after they complete.</p>
+ *          <p>To check the status of the import request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_DescribeMetadataModelImports.html">DescribeMetadataModelImports</a> using the returned
+ *          <code>RequestIdentifier</code> as a filter.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:StartMetadataModelImport</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,20 +92,20 @@ export interface StartMetadataModelImportCommandOutput extends StartMetadataMode
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Start Metadata Model Import
+ * @example Import metadata from the source database
  * ```javascript
- * // Loads the metadata for all the dependent database objects of the parent object.
+ * // The following example queues a metadata import for all objects in the ExampleSchema schema from the source database.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
  *   Origin: "SOURCE",
  *   Refresh: false,
- *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "schema-name": "ExampleSchema"},"rule-action": "explicit"}]}`
  * };
  * const command = new StartMetadataModelImportCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
  * ```

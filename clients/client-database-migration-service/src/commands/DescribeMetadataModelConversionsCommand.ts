@@ -26,7 +26,15 @@ export interface DescribeMetadataModelConversionsCommandInput extends DescribeMe
 export interface DescribeMetadataModelConversionsCommandOutput extends DescribeMetadataModelConversionsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of metadata model conversions for a migration project.</p>
+ * <p>Returns a paginated list of metadata model conversion requests for a migration
+ *          project, initiated by
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartMetadataModelConversion.html">StartMetadataModelConversion</a>.</p>
+ *          <p>To cancel a queued or in-progress request, call
+ *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_CancelMetadataModelConversion.html">CancelMetadataModelConversion</a>.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:ListMetadataModelConversions</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,32 +103,56 @@ export interface DescribeMetadataModelConversionsCommandOutput extends DescribeM
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Metadata Model Conversions
+ * @example Retrieve the status of metadata model conversions
  * ```javascript
- * // Returns a paginated list of metadata model conversions for a migration project.
+ * // The following example retrieves the status of metadata model conversion operations identified by their request IDs.
  * const input = {
  *   Filters: [
  *     {
  *       Name: "request-id",
  *       Values: [
- *         "01234567-89ab-cdef-0123-456789abcdef"
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *         "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333"
  *       ]
  *     }
  *   ],
- *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
- *   MaxRecords: 123,
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DescribeMetadataModelConversionsCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   Marker: "0123456789abcdefghijklmnopqrs",
  *   Requests: [
  *     {
- *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *       Status: "SUCCESS"
+ *     },
+ *     {
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       Progress: {
+ *         ProcessedObject: {
+ *           EndpointType: "SOURCE",
+ *           Name: "ExampleTable",
+ *           Type: "table"
+ *         },
+ *         ProgressPercent: 50.0,
+ *         ProgressStep: "CONVERTING",
+ *         TotalObjects: 100
+ *       },
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       Status: "IN_PROGRESS"
+ *     },
+ *     {
+ *       Error: {
+ *         defaultErrorDetails: {
+ *           Message: "No objects were found according to the specified selection rules. Please review your selection rules and try again."
+ *         }
+ *       },
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       RequestIdentifier: "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       Status: "FAILED"
  *     }
  *   ]
  * }

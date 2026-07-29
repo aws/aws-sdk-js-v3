@@ -25,6 +25,10 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
 /**
  * <p>Creates a data provider using the provided settings. A data provider stores a data store
  *          type and location information about your database. </p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:CreateDataProvider</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -288,43 +292,40 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Create Data Provider
+ * @example Create a Microsoft SQL Server data provider
  * ```javascript
- * // Creates the data provider with the specified parameters.
+ * // The following example creates a Microsoft SQL Server data provider.
  * const input = {
- *   DataProviderName: "sqlServer-dev",
- *   Description: "description",
+ *   DataProviderName: "example-data-provider",
+ *   Description: "Example data provider for documentation",
  *   Engine: "sqlserver",
  *   Settings: {
  *     MicrosoftSqlServerSettings: {
- *       DatabaseName: "DatabaseName",
- *       Port: 11112,
- *       ServerName: "ServerName2",
- *       SslMode: "none"
+ *       CertificateArn: "arn:aws:dms:us-east-1:111122223333:cert:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *       DatabaseName: "ExampleDatabase",
+ *       Port: 1433,
+ *       ServerName: "example-source-server.us-east-1.rds.amazonaws.com",
+ *       SslMode: "verify-full"
  *     }
- *   },
- *   Tags: [
- *     {
- *       Key: "access",
- *       Value: "authorizedusers"
- *     }
- *   ]
+ *   }
  * };
  * const command = new CreateDataProviderCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
  *   DataProvider: {
- *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-dataprovider",
- *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
- *     DataProviderName: "my-target-dataprovider",
- *     Engine: "postgres",
+ *     DataProviderArn: "arn:aws:dms:us-east-1:111122223333:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     DataProviderCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     DataProviderName: "example-data-provider",
+ *     Description: "Example data provider for documentation",
+ *     Engine: "sqlserver",
  *     Settings: {
- *       PostgreSqlSettings: {
- *         DatabaseName: "target",
- *         Port: 5432,
- *         ServerName: "postrgesql.a1b2c3d4e5f6.us-east-1.rds.amazonaws.com",
- *         SslMode: "none"
+ *       MicrosoftSqlServerSettings: {
+ *         CertificateArn: "arn:aws:dms:us-east-1:111122223333:cert:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *         DatabaseName: "ExampleDatabase",
+ *         Port: 1433,
+ *         ServerName: "example-source-server.us-east-1.rds.amazonaws.com",
+ *         SslMode: "verify-full"
  *       }
  *     }
  *   }

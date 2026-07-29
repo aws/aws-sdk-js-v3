@@ -24,6 +24,10 @@ export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfil
 
 /**
  * <p>Modifies the specified instance profile using the provided parameters.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:UpdateInstanceProfile</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  *          <note>
  *             <p>All migration projects associated with the instance profile must be deleted or
  *             modified before you can modify the instance profile.</p>
@@ -103,33 +107,29 @@ export interface ModifyInstanceProfileCommandOutput extends ModifyInstanceProfil
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Modify Instance Profile
+ * @example Modify an instance profile
  * ```javascript
- * // Modifies the specified instance profile using the provided parameters.
+ * // The following example updates the description and network type of an instance profile.
  * const input = {
- *   AvailabilityZone: "",
- *   Description: "",
- *   InstanceProfileIdentifier: "",
- *   InstanceProfileName: "",
- *   KmsKeyArn: "",
- *   NetworkType: "",
- *   PubliclyAccessible: true,
- *   SubnetGroupIdentifier: "",
- *   VpcSecurityGroups:   []
+ *   Description: "Updated instance profile description",
+ *   InstanceProfileIdentifier: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   NetworkType: "DUAL"
  * };
  * const command = new ModifyInstanceProfileCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
  *   InstanceProfile: {
- *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:my-instance-profile",
- *     InstanceProfileCreationTime: "2022-12-16T09:44:43.543246Z",
- *     InstanceProfileName: "my-instance-profile",
- *     KmsKeyArn: "arn:aws:kms:us-east-1:012345678901:key/01234567-89ab-cdef-0123-456789abcdef",
- *     PubliclyAccessible: true,
- *     SubnetGroupIdentifier: "public-subnets",
+ *     Description: "Updated instance profile description",
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:111122223333:instance-profile:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *     InstanceProfileCreationTime: "2026-01-09T12:30:00.000000Z",
+ *     InstanceProfileName: "example-instance-profile",
+ *     KmsKeyArn: "arn:aws:kms:us-east-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     NetworkType: "DUAL",
+ *     PubliclyAccessible: false,
+ *     SubnetGroupIdentifier: "example-replication-subnet-group",
  *     VpcSecurityGroups: [
- *       "sg-0123456"
+ *       "sg-0123456789abcdef0"
  *     ]
  *   }
  * }

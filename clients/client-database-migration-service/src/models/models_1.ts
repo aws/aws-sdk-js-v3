@@ -240,7 +240,7 @@ export interface StartExtensionPackAssociationMessage {
  */
 export interface StartExtensionPackAssociationResponse {
   /**
-   * <p>The identifier for the request operation.</p>
+   * <p>The identifier for the installation request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
@@ -257,7 +257,16 @@ export interface StartMetadataModelAssessmentMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to assess.</p>
+   * <p>A JSON string that identifies the metadata models to assess. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only source selection rules, where <code>server-name</code> in the object locator matches the source data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports <code>explicit</code>, <code>include</code>, and <code>exclude</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -268,7 +277,7 @@ export interface StartMetadataModelAssessmentMessage {
  */
 export interface StartMetadataModelAssessmentResponse {
   /**
-   * <p>The identifier for the assessment operation.</p>
+   * <p>The identifier for the assessment request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
@@ -285,7 +294,16 @@ export interface StartMetadataModelConversionMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to convert.</p>
+   * <p>A JSON string that identifies the metadata models to convert. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only source selection rules, where <code>server-name</code> in the object locator matches the source data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports <code>explicit</code>, <code>include</code>, and <code>exclude</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
@@ -296,14 +314,14 @@ export interface StartMetadataModelConversionMessage {
  */
 export interface StartMetadataModelConversionResponse {
   /**
-   * <p>The identifier for the conversion operation.</p>
+   * <p>The identifier for the conversion request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
 }
 
 /**
- * <p>The properties of the statement for metadata model creation.</p>
+ * <p>The properties of the SQL statement.</p>
  * @public
  */
 export interface StatementProperties {
@@ -315,7 +333,7 @@ export interface StatementProperties {
 }
 
 /**
- * <p>The properties of metadata model in JSON format. This object is a Union. Only one member of this object can be specified or returned.</p>
+ * <p>The properties of the metadata model.</p>
  * @public
  */
 export type MetadataModelProperties =
@@ -327,7 +345,7 @@ export type MetadataModelProperties =
  */
 export namespace MetadataModelProperties {
   /**
-   * <p>The properties of the statement.</p>
+   * <p>The properties of the SQL statement.</p>
    * @public
    */
   export interface StatementPropertiesMember {
@@ -364,19 +382,34 @@ export interface StartMetadataModelCreationMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>The JSON string that specifies the location where the metadata model will be created. Selection rules must specify a single schema. For more information, see Selection Rules in the DMS User Guide.</p>
+   * <p>A JSON string that identifies the source schema for the metadata model. For the
+   *          selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema
+   *             Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only source selection rules, where <code>server-name</code> in the
+   *             object locator matches the source data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports only <code>explicit</code> rule actions.</p>
+   *             </li>
+   *             <li>
+   *                <p>Exactly one rule is allowed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
 
   /**
-   * <p>The name of the metadata model.</p>
+   * <p>The name for the metadata model to use in subsequent operations.</p>
    * @public
    */
   MetadataModelName: string | undefined;
 
   /**
-   * <p>The properties of metadata model in JSON format. This object is a Union. Only one member of this object can be specified or returned.</p>
+   * <p>The properties of the metadata model.</p>
    * @public
    */
   Properties: MetadataModelProperties | undefined;
@@ -387,7 +420,7 @@ export interface StartMetadataModelCreationMessage {
  */
 export interface StartMetadataModelCreationResponse {
   /**
-   * <p>The identifier for the metadata model creation operation.</p>
+   * <p>The identifier for the creation request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
@@ -404,19 +437,29 @@ export interface StartMetadataModelExportAsScriptMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to export.</p>
+   * <p>A JSON string that identifies the metadata models to export as a SQL script. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts source or target selection rules depending on the <code>Origin</code> parameter. The <code>server-name</code> in the object locator must match the corresponding data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports <code>explicit</code>, <code>include</code>, and <code>exclude</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
 
   /**
-   * <p>Whether to export the metadata model from the source or the target.</p>
+   * <p>Specifies the metadata tree to export from.</p>
    * @public
    */
   Origin: OriginTypeValue | undefined;
 
   /**
-   * <p>The name of the model file to create in the Amazon S3 bucket.</p>
+   * <p>The name for the exported file. When you omit this parameter, the service generates
+   *          a name from the data provider engine name and an export timestamp.</p>
    * @public
    */
   FileName?: string | undefined;
@@ -427,7 +470,7 @@ export interface StartMetadataModelExportAsScriptMessage {
  */
 export interface StartMetadataModelExportAsScriptResponse {
   /**
-   * <p>The identifier for the export operation.</p>
+   * <p>The identifier for the export request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
@@ -444,15 +487,23 @@ export interface StartMetadataModelExportToTargetMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to export.</p>
+   * <p>A JSON string that identifies the metadata models to export to the target database. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts only target selection rules, where <code>server-name</code> in the object locator matches the target data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports <code>explicit</code>, <code>include</code>, and <code>exclude</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
 
   /**
-   * <p>Whether to overwrite the migration project extension pack. An extension pack is an add-on module
-   *          that emulates functions present in a source database that are required when converting objects
-   *          to the target database.</p>
+   * <p>Specifies whether to overwrite the extension pack if one already exists on the
+   *          target database. The default value is <code>true</code>.</p>
    * @public
    */
   OverwriteExtensionPack?: boolean | undefined;
@@ -463,7 +514,7 @@ export interface StartMetadataModelExportToTargetMessage {
  */
 export interface StartMetadataModelExportToTargetResponse {
   /**
-   * <p>The identifier for the export operation.</p>
+   * <p>The identifier for the export request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;
@@ -480,19 +531,36 @@ export interface StartMetadataModelImportMessage {
   MigrationProjectIdentifier: string | undefined;
 
   /**
-   * <p>A value that specifies the database objects to import.</p>
+   * <p>A JSON string that identifies the metadata models to import from the data provider. For the selection rule format and examples, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/sc-selection-rules.html">Selection rules in DMS Schema Conversion</a>.</p>
+   *          <p>Usage:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Accepts source or target selection rules depending on the <code>Origin</code> parameter. The <code>server-name</code> in the object locator must match the corresponding data provider.</p>
+   *             </li>
+   *             <li>
+   *                <p>Supports <code>explicit</code>, <code>include</code>, and <code>exclude</code> rule actions.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   SelectionRules: string | undefined;
 
   /**
-   * <p>Whether to load metadata to the source or target database.</p>
+   * <p>Specifies the metadata tree to import into.</p>
+   *          <note>
+   *             <p>You cannot import from a virtual target data provider.</p>
+   *          </note>
    * @public
    */
   Origin: OriginTypeValue | undefined;
 
   /**
-   * <p>If <code>true</code>, DMS loads metadata for the specified objects from the source database.</p>
+   * <p>Specifies whether to refresh the selected metadata models from the data
+   *          provider.</p>
+   *          <p>When <code>true</code>, the import reloads the selected metadata models with
+   *          current definitions and removes their existing subtree.</p>
+   *          <p>When <code>false</code> (default), the import loads the full subtree that has not
+   *          yet been loaded into the metadata tree.</p>
    * @public
    */
   Refresh?: boolean | undefined;
@@ -503,7 +571,7 @@ export interface StartMetadataModelImportMessage {
  */
 export interface StartMetadataModelImportResponse {
   /**
-   * <p>The identifier for the import operation.</p>
+   * <p>The identifier for the import request.</p>
    * @public
    */
   RequestIdentifier?: string | undefined;

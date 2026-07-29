@@ -27,6 +27,10 @@ export interface DescribeConversionConfigurationCommandOutput extends DescribeCo
 
 /**
  * <p>Returns configuration parameters for a schema conversion project.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:DescribeConversionConfiguration</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,18 +64,18 @@ export interface DescribeConversionConfigurationCommandOutput extends DescribeCo
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
  *
- * @example Describe Conversion Configuration
+ * @example Retrieving conversion configuration for a migration project
  * ```javascript
- * // Returns configuration parameters for a schema conversion project.
+ * // The following example retrieves the conversion configuration for a migration project.
  * const input = {
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * };
  * const command = new DescribeConversionConfigurationCommand(input);
  * const response = await client.send(command);
  * /* response is
  * {
- *   ConversionConfiguration: `{"Common project settings":{"ShowSeverityLevelInSql":"CRITICAL"},"ORACLE_TO_POSTGRESQL" : {"ToTimeZone":false,"LastDayBuiltinFunctionOracle":false,   "NextDayBuiltinFunctionOracle":false,"ConvertProceduresToFunction":false,"NvlBuiltinFunctionOracle":false,"DbmsAssertBuiltinFunctionOracle":false}}`,
- *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   ConversionConfiguration: `{"Common project settings":{"ShowSeverityLevelInSql":"CRITICAL","EnableGenAiConversion":false},"MSSQL_TO_AURORA_POSTGRESQL":{"ConvertProceduresToFunction":true,"UniqueIndexGeneration":true,"CaseSensitivityNames":false},"Conversion version":{"MSSQL_TO_AURORA_POSTGRESQL_target_engine_version":"15"}}`,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS"
  * }
  * *\/
  * ```

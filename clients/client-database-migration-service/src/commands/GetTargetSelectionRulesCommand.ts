@@ -24,6 +24,10 @@ export interface GetTargetSelectionRulesCommandOutput extends GetTargetSelection
 
 /**
  * <p>Converts source selection rules into their target counterparts for schema conversion operations.</p>
+ *          <p>
+ *             <b>Required permissions:</b>
+ *             <code>dms:GetTargetSelectionRules</code>. For more information, see
+ *          <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsdatabasemigrationservice.html">Actions, resources, and condition keys for Database Migration Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +67,22 @@ export interface GetTargetSelectionRulesCommandOutput extends GetTargetSelection
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
+ * @example Convert source selection rules to target selection rules
+ * ```javascript
+ * // The following example converts source selection rules that select the ExampleTable table in the ExampleSchema schema into target selection rules that reference its converted counterpart.
+ * const input = {
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:111122223333:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRS",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-source-server.us-east-1.rds.amazonaws.com", "database-name": "ExampleDatabase", "schema-name": "ExampleSchema", "table-name": "ExampleTable"}, "rule-action": "explicit"}]}`
+ * };
+ * const command = new GetTargetSelectionRulesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TargetSelectionRules: `{"rules": [{"rule-type": "selection", "rule-id": "1", "rule-name": "1", "object-locator": {"server-name": "example-target-server.us-east-1.rds.amazonaws.com", "schema-name": "exampledatabase_exampleschema", "table-name": "exampletable"}, "rule-action": "explicit"}]}`
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
