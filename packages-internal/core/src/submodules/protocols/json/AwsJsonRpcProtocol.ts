@@ -15,8 +15,9 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import { JsonCodec } from "./JsonCodec";
+import { JsonCodec } from "./codec-v1/JsonCodec";
 import { loadJsonRpcErrorCode } from "./parseJsonBody";
+import type { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
 
 /**
  * @public
@@ -85,7 +86,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     return request;
   }
 
-  public getPayloadCodec(): JsonCodec {
+  public getPayloadCodec() {
     return this.codec;
   }
 
@@ -123,7 +124,7 @@ export abstract class AwsJsonRpcProtocol extends RpcProtocol {
     const exception = new ErrorCtor({});
 
     const output = {} as any;
-    const errorDeserializer = this.codec.createDeserializer();
+    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer;
     for (const [name, member] of ns.structIterator()) {
       if (dataObject[name] != null) {
         output[name] = errorDeserializer.readObject(member, dataObject[name]);

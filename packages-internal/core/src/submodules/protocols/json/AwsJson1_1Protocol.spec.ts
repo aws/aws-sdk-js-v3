@@ -5,6 +5,7 @@ import { describe, expect, test as it } from "vitest";
 
 import { context, createNestingWidget, deleteObjects, nestingWidget } from "../test-schema.spec";
 import { AwsJson1_1Protocol } from "./AwsJson1_1Protocol";
+import { toUtf8 } from "@smithy/core/serde";
 
 /**
  * These tests are cursory since most coverage is provided by protocol tests.
@@ -80,7 +81,7 @@ describe(AwsJson1_1Protocol.name, () => {
     );
 
     expect(httpRequest.method).toEqual("POST");
-    expect(httpRequest.body).toEqual(
+    expect(toUtf8(httpRequest.body)).toEqual(
       JSON.stringify({
         Delete: {
           Objects: [

@@ -1,7 +1,7 @@
 import type { TypeRegistry } from "@smithy/core/schema";
 
 import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
-import type { JsonCodec } from "./JsonCodec";
+import type { JsonCodec } from "./codec-v1/JsonCodec";
 
 /**
  * @public

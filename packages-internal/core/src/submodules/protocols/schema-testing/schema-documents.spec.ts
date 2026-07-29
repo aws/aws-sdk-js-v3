@@ -19,8 +19,8 @@ import type {
 } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
-import type { JsonSettings } from "../json/JsonCodec";
-import { JsonCodec } from "../json/JsonCodec";
+import type { JsonSettings } from "../json/JsonSettings";
+import { JsonCodec } from "../json/codec-v1/JsonCodec";
 import type { JsonShapeDeserializer } from "../json/codec-v1/JsonShapeDeserializer";
 import { testCases } from "./new-document-type-test-cases.spec";
 

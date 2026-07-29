@@ -1,8 +1,8 @@
 import { describe, expect, test as it, vi } from "vitest";
 
 import { JsonCodec } from "./JsonCodec";
-import { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
-import { JsonShapeSerializer } from "./codec-v1/JsonShapeSerializer";
+import { JsonShapeDeserializer } from "./JsonShapeDeserializer";
+import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
 describe(JsonCodec.name, () => {
   it("provides a serializer", () => {

@@ -3,7 +3,7 @@ import type { StaticSimpleSchema, StaticStructureSchema, TimestampEpochSecondsSc
 import { describe, expect, test as it } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, widget } from "../../test-schema.spec";
-import { ByteJsonShapeSerializer } from "../codec-v2/ByteJsonShapeSerializer";
+import { JsonShapeSerializer2 as V2JsonShapeSerializer } from "../codec-v2/JsonShapeSerializer2";
 import { JsonShapeSerializer } from "./JsonShapeSerializer";
 
 const decoder = new TextDecoder();
@@ -12,7 +12,7 @@ const decoder = new TextDecoder();
  * Wraps a serializer so that flush() always returns a string,
  * enabling uniform assertions across both implementations.
  */
-function createSerializerAdapter(serializer: JsonShapeSerializer | ByteJsonShapeSerializer) {
+function createSerializerAdapter(serializer: JsonShapeSerializer | V2JsonShapeSerializer) {
   return {
     name: serializer.constructor.name,
     write(schema: any, value: unknown) {
@@ -36,7 +36,7 @@ const settings = {
 
 const serializers = [
   createSerializerAdapter(new JsonShapeSerializer(settings)),
-  createSerializerAdapter(new ByteJsonShapeSerializer(settings)),
+  createSerializerAdapter(new V2JsonShapeSerializer(settings)),
 ];
 
 describe("JsonShapeSerializer correctness", () => {
@@ -405,11 +405,11 @@ describe("JsonShapeSerializer correctness", () => {
 
 describe("JsonShapeSerializer performance", () => {
   const multipassSerializer = new JsonShapeSerializer(settings);
-  const byteSerializer = new ByteJsonShapeSerializer(settings);
+  const byteSerializer = new V2JsonShapeSerializer(settings);
 
   describe.each([
     { name: "JsonShapeSerializer", serializer: multipassSerializer },
-    { name: "ByteJsonShapeSerializer", serializer: byteSerializer },
+    { name: "V2JsonShapeSerializer", serializer: byteSerializer },
   ])("$name", ({ serializer }) => {
     it("should serialize objects", () => {
       const timings: string[] = [];

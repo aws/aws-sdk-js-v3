@@ -3,7 +3,8 @@ import { EC2 } from "@aws-sdk/client-ec2";
 import { S3 } from "@aws-sdk/client-s3";
 import { SageMaker } from "@aws-sdk/client-sagemaker";
 import { SageMakerRuntime } from "@aws-sdk/client-sagemaker-runtime";
-import { describe, test as it } from "vitest";
+import { describe, test as it, expect } from "vitest";
+import { toUtf8 } from '@smithy/core/serde';
 
 describe("middleware-serde", () => {
   describe(S3.name, () => {
@@ -112,7 +113,10 @@ describe("middleware-serde", () => {
           "x-amz-target": "SageMaker.PutModelPackageGroupPolicy",
           host: "api.sagemaker.us-west-2.amazonaws.com",
         },
-        body: '{"ModelPackageGroupName":"ModelPackageGroupName","ResourcePolicy":"ResourcePolicy"}',
+        body(b) {
+            b = toUtf8(b);
+            expect(b).toEqual('{"ModelPackageGroupName":"ModelPackageGroupName","ResourcePolicy":"ResourcePolicy"}')
+        },
         protocol: "https:",
         path: "/",
       });

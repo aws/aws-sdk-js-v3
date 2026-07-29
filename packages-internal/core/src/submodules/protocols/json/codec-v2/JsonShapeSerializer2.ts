@@ -1,13 +1,6 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
-import {
-  dateToUtcString,
-  generateIdempotencyToken,
-  LazyJsonString,
-  NumericValue,
-  toBase64,
-  toUtf8,
-} from "@smithy/core/serde";
+import { dateToUtcString, generateIdempotencyToken, LazyJsonString, NumericValue, toBase64 } from "@smithy/core/serde";
 import type {
   DocumentSchema,
   Schema,
@@ -18,7 +11,7 @@ import type {
 } from "@smithy/types";
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
-import type { JsonSettings } from "../JsonCodec";
+import type { JsonSettings } from "../JsonSettings";
 import { writeKey } from "../../writeKey";
 
 const encoder = new TextEncoder();
@@ -65,15 +58,17 @@ function alloc(size: number): Uint8Array {
 }
 
 /**
- * Experimental single-pass JSON serializer that writes directly to a Uint8Array buffer.
+ * Single-pass JSON serializer that writes directly to a Uint8Array buffer.
  * Fewer intermediate states as when compared to the initial multi-pass implementation.
  *
- * @internal
+ * @public
  */
-export class ByteJsonShapeSerializer extends SerdeContextConfig implements ShapeSerializer<Uint8Array> {
+export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSerializer<Uint8Array> {
   private json: Uint8Array;
   private i = 0;
   private rootSchema: NormalizedSchema | undefined;
+  private rawValue: unknown;
+  private passthrough = false;
 
   public constructor(public readonly settings: JsonSettings) {
     super();
@@ -82,8 +77,15 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
 
   public write(schema: Schema, value: unknown): void {
     this.i = 0;
+    this.rawValue = value;
     this.rootSchema = NormalizedSchema.of(schema);
-    this.writeValue(this.rootSchema, value, undefined);
+    this.passthrough =
+      !this.rootSchema.isStructSchema() &&
+      !this.rootSchema.isDocumentSchema() &&
+      (this.rootSchema.isBlobSchema() || this.rootSchema.isStringSchema());
+    if (!this.passthrough) {
+      this.writeValue(this.rootSchema, value, undefined);
+    }
   }
 
   /**
@@ -134,6 +136,15 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.rootSchema = undefined;
     const finalPosition = this.i;
     this.i = 0;
+    const raw = this.rawValue;
+    this.rawValue = undefined;
+
+    if (finalPosition === 0) {
+      // Nothing was serialized, so return the raw input value as-is.
+      // This handles httpPayload passthrough: the protocol framework
+      // uses truthiness to detect "no body" (falsy) vs raw payload (truthy).
+      return raw as any;
+    }
 
     // Hand off the current buffer (subarray view) to the caller.
     // Allocate a fresh buffer for the next write so the caller owns the data.
@@ -145,7 +156,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     return result;
   }
 
-  private ensure(byteCount: number): void {
+  protected ensure(byteCount: number): void {
     const { i, json } = this;
     if (i + byteCount > json.length) {
       let newSize = json.length * 2;
@@ -162,7 +173,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
    * Write a raw ASCII string (no JSON escaping). Used for pre-validated content
    * like numeric literals and pre-encoded base64.
    */
-  private writeAscii(s: string): void {
+  protected writeAscii(s: string): void {
     const z = s.length;
     this.ensure(z);
     let { i, json } = this;
@@ -180,7 +191,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
    * backslashes, or non-ASCII.
    * Ensures extra room for surrounding structural chars (comma, colon).
    */
-  private writeAsciiQuoted(s: string): void {
+  protected writeAsciiQuoted(s: string): void {
     const z = s.length;
     this.ensure(z + 4); // +2 quotes, +1 colon after, +1 comma before next
     let { json, i } = this;
@@ -196,7 +207,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
    * Write a JSON-escaped string including the surrounding quotes.
    * Fast-path for ASCII, falls back to TextEncoder for multi-byte.
    */
-  private writeJsonString(s: string): void {
+  protected writeJsonString(s: string): void {
     // Worst case: every char needs \uXXXX (6 bytes) + 2 quotes
     // But we'll grow dynamically, so just ensure a reasonable amount
     this.ensure(s.length * 2 + 2);
@@ -255,7 +266,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.json[this.i++] = QUOTE;
   }
 
-  private writeUnicodeEscape(code: number): void {
+  protected writeUnicodeEscape(code: number): void {
     let { json, i } = this;
     json[i++] = BACKSLASH;
     json[i++] = 0x75; // 'u'
@@ -267,7 +278,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
   }
 
   // Base64 alphabet as ASCII byte values
-  private static readonly B64 = /* @__PURE__ */ (() => {
+  protected static readonly B64: Uint8Array = /* @__PURE__ */ (() => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     const table = new Uint8Array(64);
     for (let i = 0; i < 64; i++) table[i] = chars.charCodeAt(i);
@@ -278,11 +289,11 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
    * Write a Uint8Array as a quoted base64 string directly into the buffer.
    * No intermediate JS string, no escape checking (base64 alphabet is safe ASCII).
    */
-  private writeBase64(data: Uint8Array): void {
+  protected writeBase64(data: Uint8Array): void {
     const b64Len = Math.ceil(data.length / 3) * 4;
     this.ensure(b64Len + 2); // +2 for quotes
     const json = this.json;
-    const B64 = ByteJsonShapeSerializer.B64;
+    const B64 = JsonShapeSerializer2.B64;
     let i = this.i;
 
     json[i++] = QUOTE;
@@ -322,7 +333,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.i = i;
   }
 
-  private writeValue(schema: Schema, value: unknown, container: NormalizedSchema | undefined): void {
+  protected writeValue(schema: Schema, value: unknown, container: NormalizedSchema | undefined): void {
     if (value == null) {
       if (container?.isStructSchema()) {
         // Idempotency tokens should be auto-generated when undefined.
@@ -346,6 +357,19 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
 
     const ns = NormalizedSchema.of(schema);
     const isObject = typeof value === "object";
+
+    // Media type JSON fields: serialize the value as a JSON string (double-encoded).
+    // Must be checked before object/primitive branching since the value can be any type.
+    if (ns.isStringSchema()) {
+      const mediaType = ns.getMergedTraits().mediaType;
+      if (mediaType) {
+        const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
+        if (isJson) {
+          this.writeJsonString(LazyJsonString.from(value).toString());
+          return;
+        }
+      }
+    }
 
     if (isObject) {
       if (ns.isStructSchema()) {
@@ -397,16 +421,6 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
 
     // Primitives
     if (typeof value === "string") {
-      if (ns.isStringSchema()) {
-        const mediaType = ns.getMergedTraits().mediaType;
-        if (mediaType) {
-          const isJson = mediaType === "application/json" || mediaType.endsWith("+json");
-          if (isJson) {
-            this.writeJsonString(LazyJsonString.from(value).toString());
-            return;
-          }
-        }
-      }
       if (ns.isBlobSchema()) {
         // string blob (already base64 or needs encoding)
         const b64 = (this.serdeContext?.base64Encoder ?? toBase64)(value);
@@ -451,7 +465,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.writeAscii(String(value));
   }
 
-  private writeStruct(ns: NormalizedSchema, value: Record<string, unknown>): void {
+  protected writeStruct(ns: NormalizedSchema, value: Record<string, unknown>): void {
     this.ensure(2);
     this.json[this.i++] = OPEN_BRACE;
     let first = true;
@@ -518,7 +532,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.json[this.i++] = CLOSE_BRACE;
   }
 
-  private writeList(ns: NormalizedSchema, value: unknown[], isDocument?: boolean): void {
+  protected writeList(ns: NormalizedSchema, value: unknown[], isDocument?: boolean): void {
     this.ensure(2);
     this.json[this.i++] = OPEN_BRACKET;
     const sparse = !!ns.getMergedTraits().sparse;
@@ -540,7 +554,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.json[this.i++] = CLOSE_BRACKET;
   }
 
-  private writeMap(ns: NormalizedSchema, value: Record<string, unknown>, isDocument?: boolean): void {
+  protected writeMap(ns: NormalizedSchema, value: Record<string, unknown>, isDocument?: boolean): void {
     const sparse = !!ns.getMergedTraits().sparse;
     const valueSchema = ns.getValueSchema();
 
@@ -593,7 +607,7 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
     this.json[this.i++] = CLOSE_BRACE;
   }
 
-  private writeTimestamp(ns: NormalizedSchema, value: Date): void {
+  protected writeTimestamp(ns: NormalizedSchema, value: Date): void {
     const format = determineTimestampFormat(ns, this.settings);
     switch (format) {
       case 5 satisfies TimestampDateTimeSchema: {
@@ -616,33 +630,5 @@ export class ByteJsonShapeSerializer extends SerdeContextConfig implements Shape
         return;
       }
     }
-  }
-}
-
-/**
- * A string adapter for the byte serializer, for backwards compatibility.
- * @public
- */
-export class StringJsonShapeSerializer extends SerdeContextConfig implements ShapeSerializer<string> {
-  private byteSerializer: ByteJsonShapeSerializer;
-
-  public constructor(public readonly settings: JsonSettings) {
-    super();
-    this.byteSerializer = new ByteJsonShapeSerializer(settings);
-  }
-
-  public write(schema: Schema, value: unknown): void {
-    this.byteSerializer.write(schema, value);
-  }
-
-  /**
-   * @internal
-   */
-  public writeDiscriminatedDocument(schema: Schema, value: unknown): void {
-    this.byteSerializer.writeDiscriminatedDocument(schema, value);
-  }
-
-  public flush(): string {
-    return (this.serdeContext?.utf8Encoder ?? toUtf8)(this.byteSerializer.flush());
   }
 }

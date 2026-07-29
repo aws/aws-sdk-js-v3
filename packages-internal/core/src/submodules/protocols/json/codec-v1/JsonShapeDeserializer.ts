@@ -19,13 +19,14 @@ import type {
 
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import { UnionSerde } from "../../UnionSerde";
-import type { JsonSettings } from "../JsonCodec";
+import type { JsonSettings } from "./JsonSettings";
 import { jsonReviver } from "../jsonReviver";
 import { needsReviver } from "../needsReviver";
 import { parseJsonBody } from "../parseJsonBody";
 import { writeKey } from "../../writeKey";
 
 /**
+ * @deprecated prefer JsonShapeDeserializer in codec-v2.
  * @public
  */
 export class JsonShapeDeserializer extends SerdeContextConfig implements ShapeDeserializer<string> {

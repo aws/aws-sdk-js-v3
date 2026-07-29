@@ -8,6 +8,7 @@ import type { Schema } from "@smithy/types";
  * for use with Amazon DynamoDB in JSON RPC mode.
  *
  * @internal
+ * @deprecated use CodecV2
  */
 export class DynamoDBJsonCodec extends JsonCodec {
   public constructor() {

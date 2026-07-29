@@ -1,14 +1,7 @@
 import { NumericValue } from "@smithy/core/serde";
 import type {
-  BigDecimalSchema,
-  BigIntegerSchema,
-  BlobSchema,
-  NumericSchema,
-  StaticListSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
-  StaticUnionSchema,
-  StringSchema,
   TimestampDateTimeSchema,
   TimestampEpochSecondsSchema,
   TimestampHttpDateSchema,
@@ -16,7 +9,7 @@ import type {
 import { describe, expect, test as it, beforeEach } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, widget } from "../../test-schema.spec";
-import { ByteJsonShapeSerializer, StringJsonShapeSerializer } from "./ByteJsonShapeSerializer";
+import { JsonShapeSerializer2 } from "./JsonShapeSerializer2";
 
 const decoder = new TextDecoder();
 
@@ -29,11 +22,11 @@ const settings = {
   timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
 } as const;
 
-describe(ByteJsonShapeSerializer.name, () => {
-  let serializer: ByteJsonShapeSerializer;
+describe(JsonShapeSerializer2.name, () => {
+  let serializer: JsonShapeSerializer2;
 
   beforeEach(() => {
-    serializer = new ByteJsonShapeSerializer(settings);
+    serializer = new JsonShapeSerializer2(settings);
   });
 
   // ─── Basic serialization ──────────────────────────────────────────────────
@@ -309,7 +302,7 @@ describe(ByteJsonShapeSerializer.name, () => {
         jsonName: true,
         timestampFormat: { default: 5 satisfies TimestampDateTimeSchema, useTrait: true },
       } as const;
-      const s = new ByteJsonShapeSerializer(dateTimeSettings);
+      const s = new JsonShapeSerializer2(dateTimeSettings);
       const schema = [3, "", "S", 0, ["ts"], [4]] satisfies StaticStructureSchema;
       s.write(schema, { ts: new Date("2023-06-15T10:30:00.000Z") });
       const result = JSON.parse(decode(s.flush()));
@@ -321,7 +314,7 @@ describe(ByteJsonShapeSerializer.name, () => {
         jsonName: true,
         timestampFormat: { default: 6 satisfies TimestampHttpDateSchema, useTrait: true },
       } as const;
-      const s = new ByteJsonShapeSerializer(httpDateSettings);
+      const s = new JsonShapeSerializer2(httpDateSettings);
       const schema = [3, "", "S", 0, ["ts"], [4]] satisfies StaticStructureSchema;
       s.write(schema, { ts: new Date("2023-06-15T10:30:00.000Z") });
       const result = JSON.parse(decode(s.flush()));
@@ -599,43 +592,5 @@ describe(ByteJsonShapeSerializer.name, () => {
       expect(decode(first)).toEqual('{"scalar":1}');
       expect(decode(second)).toEqual('{"scalar":2}');
     });
-  });
-});
-
-// ─── StringJsonShapeSerializer ──────────────────────────────────────────────
-
-describe(StringJsonShapeSerializer.name, () => {
-  const stringSerializer = new StringJsonShapeSerializer(settings);
-
-  it("returns a string from flush()", () => {
-    stringSerializer.write(widget, {});
-    const result = stringSerializer.flush();
-    expect(typeof result).toEqual("string");
-    expect(result).toEqual("{}");
-  });
-
-  it("delegates write to ByteJsonShapeSerializer", () => {
-    stringSerializer.write(widget, {
-      timestamp: new Date(0),
-      blob: new Uint8Array([1, 2, 3]),
-    });
-    const result = stringSerializer.flush();
-    expect(JSON.parse(result)).toEqual({ blob: "AQID", timestamp: 0 });
-  });
-
-  it("delegates writeDiscriminatedDocument to ByteJsonShapeSerializer", () => {
-    const schema = [3, "com.example", "MyShape", 0, ["name"], [0]] satisfies StaticStructureSchema;
-    stringSerializer.writeDiscriminatedDocument(schema, { name: "test" });
-    const result = stringSerializer.flush();
-    const parsed = JSON.parse(result);
-    expect(parsed.__type).toEqual("com.example#MyShape");
-    expect(parsed.name).toEqual("test");
-  });
-
-  it("handles unicode correctly in string output", () => {
-    const docSchema = 15;
-    stringSerializer.write(docSchema, { emoji: "🎉", cjk: "中文" });
-    const result = stringSerializer.flush();
-    expect(JSON.parse(result)).toEqual({ emoji: "🎉", cjk: "中文" });
   });
 });

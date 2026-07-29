@@ -20,9 +20,10 @@ import type {
 } from "@smithy/types";
 
 import { ProtocolLib } from "../ProtocolLib";
-import type { JsonSettings } from "./JsonCodec";
-import { JsonCodec } from "./JsonCodec";
+import type { JsonSettings } from "./JsonSettings";
+import { JsonCodec } from "./codec-v1/JsonCodec";
 import { loadRestJsonErrorCode } from "./parseJsonBody";
+import type { JsonShapeDeserializer } from "./codec-v1/JsonShapeDeserializer";
 
 /**
  * @public
@@ -144,7 +145,7 @@ export class AwsRestJsonProtocol extends HttpBindingProtocol {
 
     await this.deserializeHttpMessage(errorSchema, context, response, dataObject);
     const output = {} as any;
-    const errorDeserializer = this.codec.createDeserializer();
+    const errorDeserializer = this.codec.createDeserializer() as JsonShapeDeserializer;
     for (const [name, member] of ns.structIterator()) {
       const target = member.getMergedTraits().jsonName ?? name;
       output[name] = errorDeserializer.readObject(member, dataObject[target]);

@@ -236,7 +236,7 @@ describe(AwsRestJsonProtocol.name, () => {
       expect(request.query).toEqual({
         query: "world",
       });
-      expect(request.body).toEqual(`{"a":"a","JSON_NAME":"b"}`);
+      expect(toUtf8(request.body)).toEqual(`{"a":"a","JSON_NAME":"b"}`);
     });
 
     it("obeys jsonName and HTTP bindings and deserialization", async () => {
@@ -332,7 +332,7 @@ describe(AwsRestJsonProtocol.name, () => {
         },
         context
       );
-      expect(request.body).toEqual(`{"payloadDefaultDate":0}`);
+      expect(toUtf8(request.body)).toEqual(`{"payloadDefaultDate":0}`);
 
       expect(request.headers).toEqual({
         "content-type": "application/json",
