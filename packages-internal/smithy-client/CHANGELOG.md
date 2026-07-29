@@ -29,6 +29,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.993.27 (2026-07-29)
+### Chores
+* **codegen:** sync for CBOR v2 codec ([#8233](https://github.com/aws/aws-sdk-js-v3/issues/8233)) ([e40ebac](https://github.com/aws/aws-sdk-js-v3/commit/e40ebac154aa3b00115df867d7b59f0841ffc24f))
+
+
+
 # 3.993.26 (2026-07-23)
 ### Chores
 * **codegen:** sync for CBOR large map deser, event-streams exceptions, endpoints features, ChecksumStream fix ([#8218](https://github.com/aws/aws-sdk-js-v3/issues/8218)) ([bb564e5](https://github.com/aws/aws-sdk-js-v3/commit/bb564e5734205dc1ba99d5c33ce49918a538cb23))

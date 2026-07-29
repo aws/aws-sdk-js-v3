@@ -69,6 +69,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.38 (2026-07-29)
+### Chores
+* **codegen:** sync for CBOR v2 codec ([#8233](https://github.com/aws/aws-sdk-js-v3/issues/8233)) ([e40ebac](https://github.com/aws/aws-sdk-js-v3/commit/e40ebac154aa3b00115df867d7b59f0841ffc24f))
+* **core/protocols:** expose v2 JSON codecs ([#8232](https://github.com/aws/aws-sdk-js-v3/issues/8232)) ([e6fa556](https://github.com/aws/aws-sdk-js-v3/commit/e6fa5566d9d805c0328ddc4d6c6da4295ec2a7fd))
+
+
+
 # 3.973.37 (2026-07-28)
 ### Chores
 * **dynamodb-codec:** update dependencies.

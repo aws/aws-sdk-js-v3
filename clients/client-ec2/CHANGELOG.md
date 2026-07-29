@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
+
+
+### Features
+
+* **client-ec2:** This release adds support for policy-based routing on AWS Transit Gateway, enabling you to route traffic based on 5-tuple matching (source IP, destination IP, source port, destination port, and protocol) using new policy table entry APIs that direct matching traffic to a target route table. ([8ef115c](https://github.com/aws/aws-sdk-js-v3/commit/8ef115c88858d5f900ff24de4e3c8ed649e48ff3))
+
+
+
+
+
 # [3.1097.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1096.0...v3.1097.0) (2026-07-28)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

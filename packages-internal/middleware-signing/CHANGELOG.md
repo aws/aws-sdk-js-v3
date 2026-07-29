@@ -28,6 +28,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.1 (2026-07-29)
+### Chores
+* **codegen:** sync for CBOR v2 codec ([#8233](https://github.com/aws/aws-sdk-js-v3/issues/8233)) ([e40ebac](https://github.com/aws/aws-sdk-js-v3/commit/e40ebac154aa3b00115df867d7b59f0841ffc24f))
+
+
+
 # 3.973.0 (2026-07-23)
 ### Features
 * **core:** update clock skew detection threshold and configs ([#8189](https://github.com/aws/aws-sdk-js-v3/issues/8189)) ([a2773d5](https://github.com/aws/aws-sdk-js-v3/commit/a2773d5663965069fbe650815d2a45f1f95a645e))

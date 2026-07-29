@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/rds-signer",
-  "version": "3.1097.0",
+  "version": "3.1098.0",
   "description": "RDS utility for generating a password that can be used for IAM authentication to an RDS DB.",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/rds-signer",
   "license": "Apache-2.0",
@@ -48,8 +48,8 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.2",
-    "@aws-sdk/credential-providers": "workspace:3.1097.0",
+    "@aws-sdk/core": "workspace:^3.977.3",
+    "@aws-sdk/credential-providers": "workspace:3.1098.0",
     "@smithy/core": "^3.31.1",
     "@smithy/signature-v4": "^5.6.12",
     "@smithy/types": "^4.16.1",

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
+
+
+### Features
+
+* **client-ec2:** This release adds support for policy-based routing on AWS Transit Gateway, enabling you to route traffic based on 5-tuple matching (source IP, destination IP, source port, destination port, and protocol) using new policy table entry APIs that direct matching traffic to a target route table. ([8ef115c](https://github.com/aws/aws-sdk-js-v3/commit/8ef115c88858d5f900ff24de4e3c8ed649e48ff3))
+* **client-gameliftstreams:** Adds ListApplicationShaderCaches API to retrieve shader cache metadata for applications and adds stream URLs, which give end users temporary, unauthenticated access to a stream session in their browser. Includes CreateStreamUrl, GetStreamUrl, ListStreamUrls, and RevokeStreamUrl operations. ([03de214](https://github.com/aws/aws-sdk-js-v3/commit/03de214927dd649bdfe66913c1fb45b5ab72a8c7))
+* **client-glue:** Adding filtering, partitioning, and VPC support to AWS Glue REST API connector ([d43351c](https://github.com/aws/aws-sdk-js-v3/commit/d43351c53e98902a11c1d64c10933d3e5ab80dd6))
+* **client-iotsitewise:** We have released a new set of APIs in support of a major new feature within AWS IoT SiteWise called Scenario Discover. Please see user guide about the feature and the API guide in public documentation for new APIs. ([61dd73b](https://github.com/aws/aws-sdk-js-v3/commit/61dd73b278f7b1c40b5c01a29176749b44c85d78))
+* **client-wafv2:** AWS WAF now supports pre-parse text transformations, letting you normalize raw query strings before parsing, available on rule statements that use SingleQueryArgument or AllQueryArguments as the FieldToMatch. AWS WAF also added 10 new text transformations, including ModSecurity v3 parity options. ([1b06f48](https://github.com/aws/aws-sdk-js-v3/commit/1b06f488e57e1292c93e62380442939f75d0f810))
+* **clients:** update client endpoints as of 2026-07-29 ([d2fe87e](https://github.com/aws/aws-sdk-js-v3/commit/d2fe87e78a0d7247a66d8d4ae982a2512817500c))
+
+
+
+
+
 # [3.1097.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1096.0...v3.1097.0) (2026-07-28)
 
 

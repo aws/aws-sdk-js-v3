@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-signing",
-  "version": "3.973.0",
+  "version": "3.973.1",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-signing",
   "license": "Apache-2.0",
   "author": {
