@@ -172,4 +172,77 @@ describe("DynamoDBDocumentClient - serializerMiddleware compatibility check", ()
     const docClient = DynamoDBDocumentClient.from(mockClient);
     expect(docClient).toBeDefined();
   });
+
+  describe("substitute client config field overrides", () => {
+    it("should not pass the original client's defaultUserAgentProvider to the substitute client", () => {
+      const customUserAgentProvider = vi.fn(async () => [["custom-ua", "1.0"]]);
+      const client = createOldClient({ defaultUserAgentProvider: customUserAgentProvider });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // The substitute client should get a fresh defaultUserAgentProvider, not the original's
+      expect(docClient.config.defaultUserAgentProvider).not.toBe(customUserAgentProvider);
+    });
+
+    it("should not pass the original client's retryStrategy to the substitute client", () => {
+      const customRetryStrategy = {
+        mode: "standard",
+        retry: vi.fn(),
+      };
+      const client = createOldClient({ retryStrategy: customRetryStrategy });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // The substitute client should resolve its own retry strategy, not reuse the original
+      expect(docClient.config.retryStrategy).not.toBe(customRetryStrategy);
+    });
+
+    it("should not pass the original client's extensions to the substitute client", () => {
+      const applyFn = vi.fn();
+      const customExtensions = [{ applyToStack: applyFn }];
+      const client = createOldClient({ extensions: customExtensions });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // Extensions should not be double-applied; the substitute client gets none
+      // Verify the doc client was created successfully without re-applying extensions
+      expect(docClient).toBeDefined();
+      expect(docClient.middlewareStack.identify().some((m: string) => m.includes("serializerMiddleware"))).toBe(true);
+    });
+
+    it("should still preserve region from the original client's config in the substitute", () => {
+      const client = createOldClient({ region: async () => "eu-west-1" });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // Region should be forwarded to the substitute client
+      expect(docClient.config.region).toBeDefined();
+    });
+
+    it("should still preserve credentials from the original client's config in the substitute", () => {
+      const customCredentials = async () => ({
+        accessKeyId: "AKID",
+        secretAccessKey: "SECRET",
+      });
+      const client = createOldClient({ credentials: customCredentials });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // Credentials should be preserved in the substitute client
+      expect(docClient.config.credentials).toBeDefined();
+    });
+
+    it("should produce a fresh user-agent in the substitute client", async () => {
+      const staleUserAgent = async () => [["aws-sdk-js", "0.0.0-stale"]];
+      const client = createOldClient({ defaultUserAgentProvider: staleUserAgent });
+
+      const docClient = DynamoDBDocumentClient.from(client);
+
+      // The substitute client should have a new defaultUserAgentProvider that
+      // doesn't carry stale version info from the incompatible client
+      const userAgent = await docClient.config.defaultUserAgentProvider();
+      const userAgentStr = JSON.stringify(userAgent);
+      expect(userAgentStr).not.toContain("0.0.0-stale");
+    });
+  });
 });

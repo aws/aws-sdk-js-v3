@@ -65,6 +65,7 @@ final class DocumentBareBonesClientGenerator implements Runnable {
         writer.write("""
                      import {
                        DynamoDBClient,
+                       type DynamoDBClientConfig,
                        type DynamoDBClientResolvedConfig,
                        type ServiceInputTypes as __ServiceInputTypes,
                        type ServiceOutputTypes as __ServiceOutputTypes,
@@ -236,7 +237,16 @@ final class DocumentBareBonesClientGenerator implements Runnable {
                         writer.write(": console");
                         writer.dedent();
                     });
-                    writer.write("const substituteClient = new $L(this.config as any);", symbol.getName());
+                    writer.write(
+                        """
+                        const substituteClient = new DynamoDBClient(Object.assign(
+                          {}, this.config, {
+                            defaultUserAgentProvider: undefined,
+                            retryStrategy: undefined,
+                            extensions: undefined
+                          } satisfies DynamoDBClientConfig
+                        ) as DynamoDBClientConfig);"""
+                    );
                     writer.write("const substituteClientHasSerializer = substituteClient.middlewareStack");
                     writer.indent();
                     writer.write(".identify?.()");

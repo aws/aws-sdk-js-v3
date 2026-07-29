@@ -23,6 +23,7 @@ import type { TransactWriteCommandInput, TransactWriteCommandOutput } from "./co
 import type { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
 import {
   DynamoDBClient,
+  type DynamoDBClientConfig,
   type DynamoDBClientResolvedConfig,
   type ServiceInputTypes as __ServiceInputTypes,
   type ServiceOutputTypes as __ServiceOutputTypes,
@@ -169,7 +170,13 @@ export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, Servi
           ? configuredLogger
           : console
       ;
-      const substituteClient = new DynamoDBClient(this.config as any);
+      const substituteClient = new DynamoDBClient(Object.assign(
+        {}, this.config, {
+          defaultUserAgentProvider: undefined,
+          retryStrategy: undefined,
+          extensions: undefined
+        } satisfies DynamoDBClientConfig
+      ) as DynamoDBClientConfig);
       const substituteClientHasSerializer = substituteClient.middlewareStack
         .identify?.()
         .some((m) => m.includes?.("serializerMiddleware"));
