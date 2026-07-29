@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_0";
+import type { ListDatasetsRequest, ListDatasetsResponse } from "../models/models_1";
 import { ListDatasets$ } from "../schemas/schemas_0";
 
 /**
@@ -33,7 +33,9 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
  * const input = { // ListDatasetsRequest
- *   sourceType: "KENDRA", // required
+ *   sourceType: "KENDRA" || "SITEWISE", // required
+ *   workspaceName: "STRING_VALUE",
+ *   datasetType: "SESSION" || "CURATED" || "EXTERNAL",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -46,6 +48,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //       arn: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE", // required
+ * //       sourceType: "KENDRA" || "SITEWISE",
+ * //       datasetType: "SESSION" || "CURATED" || "EXTERNAL",
  * //       creationDate: new Date("TIMESTAMP"), // required
  * //       lastUpdateDate: new Date("TIMESTAMP"), // required
  * //       status: { // DatasetStatus
@@ -61,9 +65,16 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //           ],
  * //         },
  * //       },
+ * //       enrichmentStatus: { // DatasetEnrichment
+ * //         video: { // DatasetEnrichmentEntry
+ * //           status: "FULLY_ENRICHED" || "PARTIALLY_ENRICHED" || "NOT_ENRICHED", // required
+ * //           lastEnrichedAt: new Date("TIMESTAMP"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
+ * //   workspaceName: "STRING_VALUE",
  * // };
  *
  * ```
@@ -80,6 +91,9 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of

@@ -46,6 +46,7 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * const command = new DeleteAssetModelCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAssetModelResponse
+ * //   assetModelId: "STRING_VALUE",
  * //   assetModelStatus: { // AssetModelStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails

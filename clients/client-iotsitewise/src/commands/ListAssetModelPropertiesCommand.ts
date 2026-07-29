@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse } from "../models/models_0";
+import type { ListAssetModelPropertiesRequest, ListAssetModelPropertiesResponse } from "../models/models_1";
 import { ListAssetModelProperties$ } from "../schemas/schemas_0";
 
 /**
@@ -49,7 +49,7 @@ export interface ListAssetModelPropertiesCommandOutput extends ListAssetModelPro
  * //       id: "STRING_VALUE",
  * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
- * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //       dataTypeSpec: "STRING_VALUE",
  * //       unit: "STRING_VALUE",
  * //       type: { // PropertyType

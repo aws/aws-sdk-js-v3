@@ -35,6 +35,7 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DescribeBulkImportJobRequest
  *   jobId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new DescribeBulkImportJobCommand(input);
  * const response = await client.send(command);
@@ -48,6 +49,21 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * //       bucket: "STRING_VALUE", // required
  * //       key: "STRING_VALUE", // required
  * //       versionId: "STRING_VALUE",
+ * //       alias: "STRING_VALUE",
+ * //       startTime: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       fileFormat: { // FileFormat
+ * //         csv: { // Csv
+ * //           columnNames: [ // ColumnNames // required
+ * //             "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
+ * //           ],
+ * //         },
+ * //         parquet: {},
+ * //         mp4: {},
+ * //         annotation: {},
+ * //       },
  * //     },
  * //   ],
  * //   errorReportLocation: { // ErrorReportLocation
@@ -55,19 +71,23 @@ export interface DescribeBulkImportJobCommandOutput extends DescribeBulkImportJo
  * //     prefix: "STRING_VALUE", // required
  * //   },
  * //   jobConfiguration: { // JobConfiguration
- * //     fileFormat: { // FileFormat
- * //       csv: { // Csv
- * //         columnNames: [ // ColumnNames // required
+ * //     fileFormat: {
+ * //       csv: {
+ * //         columnNames: [ // required
  * //           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
  * //         ],
  * //       },
  * //       parquet: {},
+ * //       mp4: {},
+ * //       annotation: {},
  * //     },
  * //   },
  * //   jobCreationDate: new Date("TIMESTAMP"), // required
  * //   jobLastUpdateDate: new Date("TIMESTAMP"), // required
  * //   adaptiveIngestion: true || false,
  * //   deleteFilesAfterImport: true || false,
+ * //   datasetId: "STRING_VALUE",
+ * //   workspaceName: "STRING_VALUE",
  * // };
  *
  * ```

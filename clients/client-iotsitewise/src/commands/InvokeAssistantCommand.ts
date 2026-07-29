@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { InvokeAssistantRequest, InvokeAssistantResponse } from "../models/models_0";
+import type { InvokeAssistantRequest, InvokeAssistantResponse } from "../models/models_1";
 import { InvokeAssistant$ } from "../schemas/schemas_0";
 
 /**

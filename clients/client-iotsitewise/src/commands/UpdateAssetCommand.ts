@@ -43,6 +43,7 @@ export interface UpdateAssetCommandOutput extends UpdateAssetResponse, __Metadat
  * const command = new UpdateAssetCommand(input);
  * const response = await client.send(command);
  * // { // UpdateAssetResponse
+ * //   assetId: "STRING_VALUE",
  * //   assetStatus: { // AssetStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails

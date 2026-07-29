@@ -60,6 +60,7 @@ export interface DeleteAssetModelCompositeModelCommandOutput extends DeleteAsset
  * //       ],
  * //     },
  * //   },
+ * //   assetModelId: "STRING_VALUE",
  * // };
  *
  * ```

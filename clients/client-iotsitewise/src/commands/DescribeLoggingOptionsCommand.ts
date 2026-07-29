@@ -32,7 +32,9 @@ export interface DescribeLoggingOptionsCommandOutput extends DescribeLoggingOpti
  * // import type { IoTSiteWiseClientConfig } from "@aws-sdk/client-iotsitewise";
  * const config = {}; // type is IoTSiteWiseClientConfig
  * const client = new IoTSiteWiseClient(config);
- * const input = {};
+ * const input = { // DescribeLoggingOptionsRequest
+ *   workspaceName: "STRING_VALUE",
+ * };
  * const command = new DescribeLoggingOptionsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeLoggingOptionsResponse
@@ -80,7 +82,7 @@ export class DescribeLoggingOptionsCommand extends command<DescribeLoggingOption
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: {};
+      input: DescribeLoggingOptionsRequest;
       output: DescribeLoggingOptionsResponse;
     };
     sdk: {

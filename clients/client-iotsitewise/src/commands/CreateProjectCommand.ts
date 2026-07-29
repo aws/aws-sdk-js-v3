@@ -23,7 +23,13 @@ export interface CreateProjectCommandInput extends CreateProjectRequest {}
 export interface CreateProjectCommandOutput extends CreateProjectResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a project in the specified portal.</p>
+ * <important>
+ *             <p>The IoT SiteWise Monitor feature will no longer be open to new
+ *   customers starting November 7, 2025. If you would like to use the IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can
+ *   continue to use the service as normal. For more information, see
+ * <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html">IoT SiteWise Monitor availability change</a>.</p>
+ *          </important>
+ *          <p>Creates a project in the specified portal.</p>
  *          <note>
  *             <p>Make sure that the project name and description don't contain confidential
  *         information.</p>

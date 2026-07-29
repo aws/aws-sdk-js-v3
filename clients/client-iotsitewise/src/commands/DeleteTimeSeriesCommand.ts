@@ -25,7 +25,8 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a time series (data stream). If you delete a time series that's associated with an
  *       asset property, the asset property still exists, but the time series will no longer be
- *       associated with this asset property.</p>
+ *       associated with this asset property. You can't delete a time series until all of its data
+ *       segments have been deleted from session datasets.</p>
  *          <p>To identify a time series, do one of the following:</p>
  *          <ul>
  *             <li>
@@ -58,6 +59,7 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  *   assetId: "STRING_VALUE",
  *   propertyId: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new DeleteTimeSeriesCommand(input);
  * const response = await client.send(command);

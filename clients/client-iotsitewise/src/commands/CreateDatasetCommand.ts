@@ -23,7 +23,7 @@ export interface CreateDatasetCommandInput extends CreateDatasetRequest {}
 export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a dataset to connect an external datasource.</p>
+ * <p>Creates a dataset. Session and curated datasets are created in a workspace. A session dataset contains data segments of time series data, and a curated dataset curates data segments selected from source session datasets. A dataset that connects to an external datasource is created outside of a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,9 +36,26 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *   datasetId: "STRING_VALUE",
  *   datasetName: "STRING_VALUE", // required
  *   datasetDescription: "STRING_VALUE",
+ *   datasetType: "SESSION" || "CURATED" || "EXTERNAL",
+ *   datasetConfig: { // DatasetConfig
+ *     session: { // SessionConfig
+ *       sessionStartTimestamp: { // TimeInNanos
+ *         timeInSeconds: Number("long"), // required
+ *         offsetInNanos: Number("int"),
+ *       },
+ *       sessionEndTimestamp: {
+ *         timeInSeconds: Number("long"), // required
+ *         offsetInNanos: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   workspaceName: "STRING_VALUE",
+ *   metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   datasetSource: { // DatasetSource
- *     sourceType: "KENDRA", // required
- *     sourceFormat: "KNOWLEDGE_BASE", // required
+ *     sourceType: "KENDRA" || "SITEWISE", // required
+ *     sourceFormat: "KNOWLEDGE_BASE" || "TIMESERIES", // required
  *     sourceDetail: { // SourceDetail
  *       kendra: { // KendraSourceDetail
  *         knowledgeBaseArn: "STRING_VALUE", // required

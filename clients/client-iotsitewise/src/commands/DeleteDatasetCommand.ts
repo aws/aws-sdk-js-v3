@@ -23,7 +23,7 @@ export interface DeleteDatasetCommandInput extends DeleteDatasetRequest {}
 export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a dataset. This cannot be undone.</p>
+ * <p>Deletes a dataset. This can't be undone. Deleting a session dataset also deletes the underlying time series data in the session. You can't delete a session dataset while a curated dataset references its data segments. First delete the curated dataset or disassociate the data segments. Deleting a curated dataset doesn't delete the underlying data in the source session datasets.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -34,6 +34,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DeleteDatasetRequest
  *   datasetId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new DeleteDatasetCommand(input);

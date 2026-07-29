@@ -23,7 +23,13 @@ export interface CreateAccessPolicyCommandInput extends CreateAccessPolicyReques
 export interface CreateAccessPolicyCommandOutput extends CreateAccessPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
+ * <important>
+ *             <p>The IoT SiteWise Monitor feature will no longer be open to new
+ *   customers starting November 7, 2025. If you would like to use the IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can
+ *   continue to use the service as normal. For more information, see
+ * <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html">IoT SiteWise Monitor availability change</a>.</p>
+ *          </important>
+ *          <p>Creates an access policy that grants the specified identity (IAM Identity Center user, IAM Identity Center group, or
  *       IAM user) access to the specified IoT SiteWise Monitor portal or project resource.</p>
  *          <note>
  *             <p>Support for access policies that use an SSO Group as the identity is not supported at this time.</p>

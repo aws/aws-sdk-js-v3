@@ -18,10 +18,25 @@ import {
   AssociateTimeSeriesToAssetPropertyCommand,
 } from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
 import {
+  type BatchAssociateDataSegmentsToDatasetCommandInput,
+  type BatchAssociateDataSegmentsToDatasetCommandOutput,
+  BatchAssociateDataSegmentsToDatasetCommand,
+} from "./commands/BatchAssociateDataSegmentsToDatasetCommand";
+import {
   type BatchAssociateProjectAssetsCommandInput,
   type BatchAssociateProjectAssetsCommandOutput,
   BatchAssociateProjectAssetsCommand,
 } from "./commands/BatchAssociateProjectAssetsCommand";
+import {
+  type BatchDeleteDatasetDataSegmentsCommandInput,
+  type BatchDeleteDatasetDataSegmentsCommandOutput,
+  BatchDeleteDatasetDataSegmentsCommand,
+} from "./commands/BatchDeleteDatasetDataSegmentsCommand";
+import {
+  type BatchDisassociateDataSegmentsFromDatasetCommandInput,
+  type BatchDisassociateDataSegmentsFromDatasetCommandOutput,
+  BatchDisassociateDataSegmentsFromDatasetCommand,
+} from "./commands/BatchDisassociateDataSegmentsFromDatasetCommand";
 import {
   type BatchDisassociateProjectAssetsCommandInput,
   type BatchDisassociateProjectAssetsCommandOutput,
@@ -48,10 +63,30 @@ import {
   BatchPutAssetPropertyValueCommand,
 } from "./commands/BatchPutAssetPropertyValueCommand";
 import {
+  type CancelEnrichmentJobCommandInput,
+  type CancelEnrichmentJobCommandOutput,
+  CancelEnrichmentJobCommand,
+} from "./commands/CancelEnrichmentJobCommand";
+import {
+  type CancelPipelineExecutionCommandInput,
+  type CancelPipelineExecutionCommandOutput,
+  CancelPipelineExecutionCommand,
+} from "./commands/CancelPipelineExecutionCommand";
+import {
+  type CancelQueryCommandInput,
+  type CancelQueryCommandOutput,
+  CancelQueryCommand,
+} from "./commands/CancelQueryCommand";
+import {
   type CreateAccessPolicyCommandInput,
   type CreateAccessPolicyCommandOutput,
   CreateAccessPolicyCommand,
 } from "./commands/CreateAccessPolicyCommand";
+import {
+  type CreateApplicationCommandInput,
+  type CreateApplicationCommandOutput,
+  CreateApplicationCommand,
+} from "./commands/CreateApplicationCommand";
 import {
   type CreateAssetCommandInput,
   type CreateAssetCommandOutput,
@@ -88,10 +123,25 @@ import {
   CreateDatasetCommand,
 } from "./commands/CreateDatasetCommand";
 import {
+  type CreateDatasetExportJobCommandInput,
+  type CreateDatasetExportJobCommandOutput,
+  CreateDatasetExportJobCommand,
+} from "./commands/CreateDatasetExportJobCommand";
+import {
+  type CreateEnrichmentJobCommandInput,
+  type CreateEnrichmentJobCommandOutput,
+  CreateEnrichmentJobCommand,
+} from "./commands/CreateEnrichmentJobCommand";
+import {
   type CreateGatewayCommandInput,
   type CreateGatewayCommandOutput,
   CreateGatewayCommand,
 } from "./commands/CreateGatewayCommand";
+import {
+  type CreatePipelineCommandInput,
+  type CreatePipelineCommandOutput,
+  CreatePipelineCommand,
+} from "./commands/CreatePipelineCommand";
 import {
   type CreatePortalCommandInput,
   type CreatePortalCommandOutput,
@@ -103,10 +153,25 @@ import {
   CreateProjectCommand,
 } from "./commands/CreateProjectCommand";
 import {
+  type CreateTaskCommandInput,
+  type CreateTaskCommandOutput,
+  CreateTaskCommand,
+} from "./commands/CreateTaskCommand";
+import {
+  type CreateWorkspaceCommandInput,
+  type CreateWorkspaceCommandOutput,
+  CreateWorkspaceCommand,
+} from "./commands/CreateWorkspaceCommand";
+import {
   type DeleteAccessPolicyCommandInput,
   type DeleteAccessPolicyCommandOutput,
   DeleteAccessPolicyCommand,
 } from "./commands/DeleteAccessPolicyCommand";
+import {
+  type DeleteApplicationCommandInput,
+  type DeleteApplicationCommandOutput,
+  DeleteApplicationCommand,
+} from "./commands/DeleteApplicationCommand";
 import {
   type DeleteAssetCommandInput,
   type DeleteAssetCommandOutput,
@@ -148,6 +213,11 @@ import {
   DeleteGatewayCommand,
 } from "./commands/DeleteGatewayCommand";
 import {
+  type DeletePipelineCommandInput,
+  type DeletePipelineCommandOutput,
+  DeletePipelineCommand,
+} from "./commands/DeletePipelineCommand";
+import {
   type DeletePortalCommandInput,
   type DeletePortalCommandOutput,
   DeletePortalCommand,
@@ -158,10 +228,20 @@ import {
   DeleteProjectCommand,
 } from "./commands/DeleteProjectCommand";
 import {
+  type DeleteTaskCommandInput,
+  type DeleteTaskCommandOutput,
+  DeleteTaskCommand,
+} from "./commands/DeleteTaskCommand";
+import {
   type DeleteTimeSeriesCommandInput,
   type DeleteTimeSeriesCommandOutput,
   DeleteTimeSeriesCommand,
 } from "./commands/DeleteTimeSeriesCommand";
+import {
+  type DeleteWorkspaceCommandInput,
+  type DeleteWorkspaceCommandOutput,
+  DeleteWorkspaceCommand,
+} from "./commands/DeleteWorkspaceCommand";
 import {
   type DescribeAccessPolicyCommandInput,
   type DescribeAccessPolicyCommandOutput,
@@ -172,6 +252,11 @@ import {
   type DescribeActionCommandOutput,
   DescribeActionCommand,
 } from "./commands/DescribeActionCommand";
+import {
+  type DescribeApplicationCommandInput,
+  type DescribeApplicationCommandOutput,
+  DescribeApplicationCommand,
+} from "./commands/DescribeApplicationCommand";
 import {
   type DescribeAssetCommandInput,
   type DescribeAssetCommandOutput,
@@ -228,10 +313,20 @@ import {
   DescribeDatasetCommand,
 } from "./commands/DescribeDatasetCommand";
 import {
+  type DescribeDatasetExportJobCommandInput,
+  type DescribeDatasetExportJobCommandOutput,
+  DescribeDatasetExportJobCommand,
+} from "./commands/DescribeDatasetExportJobCommand";
+import {
   type DescribeDefaultEncryptionConfigurationCommandInput,
   type DescribeDefaultEncryptionConfigurationCommandOutput,
   DescribeDefaultEncryptionConfigurationCommand,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import {
+  type DescribeEnrichmentJobCommandInput,
+  type DescribeEnrichmentJobCommandOutput,
+  DescribeEnrichmentJobCommand,
+} from "./commands/DescribeEnrichmentJobCommand";
 import {
   type DescribeExecutionCommandInput,
   type DescribeExecutionCommandOutput,
@@ -253,6 +348,16 @@ import {
   DescribeLoggingOptionsCommand,
 } from "./commands/DescribeLoggingOptionsCommand";
 import {
+  type DescribePipelineCommandInput,
+  type DescribePipelineCommandOutput,
+  DescribePipelineCommand,
+} from "./commands/DescribePipelineCommand";
+import {
+  type DescribePipelineExecutionCommandInput,
+  type DescribePipelineExecutionCommandOutput,
+  DescribePipelineExecutionCommand,
+} from "./commands/DescribePipelineExecutionCommand";
+import {
   type DescribePortalCommandInput,
   type DescribePortalCommandOutput,
   DescribePortalCommand,
@@ -263,15 +368,35 @@ import {
   DescribeProjectCommand,
 } from "./commands/DescribeProjectCommand";
 import {
+  type DescribeQueryCommandInput,
+  type DescribeQueryCommandOutput,
+  DescribeQueryCommand,
+} from "./commands/DescribeQueryCommand";
+import {
+  type DescribeSearchCommandInput,
+  type DescribeSearchCommandOutput,
+  DescribeSearchCommand,
+} from "./commands/DescribeSearchCommand";
+import {
   type DescribeStorageConfigurationCommandInput,
   type DescribeStorageConfigurationCommandOutput,
   DescribeStorageConfigurationCommand,
 } from "./commands/DescribeStorageConfigurationCommand";
 import {
+  type DescribeTaskCommandInput,
+  type DescribeTaskCommandOutput,
+  DescribeTaskCommand,
+} from "./commands/DescribeTaskCommand";
+import {
   type DescribeTimeSeriesCommandInput,
   type DescribeTimeSeriesCommandOutput,
   DescribeTimeSeriesCommand,
 } from "./commands/DescribeTimeSeriesCommand";
+import {
+  type DescribeWorkspaceCommandInput,
+  type DescribeWorkspaceCommandOutput,
+  DescribeWorkspaceCommand,
+} from "./commands/DescribeWorkspaceCommand";
 import {
   type DisassociateAssetsCommandInput,
   type DisassociateAssetsCommandOutput,
@@ -308,10 +433,25 @@ import {
   GetAssetPropertyValueHistoryCommand,
 } from "./commands/GetAssetPropertyValueHistoryCommand";
 import {
+  type GetCaptureDataCommandInput,
+  type GetCaptureDataCommandOutput,
+  GetCaptureDataCommand,
+} from "./commands/GetCaptureDataCommand";
+import {
   type GetInterpolatedAssetPropertyValuesCommandInput,
   type GetInterpolatedAssetPropertyValuesCommandOutput,
   GetInterpolatedAssetPropertyValuesCommand,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
+import {
+  type GetQueryResultsCommandInput,
+  type GetQueryResultsCommandOutput,
+  GetQueryResultsCommand,
+} from "./commands/GetQueryResultsCommand";
+import {
+  type GetSearchResultsCommandInput,
+  type GetSearchResultsCommandOutput,
+  GetSearchResultsCommand,
+} from "./commands/GetSearchResultsCommand";
 import {
   type InvokeAssistantCommandInput,
   type InvokeAssistantCommandOutput,
@@ -327,6 +467,11 @@ import {
   type ListActionsCommandOutput,
   ListActionsCommand,
 } from "./commands/ListActionsCommand";
+import {
+  type ListApplicationsCommandInput,
+  type ListApplicationsCommandOutput,
+  ListApplicationsCommand,
+} from "./commands/ListApplicationsCommand";
 import {
   type ListAssetModelCompositeModelsCommandInput,
   type ListAssetModelCompositeModelsCommandOutput,
@@ -393,10 +538,30 @@ import {
   ListDashboardsCommand,
 } from "./commands/ListDashboardsCommand";
 import {
+  type ListDatasetDataSegmentRelationshipsCommandInput,
+  type ListDatasetDataSegmentRelationshipsCommandOutput,
+  ListDatasetDataSegmentRelationshipsCommand,
+} from "./commands/ListDatasetDataSegmentRelationshipsCommand";
+import {
+  type ListDatasetDataSegmentsCommandInput,
+  type ListDatasetDataSegmentsCommandOutput,
+  ListDatasetDataSegmentsCommand,
+} from "./commands/ListDatasetDataSegmentsCommand";
+import {
+  type ListDatasetExportJobsCommandInput,
+  type ListDatasetExportJobsCommandOutput,
+  ListDatasetExportJobsCommand,
+} from "./commands/ListDatasetExportJobsCommand";
+import {
   type ListDatasetsCommandInput,
   type ListDatasetsCommandOutput,
   ListDatasetsCommand,
 } from "./commands/ListDatasetsCommand";
+import {
+  type ListEnrichmentJobsCommandInput,
+  type ListEnrichmentJobsCommandOutput,
+  ListEnrichmentJobsCommand,
+} from "./commands/ListEnrichmentJobsCommand";
 import {
   type ListExecutionsCommandInput,
   type ListExecutionsCommandOutput,
@@ -413,6 +578,16 @@ import {
   ListInterfaceRelationshipsCommand,
 } from "./commands/ListInterfaceRelationshipsCommand";
 import {
+  type ListPipelineExecutionsCommandInput,
+  type ListPipelineExecutionsCommandOutput,
+  ListPipelineExecutionsCommand,
+} from "./commands/ListPipelineExecutionsCommand";
+import {
+  type ListPipelinesCommandInput,
+  type ListPipelinesCommandOutput,
+  ListPipelinesCommand,
+} from "./commands/ListPipelinesCommand";
+import {
   type ListPortalsCommandInput,
   type ListPortalsCommandOutput,
   ListPortalsCommand,
@@ -428,15 +603,31 @@ import {
   ListProjectsCommand,
 } from "./commands/ListProjectsCommand";
 import {
+  type ListQueriesCommandInput,
+  type ListQueriesCommandOutput,
+  ListQueriesCommand,
+} from "./commands/ListQueriesCommand";
+import {
+  type ListSearchesCommandInput,
+  type ListSearchesCommandOutput,
+  ListSearchesCommand,
+} from "./commands/ListSearchesCommand";
+import {
   type ListTagsForResourceCommandInput,
   type ListTagsForResourceCommandOutput,
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
+import { type ListTasksCommandInput, type ListTasksCommandOutput, ListTasksCommand } from "./commands/ListTasksCommand";
 import {
   type ListTimeSeriesCommandInput,
   type ListTimeSeriesCommandOutput,
   ListTimeSeriesCommand,
 } from "./commands/ListTimeSeriesCommand";
+import {
+  type ListWorkspacesCommandInput,
+  type ListWorkspacesCommandOutput,
+  ListWorkspacesCommand,
+} from "./commands/ListWorkspacesCommand";
 import {
   type PutAssetModelInterfaceRelationshipCommandInput,
   type PutAssetModelInterfaceRelationshipCommandOutput,
@@ -457,6 +648,21 @@ import {
   type PutStorageConfigurationCommandOutput,
   PutStorageConfigurationCommand,
 } from "./commands/PutStorageConfigurationCommand";
+import {
+  type StartPipelineExecutionCommandInput,
+  type StartPipelineExecutionCommandOutput,
+  StartPipelineExecutionCommand,
+} from "./commands/StartPipelineExecutionCommand";
+import {
+  type StartQueryCommandInput,
+  type StartQueryCommandOutput,
+  StartQueryCommand,
+} from "./commands/StartQueryCommand";
+import {
+  type StartSearchCommandInput,
+  type StartSearchCommandOutput,
+  StartSearchCommand,
+} from "./commands/StartSearchCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -518,6 +724,11 @@ import {
   UpdateGatewayCommand,
 } from "./commands/UpdateGatewayCommand";
 import {
+  type UpdatePipelineCommandInput,
+  type UpdatePipelineCommandOutput,
+  UpdatePipelineCommand,
+} from "./commands/UpdatePipelineCommand";
+import {
   type UpdatePortalCommandInput,
   type UpdatePortalCommandOutput,
   UpdatePortalCommand,
@@ -527,18 +738,32 @@ import {
   type UpdateProjectCommandOutput,
   UpdateProjectCommand,
 } from "./commands/UpdateProjectCommand";
+import {
+  type UpdateTaskCommandInput,
+  type UpdateTaskCommandOutput,
+  UpdateTaskCommand,
+} from "./commands/UpdateTaskCommand";
+import {
+  type UpdateWorkspaceCommandInput,
+  type UpdateWorkspaceCommandOutput,
+  UpdateWorkspaceCommand,
+} from "./commands/UpdateWorkspaceCommand";
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient";
 import type { ResourceNotFoundException } from "./models/errors";
 import type { IoTSiteWiseServiceException } from "./models/IoTSiteWiseServiceException";
 import { paginateBatchGetAssetPropertyAggregates } from "./pagination/BatchGetAssetPropertyAggregatesPaginator";
 import { paginateBatchGetAssetPropertyValueHistory } from "./pagination/BatchGetAssetPropertyValueHistoryPaginator";
 import { paginateBatchGetAssetPropertyValue } from "./pagination/BatchGetAssetPropertyValuePaginator";
+import { paginateDescribePipelineExecution } from "./pagination/DescribePipelineExecutionPaginator";
 import { paginateExecuteQuery } from "./pagination/ExecuteQueryPaginator";
 import { paginateGetAssetPropertyAggregates } from "./pagination/GetAssetPropertyAggregatesPaginator";
 import { paginateGetAssetPropertyValueHistory } from "./pagination/GetAssetPropertyValueHistoryPaginator";
 import { paginateGetInterpolatedAssetPropertyValues } from "./pagination/GetInterpolatedAssetPropertyValuesPaginator";
+import { paginateGetQueryResults } from "./pagination/GetQueryResultsPaginator";
+import { paginateGetSearchResults } from "./pagination/GetSearchResultsPaginator";
 import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPaginator";
 import { paginateListActions } from "./pagination/ListActionsPaginator";
+import { paginateListApplications } from "./pagination/ListApplicationsPaginator";
 import { paginateListAssetModelCompositeModels } from "./pagination/ListAssetModelCompositeModelsPaginator";
 import { paginateListAssetModelProperties } from "./pagination/ListAssetModelPropertiesPaginator";
 import { paginateListAssetModels } from "./pagination/ListAssetModelsPaginator";
@@ -556,14 +781,24 @@ import {
 } from "./pagination/ListComputationModelResolveToResourcesPaginator";
 import { paginateListComputationModels } from "./pagination/ListComputationModelsPaginator";
 import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
+import { paginateListDatasetDataSegmentRelationships } from "./pagination/ListDatasetDataSegmentRelationshipsPaginator";
+import { paginateListDatasetDataSegments } from "./pagination/ListDatasetDataSegmentsPaginator";
+import { paginateListDatasetExportJobs } from "./pagination/ListDatasetExportJobsPaginator";
 import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
+import { paginateListEnrichmentJobs } from "./pagination/ListEnrichmentJobsPaginator";
 import { paginateListExecutions } from "./pagination/ListExecutionsPaginator";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListInterfaceRelationships } from "./pagination/ListInterfaceRelationshipsPaginator";
+import { paginateListPipelineExecutions } from "./pagination/ListPipelineExecutionsPaginator";
+import { paginateListPipelines } from "./pagination/ListPipelinesPaginator";
 import { paginateListPortals } from "./pagination/ListPortalsPaginator";
 import { paginateListProjectAssets } from "./pagination/ListProjectAssetsPaginator";
 import { paginateListProjects } from "./pagination/ListProjectsPaginator";
+import { paginateListQueries } from "./pagination/ListQueriesPaginator";
+import { paginateListSearches } from "./pagination/ListSearchesPaginator";
+import { paginateListTasks } from "./pagination/ListTasksPaginator";
 import { paginateListTimeSeries } from "./pagination/ListTimeSeriesPaginator";
+import { paginateListWorkspaces } from "./pagination/ListWorkspacesPaginator";
 import { waitUntilAssetActive } from "./waiters/waitForAssetActive";
 import { waitUntilAssetModelActive } from "./waiters/waitForAssetModelActive";
 import { waitUntilAssetModelNotExists } from "./waiters/waitForAssetModelNotExists";
@@ -574,13 +809,20 @@ import { waitUntilPortalNotExists } from "./waiters/waitForPortalNotExists";
 const commands = {
   AssociateAssetsCommand,
   AssociateTimeSeriesToAssetPropertyCommand,
+  BatchAssociateDataSegmentsToDatasetCommand,
   BatchAssociateProjectAssetsCommand,
+  BatchDeleteDatasetDataSegmentsCommand,
+  BatchDisassociateDataSegmentsFromDatasetCommand,
   BatchDisassociateProjectAssetsCommand,
   BatchGetAssetPropertyAggregatesCommand,
   BatchGetAssetPropertyValueCommand,
   BatchGetAssetPropertyValueHistoryCommand,
   BatchPutAssetPropertyValueCommand,
+  CancelEnrichmentJobCommand,
+  CancelPipelineExecutionCommand,
+  CancelQueryCommand,
   CreateAccessPolicyCommand,
+  CreateApplicationCommand,
   CreateAssetCommand,
   CreateAssetModelCommand,
   CreateAssetModelCompositeModelCommand,
@@ -588,10 +830,16 @@ const commands = {
   CreateComputationModelCommand,
   CreateDashboardCommand,
   CreateDatasetCommand,
+  CreateDatasetExportJobCommand,
+  CreateEnrichmentJobCommand,
   CreateGatewayCommand,
+  CreatePipelineCommand,
   CreatePortalCommand,
   CreateProjectCommand,
+  CreateTaskCommand,
+  CreateWorkspaceCommand,
   DeleteAccessPolicyCommand,
+  DeleteApplicationCommand,
   DeleteAssetCommand,
   DeleteAssetModelCommand,
   DeleteAssetModelCompositeModelCommand,
@@ -600,11 +848,15 @@ const commands = {
   DeleteDashboardCommand,
   DeleteDatasetCommand,
   DeleteGatewayCommand,
+  DeletePipelineCommand,
   DeletePortalCommand,
   DeleteProjectCommand,
+  DeleteTaskCommand,
   DeleteTimeSeriesCommand,
+  DeleteWorkspaceCommand,
   DescribeAccessPolicyCommand,
   DescribeActionCommand,
+  DescribeApplicationCommand,
   DescribeAssetCommand,
   DescribeAssetCompositeModelCommand,
   DescribeAssetModelCommand,
@@ -616,15 +868,23 @@ const commands = {
   DescribeComputationModelExecutionSummaryCommand,
   DescribeDashboardCommand,
   DescribeDatasetCommand,
+  DescribeDatasetExportJobCommand,
   DescribeDefaultEncryptionConfigurationCommand,
+  DescribeEnrichmentJobCommand,
   DescribeExecutionCommand,
   DescribeGatewayCommand,
   DescribeGatewayCapabilityConfigurationCommand,
   DescribeLoggingOptionsCommand,
+  DescribePipelineCommand,
+  DescribePipelineExecutionCommand,
   DescribePortalCommand,
   DescribeProjectCommand,
+  DescribeQueryCommand,
+  DescribeSearchCommand,
   DescribeStorageConfigurationCommand,
+  DescribeTaskCommand,
   DescribeTimeSeriesCommand,
+  DescribeWorkspaceCommand,
   DisassociateAssetsCommand,
   DisassociateTimeSeriesFromAssetPropertyCommand,
   ExecuteActionCommand,
@@ -632,10 +892,14 @@ const commands = {
   GetAssetPropertyAggregatesCommand,
   GetAssetPropertyValueCommand,
   GetAssetPropertyValueHistoryCommand,
+  GetCaptureDataCommand,
   GetInterpolatedAssetPropertyValuesCommand,
+  GetQueryResultsCommand,
+  GetSearchResultsCommand,
   InvokeAssistantCommand,
   ListAccessPoliciesCommand,
   ListActionsCommand,
+  ListApplicationsCommand,
   ListAssetModelCompositeModelsCommand,
   ListAssetModelPropertiesCommand,
   ListAssetModelsCommand,
@@ -649,19 +913,32 @@ const commands = {
   ListComputationModelResolveToResourcesCommand,
   ListComputationModelsCommand,
   ListDashboardsCommand,
+  ListDatasetDataSegmentRelationshipsCommand,
+  ListDatasetDataSegmentsCommand,
+  ListDatasetExportJobsCommand,
   ListDatasetsCommand,
+  ListEnrichmentJobsCommand,
   ListExecutionsCommand,
   ListGatewaysCommand,
   ListInterfaceRelationshipsCommand,
+  ListPipelineExecutionsCommand,
+  ListPipelinesCommand,
   ListPortalsCommand,
   ListProjectAssetsCommand,
   ListProjectsCommand,
+  ListQueriesCommand,
+  ListSearchesCommand,
   ListTagsForResourceCommand,
+  ListTasksCommand,
   ListTimeSeriesCommand,
+  ListWorkspacesCommand,
   PutAssetModelInterfaceRelationshipCommand,
   PutDefaultEncryptionConfigurationCommand,
   PutLoggingOptionsCommand,
   PutStorageConfigurationCommand,
+  StartPipelineExecutionCommand,
+  StartQueryCommand,
+  StartSearchCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccessPolicyCommand,
@@ -674,19 +951,26 @@ const commands = {
   UpdateDatasetCommand,
   UpdateGatewayCommand,
   UpdateGatewayCapabilityConfigurationCommand,
+  UpdatePipelineCommand,
   UpdatePortalCommand,
   UpdateProjectCommand,
+  UpdateTaskCommand,
+  UpdateWorkspaceCommand,
 };
 const paginators = {
   paginateBatchGetAssetPropertyAggregates,
   paginateBatchGetAssetPropertyValue,
   paginateBatchGetAssetPropertyValueHistory,
+  paginateDescribePipelineExecution,
   paginateExecuteQuery,
   paginateGetAssetPropertyAggregates,
   paginateGetAssetPropertyValueHistory,
   paginateGetInterpolatedAssetPropertyValues,
+  paginateGetQueryResults,
+  paginateGetSearchResults,
   paginateListAccessPolicies,
   paginateListActions,
+  paginateListApplications,
   paginateListAssetModelCompositeModels,
   paginateListAssetModelProperties,
   paginateListAssetModels,
@@ -700,14 +984,24 @@ const paginators = {
   paginateListComputationModelResolveToResources,
   paginateListComputationModels,
   paginateListDashboards,
+  paginateListDatasetDataSegmentRelationships,
+  paginateListDatasetDataSegments,
+  paginateListDatasetExportJobs,
   paginateListDatasets,
+  paginateListEnrichmentJobs,
   paginateListExecutions,
   paginateListGateways,
   paginateListInterfaceRelationships,
+  paginateListPipelineExecutions,
+  paginateListPipelines,
   paginateListPortals,
   paginateListProjectAssets,
   paginateListProjects,
+  paginateListQueries,
+  paginateListSearches,
+  paginateListTasks,
   paginateListTimeSeries,
+  paginateListWorkspaces,
 };
 const waiters = {
   waitUntilAssetActive,
@@ -754,6 +1048,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link BatchAssociateDataSegmentsToDatasetCommand}
+   */
+  batchAssociateDataSegmentsToDataset(
+    args: BatchAssociateDataSegmentsToDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateDataSegmentsToDatasetCommandOutput>;
+  batchAssociateDataSegmentsToDataset(
+    args: BatchAssociateDataSegmentsToDatasetCommandInput,
+    cb: (err: any, data?: BatchAssociateDataSegmentsToDatasetCommandOutput) => void
+  ): void;
+  batchAssociateDataSegmentsToDataset(
+    args: BatchAssociateDataSegmentsToDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateDataSegmentsToDatasetCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchAssociateProjectAssetsCommand}
    */
   batchAssociateProjectAssets(
@@ -768,6 +1079,40 @@ export interface IoTSiteWise {
     args: BatchAssociateProjectAssetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchAssociateProjectAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteDatasetDataSegmentsCommand}
+   */
+  batchDeleteDatasetDataSegments(
+    args: BatchDeleteDatasetDataSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteDatasetDataSegmentsCommandOutput>;
+  batchDeleteDatasetDataSegments(
+    args: BatchDeleteDatasetDataSegmentsCommandInput,
+    cb: (err: any, data?: BatchDeleteDatasetDataSegmentsCommandOutput) => void
+  ): void;
+  batchDeleteDatasetDataSegments(
+    args: BatchDeleteDatasetDataSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteDatasetDataSegmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateDataSegmentsFromDatasetCommand}
+   */
+  batchDisassociateDataSegmentsFromDataset(
+    args: BatchDisassociateDataSegmentsFromDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateDataSegmentsFromDatasetCommandOutput>;
+  batchDisassociateDataSegmentsFromDataset(
+    args: BatchDisassociateDataSegmentsFromDatasetCommandInput,
+    cb: (err: any, data?: BatchDisassociateDataSegmentsFromDatasetCommandOutput) => void
+  ): void;
+  batchDisassociateDataSegmentsFromDataset(
+    args: BatchDisassociateDataSegmentsFromDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateDataSegmentsFromDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -856,6 +1201,57 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CancelEnrichmentJobCommand}
+   */
+  cancelEnrichmentJob(
+    args: CancelEnrichmentJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelEnrichmentJobCommandOutput>;
+  cancelEnrichmentJob(
+    args: CancelEnrichmentJobCommandInput,
+    cb: (err: any, data?: CancelEnrichmentJobCommandOutput) => void
+  ): void;
+  cancelEnrichmentJob(
+    args: CancelEnrichmentJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelEnrichmentJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelPipelineExecutionCommand}
+   */
+  cancelPipelineExecution(
+    args: CancelPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelPipelineExecutionCommandOutput>;
+  cancelPipelineExecution(
+    args: CancelPipelineExecutionCommandInput,
+    cb: (err: any, data?: CancelPipelineExecutionCommandOutput) => void
+  ): void;
+  cancelPipelineExecution(
+    args: CancelPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelPipelineExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelQueryCommand}
+   */
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelQueryCommandOutput>;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
+  cancelQuery(
+    args: CancelQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelQueryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAccessPolicyCommand}
    */
   createAccessPolicy(
@@ -870,6 +1266,23 @@ export interface IoTSiteWise {
     args: CreateAccessPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationCommand}
+   */
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationCommandOutput>;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+  createApplication(
+    args: CreateApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -992,6 +1405,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CreateDatasetExportJobCommand}
+   */
+  createDatasetExportJob(
+    args: CreateDatasetExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDatasetExportJobCommandOutput>;
+  createDatasetExportJob(
+    args: CreateDatasetExportJobCommandInput,
+    cb: (err: any, data?: CreateDatasetExportJobCommandOutput) => void
+  ): void;
+  createDatasetExportJob(
+    args: CreateDatasetExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDatasetExportJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEnrichmentJobCommand}
+   */
+  createEnrichmentJob(
+    args: CreateEnrichmentJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEnrichmentJobCommandOutput>;
+  createEnrichmentJob(
+    args: CreateEnrichmentJobCommandInput,
+    cb: (err: any, data?: CreateEnrichmentJobCommandOutput) => void
+  ): void;
+  createEnrichmentJob(
+    args: CreateEnrichmentJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEnrichmentJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateGatewayCommand}
    */
   createGateway(
@@ -1006,6 +1453,23 @@ export interface IoTSiteWise {
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePipelineCommand}
+   */
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePipelineCommandOutput>;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
+  ): void;
+  createPipeline(
+    args: CreatePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePipelineCommandOutput) => void
   ): void;
 
   /**
@@ -1043,6 +1507,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link CreateTaskCommand}
+   */
+  createTask(
+    args: CreateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTaskCommandOutput>;
+  createTask(
+    args: CreateTaskCommandInput,
+    cb: (err: any, data?: CreateTaskCommandOutput) => void
+  ): void;
+  createTask(
+    args: CreateTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkspaceCommand}
+   */
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspaceCommandOutput>;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
+  createWorkspace(
+    args: CreateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteAccessPolicyCommand}
    */
   deleteAccessPolicy(
@@ -1057,6 +1555,23 @@ export interface IoTSiteWise {
     args: DeleteAccessPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAccessPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationCommand}
+   */
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationCommandOutput>;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
+  ): void;
+  deleteApplication(
+    args: DeleteApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -1196,6 +1711,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DeletePipelineCommand}
+   */
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePipelineCommandOutput>;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+  deletePipeline(
+    args: DeletePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePipelineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeletePortalCommand}
    */
   deletePortal(
@@ -1230,6 +1762,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DeleteTaskCommand}
+   */
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTaskCommandOutput>;
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    cb: (err: any, data?: DeleteTaskCommandOutput) => void
+  ): void;
+  deleteTask(
+    args: DeleteTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTimeSeriesCommand}
    */
   deleteTimeSeries(): Promise<DeleteTimeSeriesCommandOutput>;
@@ -1245,6 +1794,23 @@ export interface IoTSiteWise {
     args: DeleteTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkspaceCommand}
+   */
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkspaceCommandOutput>;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
+  ): void;
+  deleteWorkspace(
+    args: DeleteWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkspaceCommandOutput) => void
   ): void;
 
   /**
@@ -1279,6 +1845,23 @@ export interface IoTSiteWise {
     args: DescribeActionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeActionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationCommand}
+   */
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationCommandOutput>;
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    cb: (err: any, data?: DescribeApplicationCommandOutput) => void
+  ): void;
+  describeApplication(
+    args: DescribeApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -1469,6 +2052,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribeDatasetExportJobCommand}
+   */
+  describeDatasetExportJob(
+    args: DescribeDatasetExportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDatasetExportJobCommandOutput>;
+  describeDatasetExportJob(
+    args: DescribeDatasetExportJobCommandInput,
+    cb: (err: any, data?: DescribeDatasetExportJobCommandOutput) => void
+  ): void;
+  describeDatasetExportJob(
+    args: DescribeDatasetExportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDatasetExportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeDefaultEncryptionConfigurationCommand}
    */
   describeDefaultEncryptionConfiguration(): Promise<DescribeDefaultEncryptionConfigurationCommandOutput>;
@@ -1484,6 +2084,23 @@ export interface IoTSiteWise {
     args: DescribeDefaultEncryptionConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeDefaultEncryptionConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeEnrichmentJobCommand}
+   */
+  describeEnrichmentJob(
+    args: DescribeEnrichmentJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEnrichmentJobCommandOutput>;
+  describeEnrichmentJob(
+    args: DescribeEnrichmentJobCommandInput,
+    cb: (err: any, data?: DescribeEnrichmentJobCommandOutput) => void
+  ): void;
+  describeEnrichmentJob(
+    args: DescribeEnrichmentJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEnrichmentJobCommandOutput) => void
   ): void;
 
   /**
@@ -1556,6 +2173,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribePipelineCommand}
+   */
+  describePipeline(
+    args: DescribePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipelineCommandOutput>;
+  describePipeline(
+    args: DescribePipelineCommandInput,
+    cb: (err: any, data?: DescribePipelineCommandOutput) => void
+  ): void;
+  describePipeline(
+    args: DescribePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePipelineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePipelineExecutionCommand}
+   */
+  describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePipelineExecutionCommandOutput>;
+  describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    cb: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
+  ): void;
+  describePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePipelineExecutionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribePortalCommand}
    */
   describePortal(
@@ -1590,6 +2241,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribeQueryCommand}
+   */
+  describeQuery(
+    args: DescribeQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueryCommandOutput>;
+  describeQuery(
+    args: DescribeQueryCommandInput,
+    cb: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): void;
+  describeQuery(
+    args: DescribeQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSearchCommand}
+   */
+  describeSearch(
+    args: DescribeSearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSearchCommandOutput>;
+  describeSearch(
+    args: DescribeSearchCommandInput,
+    cb: (err: any, data?: DescribeSearchCommandOutput) => void
+  ): void;
+  describeSearch(
+    args: DescribeSearchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSearchCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeStorageConfigurationCommand}
    */
   describeStorageConfiguration(): Promise<DescribeStorageConfigurationCommandOutput>;
@@ -1608,6 +2293,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link DescribeTaskCommand}
+   */
+  describeTask(
+    args: DescribeTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTaskCommandOutput>;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    cb: (err: any, data?: DescribeTaskCommandOutput) => void
+  ): void;
+  describeTask(
+    args: DescribeTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTaskCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTimeSeriesCommand}
    */
   describeTimeSeries(): Promise<DescribeTimeSeriesCommandOutput>;
@@ -1623,6 +2325,23 @@ export interface IoTSiteWise {
     args: DescribeTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWorkspaceCommand}
+   */
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceCommandOutput>;
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
+  ): void;
+  describeWorkspace(
+    args: DescribeWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
   ): void;
 
   /**
@@ -1747,6 +2466,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link GetCaptureDataCommand}
+   */
+  getCaptureData(
+    args: GetCaptureDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCaptureDataCommandOutput>;
+  getCaptureData(
+    args: GetCaptureDataCommandInput,
+    cb: (err: any, data?: GetCaptureDataCommandOutput) => void
+  ): void;
+  getCaptureData(
+    args: GetCaptureDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCaptureDataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetInterpolatedAssetPropertyValuesCommand}
    */
   getInterpolatedAssetPropertyValues(
@@ -1761,6 +2497,40 @@ export interface IoTSiteWise {
     args: GetInterpolatedAssetPropertyValuesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetInterpolatedAssetPropertyValuesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetQueryResultsCommand}
+   */
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetQueryResultsCommandOutput>;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+  getQueryResults(
+    args: GetQueryResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetQueryResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSearchResultsCommand}
+   */
+  getSearchResults(
+    args: GetSearchResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSearchResultsCommandOutput>;
+  getSearchResults(
+    args: GetSearchResultsCommandInput,
+    cb: (err: any, data?: GetSearchResultsCommandOutput) => void
+  ): void;
+  getSearchResults(
+    args: GetSearchResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSearchResultsCommandOutput) => void
   ): void;
 
   /**
@@ -1813,6 +2583,24 @@ export interface IoTSiteWise {
     args: ListActionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationsCommandOutput>;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
+  ): void;
+  listApplications(
+    args: ListApplicationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationsCommandOutput) => void
   ): void;
 
   /**
@@ -2041,6 +2829,57 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ListDatasetDataSegmentRelationshipsCommand}
+   */
+  listDatasetDataSegmentRelationships(
+    args: ListDatasetDataSegmentRelationshipsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetDataSegmentRelationshipsCommandOutput>;
+  listDatasetDataSegmentRelationships(
+    args: ListDatasetDataSegmentRelationshipsCommandInput,
+    cb: (err: any, data?: ListDatasetDataSegmentRelationshipsCommandOutput) => void
+  ): void;
+  listDatasetDataSegmentRelationships(
+    args: ListDatasetDataSegmentRelationshipsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetDataSegmentRelationshipsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetDataSegmentsCommand}
+   */
+  listDatasetDataSegments(
+    args: ListDatasetDataSegmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetDataSegmentsCommandOutput>;
+  listDatasetDataSegments(
+    args: ListDatasetDataSegmentsCommandInput,
+    cb: (err: any, data?: ListDatasetDataSegmentsCommandOutput) => void
+  ): void;
+  listDatasetDataSegments(
+    args: ListDatasetDataSegmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetDataSegmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDatasetExportJobsCommand}
+   */
+  listDatasetExportJobs(
+    args: ListDatasetExportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDatasetExportJobsCommandOutput>;
+  listDatasetExportJobs(
+    args: ListDatasetExportJobsCommandInput,
+    cb: (err: any, data?: ListDatasetExportJobsCommandOutput) => void
+  ): void;
+  listDatasetExportJobs(
+    args: ListDatasetExportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDatasetExportJobsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDatasetsCommand}
    */
   listDatasets(
@@ -2055,6 +2894,23 @@ export interface IoTSiteWise {
     args: ListDatasetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDatasetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnrichmentJobsCommand}
+   */
+  listEnrichmentJobs(
+    args: ListEnrichmentJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnrichmentJobsCommandOutput>;
+  listEnrichmentJobs(
+    args: ListEnrichmentJobsCommandInput,
+    cb: (err: any, data?: ListEnrichmentJobsCommandOutput) => void
+  ): void;
+  listEnrichmentJobs(
+    args: ListEnrichmentJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnrichmentJobsCommandOutput) => void
   ): void;
 
   /**
@@ -2110,6 +2966,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ListPipelineExecutionsCommand}
+   */
+  listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelineExecutionsCommandOutput>;
+  listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    cb: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
+  ): void;
+  listPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelineExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   */
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPipelinesCommandOutput>;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
+  listPipelines(
+    args: ListPipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPipelinesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPortalsCommand}
    */
   listPortals(): Promise<ListPortalsCommandOutput>;
@@ -2162,6 +3052,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link ListQueriesCommand}
+   */
+  listQueries(
+    args: ListQueriesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListQueriesCommandOutput>;
+  listQueries(
+    args: ListQueriesCommandInput,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
+  ): void;
+  listQueries(
+    args: ListQueriesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListQueriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSearchesCommand}
+   */
+  listSearches(
+    args: ListSearchesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSearchesCommandOutput>;
+  listSearches(
+    args: ListSearchesCommandInput,
+    cb: (err: any, data?: ListSearchesCommandOutput) => void
+  ): void;
+  listSearches(
+    args: ListSearchesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSearchesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -2176,6 +3100,23 @@ export interface IoTSiteWise {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTasksCommand}
+   */
+  listTasks(
+    args: ListTasksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTasksCommandOutput>;
+  listTasks(
+    args: ListTasksCommandInput,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
+  ): void;
+  listTasks(
+    args: ListTasksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTasksCommandOutput) => void
   ): void;
 
   /**
@@ -2194,6 +3135,24 @@ export interface IoTSiteWise {
     args: ListTimeSeriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTimeSeriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   */
+  listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWorkspacesCommandOutput>;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
+  ): void;
+  listWorkspaces(
+    args: ListWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWorkspacesCommandOutput) => void
   ): void;
 
   /**
@@ -2262,6 +3221,57 @@ export interface IoTSiteWise {
     args: PutStorageConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutStorageConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartPipelineExecutionCommand}
+   */
+  startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPipelineExecutionCommandOutput>;
+  startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): void;
+  startPipelineExecution(
+    args: StartPipelineExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPipelineExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartQueryCommand}
+   */
+  startQuery(
+    args: StartQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartQueryCommandOutput>;
+  startQuery(
+    args: StartQueryCommandInput,
+    cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+  startQuery(
+    args: StartQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartQueryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartSearchCommand}
+   */
+  startSearch(
+    args: StartSearchCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartSearchCommandOutput>;
+  startSearch(
+    args: StartSearchCommandInput,
+    cb: (err: any, data?: StartSearchCommandOutput) => void
+  ): void;
+  startSearch(
+    args: StartSearchCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartSearchCommandOutput) => void
   ): void;
 
   /**
@@ -2469,6 +3479,23 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link UpdatePipelineCommand}
+   */
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePipelineCommandOutput>;
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
+  updatePipeline(
+    args: UpdatePipelineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePipelineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdatePortalCommand}
    */
   updatePortal(
@@ -2503,6 +3530,40 @@ export interface IoTSiteWise {
   ): void;
 
   /**
+   * @see {@link UpdateTaskCommand}
+   */
+  updateTask(
+    args: UpdateTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskCommandOutput>;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    cb: (err: any, data?: UpdateTaskCommandOutput) => void
+  ): void;
+  updateTask(
+    args: UpdateTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceCommand}
+   */
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceCommandOutput>;
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
+  ): void;
+  updateWorkspace(
+    args: UpdateWorkspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchGetAssetPropertyAggregatesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2534,6 +3595,17 @@ export interface IoTSiteWise {
     args: BatchGetAssetPropertyValueHistoryCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<BatchGetAssetPropertyValueHistoryCommandOutput>;
+
+  /**
+   * @see {@link DescribePipelineExecutionCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribePipelineExecutionCommandOutput}.
+   */
+  paginateDescribePipelineExecution(
+    args: DescribePipelineExecutionCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribePipelineExecutionCommandOutput>;
 
   /**
    * @see {@link ExecuteQueryCommand}
@@ -2580,6 +3652,28 @@ export interface IoTSiteWise {
   ): Paginator<GetInterpolatedAssetPropertyValuesCommandOutput>;
 
   /**
+   * @see {@link GetQueryResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetQueryResultsCommandOutput}.
+   */
+  paginateGetQueryResults(
+    args: GetQueryResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetQueryResultsCommandOutput>;
+
+  /**
+   * @see {@link GetSearchResultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetSearchResultsCommandOutput}.
+   */
+  paginateGetSearchResults(
+    args: GetSearchResultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetSearchResultsCommandOutput>;
+
+  /**
    * @see {@link ListAccessPoliciesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2600,6 +3694,17 @@ export interface IoTSiteWise {
     args: ListActionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListActionsCommandOutput>;
+
+  /**
+   * @see {@link ListApplicationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApplicationsCommandOutput}.
+   */
+  paginateListApplications(
+    args?: ListApplicationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApplicationsCommandOutput>;
 
   /**
    * @see {@link ListAssetModelCompositeModelsCommand}
@@ -2745,6 +3850,39 @@ export interface IoTSiteWise {
   ): Paginator<ListDashboardsCommandOutput>;
 
   /**
+   * @see {@link ListDatasetDataSegmentRelationshipsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetDataSegmentRelationshipsCommandOutput}.
+   */
+  paginateListDatasetDataSegmentRelationships(
+    args: ListDatasetDataSegmentRelationshipsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetDataSegmentRelationshipsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetDataSegmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetDataSegmentsCommandOutput}.
+   */
+  paginateListDatasetDataSegments(
+    args: ListDatasetDataSegmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetDataSegmentsCommandOutput>;
+
+  /**
+   * @see {@link ListDatasetExportJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDatasetExportJobsCommandOutput}.
+   */
+  paginateListDatasetExportJobs(
+    args: ListDatasetExportJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDatasetExportJobsCommandOutput>;
+
+  /**
    * @see {@link ListDatasetsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2754,6 +3892,17 @@ export interface IoTSiteWise {
     args: ListDatasetsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDatasetsCommandOutput>;
+
+  /**
+   * @see {@link ListEnrichmentJobsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnrichmentJobsCommandOutput}.
+   */
+  paginateListEnrichmentJobs(
+    args: ListEnrichmentJobsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnrichmentJobsCommandOutput>;
 
   /**
    * @see {@link ListExecutionsCommand}
@@ -2789,6 +3938,28 @@ export interface IoTSiteWise {
   ): Paginator<ListInterfaceRelationshipsCommandOutput>;
 
   /**
+   * @see {@link ListPipelineExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelineExecutionsCommandOutput}.
+   */
+  paginateListPipelineExecutions(
+    args: ListPipelineExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelineExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListPipelinesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListPipelinesCommandOutput}.
+   */
+  paginateListPipelines(
+    args: ListPipelinesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListPipelinesCommandOutput>;
+
+  /**
    * @see {@link ListPortalsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2822,6 +3993,39 @@ export interface IoTSiteWise {
   ): Paginator<ListProjectsCommandOutput>;
 
   /**
+   * @see {@link ListQueriesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListQueriesCommandOutput}.
+   */
+  paginateListQueries(
+    args: ListQueriesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListQueriesCommandOutput>;
+
+  /**
+   * @see {@link ListSearchesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListSearchesCommandOutput}.
+   */
+  paginateListSearches(
+    args: ListSearchesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListSearchesCommandOutput>;
+
+  /**
+   * @see {@link ListTasksCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTasksCommandOutput}.
+   */
+  paginateListTasks(
+    args: ListTasksCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTasksCommandOutput>;
+
+  /**
    * @see {@link ListTimeSeriesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2831,6 +4035,17 @@ export interface IoTSiteWise {
     args?: ListTimeSeriesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListTimeSeriesCommandOutput>;
+
+  /**
+   * @see {@link ListWorkspacesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListWorkspacesCommandOutput}.
+   */
+  paginateListWorkspaces(
+    args?: ListWorkspacesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListWorkspacesCommandOutput>;
 
   /**
    * @see {@link DescribeAssetCommand}

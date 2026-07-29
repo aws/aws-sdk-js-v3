@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeTimeSeriesRequest, DescribeTimeSeriesResponse } from "../models/models_0";
+import type { DescribeTimeSeriesRequest, DescribeTimeSeriesResponse } from "../models/models_1";
 import { DescribeTimeSeries$ } from "../schemas/schemas_0";
 
 /**
@@ -55,6 +55,7 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  *   alias: "STRING_VALUE",
  *   assetId: "STRING_VALUE",
  *   propertyId: "STRING_VALUE",
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new DescribeTimeSeriesCommand(input);
  * const response = await client.send(command);
@@ -63,11 +64,12 @@ export interface DescribeTimeSeriesCommandOutput extends DescribeTimeSeriesRespo
  * //   propertyId: "STRING_VALUE",
  * //   alias: "STRING_VALUE",
  * //   timeSeriesId: "STRING_VALUE", // required
- * //   dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //   dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //   dataTypeSpec: "STRING_VALUE",
  * //   timeSeriesCreationDate: new Date("TIMESTAMP"), // required
  * //   timeSeriesLastUpdateDate: new Date("TIMESTAMP"), // required
  * //   timeSeriesArn: "STRING_VALUE", // required
+ * //   workspaceName: "STRING_VALUE",
  * // };
  *
  * ```

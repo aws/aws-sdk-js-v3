@@ -67,6 +67,9 @@ export interface DescribeDefaultEncryptionConfigurationCommandOutput extends Des
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
  *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so

@@ -34,6 +34,8 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * const client = new IoTSiteWiseClient(config);
  * const input = { // DescribeDatasetRequest
  *   datasetId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
+ *   datasetVersion: "STRING_VALUE",
  * };
  * const command = new DescribeDatasetCommand(input);
  * const response = await client.send(command);
@@ -42,9 +44,26 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * //   datasetArn: "STRING_VALUE", // required
  * //   datasetName: "STRING_VALUE", // required
  * //   datasetDescription: "STRING_VALUE", // required
+ * //   datasetType: "SESSION" || "CURATED" || "EXTERNAL",
+ * //   datasetConfig: { // DatasetConfig
+ * //     session: { // SessionConfig
+ * //       sessionStartTimestamp: { // TimeInNanos
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //       sessionEndTimestamp: {
+ * //         timeInSeconds: Number("long"), // required
+ * //         offsetInNanos: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * //   workspaceName: "STRING_VALUE",
+ * //   metadata: { // Metadata
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   datasetSource: { // DatasetSource
- * //     sourceType: "KENDRA", // required
- * //     sourceFormat: "KNOWLEDGE_BASE", // required
+ * //     sourceType: "KENDRA" || "SITEWISE", // required
+ * //     sourceFormat: "KNOWLEDGE_BASE" || "TIMESERIES", // required
  * //     sourceDetail: { // SourceDetail
  * //       kendra: { // KendraSourceDetail
  * //         knowledgeBaseArn: "STRING_VALUE", // required
@@ -68,6 +87,12 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * //   datasetCreationDate: new Date("TIMESTAMP"), // required
  * //   datasetLastUpdateDate: new Date("TIMESTAMP"), // required
  * //   datasetVersion: "STRING_VALUE",
+ * //   enrichmentStatus: { // DatasetEnrichment
+ * //     video: { // DatasetEnrichmentEntry
+ * //       status: "FULLY_ENRICHED" || "PARTIALLY_ENRICHED" || "NOT_ENRICHED", // required
+ * //       lastEnrichedAt: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
  * // };
  *
  * ```

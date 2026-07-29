@@ -62,7 +62,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       id: "STRING_VALUE",
  *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
- *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  *       dataTypeSpec: "STRING_VALUE",
  *       unit: "STRING_VALUE",
  *       type: { // PropertyType
@@ -154,7 +154,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *           id: "STRING_VALUE",
  *           externalId: "STRING_VALUE",
  *           name: "STRING_VALUE", // required
- *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  *           dataTypeSpec: "STRING_VALUE",
  *           unit: "STRING_VALUE",
  *           type: {
@@ -225,6 +225,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);
  * // { // UpdateAssetModelResponse
+ * //   assetModelId: "STRING_VALUE",
  * //   assetModelStatus: { // AssetModelStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "PROPAGATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails

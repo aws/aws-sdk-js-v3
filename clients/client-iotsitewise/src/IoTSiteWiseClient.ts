@@ -66,9 +66,21 @@ import type {
   AssociateTimeSeriesToAssetPropertyCommandOutput,
 } from "./commands/AssociateTimeSeriesToAssetPropertyCommand";
 import type {
+  BatchAssociateDataSegmentsToDatasetCommandInput,
+  BatchAssociateDataSegmentsToDatasetCommandOutput,
+} from "./commands/BatchAssociateDataSegmentsToDatasetCommand";
+import type {
   BatchAssociateProjectAssetsCommandInput,
   BatchAssociateProjectAssetsCommandOutput,
 } from "./commands/BatchAssociateProjectAssetsCommand";
+import type {
+  BatchDeleteDatasetDataSegmentsCommandInput,
+  BatchDeleteDatasetDataSegmentsCommandOutput,
+} from "./commands/BatchDeleteDatasetDataSegmentsCommand";
+import type {
+  BatchDisassociateDataSegmentsFromDatasetCommandInput,
+  BatchDisassociateDataSegmentsFromDatasetCommandOutput,
+} from "./commands/BatchDisassociateDataSegmentsFromDatasetCommand";
 import type {
   BatchDisassociateProjectAssetsCommandInput,
   BatchDisassociateProjectAssetsCommandOutput,
@@ -90,9 +102,22 @@ import type {
   BatchPutAssetPropertyValueCommandOutput,
 } from "./commands/BatchPutAssetPropertyValueCommand";
 import type {
+  CancelEnrichmentJobCommandInput,
+  CancelEnrichmentJobCommandOutput,
+} from "./commands/CancelEnrichmentJobCommand";
+import type {
+  CancelPipelineExecutionCommandInput,
+  CancelPipelineExecutionCommandOutput,
+} from "./commands/CancelPipelineExecutionCommand";
+import type { CancelQueryCommandInput, CancelQueryCommandOutput } from "./commands/CancelQueryCommand";
+import type {
   CreateAccessPolicyCommandInput,
   CreateAccessPolicyCommandOutput,
 } from "./commands/CreateAccessPolicyCommand";
+import type {
+  CreateApplicationCommandInput,
+  CreateApplicationCommandOutput,
+} from "./commands/CreateApplicationCommand";
 import type { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand";
 import type { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand";
 import type {
@@ -109,13 +134,28 @@ import type {
 } from "./commands/CreateComputationModelCommand";
 import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import type { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "./commands/CreateDatasetCommand";
+import type {
+  CreateDatasetExportJobCommandInput,
+  CreateDatasetExportJobCommandOutput,
+} from "./commands/CreateDatasetExportJobCommand";
+import type {
+  CreateEnrichmentJobCommandInput,
+  CreateEnrichmentJobCommandOutput,
+} from "./commands/CreateEnrichmentJobCommand";
 import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type { CreatePipelineCommandInput, CreatePipelineCommandOutput } from "./commands/CreatePipelineCommand";
 import type { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand";
 import type { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand";
+import type { CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand";
+import type { CreateWorkspaceCommandInput, CreateWorkspaceCommandOutput } from "./commands/CreateWorkspaceCommand";
 import type {
   DeleteAccessPolicyCommandInput,
   DeleteAccessPolicyCommandOutput,
 } from "./commands/DeleteAccessPolicyCommand";
+import type {
+  DeleteApplicationCommandInput,
+  DeleteApplicationCommandOutput,
+} from "./commands/DeleteApplicationCommand";
 import type { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand";
 import type { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "./commands/DeleteAssetModelCommand";
 import type {
@@ -133,14 +173,21 @@ import type {
 import type { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import type { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./commands/DeleteDatasetCommand";
 import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type { DeletePipelineCommandInput, DeletePipelineCommandOutput } from "./commands/DeletePipelineCommand";
 import type { DeletePortalCommandInput, DeletePortalCommandOutput } from "./commands/DeletePortalCommand";
 import type { DeleteProjectCommandInput, DeleteProjectCommandOutput } from "./commands/DeleteProjectCommand";
+import type { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import type { DeleteTimeSeriesCommandInput, DeleteTimeSeriesCommandOutput } from "./commands/DeleteTimeSeriesCommand";
+import type { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
 import type {
   DescribeAccessPolicyCommandInput,
   DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand";
 import type { DescribeActionCommandInput, DescribeActionCommandOutput } from "./commands/DescribeActionCommand";
+import type {
+  DescribeApplicationCommandInput,
+  DescribeApplicationCommandOutput,
+} from "./commands/DescribeApplicationCommand";
 import type { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand";
 import type {
   DescribeAssetCompositeModelCommandInput,
@@ -180,9 +227,17 @@ import type {
 } from "./commands/DescribeDashboardCommand";
 import type { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "./commands/DescribeDatasetCommand";
 import type {
+  DescribeDatasetExportJobCommandInput,
+  DescribeDatasetExportJobCommandOutput,
+} from "./commands/DescribeDatasetExportJobCommand";
+import type {
   DescribeDefaultEncryptionConfigurationCommandInput,
   DescribeDefaultEncryptionConfigurationCommandOutput,
 } from "./commands/DescribeDefaultEncryptionConfigurationCommand";
+import type {
+  DescribeEnrichmentJobCommandInput,
+  DescribeEnrichmentJobCommandOutput,
+} from "./commands/DescribeEnrichmentJobCommand";
 import type {
   DescribeExecutionCommandInput,
   DescribeExecutionCommandOutput,
@@ -196,16 +251,28 @@ import type {
   DescribeLoggingOptionsCommandInput,
   DescribeLoggingOptionsCommandOutput,
 } from "./commands/DescribeLoggingOptionsCommand";
+import type { DescribePipelineCommandInput, DescribePipelineCommandOutput } from "./commands/DescribePipelineCommand";
+import type {
+  DescribePipelineExecutionCommandInput,
+  DescribePipelineExecutionCommandOutput,
+} from "./commands/DescribePipelineExecutionCommand";
 import type { DescribePortalCommandInput, DescribePortalCommandOutput } from "./commands/DescribePortalCommand";
 import type { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand";
+import type { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
+import type { DescribeSearchCommandInput, DescribeSearchCommandOutput } from "./commands/DescribeSearchCommand";
 import type {
   DescribeStorageConfigurationCommandInput,
   DescribeStorageConfigurationCommandOutput,
 } from "./commands/DescribeStorageConfigurationCommand";
+import type { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
 import type {
   DescribeTimeSeriesCommandInput,
   DescribeTimeSeriesCommandOutput,
 } from "./commands/DescribeTimeSeriesCommand";
+import type {
+  DescribeWorkspaceCommandInput,
+  DescribeWorkspaceCommandOutput,
+} from "./commands/DescribeWorkspaceCommand";
 import type {
   DisassociateAssetsCommandInput,
   DisassociateAssetsCommandOutput,
@@ -228,16 +295,20 @@ import type {
   GetAssetPropertyValueHistoryCommandInput,
   GetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/GetAssetPropertyValueHistoryCommand";
+import type { GetCaptureDataCommandInput, GetCaptureDataCommandOutput } from "./commands/GetCaptureDataCommand";
 import type {
   GetInterpolatedAssetPropertyValuesCommandInput,
   GetInterpolatedAssetPropertyValuesCommandOutput,
 } from "./commands/GetInterpolatedAssetPropertyValuesCommand";
+import type { GetQueryResultsCommandInput, GetQueryResultsCommandOutput } from "./commands/GetQueryResultsCommand";
+import type { GetSearchResultsCommandInput, GetSearchResultsCommandOutput } from "./commands/GetSearchResultsCommand";
 import type { InvokeAssistantCommandInput, InvokeAssistantCommandOutput } from "./commands/InvokeAssistantCommand";
 import type {
   ListAccessPoliciesCommandInput,
   ListAccessPoliciesCommandOutput,
 } from "./commands/ListAccessPoliciesCommand";
 import type { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
+import type { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import type {
   ListAssetModelCompositeModelsCommandInput,
   ListAssetModelCompositeModelsCommandOutput,
@@ -281,24 +352,49 @@ import type {
   ListComputationModelsCommandOutput,
 } from "./commands/ListComputationModelsCommand";
 import type { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "./commands/ListDashboardsCommand";
+import type {
+  ListDatasetDataSegmentRelationshipsCommandInput,
+  ListDatasetDataSegmentRelationshipsCommandOutput,
+} from "./commands/ListDatasetDataSegmentRelationshipsCommand";
+import type {
+  ListDatasetDataSegmentsCommandInput,
+  ListDatasetDataSegmentsCommandOutput,
+} from "./commands/ListDatasetDataSegmentsCommand";
+import type {
+  ListDatasetExportJobsCommandInput,
+  ListDatasetExportJobsCommandOutput,
+} from "./commands/ListDatasetExportJobsCommand";
 import type { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
+import type {
+  ListEnrichmentJobsCommandInput,
+  ListEnrichmentJobsCommandOutput,
+} from "./commands/ListEnrichmentJobsCommand";
 import type { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
 import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import type {
   ListInterfaceRelationshipsCommandInput,
   ListInterfaceRelationshipsCommandOutput,
 } from "./commands/ListInterfaceRelationshipsCommand";
+import type {
+  ListPipelineExecutionsCommandInput,
+  ListPipelineExecutionsCommandOutput,
+} from "./commands/ListPipelineExecutionsCommand";
+import type { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
 import type { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
 import type {
   ListProjectAssetsCommandInput,
   ListProjectAssetsCommandOutput,
 } from "./commands/ListProjectAssetsCommand";
 import type { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand";
+import type { ListQueriesCommandInput, ListQueriesCommandOutput } from "./commands/ListQueriesCommand";
+import type { ListSearchesCommandInput, ListSearchesCommandOutput } from "./commands/ListSearchesCommand";
 import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
 import type { ListTimeSeriesCommandInput, ListTimeSeriesCommandOutput } from "./commands/ListTimeSeriesCommand";
+import type { ListWorkspacesCommandInput, ListWorkspacesCommandOutput } from "./commands/ListWorkspacesCommand";
 import type {
   PutAssetModelInterfaceRelationshipCommandInput,
   PutAssetModelInterfaceRelationshipCommandOutput,
@@ -315,6 +411,12 @@ import type {
   PutStorageConfigurationCommandInput,
   PutStorageConfigurationCommandOutput,
 } from "./commands/PutStorageConfigurationCommand";
+import type {
+  StartPipelineExecutionCommandInput,
+  StartPipelineExecutionCommandOutput,
+} from "./commands/StartPipelineExecutionCommand";
+import type { StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand";
+import type { StartSearchCommandInput, StartSearchCommandOutput } from "./commands/StartSearchCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type {
@@ -342,8 +444,11 @@ import type {
   UpdateGatewayCapabilityConfigurationCommandOutput,
 } from "./commands/UpdateGatewayCapabilityConfigurationCommand";
 import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import type { UpdatePipelineCommandInput, UpdatePipelineCommandOutput } from "./commands/UpdatePipelineCommand";
 import type { UpdatePortalCommandInput, UpdatePortalCommandOutput } from "./commands/UpdatePortalCommand";
 import type { UpdateProjectCommandInput, UpdateProjectCommandOutput } from "./commands/UpdateProjectCommand";
+import type { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
+import type { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
 import {
   type ClientInputEndpointParameters,
   type ClientResolvedEndpointParameters,
@@ -361,13 +466,20 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateAssetsCommandInput
   | AssociateTimeSeriesToAssetPropertyCommandInput
+  | BatchAssociateDataSegmentsToDatasetCommandInput
   | BatchAssociateProjectAssetsCommandInput
+  | BatchDeleteDatasetDataSegmentsCommandInput
+  | BatchDisassociateDataSegmentsFromDatasetCommandInput
   | BatchDisassociateProjectAssetsCommandInput
   | BatchGetAssetPropertyAggregatesCommandInput
   | BatchGetAssetPropertyValueCommandInput
   | BatchGetAssetPropertyValueHistoryCommandInput
   | BatchPutAssetPropertyValueCommandInput
+  | CancelEnrichmentJobCommandInput
+  | CancelPipelineExecutionCommandInput
+  | CancelQueryCommandInput
   | CreateAccessPolicyCommandInput
+  | CreateApplicationCommandInput
   | CreateAssetCommandInput
   | CreateAssetModelCommandInput
   | CreateAssetModelCompositeModelCommandInput
@@ -375,10 +487,16 @@ export type ServiceInputTypes =
   | CreateComputationModelCommandInput
   | CreateDashboardCommandInput
   | CreateDatasetCommandInput
+  | CreateDatasetExportJobCommandInput
+  | CreateEnrichmentJobCommandInput
   | CreateGatewayCommandInput
+  | CreatePipelineCommandInput
   | CreatePortalCommandInput
   | CreateProjectCommandInput
+  | CreateTaskCommandInput
+  | CreateWorkspaceCommandInput
   | DeleteAccessPolicyCommandInput
+  | DeleteApplicationCommandInput
   | DeleteAssetCommandInput
   | DeleteAssetModelCommandInput
   | DeleteAssetModelCompositeModelCommandInput
@@ -387,11 +505,15 @@ export type ServiceInputTypes =
   | DeleteDashboardCommandInput
   | DeleteDatasetCommandInput
   | DeleteGatewayCommandInput
+  | DeletePipelineCommandInput
   | DeletePortalCommandInput
   | DeleteProjectCommandInput
+  | DeleteTaskCommandInput
   | DeleteTimeSeriesCommandInput
+  | DeleteWorkspaceCommandInput
   | DescribeAccessPolicyCommandInput
   | DescribeActionCommandInput
+  | DescribeApplicationCommandInput
   | DescribeAssetCommandInput
   | DescribeAssetCompositeModelCommandInput
   | DescribeAssetModelCommandInput
@@ -403,15 +525,23 @@ export type ServiceInputTypes =
   | DescribeComputationModelExecutionSummaryCommandInput
   | DescribeDashboardCommandInput
   | DescribeDatasetCommandInput
+  | DescribeDatasetExportJobCommandInput
   | DescribeDefaultEncryptionConfigurationCommandInput
+  | DescribeEnrichmentJobCommandInput
   | DescribeExecutionCommandInput
   | DescribeGatewayCapabilityConfigurationCommandInput
   | DescribeGatewayCommandInput
   | DescribeLoggingOptionsCommandInput
+  | DescribePipelineCommandInput
+  | DescribePipelineExecutionCommandInput
   | DescribePortalCommandInput
   | DescribeProjectCommandInput
+  | DescribeQueryCommandInput
+  | DescribeSearchCommandInput
   | DescribeStorageConfigurationCommandInput
+  | DescribeTaskCommandInput
   | DescribeTimeSeriesCommandInput
+  | DescribeWorkspaceCommandInput
   | DisassociateAssetsCommandInput
   | DisassociateTimeSeriesFromAssetPropertyCommandInput
   | ExecuteActionCommandInput
@@ -419,10 +549,14 @@ export type ServiceInputTypes =
   | GetAssetPropertyAggregatesCommandInput
   | GetAssetPropertyValueCommandInput
   | GetAssetPropertyValueHistoryCommandInput
+  | GetCaptureDataCommandInput
   | GetInterpolatedAssetPropertyValuesCommandInput
+  | GetQueryResultsCommandInput
+  | GetSearchResultsCommandInput
   | InvokeAssistantCommandInput
   | ListAccessPoliciesCommandInput
   | ListActionsCommandInput
+  | ListApplicationsCommandInput
   | ListAssetModelCompositeModelsCommandInput
   | ListAssetModelPropertiesCommandInput
   | ListAssetModelsCommandInput
@@ -436,19 +570,32 @@ export type ServiceInputTypes =
   | ListComputationModelResolveToResourcesCommandInput
   | ListComputationModelsCommandInput
   | ListDashboardsCommandInput
+  | ListDatasetDataSegmentRelationshipsCommandInput
+  | ListDatasetDataSegmentsCommandInput
+  | ListDatasetExportJobsCommandInput
   | ListDatasetsCommandInput
+  | ListEnrichmentJobsCommandInput
   | ListExecutionsCommandInput
   | ListGatewaysCommandInput
   | ListInterfaceRelationshipsCommandInput
+  | ListPipelineExecutionsCommandInput
+  | ListPipelinesCommandInput
   | ListPortalsCommandInput
   | ListProjectAssetsCommandInput
   | ListProjectsCommandInput
+  | ListQueriesCommandInput
+  | ListSearchesCommandInput
   | ListTagsForResourceCommandInput
+  | ListTasksCommandInput
   | ListTimeSeriesCommandInput
+  | ListWorkspacesCommandInput
   | PutAssetModelInterfaceRelationshipCommandInput
   | PutDefaultEncryptionConfigurationCommandInput
   | PutLoggingOptionsCommandInput
   | PutStorageConfigurationCommandInput
+  | StartPipelineExecutionCommandInput
+  | StartQueryCommandInput
+  | StartSearchCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccessPolicyCommandInput
@@ -461,8 +608,11 @@ export type ServiceInputTypes =
   | UpdateDatasetCommandInput
   | UpdateGatewayCapabilityConfigurationCommandInput
   | UpdateGatewayCommandInput
+  | UpdatePipelineCommandInput
   | UpdatePortalCommandInput
-  | UpdateProjectCommandInput;
+  | UpdateProjectCommandInput
+  | UpdateTaskCommandInput
+  | UpdateWorkspaceCommandInput;
 
 /**
  * @public
@@ -470,13 +620,20 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateAssetsCommandOutput
   | AssociateTimeSeriesToAssetPropertyCommandOutput
+  | BatchAssociateDataSegmentsToDatasetCommandOutput
   | BatchAssociateProjectAssetsCommandOutput
+  | BatchDeleteDatasetDataSegmentsCommandOutput
+  | BatchDisassociateDataSegmentsFromDatasetCommandOutput
   | BatchDisassociateProjectAssetsCommandOutput
   | BatchGetAssetPropertyAggregatesCommandOutput
   | BatchGetAssetPropertyValueCommandOutput
   | BatchGetAssetPropertyValueHistoryCommandOutput
   | BatchPutAssetPropertyValueCommandOutput
+  | CancelEnrichmentJobCommandOutput
+  | CancelPipelineExecutionCommandOutput
+  | CancelQueryCommandOutput
   | CreateAccessPolicyCommandOutput
+  | CreateApplicationCommandOutput
   | CreateAssetCommandOutput
   | CreateAssetModelCommandOutput
   | CreateAssetModelCompositeModelCommandOutput
@@ -484,10 +641,16 @@ export type ServiceOutputTypes =
   | CreateComputationModelCommandOutput
   | CreateDashboardCommandOutput
   | CreateDatasetCommandOutput
+  | CreateDatasetExportJobCommandOutput
+  | CreateEnrichmentJobCommandOutput
   | CreateGatewayCommandOutput
+  | CreatePipelineCommandOutput
   | CreatePortalCommandOutput
   | CreateProjectCommandOutput
+  | CreateTaskCommandOutput
+  | CreateWorkspaceCommandOutput
   | DeleteAccessPolicyCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteAssetCommandOutput
   | DeleteAssetModelCommandOutput
   | DeleteAssetModelCompositeModelCommandOutput
@@ -496,11 +659,15 @@ export type ServiceOutputTypes =
   | DeleteDashboardCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteGatewayCommandOutput
+  | DeletePipelineCommandOutput
   | DeletePortalCommandOutput
   | DeleteProjectCommandOutput
+  | DeleteTaskCommandOutput
   | DeleteTimeSeriesCommandOutput
+  | DeleteWorkspaceCommandOutput
   | DescribeAccessPolicyCommandOutput
   | DescribeActionCommandOutput
+  | DescribeApplicationCommandOutput
   | DescribeAssetCommandOutput
   | DescribeAssetCompositeModelCommandOutput
   | DescribeAssetModelCommandOutput
@@ -512,15 +679,23 @@ export type ServiceOutputTypes =
   | DescribeComputationModelExecutionSummaryCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDatasetCommandOutput
+  | DescribeDatasetExportJobCommandOutput
   | DescribeDefaultEncryptionConfigurationCommandOutput
+  | DescribeEnrichmentJobCommandOutput
   | DescribeExecutionCommandOutput
   | DescribeGatewayCapabilityConfigurationCommandOutput
   | DescribeGatewayCommandOutput
   | DescribeLoggingOptionsCommandOutput
+  | DescribePipelineCommandOutput
+  | DescribePipelineExecutionCommandOutput
   | DescribePortalCommandOutput
   | DescribeProjectCommandOutput
+  | DescribeQueryCommandOutput
+  | DescribeSearchCommandOutput
   | DescribeStorageConfigurationCommandOutput
+  | DescribeTaskCommandOutput
   | DescribeTimeSeriesCommandOutput
+  | DescribeWorkspaceCommandOutput
   | DisassociateAssetsCommandOutput
   | DisassociateTimeSeriesFromAssetPropertyCommandOutput
   | ExecuteActionCommandOutput
@@ -528,10 +703,14 @@ export type ServiceOutputTypes =
   | GetAssetPropertyAggregatesCommandOutput
   | GetAssetPropertyValueCommandOutput
   | GetAssetPropertyValueHistoryCommandOutput
+  | GetCaptureDataCommandOutput
   | GetInterpolatedAssetPropertyValuesCommandOutput
+  | GetQueryResultsCommandOutput
+  | GetSearchResultsCommandOutput
   | InvokeAssistantCommandOutput
   | ListAccessPoliciesCommandOutput
   | ListActionsCommandOutput
+  | ListApplicationsCommandOutput
   | ListAssetModelCompositeModelsCommandOutput
   | ListAssetModelPropertiesCommandOutput
   | ListAssetModelsCommandOutput
@@ -545,19 +724,32 @@ export type ServiceOutputTypes =
   | ListComputationModelResolveToResourcesCommandOutput
   | ListComputationModelsCommandOutput
   | ListDashboardsCommandOutput
+  | ListDatasetDataSegmentRelationshipsCommandOutput
+  | ListDatasetDataSegmentsCommandOutput
+  | ListDatasetExportJobsCommandOutput
   | ListDatasetsCommandOutput
+  | ListEnrichmentJobsCommandOutput
   | ListExecutionsCommandOutput
   | ListGatewaysCommandOutput
   | ListInterfaceRelationshipsCommandOutput
+  | ListPipelineExecutionsCommandOutput
+  | ListPipelinesCommandOutput
   | ListPortalsCommandOutput
   | ListProjectAssetsCommandOutput
   | ListProjectsCommandOutput
+  | ListQueriesCommandOutput
+  | ListSearchesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTasksCommandOutput
   | ListTimeSeriesCommandOutput
+  | ListWorkspacesCommandOutput
   | PutAssetModelInterfaceRelationshipCommandOutput
   | PutDefaultEncryptionConfigurationCommandOutput
   | PutLoggingOptionsCommandOutput
   | PutStorageConfigurationCommandOutput
+  | StartPipelineExecutionCommandOutput
+  | StartQueryCommandOutput
+  | StartSearchCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccessPolicyCommandOutput
@@ -570,8 +762,11 @@ export type ServiceOutputTypes =
   | UpdateDatasetCommandOutput
   | UpdateGatewayCapabilityConfigurationCommandOutput
   | UpdateGatewayCommandOutput
+  | UpdatePipelineCommandOutput
   | UpdatePortalCommandOutput
-  | UpdateProjectCommandOutput;
+  | UpdateProjectCommandOutput
+  | UpdateTaskCommandOutput
+  | UpdateWorkspaceCommandOutput;
 
 /**
  * @public

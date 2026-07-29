@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListAssetModelsRequest, ListAssetModelsResponse } from "../models/models_0";
+import type { ListAssetModelsRequest, ListAssetModelsResponse } from "../models/models_1";
 import { ListAssetModels$ } from "../schemas/schemas_0";
 
 /**
@@ -86,6 +86,9 @@ export interface ListAssetModelsCommandOutput extends ListAssetModelsResponse, _
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a rate limit. For example, you might have exceeded the number of

@@ -59,7 +59,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //       topic: "STRING_VALUE", // required
  * //       state: "ENABLED" || "DISABLED", // required
  * //     },
- * //     dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //     dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //     unit: "STRING_VALUE",
  * //     type: { // PropertyType
  * //       attribute: { // Attribute
@@ -143,7 +143,7 @@ export interface DescribeAssetPropertyCommandOutput extends DescribeAssetPropert
  * //         topic: "STRING_VALUE", // required
  * //         state: "ENABLED" || "DISABLED", // required
  * //       },
- * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //       unit: "STRING_VALUE",
  * //       type: {
  * //         attribute: {

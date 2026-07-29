@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ListComputationModelResolveToResourcesRequest,
   ListComputationModelResolveToResourcesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { ListComputationModelResolveToResources$ } from "../schemas/schemas_0";
 
 /**

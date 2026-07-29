@@ -34,11 +34,27 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateDatasetRequest
  *   datasetId: "STRING_VALUE", // required
+ *   workspaceName: "STRING_VALUE",
  *   datasetName: "STRING_VALUE", // required
  *   datasetDescription: "STRING_VALUE",
+ *   datasetConfig: { // DatasetConfig
+ *     session: { // SessionConfig
+ *       sessionStartTimestamp: { // TimeInNanos
+ *         timeInSeconds: Number("long"), // required
+ *         offsetInNanos: Number("int"),
+ *       },
+ *       sessionEndTimestamp: {
+ *         timeInSeconds: Number("long"), // required
+ *         offsetInNanos: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   metadata: { // Metadata
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   datasetSource: { // DatasetSource
- *     sourceType: "KENDRA", // required
- *     sourceFormat: "KNOWLEDGE_BASE", // required
+ *     sourceType: "KENDRA" || "SITEWISE", // required
+ *     sourceFormat: "KNOWLEDGE_BASE" || "TIMESERIES", // required
  *     sourceDetail: { // SourceDetail
  *       kendra: { // KendraSourceDetail
  *         knowledgeBaseArn: "STRING_VALUE", // required
@@ -92,6 +108,9 @@ export interface UpdateDatasetCommandOutput extends UpdateDatasetResponse, __Met
  *       associate more than the allowed number of child assets or attempting to create more than the
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
+ *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The resource already exists.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>

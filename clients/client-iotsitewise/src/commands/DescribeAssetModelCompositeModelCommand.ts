@@ -62,7 +62,7 @@ export interface DescribeAssetModelCompositeModelCommandOutput extends DescribeA
  * //       id: "STRING_VALUE",
  * //       externalId: "STRING_VALUE",
  * //       name: "STRING_VALUE", // required
- * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //       dataTypeSpec: "STRING_VALUE",
  * //       unit: "STRING_VALUE",
  * //       type: { // PropertyType

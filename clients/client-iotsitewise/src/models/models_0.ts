@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AggregateType,
+  ApplicationStatus,
   AssetErrorCode,
   AssetModelState,
   AssetModelType,
@@ -16,54 +17,49 @@ import type {
   CapabilitySyncStatus,
   ColumnName,
   ComputationModelState,
-  ComputationModelType,
   ComputeLocation,
+  ComputeNodeErrorCode,
+  ComputeNodeExecutionState,
   ConfigurationState,
   CoreDeviceOperatingSystem,
+  DataSegmentErrorCode,
+  DatasetEnrichmentStatus,
+  DatasetExportJobStatus,
   DatasetSourceFormat,
   DatasetSourceType,
   DatasetState,
+  DatasetTypeEnum,
   DetailedErrorCode,
-  DisassociatedDataStorageState,
+  DetailedPipelineErrorCode,
   EncryptionType,
+  EnrichmentJobStatus,
   ErrorCode,
   ExecutionState,
+  ExportDataType,
   ForwardingConfigState,
-  IdentityType,
   ImageFileType,
   JobStatus,
-  ListAssetModelPropertiesFilter,
-  ListAssetPropertiesFilter,
-  ListAssetsFilter,
-  ListBulkImportJobsFilter,
+  JobType,
   LoggingLevel,
   MonitorErrorCode,
   Permission,
+  PipelineErrorCode,
+  PipelineExecutionState,
   PortalState,
   PortalType,
+  ProcessingType,
+  ProcessingUnit,
   PropertyDataType,
   PropertyNotificationState,
   Quality,
+  QueryStatus,
   RawValueType,
   ResolveToResourceType,
-  ResourceType,
-  ScalarType,
-  StorageType,
-  TargetResourceType,
+  ResourceErrorCode,
+  ResourceState,
   TimeOrdering,
-  TraversalDirection,
-  TraversalType,
-  WarmTierState,
+  WorkspaceState,
 } from "./enums";
-import type {
-  AccessDeniedException,
-  ConflictingOperationException,
-  InternalFailureException,
-  InvalidRequestException,
-  LimitExceededException,
-  ResourceNotFoundException,
-  ThrottlingException,
-} from "./errors";
 
 /**
  * <p>Contains information for a group identity in an access policy.</p>
@@ -427,6 +423,54 @@ export interface Alarms {
    * @public
    */
   notificationLambdaArn?: string | undefined;
+}
+
+/**
+ * <p>The annotation format configuration for bulk import files.</p>
+ * @public
+ */
+export interface Annotation {}
+
+/**
+ * <p>Summary of an application for list operations</p>
+ * @public
+ */
+export interface ApplicationSummary {
+  /**
+   * <p>ARN of the application</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Unique identifier of the application</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Name of the application</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Current status of the application</p>
+   * @public
+   */
+  status: ApplicationStatus | undefined;
+
+  /**
+   * <p>Timestamp when the application was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Name of the workspace this application belongs to</p>
+   * @public
+   */
+  workspaceName: string | undefined;
 }
 
 /**
@@ -1169,6 +1213,7 @@ export interface AssetModelProperty {
 
   /**
    * <p>The data type of the asset model property.</p>
+   *          <p>The <code>VIDEO</code>, <code>ANNOTATION</code>, and <code>JSON</code> data types aren't supported for asset model properties. These types are used only by time series that store data for datasets in a workspace.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
    *       identify the type of the structure for this property.</p>
    * @public
@@ -1275,6 +1320,7 @@ export interface AssetModelPropertyDefinition {
 
   /**
    * <p>The data type of the property definition.</p>
+   *          <p>The <code>VIDEO</code>, <code>ANNOTATION</code>, and <code>JSON</code> data types aren't supported for asset model properties. These types are used only by time series that store data for datasets in a workspace.</p>
    *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to
    *       identify the type of the structure for this property.</p>
    * @public
@@ -2184,6 +2230,36 @@ export interface AssociatedAssetsSummary {
 }
 
 /**
+ * <p>Contains information about a data segment entry to associate with a dataset.</p>
+ * @public
+ */
+export interface AssociateDataSegmentEntry {
+  /**
+   * <p>The ID of the source dataset that contains the data segment.</p>
+   * @public
+   */
+  sourceDatasetId: string | undefined;
+
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment to associate.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment to associate.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+}
+
+/**
  * @public
  */
 export interface AssociateTimeSeriesToAssetPropertyRequest {
@@ -2212,6 +2288,102 @@ export interface AssociateTimeSeriesToAssetPropertyRequest {
    * @public
    */
   clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAssociateDataSegmentsToDatasetRequest {
+  /**
+   * <p>The ID of the curated dataset to associate data segments with.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The list of data segment entries to associate with the dataset.</p>
+   * @public
+   */
+  associateDataSegmentEntries: AssociateDataSegmentEntry[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the request is
+   *       idempotent. If you retry a request that completed successfully using the same client token,
+   *       the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains error information for a data segment association that failed.</p>
+ * @public
+ */
+export interface FailedDataSegmentAssociation {
+  /**
+   * <p>The ID of the source dataset.</p>
+   * @public
+   */
+  sourceDatasetId: string | undefined;
+
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The error code for the failed association.</p>
+   * @public
+   */
+  errorCode: DataSegmentErrorCode | undefined;
+
+  /**
+   * <p>The error message for the failed association.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchAssociateDataSegmentsToDatasetResponse {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The version of the dataset after association.</p>
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p>A list of data segment associations that failed.</p>
+   * @public
+   */
+  failedAssociations: FailedDataSegmentAssociation[] | undefined;
 }
 
 /**
@@ -2246,6 +2418,246 @@ export interface BatchAssociateProjectAssetsResponse {
    * @public
    */
   errors?: AssetErrorDetails[] | undefined;
+}
+
+/**
+ * <p>Contains information about a data segment entry to delete.</p>
+ * @public
+ */
+export interface DeleteDataSegmentEntry {
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment to delete.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment to delete.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteDatasetDataSegmentsRequest {
+  /**
+   * <p>The ID of the session dataset from which to delete data segments.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The list of data segment entries to delete.</p>
+   * @public
+   */
+  deleteDataSegmentEntries: DeleteDataSegmentEntry[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the request is
+   *       idempotent. If you retry a request that completed successfully using the same client token,
+   *       the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains error information for a data segment deletion that failed.</p>
+ * @public
+ */
+export interface FailedDataSegmentDeletion {
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The error code for the failed deletion.</p>
+   * @public
+   */
+  errorCode: DataSegmentErrorCode | undefined;
+
+  /**
+   * <p>The error message for the failed deletion.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDeleteDatasetDataSegmentsResponse {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The version of the dataset after deletion.</p>
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p>A list of data segment deletions that failed.</p>
+   * @public
+   */
+  errors: FailedDataSegmentDeletion[] | undefined;
+}
+
+/**
+ * <p>Contains information about a data segment entry to disassociate from a dataset.</p>
+ * @public
+ */
+export interface DisassociateDataSegmentEntry {
+  /**
+   * <p>The ID of the source dataset that contains the data segment.</p>
+   * @public
+   */
+  sourceDatasetId: string | undefined;
+
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment to disassociate.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment to disassociate.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateDataSegmentsFromDatasetRequest {
+  /**
+   * <p>The ID of the curated dataset to disassociate data segments from.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The list of data segment entries to disassociate from the dataset.</p>
+   * @public
+   */
+  disassociateDataSegmentEntries: DisassociateDataSegmentEntry[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the request is
+   *       idempotent. If you retry a request that completed successfully using the same client token,
+   *       the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains error information for a data segment disassociation that failed.</p>
+ * @public
+ */
+export interface FailedDataSegmentDisassociation {
+  /**
+   * <p>The ID of the source dataset.</p>
+   * @public
+   */
+  sourceDatasetId: string | undefined;
+
+  /**
+   * <p>The ID of the time series.</p>
+   * @public
+   */
+  timeSeriesId: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time of the data segment.</p>
+   * @public
+   */
+  startTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the data segment.</p>
+   * @public
+   */
+  endTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The error code for the failed disassociation.</p>
+   * @public
+   */
+  errorCode: DataSegmentErrorCode | undefined;
+
+  /**
+   * <p>The error message for the failed disassociation.</p>
+   * @public
+   */
+  errorMessage: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDisassociateDataSegmentsFromDatasetResponse {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The version of the dataset after disassociation.</p>
+   * @public
+   */
+  datasetVersion: string | undefined;
+
+  /**
+   * <p>A list of data segment disassociations that failed.</p>
+   * @public
+   */
+  failedDisassociations: FailedDataSegmentDisassociation[] | undefined;
 }
 
 /**
@@ -3040,6 +3452,118 @@ export interface BatchPutAssetPropertyValueResponse {
 /**
  * @public
  */
+export interface CancelEnrichmentJobRequest {
+  /**
+   * <p>The name of the IoT SiteWise workspace containing the enrichment job to cancel.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the enrichment job to cancel. This is the jobId returned by CreateEnrichmentJob.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelEnrichmentJobResponse {
+  /**
+   * <p>The unique identifier of the cancelled enrichment job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The status of the enrichment job after cancellation. This will be CANCELLED, indicating the job
+   * was successfully cancelled or was already in CANCELLED state (idempotent behavior).</p>
+   * @public
+   */
+  status: EnrichmentJobStatus | undefined;
+}
+
+/**
+ * <p>Request structure for CancelPipelineExecution operation.</p>
+ * @public
+ */
+export interface CancelPipelineExecutionRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pipeline execution.</p>
+   * @public
+   */
+  pipelineExecutionId: string | undefined;
+
+  /**
+   * <p>A message describing why the pipeline execution is being cancelled.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * <p>Response structure for CancelPipelineExecution operation.</p>
+ * @public
+ */
+export interface CancelPipelineExecutionResponse {
+  /**
+   * <p>The current execution state of the pipeline. Can only be CANCELLING or CANCELLED.</p>
+   * @public
+   */
+  state: PipelineExecutionState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelQueryRequest {
+  /**
+   * <p>The name of the workspace associated with the query.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the query execution to cancel.</p>
+   * @public
+   */
+  queryId: string | undefined;
+}
+
+/**
+ * <p>Contains the response for the CancelQuery operation.</p>
+ * @public
+ */
+export interface CancelQueryResponse {
+  /**
+   * <p>The unique identifier for the cancelled query.</p>
+   * @public
+   */
+  queryId: string | undefined;
+
+  /**
+   * <p>The current query status.</p>
+   * @public
+   */
+  status: QueryStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateAccessPolicyRequest {
   /**
    * <p>The identity for this access policy. Choose an IAM Identity Center user, an IAM Identity Center group, or an IAM user.</p>
@@ -3092,6 +3616,82 @@ export interface CreateAccessPolicyResponse {
    * @public
    */
   accessPolicyArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationRequest {
+  /**
+   * <p>Unique client token for idempotent request handling</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Identity Center Instance ARN to create the application in</p>
+   * @public
+   */
+  idcInstanceArn: string | undefined;
+
+  /**
+   * <p>Name of the workspace to associate with the underlying Application</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>Name of the application</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Description of the application</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the application.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationResponse {
+  /**
+   * <p>ARN of the application</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Unique identifier of the application</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>DNS subdomain for the application</p>
+   * @public
+   */
+  dnsSubdomain: string | undefined;
+
+  /**
+   * <p>Name of the application</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Current status of the application</p>
+   * @public
+   */
+  status: ApplicationStatus | undefined;
 }
 
 /**
@@ -3417,6 +4017,12 @@ export interface CreateAssetModelCompositeModelResponse {
    * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
+
+  /**
+   * <p>The ID of the asset model.</p>
+   * @public
+   */
+  assetModelId?: string | undefined;
 }
 
 /**
@@ -3439,6 +4045,60 @@ export interface ErrorReportLocation {
    * @public
    */
   prefix: string | undefined;
+}
+
+/**
+ * <p>A .CSV file.</p>
+ * @public
+ */
+export interface Csv {
+  /**
+   * <p>The column names specified in the .csv file.</p>
+   * @public
+   */
+  columnNames: ColumnName[] | undefined;
+}
+
+/**
+ * <p>The MP4 video format configuration for bulk import files.</p>
+ * @public
+ */
+export interface Mp4 {}
+
+/**
+ * <p>A parquet file.</p>
+ * @public
+ */
+export interface Parquet {}
+
+/**
+ * <p>The file format of the data in S3.</p>
+ * @public
+ */
+export interface FileFormat {
+  /**
+   * <p>The file is in .CSV format.</p>
+   * @public
+   */
+  csv?: Csv | undefined;
+
+  /**
+   * <p>The file is in parquet format.</p>
+   * @public
+   */
+  parquet?: Parquet | undefined;
+
+  /**
+   * <p>The MP4 format configuration.</p>
+   * @public
+   */
+  mp4?: Mp4 | undefined;
+
+  /**
+   * <p>The annotation format configuration.</p>
+   * @public
+   */
+  annotation?: Annotation | undefined;
 }
 
 /**
@@ -3465,42 +4125,24 @@ export interface File {
    * @public
    */
   versionId?: string | undefined;
-}
-
-/**
- * <p>A .CSV file.</p>
- * @public
- */
-export interface Csv {
-  /**
-   * <p>The column names specified in the .csv file.</p>
-   * @public
-   */
-  columnNames: ColumnName[] | undefined;
-}
-
-/**
- * <p>A parquet file.</p>
- * @public
- */
-export interface Parquet {}
-
-/**
- * <p>The file format of the data in S3.</p>
- * @public
- */
-export interface FileFormat {
-  /**
-   * <p>The file is in .CSV format.</p>
-   * @public
-   */
-  csv?: Csv | undefined;
 
   /**
-   * <p>The file is in parquet format.</p>
+   * <p>The alias associated with the file's time series.</p>
    * @public
    */
-  parquet?: Parquet | undefined;
+  alias?: string | undefined;
+
+  /**
+   * <p>The nanosecond-precision start time for the file data.</p>
+   * @public
+   */
+  startTime?: TimeInNanos | undefined;
+
+  /**
+   * <p>The file format of the data in S3.</p>
+   * @public
+   */
+  fileFormat?: FileFormat | undefined;
 }
 
 /**
@@ -3512,7 +4154,7 @@ export interface JobConfiguration {
    * <p>The file format of the data in S3.</p>
    * @public
    */
-  fileFormat: FileFormat | undefined;
+  fileFormat?: FileFormat | undefined;
 }
 
 /**
@@ -3532,7 +4174,15 @@ export interface CreateBulkImportJobRequest {
   jobRoleArn: string | undefined;
 
   /**
-   * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   * <p>The files in the specified Amazon S3 bucket that contain your data. You can specify up to 100 files for each bulk import job. Each file supports the following size limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Parquet files – Up to 256 MiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>Other file formats – Up to 5 GiB.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   files: File[] | undefined;
@@ -3547,7 +4197,7 @@ export interface CreateBulkImportJobRequest {
    * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
    * @public
    */
-  jobConfiguration: JobConfiguration | undefined;
+  jobConfiguration?: JobConfiguration | undefined;
 
   /**
    * <p>If set to true, ingest new data into IoT SiteWise storage. Measurements with notifications, metrics and transforms are
@@ -3561,6 +4211,20 @@ export interface CreateBulkImportJobRequest {
    * @public
    */
   deleteFilesAfterImport?: boolean | undefined;
+
+  /**
+   * <p>The ID of the session dataset to ingest data into. Specify this field, together with
+   *       <code>workspaceName</code>, to ingest data into a session dataset in a workspace.</p>
+   * @public
+   */
+  datasetId?: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the session dataset. Specify this field together
+   *       with <code>datasetId</code>.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
 }
 
 /**
@@ -3767,6 +4431,36 @@ export interface CreateDashboardResponse {
 }
 
 /**
+ * <p>Contains the session configuration for a session-type dataset.</p>
+ * @public
+ */
+export interface SessionConfig {
+  /**
+   * <p>The nanosecond-precision start time of the session.</p>
+   * @public
+   */
+  sessionStartTimestamp: TimeInNanos | undefined;
+
+  /**
+   * <p>The nanosecond-precision end time of the session.</p>
+   * @public
+   */
+  sessionEndTimestamp: TimeInNanos | undefined;
+}
+
+/**
+ * <p>Contains the configuration for a dataset.</p>
+ * @public
+ */
+export interface DatasetConfig {
+  /**
+   * <p>The session configuration for a session-type dataset.</p>
+   * @public
+   */
+  session?: SessionConfig | undefined;
+}
+
+/**
  * <p>The source details for the Kendra dataset source.</p>
  * @public
  */
@@ -3843,6 +4537,32 @@ export interface CreateDatasetRequest {
   datasetDescription?: string | undefined;
 
   /**
+   * <p>The type of dataset: a session dataset, a curated dataset, or a connection to an external
+   *       datasource.</p>
+   * @public
+   */
+  datasetType?: DatasetTypeEnum | undefined;
+
+  /**
+   * <p>The configuration for the dataset.</p>
+   * @public
+   */
+  datasetConfig?: DatasetConfig | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset. Required for session and curated
+   *       datasets. Omit this field for datasets that connect to an external datasource.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+
+  /**
+   * <p>The metadata for the dataset, provided as key-value pairs.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
    * <p>The data source for the dataset.</p>
    * @public
    */
@@ -3906,6 +4626,399 @@ export interface CreateDatasetResponse {
    * @public
    */
   datasetStatus: DatasetStatus | undefined;
+}
+
+/**
+ * <p>Contains the location where error reports will be written on failure.</p>
+ * @public
+ */
+export interface ExportErrorReportLocation {
+  /**
+   * <p>The S3 URI prefix for the error report.</p>
+   * @public
+   */
+  s3Uri: string | undefined;
+}
+
+/**
+ * <p>Contains settings for trimming content to a specific time range.</p>
+ * @public
+ */
+export interface TrimSettings {
+  /**
+   * <p>The start time for the trim range.</p>
+   * @public
+   */
+  startTime: TimeInNanos | undefined;
+
+  /**
+   * <p>The end time for the trim range. Must be greater than startTime.</p>
+   * @public
+   */
+  endTime: TimeInNanos | undefined;
+}
+
+/**
+ * <p>A dataset to process.</p>
+ * @public
+ */
+export interface DatasetItem {
+  /**
+   * <p>The unique identifier for the dataset.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The trim settings applied to all items in the dataset. When omitted, the full dataset time range is used.</p>
+   * @public
+   */
+  trimSettings?: TrimSettings | undefined;
+
+  /**
+   * <p>The optional subset of data types to export. If omitted, all data types are exported.</p>
+   * @public
+   */
+  exportDataTypes?: ExportDataType[] | undefined;
+}
+
+/**
+ * <p>Contains the output format configuration for video processing.</p>
+ * @public
+ */
+export interface FormatSettings {
+  /**
+   * <p>The target frame rate for the output.</p>
+   * @public
+   */
+  framesPerSecond?: number | undefined;
+
+  /**
+   * <p>The target width of the output, in pixels.</p>
+   * @public
+   */
+  widthInPixels?: number | undefined;
+
+  /**
+   * <p>The target height of the output, in pixels.</p>
+   * @public
+   */
+  heightInPixels?: number | undefined;
+}
+
+/**
+ * <p>A single timeseries item to process. Exactly one of timeSeriesId or propertyAlias must be provided.</p>
+ * @public
+ */
+export interface TimeseriesItem {
+  /**
+   * <p>The unique identifier for the timeseries. Mutually exclusive with propertyAlias.</p>
+   * @public
+   */
+  timeSeriesId?: string | undefined;
+
+  /**
+   * <p>The customer-friendly alias for the timeseries. Mutually exclusive with timeSeriesId.</p>
+   * @public
+   */
+  propertyAlias?: string | undefined;
+
+  /**
+   * <p>The trim settings for the time range to export. Required for VIDEO and TELEMETRY data types; optional for ANNOTATION data types.</p>
+   * @public
+   */
+  trimSettings?: TrimSettings | undefined;
+
+  /**
+   * <p>The optional format settings for the output.</p>
+   * @public
+   */
+  formatSettings?: FormatSettings | undefined;
+}
+
+/**
+ * <p>Input source for processing. Specify exactly one option.</p>
+ * @public
+ */
+export type ProcessingInput =
+  | ProcessingInput.DatasetMember
+  | ProcessingInput.TimeseriesMember
+  | ProcessingInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProcessingInput {
+  /**
+   * <p>List of individual timeseries items to process.</p>
+   * @public
+   */
+  export interface TimeseriesMember {
+    timeseries: TimeseriesItem[];
+    dataset?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A dataset containing multiple items to process.</p>
+   * @public
+   */
+  export interface DatasetMember {
+    timeseries?: never;
+    dataset: DatasetItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    timeseries?: never;
+    dataset?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    timeseries: (value: TimeseriesItem[]) => T;
+    dataset: (value: DatasetItem) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Request to create a dataset export job.</p>
+ * @public
+ */
+export interface CreateDatasetExportJobRequest {
+  /**
+   * <p>The name of the workspace in which to create the dataset export job.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * The AWS SDKs and CLI populate this automatically.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The S3 URI where output clips will be written.</p>
+   * @public
+   */
+  destinationS3Uri: string | undefined;
+
+  /**
+   * <p>The processing input source.</p>
+   * @public
+   */
+  input: ProcessingInput | undefined;
+
+  /**
+   * <p>The location where the error report will be written on failure.</p>
+   * @public
+   */
+  errorReportLocation: ExportErrorReportLocation | undefined;
+}
+
+/**
+ * <p>Response for create dataset export job request.</p>
+ * @public
+ */
+export interface CreateDatasetExportJobResponse {
+  /**
+   * <p>The unique identifier for the dataset export job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the workspace in which the dataset export job was created.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+}
+
+/**
+ * <p>Time range settings for extracting a specific window of video time-series data to process.</p>
+ * <p>Trim settings define the time bounds for enrichment and must satisfy:</p>
+ * <ul>
+ * <li>Start and end times must be within the dataset's time bounds</li>
+ * <li>Trim settings retrieve fully contained data segments within the specified time range</li>
+ * <li>endTime must be greater than startTime</li>
+ * <li>Both times should represent valid data ranges in the dataset</li>
+ * </ul>
+ * <p>Trim settings are required to:</p>
+ * <ul>
+ * <li>Prevent accidentally analyzing unbounded datasets</li>
+ * <li>Ensure predictable processing time and costs</li>
+ * <li>Allow focused analysis on specific time periods of interest</li>
+ * </ul>
+ * @public
+ */
+export interface EnrichmentTrimSettings {
+  /**
+   * <p>Start time for the video analysis time range in nanoseconds since Unix epoch (TimeInNanos format).
+   * Data segments at or after this time are included in the enrichment.
+   * Must be within the dataset's time bounds.</p>
+   * <p>Example (JavaScript): Date.parse('2024-01-01T00:00:00Z') * 1000000
+   * Example (Python): int(datetime.timestamp() * 1e9)</p>
+   * @public
+   */
+  startTime: TimeInNanos | undefined;
+
+  /**
+   * <p>End time for the video analysis time range in nanoseconds since Unix epoch (TimeInNanos format).
+   * Data segments at or before this time are included in the enrichment.
+   * Must be greater than startTime and within the dataset's time bounds.</p>
+   * @public
+   */
+  endTime: TimeInNanos | undefined;
+}
+
+/**
+ * <p>Configuration for event detection enrichment on video time-series data.</p>
+ * <p>Event detection generates embeddings from video data enabling natural language similarity search
+ * on events. This allows customers to:</p>
+ * <ul>
+ * <li>Query video events using semantic search after enrichment completes</li>
+ * <li>Find relevant video segments through natural language queries</li>
+ * <li>Search across video time-series data stored in IoT SiteWise</li>
+ * </ul>
+ * <p>You must specify the dataset, exactly one time-series identifier (timeSeriesId OR propertyAlias),
+ * and trim settings defining the video time window to process.</p>
+ * @public
+ */
+export interface EventDetection {
+  /**
+   * <p>The IoT SiteWise dataset ID containing the video time-series data to analyze.
+   * Query IoT SiteWise to discover available datasets in your workspace.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>Unique system identifier for the video time series to analyze.
+   * Specify either timeSeriesId or propertyAlias, but not both.
+   * Use this when you have the system-generated time series identifier from IoT SiteWise.</p>
+   * @public
+   */
+  timeSeriesId?: string | undefined;
+
+  /**
+   * <p>Human-readable alias for the video time series to analyze (e.g., /camera/warehouse/zone-a).
+   * Specify either propertyAlias or timeSeriesId, but not both.
+   * Use this when you have configured friendly aliases in IoT SiteWise for better readability.</p>
+   * @public
+   */
+  propertyAlias?: string | undefined;
+
+  /**
+   * <p>Time range settings defining which portion of the video time-series data to process.
+   * Required to ensure predictable processing time and prevent analyzing unbounded datasets.
+   * Start and end times must be within the dataset's time bounds.</p>
+   * @public
+   */
+  trimSettings: EnrichmentTrimSettings | undefined;
+}
+
+/**
+ * <p>Configuration for the enrichment job defining which analysis type to perform on video time-series data.
+ * Currently supports event detection enrichment. Exactly one member must be specified.</p>
+ * @public
+ */
+export type EnrichmentJobConfiguration =
+  | EnrichmentJobConfiguration.EventDetectionMember
+  | EnrichmentJobConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace EnrichmentJobConfiguration {
+  /**
+   * <p>Event detection configuration that generates embeddings from video time-series data enabling
+   * natural language similarity search on events. The service processes video data and creates
+   * embeddings stored in IoT SiteWise for semantic querying.</p>
+   * @public
+   */
+  export interface EventDetectionMember {
+    eventDetection: EventDetection;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    eventDetection?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    eventDetection: (value: EventDetection) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateEnrichmentJobRequest {
+  /**
+   * <p>The name of the IoT SiteWise workspace containing the video data to analyze.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>Configuration defining the type of enrichment analysis to perform and which video data to analyze.
+   * Currently supports eventDetection for generating embeddings from video data for semantic search.</p>
+   * @public
+   */
+  jobConfiguration: EnrichmentJobConfiguration | undefined;
+
+  /**
+   * <p>Optional unique token that makes the operation idempotent. If you submit the same request with the
+   * same token within the idempotency window, the service returns the original job without creating a
+   * duplicate. Use a UUID or timestamp-based token for each unique request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateEnrichmentJobResponse {
+  /**
+   * <p>Unique identifier for the enrichment job. Use this ID with DescribeEnrichmentJob to monitor
+   * progress or with CancelEnrichmentJob to cancel the job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>Initial status of the enrichment job, typically PENDING. The job will transition to RUNNING when
+   * processing begins, then to a terminal state (COMPLETED, FAILED, TIMED_OUT, or CANCELLED).
+   * Use DescribeEnrichmentJob to track status changes.</p>
+   * @public
+   */
+  status: EnrichmentJobStatus | undefined;
+
+  /**
+   * <p>Timestamp when the enrichment job was created in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
 }
 
 /**
@@ -4055,6 +5168,152 @@ export interface CreateGatewayResponse {
    * @public
    */
   gatewayArn: string | undefined;
+}
+
+/**
+ * <p>A single compute node in a pipeline DAG. Each compute node references a task and can declare dependencies on other nodes.</p>
+ * @public
+ */
+export interface ComputeNode {
+  /**
+   * <p>The unique name for this compute node within the pipeline.</p>
+   * @public
+   */
+  computeNodeName: string | undefined;
+
+  /**
+   * <p>The name of the task to execute for this compute node.</p>
+   * @public
+   */
+  taskName: string | undefined;
+
+  /**
+   * <p>Environment variables specific to this compute node. These override pipeline-level environment variables with the same key.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>A list of compute node names that must complete successfully before this node can start.</p>
+   * @public
+   */
+  dependsOn?: string[] | undefined;
+}
+
+/**
+ * <p>Request structure for CreatePipeline operation.</p>
+ * @public
+ */
+export interface CreatePipelineRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the pipeline to create. Must be unique within the workspace.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>A description of the pipeline.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Environment variables shared across all compute nodes in the pipeline. Individual compute nodes can override these values with their own environment variables.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of compute nodes that form the pipeline DAG. Each compute node references a task and can declare dependencies on other nodes.</p>
+   * @public
+   */
+  computations: ComputeNode[] | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the pipeline. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise resources</a> in the AWS IoT SiteWise User Guide.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * If you retry a request that completed successfully using the same client token, the server returns the
+   * cached result from the original successful request without performing the operation again.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the details of a resource error.</p>
+ * @public
+ */
+export interface ResourceError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code?: ResourceErrorCode | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the current status of a resource.</p>
+ * @public
+ */
+export interface ResourceStatus {
+  /**
+   * <p>Contains associated error information, if any.</p>
+   * @public
+   */
+  error?: ResourceError | undefined;
+
+  /**
+   * <p>The current status of the resource.</p>
+   * @public
+   */
+  state?: ResourceState | undefined;
+}
+
+/**
+ * <p>Response structure for CreatePipeline operation.</p>
+ * @public
+ */
+export interface CreatePipelineResponse {
+  /**
+   * <p>The name of the created pipeline.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The ARN of the created pipeline.</p>
+   * @public
+   */
+  pipelineArn: string | undefined;
+
+  /**
+   * <p>The version of the newly created pipeline.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the pipeline.</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
 }
 
 /**
@@ -4332,6 +5591,290 @@ export interface CreateProjectResponse {
 }
 
 /**
+ * <p>Configuration for a container task, including the container image, IAM role, and compute settings.</p>
+ * @public
+ */
+export interface ContainerTaskConfiguration {
+  /**
+   * <p>The Amazon ECR image URI for the task container.</p>
+   * @public
+   */
+  ecrUri: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that grants the containerized workload permissions to access AWS resources.</p>
+   * @public
+   */
+  taskExecutionRole: string | undefined;
+
+  /**
+   * <p>The processing type for compute resources.</p>
+   * @public
+   */
+  processingType: ProcessingType | undefined;
+
+  /**
+   * <p>The processing unit allocation that determines the vCPU, memory, and GPU resources.</p>
+   * @public
+   */
+  processingUnit: ProcessingUnit | undefined;
+
+  /**
+   * <p>The command to execute in the container.</p>
+   * @public
+   */
+  command?: string[] | undefined;
+
+  /**
+   * <p>The timeout in seconds for task execution. Default: 3600 (1 hour).</p>
+   * @public
+   */
+  timeoutSeconds?: number | undefined;
+
+  /**
+   * <p>Environment variables passed to the container at runtime.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The task execution configuration. Specify a <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ContainerTaskConfiguration.html">containerTaskConfiguration</a> for a custom container workload.</p>
+ * @public
+ */
+export type TaskConfiguration =
+  | TaskConfiguration.ContainerTaskConfigurationMember
+  | TaskConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TaskConfiguration {
+  /**
+   * <p>Configuration for running a custom container image on managed compute.</p>
+   * @public
+   */
+  export interface ContainerTaskConfigurationMember {
+    containerTaskConfiguration: ContainerTaskConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    containerTaskConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    containerTaskConfiguration: (value: ContainerTaskConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Request structure for CreateTask operation.</p>
+ * @public
+ */
+export interface CreateTaskRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the task to create. Must be unique within the workspace.</p>
+   * @public
+   */
+  taskName: string | undefined;
+
+  /**
+   * <p>A description of the task.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The task execution configuration. Specify a <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_ContainerTaskConfiguration.html">containerTaskConfiguration</a> for custom container workloads.</p>
+   * @public
+   */
+  taskConfiguration: TaskConfiguration | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the task. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your AWS IoT SiteWise resources</a> in the AWS IoT SiteWise User Guide.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * If you retry a request that completed successfully using the same client token, the server returns the
+   * cached result from the original successful request without performing the operation again.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Response structure for CreateTask operation.</p>
+ * @public
+ */
+export interface CreateTaskResponse {
+  /**
+   * <p>The name of the created task.</p>
+   * @public
+   */
+  taskName: string | undefined;
+
+  /**
+   * <p>The ARN of the created task.</p>
+   * @public
+   */
+  taskArn: string | undefined;
+
+  /**
+   * <p>The version of the newly created task.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The current lifecycle status of the task.</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
+}
+
+/**
+ * <p>Contains the encryption configuration for a workspace.</p>
+ * @public
+ */
+export interface WorkspaceEncryptionConfiguration {
+  /**
+   * <p>The encryption scheme for the workspace. <code>SITEWISE_DEFAULT_ENCRYPTION</code>
+   *       encrypts data with the IoT SiteWise default key. <code>KMS_BASED_ENCRYPTION</code> encrypts data
+   *       with the customer managed KMS key identified by <code>kmsKeyId</code>.</p>
+   * @public
+   */
+  encryptionType: EncryptionType | undefined;
+
+  /**
+   * <p>The customer managed KMS key used when <code>encryptionType</code> is
+   *       <code>KMS_BASED_ENCRYPTION</code>. Accepts a key ID, key ARN, or key alias. Required for
+   *       <code>KMS_BASED_ENCRYPTION</code>; must be omitted for
+   *       <code>SITEWISE_DEFAULT_ENCRYPTION</code>. After a workspace's customer managed key
+   *       configuration becomes active, the key can't be changed.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspaceRequest {
+  /**
+   * <p>The name of the workspace to create.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>A description for the workspace.</p>
+   * @public
+   */
+  workspaceDescription?: string | undefined;
+
+  /**
+   * <p>The encryption configuration for the workspace.</p>
+   * @public
+   */
+  encryptionConfiguration: WorkspaceEncryptionConfiguration | undefined;
+
+  /**
+   * <p>A list of key-value pairs that contain metadata for the workspace. For more information,
+   *       see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/tag-resources.html">Tagging your IoT SiteWise
+   *         resources</a> in the <i>IoT SiteWise User Guide</i>.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the request is
+   *       idempotent. If you retry a request that completed successfully using the same client token,
+   *       the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains the details of an error associated with a workspace.</p>
+ * @public
+ */
+export interface WorkspaceErrorDetails {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code: ErrorCode | undefined;
+
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>Contains information about the current status of a workspace.</p>
+ * @public
+ */
+export interface WorkspaceStatus {
+  /**
+   * <p>The current state of the workspace.</p>
+   * @public
+   */
+  state: WorkspaceState | undefined;
+
+  /**
+   * <p>Contains associated error information, if any.</p>
+   * @public
+   */
+  error?: WorkspaceErrorDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWorkspaceResponse {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The ARN of the workspace.</p>
+   * @public
+   */
+  workspaceArn: string | undefined;
+
+  /**
+   * <p>The status of the workspace, which is <code>CREATING</code> when the operation
+   *       returns.</p>
+   * @public
+   */
+  workspaceStatus: WorkspaceStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteAccessPolicyRequest {
@@ -4356,6 +5899,28 @@ export interface DeleteAccessPolicyResponse {}
 /**
  * @public
  */
+export interface DeleteApplicationRequest {
+  /**
+   * <p>Name of the workspace to associate with the underlying Application</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>ID of the Application to delete</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteApplicationResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteAssetRequest {
   /**
    * <p>The ID of the asset to delete. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
@@ -4375,6 +5940,12 @@ export interface DeleteAssetRequest {
  * @public
  */
 export interface DeleteAssetResponse {
+  /**
+   * <p>The ID of the asset.</p>
+   * @public
+   */
+  assetId?: string | undefined;
+
   /**
    * <p>The status of the asset, which contains a state (<code>DELETING</code> after successfully
    *       calling this operation) and any error message.</p>
@@ -4428,6 +5999,12 @@ export interface DeleteAssetModelRequest {
  * @public
  */
 export interface DeleteAssetModelResponse {
+  /**
+   * <p>The ID of the asset model.</p>
+   * @public
+   */
+  assetModelId?: string | undefined;
+
   /**
    * <p>The status of the asset model, which contains a state (<code>DELETING</code> after
    *       successfully calling this operation) and any error message.</p>
@@ -4492,6 +6069,12 @@ export interface DeleteAssetModelCompositeModelResponse {
    * @public
    */
   assetModelStatus: AssetModelStatus | undefined;
+
+  /**
+   * <p>The ID of the asset model.</p>
+   * @public
+   */
+  assetModelId?: string | undefined;
 }
 
 /**
@@ -4614,6 +6197,12 @@ export interface DeleteDatasetRequest {
   datasetId: string | undefined;
 
   /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+
+  /**
    * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
    * @public
    */
@@ -4641,6 +6230,36 @@ export interface DeleteGatewayRequest {
    * @public
    */
   gatewayId: string | undefined;
+}
+
+/**
+ * <p>Request structure for DeletePipeline operation.</p>
+ * @public
+ */
+export interface DeletePipelineRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the pipeline to delete.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+}
+
+/**
+ * <p>Response structure for DeletePipeline operation.</p>
+ * @public
+ */
+export interface DeletePipelineResponse {
+  /**
+   * <p>The current lifecycle status of the pipeline.</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
 }
 
 /**
@@ -4695,6 +6314,36 @@ export interface DeleteProjectRequest {
 export interface DeleteProjectResponse {}
 
 /**
+ * <p>Request structure for DeleteTask operation.</p>
+ * @public
+ */
+export interface DeleteTaskRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the task to delete.</p>
+   * @public
+   */
+  taskName: string | undefined;
+}
+
+/**
+ * <p>Response structure for DeleteTask operation.</p>
+ * @public
+ */
+export interface DeleteTaskResponse {
+  /**
+   * <p>The current lifecycle status of the task.</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
+}
+
+/**
  * @public
  */
 export interface DeleteTimeSeriesRequest {
@@ -4723,6 +6372,42 @@ export interface DeleteTimeSeriesRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceRequest {
+  /**
+   * <p>The name of the workspace to delete.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure that the request is
+   *       idempotent. If you retry a request that completed successfully using the same client token,
+   *       the retry succeeds without performing any further actions.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkspaceResponse {
+  /**
+   * <p>The status of the workspace after the deletion request, which is <code>DELETING</code> when the operation returns.</p>
+   * @public
+   */
+  workspaceStatus: WorkspaceStatus | undefined;
 }
 
 /**
@@ -4839,6 +6524,88 @@ export interface DescribeActionResponse {
    * @public
    */
   resolveTo?: ResolveTo | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeApplicationRequest {
+  /**
+   * <p>Name of the workspace to associate with the underlying Application</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>ID of the Application</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeApplicationResponse {
+  /**
+   * <p>ARN of the application</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>Timestamp when the application was created</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>DNS subdomain for the application</p>
+   * @public
+   */
+  dnsSubdomain: string | undefined;
+
+  /**
+   * <p>Description of the application</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Unique identifier of the application</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Identity Center Application ARN associated with this application</p>
+   * @public
+   */
+  idcApplicationArn: string | undefined;
+
+  /**
+   * <p>Name of the application</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Current status of the application</p>
+   * @public
+   */
+  status: ApplicationStatus | undefined;
+
+  /**
+   * <p>Timestamp when the application was last updated</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Name of the workspace this application belongs to</p>
+   * @public
+   */
+  workspaceName: string | undefined;
 }
 
 /**
@@ -5597,6 +7364,12 @@ export interface DescribeBulkImportJobRequest {
    * @public
    */
   jobId: string | undefined;
+
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
 }
 
 /**
@@ -5656,7 +7429,15 @@ export interface DescribeBulkImportJobResponse {
   jobRoleArn: string | undefined;
 
   /**
-   * <p>The files in the specified Amazon S3 bucket that contain your data.</p>
+   * <p>The files in the specified Amazon S3 bucket that contain your data. You can specify up to 100 files for each bulk import job. Each file supports the following size limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Parquet files – Up to 256 MiB.</p>
+   *             </li>
+   *             <li>
+   *                <p>Other file formats – Up to 5 GiB.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   files: File[] | undefined;
@@ -5671,7 +7452,7 @@ export interface DescribeBulkImportJobResponse {
    * <p>Contains the configuration information of a job, such as the file format used to save data in Amazon S3.</p>
    * @public
    */
-  jobConfiguration: JobConfiguration | undefined;
+  jobConfiguration?: JobConfiguration | undefined;
 
   /**
    * <p>The date the job was created, in Unix epoch TIME.</p>
@@ -5697,6 +7478,18 @@ export interface DescribeBulkImportJobResponse {
    * @public
    */
   deleteFilesAfterImport?: boolean | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  datasetId?: string | undefined;
+
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
 }
 
 /**
@@ -5839,6 +7632,48 @@ export interface DescribeDatasetRequest {
    * @public
    */
   datasetId: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+
+  /**
+   * <p>The version of the dataset.</p>
+   * @public
+   */
+  datasetVersion?: string | undefined;
+}
+
+/**
+ * <p>Contains enrichment status information for a specific data type in a dataset.</p>
+ * @public
+ */
+export interface DatasetEnrichmentEntry {
+  /**
+   * <p>The enrichment status of the data type in the dataset.</p>
+   * @public
+   */
+  status: DatasetEnrichmentStatus | undefined;
+
+  /**
+   * <p>The date the data was last enriched, in Unix epoch time.</p>
+   * @public
+   */
+  lastEnrichedAt?: Date | undefined;
+}
+
+/**
+ * <p>Contains the enrichment status information for a dataset across data types.</p>
+ * @public
+ */
+export interface DatasetEnrichment {
+  /**
+   * <p>The enrichment status for video data in the dataset.</p>
+   * @public
+   */
+  video?: DatasetEnrichmentEntry | undefined;
 }
 
 /**
@@ -5871,6 +7706,31 @@ export interface DescribeDatasetResponse {
   datasetDescription: string | undefined;
 
   /**
+   * <p>The type of dataset: a session dataset, a curated dataset, or a connection to an external
+   *       datasource.</p>
+   * @public
+   */
+  datasetType?: DatasetTypeEnum | undefined;
+
+  /**
+   * <p>The configuration for the dataset.</p>
+   * @public
+   */
+  datasetConfig?: DatasetConfig | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+
+  /**
+   * <p>The metadata for the dataset.</p>
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
+
+  /**
    * <p>The data source for the dataset.</p>
    * @public
    */
@@ -5901,6 +7761,84 @@ export interface DescribeDatasetResponse {
    * @public
    */
   datasetVersion?: string | undefined;
+
+  /**
+   * <p>The enrichment status of the dataset.</p>
+   * @public
+   */
+  enrichmentStatus?: DatasetEnrichment | undefined;
+}
+
+/**
+ * <p>Request to describe a dataset export job.</p>
+ * @public
+ */
+export interface DescribeDatasetExportJobRequest {
+  /**
+   * <p>The name of the workspace that contains the dataset export job.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The unique identifier for the dataset export job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * <p>Response for describe dataset export job request.</p>
+ * @public
+ */
+export interface DescribeDatasetExportJobResponse {
+  /**
+   * <p>The unique identifier for the dataset export job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The name of the workspace that contains the dataset export job.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The current status of the dataset export job.</p>
+   * @public
+   */
+  status: DatasetExportJobStatus | undefined;
+
+  /**
+   * <p>The timestamp when the job started processing.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the job completed, or null if the job is still running.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>The S3 URI where output clips are written.</p>
+   * @public
+   */
+  destinationS3Uri: string | undefined;
+
+  /**
+   * <p>The location where the error report will be written on failure.</p>
+   * @public
+   */
+  errorReportLocation: ExportErrorReportLocation | undefined;
+
+  /**
+   * <p>The processing input that was provided in the CreateDatasetExportJob request.</p>
+   * @public
+   */
+  input: ProcessingInput | undefined;
 }
 
 /**
@@ -5968,6 +7906,99 @@ export interface DescribeDefaultEncryptionConfigurationResponse {
    * @public
    */
   configurationStatus: ConfigurationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEnrichmentJobRequest {
+  /**
+   * <p>The name of the IoT SiteWise workspace containing the enrichment job.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the enrichment job to retrieve. This is the jobId returned by CreateEnrichmentJob.</p>
+   * @public
+   */
+  jobId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeEnrichmentJobResponse {
+  /**
+   * <p>The unique identifier of the enrichment job.</p>
+   * @public
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>Current status of the enrichment job. Possible values:</p>
+   * <ul>
+   * <li>PENDING: Job is waiting to start processing</li>
+   * <li>RUNNING: Job is actively processing video data</li>
+   * <li>COMPLETED: Job finished successfully; embeddings available in IoT SiteWise</li>
+   * <li>FAILED: Job encountered an error; see failureMessage for details</li>
+   * <li>TIMED_OUT: Job exceeded maximum processing time limit</li>
+   * <li>CANCELLED: Job was cancelled by user request</li>
+   * </ul>
+   * @public
+   */
+  status: EnrichmentJobStatus | undefined;
+
+  /**
+   * <p>The name of the IoT SiteWise workspace containing the job.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The type of enrichment job, derived from the job configuration. Currently EVENT_DETECTION is the only supported type.</p>
+   * @public
+   */
+  jobType: JobType | undefined;
+
+  /**
+   * <p>The complete job configuration as originally submitted, including the analysis type and parameters.
+   * For event detection jobs, this includes the dataset ID, time series identifier, and trim settings
+   * defining the analysis time range.</p>
+   * @public
+   */
+  jobConfiguration: EnrichmentJobConfiguration | undefined;
+
+  /**
+   * <p>Timestamp when the enrichment job was created in ISO 8601 format.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>Timestamp when the job status was last updated in ISO 8601 format. Useful for tracking recent activity.</p>
+   * @public
+   */
+  updatedAt?: Date | undefined;
+
+  /**
+   * <p>Timestamp when the job completed successfully in ISO 8601 format. Only present if status is COMPLETED.</p>
+   * @public
+   */
+  completedAt?: Date | undefined;
+
+  /**
+   * <p>Timestamp when the job was cancelled in ISO 8601 format. Only present if status is CANCELLED.</p>
+   * @public
+   */
+  cancelledAt?: Date | undefined;
+
+  /**
+   * <p>Human-readable error message explaining why the job failed. Only present if status is FAILED.
+   * Use this information to diagnose configuration issues, permission problems, or data processing errors.</p>
+   * @public
+   */
+  failureMessage?: string | undefined;
 }
 
 /**
@@ -6266,7 +8297,13 @@ export interface DescribeGatewayCapabilityConfigurationResponse {
 /**
  * @public
  */
-export interface DescribeLoggingOptionsRequest {}
+export interface DescribeLoggingOptionsRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName?: string | undefined;
+}
 
 /**
  * <p>Contains logging options.</p>
@@ -6289,6 +8326,384 @@ export interface DescribeLoggingOptionsResponse {
    * @public
    */
   loggingOptions: LoggingOptions | undefined;
+}
+
+/**
+ * <p>Request structure for DescribePipeline operation.</p>
+ * @public
+ */
+export interface DescribePipelineRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The version number of the pipeline to retrieve. If not specified, returns the latest version.</p>
+   * @public
+   */
+  pipelineVersion?: string | undefined;
+}
+
+/**
+ * <p>Response structure for DescribePipeline operation.</p>
+ * @public
+ */
+export interface DescribePipelineResponse {
+  /**
+   * <p>A unique name of the pipeline within the workspace.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The description of the pipeline.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the pipeline.</p>
+   * @public
+   */
+  pipelineArn: string | undefined;
+
+  /**
+   * <p>The version of the pipeline.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The environment variables shared across all compute nodes in the pipeline.</p>
+   * @public
+   */
+  environmentVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of compute nodes that form the pipeline DAG.</p>
+   * @public
+   */
+  computations: ComputeNode[] | undefined;
+
+  /**
+   * <p>The current lifecycle status of the pipeline.</p>
+   * @public
+   */
+  status: ResourceStatus | undefined;
+
+  /**
+   * <p>The time the pipeline was created, in Unix epoch time.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The time the pipeline was last updated, in Unix epoch time.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * <p>Request structure for DescribePipelineExecution operation.</p>
+ * @public
+ */
+export interface DescribePipelineExecutionRequest {
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The unique identifier of the pipeline execution.</p>
+   * @public
+   */
+  pipelineExecutionId: string | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of compute nodes to return per request. This is an upper bound; the actual number of results may be less. Default: 50.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a detailed error entry for granular troubleshooting of pipeline failures.</p>
+ * @public
+ */
+export interface DetailedPipelineError {
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code: DetailedPipelineErrorCode | undefined;
+
+  /**
+   * <p>The associated error message.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>Additional information about a compute node that has failed.</p>
+ * @public
+ */
+export interface ComputeNodeExecutionStateDetails {
+  /**
+   * <p>Classification of the failure.</p>
+   * @public
+   */
+  code: ComputeNodeErrorCode | undefined;
+
+  /**
+   * <p>Human-readable description of why the compute node failed.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>Detailed error entries to help diagnose the failure.</p>
+   * @public
+   */
+  details?: DetailedPipelineError[] | undefined;
+}
+
+/**
+ * <p>Current execution status of a compute node within a pipeline execution.</p>
+ * @public
+ */
+export interface ComputeNodeExecutionStatus {
+  /**
+   * <p>Current state of the compute node execution.</p>
+   * @public
+   */
+  state: ComputeNodeExecutionState | undefined;
+
+  /**
+   * <p>Additional information about the compute node's failure. Populated when the compute node has failed.</p>
+   * @public
+   */
+  stateDetails?: ComputeNodeExecutionStateDetails | undefined;
+}
+
+/**
+ * <p>Contains detailed execution information for a compute node within a pipeline execution.</p>
+ * @public
+ */
+export interface ComputeNodeExecutionDetails {
+  /**
+   * <p>The name of the compute node.</p>
+   * @public
+   */
+  computeNodeName: string | undefined;
+
+  /**
+   * <p>The name of the task executed for this compute node.</p>
+   * @public
+   */
+  taskName: string | undefined;
+
+  /**
+   * <p>The ARN of the task.</p>
+   * @public
+   */
+  taskArn: string | undefined;
+
+  /**
+   * <p>The task version that executed for this compute node.</p>
+   * @public
+   */
+  taskVersion: string | undefined;
+
+  /**
+   * <p>A list of compute node names that this node depends on.</p>
+   * @public
+   */
+  dependsOn: string[] | undefined;
+
+  /**
+   * <p>The current execution status of the compute node.</p>
+   * @public
+   */
+  status: ComputeNodeExecutionStatus | undefined;
+
+  /**
+   * <p>The time the compute node execution started, in Unix epoch time.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The time the compute node execution completed, in Unix epoch time.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The fully resolved environment variables used for this compute node execution.</p>
+   * @public
+   */
+  executionEnvironmentVariables?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Environment variables provided as input for a pipeline execution.</p>
+ * @public
+ */
+export interface ExecutionEnvironmentVariables {
+  /**
+   * <p>Global environment variables that apply to all compute nodes in the pipeline execution.</p>
+   * @public
+   */
+  global?: Record<string, string> | undefined;
+
+  /**
+   * <p>Per-compute-node environment variable overrides. Each entry maps a compute node name to its environment variable overrides.</p>
+   * @public
+   */
+  computeNodes?: Record<string, Record<string, string>> | undefined;
+}
+
+/**
+ * <p>Additional information about the current execution status. Populated when the execution has terminated.</p>
+ * @public
+ */
+export interface PipelineExecutionStateDetails {
+  /**
+   * <p>Classification of the failure. Present when the execution failed.</p>
+   * @public
+   */
+  code?: PipelineErrorCode | undefined;
+
+  /**
+   * <p>Human-readable description of the outcome. For a failed execution, this describes why it failed; for a cancelled execution, this is the reason you supplied when calling CancelPipelineExecution.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>Per-step error entries to help diagnose a failed execution. Present when the execution failed.</p>
+   * @public
+   */
+  details?: DetailedPipelineError[] | undefined;
+}
+
+/**
+ * <p>Current execution status of a pipeline.</p>
+ * @public
+ */
+export interface PipelineExecutionStatus {
+  /**
+   * <p>Current state of the pipeline execution.</p>
+   * @public
+   */
+  state: PipelineExecutionState | undefined;
+
+  /**
+   * <p>Additional information about the execution outcome. Populated when the execution has terminated (failed or cancelled).</p>
+   * @public
+   */
+  stateDetails?: PipelineExecutionStateDetails | undefined;
+}
+
+/**
+ * <p>Response structure for DescribePipelineExecution operation.</p>
+ * @public
+ */
+export interface DescribePipelineExecutionResponse {
+  /**
+   * <p>The unique identifier of the pipeline execution.</p>
+   * @public
+   */
+  pipelineExecutionId: string | undefined;
+
+  /**
+   * <p>The name of the pipeline.</p>
+   * @public
+   */
+  pipelineName: string | undefined;
+
+  /**
+   * <p>The name of the workspace.</p>
+   * @public
+   */
+  workspaceName: string | undefined;
+
+  /**
+   * <p>The pipeline version this execution ran against.</p>
+   * @public
+   */
+  pipelineVersion: string | undefined;
+
+  /**
+   * <p>The current execution status of the pipeline.</p>
+   * @public
+   */
+  status: PipelineExecutionStatus | undefined;
+
+  /**
+   * <p>The time the pipeline execution started, in Unix epoch time.</p>
+   * @public
+   */
+  startTime?: Date | undefined;
+
+  /**
+   * <p>The time the pipeline execution completed, in Unix epoch time.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+
+  /**
+   * <p>The environment variables provided as input for the pipeline execution.</p>
+   * @public
+   */
+  requestEnvironmentVariables: ExecutionEnvironmentVariables | undefined;
+
+  /**
+   * <p>Scheduling priority for the execution. When not specified, defaults to lowest priority.</p>
+   * @public
+   */
+  executionPriority?: number | undefined;
+
+  /**
+   * <p>A list of compute node execution details within this pipeline execution.</p>
+   * @public
+   */
+  computeNodeExecutionDetails: ComputeNodeExecutionDetails[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -6500,2636 +8915,100 @@ export interface DescribeProjectResponse {
 /**
  * @public
  */
-export interface DescribeStorageConfigurationRequest {}
-
-/**
- * <p>Contains information about a customer managed Amazon S3 bucket.</p>
- * @public
- */
-export interface CustomerManagedS3Storage {
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Amazon S3 object. For more information about how to find the ARN for an
-   *       Amazon S3 object, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-arn-format.html">Amazon S3 resources</a> in the
-   *         <i>Amazon Simple Storage Service User Guide</i>.</p>
-   * @public
-   */
-  s3ResourceArn: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the Identity and Access Management role that allows IoT SiteWise to send data to Amazon S3.</p>
-   * @public
-   */
-  roleArn: string | undefined;
-}
-
-/**
- * <p>Contains information about the storage destination.</p>
- * @public
- */
-export interface MultiLayerStorage {
-  /**
-   * <p>Contains information about a customer managed Amazon S3 bucket.</p>
-   * @public
-   */
-  customerManagedS3Storage: CustomerManagedS3Storage | undefined;
-}
-
-/**
- * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
- * @public
- */
-export interface RetentionPeriod {
-  /**
-   * <p>The number of days that your data is kept.</p>
-   *          <note>
-   *             <p>If you specified a value for this parameter, the <code>unlimited</code> parameter must
-   *         be <code>false</code>.</p>
-   *          </note>
-   * @public
-   */
-  numberOfDays?: number | undefined;
-
-  /**
-   * <p>If true, your data is kept indefinitely.</p>
-   *          <note>
-   *             <p>If configured to <code>true</code>, you must not specify a value for the
-   *           <code>numberOfDays</code> parameter.</p>
-   *          </note>
-   * @public
-   */
-  unlimited?: boolean | undefined;
-}
-
-/**
- * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
- * @public
- */
-export interface WarmTierRetentionPeriod {
-  /**
-   * <p>The number of days the data is stored in the warm tier.</p>
-   * @public
-   */
-  numberOfDays?: number | undefined;
-
-  /**
-   * <p>If set to true, the data is stored indefinitely in the warm tier.</p>
-   * @public
-   */
-  unlimited?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeStorageConfigurationResponse {
-  /**
-   * <p>The storage tier that you specified for your data.
-   *       The <code>storageType</code> parameter can be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SITEWISE_DEFAULT_STORAGE</code> – IoT SiteWise saves your data into the hot tier.
-   *           The hot tier is a service-managed database.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MULTI_LAYER_STORAGE</code> – IoT SiteWise saves your data in both the cold tier and the hot tier.
-   *           The cold tier is a customer-managed Amazon S3 bucket.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  storageType: StorageType | undefined;
-
-  /**
-   * <p>Contains information about the storage destination.</p>
-   * @public
-   */
-  multiLayerStorage?: MultiLayerStorage | undefined;
-
-  /**
-   * <p>Contains the storage configuration for time series (data streams) that aren't associated with asset properties.
-   *       The <code>disassociatedDataStorage</code> can be one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> – IoT SiteWise accepts time series that aren't associated with asset properties.</p>
-   *                <important>
-   *                   <p>After the <code>disassociatedDataStorage</code> is enabled, you can't disable it.</p>
-   *                </important>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISABLED</code> – IoT SiteWise doesn't accept time series (data streams) that aren't associated with asset properties.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/data-streams.html">Data streams</a>
-   *     in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  disassociatedDataStorage?: DisassociatedDataStorageState | undefined;
-
-  /**
-   * <p>The number of days your data is kept in the hot tier. By default, your data is kept indefinitely in the hot tier.</p>
-   * @public
-   */
-  retentionPeriod?: RetentionPeriod | undefined;
-
-  /**
-   * <p>Contains current status information for the configuration.</p>
-   * @public
-   */
-  configurationStatus: ConfigurationStatus | undefined;
-
-  /**
-   * <p>The date the storage configuration was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  lastUpdateDate?: Date | undefined;
-
-  /**
-   * <p>A service managed storage tier optimized for analytical queries. It stores periodically uploaded, buffered and historical data ingested with the CreaeBulkImportJob API.</p>
-   * @public
-   */
-  warmTier?: WarmTierState | undefined;
-
-  /**
-   * <p>Set this period to specify how long your data is stored in the warm tier before it is deleted. You can set this only if cold tier is enabled.</p>
-   * @public
-   */
-  warmTierRetentionPeriod?: WarmTierRetentionPeriod | undefined;
-
-  /**
-   * <p>Describes the configuration for ingesting NULL and NaN data. By default the feature is
-   *       allowed. The feature is disallowed if the value is <code>true</code>.</p>
-   * @public
-   */
-  disallowIngestNullNaN?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTimeSeriesRequest {
-  /**
-   * <p>The alias that identifies the time series.</p>
-   * @public
-   */
-  alias?: string | undefined;
-
-  /**
-   * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeTimeSeriesResponse {
-  /**
-   * <p>The ID of the asset in which the asset property was created.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property, in UUID format.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-
-  /**
-   * <p>The alias that identifies the time series.</p>
-   * @public
-   */
-  alias?: string | undefined;
-
-  /**
-   * <p>The ID of the time series.</p>
-   * @public
-   */
-  timeSeriesId: string | undefined;
-
-  /**
-   * <p>The data type of the time series.</p>
-   *          <p>If you specify <code>STRUCT</code>, you must also specify <code>dataTypeSpec</code> to identify the type of the structure for this time series.</p>
-   * @public
-   */
-  dataType: PropertyDataType | undefined;
-
-  /**
-   * <p>The data type of the structure for this time series. This parameter is required for time series
-   *       that have the <code>STRUCT</code> data type.</p>
-   *          <p>The options for this parameter depend on the type of the composite model
-   *       in which you created the asset property that is associated with your time series.
-   *       Use <code>AWS/ALARM_STATE</code> for alarm state in alarm composite models.</p>
-   * @public
-   */
-  dataTypeSpec?: string | undefined;
-
-  /**
-   * <p>The date that the time series was created, in Unix epoch time.</p>
-   * @public
-   */
-  timeSeriesCreationDate: Date | undefined;
-
-  /**
-   * <p>The date that the time series was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  timeSeriesLastUpdateDate: Date | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the time series, which has the following format.</p>
-   *          <p>
-   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:time-series/$\{TimeSeriesId\}</code>
-   *          </p>
-   * @public
-   */
-  timeSeriesArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateAssetsRequest {
-  /**
-   * <p>The ID of the parent asset from which to disassociate the child asset.
-   *       This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The ID of a hierarchy in the parent asset's model. (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.) Hierarchies allow
-   *       different groupings of assets to be formed that all come from the same asset model. You can
-   *       use the hierarchy ID to identify the correct asset to disassociate. For more information, see
-   *       <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  hierarchyId: string | undefined;
-
-  /**
-   * <p>The ID of the child asset to disassociate. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  childAssetId: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DisassociateTimeSeriesFromAssetPropertyRequest {
-  /**
-   * <p>The alias that identifies the time series.</p>
-   * @public
-   */
-  alias: string | undefined;
-
-  /**
-   * <p>The ID of the asset in which the asset property was created. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The ID of the asset property. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyId: string | undefined;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ExecuteActionRequest {
-  /**
-   * <p>The resource the action will be taken on.</p>
-   * @public
-   */
-  targetResource: TargetResource | undefined;
-
-  /**
-   * <p>The ID of the action definition.</p>
-   * @public
-   */
-  actionDefinitionId: string | undefined;
-
-  /**
-   * <p>The JSON payload of the action.</p>
-   * @public
-   */
-  actionPayload: ActionPayload | undefined;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>The detailed resource this action resolves to.</p>
-   * @public
-   */
-  resolveTo?: ResolveTo | undefined;
-}
-
-/**
- * @public
- */
-export interface ExecuteActionResponse {
-  /**
-   * <p>The ID of the action.</p>
-   * @public
-   */
-  actionId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ExecuteQueryRequest {
-  /**
-   * <p>The IoT SiteWise query statement.</p>
-   * @public
-   */
-  queryStatement: string | undefined;
-
-  /**
-   * <p>The string that specifies the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   *          <ul>
-   *             <li>
-   *                <p>Minimum is 1</p>
-   *             </li>
-   *             <li>
-   *                <p>Maximum is 20000</p>
-   *             </li>
-   *             <li>
-   *                <p>Default is 20000</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>A unique case-sensitive identifier that you can provide to ensure the idempotency of the request. Don't reuse this client token if a new idempotent request is required.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * <p>The data type of the column.</p>
- * @public
- */
-export interface ColumnType {
-  /**
-   * <p>The allowed data types that the column has as it's value.</p>
-   * @public
-   */
-  scalarType?: ScalarType | undefined;
-}
-
-/**
- * <p>A description of the column in the query results.</p>
- * @public
- */
-export interface ColumnInfo {
-  /**
-   * <p>The name of the column description.</p>
-   * @public
-   */
-  name?: string | undefined;
-
-  /**
-   * <p>The type of the column description.</p>
-   * @public
-   */
-  type?: ColumnType | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyAggregatesRequest {
-  /**
-   * <p>The ID of the asset, in UUID format.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property, in UUID format.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-
-  /**
-   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyAlias?: string | undefined;
-
-  /**
-   * <p>The data aggregating function.</p>
-   * @public
-   */
-  aggregateTypes: AggregateType[] | undefined;
-
-  /**
-   * <p>The time interval over which to aggregate data.</p>
-   * @public
-   */
-  resolution: string | undefined;
-
-  /**
-   * <p>The quality by which to filter asset data.</p>
-   * @public
-   */
-  qualities?: Quality[] | undefined;
-
-  /**
-   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   * @public
-   */
-  startDate: Date | undefined;
-
-  /**
-   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   * @public
-   */
-  endDate: Date | undefined;
-
-  /**
-   * <p>The chronological sorting order of the requested information.</p>
-   *          <p>Default: <code>ASCENDING</code>
-   *          </p>
-   * @public
-   */
-  timeOrdering?: TimeOrdering | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
-   *       first.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The size of the result set is equal to 1 MB.</p>
-   *             </li>
-   *             <li>
-   *                <p>The number of data points in the result set is equal to the value of
-   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 2500.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyAggregatesResponse {
-  /**
-   * <p>The requested aggregated values.</p>
-   * @public
-   */
-  aggregatedValues: AggregatedValue[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyValueRequest {
-  /**
-   * <p>The ID of the asset, in UUID format.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property, in UUID format.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-
-  /**
-   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyAlias?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyValueResponse {
-  /**
-   * <p>The current asset property value.</p>
-   * @public
-   */
-  propertyValue?: AssetPropertyValue | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyValueHistoryRequest {
-  /**
-   * <p>The ID of the asset, in UUID format.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property, in UUID format.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-
-  /**
-   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyAlias?: string | undefined;
-
-  /**
-   * <p>The exclusive start of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   * @public
-   */
-  startDate?: Date | undefined;
-
-  /**
-   * <p>The inclusive end of the range from which to query historical data, expressed in seconds in Unix epoch time.</p>
-   * @public
-   */
-  endDate?: Date | undefined;
-
-  /**
-   * <p>The quality by which to filter asset data.</p>
-   * @public
-   */
-  qualities?: Quality[] | undefined;
-
-  /**
-   * <p>The chronological sorting order of the requested information.</p>
-   *          <p>Default: <code>ASCENDING</code>
-   *          </p>
-   * @public
-   */
-  timeOrdering?: TimeOrdering | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request. A result set is returned in the two cases, whichever occurs
-   *       first.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The size of the result set is equal to 4 MB.</p>
-   *             </li>
-   *             <li>
-   *                <p>The number of data points in the result set is equal to the value of
-   *             <code>maxResults</code>. The maximum value of <code>maxResults</code> is 20000.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface GetAssetPropertyValueHistoryResponse {
-  /**
-   * <p>The asset property's value history.</p>
-   * @public
-   */
-  assetPropertyValueHistory: AssetPropertyValue[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInterpolatedAssetPropertyValuesRequest {
-  /**
-   * <p>The ID of the asset, in UUID format.</p>
-   * @public
-   */
-  assetId?: string | undefined;
-
-  /**
-   * <p>The ID of the asset property, in UUID format.</p>
-   * @public
-   */
-  propertyId?: string | undefined;
-
-  /**
-   * <p>The alias that identifies the property, such as an OPC-UA server data stream path
-   *         (for example, <code>/company/windfarm/3/turbine/7/temperature</code>). For more information, see
-   *         <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/connect-data-streams.html">Mapping industrial data streams to asset properties</a> in the
-   *         <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  propertyAlias?: string | undefined;
-
-  /**
-   * <p>The exclusive start of the range from which to interpolate data, expressed in seconds in
-   *       Unix epoch time.</p>
-   * @public
-   */
-  startTimeInSeconds: number | undefined;
-
-  /**
-   * <p>The nanosecond offset converted from <code>startTimeInSeconds</code>.</p>
-   * @public
-   */
-  startTimeOffsetInNanos?: number | undefined;
-
-  /**
-   * <p>The inclusive end of the range from which to interpolate data, expressed in seconds in
-   *       Unix epoch time.</p>
-   * @public
-   */
-  endTimeInSeconds: number | undefined;
-
-  /**
-   * <p>The nanosecond offset converted from <code>endTimeInSeconds</code>.</p>
-   * @public
-   */
-  endTimeOffsetInNanos?: number | undefined;
-
-  /**
-   * <p>The quality of the asset property value. You can use this parameter as a filter to choose
-   *       only the asset property values that have a specific quality.</p>
-   * @public
-   */
-  quality: Quality | undefined;
-
-  /**
-   * <p>The time interval in seconds over which to interpolate data. Each interval starts when the
-   *       previous one ends.</p>
-   * @public
-   */
-  intervalInSeconds: number | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 10.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The interpolation type.</p>
-   *          <p>Valid values: <code>LINEAR_INTERPOLATION | LOCF_INTERPOLATION</code>
-   *          </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LINEAR_INTERPOLATION</code> – Estimates missing data using <a href="https://en.wikipedia.org/wiki/Linear_interpolation">linear
-   *           interpolation</a>.</p>
-   *                <p>For example, you can use this operation to return the interpolated temperature values
-   *           for a wind turbine every 24 hours over a duration of 7 days. If the interpolation starts
-   *           July 1, 2021, at 9 AM, IoT SiteWise returns the first interpolated value on July 2, 2021, at 9 AM,
-   *           the second interpolated value on July 3, 2021, at 9 AM, and so on.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>LOCF_INTERPOLATION</code> – Estimates missing data using last observation
-   *           carried forward interpolation</p>
-   *                <p>If no data point is found for an interval, IoT SiteWise returns the last observed data point
-   *           for the previous interval and carries forward this interpolated value until a new data
-   *           point is found.</p>
-   *                <p>For example, you can get the state of an on-off valve every 24 hours over a duration
-   *           of 7 days. If the interpolation starts July 1, 2021, at 9 AM, IoT SiteWise returns the last
-   *           observed data point between July 1, 2021, at 9 AM and July 2, 2021, at 9 AM as the first
-   *           interpolated value. If a data point isn't found after 9 AM on July 2, 2021, IoT SiteWise uses the
-   *           same interpolated value for the rest of the days.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  type: string | undefined;
-
-  /**
-   * <p>The query interval for the window, in seconds. IoT SiteWise computes each interpolated value by
-   *       using data points from the timestamp of each interval, minus the window to the timestamp of
-   *       each interval plus the window. If not specified, the window ranges between the start time
-   *       minus the interval and the end time plus the interval.</p>
-   *          <note>
-   *             <ul>
-   *                <li>
-   *                   <p>If you specify a value for the <code>intervalWindowInSeconds</code> parameter, the
-   *             value for the <code>type</code> parameter must be
-   *             <code>LINEAR_INTERPOLATION</code>.</p>
-   *                </li>
-   *                <li>
-   *                   <p>If a data point isn't found during the specified query window, IoT SiteWise won't return an
-   *             interpolated value for the interval. This indicates that there's a gap in the ingested
-   *             data points.</p>
-   *                </li>
-   *             </ul>
-   *          </note>
-   *          <p>For example, you can get the interpolated temperature values for a wind turbine every 24
-   *       hours over a duration of 7 days. If the interpolation starts on July 1, 2021, at 9 AM with a
-   *       window of 2 hours, IoT SiteWise uses the data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM
-   *       plus 2 hours) on July 2, 2021 to compute the first interpolated value. Next, IoT SiteWise uses the
-   *       data points from 7 AM (9 AM minus 2 hours) to 11 AM (9 AM plus 2 hours) on July 3, 2021 to
-   *       compute the second interpolated value, and so on. </p>
-   * @public
-   */
-  intervalWindowInSeconds?: number | undefined;
-}
-
-/**
- * <p>Contains information about an interpolated asset property value.</p>
- * @public
- */
-export interface InterpolatedAssetPropertyValue {
-  /**
-   * <p>Contains a timestamp with optional nanosecond granularity.</p>
-   * @public
-   */
-  timestamp: TimeInNanos | undefined;
-
-  /**
-   * <p>Contains an asset property value (of a single type only).</p>
-   * @public
-   */
-  value: Variant | undefined;
-}
-
-/**
- * @public
- */
-export interface GetInterpolatedAssetPropertyValuesResponse {
-  /**
-   * <p>The requested interpolated values.</p>
-   * @public
-   */
-  interpolatedAssetPropertyValues: InterpolatedAssetPropertyValue[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface InvokeAssistantRequest {
-  /**
-   * <p>The ID assigned to a conversation. IoT SiteWise automatically generates a unique ID for you, and this parameter is never required.
-   *   However, if you prefer to have your own ID, you must specify it here in UUID format. If you specify your own ID, it must be globally unique.</p>
-   * @public
-   */
-  conversationId?: string | undefined;
-
-  /**
-   * <p>A text message sent to the SiteWise Assistant by the user.</p>
-   * @public
-   */
-  message: string | undefined;
-
-  /**
-   * <p>Specifies if to turn trace on or not. It is used to track the SiteWise Assistant's
-   *   reasoning, and data access process.</p>
-   * @public
-   */
-  enableTrace?: boolean | undefined;
-}
-
-/**
- * <p>Contains the cited text from the data source.</p>
- * @public
- */
-export interface Content {
-  /**
-   * <p>The cited text from the data source.</p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p>Contains location information about the cited text and where it's stored.</p>
- * @public
- */
-export interface Location {
-  /**
-   * <p>The URI of the location.</p>
-   * @public
-   */
-  uri?: string | undefined;
-}
-
-/**
- * <p>The data source for the dataset.</p>
- * @public
- */
-export interface Source {
-  /**
-   * <p>Contains the ARN of the dataset. If the source is Kendra, it's the ARN of the Kendra index.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>Contains the location information where the cited text is originally stored.
-   *   For example, if the data source is Kendra, and the text synchronized is from an S3 bucket, then the location refers to an S3 object.</p>
-   * @public
-   */
-  location?: Location | undefined;
-}
-
-/**
- * <p>Contains information about the dataset use and it's source.</p>
- * @public
- */
-export interface DataSetReference {
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARN</a> of the dataset.
-   *   The format is <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dataset/$\{DatasetId\}</code>.</p>
-   * @public
-   */
-  datasetArn?: string | undefined;
-
-  /**
-   * <p>The data source for the dataset.</p>
-   * @public
-   */
-  source?: Source | undefined;
-}
-
-/**
- * <p>Contains the reference information.</p>
- * @public
- */
-export interface Reference {
-  /**
-   * <p>Contains the dataset reference information.</p>
-   * @public
-   */
-  dataset?: DataSetReference | undefined;
-}
-
-/**
- * <p>Contains text content to which the SiteWise Assistant refers to, and generate the final response.
- *   It also contains information about the source.</p>
- * @public
- */
-export interface Citation {
-  /**
-   * <p>Contains information about the data source.</p>
-   * @public
-   */
-  reference?: Reference | undefined;
-
-  /**
-   * <p>Contains the cited text from the data source.</p>
-   * @public
-   */
-  content?: Content | undefined;
-}
-
-/**
- * <p>This contains the SiteWise Assistant's response and the corresponding citation.</p>
- * @public
- */
-export interface InvocationOutput {
-  /**
-   * <p>The text message of the SiteWise Assistant's response.</p>
-   * @public
-   */
-  message?: string | undefined;
-
-  /**
-   * <p>A list of citations, and related information for the SiteWise Assistant's response.</p>
-   * @public
-   */
-  citations?: Citation[] | undefined;
-}
-
-/**
- * <p>Contains tracing information of the SiteWise Assistant's reasoning and data access.</p>
- * @public
- */
-export interface Trace {
-  /**
-   * <p>The cited text from the data source.</p>
-   * @public
-   */
-  text?: string | undefined;
-}
-
-/**
- * <p>Contains the response, citation, and trace from the SiteWise Assistant.</p>
- * @public
- */
-export type ResponseStream =
-  | ResponseStream.AccessDeniedExceptionMember
-  | ResponseStream.ConflictingOperationExceptionMember
-  | ResponseStream.InternalFailureExceptionMember
-  | ResponseStream.InvalidRequestExceptionMember
-  | ResponseStream.LimitExceededExceptionMember
-  | ResponseStream.OutputMember
-  | ResponseStream.ResourceNotFoundExceptionMember
-  | ResponseStream.ThrottlingExceptionMember
-  | ResponseStream.TraceMember
-  | ResponseStream.$UnknownMember;
-
-/**
- * @public
- */
-export namespace ResponseStream {
-  /**
-   * <p>Contains tracing information of the SiteWise Assistant's reasoning and data access.</p>
-   * @public
-   */
-  export interface TraceMember {
-    trace: Trace;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Contains the SiteWise Assistant's response.</p>
-   * @public
-   */
-  export interface OutputMember {
-    trace?: never;
-    output: InvocationOutput;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Access is denied.</p>
-   * @public
-   */
-  export interface AccessDeniedExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException: AccessDeniedException;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request has conflicting operations. This can occur if you're trying to perform more
-   *       than one operation on the same resource at the same time.</p>
-   * @public
-   */
-  export interface ConflictingOperationExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException: ConflictingOperationException;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>IoT SiteWise can't process your request right now. Try again later.</p>
-   * @public
-   */
-  export interface InternalFailureExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException: InternalFailureException;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request isn't valid. This can occur if your request contains malformed JSON or
-   *       unsupported characters. Check your request and try again.</p>
-   * @public
-   */
-  export interface InvalidRequestExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException: InvalidRequestException;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>You've reached the quota for a resource. For example, this can occur if you're trying to
-   *       associate more than the allowed number of child assets or attempting to create more than the
-   *       allowed number of properties for an asset model.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  export interface LimitExceededExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException: LimitExceededException;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The requested resource can't be found.</p>
-   * @public
-   */
-  export interface ResourceNotFoundExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException: ResourceNotFoundException;
-    throttlingException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request exceeded a rate limit. For example, you might have exceeded the number of
-   *       IoT SiteWise assets that can be created per second, the allowed number of messages per second, and so
-   *       on.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  export interface ThrottlingExceptionMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException: ThrottlingException;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    trace?: never;
-    output?: never;
-    accessDeniedException?: never;
-    conflictingOperationException?: never;
-    internalFailureException?: never;
-    invalidRequestException?: never;
-    limitExceededException?: never;
-    resourceNotFoundException?: never;
-    throttlingException?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    trace: (value: Trace) => T;
-    output: (value: InvocationOutput) => T;
-    accessDeniedException: (value: AccessDeniedException) => T;
-    conflictingOperationException: (value: ConflictingOperationException) => T;
-    internalFailureException: (value: InternalFailureException) => T;
-    invalidRequestException: (value: InvalidRequestException) => T;
-    limitExceededException: (value: LimitExceededException) => T;
-    resourceNotFoundException: (value: ResourceNotFoundException) => T;
-    throttlingException: (value: ThrottlingException) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface InvokeAssistantResponse {
-  /**
-   * <p>Contains the response, citation, and trace from the SiteWise Assistant.</p>
-   * @public
-   */
-  body: AsyncIterable<ResponseStream> | undefined;
-
-  /**
-   * <p>The ID of the conversation, in UUID format. This ID uniquely identifies the conversation within IoT SiteWise.</p>
-   * @public
-   */
-  conversationId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAccessPoliciesRequest {
-  /**
-   * <p>The type of identity (IAM Identity Center user, IAM Identity Center group, or IAM user). This parameter is required
-   *       if you specify <code>identityId</code>.</p>
-   * @public
-   */
-  identityType?: IdentityType | undefined;
-
-  /**
-   * <p>The ID of the identity. This parameter is required if you specify <code>USER</code> or
-   *         <code>GROUP</code> for <code>identityType</code>.</p>
-   * @public
-   */
-  identityId?: string | undefined;
-
-  /**
-   * <p>The type of resource (portal or project). This parameter is required if you specify
-   *         <code>resourceId</code>.</p>
-   * @public
-   */
-  resourceType?: ResourceType | undefined;
-
-  /**
-   * <p>The ID of the resource. This parameter is required if you specify
-   *         <code>resourceType</code>.</p>
-   * @public
-   */
-  resourceId?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM user. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html">IAM ARNs</a> in the
-   *         <i>IAM User Guide</i>. This parameter is required if you specify
-   *         <code>IAM</code> for <code>identityType</code>.</p>
-   * @public
-   */
-  iamArn?: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAccessPoliciesResponse {
-  /**
-   * <p>A list that summarizes each access policy.</p>
-   * @public
-   */
-  accessPolicySummaries: AccessPolicySummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionsRequest {
-  /**
-   * <p>The type of resource.</p>
-   * @public
-   */
-  targetResourceType: TargetResourceType | undefined;
-
-  /**
-   * <p>The ID of the target resource.</p>
-   * @public
-   */
-  targetResourceId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The type of the resolved resource.</p>
-   * @public
-   */
-  resolveToResourceType?: ResolveToResourceType | undefined;
-
-  /**
-   * <p>The ID of the resolved resource.</p>
-   * @public
-   */
-  resolveToResourceId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListActionsResponse {
-  /**
-   * <p>A list that summarizes the actions associated with the specified asset.</p>
-   * @public
-   */
-  actionSummaries: ActionSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelCompositeModelsRequest {
-  /**
-   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The version alias that specifies the latest or active version of the asset model.
-   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
-   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelCompositeModelsResponse {
-  /**
-   * <p>A list that summarizes each composite model.</p>
-   * @public
-   */
-  assetModelCompositeModelSummaries: AssetModelCompositeModelSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelPropertiesRequest {
-  /**
-   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p> Filters the requested list of asset model properties. You can choose one of the following
-   *       options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code> – The list includes all asset model properties for a given asset
-   *           model ID. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BASE</code> – The list includes only base asset model properties for a given
-   *           asset model ID. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>BASE</code>
-   *          </p>
-   * @public
-   */
-  filter?: ListAssetModelPropertiesFilter | undefined;
-
-  /**
-   * <p>The version alias that specifies the latest or active version of the asset model.
-   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
-   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelPropertiesResponse {
-  /**
-   * <p>A list that summarizes the properties associated with the specified asset model.</p>
-   * @public
-   */
-  assetModelPropertySummaries: AssetModelPropertySummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelsRequest {
-  /**
-   * <p>The type of asset model. If you don't provide an <code>assetModelTypes</code>, all types
-   *       of asset models are returned.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>ASSET_MODEL</b> – An asset model that you can use
-   *           to create assets. Can't be included as a component in another asset model.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>COMPONENT_MODEL</b> – A reusable component that
-   *           you can include in the composite models of other asset models. You can't create
-   *           assets directly from this type of asset model. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>INTERFACE</b> – An interface is a type of model
-   *           that defines a standard structure that can be applied to different asset models.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  assetModelTypes?: AssetModelType[] | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The version alias that specifies the latest or active version of the asset model.
-   *           The details are returned in the response. The default value is <code>LATEST</code>. See <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/model-active-version.html">
-   *           Asset model versions</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelVersion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetModelsResponse {
-  /**
-   * <p>A list that summarizes each asset model.</p>
-   * @public
-   */
-  assetModelSummaries: AssetModelSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetPropertiesRequest {
-  /**
-   * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request. If not specified, the default value is 50.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p> Filters the requested list of asset properties. You can choose one of the following
-   *       options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code> – The list includes all asset properties for a given asset model ID.
-   *         </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>BASE</code> – The list includes only base asset properties for a given asset
-   *           model ID. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>BASE</code>
-   *          </p>
-   * @public
-   */
-  filter?: ListAssetPropertiesFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetPropertiesResponse {
-  /**
-   * <p>A list that summarizes the properties associated with the specified asset.</p>
-   * @public
-   */
-  assetPropertySummaries: AssetPropertySummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetRelationshipsRequest {
-  /**
-   * <p>The ID of the asset. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>The type of traversal to use to identify asset relationships. Choose the following
-   *       option:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PATH_TO_ROOT</code> – Identify the asset's parent assets up to the root
-   *           asset. The asset that you specify in <code>assetId</code> is the first result in the list
-   *           of <code>assetRelationshipSummaries</code>, and the root asset is the last result.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  traversalType: TraversalType | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetRelationshipsResponse {
-  /**
-   * <p>A list that summarizes each asset relationship.</p>
-   * @public
-   */
-  assetRelationshipSummaries: AssetRelationshipSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetsRequest {
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The ID of the asset model by which to filter the list of assets. This parameter is
-   *       required if you choose <code>ALL</code> for <code>filter</code>. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelId?: string | undefined;
-
-  /**
-   * <p>The filter for the requested list of assets. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ALL</code> – The list includes all assets for a given asset model ID. The
-   *             <code>assetModelId</code> parameter is required if you filter by
-   *           <code>ALL</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TOP_LEVEL</code> – The list includes only top-level assets in the asset
-   *           hierarchy tree.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>ALL</code>
-   *          </p>
-   * @public
-   */
-  filter?: ListAssetsFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssetsResponse {
-  /**
-   * <p>A list that summarizes each asset.</p>
-   * @public
-   */
-  assetSummaries: AssetSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedAssetsRequest {
-  /**
-   * <p>The ID of the asset to query. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetId: string | undefined;
-
-  /**
-   * <p>(Optional) If you don't provide a <code>hierarchyId</code>, all the immediate assets in
-   *       the <code>traversalDirection</code> will be returned. </p>
-   *          <p> The ID of the hierarchy by which child assets are associated to the asset.
-   *       (This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.)</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/asset-hierarchies.html">Asset hierarchies</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  hierarchyId?: string | undefined;
-
-  /**
-   * <p>The direction to list associated assets. Choose one of the following options:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CHILD</code> – The list includes all child assets associated to the
-   *           asset.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PARENT</code> – The list includes the asset's parent asset.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>CHILD</code>
-   *          </p>
-   * @public
-   */
-  traversalDirection?: TraversalDirection | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListAssociatedAssetsResponse {
-  /**
-   * <p>A list that summarizes the associated assets.</p>
-   * @public
-   */
-  assetSummaries: AssociatedAssetsSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBulkImportJobsRequest {
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>You can use a filter to select the bulk import jobs that you want to retrieve.</p>
-   * @public
-   */
-  filter?: ListBulkImportJobsFilter | undefined;
-}
-
-/**
- * <p>Contains the job summary information.</p>
- * @public
- */
-export interface JobSummary {
-  /**
-   * <p>The ID of the job.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The unique name that helps identify the job request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The status of the bulk import job can be one of following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> – IoT SiteWise is waiting for the current bulk import job to finish.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CANCELLED</code> – The bulk import job has been canceled.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RUNNING</code> – IoT SiteWise is processing your request to import your data from Amazon S3.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED</code> – IoT SiteWise successfully completed your request to import data from Amazon S3.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code> – IoT SiteWise couldn't process your request to import data from Amazon S3.
-   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETED_WITH_FAILURES</code> – IoT SiteWise completed your request to import data from Amazon S3 with errors.
-   *         You can use logs saved in the specified error report location in Amazon S3 to troubleshoot issues.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  status: JobStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListBulkImportJobsResponse {
-  /**
-   * <p>One or more job summaries to list.</p>
-   * @public
-   */
-  jobSummaries: JobSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCompositionRelationshipsRequest {
-  /**
-   * <p>The ID of the asset model. This can be either the actual ID in UUID format, or else <code>externalId:</code> followed by the external ID, if it has one.
-   *     For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/object-ids.html#external-id-references">Referencing objects with external IDs</a> in the <i>IoT SiteWise User Guide</i>.</p>
-   * @public
-   */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains a summary of the components of the composite model.</p>
- * @public
- */
-export interface CompositionRelationshipSummary {
-  /**
-   * <p>The ID of the asset model, in UUID format.</p>
-   * @public
-   */
-  assetModelId: string | undefined;
-
-  /**
-   * <p>The ID of a composite model on this asset model.</p>
-   * @public
-   */
-  assetModelCompositeModelId: string | undefined;
-
-  /**
-   * <p>The composite model type. Valid values are <code>AWS/ALARM</code>, <code>CUSTOM</code>, or
-   *         <code> AWS/L4E_ANOMALY</code>.</p>
-   * @public
-   */
-  assetModelCompositeModelType: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCompositionRelationshipsResponse {
-  /**
-   * <p>A list that summarizes each composition relationship.</p>
-   * @public
-   */
-  compositionRelationshipSummaries: CompositionRelationshipSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>A filter used to match specific data binding values based on criteria. This filter allows
- *       searching for data bindings by asset, asset model, asset property, or asset model
- *       property.</p>
- * @public
- */
-export interface DataBindingValueFilter {
-  /**
-   * <p>Filter criteria for matching data bindings based on a specific asset. Used to list all
-   *       data bindings referencing a particular asset or its properties.</p>
-   * @public
-   */
-  asset?: AssetBindingValueFilter | undefined;
-
-  /**
-   * <p>Filter criteria for matching data bindings based on a specific asset model. Used to list
-   *       all data bindings referencing a particular asset model or its properties.</p>
-   * @public
-   */
-  assetModel?: AssetModelBindingValueFilter | undefined;
-
-  /**
-   * <p>Filter criteria for matching data bindings based on a specific asset property. Used to
-   *       list all data bindings referencing a particular property of an asset.</p>
-   * @public
-   */
-  assetProperty?: AssetPropertyBindingValueFilter | undefined;
-
-  /**
-   * <p>Filter criteria for matching data bindings based on a specific asset model property. Used
-   *       to list all data bindings referencing a particular property of an asset model.</p>
-   * @public
-   */
-  assetModelProperty?: AssetModelPropertyBindingValueFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelDataBindingUsagesRequest {
-  /**
-   * <p>A filter used to limit the returned data binding usages based on specific data binding
-   *       values. You can filter by asset, asset model, asset property, or asset model property to find
-   *       all computation models using these specific data sources.</p>
-   * @public
-   */
-  dataBindingValueFilter: DataBindingValueFilter | undefined;
-
-  /**
-   * <p>The token used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results returned for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a value used in a data binding. It can be an asset property or an asset model
- *       property.</p>
- * @public
- */
-export interface DataBindingValue {
-  /**
-   * <p>Contains information about an <code>assetModelProperty</code> binding value.</p>
-   * @public
-   */
-  assetModelProperty?: AssetModelPropertyBindingValue | undefined;
-
-  /**
-   * <p>The asset property value used in the data binding.</p>
-   * @public
-   */
-  assetProperty?: AssetPropertyBindingValue | undefined;
-}
-
-/**
- * <p>Represents a data binding that matches the specified filter criteria.</p>
- * @public
- */
-export interface MatchedDataBinding {
-  /**
-   * <p>The value of the matched data binding.</p>
-   * @public
-   */
-  value: DataBindingValue | undefined;
-}
-
-/**
- * <p>A summary of how a specific data binding is used across computation models. This tracks
- *       dependencies between data sources and computation models, allowing you to understand the
- *       impact of changes to data sources.</p>
- * @public
- */
-export interface ComputationModelDataBindingUsageSummary {
-  /**
-   * <p>The list of computation model IDs that use this data binding. This allows identification
-   *       of all computation models affected by changes to the referenced data source.</p>
-   * @public
-   */
-  computationModelIds: string[] | undefined;
-
-  /**
-   * <p>The data binding matched by the filter criteria. Contains details about specific data
-   *       binding values used by the computation models.</p>
-   * @public
-   */
-  matchedDataBinding: MatchedDataBinding | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelDataBindingUsagesResponse {
-  /**
-   * <p>A list of summaries describing the data binding usages across computation models. Each
-   *       summary includes the computation model IDs and the matched data binding details.</p>
-   * @public
-   */
-  dataBindingUsageSummaries: ComputationModelDataBindingUsageSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of paginated results, or null if there are no additional
-   *       results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelResolveToResourcesRequest {
-  /**
-   * <p>The ID of the computation model for which to list resolved resources.</p>
-   * @public
-   */
-  computationModelId: string | undefined;
-
-  /**
-   * <p>The token used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results returned for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>A summary of the resource that a computation model resolves to.</p>
- * @public
- */
-export interface ComputationModelResolveToResourceSummary {
-  /**
-   * <p>The detailed resource this execution summary resolves to.</p>
-   * @public
-   */
-  resolveTo?: ResolveTo | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelResolveToResourcesResponse {
-  /**
-   * <p>A list of summaries describing the distinct resources that this computation model resolves
-   *       to when actions were executed.</p>
-   * @public
-   */
-  computationModelResolveToResourceSummaries: ComputationModelResolveToResourceSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of paginated results, or null if there are no additional
-   *       results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelsRequest {
-  /**
-   * <p>The type of computation model. If a <code>computationModelType</code> is not provided, all
-   *       types of computation models are returned.</p>
-   * @public
-   */
-  computationModelType?: ComputationModelType | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains a summary of a computation model.</p>
- * @public
- */
-export interface ComputationModelSummary {
-  /**
-   * <p>The ID of the computation model.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the computation model, which has the following format.</p>
-   *          <p>
-   *             <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:computation-model/$\{ComputationModelId\}</code>
-   *          </p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The name of the computation model.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the computation model.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The type of the computation model.</p>
-   * @public
-   */
-  type: ComputationModelType | undefined;
-
-  /**
-   * <p>The model creation date, in Unix epoch time.</p>
-   * @public
-   */
-  creationDate: Date | undefined;
-
-  /**
-   * <p>The time the model was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  lastUpdateDate: Date | undefined;
-
-  /**
-   * <p>The current status of the computation model.</p>
-   * @public
-   */
-  status: ComputationModelStatus | undefined;
-
-  /**
-   * <p>The version of the computation model.</p>
-   * @public
-   */
-  version: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListComputationModelsResponse {
-  /**
-   * <p>A list summarizing each computation model.</p>
-   * @public
-   */
-  computationModelSummaries: ComputationModelSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsRequest {
-  /**
-   * <p>The ID of the project.</p>
-   * @public
-   */
-  projectId: string | undefined;
-
-  /**
-   * <p>The token to be used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Contains a dashboard summary.</p>
- * @public
- */
-export interface DashboardSummary {
-  /**
-   * <p>The ID of the dashboard.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The name of the dashboard</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The dashboard's description.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The date the dashboard was created, in Unix epoch time.</p>
-   * @public
-   */
-  creationDate?: Date | undefined;
-
-  /**
-   * <p>The date the dashboard was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  lastUpdateDate?: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDashboardsResponse {
-  /**
-   * <p>A list that summarizes each dashboard in the project.</p>
-   * @public
-   */
-  dashboardSummaries: DashboardSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDatasetsRequest {
-  /**
-   * <p>The type of data source for the dataset.</p>
-   * @public
-   */
-  sourceType: DatasetSourceType | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>The summary details for the dataset.</p>
- * @public
- */
-export interface DatasetSummary {
-  /**
-   * <p>The ID of the dataset.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARN</a> of the dataset.
-   *   The format is <code>arn:$\{Partition\}:iotsitewise:$\{Region\}:$\{Account\}:dataset/$\{DatasetId\}</code>.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The name of the dataset.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description about the dataset, and its functionality.</p>
-   * @public
-   */
-  description: string | undefined;
-
-  /**
-   * <p>The dataset creation date, in Unix epoch time.</p>
-   * @public
-   */
-  creationDate: Date | undefined;
-
-  /**
-   * <p>The date the dataset was last updated, in Unix epoch time.</p>
-   * @public
-   */
-  lastUpdateDate: Date | undefined;
-
-  /**
-   * <p>The status of the dataset. This contains the state and any error messages. The state is
-   *   <code>ACTIVE</code> when ready to use.</p>
-   * @public
-   */
-  status: DatasetStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDatasetsResponse {
-  /**
-   * <p>A list that summarizes the dataset response.</p>
-   * @public
-   */
-  datasetSummaries: DatasetSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListExecutionsRequest {
-  /**
-   * <p>The type of the target resource.</p>
-   * @public
-   */
-  targetResourceType: TargetResourceType | undefined;
-
-  /**
-   * <p>The ID of the target resource.</p>
-   * @public
-   */
-  targetResourceId: string | undefined;
-
-  /**
-   * <p>The type of the resolved resource.</p>
-   * @public
-   */
-  resolveToResourceType?: ResolveToResourceType | undefined;
-
-  /**
-   * <p>The ID of the resolved resource.</p>
-   * @public
-   */
-  resolveToResourceId?: string | undefined;
-
-  /**
-   * <p>The token used for the next set of paginated results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results returned for each paginated request.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The type of action exectued.</p>
-   * @public
-   */
-  actionType?: string | undefined;
-}
-
-/**
- * <p>Contains the execution summary of the computation model.</p>
- * @public
- */
-export interface ExecutionSummary {
-  /**
-   * <p>The ID of the execution.</p>
-   * @public
-   */
-  executionId: string | undefined;
-
-  /**
-   * <p>The type of action exectued.</p>
-   * @public
-   */
-  actionType?: string | undefined;
-
-  /**
-   * <p>The resource the action will be taken on. This can include asset-based resources and
-   *       computation model resources.</p>
-   * @public
-   */
-  targetResource: TargetResource | undefined;
-
-  /**
-   * <p>The version of the target resource.</p>
-   * @public
-   */
-  targetResourceVersion: string | undefined;
-
-  /**
-   * <p>The detailed resource this execution resolves to.</p>
-   * @public
-   */
-  resolveTo?: ResolveTo | undefined;
-
-  /**
-   * <p>The time the process started.</p>
-   * @public
-   */
-  executionStartTime: Date | undefined;
-
-  /**
-   * <p>The time the process ended.</p>
-   * @public
-   */
-  executionEndTime?: Date | undefined;
-
+export interface DescribeQueryRequest {
   /**
-   * <p>The status of the execution process.</p>
+   * <p>The name of the workspace associated with the query.</p>
    * @public
    */
-  executionStatus: ExecutionStatus | undefined;
+  workspaceName: string | undefined;
 
   /**
-   * <p>The execution entity version associated with the summary.</p>
+   * <p>The unique identifier for the query execution.</p>
    * @public
    */
-  executionEntityVersion?: string | undefined;
+  queryId: string | undefined;
 }
 
 /**
+ * <p>Contains statistics about a completed query execution.</p>
  * @public
  */
-export interface ListExecutionsResponse {
-  /**
-   * <p>Contains the list of execution summaries of the computation models.</p>
-   * @public
-   */
-  executionSummaries: ExecutionSummary[] | undefined;
-
+export interface QueryStatistics {
   /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * <p>The total number of rows returned by the query.</p>
    * @public
    */
-  nextToken?: string | undefined;
-}
+  rowCount: number | undefined;
 
-/**
- * @public
- */
-export interface ListGatewaysRequest {
   /**
-   * <p>The token to be used for the next set of paginated results.</p>
+   * <p>The total number of bytes scanned during query execution.</p>
    * @public
    */
-  nextToken?: string | undefined;
+  bytesScanned: number | undefined;
 
   /**
-   * <p>The maximum number of results to return for each paginated request.</p>
-   *          <p>Default: 50</p>
+   * <p>The total query execution time, in milliseconds.</p>
    * @public
    */
-  maxResults?: number | undefined;
+  executionTimeInMillis: number | undefined;
 }
 
 /**
- * <p>Contains a summary of a gateway.</p>
+ * <p>Contains the response for the DescribeQuery operation.</p>
  * @public
  */
-export interface GatewaySummary {
-  /**
-   * <p>The ID of the gateway device.</p>
-   * @public
-   */
-  gatewayId: string | undefined;
-
+export interface DescribeQueryResponse {
   /**
-   * <p>The name of the gateway.</p>
+   * <p>The unique identifier for the query execution.</p>
    * @public
    */
-  gatewayName: string | undefined;
+  queryId: string | undefined;
 
   /**
-   * <p>The gateway's platform configuration. You can only specify one platform type in a
-   *       gateway.</p>
-   *          <p>(Legacy only) For Greengrass V1 gateways, specify the <code>greengrass</code> parameter
-   *       with a valid Greengrass group ARN.</p>
-   *          <p>For Greengrass V2 gateways, specify the <code>greengrassV2</code> parameter with a valid
-   *       core device thing name. If creating a V3 gateway (<code>gatewayVersion=3</code>), you must
-   *       also specify the <code>coreDeviceOperatingSystem</code>.</p>
-   *          <p>For Siemens Industrial Edge gateways, specify the <code>siemensIE</code> parameter with a
-   *       valid IoT Core thing name.</p>
+   * <p>The current query status.</p>
    * @public
    */
-  gatewayPlatform?: GatewayPlatform | undefined;
+  status: QueryStatus | undefined;
 
   /**
-   * <p>The version of the gateway. A value of <code>3</code> indicates an MQTT-enabled, V3
-   *       gateway, while <code>2</code> indicates a Classic streams, V2 gateway.</p>
+   * <p>The date and time when the query was submitted, in Unix epoch time.</p>
    * @public
    */
-  gatewayVersion?: string | undefined;
+  submittedAt: Date | undefined;
 
   /**
-   * <p>A list of gateway capability summaries that each contain a namespace and status. Each
-   *       gateway capability defines data sources for the gateway. To retrieve a capability
-   *       configuration's definition, use <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeGatewayCapabilityConfiguration.html">DescribeGatewayCapabilityConfiguration</a>.</p>
+   * <p>The date and time when the query reached a terminal state, in Unix epoch time. This field is present when the query status is COMPLETED, FAILED, or CANCELED.</p>
    * @public
    */
-  gatewayCapabilitySummaries?: GatewayCapabilitySummary[] | undefined;
+  completedAt?: Date | undefined;
 
   /**
-   * <p>The date the gateway was created, in Unix epoch time.</p>
+   * <p>The query execution statistics. This field is present when the query status is COMPLETED.</p>
    * @public
    */
-  creationDate: Date | undefined;
+  statistics?: QueryStatistics | undefined;
 
   /**
-   * <p>The date the gateway was last updated, in Unix epoch time.</p>
+   * <p>A human-readable error description. This field is present when the query status is FAILED.</p>
    * @public
    */
-  lastUpdateDate: Date | undefined;
+  errorMessage?: string | undefined;
 }
 
 /**
+ * <p>Input for the DescribeSearch operation.</p>
  * @public
  */
-export interface ListGatewaysResponse {
+export interface DescribeSearchRequest {
   /**
-   * <p>A list that summarizes each gateway.</p>
+   * <p>The name of the workspace the search belongs to.</p>
    * @public
    */
-  gatewaySummaries: GatewaySummary[] | undefined;
+  workspaceName: string | undefined;
 
   /**
-   * <p>The token for the next set of results, or null if there are no additional results.</p>
+   * <p>The identifier of the search to describe.</p>
    * @public
    */
-  nextToken?: string | undefined;
+  searchId: string | undefined;
 }

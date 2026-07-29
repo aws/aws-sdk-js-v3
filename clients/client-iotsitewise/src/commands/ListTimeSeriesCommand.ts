@@ -38,6 +38,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  *   assetId: "STRING_VALUE",
  *   aliasPrefix: "STRING_VALUE",
  *   timeSeriesType: "ASSOCIATED" || "DISASSOCIATED",
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new ListTimeSeriesCommand(input);
  * const response = await client.send(command);
@@ -48,7 +49,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * //       propertyId: "STRING_VALUE",
  * //       alias: "STRING_VALUE",
  * //       timeSeriesId: "STRING_VALUE", // required
- * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //       dataTypeSpec: "STRING_VALUE",
  * //       timeSeriesCreationDate: new Date("TIMESTAMP"), // required
  * //       timeSeriesLastUpdateDate: new Date("TIMESTAMP"), // required
@@ -56,6 +57,7 @@ export interface ListTimeSeriesCommandOutput extends ListTimeSeriesResponse, __M
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
+ * //   workspaceName: "STRING_VALUE",
  * // };
  *
  * ```

@@ -44,6 +44,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetResponse, __Metadat
  * const command = new DeleteAssetCommand(input);
  * const response = await client.send(command);
  * // { // DeleteAssetResponse
+ * //   assetId: "STRING_VALUE",
  * //   assetStatus: { // AssetStatus
  * //     state: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "FAILED", // required
  * //     error: { // ErrorDetails

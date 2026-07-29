@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_0";
+import type { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_1";
 import { ListBulkImportJobs$ } from "../schemas/schemas_0";
 
 /**
@@ -37,6 +37,7 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   filter: "ALL" || "PENDING" || "RUNNING" || "CANCELLED" || "FAILED" || "COMPLETED_WITH_FAILURES" || "COMPLETED",
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new ListBulkImportJobsCommand(input);
  * const response = await client.send(command);

@@ -23,7 +23,13 @@ export interface UpdateDashboardCommandInput extends UpdateDashboardRequest {}
 export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an IoT SiteWise Monitor dashboard.</p>
+ * <important>
+ *             <p>The IoT SiteWise Monitor feature will no longer be open to new
+ *   customers starting November 7, 2025. If you would like to use the IoT SiteWise Monitor feature, sign up prior to that date. Existing customers can
+ *   continue to use the service as normal. For more information, see
+ * <a href="https://docs.aws.amazon.com/iot-sitewise/latest/appguide/iotsitewise-monitor-availability-change.html">IoT SiteWise Monitor availability change</a>.</p>
+ *          </important>
+ *          <p>Updates an IoT SiteWise Monitor dashboard.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

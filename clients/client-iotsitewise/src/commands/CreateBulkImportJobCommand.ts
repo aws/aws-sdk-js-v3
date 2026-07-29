@@ -26,8 +26,12 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * <p>Defines a job to ingest data to IoT SiteWise from Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/CreateBulkImportJob.html">Create a
  *         bulk import job (CLI)</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
  *          <important>
- *             <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
- *         For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
+ *             <p>Before you create a bulk import job that ingests data into time series outside of a
+ *         workspace, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier. For more information about how
+ *         to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>. This requirement doesn't apply to bulk import jobs that
+ *         ingest data into a session dataset in a workspace (jobs that specify a
+ *         <code>workspaceName</code> and <code>datasetId</code>). Those jobs don't use IoT SiteWise warm or
+ *         cold tier storage.</p>
  *             <p>Bulk import is designed to store historical data to IoT SiteWise.</p>
  *             <ul>
  *                <li>
@@ -58,6 +62,21 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *       bucket: "STRING_VALUE", // required
  *       key: "STRING_VALUE", // required
  *       versionId: "STRING_VALUE",
+ *       alias: "STRING_VALUE",
+ *       startTime: { // TimeInNanos
+ *         timeInSeconds: Number("long"), // required
+ *         offsetInNanos: Number("int"),
+ *       },
+ *       fileFormat: { // FileFormat
+ *         csv: { // Csv
+ *           columnNames: [ // ColumnNames // required
+ *             "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
+ *           ],
+ *         },
+ *         parquet: {},
+ *         mp4: {},
+ *         annotation: {},
+ *       },
  *     },
  *   ],
  *   errorReportLocation: { // ErrorReportLocation
@@ -65,17 +84,21 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *     prefix: "STRING_VALUE", // required
  *   },
  *   jobConfiguration: { // JobConfiguration
- *     fileFormat: { // FileFormat
- *       csv: { // Csv
- *         columnNames: [ // ColumnNames // required
+ *     fileFormat: {
+ *       csv: {
+ *         columnNames: [ // required
  *           "ALIAS" || "ASSET_ID" || "PROPERTY_ID" || "DATA_TYPE" || "TIMESTAMP_SECONDS" || "TIMESTAMP_NANO_OFFSET" || "QUALITY" || "VALUE",
  *         ],
  *       },
  *       parquet: {},
+ *       mp4: {},
+ *       annotation: {},
  *     },
  *   },
  *   adaptiveIngestion: true || false,
  *   deleteFilesAfterImport: true || false,
+ *   datasetId: "STRING_VALUE",
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new CreateBulkImportJobCommand(input);
  * const response = await client.send(command);

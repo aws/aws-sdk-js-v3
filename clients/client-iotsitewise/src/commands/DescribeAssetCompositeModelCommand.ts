@@ -64,7 +64,7 @@ export interface DescribeAssetCompositeModelCommandOutput extends DescribeAssetC
  * //         topic: "STRING_VALUE", // required
  * //         state: "ENABLED" || "DISABLED", // required
  * //       },
- * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
+ * //       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT" || "VIDEO" || "ANNOTATION" || "JSON", // required
  * //       dataTypeSpec: "STRING_VALUE",
  * //       unit: "STRING_VALUE",
  * //       path: [ // AssetPropertyPath

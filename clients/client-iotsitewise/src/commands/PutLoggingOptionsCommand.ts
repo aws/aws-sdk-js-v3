@@ -36,6 +36,7 @@ export interface PutLoggingOptionsCommandOutput extends PutLoggingOptionsRespons
  *   loggingOptions: { // LoggingOptions
  *     level: "ERROR" || "INFO" || "OFF", // required
  *   },
+ *   workspaceName: "STRING_VALUE",
  * };
  * const command = new PutLoggingOptionsCommand(input);
  * const response = await client.send(command);
