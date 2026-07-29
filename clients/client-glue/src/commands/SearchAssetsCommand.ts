@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchAssetsOutput } from "../models/models_2";
-import type { SearchAssetsInput } from "../models/models_3";
+import type { SearchAssetsInput, SearchAssetsOutput } from "../models/models_3";
 import { SearchAssets$ } from "../schemas/schemas_0";
 
 /**

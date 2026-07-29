@@ -1664,6 +1664,19 @@ export type FieldDataType = (typeof FieldDataType)[keyof typeof FieldDataType];
  * @public
  * @enum
  */
+export const FilterMode = {
+  FILTER_STRING: "FILTER_STRING",
+  QUERY_PARAMS: "QUERY_PARAMS",
+} as const;
+/**
+ * @public
+ */
+export type FilterMode = (typeof FilterMode)[keyof typeof FilterMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const HTTPMethod = {
   GET: "GET",
   POST: "POST",

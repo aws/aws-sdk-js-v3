@@ -34,7 +34,6 @@ import type {
   SchemaStatus,
   SchemaVersionStatus,
   SearchFilterOperator,
-  SearchSortOrder,
   SortDirectionType,
   StatementState,
   StatisticEvaluationLevel,
@@ -80,10 +79,13 @@ import type {
 } from "./models_0";
 import type {
   Capabilities,
+  CodeGenEdge,
+  CodeGenNode,
   CodeGenNodeArg,
+  ConnectionPasswordEncryption,
   ConnectorProperty,
-  DataCatalogEncryptionSettings,
   DataQualityTargetTable,
+  EncryptionAtRest,
   EncryptionConfiguration,
   IcebergPartitionSpec,
   IcebergSchema,
@@ -103,6 +105,67 @@ import type {
   TransformEncryption,
   TransformParameters,
 } from "./models_1";
+
+/**
+ * <p>Contains configuration information for maintaining Data Catalog security.</p>
+ * @public
+ */
+export interface DataCatalogEncryptionSettings {
+  /**
+   * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
+   * @public
+   */
+  EncryptionAtRest?: EncryptionAtRest | undefined;
+
+  /**
+   * <p>When connection password protection is enabled, the Data Catalog uses a customer-provided
+   *       key to encrypt the password as part of <code>CreateConnection</code> or
+   *         <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in
+   *       the connection properties. You can enable catalog encryption or only password
+   *       encryption.</p>
+   * @public
+   */
+  ConnectionPasswordEncryption?: ConnectionPasswordEncryption | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataCatalogEncryptionSettingsResponse {
+  /**
+   * <p>The requested security configuration.</p>
+   * @public
+   */
+  DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataflowGraphRequest {
+  /**
+   * <p>The Python script to transform.</p>
+   * @public
+   */
+  PythonScript?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataflowGraphResponse {
+  /**
+   * <p>A list of the nodes in the resulting DAG.</p>
+   * @public
+   */
+  DagNodes?: CodeGenNode[] | undefined;
+
+  /**
+   * <p>A list of the edges in the resulting DAG.</p>
+   * @public
+   */
+  DagEdges?: CodeGenEdge[] | undefined;
+}
 
 /**
  * @public
@@ -8794,99 +8857,4 @@ export namespace SearchMapFilterValue {
     StringValue: (value: string) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * <p>A filter on a map attribute's key-value pair.</p>
- * @public
- */
-export interface SearchMapFilter {
-  /**
-   * <p>The map attribute name to filter on.</p>
-   * @public
-   */
-  Attribute: string | undefined;
-
-  /**
-   * <p>The key within the map attribute to filter on.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value to compare against.</p>
-   * @public
-   */
-  Value: SearchMapFilterValue | undefined;
-}
-
-/**
- * <p>The sort criteria for search results.</p>
- * @public
- */
-export interface SearchSort {
-  /**
-   * <p>The attribute to sort by.</p>
-   * @public
-   */
-  Attribute: string | undefined;
-
-  /**
-   * <p>The sort order. Valid values are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
-   * @public
-   */
-  Order?: SearchSortOrder | undefined;
-}
-
-/**
- * <p>A single search result item representing a matched asset.</p>
- * @public
- */
-export interface SearchResultItem {
-  /**
-   * <p>The unique identifier of the matched asset.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The name of the matched asset.</p>
-   * @public
-   */
-  AssetName?: string | undefined;
-
-  /**
-   * <p>The description of the matched asset.</p>
-   * @public
-   */
-  AssetDescription?: string | undefined;
-
-  /**
-   * <p>The timestamp at which the matched asset was last updated.</p>
-   * @public
-   */
-  UpdatedAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the asset type for the matched asset.</p>
-   * @public
-   */
-  AssetTypeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAssetsOutput {
-  /**
-   * <p>The list of assets matching the search criteria.</p>
-   * @public
-   */
-  Items?: SearchResultItem[] | undefined;
-
-  /**
-   * <p>A continuation token, present if the current segment is not the last.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

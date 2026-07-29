@@ -24,6 +24,7 @@ import type {
   ExecutionStatus,
   FieldDataType,
   FieldFilterOperator,
+  FilterMode,
   FunctionType,
   GlueResourceType,
   HTTPMethod,
@@ -4995,6 +4996,60 @@ export interface ComputeEnvironmentConfiguration {
 }
 
 /**
+ * <p>Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.</p>
+ * @public
+ */
+export interface BetweenConfiguration {
+  /**
+   * <p>The parameter name used for the lower bound value in a BETWEEN filter operation.</p>
+   * @public
+   */
+  LowBoundKey?: string | undefined;
+
+  /**
+   * <p>The parameter name used for the upper bound value in a BETWEEN filter operation.</p>
+   * @public
+   */
+  HighBoundKey?: string | undefined;
+
+  /**
+   * <p>A template string for constructing the BETWEEN filter expression.</p>
+   * @public
+   */
+  Template?: string | undefined;
+}
+
+/**
+ * <p>Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.</p>
+ * @public
+ */
+export interface FilterOverrides {
+  /**
+   * <p>An override for the field name to use in filter expressions, if different from the schema field name.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A map of logical filter operators to their field-specific API representations, overriding the global operator mappings. Supported operator keys are: <code>EQUAL_TO</code>, <code>NOT_EQUAL_TO</code>, <code>LESS_THAN</code>, <code>GREATER_THAN</code>, <code>LESS_THAN_OR_EQUAL_TO</code>, <code>GREATER_THAN_OR_EQUAL_TO</code>, <code>CONTAINS</code>, <code>BETWEEN</code>, <code>AND</code>, and <code>OR</code>.</p>
+   * @public
+   */
+  OperatorMappings?: Record<string, string> | undefined;
+
+  /**
+   * <p>Field-specific configuration for handling BETWEEN range filter operations.</p>
+   * @public
+   */
+  BetweenConfiguration?: BetweenConfiguration | undefined;
+
+  /**
+   * <p>The date and time format for filter expressions on this field, overriding the global <code>DateTimeFormat</code>. Accepts Java <code>DateTimeFormatter</code> patterns (for example, <code>EEE, d MMM yyyy HH:mm:ss Z</code>), <code>EPOCH_SECONDS</code> for Unix epoch seconds, or <code>EPOCH_MILLIS</code> for Unix epoch milliseconds.</p>
+   * @public
+   */
+  DateTimeFormat?: string | undefined;
+}
+
+/**
  * <p>Defines a field in an entity schema for REST connector data sources, specifying the field name and data type.</p>
  * @public
  */
@@ -5010,6 +5065,108 @@ export interface FieldDefinition {
    * @public
    */
   FieldDataType: FieldDataType | undefined;
+
+  /**
+   * <p>The format pattern for parsing date values from API responses. Required when the API uses a non-ISO-8601 format. Accepts Java <code>DateTimeFormatter</code> patterns (for example, <code>EEE, d MMM yyyy HH:mm:ss Z</code>), <code>EPOCH_SECONDS</code> for Unix epoch seconds, or <code>EPOCH_MILLIS</code> for Unix epoch milliseconds.</p>
+   * @public
+   */
+  ResponseDateFormat?: string | undefined;
+
+  /**
+   * <p>Indicates whether this field can be used for partitioning queries to the data source.</p>
+   * @public
+   */
+  IsPartitionable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can contain null values.</p>
+   * @public
+   */
+  IsNullable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be used in filter predicates when querying data.</p>
+   * @public
+   */
+  IsQueryable?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether this field can be used for ordering results.</p>
+   * @public
+   */
+  IsOrderable?: boolean | undefined;
+
+  /**
+   * <p>Per-field overrides for filter behavior, allowing customization of how filters are applied to this specific field.</p>
+   * @public
+   */
+  FilterOverrides?: FilterOverrides | undefined;
+}
+
+/**
+ * <p>Configuration for constructing filter expression strings when using the <code>FILTER_STRING</code> filter mode.</p>
+ * @public
+ */
+export interface FilterStringConfiguration {
+  /**
+   * <p>The query parameter name used to send the constructed filter expression string in API requests.</p>
+   * @public
+   */
+  QueryParameterName: string | undefined;
+
+  /**
+   * <p>Indicates whether string and date values should be wrapped with a quote character in the filter expression.</p>
+   * @public
+   */
+  QuoteStringValues?: boolean | undefined;
+
+  /**
+   * <p>The character used to quote values when <code>QuoteStringValues</code> is true. Defaults to double quotes if not specified.</p>
+   * @public
+   */
+  QuoteCharacter?: string | undefined;
+}
+
+/**
+ * <p>Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.</p>
+ * @public
+ */
+export interface FilterConfiguration {
+  /**
+   * <p>The strategy for applying filters to requests. Use <code>QUERY_PARAMS</code> to pass filters as individual query parameters, or <code>FILTER_STRING</code> to construct a single filter expression string.</p>
+   * @public
+   */
+  FilterMode: FilterMode | undefined;
+
+  /**
+   * <p>A map of logical filter operators to their API-specific string representations. Supported operator keys are: <code>EQUAL_TO</code>, <code>NOT_EQUAL_TO</code>, <code>LESS_THAN</code>, <code>GREATER_THAN</code>, <code>LESS_THAN_OR_EQUAL_TO</code>, <code>GREATER_THAN_OR_EQUAL_TO</code>, <code>CONTAINS</code>, <code>BETWEEN</code>, <code>AND</code>, and <code>OR</code>.</p>
+   * @public
+   */
+  OperatorMappings?: Record<string, string> | undefined;
+
+  /**
+   * <p>The global date and time format for filter expressions. Accepts Java <code>DateTimeFormatter</code> patterns (for example, <code>EEE, d MMM yyyy HH:mm:ss Z</code>), <code>EPOCH_SECONDS</code> for Unix epoch seconds, or <code>EPOCH_MILLIS</code> for Unix epoch milliseconds. If not specified, values are passed as-is in ISO-8601 format.</p>
+   * @public
+   */
+  DateTimeFormat?: string | undefined;
+
+  /**
+   * <p>Indicates whether surrounding double quotes should be stripped from filter values before processing.</p>
+   * @public
+   */
+  StripQuotes?: boolean | undefined;
+
+  /**
+   * <p>Configuration for handling BETWEEN range filter operations.</p>
+   * @public
+   */
+  BetweenConfiguration?: BetweenConfiguration | undefined;
+
+  /**
+   * <p>Configuration for constructing filter expressions when <code>FilterMode</code> is set to <code>FILTER_STRING</code>.</p>
+   * @public
+   */
+  FilterStringConfiguration?: FilterStringConfiguration | undefined;
 }
 
 /**
@@ -5160,6 +5317,12 @@ export interface ConnectorProperty {
    * @public
    */
   PropertyType: PropertyType | undefined;
+
+  /**
+   * <p>A format template for the property value that defines how the value should be formatted before sending it in API requests. Use <code>\{value\}</code> as a placeholder for the actual property value (for example, <code>SSWS \{value\}</code>).</p>
+   * @public
+   */
+  Format?: string | undefined;
 }
 
 /**
@@ -5214,6 +5377,12 @@ export interface SourceConfiguration {
    * @public
    */
   PaginationConfiguration?: PaginationConfiguration | undefined;
+
+  /**
+   * <p>Configuration for applying filter pushdown to REST API requests, defining how filter predicates are translated into query parameters or filter strings.</p>
+   * @public
+   */
+  FilterConfiguration?: FilterConfiguration | undefined;
 }
 
 /**
@@ -8403,65 +8572,4 @@ export interface EncryptionAtRest {
    * @public
    */
   CatalogEncryptionServiceRole?: string | undefined;
-}
-
-/**
- * <p>Contains configuration information for maintaining Data Catalog security.</p>
- * @public
- */
-export interface DataCatalogEncryptionSettings {
-  /**
-   * <p>Specifies the encryption-at-rest configuration for the Data Catalog.</p>
-   * @public
-   */
-  EncryptionAtRest?: EncryptionAtRest | undefined;
-
-  /**
-   * <p>When connection password protection is enabled, the Data Catalog uses a customer-provided
-   *       key to encrypt the password as part of <code>CreateConnection</code> or
-   *         <code>UpdateConnection</code> and store it in the <code>ENCRYPTED_PASSWORD</code> field in
-   *       the connection properties. You can enable catalog encryption or only password
-   *       encryption.</p>
-   * @public
-   */
-  ConnectionPasswordEncryption?: ConnectionPasswordEncryption | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataCatalogEncryptionSettingsResponse {
-  /**
-   * <p>The requested security configuration.</p>
-   * @public
-   */
-  DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataflowGraphRequest {
-  /**
-   * <p>The Python script to transform.</p>
-   * @public
-   */
-  PythonScript?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDataflowGraphResponse {
-  /**
-   * <p>A list of the nodes in the resulting DAG.</p>
-   * @public
-   */
-  DagNodes?: CodeGenNode[] | undefined;
-
-  /**
-   * <p>A list of the edges in the resulting DAG.</p>
-   * @public
-   */
-  DagEdges?: CodeGenEdge[] | undefined;
 }

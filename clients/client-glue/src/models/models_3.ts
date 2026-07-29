@@ -13,6 +13,7 @@ import type {
   ResourceAction,
   ResourceShareType,
   ResourceState,
+  SearchSortOrder,
   Sort,
   SourceControlAuthStrategy,
   SourceControlProvider,
@@ -149,11 +150,105 @@ import type {
   IcebergTableMetadata,
   SchemaVersionNumber,
   SearchAttributeFilter,
-  SearchMapFilter,
-  SearchSort,
+  SearchMapFilterValue,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * <p>A filter on a map attribute's key-value pair.</p>
+ * @public
+ */
+export interface SearchMapFilter {
+  /**
+   * <p>The map attribute name to filter on.</p>
+   * @public
+   */
+  Attribute: string | undefined;
+
+  /**
+   * <p>The key within the map attribute to filter on.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value to compare against.</p>
+   * @public
+   */
+  Value: SearchMapFilterValue | undefined;
+}
+
+/**
+ * <p>The sort criteria for search results.</p>
+ * @public
+ */
+export interface SearchSort {
+  /**
+   * <p>The attribute to sort by.</p>
+   * @public
+   */
+  Attribute: string | undefined;
+
+  /**
+   * <p>The sort order. Valid values are <code>ASCENDING</code> and <code>DESCENDING</code>.</p>
+   * @public
+   */
+  Order?: SearchSortOrder | undefined;
+}
+
+/**
+ * <p>A single search result item representing a matched asset.</p>
+ * @public
+ */
+export interface SearchResultItem {
+  /**
+   * <p>The unique identifier of the matched asset.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The name of the matched asset.</p>
+   * @public
+   */
+  AssetName?: string | undefined;
+
+  /**
+   * <p>The description of the matched asset.</p>
+   * @public
+   */
+  AssetDescription?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the matched asset was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The identifier of the asset type for the matched asset.</p>
+   * @public
+   */
+  AssetTypeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAssetsOutput {
+  /**
+   * <p>The list of assets matching the search criteria.</p>
+   * @public
+   */
+  Items?: SearchResultItem[] | undefined;
+
+  /**
+   * <p>A continuation token, present if the current segment is not the last.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>Defines a property predicate.</p>

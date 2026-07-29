@@ -205,6 +205,7 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //           ],
  * //           PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //           PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //           Format: "STRING_VALUE",
  * //         },
  * //       ],
  * //       ResponseConfiguration: { // ResponseConfiguration
@@ -253,6 +254,24 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //           },
  * //         },
  * //       },
+ * //       FilterConfiguration: { // FilterConfiguration
+ * //         FilterMode: "QUERY_PARAMS" || "FILTER_STRING", // required
+ * //         OperatorMappings: { // ConnectionStringToStringMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         DateTimeFormat: "STRING_VALUE",
+ * //         StripQuotes: true || false,
+ * //         BetweenConfiguration: { // BetweenConfiguration
+ * //           LowBoundKey: "STRING_VALUE",
+ * //           HighBoundKey: "STRING_VALUE",
+ * //           Template: "STRING_VALUE",
+ * //         },
+ * //         FilterStringConfiguration: { // FilterStringConfiguration
+ * //           QueryParameterName: "STRING_VALUE", // required
+ * //           QuoteStringValues: true || false,
+ * //           QuoteCharacter: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     ValidationEndpointConfiguration: {
  * //       RequestMethod: "GET" || "POST",
@@ -268,6 +287,7 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //           ],
  * //           PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //           PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //           Format: "STRING_VALUE",
  * //         },
  * //       ],
  * //       ResponseConfiguration: {
@@ -292,6 +312,24 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //           LimitParameter: "<ExtractedParameter>", // required
  * //         },
  * //       },
+ * //       FilterConfiguration: {
+ * //         FilterMode: "QUERY_PARAMS" || "FILTER_STRING", // required
+ * //         OperatorMappings: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         DateTimeFormat: "STRING_VALUE",
+ * //         StripQuotes: true || false,
+ * //         BetweenConfiguration: {
+ * //           LowBoundKey: "STRING_VALUE",
+ * //           HighBoundKey: "STRING_VALUE",
+ * //           Template: "STRING_VALUE",
+ * //         },
+ * //         FilterStringConfiguration: {
+ * //           QueryParameterName: "STRING_VALUE", // required
+ * //           QuoteStringValues: true || false,
+ * //           QuoteCharacter: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     EntityConfigurations: { // EntityConfigurationMap
  * //       "<keys>": { // EntityConfiguration
@@ -307,6 +345,7 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //               AllowedValues: "<ListOfString>",
  * //               PropertyLocation: "HEADER" || "BODY" || "QUERY_PARAM" || "PATH",
  * //               PropertyType: "USER_INPUT" || "SECRET" || "READ_ONLY" || "UNUSED" || "SECRET_OR_USER_INPUT", // required
+ * //               Format: "STRING_VALUE",
  * //             },
  * //           ],
  * //           ResponseConfiguration: {
@@ -323,11 +362,40 @@ export interface DescribeConnectionTypeCommandOutput extends DescribeConnectionT
  * //               LimitParameter: "<ExtractedParameter>", // required
  * //             },
  * //           },
+ * //           FilterConfiguration: {
+ * //             FilterMode: "QUERY_PARAMS" || "FILTER_STRING", // required
+ * //             OperatorMappings: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             DateTimeFormat: "STRING_VALUE",
+ * //             StripQuotes: true || false,
+ * //             BetweenConfiguration: {
+ * //               LowBoundKey: "STRING_VALUE",
+ * //               HighBoundKey: "STRING_VALUE",
+ * //               Template: "STRING_VALUE",
+ * //             },
+ * //             FilterStringConfiguration: {
+ * //               QueryParameterName: "STRING_VALUE", // required
+ * //               QuoteStringValues: true || false,
+ * //               QuoteCharacter: "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //         Schema: { // FieldDefinitionMap
  * //           "<keys>": { // FieldDefinition
  * //             Name: "STRING_VALUE", // required
  * //             FieldDataType: "INT" || "SMALLINT" || "BIGINT" || "FLOAT" || "LONG" || "DATE" || "BOOLEAN" || "MAP" || "ARRAY" || "STRING" || "TIMESTAMP" || "DECIMAL" || "BYTE" || "SHORT" || "DOUBLE" || "STRUCT" || "BINARY" || "UNION", // required
+ * //             ResponseDateFormat: "STRING_VALUE",
+ * //             IsPartitionable: true || false,
+ * //             IsNullable: true || false,
+ * //             IsQueryable: true || false,
+ * //             IsOrderable: true || false,
+ * //             FilterOverrides: { // FilterOverrides
+ * //               FieldName: "STRING_VALUE",
+ * //               OperatorMappings: "<ConnectionStringToStringMap>",
+ * //               BetweenConfiguration: "<BetweenConfiguration>",
+ * //               DateTimeFormat: "STRING_VALUE",
+ * //             },
  * //           },
  * //         },
  * //       },

@@ -123,6 +123,7 @@ import {
   BatchUpdatePartitionRequest$,
   BatchUpdatePartitionRequestEntry$,
   BatchUpdatePartitionResponse$,
+  BetweenConfiguration$,
   BinaryColumnStatisticsData$,
   Blueprint$,
   BlueprintDetails$,
@@ -670,10 +671,14 @@ import {
   FieldName,
   FillMissingValues$,
   Filter$,
+  FilterConfiguration$,
   FilterExpression$,
   FilterLogicalOperator,
+  FilterMode,
   FilterOperation,
   FilterOperator,
+  FilterOverrides$,
+  FilterStringConfiguration$,
   FilterValue$,
   FilterValueType,
   FindMatchesMetrics$,
@@ -2615,6 +2620,7 @@ assert(typeof BatchUpdatePartitionFailureEntry$ === "object");
 assert(typeof BatchUpdatePartitionRequest$ === "object");
 assert(typeof BatchUpdatePartitionRequestEntry$ === "object");
 assert(typeof BatchUpdatePartitionResponse$ === "object");
+assert(typeof BetweenConfiguration$ === "object");
 assert(typeof BinaryColumnStatisticsData$ === "object");
 assert(typeof Blueprint$ === "object");
 assert(typeof BlueprintDetails$ === "object");
@@ -2928,7 +2934,10 @@ assert(typeof Field$ === "object");
 assert(typeof FieldDefinition$ === "object");
 assert(typeof FillMissingValues$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FilterConfiguration$ === "object");
 assert(typeof FilterExpression$ === "object");
+assert(typeof FilterOverrides$ === "object");
+assert(typeof FilterStringConfiguration$ === "object");
 assert(typeof FilterValue$ === "object");
 assert(typeof FindMatchesMetrics$ === "object");
 assert(typeof FindMatchesParameters$ === "object");
@@ -3644,6 +3653,7 @@ assert(typeof FieldDataType === "object");
 assert(typeof FieldFilterOperator === "object");
 assert(typeof FieldName === "object");
 assert(typeof FilterLogicalOperator === "object");
+assert(typeof FilterMode === "object");
 assert(typeof FilterOperation === "object");
 assert(typeof FilterOperator === "object");
 assert(typeof FilterValueType === "object");

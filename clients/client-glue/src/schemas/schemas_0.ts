@@ -104,13 +104,14 @@ const _Attr = "Attribute";
 const _B = "Blueprints";
 const _BAC = "BasicAuthenticationCredentials";
 const _BAP = "BasicAuthenticationProperties";
-const _BC = "BucketColumns";
+const _BC = "BetweenConfiguration";
 const _BCP = "BatchCreatePartition";
 const _BCPR = "BatchCreatePartitionRequest";
 const _BCPRa = "BatchCreatePartitionResponse";
 const _BCSD = "BinaryColumnStatisticsData";
 const _BCSDo = "BooleanColumnStatisticsData";
 const _BCT = "BasicCatalogTarget";
+const _BCu = "BucketColumns";
 const _BD = "BlueprintDetails";
 const _BDC = "BatchDeleteConnection";
 const _BDCR = "BatchDeleteConnectionRequest";
@@ -757,6 +758,7 @@ const _DSel = "DeleteSchema";
 const _DSele = "DeleteSession";
 const _DT = "DynamicTransform";
 const _DTA = "DynamodbTableArn";
+const _DTF = "DateTimeFormat";
 const _DTL = "DeltaTargetList";
 const _DTM = "DataTypeMapping";
 const _DTO = "DeleteTableOptimizer";
@@ -877,7 +879,8 @@ const _F = "Failures";
 const _FA = "FailedActions";
 const _FC = "FederatedCatalog";
 const _FCARN = "FanoutConsumerARN";
-const _FCi = "FilterClause";
+const _FCi = "FilterConfiguration";
+const _FCil = "FilterClause";
 const _FD = "FederatedDatabase";
 const _FDM = "FieldDefinitionMap";
 const _FDT = "FieldDataType";
@@ -889,6 +892,7 @@ const _FI = "FunctionInput";
 const _FIA = "FailedInclusionAnnotations";
 const _FIi = "FieldId";
 const _FL = "FieldsList";
+const _FM = "FilterMode";
 const _FMM = "FindMatchesMetrics";
 const _FMP = "FindMatchesParameters";
 const _FMTRP = "FindMatchesTaskRunProperties";
@@ -896,6 +900,7 @@ const _FMV = "FillMissingValues";
 const _FN = "FieldName";
 const _FNu = "FunctionName";
 const _FO = "FilterOperator";
+const _FOi = "FilterOverrides";
 const _FP = "FilledPath";
 const _FPi = "FilterPredicate";
 const _FPr = "FromPath";
@@ -903,6 +908,7 @@ const _FR = "FailureReason";
 const _FRAEE = "FederatedResourceAlreadyExistsException";
 const _FRu = "FullRefresh";
 const _FS = "FunctionSpec";
+const _FSC = "FilterStringConfiguration";
 const _FSE = "FederationSourceException";
 const _FSEC = "FederationSourceErrorCode";
 const _FSRE = "FederationSourceRetryableException";
@@ -924,9 +930,9 @@ const _Fi = "Filter";
 const _Fie = "Fields";
 const _Fiel = "Field";
 const _Fil = "Filters";
-const _Fo = "Forms";
+const _Fo = "Format";
 const _Fol = "Folder";
-const _For = "Format";
+const _For = "Forms";
 const _Forc = "Force";
 const _Fr = "From";
 const _G = "Groups";
@@ -1222,6 +1228,7 @@ const _GWRet = "GetWorkflowRun";
 const _GWReto = "GetWorkflowRuns";
 const _Gr = "Graph";
 const _H = "Header";
+const _HBK = "HighBoundKey";
 const _HD = "HasDatabases";
 const _HK = "HeaderKey";
 const _HP = "HidePassword";
@@ -1292,11 +1299,12 @@ const _INS = "IsNullString";
 const _INn = "IndexName";
 const _INs = "IsNullable";
 const _INt = "ItemName";
-const _IO = "IsOptional";
+const _IO = "IsOrderable";
 const _IOFDC = "IcebergOrphanFileDeletionConfiguration";
 const _IOFDM = "IcebergOrphanFileDeletionMetrics";
 const _IOP = "IcebergOptimizationProperties";
 const _IOPO = "IcebergOptimizationPropertiesOutput";
+const _IOs = "IsOptional";
 const _IP = "IsPartitionable";
 const _IPE = "IsParentEntity";
 const _IPF = "IcebergPartitionField";
@@ -1310,6 +1318,7 @@ const _IPSc = "IcebergPartitionSpec";
 const _IPm = "ImputedPath";
 const _IPn = "IntegrationPartition";
 const _IPs = "IsProtected";
+const _IQ = "IsQueryable";
 const _IQEF = "IntegrationQuotaExceededFault";
 const _IR = "IamRole";
 const _IRC = "IcebergRetentionConfiguration";
@@ -1424,6 +1433,7 @@ const _LATRi = "ListAssetTypesResponse";
 const _LATa = "LastAnalyzedTime";
 const _LATi = "ListAssetTypes";
 const _LB = "LowerBound";
+const _LBK = "LowBoundKey";
 const _LBR = "ListBlueprintsRequest";
 const _LBRi = "ListBlueprintsResponse";
 const _LBi = "ListBlueprints";
@@ -1705,6 +1715,7 @@ const _OLr = "OrderList";
 const _OM = "ObservationMode";
 const _OMVL = "OtherMetadataValueList";
 const _OMVLI = "OtherMetadataValueListItem";
+const _OMp = "OperatorMappings";
 const _ON = "OwnerName";
 const _ONSE = "OperationNotSupportedException";
 const _OP = "OffsetParameter";
@@ -1848,11 +1859,14 @@ const _Prov = "Provider";
 const _Q = "Query";
 const _QAI = "QueryAuthorizationId";
 const _QAOT = "QueryAsOfTime";
-const _QC = "QuoteChar";
+const _QC = "QuoteCharacter";
+const _QCu = "QuoteChar";
 const _QI = "QueryId";
+const _QPN = "QueryParameterName";
 const _QS = "QuoteSymbol";
 const _QSC = "QuerySessionContext";
 const _QST = "QueryStartTime";
+const _QSV = "QuoteStringValues";
 const _QSVM = "QuerySchemaVersionMetadata";
 const _QSVMI = "QuerySchemaVersionMetadataInput";
 const _QSVMR = "QuerySchemaVersionMetadataResponse";
@@ -1881,6 +1895,7 @@ const _RCes = "ResponseConfiguration";
 const _RCet = "RetentionConfiguration";
 const _RCu = "RuleCount";
 const _RD = "ReferencedDatasets";
+const _RDF = "ResponseDateFormat";
 const _RDN = "RedshiftDatabaseName";
 const _REM = "RollbackErrorMessage";
 const _REMe = "ResponseExtractionMapping";
@@ -2196,6 +2211,7 @@ const _SPta = "StatisticProperties";
 const _SPu = "SubscribePattern";
 const _SQ = "SampleQuery";
 const _SQq = "SqlQuery";
+const _SQt = "StripQuotes";
 const _SR = "StatusReason";
 const _SRE = "SchedulerRunningException";
 const _SRI = "SearchResultItem";
@@ -2387,6 +2403,7 @@ const _Tag = "Tags";
 const _Tag_ = "Tag";
 const _Tar = "Target";
 const _Targ = "Targets";
+const _Te = "Template";
 const _To = "Topk";
 const _Tr = "Triggers";
 const _Tra = "Transforms";
@@ -3391,6 +3408,11 @@ export var BatchUpdatePartitionResponse$: StaticStructureSchema = [3, n0, _BUPRa
   [_E],
   [() => BatchUpdatePartitionFailureList]
 ];
+export var BetweenConfiguration$: StaticStructureSchema = [3, n0, _BC,
+  0,
+  [_LBK, _HBK, _Te],
+  [0, 0, 0]
+];
 export var BinaryColumnStatisticsData$: StaticStructureSchema = [3, n0, _BCSD,
   0,
   [_ML, _AL, _NON],
@@ -3723,8 +3745,8 @@ export var ConnectorOAuth2Properties$: StaticStructureSchema = [3, n0, _COAP,
 ];
 export var ConnectorProperty$: StaticStructureSchema = [3, n0, _CPon,
   0,
-  [_N, _Req, _PT, _KO, _DV, _AVl, _PL],
-  [0, 2, 0, 0, 0, 64 | 0, 0], 3
+  [_N, _Req, _PT, _KO, _DV, _AVl, _PL, _Fo],
+  [0, 2, 0, 0, 0, 64 | 0, 0, 0], 3
 ];
 export var Crawl$: StaticStructureSchema = [3, n0, _Cra,
   0,
@@ -4943,8 +4965,8 @@ export var Field$: StaticStructureSchema = [3, n0, _Fiel,
 ];
 export var FieldDefinition$: StaticStructureSchema = [3, n0, _FDi,
   0,
-  [_N, _FDT],
-  [0, 0], 2
+  [_N, _FDT, _RDF, _IP, _INs, _IQ, _IO, _FOi],
+  [0, 0, 0, 2, 2, 2, 2, () => FilterOverrides$], 2
 ];
 export var FillMissingValues$: StaticStructureSchema = [3, n0, _FMV,
   0,
@@ -4956,10 +4978,25 @@ export var Filter$: StaticStructureSchema = [3, n0, _Fi,
   [_N, _I, _LO, _Fil],
   [0, 64 | 0, 0, () => FilterExpressions], 4
 ];
+export var FilterConfiguration$: StaticStructureSchema = [3, n0, _FCi,
+  0,
+  [_FM, _OMp, _DTF, _SQt, _BC, _FSC],
+  [0, 128 | 0, 0, 2, () => BetweenConfiguration$, () => FilterStringConfiguration$], 1
+];
 export var FilterExpression$: StaticStructureSchema = [3, n0, _FE,
   0,
   [_Op, _Val, _Ne],
   [0, () => FilterValues, 2], 2
+];
+export var FilterOverrides$: StaticStructureSchema = [3, n0, _FOi,
+  0,
+  [_FN, _OMp, _BC, _DTF],
+  [0, 128 | 0, () => BetweenConfiguration$, 0]
+];
+export var FilterStringConfiguration$: StaticStructureSchema = [3, n0, _FSC,
+  0,
+  [_QPN, _QSV, _QC],
+  [0, 2, 0], 1
 ];
 export var FilterValue$: StaticStructureSchema = [3, n0, _FVi,
   0,
@@ -4993,7 +5030,7 @@ export var GetAssetInput$: StaticStructureSchema = [3, n0, _GAI,
 ];
 export var GetAssetOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
-  [_Id, _ATIs, _N, _D, _CAr, _UA, _GT, _Fo, _At, _IFt],
+  [_Id, _ATIs, _N, _D, _CAr, _UA, _GT, _For, _At, _IFt],
   [0, 0, 0, 0, 4, 4, 64 | 0, () => AssetFormMap, () => AssetFormMap, () => IterableFormMap], 2
 ];
 export var GetAssetTypeRequest$: StaticStructureSchema = [3, n0, _GATR,
@@ -5003,7 +5040,7 @@ export var GetAssetTypeRequest$: StaticStructureSchema = [3, n0, _GATR,
 ];
 export var GetAssetTypeResponse$: StaticStructureSchema = [3, n0, _GATRe,
   0,
-  [_Id, _N, _Fo],
+  [_Id, _N, _For],
   [0, 0, () => AssetTypeFormsMap]
 ];
 export var GetBlueprintRequest$: StaticStructureSchema = [3, n0, _GBR,
@@ -6068,7 +6105,7 @@ export var IterableFormEntry$: StaticStructureSchema = [3, n0, _IFE,
 ];
 export var IterableFormItem$: StaticStructureSchema = [3, n0, _IFIt,
   0,
-  [_IIte, _INt, _GT, _Fo, _At],
+  [_IIte, _INt, _GT, _For, _At],
   [0, 0, 64 | 0, () => AssetFormMap, () => AssetFormMap]
 ];
 export var IterableFormListItem$: StaticStructureSchema = [3, n0, _IFLI,
@@ -6783,22 +6820,22 @@ export var PropertyPredicate$: StaticStructureSchema = [3, n0, _PPro,
 ];
 export var PutAssetRequest$: StaticStructureSchema = [3, n0, _PAR,
   0,
-  [_ATIs, _Ide, _N, _Fo, _D, _CTl],
+  [_ATIs, _Ide, _N, _For, _D, _CTl],
   [0, 0, 0, () => AssetFormMap, 0, [0, 4]], 4
 ];
 export var PutAssetResponse$: StaticStructureSchema = [3, n0, _PARu,
   0,
-  [_Id, _N, _D, _CAr, _Fo],
+  [_Id, _N, _D, _CAr, _For],
   [0, 0, 0, 4, () => AssetFormMap], 2
 ];
 export var PutAssetTypeRequest$: StaticStructureSchema = [3, n0, _PATR,
   0,
-  [_N, _Fo, _CTl],
+  [_N, _For, _CTl],
   [0, () => AssetTypeFormsMap, [0, 4]], 2
 ];
 export var PutAssetTypeResponse$: StaticStructureSchema = [3, n0, _PATRu,
   0,
-  [_Id, _N, _Fo],
+  [_Id, _N, _For],
   [0, 0, () => AssetTypeFormsMap]
 ];
 export var PutAttachmentRequest$: StaticStructureSchema = [3, n0, _PARut,
@@ -7078,7 +7115,7 @@ export var S3CatalogTarget$: StaticStructureSchema = [3, n0, _SCTa,
 ];
 export var S3CsvSource$: StaticStructureSchema = [3, n0, _SCSs,
   0,
-  [_N, _Pat, _Sep, _QC, _CTomp, _Exc, _GSr, _GFr, _Recur, _MBa, _MFIB, _AOdd, _Es, _Mu, _WH, _WHr, _SFk, _OPp, _OS],
+  [_N, _Pat, _Sep, _QCu, _CTomp, _Exc, _GSr, _GFr, _Recur, _MBa, _MFIB, _AOdd, _Es, _Mu, _WH, _WHr, _SFk, _OPp, _OS],
   [0, 64 | 0, 0, 0, 0, 64 | 0, 0, 0, 2, 1, 1, () => S3DirectSourceAdditionalOptions$, 0, 2, 2, 2, 2, 2, () => GlueSchemas], 4
 ];
 export var S3DeltaCatalogTarget$: StaticStructureSchema = [3, n0, _SDCT,
@@ -7088,7 +7125,7 @@ export var S3DeltaCatalogTarget$: StaticStructureSchema = [3, n0, _SDCT,
 ];
 export var S3DeltaDirectTarget$: StaticStructureSchema = [3, n0, _SDDT,
   0,
-  [_N, _I, _Path, _Compr, _For, _PK, _NTPu, _AOdd, _SCP, _ADQ],
+  [_N, _I, _Path, _Compr, _Fo, _PK, _NTPu, _AOdd, _SCP, _ADQ],
   [0, 64 | 0, 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, 128 | 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$], 5
 ];
 export var S3DeltaSource$: StaticStructureSchema = [3, n0, _SDS,
@@ -7103,7 +7140,7 @@ export var S3DirectSourceAdditionalOptions$: StaticStructureSchema = [3, n0, _SD
 ];
 export var S3DirectTarget$: StaticStructureSchema = [3, n0, _SDT,
   0,
-  [_N, _I, _Path, _For, _PK, _Compr, _NTPu, _SCP, _ADQ, _OS],
+  [_N, _I, _Path, _Fo, _PK, _Compr, _NTPu, _SCP, _ADQ, _OS],
   [0, 64 | 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, () => GlueSchemas], 4
 ];
 export var S3Encryption$: StaticStructureSchema = [3, n0, _SEn,
@@ -7128,7 +7165,7 @@ export var S3HudiCatalogTarget$: StaticStructureSchema = [3, n0, _SHCT,
 ];
 export var S3HudiDirectTarget$: StaticStructureSchema = [3, n0, _SHDT,
   0,
-  [_N, _I, _Path, _Compr, _For, _AOdd, _NTPu, _PK, _SCP, _ADQ],
+  [_N, _I, _Path, _Compr, _Fo, _AOdd, _NTPu, _PK, _SCP, _ADQ],
   [0, 64 | 0, 0, 0, 0, 128 | 0, 0, [1, n0, _GSPL, 0, 64 | 0], () => DirectSchemaChangePolicy$, () => AutoDataQuality$], 6
 ];
 export var S3HudiSource$: StaticStructureSchema = [3, n0, _SHS,
@@ -7138,7 +7175,7 @@ export var S3HudiSource$: StaticStructureSchema = [3, n0, _SHS,
 ];
 export var S3HyperDirectTarget$: StaticStructureSchema = [3, n0, _SHDTy,
   0,
-  [_N, _I, _Path, _For, _PK, _Compr, _SCP, _ADQ, _OS],
+  [_N, _I, _Path, _Fo, _PK, _Compr, _SCP, _ADQ, _OS],
   [0, 64 | 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, () => GlueSchemas], 3
 ];
 export var S3IcebergCatalogTarget$: StaticStructureSchema = [3, n0, _SICT,
@@ -7148,7 +7185,7 @@ export var S3IcebergCatalogTarget$: StaticStructureSchema = [3, n0, _SICT,
 ];
 export var S3IcebergDirectTarget$: StaticStructureSchema = [3, n0, _SIDT,
   0,
-  [_N, _I, _Path, _For, _Compr, _PK, _AOdd, _SCP, _ADQ, _NTPu, _OS],
+  [_N, _I, _Path, _Fo, _Compr, _PK, _AOdd, _SCP, _ADQ, _NTPu, _OS],
   [0, 64 | 0, 0, 0, 0, [1, n0, _GSPL, 0, 64 | 0], 128 | 0, () => DirectSchemaChangePolicy$, () => AutoDataQuality$, 0, () => GlueSchemas], 5
 ];
 export var S3JsonSource$: StaticStructureSchema = [3, n0, _SJS,
@@ -7218,7 +7255,7 @@ export var SchemaVersionNumber$: StaticStructureSchema = [3, n0, _SVN,
 ];
 export var SearchAssetsInput$: StaticStructureSchema = [3, n0, _SAI,
   0,
-  [_STea, _MRax, _NTe, _Sor, _FCi],
+  [_STea, _MRax, _NTe, _Sor, _FCil],
   [0, 1, 0, () => SearchSort$, () => SearchFilterClause$]
 ];
 export var SearchAssetsOutput$: StaticStructureSchema = [3, n0, _SAO,
@@ -7323,8 +7360,8 @@ export var SortCriterion$: StaticStructureSchema = [3, n0, _SCort,
 ];
 export var SourceConfiguration$: StaticStructureSchema = [3, n0, _SCo,
   0,
-  [_RM, _RPeq, _RPequ, _RCes, _PCa],
-  [0, 0, () => ConnectorPropertyList, () => ResponseConfiguration$, () => PaginationConfiguration$]
+  [_RM, _RPeq, _RPequ, _RCes, _PCa, _FCi],
+  [0, 0, () => ConnectorPropertyList, () => ResponseConfiguration$, () => PaginationConfiguration$, () => FilterConfiguration$]
 ];
 export var SourceControlDetails$: StaticStructureSchema = [3, n0, _SCD,
   0,
@@ -7643,7 +7680,7 @@ export var StopWorkflowRunResponse$: StaticStructureSchema = [3, n0, _SWRRtop,
 ];
 export var StorageDescriptor$: StaticStructureSchema = [3, n0, _SDto,
   0,
-  [_Col, _L, _ALd, _IFnp, _OF, _Compre, _NOB, _SIer, _BC, _SCorto, _Par, _SIk, _SASD, _SRc],
+  [_Col, _L, _ALd, _IFnp, _OF, _Compre, _NOB, _SIer, _BCu, _SCorto, _Par, _SIk, _SASD, _SRc],
   [() => ColumnList, 0, 64 | 0, 0, 0, 2, 1, () => SerDeInfo$, 64 | 0, () => OrderList, 128 | 0, () => SkewedInfo$, 2, () => SchemaReference$]
 ];
 export var StreamingDataPreviewOptions$: StaticStructureSchema = [3, n0, _SDPO,
@@ -7788,7 +7825,7 @@ export var TimestampFilter$: StaticStructureSchema = [3, n0, _TF,
 ];
 export var TransformConfigParameter$: StaticStructureSchema = [3, n0, _TCP,
   0,
-  [_N, _Ty, _VR, _VM, _V, _LT, _IO],
+  [_N, _Ty, _VR, _VM, _V, _LT, _IOs],
   [0, 0, 0, 0, 64 | 0, 0, 2], 2
 ];
 export var TransformEncryption$: StaticStructureSchema = [3, n0, _TEr,
@@ -8830,6 +8867,7 @@ var ConfigurationMap: StaticMapSchema = [2, n0, _CMon,
 ];
 var ConnectionOptions = 128 | 0;
 var ConnectionProperties = 128 | 0;
+var ConnectionStringToStringMap = 128 | 0;
 var ConnectorOptions = 128 | 0;
 var CredentialMap: StaticMapSchema = [2, n0, _CMre,
   8, 0, 0
