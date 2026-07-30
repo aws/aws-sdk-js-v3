@@ -62,6 +62,7 @@ import type {
   BatchDisassociateScramSecretCommandInput,
   BatchDisassociateScramSecretCommandOutput,
 } from "./commands/BatchDisassociateScramSecretCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import type { CreateClusterV2CommandInput, CreateClusterV2CommandOutput } from "./commands/CreateClusterV2Command";
 import type {
@@ -74,6 +75,7 @@ import type {
   CreateVpcConnectionCommandInput,
   CreateVpcConnectionCommandOutput,
 } from "./commands/CreateVpcConnectionCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import type {
   DeleteClusterPolicyCommandInput,
@@ -89,6 +91,7 @@ import type {
   DeleteVpcConnectionCommandInput,
   DeleteVpcConnectionCommandOutput,
 } from "./commands/DeleteVpcConnectionCommand";
+import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import type {
   DescribeClusterOperationCommandInput,
@@ -132,6 +135,7 @@ import type {
   GetCompatibleKafkaVersionsCommandInput,
   GetCompatibleKafkaVersionsCommandOutput,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import type {
   ListClientVpcConnectionsCommandInput,
   ListClientVpcConnectionsCommandOutput,
@@ -187,6 +191,7 @@ import type {
   UpdateBrokerStorageCommandOutput,
 } from "./commands/UpdateBrokerStorageCommand";
 import type { UpdateBrokerTypeCommandInput, UpdateBrokerTypeCommandOutput } from "./commands/UpdateBrokerTypeCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import type {
   UpdateClusterConfigurationCommandInput,
   UpdateClusterConfigurationCommandOutput,
@@ -232,18 +237,21 @@ export { __Client };
 export type ServiceInputTypes =
   | BatchAssociateScramSecretCommandInput
   | BatchDisassociateScramSecretCommandInput
+  | CreateChannelCommandInput
   | CreateClusterCommandInput
   | CreateClusterV2CommandInput
   | CreateConfigurationCommandInput
   | CreateReplicatorCommandInput
   | CreateTopicCommandInput
   | CreateVpcConnectionCommandInput
+  | DeleteChannelCommandInput
   | DeleteClusterCommandInput
   | DeleteClusterPolicyCommandInput
   | DeleteConfigurationCommandInput
   | DeleteReplicatorCommandInput
   | DeleteTopicCommandInput
   | DeleteVpcConnectionCommandInput
+  | DescribeChannelCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
   | DescribeClusterOperationV2CommandInput
@@ -257,6 +265,7 @@ export type ServiceInputTypes =
   | GetBootstrapBrokersCommandInput
   | GetClusterPolicyCommandInput
   | GetCompatibleKafkaVersionsCommandInput
+  | ListChannelsCommandInput
   | ListClientVpcConnectionsCommandInput
   | ListClusterOperationsCommandInput
   | ListClusterOperationsV2CommandInput
@@ -279,6 +288,7 @@ export type ServiceInputTypes =
   | UpdateBrokerCountCommandInput
   | UpdateBrokerStorageCommandInput
   | UpdateBrokerTypeCommandInput
+  | UpdateChannelCommandInput
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
   | UpdateConfigurationCommandInput
@@ -296,18 +306,21 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | BatchAssociateScramSecretCommandOutput
   | BatchDisassociateScramSecretCommandOutput
+  | CreateChannelCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterV2CommandOutput
   | CreateConfigurationCommandOutput
   | CreateReplicatorCommandOutput
   | CreateTopicCommandOutput
   | CreateVpcConnectionCommandOutput
+  | DeleteChannelCommandOutput
   | DeleteClusterCommandOutput
   | DeleteClusterPolicyCommandOutput
   | DeleteConfigurationCommandOutput
   | DeleteReplicatorCommandOutput
   | DeleteTopicCommandOutput
   | DeleteVpcConnectionCommandOutput
+  | DescribeChannelCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
   | DescribeClusterOperationV2CommandOutput
@@ -321,6 +334,7 @@ export type ServiceOutputTypes =
   | GetBootstrapBrokersCommandOutput
   | GetClusterPolicyCommandOutput
   | GetCompatibleKafkaVersionsCommandOutput
+  | ListChannelsCommandOutput
   | ListClientVpcConnectionsCommandOutput
   | ListClusterOperationsCommandOutput
   | ListClusterOperationsV2CommandOutput
@@ -343,6 +357,7 @@ export type ServiceOutputTypes =
   | UpdateBrokerCountCommandOutput
   | UpdateBrokerStorageCommandOutput
   | UpdateBrokerTypeCommandOutput
+  | UpdateChannelCommandOutput
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
   | UpdateConfigurationCommandOutput

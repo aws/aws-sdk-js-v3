@@ -13,6 +13,11 @@ import {
   BatchDisassociateScramSecretCommand,
 } from "./commands/BatchDisassociateScramSecretCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
+  CreateChannelCommand,
+} from "./commands/CreateChannelCommand";
+import {
   type CreateClusterCommandInput,
   type CreateClusterCommandOutput,
   CreateClusterCommand,
@@ -43,6 +48,11 @@ import {
   CreateVpcConnectionCommand,
 } from "./commands/CreateVpcConnectionCommand";
 import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
+  DeleteChannelCommand,
+} from "./commands/DeleteChannelCommand";
+import {
   type DeleteClusterCommandInput,
   type DeleteClusterCommandOutput,
   DeleteClusterCommand,
@@ -72,6 +82,11 @@ import {
   type DeleteVpcConnectionCommandOutput,
   DeleteVpcConnectionCommand,
 } from "./commands/DeleteVpcConnectionCommand";
+import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
+  DescribeChannelCommand,
+} from "./commands/DescribeChannelCommand";
 import {
   type DescribeClusterCommandInput,
   type DescribeClusterCommandOutput,
@@ -137,6 +152,11 @@ import {
   type GetCompatibleKafkaVersionsCommandOutput,
   GetCompatibleKafkaVersionsCommand,
 } from "./commands/GetCompatibleKafkaVersionsCommand";
+import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
+  ListChannelsCommand,
+} from "./commands/ListChannelsCommand";
 import {
   type ListClientVpcConnectionsCommandInput,
   type ListClientVpcConnectionsCommandOutput,
@@ -244,6 +264,11 @@ import {
   UpdateBrokerTypeCommand,
 } from "./commands/UpdateBrokerTypeCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
+  UpdateChannelCommand,
+} from "./commands/UpdateChannelCommand";
+import {
   type UpdateClusterConfigurationCommandInput,
   type UpdateClusterConfigurationCommandOutput,
   UpdateClusterConfigurationCommand,
@@ -312,18 +337,21 @@ import { paginateListVpcConnections } from "./pagination/ListVpcConnectionsPagin
 const commands = {
   BatchAssociateScramSecretCommand,
   BatchDisassociateScramSecretCommand,
+  CreateChannelCommand,
   CreateClusterCommand,
   CreateClusterV2Command,
   CreateConfigurationCommand,
   CreateReplicatorCommand,
   CreateTopicCommand,
   CreateVpcConnectionCommand,
+  DeleteChannelCommand,
   DeleteClusterCommand,
   DeleteClusterPolicyCommand,
   DeleteConfigurationCommand,
   DeleteReplicatorCommand,
   DeleteTopicCommand,
   DeleteVpcConnectionCommand,
+  DescribeChannelCommand,
   DescribeClusterCommand,
   DescribeClusterOperationCommand,
   DescribeClusterOperationV2Command,
@@ -337,6 +365,7 @@ const commands = {
   GetBootstrapBrokersCommand,
   GetClusterPolicyCommand,
   GetCompatibleKafkaVersionsCommand,
+  ListChannelsCommand,
   ListClientVpcConnectionsCommand,
   ListClusterOperationsCommand,
   ListClusterOperationsV2Command,
@@ -359,6 +388,7 @@ const commands = {
   UpdateBrokerCountCommand,
   UpdateBrokerStorageCommand,
   UpdateBrokerTypeCommand,
+  UpdateChannelCommand,
   UpdateClusterConfigurationCommand,
   UpdateClusterKafkaVersionCommand,
   UpdateConfigurationCommand,
@@ -420,6 +450,23 @@ export interface Kafka {
     args: BatchDisassociateScramSecretCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDisassociateScramSecretCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
   /**
@@ -525,6 +572,23 @@ export interface Kafka {
   ): void;
 
   /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteClusterCommand}
    */
   deleteCluster(
@@ -624,6 +688,23 @@ export interface Kafka {
     args: DeleteVpcConnectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteVpcConnectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   */
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelCommandOutput>;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
   /**
@@ -846,6 +927,23 @@ export interface Kafka {
     args: GetCompatibleKafkaVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCompatibleKafkaVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
   /**
@@ -1226,6 +1324,23 @@ export interface Kafka {
     args: UpdateBrokerTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateBrokerTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
   ): void;
 
   /**

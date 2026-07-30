@@ -3,6 +3,37 @@
  * @public
  * @enum
  */
+export const ChannelDestinationType = {
+  ICEBERG: "ICEBERG",
+  S3: "S3",
+} as const;
+/**
+ * @public
+ */
+export type ChannelDestinationType = (typeof ChannelDestinationType)[keyof typeof ChannelDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  SUSPENDED: "SUSPENDED",
+  SUSPENDING: "SUSPENDING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const VpcConnectionState = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
@@ -175,6 +206,18 @@ export type ConfigurationState = (typeof ConfigurationState)[keyof typeof Config
  * @public
  * @enum
  */
+export const PartitionStrategy = {
+  TIME_HOUR: "TIME_HOUR",
+} as const;
+/**
+ * @public
+ */
+export type PartitionStrategy = (typeof PartitionStrategy)[keyof typeof PartitionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const KafkaClusterSaslScramMechanism = {
   SHA256: "SHA256",
   SHA512: "SHA512",
@@ -296,6 +339,62 @@ export const ReplicatorState = {
  * @public
  */
 export type ReplicatorState = (typeof ReplicatorState)[keyof typeof ReplicatorState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValueConverter = {
+  BYTE_ARRAY: "BYTE_ARRAY",
+  JSON: "JSON",
+  JSON_SCHEMA_GSR: "JSON_SCHEMA_GSR",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type ValueConverter = (typeof ValueConverter)[keyof typeof ValueConverter];
+
+/**
+ * @public
+ * @enum
+ */
+export const IcebergCompressionType = {
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
+/**
+ * @public
+ */
+export type IcebergCompressionType = (typeof IcebergCompressionType)[keyof typeof IcebergCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3CompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
+/**
+ * @public
+ */
+export type S3CompressionType = (typeof S3CompressionType)[keyof typeof S3CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
 
 /**
  * @public

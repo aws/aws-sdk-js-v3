@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import type {
   BrokerAZDistribution,
+  ChannelDestinationType,
+  ChannelStatus,
   ClientBroker,
   ClusterState,
   ClusterType,
@@ -8,19 +10,24 @@ import type {
   ConsumerGroupOffsetSyncMode,
   CustomerActionStatus,
   EnhancedMonitoring,
+  IcebergCompressionType,
   KafkaClusterEncryptionInTransitType,
   KafkaClusterSaslScramMechanism,
   KafkaVersionStatus,
   NetworkType,
   NodeType,
+  PartitionStrategy,
   RebalancingStatus,
   ReplicationStartingPositionType,
   ReplicationTopicNameConfigurationType,
   ReplicatorState,
+  S3CompressionType,
+  S3StorageClass,
   StorageMode,
   TargetCompressionType,
   TopicState,
   UserIdentityType,
+  ValueConverter,
   VpcConnectionState,
 } from "./enums";
 
@@ -64,6 +71,48 @@ export interface BrokerEBSVolumeInfo {
    * @public
    */
   VolumeSizeGB?: number | undefined;
+}
+
+/**
+ * <p>Summary information about a channel returned by ListChannels.</p>
+ * @public
+ */
+export interface ChannelInfo {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The name of the channel.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The current lifecycle state of the channel.</p>
+   * @public
+   */
+  Status: ChannelStatus | undefined;
+
+  /**
+   * <p>The time when the channel was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The type of destination configured for the channel.</p>
+   * @public
+   */
+  DestinationType: ChannelDestinationType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the in-flight cluster operation. Returned only while the channel is in CREATING, UPDATING, or DELETING.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
 }
 
 /**
@@ -1459,6 +1508,60 @@ export interface Configuration {
 }
 
 /**
+ * <p>A source column used by an Apache Iceberg destination table's partition specification.</p>
+ * @public
+ */
+export interface PartitionSource {
+  /**
+   * <p>Source name.</p>
+   * @public
+   */
+  SourceName?: string | undefined;
+}
+
+/**
+ * <p>Partition specification for an Apache Iceberg destination table.</p>
+ * @public
+ */
+export interface PartitionSpec {
+  /**
+   * <p>The partitioning strategy applied to records written to the table.</p>
+   * @public
+   */
+  PartitionStrategy: PartitionStrategy | undefined;
+
+  /**
+   * <p>The source columns used by the partitioning strategy. For TIME_HOUR, must contain exactly one source column whose value is a timestamp.</p>
+   * @public
+   */
+  SourceList?: PartitionSource[] | undefined;
+}
+
+/**
+ * <p>Configuration of an Apache Iceberg destination table.</p>
+ * @public
+ */
+export interface DestinationTable {
+  /**
+   * <p>The name of the destination namespace (database) in the AWS Glue Data Catalog.</p>
+   * @public
+   */
+  DestinationDatabaseName?: string | undefined;
+
+  /**
+   * <p>The name of the destination Apache Iceberg table.</p>
+   * @public
+   */
+  DestinationTableName?: string | undefined;
+
+  /**
+   * <p>The partition specification for the destination table.</p>
+   * @public
+   */
+  PartitionSpec?: PartitionSpec | undefined;
+}
+
+/**
  * <p>Details of an Amazon MSK Cluster.</p>
  * @public
  */
@@ -2091,6 +2194,54 @@ export interface ReplicatorSummary {
 }
 
 /**
+ * <p>Configuration that controls how Apache Kafka record values are deserialized for the destination.</p>
+ * @public
+ */
+export interface RecordConverter {
+  /**
+   * <p>The deserialization format applied to Apache Kafka record values.</p>
+   * @public
+   */
+  ValueConverter: ValueConverter | undefined;
+}
+
+/**
+ * <p>Schema configuration that controls how Apache Kafka record values are validated.</p>
+ * @public
+ */
+export interface RecordSchema {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Glue Schema Registry schema (not registry) used to validate records for the destination Apache Iceberg table.</p>
+   * @public
+   */
+  GsrArn: string | undefined;
+}
+
+/**
+ * <p>Configuration of an Apache Kafka topic that feeds a channel.</p>
+ * @public
+ */
+export interface TopicConfiguration {
+  /**
+   * <p>Configuration that controls how Apache Kafka record values are deserialized for the destination.</p>
+   * @public
+   */
+  RecordConverter: RecordConverter | undefined;
+
+  /**
+   * <p>The schema used to validate records when the value converter requires one (for example, JSON_SCHEMA_GSR).</p>
+   * @public
+   */
+  RecordSchema?: RecordSchema | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the topic.</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+}
+
+/**
  * <p>Includes identification info about the topic.</p>
  * @public
  */
@@ -2293,6 +2444,66 @@ export interface BatchDisassociateScramSecretResponse {
 }
 
 /**
+ * <p>Configuration of the AWS Glue Data Catalog and S3 Tables warehouse used by the Apache Iceberg destination.</p>
+ * @public
+ */
+export interface Catalog {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the federated AWS Glue Data Catalog that projects the S3 Tables bucket. If omitted, MSK derives the catalog ARN from warehouseLocation.</p>
+   * @public
+   */
+  CatalogArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the S3 Tables bucket that backs the Apache Iceberg warehouse.</p>
+   * @public
+   */
+  WarehouseLocation?: string | undefined;
+}
+
+/**
+ * <p>Configuration for the destinations to which the channel publishes operational logs.</p>
+ * @public
+ */
+export interface ChannelLoggingInfo {
+  /**
+   * <p>Details of the CloudWatch Logs destination for Channel logs.</p>
+   * @public
+   */
+  CloudWatchLogs?: CloudWatchLogs | undefined;
+
+  /**
+   * <p>Details of the Kinesis Data Firehose delivery stream that is the destination for Channel logs.</p>
+   * @public
+   */
+  Firehose?: Firehose | undefined;
+
+  /**
+   * <p>Details of the Amazon S3 destination for Channel logs.</p>
+   * @public
+   */
+  S3?: S3 | undefined;
+}
+
+/**
+ * <p>Additional context for the current channel state, populated when the channel is in FAILED.</p>
+ * @public
+ */
+export interface ChannelStateInfo {
+  /**
+   * <p>A short, machine-readable code identifying the failure cause.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>A human-readable message describing the failure.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
  * <p>Returns information about a provisioned cluster operation.</p>
  * @public
  */
@@ -2470,6 +2681,270 @@ export interface ConsumerGroupReplicationUpdate {
    * @public
    */
   SynchroniseConsumerGroupOffsets: boolean | undefined;
+}
+
+/**
+ * <p>The AWS KMS encryption configuration applied to data at rest.</p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS KMS key used to encrypt the data.</p>
+   * @public
+   */
+  KmsKeyArn: string | undefined;
+}
+
+/**
+ * <p>Configuration of the Amazon S3 bucket where records that fail to deliver are stored.</p>
+ * @public
+ */
+export interface DeadLetterQueueS3 {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dead-letter Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketArn: string | undefined;
+
+  /**
+   * <p>An optional prefix prepended to every dead-letter Amazon S3 object key.</p>
+   * @public
+   */
+  ErrorOutputPrefix?: string | undefined;
+
+  /**
+   * <p>Optional 12-digit AWS account ID expected to own the dead-letter Amazon S3 bucket.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Configuration controlling whether the Apache Iceberg destination table's schema is evolved as incoming records change.</p>
+ * @public
+ */
+export interface SchemaEvolution {
+  /**
+   * <p>Whether to allow MSK to evolve the destination table's schema. Must be false for the current release.</p>
+   * @public
+   */
+  EnableSchemaEvolution?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration controlling whether MSK creates the destination Apache Iceberg table if it does not already exist.</p>
+ * @public
+ */
+export interface TableCreation {
+  /**
+   * <p>Whether MSK creates the destination table on the customer's behalf. Must be true for the current release.</p>
+   * @public
+   */
+  EnableTableCreation?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration of an Apache Iceberg destination for a channel.</p>
+ * @public
+ */
+export interface IcebergDestinationConfiguration {
+  /**
+   * <p>Whether the destination is append-only. Must be true; updates and deletes are not supported.</p>
+   * @public
+   */
+  AppendOnly: boolean | undefined;
+
+  /**
+   * <p>The AWS Glue Data Catalog and S3 Tables warehouse used by the destination.</p>
+   * @public
+   */
+  Catalog?: Catalog | undefined;
+
+  /**
+   * <p>The maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Allowed range: 300 to 900. Default: 600.</p>
+   * @public
+   */
+  DataFreshnessInSeconds?: number | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket and prefix where MSK writes records that fail to deliver.</p>
+   * @public
+   */
+  DeadLetterQueueS3: DeadLetterQueueS3 | undefined;
+
+  /**
+   * <p>The destination Iceberg tables. Currently exactly one table must be specified.</p>
+   * @public
+   */
+  DestinationTableList: DestinationTable[] | undefined;
+
+  /**
+   * <p>Configuration controlling whether the destination table's schema is evolved to match incoming records.</p>
+   * @public
+   */
+  SchemaEvolution: SchemaEvolution | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that MSK assumes to access the destination table, the AWS Glue Data Catalog, and the dead-letter Amazon S3 bucket.</p>
+   * @public
+   */
+  ServiceExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>Configuration controlling whether MSK creates the destination table if it does not already exist.</p>
+   * @public
+   */
+  TableCreation: TableCreation | undefined;
+
+  /**
+   * <p>The compression codec for Iceberg table data files. Defaults to ZSTD.</p>
+   * @public
+   */
+  CompressionType?: IcebergCompressionType | undefined;
+}
+
+/**
+ * <p>Storage configuration for an Amazon S3 destination bucket.</p>
+ * @public
+ */
+export interface S3Storage {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketArn: string | undefined;
+
+  /**
+   * <p>The compression codec applied to delivered Amazon S3 objects.</p>
+   * @public
+   */
+  CompressionType: S3CompressionType | undefined;
+
+  /**
+   * <p>An optional prefix prepended to every Amazon S3 object key written by the channel.</p>
+   * @public
+   */
+  OutputPrefix?: string | undefined;
+
+  /**
+   * <p>An optional template that controls the Amazon S3 object key for each delivered record. Supports the placeholders !\{partition-id\}, !\{sequence-number\}, and !\{kafka-offset\}.</p>
+   * @public
+   */
+  OutputKeyTemplate?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 storage class for delivered objects.</p>
+   * @public
+   */
+  StorageClass: S3StorageClass | undefined;
+
+  /**
+   * <p>Optional 12-digit AWS account ID expected to own the Amazon S3 bucket.</p>
+   * @public
+   */
+  ExpectedBucketOwner?: string | undefined;
+}
+
+/**
+ * <p>Configuration of an Amazon S3 destination for a channel.</p>
+ * @public
+ */
+export interface S3DestinationConfiguration {
+  /**
+   * <p>The maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Allowed range: 300 to 900. Default: 600.</p>
+   * @public
+   */
+  DataFreshnessInSeconds?: number | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket and prefix where MSK writes records that fail to deliver.</p>
+   * @public
+   */
+  DeadLetterQueueS3: DeadLetterQueueS3 | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that MSK assumes to write to the destination Amazon S3 bucket and the dead-letter bucket.</p>
+   * @public
+   */
+  ServiceExecutionRoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon S3 bucket, prefix, and storage class for delivered records.</p>
+   * @public
+   */
+  Storage: S3Storage | undefined;
+}
+
+/**
+ * <p>Creates a Channel that streams records from an Amazon MSK Express cluster topic to Amazon S3 or Apache Iceberg.</p>
+ * @public
+ */
+export interface CreateChannelRequest {
+  /**
+   * <p>The name of the channel. Must be unique within the cluster.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>The encryption configuration applied to the channel.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Apache Iceberg destination for the channel. Mutually exclusive with s3DestinationConfiguration.</p>
+   * @public
+   */
+  IcebergDestinationConfiguration?: IcebergDestinationConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 destination for the channel. Mutually exclusive with icebergDestinationConfiguration.</p>
+   * @public
+   */
+  S3DestinationConfiguration?: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>The tags attached to the channel.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of topic configurations for the channel. Currently exactly one topic must be specified.</p>
+   * @public
+   */
+  TopicConfigurationList: TopicConfiguration[] | undefined;
+
+  /**
+   * <p>The destinations to which the channel publishes operational logs.</p>
+   * @public
+   */
+  LoggingInfo?: ChannelLoggingInfo | undefined;
+}
+
+/**
+ * <p>Returns the channel ARN and the cluster-operation ARN that tracks the asynchronous create.</p>
+ * @public
+ */
+export interface CreateChannelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
 }
 
 /**
@@ -3108,6 +3583,41 @@ export interface CreateVpcConnectionResponse {
 /**
  * @public
  */
+export interface DeleteChannelRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>Returns the channel ARN and the cluster-operation ARN that tracks the asynchronous delete.</p>
+ * @public
+ */
+export interface DeleteChannelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
@@ -3283,6 +3793,107 @@ export interface DeleteVpcConnectionResponse {
    * @public
    */
   State?: VpcConnectionState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeChannelRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * <p>Contains the current configuration and state of a channel.</p>
+ * @public
+ */
+export interface DescribeChannelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The name of the channel.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The encryption configuration applied to the channel.</p>
+   * @public
+   */
+  EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Apache Iceberg destination for the channel, if configured.</p>
+   * @public
+   */
+  IcebergDestinationConfiguration?: IcebergDestinationConfiguration | undefined;
+
+  /**
+   * <p>The Amazon S3 destination for the channel, if configured.</p>
+   * @public
+   */
+  S3DestinationConfiguration?: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>The current lifecycle state of the channel.</p>
+   * @public
+   */
+  Status: ChannelStatus | undefined;
+
+  /**
+   * <p>The type of destination configured for the channel.</p>
+   * @public
+   */
+  DestinationType: ChannelDestinationType | undefined;
+
+  /**
+   * <p>The time when the channel was created.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The list of topic configurations for the channel.</p>
+   * @public
+   */
+  TopicConfigurationList: TopicConfiguration[] | undefined;
+
+  /**
+   * <p>The destinations to which the channel publishes operational logs.</p>
+   * @public
+   */
+  LoggingInfo?: ChannelLoggingInfo | undefined;
+
+  /**
+   * <p>Additional context for the current channel state, populated when the channel is in FAILED.</p>
+   * @public
+   */
+  StateInfo?: ChannelStateInfo | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the in-flight cluster operation. Returned only while the channel is in CREATING, UPDATING, or DELETING.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
+
+  /**
+   * <p>The tags attached to the channel.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3926,6 +4537,65 @@ export interface GetCompatibleKafkaVersionsResponse {
    * @public
    */
   CompatibleKafkaVersions?: CompatibleKafkaVersion[] | undefined;
+}
+
+/**
+ * <p>Update payload for an Apache Iceberg destination.</p>
+ * @public
+ */
+export interface IcebergDestinationUpdate {
+  /**
+   * <p>The maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Allowed range: 300 to 900.</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Maximum number of channels to return in a single response.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>If the response of ListChannels is truncated, it returns a nextToken in the response. This nextToken should be sent in the subsequent request to ListChannels.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Filters results to channels whose topic name matches the specified value.</p>
+   * @public
+   */
+  TopicNameFilter?: string | undefined;
+}
+
+/**
+ * <p>Returns the list of channels in the cluster.</p>
+ * @public
+ */
+export interface ListChannelsResponse {
+  /**
+   * <p>The list of channels in the cluster.</p>
+   * @public
+   */
+  Channels?: ChannelInfo[] | undefined;
+
+  /**
+   * <p>If the response from ListChannels is truncated, this token is included. Send it as the nextToken parameter on a subsequent ListChannels call to retrieve the next page.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4727,6 +5397,66 @@ export interface UpdateBrokerTypeResponse {
    * @public
    */
   ClusterArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>
+   * @public
+   */
+  ClusterOperationArn?: string | undefined;
+}
+
+/**
+ * <p>Update payload for an Amazon S3 destination.</p>
+ * @public
+ */
+export interface S3DestinationUpdate {
+  /**
+   * <p>The maximum time, in seconds, that records buffer in MSK before being flushed to the destination. Allowed range: 300 to 900.</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+}
+
+/**
+ * <p>Updates an existing channel's destination configuration. You must update the same destination type the channel was created with; the destination type cannot be changed.</p>
+ * @public
+ */
+export interface UpdateChannelRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the cluster.</p>
+   * @public
+   */
+  ClusterArn: string | undefined;
+
+  /**
+   * <p>Updates fields on an Apache Iceberg destination. Use only when the channel was created with an Iceberg destination.</p>
+   * @public
+   */
+  IcebergDestinationUpdate?: IcebergDestinationUpdate | undefined;
+
+  /**
+   * <p>Updates fields on an Amazon S3 destination. Use only when the channel was created with an Amazon S3 destination.</p>
+   * @public
+   */
+  S3DestinationUpdate?: S3DestinationUpdate | undefined;
+}
+
+/**
+ * <p>Returns the channel ARN and the cluster-operation ARN that tracks the asynchronous update.</p>
+ * @public
+ */
+export interface UpdateChannelResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the channel.</p>
+   * @public
+   */
+  ChannelArn: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the cluster operation.</p>

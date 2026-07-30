@@ -3,10 +3,12 @@ const _AENII = "AttachedENIId";
 const _AKC = "ApacheKafkaCluster";
 const _AKCI = "ApacheKafkaClusterId";
 const _AMC = "AmazonMskCluster";
+const _AO = "AppendOnly";
 const _AOA = "ActiveOperationArn";
 const _ATCT = "AddedToClusterTime";
 const _Ar = "Arn";
 const _B = "Bucket";
+const _BA = "BucketArn";
 const _BASS = "BatchAssociateScramSecret";
 const _BASSR = "BatchAssociateScramSecretRequest";
 const _BASSRa = "BatchAssociateScramSecretResponse";
@@ -37,26 +39,31 @@ const _BNGI = "BrokerNodeGroupInfo";
 const _BNI = "BrokerNodeInfo";
 const _BRE = "BadRequestException";
 const _BSI = "BrokerSoftwareInfo";
-const _C = "Cluster";
+const _C = "Catalog";
 const _CA = "ClusterArn";
 const _CAAL = "CertificateAuthorityArnList";
 const _CACLFT = "CopyAccessControlListsForTopics";
 const _CAS = "CustomerActionStatus";
+const _CAa = "CatalogArn";
+const _CAh = "ChannelArn";
 const _CAl = "ClientAuthentication";
 const _CAo = "ConfigurationArn";
 const _CB = "ClientBroker";
 const _CBI = "CreatedBrokerIds";
 const _CBSI = "CurrentBrokerSoftwareInfo";
-const _CC = "CreateCluster";
+const _CC = "CreateChannel";
 const _CCE = "ClusterConnectivityException";
-const _CCR = "CreateClusterRequest";
-const _CCRr = "CreateClusterResponse";
-const _CCRre = "CreateConfigurationRequest";
-const _CCRrea = "CreateConfigurationResponse";
+const _CCR = "CreateChannelRequest";
+const _CCRr = "CreateChannelResponse";
+const _CCRre = "CreateClusterRequest";
+const _CCRrea = "CreateClusterResponse";
+const _CCRreat = "CreateConfigurationRequest";
+const _CCRreate = "CreateConfigurationResponse";
 const _CCV = "CreateClusterV2";
 const _CCVR = "CreateClusterV2Request";
 const _CCVRr = "CreateClusterV2Response";
-const _CCr = "CreateConfiguration";
+const _CCr = "CreateCluster";
+const _CCre = "CreateConfiguration";
 const _CE = "ConflictException";
 const _CGOSM = "ConsumerGroupOffsetSyncMode";
 const _CGR = "ConsumerGroupReplication";
@@ -65,14 +72,17 @@ const _CGTE = "ConsumerGroupsToExclude";
 const _CGTR = "ConsumerGroupsToReplicate";
 const _CI = "ConnectivityInfo";
 const _CIL = "ClusterInfoList";
+const _CIh = "ChannelInfo";
 const _CIl = "ClusterInfo";
 const _CIo = "ConfigurationInfo";
 const _CKV = "CompatibleKafkaVersion";
 const _CKVo = "CompatibleKafkaVersions";
+const _CLI = "ChannelLoggingInfo";
 const _CME = "ControllerMovedException";
-const _CN = "ClusterName";
+const _CN = "ChannelName";
 const _CNF = "ClusterNameFilter";
 const _CNI = "ControllerNodeInfo";
+const _CNl = "ClusterName";
 const _COA = "ClusterOperationArn";
 const _COI = "ClusterOperationInfo";
 const _COIL = "ClusterOperationInfoList";
@@ -88,6 +98,7 @@ const _CRR = "CreateReplicatorRequest";
 const _CRRr = "CreateReplicatorResponse";
 const _CRr = "CreateReplicator";
 const _CS = "ClientSubnets";
+const _CSI = "ChannelStateInfo";
 const _CSl = "ClientSubnet";
 const _CT = "CreationTime";
 const _CTC = "CopyTopicConfigurations";
@@ -95,6 +106,7 @@ const _CTF = "ClusterTypeFilter";
 const _CTR = "CreateTopicRequest";
 const _CTRr = "CreateTopicResponse";
 const _CTl = "ClusterType";
+const _CTo = "CompressionType";
 const _CTr = "CreateTopic";
 const _CV = "CurrentVersion";
 const _CVC = "ClientVpcConnection";
@@ -104,15 +116,17 @@ const _CVCl = "ClientVpcConnections";
 const _CVCr = "CreateVpcConnection";
 const _CVIA = "ClientVpcIpAddress";
 const _CWL = "CloudWatchLogs";
-const _Co = "Configuration";
-const _Cod = "Code";
-const _Con = "Configs";
-const _Conf = "Configurations";
+const _Ch = "Channels";
+const _Cl = "Cluster";
+const _Co = "Code";
+const _Con = "Configuration";
+const _Conf = "Configs";
+const _Confi = "Configurations";
 const _D = "Description";
 const _DACNCG = "DetectAndCopyNewConsumerGroups";
 const _DACNT = "DetectAndCopyNewTopics";
 const _DBI = "DeletedBrokerIds";
-const _DC = "DeleteCluster";
+const _DC = "DeleteChannel";
 const _DCO = "DescribeClusterOperation";
 const _DCOR = "DescribeClusterOperationRequest";
 const _DCORe = "DescribeClusterOperationResponse";
@@ -122,23 +136,32 @@ const _DCOVRe = "DescribeClusterOperationV2Response";
 const _DCP = "DeleteClusterPolicy";
 const _DCPR = "DeleteClusterPolicyRequest";
 const _DCPRe = "DeleteClusterPolicyResponse";
-const _DCR = "DeleteClusterRequest";
+const _DCR = "DeleteChannelRequest";
 const _DCRR = "DescribeConfigurationRevisionRequest";
 const _DCRRe = "DescribeConfigurationRevisionResponse";
-const _DCRe = "DeleteClusterResponse";
-const _DCRel = "DeleteConfigurationRequest";
-const _DCRele = "DeleteConfigurationResponse";
-const _DCRes = "DescribeClusterRequest";
-const _DCResc = "DescribeClusterResponse";
-const _DCRescr = "DescribeConfigurationRequest";
-const _DCRescri = "DescribeConfigurationResponse";
-const _DCRescrib = "DescribeConfigurationRevision";
+const _DCRe = "DeleteChannelResponse";
+const _DCRel = "DeleteClusterRequest";
+const _DCRele = "DeleteClusterResponse";
+const _DCRelet = "DeleteConfigurationRequest";
+const _DCRelete = "DeleteConfigurationResponse";
+const _DCRes = "DescribeChannelRequest";
+const _DCResc = "DescribeChannelResponse";
+const _DCRescr = "DescribeClusterRequest";
+const _DCRescri = "DescribeClusterResponse";
+const _DCRescrib = "DescribeConfigurationRequest";
+const _DCRescribe = "DescribeConfigurationResponse";
+const _DCRescribeo = "DescribeConfigurationRevision";
 const _DCV = "DescribeClusterV2";
 const _DCVR = "DescribeClusterV2Request";
 const _DCVRe = "DescribeClusterV2Response";
-const _DCe = "DeleteConfiguration";
-const _DCes = "DescribeCluster";
-const _DCesc = "DescribeConfiguration";
+const _DCe = "DeleteCluster";
+const _DCel = "DeleteConfiguration";
+const _DCes = "DescribeChannel";
+const _DCesc = "DescribeCluster";
+const _DCescr = "DescribeConfiguration";
+const _DDN = "DestinationDatabaseName";
+const _DFIS = "DataFreshnessInSeconds";
+const _DLQS = "DeadLetterQueueS3";
 const _DR = "DeleteReplicator";
 const _DRR = "DeleteReplicatorRequest";
 const _DRRe = "DeleteReplicatorResponse";
@@ -146,7 +169,9 @@ const _DRRes = "DescribeReplicatorRequest";
 const _DRResc = "DescribeReplicatorResponse";
 const _DRe = "DescribeReplicator";
 const _DS = "DeliveryStream";
-const _DT = "DeleteTopic";
+const _DT = "DestinationType";
+const _DTL = "DestinationTableList";
+const _DTN = "DestinationTableName";
 const _DTP = "DescribeTopicPartitions";
 const _DTPR = "DescribeTopicPartitionsRequest";
 const _DTPRe = "DescribeTopicPartitionsResponse";
@@ -154,7 +179,9 @@ const _DTR = "DeleteTopicRequest";
 const _DTRe = "DeleteTopicResponse";
 const _DTRes = "DescribeTopicRequest";
 const _DTResc = "DescribeTopicResponse";
-const _DTe = "DescribeTopic";
+const _DTe = "DestinationTable";
+const _DTel = "DeleteTopic";
+const _DTes = "DescribeTopic";
 const _DVC = "DeleteVpcConnection";
 const _DVCR = "DeleteVpcConnectionRequest";
 const _DVCRe = "DeleteVpcConnectionResponse";
@@ -164,21 +191,27 @@ const _DVCe = "DescribeVpcConnection";
 const _DVKMSKI = "DataVolumeKMSKeyId";
 const _E = "Endpoints";
 const _EAR = "EncryptionAtRest";
+const _EBO = "ExpectedBucketOwner";
 const _EBSSI = "EBSStorageInfo";
-const _EC = "ErrorCode";
+const _EC = "EncryptionConfiguration";
+const _ECr = "ErrorCode";
 const _EI = "EncryptionInfo";
 const _EIB = "EnabledInBroker";
 const _EIT = "EncryptionInTransit";
 const _EIr = "ErrorInfo";
 const _EM = "EnhancedMonitoring";
 const _EMr = "ErrorMessage";
+const _EOP = "ErrorOutputPrefix";
 const _ES = "ErrorString";
+const _ESE = "EnableSchemaEvolution";
 const _ESI = "EbsStorageInfo";
 const _ET = "EndTime";
+const _ETC = "EnableTableCreation";
 const _ETn = "EncryptionType";
 const _En = "Enabled";
 const _F = "Firehose";
 const _FE = "ForbiddenException";
+const _GA = "GsrArn";
 const _GBB = "GetBootstrapBrokers";
 const _GBBR = "GetBootstrapBrokersRequest";
 const _GBBRe = "GetBootstrapBrokersResponse";
@@ -191,6 +224,8 @@ const _GCPRe = "GetClusterPolicyResponse";
 const _GSTTE = "GroupSubscribedToTopicException";
 const _I = "Iam";
 const _IC = "InCluster";
+const _IDC = "IcebergDestinationConfiguration";
+const _IDU = "IcebergDestinationUpdate";
 const _IP = "InvalidParameter";
 const _IRR = "IsReplicatorReference";
 const _ISEE = "InternalServerErrorException";
@@ -210,32 +245,36 @@ const _KCS = "KafkaClusterSummary";
 const _KCSSA = "KafkaClusterSaslScramAuthentication";
 const _KCSa = "KafkaClustersSummary";
 const _KCa = "KafkaCluster";
+const _KKA = "KmsKeyArn";
 const _KRE = "KafkaRequestException";
 const _KTE = "KafkaTimeoutException";
 const _KV = "KafkaVersion";
 const _KVa = "KafkaVersions";
 const _L = "Leader";
-const _LC = "ListClusters";
+const _LC = "ListChannels";
 const _LCO = "ListClusterOperations";
 const _LCOR = "ListClusterOperationsRequest";
 const _LCORi = "ListClusterOperationsResponse";
 const _LCOV = "ListClusterOperationsV2";
 const _LCOVR = "ListClusterOperationsV2Request";
 const _LCOVRi = "ListClusterOperationsV2Response";
-const _LCR = "ListClustersRequest";
+const _LCR = "ListChannelsRequest";
 const _LCRR = "ListConfigurationRevisionsRequest";
 const _LCRRi = "ListConfigurationRevisionsResponse";
-const _LCRi = "ListClustersResponse";
-const _LCRis = "ListConfigurationsRequest";
-const _LCRist = "ListConfigurationsResponse";
-const _LCRisto = "ListConfigurationRevisions";
+const _LCRi = "ListChannelsResponse";
+const _LCRis = "ListClustersRequest";
+const _LCRist = "ListClustersResponse";
+const _LCRisto = "ListConfigurationsRequest";
+const _LCRiston = "ListConfigurationsResponse";
+const _LCRistonf = "ListConfigurationRevisions";
 const _LCV = "ListClustersV2";
 const _LCVC = "ListClientVpcConnections";
 const _LCVCR = "ListClientVpcConnectionsRequest";
 const _LCVCRi = "ListClientVpcConnectionsResponse";
 const _LCVR = "ListClustersV2Request";
 const _LCVRi = "ListClustersV2Response";
-const _LCi = "ListConfigurations";
+const _LCi = "ListClusters";
+const _LCis = "ListConfigurations";
 const _LD = "LogDelivery";
 const _LG = "LogGroup";
 const _LI = "LoggingInfo";
@@ -281,9 +320,11 @@ const _NTe = "NextToken";
 const _NTo = "NodeType";
 const _O = "Owner";
 const _OA = "OperationArn";
+const _OKT = "OutputKeyTemplate";
 const _OM = "OpenMonitoring";
 const _OMI = "OpenMonitoringInfo";
 const _OOSRC = "OutOfSyncReplicaCount";
+const _OP = "OutputPrefix";
 const _OS = "OperationState";
 const _OSp = "OperationSteps";
 const _OT = "OperationType";
@@ -296,6 +337,9 @@ const _PCPRu = "PutClusterPolicyResponse";
 const _PI = "PrometheusInfo";
 const _PIr = "PrincipalId";
 const _PR = "ProvisionedRequest";
+const _PS = "PartitionSpec";
+const _PSa = "PartitionSource";
+const _PSar = "PartitionStrategy";
 const _PT = "ProvisionedThroughput";
 const _Pa = "Partitions";
 const _Par = "Partition";
@@ -308,6 +352,7 @@ const _RAe = "ResourceArn";
 const _RB = "RebootBroker";
 const _RBR = "RebootBrokerRequest";
 const _RBRe = "RebootBrokerResponse";
+const _RC = "RecordConverter";
 const _RCC = "RootCaCertificate";
 const _RCVC = "RejectClientVpcConnection";
 const _RCVCR = "RejectClientVpcConnectionRequest";
@@ -329,8 +374,9 @@ const _RRA = "ReplicatorResourceArn";
 const _RS = "ReplicatorState";
 const _RSI = "ReplicationStateInfo";
 const _RSP = "ReplicationStartingPosition";
-const _RSe = "ReplicatorS3";
-const _RSep = "ReplicatorSummary";
+const _RSe = "RecordSchema";
+const _RSep = "ReplicatorS3";
+const _RSepl = "ReplicatorSummary";
 const _RTNC = "ReplicationTopicNameConfiguration";
 const _Re = "Revision";
 const _Rep = "Replicators";
@@ -339,10 +385,14 @@ const _Rev = "Revisions";
 const _S = "S3";
 const _SA = "SecretArn";
 const _SAL = "SecretArnList";
+const _SC = "StorageClass";
 const _SCA = "ServerlessClientAuthentication";
 const _SCGO = "SynchroniseConsumerGroupOffsets";
 const _SCI = "SourceClusterInfo";
 const _SCIe = "ServerlessConnectivityInfo";
+const _SDC = "S3DestinationConfiguration";
+const _SDU = "S3DestinationUpdate";
+const _SE = "SchemaEvolution";
 const _SERA = "ServiceExecutionRoleArn";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
@@ -353,29 +403,36 @@ const _SIu = "SubnetIds";
 const _SKCA = "SourceKafkaClusterArn";
 const _SKCAo = "SourceKafkaClusterAlias";
 const _SKCI = "SourceKafkaClusterId";
+const _SL = "SourceList";
 const _SM = "StorageMode";
 const _SN = "StepName";
+const _SNo = "SourceName";
 const _SP = "ServerProperties";
 const _SPt = "StartingPosition";
 const _SR = "ServerlessRequest";
 const _SS = "StepStatus";
 const _SSa = "SaslScram";
 const _SSe = "ServerlessSasl";
+const _SSt = "S3Storage";
 const _ST = "StartTime";
 const _SUE = "ServiceUnavailableException";
 const _SV = "SourceVersion";
 const _Sa = "Sasl";
 const _Sc = "Scram";
 const _Se = "Serverless";
-const _St = "State";
-const _Sta = "Status";
+const _St = "Status";
+const _Sta = "State";
+const _Sto = "Storage";
 const _Su = "Subnets";
 const _T = "Tls";
 const _TA = "TopicArn";
 const _TBEBSVI = "TargetBrokerEBSVolumeInfo";
+const _TC = "TableCreation";
 const _TCA = "TargetClusterArn";
 const _TCI = "TargetClusterInfo";
+const _TCL = "TopicConfigurationList";
 const _TCT = "TargetCompressionType";
+const _TCo = "TopicConfiguration";
 const _TEE = "TopicExistsException";
 const _TI = "TopicInfo";
 const _TIT = "TargetInstanceType";
@@ -410,18 +467,21 @@ const _UBSRp = "UpdateBrokerStorageResponse";
 const _UBT = "UpdateBrokerType";
 const _UBTR = "UpdateBrokerTypeRequest";
 const _UBTRp = "UpdateBrokerTypeResponse";
-const _UC = "UpdateConfiguration";
+const _UC = "UpdateChannel";
 const _UCC = "UpdateClusterConfiguration";
 const _UCCR = "UpdateClusterConfigurationRequest";
 const _UCCRp = "UpdateClusterConfigurationResponse";
 const _UCKV = "UpdateClusterKafkaVersion";
 const _UCKVR = "UpdateClusterKafkaVersionRequest";
 const _UCKVRp = "UpdateClusterKafkaVersionResponse";
-const _UCR = "UpdateConfigurationRequest";
-const _UCRp = "UpdateConfigurationResponse";
-const _UCRpd = "UpdateConnectivityRequest";
-const _UCRpda = "UpdateConnectivityResponse";
-const _UCp = "UpdateConnectivity";
+const _UCR = "UpdateChannelRequest";
+const _UCRp = "UpdateChannelResponse";
+const _UCRpd = "UpdateConfigurationRequest";
+const _UCRpda = "UpdateConfigurationResponse";
+const _UCRpdat = "UpdateConnectivityRequest";
+const _UCRpdate = "UpdateConnectivityResponse";
+const _UCp = "UpdateConfiguration";
+const _UCpd = "UpdateConnectivity";
 const _UE = "UnauthorizedException";
 const _UI = "UserIdentity";
 const _UM = "UpdateMonitoring";
@@ -457,6 +517,7 @@ const _VCIp = "VpcConnectivityIam";
 const _VCS = "VpcConnectivitySasl";
 const _VCSp = "VpcConnectivityScram";
 const _VCT = "VpcConnectivityTls";
+const _VCa = "ValueConverter";
 const _VCp = "VpcConfig";
 const _VCpc = "VpcConnections";
 const _VCpco = "VpcConfigs";
@@ -465,6 +526,7 @@ const _VI = "VpcId";
 const _VS = "VolumeSize";
 const _VSGB = "VolumeSizeGB";
 const _VT = "VolumeThroughput";
+const _WL = "WarehouseLocation";
 const _ZA = "ZookeeperAccess";
 const _ZCS = "ZookeeperConnectString";
 const _ZCST = "ZookeeperConnectStringTls";
@@ -477,10 +539,12 @@ const _aENII = "attachedENIId";
 const _aKC = "apacheKafkaCluster";
 const _aKCI = "apacheKafkaClusterId";
 const _aMC = "amazonMskCluster";
+const _aO = "appendOnly";
 const _aOA = "activeOperationArn";
 const _aTCT = "addedToClusterTime";
 const _ar = "arn";
 const _b = "bucket";
+const _bA = "bucketArn";
 const _bAZD = "brokerAZDistribution";
 const _bBS = "bootstrapBrokerString";
 const _bBSI = "bootstrapBrokerStringIpv6";
@@ -508,6 +572,8 @@ const _cA = "clusterArn";
 const _cAAL = "certificateAuthorityArnList";
 const _cACLFT = "copyAccessControlListsForTopics";
 const _cAS = "customerActionStatus";
+const _cAa = "catalogArn";
+const _cAh = "channelArn";
 const _cAl = "clientAuthentication";
 const _cAo = "configurationArn";
 const _cB = "clientBroker";
@@ -522,9 +588,10 @@ const _cIL = "clusterInfoList";
 const _cIl = "clusterInfo";
 const _cIo = "configurationInfo";
 const _cKV = "compatibleKafkaVersions";
-const _cN = "clusterName";
+const _cN = "channelName";
 const _cNF = "clusterNameFilter";
 const _cNI = "controllerNodeInfo";
+const _cNl = "clusterName";
 const _cOA = "clusterOperationArn";
 const _cOI = "clusterOperationInfo";
 const _cOIL = "clusterOperationInfoList";
@@ -536,40 +603,57 @@ const _cT = "creationTime";
 const _cTC = "copyTopicConfigurations";
 const _cTF = "clusterTypeFilter";
 const _cTl = "clusterType";
+const _cTo = "compressionType";
 const _cV = "currentVersion";
 const _cVC = "clientVpcConnections";
 const _cVIA = "clientVpcIpAddress";
 const _cWL = "cloudWatchLogs";
-const _co = "configs";
-const _cod = "code";
-const _con = "configurations";
+const _ca = "catalog";
+const _ch = "channels";
+const _co = "code";
+const _con = "configs";
+const _conf = "configurations";
 const _d = "description";
 const _dACNCG = "detectAndCopyNewConsumerGroups";
 const _dACNT = "detectAndCopyNewTopics";
 const _dBI = "deletedBrokerIds";
+const _dDN = "destinationDatabaseName";
+const _dFIS = "dataFreshnessInSeconds";
+const _dLQS = "deadLetterQueueS3";
 const _dS = "deliveryStream";
+const _dT = "destinationType";
+const _dTL = "destinationTableList";
+const _dTN = "destinationTableName";
 const _dVKMSKI = "dataVolumeKMSKeyId";
 const _e = "error";
 const _eAR = "encryptionAtRest";
-const _eC = "errorCode";
+const _eBO = "expectedBucketOwner";
+const _eC = "encryptionConfiguration";
+const _eCr = "errorCode";
 const _eI = "encryptionInfo";
 const _eIB = "enabledInBroker";
 const _eIT = "encryptionInTransit";
 const _eIr = "errorInfo";
 const _eM = "enhancedMonitoring";
 const _eMr = "errorMessage";
+const _eOP = "errorOutputPrefix";
 const _eS = "errorString";
+const _eSE = "enableSchemaEvolution";
 const _eSI = "ebsStorageInfo";
 const _eT = "endTime";
+const _eTC = "enableTableCreation";
 const _eTn = "encryptionType";
 const _en = "endpoints";
 const _ena = "enabled";
 const _f = "firehose";
+const _gA = "gsrArn";
 const _h = "http";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "iam";
 const _iC = "inCluster";
+const _iDC = "icebergDestinationConfiguration";
+const _iDU = "icebergDestinationUpdate";
 const _iP = "invalidParameter";
 const _iRR = "isReplicatorReference";
 const _iT = "instanceType";
@@ -580,6 +664,7 @@ const _kBNI = "kafkaBrokerNodeId";
 const _kC = "kafkaClusters";
 const _kCA = "kafkaClusterAlias";
 const _kCS = "kafkaClustersSummary";
+const _kKA = "kmsKeyArn";
 const _kV = "kafkaVersion";
 const _kVa = "kafkaVersions";
 const _l = "leader";
@@ -588,7 +673,8 @@ const _lG = "logGroup";
 const _lI = "loggingInfo";
 const _lOBEBSVI = "__listOfBrokerEBSVolumeInfo";
 const _lOC = "__listOfCluster";
-const _lOCI = "__listOfClusterInfo";
+const _lOCI = "__listOfChannelInfo";
+const _lOCIi = "__listOfClusterInfo";
 const _lOCKV = "__listOfCompatibleKafkaVersion";
 const _lOCOI = "__listOfClusterOperationInfo";
 const _lOCOS = "__listOfClusterOperationStep";
@@ -596,15 +682,18 @@ const _lOCOVS = "__listOfClusterOperationV2Summary";
 const _lOCR = "__listOfConfigurationRevision";
 const _lOCVC = "__listOfClientVpcConnection";
 const _lOCi = "__listOfConfiguration";
+const _lODT = "__listOfDestinationTable";
 const _lOKC = "__listOfKafkaCluster";
 const _lOKCD = "__listOfKafkaClusterDescription";
 const _lOKCS = "__listOfKafkaClusterSummary";
 const _lOKV = "__listOfKafkaVersion";
 const _lONI = "__listOfNodeInfo";
+const _lOPS = "__listOfPartitionSource";
 const _lORI = "__listOfReplicationInfo";
 const _lORID = "__listOfReplicationInfoDescription";
 const _lORIS = "__listOfReplicationInfoSummary";
 const _lORS = "__listOfReplicatorSummary";
+const _lOTC = "__listOfTopicConfiguration";
 const _lOTI = "__listOfTopicInfo";
 const _lOTPI = "__listOfTopicPartitionInfo";
 const _lOUSS = "__listOfUnprocessedScramSecret";
@@ -626,8 +715,10 @@ const _nTe = "nextToken";
 const _nTo = "nodeType";
 const _o = "owner";
 const _oA = "operationArn";
+const _oKT = "outputKeyTemplate";
 const _oM = "openMonitoring";
 const _oOSRC = "outOfSyncReplicaCount";
+const _oP = "outputPrefix";
 const _oS = "operationState";
 const _oSp = "operationSteps";
 const _oT = "operationType";
@@ -635,6 +726,8 @@ const _p = "provisioned";
 const _pA = "publicAccess";
 const _pC = "partitionCount";
 const _pI = "principalId";
+const _pS = "partitionSpec";
+const _pSa = "partitionStrategy";
 const _pT = "provisionedThroughput";
 const _pa = "partitions";
 const _par = "partition";
@@ -643,6 +736,7 @@ const _pr = "prometheus";
 const _pre = "prefix";
 const _r = "rebalancing";
 const _rA = "replicatorArn";
+const _rC = "recordConverter";
 const _rCC = "rootCaCertificate";
 const _rD = "replicatorDescription";
 const _rF = "replicationFactor";
@@ -653,6 +747,7 @@ const _rN = "replicatorName";
 const _rNF = "replicatorNameFilter";
 const _rRA = "replicatorResourceArn";
 const _rS = "replicatorState";
+const _rSe = "recordSchema";
 const _re = "revision";
 const _rep = "replicators";
 const _repl = "replicas";
@@ -660,8 +755,12 @@ const _rev = "revisions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafka";
 const _sA = "secretArn";
 const _sAL = "secretArnList";
+const _sC = "storageClass";
 const _sCGO = "synchroniseConsumerGroupOffsets";
 const _sCI = "sourceClusterInfo";
+const _sDC = "s3DestinationConfiguration";
+const _sDU = "s3DestinationUpdate";
+const _sE = "schemaEvolution";
 const _sERA = "serviceExecutionRoleArn";
 const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
@@ -672,8 +771,10 @@ const _sIu = "subnetIds";
 const _sKCA = "sourceKafkaClusterArn";
 const _sKCAo = "sourceKafkaClusterAlias";
 const _sKCI = "sourceKafkaClusterId";
+const _sL = "sourceList";
 const _sM = "storageMode";
 const _sN = "stepName";
+const _sNo = "sourceName";
 const _sP = "serverProperties";
 const _sPt = "startingPosition";
 const _sS = "stepStatus";
@@ -685,14 +786,17 @@ const _sa = "sasl";
 const _sc = "scram";
 const _se = "server";
 const _ser = "serverless";
-const _st = "state";
-const _sta = "status";
+const _st = "status";
+const _sta = "state";
+const _sto = "storage";
 const _su = "subnets";
 const _t = "tls";
 const _tA = "topicArn";
 const _tBEBSVI = "targetBrokerEBSVolumeInfo";
+const _tC = "tableCreation";
 const _tCA = "targetClusterArn";
 const _tCI = "targetClusterInfo";
+const _tCL = "topicConfigurationList";
 const _tCT = "targetCompressionType";
 const _tIT = "targetInstanceType";
 const _tK = "tagKeys";
@@ -718,6 +822,7 @@ const _v = "version";
 const _vC = "vpcConnectivity";
 const _vCA = "vpcConnectionArn";
 const _vCI = "vpcConnectionInfo";
+const _vCa = "valueConverter";
 const _vCp = "vpcConfig";
 const _vCpc = "vpcConnections";
 const _vCpco = "vpcConfigs";
@@ -725,6 +830,7 @@ const _vI = "vpcId";
 const _vS = "volumeSize";
 const _vSGB = "volumeSizeGB";
 const _vT = "volumeThroughput";
+const _wL = "warehouseLocation";
 const _zA = "zookeeperAccess";
 const _zCS = "zookeeperConnectString";
 const _zCST = "zookeeperConnectStringTls";
@@ -941,6 +1047,26 @@ export var BrokerSoftwareInfo$: StaticStructureSchema = [3, n0, _BSI,
   [_CAo, _CR, _KV],
   [[0, { [_jN]: _cAo }], [1, { [_jN]: _cR }], [0, { [_jN]: _kV }]]
 ];
+export var Catalog$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_CAa, _WL],
+  [[0, { [_jN]: _cAa }], [0, { [_jN]: _wL }]]
+];
+export var ChannelInfo$: StaticStructureSchema = [3, n0, _CIh,
+  0,
+  [_CAh, _CN, _St, _CT, _DT, _COA],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [5, { [_jN]: _cT }], [0, { [_jN]: _dT }], [0, { [_jN]: _cOA }]], 5
+];
+export var ChannelLoggingInfo$: StaticStructureSchema = [3, n0, _CLI,
+  0,
+  [_CWL, _F, _S],
+  [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
+];
+export var ChannelStateInfo$: StaticStructureSchema = [3, n0, _CSI,
+  0,
+  [_Co, _M],
+  [[0, { [_jN]: _co }], [0, { [_jN]: _m }]]
+];
 export var ClientAuthentication$: StaticStructureSchema = [3, n0, _CAl,
   0,
   [_Sa, _T, _U],
@@ -948,23 +1074,23 @@ export var ClientAuthentication$: StaticStructureSchema = [3, n0, _CAl,
 ];
 export var ClientVpcConnection$: StaticStructureSchema = [3, n0, _CVC,
   0,
-  [_VCA, _A, _CT, _St, _O],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _a }], [5, { [_jN]: _cT }], [0, { [_jN]: _st }], [0, { [_jN]: _o }]], 1
+  [_VCA, _A, _CT, _Sta, _O],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _a }], [5, { [_jN]: _cT }], [0, { [_jN]: _sta }], [0, { [_jN]: _o }]], 1
 ];
 export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
   0,
   [_En, _LG],
   [[2, { [_jN]: _ena }], [0, { [_jN]: _lG }]], 1
 ];
-export var Cluster$: StaticStructureSchema = [3, n0, _C,
+export var Cluster$: StaticStructureSchema = [3, n0, _Cl,
   0,
-  [_AOA, _CTl, _CA, _CN, _CT, _CV, _St, _SIt, _Ta, _P, _Se],
-  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _ser }]]
+  [_AOA, _CTl, _CA, _CNl, _CT, _CV, _Sta, _SIt, _Ta, _P, _Se],
+  [[0, { [_jN]: _aOA }], [0, { [_jN]: _cTl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [() => Provisioned$, { [_jN]: _p }], [() => Serverless$, { [_jN]: _ser }]]
 ];
 export var ClusterInfo$: StaticStructureSchema = [3, n0, _CIl,
   0,
-  [_AOA, _BNGI, _R, _CAl, _CA, _CN, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _St, _SIt, _Ta, _ZCS, _ZCST, _SM, _CAS],
-  [[0, { [_jN]: _aOA }], [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [5, { [_jN]: _cT }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _st }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
+  [_AOA, _BNGI, _R, _CAl, _CA, _CNl, _CT, _CBSI, _CV, _EI, _EM, _OM, _LI, _NOBN, _Sta, _SIt, _Ta, _ZCS, _ZCST, _SM, _CAS],
+  [[0, { [_jN]: _aOA }], [() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [5, { [_jN]: _cT }], [() => BrokerSoftwareInfo$, { [_jN]: _cBSI }], [0, { [_jN]: _cV }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoring$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [1, { [_jN]: _nOBN }], [0, { [_jN]: _sta }], [() => StateInfo$, { [_jN]: _sIt }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _zCS }], [0, { [_jN]: _zCST }], [0, { [_jN]: _sM }], [0, { [_jN]: _cAS }]]
 ];
 export var ClusterOperationInfo$: StaticStructureSchema = [3, n0, _COI,
   0,
@@ -1006,10 +1132,10 @@ export var CompatibleKafkaVersion$: StaticStructureSchema = [3, n0, _CKV,
   [_SV, _TV],
   [[0, { [_jN]: _sV }], [64 | 0, { [_jN]: _tV }]]
 ];
-export var Configuration$: StaticStructureSchema = [3, n0, _Co,
+export var Configuration$: StaticStructureSchema = [3, n0, _Con,
   0,
-  [_Ar, _CT, _D, _KVa, _LR, _N, _St],
-  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]], 7
+  [_Ar, _CT, _D, _KVa, _LR, _N, _Sta],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _sta }]], 7
 ];
 export var ConfigurationInfo$: StaticStructureSchema = [3, n0, _CIo,
   0,
@@ -1041,35 +1167,45 @@ export var ControllerNodeInfo$: StaticStructureSchema = [3, n0, _CNI,
   [_E],
   [[64 | 0, { [_jN]: _en }]]
 ];
-export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCR,
+export var CreateChannelRequest$: StaticStructureSchema = [3, n0, _CCR,
   0,
-  [_BNGI, _CN, _KV, _NOBN, _R, _CAl, _CIo, _EI, _EM, _OM, _LI, _Ta, _SM],
-  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _cN }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _sM }]], 4
+  [_CN, _CA, _TCL, _EC, _IDC, _SDC, _Ta, _LI],
+  [[0, { [_jN]: _cN }], [0, 1], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [128 | 0, { [_jN]: _ta }], [() => ChannelLoggingInfo$, { [_jN]: _lI }]], 3
 ];
-export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRr,
+export var CreateChannelResponse$: StaticStructureSchema = [3, n0, _CCRr,
   0,
-  [_CA, _CN, _St],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }]]
+  [_CAh, _COA],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cOA }]], 1
+];
+export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRre,
+  0,
+  [_BNGI, _CNl, _KV, _NOBN, _R, _CAl, _CIo, _EI, _EM, _OM, _LI, _Ta, _SM],
+  [[() => BrokerNodeGroupInfo$, { [_jN]: _bNGI }], [0, { [_jN]: _cNl }], [0, { [_jN]: _kV }], [1, { [_jN]: _nOBN }], [() => Rebalancing$, { [_jN]: _r }], [() => ClientAuthentication$, { [_jN]: _cAl }], [() => ConfigurationInfo$, { [_jN]: _cIo }], [() => EncryptionInfo$, { [_jN]: _eI }], [0, { [_jN]: _eM }], [() => OpenMonitoringInfo$, { [_jN]: _oM }], [() => LoggingInfo$, { [_jN]: _lI }], [128 | 0, { [_jN]: _ta }], [0, { [_jN]: _sM }]], 4
+];
+export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRrea,
+  0,
+  [_CA, _CNl, _Sta],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [0, { [_jN]: _sta }]]
 ];
 export var CreateClusterV2Request$: StaticStructureSchema = [3, n0, _CCVR,
   0,
-  [_CN, _Ta, _P, _Se],
-  [[0, { [_jN]: _cN }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _ser }]], 1
+  [_CNl, _Ta, _P, _Se],
+  [[0, { [_jN]: _cNl }], [128 | 0, { [_jN]: _ta }], [() => ProvisionedRequest$, { [_jN]: _p }], [() => ServerlessRequest$, { [_jN]: _ser }]], 1
 ];
 export var CreateClusterV2Response$: StaticStructureSchema = [3, n0, _CCVRr,
   0,
-  [_CA, _CN, _St, _CTl],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [0, { [_jN]: _cTl }]]
+  [_CA, _CNl, _Sta, _CTl],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _cNl }], [0, { [_jN]: _sta }], [0, { [_jN]: _cTl }]]
 ];
-export var CreateConfigurationRequest$: StaticStructureSchema = [3, n0, _CCRre,
+export var CreateConfigurationRequest$: StaticStructureSchema = [3, n0, _CCRreat,
   0,
   [_N, _SP, _D, _KVa],
   [[0, { [_jN]: _n }], [21, { [_jN]: _sP }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }]], 2
 ];
-export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRrea,
+export var CreateConfigurationResponse$: StaticStructureSchema = [3, n0, _CCRreate,
   0,
-  [_Ar, _CT, _LR, _N, _St],
-  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]]
+  [_Ar, _CT, _LR, _N, _Sta],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _sta }]]
 ];
 export var CreateReplicatorRequest$: StaticStructureSchema = [3, n0, _CRR,
   0,
@@ -1083,13 +1219,13 @@ export var CreateReplicatorResponse$: StaticStructureSchema = [3, n0, _CRRr,
 ];
 export var CreateTopicRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_CA, _TN, _PC, _RF, _Con],
-  [[0, 1], [0, { [_jN]: _tN }], [1, { [_jN]: _pC }], [1, { [_jN]: _rF }], [0, { [_jN]: _co }]], 4
+  [_CA, _TN, _PC, _RF, _Conf],
+  [[0, 1], [0, { [_jN]: _tN }], [1, { [_jN]: _pC }], [1, { [_jN]: _rF }], [0, { [_jN]: _con }]], 4
 ];
 export var CreateTopicResponse$: StaticStructureSchema = [3, n0, _CTRr,
   0,
-  [_TA, _TN, _Sta],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _sta }]]
+  [_TA, _TN, _St],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _st }]]
 ];
 export var CreateVpcConnectionRequest$: StaticStructureSchema = [3, n0, _CVCR,
   0,
@@ -1098,8 +1234,23 @@ export var CreateVpcConnectionRequest$: StaticStructureSchema = [3, n0, _CVCR,
 ];
 export var CreateVpcConnectionResponse$: StaticStructureSchema = [3, n0, _CVCRr,
   0,
-  [_VCA, _St, _A, _VI, _CS, _SG, _CT, _Ta],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _st }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+  [_VCA, _Sta, _A, _VI, _CS, _SG, _CT, _Ta],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _cS }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+];
+export var DeadLetterQueueS3$: StaticStructureSchema = [3, n0, _DLQS,
+  0,
+  [_BA, _EOP, _EBO],
+  [[0, { [_jN]: _bA }], [0, { [_jN]: _eOP }], [0, { [_jN]: _eBO }]], 1
+];
+export var DeleteChannelRequest$: StaticStructureSchema = [3, n0, _DCR,
+  0,
+  [_CAh, _CA],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteChannelResponse$: StaticStructureSchema = [3, n0, _DCRe,
+  0,
+  [_CAh, _COA],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cOA }]], 1
 ];
 export var DeleteClusterPolicyRequest$: StaticStructureSchema = [3, n0, _DCPR,
   0,
@@ -1111,25 +1262,25 @@ export var DeleteClusterPolicyResponse$: StaticStructureSchema = [3, n0, _DCPRe,
   [],
   []
 ];
-export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCR,
+export var DeleteClusterRequest$: StaticStructureSchema = [3, n0, _DCRel,
   0,
   [_CA, _CV],
   [[0, 1], [0, { [_hQ]: _cV }]], 1
 ];
-export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRe,
+export var DeleteClusterResponse$: StaticStructureSchema = [3, n0, _DCRele,
   0,
-  [_CA, _St],
-  [[0, { [_jN]: _cA }], [0, { [_jN]: _st }]]
+  [_CA, _Sta],
+  [[0, { [_jN]: _cA }], [0, { [_jN]: _sta }]]
 ];
-export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRel,
+export var DeleteConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRelet,
   0,
   [_Ar],
   [[0, 1]], 1
 ];
-export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRele,
+export var DeleteConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRelete,
   0,
-  [_Ar, _St],
-  [[0, { [_jN]: _ar }], [0, { [_jN]: _st }]]
+  [_Ar, _Sta],
+  [[0, { [_jN]: _ar }], [0, { [_jN]: _sta }]]
 ];
 export var DeleteReplicatorRequest$: StaticStructureSchema = [3, n0, _DRR,
   0,
@@ -1148,8 +1299,8 @@ export var DeleteTopicRequest$: StaticStructureSchema = [3, n0, _DTR,
 ];
 export var DeleteTopicResponse$: StaticStructureSchema = [3, n0, _DTRe,
   0,
-  [_TA, _TN, _Sta],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _sta }]]
+  [_TA, _TN, _St],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _st }]]
 ];
 export var DeleteVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCR,
   0,
@@ -1158,8 +1309,18 @@ export var DeleteVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCR,
 ];
 export var DeleteVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCRe,
   0,
-  [_VCA, _St],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _st }]]
+  [_VCA, _Sta],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _sta }]]
+];
+export var DescribeChannelRequest$: StaticStructureSchema = [3, n0, _DCRes,
+  0,
+  [_CAh, _CA],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeChannelResponse$: StaticStructureSchema = [3, n0, _DCResc,
+  0,
+  [_CAh, _CN, _St, _DT, _CT, _TCL, _EC, _IDC, _SDC, _LI, _SIt, _COA, _Ta],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cN }], [0, { [_jN]: _st }], [0, { [_jN]: _dT }], [5, { [_jN]: _cT }], [() => __listOfTopicConfiguration, { [_jN]: _tCL }], [() => EncryptionConfiguration$, { [_jN]: _eC }], [() => IcebergDestinationConfiguration$, { [_jN]: _iDC }], [() => S3DestinationConfiguration$, { [_jN]: _sDC }], [() => ChannelLoggingInfo$, { [_jN]: _lI }], [() => ChannelStateInfo$, { [_jN]: _sIt }], [0, { [_jN]: _cOA }], [128 | 0, { [_jN]: _ta }]], 6
 ];
 export var DescribeClusterOperationRequest$: StaticStructureSchema = [3, n0, _DCOR,
   0,
@@ -1181,12 +1342,12 @@ export var DescribeClusterOperationV2Response$: StaticStructureSchema = [3, n0, 
   [_COI],
   [[() => ClusterOperationV2$, { [_jN]: _cOI }]]
 ];
-export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRes,
+export var DescribeClusterRequest$: StaticStructureSchema = [3, n0, _DCRescr,
   0,
   [_CA],
   [[0, 1]], 1
 ];
-export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCResc,
+export var DescribeClusterResponse$: StaticStructureSchema = [3, n0, _DCRescri,
   0,
   [_CIl],
   [[() => ClusterInfo$, { [_jN]: _cIl }]]
@@ -1201,15 +1362,15 @@ export var DescribeClusterV2Response$: StaticStructureSchema = [3, n0, _DCVRe,
   [_CIl],
   [[() => Cluster$, { [_jN]: _cIl }]]
 ];
-export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRescr,
+export var DescribeConfigurationRequest$: StaticStructureSchema = [3, n0, _DCRescrib,
   0,
   [_Ar],
   [[0, 1]], 1
 ];
-export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRescri,
+export var DescribeConfigurationResponse$: StaticStructureSchema = [3, n0, _DCRescribe,
   0,
-  [_Ar, _CT, _D, _KVa, _LR, _N, _St],
-  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _st }]]
+  [_Ar, _CT, _D, _KVa, _LR, _N, _Sta],
+  [[0, { [_jN]: _ar }], [5, { [_jN]: _cT }], [0, { [_jN]: _d }], [64 | 0, { [_jN]: _kVa }], [() => ConfigurationRevision$, { [_jN]: _lR }], [0, { [_jN]: _n }], [0, { [_jN]: _sta }]]
 ];
 export var DescribeConfigurationRevisionRequest$: StaticStructureSchema = [3, n0, _DCRR,
   0,
@@ -1248,8 +1409,8 @@ export var DescribeTopicRequest$: StaticStructureSchema = [3, n0, _DTRes,
 ];
 export var DescribeTopicResponse$: StaticStructureSchema = [3, n0, _DTResc,
   0,
-  [_TA, _TN, _RF, _PC, _Con, _Sta],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [0, { [_jN]: _co }], [0, { [_jN]: _sta }]]
+  [_TA, _TN, _RF, _PC, _Conf, _St],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [1, { [_jN]: _rF }], [1, { [_jN]: _pC }], [0, { [_jN]: _con }], [0, { [_jN]: _st }]]
 ];
 export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRes,
   0,
@@ -1258,8 +1419,13 @@ export var DescribeVpcConnectionRequest$: StaticStructureSchema = [3, n0, _DVCRe
 ];
 export var DescribeVpcConnectionResponse$: StaticStructureSchema = [3, n0, _DVCResc,
   0,
-  [_VCA, _TCA, _St, _A, _VI, _Su, _SG, _CT, _Ta],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [0, { [_jN]: _st }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _su }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+  [_VCA, _TCA, _Sta, _A, _VI, _Su, _SG, _CT, _Ta],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [0, { [_jN]: _sta }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [64 | 0, { [_jN]: _su }], [64 | 0, { [_jN]: _sG }], [5, { [_jN]: _cT }], [128 | 0, { [_jN]: _ta }]]
+];
+export var DestinationTable$: StaticStructureSchema = [3, n0, _DTe,
+  0,
+  [_DDN, _DTN, _PS],
+  [[0, { [_jN]: _dDN }], [0, { [_jN]: _dTN }], [() => PartitionSpec$, { [_jN]: _pS }]]
 ];
 export var EBSStorageInfo$: StaticStructureSchema = [3, n0, _EBSSI,
   0,
@@ -1270,6 +1436,11 @@ export var EncryptionAtRest$: StaticStructureSchema = [3, n0, _EAR,
   0,
   [_DVKMSKI],
   [[0, { [_jN]: _dVKMSKI }]], 1
+];
+export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
+  0,
+  [_KKA],
+  [[0, { [_jN]: _kKA }]], 1
 ];
 export var EncryptionInfo$: StaticStructureSchema = [3, n0, _EI,
   0,
@@ -1283,8 +1454,8 @@ export var EncryptionInTransit$: StaticStructureSchema = [3, n0, _EIT,
 ];
 export var ErrorInfo$: StaticStructureSchema = [3, n0, _EIr,
   0,
-  [_EC, _ES],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _eS }]]
+  [_ECr, _ES],
+  [[0, { [_jN]: _eCr }], [0, { [_jN]: _eS }]]
 ];
 export var Firehose$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -1325,6 +1496,16 @@ export var Iam$: StaticStructureSchema = [3, n0, _I,
   0,
   [_En],
   [[2, { [_jN]: _ena }]]
+];
+export var IcebergDestinationConfiguration$: StaticStructureSchema = [3, n0, _IDC,
+  0,
+  [_AO, _DLQS, _DTL, _SE, _SERA, _TC, _C, _DFIS, _CTo],
+  [[2, { [_jN]: _aO }], [() => DeadLetterQueueS3$, { [_jN]: _dLQS }], [() => __listOfDestinationTable, { [_jN]: _dTL }], [() => SchemaEvolution$, { [_jN]: _sE }], [0, { [_jN]: _sERA }], [() => TableCreation$, { [_jN]: _tC }], [() => Catalog$, { [_jN]: _ca }], [1, { [_jN]: _dFIS }], [0, { [_jN]: _cTo }]], 6
+];
+export var IcebergDestinationUpdate$: StaticStructureSchema = [3, n0, _IDU,
+  0,
+  [_DFIS],
+  [[1, { [_jN]: _dFIS }]], 1
 ];
 export var JmxExporter$: StaticStructureSchema = [3, n0, _JE,
   0,
@@ -1378,8 +1559,18 @@ export var KafkaClusterSummary$: StaticStructureSchema = [3, n0, _KCS,
 ];
 export var KafkaVersion$: StaticStructureSchema = [3, n0, _KV,
   0,
-  [_V, _Sta],
-  [[0, { [_jN]: _v }], [0, { [_jN]: _sta }]]
+  [_V, _St],
+  [[0, { [_jN]: _v }], [0, { [_jN]: _st }]]
+];
+export var ListChannelsRequest$: StaticStructureSchema = [3, n0, _LCR,
+  0,
+  [_CA, _MR, _NTe, _TNF],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }], [0, { [_hQ]: _tNF }]], 1
+];
+export var ListChannelsResponse$: StaticStructureSchema = [3, n0, _LCRi,
+  0,
+  [_Ch, _NTe],
+  [[() => __listOfChannelInfo, { [_jN]: _ch }], [0, { [_jN]: _nTe }]]
 ];
 export var ListClientVpcConnectionsRequest$: StaticStructureSchema = [3, n0, _LCVCR,
   0,
@@ -1411,12 +1602,12 @@ export var ListClusterOperationsV2Response$: StaticStructureSchema = [3, n0, _LC
   [_COIL, _NTe],
   [[() => __listOfClusterOperationV2Summary, { [_jN]: _cOIL }], [0, { [_jN]: _nTe }]]
 ];
-export var ListClustersRequest$: StaticStructureSchema = [3, n0, _LCR,
+export var ListClustersRequest$: StaticStructureSchema = [3, n0, _LCRis,
   0,
   [_CNF, _MR, _NTe],
   [[0, { [_hQ]: _cNF }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
 ];
-export var ListClustersResponse$: StaticStructureSchema = [3, n0, _LCRi,
+export var ListClustersResponse$: StaticStructureSchema = [3, n0, _LCRist,
   0,
   [_CIL, _NTe],
   [[() => __listOfClusterInfo, { [_jN]: _cIL }], [0, { [_jN]: _nTe }]]
@@ -1441,15 +1632,15 @@ export var ListConfigurationRevisionsResponse$: StaticStructureSchema = [3, n0, 
   [_NTe, _Rev],
   [[0, { [_jN]: _nTe }], [() => __listOfConfigurationRevision, { [_jN]: _rev }]]
 ];
-export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCRis,
+export var ListConfigurationsRequest$: StaticStructureSchema = [3, n0, _LCRisto,
   0,
   [_MR, _NTe],
   [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nTe }]]
 ];
-export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRist,
+export var ListConfigurationsResponse$: StaticStructureSchema = [3, n0, _LCRiston,
   0,
-  [_Conf, _NTe],
-  [[() => __listOfConfiguration, { [_jN]: _con }], [0, { [_jN]: _nTe }]]
+  [_Confi, _NTe],
+  [[() => __listOfConfiguration, { [_jN]: _conf }], [0, { [_jN]: _nTe }]]
 ];
 export var ListKafkaVersionsRequest$: StaticStructureSchema = [3, n0, _LKVR,
   0,
@@ -1561,6 +1752,16 @@ export var OpenMonitoringInfo$: StaticStructureSchema = [3, n0, _OMI,
   [_Pr],
   [[() => PrometheusInfo$, { [_jN]: _pr }]], 1
 ];
+export var PartitionSource$: StaticStructureSchema = [3, n0, _PSa,
+  0,
+  [_SNo],
+  [[0, { [_jN]: _sNo }]]
+];
+export var PartitionSpec$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_PSar, _SL],
+  [[0, { [_jN]: _pSa }], [() => __listOfPartitionSource, { [_jN]: _sL }]], 1
+];
 export var Prometheus$: StaticStructureSchema = [3, n0, _Pr,
   0,
   [_JE, _NE],
@@ -1603,8 +1804,8 @@ export var PutClusterPolicyResponse$: StaticStructureSchema = [3, n0, _PCPRu,
 ];
 export var Rebalancing$: StaticStructureSchema = [3, n0, _R,
   0,
-  [_Sta],
-  [[0, { [_jN]: _sta }]]
+  [_St],
+  [[0, { [_jN]: _st }]]
 ];
 export var RebootBrokerRequest$: StaticStructureSchema = [3, n0, _RBR,
   0,
@@ -1615,6 +1816,16 @@ export var RebootBrokerResponse$: StaticStructureSchema = [3, n0, _RBRe,
   0,
   [_CA, _COA],
   [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
+];
+export var RecordConverter$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_VCa],
+  [[0, { [_jN]: _vCa }]], 1
+];
+export var RecordSchema$: StaticStructureSchema = [3, n0, _RSe,
+  0,
+  [_GA],
+  [[0, { [_jN]: _gA }]], 1
 ];
 export var RejectClientVpcConnectionRequest$: StaticStructureSchema = [3, n0, _RCVCR,
   0,
@@ -1648,8 +1859,8 @@ export var ReplicationStartingPosition$: StaticStructureSchema = [3, n0, _RSP,
 ];
 export var ReplicationStateInfo$: StaticStructureSchema = [3, n0, _RSI,
   0,
-  [_Cod, _M],
-  [[0, { [_jN]: _cod }], [0, { [_jN]: _m }]]
+  [_Co, _M],
+  [[0, { [_jN]: _co }], [0, { [_jN]: _m }]]
 ];
 export var ReplicationTopicNameConfiguration$: StaticStructureSchema = [3, n0, _RTNC,
   0,
@@ -1671,12 +1882,12 @@ export var ReplicatorLogDelivery$: StaticStructureSchema = [3, n0, _RLD,
   [_CWL, _F, _S],
   [[() => ReplicatorCloudWatchLogs$, { [_jN]: _cWL }], [() => ReplicatorFirehose$, { [_jN]: _f }], [() => ReplicatorS3$, { [_jN]: _s_ }]]
 ];
-export var ReplicatorS3$: StaticStructureSchema = [3, n0, _RSe,
+export var ReplicatorS3$: StaticStructureSchema = [3, n0, _RSep,
   0,
   [_En, _B, _Pre],
   [[2, { [_jN]: _ena }], [0, { [_jN]: _b }], [0, { [_jN]: _pre }]], 1
 ];
-export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSep,
+export var ReplicatorSummary$: StaticStructureSchema = [3, n0, _RSepl,
   0,
   [_CT, _CV, _IRR, _KCSa, _RISL, _RA, _RN, _RRA, _RS],
   [[5, { [_jN]: _cT }], [0, { [_jN]: _cV }], [2, { [_jN]: _iRR }], [() => __listOfKafkaClusterSummary, { [_jN]: _kCS }], [() => __listOfReplicationInfoSummary, { [_jN]: _rISL }], [0, { [_jN]: _rA }], [0, { [_jN]: _rN }], [0, { [_jN]: _rRA }], [0, { [_jN]: _rS }]]
@@ -1686,10 +1897,30 @@ export var S3$: StaticStructureSchema = [3, n0, _S,
   [_En, _B, _Pre],
   [[2, { [_jN]: _ena }], [0, { [_jN]: _b }], [0, { [_jN]: _pre }]], 1
 ];
+export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
+  0,
+  [_DLQS, _SERA, _Sto, _DFIS],
+  [[() => DeadLetterQueueS3$, { [_jN]: _dLQS }], [0, { [_jN]: _sERA }], [() => S3Storage$, { [_jN]: _sto }], [1, { [_jN]: _dFIS }]], 3
+];
+export var S3DestinationUpdate$: StaticStructureSchema = [3, n0, _SDU,
+  0,
+  [_DFIS],
+  [[1, { [_jN]: _dFIS }]], 1
+];
+export var S3Storage$: StaticStructureSchema = [3, n0, _SSt,
+  0,
+  [_BA, _CTo, _SC, _OP, _OKT, _EBO],
+  [[0, { [_jN]: _bA }], [0, { [_jN]: _cTo }], [0, { [_jN]: _sC }], [0, { [_jN]: _oP }], [0, { [_jN]: _oKT }], [0, { [_jN]: _eBO }]], 3
+];
 export var Sasl$: StaticStructureSchema = [3, n0, _Sa,
   0,
   [_Sc, _I],
   [[() => Scram$, { [_jN]: _sc }], [() => Iam$, { [_jN]: _i }]]
+];
+export var SchemaEvolution$: StaticStructureSchema = [3, n0, _SE,
+  0,
+  [_ESE],
+  [[2, { [_jN]: _eSE }]]
 ];
 export var Scram$: StaticStructureSchema = [3, n0, _Sc,
   0,
@@ -1723,13 +1954,18 @@ export var ServerlessSasl$: StaticStructureSchema = [3, n0, _SSe,
 ];
 export var StateInfo$: StaticStructureSchema = [3, n0, _SIt,
   0,
-  [_Cod, _M],
-  [[0, { [_jN]: _cod }], [0, { [_jN]: _m }]]
+  [_Co, _M],
+  [[0, { [_jN]: _co }], [0, { [_jN]: _m }]]
 ];
 export var StorageInfo$: StaticStructureSchema = [3, n0, _SI,
   0,
   [_ESI],
   [[() => EBSStorageInfo$, { [_jN]: _eSI }]]
+];
+export var TableCreation$: StaticStructureSchema = [3, n0, _TC,
+  0,
+  [_ETC],
+  [[2, { [_jN]: _eTC }]]
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -1740,6 +1976,11 @@ export var Tls$: StaticStructureSchema = [3, n0, _T,
   0,
   [_CAAL, _En],
   [[64 | 0, { [_jN]: _cAAL }], [2, { [_jN]: _ena }]]
+];
+export var TopicConfiguration$: StaticStructureSchema = [3, n0, _TCo,
+  0,
+  [_RC, _TA, _RSe],
+  [[() => RecordConverter$, { [_jN]: _rC }], [0, { [_jN]: _tA }], [() => RecordSchema$, { [_jN]: _rSe }]], 2
 ];
 export var TopicInfo$: StaticStructureSchema = [3, n0, _TI,
   0,
@@ -1768,8 +2009,8 @@ export var Unauthenticated$: StaticStructureSchema = [3, n0, _U,
 ];
 export var UnprocessedScramSecret$: StaticStructureSchema = [3, n0, _USSn,
   0,
-  [_EC, _EMr, _SA],
-  [[0, { [_jN]: _eC }], [0, { [_jN]: _eMr }], [0, { [_jN]: _sA }]]
+  [_ECr, _EMr, _SA],
+  [[0, { [_jN]: _eCr }], [0, { [_jN]: _eMr }], [0, { [_jN]: _sA }]]
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1806,6 +2047,16 @@ export var UpdateBrokerTypeResponse$: StaticStructureSchema = [3, n0, _UBTRp,
   [_CA, _COA],
   [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
+export var UpdateChannelRequest$: StaticStructureSchema = [3, n0, _UCR,
+  0,
+  [_CAh, _CA, _IDU, _SDU],
+  [[0, 1], [0, 1], [() => IcebergDestinationUpdate$, { [_jN]: _iDU }], [() => S3DestinationUpdate$, { [_jN]: _sDU }]], 2
+];
+export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
+  0,
+  [_CAh, _COA],
+  [[0, { [_jN]: _cAh }], [0, { [_jN]: _cOA }]], 1
+];
 export var UpdateClusterConfigurationRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
   [_CA, _CIo, _CV],
@@ -1826,22 +2077,22 @@ export var UpdateClusterKafkaVersionResponse$: StaticStructureSchema = [3, n0, _
   [_CA, _COA],
   [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
 ];
-export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCR,
+export var UpdateConfigurationRequest$: StaticStructureSchema = [3, n0, _UCRpd,
   0,
   [_Ar, _SP, _D],
   [[0, 1], [21, { [_jN]: _sP }], [0, { [_jN]: _d }]], 2
 ];
-export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRp,
+export var UpdateConfigurationResponse$: StaticStructureSchema = [3, n0, _UCRpda,
   0,
   [_Ar, _LR],
   [[0, { [_jN]: _ar }], [() => ConfigurationRevision$, { [_jN]: _lR }]]
 ];
-export var UpdateConnectivityRequest$: StaticStructureSchema = [3, n0, _UCRpd,
+export var UpdateConnectivityRequest$: StaticStructureSchema = [3, n0, _UCRpdat,
   0,
   [_CA, _CV, _CI, _ZA],
   [[0, 1], [0, { [_jN]: _cV }], [() => ConnectivityInfo$, { [_jN]: _cI }], [() => ZookeeperAccess$, { [_jN]: _zA }]], 2
 ];
-export var UpdateConnectivityResponse$: StaticStructureSchema = [3, n0, _UCRpda,
+export var UpdateConnectivityResponse$: StaticStructureSchema = [3, n0, _UCRpdate,
   0,
   [_CA, _COA],
   [[0, { [_jN]: _cA }], [0, { [_jN]: _cOA }]]
@@ -1898,13 +2149,13 @@ export var UpdateStorageResponse$: StaticStructureSchema = [3, n0, _USRpda,
 ];
 export var UpdateTopicRequest$: StaticStructureSchema = [3, n0, _UTR,
   0,
-  [_CA, _TN, _Con, _PC],
-  [[0, 1], [0, 1], [0, { [_jN]: _co }], [1, { [_jN]: _pC }]], 2
+  [_CA, _TN, _Conf, _PC],
+  [[0, 1], [0, 1], [0, { [_jN]: _con }], [1, { [_jN]: _pC }]], 2
 ];
 export var UpdateTopicResponse$: StaticStructureSchema = [3, n0, _UTRp,
   0,
-  [_TA, _TN, _Sta],
-  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _sta }]]
+  [_TA, _TN, _St],
+  [[0, { [_jN]: _tA }], [0, { [_jN]: _tN }], [0, { [_jN]: _st }]]
 ];
 export var UserIdentity$: StaticStructureSchema = [3, n0, _UI,
   0,
@@ -1918,8 +2169,8 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VCp,
 ];
 export var VpcConnection$: StaticStructureSchema = [3, n0, _VCpcon,
   0,
-  [_VCA, _TCA, _CT, _A, _VI, _St],
-  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [5, { [_jN]: _cT }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [0, { [_jN]: _st }]], 2
+  [_VCA, _TCA, _CT, _A, _VI, _Sta],
+  [[0, { [_jN]: _vCA }], [0, { [_jN]: _tCA }], [5, { [_jN]: _cT }], [0, { [_jN]: _a }], [0, { [_jN]: _vI }], [0, { [_jN]: _sta }]], 2
 ];
 export var VpcConnectionInfo$: StaticStructureSchema = [3, n0, _VCI,
   0,
@@ -1981,6 +2232,10 @@ var __listOfBrokerEBSVolumeInfo: StaticListSchema = [1, n0, _lOBEBSVI,
   0, [() => BrokerEBSVolumeInfo$,
     0]
 ];
+var __listOfChannelInfo: StaticListSchema = [1, n0, _lOCI,
+  0, [() => ChannelInfo$,
+    0]
+];
 var __listOfClientVpcConnection: StaticListSchema = [1, n0, _lOCVC,
   0, [() => ClientVpcConnection$,
     0]
@@ -1989,7 +2244,7 @@ var __listOfCluster: StaticListSchema = [1, n0, _lOC,
   0, [() => Cluster$,
     0]
 ];
-var __listOfClusterInfo: StaticListSchema = [1, n0, _lOCI,
+var __listOfClusterInfo: StaticListSchema = [1, n0, _lOCIi,
   0, [() => ClusterInfo$,
     0]
 ];
@@ -2017,6 +2272,10 @@ var __listOfConfigurationRevision: StaticListSchema = [1, n0, _lOCR,
   0, [() => ConfigurationRevision$,
     0]
 ];
+var __listOfDestinationTable: StaticListSchema = [1, n0, _lODT,
+  0, [() => DestinationTable$,
+    0]
+];
 var __listOfKafkaCluster: StaticListSchema = [1, n0, _lOKC,
   0, [() => KafkaCluster$,
     0]
@@ -2037,6 +2296,10 @@ var __listOfNodeInfo: StaticListSchema = [1, n0, _lONI,
   0, [() => NodeInfo$,
     0]
 ];
+var __listOfPartitionSource: StaticListSchema = [1, n0, _lOPS,
+  0, [() => PartitionSource$,
+    0]
+];
 var __listOfReplicationInfo: StaticListSchema = [1, n0, _lORI,
   0, [() => ReplicationInfo$,
     0]
@@ -2051,6 +2314,10 @@ var __listOfReplicationInfoSummary: StaticListSchema = [1, n0, _lORIS,
 ];
 var __listOfReplicatorSummary: StaticListSchema = [1, n0, _lORS,
   0, [() => ReplicatorSummary$,
+    0]
+];
+var __listOfTopicConfiguration: StaticListSchema = [1, n0, _lOTC,
+  0, [() => TopicConfiguration$,
     0]
 ];
 var __listOfTopicInfo: StaticListSchema = [1, n0, _lOTI,
@@ -2080,13 +2347,16 @@ export var BatchAssociateScramSecret$: StaticOperationSchema = [9, n0, _BASS,
 export var BatchDisassociateScramSecret$: StaticOperationSchema = [9, n0, _BDSS,
   { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchDisassociateScramSecretRequest$, () => BatchDisassociateScramSecretResponse$
 ];
-export var CreateCluster$: StaticOperationSchema = [9, n0, _CC,
+export var CreateChannel$: StaticOperationSchema = [9, n0, _CC,
+  { [_h]: ["POST", "/v1/clusters/{ClusterArn}/channels", 200] }, () => CreateChannelRequest$, () => CreateChannelResponse$
+];
+export var CreateCluster$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["POST", "/v1/clusters", 200] }, () => CreateClusterRequest$, () => CreateClusterResponse$
 ];
 export var CreateClusterV2$: StaticOperationSchema = [9, n0, _CCV,
   { [_h]: ["POST", "/api/v2/clusters", 200] }, () => CreateClusterV2Request$, () => CreateClusterV2Response$
 ];
-export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CCr,
+export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CCre,
   { [_h]: ["POST", "/v1/configurations", 200] }, () => CreateConfigurationRequest$, () => CreateConfigurationResponse$
 ];
 export var CreateReplicator$: StaticOperationSchema = [9, n0, _CRr,
@@ -2098,25 +2368,31 @@ export var CreateTopic$: StaticOperationSchema = [9, n0, _CTr,
 export var CreateVpcConnection$: StaticOperationSchema = [9, n0, _CVCr,
   { [_h]: ["POST", "/v1/vpc-connection", 200] }, () => CreateVpcConnectionRequest$, () => CreateVpcConnectionResponse$
 ];
-export var DeleteCluster$: StaticOperationSchema = [9, n0, _DC,
+export var DeleteChannel$: StaticOperationSchema = [9, n0, _DC,
+  { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/channels/{ChannelArn}", 200] }, () => DeleteChannelRequest$, () => DeleteChannelResponse$
+];
+export var DeleteCluster$: StaticOperationSchema = [9, n0, _DCe,
   { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}", 200] }, () => DeleteClusterRequest$, () => DeleteClusterResponse$
 ];
 export var DeleteClusterPolicy$: StaticOperationSchema = [9, n0, _DCP,
   { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/policy", 200] }, () => DeleteClusterPolicyRequest$, () => DeleteClusterPolicyResponse$
 ];
-export var DeleteConfiguration$: StaticOperationSchema = [9, n0, _DCe,
+export var DeleteConfiguration$: StaticOperationSchema = [9, n0, _DCel,
   { [_h]: ["DELETE", "/v1/configurations/{Arn}", 200] }, () => DeleteConfigurationRequest$, () => DeleteConfigurationResponse$
 ];
 export var DeleteReplicator$: StaticOperationSchema = [9, n0, _DR,
   { [_h]: ["DELETE", "/replication/v1/replicators/{ReplicatorArn}", 200] }, () => DeleteReplicatorRequest$, () => DeleteReplicatorResponse$
 ];
-export var DeleteTopic$: StaticOperationSchema = [9, n0, _DT,
+export var DeleteTopic$: StaticOperationSchema = [9, n0, _DTel,
   { [_h]: ["DELETE", "/v1/clusters/{ClusterArn}/topics/{TopicName}", 200] }, () => DeleteTopicRequest$, () => DeleteTopicResponse$
 ];
 export var DeleteVpcConnection$: StaticOperationSchema = [9, n0, _DVC,
   { [_h]: ["DELETE", "/v1/vpc-connection/{Arn}", 200] }, () => DeleteVpcConnectionRequest$, () => DeleteVpcConnectionResponse$
 ];
-export var DescribeCluster$: StaticOperationSchema = [9, n0, _DCes,
+export var DescribeChannel$: StaticOperationSchema = [9, n0, _DCes,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/channels/{ChannelArn}", 200] }, () => DescribeChannelRequest$, () => DescribeChannelResponse$
+];
+export var DescribeCluster$: StaticOperationSchema = [9, n0, _DCesc,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}", 200] }, () => DescribeClusterRequest$, () => DescribeClusterResponse$
 ];
 export var DescribeClusterOperation$: StaticOperationSchema = [9, n0, _DCO,
@@ -2128,16 +2404,16 @@ export var DescribeClusterOperationV2$: StaticOperationSchema = [9, n0, _DCOV,
 export var DescribeClusterV2$: StaticOperationSchema = [9, n0, _DCV,
   { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}", 200] }, () => DescribeClusterV2Request$, () => DescribeClusterV2Response$
 ];
-export var DescribeConfiguration$: StaticOperationSchema = [9, n0, _DCesc,
+export var DescribeConfiguration$: StaticOperationSchema = [9, n0, _DCescr,
   { [_h]: ["GET", "/v1/configurations/{Arn}", 200] }, () => DescribeConfigurationRequest$, () => DescribeConfigurationResponse$
 ];
-export var DescribeConfigurationRevision$: StaticOperationSchema = [9, n0, _DCRescrib,
+export var DescribeConfigurationRevision$: StaticOperationSchema = [9, n0, _DCRescribeo,
   { [_h]: ["GET", "/v1/configurations/{Arn}/revisions/{Revision}", 200] }, () => DescribeConfigurationRevisionRequest$, () => DescribeConfigurationRevisionResponse$
 ];
 export var DescribeReplicator$: StaticOperationSchema = [9, n0, _DRe,
   { [_h]: ["GET", "/replication/v1/replicators/{ReplicatorArn}", 200] }, () => DescribeReplicatorRequest$, () => DescribeReplicatorResponse$
 ];
-export var DescribeTopic$: StaticOperationSchema = [9, n0, _DTe,
+export var DescribeTopic$: StaticOperationSchema = [9, n0, _DTes,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/topics/{TopicName}", 200] }, () => DescribeTopicRequest$, () => DescribeTopicResponse$
 ];
 export var DescribeTopicPartitions$: StaticOperationSchema = [9, n0, _DTP,
@@ -2155,6 +2431,9 @@ export var GetClusterPolicy$: StaticOperationSchema = [9, n0, _GCP,
 export var GetCompatibleKafkaVersions$: StaticOperationSchema = [9, n0, _GCKV,
   { [_h]: ["GET", "/v1/compatible-kafka-versions", 200] }, () => GetCompatibleKafkaVersionsRequest$, () => GetCompatibleKafkaVersionsResponse$
 ];
+export var ListChannels$: StaticOperationSchema = [9, n0, _LC,
+  { [_h]: ["GET", "/v1/clusters/{ClusterArn}/channels", 200] }, () => ListChannelsRequest$, () => ListChannelsResponse$
+];
 export var ListClientVpcConnections$: StaticOperationSchema = [9, n0, _LCVC,
   { [_h]: ["GET", "/v1/clusters/{ClusterArn}/client-vpc-connections", 200] }, () => ListClientVpcConnectionsRequest$, () => ListClientVpcConnectionsResponse$
 ];
@@ -2164,16 +2443,16 @@ export var ListClusterOperations$: StaticOperationSchema = [9, n0, _LCO,
 export var ListClusterOperationsV2$: StaticOperationSchema = [9, n0, _LCOV,
   { [_h]: ["GET", "/api/v2/clusters/{ClusterArn}/operations", 200] }, () => ListClusterOperationsV2Request$, () => ListClusterOperationsV2Response$
 ];
-export var ListClusters$: StaticOperationSchema = [9, n0, _LC,
+export var ListClusters$: StaticOperationSchema = [9, n0, _LCi,
   { [_h]: ["GET", "/v1/clusters", 200] }, () => ListClustersRequest$, () => ListClustersResponse$
 ];
 export var ListClustersV2$: StaticOperationSchema = [9, n0, _LCV,
   { [_h]: ["GET", "/api/v2/clusters", 200] }, () => ListClustersV2Request$, () => ListClustersV2Response$
 ];
-export var ListConfigurationRevisions$: StaticOperationSchema = [9, n0, _LCRisto,
+export var ListConfigurationRevisions$: StaticOperationSchema = [9, n0, _LCRistonf,
   { [_h]: ["GET", "/v1/configurations/{Arn}/revisions", 200] }, () => ListConfigurationRevisionsRequest$, () => ListConfigurationRevisionsResponse$
 ];
-export var ListConfigurations$: StaticOperationSchema = [9, n0, _LCi,
+export var ListConfigurations$: StaticOperationSchema = [9, n0, _LCis,
   { [_h]: ["GET", "/v1/configurations", 200] }, () => ListConfigurationsRequest$, () => ListConfigurationsResponse$
 ];
 export var ListKafkaVersions$: StaticOperationSchema = [9, n0, _LKV,
@@ -2221,16 +2500,19 @@ export var UpdateBrokerStorage$: StaticOperationSchema = [9, n0, _UBS,
 export var UpdateBrokerType$: StaticOperationSchema = [9, n0, _UBT,
   { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/nodes/type", 200] }, () => UpdateBrokerTypeRequest$, () => UpdateBrokerTypeResponse$
 ];
+export var UpdateChannel$: StaticOperationSchema = [9, n0, _UC,
+  { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/channels/{ChannelArn}", 200] }, () => UpdateChannelRequest$, () => UpdateChannelResponse$
+];
 export var UpdateClusterConfiguration$: StaticOperationSchema = [9, n0, _UCC,
   { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/configuration", 200] }, () => UpdateClusterConfigurationRequest$, () => UpdateClusterConfigurationResponse$
 ];
 export var UpdateClusterKafkaVersion$: StaticOperationSchema = [9, n0, _UCKV,
   { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/version", 200] }, () => UpdateClusterKafkaVersionRequest$, () => UpdateClusterKafkaVersionResponse$
 ];
-export var UpdateConfiguration$: StaticOperationSchema = [9, n0, _UC,
+export var UpdateConfiguration$: StaticOperationSchema = [9, n0, _UCp,
   { [_h]: ["PUT", "/v1/configurations/{Arn}", 200] }, () => UpdateConfigurationRequest$, () => UpdateConfigurationResponse$
 ];
-export var UpdateConnectivity$: StaticOperationSchema = [9, n0, _UCp,
+export var UpdateConnectivity$: StaticOperationSchema = [9, n0, _UCpd,
   { [_h]: ["PUT", "/v1/clusters/{ClusterArn}/connectivity", 200] }, () => UpdateConnectivityRequest$, () => UpdateConnectivityResponse$
 ];
 export var UpdateMonitoring$: StaticOperationSchema = [9, n0, _UM,

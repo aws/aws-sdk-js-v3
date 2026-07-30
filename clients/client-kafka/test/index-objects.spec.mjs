@@ -18,6 +18,12 @@ import {
   BrokerNodeGroupInfo$,
   BrokerNodeInfo$,
   BrokerSoftwareInfo$,
+  Catalog$,
+  ChannelDestinationType,
+  ChannelInfo$,
+  ChannelLoggingInfo$,
+  ChannelStateInfo$,
+  ChannelStatus,
   ClientAuthentication$,
   ClientBroker,
   ClientVpcConnection$,
@@ -49,6 +55,10 @@ import {
   ControllerMovedException,
   ControllerMovedException$,
   ControllerNodeInfo$,
+  CreateChannel$,
+  CreateChannelCommand,
+  CreateChannelRequest$,
+  CreateChannelResponse$,
   CreateCluster$,
   CreateClusterCommand,
   CreateClusterRequest$,
@@ -74,6 +84,11 @@ import {
   CreateVpcConnectionRequest$,
   CreateVpcConnectionResponse$,
   CustomerActionStatus,
+  DeadLetterQueueS3$,
+  DeleteChannel$,
+  DeleteChannelCommand,
+  DeleteChannelRequest$,
+  DeleteChannelResponse$,
   DeleteCluster$,
   DeleteClusterCommand,
   DeleteClusterPolicy$,
@@ -98,6 +113,10 @@ import {
   DeleteVpcConnectionCommand,
   DeleteVpcConnectionRequest$,
   DeleteVpcConnectionResponse$,
+  DescribeChannel$,
+  DescribeChannelCommand,
+  DescribeChannelRequest$,
+  DescribeChannelResponse$,
   DescribeCluster$,
   DescribeClusterCommand,
   DescribeClusterOperation$,
@@ -138,8 +157,10 @@ import {
   DescribeVpcConnectionCommand,
   DescribeVpcConnectionRequest$,
   DescribeVpcConnectionResponse$,
+  DestinationTable$,
   EBSStorageInfo$,
   EncryptionAtRest$,
+  EncryptionConfiguration$,
   EncryptionInfo$,
   EncryptionInTransit$,
   EnhancedMonitoring,
@@ -162,6 +183,9 @@ import {
   GroupSubscribedToTopicException,
   GroupSubscribedToTopicException$,
   Iam$,
+  IcebergCompressionType,
+  IcebergDestinationConfiguration$,
+  IcebergDestinationUpdate$,
   InternalServerErrorException,
   InternalServerErrorException$,
   JmxExporter$,
@@ -185,6 +209,10 @@ import {
   KafkaTimeoutException$,
   KafkaVersion$,
   KafkaVersionStatus,
+  ListChannels$,
+  ListChannelsCommand,
+  ListChannelsRequest$,
+  ListChannelsResponse$,
   ListClientVpcConnections$,
   ListClientVpcConnectionsCommand,
   ListClientVpcConnectionsRequest$,
@@ -269,6 +297,9 @@ import {
   paginateListScramSecrets,
   paginateListTopics,
   paginateListVpcConnections,
+  PartitionSource$,
+  PartitionSpec$,
+  PartitionStrategy,
   Prometheus$,
   PrometheusInfo$,
   Provisioned$,
@@ -287,6 +318,8 @@ import {
   RebootBrokerCommand,
   RebootBrokerRequest$,
   RebootBrokerResponse$,
+  RecordConverter$,
+  RecordSchema$,
   RejectClientVpcConnection$,
   RejectClientVpcConnectionCommand,
   RejectClientVpcConnectionRequest$,
@@ -306,7 +339,13 @@ import {
   ReplicatorState,
   ReplicatorSummary$,
   S3$,
+  S3CompressionType,
+  S3DestinationConfiguration$,
+  S3DestinationUpdate$,
+  S3Storage$,
+  S3StorageClass,
   Sasl$,
+  SchemaEvolution$,
   Scram$,
   Serverless$,
   ServerlessClientAuthentication$,
@@ -318,6 +357,7 @@ import {
   StateInfo$,
   StorageInfo$,
   StorageMode,
+  TableCreation$,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -325,6 +365,7 @@ import {
   Tls$,
   TooManyRequestsException,
   TooManyRequestsException$,
+  TopicConfiguration$,
   TopicExistsException,
   TopicExistsException$,
   TopicInfo$,
@@ -353,6 +394,10 @@ import {
   UpdateBrokerTypeCommand,
   UpdateBrokerTypeRequest$,
   UpdateBrokerTypeResponse$,
+  UpdateChannel$,
+  UpdateChannelCommand,
+  UpdateChannelRequest$,
+  UpdateChannelResponse$,
   UpdateClusterConfiguration$,
   UpdateClusterConfigurationCommand,
   UpdateClusterConfigurationRequest$,
@@ -395,6 +440,7 @@ import {
   UpdateTopicResponse$,
   UserIdentity$,
   UserIdentityType,
+  ValueConverter,
   VpcConfig$,
   VpcConnection$,
   VpcConnectionInfo$,
@@ -418,6 +464,8 @@ assert(typeof BatchAssociateScramSecretCommand === "function");
 assert(typeof BatchAssociateScramSecret$ === "object");
 assert(typeof BatchDisassociateScramSecretCommand === "function");
 assert(typeof BatchDisassociateScramSecret$ === "object");
+assert(typeof CreateChannelCommand === "function");
+assert(typeof CreateChannel$ === "object");
 assert(typeof CreateClusterCommand === "function");
 assert(typeof CreateCluster$ === "object");
 assert(typeof CreateClusterV2Command === "function");
@@ -430,6 +478,8 @@ assert(typeof CreateTopicCommand === "function");
 assert(typeof CreateTopic$ === "object");
 assert(typeof CreateVpcConnectionCommand === "function");
 assert(typeof CreateVpcConnection$ === "object");
+assert(typeof DeleteChannelCommand === "function");
+assert(typeof DeleteChannel$ === "object");
 assert(typeof DeleteClusterCommand === "function");
 assert(typeof DeleteCluster$ === "object");
 assert(typeof DeleteClusterPolicyCommand === "function");
@@ -442,6 +492,8 @@ assert(typeof DeleteTopicCommand === "function");
 assert(typeof DeleteTopic$ === "object");
 assert(typeof DeleteVpcConnectionCommand === "function");
 assert(typeof DeleteVpcConnection$ === "object");
+assert(typeof DescribeChannelCommand === "function");
+assert(typeof DescribeChannel$ === "object");
 assert(typeof DescribeClusterCommand === "function");
 assert(typeof DescribeCluster$ === "object");
 assert(typeof DescribeClusterOperationCommand === "function");
@@ -468,6 +520,8 @@ assert(typeof GetClusterPolicyCommand === "function");
 assert(typeof GetClusterPolicy$ === "object");
 assert(typeof GetCompatibleKafkaVersionsCommand === "function");
 assert(typeof GetCompatibleKafkaVersions$ === "object");
+assert(typeof ListChannelsCommand === "function");
+assert(typeof ListChannels$ === "object");
 assert(typeof ListClientVpcConnectionsCommand === "function");
 assert(typeof ListClientVpcConnections$ === "object");
 assert(typeof ListClusterOperationsCommand === "function");
@@ -512,6 +566,8 @@ assert(typeof UpdateBrokerStorageCommand === "function");
 assert(typeof UpdateBrokerStorage$ === "object");
 assert(typeof UpdateBrokerTypeCommand === "function");
 assert(typeof UpdateBrokerType$ === "object");
+assert(typeof UpdateChannelCommand === "function");
+assert(typeof UpdateChannel$ === "object");
 assert(typeof UpdateClusterConfigurationCommand === "function");
 assert(typeof UpdateClusterConfiguration$ === "object");
 assert(typeof UpdateClusterKafkaVersionCommand === "function");
@@ -545,6 +601,10 @@ assert(typeof BrokerLogs$ === "object");
 assert(typeof BrokerNodeGroupInfo$ === "object");
 assert(typeof BrokerNodeInfo$ === "object");
 assert(typeof BrokerSoftwareInfo$ === "object");
+assert(typeof Catalog$ === "object");
+assert(typeof ChannelInfo$ === "object");
+assert(typeof ChannelLoggingInfo$ === "object");
+assert(typeof ChannelStateInfo$ === "object");
 assert(typeof ClientAuthentication$ === "object");
 assert(typeof ClientVpcConnection$ === "object");
 assert(typeof CloudWatchLogs$ === "object");
@@ -565,6 +625,8 @@ assert(typeof ConnectivityInfo$ === "object");
 assert(typeof ConsumerGroupReplication$ === "object");
 assert(typeof ConsumerGroupReplicationUpdate$ === "object");
 assert(typeof ControllerNodeInfo$ === "object");
+assert(typeof CreateChannelRequest$ === "object");
+assert(typeof CreateChannelResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
 assert(typeof CreateClusterResponse$ === "object");
 assert(typeof CreateClusterV2Request$ === "object");
@@ -577,6 +639,9 @@ assert(typeof CreateTopicRequest$ === "object");
 assert(typeof CreateTopicResponse$ === "object");
 assert(typeof CreateVpcConnectionRequest$ === "object");
 assert(typeof CreateVpcConnectionResponse$ === "object");
+assert(typeof DeadLetterQueueS3$ === "object");
+assert(typeof DeleteChannelRequest$ === "object");
+assert(typeof DeleteChannelResponse$ === "object");
 assert(typeof DeleteClusterPolicyRequest$ === "object");
 assert(typeof DeleteClusterPolicyResponse$ === "object");
 assert(typeof DeleteClusterRequest$ === "object");
@@ -589,6 +654,8 @@ assert(typeof DeleteTopicRequest$ === "object");
 assert(typeof DeleteTopicResponse$ === "object");
 assert(typeof DeleteVpcConnectionRequest$ === "object");
 assert(typeof DeleteVpcConnectionResponse$ === "object");
+assert(typeof DescribeChannelRequest$ === "object");
+assert(typeof DescribeChannelResponse$ === "object");
 assert(typeof DescribeClusterOperationRequest$ === "object");
 assert(typeof DescribeClusterOperationResponse$ === "object");
 assert(typeof DescribeClusterOperationV2Request$ === "object");
@@ -609,8 +676,10 @@ assert(typeof DescribeTopicRequest$ === "object");
 assert(typeof DescribeTopicResponse$ === "object");
 assert(typeof DescribeVpcConnectionRequest$ === "object");
 assert(typeof DescribeVpcConnectionResponse$ === "object");
+assert(typeof DestinationTable$ === "object");
 assert(typeof EBSStorageInfo$ === "object");
 assert(typeof EncryptionAtRest$ === "object");
+assert(typeof EncryptionConfiguration$ === "object");
 assert(typeof EncryptionInfo$ === "object");
 assert(typeof EncryptionInTransit$ === "object");
 assert(typeof ErrorInfo$ === "object");
@@ -622,6 +691,8 @@ assert(typeof GetClusterPolicyResponse$ === "object");
 assert(typeof GetCompatibleKafkaVersionsRequest$ === "object");
 assert(typeof GetCompatibleKafkaVersionsResponse$ === "object");
 assert(typeof Iam$ === "object");
+assert(typeof IcebergDestinationConfiguration$ === "object");
+assert(typeof IcebergDestinationUpdate$ === "object");
 assert(typeof JmxExporter$ === "object");
 assert(typeof JmxExporterInfo$ === "object");
 assert(typeof KafkaCluster$ === "object");
@@ -633,6 +704,8 @@ assert(typeof KafkaClusterMTLSAuthentication$ === "object");
 assert(typeof KafkaClusterSaslScramAuthentication$ === "object");
 assert(typeof KafkaClusterSummary$ === "object");
 assert(typeof KafkaVersion$ === "object");
+assert(typeof ListChannelsRequest$ === "object");
+assert(typeof ListChannelsResponse$ === "object");
 assert(typeof ListClientVpcConnectionsRequest$ === "object");
 assert(typeof ListClientVpcConnectionsResponse$ === "object");
 assert(typeof ListClusterOperationsRequest$ === "object");
@@ -669,6 +742,8 @@ assert(typeof NodeExporterInfo$ === "object");
 assert(typeof NodeInfo$ === "object");
 assert(typeof OpenMonitoring$ === "object");
 assert(typeof OpenMonitoringInfo$ === "object");
+assert(typeof PartitionSource$ === "object");
+assert(typeof PartitionSpec$ === "object");
 assert(typeof Prometheus$ === "object");
 assert(typeof PrometheusInfo$ === "object");
 assert(typeof Provisioned$ === "object");
@@ -680,6 +755,8 @@ assert(typeof PutClusterPolicyResponse$ === "object");
 assert(typeof Rebalancing$ === "object");
 assert(typeof RebootBrokerRequest$ === "object");
 assert(typeof RebootBrokerResponse$ === "object");
+assert(typeof RecordConverter$ === "object");
+assert(typeof RecordSchema$ === "object");
 assert(typeof RejectClientVpcConnectionRequest$ === "object");
 assert(typeof RejectClientVpcConnectionResponse$ === "object");
 assert(typeof ReplicationInfo$ === "object");
@@ -694,7 +771,11 @@ assert(typeof ReplicatorLogDelivery$ === "object");
 assert(typeof ReplicatorS3$ === "object");
 assert(typeof ReplicatorSummary$ === "object");
 assert(typeof S3$ === "object");
+assert(typeof S3DestinationConfiguration$ === "object");
+assert(typeof S3DestinationUpdate$ === "object");
+assert(typeof S3Storage$ === "object");
 assert(typeof Sasl$ === "object");
+assert(typeof SchemaEvolution$ === "object");
 assert(typeof Scram$ === "object");
 assert(typeof Serverless$ === "object");
 assert(typeof ServerlessClientAuthentication$ === "object");
@@ -703,8 +784,10 @@ assert(typeof ServerlessRequest$ === "object");
 assert(typeof ServerlessSasl$ === "object");
 assert(typeof StateInfo$ === "object");
 assert(typeof StorageInfo$ === "object");
+assert(typeof TableCreation$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof Tls$ === "object");
+assert(typeof TopicConfiguration$ === "object");
 assert(typeof TopicInfo$ === "object");
 assert(typeof TopicPartitionInfo$ === "object");
 assert(typeof TopicReplication$ === "object");
@@ -718,6 +801,8 @@ assert(typeof UpdateBrokerStorageRequest$ === "object");
 assert(typeof UpdateBrokerStorageResponse$ === "object");
 assert(typeof UpdateBrokerTypeRequest$ === "object");
 assert(typeof UpdateBrokerTypeResponse$ === "object");
+assert(typeof UpdateChannelRequest$ === "object");
+assert(typeof UpdateChannelResponse$ === "object");
 assert(typeof UpdateClusterConfigurationRequest$ === "object");
 assert(typeof UpdateClusterConfigurationResponse$ === "object");
 assert(typeof UpdateClusterKafkaVersionRequest$ === "object");
@@ -753,6 +838,8 @@ assert(typeof ZookeeperAccess$ === "object");
 assert(typeof ZookeeperNodeInfo$ === "object");
 // enums
 assert(typeof BrokerAZDistribution === "object");
+assert(typeof ChannelDestinationType === "object");
+assert(typeof ChannelStatus === "object");
 assert(typeof ClientBroker === "object");
 assert(typeof ClusterState === "object");
 assert(typeof ClusterType === "object");
@@ -760,19 +847,24 @@ assert(typeof ConfigurationState === "object");
 assert(typeof ConsumerGroupOffsetSyncMode === "object");
 assert(typeof CustomerActionStatus === "object");
 assert(typeof EnhancedMonitoring === "object");
+assert(typeof IcebergCompressionType === "object");
 assert(typeof KafkaClusterEncryptionInTransitType === "object");
 assert(typeof KafkaClusterSaslScramMechanism === "object");
 assert(typeof KafkaVersionStatus === "object");
 assert(typeof NetworkType === "object");
 assert(typeof NodeType === "object");
+assert(typeof PartitionStrategy === "object");
 assert(typeof RebalancingStatus === "object");
 assert(typeof ReplicationStartingPositionType === "object");
 assert(typeof ReplicationTopicNameConfigurationType === "object");
 assert(typeof ReplicatorState === "object");
+assert(typeof S3CompressionType === "object");
+assert(typeof S3StorageClass === "object");
 assert(typeof StorageMode === "object");
 assert(typeof TargetCompressionType === "object");
 assert(typeof TopicState === "object");
 assert(typeof UserIdentityType === "object");
+assert(typeof ValueConverter === "object");
 assert(typeof VpcConnectionState === "object");
 // errors
 assert(BadRequestException.prototype instanceof KafkaServiceException);
