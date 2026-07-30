@@ -981,6 +981,12 @@ export interface IntegratedRepository {
    * @public
    */
   providerResourceId: string | undefined;
+
+  /**
+   * <p>An optional override for the repository branch.</p>
+   * @public
+   */
+  branch?: string | undefined;
 }
 
 /**

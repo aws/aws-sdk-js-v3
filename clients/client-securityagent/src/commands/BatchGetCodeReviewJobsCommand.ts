@@ -91,6 +91,7 @@ export interface BatchGetCodeReviewJobsCommandOutput extends BatchGetCodeReviewJ
  * //         { // IntegratedRepository
  * //           integrationId: "STRING_VALUE", // required
  * //           providerResourceId: "STRING_VALUE", // required
+ * //           branch: "STRING_VALUE",
  * //         },
  * //       ],
  * //       codeRemediationStrategy: "AUTOMATIC" || "DISABLED",

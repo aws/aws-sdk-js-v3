@@ -73,6 +73,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *       { // IntegratedRepository
  *         integrationId: "STRING_VALUE", // required
  *         providerResourceId: "STRING_VALUE", // required
+ *         branch: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -129,6 +130,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * //       { // IntegratedRepository
  * //         integrationId: "STRING_VALUE", // required
  * //         providerResourceId: "STRING_VALUE", // required
+ * //         branch: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

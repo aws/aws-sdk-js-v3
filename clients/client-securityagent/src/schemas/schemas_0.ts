@@ -480,8 +480,9 @@ const _ac = "actors";
 const _an = "anchor";
 const _ar = "artifact";
 const _as = "assets";
-const _b = "bitbucket";
+const _b = "branch";
 const _bR = "bitbucketRepository";
+const _bi = "bitbucket";
 const _c = "client";
 const _cA = "createdAt";
 const _cB = "createdBy";
@@ -1620,8 +1621,8 @@ export var IntegratedDocument$: StaticStructureSchema = [3, n0, _ID,
 ];
 export var IntegratedRepository$: StaticStructureSchema = [3, n0, _IR,
   0,
-  [_iIn, _pRI],
-  [0, 0], 2
+  [_iIn, _pRI, _b],
+  [0, 0, 0], 2
 ];
 export var IntegratedResourceInputItem$: StaticStructureSchema = [3, n0, _IRII,
   0,
@@ -2538,12 +2539,12 @@ export var PrivateConnectionMode$: StaticUnionSchema = [4, n0, _PCM,
 ];
 export var ProviderInput$: StaticUnionSchema = [4, n0, _PI,
   0,
-  [_g, _gi, _b, _confl],
+  [_g, _gi, _bi, _confl],
   [() => GitHubIntegrationInput$, [() => GitLabIntegrationInput$, 0], () => BitbucketIntegrationInput$, () => ConfluenceIntegrationInput$]
 ];
 export var ProviderResourceCapabilities$: StaticUnionSchema = [4, n0, _PRC,
   0,
-  [_g, _gi, _b, _confl],
+  [_g, _gi, _bi, _confl],
   [() => GitHubResourceCapabilities$, () => GitLabResourceCapabilities$, () => BitbucketResourceCapabilities$, () => ConfluenceResourceCapabilities$]
 ];
 export var AddArtifact$: StaticOperationSchema = [9, n0, _AA,

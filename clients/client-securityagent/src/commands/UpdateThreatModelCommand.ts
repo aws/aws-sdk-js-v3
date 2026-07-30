@@ -75,6 +75,7 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  *       { // IntegratedRepository
  *         integrationId: "STRING_VALUE", // required
  *         providerResourceId: "STRING_VALUE", // required
+ *         branch: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -139,6 +140,7 @@ export interface UpdateThreatModelCommandOutput extends UpdateThreatModelOutput,
  * //       { // IntegratedRepository
  * //         integrationId: "STRING_VALUE", // required
  * //         providerResourceId: "STRING_VALUE", // required
+ * //         branch: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
