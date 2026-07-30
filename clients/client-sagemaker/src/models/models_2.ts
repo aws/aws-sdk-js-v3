@@ -606,7 +606,7 @@ export interface CreateOptimizationJobRequest {
   VpcConfig?: OptimizationVpcConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the training plan to use for this optimization job.</p> <p>When you use reserved capacity from a training plan, the optimization job runs on that reserved capacity instead of on-demand capacity. If you omit this field, the job uses on-demand capacity. Currently, you can specify at most one training plan.</p> <p>For more information about how to reserve GPU capacity for your optimization jobs using Amazon SageMaker Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">Reserve capacity with training plans</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the training plan to use for this optimization job.</p> <p>When you use reserved capacity from a training plan, the optimization job runs on that reserved capacity instead of on-demand capacity. If you omit this field, the job uses on-demand capacity. You can specify at most one training plan.</p> <p>For more information about how to reserve GPU capacity for your optimization jobs using Amazon SageMaker Training Plans, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/reserve-capacity-with-training-plans.html">Reserve capacity with training plans</a>.</p>
    * @public
    */
   TrainingPlanArns?: string[] | undefined;
@@ -4814,7 +4814,7 @@ export interface DescribeAIRecommendationJobResponse {
   ComputeSpec?: AIRecommendationComputeSpec | undefined;
 
   /**
-   * <p>The LoRA adapter source that was specified when the recommendation job was created. This field is absent when the job was created without LoRA adapters.</p>
+   * <p>The LoRA adapter source that you specified when you created the recommendation job. This field is absent when you created the job without LoRA adapters.</p>
    * @public
    */
   AdapterSource?: AIAdapterSource | undefined;

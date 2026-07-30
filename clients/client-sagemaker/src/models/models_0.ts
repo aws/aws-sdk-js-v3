@@ -1173,7 +1173,7 @@ export namespace AIModelSource {
 }
 
 /**
- * <p>The per-recommendation LoRA adapter details. Contains both the model package ARNs and Amazon S3 URIs for each adapter, regardless of which form was originally supplied in the request. When the customer supplies only Amazon S3 URIs, Amazon SageMaker AI creates model packages on their behalf.</p>
+ * <p>The per-recommendation LoRA adapter details. Contains both the model package ARNs and Amazon S3 URIs for each adapter, regardless of which form was originally supplied in the request. When you supply only Amazon S3 URIs, Amazon SageMaker AI creates model packages on your behalf.</p>
  * @public
  */
 export interface AIRecommendationAdapterDetails {
@@ -1250,7 +1250,7 @@ export interface AIRecommendationDeploymentConfiguration {
   EnvironmentVariables?: Record<string, string> | undefined;
 
   /**
-   * <p>The minimum host (CPU) memory, in MiB, to reserve per model copy when deploying the recommendation as an Inference Component. This value maps to the base Inference Component's <code>ComputeResourceRequirements$MinMemoryRequiredInMb</code> and is sized so that <code>CopyCountPerInstance</code> copies co-place within the instance's allocatable host memory.</p>
+   * <p>The minimum host (CPU) memory, in MiB, to reserve for each model copy when deploying the recommendation as an Inference Component. This value maps to the Inference Component's <code>ComputeResourceRequirements$MinMemoryRequiredInMb</code> field.</p>
    * @public
    */
   MinCpuMemoryRequiredInMb?: number | undefined;
