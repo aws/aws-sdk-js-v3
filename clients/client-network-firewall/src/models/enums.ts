@@ -127,6 +127,7 @@ export const ContainerAssociationStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",
   DELETING: "DELETING",
+  UPDATING: "UPDATING",
 } as const;
 /**
  * @public

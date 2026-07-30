@@ -74,7 +74,7 @@ export interface UpdateContainerAssociationCommandOutput extends UpdateContainer
  * //       ],
  * //     },
  * //   ],
- * //   Status: "ACTIVE" || "CREATING" || "DELETING",
+ * //   Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required

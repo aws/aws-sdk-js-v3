@@ -41,7 +41,7 @@ export interface DeleteContainerAssociationCommandOutput extends DeleteContainer
  * // { // DeleteContainerAssociationResponse
  * //   ContainerAssociationName: "STRING_VALUE",
  * //   ContainerAssociationArn: "STRING_VALUE",
- * //   Status: "ACTIVE" || "CREATING" || "DELETING",
+ * //   Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING",
  * // };
  *
  * ```

@@ -54,7 +54,7 @@ export interface DescribeContainerAssociationCommandOutput extends DescribeConta
  * //       ],
  * //     },
  * //   ],
- * //   Status: "ACTIVE" || "CREATING" || "DELETING",
+ * //   Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING",
  * //   ResolvedCidrCount: Number("int"),
  * //   LastUpdatedTime: new Date("TIMESTAMP"),
  * //   Tags: [ // TagList

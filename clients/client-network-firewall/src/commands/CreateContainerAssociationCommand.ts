@@ -74,7 +74,7 @@ export interface CreateContainerAssociationCommandOutput extends CreateContainer
  * //       ],
  * //     },
  * //   ],
- * //   Status: "ACTIVE" || "CREATING" || "DELETING",
+ * //   Status: "ACTIVE" || "CREATING" || "DELETING" || "UPDATING",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required
