@@ -565,6 +565,98 @@ describe(JsonShapeSerializer2.name, () => {
     });
   });
 
+  // ─── __type document member serialization ───────────────────────────────────
+
+  describe("__type struct serialization", () => {
+    const structWithJsonNames: StaticStructureSchema = [
+      3,
+      "ns",
+      "MyStruct",
+      0,
+      ["firstName", "lastName", "age"],
+      [
+        [0, "ns", "FirstName", { jsonName: "first_name" }, 0],
+        [0, "ns", "LastName", { jsonName: "last_name" }, 0],
+        [1, "ns", "Age", 0, 0],
+      ],
+    ];
+
+    it("serializes extra members not in the schema when __type is present", () => {
+      const data = {
+        __type: "ns#ExtendedStruct",
+        firstName: "Alice",
+        lastName: "Smith",
+        age: 30,
+        extraField: "extra_value",
+        anotherExtra: 42,
+      };
+      serializer.write(structWithJsonNames, data);
+      const result = JSON.parse(decode(serializer.flush()));
+
+      expect(result.first_name).toEqual("Alice");
+      expect(result.last_name).toEqual("Smith");
+      expect(result.age).toEqual(30);
+      expect(result.extraField).toEqual("extra_value");
+      expect(result.anotherExtra).toEqual(42);
+      expect(result.__type).toEqual("ns#ExtendedStruct");
+    });
+
+    it("does not duplicate schema members as extra members when __type is present", () => {
+      const data = {
+        __type: "ns#Thing",
+        firstName: "Bob",
+        lastName: "Jones",
+        age: 25,
+      };
+      serializer.write(structWithJsonNames, data);
+      const result = decode(serializer.flush());
+      const parsed = JSON.parse(result);
+
+      expect(parsed.first_name).toEqual("Bob");
+      // The raw key "firstName" should not appear — only the jsonName "first_name"
+      expect(Object.keys(parsed).filter((k) => k === "firstName")).toHaveLength(0);
+      // Each jsonName key should appear exactly once
+      expect((result.match(/first_name/g) || []).length).toEqual(1);
+    });
+
+    it("writtenKeys prevents raw member names from appearing as extras", () => {
+      const data = {
+        __type: "ns#Thing",
+        firstName: "Bob",
+        lastName: "Jones",
+        age: 25,
+      };
+      serializer.write(structWithJsonNames, data);
+      const result = decode(serializer.flush());
+
+      // "firstName" (source key) should NOT appear in output
+      expect(result).not.toContain('"firstName"');
+      // "first_name" (jsonName) SHOULD appear
+      expect(result).toContain('"first_name"');
+    });
+
+    it("serializes __type struct without jsonName settings", () => {
+      const noJsonSerializer = new JsonShapeSerializer2({
+        jsonName: false,
+        timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
+      });
+      const simpleStruct: StaticStructureSchema = [3, "ns", "SimpleStruct", 0, ["name", "value"], [0, 0]];
+      const data = {
+        __type: "ns#NoRename",
+        name: "Dave",
+        value: "test",
+        unknownField: "mystery",
+      };
+      noJsonSerializer.write(simpleStruct, data);
+      const result = JSON.parse(decode(noJsonSerializer.flush()));
+
+      expect(result.__type).toEqual("ns#NoRename");
+      expect(result.name).toEqual("Dave");
+      expect(result.value).toEqual("test");
+      expect(result.unknownField).toEqual("mystery");
+    });
+  });
+
   // ─── flush() behavior ─────────────────────────────────────────────────────
 
   describe("flush", () => {

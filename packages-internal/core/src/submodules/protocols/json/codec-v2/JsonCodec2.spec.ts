@@ -40,4 +40,31 @@ describe(JsonCodec2.name, () => {
     codec.createDeserializer();
     expect(JsonShapeDeserializer2.prototype.setSerdeContext).toHaveBeenCalledWith(serdeContext);
   });
+
+  it("serializer works before setSerdeContext is called (uses fallback defaults)", () => {
+    const codec = new JsonCodec2({
+      jsonName: true,
+      timestampFormat: { default: 7, useTrait: true },
+    });
+    // Do NOT call setSerdeContext — simulates protocol constructor order
+    const serializer = codec.createSerializer() as JsonShapeSerializer2;
+
+    const schema = [3, "ns", "S", 0, ["blob"], [21]] as any;
+    serializer.write(schema, { blob: new Uint8Array([1, 2, 3]) });
+    const result = JSON.parse(new TextDecoder().decode(serializer.flush() as Uint8Array));
+    expect(result.blob).toEqual("AQID");
+  });
+
+  it("deserializer works before setSerdeContext is called for string input", async () => {
+    const codec = new JsonCodec2({
+      jsonName: true,
+      timestampFormat: { default: 7, useTrait: true },
+    });
+    // Do NOT call setSerdeContext
+    const deserializer = codec.createDeserializer() as JsonShapeDeserializer2;
+
+    const schema = [3, "ns", "S", 0, ["blob"], [21]] as any;
+    const result = await deserializer.read(schema, '{"blob":"AQID"}');
+    expect(result.blob).toEqual(new Uint8Array([1, 2, 3]));
+  });
 });

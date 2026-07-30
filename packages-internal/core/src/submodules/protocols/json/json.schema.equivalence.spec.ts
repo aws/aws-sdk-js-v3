@@ -591,4 +591,108 @@ describe("JSON v2 codec equivalence: schema-based permutations", () => {
       assertSerializationEquivalence(schema, value);
     });
   });
+
+  describe("__type with jsonName (document member forward-compat)", () => {
+    const structWithJsonNames: StaticStructureSchema = [
+      3,
+      "ns",
+      "MyStruct",
+      0,
+      ["firstName", "lastName", "age"],
+      [
+        [0, "ns", "FirstName", { jsonName: "first_name" }, 0],
+        [0, "ns", "LastName", { jsonName: "last_name" }, 0],
+        [1, "ns", "Age", 0, 0],
+      ],
+    ];
+
+    it("serialization: __type with known members only", () => {
+      const value = {
+        __type: "ns#MyStruct",
+        firstName: "Alice",
+        lastName: "Smith",
+        age: 30,
+      };
+      assertSerializationEquivalence(structWithJsonNames, value);
+    });
+
+    it("serialization: __type with extra unknown members", () => {
+      const value = {
+        __type: "ns#Extended",
+        firstName: "Bob",
+        lastName: "Jones",
+        age: 25,
+        extraField: "bonus",
+        anotherExtra: 99,
+      };
+      assertSerializationEquivalence(structWithJsonNames, value);
+    });
+
+    it("deserialization: __type with known jsonName keys", async () => {
+      const json = JSON.stringify({
+        __type: "ns#MyStruct",
+        first_name: "Carol",
+        last_name: "White",
+        age: 40,
+      });
+      await assertDeserializationEquivalence(structWithJsonNames, json);
+    });
+
+    it("deserialization: __type with extra unknown keys", async () => {
+      const json = JSON.stringify({
+        __type: "ns#MyStruct",
+        first_name: "Dave",
+        last_name: "Brown",
+        age: 50,
+        unknown_key: "mystery",
+        another: 123,
+      });
+      await assertDeserializationEquivalence(structWithJsonNames, json);
+    });
+
+    it("deserialization: no __type (normal path)", async () => {
+      const json = JSON.stringify({
+        first_name: "Eve",
+        last_name: "Green",
+        age: 35,
+      });
+      await assertDeserializationEquivalence(structWithJsonNames, json);
+    });
+
+    it("serialization: __type without jsonName settings", () => {
+      const ser1NoJson = new JsonShapeSerializer({ ...settings, jsonName: false });
+      const ser2NoJson = new JsonShapeSerializer2({ ...settings, jsonName: false });
+
+      const simpleStruct: StaticStructureSchema = [3, "ns", "Simple", 0, ["name", "value"], [0, 1]];
+      const value = {
+        __type: "ns#Simple",
+        name: "Frank",
+        value: 42,
+        extra: "field",
+      };
+
+      ser1NoJson.write(simpleStruct, value);
+      const v1Json = ser1NoJson.flush();
+      ser2NoJson.write(simpleStruct, value);
+      const v2Json = decoder.decode(ser2NoJson.flush());
+      expect(v2Json).toEqual(v1Json);
+    });
+
+    it("deserialization: __type without jsonName settings", async () => {
+      const de1NoJson = new JsonShapeDeserializer({ ...settings, jsonName: false });
+      const de2NoJson = new JsonShapeDeserializer2({ ...settings, jsonName: false });
+
+      const simpleStruct: StaticStructureSchema = [3, "ns", "Simple", 0, ["name", "value"], [0, 1]];
+      const json = JSON.stringify({
+        __type: "ns#Simple",
+        name: "Grace",
+        value: 99,
+        extra: "bonus",
+      });
+
+      const v1Result = await de1NoJson.read(simpleStruct, json);
+      const v2Result = await de2NoJson.read(simpleStruct, json);
+      expect(v2Result).toEqual(v1Result);
+    });
+  });
 });

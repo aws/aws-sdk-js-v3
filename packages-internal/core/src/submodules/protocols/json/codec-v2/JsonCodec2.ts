@@ -6,6 +6,7 @@ import { JsonShapeSerializer2 } from "./JsonShapeSerializer2";
 import type { JsonSettings } from "../JsonSettings";
 
 /**
+ * Codec grouping the v2 serializer and deserializer.
  * @public
  */
 export class JsonCodec2 extends SerdeContextConfig implements $Codec<Uint8Array, string> {

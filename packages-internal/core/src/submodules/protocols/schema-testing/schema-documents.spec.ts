@@ -5,7 +5,6 @@ import type {
   BlobSchema,
   BooleanSchema,
   DocumentSchema,
-  DocumentType,
   NumericSchema,
   StaticListSchema,
   StaticMapSchema,
@@ -21,8 +20,13 @@ import { describe, expect, test as it } from "vitest";
 
 import type { JsonSettings } from "../json/JsonSettings";
 import { JsonCodec } from "../json/codec-v1/JsonCodec";
-import type { JsonShapeDeserializer } from "../json/codec-v1/JsonShapeDeserializer";
+import { JsonCodec2 } from "../json/codec-v2/JsonCodec2";
 import { testCases } from "./new-document-type-test-cases.spec";
+import { toUtf8 } from "@smithy/core/serde";
+import type { JsonShapeSerializer } from "../json/codec-v1/JsonShapeSerializer";
+import type { JsonShapeSerializer2 } from "../json/codec-v2/JsonShapeSerializer2";
+import type { JsonShapeDeserializer } from "../json/codec-v1/JsonShapeDeserializer";
+import type { JsonShapeDeserializer2 } from "../json/codec-v2/JsonShapeDeserializer2";
 
 /* eslint no-var: 0 */
 export var OmniWidget: StaticStructureSchema = [
@@ -89,7 +93,10 @@ export var OmniWidget: StaticStructureSchema = [
 
 TypeRegistry.for(OmniWidget[1]).register(`${OmniWidget[1]}#${OmniWidget[2]}`, OmniWidget);
 
-function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
+function getJsonCodec(
+  CodecCtor: { new (args: any): JsonCodec | JsonCodec2 },
+  test: { settings: JsonSettings }
+): JsonCodec | JsonCodec2 {
   const { settings } = test;
   const format =
     {
@@ -98,7 +105,7 @@ function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
       "epoch-seconds": 7 as const satisfies TimestampEpochSecondsSchema,
     }[(settings.timestampFormat?.default as unknown as string) ?? "epoch-seconds"] ??
     (7 as const satisfies TimestampEpochSecondsSchema);
-  return new JsonCodec({
+  return new CodecCtor({
     jsonName: settings.jsonName ?? false,
     timestampFormat: {
       default: format,
@@ -108,66 +115,55 @@ function getJsonCodec(test: { settings: JsonSettings }): JsonCodec {
   });
 }
 
-/**
- * Attempts to use the discriminator on the data instead of requiring a
- * schema as input.
- */
-function readDocument(deserializer: JsonShapeDeserializer, data: DocumentType): any {
-  if (data && typeof data === "object" && typeof (data as any).__type === "string") {
-    const object = data as any;
-    const [namespace, name] = object.__type.split("#");
-    delete object.__type;
-    const schema = TypeRegistry.for(namespace).getSchema(name);
-    const ns = NormalizedSchema.of(schema);
-    return deserializer.readObject(ns, object);
-  }
-  return deserializer.readObject(15 satisfies DocumentSchema, data);
+for (const Codec of [JsonCodec, JsonCodec2]) {
+  describe("schema conversion tests for serializations, data objects, and documents", () => {
+    for (const test of testCases.serdeTests) {
+      it(test.name, async () => {
+        const subjectSchema = NormalizedSchema.of(TypeRegistry.for("smithy.example").getSchema(test.subject));
+
+        const codec = getJsonCodec(Codec, test);
+        const serializer = codec.createSerializer() as JsonShapeSerializer | JsonShapeSerializer2;
+        const deserializer = codec.createDeserializer() as JsonShapeDeserializer | JsonShapeDeserializer2;
+
+        serializer.write(15 satisfies DocumentSchema, test.serialized);
+        const serialization = toUtf8(serializer.flush());
+        const documentFromSerialization = await deserializer.read(15 satisfies DocumentSchema, serialization);
+        const canonicalDataObject = await deserializer.read(subjectSchema, serialization);
+
+        serializer.writeDiscriminatedDocument(subjectSchema, canonicalDataObject);
+        const documentFromDataObject = await deserializer.read(15 satisfies DocumentSchema, toUtf8(serializer.flush()));
+
+        // 1. data object from serialization
+        expect(typeof documentFromSerialization).toBe("object");
+
+        // 2. data object document back to data object
+        const dataObjectFromDocument = await deserializer.readObject(subjectSchema, documentFromDataObject);
+        delete dataObjectFromDocument.__type;
+        expect(dataObjectFromDocument).toEqual(canonicalDataObject);
+
+        // 3. data object from serialization document
+        const dataObjectFromSerializedDocument = await deserializer.readObject(
+          subjectSchema,
+          documentFromSerialization
+        );
+        expect(dataObjectFromSerializedDocument).toEqual(canonicalDataObject);
+
+        // 4. serialization from data object
+        serializer.write(subjectSchema, canonicalDataObject);
+        const serializationFromDataObject = toUtf8(serializer.flush());
+        expect(serializationFromDataObject).toEqual(serialization);
+
+        // 5. serialization from serialization document
+        serializer.write(15 satisfies DocumentSchema, documentFromSerialization);
+        const serializationFromSerializedDocument = toUtf8(serializer.flush());
+        expect(serializationFromSerializedDocument).toEqual(serialization);
+
+        // 6. serialization from data object document
+        delete documentFromDataObject.__type;
+        serializer.write(15 satisfies DocumentSchema, documentFromDataObject);
+        const serializationFromDocumentFromDataObject = toUtf8(serializer.flush());
+        expect(serializationFromDocumentFromDataObject).toEqual(serialization);
+      });
+    }
+  });
 }
-
-describe("schema conversion tests for serializations, data objects, and documents", () => {
-  for (const test of testCases.serdeTests) {
-    it(test.name, async () => {
-      const subjectSchema = NormalizedSchema.of(TypeRegistry.for("smithy.example").getSchema(test.subject));
-
-      const codec = getJsonCodec(test);
-      const serializer = codec.createSerializer();
-      const deserializer = codec.createDeserializer();
-
-      serializer.write(15 satisfies DocumentSchema, test.serialized);
-      const serialization = serializer.flush();
-      const documentFromSerialization = await deserializer.read(15 satisfies DocumentSchema, serialization);
-      const canonicalDataObject = await deserializer.read(subjectSchema, serialization);
-
-      serializer.writeDiscriminatedDocument(subjectSchema, canonicalDataObject);
-      const documentFromDataObject = await deserializer.read(15 satisfies DocumentSchema, serializer.flush());
-
-      // 1. data object from serialization
-      expect(typeof documentFromSerialization).toBe("object");
-
-      // 2. data object document back to data object
-      const dataObjectFromDocument = await deserializer.readObject(subjectSchema, documentFromDataObject);
-      delete dataObjectFromDocument.__type;
-      expect(dataObjectFromDocument).toEqual(canonicalDataObject);
-
-      // 3. data object from serialization document
-      const dataObjectFromSerializedDocument = await deserializer.readObject(subjectSchema, documentFromSerialization);
-      expect(dataObjectFromSerializedDocument).toEqual(canonicalDataObject);
-
-      // 4. serialization from data object
-      serializer.write(subjectSchema, canonicalDataObject);
-      const serializationFromDataObject = serializer.flush();
-      expect(serializationFromDataObject).toEqual(serialization);
-
-      // 5. serialization from serialization document
-      serializer.write(15 satisfies DocumentSchema, documentFromSerialization);
-      const serializationFromSerializedDocument = serializer.flush();
-      expect(serializationFromSerializedDocument).toEqual(serialization);
-
-      // 6. serialization from data object document
-      delete documentFromDataObject.__type;
-      serializer.write(15 satisfies DocumentSchema, documentFromDataObject);
-      const serializationFromDocumentFromDataObject = serializer.flush();
-      expect(serializationFromDocumentFromDataObject).toEqual(serialization);
-    });
-  }
-});

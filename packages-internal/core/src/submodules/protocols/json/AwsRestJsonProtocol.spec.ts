@@ -66,7 +66,7 @@ describe(AwsRestJsonProtocol.name, () => {
       };
       serializer.write(schema, data);
       const serialized = serializer.flush();
-      expect(JSON.parse(serialized)).toEqual({
+      expect(JSON.parse(toUtf8(serialized))).toEqual({
         string: "string",
         number: 1234,
         boolean: false,

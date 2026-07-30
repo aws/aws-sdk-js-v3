@@ -1,13 +1,13 @@
 import { determineTimestampFormat } from "@smithy/core/protocols";
 import { NormalizedSchema } from "@smithy/core/schema";
 import {
+  fromBase64,
   LazyJsonString,
   NumericValue,
   parseEpochTimestamp,
   parseRfc3339DateTimeWithOffset,
   parseRfc7231DateTime,
 } from "@smithy/core/serde";
-import { fromBase64 } from "@smithy/core/serde";
 import type {
   DocumentType,
   Schema,
@@ -53,14 +53,20 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
     const reviver = needsReviver(schema) ? jsonReviver : undefined;
     let parsed: unknown;
     if (typeof data === "string") {
+      if (data.length === 0) {
+        return {};
+      }
       parsed = JSON.parse(data, reviver);
     } else if (data instanceof Uint8Array && detectBufferParsing()) {
+      if (data.byteLength === 0) {
+        return {};
+      }
       // detectBufferParsing() guarantees Buffer exists globally.
       const buf = Buffer.isBuffer(data) ? data : Buffer.from(data.buffer, data.byteOffset, data.byteLength);
       parsed = JSON.parse(buf as any, reviver);
     } else {
       // Fallback: collect stream to string, then parse.
-      parsed = await parseJsonBody(data, this.serdeContext!);
+      parsed = await parseJsonBody(data, this.serdeContext!, schema);
     }
     return this._read(schema, parsed);
   }
@@ -80,19 +86,23 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
       }
       if (Array.isArray(value) && ns.isListSchema()) {
         const listMember = ns.getValueSchema();
-        for (let i = 0; i < value.length; ++i) {
-          value[i] = this._read(listMember, value[i]);
+        if (this.needsTransform(listMember)) {
+          for (let i = 0; i < value.length; ++i) {
+            value[i] = this._read(listMember, value[i]);
+          }
         }
         return value;
       }
       if (ns.isMapSchema()) {
         const mapMember = ns.getValueSchema();
         const map = value as Record<string, unknown>;
-        for (const k in map) {
-          if (k === "__proto__") {
-            writeKey(map);
+        if (this.needsTransform(mapMember)) {
+          for (const k in map) {
+            if (k === "__proto__") {
+              writeKey(map);
+            }
+            map[k] = this._read(mapMember, map[k]);
           }
-          map[k] = this._read(mapMember, map[k]);
         }
         return map;
       }
@@ -175,23 +185,20 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
             }
           }
         }
-        return value;
-      } else {
-        // Scalar document: locally owned, no clone needed.
-        return value;
       }
     }
 
-    // covers boolean, bigint (long/BigInt), bigDecimal
+    // covers document, boolean, bigint (long/BigInt), bigDecimal
     return value;
   }
 
   private _readStruct(ns: NormalizedSchema, record: Record<string, unknown>): any {
     const union = ns.isUnionSchema();
     const out = {} as any;
-    let nameMap: Record<string, string> | undefined = void 0;
+    let nameMap: Record<string, string> | undefined;
+    const hasType = typeof record.__type === "string";
     const { jsonName } = this.settings;
-    if (jsonName) {
+    if (jsonName && hasType) {
       nameMap = {};
     }
 
@@ -203,7 +210,9 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
       let fromKey = memberName;
       if (jsonName) {
         fromKey = memberSchema.getMergedTraits().jsonName ?? fromKey;
-        nameMap![fromKey] = memberName;
+        if (hasType) {
+          nameMap![fromKey] = memberName;
+        }
       }
       if (union) {
         unionSerde!.mark(fromKey);
@@ -214,7 +223,7 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
     }
     if (union) {
       unionSerde!.writeUnknown();
-    } else if (typeof record.__type === "string") {
+    } else if (hasType) {
       for (const k in record) {
         const v = record[k];
         const t = jsonName ? (nameMap![k] ?? k) : k;
@@ -224,5 +233,18 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
       }
     }
     return out;
+  }
+
+  private needsTransform(ns: NormalizedSchema): boolean {
+    if (ns.isBlobSchema() || ns.isTimestampSchema() || ns.isBigIntegerSchema() || ns.isBigDecimalSchema()) {
+      return true;
+    }
+    if (ns.isDocumentSchema() || ns.isStructSchema() || ns.isListSchema() || ns.isMapSchema()) {
+      return true;
+    }
+    if (ns.isStringSchema() && ns.getMergedTraits().mediaType) {
+      return true;
+    }
+    return false;
   }
 }

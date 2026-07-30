@@ -32,9 +32,6 @@ type AttributeValueOutput = {
  * @internal
  */
 class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
-  /**
-   * @override
-   */
   protected override writeValue(schema: Schema, value: unknown, container: NormalizedSchema | undefined): void {
     if (value != null && typeof value === "object") {
       const ns = NormalizedSchema.of(schema);
@@ -172,16 +169,6 @@ class DynamoDBJsonShapeSerializer2 extends JsonShapeSerializer2 {
 }
 
 /**
- * String adapter for the DynamoDB byte serializer.
- * @internal
- */
-class DynamoDBStringShapeSerializer2 extends DynamoDBJsonShapeSerializer2 implements $ShapeSerializer<string> {
-  public override flush(): any {
-    return (this.serdeContext?.utf8Encoder ?? toUtf8)(super.flush());
-  }
-}
-
-/**
  * @internal
  */
 class DynamoDBJsonShapeDeserializer2 extends JsonShapeDeserializer2 {
@@ -247,7 +234,7 @@ export class DynamoDBJsonCodec2 extends JsonCodec2 {
   }
 
   public override createSerializer(): $ShapeSerializer<Uint8Array> {
-    const serializer = new DynamoDBStringShapeSerializer2(this.settings);
+    const serializer = new DynamoDBJsonShapeSerializer2(this.settings);
     serializer.setSerdeContext(this.serdeContext!);
     return serializer;
   }

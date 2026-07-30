@@ -13,6 +13,7 @@ import type {
 import { SerdeContextConfig } from "../../ConfigurableSerdeContext";
 import type { JsonSettings } from "../JsonSettings";
 import { writeKey } from "../../writeKey";
+import { JsonBytesStringAdapter } from "./JsonBytesStringAdapter";
 
 const encoder = new TextEncoder();
 
@@ -54,7 +55,8 @@ const INITIAL_BUFFER_SIZE = 2048;
  * Safe here because we track pos and always write before reading.
  */
 function alloc(size: number): Uint8Array {
-  return typeof Buffer !== "undefined" ? Buffer.allocUnsafe(size) : new Uint8Array(size);
+  // todo(kuhe): will be replaced by native Buffer/Uint8Array in the future.
+  return JsonBytesStringAdapter.allocUnsafe(size);
 }
 
 /**
@@ -79,10 +81,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     this.i = 0;
     this.rawValue = value;
     this.rootSchema = NormalizedSchema.of(schema);
-    this.passthrough =
-      !this.rootSchema.isStructSchema() &&
-      !this.rootSchema.isDocumentSchema() &&
-      (this.rootSchema.isBlobSchema() || this.rootSchema.isStringSchema());
+    this.passthrough = this.rootSchema.isBlobSchema() || this.rootSchema.isStringSchema();
     if (!this.passthrough) {
       this.writeValue(this.rootSchema, value, undefined);
     }
@@ -95,34 +94,16 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     this.i = 0;
     this.rootSchema = NormalizedSchema.of(schema);
     const ns = this.rootSchema;
-    // For discriminated documents, we need to inject __type as the first key
     if (ns.isStructSchema() && value != null && typeof value === "object") {
-      this.ensure(2);
-      this.json[this.i++] = OPEN_BRACE;
-      // Write __type first
-      this.writeAsciiQuoted("__type");
-      this.json[this.i++] = COLON;
-      this.writeAsciiQuoted(ns.getName(true) ?? "Unknown");
-      // Then write remaining struct members
-      let wroteAny = true; // we already wrote __type
-      const { jsonName } = this.settings;
-      for (const [memberName, memberSchema] of ns.structIterator()) {
-        const item = (value as any)[memberName];
-        if (item == null && !memberSchema.isIdempotencyToken()) {
-          continue;
-        }
-        if (wroteAny) {
-          this.ensure(1);
-          this.json[this.i++] = COMMA;
-        }
-        const targetKey = jsonName ? (memberSchema.getMergedTraits().jsonName ?? memberName) : memberName;
-        this.writeAsciiQuoted(targetKey);
-        this.json[this.i++] = COLON;
-        this.writeValue(memberSchema, item, ns);
-        wroteAny = true;
-      }
-      this.ensure(1);
-      this.json[this.i++] = CLOSE_BRACE;
+      // Serialize the struct normally, then inject __type as the first key
+      // by shifting the buffer contents after the opening brace.
+      this.writeValue(ns, value, undefined);
+      const prefix = `"__type":"${ns.getName(true) ?? "Unknown"}",`;
+      const z = prefix.length;
+      this.ensure(z);
+      this.json.copyWithin(1 + z, 1, this.i);
+      encoder.encodeInto(prefix, this.json.subarray(1));
+      this.i += z;
     } else {
       this.writeValue(ns, value, undefined);
     }
@@ -210,7 +191,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
   protected writeJsonString(s: string): void {
     // Worst case: every char needs \uXXXX (6 bytes) + 2 quotes
     // But we'll grow dynamically, so just ensure a reasonable amount
-    this.ensure(s.length * 2 + 2);
+    this.ensure(s.length * 3 + 2);
     this.json[this.i++] = QUOTE;
 
     const z = s.length;
@@ -239,7 +220,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
           this.ensure(4);
           const { written } = encoder.encodeInto(s.substring(j, j + 2), this.json.subarray(this.i));
           this.i += written!;
-          j++; // skip the low surrogate in the loop
+          ++j; // skip the low surrogate in the loop
         } else {
           this.ensure(6);
           this.writeUnicodeEscape(c);
@@ -281,7 +262,9 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
   protected static readonly B64: Uint8Array = /* @__PURE__ */ (() => {
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     const table = new Uint8Array(64);
-    for (let i = 0; i < 64; i++) table[i] = chars.charCodeAt(i);
+    for (let i = 0; i < 64; ++i) {
+      table[i] = chars.charCodeAt(i);
+    }
     return table;
   })();
 
@@ -398,7 +381,6 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
       }
 
       if (value instanceof NumericValue) {
-        // Write the raw numeric string without quotes
         this.writeAscii(value.string);
         return;
       }
@@ -419,7 +401,6 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
       return;
     }
 
-    // Primitives
     if (typeof value === "string") {
       if (ns.isBlobSchema()) {
         // string blob (already base64 or needs encoding)
@@ -445,13 +426,15 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
 
     if (typeof value === "boolean") {
       this.ensure(5);
+      let { i, json } = this;
       if (value) {
-        this.json.set(TRUE, this.i);
-        this.i += 4;
+        json.set(TRUE, i);
+        i += 4;
       } else {
-        this.json.set(FALSE, this.i);
-        this.i += 5;
+        json.set(FALSE, i);
+        i += 5;
       }
+      this.i = i;
       return;
     }
 
@@ -468,7 +451,6 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
   protected writeStruct(ns: NormalizedSchema, value: Record<string, unknown>): void {
     this.ensure(2);
     this.json[this.i++] = OPEN_BRACE;
-    let first = true;
     let wroteAny = false;
 
     // Track written keys (both source member names and target json names)
@@ -481,13 +463,14 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
 
     for (const [memberName, memberSchema] of ns.structIterator()) {
       const item = value[memberName];
-      if (item == null && !memberSchema.isIdempotencyToken()) continue;
+      if (item == null && !memberSchema.isIdempotencyToken()) {
+        continue;
+      }
 
-      if (!first) {
+      if (wroteAny) {
         this.ensure(1);
         this.json[this.i++] = COMMA;
       }
-      first = false;
       wroteAny = true;
 
       const targetKey = this.settings.jsonName ? (memberSchema.getMergedTraits().jsonName ?? memberName) : memberName;
@@ -512,16 +495,17 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     } else if (hasType) {
       // Write extra document members not covered by the struct schema.
       for (const k in value) {
-        const targetKey = this.settings.jsonName ? (writtenKeys!.has(k) ? k : k) : k;
-        if (writtenKeys!.has(targetKey)) continue;
-        writtenKeys!.add(targetKey);
+        if (writtenKeys!.has(k)) {
+          continue;
+        }
+        writtenKeys!.add(k);
         const v = value[k];
-        if (!first) {
+        if (wroteAny) {
           this.ensure(1);
           this.json[this.i++] = COMMA;
         }
-        first = false;
-        this.writeAsciiQuoted(targetKey);
+        wroteAny = true;
+        this.writeAsciiQuoted(k);
         this.ensure(1);
         this.json[this.i++] = COLON;
         this.writeValue(15 satisfies DocumentSchema, v, undefined);
@@ -533,21 +517,34 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
   }
 
   protected writeList(ns: NormalizedSchema, value: unknown[], isDocument?: boolean): void {
-    this.ensure(2);
-    this.json[this.i++] = OPEN_BRACKET;
     const sparse = !!ns.getMergedTraits().sparse;
     const valueSchema = ns.getValueSchema();
+
+    if (!isDocument) {
+      if (valueSchema.isStringSchema() || valueSchema.isNumericSchema() || valueSchema.isBooleanSchema()) {
+        const json = sparse ? JSON.stringify(value) : JSON.stringify(value.filter((_) => _ != null));
+        this.ensure(json.length * 3);
+        this.i += encoder.encodeInto(json, this.json.subarray(this.i)).written;
+        return;
+      }
+    }
+
+    this.ensure(2);
+    this.json[this.i++] = OPEN_BRACKET;
+    let wroteFirstItem = false;
 
     for (let i = 0; i < value.length; ++i) {
       const item = value[i];
       if (isDocument ? item === undefined : item == null && !sparse) {
         continue;
       }
-      if (i !== 0) {
+      if (wroteFirstItem) {
         this.ensure(1);
         this.json[this.i++] = COMMA;
       }
+      // undefined is the correct "container" here.
       this.writeValue(valueSchema, item, undefined);
+      wroteFirstItem = true;
     }
 
     this.ensure(1);
@@ -565,7 +562,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     if (!isDocument) {
       if (valueSchema.isStringSchema() || valueSchema.isNumericSchema() || valueSchema.isBooleanSchema()) {
         // For sparse maps, JSON.stringify omits undefined values instead of writing null.
-        // Convert undefined → null to match production serializer behavior.
+        // Convert undefined to null to match production serializer behavior.
         let input: Record<string, unknown> = value;
         if (sparse) {
           input = {};
@@ -578,8 +575,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
         }
         const json = JSON.stringify(input);
         this.ensure(json.length * 3); // worst-case UTF-8 expansion
-        const { written } = encoder.encodeInto(json, this.json.subarray(this.i));
-        this.i += written!;
+        this.i += encoder.encodeInto(json, this.json.subarray(this.i)).written;
         return;
       }
     }
