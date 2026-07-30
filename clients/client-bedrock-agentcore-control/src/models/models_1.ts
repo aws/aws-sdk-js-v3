@@ -8,7 +8,6 @@ import type {
   ContentLevel,
   ContentType,
   CredentialProviderVendorType,
-  DescriptorType,
   EnforcementMode,
   ExtractionType,
   FilterOperator,
@@ -37,11 +36,9 @@ import type {
   PolicyValidationMode,
   RegistryRecordCredentialProviderType,
   RegistryRecordOAuthGrantType,
-  RegistryRecordStatus,
   SecretSourceType,
   SigningAlgorithm,
   Status,
-  SynchronizationType,
 } from "./enums";
 import type {
   A2aDescriptor,
@@ -51,8 +48,6 @@ import type {
   HarnessBedrockModelConfig,
   HarnessEnvironmentArtifact,
   HarnessEnvironmentProviderRequest,
-  HarnessGeminiModelConfig,
-  HarnessLiteLlmModelConfig,
   HarnessMemoryConfiguration,
   LifecycleConfiguration,
   NetworkConfiguration,
@@ -64,6 +59,102 @@ import type {
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
+ * @public
+ */
+export interface HarnessGeminiModelConfig {
+  /**
+   * <p>The Gemini model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of your Gemini API key on AgentCore Identity.</p>
+   * @public
+   */
+  apiKeyArn: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The topK set when calling the model.</p>
+   * @public
+   */
+  topK?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
+ * @public
+ */
+export interface HarnessLiteLlmModelConfig {
+  /**
+   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
+   * @public
+   */
+  apiKeyArn?: string | undefined;
+
+  /**
+   * <p>The base URL for the model provider's API endpoint.</p>
+   * @public
+   */
+  apiBase?: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
 
 /**
  * <p>Configuration for an OpenAI model provider. Requires an API key stored in AgentCore Identity.</p>
@@ -10275,80 +10366,4 @@ export interface SynchronizationConfiguration {
    * @public
    */
   fromUrl?: FromUrlSynchronizationConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRegistryRecordRequest {
-  /**
-   * <p>The identifier of the registry where the record will be created. You can specify either the Amazon Resource Name (ARN) or the ID of the registry.</p>
-   * @public
-   */
-  registryId: string | undefined;
-
-  /**
-   * <p>The name of the registry record.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A description of the registry record.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The descriptor type of the registry record.</p> <ul> <li> <p> <code>MCP</code> - Model Context Protocol descriptor for MCP-compatible servers and tools.</p> </li> <li> <p> <code>A2A</code> - Agent-to-Agent protocol descriptor.</p> </li> <li> <p> <code>CUSTOM</code> - Custom descriptor type for resources such as APIs, Lambda functions, or servers not conforming to a standard protocol.</p> </li> <li> <p> <code>AGENT_SKILLS</code> - Agent skills descriptor for defining agent skill definitions.</p> </li> </ul>
-   * @public
-   */
-  descriptorType: DescriptorType | undefined;
-
-  /**
-   * <p>The descriptor-type-specific configuration containing the resource schema and metadata. The structure of this field depends on the <code>descriptorType</code> you specify.</p>
-   * @public
-   */
-  descriptors?: Descriptors | undefined;
-
-  /**
-   * <p>The version of the registry record. Use this to track different versions of the record's content.</p>
-   * @public
-   */
-  recordVersion?: string | undefined;
-
-  /**
-   * <p>The type of synchronization to use for keeping the record metadata up to date from an external source. Possible values include <code>FROM_URL</code> and <code>NONE</code>.</p>
-   * @public
-   */
-  synchronizationType?: SynchronizationType | undefined;
-
-  /**
-   * <p>The configuration for synchronizing registry record metadata from an external source, such as a URL-based MCP server.</p>
-   * @public
-   */
-  synchronizationConfiguration?: SynchronizationConfiguration | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateRegistryRecordResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created registry record.</p>
-   * @public
-   */
-  recordArn: string | undefined;
-
-  /**
-   * <p>The status of the registry record. Set to <code>CREATING</code> while the asynchronous workflow is in progress.</p>
-   * @public
-   */
-  status: RegistryRecordStatus | undefined;
 }

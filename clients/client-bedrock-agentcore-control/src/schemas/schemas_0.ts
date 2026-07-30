@@ -682,6 +682,7 @@ const _OECS = "OnlineEvaluationConfigSummary";
 const _OECSL = "OnlineEvaluationConfigSummaryList";
 const _OPCI = "Oauth2ProviderConfigInput";
 const _OPCO = "Oauth2ProviderConfigOutput";
+const _OREMC = "OpenResponsesEvaluatorModelConfig";
 const _P = "Prompt";
 const _PC = "ProtocolConfiguration";
 const _PCP = "PaymentCredentialProviders";
@@ -722,8 +723,9 @@ const _PTC = "PassthroughTargetConfiguration";
 const _Po = "Policy";
 const _Pol = "Policies";
 const _R = "Rule";
-const _RC = "RecordingConfig";
-const _RCe = "ReflectionConfiguration";
+const _RC = "ReasoningConfiguration";
+const _RCe = "RecordingConfig";
+const _RCef = "ReflectionConfiguration";
 const _RHC = "RequestHeaderConfiguration";
 const _RL = "ResourceLocation";
 const _RLEE = "ResourceLimitExceededException";
@@ -1164,6 +1166,7 @@ const _eS = "executionStatus";
 const _eT = "evaluatorType";
 const _eTx = "extractionType";
 const _eV = "environmentVariables";
+const _ef = "effort";
 const _en = "enabled";
 const _end = "endpoint";
 const _endp = "endpoints";
@@ -1287,6 +1290,7 @@ const _mM = "modelMapping";
 const _mMC = "managedMemoryConfiguration";
 const _mMS = "modifyMemoryStrategies";
 const _mOPC = "microsoftOauth2ProviderConfig";
+const _mOT = "maxOutputTokens";
 const _mP = "mountPath";
 const _mPa = "matchPrincipals";
 const _mPat = "matchPaths";
@@ -1403,6 +1407,7 @@ const _rCI = "resourceConfigurationIdentifier";
 const _rCe = "retrievalConfig";
 const _rD = "routingDomain";
 const _rE = "runtimeEndpoints";
+const _rEMC = "responsesEvaluatorModelConfig";
 const _rGA = "resourceGatewayArn";
 const _rHA = "requestHeaderAllowlist";
 const _rHC = "requestHeaderConfiguration";
@@ -1422,6 +1427,7 @@ const _rTT = "routeToTarget";
 const _rTa = "rawText";
 const _rV = "recordVersion";
 const _re = "recording";
+const _rea = "reasoning";
 const _ref = "reflection";
 const _reg = "region";
 const _regi = "registries";
@@ -3808,6 +3814,11 @@ export var OnlineEvaluationConfigSummary$: StaticStructureSchema = [3, n0, _OECS
   [_oECA, _oECI, _oECN, _st, _eS, _cA, _uA, _d, _fR, _in, _cC],
   [0, 0, 0, 0, 0, 4, 4, [() => EvaluationConfigDescription, 0], 0, () => InsightList, () => ClusteringConfig$], 7
 ];
+export var OpenResponsesEvaluatorModelConfig$: StaticStructureSchema = [3, n0, _OREMC,
+  0,
+  [_mI, _mOT, _te, _tP, _rea],
+  [0, 1, 1, 1, () => ReasoningConfiguration$], 1
+];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
   [_cWC],
@@ -3913,7 +3924,12 @@ export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
   [_po],
   [0], 1
 ];
-export var RecordingConfig$: StaticStructureSchema = [3, n0, _RC,
+export var ReasoningConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_ef],
+  [0]
+];
+export var RecordingConfig$: StaticStructureSchema = [3, n0, _RCe,
   0,
   [_en, _sL],
   [2, () => S3Location$]
@@ -5174,8 +5190,8 @@ export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _ECv,
 ];
 export var EvaluatorModelConfig$: StaticUnionSchema = [4, n0, _EMC,
   0,
-  [_bEMC],
-  [() => BedrockEvaluatorModelConfig$]
+  [_bEMC, _rEMC],
+  [() => BedrockEvaluatorModelConfig$, () => OpenResponsesEvaluatorModelConfig$]
 ];
 export var EvaluatorReference$: StaticUnionSchema = [4, n0, _ER,
   0,
@@ -5357,7 +5373,7 @@ export var RatingScale$: StaticUnionSchema = [4, n0, _RSa,
   [_nu, _ca],
   [() => NumericalScaleDefinitions, () => CategoricalScaleDefinitions]
 ];
-export var ReflectionConfiguration$: StaticUnionSchema = [4, n0, _RCe,
+export var ReflectionConfiguration$: StaticUnionSchema = [4, n0, _RCef,
   0,
   [_cRC, _eRC],
   [[() => CustomReflectionConfiguration$, 0], [() => EpisodicReflectionConfiguration$, 0]]

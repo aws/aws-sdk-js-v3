@@ -789,6 +789,7 @@ import {
   OnlineEvaluationConfigStatus,
   OnlineEvaluationConfigSummary$,
   OnlineEvaluationExecutionStatus,
+  OpenResponsesEvaluatorModelConfig$,
   OutputConfig$,
   OverrideType,
   paginateListAgentRuntimeEndpoints,
@@ -865,6 +866,7 @@ import {
   PutResourcePolicyRequest$,
   PutResourcePolicyResponse$,
   RatingScale$,
+  ReasoningConfiguration$,
   RecordingConfig$,
   ReflectionConfiguration$,
   RegistryAuthorizerType,
@@ -1928,6 +1930,7 @@ assert(typeof Oauth2ProviderConfigOutput$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnBehalfOfTokenExchangeConfigType$ === "object");
 assert(typeof OnlineEvaluationConfigSummary$ === "object");
+assert(typeof OpenResponsesEvaluatorModelConfig$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PassthroughTargetConfiguration$ === "object");
 assert(typeof PaymentConnectorSummary$ === "object");
@@ -1955,6 +1958,7 @@ assert(typeof ProviderPrefix$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof RatingScale$ === "object");
+assert(typeof ReasoningConfiguration$ === "object");
 assert(typeof RecordingConfig$ === "object");
 assert(typeof ReflectionConfiguration$ === "object");
 assert(typeof RegistryRecordCredentialProviderConfiguration$ === "object");

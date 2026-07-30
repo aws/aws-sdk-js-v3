@@ -67,6 +67,15 @@ export interface CreateEvaluatorCommandOutput extends CreateEvaluatorResponse, _
  *           },
  *           additionalModelRequestFields: "DOCUMENT_VALUE",
  *         },
+ *         responsesEvaluatorModelConfig: { // OpenResponsesEvaluatorModelConfig
+ *           modelId: "STRING_VALUE", // required
+ *           maxOutputTokens: Number("int"),
+ *           temperature: Number("float"),
+ *           topP: Number("float"),
+ *           reasoning: { // ReasoningConfiguration
+ *             effort: "STRING_VALUE",
+ *           },
+ *         },
  *       },
  *     },
  *     codeBased: { // CodeBasedEvaluatorConfig Union: only one key present

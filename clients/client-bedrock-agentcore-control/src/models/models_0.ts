@@ -5296,11 +5296,60 @@ export interface BedrockEvaluatorModelConfig {
 }
 
 /**
+ * <p> The reasoning configuration that controls how a reasoning model allocates effort during evaluation. </p>
+ * @public
+ */
+export interface ReasoningConfiguration {
+  /**
+   * <p> The level of reasoning effort the model applies when generating a response. For supported values, see the model provider's documentation. </p>
+   * @public
+   */
+  effort?: string | undefined;
+}
+
+/**
+ * <p> The configuration for using models served through the OpenResponses API in evaluator assessments, including model selection and inference parameters. </p>
+ * @public
+ */
+export interface OpenResponsesEvaluatorModelConfig {
+  /**
+   * <p> The identifier of the model to use for evaluation. </p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p> The maximum number of tokens to generate in the model response, including visible output and reasoning tokens. </p>
+   * @public
+   */
+  maxOutputTokens?: number | undefined;
+
+  /**
+   * <p> The temperature value that controls randomness in the model's responses. Lower values produce more deterministic outputs. </p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p> The top-p sampling parameter that controls the diversity of the model's responses by limiting the cumulative probability of token choices. </p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p> The reasoning configuration for reasoning models. Non-reasoning models ignore this configuration. </p>
+   * @public
+   */
+  reasoning?: ReasoningConfiguration | undefined;
+}
+
+/**
  * <p> The model configuration that specifies which foundation model to use for evaluation and how to configure it. </p>
  * @public
  */
 export type EvaluatorModelConfig =
   | EvaluatorModelConfig.BedrockEvaluatorModelConfigMember
+  | EvaluatorModelConfig.ResponsesEvaluatorModelConfigMember
   | EvaluatorModelConfig.$UnknownMember;
 
 /**
@@ -5313,6 +5362,17 @@ export namespace EvaluatorModelConfig {
    */
   export interface BedrockEvaluatorModelConfigMember {
     bedrockEvaluatorModelConfig: BedrockEvaluatorModelConfig;
+    responsesEvaluatorModelConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The OpenResponses model configuration for evaluation. </p>
+   * @public
+   */
+  export interface ResponsesEvaluatorModelConfigMember {
+    bedrockEvaluatorModelConfig?: never;
+    responsesEvaluatorModelConfig: OpenResponsesEvaluatorModelConfig;
     $unknown?: never;
   }
 
@@ -5321,6 +5381,7 @@ export namespace EvaluatorModelConfig {
    */
   export interface $UnknownMember {
     bedrockEvaluatorModelConfig?: never;
+    responsesEvaluatorModelConfig?: never;
     $unknown: [string, any];
   }
 
@@ -5330,6 +5391,7 @@ export namespace EvaluatorModelConfig {
    */
   export interface Visitor<T> {
     bedrockEvaluatorModelConfig: (value: BedrockEvaluatorModelConfig) => T;
+    responsesEvaluatorModelConfig: (value: OpenResponsesEvaluatorModelConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9224,102 +9286,6 @@ export interface HarnessBedrockModelConfig {
    * @public
    */
   apiFormat?: HarnessBedrockApiFormat | undefined;
-
-  /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
-   * @public
-   */
-  additionalParams?: __DocumentType | undefined;
-}
-
-/**
- * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
- * @public
- */
-export interface HarnessGeminiModelConfig {
-  /**
-   * <p>The Gemini model ID.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The ARN of your Gemini API key on AgentCore Identity.</p>
-   * @public
-   */
-  apiKeyArn: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The temperature to set when calling the model.</p>
-   * @public
-   */
-  temperature?: number | undefined;
-
-  /**
-   * <p>The topP set when calling the model.</p>
-   * @public
-   */
-  topP?: number | undefined;
-
-  /**
-   * <p>The topK set when calling the model.</p>
-   * @public
-   */
-  topK?: number | undefined;
-
-  /**
-   * <p>Provider-specific parameters passed through to the Gemini model provider unchanged.</p>
-   * @public
-   */
-  additionalParams?: __DocumentType | undefined;
-}
-
-/**
- * <p>Configuration for a LiteLLM model provider, enabling connection to third-party model providers.</p>
- * @public
- */
-export interface HarnessLiteLlmModelConfig {
-  /**
-   * <p>The LiteLLM model identifier (e.g., "anthropic/claude-3-sonnet").</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The ARN of the API key in AgentCore Identity for authenticating with the model provider.</p>
-   * @public
-   */
-  apiKeyArn?: string | undefined;
-
-  /**
-   * <p>The base URL for the model provider's API endpoint.</p>
-   * @public
-   */
-  apiBase?: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens to allow in the generated response per iteration.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The temperature to set when calling the model.</p>
-   * @public
-   */
-  temperature?: number | undefined;
-
-  /**
-   * <p>The topP set when calling the model.</p>
-   * @public
-   */
-  topP?: number | undefined;
 
   /**
    * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
