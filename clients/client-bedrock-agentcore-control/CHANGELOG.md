@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for configuring models through the OpenResponses API for custom evaluators. CreateEvaluator and UpdateEvaluator now accept an OpenResponses model configuration for LLM-as-a-Judge evaluations. ([9cfbf37](https://github.com/aws/aws-sdk-js-v3/commit/9cfbf372a2ca9cf19ba57017bae861cb3c796f91))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

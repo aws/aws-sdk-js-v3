@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-lambda:** Add Python3.15 (python3.15) and NodeJs 26 (nodejs26.x) support to AWS Lambda ([e9cf506](https://github.com/aws/aws-sdk-js-v3/commit/e9cf506952759ba95ce3c3dd9a4a9f49cd341229))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda

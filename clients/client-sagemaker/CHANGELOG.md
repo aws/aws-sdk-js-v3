@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for g7 family instance types for SageMaker Studio JupyterLab and CodeEditor apps for IAD (us-east-1), PDX (us-west-2), CMH (us-east-2). ([5e4ec9c](https://github.com/aws/aws-sdk-js-v3/commit/5e4ec9ceceb4a4fc64b884ab6f3548dfb913c96b))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

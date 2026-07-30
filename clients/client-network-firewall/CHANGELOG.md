@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-network-firewall:** Adds UPDATING field to Container Association Status ([65a8fd3](https://github.com/aws/aws-sdk-js-v3/commit/65a8fd3f58202e28691b740214129e0a62ed2f07))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

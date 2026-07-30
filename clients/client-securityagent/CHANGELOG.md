@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-securityagent:** Adds support for providing a branch override when configured integrated repositories ([0f5a2dd](https://github.com/aws/aws-sdk-js-v3/commit/0f5a2dd0c68c7bbc943a612bb029af54b69d9109))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 **Note:** Version bump only for package @aws-sdk/client-securityagent

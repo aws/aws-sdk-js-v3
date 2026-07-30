@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds support for configuring models through the OpenResponses API for custom evaluators. CreateEvaluator and UpdateEvaluator now accept an OpenResponses model configuration for LLM-as-a-Judge evaluations. ([9cfbf37](https://github.com/aws/aws-sdk-js-v3/commit/9cfbf372a2ca9cf19ba57017bae861cb3c796f91))
+* **client-iam:** Improved IAM Policy Simulator accuracy. Simulator now evaluates SCP conditions and resource scoping, returns explicitDeny for explicit SCP denials, and reports accurate cross-account decisions. ([d8cd86e](https://github.com/aws/aws-sdk-js-v3/commit/d8cd86e4536d6f23ff32f987b5dcdff7bd52fcf1))
+* **client-kafka:** Amazon MSK Express brokers now support streaming tables for Apache Iceberg, continuously materializing Apache Kafka topics as Iceberg tables in Amazon S3 Tables. Express brokers also now support data delivery to Amazon S3 general purpose buckets. ([1623625](https://github.com/aws/aws-sdk-js-v3/commit/162362550a7acbfd5068333f3691211787cd906a))
+* **client-lambda:** Add Python3.15 (python3.15) and NodeJs 26 (nodejs26.x) support to AWS Lambda ([e9cf506](https://github.com/aws/aws-sdk-js-v3/commit/e9cf506952759ba95ce3c3dd9a4a9f49cd341229))
+* **client-network-firewall:** Adds UPDATING field to Container Association Status ([65a8fd3](https://github.com/aws/aws-sdk-js-v3/commit/65a8fd3f58202e28691b740214129e0a62ed2f07))
+* **client-pricing-plan-manager:** Adds support for Public PricingPlanManager SDK ([f5af47b](https://github.com/aws/aws-sdk-js-v3/commit/f5af47b60721e11888748135651558bc3c114879))
+* **client-sagemaker:** Adds support for g7 family instance types for SageMaker Studio JupyterLab and CodeEditor apps for IAD (us-east-1), PDX (us-west-2), CMH (us-east-2). ([5e4ec9c](https://github.com/aws/aws-sdk-js-v3/commit/5e4ec9ceceb4a4fc64b884ab6f3548dfb913c96b))
+* **client-securityagent:** Adds support for providing a branch override when configured integrated repositories ([0f5a2dd](https://github.com/aws/aws-sdk-js-v3/commit/0f5a2dd0c68c7bbc943a612bb029af54b69d9109))
+* **clients:** update client endpoints as of 2026-07-30 ([e93ec43](https://github.com/aws/aws-sdk-js-v3/commit/e93ec43aaeb8278faa1147c8bd841881f16bc143))
+
+
+
+
+
 # [3.1098.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1097.0...v3.1098.0) (2026-07-29)
 
 
