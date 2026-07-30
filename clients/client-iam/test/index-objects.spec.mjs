@@ -28,6 +28,7 @@ import {
   AttachGroupPolicy$,
   AttachGroupPolicyCommand,
   AttachGroupPolicyRequest$,
+  AttachmentType,
   AttachRolePolicy$,
   AttachRolePolicyCommand,
   AttachRolePolicyRequest$,
@@ -366,6 +367,7 @@ import {
   IAM,
   IAMClient,
   IAMServiceException,
+  InlinePolicyIdentifierType$,
   InstanceProfile$,
   InvalidAuthenticationCodeException,
   InvalidAuthenticationCodeException$,
@@ -539,6 +541,7 @@ import {
   OpenIDConnectProviderListEntry$,
   OpenIdIdpCommunicationErrorException,
   OpenIdIdpCommunicationErrorException$,
+  OrderedOrganizationPolicyType$,
   OrganizationNotFoundException,
   OrganizationNotFoundException$,
   OrganizationNotInAllFeaturesModeException,
@@ -592,6 +595,8 @@ import {
   PolicyEvaluationException$,
   PolicyGrantingServiceAccess$,
   PolicyGroup$,
+  PolicyIdentifier$,
+  PolicyIdentifierPolicyType,
   PolicyNotAttachableException,
   PolicyNotAttachableException$,
   PolicyOwnerEntityType,
@@ -1319,6 +1324,7 @@ assert(typeof GetUserRequest$ === "object");
 assert(typeof GetUserResponse$ === "object");
 assert(typeof Group$ === "object");
 assert(typeof GroupDetail$ === "object");
+assert(typeof InlinePolicyIdentifierType$ === "object");
 assert(typeof InstanceProfile$ === "object");
 assert(typeof ListAccessKeysRequest$ === "object");
 assert(typeof ListAccessKeysResponse$ === "object");
@@ -1397,6 +1403,7 @@ assert(typeof LoginProfile$ === "object");
 assert(typeof ManagedPolicyDetail$ === "object");
 assert(typeof MFADevice$ === "object");
 assert(typeof OpenIDConnectProviderListEntry$ === "object");
+assert(typeof OrderedOrganizationPolicyType$ === "object");
 assert(typeof OrganizationsDecisionDetail$ === "object");
 assert(typeof PasswordPolicy$ === "object");
 assert(typeof PermissionsBoundaryDecisionDetail$ === "object");
@@ -1404,6 +1411,7 @@ assert(typeof Policy$ === "object");
 assert(typeof PolicyDetail$ === "object");
 assert(typeof PolicyGrantingServiceAccess$ === "object");
 assert(typeof PolicyGroup$ === "object");
+assert(typeof PolicyIdentifier$ === "object");
 assert(typeof PolicyParameter$ === "object");
 assert(typeof PolicyRole$ === "object");
 assert(typeof PolicyUser$ === "object");
@@ -1492,6 +1500,7 @@ assert(typeof VirtualMFADevice$ === "object");
 assert(typeof AccessAdvisorUsageGranularityType === "object");
 assert(typeof AssertionEncryptionModeType === "object");
 assert(typeof AssignmentStatusType === "object");
+assert(typeof AttachmentType === "object");
 assert(typeof ContextKeyTypeEnum === "object");
 assert(typeof DeletionTaskStatusType === "object");
 assert(typeof EncodingType === "object");
@@ -1503,6 +1512,7 @@ assert(typeof PermissionCheckResultType === "object");
 assert(typeof PermissionCheckStatusType === "object");
 assert(typeof PermissionsBoundaryAttachmentType === "object");
 assert(typeof PolicyEvaluationDecisionType === "object");
+assert(typeof PolicyIdentifierPolicyType === "object");
 assert(typeof PolicyOwnerEntityType === "object");
 assert(typeof PolicyParameterTypeEnum === "object");
 assert(typeof PolicyScopeType === "object");

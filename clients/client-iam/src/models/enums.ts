@@ -72,6 +72,20 @@ export type PermissionsBoundaryAttachmentType =
  * @public
  * @enum
  */
+export const AttachmentType = {
+  GROUP: "group",
+  ROLE: "role",
+  USER: "user",
+} as const;
+/**
+ * @public
+ */
+export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const PolicyParameterTypeEnum = {
   STRING: "string",
   STRING_LIST: "stringList",
@@ -421,3 +435,20 @@ export const PolicySourceType = {
  * @public
  */
 export type PolicySourceType = (typeof PolicySourceType)[keyof typeof PolicySourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PolicyIdentifierPolicyType = {
+  AWS_MANAGED: "aws-managed",
+  INLINE: "inline",
+  PERMISSION_BOUNDARY: "permission-boundary",
+  RCP: "rcp",
+  SCP: "scp",
+  USER_MANAGED: "user-managed",
+} as const;
+/**
+ * @public
+ */
+export type PolicyIdentifierPolicyType = (typeof PolicyIdentifierPolicyType)[keyof typeof PolicyIdentifierPolicyType];

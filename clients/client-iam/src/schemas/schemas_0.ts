@@ -23,9 +23,10 @@ const _AKI = "AccessKeyId";
 const _AKLU = "AccessKeyLastUsed";
 const _AKM = "AccessKeyMetadata";
 const _AMP = "AttachedManagedPolicies";
-const _AN = "ActionNames";
+const _AN = "AttachmentName";
 const _ANMODAE = "AccountNotManagementOrDelegatedAdministratorException";
-const _ANc = "ActionName";
+const _ANc = "ActionNames";
+const _ANct = "ActionName";
 const _AP = "AttachedPolicy";
 const _APB = "AttachedPermissionsBoundary";
 const _APK = "AddPrivateKey";
@@ -36,6 +37,7 @@ const _ARPR = "AttachRolePolicyRequest";
 const _ARTIP = "AddRoleToInstanceProfile";
 const _ARTIPR = "AddRoleToInstanceProfileRequest";
 const _AS = "AssignmentStatus";
+const _AT = "AttachmentType";
 const _AU = "AllUsers";
 const _AUP = "AttachUserPolicy";
 const _AUPR = "AttachUserPolicyRequest";
@@ -346,6 +348,8 @@ const _II = "IssuerIdentifier";
 const _IIE = "InvalidInputException";
 const _IP = "InstanceProfile";
 const _IPI = "InstanceProfileId";
+const _IPIT = "InlinePolicyIdentifierType";
+const _IPIn = "InlinePolicyIdentifier";
 const _IPKE = "InvalidPublicKeyException";
 const _IPL = "InstanceProfileList";
 const _IPN = "InstanceProfileName";
@@ -519,8 +523,11 @@ const _OIICEE = "OpenIdIdpCommunicationErrorException";
 const _OIr = "OrganizationId";
 const _ONFE = "OrganizationNotFoundException";
 const _ONIAFME = "OrganizationNotInAllFeaturesModeException";
+const _OOPIL = "OrderedOrganizationPolicyInputList";
+const _OOPT = "OrderedOrganizationPolicyType";
 const _OP = "OldPassword";
 const _OPI = "OrganizationsPolicyId";
+const _OPLT = "OrganizationPolicyListType";
 const _OSBO = "OnlySendByOwner";
 const _P = "Permissions";
 const _PA = "PolicyArn";
@@ -535,6 +542,8 @@ const _PCS = "PermissionCheckStatus";
 const _PD = "PolicyDocument";
 const _PDo = "PolicyDetail";
 const _PEE = "PolicyEvaluationException";
+const _PEL = "PolicyExclusionList";
+const _PELT = "PolicyExclusionsListType";
 const _PG = "PolicyGroups";
 const _PGLT = "PolicyGroupListType";
 const _PGP = "PutGroupPolicy";
@@ -544,6 +553,7 @@ const _PGSAo = "PolicyGrantingServiceAccess";
 const _PGo = "PolicyGroup";
 const _PI = "PolicyId";
 const _PIL = "PolicyInputList";
+const _PIo = "PolicyIdentifier";
 const _PK = "PrivateKey";
 const _PKL = "PrivateKeyList";
 const _PLU = "PasswordLastUsed";
@@ -650,6 +660,7 @@ const _SCM = "ServerCertificateMetadata";
 const _SCML = "ServerCertificateMetadataList";
 const _SCN = "ServerCertificateName";
 const _SCP = "SimulateCustomPolicy";
+const _SCPIL = "ServiceControlPolicyInputList";
 const _SCPR = "SimulateCustomPolicyRequest";
 const _SCS = "ServiceCredentialSecret";
 const _SCe = "ServerCertificate";
@@ -846,6 +857,7 @@ import type {
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -1862,6 +1874,11 @@ export var GroupDetail$: StaticStructureSchema = [3, n0, _GD,
   [_Pa, _GN, _GI, _A, _CD, _GPL, _AMP],
   [0, 0, 0, 0, 4, () => policyDetailListType, () => attachedPoliciesListType]
 ];
+export var InlinePolicyIdentifierType$: StaticStructureSchema = [3, n0, _IPIT,
+  0,
+  [_PN, _AT, _AN],
+  [0, 0, 0], 3
+];
 export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
   0,
   [_Pa, _IPN, _IPI, _A, _CD, _Rol, _T],
@@ -2252,6 +2269,11 @@ export var OpenIDConnectProviderListEntry$: StaticStructureSchema = [3, n0, _OID
   [_A],
   [0]
 ];
+export var OrderedOrganizationPolicyType$: StaticStructureSchema = [3, n0, _OOPT,
+  0,
+  [_SCPIL],
+  [64 | 0]
+];
 export var OrganizationsDecisionDetail$: StaticStructureSchema = [3, n0, _ODD,
   0,
   [_ABO],
@@ -2454,8 +2476,8 @@ export var SigningCertificate$: StaticStructureSchema = [3, n0, _SCi,
 ];
 export var SimulateCustomPolicyRequest$: StaticStructureSchema = [3, n0, _SCPR,
   0,
-  [_PIL, _AN, _PBPIL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
-  [64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
+  [_PIL, _ANc, _PBPIL, _OOPIL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
+  [64 | 0, 64 | 0, 64 | 0, () => OrganizationPolicyListType, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
 ];
 export var SimulatePolicyResponse$: StaticStructureSchema = [3, n0, _SPR,
   0,
@@ -2464,8 +2486,8 @@ export var SimulatePolicyResponse$: StaticStructureSchema = [3, n0, _SPR,
 ];
 export var SimulatePrincipalPolicyRequest$: StaticStructureSchema = [3, n0, _SPPR,
   0,
-  [_PSA, _AN, _PIL, _PBPIL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
-  [0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
+  [_PSA, _ANc, _PIL, _PBPIL, _PEL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
+  [0, 64 | 0, 64 | 0, 64 | 0, () => PolicyExclusionsListType, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
 ];
 export var SSHPublicKey$: StaticStructureSchema = [3, n0, _SSHPK,
   0,
@@ -2529,7 +2551,7 @@ export var TagUserRequest$: StaticStructureSchema = [3, n0, _TUR,
 ];
 export var TrackedActionLastAccessed$: StaticStructureSchema = [3, n0, _TALAr,
   0,
-  [_ANc, _LAEa, _LATa, _LARa],
+  [_ANct, _LAEa, _LATa, _LARa],
   [0, 0, 4, 0]
 ];
 export var UntagInstanceProfileRequest$: StaticStructureSchema = [3, n0, _UIPR,
@@ -2762,11 +2784,17 @@ var mfaDeviceListType: StaticListSchema = [1, n0, _mDLT,
 var OpenIDConnectProviderListType: StaticListSchema = [1, n0, _OIDCPLT,
   0, () => OpenIDConnectProviderListEntry$
 ];
+var OrganizationPolicyListType: StaticListSchema = [1, n0, _OPLT,
+  0, () => OrderedOrganizationPolicyType$
+];
 var policyDetailListType: StaticListSchema = [1, n0, _pDLT,
   0, () => PolicyDetail$
 ];
 var policyDocumentVersionListType: StaticListSchema = [1, n0, _pDVLT,
   0, () => PolicyVersion$
+];
+var PolicyExclusionsListType: StaticListSchema = [1, n0, _PELT,
+  0, () => PolicyIdentifier$
 ];
 var policyGrantingServiceAccessListType: StaticListSchema = [1, n0, _pGSALT,
   0, () => PolicyGrantingServiceAccess$
@@ -2846,6 +2874,11 @@ var virtualMFADeviceListType: StaticListSchema = [1, n0, _vMFADLT,
 var CertificationMapType = 128 | 0;
 var EvalDecisionDetailsType = 128 | 0;
 var summaryMapType = 128 | 1;
+export var PolicyIdentifier$: StaticUnionSchema = [4, n0, _PIo,
+  0,
+  [_PT, _PA, _IPIn],
+  [0, 0, () => InlinePolicyIdentifierType$]
+];
 export var AcceptDelegationRequest$: StaticOperationSchema = [9, n0, _ADR,
   0, () => AcceptDelegationRequestRequest$, () => __Unit
 ];

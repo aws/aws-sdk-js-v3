@@ -37,7 +37,10 @@ export interface GetContextKeysForPrincipalPolicyCommandOutput extends GetContex
  *          <p>Context keys are variables maintained by Amazon Web Services and its services that provide details
  *             about the context of an API query request. Context keys can be evaluated by testing
  *             against a value in an IAM policy. Use <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a> to understand what key names and values
- *             you must supply when you call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
+ *             you must supply when you call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>. This operation doesn't return context keys
+ *             referenced by service control policies (SCPs). Only context keys referenced by the
+ *             identity-based policies attached to the specified entity, and any additional policies
+ *             that you provide, are included.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2,14 +2,14 @@ POST https://iam.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 1619
+content-length: 1977
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/iam#_.__ m/E,e
 host: iam.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 9087b1ea743a220d2b10e194d1697de2640960d1ac96893b72e8364275e17903
+x-amz-content-sha256: 333bf7899c4df53a3db3d5663907d2fc06ef0f7ee2ceef2a1fb083a354a7e99f
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/iam/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -25,6 +25,11 @@ PolicyInputList.member.3=__member__&
 PermissionsBoundaryPolicyInputList.member.1=__member__&
 PermissionsBoundaryPolicyInputList.member.2=__member__&
 PermissionsBoundaryPolicyInputList.member.3=__member__&
+PolicyExclusionList.member.1.PolicyArn=__PolicyArn__&
+PolicyExclusionList.member.2.InlinePolicyIdentifier.PolicyName=__PolicyName__&
+PolicyExclusionList.member.2.InlinePolicyIdentifier.AttachmentType=__AttachmentType__&
+PolicyExclusionList.member.2.InlinePolicyIdentifier.AttachmentName=__AttachmentName__&
+PolicyExclusionList.member.3.PolicyType=__PolicyType__&
 ResourceArns.member.1=__member__&
 ResourceArns.member.2=__member__&
 ResourceArns.member.3=__member__&

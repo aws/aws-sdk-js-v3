@@ -3,6 +3,7 @@ import type {
   AccessAdvisorUsageGranularityType,
   AssertionEncryptionModeType,
   AssignmentStatusType,
+  AttachmentType,
   ContextKeyTypeEnum,
   DeletionTaskStatusType,
   EncodingType,
@@ -14,6 +15,7 @@ import type {
   PermissionCheckStatusType,
   PermissionsBoundaryAttachmentType,
   PolicyEvaluationDecisionType,
+  PolicyIdentifierPolicyType,
   PolicyOwnerEntityType,
   PolicyParameterTypeEnum,
   PolicyScopeType,
@@ -8325,6 +8327,24 @@ export interface ContextEntry {
 }
 
 /**
+ * <p>Represents one level of an Organizations hierarchy—the organization root, an organizational
+ *          unit (OU), or an account—together with the service control policies (SCPs) that apply at
+ *          that level. Each element in the list represents one level of the hierarchy, ordered from
+ *          the organization root down to the account.</p>
+ *          <p>For more information about SCPs, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html">Service control
+ *             policies (SCPs)</a> in the <i>Organizations User Guide</i>.</p>
+ * @public
+ */
+export interface OrderedOrganizationPolicyType {
+  /**
+   * <p>A list of SCP documents that apply at this level of the Organizations hierarchy. Each document
+   *          is specified as a string containing the complete, valid JSON text of an SCP.</p>
+   * @public
+   */
+  ServiceControlPolicyInputList?: string[] | undefined;
+}
+
+/**
  * @public
  */
 export interface SimulateCustomPolicyRequest {
@@ -8387,6 +8407,19 @@ export interface SimulateCustomPolicyRequest {
    * @public
    */
   PermissionsBoundaryPolicyInputList?: string[] | undefined;
+
+  /**
+   * <p>An ordered list of service control policies (SCPs) to include in the simulation. Each
+   *             element represents one level of an Organizations hierarchy, from the organization root to the
+   *             account.</p>
+   *          <p>The simulator evaluates SCPs in the order that you provide, consistent with how Organizations
+   *             enforces SCPs. The first element must represent the organization root, and the last
+   *             element must represent the account. Any elements between them represent organizational
+   *             units (OUs) in descending order.</p>
+   *          <p>Use this parameter to simulate the effect of an SCP hierarchy without calling <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>.</p>
+   * @public
+   */
+  OrderedOrganizationPolicyInputList?: OrderedOrganizationPolicyType[] | undefined;
 
   /**
    * <p>A list of names of API operations to evaluate in the simulation. Each operation is
@@ -8465,12 +8498,12 @@ export interface SimulateCustomPolicyRequest {
   ResourceOwner?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM user that you want to use as the simulated caller of the API
-   *             operations. <code>CallerArn</code> is required if you include a
+   * <p>The ARN of the IAM user, group, or role that you want to use as the simulated
+   *             caller of the API operations. <code>CallerArn</code> is required if you include a
    *                 <code>ResourcePolicy</code> so that the policy's <code>Principal</code> element has
    *             a value to use in evaluating the policy.</p>
-   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an
-   *             assumed role, federated user, or a service principal.</p>
+   *          <p>You cannot specify the ARN of an assumed role, federated user, or a service
+   *             principal.</p>
    * @public
    */
   CallerArn?: string | undefined;
@@ -8705,6 +8738,22 @@ export interface ResourceSpecificResult {
  *             </code> and <code>
  *                <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_SimulatePrincipalPolicy.html">SimulatePrincipalPolicy</a>
  *             </code>.</p>
+ *          <important>
+ *             <p>The simulator now returns a single <code>EvaluationResult</code> per action,
+ *             regardless of how many resource ARNs are provided. Previously, simulating one action
+ *             against N resources returned N evaluation results, each containing the same aggregate
+ *             decision. The top-level fields (<code>EvalDecision</code>,
+ *             <code>MatchedStatements</code>, <code>MissingContextValues</code>,
+ *             <code>EvalDecisionDetails</code>) now represent the
+ *             <i>aggregate</i> decision across all requested resources. The top-level
+ *             <code>EvalDecision</code> reflects the most restrictive decision across all resources
+ *             (for example, if any resource produces <code>explicitDeny</code>, the top-level
+ *             decision is <code>explicitDeny</code>).</p>
+ *             <p>To see the decision for each individual resource, use
+ *             <code>ResourceSpecificResults</code>. If your application parses evaluation results per
+ *             resource ARN, update your code to read per-resource decisions from
+ *                <code>ResourceSpecificResults</code> rather than from the top-level result.</p>
+ *          </important>
  * @public
  */
 export interface EvaluationResult {
@@ -8715,7 +8764,16 @@ export interface EvaluationResult {
   EvalActionName: string | undefined;
 
   /**
-   * <p>The ARN of the resource that the indicated API operation was tested on.</p>
+   * <p>The ARN template for the simulated resource type (for example,
+   *             <code>arn:$\{Partition\}:s3:::$\{BucketName\}/$\{KeyName\}</code>), or <code>*</code> if no
+   *          ARN format is defined for the action. This is not a specific customer-provided resource
+   *          ARN. To find the decision for a specific resource, use
+   *             <code>ResourceSpecificResults</code>.</p>
+   *          <note>
+   *             <p>If you previously relied on <code>EvalResourceName</code> to identify which specific
+   *             resource a result applies to, you must now use the <code>EvalResourceName</code> field
+   *             within individual entries in <code>ResourceSpecificResults</code> instead.</p>
+   *          </note>
    * @public
    */
   EvalResourceName?: string | undefined;
@@ -8731,6 +8789,12 @@ export interface EvaluationResult {
    *          scenario. Remember that even if multiple statements allow the operation on the resource, if
    *          only one statement denies that operation, then the explicit deny overrides any allow. In
    *          addition, the deny statement is the only entry included in the result.</p>
+   *          <p>In the top-level result, this field contains the union of matched statements across all
+   *          requested resources. Only statements that contributed to the reported decision are
+   *          included. For per-resource matched statements, see
+   *             <code>ResourceSpecificResults</code>. This field doesn't include statements from
+   *          service control policies (SCPs). Only statements from identity-based and resource-based
+   *          policies appear here.</p>
    * @public
    */
   MatchedStatements?: Statement[] | undefined;
@@ -8742,6 +8806,10 @@ export interface EvaluationResult {
    *          blank. If you include a list of resources, then any missing context values are instead
    *          included under the <code>ResourceSpecificResults</code> section. To discover the context
    *          keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
+   *          <p>In the top-level result, this field contains the deduplicated set of missing context
+   *          values across all requested resources. This field doesn't include context keys referenced
+   *          by service control policies (SCPs). Only context keys referenced by identity-based and
+   *          resource-based policies appear here.</p>
    * @public
    */
   MissingContextValues?: string[] | undefined;
@@ -8750,6 +8818,9 @@ export interface EvaluationResult {
    * <p>A structure that details how Organizations and its service control policies affect the results of
    *          the simulation. Only applies if the simulated user's account is part of an
    *          organization.</p>
+   *          <p>For resources that don't support organization-level evaluation, this field is omitted
+   *          from the top-level result. For per-resource details, see
+   *             <code>ResourceSpecificResults</code>.</p>
    * @public
    */
   OrganizationsDecisionDetail?: OrganizationsDecisionDetail | undefined;
@@ -8765,6 +8836,8 @@ export interface EvaluationResult {
    * <p>Additional details about the results of the cross-account evaluation decision. This
    *          parameter is populated for only cross-account simulations. It contains a brief summary of
    *          how each policy type contributes to the final evaluation decision.</p>
+   *          <p>In the top-level result, this map reports the most restrictive decision per policy
+   *          type across all requested resources.</p>
    *          <p>If the simulation evaluates policies within the same account and includes a resource
    *          ARN, then the parameter is present but the response is empty. If the simulation evaluates
    *          policies within the same account and specifies all resources (<code>*</code>), then the
@@ -8817,6 +8890,116 @@ export interface SimulatePolicyResponse {
    * @public
    */
   Marker?: string | undefined;
+}
+
+/**
+ * <p>Identifies one or more inline policies that are embedded in IAM users, groups, or
+ *          roles, by the name of the policy together with the type and name of the entity that it is
+ *          attached to. Wildcard characters in the entity name can match multiple entities, so a
+ *          single identifier can select more than one attached inline policy.</p>
+ * @public
+ */
+export interface InlinePolicyIdentifierType {
+  /**
+   * <p>The name of the inline policy.</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The type of IAM entity that the inline policy is attached to.</p>
+   * @public
+   */
+  AttachmentType: AttachmentType | undefined;
+
+  /**
+   * <p>The name of the IAM user, group, or role that the inline policy is attached to.
+   *          Wildcard characters are supported to match multiple entities: use at most one
+   *          <code>*</code> (matches any sequence of characters, including none), and any number of
+   *          <code>?</code> (each matches exactly one character).</p>
+   * @public
+   */
+  AttachmentName: string | undefined;
+}
+
+/**
+ * <p>Identifies one or more policies as a union type. Specify exactly one of
+ *          <code>PolicyType</code>, <code>PolicyArn</code>, or
+ *          <code>InlinePolicyIdentifier</code> to identify policies by their type, by Amazon
+ *          Resource Name (ARN), or by the name of an inline policy and the entity it is attached
+ *          to.</p>
+ * @public
+ */
+export type PolicyIdentifier =
+  | PolicyIdentifier.InlinePolicyIdentifierMember
+  | PolicyIdentifier.PolicyArnMember
+  | PolicyIdentifier.PolicyTypeMember
+  | PolicyIdentifier.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PolicyIdentifier {
+  /**
+   * <p>The policy type to identify. All policies of the specified type are matched.</p>
+   * @public
+   */
+  export interface PolicyTypeMember {
+    PolicyType: PolicyIdentifierPolicyType;
+    PolicyArn?: never;
+    InlinePolicyIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services managed policy or a customer managed policy
+   *          that is attached to an IAM user, group, or role. Wildcard characters are supported in
+   *          the resource name portion of the ARN to match multiple managed policies: use at most one
+   *          <code>*</code> (matches any sequence of characters, including none), and any number of
+   *          <code>?</code> (each matches exactly one character).</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  export interface PolicyArnMember {
+    PolicyType?: never;
+    PolicyArn: string;
+    InlinePolicyIdentifier?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An inline policy identifier consisting of a policy name and the entity it is attached
+   *          to. Wildcard characters (<code>*</code> and <code>?</code>) in the entity name can match
+   *          multiple entities.</p>
+   * @public
+   */
+  export interface InlinePolicyIdentifierMember {
+    PolicyType?: never;
+    PolicyArn?: never;
+    InlinePolicyIdentifier: InlinePolicyIdentifierType;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    PolicyType?: never;
+    PolicyArn?: never;
+    InlinePolicyIdentifier?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    PolicyType: (value: PolicyIdentifierPolicyType) => T;
+    PolicyArn: (value: string) => T;
+    InlinePolicyIdentifier: (value: InlinePolicyIdentifierType) => T;
+    _: (name: string, value: any) => T;
+  }
 }
 
 /**
@@ -8894,6 +9077,23 @@ export interface SimulatePrincipalPolicyRequest {
   PermissionsBoundaryPolicyInputList?: string[] | undefined;
 
   /**
+   * <p>A list of policies to exclude from the simulation. Use this parameter to test what
+   *             the simulation result would be if a policy were removed, without changing which
+   *             policies are actually attached to the principal identified by
+   *             <code>PolicySourceArn</code>.</p>
+   *          <p>Each entry is a <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_PolicyIdentifier.html">PolicyIdentifier</a>
+   *             that identifies one or more policies to exclude by policy type, by Amazon Resource Name
+   *             (ARN), or by the name of an inline policy and the entity it is attached to.</p>
+   *          <p>Syntactically invalid identifiers, such as malformed ARNs or wildcards in disallowed
+   *             positions, cause the request to fail with an <code>InvalidInput</code> error.
+   *             Syntactically valid identifiers that don't match any attached policy are ignored.
+   *             Resource control policies (RCPs) are not supported in this release; identifiers that
+   *             target RCPs are also ignored.</p>
+   * @public
+   */
+  PolicyExclusionList?: PolicyIdentifier[] | undefined;
+
+  /**
    * <p>A list of names of API operations to evaluate in the simulation. Each operation is
    *             evaluated for each resource. Each operation must include the service identifier, such as
    *                 <code>iam:CreateUser</code>.</p>
@@ -8963,20 +9163,21 @@ export interface SimulatePrincipalPolicyRequest {
   ResourceOwner?: string | undefined;
 
   /**
-   * <p>The ARN of the IAM user that you want to specify as the simulated caller of the API
-   *             operations. If you do not specify a <code>CallerArn</code>, it defaults to the ARN of
-   *             the user that you specify in <code>PolicySourceArn</code>, if you specified a user. If
-   *             you include both a <code>PolicySourceArn</code> (for example,
-   *                 <code>arn:aws:iam::123456789012:user/David</code>) and a <code>CallerArn</code> (for
-   *             example, <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you
-   *             simulate calling the API operations as Bob, as if Bob had David's policies.</p>
-   *          <p>You can specify only the ARN of an IAM user. You cannot specify the ARN of an
-   *             assumed role, federated user, or a service principal.</p>
+   * <p>The ARN of the IAM user, group, or role that you want to specify as the simulated
+   *             caller of the API operations. If you do not specify a <code>CallerArn</code>, it
+   *             defaults to the ARN of the user, group, or role that you specify in
+   *                 <code>PolicySourceArn</code>. If you include both a <code>PolicySourceArn</code>
+   *             (for example, <code>arn:aws:iam::123456789012:user/David</code>) and a
+   *                 <code>CallerArn</code> (for example,
+   *                 <code>arn:aws:iam::123456789012:user/Bob</code>), the result is that you simulate
+   *             calling the API operations as Bob, as if Bob had David's policies.</p>
+   *          <p>You can specify the ARN of an IAM user, group, or role. You cannot specify the ARN
+   *             of an assumed role, federated user, or a service principal.</p>
    *          <p>
    *             <code>CallerArn</code> is required if you include a <code>ResourcePolicy</code> and
-   *             the <code>PolicySourceArn</code> is not the ARN for an IAM user. This is required so
-   *             that the resource-based policy's <code>Principal</code> element has a value to use in
-   *             evaluating the policy.</p>
+   *             the <code>PolicySourceArn</code> is not the ARN for an IAM user, group, or role. This
+   *             is required so that the resource-based policy's <code>Principal</code> element has a
+   *             value to use in evaluating the policy.</p>
    *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
@@ -9548,98 +9749,4 @@ export interface UpdateAssumeRolePolicyRequest {
    * @public
    */
   PolicyDocument: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateDelegationRequestRequest {
-  /**
-   * <p>The unique identifier of the delegation request to update.</p>
-   * @public
-   */
-  DelegationRequestId: string | undefined;
-
-  /**
-   * <p>Additional notes or comments to add to the delegation request.</p>
-   * @public
-   */
-  Notes?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateGroupRequest {
-  /**
-   * <p>Name of the IAM group to update. If you're changing the name of the group, this is
-   *             the original name.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  GroupName: string | undefined;
-
-  /**
-   * <p>New path for the IAM group. Only include this if changing the group's path.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting
-   *     of either a forward slash (/) by itself or a string that must begin and end with forward slashes.
-   *     In addition, it can contain any ASCII character from the ! (<code>\u0021</code>) through the DEL character (<code>\u007F</code>), including
-   *     most punctuation characters, digits, and upper and lowercased letters.</p>
-   * @public
-   */
-  NewPath?: string | undefined;
-
-  /**
-   * <p>New name for the IAM group. Only include this if changing the group's name.</p>
-   *          <p>IAM user, group, role, and policy names must be unique within the account. Names are
-   *             not distinguished by case. For example, you cannot create resources named both
-   *             "MyResource" and "myresource".</p>
-   * @public
-   */
-  NewGroupName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateLoginProfileRequest {
-  /**
-   * <p>The name of the user whose password you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The new password for the specified IAM user.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
-   *          <p>However, the format can be further restricted by the account administrator by setting
-   *             a password policy on the Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_UpdateAccountPasswordPolicy.html">UpdateAccountPasswordPolicy</a>.</p>
-   * @public
-   */
-  Password?: string | undefined;
-
-  /**
-   * <p>Allows this new password to be used only once by requiring the specified IAM user to
-   *             set a new password on next sign-in.</p>
-   * @public
-   */
-  PasswordResetRequired?: boolean | undefined;
 }

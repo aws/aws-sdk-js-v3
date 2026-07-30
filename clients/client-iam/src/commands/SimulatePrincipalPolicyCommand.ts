@@ -35,6 +35,10 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *             the resources included in the simulation for IAM users only.</p>
  *          <p>The simulation does not perform the API operations; it only checks the authorization
  *             to determine if the simulated policies allow or deny the operations.</p>
+ *          <p>For cross-account simulations, <code>EvalDecisionDetails</code> returns the decision
+ *             for each policy type (identity-based policy, resource-based policy, and permissions
+ *             boundary). This helps you identify which policy type is responsible for an allow or
+ *             deny decision when policies span multiple accounts.</p>
  *          <p>
  *             <b>Note:</b> This operation discloses information about the
  *             permissions granted to other users. If you do not want users to see other user's
@@ -46,9 +50,10 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *          <p>If the output is long, you can use the <code>MaxItems</code> and <code>Marker</code>
  *             parameters to paginate the results.</p>
  *          <note>
- *             <p>The IAM policy simulator evaluates statements in the identity-based policy and
- *                 the inputs that you provide during simulation. The policy simulator results can
- *                 differ from your live Amazon Web Services environment. We recommend that you check your policies
+ *             <p>The IAM policy simulator evaluates statements in identity-based policies,
+ *                 service control policies (SCPs) including their condition keys and resource
+ *                 scoping, and the inputs that you provide during simulation. The policy
+ *                 simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies
  *                 against your live Amazon Web Services environment after testing using the policy simulator to
  *                 confirm that you have the desired results. For more information about using the
  *                 policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM
@@ -70,6 +75,17 @@ export interface SimulatePrincipalPolicyCommandOutput extends SimulatePolicyResp
  *   ],
  *   PermissionsBoundaryPolicyInputList: [
  *     "STRING_VALUE",
+ *   ],
+ *   PolicyExclusionList: [ // PolicyExclusionsListType
+ *     { // PolicyIdentifier Union: only one key present
+ *       PolicyType: "inline" || "aws-managed" || "user-managed" || "permission-boundary" || "scp" || "rcp",
+ *       PolicyArn: "STRING_VALUE",
+ *       InlinePolicyIdentifier: { // InlinePolicyIdentifierType
+ *         PolicyName: "STRING_VALUE", // required
+ *         AttachmentType: "user" || "group" || "role", // required
+ *         AttachmentName: "STRING_VALUE", // required
+ *       },
+ *     },
  *   ],
  *   ActionNames: [ // ActionNameListType // required
  *     "STRING_VALUE",

@@ -38,9 +38,10 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  *          <p>If the output is long, you can use <code>MaxItems</code> and <code>Marker</code>
  *             parameters to paginate the results.</p>
  *          <note>
- *             <p>The IAM policy simulator evaluates statements in the identity-based policy and
- *                 the inputs that you provide during simulation. The policy simulator results can
- *                 differ from your live Amazon Web Services environment. We recommend that you check your policies
+ *             <p>The IAM policy simulator evaluates statements in identity-based policies,
+ *                 service control policies (SCPs) including their condition keys and resource
+ *                 scoping, and the inputs that you provide during simulation. The policy
+ *                 simulator results can differ from your live Amazon Web Services environment. We recommend that you check your policies
  *                 against your live Amazon Web Services environment after testing using the policy simulator to
  *                 confirm that you have the desired results. For more information about using the
  *                 policy simulator, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html">Testing IAM
@@ -61,6 +62,13 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  *   ],
  *   PermissionsBoundaryPolicyInputList: [
  *     "STRING_VALUE",
+ *   ],
+ *   OrderedOrganizationPolicyInputList: [ // OrganizationPolicyListType
+ *     { // OrderedOrganizationPolicyType
+ *       ServiceControlPolicyInputList: [
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   ],
  *   ActionNames: [ // ActionNameListType // required
  *     "STRING_VALUE",
