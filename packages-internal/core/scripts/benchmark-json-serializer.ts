@@ -37,6 +37,11 @@ import {
 import { AttributeValue$ } from "@aws-sdk/client-dynamodb";
 import { DynamoDBJsonCodec, DynamoDBJsonCodec2 } from "@aws-sdk/dynamodb-codec";
 
+// ─── Configuration ───────────────────────────────────────────────────────────
+
+/** Controls the number of iterations for all scenarios. Higher = more stable results, slower run. */
+const SCALE = 10;
+
 // ─── Schemas ─────────────────────────────────────────────────────────────────
 
 const widget = [
@@ -85,7 +90,50 @@ const noBlobWidget: any = [
   [0, 4, 1, 64 | 1, 128 | 0, () => noBlobWidget],
 ];
 
-const wideMapSchema = [3, "", "WideMap", 0, ["tags"], [[2, "", "Map", 0, 0, 0]]] as any;
+const wideMapSchema = [3, "", "WideMap", 0, ["tags"], [[2, "", "Map", 0, 0, 0]]] satisfies StaticStructureSchema;
+
+const listStringSchema = [
+  3,
+  "",
+  "StringListInput",
+  0,
+  ["items"],
+  [[1, "", "StringList", 0, 0 satisfies StringSchema]],
+] satisfies StaticStructureSchema;
+const listFloatSchema = [
+  3,
+  "",
+  "FloatListInput",
+  0,
+  ["items"],
+  [[1, "", "FloatList", 0, 1 satisfies NumericSchema]],
+] satisfies StaticStructureSchema;
+const mapStringStringSchema = [
+  3,
+  "",
+  "StringMap",
+  0,
+  ["entries"],
+  [[2, "", "Map", 0, 0, 0]],
+] satisfies StaticStructureSchema;
+
+const listDdbItemSchema: StaticStructureSchema = [
+  3,
+  "",
+  "BatchGetItemOutput",
+  0,
+  ["Items"],
+  [[[1, "", "ItemList", 0, [2, "", "AttributeMap", 0, 0, () => AttributeValue$]], 0]],
+];
+
+const mapDdbItemSchema: StaticStructureSchema = [
+  3,
+  "",
+  "TableItemsOutput",
+  0,
+  ["Tables"],
+  [[2, "", "TableMap", 0, 0, [2, "", "AttributeMap", 0, 0, () => AttributeValue$]]],
+];
 
 // ─── Data generators ─────────────────────────────────────────────────────────
 
@@ -134,6 +182,26 @@ function createEscapyMap(numKeys: number) {
     tags[`key-"${i}"\n`] = `val\t${i}\u0000${'abc"\\'.repeat(5)}`;
   }
   return { tags };
+}
+
+function createListString(count: number) {
+  const l: string[] = [];
+  for (let i = 0; i < count; i++) l[i] = "string".repeat(((Math.random() * 35) | 0) + 1);
+  return l;
+}
+
+function createListFloat(count: number) {
+  const l: number[] = [];
+  for (let i = 0; i < count; i++) l[i] = Math.random() * 3.4e38;
+  return l;
+}
+
+function createMapStringString(count: number) {
+  const m: Record<string, string> = {};
+  for (let i = 0; i < count; i++) {
+    m["key".repeat(((Math.random() * 10) | 0) + 1) + i] = "val".repeat(((Math.random() * 50) | 0) + 1) + i;
+  }
+  return { entries: m };
 }
 
 function createDdbItem(targetBytes = 65536) {
@@ -197,7 +265,23 @@ function createDdbItem(targetBytes = 65536) {
   return item;
 }
 
-const ddbItemSchema: any = [
+function createListDdbItems(count: number, targetBytesPerItem = 4096) {
+  const items = [];
+  for (let i = 0; i < count; i++) {
+    items.push(createDdbItem(targetBytesPerItem));
+  }
+  return { Items: items };
+}
+
+function createMapDdbItems(count: number, targetBytesPerItem = 4096) {
+  const tables: Record<string, any> = {};
+  for (let i = 0; i < count; i++) {
+    tables[`table-${String(i).padStart(4, "0")}`] = createDdbItem(targetBytesPerItem);
+  }
+  return { Tables: tables };
+}
+
+const ddbItemSchema: StaticStructureSchema = [
   3,
   "",
   "GetItemOutput",
@@ -223,7 +307,7 @@ function getScenarios(): Scenario[] {
       name: `nested-struct (depth=${depth})`,
       schema: nestingWidget,
       data: createNestingWidget(depth),
-      iterations: depth > 256 ? 50 : 200,
+      iterations: depth > 256 ? SCALE : SCALE * 4,
     });
   }
 
@@ -232,7 +316,7 @@ function getScenarios(): Scenario[] {
       name: `no-blob nested (depth=${depth})`,
       schema: noBlobWidget,
       data: createNoBlobWidget(depth),
-      iterations: depth > 256 ? 50 : 200,
+      iterations: depth > 256 ? SCALE : SCALE * 4,
     });
   }
 
@@ -241,7 +325,7 @@ function getScenarios(): Scenario[] {
       name: `wide-map (keys=${keys})`,
       schema: wideMapSchema,
       data: createWideMap(keys),
-      iterations: keys > 5000 ? 20 : 100,
+      iterations: keys > 5000 ? SCALE : SCALE * 2,
     });
   }
 
@@ -250,7 +334,7 @@ function getScenarios(): Scenario[] {
       name: `escape-heavy map (keys=${keys})`,
       schema: wideMapSchema,
       data: createEscapyMap(keys),
-      iterations: keys > 1000 ? 20 : 100,
+      iterations: keys > 1000 ? SCALE : SCALE * 2,
     });
   }
 
@@ -263,15 +347,43 @@ function getScenarios(): Scenario[] {
       bigdecimal: new NumericValue("0.10000000000000000000000054321", "bigDecimal"),
       blob: new Uint8Array([0, 0, 0, 1]),
     },
-    iterations: 5000,
+    iterations: SCALE * 80,
   });
+
+  // String-heavy / numeric-heavy cases (JSON2 regression candidates)
+  for (const count of [1000, 5000, 30000]) {
+    scenarios.push({
+      name: `list<string> (n=${count})`,
+      schema: listStringSchema,
+      data: { items: createListString(count) },
+      iterations: count > 5000 ? SCALE : SCALE * 2,
+    });
+  }
+
+  for (const count of [1000, 10000, 30000]) {
+    scenarios.push({
+      name: `list<float> (n=${count})`,
+      schema: listFloatSchema,
+      data: { items: createListFloat(count) },
+      iterations: count > 10000 ? SCALE : SCALE * 2,
+    });
+  }
+
+  for (const count of [500, 2000, 5000]) {
+    scenarios.push({
+      name: `map<str,str> (n=${count})`,
+      schema: mapStringStringSchema,
+      data: createMapStringString(count),
+      iterations: count > 2000 ? SCALE : SCALE * 2,
+    });
+  }
 
   for (const kb of [16, 64, 256, 512]) {
     scenarios.push({
       name: `blob ${kb}KB`,
       schema: widget,
       data: { blob: new Uint8Array(kb * 1024) },
-      iterations: kb > 256 ? 50 : 200,
+      iterations: kb > 256 ? SCALE : SCALE * 4,
     });
   }
 
@@ -282,9 +394,24 @@ function getScenarios(): Scenario[] {
       name: `ddb item ~${kb}KB`,
       schema: ddbItemSchema,
       data,
-      iterations: kb > 16 ? 50 : 200,
+      iterations: kb > 16 ? SCALE : SCALE * 4,
     });
   }
+
+  // List/map of DDB items (batch-style workloads)
+  scenarios.push({
+    name: `list<ddb item 4KB> (n=200)`,
+    schema: listDdbItemSchema,
+    data: createListDdbItems(200, 4096),
+    iterations: SCALE,
+  });
+
+  scenarios.push({
+    name: `map<ddb item 4KB> (n=200)`,
+    schema: mapDdbItemSchema,
+    data: createMapDdbItems(200, 4096),
+    iterations: SCALE,
+  });
 
   return scenarios;
 }
@@ -313,16 +440,22 @@ function runVariant(variant: "multipass" | "byte"): BenchResult[] {
     // Warmup
     for (let i = 0; i < Math.min(iterations, 50); i++) {
       serializer.write(schema, data);
-      serializer.flush();
+      const r = serializer.flush();
+      if (typeof r === "string") Buffer.from(r, "utf8");
     }
 
-    // Measure
+    // Measure: include Buffer.from() for string output to capture full wire-ready cost.
     const start = performance.now();
     let size = 0;
     for (let i = 0; i < iterations; i++) {
       serializer.write(schema, data);
       const r = serializer.flush();
-      size = r instanceof Uint8Array ? r.byteLength : r.length;
+      if (typeof r === "string") {
+        const buf = Buffer.from(r, "utf8");
+        size = buf.byteLength;
+      } else {
+        size = r.byteLength;
+      }
     }
     const elapsed = performance.now() - start;
     const kbPerMs = (size * iterations) / 1024 / elapsed;
@@ -395,7 +528,7 @@ function getDdbScenarios(): Scenario[] {
       name: `ddb item ~${kb}KB`,
       schema: ddbItemSchema,
       data,
-      iterations: kb > 16 ? 50 : 200,
+      iterations: kb > 16 ? SCALE : SCALE * 4,
     });
   }
   return scenarios;
@@ -438,7 +571,8 @@ function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser
   for (const { name, schema, data, iterations } of scenarios) {
     for (let i = 0; i < Math.min(iterations, 50); i++) {
       serializer.write(schema, data);
-      serializer.flush();
+      const r = serializer.flush();
+      if (typeof r === "string") Buffer.from(r, "utf8");
     }
 
     const start = performance.now();
@@ -446,7 +580,12 @@ function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser
     for (let i = 0; i < iterations; i++) {
       serializer.write(schema, data);
       const r = serializer.flush();
-      size = r instanceof Uint8Array ? r.byteLength : r.length;
+      if (typeof r === "string") {
+        const buf = Buffer.from(r, "utf8");
+        size = buf.byteLength;
+      } else {
+        size = r.byteLength;
+      }
     }
     const elapsed = performance.now() - start;
     const kbPerMs = (size * iterations) / 1024 / elapsed;
@@ -514,7 +653,7 @@ function getDeserScenarios(): Scenario[] {
       name: `nested-struct (depth=${depth})`,
       schema: nestingWidget,
       data: createNestingWidget(depth),
-      iterations: depth > 256 ? 50 : 200,
+      iterations: depth > 256 ? SCALE : SCALE * 4,
     });
   }
 
@@ -523,7 +662,7 @@ function getDeserScenarios(): Scenario[] {
       name: `no-blob nested (depth=${depth})`,
       schema: noBlobWidget,
       data: createNoBlobWidget(depth),
-      iterations: depth > 256 ? 50 : 200,
+      iterations: depth > 256 ? SCALE : SCALE * 4,
     });
   }
 
@@ -532,7 +671,7 @@ function getDeserScenarios(): Scenario[] {
       name: `wide-map (keys=${keys})`,
       schema: wideMapSchema,
       data: createWideMap(keys),
-      iterations: keys > 5000 ? 20 : 100,
+      iterations: keys > 5000 ? SCALE : SCALE * 2,
     });
   }
 
@@ -545,8 +684,36 @@ function getDeserScenarios(): Scenario[] {
       bigdecimal: new NumericValue("0.10000000000000000000000054321", "bigDecimal"),
       blob: new Uint8Array([0, 0, 0, 1]),
     },
-    iterations: 5000,
+    iterations: SCALE * 80,
   });
+
+  // String-heavy / numeric-heavy cases (JSON2 regression candidates)
+  for (const count of [1000, 5000, 30000]) {
+    scenarios.push({
+      name: `list<string> (n=${count})`,
+      schema: listStringSchema,
+      data: { items: createListString(count) },
+      iterations: count > 5000 ? SCALE : SCALE * 2,
+    });
+  }
+
+  for (const count of [1000, 10000, 30000]) {
+    scenarios.push({
+      name: `list<float> (n=${count})`,
+      schema: listFloatSchema,
+      data: { items: createListFloat(count) },
+      iterations: count > 10000 ? SCALE : SCALE * 2,
+    });
+  }
+
+  for (const count of [500, 2000, 5000]) {
+    scenarios.push({
+      name: `map<str,str> (n=${count})`,
+      schema: mapStringStringSchema,
+      data: createMapStringString(count),
+      iterations: count > 2000 ? SCALE : SCALE * 2,
+    });
+  }
 
   // DDB-like items (typed AttributeValue schema, realistic shape)
   for (const kb of [4, 16, 64]) {
@@ -555,9 +722,24 @@ function getDeserScenarios(): Scenario[] {
       name: `ddb item ~${kb}KB`,
       schema: ddbItemSchema,
       data,
-      iterations: kb > 16 ? 50 : 200,
+      iterations: kb > 16 ? SCALE : SCALE * 4,
     });
   }
+
+  // List/map of DDB items (batch-style workloads)
+  scenarios.push({
+    name: `list<ddb item 4KB> (n=200)`,
+    schema: listDdbItemSchema,
+    data: createListDdbItems(200, 4096),
+    iterations: SCALE,
+  });
+
+  scenarios.push({
+    name: `map<ddb item 4KB> (n=200)`,
+    schema: mapDdbItemSchema,
+    data: createMapDdbItems(200, 4096),
+    iterations: SCALE,
+  });
 
   return scenarios;
 }

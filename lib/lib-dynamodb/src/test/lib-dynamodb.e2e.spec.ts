@@ -24,6 +24,7 @@ import type {
 } from "@aws-sdk/lib-dynamodb";
 import { DynamoDBDocument, NumberValue } from "@aws-sdk/lib-dynamodb";
 import { HttpRequest } from "@smithy/core/protocols";
+import { toUtf8 } from "@smithy/core/serde";
 import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 // expected running time: table creation (~20s) + operations 10s
@@ -107,8 +108,9 @@ describe(
         const { request } = args;
         if (HttpRequest.isInstance(request)) {
           if (["GetCommand", "GetItemCommand", "QueryCommand", "ScanCommand"].includes(context.commandName ?? "")) {
-            expect(request.body).toContain(`"ConsistentRead":true`);
+            expect(toUtf8(request.body)).toContain(`"ConsistentRead":true`);
           }
+          request.body += "";
         }
         return next(args);
       },

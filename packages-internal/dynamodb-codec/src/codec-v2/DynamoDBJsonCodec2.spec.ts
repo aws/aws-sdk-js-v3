@@ -111,7 +111,7 @@ describe(DynamoDBJsonCodec2.name, () => {
   it("serializes identically to the default codec", async () => {
     serializer.write(AttributeValue, avInput);
     const serialization = serializer.flush();
-    expect(serialization).toEqual(JSON.stringify(canonicalSerialization));
+    expect(toUtf8(serialization)).toEqual(JSON.stringify(canonicalSerialization));
     expect(JSON.parse(toUtf8(serialization))).toEqual(canonicalSerialization);
 
     baseSerializer.write(AttributeValue, avInput);

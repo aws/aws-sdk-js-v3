@@ -1,5 +1,5 @@
 import { nv, NumericValue } from "@smithy/core/serde";
-import type { TimestampEpochSecondsSchema } from "@smithy/types";
+import type { StaticStructureSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
 import { createNestingWidget, nestingWidget, unionStruct, unionStructControl, widget } from "../../test-schema.spec";
@@ -456,4 +456,97 @@ describe(JsonShapeDeserializer2.name, () => {
       }
     });
   }, 60_000);
+
+  // ─── __type struct deserialization with jsonName ─────────────────────────────
+
+  describe("__type struct deserialization with jsonName", () => {
+    const structWithJsonNames: StaticStructureSchema = [
+      3,
+      "ns",
+      "MyStruct",
+      0,
+      ["firstName", "lastName", "age"],
+      [
+        [0, "ns", "FirstName", { jsonName: "first_name" }, 0],
+        [0, "ns", "LastName", { jsonName: "last_name" }, 0],
+        [1, "ns", "Age", 0, 0],
+      ],
+    ];
+
+    it("deserializes struct with jsonName mappings when __type is absent", async () => {
+      const json = JSON.stringify({
+        first_name: "Alice",
+        last_name: "Smith",
+        age: 30,
+      });
+      const result = await deserializer.read(structWithJsonNames, json);
+      expect(result).toEqual({
+        firstName: "Alice",
+        lastName: "Smith",
+        age: 30,
+      });
+    });
+
+    it("deserializes struct with jsonName mappings when __type is present", async () => {
+      const json = JSON.stringify({
+        __type: "ns#MyStruct",
+        first_name: "Bob",
+        last_name: "Jones",
+        age: 25,
+        extra_field: "bonus",
+      });
+      const result = await deserializer.read(structWithJsonNames, json);
+      expect(result).toEqual({
+        __type: "ns#MyStruct",
+        firstName: "Bob",
+        lastName: "Jones",
+        age: 25,
+        extra_field: "bonus",
+      });
+    });
+
+    it("does not copy known members as extras when __type is present", async () => {
+      const json = JSON.stringify({
+        __type: "ns#MyStruct",
+        first_name: "Carol",
+        last_name: "White",
+        age: 40,
+      });
+      const result = await deserializer.read(structWithJsonNames, json);
+      const keys = Object.keys(result);
+      // jsonName wire keys should be mapped back to member names
+      expect(keys).not.toContain("first_name");
+      expect(keys).not.toContain("last_name");
+      expect(keys).toContain("firstName");
+      expect(keys).toContain("lastName");
+    });
+
+    it("deserializes with __type but no extra fields", async () => {
+      const json = JSON.stringify({
+        __type: "ns#MyStruct",
+        first_name: "Dave",
+        last_name: "Brown",
+        age: 50,
+      });
+      const result = await deserializer.read(structWithJsonNames, json);
+      expect(result.__type).toEqual("ns#MyStruct");
+      expect(result.firstName).toEqual("Dave");
+      expect(result.lastName).toEqual("Brown");
+      expect(result.age).toEqual(50);
+    });
+  });
+
+  // ─── serdeContext-less operation ────────────────────────────────────────────
+
+  describe("operation without serdeContext", () => {
+    it("deserializes from string input without serdeContext set", async () => {
+      const freshDeserializer = new JsonShapeDeserializer2({
+        jsonName: true,
+        timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
+      });
+      // Do NOT call setSerdeContext
+      const result = await freshDeserializer.read(widget, '{"blob":"AQID"}');
+      expect(result.blob).toEqual(new Uint8Array([1, 2, 3]));
+    });
+  });
 });
