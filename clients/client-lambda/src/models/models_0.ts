@@ -868,6 +868,297 @@ export interface UpdateCapacityProviderResponse {
 }
 
 /**
+ * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or expiry.</p>
+ * @public
+ */
+export interface CodeSigningPolicies {
+  /**
+   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and issues a new Amazon CloudWatch metric (<code>SignatureValidationErrors</code>) and also stores the warning in the CloudTrail log.</p> <p>Default value: <code>Warn</code> </p>
+   * @public
+   */
+  UntrustedArtifactOnDeployment?: CodeSigningPolicy | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSigningConfigRequest {
+  /**
+   * <p>Descriptive name for this code signing configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Signing profiles for this code signing configuration.</p>
+   * @public
+   */
+  AllowedPublishers: AllowedPublishers | undefined;
+
+  /**
+   * <p>The code signing policies define the actions to take if the validation checks fail. </p>
+   * @public
+   */
+  CodeSigningPolicies?: CodeSigningPolicies | undefined;
+
+  /**
+   * <p>A list of tags to add to the code signing configuration.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
+ * @public
+ */
+export interface CodeSigningConfig {
+  /**
+   * <p>Unique identifer for the Code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfigId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Code signing configuration description.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>List of allowed publishers.</p>
+   * @public
+   */
+  AllowedPublishers: AllowedPublishers | undefined;
+
+  /**
+   * <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
+   * @public
+   */
+  CodeSigningPolicies: CodeSigningPolicies | undefined;
+
+  /**
+   * <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
+   * @public
+   */
+  LastModified: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfigArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCodeSigningConfigResponse {}
+
+/**
+ * @public
+ */
+export interface GetCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
+   * @public
+   */
+  CodeSigningConfigArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration</p>
+   * @public
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeSigningConfigsRequest {
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Maximum number of items to return.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCodeSigningConfigsResponse {
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The code signing configurations</p>
+   * @public
+   */
+  CodeSigningConfigs?: CodeSigningConfig[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsByCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Maximum number of items to return.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFunctionsByCodeSigningConfigResponse {
+  /**
+   * <p>The pagination token that's included if more results are available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+
+  /**
+   * <p>The function ARNs. </p>
+   * @public
+   */
+  FunctionArns?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeSigningConfigRequest {
+  /**
+   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * @public
+   */
+  CodeSigningConfigArn: string | undefined;
+
+  /**
+   * <p>Descriptive name for this code signing configuration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Signing profiles for this code signing configuration.</p>
+   * @public
+   */
+  AllowedPublishers?: AllowedPublishers | undefined;
+
+  /**
+   * <p>The code signing policy.</p>
+   * @public
+   */
+  CodeSigningPolicies?: CodeSigningPolicies | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCodeSigningConfigResponse {
+  /**
+   * <p>The code signing configuration</p>
+   * @public
+   */
+  CodeSigningConfig: CodeSigningConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionRequest {
+  /**
+   * <p>The name or ARN of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionResponse {
+  /**
+   * <p>The HTTP status code returned by the operation.</p>
+   * @public
+   */
+  StatusCode?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteFunctionEventInvokeConfigRequest {
+  /**
+   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>A version number or alias name.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+}
+
+/**
  * <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
  * @public
  */
@@ -1329,294 +1620,886 @@ export interface CheckpointDurableExecutionResponse {
 }
 
 /**
- * <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or expiry.</p>
  * @public
  */
-export interface CodeSigningPolicies {
+export interface GetDurableExecutionRequest {
   /**
-   * <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and issues a new Amazon CloudWatch metric (<code>SignatureValidationErrors</code>) and also stores the warning in the CloudTrail log.</p> <p>Default value: <code>Warn</code> </p>
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
    * @public
    */
-  UntrustedArtifactOnDeployment?: CodeSigningPolicy | undefined;
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
+   * @public
+   */
+  IncludeExecutionData?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+ * @public
+ */
+export interface DurableConfig {
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+
+  /**
+   * <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
+   * @public
+   */
+  RetentionPeriodInDays?: number | undefined;
+
+  /**
+   * <p>The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.</p>
+   * @public
+   */
+  ExecutionTimeout?: number | undefined;
+}
+
+/**
+ * <p>Contains trace headers for the Lambda durable execution.</p>
+ * @public
+ */
+export interface TraceHeader {
+  /**
+   * <p>The X-Ray trace header associated with the durable execution.</p>
+   * @public
+   */
+  XAmznTraceId?: string | undefined;
+}
+
+/**
+ * <p>The response from the GetDurableExecution operation, containing detailed information about the durable execution.</p>
+ * @public
+ */
+export interface GetDurableExecutionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
+   * @public
+   */
+  DurableExecutionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
+   * @public
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
+   * @public
+   */
+  InputPayload?: string | undefined;
+
+  /**
+   * <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
+   * @public
+   */
+  Result?: string | undefined;
+
+  /**
+   * <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
+   * @public
+   */
+  Error?: ErrorObject | undefined;
+
+  /**
+   * <p>The date and time when the durable execution started, in Unix timestamp format.</p>
+   * @public
+   */
+  StartTimestamp: Date | undefined;
+
+  /**
+   * <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
+   * @public
+   */
+  Status: ExecutionStatus | undefined;
+
+  /**
+   * <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
+   * @public
+   */
+  Version?: string | undefined;
+
+  /**
+   * <p>The trace headers associated with the durable execution.</p>
+   * @public
+   */
+  TraceHeader?: TraceHeader | undefined;
+
+  /**
+   * <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
+   * @public
+   */
+  ExecutionDataIncluded?: boolean | undefined;
+
+  /**
+   * <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  DurableConfig?: DurableConfig | undefined;
 }
 
 /**
  * @public
  */
-export interface CreateCodeSigningConfigRequest {
+export interface GetDurableExecutionHistoryRequest {
   /**
-   * <p>Descriptive name for this code signing configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
    * @public
    */
-  Description?: string | undefined;
+  DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Signing profiles for this code signing configuration.</p>
+   * <p>Specifies whether to include execution data such as step results and callback payloads in the history events. Set to <code>true</code> to include data, or <code>false</code> to exclude it for a more compact response. The default is <code>true</code>.</p>
    * @public
    */
-  AllowedPublishers: AllowedPublishers | undefined;
+  IncludeExecutionData?: boolean | undefined;
 
   /**
-   * <p>The code signing policies define the actions to take if the validation checks fail. </p>
+   * <p>The maximum number of history events to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
    * @public
    */
-  CodeSigningPolicies?: CodeSigningPolicies | undefined;
+  MaxItems?: number | undefined;
 
   /**
-   * <p>A list of tags to add to the code signing configuration.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
- * @public
- */
-export interface CodeSigningConfig {
-  /**
-   * <p>Unique identifer for the Code signing configuration.</p>
-   * @public
-   */
-  CodeSigningConfigId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
-   * @public
-   */
-  CodeSigningConfigArn: string | undefined;
-
-  /**
-   * <p>Code signing configuration description.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>List of allowed publishers.</p>
-   * @public
-   */
-  AllowedPublishers: AllowedPublishers | undefined;
-
-  /**
-   * <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
-   * @public
-   */
-  CodeSigningPolicies: CodeSigningPolicies | undefined;
-
-  /**
-   * <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
-   * @public
-   */
-  LastModified: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCodeSigningConfigResponse {
-  /**
-   * <p>The code signing configuration.</p>
-   * @public
-   */
-  CodeSigningConfig: CodeSigningConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCodeSigningConfigRequest {
-  /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-   * @public
-   */
-  CodeSigningConfigArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteCodeSigningConfigResponse {}
-
-/**
- * @public
- */
-export interface GetCodeSigningConfigRequest {
-  /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
-   * @public
-   */
-  CodeSigningConfigArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCodeSigningConfigResponse {
-  /**
-   * <p>The code signing configuration</p>
-   * @public
-   */
-  CodeSigningConfig: CodeSigningConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface ListCodeSigningConfigsRequest {
-  /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.</p>
    * @public
    */
   Marker?: string | undefined;
 
   /**
-   * <p>Maximum number of items to return.</p>
+   * <p>When set to <code>true</code>, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).</p>
+   * @public
+   */
+  ReverseOrder?: boolean | undefined;
+}
+
+/**
+ * <p>Error information for an event.</p>
+ * @public
+ */
+export interface EventError {
+  /**
+   * <p>The error payload.</p>
+   * @public
+   */
+  Payload?: ErrorObject | undefined;
+
+  /**
+   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
+ * @public
+ */
+export interface CallbackFailedDetails {
+  /**
+   * <p>An error object that contains details about the failure.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
+ * @public
+ */
+export interface CallbackStartedDetails {
+  /**
+   * <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
+   * @public
+   */
+  CallbackId: string | undefined;
+
+  /**
+   * <p>The heartbeat timeout value, in seconds.</p>
+   * @public
+   */
+  HeartbeatTimeout?: number | undefined;
+
+  /**
+   * <p>The timeout value, in seconds.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+}
+
+/**
+ * <p>Result information for an event.</p>
+ * @public
+ */
+export interface EventResult {
+  /**
+   * <p>The result payload.</p>
+   * @public
+   */
+  Payload?: string | undefined;
+
+  /**
+   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
+ * @public
+ */
+export interface CallbackSucceededDetails {
+  /**
+   * <p>The response payload from the successful operation.</p>
+   * @public
+   */
+  Result: EventResult | undefined;
+}
+
+/**
+ * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
+ * @public
+ */
+export interface CallbackTimedOutDetails {
+  /**
+   * <p>Details about the callback timeout.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
+ * @public
+ */
+export interface ChainedInvokeFailedDetails {
+  /**
+   * <p>Details about the chained invocation failure.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Input information for an event.</p>
+ * @public
+ */
+export interface EventInput {
+  /**
+   * <p>The input payload.</p>
+   * @public
+   */
+  Payload?: string | undefined;
+
+  /**
+   * <p>Indicates if the error payload was truncated due to size limits.</p>
+   * @public
+   */
+  Truncated?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
+ * @public
+ */
+export interface ChainedInvokeStartedDetails {
+  /**
+   * <p>The name or ARN of the Lambda function being invoked.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The tenant identifier for the chained invocation.</p>
+   * @public
+   */
+  TenantId?: string | undefined;
+
+  /**
+   * <p>The JSON input payload provided to the chained invocation.</p>
+   * @public
+   */
+  Input?: EventInput | undefined;
+
+  /**
+   * <p>The version of the function that was executed.</p>
+   * @public
+   */
+  ExecutedVersion?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn?: string | undefined;
+}
+
+/**
+ * <p>Details about a chained invocation that was stopped.</p>
+ * @public
+ */
+export interface ChainedInvokeStoppedDetails {
+  /**
+   * <p>Details about why the chained invocation stopped.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Details about a chained invocation that succeeded.</p>
+ * @public
+ */
+export interface ChainedInvokeSucceededDetails {
+  /**
+   * <p>The response payload from the successful operation.</p>
+   * @public
+   */
+  Result: EventResult | undefined;
+}
+
+/**
+ * <p>Details about a chained invocation that timed out.</p>
+ * @public
+ */
+export interface ChainedInvokeTimedOutDetails {
+  /**
+   * <p>Details about the chained invocation timeout.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Details about a context that failed.</p>
+ * @public
+ */
+export interface ContextFailedDetails {
+  /**
+   * <p>Details about the context failure.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Details about a context that has started.</p>
+ * @public
+ */
+export interface ContextStartedDetails {}
+
+/**
+ * <p>Details about a context that succeeded.</p>
+ * @public
+ */
+export interface ContextSucceededDetails {
+  /**
+   * <p>The JSON response payload from the successful context.</p>
+   * @public
+   */
+  Result: EventResult | undefined;
+}
+
+/**
+ * <p>Details about a failed <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
+ * @public
+ */
+export interface ExecutionFailedDetails {
+  /**
+   * <p>Details about the execution failure.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Details about a durable execution that started.</p>
+ * @public
+ */
+export interface ExecutionStartedDetails {
+  /**
+   * <p>The input payload provided for the durable execution.</p>
+   * @public
+   */
+  Input: EventInput | undefined;
+
+  /**
+   * <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
+   * @public
+   */
+  ExecutionTimeout: number | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that stopped.</p>
+ * @public
+ */
+export interface ExecutionStoppedDetails {
+  /**
+   * <p>Details about why the execution stopped.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that succeeded.</p>
+ * @public
+ */
+export interface ExecutionSucceededDetails {
+  /**
+   * <p>The response payload from the successful operation.</p>
+   * @public
+   */
+  Result: EventResult | undefined;
+}
+
+/**
+ * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that timed out.</p>
+ * @public
+ */
+export interface ExecutionTimedOutDetails {
+  /**
+   * <p>Details about the execution timeout.</p>
+   * @public
+   */
+  Error?: EventError | undefined;
+}
+
+/**
+ * <p>Details about a function invocation that completed.</p>
+ * @public
+ */
+export interface InvocationCompletedDetails {
+  /**
+   * <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  StartTimestamp: Date | undefined;
+
+  /**
+   * <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  EndTimestamp: Date | undefined;
+
+  /**
+   * <p>The request ID for the invocation.</p>
+   * @public
+   */
+  RequestId: string | undefined;
+
+  /**
+   * <p>Details about the invocation failure.</p>
+   * @public
+   */
+  Error?: EventError | undefined;
+}
+
+/**
+ * <p>Information about retry attempts for an operation.</p>
+ * @public
+ */
+export interface RetryDetails {
+  /**
+   * <p>The current attempt number for this operation.</p>
+   * @public
+   */
+  CurrentAttempt?: number | undefined;
+
+  /**
+   * <p>The delay before the next retry attempt, in seconds.</p>
+   * @public
+   */
+  NextAttemptDelaySeconds?: number | undefined;
+}
+
+/**
+ * <p>Details about a step that failed.</p>
+ * @public
+ */
+export interface StepFailedDetails {
+  /**
+   * <p>Details about the step failure.</p>
+   * @public
+   */
+  Error: EventError | undefined;
+
+  /**
+   * <p>Information about retry attempts for this step operation.</p>
+   * @public
+   */
+  RetryDetails: RetryDetails | undefined;
+}
+
+/**
+ * <p>Details about a step that has started.</p>
+ * @public
+ */
+export interface StepStartedDetails {}
+
+/**
+ * <p>Details about a step that succeeded.</p>
+ * @public
+ */
+export interface StepSucceededDetails {
+  /**
+   * <p>The response payload from the successful operation.</p>
+   * @public
+   */
+  Result: EventResult | undefined;
+
+  /**
+   * <p>Information about retry attempts for this step operation.</p>
+   * @public
+   */
+  RetryDetails: RetryDetails | undefined;
+}
+
+/**
+ * <p>Details about a wait operation that was cancelled.</p>
+ * @public
+ */
+export interface WaitCancelledDetails {
+  /**
+   * <p>Details about why the wait operation was cancelled.</p>
+   * @public
+   */
+  Error?: EventError | undefined;
+}
+
+/**
+ * <p>Details about a wait operation that has started.</p>
+ * @public
+ */
+export interface WaitStartedDetails {
+  /**
+   * <p>The duration to wait, in seconds.</p>
+   * @public
+   */
+  Duration: number | undefined;
+
+  /**
+   * <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  ScheduledEndTimestamp: Date | undefined;
+}
+
+/**
+ * <p>Details about a wait operation that succeeded.</p>
+ * @public
+ */
+export interface WaitSucceededDetails {
+  /**
+   * <p>The wait duration, in seconds.</p>
+   * @public
+   */
+  Duration?: number | undefined;
+}
+
+/**
+ * <p>An event that occurred during the execution of a durable function.</p>
+ * @public
+ */
+export interface Event {
+  /**
+   * <p>The type of event that occurred.</p>
+   * @public
+   */
+  EventType?: EventType | undefined;
+
+  /**
+   * <p>The subtype of the event, providing additional categorization.</p>
+   * @public
+   */
+  SubType?: string | undefined;
+
+  /**
+   * <p>The unique identifier for this event. Event IDs increment sequentially.</p>
+   * @public
+   */
+  EventId?: number | undefined;
+
+  /**
+   * <p>The unique identifier for this operation.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The customer-provided name for this operation.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  EventTimestamp?: Date | undefined;
+
+  /**
+   * <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
+   * @public
+   */
+  ParentId?: string | undefined;
+
+  /**
+   * <p>Details about an execution that started.</p>
+   * @public
+   */
+  ExecutionStartedDetails?: ExecutionStartedDetails | undefined;
+
+  /**
+   * <p>Details about an execution that succeeded.</p>
+   * @public
+   */
+  ExecutionSucceededDetails?: ExecutionSucceededDetails | undefined;
+
+  /**
+   * <p>Details about an execution that failed.</p>
+   * @public
+   */
+  ExecutionFailedDetails?: ExecutionFailedDetails | undefined;
+
+  /**
+   * <p>Details about an execution that timed out.</p>
+   * @public
+   */
+  ExecutionTimedOutDetails?: ExecutionTimedOutDetails | undefined;
+
+  /**
+   * <p>Details about an execution that was stopped.</p>
+   * @public
+   */
+  ExecutionStoppedDetails?: ExecutionStoppedDetails | undefined;
+
+  /**
+   * <p>Details about a context that started.</p>
+   * @public
+   */
+  ContextStartedDetails?: ContextStartedDetails | undefined;
+
+  /**
+   * <p>Details about a context that succeeded.</p>
+   * @public
+   */
+  ContextSucceededDetails?: ContextSucceededDetails | undefined;
+
+  /**
+   * <p>Details about a context that failed.</p>
+   * @public
+   */
+  ContextFailedDetails?: ContextFailedDetails | undefined;
+
+  /**
+   * <p>Details about a wait operation that started.</p>
+   * @public
+   */
+  WaitStartedDetails?: WaitStartedDetails | undefined;
+
+  /**
+   * <p>Details about a wait operation that succeeded.</p>
+   * @public
+   */
+  WaitSucceededDetails?: WaitSucceededDetails | undefined;
+
+  /**
+   * <p>Details about a wait operation that was cancelled.</p>
+   * @public
+   */
+  WaitCancelledDetails?: WaitCancelledDetails | undefined;
+
+  /**
+   * <p>Details about a step that started.</p>
+   * @public
+   */
+  StepStartedDetails?: StepStartedDetails | undefined;
+
+  /**
+   * <p>Details about a step that succeeded.</p>
+   * @public
+   */
+  StepSucceededDetails?: StepSucceededDetails | undefined;
+
+  /**
+   * <p>Details about a step that failed.</p>
+   * @public
+   */
+  StepFailedDetails?: StepFailedDetails | undefined;
+
+  /**
+   * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
+   * @public
+   */
+  ChainedInvokeStartedDetails?: ChainedInvokeStartedDetails | undefined;
+
+  /**
+   * <p>Details about a chained invocation that succeeded.</p>
+   * @public
+   */
+  ChainedInvokeSucceededDetails?: ChainedInvokeSucceededDetails | undefined;
+
+  /**
+   * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
+   * @public
+   */
+  ChainedInvokeFailedDetails?: ChainedInvokeFailedDetails | undefined;
+
+  /**
+   * <p>Details about a chained invocation that timed out.</p>
+   * @public
+   */
+  ChainedInvokeTimedOutDetails?: ChainedInvokeTimedOutDetails | undefined;
+
+  /**
+   * <p>Details about a chained invocation that was stopped.</p>
+   * @public
+   */
+  ChainedInvokeStoppedDetails?: ChainedInvokeStoppedDetails | undefined;
+
+  /**
+   * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
+   * @public
+   */
+  CallbackStartedDetails?: CallbackStartedDetails | undefined;
+
+  /**
+   * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
+   * @public
+   */
+  CallbackSucceededDetails?: CallbackSucceededDetails | undefined;
+
+  /**
+   * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
+   * @public
+   */
+  CallbackFailedDetails?: CallbackFailedDetails | undefined;
+
+  /**
+   * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
+   * @public
+   */
+  CallbackTimedOutDetails?: CallbackTimedOutDetails | undefined;
+
+  /**
+   * <p>Details about a function invocation that completed.</p>
+   * @public
+   */
+  InvocationCompletedDetails?: InvocationCompletedDetails | undefined;
+}
+
+/**
+ * <p>The response from the GetDurableExecutionHistory operation, containing the execution history and events.</p>
+ * @public
+ */
+export interface GetDurableExecutionHistoryResponse {
+  /**
+   * <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
+   * @public
+   */
+  Events: Event[] | undefined;
+
+  /**
+   * <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDurableExecutionStateRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
+   * @public
+   */
+  CheckpointToken: string | undefined;
+
+  /**
+   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of operations to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
    * @public
    */
   MaxItems?: number | undefined;
 }
 
 /**
+ * <p>The response from the GetDurableExecutionState operation, containing the current execution state for replay.</p>
  * @public
  */
-export interface ListCodeSigningConfigsResponse {
+export interface GetDurableExecutionStateResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
+   * @public
+   */
+  Operations: Operation[] | undefined;
+
+  /**
+   * <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
    * @public
    */
   NextMarker?: string | undefined;
-
-  /**
-   * <p>The code signing configurations</p>
-   * @public
-   */
-  CodeSigningConfigs?: CodeSigningConfig[] | undefined;
 }
 
 /**
  * @public
  */
-export interface ListFunctionsByCodeSigningConfigRequest {
+export interface StopDurableExecutionRequest {
   /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
    * @public
    */
-  CodeSigningConfigArn: string | undefined;
+  DurableExecutionArn: string | undefined;
 
   /**
-   * <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+   * <p>Optional error details explaining why the execution is being stopped.</p>
    * @public
    */
-  Marker?: string | undefined;
-
-  /**
-   * <p>Maximum number of items to return.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
+  Error?: ErrorObject | undefined;
 }
 
 /**
  * @public
  */
-export interface ListFunctionsByCodeSigningConfigResponse {
+export interface StopDurableExecutionResponse {
   /**
-   * <p>The pagination token that's included if more results are available.</p>
+   * <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
    * @public
    */
-  NextMarker?: string | undefined;
-
-  /**
-   * <p>The function ARNs. </p>
-   * @public
-   */
-  FunctionArns?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeSigningConfigRequest {
-  /**
-   * <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-   * @public
-   */
-  CodeSigningConfigArn: string | undefined;
-
-  /**
-   * <p>Descriptive name for this code signing configuration.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Signing profiles for this code signing configuration.</p>
-   * @public
-   */
-  AllowedPublishers?: AllowedPublishers | undefined;
-
-  /**
-   * <p>The code signing policy.</p>
-   * @public
-   */
-  CodeSigningPolicies?: CodeSigningPolicies | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateCodeSigningConfigResponse {
-  /**
-   * <p>The code signing configuration</p>
-   * @public
-   */
-  CodeSigningConfig: CodeSigningConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFunctionRequest {
-  /**
-   * <p>The name or ARN of the Lambda function or version.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:1</code> (with version).</p> </li> <li> <p> <b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>Specify a version to delete. You can't delete a version that an alias references.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFunctionResponse {
-  /**
-   * <p>The HTTP status code returned by the operation.</p>
-   * @public
-   */
-  StatusCode?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteFunctionEventInvokeConfigRequest {
-  /**
-   * <p>The name or ARN of the Lambda function, version, or alias.</p> <p class="title"> <b>Name formats</b> </p> <ul> <li> <p> <b>Function name</b> - <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p> </li> <li> <p> <b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p> </li> <li> <p> <b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p> </li> </ul> <p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>A version number or alias name.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
+  StopTimestamp: Date | undefined;
 }
 
 /**
@@ -2483,7 +3366,7 @@ export interface FunctionCode {
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>Specifies how the deployment package is stored. Use <code>COPY</code> (default) to upload a copy of your deployment package to Lambda. Use <code>REFERENCE</code> to have Lambda reference the deployment package from the specified Amazon S3 bucket.</p>
+   * <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
@@ -2511,30 +3394,6 @@ export interface DeadLetterConfig {
    * @public
    */
   TargetArn?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable functions</a>, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
- * @public
- */
-export interface DurableConfig {
-  /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-   * @public
-   */
-  KMSKeyArn?: string | undefined;
-
-  /**
-   * <p>The number of days to retain execution history after a durable execution completes. After this period, execution history is no longer available through the GetDurableExecutionHistory API.</p>
-   * @public
-   */
-  RetentionPeriodInDays?: number | undefined;
-
-  /**
-   * <p>The maximum time (in seconds) that a durable execution can run before timing out. This timeout applies to the entire durable execution, not individual function invocations.</p>
-   * @public
-   */
-  ExecutionTimeout?: number | undefined;
 }
 
 /**
@@ -3485,18 +4344,18 @@ export interface GetFunctionRequest {
 }
 
 /**
- * <p>Details about an error related to retrieving a function's deployment package.</p>
+ * <p>Contains details about an error that occurred when Lambda attempted to retrieve a function's deployment package.</p>
  * @public
  */
 export interface FunctionCodeLocationError {
   /**
-   * <p>The error code for the failed retrieval.</p>
+   * <p>The error code that identifies why Lambda failed to retrieve the deployment package.</p>
    * @public
    */
   ErrorCode?: string | undefined;
 
   /**
-   * <p>A description of the error.</p>
+   * <p>The human-readable message that describes why Lambda failed to retrieve the deployment package.</p>
    * @public
    */
   Message?: string | undefined;
@@ -4217,6 +5076,131 @@ export interface InvokeWithResponseStreamResponse {
 /**
  * @public
  */
+export interface ListDurableExecutionsByFunctionRequest {
+  /**
+   * <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
+   * @public
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
+   * @public
+   */
+  Qualifier?: string | undefined;
+
+  /**
+   * <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
+   * @public
+   */
+  DurableExecutionName?: string | undefined;
+
+  /**
+   * <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
+   * @public
+   */
+  Statuses?: ExecutionStatus[] | undefined;
+
+  /**
+   * <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
+   * @public
+   */
+  StartedAfter?: Date | undefined;
+
+  /**
+   * <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
+   * @public
+   */
+  StartedBefore?: Date | undefined;
+
+  /**
+   * <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
+   * @public
+   */
+  ReverseOrder?: boolean | undefined;
+
+  /**
+   * <p>Pagination token from a previous request to continue retrieving results.</p>
+   * @public
+   */
+  Marker?: string | undefined;
+
+  /**
+   * <p>Maximum number of executions to return (1-1000). Default is 100.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>Information about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
+ * @public
+ */
+export interface Execution {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
+   * @public
+   */
+  DurableExecutionArn: string | undefined;
+
+  /**
+   * <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
+   * @public
+   */
+  DurableExecutionName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
+   * @public
+   */
+  FunctionArn: string | undefined;
+
+  /**
+   * <p>The current status of the durable execution.</p>
+   * @public
+   */
+  Status: ExecutionStatus | undefined;
+
+  /**
+   * <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  StartTimestamp: Date | undefined;
+
+  /**
+   * <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
+   * @public
+   */
+  EndTimestamp?: Date | undefined;
+
+  /**
+   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
+   * @public
+   */
+  KMSKeyArn?: string | undefined;
+}
+
+/**
+ * <p>The response from the ListDurableExecutionsByFunction operation, containing a list of durable executions and pagination information.</p>
+ * @public
+ */
+export interface ListDurableExecutionsByFunctionResponse {
+  /**
+   * <p>List of durable execution summaries matching the filter criteria.</p>
+   * @public
+   */
+  DurableExecutions?: Execution[] | undefined;
+
+  /**
+   * <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
+   * @public
+   */
+  NextMarker?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFunctionsRequest {
   /**
    * <p>For Lambda@Edge functions, the Amazon Web Services Region of the master function. For example, <code>us-east-1</code> filters the list of functions to include only Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
@@ -4637,7 +5621,7 @@ export interface UpdateFunctionCodeRequest {
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>Specifies how the deployment package is stored. Use <code>COPY</code> (default) to upload a copy of your deployment package to Lambda. Use <code>REFERENCE</code> to have Lambda reference the deployment package from the specified Amazon S3 bucket.</p>
+   * <p>Specifies how the deployment package is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your deployment package to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the deployment package from the specified Amazon S3 bucket.</p> </li> </ul>
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
@@ -5154,837 +6138,6 @@ export interface GetAccountSettingsResponse {
 /**
  * @public
  */
-export interface GetDurableExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
-   * @public
-   */
-  IncludeExecutionData?: boolean | undefined;
-}
-
-/**
- * <p>Contains trace headers for the Lambda durable execution.</p>
- * @public
- */
-export interface TraceHeader {
-  /**
-   * <p>The X-Ray trace header associated with the durable execution.</p>
-   * @public
-   */
-  XAmznTraceId?: string | undefined;
-}
-
-/**
- * <p>The response from the GetDurableExecution operation, containing detailed information about the durable execution.</p>
- * @public
- */
-export interface GetDurableExecutionResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
-   * @public
-   */
-  DurableExecutionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
-   * @public
-   */
-  FunctionArn: string | undefined;
-
-  /**
-   * <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
-   * @public
-   */
-  InputPayload?: string | undefined;
-
-  /**
-   * <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
-   * @public
-   */
-  Result?: string | undefined;
-
-  /**
-   * <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
-   * @public
-   */
-  Error?: ErrorObject | undefined;
-
-  /**
-   * <p>The date and time when the durable execution started, in Unix timestamp format.</p>
-   * @public
-   */
-  StartTimestamp: Date | undefined;
-
-  /**
-   * <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
-   * @public
-   */
-  Status: ExecutionStatus | undefined;
-
-  /**
-   * <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
-   * @public
-   */
-  EndTimestamp?: Date | undefined;
-
-  /**
-   * <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
-   * @public
-   */
-  Version?: string | undefined;
-
-  /**
-   * <p>The trace headers associated with the durable execution.</p>
-   * @public
-   */
-  TraceHeader?: TraceHeader | undefined;
-
-  /**
-   * <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
-   * @public
-   */
-  ExecutionDataIncluded?: boolean | undefined;
-
-  /**
-   * <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-   * @public
-   */
-  DurableConfig?: DurableConfig | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDurableExecutionHistoryRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>Specifies whether to include execution data such as step results and callback payloads in the history events. Set to <code>true</code> to include data, or <code>false</code> to exclude it for a more compact response. The default is <code>true</code>.</p>
-   * @public
-   */
-  IncludeExecutionData?: boolean | undefined;
-
-  /**
-   * <p>The maximum number of history events to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
-
-  /**
-   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of results. Each pagination token expires after 24 hours.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>When set to <code>true</code>, returns the history events in reverse chronological order (newest first). By default, events are returned in chronological order (oldest first).</p>
-   * @public
-   */
-  ReverseOrder?: boolean | undefined;
-}
-
-/**
- * <p>Error information for an event.</p>
- * @public
- */
-export interface EventError {
-  /**
-   * <p>The error payload.</p>
-   * @public
-   */
-  Payload?: ErrorObject | undefined;
-
-  /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
-   * @public
-   */
-  Truncated?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
- * @public
- */
-export interface CallbackFailedDetails {
-  /**
-   * <p>An error object that contains details about the failure.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
- * @public
- */
-export interface CallbackStartedDetails {
-  /**
-   * <p>The callback ID. Callback IDs are generated by the <code>DurableContext</code> when a durable function calls <code>ctx.waitForCallback</code>.</p>
-   * @public
-   */
-  CallbackId: string | undefined;
-
-  /**
-   * <p>The heartbeat timeout value, in seconds.</p>
-   * @public
-   */
-  HeartbeatTimeout?: number | undefined;
-
-  /**
-   * <p>The timeout value, in seconds.</p>
-   * @public
-   */
-  Timeout?: number | undefined;
-}
-
-/**
- * <p>Result information for an event.</p>
- * @public
- */
-export interface EventResult {
-  /**
-   * <p>The result payload.</p>
-   * @public
-   */
-  Payload?: string | undefined;
-
-  /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
-   * @public
-   */
-  Truncated?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
- * @public
- */
-export interface CallbackSucceededDetails {
-  /**
-   * <p>The response payload from the successful operation.</p>
-   * @public
-   */
-  Result: EventResult | undefined;
-}
-
-/**
- * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
- * @public
- */
-export interface CallbackTimedOutDetails {
-  /**
-   * <p>Details about the callback timeout.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
- * @public
- */
-export interface ChainedInvokeFailedDetails {
-  /**
-   * <p>Details about the chained invocation failure.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Input information for an event.</p>
- * @public
- */
-export interface EventInput {
-  /**
-   * <p>The input payload.</p>
-   * @public
-   */
-  Payload?: string | undefined;
-
-  /**
-   * <p>Indicates if the error payload was truncated due to size limits.</p>
-   * @public
-   */
-  Truncated?: boolean | undefined;
-}
-
-/**
- * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
- * @public
- */
-export interface ChainedInvokeStartedDetails {
-  /**
-   * <p>The name or ARN of the Lambda function being invoked.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>The tenant identifier for the chained invocation.</p>
-   * @public
-   */
-  TenantId?: string | undefined;
-
-  /**
-   * <p>The JSON input payload provided to the chained invocation.</p>
-   * @public
-   */
-  Input?: EventInput | undefined;
-
-  /**
-   * <p>The version of the function that was executed.</p>
-   * @public
-   */
-  ExecutedVersion?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn?: string | undefined;
-}
-
-/**
- * <p>Details about a chained invocation that was stopped.</p>
- * @public
- */
-export interface ChainedInvokeStoppedDetails {
-  /**
-   * <p>Details about why the chained invocation stopped.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Details about a chained invocation that succeeded.</p>
- * @public
- */
-export interface ChainedInvokeSucceededDetails {
-  /**
-   * <p>The response payload from the successful operation.</p>
-   * @public
-   */
-  Result: EventResult | undefined;
-}
-
-/**
- * <p>Details about a chained invocation that timed out.</p>
- * @public
- */
-export interface ChainedInvokeTimedOutDetails {
-  /**
-   * <p>Details about the chained invocation timeout.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Details about a context that failed.</p>
- * @public
- */
-export interface ContextFailedDetails {
-  /**
-   * <p>Details about the context failure.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Details about a context that has started.</p>
- * @public
- */
-export interface ContextStartedDetails {}
-
-/**
- * <p>Details about a context that succeeded.</p>
- * @public
- */
-export interface ContextSucceededDetails {
-  /**
-   * <p>The JSON response payload from the successful context.</p>
-   * @public
-   */
-  Result: EventResult | undefined;
-}
-
-/**
- * <p>Details about a failed <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
- * @public
- */
-export interface ExecutionFailedDetails {
-  /**
-   * <p>Details about the execution failure.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Details about a durable execution that started.</p>
- * @public
- */
-export interface ExecutionStartedDetails {
-  /**
-   * <p>The input payload provided for the durable execution.</p>
-   * @public
-   */
-  Input: EventInput | undefined;
-
-  /**
-   * <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
-   * @public
-   */
-  ExecutionTimeout: number | undefined;
-}
-
-/**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that stopped.</p>
- * @public
- */
-export interface ExecutionStoppedDetails {
-  /**
-   * <p>Details about why the execution stopped.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-}
-
-/**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that succeeded.</p>
- * @public
- */
-export interface ExecutionSucceededDetails {
-  /**
-   * <p>The response payload from the successful operation.</p>
-   * @public
-   */
-  Result: EventResult | undefined;
-}
-
-/**
- * <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a> that timed out.</p>
- * @public
- */
-export interface ExecutionTimedOutDetails {
-  /**
-   * <p>Details about the execution timeout.</p>
-   * @public
-   */
-  Error?: EventError | undefined;
-}
-
-/**
- * <p>Details about a function invocation that completed.</p>
- * @public
- */
-export interface InvocationCompletedDetails {
-  /**
-   * <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  StartTimestamp: Date | undefined;
-
-  /**
-   * <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  EndTimestamp: Date | undefined;
-
-  /**
-   * <p>The request ID for the invocation.</p>
-   * @public
-   */
-  RequestId: string | undefined;
-
-  /**
-   * <p>Details about the invocation failure.</p>
-   * @public
-   */
-  Error?: EventError | undefined;
-}
-
-/**
- * <p>Information about retry attempts for an operation.</p>
- * @public
- */
-export interface RetryDetails {
-  /**
-   * <p>The current attempt number for this operation.</p>
-   * @public
-   */
-  CurrentAttempt?: number | undefined;
-
-  /**
-   * <p>The delay before the next retry attempt, in seconds.</p>
-   * @public
-   */
-  NextAttemptDelaySeconds?: number | undefined;
-}
-
-/**
- * <p>Details about a step that failed.</p>
- * @public
- */
-export interface StepFailedDetails {
-  /**
-   * <p>Details about the step failure.</p>
-   * @public
-   */
-  Error: EventError | undefined;
-
-  /**
-   * <p>Information about retry attempts for this step operation.</p>
-   * @public
-   */
-  RetryDetails: RetryDetails | undefined;
-}
-
-/**
- * <p>Details about a step that has started.</p>
- * @public
- */
-export interface StepStartedDetails {}
-
-/**
- * <p>Details about a step that succeeded.</p>
- * @public
- */
-export interface StepSucceededDetails {
-  /**
-   * <p>The response payload from the successful operation.</p>
-   * @public
-   */
-  Result: EventResult | undefined;
-
-  /**
-   * <p>Information about retry attempts for this step operation.</p>
-   * @public
-   */
-  RetryDetails: RetryDetails | undefined;
-}
-
-/**
- * <p>Details about a wait operation that was cancelled.</p>
- * @public
- */
-export interface WaitCancelledDetails {
-  /**
-   * <p>Details about why the wait operation was cancelled.</p>
-   * @public
-   */
-  Error?: EventError | undefined;
-}
-
-/**
- * <p>Details about a wait operation that has started.</p>
- * @public
- */
-export interface WaitStartedDetails {
-  /**
-   * <p>The duration to wait, in seconds.</p>
-   * @public
-   */
-  Duration: number | undefined;
-
-  /**
-   * <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  ScheduledEndTimestamp: Date | undefined;
-}
-
-/**
- * <p>Details about a wait operation that succeeded.</p>
- * @public
- */
-export interface WaitSucceededDetails {
-  /**
-   * <p>The wait duration, in seconds.</p>
-   * @public
-   */
-  Duration?: number | undefined;
-}
-
-/**
- * <p>An event that occurred during the execution of a durable function.</p>
- * @public
- */
-export interface Event {
-  /**
-   * <p>The type of event that occurred.</p>
-   * @public
-   */
-  EventType?: EventType | undefined;
-
-  /**
-   * <p>The subtype of the event, providing additional categorization.</p>
-   * @public
-   */
-  SubType?: string | undefined;
-
-  /**
-   * <p>The unique identifier for this event. Event IDs increment sequentially.</p>
-   * @public
-   */
-  EventId?: number | undefined;
-
-  /**
-   * <p>The unique identifier for this operation.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The customer-provided name for this operation.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The date and time when this event occurred, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  EventTimestamp?: Date | undefined;
-
-  /**
-   * <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-   * @public
-   */
-  ParentId?: string | undefined;
-
-  /**
-   * <p>Details about an execution that started.</p>
-   * @public
-   */
-  ExecutionStartedDetails?: ExecutionStartedDetails | undefined;
-
-  /**
-   * <p>Details about an execution that succeeded.</p>
-   * @public
-   */
-  ExecutionSucceededDetails?: ExecutionSucceededDetails | undefined;
-
-  /**
-   * <p>Details about an execution that failed.</p>
-   * @public
-   */
-  ExecutionFailedDetails?: ExecutionFailedDetails | undefined;
-
-  /**
-   * <p>Details about an execution that timed out.</p>
-   * @public
-   */
-  ExecutionTimedOutDetails?: ExecutionTimedOutDetails | undefined;
-
-  /**
-   * <p>Details about an execution that was stopped.</p>
-   * @public
-   */
-  ExecutionStoppedDetails?: ExecutionStoppedDetails | undefined;
-
-  /**
-   * <p>Details about a context that started.</p>
-   * @public
-   */
-  ContextStartedDetails?: ContextStartedDetails | undefined;
-
-  /**
-   * <p>Details about a context that succeeded.</p>
-   * @public
-   */
-  ContextSucceededDetails?: ContextSucceededDetails | undefined;
-
-  /**
-   * <p>Details about a context that failed.</p>
-   * @public
-   */
-  ContextFailedDetails?: ContextFailedDetails | undefined;
-
-  /**
-   * <p>Details about a wait operation that started.</p>
-   * @public
-   */
-  WaitStartedDetails?: WaitStartedDetails | undefined;
-
-  /**
-   * <p>Details about a wait operation that succeeded.</p>
-   * @public
-   */
-  WaitSucceededDetails?: WaitSucceededDetails | undefined;
-
-  /**
-   * <p>Details about a wait operation that was cancelled.</p>
-   * @public
-   */
-  WaitCancelledDetails?: WaitCancelledDetails | undefined;
-
-  /**
-   * <p>Details about a step that started.</p>
-   * @public
-   */
-  StepStartedDetails?: StepStartedDetails | undefined;
-
-  /**
-   * <p>Details about a step that succeeded.</p>
-   * @public
-   */
-  StepSucceededDetails?: StepSucceededDetails | undefined;
-
-  /**
-   * <p>Details about a step that failed.</p>
-   * @public
-   */
-  StepFailedDetails?: StepFailedDetails | undefined;
-
-  /**
-   * <p>Contains details about a chained function invocation that has started execution, including start time and execution context.</p>
-   * @public
-   */
-  ChainedInvokeStartedDetails?: ChainedInvokeStartedDetails | undefined;
-
-  /**
-   * <p>Details about a chained invocation that succeeded.</p>
-   * @public
-   */
-  ChainedInvokeSucceededDetails?: ChainedInvokeSucceededDetails | undefined;
-
-  /**
-   * <p>Contains details about a failed chained function invocation, including error information and failure reason.</p>
-   * @public
-   */
-  ChainedInvokeFailedDetails?: ChainedInvokeFailedDetails | undefined;
-
-  /**
-   * <p>Details about a chained invocation that timed out.</p>
-   * @public
-   */
-  ChainedInvokeTimedOutDetails?: ChainedInvokeTimedOutDetails | undefined;
-
-  /**
-   * <p>Details about a chained invocation that was stopped.</p>
-   * @public
-   */
-  ChainedInvokeStoppedDetails?: ChainedInvokeStoppedDetails | undefined;
-
-  /**
-   * <p>Contains details about a callback operation that has started, including timing information and callback metadata.</p>
-   * @public
-   */
-  CallbackStartedDetails?: CallbackStartedDetails | undefined;
-
-  /**
-   * <p>Contains details about a successfully completed callback operation, including the result data and completion timestamp.</p>
-   * @public
-   */
-  CallbackSucceededDetails?: CallbackSucceededDetails | undefined;
-
-  /**
-   * <p>Contains details about a failed callback operation, including error information and the reason for failure.</p>
-   * @public
-   */
-  CallbackFailedDetails?: CallbackFailedDetails | undefined;
-
-  /**
-   * <p>Contains details about a callback operation that timed out, including timeout duration and any partial results.</p>
-   * @public
-   */
-  CallbackTimedOutDetails?: CallbackTimedOutDetails | undefined;
-
-  /**
-   * <p>Details about a function invocation that completed.</p>
-   * @public
-   */
-  InvocationCompletedDetails?: InvocationCompletedDetails | undefined;
-}
-
-/**
- * <p>The response from the GetDurableExecutionHistory operation, containing the execution history and events.</p>
- * @public
- */
-export interface GetDurableExecutionHistoryResponse {
-  /**
-   * <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-   * @public
-   */
-  Events: Event[] | undefined;
-
-  /**
-   * <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetDurableExecutionStateRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>A checkpoint token that identifies the current state of the execution. This token is provided by the Lambda runtime and ensures that state retrieval is consistent with the current execution context.</p>
-   * @public
-   */
-  CheckpointToken: string | undefined;
-
-  /**
-   * <p>If <code>NextMarker</code> was returned from a previous request, use this value to retrieve the next page of operations. Each pagination token expires after 24 hours.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>The maximum number of operations to return per call. You can use <code>Marker</code> to retrieve additional pages of results. The default is 100 and the maximum allowed is 1000. A value of 0 uses the default.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
-}
-
-/**
- * <p>The response from the GetDurableExecutionState operation, containing the current execution state for replay.</p>
- * @public
- */
-export interface GetDurableExecutionStateResponse {
-  /**
-   * <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
-   * @public
-   */
-  Operations: Operation[] | undefined;
-
-  /**
-   * <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextMarker?: string | undefined;
-}
-
-/**
- * @public
- */
 export interface FunctionEventInvokeConfig {
   /**
    * <p>The date and time that the configuration was last updated.</p>
@@ -6222,7 +6375,7 @@ export interface LayerVersionContentOutput {
   SigningJobArn?: string | undefined;
 
   /**
-   * <p>Details about the resolved Amazon S3 object that contains a function's deployment package.</p>
+   * <p>The resolved Amazon S3 object that contains the layer archive.</p>
    * @public
    */
   ResolvedS3Object?: ResolvedS3Object | undefined;
@@ -6408,7 +6561,7 @@ export interface LayerVersionContentInput {
   S3ObjectVersion?: string | undefined;
 
   /**
-   * <p>The storage mode for a function's deployment package.</p>
+   * <p>Specifies how the layer archive is stored. Valid values:</p> <ul> <li> <p> <code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p> </li> <li> <p> <code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p> </li> </ul>
    * @public
    */
   S3ObjectStorageMode?: S3ObjectStorageMode | undefined;
@@ -6547,131 +6700,6 @@ export interface RemoveLayerVersionPermissionRequest {
    * @public
    */
   RevisionId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListDurableExecutionsByFunctionRequest {
-  /**
-   * <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-   * @public
-   */
-  FunctionName: string | undefined;
-
-  /**
-   * <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
-   * @public
-   */
-  Qualifier?: string | undefined;
-
-  /**
-   * <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-   * @public
-   */
-  DurableExecutionName?: string | undefined;
-
-  /**
-   * <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-   * @public
-   */
-  Statuses?: ExecutionStatus[] | undefined;
-
-  /**
-   * <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
-   * @public
-   */
-  StartedAfter?: Date | undefined;
-
-  /**
-   * <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
-   * @public
-   */
-  StartedBefore?: Date | undefined;
-
-  /**
-   * <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
-   * @public
-   */
-  ReverseOrder?: boolean | undefined;
-
-  /**
-   * <p>Pagination token from a previous request to continue retrieving results.</p>
-   * @public
-   */
-  Marker?: string | undefined;
-
-  /**
-   * <p>Maximum number of executions to return (1-1000). Default is 100.</p>
-   * @public
-   */
-  MaxItems?: number | undefined;
-}
-
-/**
- * <p>Information about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html">durable execution</a>.</p>
- * @public
- */
-export interface Execution {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
-   * @public
-   */
-  DurableExecutionName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
-   * @public
-   */
-  FunctionArn: string | undefined;
-
-  /**
-   * <p>The current status of the durable execution.</p>
-   * @public
-   */
-  Status: ExecutionStatus | undefined;
-
-  /**
-   * <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  StartTimestamp: Date | undefined;
-
-  /**
-   * <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-   * @public
-   */
-  EndTimestamp?: Date | undefined;
-
-  /**
-   * <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-   * @public
-   */
-  KMSKeyArn?: string | undefined;
-}
-
-/**
- * <p>The response from the ListDurableExecutionsByFunction operation, containing a list of durable executions and pagination information.</p>
- * @public
- */
-export interface ListDurableExecutionsByFunctionResponse {
-  /**
-   * <p>List of durable execution summaries matching the filter criteria.</p>
-   * @public
-   */
-  DurableExecutions?: Execution[] | undefined;
-
-  /**
-   * <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
-   * @public
-   */
-  NextMarker?: string | undefined;
 }
 
 /**
@@ -6998,34 +7026,6 @@ export interface SendDurableExecutionCallbackSuccessRequest {
  * @public
  */
 export interface SendDurableExecutionCallbackSuccessResponse {}
-
-/**
- * @public
- */
-export interface StopDurableExecutionRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-   * @public
-   */
-  DurableExecutionArn: string | undefined;
-
-  /**
-   * <p>Optional error details explaining why the execution is being stopped.</p>
-   * @public
-   */
-  Error?: ErrorObject | undefined;
-}
-
-/**
- * @public
- */
-export interface StopDurableExecutionResponse {
-  /**
-   * <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
-   * @public
-   */
-  StopTimestamp: Date | undefined;
-}
 
 /**
  * @public

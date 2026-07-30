@@ -200,6 +200,19 @@ export type State = (typeof State)[keyof typeof State];
  * @public
  * @enum
  */
+export const CodeSigningPolicy = {
+  Enforce: "Enforce",
+  Warn: "Warn",
+} as const;
+/**
+ * @public
+ */
+export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSigningPolicy];
+
+/**
+ * @public
+ * @enum
+ */
 export const OperationAction = {
   CANCEL: "CANCEL",
   FAIL: "FAIL",
@@ -252,14 +265,52 @@ export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationSta
  * @public
  * @enum
  */
-export const CodeSigningPolicy = {
-  Enforce: "Enforce",
-  Warn: "Warn",
+export const ExecutionStatus = {
+  FAILED: "FAILED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  SUCCEEDED: "SUCCEEDED",
+  TIMED_OUT: "TIMED_OUT",
 } as const;
 /**
  * @public
  */
-export type CodeSigningPolicy = (typeof CodeSigningPolicy)[keyof typeof CodeSigningPolicy];
+export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const EventType = {
+  CallbackFailed: "CallbackFailed",
+  CallbackStarted: "CallbackStarted",
+  CallbackSucceeded: "CallbackSucceeded",
+  CallbackTimedOut: "CallbackTimedOut",
+  ChainedInvokeFailed: "ChainedInvokeFailed",
+  ChainedInvokeStarted: "ChainedInvokeStarted",
+  ChainedInvokeStopped: "ChainedInvokeStopped",
+  ChainedInvokeSucceeded: "ChainedInvokeSucceeded",
+  ChainedInvokeTimedOut: "ChainedInvokeTimedOut",
+  ContextFailed: "ContextFailed",
+  ContextStarted: "ContextStarted",
+  ContextSucceeded: "ContextSucceeded",
+  ExecutionFailed: "ExecutionFailed",
+  ExecutionStarted: "ExecutionStarted",
+  ExecutionStopped: "ExecutionStopped",
+  ExecutionSucceeded: "ExecutionSucceeded",
+  ExecutionTimedOut: "ExecutionTimedOut",
+  InvocationCompleted: "InvocationCompleted",
+  StepFailed: "StepFailed",
+  StepStarted: "StepStarted",
+  StepSucceeded: "StepSucceeded",
+  WaitCancelled: "WaitCancelled",
+  WaitStarted: "WaitStarted",
+  WaitSucceeded: "WaitSucceeded",
+} as const;
+/**
+ * @public
+ */
+export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
  * @public
@@ -366,11 +417,11 @@ export type EventSourcePosition = (typeof EventSourcePosition)[keyof typeof Even
  */
 export const S3ObjectStorageMode = {
   /**
-   * <p> <code>COPY</code> (default) uploads a copy of your deployment package to Lambda.</p>
+   * <p>The default storage mode. Uploads a copy of your deployment package to Lambda.</p>
    */
   Copy: "COPY",
   /**
-   * <p>Lambda references the deployment package from the specified Amazon S3 bucket.</p>
+   * <p>The reference storage mode. Lambda references the deployment package from the specified Amazon S3 bucket without uploading a copy.</p>
    */
   Reference: "REFERENCE",
 } as const;
@@ -449,6 +500,7 @@ export const Runtime = {
   nodejs20x: "nodejs20.x",
   nodejs22x: "nodejs22.x",
   nodejs24x: "nodejs24.x",
+  nodejs26x: "nodejs26.x",
   nodejs43: "nodejs4.3",
   nodejs43edge: "nodejs4.3-edge",
   nodejs610: "nodejs6.10",
@@ -462,6 +514,7 @@ export const Runtime = {
   python312: "python3.12",
   python313: "python3.13",
   python314: "python3.14",
+  python315: "python3.15",
   python36: "python3.6",
   python37: "python3.7",
   python38: "python3.8",
@@ -749,54 +802,3 @@ export const ProvisionedConcurrencyStatusEnum = {
  */
 export type ProvisionedConcurrencyStatusEnum =
   (typeof ProvisionedConcurrencyStatusEnum)[keyof typeof ProvisionedConcurrencyStatusEnum];
-
-/**
- * @public
- * @enum
- */
-export const ExecutionStatus = {
-  FAILED: "FAILED",
-  RUNNING: "RUNNING",
-  STOPPED: "STOPPED",
-  SUCCEEDED: "SUCCEEDED",
-  TIMED_OUT: "TIMED_OUT",
-} as const;
-/**
- * @public
- */
-export type ExecutionStatus = (typeof ExecutionStatus)[keyof typeof ExecutionStatus];
-
-/**
- * @public
- * @enum
- */
-export const EventType = {
-  CallbackFailed: "CallbackFailed",
-  CallbackStarted: "CallbackStarted",
-  CallbackSucceeded: "CallbackSucceeded",
-  CallbackTimedOut: "CallbackTimedOut",
-  ChainedInvokeFailed: "ChainedInvokeFailed",
-  ChainedInvokeStarted: "ChainedInvokeStarted",
-  ChainedInvokeStopped: "ChainedInvokeStopped",
-  ChainedInvokeSucceeded: "ChainedInvokeSucceeded",
-  ChainedInvokeTimedOut: "ChainedInvokeTimedOut",
-  ContextFailed: "ContextFailed",
-  ContextStarted: "ContextStarted",
-  ContextSucceeded: "ContextSucceeded",
-  ExecutionFailed: "ExecutionFailed",
-  ExecutionStarted: "ExecutionStarted",
-  ExecutionStopped: "ExecutionStopped",
-  ExecutionSucceeded: "ExecutionSucceeded",
-  ExecutionTimedOut: "ExecutionTimedOut",
-  InvocationCompleted: "InvocationCompleted",
-  StepFailed: "StepFailed",
-  StepStarted: "StepStarted",
-  StepSucceeded: "StepSucceeded",
-  WaitCancelled: "WaitCancelled",
-  WaitStarted: "WaitStarted",
-  WaitSucceeded: "WaitSucceeded",
-} as const;
-/**
- * @public
- */
-export type EventType = (typeof EventType)[keyof typeof EventType];
