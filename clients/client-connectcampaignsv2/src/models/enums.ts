@@ -3,6 +3,29 @@
  * @public
  * @enum
  */
+export const ConnectionStartPoint = {
+  /**
+   * Threshold measured from when the contact connects to the telephony system.
+   */
+  CONNECTED_TO_SYSTEM: "CONNECTED_TO_SYSTEM",
+  /**
+   * Threshold measured from when the customer-side greeting ends.
+   */
+  GREETING_END: "GREETING_END",
+  /**
+   * Threshold measured from when the customer-side greeting begins.
+   */
+  GREETING_START: "GREETING_START",
+} as const;
+/**
+ * @public
+ */
+export type ConnectionStartPoint = (typeof ConnectionStartPoint)[keyof typeof ConnectionStartPoint];
+
+/**
+ * @public
+ * @enum
+ */
 export const AgentAction = {
   DISCARD: "DISCARD",
 } as const;

@@ -7,6 +7,7 @@ import type {
   CommunicationLimitsConfigType,
   CommunicationLimitTimeUnit,
   CommunicationTimeConfigType,
+  ConnectionStartPoint,
   DayOfWeek,
   EncryptionType,
   EventType,
@@ -21,6 +22,36 @@ import type {
   LocalTimeZoneDetectionType,
   ProfileOutboundRequestFailureCode,
 } from "./enums";
+
+/**
+ * Configuration for abandonment-rate-based dialer throttling.
+ * @public
+ */
+export interface AbandonmentRatePacingConfig {
+  /**
+   * Target abandonment rate.
+   * @public
+   */
+  targetRate: number | undefined;
+
+  /**
+   * Event from which connectionThresholdSeconds is measured.
+   * @public
+   */
+  connectionStartPoint: ConnectionStartPoint | undefined;
+
+  /**
+   * Seconds after connectionStartPoint before a contact counts as abandoned.
+   * @public
+   */
+  connectionThresholdSeconds: number | undefined;
+
+  /**
+   * Rolling window over which abandonmentRate is computed.
+   * @public
+   */
+  evaluationWindow: string | undefined;
+}
 
 /**
  * Agentless config
@@ -245,6 +276,45 @@ export interface TelephonyOutboundConfig {
 }
 
 /**
+ * Pacing constraint the dialer may enforce.
+ * @public
+ */
+export type PacingStrategy =
+  | PacingStrategy.AbandonmentRateMember
+  | PacingStrategy.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace PacingStrategy {
+  /**
+   * Configuration for abandonment-rate-based dialer throttling.
+   * @public
+   */
+  export interface AbandonmentRateMember {
+    abandonmentRate: AbandonmentRatePacingConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    abandonmentRate?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    abandonmentRate: (value: AbandonmentRatePacingConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * Predictive config
  * @public
  */
@@ -254,6 +324,12 @@ export interface PredictiveConfig {
    * @public
    */
   bandwidthAllocation: number | undefined;
+
+  /**
+   * Pacing strategies the dialer enforces simultaneously.
+   * @public
+   */
+  pacingStrategies?: PacingStrategy[] | undefined;
 }
 
 /**

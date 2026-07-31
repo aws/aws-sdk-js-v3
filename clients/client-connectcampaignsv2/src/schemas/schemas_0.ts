@@ -2,6 +2,7 @@ const _A = "Attributes";
 const _AC = "AgentlessConfig";
 const _ADE = "AccessDeniedException";
 const _AMDC = "AnswerMachineDetectionConfig";
+const _ARPC = "AbandonmentRatePacingConfig";
 const _C = "Campaign";
 const _CC = "ChannelContext";
 const _CCR = "CreateCampaignRequest";
@@ -117,6 +118,8 @@ const _PORL = "ProfileOutboundRequestList";
 const _PPORB = "PutProfileOutboundRequestBatch";
 const _PPORBR = "PutProfileOutboundRequestBatchRequest";
 const _PPORBRu = "PutProfileOutboundRequestBatchResponse";
+const _PS = "PacingStrategy";
+const _PSL = "PacingStrategyList";
 const _QCIC = "QConnectIntegrationConfig";
 const _QCII = "QConnectIntegrationIdentifier";
 const _QCIS = "QConnectIntegrationSummary";
@@ -186,6 +189,7 @@ const _aA = "agentActions";
 const _aAMP = "awaitAnswerMachinePrompt";
 const _aCS = "allChannelSubtypes";
 const _aMDC = "answerMachineDetectionConfig";
+const _aR = "abandonmentRate";
 const _ag = "agentless";
 const _at = "attributes";
 const _bA = "bandwidthAllocation";
@@ -211,12 +215,14 @@ const _cS = "channelSubtypes";
 const _cSC = "channelSubtypeConfig";
 const _cSEA = "connectSourceEmailAddress";
 const _cSL = "campaignSummaryList";
-const _cSP = "channelSubtypeParameters";
+const _cSP = "connectionStartPoint";
 const _cSPN = "connectSourcePhoneNumber";
 const _cSPNA = "connectSourcePhoneNumberArn";
+const _cSPh = "channelSubtypeParameters";
 const _cSh = "channelSubtype";
 const _cT = "clientToken";
 const _cTC = "communicationTimeConfig";
+const _cTS = "connectionThresholdSeconds";
 const _ca = "campaign";
 const _cap = "capacity";
 const _co = "config";
@@ -237,6 +243,7 @@ const _eTC = "eventTriggerContext";
 const _eTn = "endTime";
 const _eTv = "eventTrigger";
 const _eTx = "expirationTime";
+const _eW = "evaluationWindow";
 const _em = "email";
 const _en = "enabled";
 const _f = "frequency";
@@ -275,6 +282,7 @@ const _oTN = "objectTypeNames";
 const _p = "progressive";
 const _pI = "profileId";
 const _pOR = "profileOutboundRequests";
+const _pS = "pacingStrategies";
 const _pr = "predictive";
 const _pre = "preview";
 const _qC = "qConnect";
@@ -301,6 +309,7 @@ const _tA = "templateArn";
 const _tC = "timeoutConfig";
 const _tK = "tagKeys";
 const _tP = "templateParameters";
+const _tR = "targetRate";
 const _ta = "tags";
 const _te = "telephony";
 const _u = "unit";
@@ -408,6 +417,11 @@ export const errorTypeRegistries = [
 var DestinationPhoneNumber: StaticSimpleSchema = [0, n0, _DPN, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var EmailDisplayName: StaticSimpleSchema = [0, n0, _EDN, 8, 0];
+export var AbandonmentRatePacingConfig$: StaticStructureSchema = [3, n0, _ARPC,
+  0,
+  [_tR, _cSP, _cTS, _eW],
+  [1, 0, 1, 0], 4
+];
 export var AgentlessConfig$: StaticStructureSchema = [3, n0, _AC,
   0,
   [],
@@ -705,7 +719,7 @@ export var LocalTimeZoneConfig$: StaticStructureSchema = [3, n0, _LTZC,
 ];
 export var OutboundRequest$: StaticStructureSchema = [3, n0, _OR,
   0,
-  [_cT, _eTx, _cSP],
+  [_cT, _eTx, _cSPh],
   [0, 5, [() => ChannelSubtypeParameters$, 0]], 3
 ];
 export var PauseCampaignRequest$: StaticStructureSchema = [3, n0, _PCR,
@@ -715,8 +729,8 @@ export var PauseCampaignRequest$: StaticStructureSchema = [3, n0, _PCR,
 ];
 export var PredictiveConfig$: StaticStructureSchema = [3, n0, _PC,
   0,
-  [_bA],
-  [1], 1
+  [_bA, _pS],
+  [1, () => PacingStrategyList], 1
 ];
 export var PreviewConfig$: StaticStructureSchema = [3, n0, _PCr,
   0,
@@ -970,6 +984,9 @@ var OutboundRequestList: StaticListSchema = [1, n0, _ORL,
   0, [() => OutboundRequest$,
     0]
 ];
+var PacingStrategyList: StaticListSchema = [1, n0, _PSL,
+  0, () => PacingStrategy$
+];
 var ProfileOutboundRequestList: StaticListSchema = [1, n0, _PORL,
   0, () => ProfileOutboundRequest$
 ];
@@ -1031,6 +1048,11 @@ export var OpenHours$: StaticUnionSchema = [4, n0, _OH,
   0,
   [_dH],
   [() => DailyHours]
+];
+export var PacingStrategy$: StaticUnionSchema = [4, n0, _PS,
+  0,
+  [_aR],
+  [() => AbandonmentRatePacingConfig$]
 ];
 export var RestrictedPeriods$: StaticUnionSchema = [4, n0, _RPe,
   0,

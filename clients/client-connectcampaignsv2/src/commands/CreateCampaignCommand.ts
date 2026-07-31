@@ -45,6 +45,16 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  *         },
  *         predictive: { // PredictiveConfig
  *           bandwidthAllocation: Number("double"), // required
+ *           pacingStrategies: [ // PacingStrategyList
+ *             { // PacingStrategy Union: only one key present
+ *               abandonmentRate: { // AbandonmentRatePacingConfig
+ *                 targetRate: Number("double"), // required
+ *                 connectionStartPoint: "STRING_VALUE", // required
+ *                 connectionThresholdSeconds: Number("int"), // required
+ *                 evaluationWindow: "STRING_VALUE", // required
+ *               },
+ *             },
+ *           ],
  *         },
  *         agentless: {},
  *         preview: { // PreviewConfig

@@ -1,4 +1,5 @@
 import {
+  AbandonmentRatePacingConfig$,
   AccessDeniedException,
   AccessDeniedException$,
   AgentAction,
@@ -25,6 +26,7 @@ import {
   ConnectCampaignsV2,
   ConnectCampaignsV2Client,
   ConnectCampaignsV2ServiceException,
+  ConnectionStartPoint,
   CreateCampaign$,
   CreateCampaignCommand,
   CreateCampaignRequest$,
@@ -134,6 +136,7 @@ import {
   LocalTimeZoneDetectionType,
   OpenHours$,
   OutboundRequest$,
+  PacingStrategy$,
   paginateListCampaigns,
   paginateListConnectInstanceIntegrations,
   PauseCampaign$,
@@ -316,6 +319,7 @@ assert(typeof UpdateCampaignSchedule$ === "object");
 assert(typeof UpdateCampaignSourceCommand === "function");
 assert(typeof UpdateCampaignSource$ === "object");
 // structural schemas
+assert(typeof AbandonmentRatePacingConfig$ === "object");
 assert(typeof AgentlessConfig$ === "object");
 assert(typeof AnswerMachineDetectionConfig$ === "object");
 assert(typeof Campaign$ === "object");
@@ -383,6 +387,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LocalTimeZoneConfig$ === "object");
 assert(typeof OpenHours$ === "object");
 assert(typeof OutboundRequest$ === "object");
+assert(typeof PacingStrategy$ === "object");
 assert(typeof PauseCampaignRequest$ === "object");
 assert(typeof PredictiveConfig$ === "object");
 assert(typeof PreviewConfig$ === "object");
@@ -443,6 +448,7 @@ assert(typeof ChannelSubtype === "object");
 assert(typeof CommunicationLimitsConfigType === "object");
 assert(typeof CommunicationLimitTimeUnit === "object");
 assert(typeof CommunicationTimeConfigType === "object");
+assert(typeof ConnectionStartPoint === "object");
 assert(typeof DayOfWeek === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof EventType === "object");
