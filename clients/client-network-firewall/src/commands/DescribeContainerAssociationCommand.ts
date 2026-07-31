@@ -23,7 +23,7 @@ export interface DescribeContainerAssociationCommandInput extends DescribeContai
 export interface DescribeContainerAssociationCommandOutput extends DescribeContainerAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the properties of a container association.</p>
+ * <p>Retrieves the configuration and status of a container association.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

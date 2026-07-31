@@ -23,7 +23,8 @@ export interface UpdateContainerAssociationCommandInput extends UpdateContainerA
 export interface UpdateContainerAssociationCommandOutput extends UpdateContainerAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of an existing container association. Use this to modify the container monitoring configurations or description.</p>
+ * <p>Updates the monitoring configurations and description of a container association. You can't change the container
+ *       type after creation. Provide an update token to enable optimistic concurrency control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,7 +23,8 @@ export interface ListContainerAssociationsCommandInput extends ListContainerAsso
 export interface ListContainerAssociationsCommandOutput extends ListContainerAssociationsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the metadata for the container associations that you have defined. You can optionally page through results.</p>
+ * <p>Lists the container associations in your account and Region. Use the <code>NextToken</code>
+ *       parameter in subsequent requests to retrieve additional results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

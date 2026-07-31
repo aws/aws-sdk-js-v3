@@ -23,9 +23,8 @@ export interface CreateContainerAssociationCommandInput extends CreateContainerA
 export interface CreateContainerAssociationCommandOutput extends CreateContainerAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a container association for Network Firewall. A container association links container clusters (ECS or EKS) to Network Firewall, enabling dynamic IP resolution for firewall rules based on container attributes.</p>
- *          <p>To manage a container association's tags, use the standard Amazon Web Services resource tagging operations, <a>ListTagsForResource</a>, <a>TagResource</a>, and <a>UntagResource</a>.</p>
- *          <p>To retrieve information about container associations, use <a>ListContainerAssociations</a> and <a>DescribeContainerAssociation</a>.</p>
+ * <p>Creates a Network Firewall container association. The association monitors container lifecycle events in your
+ *       Amazon ECS or Amazon EKS clusters and resolves running container addresses for use in firewall rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

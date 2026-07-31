@@ -23,7 +23,9 @@ export interface DeleteContainerAssociationCommandInput extends DeleteContainerA
 export interface DeleteContainerAssociationCommandOutput extends DeleteContainerAssociationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified container association. When you delete a container association, Network Firewall stops monitoring the associated container clusters and removes the resolved IP addresses from firewall rules.</p>
+ * <p>Deletes a container association. The resource transitions to a <code>DELETING</code> state. Deletion is
+ *       asynchronous - Network Firewall returns immediately while cleanup proceeds in the background. You can't delete a
+ *       container association while a rule group references it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
