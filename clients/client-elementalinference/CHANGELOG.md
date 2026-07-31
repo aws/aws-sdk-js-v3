@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+
+### Features
+
+* **client-elementalinference:** AWS Elemental Inference now supports graphic composition on cropped video outputs, enabling branded graphics and other visual elements to be overlaid as part of the inference workflow. ([b9116f8](https://github.com/aws/aws-sdk-js-v3/commit/b9116f87914d20d93f754e71c2f415b29835109a))
+
+
+
+
+
 # [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-elementalinference

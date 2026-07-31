@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+
+### Features
+
+* **client-transcribe-streaming:** This release adds a new optional TranscriptFormat parameter to the Amazon Transcribe streaming API, letting customers select spoken or written form for numeric and formatted output. ([5808fd5](https://github.com/aws/aws-sdk-js-v3/commit/5808fd5ccd93261f809ed480351fcdbd72528ee7))
+
+
+
+
+
 # [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe-streaming

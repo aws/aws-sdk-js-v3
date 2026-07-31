@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+
+### Features
+
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support TargetAgreementId, TargetAgreementIntent, and CreatedBySource filters for the Offer entity type. ([550b6cf](https://github.com/aws/aws-sdk-js-v3/commit/550b6cf0250dc4dc4c145a205701be256b244b77))
+
+
+
+
+
 # [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog

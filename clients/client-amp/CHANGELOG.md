@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+
+### Features
+
+* **client-amp:** Amazon Managed Service for Prometheus adds support for an Amazon OpenSearch Service exporter for managed collectors. ([d9c634a](https://github.com/aws/aws-sdk-js-v3/commit/d9c634a8c532638c447b6b278486fe01400b37c8))
+
+
+
+
+
 # [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
 
 **Note:** Version bump only for package @aws-sdk/client-amp

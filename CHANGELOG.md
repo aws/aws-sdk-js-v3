@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
+
+
+### Features
+
+* **client-amp:** Amazon Managed Service for Prometheus adds support for an Amazon OpenSearch Service exporter for managed collectors. ([d9c634a](https://github.com/aws/aws-sdk-js-v3/commit/d9c634a8c532638c447b6b278486fe01400b37c8))
+* **client-bedrock-runtime:** Added support for mid-conversation tool changes in the Amazon Bedrock Converse and ConverseStream APIs ([8f29d85](https://github.com/aws/aws-sdk-js-v3/commit/8f29d85608d95c5183f8f140bc94ee007e3a6916))
+* **client-billing:** Adds GetEnterpriseSupportChargeSummary, GetEnterpriseSupportContractDetails, and ListEnterpriseSupportLinkedAccountCharges. These APIs provide first-time programmatic access to billing data for Enterprise Support usage previously only available upon request through AWS Concierge or Support. ([643d01c](https://github.com/aws/aws-sdk-js-v3/commit/643d01c5bba9e2fe98b447b593e3515c012e1682))
+* **client-cloudformation:** Adding enum for sensitive property to DriftIgnoredReason ([ce2fa95](https://github.com/aws/aws-sdk-js-v3/commit/ce2fa95dce9d46dd6ab9531ce5b2963e1de975f5))
+* **client-cloudwatch-logs:** Amazon CloudWatch Logs now lets you create and update lookup tables directly from CloudWatch Logs query results by passing a queryId, and configure a lookup table as a scheduled query destination so it refreshes automatically with the latest query results on each run. ([6f5f75a](https://github.com/aws/aws-sdk-js-v3/commit/6f5f75a050a9a99b6097dbef7408765750b86449))
+* **client-connectcampaignsv2:** Launching feature for abandonment rate pacing control for outbound campaigns. ([fbb8c22](https://github.com/aws/aws-sdk-js-v3/commit/fbb8c2250cdf154d8784363242e10729048df20f))
+* **client-datazone:** Adding support for enhanced Git experience in Sagemaker Unified Studio. ([e5fcea3](https://github.com/aws/aws-sdk-js-v3/commit/e5fcea3c33ffd135acc6bdb9eecbaed5524b8f8a))
+* **client-elementalinference:** AWS Elemental Inference now supports graphic composition on cropped video outputs, enabling branded graphics and other visual elements to be overlaid as part of the inference workflow. ([b9116f8](https://github.com/aws/aws-sdk-js-v3/commit/b9116f87914d20d93f754e71c2f415b29835109a))
+* **client-marketplace-catalog:** This release enhances the ListEntities API to support TargetAgreementId, TargetAgreementIntent, and CreatedBySource filters for the Offer entity type. ([550b6cf](https://github.com/aws/aws-sdk-js-v3/commit/550b6cf0250dc4dc4c145a205701be256b244b77))
+* **client-network-firewall:** Doc Updates for Container Attributes ([82107b3](https://github.com/aws/aws-sdk-js-v3/commit/82107b320f1e493c309bb117aea21f06bcdae815))
+* **client-outposts:** Adds the "EKS" value to the AWSServiceName enum and marks the Address field as sensitive. ([65dd193](https://github.com/aws/aws-sdk-js-v3/commit/65dd1932ac793ff463e7573b4857802abcbe326c))
+* **client-quicksight:** Adding TopicV2 management APIs, adding possibility to use Topics in Analysis ([087bb50](https://github.com/aws/aws-sdk-js-v3/commit/087bb505c40e67ce1d323a3fe054abaec4a86d96))
+* **client-rds:** Adds StorageOperationStatus and StorageOperationPercentProgress to DescribeDBInstances, letting you monitor RDS storage initialization and optimization progress. ([842d177](https://github.com/aws/aws-sdk-js-v3/commit/842d177975ae50728bfaf3fded3a754444318f4f))
+* **client-resiliencehubv2:** Adding support for new testing capability in AWS Resilience Hub. ([105876c](https://github.com/aws/aws-sdk-js-v3/commit/105876ce472f2cfd08cd028cf78c10f53d8ecb26))
+* **client-transcribe-streaming:** This release adds a new optional TranscriptFormat parameter to the Amazon Transcribe streaming API, letting customers select spoken or written form for numeric and formatted output. ([5808fd5](https://github.com/aws/aws-sdk-js-v3/commit/5808fd5ccd93261f809ed480351fcdbd72528ee7))
+
+
+
+
+
 # [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
 
 
