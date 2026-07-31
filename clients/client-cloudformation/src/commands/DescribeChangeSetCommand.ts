@@ -101,7 +101,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetOutput,
  * //         ResourceDriftIgnoredAttributes: [ // ResourceDriftIgnoredAttributes
  * //           { // ResourceDriftIgnoredAttribute
  * //             Path: "STRING_VALUE",
- * //             Reason: "MANAGED_BY_AWS" || "WRITE_ONLY_PROPERTY",
+ * //             Reason: "MANAGED_BY_AWS" || "WRITE_ONLY_PROPERTY" || "SENSITIVE_PROPERTY",
  * //           },
  * //         ],
  * //         Details: [ // ResourceChangeDetails

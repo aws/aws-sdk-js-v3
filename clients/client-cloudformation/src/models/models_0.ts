@@ -881,17 +881,21 @@ export interface ResourceDriftIgnoredAttribute {
   Path?: string | undefined;
 
   /**
-   * <p>Reason why drift was ignored for the attribute, can have 2 possible values:</p>
+   * <p>Reason why drift was ignored for the attribute, can have 3 possible values:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>WRITE_ONLY_PROPERTY</code> - Property is not included in read response for the
+   *                   <code>WRITE_ONLY_PROPERTY</code> – Property is not included in read response for the
    *      resource’s live state.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>MANAGED_BY_AWS</code> - Property is managed by an Amazon Web Services service and is expected to be
+   *                   <code>MANAGED_BY_AWS</code> – Property is managed by an Amazon Web Services service and is expected to be
    *      dynamically modified.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SENSITIVE_PROPERTY</code> – Property has a sensitive value, such as an Amazon Web Services Secrets Manager value.</p>
    *             </li>
    *          </ul>
    * @public

@@ -297,6 +297,7 @@ export type Replacement = (typeof Replacement)[keyof typeof Replacement];
  */
 export const DriftIgnoredReason = {
   MANAGED_BY_AWS: "MANAGED_BY_AWS",
+  SENSITIVE_PROPERTY: "SENSITIVE_PROPERTY",
   WRITE_ONLY_PROPERTY: "WRITE_ONLY_PROPERTY",
 } as const;
 /**
