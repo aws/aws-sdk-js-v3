@@ -409,6 +409,7 @@ import {
   LogGroupSummary$,
   LogStream$,
   LookupTable$,
+  LookupTableConfiguration$,
   LowerCaseString$,
   MalformedQueryException,
   MalformedQueryException$,
@@ -1101,6 +1102,7 @@ assert(typeof LogGroupField$ === "object");
 assert(typeof LogGroupSummary$ === "object");
 assert(typeof LogStream$ === "object");
 assert(typeof LookupTable$ === "object");
+assert(typeof LookupTableConfiguration$ === "object");
 assert(typeof LowerCaseString$ === "object");
 assert(typeof MetricFilter$ === "object");
 assert(typeof MetricFilterMatchRecord$ === "object");

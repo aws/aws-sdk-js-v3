@@ -506,6 +506,7 @@ export type ScheduleType = (typeof ScheduleType)[keyof typeof ScheduleType];
  * @enum
  */
 export const ScheduledQueryDestinationType = {
+  LOOKUP_TABLE: "LOOKUP_TABLE",
   S3: "S3",
 } as const;
 /**

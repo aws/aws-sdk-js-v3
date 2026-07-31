@@ -56,7 +56,7 @@ export interface GetScheduledQueryHistoryCommandOutput extends GetScheduledQuery
  * //       errorMessage: "STRING_VALUE",
  * //       destinations: [ // ScheduledQueryDestinationList
  * //         { // ScheduledQueryDestination
- * //           destinationType: "S3",
+ * //           destinationType: "S3" || "LOOKUP_TABLE",
  * //           destinationIdentifier: "STRING_VALUE",
  * //           status: "IN_PROGRESS" || "CLIENT_ERROR" || "FAILED" || "COMPLETE",
  * //           processedIdentifier: "STRING_VALUE",

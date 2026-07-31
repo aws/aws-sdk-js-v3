@@ -23,7 +23,7 @@ export interface GetStorageTierPolicyCommandInput extends GetStorageTierPolicyRe
 export interface GetStorageTierPolicyCommandOutput extends GetStorageTierPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the storage tier policy for your account.</p>
+ * <p>Returns the storage tier policy for the account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

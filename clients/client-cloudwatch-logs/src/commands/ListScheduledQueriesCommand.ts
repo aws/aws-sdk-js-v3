@@ -60,6 +60,15 @@ export interface ListScheduledQueriesCommandOutput extends ListScheduledQueriesR
  * //           ownerAccountId: "STRING_VALUE",
  * //           kmsKeyId: "STRING_VALUE",
  * //         },
+ * //         lookupTableConfiguration: { // LookupTableConfiguration
+ * //           tableName: "STRING_VALUE", // required
+ * //           roleArn: "STRING_VALUE", // required
+ * //           description: "STRING_VALUE",
+ * //           kmsKeyId: "STRING_VALUE",
+ * //           tags: { // Tags
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //         },
  * //       },
  * //       creationTime: Number("long"),
  * //       lastUpdatedTime: Number("long"),

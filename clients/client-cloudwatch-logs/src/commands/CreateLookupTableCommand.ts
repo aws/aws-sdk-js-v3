@@ -23,11 +23,13 @@ export interface CreateLookupTableCommandInput extends CreateLookupTableRequest 
 export interface CreateLookupTableCommandOutput extends CreateLookupTableResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a lookup table by uploading CSV data. You can use lookup tables to enrich log
- *       data in CloudWatch Logs Insights queries with reference data such as user details, application
- *       names, or error descriptions.</p>
- *          <p>The table name must be unique within your account and Region. The CSV content must include
- *       a header row with column names, use UTF-8 encoding, and not exceed 10 MB.</p>
+ * <p>Creates a lookup table by uploading CSV data or from CloudWatch Logs query
+ *       results. You can use lookup tables to enrich log data in CloudWatch Logs queries with
+ *       reference data such as user details, application names, or error descriptions.</p>
+ *          <p>The table name must be unique within your account and Region. You must specify either
+ *       <code>tableBody</code> or <code>queryId</code>, but not both. If you use
+ *       <code>tableBody</code>, the CSV content must include a header row with column names, use
+ *       UTF-8 encoding, and not exceed 10 MB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,7 +41,8 @@ export interface CreateLookupTableCommandOutput extends CreateLookupTableRespons
  * const input = { // CreateLookupTableRequest
  *   lookupTableName: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   tableBody: "STRING_VALUE", // required
+ *   tableBody: "STRING_VALUE",
+ *   queryId: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",

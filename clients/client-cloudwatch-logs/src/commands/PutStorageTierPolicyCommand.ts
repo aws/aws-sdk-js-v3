@@ -23,9 +23,9 @@ export interface PutStorageTierPolicyCommandInput extends PutStorageTierPolicyRe
 export interface PutStorageTierPolicyCommandOutput extends PutStorageTierPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the storage tier policy for your account. When you set the storage tier to
- *       <code>INTELLIGENT_TIERING</code>, CloudWatch Logs automatically moves your log data between
- *       storage tiers based on access patterns to optimize costs.</p>
+ * <p>Sets the storage tier policy for the account. When you set the storage tier to
+ *       <code>INTELLIGENT_TIERING</code>, the service automatically moves log data to the most
+ *       cost-effective storage tier based on access frequency.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

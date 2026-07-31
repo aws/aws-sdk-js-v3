@@ -54,12 +54,21 @@ export interface CreateScheduledQueryCommandOutput extends CreateScheduledQueryR
  *       ownerAccountId: "STRING_VALUE",
  *       kmsKeyId: "STRING_VALUE",
  *     },
+ *     lookupTableConfiguration: { // LookupTableConfiguration
+ *       tableName: "STRING_VALUE", // required
+ *       roleArn: "STRING_VALUE", // required
+ *       description: "STRING_VALUE",
+ *       kmsKeyId: "STRING_VALUE",
+ *       tags: { // Tags
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   scheduleStartTime: Number("long"),
  *   scheduleEndTime: Number("long"),
  *   executionRoleArn: "STRING_VALUE", // required
  *   state: "ENABLED" || "DISABLED",
- *   tags: { // Tags
+ *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
  * };

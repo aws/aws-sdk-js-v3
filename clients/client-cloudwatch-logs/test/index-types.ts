@@ -598,6 +598,7 @@ export type {
   LogGroupSummary,
   LogStream,
   LookupTable,
+  LookupTableConfiguration,
   LowerCaseString,
   MetricFilter,
   MetricFilterMatchRecord,

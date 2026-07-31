@@ -48,6 +48,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "roleArn": "__roleArn__",
       "ownerAccountId": "__ownerAccountId__",
       "kmsKeyId": "__kmsKeyId__"
+    },
+    "lookupTableConfiguration": {
+      "tableName": "__tableName__",
+      "roleArn": "__roleArn__",
+      "description": "__description__",
+      "kmsKeyId": "__kmsKeyId__",
+      "tags": {
+        "key1": "__value__",
+        "key2": "__value__",
+        "key3": "__value__"
+      }
     }
   },
   "state": "__state__",
@@ -84,6 +95,17 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       roleArn: "__roleArn__",
       ownerAccountId: "__ownerAccountId__",
       kmsKeyId: "__kmsKeyId__"
+    },
+    lookupTableConfiguration: {
+      tableName: "__tableName__",
+      roleArn: "__roleArn__",
+      description: "__description__",
+      kmsKeyId: "__kmsKeyId__",
+      tags: {
+        key1: "__value__",
+        key2: "__value__",
+        key3: "__value__"
+      }
     }
   },
   state: "__state__",

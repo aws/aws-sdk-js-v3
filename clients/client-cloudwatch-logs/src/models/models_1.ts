@@ -8,7 +8,31 @@ import type {
   SuppressionType,
   SuppressionUnit,
 } from "./enums";
-import type { DestinationConfiguration, MetricFilterMatchRecord, Processor, S3DeliveryConfiguration } from "./models_0";
+import type { DestinationConfiguration, Processor, S3DeliveryConfiguration } from "./models_0";
+
+/**
+ * <p>Represents a matched event.</p>
+ * @public
+ */
+export interface MetricFilterMatchRecord {
+  /**
+   * <p>The event number.</p>
+   * @public
+   */
+  eventNumber?: number | undefined;
+
+  /**
+   * <p>The raw event data.</p>
+   * @public
+   */
+  eventMessage?: string | undefined;
+
+  /**
+   * <p>The values extracted from the event data by the filter.</p>
+   * @public
+   */
+  extractedValues?: Record<string, string> | undefined;
+}
 
 /**
  * @public
@@ -294,9 +318,20 @@ export interface UpdateLookupTableRequest {
   /**
    * <p>The new CSV content to replace the existing data. The first row must be a header row
    *       with column names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
+   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
+   *       both.</p>
    * @public
    */
-  tableBody: string | undefined;
+  tableBody?: string | undefined;
+
+  /**
+   * <p>The ID of a completed CloudWatch Logs query whose results replace
+   *       the lookup table content.</p>
+   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
+   *       both.</p>
+   * @public
+   */
+  queryId?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key to use to encrypt the lookup table data. You can

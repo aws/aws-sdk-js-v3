@@ -23,10 +23,11 @@ export interface UpdateLookupTableCommandInput extends UpdateLookupTableRequest 
 export interface UpdateLookupTableCommandOutput extends UpdateLookupTableResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing lookup table by replacing all of its CSV content. After the update
- *       completes, queries that use this table will use the new data.</p>
- *          <p>This is a full replacement operation. All existing content is replaced with the new CSV
- *       data.</p>
+ * <p>Updates an existing lookup table by replacing all of its content with new CSV data or
+ *       CloudWatch Logs query results. After the update completes, queries that use this table
+ *       use the new data.</p>
+ *          <p>This is a full replacement operation. All existing content is replaced. You must specify
+ *       either <code>tableBody</code> or <code>queryId</code>, but not both.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,7 +39,8 @@ export interface UpdateLookupTableCommandOutput extends UpdateLookupTableRespons
  * const input = { // UpdateLookupTableRequest
  *   lookupTableArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   tableBody: "STRING_VALUE", // required
+ *   tableBody: "STRING_VALUE",
+ *   queryId: "STRING_VALUE",
  *   kmsKeyId: "STRING_VALUE",
  * };
  * const command = new UpdateLookupTableCommand(input);

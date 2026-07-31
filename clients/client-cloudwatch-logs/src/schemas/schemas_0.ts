@@ -310,6 +310,7 @@ const _LSQRi = "ListScheduledQueriesResponse";
 const _LSo = "LogSamples";
 const _LSog = "LogStreams";
 const _LT = "LookupTable";
+const _LTC = "LookupTableConfiguration";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -743,6 +744,7 @@ const _lSo = "logSamples";
 const _lSog = "logStreams";
 const _lT = "logType";
 const _lTA = "lookupTableArn";
+const _lTC = "lookupTableConfiguration";
 const _lTM = "listToMap";
 const _lTN = "lookupTableName";
 const _lTNP = "lookupTableNamePrefix";
@@ -910,6 +912,7 @@ const _tK = "tagKeys";
 const _tL = "transformedLogs";
 const _tN = "taskName";
 const _tNLESI = "tooNewLogEventStartIndex";
+const _tNa = "tableName";
 const _tOLEEI = "tooOldLogEventEndIndex";
 const _tS = "tokenString";
 const _tSr = "trimString";
@@ -1244,8 +1247,8 @@ export var CreateLogStreamRequest$: StaticStructureSchema = [3, n0, _CLSR,
 ];
 export var CreateLookupTableRequest$: StaticStructureSchema = [3, n0, _CLTR,
   0,
-  [_lTN, _tB, _d, _kKI, _ta],
-  [0, 0, 0, 0, 128 | 0], 2
+  [_lTN, _d, _tB, _qI, _kKI, _ta],
+  [0, 0, 0, 0, 0, 128 | 0], 1
 ];
 export var CreateLookupTableResponse$: StaticStructureSchema = [3, n0, _CLTRr,
   0,
@@ -1634,8 +1637,8 @@ export var Destination$: StaticStructureSchema = [3, n0, _De,
 ];
 export var DestinationConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_sCo],
-  [() => S3Configuration$], 1
+  [_sCo, _lTC],
+  [() => S3Configuration$, () => LookupTableConfiguration$]
 ];
 export var DisassociateKmsKeyRequest$: StaticStructureSchema = [3, n0, _DKKR,
   0,
@@ -2096,6 +2099,11 @@ export var LookupTable$: StaticStructureSchema = [3, n0, _LT,
   0,
   [_lTA, _lTN, _d, _tFa, _rC, _sB, _lUT, _kKI],
   [0, 0, 0, 64 | 0, 1, 1, 1, 0]
+];
+export var LookupTableConfiguration$: StaticStructureSchema = [3, n0, _LTC,
+  0,
+  [_tNa, _rAo, _d, _kKI, _ta],
+  [0, 0, 0, 0, 128 | 0], 2
 ];
 export var LowerCaseString$: StaticStructureSchema = [3, n0, _LCS,
   0,
@@ -2659,8 +2667,8 @@ export var UpdateLogAnomalyDetectorRequest$: StaticStructureSchema = [3, n0, _UL
 ];
 export var UpdateLookupTableRequest$: StaticStructureSchema = [3, n0, _ULTR,
   0,
-  [_lTA, _tB, _d, _kKI],
-  [0, 0, 0, 0], 2
+  [_lTA, _d, _tB, _qI, _kKI],
+  [0, 0, 0, 0, 0], 1
 ];
 export var UpdateLookupTableResponse$: StaticStructureSchema = [3, n0, _ULTRp,
   0,

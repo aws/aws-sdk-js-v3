@@ -58,6 +58,15 @@ export interface GetScheduledQueryCommandOutput extends GetScheduledQueryRespons
  * //       ownerAccountId: "STRING_VALUE",
  * //       kmsKeyId: "STRING_VALUE",
  * //     },
+ * //     lookupTableConfiguration: { // LookupTableConfiguration
+ * //       tableName: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //       description: "STRING_VALUE",
+ * //       kmsKeyId: "STRING_VALUE",
+ * //       tags: { // Tags
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * //   state: "ENABLED" || "DISABLED",
  * //   scheduleType: "CUSTOMER_MANAGED" || "AWS_MANAGED",

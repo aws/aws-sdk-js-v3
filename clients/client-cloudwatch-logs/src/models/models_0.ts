@@ -1341,9 +1341,20 @@ export interface CreateLookupTableRequest {
   /**
    * <p>The CSV content of the lookup table. The first row must be a header row with column
    *       names. The content must use UTF-8 encoding and not exceed 10 MB.</p>
+   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
+   *       both.</p>
    * @public
    */
-  tableBody: string | undefined;
+  tableBody?: string | undefined;
+
+  /**
+   * <p>The ID of a completed CloudWatch Logs query whose results populate
+   *       the lookup table.</p>
+   *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
+   *       both.</p>
+   * @public
+   */
+  queryId?: string | undefined;
 
   /**
    * <p>The ARN of the KMS key to use to encrypt the lookup table data. If you
@@ -1377,6 +1388,47 @@ export interface CreateLookupTableResponse {
    * @public
    */
   createdAt?: number | undefined;
+}
+
+/**
+ * <p>Configuration for a lookup table destination. Use it to automatically refresh a lookup
+ *       table with query results on a schedule.</p>
+ * @public
+ */
+export interface LookupTableConfiguration {
+  /**
+   * <p>The name of the lookup table to create or update with query results. The name can
+   *       contain only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that grants permissions to create or update the lookup table
+   *       with query results.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>A description of the lookup table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key to use to encrypt the lookup table data. If you
+   *       don't specify a key, the data is encrypted with an Amazon Web Services-owned key.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>Key-value pairs to associate with the lookup table for resource management and cost
+   *       allocation. The service applies tags only during initial table creation.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1421,7 +1473,15 @@ export interface DestinationConfiguration {
    * <p>Configuration for delivering query results to Amazon S3.</p>
    * @public
    */
-  s3Configuration: S3Configuration | undefined;
+  s3Configuration?: S3Configuration | undefined;
+
+  /**
+   * <p>Configuration for delivering query results to a lookup table. The query results
+   *       automatically populate or refresh the specified lookup table on each scheduled
+   *       execution.</p>
+   * @public
+   */
+  lookupTableConfiguration?: LookupTableConfiguration | undefined;
 }
 
 /**
@@ -1493,8 +1553,9 @@ export interface CreateScheduledQueryRequest {
   endTimeOffset?: number | undefined;
 
   /**
-   * <p>Configuration for where to deliver query results. Currently supports Amazon S3 destinations for
-   *       storing query output.</p>
+   * <p>Configuration for where to deliver query results. Supports Amazon S3 destinations for storing
+   *       query output and lookup table destinations for automatically refreshing lookup tables with
+   *       query results. You can configure one or both destination types.</p>
    * @public
    */
   destinationConfiguration?: DestinationConfiguration | undefined;
@@ -5996,7 +6057,7 @@ export interface GetStorageTierPolicyResponse {
 
   /**
    * <p>The time when the storage tier policy was last updated, expressed as the number of
-   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   *       milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
   lastUpdatedTime?: number | undefined;
@@ -8916,8 +8977,9 @@ export interface PutRetentionPolicyRequest {
  */
 export interface PutStorageTierPolicyRequest {
   /**
-   * <p>The storage tier to set for the account. Valid values are <code>STANDARD</code> and
-   *       <code>INTELLIGENT_TIERING</code>.</p>
+   * <p>The storage tier to set for the account. Use <code>INTELLIGENT_TIERING</code> to
+   *       automatically optimize storage costs by moving log data to the appropriate tier based on
+   *       access frequency.</p>
    * @public
    */
   storageTier: StorageTier | undefined;
@@ -8928,14 +8990,14 @@ export interface PutStorageTierPolicyRequest {
  */
 export interface PutStorageTierPolicyResponse {
   /**
-   * <p>The storage tier that was set.</p>
+   * <p>The storage tier for the account.</p>
    * @public
    */
   storageTier?: StorageTier | undefined;
 
   /**
    * <p>The time when the storage tier policy was last updated, expressed as the number of
-   *       milliseconds after <code>Jan 1, 1970 00:00:00 UTC</code>.</p>
+   *       milliseconds after <code>January 1, 1970 00:00:00 UTC</code>.</p>
    * @public
    */
   lastUpdatedTime?: number | undefined;
@@ -9033,7 +9095,8 @@ export interface PutSubscriptionFilterRequest {
 
   /**
    * <p>A list of system fields to include in the log events sent to the subscription destination.
-   *       Valid values are <code>@aws.account</code> and <code>@aws.region</code>. These fields provide
+   *       Valid values are <code>@aws.account</code>, <code>@aws.region</code>, and
+   *       <code>@source.log</code>. These fields provide
    *       source information for centralized log data in the forwarded payload.</p>
    * @public
    */
@@ -9451,28 +9514,4 @@ export interface TestMetricFilterRequest {
    * @public
    */
   logEventMessages: string[] | undefined;
-}
-
-/**
- * <p>Represents a matched event.</p>
- * @public
- */
-export interface MetricFilterMatchRecord {
-  /**
-   * <p>The event number.</p>
-   * @public
-   */
-  eventNumber?: number | undefined;
-
-  /**
-   * <p>The raw event data.</p>
-   * @public
-   */
-  eventMessage?: string | undefined;
-
-  /**
-   * <p>The values extracted from the event data by the filter.</p>
-   * @public
-   */
-  extractedValues?: Record<string, string> | undefined;
 }
