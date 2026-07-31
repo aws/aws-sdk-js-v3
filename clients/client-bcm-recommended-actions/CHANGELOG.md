@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
+
+
+### Features
+
+* **client-bcm-recommended-actions:** Removing Smithy RPC v2 CBOR support that was added in previous SDK release. ([7bed97a](https://github.com/aws/aws-sdk-js-v3/commit/7bed97ab502ffcf3930e47cbf292225fc56c6c82))
+
+
+
+
+
 # [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-recommended-actions

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-user-agent",
-  "version": "3.972.68",
+  "version": "3.972.69",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-user-agent",
   "license": "Apache-2.0",
   "author": {
@@ -28,7 +28,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.3",
+    "@aws-sdk/core": "workspace:^3.977.4",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

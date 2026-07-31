@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
+
+
+### Bug Fixes
+
+* **core/protocols:** v2 JSON codec updates and JsonBytesStringAdapter ([#8238](https://github.com/aws/aws-sdk-js-v3/issues/8238)) ([a1001f4](https://github.com/aws/aws-sdk-js-v3/commit/a1001f4b580d631ee5307774f564ad6bff6ef486))
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Removing Smithy RPC v2 CBOR support that was added in previous SDK release. ([edce242](https://github.com/aws/aws-sdk-js-v3/commit/edce242c3ac8fc292bec7dca743044d69f6d4074))
+* **client-bcm-recommended-actions:** Removing Smithy RPC v2 CBOR support that was added in previous SDK release. ([7bed97a](https://github.com/aws/aws-sdk-js-v3/commit/7bed97ab502ffcf3930e47cbf292225fc56c6c82))
+* **clients:** update client endpoints as of 2026-07-31 ([30d44c7](https://github.com/aws/aws-sdk-js-v3/commit/30d44c7ec4eeb17625606cd8ea59c8a3f15c46be))
+
+
+
+
+
 # [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
 
 

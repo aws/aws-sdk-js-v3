@@ -70,6 +70,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.39 (2026-07-30)
+### Bug Fixes
+* **core/protocols:** v2 JSON codec updates and JsonBytesStringAdapter ([#8238](https://github.com/aws/aws-sdk-js-v3/issues/8238)) ([a1001f4](https://github.com/aws/aws-sdk-js-v3/commit/a1001f4b580d631ee5307774f564ad6bff6ef486))
+
+
+
 # 3.973.38 (2026-07-29)
 ### Chores
 * **codegen:** sync for CBOR v2 codec ([#8233](https://github.com/aws/aws-sdk-js-v3/issues/8233)) ([e40ebac](https://github.com/aws/aws-sdk-js-v3/commit/e40ebac154aa3b00115df867d7b59f0841ffc24f))

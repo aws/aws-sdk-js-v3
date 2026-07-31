@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1100.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1099.0...v3.1100.0) (2026-07-31)
+
+
+### Features
+
+* **client-bcm-pricing-calculator:** Removing Smithy RPC v2 CBOR support that was added in previous SDK release. ([edce242](https://github.com/aws/aws-sdk-js-v3/commit/edce242c3ac8fc292bec7dca743044d69f6d4074))
+
+
+
+
+
 # [3.1099.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1098.0...v3.1099.0) (2026-07-30)
 
 **Note:** Version bump only for package @aws-sdk/client-bcm-pricing-calculator
