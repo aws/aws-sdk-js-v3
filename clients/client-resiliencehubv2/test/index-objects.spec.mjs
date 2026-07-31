@@ -1,6 +1,7 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  AccountTargeting,
   Achievability$,
   AchievabilityStatus,
   ActorType,
@@ -52,6 +53,10 @@ import {
   CreateSystemCommand,
   CreateSystemRequest$,
   CreateSystemResponse$,
+  CreateTest$,
+  CreateTestCommand,
+  CreateTestRequest$,
+  CreateTestResponse$,
   CreateUserJourney$,
   CreateUserJourneyCommand,
   CreateUserJourneyRequest$,
@@ -86,6 +91,14 @@ import {
   DeleteSystemCommand,
   DeleteSystemRequest$,
   DeleteSystemResponse$,
+  DeleteTest$,
+  DeleteTestCommand,
+  DeleteTestRequest$,
+  DeleteTestResponse$,
+  DeleteTestSources$,
+  DeleteTestSourcesCommand,
+  DeleteTestSourcesRequest$,
+  DeleteTestSourcesResponse$,
   DeleteUserJourney$,
   DeleteUserJourneyCommand,
   DeleteUserJourneyRequest$,
@@ -100,6 +113,7 @@ import {
   EffectivePolicyValues$,
   EksSource$,
   EventActor$,
+  ExperimentDetails$,
   FailedReportOutput$,
   FailureCategory,
   Finding$,
@@ -122,6 +136,18 @@ import {
   GetSystemCommand,
   GetSystemRequest$,
   GetSystemResponse$,
+  GetTest$,
+  GetTestCommand,
+  GetTestRequest$,
+  GetTestResponse$,
+  GetTestRun$,
+  GetTestRunCommand,
+  GetTestRunRequest$,
+  GetTestRunResponse$,
+  GetTestTemplate$,
+  GetTestTemplateCommand,
+  GetTestTemplateRequest$,
+  GetTestTemplateResponse$,
   GetUserJourney$,
   GetUserJourneyCommand,
   GetUserJourneyRequest$,
@@ -168,6 +194,10 @@ import {
   ListReportsCommand,
   ListReportsRequest$,
   ListReportsResponse$,
+  ListResolvedTestRunTargetResources$,
+  ListResolvedTestRunTargetResourcesCommand,
+  ListResolvedTestRunTargetResourcesRequest$,
+  ListResolvedTestRunTargetResourcesResponse$,
   ListResources$,
   ListResourcesCommand,
   ListResourcesRequest$,
@@ -200,14 +230,41 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceRequest$,
   ListTagsForResourceResponse$,
+  ListTestRunEvents$,
+  ListTestRunEventsCommand,
+  ListTestRunEventsRequest$,
+  ListTestRunEventsResponse$,
+  ListTestRuns$,
+  ListTestRunsCommand,
+  ListTestRunSources$,
+  ListTestRunSourcesCommand,
+  ListTestRunSourcesRequest$,
+  ListTestRunSourcesResponse$,
+  ListTestRunsRequest$,
+  ListTestRunsResponse$,
+  ListTests$,
+  ListTestsCommand,
+  ListTestSources$,
+  ListTestSourcesCommand,
+  ListTestSourcesRequest$,
+  ListTestSourcesResponse$,
+  ListTestsRequest$,
+  ListTestsResponse$,
+  ListTestTemplates$,
+  ListTestTemplatesCommand,
+  ListTestTemplatesRequest$,
+  ListTestTemplatesResponse$,
   ListUserJourneys$,
   ListUserJourneysCommand,
   ListUserJourneysRequest$,
   ListUserJourneysResponse$,
+  LoggingConfiguration$,
   MultiAzDisasterRecoveryApproach,
   MultiAzTargets$,
   MultiRegionDisasterRecoveryApproach,
   MultiRegionTargets$,
+  ObservabilityAlarmInput$,
+  ObservabilityAlarmSummary$,
   ObservabilityRecommendation$,
   paginateListAssertions,
   paginateListDependencies,
@@ -216,6 +273,7 @@ import {
   paginateListInputSources,
   paginateListPolicies,
   paginateListReports,
+  paginateListResolvedTestRunTargetResources,
   paginateListResources,
   paginateListServiceEvents,
   paginateListServiceFunctions,
@@ -223,12 +281,22 @@ import {
   paginateListServiceTopologyEdges,
   paginateListSystemEvents,
   paginateListSystems,
+  paginateListTestRunEvents,
+  paginateListTestRuns,
+  paginateListTestRunSources,
+  paginateListTests,
+  paginateListTestSources,
   paginateListUserJourneys,
+  ParameterType,
   PermissionModel$,
   Policy$,
   PolicyComponent,
   PolicySummary$,
   PolicyValueSource,
+  PutTestSources$,
+  PutTestSourcesCommand,
+  PutTestSourcesRequest$,
+  PutTestSourcesResponse$,
   QueryDataPoint$,
   QueryGranularity,
   QueryRange$,
@@ -241,6 +309,7 @@ import {
   Resiliencehubv2,
   Resiliencehubv2Client,
   Resiliencehubv2ServiceException,
+  ResolvedTargetResource$,
   Resource$,
   ResourceConfiguration$,
   ResourceDiscoveryErrorCode,
@@ -289,7 +358,19 @@ import {
   StartFailureModeAssessmentCommand,
   StartFailureModeAssessmentRequest$,
   StartFailureModeAssessmentResponse$,
+  StartTestRun$,
+  StartTestRunCommand,
+  StartTestRunRequest$,
+  StartTestRunResponse$,
+  StopCondition$,
+  StopConditionSource,
+  StopTestRun$,
+  StopTestRunCommand,
+  StopTestRunRequest$,
+  StopTestRunResponse$,
   StringChange$,
+  SuccessCriteriaAlarmInput$,
+  SuccessCriteriaAlarmSummary$,
   System$,
   SystemCreatedMetadata$,
   SystemDeletedMetadata$,
@@ -310,7 +391,27 @@ import {
   TagResourceRequest$,
   TagResourceResponse$,
   TargetSource$,
+  Test$,
+  TestAction$,
   TestingRecommendation$,
+  TestRun$,
+  TestRunEvent$,
+  TestRunObservabilityAlarmSummary$,
+  TestRunPolicySnapshot$,
+  TestRunReportConfiguration$,
+  TestRunSourceSummary$,
+  TestRunSourceType,
+  TestRunStatus,
+  TestRunSuccessCriteriaAlarmSummary$,
+  TestRunSummary$,
+  TestSourceInput$,
+  TestSourceOutcome,
+  TestSourceSummary$,
+  TestSourceType,
+  TestSummary$,
+  TestTemplate$,
+  TestTemplateParameter$,
+  TestTemplateSummary$,
   ThrottlingException,
   ThrottlingException$,
   TopologyType,
@@ -346,6 +447,10 @@ import {
   UpdateSystemCommand,
   UpdateSystemRequest$,
   UpdateSystemResponse$,
+  UpdateTest$,
+  UpdateTestCommand,
+  UpdateTestRequest$,
+  UpdateTestResponse$,
   UpdateUserJourney$,
   UpdateUserJourneyCommand,
   UpdateUserJourneyRequest$,
@@ -387,6 +492,8 @@ assert(typeof CreateServiceFunctionResourcesCommand === "function");
 assert(typeof CreateServiceFunctionResources$ === "object");
 assert(typeof CreateSystemCommand === "function");
 assert(typeof CreateSystem$ === "object");
+assert(typeof CreateTestCommand === "function");
+assert(typeof CreateTest$ === "object");
 assert(typeof CreateUserJourneyCommand === "function");
 assert(typeof CreateUserJourney$ === "object");
 assert(typeof DeleteAssertionCommand === "function");
@@ -403,6 +510,10 @@ assert(typeof DeleteServiceFunctionResourcesCommand === "function");
 assert(typeof DeleteServiceFunctionResources$ === "object");
 assert(typeof DeleteSystemCommand === "function");
 assert(typeof DeleteSystem$ === "object");
+assert(typeof DeleteTestCommand === "function");
+assert(typeof DeleteTest$ === "object");
+assert(typeof DeleteTestSourcesCommand === "function");
+assert(typeof DeleteTestSources$ === "object");
 assert(typeof DeleteUserJourneyCommand === "function");
 assert(typeof DeleteUserJourney$ === "object");
 assert(typeof GetFailureModeFindingCommand === "function");
@@ -413,6 +524,12 @@ assert(typeof GetServiceCommand === "function");
 assert(typeof GetService$ === "object");
 assert(typeof GetSystemCommand === "function");
 assert(typeof GetSystem$ === "object");
+assert(typeof GetTestCommand === "function");
+assert(typeof GetTest$ === "object");
+assert(typeof GetTestRunCommand === "function");
+assert(typeof GetTestRun$ === "object");
+assert(typeof GetTestTemplateCommand === "function");
+assert(typeof GetTestTemplate$ === "object");
 assert(typeof GetUserJourneyCommand === "function");
 assert(typeof GetUserJourney$ === "object");
 assert(typeof ImportAppCommand === "function");
@@ -433,6 +550,8 @@ assert(typeof ListPoliciesCommand === "function");
 assert(typeof ListPolicies$ === "object");
 assert(typeof ListReportsCommand === "function");
 assert(typeof ListReports$ === "object");
+assert(typeof ListResolvedTestRunTargetResourcesCommand === "function");
+assert(typeof ListResolvedTestRunTargetResources$ === "object");
 assert(typeof ListResourcesCommand === "function");
 assert(typeof ListResources$ === "object");
 assert(typeof ListServiceEventsCommand === "function");
@@ -449,10 +568,28 @@ assert(typeof ListSystemsCommand === "function");
 assert(typeof ListSystems$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof ListTestRunEventsCommand === "function");
+assert(typeof ListTestRunEvents$ === "object");
+assert(typeof ListTestRunsCommand === "function");
+assert(typeof ListTestRuns$ === "object");
+assert(typeof ListTestRunSourcesCommand === "function");
+assert(typeof ListTestRunSources$ === "object");
+assert(typeof ListTestsCommand === "function");
+assert(typeof ListTests$ === "object");
+assert(typeof ListTestSourcesCommand === "function");
+assert(typeof ListTestSources$ === "object");
+assert(typeof ListTestTemplatesCommand === "function");
+assert(typeof ListTestTemplates$ === "object");
 assert(typeof ListUserJourneysCommand === "function");
 assert(typeof ListUserJourneys$ === "object");
+assert(typeof PutTestSourcesCommand === "function");
+assert(typeof PutTestSources$ === "object");
 assert(typeof StartFailureModeAssessmentCommand === "function");
 assert(typeof StartFailureModeAssessment$ === "object");
+assert(typeof StartTestRunCommand === "function");
+assert(typeof StartTestRun$ === "object");
+assert(typeof StopTestRunCommand === "function");
+assert(typeof StopTestRun$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -471,6 +608,8 @@ assert(typeof UpdateServiceFunctionCommand === "function");
 assert(typeof UpdateServiceFunction$ === "object");
 assert(typeof UpdateSystemCommand === "function");
 assert(typeof UpdateSystem$ === "object");
+assert(typeof UpdateTestCommand === "function");
+assert(typeof UpdateTest$ === "object");
 assert(typeof UpdateUserJourneyCommand === "function");
 assert(typeof UpdateUserJourney$ === "object");
 // structural schemas
@@ -499,6 +638,8 @@ assert(typeof CreateServiceRequest$ === "object");
 assert(typeof CreateServiceResponse$ === "object");
 assert(typeof CreateSystemRequest$ === "object");
 assert(typeof CreateSystemResponse$ === "object");
+assert(typeof CreateTestRequest$ === "object");
+assert(typeof CreateTestResponse$ === "object");
 assert(typeof CreateUserJourneyRequest$ === "object");
 assert(typeof CreateUserJourneyResponse$ === "object");
 assert(typeof CrossAccountRole$ === "object");
@@ -517,6 +658,10 @@ assert(typeof DeleteServiceRequest$ === "object");
 assert(typeof DeleteServiceResponse$ === "object");
 assert(typeof DeleteSystemRequest$ === "object");
 assert(typeof DeleteSystemResponse$ === "object");
+assert(typeof DeleteTestRequest$ === "object");
+assert(typeof DeleteTestResponse$ === "object");
+assert(typeof DeleteTestSourcesRequest$ === "object");
+assert(typeof DeleteTestSourcesResponse$ === "object");
 assert(typeof DeleteUserJourneyRequest$ === "object");
 assert(typeof DeleteUserJourneyResponse$ === "object");
 assert(typeof DependencyDiscoveryConfig$ === "object");
@@ -526,6 +671,7 @@ assert(typeof EdgePropertySummary$ === "object");
 assert(typeof EffectivePolicyValues$ === "object");
 assert(typeof EksSource$ === "object");
 assert(typeof EventActor$ === "object");
+assert(typeof ExperimentDetails$ === "object");
 assert(typeof FailedReportOutput$ === "object");
 assert(typeof Finding$ === "object");
 assert(typeof FindingSummary$ === "object");
@@ -537,6 +683,12 @@ assert(typeof GetServiceRequest$ === "object");
 assert(typeof GetServiceResponse$ === "object");
 assert(typeof GetSystemRequest$ === "object");
 assert(typeof GetSystemResponse$ === "object");
+assert(typeof GetTestRequest$ === "object");
+assert(typeof GetTestResponse$ === "object");
+assert(typeof GetTestRunRequest$ === "object");
+assert(typeof GetTestRunResponse$ === "object");
+assert(typeof GetTestTemplateRequest$ === "object");
+assert(typeof GetTestTemplateResponse$ === "object");
 assert(typeof GetUserJourneyRequest$ === "object");
 assert(typeof GetUserJourneyResponse$ === "object");
 assert(typeof ImportAppRequest$ === "object");
@@ -560,6 +712,8 @@ assert(typeof ListPoliciesRequest$ === "object");
 assert(typeof ListPoliciesResponse$ === "object");
 assert(typeof ListReportsRequest$ === "object");
 assert(typeof ListReportsResponse$ === "object");
+assert(typeof ListResolvedTestRunTargetResourcesRequest$ === "object");
+assert(typeof ListResolvedTestRunTargetResourcesResponse$ === "object");
 assert(typeof ListResourcesRequest$ === "object");
 assert(typeof ListResourcesResponse$ === "object");
 assert(typeof ListServiceEventsRequest$ === "object");
@@ -576,19 +730,37 @@ assert(typeof ListSystemsRequest$ === "object");
 assert(typeof ListSystemsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof ListTestRunEventsRequest$ === "object");
+assert(typeof ListTestRunEventsResponse$ === "object");
+assert(typeof ListTestRunSourcesRequest$ === "object");
+assert(typeof ListTestRunSourcesResponse$ === "object");
+assert(typeof ListTestRunsRequest$ === "object");
+assert(typeof ListTestRunsResponse$ === "object");
+assert(typeof ListTestSourcesRequest$ === "object");
+assert(typeof ListTestSourcesResponse$ === "object");
+assert(typeof ListTestsRequest$ === "object");
+assert(typeof ListTestsResponse$ === "object");
+assert(typeof ListTestTemplatesRequest$ === "object");
+assert(typeof ListTestTemplatesResponse$ === "object");
 assert(typeof ListUserJourneysRequest$ === "object");
 assert(typeof ListUserJourneysResponse$ === "object");
+assert(typeof LoggingConfiguration$ === "object");
 assert(typeof MultiAzTargets$ === "object");
 assert(typeof MultiRegionTargets$ === "object");
+assert(typeof ObservabilityAlarmInput$ === "object");
+assert(typeof ObservabilityAlarmSummary$ === "object");
 assert(typeof ObservabilityRecommendation$ === "object");
 assert(typeof PermissionModel$ === "object");
 assert(typeof Policy$ === "object");
 assert(typeof PolicySummary$ === "object");
+assert(typeof PutTestSourcesRequest$ === "object");
+assert(typeof PutTestSourcesResponse$ === "object");
 assert(typeof QueryDataPoint$ === "object");
 assert(typeof QueryRange$ === "object");
 assert(typeof ReportGenerationResult$ === "object");
 assert(typeof ReportOutput$ === "object");
 assert(typeof ReportOutputConfiguration$ === "object");
+assert(typeof ResolvedTargetResource$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceConfiguration$ === "object");
 assert(typeof ResourceDiscoveryStatus$ === "object");
@@ -625,7 +797,14 @@ assert(typeof ServiceWorkflowUpdatedMetadata$ === "object");
 assert(typeof SloSource$ === "object");
 assert(typeof StartFailureModeAssessmentRequest$ === "object");
 assert(typeof StartFailureModeAssessmentResponse$ === "object");
+assert(typeof StartTestRunRequest$ === "object");
+assert(typeof StartTestRunResponse$ === "object");
+assert(typeof StopCondition$ === "object");
+assert(typeof StopTestRunRequest$ === "object");
+assert(typeof StopTestRunResponse$ === "object");
 assert(typeof StringChange$ === "object");
+assert(typeof SuccessCriteriaAlarmInput$ === "object");
+assert(typeof SuccessCriteriaAlarmSummary$ === "object");
 assert(typeof System$ === "object");
 assert(typeof SystemCreatedMetadata$ === "object");
 assert(typeof SystemDeletedMetadata$ === "object");
@@ -643,7 +822,23 @@ assert(typeof SystemUserJourneyUpdatedMetadata$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof TargetSource$ === "object");
+assert(typeof Test$ === "object");
+assert(typeof TestAction$ === "object");
 assert(typeof TestingRecommendation$ === "object");
+assert(typeof TestRun$ === "object");
+assert(typeof TestRunEvent$ === "object");
+assert(typeof TestRunObservabilityAlarmSummary$ === "object");
+assert(typeof TestRunPolicySnapshot$ === "object");
+assert(typeof TestRunReportConfiguration$ === "object");
+assert(typeof TestRunSourceSummary$ === "object");
+assert(typeof TestRunSuccessCriteriaAlarmSummary$ === "object");
+assert(typeof TestRunSummary$ === "object");
+assert(typeof TestSourceInput$ === "object");
+assert(typeof TestSourceSummary$ === "object");
+assert(typeof TestSummary$ === "object");
+assert(typeof TestTemplate$ === "object");
+assert(typeof TestTemplateParameter$ === "object");
+assert(typeof TestTemplateSummary$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAssertionRequest$ === "object");
@@ -660,6 +855,8 @@ assert(typeof UpdateServiceRequest$ === "object");
 assert(typeof UpdateServiceResponse$ === "object");
 assert(typeof UpdateSystemRequest$ === "object");
 assert(typeof UpdateSystemResponse$ === "object");
+assert(typeof UpdateTestRequest$ === "object");
+assert(typeof UpdateTestResponse$ === "object");
 assert(typeof UpdateUserJourneyRequest$ === "object");
 assert(typeof UpdateUserJourneyResponse$ === "object");
 assert(typeof UserJourney$ === "object");
@@ -667,6 +864,7 @@ assert(typeof UserJourneyChanges$ === "object");
 assert(typeof UserJourneySummary$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 // enums
+assert(typeof AccountTargeting === "object");
 assert(typeof AchievabilityStatus === "object");
 assert(typeof ActorType === "object");
 assert(typeof AssertionSource === "object");
@@ -684,6 +882,7 @@ assert(typeof FindingStatus === "object");
 assert(typeof InputSourceType === "object");
 assert(typeof MultiAzDisasterRecoveryApproach === "object");
 assert(typeof MultiRegionDisasterRecoveryApproach === "object");
+assert(typeof ParameterType === "object");
 assert(typeof PolicyComponent === "object");
 assert(typeof PolicyValueSource === "object");
 assert(typeof QueryGranularity === "object");
@@ -696,7 +895,12 @@ assert(typeof ServiceEventType === "object");
 assert(typeof ServiceFunctionCriticality === "object");
 assert(typeof ServiceFunctionSource === "object");
 assert(typeof SortOrder === "object");
+assert(typeof StopConditionSource === "object");
 assert(typeof SystemEventType === "object");
+assert(typeof TestRunSourceType === "object");
+assert(typeof TestRunStatus === "object");
+assert(typeof TestSourceOutcome === "object");
+assert(typeof TestSourceType === "object");
 assert(typeof TopologyType === "object");
 assert(typeof ValidationExceptionReason === "object");
 // errors
@@ -732,6 +936,7 @@ assert(typeof paginateListFailureModeFindings === "function");
 assert(typeof paginateListInputSources === "function");
 assert(typeof paginateListPolicies === "function");
 assert(typeof paginateListReports === "function");
+assert(typeof paginateListResolvedTestRunTargetResources === "function");
 assert(typeof paginateListResources === "function");
 assert(typeof paginateListServiceEvents === "function");
 assert(typeof paginateListServiceFunctions === "function");
@@ -739,5 +944,10 @@ assert(typeof paginateListServiceTopologyEdges === "function");
 assert(typeof paginateListServices === "function");
 assert(typeof paginateListSystemEvents === "function");
 assert(typeof paginateListSystems === "function");
+assert(typeof paginateListTestRunEvents === "function");
+assert(typeof paginateListTestRunSources === "function");
+assert(typeof paginateListTestRuns === "function");
+assert(typeof paginateListTestSources === "function");
+assert(typeof paginateListTests === "function");
 assert(typeof paginateListUserJourneys === "function");
 console.log(`Resiliencehubv2 index test passed.`);

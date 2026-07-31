@@ -71,6 +71,7 @@ import type {
   CreateServiceFunctionResourcesCommandOutput,
 } from "./commands/CreateServiceFunctionResourcesCommand";
 import type { CreateSystemCommandInput, CreateSystemCommandOutput } from "./commands/CreateSystemCommand";
+import type { CreateTestCommandInput, CreateTestCommandOutput } from "./commands/CreateTestCommand";
 import type {
   CreateUserJourneyCommandInput,
   CreateUserJourneyCommandOutput,
@@ -91,6 +92,11 @@ import type {
   DeleteServiceFunctionResourcesCommandOutput,
 } from "./commands/DeleteServiceFunctionResourcesCommand";
 import type { DeleteSystemCommandInput, DeleteSystemCommandOutput } from "./commands/DeleteSystemCommand";
+import type { DeleteTestCommandInput, DeleteTestCommandOutput } from "./commands/DeleteTestCommand";
+import type {
+  DeleteTestSourcesCommandInput,
+  DeleteTestSourcesCommandOutput,
+} from "./commands/DeleteTestSourcesCommand";
 import type {
   DeleteUserJourneyCommandInput,
   DeleteUserJourneyCommandOutput,
@@ -102,6 +108,9 @@ import type {
 import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import type { GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import type { GetSystemCommandInput, GetSystemCommandOutput } from "./commands/GetSystemCommand";
+import type { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand";
+import type { GetTestRunCommandInput, GetTestRunCommandOutput } from "./commands/GetTestRunCommand";
+import type { GetTestTemplateCommandInput, GetTestTemplateCommandOutput } from "./commands/GetTestTemplateCommand";
 import type { GetUserJourneyCommandInput, GetUserJourneyCommandOutput } from "./commands/GetUserJourneyCommand";
 import type { ImportAppCommandInput, ImportAppCommandOutput } from "./commands/ImportAppCommand";
 import type { ImportPolicyCommandInput, ImportPolicyCommandOutput } from "./commands/ImportPolicyCommand";
@@ -118,6 +127,10 @@ import type {
 import type { ListInputSourcesCommandInput, ListInputSourcesCommandOutput } from "./commands/ListInputSourcesCommand";
 import type { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import type { ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
+import type {
+  ListResolvedTestRunTargetResourcesCommandInput,
+  ListResolvedTestRunTargetResourcesCommandOutput,
+} from "./commands/ListResolvedTestRunTargetResourcesCommand";
 import type { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand";
 import type {
   ListServiceEventsCommandInput,
@@ -138,11 +151,29 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type {
+  ListTestRunEventsCommandInput,
+  ListTestRunEventsCommandOutput,
+} from "./commands/ListTestRunEventsCommand";
+import type { ListTestRunsCommandInput, ListTestRunsCommandOutput } from "./commands/ListTestRunsCommand";
+import type {
+  ListTestRunSourcesCommandInput,
+  ListTestRunSourcesCommandOutput,
+} from "./commands/ListTestRunSourcesCommand";
+import type { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand";
+import type { ListTestSourcesCommandInput, ListTestSourcesCommandOutput } from "./commands/ListTestSourcesCommand";
+import type {
+  ListTestTemplatesCommandInput,
+  ListTestTemplatesCommandOutput,
+} from "./commands/ListTestTemplatesCommand";
 import type { ListUserJourneysCommandInput, ListUserJourneysCommandOutput } from "./commands/ListUserJourneysCommand";
+import type { PutTestSourcesCommandInput, PutTestSourcesCommandOutput } from "./commands/PutTestSourcesCommand";
 import type {
   StartFailureModeAssessmentCommandInput,
   StartFailureModeAssessmentCommandOutput,
 } from "./commands/StartFailureModeAssessmentCommand";
+import type { StartTestRunCommandInput, StartTestRunCommandOutput } from "./commands/StartTestRunCommand";
+import type { StopTestRunCommandInput, StopTestRunCommandOutput } from "./commands/StopTestRunCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateAssertionCommandInput, UpdateAssertionCommandOutput } from "./commands/UpdateAssertionCommand";
@@ -158,6 +189,7 @@ import type {
   UpdateServiceFunctionCommandOutput,
 } from "./commands/UpdateServiceFunctionCommand";
 import type { UpdateSystemCommandInput, UpdateSystemCommandOutput } from "./commands/UpdateSystemCommand";
+import type { UpdateTestCommandInput, UpdateTestCommandOutput } from "./commands/UpdateTestCommand";
 import type {
   UpdateUserJourneyCommandInput,
   UpdateUserJourneyCommandOutput,
@@ -185,6 +217,7 @@ export type ServiceInputTypes =
   | CreateServiceFunctionCommandInput
   | CreateServiceFunctionResourcesCommandInput
   | CreateSystemCommandInput
+  | CreateTestCommandInput
   | CreateUserJourneyCommandInput
   | DeleteAssertionCommandInput
   | DeleteInputSourceCommandInput
@@ -193,11 +226,16 @@ export type ServiceInputTypes =
   | DeleteServiceFunctionCommandInput
   | DeleteServiceFunctionResourcesCommandInput
   | DeleteSystemCommandInput
+  | DeleteTestCommandInput
+  | DeleteTestSourcesCommandInput
   | DeleteUserJourneyCommandInput
   | GetFailureModeFindingCommandInput
   | GetPolicyCommandInput
   | GetServiceCommandInput
   | GetSystemCommandInput
+  | GetTestCommandInput
+  | GetTestRunCommandInput
+  | GetTestTemplateCommandInput
   | GetUserJourneyCommandInput
   | ImportAppCommandInput
   | ImportPolicyCommandInput
@@ -208,6 +246,7 @@ export type ServiceInputTypes =
   | ListInputSourcesCommandInput
   | ListPoliciesCommandInput
   | ListReportsCommandInput
+  | ListResolvedTestRunTargetResourcesCommandInput
   | ListResourcesCommandInput
   | ListServiceEventsCommandInput
   | ListServiceFunctionsCommandInput
@@ -216,8 +255,17 @@ export type ServiceInputTypes =
   | ListSystemEventsCommandInput
   | ListSystemsCommandInput
   | ListTagsForResourceCommandInput
+  | ListTestRunEventsCommandInput
+  | ListTestRunSourcesCommandInput
+  | ListTestRunsCommandInput
+  | ListTestSourcesCommandInput
+  | ListTestTemplatesCommandInput
+  | ListTestsCommandInput
   | ListUserJourneysCommandInput
+  | PutTestSourcesCommandInput
   | StartFailureModeAssessmentCommandInput
+  | StartTestRunCommandInput
+  | StopTestRunCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAssertionCommandInput
@@ -227,6 +275,7 @@ export type ServiceInputTypes =
   | UpdateServiceCommandInput
   | UpdateServiceFunctionCommandInput
   | UpdateSystemCommandInput
+  | UpdateTestCommandInput
   | UpdateUserJourneyCommandInput;
 
 /**
@@ -241,6 +290,7 @@ export type ServiceOutputTypes =
   | CreateServiceFunctionCommandOutput
   | CreateServiceFunctionResourcesCommandOutput
   | CreateSystemCommandOutput
+  | CreateTestCommandOutput
   | CreateUserJourneyCommandOutput
   | DeleteAssertionCommandOutput
   | DeleteInputSourceCommandOutput
@@ -249,11 +299,16 @@ export type ServiceOutputTypes =
   | DeleteServiceFunctionCommandOutput
   | DeleteServiceFunctionResourcesCommandOutput
   | DeleteSystemCommandOutput
+  | DeleteTestCommandOutput
+  | DeleteTestSourcesCommandOutput
   | DeleteUserJourneyCommandOutput
   | GetFailureModeFindingCommandOutput
   | GetPolicyCommandOutput
   | GetServiceCommandOutput
   | GetSystemCommandOutput
+  | GetTestCommandOutput
+  | GetTestRunCommandOutput
+  | GetTestTemplateCommandOutput
   | GetUserJourneyCommandOutput
   | ImportAppCommandOutput
   | ImportPolicyCommandOutput
@@ -264,6 +319,7 @@ export type ServiceOutputTypes =
   | ListInputSourcesCommandOutput
   | ListPoliciesCommandOutput
   | ListReportsCommandOutput
+  | ListResolvedTestRunTargetResourcesCommandOutput
   | ListResourcesCommandOutput
   | ListServiceEventsCommandOutput
   | ListServiceFunctionsCommandOutput
@@ -272,8 +328,17 @@ export type ServiceOutputTypes =
   | ListSystemEventsCommandOutput
   | ListSystemsCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTestRunEventsCommandOutput
+  | ListTestRunSourcesCommandOutput
+  | ListTestRunsCommandOutput
+  | ListTestSourcesCommandOutput
+  | ListTestTemplatesCommandOutput
+  | ListTestsCommandOutput
   | ListUserJourneysCommandOutput
+  | PutTestSourcesCommandOutput
   | StartFailureModeAssessmentCommandOutput
+  | StartTestRunCommandOutput
+  | StopTestRunCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAssertionCommandOutput
@@ -283,6 +348,7 @@ export type ServiceOutputTypes =
   | UpdateServiceCommandOutput
   | UpdateServiceFunctionCommandOutput
   | UpdateSystemCommandOutput
+  | UpdateTestCommandOutput
   | UpdateUserJourneyCommandOutput;
 
 /**

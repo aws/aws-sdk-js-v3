@@ -48,6 +48,11 @@ import {
   CreateSystemCommand,
 } from "./commands/CreateSystemCommand";
 import {
+  type CreateTestCommandInput,
+  type CreateTestCommandOutput,
+  CreateTestCommand,
+} from "./commands/CreateTestCommand";
+import {
   type CreateUserJourneyCommandInput,
   type CreateUserJourneyCommandOutput,
   CreateUserJourneyCommand,
@@ -88,6 +93,16 @@ import {
   DeleteSystemCommand,
 } from "./commands/DeleteSystemCommand";
 import {
+  type DeleteTestCommandInput,
+  type DeleteTestCommandOutput,
+  DeleteTestCommand,
+} from "./commands/DeleteTestCommand";
+import {
+  type DeleteTestSourcesCommandInput,
+  type DeleteTestSourcesCommandOutput,
+  DeleteTestSourcesCommand,
+} from "./commands/DeleteTestSourcesCommand";
+import {
   type DeleteUserJourneyCommandInput,
   type DeleteUserJourneyCommandOutput,
   DeleteUserJourneyCommand,
@@ -104,6 +119,17 @@ import {
   GetServiceCommand,
 } from "./commands/GetServiceCommand";
 import { type GetSystemCommandInput, type GetSystemCommandOutput, GetSystemCommand } from "./commands/GetSystemCommand";
+import { type GetTestCommandInput, type GetTestCommandOutput, GetTestCommand } from "./commands/GetTestCommand";
+import {
+  type GetTestRunCommandInput,
+  type GetTestRunCommandOutput,
+  GetTestRunCommand,
+} from "./commands/GetTestRunCommand";
+import {
+  type GetTestTemplateCommandInput,
+  type GetTestTemplateCommandOutput,
+  GetTestTemplateCommand,
+} from "./commands/GetTestTemplateCommand";
 import {
   type GetUserJourneyCommandInput,
   type GetUserJourneyCommandOutput,
@@ -151,6 +177,11 @@ import {
   ListReportsCommand,
 } from "./commands/ListReportsCommand";
 import {
+  type ListResolvedTestRunTargetResourcesCommandInput,
+  type ListResolvedTestRunTargetResourcesCommandOutput,
+  ListResolvedTestRunTargetResourcesCommand,
+} from "./commands/ListResolvedTestRunTargetResourcesCommand";
+import {
   type ListResourcesCommandInput,
   type ListResourcesCommandOutput,
   ListResourcesCommand,
@@ -191,15 +222,56 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type ListTestRunEventsCommandInput,
+  type ListTestRunEventsCommandOutput,
+  ListTestRunEventsCommand,
+} from "./commands/ListTestRunEventsCommand";
+import {
+  type ListTestRunsCommandInput,
+  type ListTestRunsCommandOutput,
+  ListTestRunsCommand,
+} from "./commands/ListTestRunsCommand";
+import {
+  type ListTestRunSourcesCommandInput,
+  type ListTestRunSourcesCommandOutput,
+  ListTestRunSourcesCommand,
+} from "./commands/ListTestRunSourcesCommand";
+import { type ListTestsCommandInput, type ListTestsCommandOutput, ListTestsCommand } from "./commands/ListTestsCommand";
+import {
+  type ListTestSourcesCommandInput,
+  type ListTestSourcesCommandOutput,
+  ListTestSourcesCommand,
+} from "./commands/ListTestSourcesCommand";
+import {
+  type ListTestTemplatesCommandInput,
+  type ListTestTemplatesCommandOutput,
+  ListTestTemplatesCommand,
+} from "./commands/ListTestTemplatesCommand";
+import {
   type ListUserJourneysCommandInput,
   type ListUserJourneysCommandOutput,
   ListUserJourneysCommand,
 } from "./commands/ListUserJourneysCommand";
 import {
+  type PutTestSourcesCommandInput,
+  type PutTestSourcesCommandOutput,
+  PutTestSourcesCommand,
+} from "./commands/PutTestSourcesCommand";
+import {
   type StartFailureModeAssessmentCommandInput,
   type StartFailureModeAssessmentCommandOutput,
   StartFailureModeAssessmentCommand,
 } from "./commands/StartFailureModeAssessmentCommand";
+import {
+  type StartTestRunCommandInput,
+  type StartTestRunCommandOutput,
+  StartTestRunCommand,
+} from "./commands/StartTestRunCommand";
+import {
+  type StopTestRunCommandInput,
+  type StopTestRunCommandOutput,
+  StopTestRunCommand,
+} from "./commands/StopTestRunCommand";
 import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
@@ -246,6 +318,11 @@ import {
   UpdateSystemCommand,
 } from "./commands/UpdateSystemCommand";
 import {
+  type UpdateTestCommandInput,
+  type UpdateTestCommandOutput,
+  UpdateTestCommand,
+} from "./commands/UpdateTestCommand";
+import {
   type UpdateUserJourneyCommandInput,
   type UpdateUserJourneyCommandOutput,
   UpdateUserJourneyCommand,
@@ -258,6 +335,7 @@ import { paginateListFailureModeFindings } from "./pagination/ListFailureModeFin
 import { paginateListInputSources } from "./pagination/ListInputSourcesPaginator";
 import { paginateListPolicies } from "./pagination/ListPoliciesPaginator";
 import { paginateListReports } from "./pagination/ListReportsPaginator";
+import { paginateListResolvedTestRunTargetResources } from "./pagination/ListResolvedTestRunTargetResourcesPaginator";
 import { paginateListResources } from "./pagination/ListResourcesPaginator";
 import { paginateListServiceEvents } from "./pagination/ListServiceEventsPaginator";
 import { paginateListServiceFunctions } from "./pagination/ListServiceFunctionsPaginator";
@@ -265,6 +343,11 @@ import { paginateListServices } from "./pagination/ListServicesPaginator";
 import { paginateListServiceTopologyEdges } from "./pagination/ListServiceTopologyEdgesPaginator";
 import { paginateListSystemEvents } from "./pagination/ListSystemEventsPaginator";
 import { paginateListSystems } from "./pagination/ListSystemsPaginator";
+import { paginateListTestRunEvents } from "./pagination/ListTestRunEventsPaginator";
+import { paginateListTestRunSources } from "./pagination/ListTestRunSourcesPaginator";
+import { paginateListTestRuns } from "./pagination/ListTestRunsPaginator";
+import { paginateListTestSources } from "./pagination/ListTestSourcesPaginator";
+import { paginateListTests } from "./pagination/ListTestsPaginator";
 import { paginateListUserJourneys } from "./pagination/ListUserJourneysPaginator";
 import { Resiliencehubv2Client } from "./Resiliencehubv2Client";
 import { waitUntilFailureModeAssessmentSuccess } from "./waiters/waitForFailureModeAssessmentSuccess";
@@ -281,6 +364,7 @@ const commands = {
   CreateServiceFunctionCommand,
   CreateServiceFunctionResourcesCommand,
   CreateSystemCommand,
+  CreateTestCommand,
   CreateUserJourneyCommand,
   DeleteAssertionCommand,
   DeleteInputSourceCommand,
@@ -289,11 +373,16 @@ const commands = {
   DeleteServiceFunctionCommand,
   DeleteServiceFunctionResourcesCommand,
   DeleteSystemCommand,
+  DeleteTestCommand,
+  DeleteTestSourcesCommand,
   DeleteUserJourneyCommand,
   GetFailureModeFindingCommand,
   GetPolicyCommand,
   GetServiceCommand,
   GetSystemCommand,
+  GetTestCommand,
+  GetTestRunCommand,
+  GetTestTemplateCommand,
   GetUserJourneyCommand,
   ImportAppCommand,
   ImportPolicyCommand,
@@ -304,6 +393,7 @@ const commands = {
   ListInputSourcesCommand,
   ListPoliciesCommand,
   ListReportsCommand,
+  ListResolvedTestRunTargetResourcesCommand,
   ListResourcesCommand,
   ListServiceEventsCommand,
   ListServiceFunctionsCommand,
@@ -312,8 +402,17 @@ const commands = {
   ListSystemEventsCommand,
   ListSystemsCommand,
   ListTagsForResourceCommand,
+  ListTestRunEventsCommand,
+  ListTestRunsCommand,
+  ListTestRunSourcesCommand,
+  ListTestsCommand,
+  ListTestSourcesCommand,
+  ListTestTemplatesCommand,
   ListUserJourneysCommand,
+  PutTestSourcesCommand,
   StartFailureModeAssessmentCommand,
+  StartTestRunCommand,
+  StopTestRunCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAssertionCommand,
@@ -323,6 +422,7 @@ const commands = {
   UpdateServiceCommand,
   UpdateServiceFunctionCommand,
   UpdateSystemCommand,
+  UpdateTestCommand,
   UpdateUserJourneyCommand,
 };
 const paginators = {
@@ -333,6 +433,7 @@ const paginators = {
   paginateListInputSources,
   paginateListPolicies,
   paginateListReports,
+  paginateListResolvedTestRunTargetResources,
   paginateListResources,
   paginateListServiceEvents,
   paginateListServiceFunctions,
@@ -340,6 +441,11 @@ const paginators = {
   paginateListServiceTopologyEdges,
   paginateListSystemEvents,
   paginateListSystems,
+  paginateListTestRunEvents,
+  paginateListTestRuns,
+  paginateListTestRunSources,
+  paginateListTests,
+  paginateListTestSources,
   paginateListUserJourneys,
 };
 const waiters = {
@@ -487,6 +593,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link CreateTestCommand}
+   */
+  createTest(
+    args: CreateTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTestCommandOutput>;
+  createTest(
+    args: CreateTestCommandInput,
+    cb: (err: any, data?: CreateTestCommandOutput) => void
+  ): void;
+  createTest(
+    args: CreateTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUserJourneyCommand}
    */
   createUserJourney(
@@ -623,6 +746,40 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link DeleteTestCommand}
+   */
+  deleteTest(
+    args: DeleteTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTestCommandOutput>;
+  deleteTest(
+    args: DeleteTestCommandInput,
+    cb: (err: any, data?: DeleteTestCommandOutput) => void
+  ): void;
+  deleteTest(
+    args: DeleteTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTestSourcesCommand}
+   */
+  deleteTestSources(
+    args: DeleteTestSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTestSourcesCommandOutput>;
+  deleteTestSources(
+    args: DeleteTestSourcesCommandInput,
+    cb: (err: any, data?: DeleteTestSourcesCommandOutput) => void
+  ): void;
+  deleteTestSources(
+    args: DeleteTestSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTestSourcesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteUserJourneyCommand}
    */
   deleteUserJourney(
@@ -705,6 +862,57 @@ export interface Resiliencehubv2 {
     args: GetSystemCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSystemCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTestCommand}
+   */
+  getTest(
+    args: GetTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestCommandOutput>;
+  getTest(
+    args: GetTestCommandInput,
+    cb: (err: any, data?: GetTestCommandOutput) => void
+  ): void;
+  getTest(
+    args: GetTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTestRunCommand}
+   */
+  getTestRun(
+    args: GetTestRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestRunCommandOutput>;
+  getTestRun(
+    args: GetTestRunCommandInput,
+    cb: (err: any, data?: GetTestRunCommandOutput) => void
+  ): void;
+  getTestRun(
+    args: GetTestRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTestTemplateCommand}
+   */
+  getTestTemplate(
+    args: GetTestTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTestTemplateCommandOutput>;
+  getTestTemplate(
+    args: GetTestTemplateCommandInput,
+    cb: (err: any, data?: GetTestTemplateCommandOutput) => void
+  ): void;
+  getTestTemplate(
+    args: GetTestTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTestTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -881,6 +1089,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link ListResolvedTestRunTargetResourcesCommand}
+   */
+  listResolvedTestRunTargetResources(
+    args: ListResolvedTestRunTargetResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResolvedTestRunTargetResourcesCommandOutput>;
+  listResolvedTestRunTargetResources(
+    args: ListResolvedTestRunTargetResourcesCommandInput,
+    cb: (err: any, data?: ListResolvedTestRunTargetResourcesCommandOutput) => void
+  ): void;
+  listResolvedTestRunTargetResources(
+    args: ListResolvedTestRunTargetResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResolvedTestRunTargetResourcesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourcesCommand}
    */
   listResources(
@@ -1019,6 +1244,109 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link ListTestRunEventsCommand}
+   */
+  listTestRunEvents(
+    args: ListTestRunEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestRunEventsCommandOutput>;
+  listTestRunEvents(
+    args: ListTestRunEventsCommandInput,
+    cb: (err: any, data?: ListTestRunEventsCommandOutput) => void
+  ): void;
+  listTestRunEvents(
+    args: ListTestRunEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestRunEventsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestRunsCommand}
+   */
+  listTestRuns(
+    args: ListTestRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestRunsCommandOutput>;
+  listTestRuns(
+    args: ListTestRunsCommandInput,
+    cb: (err: any, data?: ListTestRunsCommandOutput) => void
+  ): void;
+  listTestRuns(
+    args: ListTestRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestRunsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestRunSourcesCommand}
+   */
+  listTestRunSources(
+    args: ListTestRunSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestRunSourcesCommandOutput>;
+  listTestRunSources(
+    args: ListTestRunSourcesCommandInput,
+    cb: (err: any, data?: ListTestRunSourcesCommandOutput) => void
+  ): void;
+  listTestRunSources(
+    args: ListTestRunSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestRunSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestsCommand}
+   */
+  listTests(
+    args: ListTestsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestsCommandOutput>;
+  listTests(
+    args: ListTestsCommandInput,
+    cb: (err: any, data?: ListTestsCommandOutput) => void
+  ): void;
+  listTests(
+    args: ListTestsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestSourcesCommand}
+   */
+  listTestSources(
+    args: ListTestSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestSourcesCommandOutput>;
+  listTestSources(
+    args: ListTestSourcesCommandInput,
+    cb: (err: any, data?: ListTestSourcesCommandOutput) => void
+  ): void;
+  listTestSources(
+    args: ListTestSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTestTemplatesCommand}
+   */
+  listTestTemplates(): Promise<ListTestTemplatesCommandOutput>;
+  listTestTemplates(
+    args: ListTestTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTestTemplatesCommandOutput>;
+  listTestTemplates(
+    args: ListTestTemplatesCommandInput,
+    cb: (err: any, data?: ListTestTemplatesCommandOutput) => void
+  ): void;
+  listTestTemplates(
+    args: ListTestTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTestTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUserJourneysCommand}
    */
   listUserJourneys(
@@ -1036,6 +1364,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link PutTestSourcesCommand}
+   */
+  putTestSources(
+    args: PutTestSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTestSourcesCommandOutput>;
+  putTestSources(
+    args: PutTestSourcesCommandInput,
+    cb: (err: any, data?: PutTestSourcesCommandOutput) => void
+  ): void;
+  putTestSources(
+    args: PutTestSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTestSourcesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartFailureModeAssessmentCommand}
    */
   startFailureModeAssessment(
@@ -1050,6 +1395,40 @@ export interface Resiliencehubv2 {
     args: StartFailureModeAssessmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartFailureModeAssessmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartTestRunCommand}
+   */
+  startTestRun(
+    args: StartTestRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartTestRunCommandOutput>;
+  startTestRun(
+    args: StartTestRunCommandInput,
+    cb: (err: any, data?: StartTestRunCommandOutput) => void
+  ): void;
+  startTestRun(
+    args: StartTestRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartTestRunCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopTestRunCommand}
+   */
+  stopTestRun(
+    args: StopTestRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopTestRunCommandOutput>;
+  stopTestRun(
+    args: StopTestRunCommandInput,
+    cb: (err: any, data?: StopTestRunCommandOutput) => void
+  ): void;
+  stopTestRun(
+    args: StopTestRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopTestRunCommandOutput) => void
   ): void;
 
   /**
@@ -1206,6 +1585,23 @@ export interface Resiliencehubv2 {
   ): void;
 
   /**
+   * @see {@link UpdateTestCommand}
+   */
+  updateTest(
+    args: UpdateTestCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTestCommandOutput>;
+  updateTest(
+    args: UpdateTestCommandInput,
+    cb: (err: any, data?: UpdateTestCommandOutput) => void
+  ): void;
+  updateTest(
+    args: UpdateTestCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTestCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateUserJourneyCommand}
    */
   updateUserJourney(
@@ -1300,6 +1696,17 @@ export interface Resiliencehubv2 {
   ): Paginator<ListReportsCommandOutput>;
 
   /**
+   * @see {@link ListResolvedTestRunTargetResourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListResolvedTestRunTargetResourcesCommandOutput}.
+   */
+  paginateListResolvedTestRunTargetResources(
+    args: ListResolvedTestRunTargetResourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListResolvedTestRunTargetResourcesCommandOutput>;
+
+  /**
    * @see {@link ListResourcesCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1375,6 +1782,61 @@ export interface Resiliencehubv2 {
     args?: ListSystemsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListSystemsCommandOutput>;
+
+  /**
+   * @see {@link ListTestRunEventsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRunEventsCommandOutput}.
+   */
+  paginateListTestRunEvents(
+    args: ListTestRunEventsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRunEventsCommandOutput>;
+
+  /**
+   * @see {@link ListTestRunsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRunsCommandOutput}.
+   */
+  paginateListTestRuns(
+    args: ListTestRunsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRunsCommandOutput>;
+
+  /**
+   * @see {@link ListTestRunSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestRunSourcesCommandOutput}.
+   */
+  paginateListTestRunSources(
+    args: ListTestRunSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestRunSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListTestsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestsCommandOutput}.
+   */
+  paginateListTests(
+    args: ListTestsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestsCommandOutput>;
+
+  /**
+   * @see {@link ListTestSourcesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTestSourcesCommandOutput}.
+   */
+  paginateListTestSources(
+    args: ListTestSourcesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTestSourcesCommandOutput>;
 
   /**
    * @see {@link ListUserJourneysCommand}

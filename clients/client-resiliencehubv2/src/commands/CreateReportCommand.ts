@@ -34,17 +34,19 @@ export interface CreateReportCommandOutput extends CreateReportResponse, __Metad
  * const client = new Resiliencehubv2Client(config);
  * const input = { // CreateReportRequest
  *   serviceArn: "STRING_VALUE", // required
- *   reportType: "FAILURE_MODE", // required
+ *   reportType: "FAILURE_MODE" || "TESTING", // required
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateReportCommand(input);
  * const response = await client.send(command);
  * // { // CreateReportResponse
  * //   reportGenerationResult: { // ReportGenerationResult
- * //     reportType: "FAILURE_MODE", // required
+ * //     reportType: "FAILURE_MODE" || "TESTING", // required
  * //     status: "PENDING" || "SUCCEEDED" || "FAILED", // required
  * //     serviceArn: "STRING_VALUE",
  * //     assessmentId: "STRING_VALUE",
+ * //     testRunId: "STRING_VALUE",
+ * //     testTemplateArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     reportOutput: { // ReportOutput Union: only one key present
  * //       s3ReportOutput: { // S3ReportOutput

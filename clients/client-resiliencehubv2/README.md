@@ -237,6 +237,13 @@ CreateSystem
 </details>
 <details>
 <summary>
+CreateTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/CreateTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/CreateTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/CreateTestCommandOutput/)
+</details>
+<details>
+<summary>
 CreateUserJourney
 </summary>
 
@@ -293,6 +300,20 @@ DeleteSystem
 </details>
 <details>
 <summary>
+DeleteTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/DeleteTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/DeleteTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/DeleteTestCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteTestSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/DeleteTestSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/DeleteTestSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/DeleteTestSourcesCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteUserJourney
 </summary>
 
@@ -325,6 +346,27 @@ GetSystem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/GetSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetSystemCommandOutput/)
+</details>
+<details>
+<summary>
+GetTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/GetTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestCommandOutput/)
+</details>
+<details>
+<summary>
+GetTestRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/GetTestRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestRunCommandOutput/)
+</details>
+<details>
+<summary>
+GetTestTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/GetTestTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/GetTestTemplateCommandOutput/)
 </details>
 <details>
 <summary>
@@ -398,6 +440,13 @@ ListReports
 </details>
 <details>
 <summary>
+ListResolvedTestRunTargetResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListResolvedTestRunTargetResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListResolvedTestRunTargetResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListResolvedTestRunTargetResourcesCommandOutput/)
+</details>
+<details>
+<summary>
 ListResources
 </summary>
 
@@ -454,6 +503,48 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ListTestRunEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunEventsCommandOutput/)
+</details>
+<details>
+<summary>
+ListTestRuns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunsCommandOutput/)
+</details>
+<details>
+<summary>
+ListTestRunSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestRunSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestRunSourcesCommandOutput/)
+</details>
+<details>
+<summary>
+ListTests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestsCommandOutput/)
+</details>
+<details>
+<summary>
+ListTestSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestSourcesCommandOutput/)
+</details>
+<details>
+<summary>
+ListTestTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/ListTestTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/ListTestTemplatesCommandOutput/)
+</details>
+<details>
+<summary>
 ListUserJourneys
 </summary>
 
@@ -461,10 +552,31 @@ ListUserJourneys
 </details>
 <details>
 <summary>
+PutTestSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/PutTestSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/PutTestSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/PutTestSourcesCommandOutput/)
+</details>
+<details>
+<summary>
 StartFailureModeAssessment
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/StartFailureModeAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartFailureModeAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartFailureModeAssessmentCommandOutput/)
+</details>
+<details>
+<summary>
+StartTestRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/StartTestRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartTestRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StartTestRunCommandOutput/)
+</details>
+<details>
+<summary>
+StopTestRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/StopTestRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StopTestRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/StopTestRunCommandOutput/)
 </details>
 <details>
 <summary>
@@ -528,6 +640,13 @@ UpdateSystem
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/UpdateSystemCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/UpdateSystemCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/UpdateSystemCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateTest
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resiliencehubv2/command/UpdateTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/UpdateTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resiliencehubv2/Interface/UpdateTestCommandOutput/)
 </details>
 <details>
 <summary>

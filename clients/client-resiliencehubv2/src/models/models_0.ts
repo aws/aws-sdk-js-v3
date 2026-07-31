@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AccountTargeting,
   AchievabilityStatus,
   ActorType,
   AssertionSource,
@@ -17,6 +18,7 @@ import type {
   InputSourceType,
   MultiAzDisasterRecoveryApproach,
   MultiRegionDisasterRecoveryApproach,
+  ParameterType,
   PolicyComponent,
   PolicyValueSource,
   QueryGranularity,
@@ -29,7 +31,12 @@ import type {
   ServiceFunctionCriticality,
   ServiceFunctionSource,
   SortOrder,
+  StopConditionSource,
   SystemEventType,
+  TestRunSourceType,
+  TestRunStatus,
+  TestSourceOutcome,
+  TestSourceType,
   TopologyType,
 } from "./enums";
 
@@ -870,6 +877,18 @@ export interface ReportGenerationResult {
   assessmentId?: string | undefined;
 
   /**
+   * <p>The unique identifier of a test run.</p>
+   * @public
+   */
+  testRunId?: string | undefined;
+
+  /**
+   * <p>An ARN owned by the service. Accepts either a standard 12-digit account ID or the literal "aws" for AWS-managed resources, such as AWS-managed test templates.</p>
+   * @public
+   */
+  testTemplateArn?: string | undefined;
+
+  /**
    * <p>The timestamp when the report was created.</p>
    * @public
    */
@@ -1027,7 +1046,7 @@ export interface CreateServiceRequest {
   policyArn?: string | undefined;
 
   /**
-   * <p>The AWS Regions where the service operates.</p>
+   * <p>The Regions where the service operates.</p>
    * @public
    */
   regions: string[] | undefined;
@@ -1291,7 +1310,7 @@ export interface Service {
   policyArn?: string | undefined;
 
   /**
-   * <p>The AWS Regions where the service operates.</p>
+   * <p>The Regions where the service operates.</p>
    * @public
    */
   regions?: string[] | undefined;
@@ -1693,6 +1712,202 @@ export interface CreateSystemResponse {
 }
 
 /**
+ * <p>Configuration for test execution logging destinations.</p>
+ * @public
+ */
+export interface LoggingConfiguration {
+  /**
+   * <p>The name of the S3 bucket for log delivery.</p>
+   * @public
+   */
+  s3BucketName?: string | undefined;
+
+  /**
+   * <p>The ARN of the CloudWatch Logs log group for log delivery.</p>
+   * @public
+   */
+  cloudWatchLogGroupArn?: string | undefined;
+
+  /**
+   * <p>The version of the log schema.</p>
+   * @public
+   */
+  logSchemaVersion?: string | undefined;
+}
+
+/**
+ * <p>A CloudWatch alarm that automatically stops a test run if it breaches its threshold.</p>
+ * @public
+ */
+export interface StopCondition {
+  /**
+   * <p>The source of the stop condition.</p>
+   * @public
+   */
+  source: StopConditionSource | undefined;
+
+  /**
+   * <p>The value of the stop condition, such as the ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  value: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestRequest {
+  /**
+   * <p>The ARN of the service to create the test for.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the test template to configure.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The logging configuration for the test.</p>
+   * @public
+   */
+  loggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>The stop conditions for the test.</p>
+   * @public
+   */
+  stopConditions?: StopCondition[] | undefined;
+
+  /**
+   * <p>The name of the IAM execution role to use when running the test.</p>
+   * @public
+   */
+  roleName?: string | undefined;
+
+  /**
+   * <p>The parameter values for the test.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+}
+
+/**
+ * <p>Represents a fault action that a test runs, along with the resource type it targets.</p>
+ * @public
+ */
+export interface TestAction {
+  /**
+   * <p>The identifier of the fault action.</p>
+   * @public
+   */
+  actionId: string | undefined;
+
+  /**
+   * <p>A description of the fault action.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The resource type that the action targets.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+}
+
+/**
+ * <p>Represents a test created for a service by configuring a test template.</p>
+ * @public
+ */
+export interface Test {
+  /**
+   * <p>The unique identifier of the test.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the test template the test was created from.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The name of the test.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The fault actions the test runs.</p>
+   * @public
+   */
+  actions?: TestAction[] | undefined;
+
+  /**
+   * <p>The logging configuration for the test.</p>
+   * @public
+   */
+  loggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>The stop conditions for the test.</p>
+   * @public
+   */
+  stopConditions?: StopCondition[] | undefined;
+
+  /**
+   * <p>The name of the IAM execution role used to run the test.</p>
+   * @public
+   */
+  roleName?: string | undefined;
+
+  /**
+   * <p>The parameter values configured for the test.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>The total number of runs of the test.</p>
+   * @public
+   */
+  totalTestRuns: number | undefined;
+
+  /**
+   * <p>The number of successful runs of the test.</p>
+   * @public
+   */
+  successfulTestRuns: number | undefined;
+
+  /**
+   * <p>The timestamp when the test was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestResponse {
+  /**
+   * <p>The created test.</p>
+   * @public
+   */
+  test: Test | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateUserJourneyRequest {
@@ -1985,6 +2200,139 @@ export interface DeleteSystemResponse {
 /**
  * @public
  */
+export interface DeleteTestRequest {
+  /**
+   * <p>The identifier of the test to delete.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTestResponse {
+  /**
+   * <p>The identifier of the deleted test.</p>
+   * @public
+   */
+  testId: string | undefined;
+}
+
+/**
+ * <p>Identifies an observability alarm by its ARN.</p>
+ * @public
+ */
+export interface ObservabilityAlarmInput {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+}
+
+/**
+ * <p>Identifies a success criteria alarm by its ARN.</p>
+ * @public
+ */
+export interface SuccessCriteriaAlarmInput {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+}
+
+/**
+ * <p>Identifies a monitoring source to add to or remove from a test. Exactly one member is set.</p>
+ * @public
+ */
+export type TestSourceInput =
+  | TestSourceInput.ObservabilityAlarmMember
+  | TestSourceInput.SuccessCriteriaAlarmMember
+  | TestSourceInput.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TestSourceInput {
+  /**
+   * <p>A success criteria alarm that determines whether the test passes or fails.</p>
+   * @public
+   */
+  export interface SuccessCriteriaAlarmMember {
+    successCriteriaAlarm: SuccessCriteriaAlarmInput;
+    observabilityAlarm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An observability alarm included for visibility only.</p>
+   * @public
+   */
+  export interface ObservabilityAlarmMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm: ObservabilityAlarmInput;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    successCriteriaAlarm: (value: SuccessCriteriaAlarmInput) => T;
+    observabilityAlarm: (value: ObservabilityAlarmInput) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteTestSourcesRequest {
+  /**
+   * <p>The identifier of the test to remove sources from.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The monitoring sources to remove.</p>
+   * @public
+   */
+  testSources: TestSourceInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTestSourcesResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteUserJourneyRequest {
   /**
    * <p>ARN identifier.</p>
@@ -2176,6 +2524,24 @@ export interface EventActor {
    * @public
    */
   userName?: string | undefined;
+}
+
+/**
+ * <p>Details about an AWS Fault Injection Service (AWS FIS) experiment run as part of a test run.</p>
+ * @public
+ */
+export interface ExperimentDetails {
+  /**
+   * <p>The ARN of the AWS FIS experiment.</p>
+   * @public
+   */
+  experimentArn: string | undefined;
+
+  /**
+   * <p>Additional details about the experiment.</p>
+   * @public
+   */
+  details?: string | undefined;
 }
 
 /**
@@ -2456,6 +2822,354 @@ export interface GetSystemResponse {
    * @public
    */
   system: System | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestRequest {
+  /**
+   * <p>The identifier of the test to retrieve.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestResponse {
+  /**
+   * <p>The requested test.</p>
+   * @public
+   */
+  test: Test | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestRunRequest {
+  /**
+   * <p>The identifier of the test run to retrieve.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * <p>A snapshot of the resilience policy captured onto a test run from the service when the run was started.</p>
+ * @public
+ */
+export interface TestRunPolicySnapshot {
+  /**
+   * <p>The ARN of the policy.</p>
+   * @public
+   */
+  policyArn?: string | undefined;
+
+  /**
+   * <p>The name of the policy.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The availability SLO targets.</p>
+   * @public
+   */
+  availabilitySlo?: AvailabilitySlo | undefined;
+
+  /**
+   * <p>The multi-AZ resilience targets.</p>
+   * @public
+   */
+  multiAz?: MultiAzTargets | undefined;
+
+  /**
+   * <p>The multi-Region resilience targets.</p>
+   * @public
+   */
+  multiRegion?: MultiRegionTargets | undefined;
+
+  /**
+   * <p>The data recovery targets.</p>
+   * @public
+   */
+  dataRecovery?: DataRecoveryTargets | undefined;
+}
+
+/**
+ * <p>A snapshot of the report configuration captured onto a test run from the service when the run was started.</p>
+ * @public
+ */
+export interface TestRunReportConfiguration {
+  /**
+   * <p>The output destinations for generated reports.</p>
+   * @public
+   */
+  reportOutput: ReportOutputConfiguration[] | undefined;
+}
+
+/**
+ * <p>Represents a single run of a test. Configuration is snapshotted from the test and service at the time the run is started.</p>
+ * @public
+ */
+export interface TestRun {
+  /**
+   * <p>The unique identifier of the test run.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The identifier of the test that was run.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The current status of the test run.</p>
+   * @public
+   */
+  status: TestRunStatus | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the test run started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the test run ended.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The AWS Fault Injection Service (AWS FIS) experiments run as part of the test run.</p>
+   * @public
+   */
+  experiments?: ExperimentDetails[] | undefined;
+
+  /**
+   * <p>The number of events recorded for the test run. Use ListTestRunEvents to retrieve the details.</p>
+   * @public
+   */
+  eventCount?: number | undefined;
+
+  /**
+   * <p>The parameter values used for the test run.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+
+  /**
+   * <p>A human-readable reason for test run failure. Only present when the status is FAILED or ERROR.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>The stop conditions snapshotted from the test when the run was started.</p>
+   * @public
+   */
+  stopConditions?: StopCondition[] | undefined;
+
+  /**
+   * <p>The logging configuration snapshotted from the test when the run was started.</p>
+   * @public
+   */
+  loggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>The IAM execution role name snapshotted from the test when the run was started.</p>
+   * @public
+   */
+  roleName?: string | undefined;
+
+  /**
+   * <p>The ARN of the test template snapshotted from the test when the run was started.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The report configuration snapshotted from the service when the run was started.</p>
+   * @public
+   */
+  reportConfiguration?: TestRunReportConfiguration | undefined;
+
+  /**
+   * <p>The resilience policy snapshotted from the service when the run was started.</p>
+   * @public
+   */
+  policy?: TestRunPolicySnapshot | undefined;
+
+  /**
+   * <p>The report generation result for the test run. Present after report generation completes or fails.</p>
+   * @public
+   */
+  reportOutput?: ReportGenerationResult | undefined;
+
+  /**
+   * <p>The ARN of the ARC Region switch plan associated with the test run.</p>
+   * @public
+   */
+  regionSwitchPlanArn?: string | undefined;
+
+  /**
+   * <p>The identifier of the ARC Region switch execution detected during the test run.</p>
+   * @public
+   */
+  regionSwitchExecutionId?: string | undefined;
+
+  /**
+   * <p>The permission model snapshotted from the service when the run was started.</p>
+   * @public
+   */
+  permissionModel?: PermissionModel | undefined;
+
+  /**
+   * <p>The Regions snapshotted from the service when the run was started.</p>
+   * @public
+   */
+  regions?: string[] | undefined;
+
+  /**
+   * Indicates whether this test run targets a single account or multiple accounts.
+   * @public
+   */
+  accountTargeting?: AccountTargeting | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestRunResponse {
+  /**
+   * <p>The requested test run.</p>
+   * @public
+   */
+  testRun: TestRun | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestTemplateRequest {
+  /**
+   * <p>The ARN of the test template to retrieve.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+}
+
+/**
+ * <p>Describes a parameter accepted by a test template.</p>
+ * @public
+ */
+export interface TestTemplateParameter {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the parameter.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The data type of the parameter.</p>
+   * @public
+   */
+  type: ParameterType | undefined;
+
+  /**
+   * <p>Indicates whether the parameter is required.</p>
+   * @public
+   */
+  required: boolean | undefined;
+
+  /**
+   * <p>The default value of the parameter.</p>
+   * @public
+   */
+  defaultValue?: string | undefined;
+
+  /**
+   * <p>The maximum number of values the parameter accepts.</p>
+   * @public
+   */
+  maxValues?: number | undefined;
+}
+
+/**
+ * <p>A pre-configured, AWS recommended test that defines which resilience capability to validate, the fault actions it runs, and the parameters it accepts.</p>
+ * @public
+ */
+export interface TestTemplate {
+  /**
+   * <p>The ARN of the test template.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The name of the test template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the test template.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The parameters the test template accepts.</p>
+   * @public
+   */
+  parameters?: TestTemplateParameter[] | undefined;
+
+  /**
+   * <p>The fault actions the test template runs.</p>
+   * @public
+   */
+  actions?: TestAction[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTestTemplateResponse {
+  /**
+   * <p>The requested test template.</p>
+   * @public
+   */
+  testTemplate: TestTemplate | undefined;
 }
 
 /**
@@ -3063,6 +3777,12 @@ export interface ListReportsRequest {
   reportType?: ReportType | undefined;
 
   /**
+   * <p>The unique identifier of a test run.</p>
+   * @public
+   */
+  testRunId?: string | undefined;
+
+  /**
    * <p>Pagination page size.</p>
    * @public
    */
@@ -3084,6 +3804,76 @@ export interface ListReportsResponse {
    * @public
    */
   reportGenerationResults: ReportGenerationResult[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResolvedTestRunTargetResourcesRequest {
+  /**
+   * <p>The identifier of the test run to list resolved target resources for.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A single AWS resource that AWS Fault Injection Service (AWS FIS) resolved as a target during a test run.</p>
+ * @public
+ */
+export interface ResolvedTargetResource {
+  /**
+   * <p>The AWS FIS resource type the target belongs to, such as aws:ec2:instance, aws:ecs:task, or aws:eks:pod.</p>
+   * @public
+   */
+  resourceType: string | undefined;
+
+  /**
+   * <p>The name of the target in the AWS FIS experiment template.</p>
+   * @public
+   */
+  targetName: string | undefined;
+
+  /**
+   * <p>The raw target information map as returned by AWS FIS.</p>
+   * @public
+   */
+  targetInformation: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListResolvedTestRunTargetResourcesResponse {
+  /**
+   * <p>The list of resolved target resources.</p>
+   * @public
+   */
+  resolvedTargetResources: ResolvedTargetResource[] | undefined;
 
   /**
    * <p>Pagination token.</p>
@@ -4348,7 +5138,7 @@ export interface ServiceSummary {
   associatedSystems?: AssociatedSystem[] | undefined;
 
   /**
-   * <p>The AWS Regions where the service operates.</p>
+   * <p>The Regions where the service operates.</p>
    * @public
    */
   regions?: string[] | undefined;
@@ -5209,6 +5999,676 @@ export interface ListTagsForResourceResponse {
 /**
  * @public
  */
+export interface ListTestRunEventsRequest {
+  /**
+   * <p>The identifier of the test run to list events for.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Return events at or after this timestamp.</p>
+   * @public
+   */
+  startedAt?: Date | undefined;
+
+  /**
+   * <p>Return events at or before this timestamp.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A single event in a test run's timeline.</p>
+ * @public
+ */
+export interface TestRunEvent {
+  /**
+   * <p>The unique identifier of the event.</p>
+   * @public
+   */
+  eventId: string | undefined;
+
+  /**
+   * <p>The type of the event, such as action_started, action_completed, or rto_recovery_detected.</p>
+   * @public
+   */
+  eventType: string | undefined;
+
+  /**
+   * <p>A human-readable description of what happened.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The timestamp when the event occurred.</p>
+   * @public
+   */
+  timestamp: Date | undefined;
+
+  /**
+   * <p>Machine-parseable key-value attributes for the event.</p>
+   * @public
+   */
+  attributes?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunEventsResponse {
+  /**
+   * <p>The list of test run events.</p>
+   * @public
+   */
+  events: TestRunEvent[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunsRequest {
+  /**
+   * <p>The ARN of the service to list test runs for.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Filter test runs by test identifier.</p>
+   * @public
+   */
+  testId?: string | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a test run.</p>
+ * @public
+ */
+export interface TestRunSummary {
+  /**
+   * <p>The unique identifier of the test run.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The current status of the test run.</p>
+   * @public
+   */
+  status: TestRunStatus | undefined;
+
+  /**
+   * <p>The timestamp when the test run started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the test run ended.</p>
+   * @public
+   */
+  endedAt?: Date | undefined;
+
+  /**
+   * <p>The ARN of the test template the test run was based on.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn?: string | undefined;
+
+  /**
+   * <p>A human-readable reason for test run failure. Only present when the status is FAILED or ERROR.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * Indicates whether this test run targets a single account or multiple accounts.
+   * @public
+   */
+  accountTargeting?: AccountTargeting | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunsResponse {
+  /**
+   * <p>The list of test run summaries.</p>
+   * @public
+   */
+  testRuns: TestRunSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunSourcesRequest {
+  /**
+   * <p>The identifier of the test run to list sources for.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Filter sources by type.</p>
+   * @public
+   */
+  type?: TestRunSourceType | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an observability alarm snapshot captured for a test run.</p>
+ * @public
+ */
+export interface TestRunObservabilityAlarmSummary {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The Region of the CloudWatch alarm.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The account ID that owns the CloudWatch alarm.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * <p>Summary information about a success criteria alarm snapshot captured for a test run.</p>
+ * @public
+ */
+export interface TestRunSuccessCriteriaAlarmSummary {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The Region of the CloudWatch alarm.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The account ID that owns the CloudWatch alarm.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The evaluation outcome of the source. Absent while the source has not yet been evaluated; set to the terminal outcome afterwards.</p>
+   * @public
+   */
+  outcome?: TestSourceOutcome | undefined;
+
+  /**
+   * <p>A human-readable reason for the outcome.</p>
+   * @public
+   */
+  outcomeReason?: string | undefined;
+}
+
+/**
+ * <p>A monitoring-source snapshot captured for a test run. Exactly one member is set.</p>
+ * @public
+ */
+export type TestRunSourceSummary =
+  | TestRunSourceSummary.ObservabilityAlarmMember
+  | TestRunSourceSummary.SuccessCriteriaAlarmMember
+  | TestRunSourceSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TestRunSourceSummary {
+  /**
+   * <p>A success criteria alarm snapshot captured for the test run.</p>
+   * @public
+   */
+  export interface SuccessCriteriaAlarmMember {
+    successCriteriaAlarm: TestRunSuccessCriteriaAlarmSummary;
+    observabilityAlarm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An observability alarm snapshot captured for the test run.</p>
+   * @public
+   */
+  export interface ObservabilityAlarmMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm: TestRunObservabilityAlarmSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    successCriteriaAlarm: (value: TestRunSuccessCriteriaAlarmSummary) => T;
+    observabilityAlarm: (value: TestRunObservabilityAlarmSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListTestRunSourcesResponse {
+  /**
+   * <p>The list of monitoring source snapshots.</p>
+   * @public
+   */
+  testRunSources: TestRunSourceSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestsRequest {
+  /**
+   * <p>The ARN of the service to list tests for.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a test.</p>
+ * @public
+ */
+export interface TestSummary {
+  /**
+   * <p>The unique identifier of the test.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the test template the test was created from.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The total number of runs of the test.</p>
+   * @public
+   */
+  totalTestRuns: number | undefined;
+
+  /**
+   * <p>The number of successful runs of the test.</p>
+   * @public
+   */
+  successfulTestRuns: number | undefined;
+
+  /**
+   * <p>The timestamp when the test was created.</p>
+   * @public
+   */
+  creationTime: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestsResponse {
+  /**
+   * <p>The list of test summaries.</p>
+   * @public
+   */
+  tests: TestSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestSourcesRequest {
+  /**
+   * <p>The identifier of the test to list sources for.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>Filter sources by type.</p>
+   * @public
+   */
+  type?: TestSourceType | undefined;
+
+  /**
+   * <p>Pagination page size.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a configured observability alarm.</p>
+ * @public
+ */
+export interface ObservabilityAlarmSummary {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The Region of the CloudWatch alarm.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The account ID that owns the CloudWatch alarm.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The timestamp when the source was configured.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * <p>Summary information about a configured success criteria alarm.</p>
+ * @public
+ */
+export interface SuccessCriteriaAlarmSummary {
+  /**
+   * <p>The ARN of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmArn: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch alarm.</p>
+   * @public
+   */
+  alarmName: string | undefined;
+
+  /**
+   * <p>The Region of the CloudWatch alarm.</p>
+   * @public
+   */
+  region: string | undefined;
+
+  /**
+   * <p>The account ID that owns the CloudWatch alarm.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The timestamp when the source was configured.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+}
+
+/**
+ * <p>A configured monitoring source returned by ListTestSources. Exactly one member is set.</p>
+ * @public
+ */
+export type TestSourceSummary =
+  | TestSourceSummary.ObservabilityAlarmMember
+  | TestSourceSummary.SuccessCriteriaAlarmMember
+  | TestSourceSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TestSourceSummary {
+  /**
+   * <p>A configured success criteria alarm.</p>
+   * @public
+   */
+  export interface SuccessCriteriaAlarmMember {
+    successCriteriaAlarm: SuccessCriteriaAlarmSummary;
+    observabilityAlarm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A configured observability alarm.</p>
+   * @public
+   */
+  export interface ObservabilityAlarmMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm: ObservabilityAlarmSummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    successCriteriaAlarm?: never;
+    observabilityAlarm?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    successCriteriaAlarm: (value: SuccessCriteriaAlarmSummary) => T;
+    observabilityAlarm: (value: ObservabilityAlarmSummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListTestSourcesResponse {
+  /**
+   * <p>The list of configured monitoring sources.</p>
+   * @public
+   */
+  testSources: TestSourceSummary[] | undefined;
+
+  /**
+   * <p>Pagination token.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestTemplatesRequest {}
+
+/**
+ * <p>Contains summary information about a test template.</p>
+ * @public
+ */
+export interface TestTemplateSummary {
+  /**
+   * <p>The ARN of the test template.</p>
+   * @public
+   */
+  testTemplateArn: string | undefined;
+
+  /**
+   * <p>The name of the test template.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>A description of the test template.</p>
+   * @public
+   */
+  description: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTestTemplatesResponse {
+  /**
+   * <p>The list of test template summaries.</p>
+   * @public
+   */
+  testTemplates: TestTemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListUserJourneysRequest {
   /**
    * <p>ARN identifier.</p>
@@ -5279,6 +6739,34 @@ export interface ListUserJourneysResponse {
 /**
  * @public
  */
+export interface PutTestSourcesRequest {
+  /**
+   * <p>The identifier of the test to add sources to.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The monitoring sources to add or update.</p>
+   * @public
+   */
+  testSources: TestSourceInput[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTestSourcesResponse {}
+
+/**
+ * @public
+ */
 export interface StartFailureModeAssessmentRequest {
   /**
    * <p>ARN identifier.</p>
@@ -5320,6 +6808,80 @@ export interface StartFailureModeAssessmentResponse {
    * @public
    */
   startedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTestRunRequest {
+  /**
+   * <p>The identifier of the test to run.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTestRunResponse {
+  /**
+   * <p>The identifier of the started test run.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The status of the started test run.</p>
+   * @public
+   */
+  status: TestRunStatus | undefined;
+
+  /**
+   * <p>The ARNs of the AWS Fault Injection Service (AWS FIS) experiments started for the run.</p>
+   * @public
+   */
+  experimentArns: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTestRunRequest {
+  /**
+   * <p>The identifier of the test run to stop.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test run belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StopTestRunResponse {
+  /**
+   * <p>The identifier of the stopped test run.</p>
+   * @public
+   */
+  testRunId: string | undefined;
+
+  /**
+   * <p>The status of the test run.</p>
+   * @public
+   */
+  status: TestRunStatus | undefined;
 }
 
 /**
@@ -5710,6 +7272,58 @@ export interface UpdateSystemResponse {
    * @public
    */
   system: System | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTestRequest {
+  /**
+   * <p>The identifier of the test to update.</p>
+   * @public
+   */
+  testId: string | undefined;
+
+  /**
+   * <p>The ARN of the service the test belongs to.</p>
+   * @public
+   */
+  serviceArn: string | undefined;
+
+  /**
+   * <p>The updated logging configuration for the test.</p>
+   * @public
+   */
+  loggingConfiguration?: LoggingConfiguration | undefined;
+
+  /**
+   * <p>The updated stop conditions for the test.</p>
+   * @public
+   */
+  stopConditions?: StopCondition[] | undefined;
+
+  /**
+   * <p>The updated IAM execution role name.</p>
+   * @public
+   */
+  roleName?: string | undefined;
+
+  /**
+   * <p>The updated parameter values for the test.</p>
+   * @public
+   */
+  parameters?: Record<string, string[]> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTestResponse {
+  /**
+   * <p>The updated test.</p>
+   * @public
+   */
+  test: Test | undefined;
 }
 
 /**

@@ -38,6 +38,9 @@ const _CSRr = "CreateServiceResponse";
 const _CSRre = "CreateSystemRequest";
 const _CSRrea = "CreateSystemResponse";
 const _CSr = "CreateSystem";
+const _CT = "CreateTest";
+const _CTR = "CreateTestRequest";
+const _CTRr = "CreateTestResponse";
 const _CUJ = "CreateUserJourney";
 const _CUJR = "CreateUserJourneyRequest";
 const _CUJRr = "CreateUserJourneyResponse";
@@ -67,10 +70,18 @@ const _DSRel = "DeleteSystemRequest";
 const _DSRele = "DeleteSystemResponse";
 const _DSe = "DeleteService";
 const _DSel = "DeleteSystem";
+const _DT = "DeleteTest";
+const _DTR = "DeleteTestRequest";
+const _DTRe = "DeleteTestResponse";
+const _DTS = "DeleteTestSources";
+const _DTSR = "DeleteTestSourcesRequest";
+const _DTSRe = "DeleteTestSourcesResponse";
 const _DUJ = "DeleteUserJourney";
 const _DUJR = "DeleteUserJourneyRequest";
 const _DUJRe = "DeleteUserJourneyResponse";
 const _EA = "EventActor";
+const _ED = "ExperimentDetails";
+const _EDL = "ExperimentDetailsList";
 const _EPL = "EdgePropertyList";
 const _EPS = "EdgePropertySummary";
 const _EPV = "EffectivePolicyValues";
@@ -91,6 +102,15 @@ const _GSRe = "GetServiceResponse";
 const _GSRet = "GetSystemRequest";
 const _GSRety = "GetSystemResponse";
 const _GSe = "GetSystem";
+const _GT = "GetTest";
+const _GTR = "GetTestRequest";
+const _GTRR = "GetTestRunRequest";
+const _GTRRe = "GetTestRunResponse";
+const _GTRe = "GetTestResponse";
+const _GTRet = "GetTestRun";
+const _GTT = "GetTestTemplate";
+const _GTTR = "GetTestTemplateRequest";
+const _GTTRe = "GetTestTemplateResponse";
 const _GUJ = "GetUserJourney";
 const _GUJR = "GetUserJourneyRequest";
 const _GUJRe = "GetUserJourneyResponse";
@@ -109,6 +129,7 @@ const _ISSL = "InputSourceSummaryList";
 const _LA = "ListAssertions";
 const _LAR = "ListAssertionsRequest";
 const _LARi = "ListAssertionsResponse";
+const _LC = "LoggingConfiguration";
 const _LD = "ListDependencies";
 const _LDR = "ListDependenciesRequest";
 const _LDRi = "ListDependenciesResponse";
@@ -129,6 +150,9 @@ const _LRR = "ListReportsRequest";
 const _LRRi = "ListReportsResponse";
 const _LRRis = "ListResourcesRequest";
 const _LRRist = "ListResourcesResponse";
+const _LRTRTR = "ListResolvedTestRunTargetResources";
+const _LRTRTRR = "ListResolvedTestRunTargetResourcesRequest";
+const _LRTRTRRi = "ListResolvedTestRunTargetResourcesResponse";
 const _LRi = "ListResources";
 const _LS = "ListServices";
 const _LSE = "ListServiceEvents";
@@ -148,20 +172,43 @@ const _LSTE = "ListServiceTopologyEdges";
 const _LSTER = "ListServiceTopologyEdgesRequest";
 const _LSTERi = "ListServiceTopologyEdgesResponse";
 const _LSi = "ListSystems";
+const _LT = "ListTests";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
+const _LTR = "ListTestsRequest";
+const _LTRE = "ListTestRunEvents";
+const _LTRER = "ListTestRunEventsRequest";
+const _LTRERi = "ListTestRunEventsResponse";
+const _LTRR = "ListTestRunsRequest";
+const _LTRRi = "ListTestRunsResponse";
+const _LTRS = "ListTestRunSources";
+const _LTRSR = "ListTestRunSourcesRequest";
+const _LTRSRi = "ListTestRunSourcesResponse";
+const _LTRi = "ListTestsResponse";
+const _LTRis = "ListTestRuns";
+const _LTS = "ListTestSources";
+const _LTSR = "ListTestSourcesRequest";
+const _LTSRi = "ListTestSourcesResponse";
+const _LTT = "ListTestTemplates";
+const _LTTR = "ListTestTemplatesRequest";
+const _LTTRi = "ListTestTemplatesResponse";
 const _LUJ = "ListUserJourneys";
 const _LUJR = "ListUserJourneysRequest";
 const _LUJRi = "ListUserJourneysResponse";
 const _MAT = "MultiAzTargets";
 const _MRT = "MultiRegionTargets";
+const _OAI = "ObservabilityAlarmInput";
+const _OAS = "ObservabilityAlarmSummary";
 const _OR = "ObservabilityRecommendation";
 const _ORL = "ObservabilityRecommendationsList";
 const _P = "Policy";
 const _PM = "PermissionModel";
 const _PS = "PolicySummary";
 const _PSL = "PolicySummaryList";
+const _PTS = "PutTestSources";
+const _PTSR = "PutTestSourcesRequest";
+const _PTSRu = "PutTestSourcesResponse";
 const _QDP = "QueryDataPoint";
 const _QDPL = "QueryDataPointList";
 const _QR = "QueryRange";
@@ -176,11 +223,17 @@ const _ROC = "ReportOutputConfiguration";
 const _ROCL = "ReportOutputConfigurationList";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
+const _RTR = "ResolvedTargetResource";
+const _RTRL = "ResolvedTargetResourceList";
 const _S = "Service";
 const _SAUM = "ServiceAchievabilityUpdatedMetadata";
-const _SC = "StringChange";
+const _SC = "StopCondition";
+const _SCAI = "SuccessCriteriaAlarmInput";
+const _SCAS = "SuccessCriteriaAlarmSummary";
+const _SCL = "StopConditionList";
 const _SCM = "ServiceCreatedMetadata";
 const _SCMy = "SystemCreatedMetadata";
+const _SCt = "StringChange";
 const _SDM = "ServiceDeletedMetadata";
 const _SDMy = "SystemDeletedMetadata";
 const _SE = "ServiceEvent";
@@ -228,20 +281,52 @@ const _SSl = "SloSource";
 const _SSy = "SystemSummary";
 const _STES = "ServiceTopologyEdgeSummary";
 const _STESL = "ServiceTopologyEdgeSummaryList";
+const _STR = "StartTestRun";
+const _STRR = "StartTestRunRequest";
+const _STRRt = "StartTestRunResponse";
+const _STRRto = "StopTestRunRequest";
+const _STRRtop = "StopTestRunResponse";
+const _STRt = "StopTestRun";
 const _SUJCM = "SystemUserJourneyCreatedMetadata";
 const _SUJDM = "SystemUserJourneyDeletedMetadata";
 const _SUJUM = "SystemUserJourneyUpdatedMetadata";
 const _SWUM = "ServiceWorkflowUpdatedMetadata";
 const _Sy = "System";
+const _T = "Test";
+const _TA = "TestAction";
+const _TAL = "TestActionList";
 const _TE = "ThrottlingException";
 const _TKL = "TagKeyList";
 const _TM = "TagMap";
+const _TP = "TestParameters";
 const _TR = "TestingRecommendation";
+const _TRE = "TestRunEvent";
+const _TREL = "TestRunEventList";
 const _TRL = "TestingRecommendationsList";
+const _TROAS = "TestRunObservabilityAlarmSummary";
+const _TRPS = "TestRunPolicySnapshot";
 const _TRR = "TagResourceRequest";
+const _TRRC = "TestRunReportConfiguration";
 const _TRRa = "TagResourceResponse";
+const _TRS = "TestRunSummary";
+const _TRSCAS = "TestRunSuccessCriteriaAlarmSummary";
+const _TRSL = "TestRunSummaryList";
+const _TRSS = "TestRunSourceSummary";
+const _TRSSL = "TestRunSourceSummaryList";
 const _TRa = "TagResource";
+const _TRe = "TestRun";
 const _TS = "TargetSource";
+const _TSI = "TestSourceInput";
+const _TSIL = "TestSourceInputList";
+const _TSL = "TestSummaryList";
+const _TSS = "TestSourceSummary";
+const _TSSL = "TestSourceSummaryList";
+const _TSe = "TestSummary";
+const _TT = "TestTemplate";
+const _TTP = "TestTemplateParameter";
+const _TTPL = "TestTemplateParameterList";
+const _TTS = "TestTemplateSummary";
+const _TTSL = "TestTemplateSummaryList";
 const _UA = "UpdateAssertion";
 const _UAR = "UpdateAssertionRequest";
 const _UARp = "UpdateAssertionResponse";
@@ -270,6 +355,9 @@ const _USRp = "UpdateServiceResponse";
 const _USRpd = "UpdateSystemRequest";
 const _USRpda = "UpdateSystemResponse";
 const _USp = "UpdateSystem";
+const _UT = "UpdateTest";
+const _UTR = "UpdateTestRequest";
+const _UTRp = "UpdateTestResponse";
 const _UUJ = "UpdateUserJourney";
 const _UUJR = "UpdateUserJourneyRequest";
 const _UUJRp = "UpdateUserJourneyResponse";
@@ -277,14 +365,17 @@ const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _a = "amount";
+const _aA = "alarmArn";
 const _aAI = "awsAccountId";
 const _aC = "assessmentCost";
 const _aCs = "assertionCreated";
 const _aD = "assertionDeleted";
 const _aI = "assertionId";
 const _aIc = "accountId";
+const _aIct = "actionId";
 const _aIs = "assessmentId";
 const _aN = "assertionName";
+const _aNl = "alarmName";
 const _aR = "awsRegion";
 const _aS = "availabilitySlo";
 const _aSAD = "associatedServicesAtDeletion";
@@ -295,12 +386,15 @@ const _aSsse = "assessmentStatuses";
 const _aSsses = "assessmentSummaries";
 const _aSsso = "associatedSystems";
 const _aSssoc = "associatedServices";
+const _aT = "accountTargeting";
 const _aU = "assertionUpdated";
 const _ac = "achievability";
 const _act = "actor";
+const _acti = "actions";
 const _ad = "added";
 const _as = "assertion";
 const _ass = "assertions";
+const _at = "attributes";
 const _b = "billable";
 const _bAUC = "billableAssessmentUnitCount";
 const _bO = "bucketOwner";
@@ -312,6 +406,8 @@ const _cARA = "crossAccountRoleArn";
 const _cAl = "clusterArn";
 const _cSA = "cfnStackArn";
 const _cT = "clientToken";
+const _cTr = "creationTime";
+const _cWLGA = "cloudWatchLogGroupArn";
 const _ch = "changes";
 const _co = "comment";
 const _cr = "criticality";
@@ -330,11 +426,16 @@ const _dRI = "destinationResourceIdentifier";
 const _dRTBB = "dataRecoveryTimeBetweenBackups";
 const _dRe = "destinationRegion";
 const _dS = "dependencySummaries";
+const _dV = "defaultValue";
+const _de = "details";
 const _e = "error";
 const _eA = "endedAt";
 const _eAC = "estimatedAssessmentCost";
+const _eAx = "experimentArn";
+const _eAxp = "experimentArns";
 const _eB = "endedBefore";
 const _eC = "errorCode";
+const _eCv = "eventCount";
 const _eD = "eventDetails";
 const _eI = "externalId";
 const _eIv = "eventId";
@@ -347,6 +448,7 @@ const _eTn = "endTime";
 const _eTv = "eventType";
 const _ek = "eks";
 const _ev = "events";
+const _ex = "experiments";
 const _f = "finding";
 const _fC = "failureCategory";
 const _fI = "findingId";
@@ -367,8 +469,10 @@ const _jD = "journeyDescription";
 const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "location";
+const _lC = "loggingConfiguration";
 const _lDT = "lastDetectedTime";
 const _lRA = "lastRunAt";
+const _lSV = "logSchemaVersion";
 const _la = "label";
 const _m = "message";
 const _mA = "multiAz";
@@ -384,14 +488,18 @@ const _mRR = "multiRegionRto";
 const _mRRR = "multiRegionRtoRpo";
 const _mRRu = "multiRegionRpo";
 const _mRa = "maxResults";
+const _mV = "maxValues";
 const _n = "name";
 const _nT = "nextToken";
 const _nV = "newValue";
 const _na = "namespaces";
+const _o = "outcome";
+const _oA = "observabilityAlarm";
 const _oFC = "openFindingsCount";
 const _oI = "ouId";
 const _oIr = "organizationId";
 const _oR = "observabilityRecommendations";
+const _oRu = "outcomeReason";
 const _oV = "oldValue";
 const _p = "policy";
 const _pA = "policyArn";
@@ -400,6 +508,7 @@ const _pI = "principalId";
 const _pM = "permissionModel";
 const _pN = "policyName";
 const _pS = "policySummaries";
+const _pa = "parameters";
 const _pr = "provider";
 const _pro = "properties";
 const _qC = "queryCount";
@@ -423,17 +532,23 @@ const _rI = "resourceId";
 const _rIM = "rtoInMinutes";
 const _rIMp = "rpoInMinutes";
 const _rIe = "resourceIdentifier";
+const _rN = "roleName";
 const _rO = "reportOutput";
 const _rOe = "reportOutputs";
 const _rR = "resourcesRemoved";
+const _rSEI = "regionSwitchExecutionId";
+const _rSPA = "regionSwitchPlanArn";
 const _rT = "resourceType";
+const _rTR = "resolvedTargetResources";
 const _rTe = "reportType";
 const _rTes = "resourceTags";
 const _rTeso = "resourceTypes";
 const _re = "resources";
 const _rea = "reasoning";
 const _reg = "regions";
+const _regi = "region";
 const _rem = "removed";
+const _req = "required";
 const _res = "resource";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.resiliencehubv2";
 const _sA = "serviceArn";
@@ -443,9 +558,12 @@ const _sAt = "startedAt";
 const _sAta = "startedAfter";
 const _sAy = "systemArn";
 const _sB = "sortBy";
-const _sC = "suggestedChanges";
+const _sBN = "s3BucketName";
+const _sC = "stopConditions";
+const _sCA = "successCriteriaAlarm";
 const _sCe = "servicesCount";
 const _sCer = "serviceCreated";
+const _sCu = "suggestedChanges";
 const _sCy = "systemCreated";
 const _sD = "serviceDeleted";
 const _sDy = "systemDeleted";
@@ -486,6 +604,7 @@ const _sSDy = "systemServiceDisassociated";
 const _sSy = "systemSummaries";
 const _sT = "startTime";
 const _sTES = "serviceTopologyEdgeSummaries";
+const _sTR = "successfulTestRuns";
 const _sUJC = "systemUserJourneyCreated";
 const _sUJD = "systemUserJourneyDeleted";
 const _sUJU = "systemUserJourneyUpdated";
@@ -500,12 +619,26 @@ const _sy = "system";
 const _t = "text";
 const _tBBIM = "timeBetweenBackupsInMinutes";
 const _tF = "totalFindings";
+const _tI = "testId";
+const _tIa = "targetInformation";
 const _tK = "tagKeys";
+const _tN = "targetName";
 const _tR = "testingRecommendations";
+const _tRI = "testRunId";
+const _tRS = "testRunSources";
+const _tRe = "testRun";
+const _tRes = "testRuns";
+const _tS = "testSources";
 const _tSFU = "tfStateFileUrl";
 const _tT = "topologyType";
+const _tTA = "testTemplateArn";
+const _tTR = "totalTestRuns";
+const _tTe = "testTemplate";
+const _tTes = "testTemplates";
 const _ta = "target";
 const _tag = "tags";
+const _te = "test";
+const _tes = "tests";
 const _ti = "timestamp";
 const _tit = "title";
 const _ty = "type";
@@ -728,6 +861,16 @@ export var CreateSystemResponse$: StaticStructureSchema = [3, n0, _CSRrea,
   [_sy],
   [[() => System$, 0]], 1
 ];
+export var CreateTestRequest$: StaticStructureSchema = [3, n0, _CTR,
+  0,
+  [_sA, _tTA, _lC, _sC, _rN, _pa],
+  [0, 0, () => LoggingConfiguration$, () => StopConditionList, 0, [2, n0, _TP, 0, 0, 64 | 0]], 2
+];
+export var CreateTestResponse$: StaticStructureSchema = [3, n0, _CTRr,
+  0,
+  [_te],
+  [() => Test$], 1
+];
 export var CreateUserJourneyRequest$: StaticStructureSchema = [3, n0, _CUJR,
   0,
   [_sAy, _n, _d, _pA, _cT],
@@ -818,6 +961,26 @@ export var DeleteSystemResponse$: StaticStructureSchema = [3, n0, _DSRele,
   [_sAy],
   [0], 1
 ];
+export var DeleteTestRequest$: StaticStructureSchema = [3, n0, _DTR,
+  0,
+  [_tI, _sA],
+  [0, 0], 2
+];
+export var DeleteTestResponse$: StaticStructureSchema = [3, n0, _DTRe,
+  0,
+  [_tI],
+  [0], 1
+];
+export var DeleteTestSourcesRequest$: StaticStructureSchema = [3, n0, _DTSR,
+  0,
+  [_tI, _sA, _tS],
+  [0, 0, () => TestSourceInputList], 3
+];
+export var DeleteTestSourcesResponse$: StaticStructureSchema = [3, n0, _DTSRe,
+  0,
+  [],
+  []
+];
 export var DeleteUserJourneyRequest$: StaticStructureSchema = [3, n0, _DUJR,
   0,
   [_sAy, _uJIs],
@@ -862,6 +1025,11 @@ export var EventActor$: StaticStructureSchema = [3, n0, _EA,
   0,
   [_ty, _pI, _aIc, _uN],
   [0, 0, 0, 0], 2
+];
+export var ExperimentDetails$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_eAx, _de],
+  [0, 0], 1
 ];
 export var FailedReportOutput$: StaticStructureSchema = [3, n0, _FRO,
   0,
@@ -918,6 +1086,36 @@ export var GetSystemResponse$: StaticStructureSchema = [3, n0, _GSRety,
   [_sy],
   [[() => System$, 0]], 1
 ];
+export var GetTestRequest$: StaticStructureSchema = [3, n0, _GTR,
+  0,
+  [_tI, _sA],
+  [[0, { [_hQ]: _tI }], [0, { [_hQ]: _sA }]], 2
+];
+export var GetTestResponse$: StaticStructureSchema = [3, n0, _GTRe,
+  0,
+  [_te],
+  [() => Test$], 1
+];
+export var GetTestRunRequest$: StaticStructureSchema = [3, n0, _GTRR,
+  0,
+  [_tRI, _sA],
+  [[0, { [_hQ]: _tRI }], [0, { [_hQ]: _sA }]], 2
+];
+export var GetTestRunResponse$: StaticStructureSchema = [3, n0, _GTRRe,
+  0,
+  [_tRe],
+  [() => TestRun$], 1
+];
+export var GetTestTemplateRequest$: StaticStructureSchema = [3, n0, _GTTR,
+  0,
+  [_tTA],
+  [[0, { [_hQ]: _tTA }]], 1
+];
+export var GetTestTemplateResponse$: StaticStructureSchema = [3, n0, _GTTRe,
+  0,
+  [_tTe],
+  [() => TestTemplate$], 1
+];
 export var GetUserJourneyRequest$: StaticStructureSchema = [3, n0, _GUJR,
   0,
   [_sAy, _uJIs],
@@ -950,7 +1148,7 @@ export var ImportPolicyResponse$: StaticStructureSchema = [3, n0, _IPRm,
 ];
 export var InfrastructureAndCodeRecommendation$: StaticStructureSchema = [3, n0, _IACR,
   0,
-  [_sC],
+  [_sCu],
   [64 | 0]
 ];
 export var InputSource$: StaticStructureSchema = [3, n0, _IS,
@@ -1025,13 +1223,23 @@ export var ListPoliciesResponse$: StaticStructureSchema = [3, n0, _LPRi,
 ];
 export var ListReportsRequest$: StaticStructureSchema = [3, n0, _LRR,
   0,
-  [_sA, _rTe, _mRa, _nT],
-  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _rTe }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
+  [_sA, _rTe, _tRI, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _rTe }], [0, { [_hQ]: _tRI }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]]
 ];
 export var ListReportsResponse$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_rGRe, _nT],
   [() => ReportGenerationResultList, 0], 1
+];
+export var ListResolvedTestRunTargetResourcesRequest$: StaticStructureSchema = [3, n0, _LRTRTRR,
+  0,
+  [_tRI, _sA, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListResolvedTestRunTargetResourcesResponse$: StaticStructureSchema = [3, n0, _LRTRTRRi,
+  0,
+  [_rTR, _nT],
+  [() => ResolvedTargetResourceList, 0], 1
 ];
 export var ListResourcesRequest$: StaticStructureSchema = [3, n0, _LRRis,
   0,
@@ -1113,6 +1321,66 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_tag],
   [[() => TagMap, 0]]
 ];
+export var ListTestRunEventsRequest$: StaticStructureSchema = [3, n0, _LTRER,
+  0,
+  [_tRI, _sA, _sAt, _eA, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [4, { [_hQ]: _sAt }], [4, { [_hQ]: _eA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListTestRunEventsResponse$: StaticStructureSchema = [3, n0, _LTRERi,
+  0,
+  [_ev, _nT],
+  [() => TestRunEventList, 0], 1
+];
+export var ListTestRunSourcesRequest$: StaticStructureSchema = [3, n0, _LTRSR,
+  0,
+  [_tRI, _sA, _ty, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListTestRunSourcesResponse$: StaticStructureSchema = [3, n0, _LTRSRi,
+  0,
+  [_tRS, _nT],
+  [() => TestRunSourceSummaryList, 0], 1
+];
+export var ListTestRunsRequest$: StaticStructureSchema = [3, n0, _LTRR,
+  0,
+  [_sA, _tI, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [0, { [_hQ]: _tI }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListTestRunsResponse$: StaticStructureSchema = [3, n0, _LTRRi,
+  0,
+  [_tRes, _nT],
+  [() => TestRunSummaryList, 0], 1
+];
+export var ListTestSourcesRequest$: StaticStructureSchema = [3, n0, _LTSR,
+  0,
+  [_tI, _sA, _ty, _mRa, _nT],
+  [[0, 1], [0, { [_hQ]: _sA }], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 2
+];
+export var ListTestSourcesResponse$: StaticStructureSchema = [3, n0, _LTSRi,
+  0,
+  [_tS, _nT],
+  [() => TestSourceSummaryList, 0], 1
+];
+export var ListTestsRequest$: StaticStructureSchema = [3, n0, _LTR,
+  0,
+  [_sA, _mRa, _nT],
+  [[0, { [_hQ]: _sA }], [1, { [_hQ]: _mRa }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListTestsResponse$: StaticStructureSchema = [3, n0, _LTRi,
+  0,
+  [_tes, _nT],
+  [() => TestSummaryList, 0], 1
+];
+export var ListTestTemplatesRequest$: StaticStructureSchema = [3, n0, _LTTR,
+  0,
+  [],
+  []
+];
+export var ListTestTemplatesResponse$: StaticStructureSchema = [3, n0, _LTTRi,
+  0,
+  [_tTes],
+  [() => TestTemplateSummaryList], 1
+];
 export var ListUserJourneysRequest$: StaticStructureSchema = [3, n0, _LUJR,
   0,
   [_sAy, _mRa, _nT],
@@ -1122,6 +1390,11 @@ export var ListUserJourneysResponse$: StaticStructureSchema = [3, n0, _LUJRi,
   0,
   [_uJS, _nT],
   [() => UserJourneySummaryList, 0], 1
+];
+export var LoggingConfiguration$: StaticStructureSchema = [3, n0, _LC,
+  0,
+  [_sBN, _cWLGA, _lSV],
+  [0, 0, 0]
 ];
 export var MultiAzTargets$: StaticStructureSchema = [3, n0, _MAT,
   0,
@@ -1133,9 +1406,19 @@ export var MultiRegionTargets$: StaticStructureSchema = [3, n0, _MRT,
   [_rIM, _rIMp, _dRA],
   [1, 1, 0]
 ];
+export var ObservabilityAlarmInput$: StaticStructureSchema = [3, n0, _OAI,
+  0,
+  [_aA],
+  [0], 1
+];
+export var ObservabilityAlarmSummary$: StaticStructureSchema = [3, n0, _OAS,
+  0,
+  [_aA, _aNl, _regi, _aIc, _cA],
+  [0, 0, 0, 0, 4], 4
+];
 export var ObservabilityRecommendation$: StaticStructureSchema = [3, n0, _OR,
   0,
-  [_sC],
+  [_sCu],
   [64 | 0]
 ];
 export var PermissionModel$: StaticStructureSchema = [3, n0, _PM,
@@ -1153,6 +1436,16 @@ export var PolicySummary$: StaticStructureSchema = [3, n0, _PS,
   [_pA, _n, _aS, _mA, _mR, _dR, _aSC, _cA, _uA],
   [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$, 1, 4, 4], 2
 ];
+export var PutTestSourcesRequest$: StaticStructureSchema = [3, n0, _PTSR,
+  0,
+  [_tI, _sA, _tS],
+  [0, 0, () => TestSourceInputList], 3
+];
+export var PutTestSourcesResponse$: StaticStructureSchema = [3, n0, _PTSRu,
+  0,
+  [],
+  []
+];
 export var QueryDataPoint$: StaticStructureSchema = [3, n0, _QDP,
   0,
   [_ti, _qC],
@@ -1165,8 +1458,13 @@ export var QueryRange$: StaticStructureSchema = [3, n0, _QR,
 ];
 export var ReportGenerationResult$: StaticStructureSchema = [3, n0, _RGR,
   0,
-  [_rTe, _st, _sA, _aIs, _cA, _rO],
-  [0, 0, 0, 0, 4, () => ReportOutput$], 2
+  [_rTe, _st, _sA, _aIs, _tRI, _tTA, _cA, _rO],
+  [0, 0, 0, 0, 0, 0, 4, () => ReportOutput$], 2
+];
+export var ResolvedTargetResource$: StaticStructureSchema = [3, n0, _RTR,
+  0,
+  [_rT, _tN, _tIa],
+  [0, 0, 128 | 0], 3
 ];
 export var Resource$: StaticStructureSchema = [3, n0, _R,
   0,
@@ -1338,10 +1636,45 @@ export var StartFailureModeAssessmentResponse$: StaticStructureSchema = [3, n0, 
   [_aIs, _sA, _aSs, _sAt],
   [0, 0, 0, 4]
 ];
-export var StringChange$: StaticStructureSchema = [3, n0, _SC,
+export var StartTestRunRequest$: StaticStructureSchema = [3, n0, _STRR,
+  0,
+  [_tI, _sA],
+  [0, 0], 2
+];
+export var StartTestRunResponse$: StaticStructureSchema = [3, n0, _STRRt,
+  0,
+  [_tRI, _st, _eAxp],
+  [0, 0, 64 | 0], 3
+];
+export var StopCondition$: StaticStructureSchema = [3, n0, _SC,
+  0,
+  [_so, _v],
+  [0, 0], 2
+];
+export var StopTestRunRequest$: StaticStructureSchema = [3, n0, _STRRto,
+  0,
+  [_tRI, _sA],
+  [0, 0], 2
+];
+export var StopTestRunResponse$: StaticStructureSchema = [3, n0, _STRRtop,
+  0,
+  [_tRI, _st],
+  [0, 0], 2
+];
+export var StringChange$: StaticStructureSchema = [3, n0, _SCt,
   0,
   [_oV, _nV],
   [0, 0]
+];
+export var SuccessCriteriaAlarmInput$: StaticStructureSchema = [3, n0, _SCAI,
+  0,
+  [_aA],
+  [0], 1
+];
+export var SuccessCriteriaAlarmSummary$: StaticStructureSchema = [3, n0, _SCAS,
+  0,
+  [_aA, _aNl, _regi, _aIc, _cA],
+  [0, 0, 0, 0, 4], 4
 ];
 export var System$: StaticStructureSchema = [3, n0, _Sy,
   0,
@@ -1423,10 +1756,75 @@ export var TargetSource$: StaticStructureSchema = [3, n0, _TS,
   [_v, _pN, _so],
   [1, 0, 0]
 ];
+export var Test$: StaticStructureSchema = [3, n0, _T,
+  0,
+  [_tI, _tTA, _sA, _n, _tTR, _sTR, _cTr, _acti, _lC, _sC, _rN, _pa],
+  [0, 0, 0, 0, 1, 1, 4, () => TestActionList, () => LoggingConfiguration$, () => StopConditionList, 0, [2, n0, _TP, 0, 0, 64 | 0]], 7
+];
+export var TestAction$: StaticStructureSchema = [3, n0, _TA,
+  0,
+  [_aIct, _rT, _d],
+  [0, 0, 0], 2
+];
 export var TestingRecommendation$: StaticStructureSchema = [3, n0, _TR,
   0,
-  [_sC],
+  [_sCu],
   [64 | 0]
+];
+export var TestRun$: StaticStructureSchema = [3, n0, _TRe,
+  0,
+  [_tRI, _tI, _st, _sAt, _tTA, _sA, _eA, _ex, _eCv, _pa, _eM, _sC, _lC, _rN, _rCe, _p, _rO, _rSPA, _rSEI, _pM, _reg, _aT],
+  [0, 0, 0, 4, 0, 0, 4, () => ExperimentDetailsList, 1, [2, n0, _TP, 0, 0, 64 | 0], 0, () => StopConditionList, () => LoggingConfiguration$, 0, () => TestRunReportConfiguration$, () => TestRunPolicySnapshot$, () => ReportGenerationResult$, 0, 0, () => PermissionModel$, 64 | 0, 0], 5
+];
+export var TestRunEvent$: StaticStructureSchema = [3, n0, _TRE,
+  0,
+  [_eIv, _eTv, _m, _ti, _at],
+  [0, 0, 0, 4, 128 | 0], 4
+];
+export var TestRunObservabilityAlarmSummary$: StaticStructureSchema = [3, n0, _TROAS,
+  0,
+  [_aA, _aNl, _regi, _aIc],
+  [0, 0, 0, 0], 4
+];
+export var TestRunPolicySnapshot$: StaticStructureSchema = [3, n0, _TRPS,
+  0,
+  [_pA, _n, _aS, _mA, _mR, _dR],
+  [0, 0, () => AvailabilitySlo$, () => MultiAzTargets$, () => MultiRegionTargets$, () => DataRecoveryTargets$]
+];
+export var TestRunReportConfiguration$: StaticStructureSchema = [3, n0, _TRRC,
+  0,
+  [_rO],
+  [() => ReportOutputConfigurationList], 1
+];
+export var TestRunSuccessCriteriaAlarmSummary$: StaticStructureSchema = [3, n0, _TRSCAS,
+  0,
+  [_aA, _aNl, _regi, _aIc, _o, _oRu],
+  [0, 0, 0, 0, 0, 0], 4
+];
+export var TestRunSummary$: StaticStructureSchema = [3, n0, _TRS,
+  0,
+  [_tRI, _st, _sAt, _tTA, _eA, _sA, _eM, _aT],
+  [0, 0, 4, 0, 4, 0, 0, 0], 4
+];
+export var TestSummary$: StaticStructureSchema = [3, n0, _TSe,
+  0,
+  [_tI, _tTA, _sA, _tTR, _sTR, _cTr],
+  [0, 0, 0, 1, 1, 4], 6
+];
+export var TestTemplate$: StaticStructureSchema = [3, n0, _TT,
+  0,
+  [_tTA, _n, _d, _pa, _acti],
+  [0, 0, 0, () => TestTemplateParameterList, () => TestActionList], 2
+];
+export var TestTemplateParameter$: StaticStructureSchema = [3, n0, _TTP,
+  0,
+  [_n, _ty, _req, _d, _dV, _mV],
+  [0, 0, 2, 0, 0, 1], 3
+];
+export var TestTemplateSummary$: StaticStructureSchema = [3, n0, _TTS,
+  0,
+  [_tTA, _n, _d],
+  [0, 0, 0], 3
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
@@ -1508,6 +1906,16 @@ export var UpdateSystemResponse$: StaticStructureSchema = [3, n0, _USRpda,
   [_sy],
   [[() => System$, 0]], 1
 ];
+export var UpdateTestRequest$: StaticStructureSchema = [3, n0, _UTR,
+  0,
+  [_tI, _sA, _lC, _sC, _rN, _pa],
+  [0, 0, () => LoggingConfiguration$, () => StopConditionList, 0, [2, n0, _TP, 0, 0, 64 | 0]], 2
+];
+export var UpdateTestResponse$: StaticStructureSchema = [3, n0, _UTRp,
+  0,
+  [_te],
+  [() => Test$], 1
+];
 export var UpdateUserJourneyRequest$: StaticStructureSchema = [3, n0, _UUJR,
   0,
   [_sAy, _uJIs, _n, _d, _pA],
@@ -1559,6 +1967,10 @@ var EdgePropertyList: StaticListSchema = [1, n0, _EPL,
   0, () => EdgePropertySummary$
 ];
 var EksNamespaceList = 64 | 0;
+var ExperimentArnList = 64 | 0;
+var ExperimentDetailsList: StaticListSchema = [1, n0, _EDL,
+  0, () => ExperimentDetails$
+];
 var FindingsList: StaticListSchema = [1, n0, _FL,
   0, () => FindingSummary$
 ];
@@ -1585,6 +1997,9 @@ var ReportGenerationResultList: StaticListSchema = [1, n0, _RGRL,
 var ReportOutputConfigurationList: StaticListSchema = [1, n0, _ROCL,
   0, () => ReportOutputConfiguration$
 ];
+var ResolvedTargetResourceList: StaticListSchema = [1, n0, _RTRL,
+  0, () => ResolvedTargetResource$
+];
 var ResourceList = 64 | 0;
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,
   0, () => ResourceTag$
@@ -1610,6 +2025,10 @@ var ServiceSummaryList: StaticListSchema = [1, n0, _SSL,
 var ServiceTopologyEdgeSummaryList: StaticListSchema = [1, n0, _STESL,
   0, () => ServiceTopologyEdgeSummary$
 ];
+var StopConditionList: StaticListSchema = [1, n0, _SCL,
+  0, () => StopCondition$
+];
+var StringList = 64 | 0;
 var SuggestedChangesList = 64 | 0;
 var SystemEventList: StaticListSchema = [1, n0, _SELy,
   0, () => SystemEvent$
@@ -1622,8 +2041,35 @@ var TagKeyList: StaticListSchema = [1, n0, _TKL,
   8, 0
 ];
 var TagValueList = 64 | 0;
+var TestActionList: StaticListSchema = [1, n0, _TAL,
+  0, () => TestAction$
+];
 var TestingRecommendationsList: StaticListSchema = [1, n0, _TRL,
   0, () => TestingRecommendation$
+];
+var TestRunEventList: StaticListSchema = [1, n0, _TREL,
+  0, () => TestRunEvent$
+];
+var TestRunSourceSummaryList: StaticListSchema = [1, n0, _TRSSL,
+  0, () => TestRunSourceSummary$
+];
+var TestRunSummaryList: StaticListSchema = [1, n0, _TRSL,
+  0, () => TestRunSummary$
+];
+var TestSourceInputList: StaticListSchema = [1, n0, _TSIL,
+  0, () => TestSourceInput$
+];
+var TestSourceSummaryList: StaticListSchema = [1, n0, _TSSL,
+  0, () => TestSourceSummary$
+];
+var TestSummaryList: StaticListSchema = [1, n0, _TSL,
+  0, () => TestSummary$
+];
+var TestTemplateParameterList: StaticListSchema = [1, n0, _TTPL,
+  0, () => TestTemplateParameter$
+];
+var TestTemplateSummaryList: StaticListSchema = [1, n0, _TTSL,
+  0, () => TestTemplateSummary$
 ];
 var UserJourneyIdList = 64 | 0;
 var UserJourneyNameList = 64 | 0;
@@ -1633,9 +2079,14 @@ var UserJourneySummaryList: StaticListSchema = [1, n0, _UJSL,
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
   0, () => ValidationExceptionField$
 ];
+var ResolvedTargetInformation = 128 | 0;
 var TagMap: StaticMapSchema = [2, n0, _TM,
   8, 0, 0
 ];
+var TestParameters: StaticMapSchema = [2, n0, _TP,
+  0, 0, 64 | 0
+];
+var TestRunEventAttributes = 128 | 0;
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,
   [_sRO, _fRO],
@@ -1661,6 +2112,21 @@ export var SystemEventMetadata$: StaticUnionSchema = [4, n0, _SEMy,
   [_sCy, _sDy, _sUJC, _sUJU, _sUJD, _sSAy, _sSDy, _sPAy, _sPDy],
   [() => SystemCreatedMetadata$, () => SystemDeletedMetadata$, () => SystemUserJourneyCreatedMetadata$, () => SystemUserJourneyUpdatedMetadata$, () => SystemUserJourneyDeletedMetadata$, () => SystemServiceAssociatedMetadata$, () => SystemServiceDisassociatedMetadata$, () => SystemPolicyAssociatedMetadata$, () => SystemPolicyDisassociatedMetadata$]
 ];
+export var TestRunSourceSummary$: StaticUnionSchema = [4, n0, _TRSS,
+  0,
+  [_sCA, _oA],
+  [() => TestRunSuccessCriteriaAlarmSummary$, () => TestRunObservabilityAlarmSummary$]
+];
+export var TestSourceInput$: StaticUnionSchema = [4, n0, _TSI,
+  0,
+  [_sCA, _oA],
+  [() => SuccessCriteriaAlarmInput$, () => ObservabilityAlarmInput$]
+];
+export var TestSourceSummary$: StaticUnionSchema = [4, n0, _TSS,
+  0,
+  [_sCA, _oA],
+  [() => SuccessCriteriaAlarmSummary$, () => ObservabilityAlarmSummary$]
+];
 export var CreateAssertion$: StaticOperationSchema = [9, n0, _CA,
   { [_h]: ["POST", "/v2/create-assertion", 200] }, () => CreateAssertionRequest$, () => CreateAssertionResponse$
 ];
@@ -1684,6 +2150,9 @@ export var CreateServiceFunctionResources$: StaticOperationSchema = [9, n0, _CSF
 ];
 export var CreateSystem$: StaticOperationSchema = [9, n0, _CSr,
   { [_h]: ["POST", "/v2/create-system", 200] }, () => CreateSystemRequest$, () => CreateSystemResponse$
+];
+export var CreateTest$: StaticOperationSchema = [9, n0, _CT,
+  { [_h]: ["POST", "/v2/create-test", 200] }, () => CreateTestRequest$, () => CreateTestResponse$
 ];
 export var CreateUserJourney$: StaticOperationSchema = [9, n0, _CUJ,
   { [_h]: ["POST", "/v2/create-user-journey", 200] }, () => CreateUserJourneyRequest$, () => CreateUserJourneyResponse$
@@ -1709,6 +2178,12 @@ export var DeleteServiceFunctionResources$: StaticOperationSchema = [9, n0, _DSF
 export var DeleteSystem$: StaticOperationSchema = [9, n0, _DSel,
   { [_h]: ["POST", "/v2/delete-system", 200] }, () => DeleteSystemRequest$, () => DeleteSystemResponse$
 ];
+export var DeleteTest$: StaticOperationSchema = [9, n0, _DT,
+  { [_h]: ["POST", "/v2/delete-test", 200] }, () => DeleteTestRequest$, () => DeleteTestResponse$
+];
+export var DeleteTestSources$: StaticOperationSchema = [9, n0, _DTS,
+  { [_h]: ["POST", "/v2/delete-test-sources", 200] }, () => DeleteTestSourcesRequest$, () => DeleteTestSourcesResponse$
+];
 export var DeleteUserJourney$: StaticOperationSchema = [9, n0, _DUJ,
   { [_h]: ["POST", "/v2/delete-user-journey", 200] }, () => DeleteUserJourneyRequest$, () => DeleteUserJourneyResponse$
 ];
@@ -1723,6 +2198,15 @@ export var GetService$: StaticOperationSchema = [9, n0, _GS,
 ];
 export var GetSystem$: StaticOperationSchema = [9, n0, _GSe,
   { [_h]: ["GET", "/v2/get-system", 200] }, () => GetSystemRequest$, () => GetSystemResponse$
+];
+export var GetTest$: StaticOperationSchema = [9, n0, _GT,
+  { [_h]: ["GET", "/v2/get-test", 200] }, () => GetTestRequest$, () => GetTestResponse$
+];
+export var GetTestRun$: StaticOperationSchema = [9, n0, _GTRet,
+  { [_h]: ["GET", "/v2/get-test-run", 200] }, () => GetTestRunRequest$, () => GetTestRunResponse$
+];
+export var GetTestTemplate$: StaticOperationSchema = [9, n0, _GTT,
+  { [_h]: ["GET", "/v2/get-test-template", 200] }, () => GetTestTemplateRequest$, () => GetTestTemplateResponse$
 ];
 export var GetUserJourney$: StaticOperationSchema = [9, n0, _GUJ,
   { [_h]: ["GET", "/v2/get-user-journey", 200] }, () => GetUserJourneyRequest$, () => GetUserJourneyResponse$
@@ -1754,6 +2238,9 @@ export var ListPolicies$: StaticOperationSchema = [9, n0, _LP,
 export var ListReports$: StaticOperationSchema = [9, n0, _LR,
   { [_h]: ["GET", "/v2/list-reports", 200] }, () => ListReportsRequest$, () => ListReportsResponse$
 ];
+export var ListResolvedTestRunTargetResources$: StaticOperationSchema = [9, n0, _LRTRTR,
+  { [_h]: ["GET", "/v2/test-runs/{testRunId}/resolved-target-resources", 200] }, () => ListResolvedTestRunTargetResourcesRequest$, () => ListResolvedTestRunTargetResourcesResponse$
+];
 export var ListResources$: StaticOperationSchema = [9, n0, _LRi,
   { [_h]: ["GET", "/v2/list-resources", 200] }, () => ListResourcesRequest$, () => ListResourcesResponse$
 ];
@@ -1778,11 +2265,38 @@ export var ListSystems$: StaticOperationSchema = [9, n0, _LSi,
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_h]: ["GET", "/v2/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
 ];
+export var ListTestRunEvents$: StaticOperationSchema = [9, n0, _LTRE,
+  { [_h]: ["GET", "/v2/test-runs/{testRunId}/events", 200] }, () => ListTestRunEventsRequest$, () => ListTestRunEventsResponse$
+];
+export var ListTestRuns$: StaticOperationSchema = [9, n0, _LTRis,
+  { [_h]: ["GET", "/v2/list-test-runs", 200] }, () => ListTestRunsRequest$, () => ListTestRunsResponse$
+];
+export var ListTestRunSources$: StaticOperationSchema = [9, n0, _LTRS,
+  { [_h]: ["GET", "/v2/test-runs/{testRunId}/sources", 200] }, () => ListTestRunSourcesRequest$, () => ListTestRunSourcesResponse$
+];
+export var ListTests$: StaticOperationSchema = [9, n0, _LT,
+  { [_h]: ["GET", "/v2/list-tests", 200] }, () => ListTestsRequest$, () => ListTestsResponse$
+];
+export var ListTestSources$: StaticOperationSchema = [9, n0, _LTS,
+  { [_h]: ["GET", "/v2/tests/{testId}/sources", 200] }, () => ListTestSourcesRequest$, () => ListTestSourcesResponse$
+];
+export var ListTestTemplates$: StaticOperationSchema = [9, n0, _LTT,
+  { [_h]: ["GET", "/v2/list-test-templates", 200] }, () => ListTestTemplatesRequest$, () => ListTestTemplatesResponse$
+];
 export var ListUserJourneys$: StaticOperationSchema = [9, n0, _LUJ,
   { [_h]: ["GET", "/v2/list-user-journeys", 200] }, () => ListUserJourneysRequest$, () => ListUserJourneysResponse$
 ];
+export var PutTestSources$: StaticOperationSchema = [9, n0, _PTS,
+  { [_h]: ["POST", "/v2/put-test-sources", 200] }, () => PutTestSourcesRequest$, () => PutTestSourcesResponse$
+];
 export var StartFailureModeAssessment$: StaticOperationSchema = [9, n0, _SFMA,
   { [_h]: ["POST", "/v2/start-failure-mode-assessment", 200] }, () => StartFailureModeAssessmentRequest$, () => StartFailureModeAssessmentResponse$
+];
+export var StartTestRun$: StaticOperationSchema = [9, n0, _STR,
+  { [_h]: ["POST", "/v2/start-test-run", 200] }, () => StartTestRunRequest$, () => StartTestRunResponse$
+];
+export var StopTestRun$: StaticOperationSchema = [9, n0, _STRt,
+  { [_h]: ["POST", "/v2/stop-test-run", 200] }, () => StopTestRunRequest$, () => StopTestRunResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   { [_h]: ["POST", "/v2/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$
@@ -1810,6 +2324,9 @@ export var UpdateServiceFunction$: StaticOperationSchema = [9, n0, _USF,
 ];
 export var UpdateSystem$: StaticOperationSchema = [9, n0, _USp,
   { [_h]: ["POST", "/v2/update-system", 200] }, () => UpdateSystemRequest$, () => UpdateSystemResponse$
+];
+export var UpdateTest$: StaticOperationSchema = [9, n0, _UT,
+  { [_h]: ["POST", "/v2/update-test", 200] }, () => UpdateTestRequest$, () => UpdateTestResponse$
 ];
 export var UpdateUserJourney$: StaticOperationSchema = [9, n0, _UUJ,
   { [_h]: ["POST", "/v2/update-user-journey", 200] }, () => UpdateUserJourneyRequest$, () => UpdateUserJourneyResponse$

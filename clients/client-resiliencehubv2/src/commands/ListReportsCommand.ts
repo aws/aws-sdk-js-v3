@@ -34,7 +34,8 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * const client = new Resiliencehubv2Client(config);
  * const input = { // ListReportsRequest
  *   serviceArn: "STRING_VALUE",
- *   reportType: "FAILURE_MODE",
+ *   reportType: "FAILURE_MODE" || "TESTING",
+ *   testRunId: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  * };
@@ -43,10 +44,12 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * // { // ListReportsResponse
  * //   reportGenerationResults: [ // ReportGenerationResultList // required
  * //     { // ReportGenerationResult
- * //       reportType: "FAILURE_MODE", // required
+ * //       reportType: "FAILURE_MODE" || "TESTING", // required
  * //       status: "PENDING" || "SUCCEEDED" || "FAILED", // required
  * //       serviceArn: "STRING_VALUE",
  * //       assessmentId: "STRING_VALUE",
+ * //       testRunId: "STRING_VALUE",
+ * //       testTemplateArn: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       reportOutput: { // ReportOutput Union: only one key present
  * //         s3ReportOutput: { // S3ReportOutput

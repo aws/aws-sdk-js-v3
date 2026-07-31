@@ -3,6 +3,25 @@
  * @public
  * @enum
  */
+export const AccountTargeting = {
+  /**
+   * Test run targets resources across multiple accounts.
+   */
+  MULTI_ACCOUNT: "MULTI_ACCOUNT",
+  /**
+   * Test run targets resources in the same account only.
+   */
+  SINGLE_ACCOUNT: "SINGLE_ACCOUNT",
+} as const;
+/**
+ * @public
+ */
+export type AccountTargeting = (typeof AccountTargeting)[keyof typeof AccountTargeting];
+
+/**
+ * @public
+ * @enum
+ */
 export const AchievabilityStatus = {
   ACHIEVABLE: "ACHIEVABLE",
   NOT_ACHIEVABLE: "NOT_ACHIEVABLE",
@@ -169,6 +188,7 @@ export type MultiRegionDisasterRecoveryApproach =
  */
 export const ReportType = {
   FAILURE_MODE: "FAILURE_MODE",
+  TESTING: "TESTING",
 } as const;
 /**
  * @public
@@ -307,6 +327,19 @@ export type ServiceFunctionSource = (typeof ServiceFunctionSource)[keyof typeof 
  * @public
  * @enum
  */
+export const StopConditionSource = {
+  AWS_CLOUDWATCH_ALARM: "aws:cloudwatch:alarm",
+  NONE: "none",
+} as const;
+/**
+ * @public
+ */
+export type StopConditionSource = (typeof StopConditionSource)[keyof typeof StopConditionSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const DependencyCriticality = {
   HARD: "HARD",
   SOFT: "SOFT",
@@ -408,6 +441,38 @@ export type FindingStatus = (typeof FindingStatus)[keyof typeof FindingStatus];
  * @public
  * @enum
  */
+export const TestRunStatus = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  INITIALIZING: "INITIALIZING",
+  PASSED: "PASSED",
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  STOPPING: "STOPPING",
+} as const;
+/**
+ * @public
+ */
+export type TestRunStatus = (typeof TestRunStatus)[keyof typeof TestRunStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterType = {
+  INTEGER: "INTEGER",
+  STRING: "STRING",
+  STRING_LIST: "STRING_LIST",
+} as const;
+/**
+ * @public
+ */
+export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
+
+/**
+ * @public
+ * @enum
+ */
 export const InputSourceType = {
   CFN_STACK: "CFN_STACK",
   DESIGN_FILE: "DESIGN_FILE",
@@ -483,3 +548,43 @@ export const SystemEventType = {
  * @public
  */
 export type SystemEventType = (typeof SystemEventType)[keyof typeof SystemEventType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestRunSourceType = {
+  OBSERVABILITY: "OBSERVABILITY",
+  SUCCESS_CRITERIA: "SUCCESS_CRITERIA",
+} as const;
+/**
+ * @public
+ */
+export type TestRunSourceType = (typeof TestRunSourceType)[keyof typeof TestRunSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSourceOutcome = {
+  ERROR: "ERROR",
+  FAILED: "FAILED",
+  PASSED: "PASSED",
+} as const;
+/**
+ * @public
+ */
+export type TestSourceOutcome = (typeof TestSourceOutcome)[keyof typeof TestSourceOutcome];
+
+/**
+ * @public
+ * @enum
+ */
+export const TestSourceType = {
+  OBSERVABILITY: "OBSERVABILITY",
+  SUCCESS_CRITERIA: "SUCCESS_CRITERIA",
+} as const;
+/**
+ * @public
+ */
+export type TestSourceType = (typeof TestSourceType)[keyof typeof TestSourceType];
