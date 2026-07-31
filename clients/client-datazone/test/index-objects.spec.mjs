@@ -594,6 +594,9 @@ import {
   GetUserProfileInput$,
   GetUserProfileOutput$,
   GitMetadata$,
+  GitPropertiesInput$,
+  GitPropertiesOutput$,
+  GitPropertiesPatch$,
   GlossaryItem$,
   GlossaryItemAdditionalAttributes$,
   GlossaryStatus,
@@ -1984,6 +1987,9 @@ assert(typeof GetTimeSeriesDataPointOutput$ === "object");
 assert(typeof GetUserProfileInput$ === "object");
 assert(typeof GetUserProfileOutput$ === "object");
 assert(typeof GitMetadata$ === "object");
+assert(typeof GitPropertiesInput$ === "object");
+assert(typeof GitPropertiesOutput$ === "object");
+assert(typeof GitPropertiesPatch$ === "object");
 assert(typeof GlossaryItem$ === "object");
 assert(typeof GlossaryItemAdditionalAttributes$ === "object");
 assert(typeof GlossaryTermEnforcementDetail$ === "object");

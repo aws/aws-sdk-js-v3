@@ -14,7 +14,6 @@ import type {
   EdgeDirection,
   EnableSetting,
   EnvironmentStatus,
-  FileFormat,
   FilterStatus,
   FormTypeStatus,
   GlossaryStatus,
@@ -32,7 +31,6 @@ import type {
   MetadataGenerationRunStatus,
   MetadataGenerationRunType,
   MetadataGenerationTargetType,
-  NotebookExportStatus,
   NotebookStatus,
   NotificationResourceType,
   NotificationRole,
@@ -99,6 +97,7 @@ import type {
   FormInput,
   FormOutput,
   GitMetadata,
+  GlossaryTermEnforcementDetail,
   MatchRationaleItem,
   Member,
   Model,
@@ -113,7 +112,6 @@ import type {
   Resource,
   ResourceTag,
   ResourceTagParameter,
-  RuleDetail,
   ScheduleConfiguration,
   SingleSignOn,
   SubscribedListing,
@@ -122,6 +120,89 @@ import type {
   TimeSeriesDataPointSummaryFormOutput,
   UserProfileDetails,
 } from "./models_0";
+
+/**
+ * <p>The reference of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormReference {
+  /**
+   * <p>The type ID of the metadata form reference.</p>
+   * @public
+   */
+  typeIdentifier: string | undefined;
+
+  /**
+   * <p>The type revision of the metadata form reference.</p>
+   * @public
+   */
+  typeRevision: string | undefined;
+}
+
+/**
+ * <p>The enforcement details of a metadata form.</p>
+ * @public
+ */
+export interface MetadataFormEnforcementDetail {
+  /**
+   * <p>The required metadata forms.</p>
+   * @public
+   */
+  requiredMetadataForms?: MetadataFormReference[] | undefined;
+}
+
+/**
+ * <p>The details of a rule.</p>
+ * @public
+ */
+export type RuleDetail =
+  | RuleDetail.GlossaryTermEnforcementDetailMember
+  | RuleDetail.MetadataFormEnforcementDetailMember
+  | RuleDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RuleDetail {
+  /**
+   * <p>The enforcement detail of the metadata form.</p>
+   * @public
+   */
+  export interface MetadataFormEnforcementDetailMember {
+    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
+    glossaryTermEnforcementDetail?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The enforcement details of a glossary term that's part of the metadata rule.</p>
+   * @public
+   */
+  export interface GlossaryTermEnforcementDetailMember {
+    metadataFormEnforcementDetail?: never;
+    glossaryTermEnforcementDetail: GlossaryTermEnforcementDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataFormEnforcementDetail?: never;
+    glossaryTermEnforcementDetail?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
+    glossaryTermEnforcementDetail: (value: GlossaryTermEnforcementDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>Specifies projects in which the rule is created.</p>
@@ -11300,163 +11381,4 @@ export namespace OutputLocation {
     s3: (value: S3Destination) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface GetNotebookExportOutput {
-  /**
-   * <p>The identifier of the notebook export.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  notebookId: string | undefined;
-
-  /**
-   * <p>The file format of the notebook export.</p>
-   * @public
-   */
-  fileFormat: FileFormat | undefined;
-
-  /**
-   * <p>The status of the notebook export.</p>
-   * @public
-   */
-  status: NotebookExportStatus | undefined;
-
-  /**
-   * <p>The output location of the exported notebook in Amazon Simple Storage Service.</p>
-   * @public
-   */
-  outputLocation?: OutputLocation | undefined;
-
-  /**
-   * <p>The error details if the notebook export failed.</p>
-   * @public
-   */
-  error?: NotebookExportError | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook export completed.</p>
-   * @public
-   */
-  completedAt?: Date | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook export was started.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who started the notebook export.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartNotebookExportInput {
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain in which to export the notebook.</p>
-   * @public
-   */
-  domainIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook to export.</p>
-   * @public
-   */
-  notebookIdentifier: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectIdentifier: string | undefined;
-
-  /**
-   * <p>The file format for the notebook export. Valid values are <code>PDF</code> and <code>IPYNB</code>.</p>
-   * @public
-   */
-  fileFormat: FileFormat | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request. This field is automatically populated if not provided.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartNotebookExportOutput {
-  /**
-   * <p>The identifier of the notebook export.</p>
-   * @public
-   */
-  id: string | undefined;
-
-  /**
-   * <p>The identifier of the Amazon SageMaker Unified Studio domain.</p>
-   * @public
-   */
-  domainId: string | undefined;
-
-  /**
-   * <p>The identifier of the project that owns the notebook.</p>
-   * @public
-   */
-  owningProjectId: string | undefined;
-
-  /**
-   * <p>The identifier of the notebook.</p>
-   * @public
-   */
-  notebookId: string | undefined;
-
-  /**
-   * <p>The file format of the notebook export.</p>
-   * @public
-   */
-  fileFormat: FileFormat | undefined;
-
-  /**
-   * <p>The status of the notebook export.</p>
-   * @public
-   */
-  status: NotebookExportStatus | undefined;
-
-  /**
-   * <p>The timestamp of when the notebook export was started.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>The identifier of the user who started the notebook export.</p>
-   * @public
-   */
-  createdBy?: string | undefined;
 }

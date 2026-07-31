@@ -5151,6 +5151,30 @@ export interface ConnectionCredentials {
 }
 
 /**
+ * <p>Contains the Git connection properties that you specify when creating a Git connection.</p>
+ * @public
+ */
+export interface GitPropertiesInput {
+  /**
+   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * @public
+   */
+  codeConnectionArn: string | undefined;
+
+  /**
+   * <p>The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.</p>
+   * @public
+   */
+  repositoryId: string | undefined;
+
+  /**
+   * <p>The default branch of the Git repository.</p>
+   * @public
+   */
+  defaultBranch: string | undefined;
+}
+
+/**
  * <p>Physical connection requirements of a connection.</p>
  * @public
  */
@@ -5851,6 +5875,7 @@ export interface WorkflowsServerlessPropertiesInput {}
 export type ConnectionPropertiesInput =
   | ConnectionPropertiesInput.AmazonQPropertiesMember
   | ConnectionPropertiesInput.AthenaPropertiesMember
+  | ConnectionPropertiesInput.GitPropertiesMember
   | ConnectionPropertiesInput.GluePropertiesMember
   | ConnectionPropertiesInput.HyperPodPropertiesMember
   | ConnectionPropertiesInput.IamPropertiesMember
@@ -5890,6 +5915,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -5913,6 +5939,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -5936,6 +5963,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -5959,6 +5987,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -5982,6 +6011,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6005,6 +6035,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6028,6 +6059,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6051,6 +6083,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6074,6 +6107,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6097,6 +6131,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6120,6 +6155,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6143,6 +6179,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6166,6 +6203,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties: WorkflowsServerlessPropertiesInput;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6189,6 +6227,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties: LakehousePropertiesInput;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6212,6 +6251,31 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties: VpcPropertiesInput;
+    gitProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Git properties of a connection.</p>
+   * @public
+   */
+  export interface GitPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    gitProperties: GitPropertiesInput;
     $unknown?: never;
   }
 
@@ -6234,6 +6298,7 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown: [string, any];
   }
 
@@ -6257,8 +6322,45 @@ export namespace ConnectionPropertiesInput {
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesInput) => T;
     lakehouseProperties: (value: LakehousePropertiesInput) => T;
     vpcProperties: (value: VpcPropertiesInput) => T;
+    gitProperties: (value: GitPropertiesInput) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>The properties of a Git connection returned by get and list operations, including connection status and any error details.</p>
+ * @public
+ */
+export interface GitPropertiesOutput {
+  /**
+   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * @public
+   */
+  codeConnectionArn: string | undefined;
+
+  /**
+   * <p>The ID of the Git repository. This is the owner and repository name, for example, owner/repo-name.</p>
+   * @public
+   */
+  repositoryId: string | undefined;
+
+  /**
+   * <p>The default branch of the Git repository.</p>
+   * @public
+   */
+  defaultBranch: string | undefined;
+
+  /**
+   * <p>The status of the Git connection.</p>
+   * @public
+   */
+  status?: ConnectionStatus | undefined;
+
+  /**
+   * <p>The error message that describes why the Git connection failed. This member is populated when the connection status is CREATE_FAILED or UPDATE_FAILED.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -6760,6 +6862,7 @@ export interface WorkflowsServerlessPropertiesOutput {}
 export type ConnectionPropertiesOutput =
   | ConnectionPropertiesOutput.AmazonQPropertiesMember
   | ConnectionPropertiesOutput.AthenaPropertiesMember
+  | ConnectionPropertiesOutput.GitPropertiesMember
   | ConnectionPropertiesOutput.GluePropertiesMember
   | ConnectionPropertiesOutput.HyperPodPropertiesMember
   | ConnectionPropertiesOutput.IamPropertiesMember
@@ -6799,6 +6902,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6822,6 +6926,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6845,6 +6950,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6868,6 +6974,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6891,6 +6998,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6914,6 +7022,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6937,6 +7046,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6960,6 +7070,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -6983,6 +7094,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7006,6 +7118,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7029,6 +7142,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7052,6 +7166,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7075,6 +7190,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties: WorkflowsServerlessPropertiesOutput;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7098,6 +7214,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties: LakehousePropertiesOutput;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7121,6 +7238,31 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties: VpcPropertiesOutput;
+    gitProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Git properties of a connection.</p>
+   * @public
+   */
+  export interface GitPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    hyperPodProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    sparkGlueProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    workflowsMwaaProperties?: never;
+    workflowsServerlessProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    gitProperties: GitPropertiesOutput;
     $unknown?: never;
   }
 
@@ -7143,6 +7285,7 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown: [string, any];
   }
 
@@ -7166,8 +7309,27 @@ export namespace ConnectionPropertiesOutput {
     workflowsServerlessProperties: (value: WorkflowsServerlessPropertiesOutput) => T;
     lakehouseProperties: (value: LakehousePropertiesOutput) => T;
     vpcProperties: (value: VpcPropertiesOutput) => T;
+    gitProperties: (value: GitPropertiesOutput) => T;
     _: (name: string, value: any) => T;
   }
+}
+
+/**
+ * <p>The properties used to update an existing Git connection, such as the CodeConnections ARN or the default branch.</p>
+ * @public
+ */
+export interface GitPropertiesPatch {
+  /**
+   * <p>The ARN of the CodeConnections connection used to connect to the Git repository.</p>
+   * @public
+   */
+  codeConnectionArn?: string | undefined;
+
+  /**
+   * <p>The default branch of the Git repository.</p>
+   * @public
+   */
+  defaultBranch?: string | undefined;
 }
 
 /**
@@ -7441,6 +7603,7 @@ export interface VpcPropertiesPatch {
 export type ConnectionPropertiesPatch =
   | ConnectionPropertiesPatch.AmazonQPropertiesMember
   | ConnectionPropertiesPatch.AthenaPropertiesMember
+  | ConnectionPropertiesPatch.GitPropertiesMember
   | ConnectionPropertiesPatch.GluePropertiesMember
   | ConnectionPropertiesPatch.IamPropertiesMember
   | ConnectionPropertiesPatch.LakehousePropertiesMember
@@ -7472,6 +7635,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7491,6 +7655,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7510,6 +7675,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7529,6 +7695,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7548,6 +7715,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7567,6 +7735,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7586,6 +7755,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7605,6 +7775,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7624,6 +7795,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties: MlflowPropertiesPatch;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7643,6 +7815,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties: LakehousePropertiesPatch;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown?: never;
   }
 
@@ -7662,6 +7835,27 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties: VpcPropertiesPatch;
+    gitProperties?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Git properties of a connection properties patch.</p>
+   * @public
+   */
+  export interface GitPropertiesMember {
+    athenaProperties?: never;
+    glueProperties?: never;
+    iamProperties?: never;
+    redshiftProperties?: never;
+    sparkEmrProperties?: never;
+    s3Properties?: never;
+    snowflakeProperties?: never;
+    amazonQProperties?: never;
+    mlflowProperties?: never;
+    lakehouseProperties?: never;
+    vpcProperties?: never;
+    gitProperties: GitPropertiesPatch;
     $unknown?: never;
   }
 
@@ -7680,6 +7874,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties?: never;
     lakehouseProperties?: never;
     vpcProperties?: never;
+    gitProperties?: never;
     $unknown: [string, any];
   }
 
@@ -7699,6 +7894,7 @@ export namespace ConnectionPropertiesPatch {
     mlflowProperties: (value: MlflowPropertiesPatch) => T;
     lakehouseProperties: (value: LakehousePropertiesPatch) => T;
     vpcProperties: (value: VpcPropertiesPatch) => T;
+    gitProperties: (value: GitPropertiesPatch) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11797,87 +11993,4 @@ export interface GlossaryTermEnforcementDetail {
    * @public
    */
   requiredGlossaryTermIds?: string[] | undefined;
-}
-
-/**
- * <p>The reference of a metadata form.</p>
- * @public
- */
-export interface MetadataFormReference {
-  /**
-   * <p>The type ID of the metadata form reference.</p>
-   * @public
-   */
-  typeIdentifier: string | undefined;
-
-  /**
-   * <p>The type revision of the metadata form reference.</p>
-   * @public
-   */
-  typeRevision: string | undefined;
-}
-
-/**
- * <p>The enforcement details of a metadata form.</p>
- * @public
- */
-export interface MetadataFormEnforcementDetail {
-  /**
-   * <p>The required metadata forms.</p>
-   * @public
-   */
-  requiredMetadataForms?: MetadataFormReference[] | undefined;
-}
-
-/**
- * <p>The details of a rule.</p>
- * @public
- */
-export type RuleDetail =
-  | RuleDetail.GlossaryTermEnforcementDetailMember
-  | RuleDetail.MetadataFormEnforcementDetailMember
-  | RuleDetail.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RuleDetail {
-  /**
-   * <p>The enforcement detail of the metadata form.</p>
-   * @public
-   */
-  export interface MetadataFormEnforcementDetailMember {
-    metadataFormEnforcementDetail: MetadataFormEnforcementDetail;
-    glossaryTermEnforcementDetail?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The enforcement details of a glossary term that's part of the metadata rule.</p>
-   * @public
-   */
-  export interface GlossaryTermEnforcementDetailMember {
-    metadataFormEnforcementDetail?: never;
-    glossaryTermEnforcementDetail: GlossaryTermEnforcementDetail;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    metadataFormEnforcementDetail?: never;
-    glossaryTermEnforcementDetail?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    metadataFormEnforcementDetail: (value: MetadataFormEnforcementDetail) => T;
-    glossaryTermEnforcementDetail: (value: GlossaryTermEnforcementDetail) => T;
-    _: (name: string, value: any) => T;
-  }
 }

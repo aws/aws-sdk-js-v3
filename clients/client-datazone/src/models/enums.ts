@@ -471,6 +471,10 @@ export const ConnectionType = {
   DATABRICKS: "DATABRICKS",
   DOCUMENTDB: "DOCUMENTDB",
   DYNAMODB: "DYNAMODB",
+  /**
+   * <p>A Git connection type.</p>
+   */
+  GIT: "GIT",
   HYPERPOD: "HYPERPOD",
   IAM: "IAM",
   MLFLOW: "MLFLOW",

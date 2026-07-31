@@ -509,14 +509,17 @@ const _GOAC = "GlueOAuth2Credentials";
 const _GP = "GetProject";
 const _GPGP = "GroupPolicyGrantPrincipal";
 const _GPI = "GetProjectInput";
+const _GPIi = "GitPropertiesInput";
 const _GPIl = "GluePropertiesInput";
 const _GPN = "GroupProfileName";
 const _GPO = "GetProjectOutput";
+const _GPOi = "GitPropertiesOutput";
 const _GPOl = "GluePropertiesOutput";
-const _GPP = "GluePropertiesPatch";
+const _GPP = "GitPropertiesPatch";
 const _GPPI = "GetProjectProfileInput";
 const _GPPO = "GetProjectProfileOutput";
 const _GPPe = "GetProjectProfile";
+const _GPPl = "GluePropertiesPatch";
 const _GPS = "GroupProfileSummary";
 const _GPSr = "GroupProfileSummaries";
 const _GR = "GitRepository";
@@ -1166,6 +1169,7 @@ const _cAom = "committedAt";
 const _cAomp = "computeArn";
 const _cB = "createdBy";
 const _cC = "connectionCredentials";
+const _cCA = "codeConnectionArn";
 const _cCE = "compatibleComputeEnvironments";
 const _cCo = "computeConfiguration";
 const _cCol = "columnConfiguration";
@@ -1213,6 +1217,7 @@ const _d = "detail";
 const _dAI = "dataAssetId";
 const _dAR = "dataAccessRole";
 const _dAS = "dataAssetStatus";
+const _dB = "defaultBranch";
 const _dC = "decisionComment";
 const _dCEP = "delegateCreateEnvironmentProfile";
 const _dER = "domainExecutionRole";
@@ -1354,6 +1359,7 @@ const _gM = "gitMetadata";
 const _gN = "groupName";
 const _gP = "globalParameters";
 const _gPI = "groupProfileId";
+const _gPi = "gitProperties";
 const _gPl = "glueProperties";
 const _gRC = "glueRunConfiguration";
 const _gSGS = "glueSelfGrantStatus";
@@ -1590,6 +1596,7 @@ const _rF = "rowFilter";
 const _rFC = "relationalFilterConfigurations";
 const _rGTI = "requiredGlossaryTermIds";
 const _rI = "reviewerId";
+const _rIe = "repositoryId";
 const _rIu = "runId";
 const _rM = "runMode";
 const _rMF = "requiredMetadataForms";
@@ -3529,6 +3536,21 @@ export var GitMetadata$: StaticStructureSchema = [3, n0, _GM,
   [_cI, _rep, _b, _cH, _fNi, _cAom, _cM],
   [0, [() => GitRepository, 0], [() => GitBranch, 0], 0, 0, 4, [() => CommitMessage, 0]], 4
 ];
+export var GitPropertiesInput$: StaticStructureSchema = [3, n0, _GPIi,
+  0,
+  [_cCA, _rIe, _dB],
+  [0, 0, 0], 3
+];
+export var GitPropertiesOutput$: StaticStructureSchema = [3, n0, _GPOi,
+  0,
+  [_cCA, _rIe, _dB, _st, _eM],
+  [0, 0, 0, 0, 0], 3
+];
+export var GitPropertiesPatch$: StaticStructureSchema = [3, n0, _GPP,
+  0,
+  [_cCA, _dB],
+  [0, 0]
+];
 export var GlossaryItem$: StaticStructureSchema = [3, n0, _GI,
   0,
   [_dIo, _id, _n, _oPI, _st, _de, _uR, _cA, _cB, _uA, _uB, _aA],
@@ -3584,7 +3606,7 @@ export var GluePropertiesOutput$: StaticStructureSchema = [3, n0, _GPOl,
   [_st, _eM],
   [0, 0]
 ];
-export var GluePropertiesPatch$: StaticStructureSchema = [3, n0, _GPP,
+export var GluePropertiesPatch$: StaticStructureSchema = [3, n0, _GPPl,
   0,
   [_gCI],
   [[() => GlueConnectionPatch$, 0]]
@@ -5712,18 +5734,18 @@ export var AwsAccount$: StaticUnionSchema = [4, n0, _AAw,
 ];
 export var ConnectionPropertiesInput$: StaticUnionSchema = [4, n0, _CPIo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP],
-  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, [() => SnowflakePropertiesInput$, 0], () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$, () => VpcPropertiesInput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP, _gPi],
+  [() => AthenaPropertiesInput$, [() => GluePropertiesInput$, 0], () => HyperPodPropertiesInput$, () => IamPropertiesInput$, [() => RedshiftPropertiesInput$, 0], () => SparkEmrPropertiesInput$, () => SparkGluePropertiesInput$, () => S3PropertiesInput$, [() => SnowflakePropertiesInput$, 0], () => AmazonQPropertiesInput$, () => MlflowPropertiesInput$, () => WorkflowsMwaaPropertiesInput$, () => WorkflowsServerlessPropertiesInput$, () => LakehousePropertiesInput$, () => VpcPropertiesInput$, () => GitPropertiesInput$]
 ];
 export var ConnectionPropertiesOutput$: StaticUnionSchema = [4, n0, _CPOo,
   0,
-  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP],
-  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => SnowflakePropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$, () => VpcPropertiesOutput$]
+  [_aPt, _gPl, _hPP, _iP, _rPed, _sEP, _sGP, _sPr, _sPn, _aQP, _mP, _wMP, _wSP, _lP, _vP, _gPi],
+  [() => AthenaPropertiesOutput$, () => GluePropertiesOutput$, () => HyperPodPropertiesOutput$, () => IamPropertiesOutput$, [() => RedshiftPropertiesOutput$, 0], [() => SparkEmrPropertiesOutput$, 0], () => SparkGluePropertiesOutput$, () => S3PropertiesOutput$, () => SnowflakePropertiesOutput$, () => AmazonQPropertiesOutput$, () => MlflowPropertiesOutput$, () => WorkflowsMwaaPropertiesOutput$, () => WorkflowsServerlessPropertiesOutput$, () => LakehousePropertiesOutput$, () => VpcPropertiesOutput$, () => GitPropertiesOutput$]
 ];
 export var ConnectionPropertiesPatch$: StaticUnionSchema = [4, n0, _CPPo,
   0,
-  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _sPn, _aQP, _mP, _lP, _vP],
-  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, [() => SnowflakePropertiesPatch$, 0], () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$, () => VpcPropertiesPatch$]
+  [_aPt, _gPl, _iP, _rPed, _sEP, _sPr, _sPn, _aQP, _mP, _lP, _vP, _gPi],
+  [() => AthenaPropertiesPatch$, [() => GluePropertiesPatch$, 0], () => IamPropertiesPatch$, [() => RedshiftPropertiesPatch$, 0], () => SparkEmrPropertiesPatch$, () => S3PropertiesPatch$, [() => SnowflakePropertiesPatch$, 0], () => AmazonQPropertiesPatch$, () => MlflowPropertiesPatch$, () => LakehousePropertiesPatch$, () => VpcPropertiesPatch$, () => GitPropertiesPatch$]
 ];
 export var DataSourceConfigurationInput$: StaticUnionSchema = [4, n0, _DSCI,
   0,
