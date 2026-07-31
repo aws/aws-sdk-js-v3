@@ -1358,6 +1358,8 @@ const _SNe = "SettingName";
 const _SO = "SubnetOutpost";
 const _SOG = "SourceOptionGroup";
 const _SOGI = "SourceOptionGroupIdentifier";
+const _SOPP = "StorageOperationPercentProgress";
+const _SOS = "StorageOperationStatus";
 const _SOVD = "SupportsOptionVersionDowngrade";
 const _SP = "S3Prefix";
 const _SPF = "SessionPinningFilters";
@@ -2622,8 +2624,8 @@ export var AdditionalStorageVolume$: StaticStructureSchema = [3, n0, _ASV,
 ];
 export var AdditionalStorageVolumeOutput$: StaticStructureSchema = [3, n0, _ASVO,
   0,
-  [_VN, _SVS, _AS, _IOPS, _MAS, _ST, _STt],
-  [0, 0, 1, 1, 1, 1, 0]
+  [_VN, _SVS, _SOS, _SOPP, _AS, _IOPS, _MAS, _ST, _STt],
+  [0, 0, 0, 1, 1, 1, 1, 1, 0]
 ];
 export var AddRoleToDBClusterMessage$: StaticStructureSchema = [3, n0, _ARTDBCM,
   0,
@@ -3107,8 +3109,8 @@ export var DBEngineVersionMessage$: StaticStructureSchema = [3, n0, _DBEVM,
 ];
 export var DBInstance$: StaticStructureSchema = [3, n0, _DBI,
   0,
-  [_DBII, _DBIC, _E, _DBIS, _MU, _DBN, _End, _AS, _ICTn, _PBW, _BRP, _DBSGe, _VSG, _DBPGa, _AZ, _DBSGu, _PMW, _URO, _PMV, _LRT, _MAZ, _EV, _AMVU, _RRSDBII, _RRDBII, _RRDBCI, _RM, _LM, _I, _ST, _OGM, _CSN, _NCSN, _SAZe, _PA, _SIt, _STt, _SET, _TCA, _DIP, _DBCI, _SE, _KKI, _DRI, _CACI, _DM, _CTTS, _MIo, _EMRA, _MRA, _PT, _DBIA, _Ti, _IAMDAE, _DIM, _PIE, _PIKMSKI, _PIRP, _ECLEn, _PF, _DP, _AR, _LE, _MAS, _TL, _AM, _RFAMT, _COIE, _NT, _ASS, _ASKKI, _ASKSN, _ASM, _ASENAFI, _ABRPA, _DBIABR, _BTa, _ART, _CIIP, _ASPS, _CD, _DBSI, _MUS, _RRSDBCI, _PP, _MT, _DLV, _ISCUA, _ELS, _ASVd, _SVS],
-  [0, 0, 0, 0, 0, 0, () => Endpoint$, 1, 4, 0, 1, [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => DBParameterGroupStatusList, 0], 0, [() => DBSubnetGroup$, 0], 0, 0, [() => PendingModifiedValues$, 0], 4, 2, 0, 2, 0, [() => ReadReplicaDBInstanceIdentifierList, 0], [() => ReadReplicaDBClusterIdentifierList, 0], 0, 0, 1, 1, [() => OptionGroupMembershipList, 0], 0, 0, 0, 2, [() => DBInstanceStatusInfoList, 0], 0, 0, 0, 1, 0, 2, 0, 0, 0, [() => DomainMembershipList, 0], 2, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, [() => DBInstanceRoles, 0], () => Endpoint$, 1, [() => TagList, 0], 0, 4, 2, 0, 0, 0, 0, 0, 2, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 4, 0, 0, () => CertificateDetails$, 0, () => MasterUserSecret$, 0, 0, 2, 2, 2, 0, () => AdditionalStorageVolumesOutputList, 0]
+  [_DBII, _DBIC, _E, _DBIS, _MU, _DBN, _End, _AS, _ICTn, _PBW, _BRP, _DBSGe, _VSG, _DBPGa, _AZ, _DBSGu, _PMW, _URO, _PMV, _LRT, _MAZ, _EV, _AMVU, _RRSDBII, _RRDBII, _RRDBCI, _RM, _LM, _I, _ST, _OGM, _CSN, _NCSN, _SAZe, _PA, _SIt, _STt, _SET, _TCA, _DIP, _DBCI, _SE, _KKI, _DRI, _CACI, _DM, _CTTS, _MIo, _EMRA, _MRA, _PT, _DBIA, _Ti, _IAMDAE, _DIM, _PIE, _PIKMSKI, _PIRP, _ECLEn, _PF, _DP, _AR, _LE, _MAS, _TL, _AM, _RFAMT, _COIE, _NT, _ASS, _ASKKI, _ASKSN, _ASM, _ASENAFI, _ABRPA, _DBIABR, _BTa, _ART, _CIIP, _ASPS, _CD, _DBSI, _MUS, _RRSDBCI, _PP, _MT, _DLV, _ISCUA, _ELS, _ASVd, _SVS, _SOS, _SOPP],
+  [0, 0, 0, 0, 0, 0, () => Endpoint$, 1, 4, 0, 1, [() => DBSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => DBParameterGroupStatusList, 0], 0, [() => DBSubnetGroup$, 0], 0, 0, [() => PendingModifiedValues$, 0], 4, 2, 0, 2, 0, [() => ReadReplicaDBInstanceIdentifierList, 0], [() => ReadReplicaDBClusterIdentifierList, 0], 0, 0, 1, 1, [() => OptionGroupMembershipList, 0], 0, 0, 0, 2, [() => DBInstanceStatusInfoList, 0], 0, 0, 0, 1, 0, 2, 0, 0, 0, [() => DomainMembershipList, 0], 2, 1, 0, 0, 1, 0, 0, 2, 0, 2, 0, 1, 64 | 0, [() => ProcessorFeatureList, 0], 2, [() => DBInstanceRoles, 0], () => Endpoint$, 1, [() => TagList, 0], 0, 4, 2, 0, 0, 0, 0, 0, 2, 0, [() => DBInstanceAutomatedBackupsReplicationList, 0], 0, 4, 0, 0, () => CertificateDetails$, 0, () => MasterUserSecret$, 0, 0, 2, 2, 2, 0, () => AdditionalStorageVolumesOutputList, 0, 0, 1]
 ];
 export var DBInstanceAutomatedBackup$: StaticStructureSchema = [3, n0, _DBIAB,
   0,

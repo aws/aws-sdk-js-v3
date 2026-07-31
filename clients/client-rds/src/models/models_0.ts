@@ -132,6 +132,18 @@ export interface AdditionalStorageVolumeOutput {
   StorageVolumeStatus?: string | undefined;
 
   /**
+   * <p>The status of an in-progress storage operation on the additional storage volume. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active. Possible values:</p> <ul> <li> <p> <code>Initializing</code> - The volume is initializing from a snapshot, such as during a snapshot restore, point-in-time restore, read replica creation, or blue/green deployment. Performance can be lower than provisioned until initialization completes.</p> </li> <li> <p> <code>Optimizing</code> - The volume is optimizing following a storage scaling or modification operation.</p> </li> </ul>
+   * @public
+   */
+  StorageOperationStatus?: string | undefined;
+
+  /**
+   * <p>The percentage of the in-progress storage operation on the additional storage volume that has completed, from <code>0</code> to <code>100</code>. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active.</p>
+   * @public
+   */
+  StorageOperationPercentProgress?: number | undefined;
+
+  /**
    * <p>The amount of storage allocated for the additional storage volume, in gibibytes (GiB). The minimum is 20 GiB. The maximum is 65,536 GiB (64 TiB).</p>
    * @public
    */
@@ -5325,6 +5337,18 @@ export interface DBInstance {
    * @public
    */
   StorageVolumeStatus?: string | undefined;
+
+  /**
+   * <p>The status of an in-progress storage operation on the DB instance. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active. Possible values:</p> <ul> <li> <p> <code>Initializing</code> - The volume is initializing from a snapshot, such as during a snapshot restore, point-in-time restore, read replica creation, or blue/green deployment. Performance can be lower than provisioned until initialization completes.</p> </li> <li> <p> <code>Optimizing</code> - The volume is optimizing following a storage scaling or modification operation.</p> </li> </ul>
+   * @public
+   */
+  StorageOperationStatus?: string | undefined;
+
+  /**
+   * <p>The percentage of the in-progress storage operation on the DB instance that has completed, from <code>0</code> to <code>100</code>. This field appears only while a storage operation is in progress. It isn't present when no storage operation is active.</p>
+   * @public
+   */
+  StorageOperationPercentProgress?: number | undefined;
 }
 
 /**

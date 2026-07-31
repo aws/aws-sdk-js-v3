@@ -278,6 +278,8 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * //       { // AdditionalStorageVolumeOutput
  * //         VolumeName: "STRING_VALUE",
  * //         StorageVolumeStatus: "STRING_VALUE",
+ * //         StorageOperationStatus: "STRING_VALUE",
+ * //         StorageOperationPercentProgress: Number("int"),
  * //         AllocatedStorage: Number("int"),
  * //         IOPS: Number("int"),
  * //         MaxAllocatedStorage: Number("int"),
@@ -286,6 +288,8 @@ export interface SwitchoverReadReplicaCommandOutput extends SwitchoverReadReplic
  * //       },
  * //     ],
  * //     StorageVolumeStatus: "STRING_VALUE",
+ * //     StorageOperationStatus: "STRING_VALUE",
+ * //     StorageOperationPercentProgress: Number("int"),
  * //   },
  * // };
  *

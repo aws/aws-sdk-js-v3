@@ -926,6 +926,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <StorageVolumeStatus>
                     __StorageVolumeStatus__
                 </StorageVolumeStatus>
+                <StorageOperationStatus>
+                    __StorageOperationStatus__
+                </StorageOperationStatus>
+                <StorageOperationPercentProgress>
+                    0
+                </StorageOperationPercentProgress>
                 <AllocatedStorage>
                     0
                 </AllocatedStorage>
@@ -949,6 +955,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <StorageVolumeStatus>
                     __StorageVolumeStatus__
                 </StorageVolumeStatus>
+                <StorageOperationStatus>
+                    __StorageOperationStatus__
+                </StorageOperationStatus>
+                <StorageOperationPercentProgress>
+                    0
+                </StorageOperationPercentProgress>
                 <AllocatedStorage>
                     0
                 </AllocatedStorage>
@@ -972,6 +984,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 <StorageVolumeStatus>
                     __StorageVolumeStatus__
                 </StorageVolumeStatus>
+                <StorageOperationStatus>
+                    __StorageOperationStatus__
+                </StorageOperationStatus>
+                <StorageOperationPercentProgress>
+                    0
+                </StorageOperationPercentProgress>
                 <AllocatedStorage>
                     0
                 </AllocatedStorage>
@@ -992,6 +1010,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <StorageVolumeStatus>
             __StorageVolumeStatus__
         </StorageVolumeStatus>
+        <StorageOperationStatus>
+            __StorageOperationStatus__
+        </StorageOperationStatus>
+        <StorageOperationPercentProgress>
+            0
+        </StorageOperationPercentProgress>
     </DBInstance>
 </RebootDBInstanceResult>
 

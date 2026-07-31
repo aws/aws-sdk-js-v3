@@ -291,6 +291,8 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //       { // AdditionalStorageVolumeOutput
  * //         VolumeName: "STRING_VALUE",
  * //         StorageVolumeStatus: "STRING_VALUE",
+ * //         StorageOperationStatus: "STRING_VALUE",
+ * //         StorageOperationPercentProgress: Number("int"),
  * //         AllocatedStorage: Number("int"),
  * //         IOPS: Number("int"),
  * //         MaxAllocatedStorage: Number("int"),
@@ -299,6 +301,8 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //       },
  * //     ],
  * //     StorageVolumeStatus: "STRING_VALUE",
+ * //     StorageOperationStatus: "STRING_VALUE",
+ * //     StorageOperationPercentProgress: Number("int"),
  * //   },
  * // };
  *
