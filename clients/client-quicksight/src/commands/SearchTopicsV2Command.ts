@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchTopicsRequest, SearchTopicsResponse } from "../models/models_5";
-import { SearchTopics$ } from "../schemas/schemas_0";
+import type { SearchTopicsV2Request, SearchTopicsV2Response } from "../models/models_5";
+import { SearchTopicsV2$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,27 +12,27 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link SearchTopicsCommand}.
+ * The input for {@link SearchTopicsV2Command}.
  */
-export interface SearchTopicsCommandInput extends SearchTopicsRequest {}
+export interface SearchTopicsV2CommandInput extends SearchTopicsV2Request {}
 /**
  * @public
  *
- * The output of {@link SearchTopicsCommand}.
+ * The output of {@link SearchTopicsV2Command}.
  */
-export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __MetadataBearer {}
+export interface SearchTopicsV2CommandOutput extends SearchTopicsV2Response, __MetadataBearer {}
 
 /**
- * <p>Searches for any Q topic that exists in an Quick account.</p>
+ * <p>Searches for any Q topic that exists in an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, SearchTopicsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, SearchTopicsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchTopicsV2Command } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, SearchTopicsV2Command } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * // import type { QuickSightClientConfig } from "@aws-sdk/client-quicksight";
  * const config = {}; // type is QuickSightClientConfig
  * const client = new QuickSightClient(config);
- * const input = { // SearchTopicsRequest
+ * const input = { // SearchTopicsV2Request
  *   AwsAccountId: "STRING_VALUE", // required
  *   Filters: [ // TopicSearchFilterList // required
  *     { // TopicSearchFilter
@@ -44,15 +44,14 @@ export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __Metad
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
- * const command = new SearchTopicsCommand(input);
+ * const command = new SearchTopicsV2Command(input);
  * const response = await client.send(command);
- * // { // SearchTopicsResponse
- * //   TopicSummaryList: [ // TopicSummaries
- * //     { // TopicSummary
+ * // { // SearchTopicsV2Response
+ * //   TopicSummaryList: [ // TopicV2Summaries
+ * //     { // TopicV2Summary
  * //       Arn: "STRING_VALUE",
  * //       TopicId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       UserExperienceVersion: "LEGACY" || "NEW_READER_EXPERIENCE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -62,10 +61,10 @@ export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __Metad
  *
  * ```
  *
- * @param SearchTopicsCommandInput - {@link SearchTopicsCommandInput}
- * @returns {@link SearchTopicsCommandOutput}
- * @see {@link SearchTopicsCommandInput} for command's `input` shape.
- * @see {@link SearchTopicsCommandOutput} for command's `response` shape.
+ * @param SearchTopicsV2CommandInput - {@link SearchTopicsV2CommandInput}
+ * @returns {@link SearchTopicsV2CommandOutput}
+ * @see {@link SearchTopicsV2CommandInput} for command's `input` shape.
+ * @see {@link SearchTopicsV2CommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -89,33 +88,27 @@ export interface SearchTopicsCommandOutput extends SearchTopicsResponse, __Metad
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Access is throttled.</p>
  *
- * @throws {@link UnsupportedUserEditionException} (client fault)
- *  <p>This error indicates that you are calling an operation on an Amazon Quick Suite
- * 			subscription where the edition doesn't include support for that operation. Amazon
- * 			Quick Suite currently has Standard Edition and Enterprise Edition. Not every operation and
- * 			capability is available in every edition.</p>
- *
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
  *
  * @public
  */
-export class SearchTopicsCommand extends command<SearchTopicsCommandInput, SearchTopicsCommandOutput>(
+export class SearchTopicsV2Command extends command<SearchTopicsV2CommandInput, SearchTopicsV2CommandOutput>(
   _ep0,
   _mw0,
-  "SearchTopics",
-  SearchTopics$
+  "SearchTopicsV2",
+  SearchTopicsV2$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: SearchTopicsRequest;
-      output: SearchTopicsResponse;
+      input: SearchTopicsV2Request;
+      output: SearchTopicsV2Response;
     };
     sdk: {
-      input: SearchTopicsCommandInput;
-      output: SearchTopicsCommandOutput;
+      input: SearchTopicsV2CommandInput;
+      output: SearchTopicsV2CommandOutput;
     };
   };
 }

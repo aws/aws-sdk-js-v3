@@ -2748,6 +2748,7 @@ export type ConstantType = (typeof ConstantType)[keyof typeof ConstantType];
  */
 export const FilterClass = {
   CONDITIONAL_VALUE_FILTER: "CONDITIONAL_VALUE_FILTER",
+  DASHBOARD_DEFAULT_FILTER: "DASHBOARD_DEFAULT_FILTER",
   ENFORCED_VALUE_FILTER: "ENFORCED_VALUE_FILTER",
   NAMED_VALUE_FILTER: "NAMED_VALUE_FILTER",
 } as const;
@@ -3667,6 +3668,20 @@ export type DefaultAggregation = (typeof DefaultAggregation)[keyof typeof Defaul
  * @public
  * @enum
  */
+export const NullFilterType = {
+  ALL_VALUES: "ALL_VALUES",
+  NON_NULLS_ONLY: "NON_NULLS_ONLY",
+  NULLS_ONLY: "NULLS_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type NullFilterType = (typeof NullFilterType)[keyof typeof NullFilterType];
+
+/**
+ * @public
+ * @enum
+ */
 export const NamedFilterType = {
   CATEGORY_FILTER: "CATEGORY_FILTER",
   DATE_RANGE_FILTER: "DATE_RANGE_FILTER",
@@ -3679,20 +3694,6 @@ export const NamedFilterType = {
  * @public
  */
 export type NamedFilterType = (typeof NamedFilterType)[keyof typeof NamedFilterType];
-
-/**
- * @public
- * @enum
- */
-export const NullFilterType = {
-  ALL_VALUES: "ALL_VALUES",
-  NON_NULLS_ONLY: "NON_NULLS_ONLY",
-  NULLS_ONLY: "NULLS_ONLY",
-} as const;
-/**
- * @public
- */
-export type NullFilterType = (typeof NullFilterType)[keyof typeof NullFilterType];
 
 /**
  * @public
@@ -4638,3 +4639,16 @@ export const SelfUpgradeAdminAction = {
  * @public
  */
 export type SelfUpgradeAdminAction = (typeof SelfUpgradeAdminAction)[keyof typeof SelfUpgradeAdminAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const TopicV2PublishOption = {
+  DRAFT: "DRAFT",
+  PUBLISH: "PUBLISH",
+} as const;
+/**
+ * @public
+ */
+export type TopicV2PublishOption = (typeof TopicV2PublishOption)[keyof typeof TopicV2PublishOption];

@@ -58,6 +58,9 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * //     DataSetArns: [ // DataSetArnsList
  * //       "STRING_VALUE",
  * //     ],
+ * //     TopicArns: [ // TopicArnsList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     ThemeArn: "STRING_VALUE",
  * //     CreatedTime: new Date("TIMESTAMP"),
  * //     LastUpdatedTime: new Date("TIMESTAMP"),
@@ -131,7 +134,8 @@ export interface DescribeAnalysisCommandOutput extends DescribeAnalysisResponse,
  * //                             SourceParameterName: "STRING_VALUE",
  * //                             SourceField: "STRING_VALUE",
  * //                             SourceColumn: { // ColumnIdentifier
- * //                               DataSetIdentifier: "STRING_VALUE", // required
+ * //                               DataSetIdentifier: "STRING_VALUE",
+ * //                               TopicIdentifier: "STRING_VALUE",
  * //                               ColumnName: "STRING_VALUE", // required
  * //                             },
  * //                           },

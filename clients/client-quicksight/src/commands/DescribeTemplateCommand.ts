@@ -83,6 +83,30 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  * //           ],
  * //         },
  * //       ],
+ * //       TopicConfigurations: [ // TopicConfigurationList
+ * //         { // TopicConfiguration
+ * //           Placeholder: "STRING_VALUE",
+ * //           DataSetSchema: {
+ * //             ColumnSchemaList: [
+ * //               {
+ * //                 Name: "STRING_VALUE",
+ * //                 DataType: "STRING_VALUE",
+ * //                 GeographicRole: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           ColumnGroupSchemaList: [
+ * //             {
+ * //               Name: "STRING_VALUE",
+ * //               ColumnGroupColumnSchemaList: [
+ * //                 {
+ * //                   Name: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
  * //       Description: "STRING_VALUE",
  * //       SourceEntityArn: "STRING_VALUE",
  * //       ThemeArn: "STRING_VALUE",
@@ -156,7 +180,8 @@ export interface DescribeTemplateCommandOutput extends DescribeTemplateResponse,
  * //                               SourceParameterName: "STRING_VALUE",
  * //                               SourceField: "STRING_VALUE",
  * //                               SourceColumn: { // ColumnIdentifier
- * //                                 DataSetIdentifier: "STRING_VALUE", // required
+ * //                                 DataSetIdentifier: "STRING_VALUE",
+ * //                                 TopicIdentifier: "STRING_VALUE",
  * //                                 ColumnName: "STRING_VALUE", // required
  * //                               },
  * //                             },

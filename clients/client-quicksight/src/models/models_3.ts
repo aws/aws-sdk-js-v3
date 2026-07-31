@@ -64,6 +64,7 @@ import type {
   TimeGranularity,
   TopicRelativeDateFilterFunction,
   TopicScheduleType,
+  TopicSortDirection,
   TopicTimeGranularity,
   TopicUserExperienceVersion,
   VideoExtractionStatus,
@@ -86,6 +87,7 @@ import type {
   CalculatedField,
   ColumnConfiguration,
   DataPrepAggregationFunction,
+  DataSetColumnIdMapping,
   Entity,
   FilterGroup,
   FontConfiguration,
@@ -110,8 +112,6 @@ import type {
   AssetBundleImportSourceDescription,
   AudioExtractionConfiguration,
   BorderStyle,
-  BrandDefinition,
-  BrandDetail,
   Capabilities,
   CastColumnTypeOperation,
   CastColumnTypesOperation,
@@ -127,18 +127,16 @@ import type {
   ComparativeOrder,
   ControlTitleFontConfiguration,
   CreateColumnsOperation,
-  DashboardPublishOptions,
-  DashboardVersionDefinition,
+  DataSetDateFilterCondition,
+  DataSetNumericFilterCondition,
   DataSetReference,
+  DataSetStringComparisonFilterCondition,
+  DataSetStringListFilterCondition,
   DataSourceParameters,
   DestinationTable,
   DisplayFormatOptions,
-  FilterOperation,
-  FiltersOperation,
   Governance,
-  ImportTableOperationSource,
   InputColumn,
-  LinkSharingConfiguration,
   ResourcePermission,
   SheetDefinition,
   SourceTable,
@@ -146,9 +144,107 @@ import type {
   StaticFile,
   Tag,
   TooltipSheetDefinition,
+  TopicReference,
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>A filter condition for string columns, supporting both comparison and list-based filtering.</p>
+ * @public
+ */
+export interface DataSetStringFilterCondition {
+  /**
+   * <p>The name of the string column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the string column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetStringComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A list-based filter condition that includes or excludes values from a specified list.</p>
+   * @public
+   */
+  ListFilterCondition?: DataSetStringListFilterCondition | undefined;
+}
+
+/**
+ * <p>A transform operation that filters rows based on a condition.</p>
+ * @public
+ */
+export interface FilterOperation {
+  /**
+   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
+   *             evaluates to true are kept in the dataset.</p>
+   * @public
+   */
+  ConditionExpression?: string | undefined;
+
+  /**
+   * <p>A string-based filter condition within a filter operation.</p>
+   * @public
+   */
+  StringFilterCondition?: DataSetStringFilterCondition | undefined;
+
+  /**
+   * <p>A numeric-based filter condition within a filter operation.</p>
+   * @public
+   */
+  NumericFilterCondition?: DataSetNumericFilterCondition | undefined;
+
+  /**
+   * <p>A date-based filter condition within a filter operation.</p>
+   * @public
+   */
+  DateFilterCondition?: DataSetDateFilterCondition | undefined;
+}
+
+/**
+ * <p>A transform operation that applies one or more filter conditions.</p>
+ * @public
+ */
+export interface FiltersOperation {
+  /**
+   * <p>Alias for this operation.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The source transform operation that provides input data for filtering.</p>
+   * @public
+   */
+  Source: TransformOperationSource | undefined;
+
+  /**
+   * <p>The list of filter operations to apply.</p>
+   * @public
+   */
+  FilterOperations: FilterOperation[] | undefined;
+}
+
+/**
+ * <p>Specifies the source table and column mappings for an import table operation.</p>
+ * @public
+ */
+export interface ImportTableOperationSource {
+  /**
+   * <p>The identifier of the source table to import data from.</p>
+   * @public
+   */
+  SourceTableId: string | undefined;
+
+  /**
+   * <p>The mappings between source column identifiers and target column identifiers during the import.</p>
+   * @public
+   */
+  ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
+}
 
 /**
  * <p>A transform operation that imports data from a source table.</p>
@@ -3604,6 +3700,30 @@ export interface DataSetConfiguration {
 }
 
 /**
+ * <p>The configuration of a topic.</p>
+ * @public
+ */
+export interface TopicConfiguration {
+  /**
+   * <p>The placeholder for the topic configuration.</p>
+   * @public
+   */
+  Placeholder?: string | undefined;
+
+  /**
+   * <p>Topic schema.</p>
+   * @public
+   */
+  DataSetSchema?: DataSetSchema | undefined;
+
+  /**
+   * <p>The list of column group schemas in the topic configuration.</p>
+   * @public
+   */
+  ColumnGroupSchemaList?: ColumnGroupSchema[] | undefined;
+}
+
+/**
  * <p>The detailed definition of a template.</p>
  * @public
  */
@@ -3613,6 +3733,12 @@ export interface TemplateVersionDefinition {
    * @public
    */
   DataSetConfigurations: DataSetConfiguration[] | undefined;
+
+  /**
+   * <p>An array of topic configurations. These configurations define the required columns for each topic used within a template.</p>
+   * @public
+   */
+  TopicConfigurations?: TopicConfiguration[] | undefined;
 
   /**
    * <p>An array of sheet definitions for a template.</p>
@@ -3700,6 +3826,13 @@ export interface TemplateSourceAnalysis {
    * @public
    */
   DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * <p>A structure containing information about the topic references used as placeholders
+   *             in the template.</p>
+   * @public
+   */
+  TopicReferences?: TopicReference[] | undefined;
 }
 
 /**
@@ -3771,7 +3904,9 @@ export interface CreateTemplateRequest {
    * 			ARN can contain any Amazon Web Services account and any Quick Sight-supported Amazon Web Services Region. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> or
    * 			<code>SourceAnalysis</code> to list the replacement datasets for the placeholders listed
-   * 			in the original. The schema in each dataset must match its placeholder. </p>
+   * 			in the original. The schema in each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   * 			entity to list the replacement topics for the topic placeholders listed in the original.
+   * 			The schema in each topic must match its placeholder.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
    * 			order for the request to be valid.</p>
    * @public
@@ -4925,6 +5060,12 @@ export interface TopicCategoryFilter {
    * @public
    */
   Inverse?: boolean | undefined;
+
+  /**
+   * <p>The <code>null</code> filter that is applied to the category filter.</p>
+   * @public
+   */
+  NullFilter?: NullFilterType | undefined;
 }
 
 /**
@@ -4981,6 +5122,12 @@ export interface TopicDateRangeFilter {
    * @public
    */
   Constant?: TopicRangeFilterConstant | undefined;
+
+  /**
+   * <p>The <code>null</code> filter that is applied to the date range filter.</p>
+   * @public
+   */
+  NullFilter?: NullFilterType | undefined;
 }
 
 /**
@@ -5046,6 +5193,18 @@ export interface TopicNumericEqualityFilter {
    * @public
    */
   Aggregation?: NamedFilterAggType | undefined;
+
+  /**
+   * <p>A Boolean value that indicates if the filter is inverse.</p>
+   * @public
+   */
+  Inverse?: boolean | undefined;
+
+  /**
+   * <p>The <code>null</code> filter that is applied to the numeric equality filter.</p>
+   * @public
+   */
+  NullFilter?: NullFilterType | undefined;
 }
 
 /**
@@ -5079,6 +5238,18 @@ export interface TopicNumericRangeFilter {
    * @public
    */
   Aggregation?: NamedFilterAggType | undefined;
+
+  /**
+   * <p>A Boolean value that indicates if the filter is inverse.</p>
+   * @public
+   */
+  Inverse?: boolean | undefined;
+
+  /**
+   * <p>The <code>null</code> filter that is applied to the numeric range filter.</p>
+   * @public
+   */
+  NullFilter?: NullFilterType | undefined;
 }
 
 /**
@@ -5104,6 +5275,12 @@ export interface TopicRelativeDateFilter {
    * @public
    */
   Constant?: TopicSingularFilterConstant | undefined;
+
+  /**
+   * <p>The <code>null</code> filter that is applied to the relative date filter.</p>
+   * @public
+   */
+  NullFilter?: NullFilterType | undefined;
 }
 
 /**
@@ -5250,6 +5427,24 @@ export interface NamedEntityDefinition {
    * @public
    */
   Metric?: NamedEntityDefinitionMetric | undefined;
+
+  /**
+   * <p>The rank order of the named entity definition.</p>
+   * @public
+   */
+  RankOrder?: number | undefined;
+
+  /**
+   * <p>The presentation order of the named entity definition.</p>
+   * @public
+   */
+  PresentationOrder?: number | undefined;
+
+  /**
+   * <p>A Boolean value that indicates whether the named entity definition is hidden.</p>
+   * @public
+   */
+  IsHidden?: boolean | undefined;
 }
 
 /**
@@ -5274,6 +5469,25 @@ export interface SemanticEntityType {
    * @public
    */
   TypeParameters?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A structure that represents a sort for a named entity.</p>
+ * @public
+ */
+export interface NamedEntitySort {
+  /**
+   * <p>The name of the field that is used for the sort.</p>
+   * @public
+   */
+  FieldName: string | undefined;
+
+  /**
+   * <p>The direction of the sort. Valid values are <code>ASCENDING</code> and
+   *          <code>DESCENDING</code>.</p>
+   * @public
+   */
+  Direction: TopicSortDirection | undefined;
 }
 
 /**
@@ -5311,6 +5525,24 @@ export interface TopicNamedEntity {
    * @public
    */
   Definition?: NamedEntityDefinition[] | undefined;
+
+  /**
+   * <p>The sort configuration of the named entity.</p>
+   * @public
+   */
+  Sort?: NamedEntitySort[] | undefined;
+
+  /**
+   * <p>The rank order of the named entity.</p>
+   * @public
+   */
+  RankOrder?: number | undefined;
+
+  /**
+   * <p>The presentation order of the named entity.</p>
+   * @public
+   */
+  PresentationOrder?: number | undefined;
 }
 
 /**
@@ -5600,6 +5832,162 @@ export interface CreateTopicRefreshScheduleResponse {
 }
 
 /**
+ * <p>A structure that represents an endpoint of a data set relation of a topic.</p>
+ * @public
+ */
+export interface TopicV2DataSetRelationEndpoint {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data set at this endpoint of the relation.</p>
+   * @public
+   */
+  DataSetArn: string | undefined;
+
+  /**
+   * <p>The names of the columns that are used in the data set relation.</p>
+   * @public
+   */
+  ColumnNames: string[] | undefined;
+}
+
+/**
+ * <p>A structure that represents a relation between two data sets of a topic.</p>
+ * @public
+ */
+export interface TopicV2DataSetRelation {
+  /**
+   * <p>The left endpoint of the data set relation.</p>
+   * @public
+   */
+  Left: TopicV2DataSetRelationEndpoint | undefined;
+
+  /**
+   * <p>The right endpoint of the data set relation.</p>
+   * @public
+   */
+  Right: TopicV2DataSetRelationEndpoint | undefined;
+}
+
+/**
+ * <p>A structure that represents a data set reference of a topic.</p>
+ * @public
+ */
+export interface TopicV2DataSetReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the data set.</p>
+   * @public
+   */
+  DataSetArn: string | undefined;
+
+  /**
+   * <p>The name of the data set.</p>
+   * @public
+   */
+  DataSetName?: string | undefined;
+}
+
+/**
+ * <p>The definition of a topic.</p>
+ * @public
+ */
+export interface TopicV2Details {
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the topic.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The data sets that the topic is associated with.</p>
+   * @public
+   */
+  DataSets?: TopicV2DataSetReference[] | undefined;
+
+  /**
+   * <p>The relations between the data sets that the topic is associated with.</p>
+   * @public
+   */
+  DataSetRelations?: TopicV2DataSetRelation[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that you want to create a topic in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>The definition of a topic to create.</p>
+   * @public
+   */
+  Topic: TopicV2Details | undefined;
+
+  /**
+   * <p>Contains a map of the key-value pairs for the resource tag or tags that are assigned to
+   *          the topic.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the folders that you want the topic to reside
+   *          in.</p>
+   * @public
+   */
+  FolderArns?: string[] | undefined;
+
+  /**
+   * <p>Instructions that provide additional guidance and context for response generation.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTopicV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the topic that you want to create. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateVPCConnectionRequest {
@@ -5795,11 +6183,18 @@ export interface DashboardVersion {
   SourceEntityArn?: string | undefined;
 
   /**
-   * <p>The Amazon Resource Numbers (ARNs) for the datasets that are associated with this
+   * <p>The Amazon Resource Names (ARNs) for the datasets that are associated with this
    *             version of the dashboard.</p>
    * @public
    */
   DataSetArns?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) for the topics that are associated with this
+   *             version of the dashboard.</p>
+   * @public
+   */
+  TopicArns?: string[] | undefined;
 
   /**
    * <p>Description.</p>
@@ -8094,6 +8489,53 @@ export interface DeleteTopicRefreshScheduleResponse {
 /**
  * @public
  */
+export interface DeleteTopicV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTopicV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to delete. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteUserRequest {
   /**
    * <p>The name of the user that you want to delete.</p>
@@ -9280,450 +9722,4 @@ export interface DescribeBrandRequest {
    * @public
    */
   VersionId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The details of the brand.</p>
-   * @public
-   */
-  BrandDetail?: BrandDetail | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandAssignmentRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandAssignmentResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the brand.</p>
-   * @public
-   */
-  BrandArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandPublishedVersionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the Quick brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandPublishedVersionResponse {
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The details of the brand.</p>
-   * @public
-   */
-  BrandDetail?: BrandDetail | undefined;
-
-  /**
-   * <p>The definition of the brand.</p>
-   * @public
-   */
-  BrandDefinition?: BrandDefinition | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCustomPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want described.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The name of the custom permissions profile to describe.</p>
-   * @public
-   */
-  CustomPermissionsName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCustomPermissionsResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The custom permissions profile.</p>
-   * @public
-   */
-  CustomPermissions?: CustomPermissions | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number for the dashboard. If a version number isn't passed, the
-   *             latest published dashboard version is described. </p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias name.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardResponse {
-  /**
-   * <p>Information about the dashboard.</p>
-   * @public
-   */
-  Dashboard?: Dashboard | undefined;
-
-  /**
-   * <p>The HTTP status of this request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             describing.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The version number for the dashboard. If a version number isn't passed, the
-   *             latest published dashboard version is described. </p>
-   * @public
-   */
-  VersionNumber?: number | undefined;
-
-  /**
-   * <p>The alias name.</p>
-   * @public
-   */
-  AliasName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardDefinitionResponse {
-  /**
-   * <p>The ID of the dashboard described.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>Errors associated with this dashboard version.</p>
-   * @public
-   */
-  Errors?: DashboardError[] | undefined;
-
-  /**
-   * <p>The display name of the dashboard.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Status associated with the dashboard version.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the dashboard.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of a dashboard.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: DashboardVersionDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>Options for publishing the dashboard:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
-   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
-   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
-   *                     option is <code>ENABLED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
-   *                     option to export data to .CSV format isn't enabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
-   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
-   *                     This option is <code>COLLAPSED</code> by default. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
-   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
-   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
-   *                     by default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
-   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
-   *                     to build an executive summary is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
-   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
-   *                     option to share a data story is disabled when this is set to
-   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
-   *                     default.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DashboardPublishOptions?: DashboardPublishOptions | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
-   *             describing permissions for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the dashboard, also added to the IAM policy.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardPermissionsResponse {
-  /**
-   * <p>The ID for the dashboard.</p>
-   * @public
-   */
-  DashboardId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
-   * @public
-   */
-  DashboardArn?: string | undefined;
-
-  /**
-   * <p>A structure that contains the permissions for the dashboard.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>A structure that contains the configuration of a shareable link that grants access to
-   *             the dashboard. Your users can use the link to view and interact with the dashboard, if
-   *             the dashboard has been shared with them. For more information about sharing dashboards,
-   *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
-   * @public
-   */
-  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeDashboardSnapshotJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
-   * @public
-   */
-  DashboardId: string | undefined;
-
-  /**
-   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
-   * @public
-   */
-  SnapshotJobId: string | undefined;
 }

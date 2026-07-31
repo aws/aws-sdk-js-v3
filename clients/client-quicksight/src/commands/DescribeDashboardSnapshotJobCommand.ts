@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeDashboardSnapshotJobRequest } from "../models/models_3";
-import type { DescribeDashboardSnapshotJobResponse } from "../models/models_4";
+import type { DescribeDashboardSnapshotJobRequest, DescribeDashboardSnapshotJobResponse } from "../models/models_4";
 import { DescribeDashboardSnapshotJob$ } from "../schemas/schemas_0";
 
 /**

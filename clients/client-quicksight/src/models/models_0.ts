@@ -1440,7 +1440,13 @@ export interface ColumnIdentifier {
    * <p>The data set that the column belongs to.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that the column belongs to.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The name of the column.</p>
@@ -2120,6 +2126,12 @@ export interface Analysis {
   DataSetArns?: string[] | undefined;
 
   /**
+   * <p>The ARNs of the topics associated with the analysis.</p>
+   * @public
+   */
+  TopicArns?: string[] | undefined;
+
+  /**
    * <p>The ARN of the theme of the analysis.</p>
    * @public
    */
@@ -2397,7 +2409,13 @@ export interface CalculatedField {
    * <p>The data set that is used in this calculated field.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that is used in this calculated field.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The name of the calculated field.</p>
@@ -4732,6 +4750,72 @@ export interface VisualCustomActionDefaults {
 }
 
 /**
+ * <p>The configuration for a customizable message displayed on a visual. Supports parameter substitution in text fields.</p>
+ * @public
+ */
+export interface VisualMessageConfiguration {
+  /**
+   * <p>Specifies whether the custom message is displayed on the visual. When set to <code>true</code>, the custom message appears in place of the default message. When set to <code>false</code> or omitted, the default message is displayed.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The title text of the message that is displayed on the visual.</p>
+   * @public
+   */
+  Title?: string | undefined;
+
+  /**
+   * <p>Specifies whether the title of the message is displayed.</p>
+   * @public
+   */
+  TitleVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The description text of the message that is displayed on the visual.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether the description of the message is displayed.</p>
+   * @public
+   */
+  DescriptionVisibility?: Visibility | undefined;
+
+  /**
+   * <p>The display text of the hyperlink that is shown in the message.</p>
+   * @public
+   */
+  LinkText?: string | undefined;
+
+  /**
+   * <p>The destination URL of the hyperlink that is shown in the message. Only valid <code>http</code>, <code>https</code>, and <code>mailto</code> URLs are supported.</p>
+   * @public
+   */
+  LinkUrl?: string | undefined;
+
+  /**
+   * <p>Specifies whether the hyperlink in the message is displayed.</p>
+   * @public
+   */
+  LinkVisibility?: Visibility | undefined;
+}
+
+/**
+ * <p>The messages that are displayed on a visual under specific conditions, such as when the visual returns no data.</p>
+ * @public
+ */
+export interface VisualMessages {
+  /**
+   * <p>The message that is displayed on a visual when there is no data to display.</p>
+   * @public
+   */
+  NoDataMessage?: VisualMessageConfiguration | undefined;
+}
+
+/**
  * <p>An array of analysis level configurations.</p>
  * @public
  */
@@ -4765,6 +4849,12 @@ export interface AssetOptions {
    * @public
    */
   CustomActionDefaults?: VisualCustomActionDefaults | undefined;
+
+  /**
+   * <p>The configuration options for the messages that are displayed on visuals in the analysis.</p>
+   * @public
+   */
+  VisualMessages?: VisualMessages | undefined;
 }
 
 /**
@@ -8598,64 +8688,4 @@ export interface FieldSort {
    * @public
    */
   Direction: SortDirection | undefined;
-}
-
-/**
- * <p>The field sort options in a chart configuration.</p>
- * @public
- */
-export interface FieldSortOptions {
-  /**
-   * <p>The sort configuration for a field in a field well.</p>
-   * @public
-   */
-  FieldSort?: FieldSort | undefined;
-
-  /**
-   * <p>The sort configuration for a column that is not used in a field well.</p>
-   * @public
-   */
-  ColumnSort?: ColumnSort | undefined;
-}
-
-/**
- * <p>sort-configuration-description</p>
- * @public
- */
-export interface BarChartSortConfiguration {
-  /**
-   * <p>The sort configuration of category fields.</p>
-   * @public
-   */
-  CategorySort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The limit on the number of categories displayed in a bar chart.</p>
-   * @public
-   */
-  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
-
-  /**
-   * <p>The sort configuration of color fields in a bar chart.</p>
-   * @public
-   */
-  ColorSort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The limit on the number of values displayed in a bar chart.</p>
-   * @public
-   */
-  ColorItemsLimit?: ItemsLimitConfiguration | undefined;
-
-  /**
-   * <p>The sort configuration of the small multiples field.</p>
-   * @public
-   */
-  SmallMultiplesSort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The limit on the number of small multiples panels that are displayed.</p>
-   * @public
-   */
-  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
 }

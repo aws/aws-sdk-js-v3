@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_4";
+import type { SearchGroupsRequest, SearchGroupsResponse } from "../models/models_5";
 import { SearchGroups$ } from "../schemas/schemas_0";
 
 /**

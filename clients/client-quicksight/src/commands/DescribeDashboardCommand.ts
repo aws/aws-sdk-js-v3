@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/models_3";
+import type { DescribeDashboardRequest, DescribeDashboardResponse } from "../models/models_4";
 import { DescribeDashboard$ } from "../schemas/schemas_0";
 
 /**
@@ -63,6 +63,9 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * //       Arn: "STRING_VALUE",
  * //       SourceEntityArn: "STRING_VALUE",
  * //       DataSetArns: [ // DataSetArnsList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       TopicArns: [ // TopicArnsList
  * //         "STRING_VALUE",
  * //       ],
  * //       Description: "STRING_VALUE",
@@ -137,7 +140,8 @@ export interface DescribeDashboardCommandOutput extends DescribeDashboardRespons
  * //                               SourceParameterName: "STRING_VALUE",
  * //                               SourceField: "STRING_VALUE",
  * //                               SourceColumn: { // ColumnIdentifier
- * //                                 DataSetIdentifier: "STRING_VALUE", // required
+ * //                                 DataSetIdentifier: "STRING_VALUE",
+ * //                                 TopicIdentifier: "STRING_VALUE",
  * //                                 ColumnName: "STRING_VALUE", // required
  * //                               },
  * //                             },

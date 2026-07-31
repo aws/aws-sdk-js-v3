@@ -168,6 +168,11 @@ import {
   CreateTopicRefreshScheduleCommand,
 } from "./commands/CreateTopicRefreshScheduleCommand";
 import {
+  type CreateTopicV2CommandInput,
+  type CreateTopicV2CommandOutput,
+  CreateTopicV2Command,
+} from "./commands/CreateTopicV2Command";
+import {
   type CreateVPCConnectionCommandInput,
   type CreateVPCConnectionCommandOutput,
   CreateVPCConnectionCommand,
@@ -342,6 +347,11 @@ import {
   type DeleteTopicRefreshScheduleCommandOutput,
   DeleteTopicRefreshScheduleCommand,
 } from "./commands/DeleteTopicRefreshScheduleCommand";
+import {
+  type DeleteTopicV2CommandInput,
+  type DeleteTopicV2CommandOutput,
+  DeleteTopicV2Command,
+} from "./commands/DeleteTopicV2Command";
 import {
   type DeleteUserByPrincipalIdCommandInput,
   type DeleteUserByPrincipalIdCommandOutput,
@@ -663,6 +673,11 @@ import {
   DescribeTopicPermissionsCommand,
 } from "./commands/DescribeTopicPermissionsCommand";
 import {
+  type DescribeTopicPermissionsV2CommandInput,
+  type DescribeTopicPermissionsV2CommandOutput,
+  DescribeTopicPermissionsV2Command,
+} from "./commands/DescribeTopicPermissionsV2Command";
+import {
   type DescribeTopicRefreshCommandInput,
   type DescribeTopicRefreshCommandOutput,
   DescribeTopicRefreshCommand,
@@ -672,6 +687,11 @@ import {
   type DescribeTopicRefreshScheduleCommandOutput,
   DescribeTopicRefreshScheduleCommand,
 } from "./commands/DescribeTopicRefreshScheduleCommand";
+import {
+  type DescribeTopicV2CommandInput,
+  type DescribeTopicV2CommandOutput,
+  DescribeTopicV2Command,
+} from "./commands/DescribeTopicV2Command";
 import {
   type DescribeUserCommandInput,
   type DescribeUserCommandOutput,
@@ -914,6 +934,11 @@ import {
   ListTopicsCommand,
 } from "./commands/ListTopicsCommand";
 import {
+  type ListTopicsV2CommandInput,
+  type ListTopicsV2CommandOutput,
+  ListTopicsV2Command,
+} from "./commands/ListTopicsV2Command";
+import {
   type ListUserGroupsCommandInput,
   type ListUserGroupsCommandOutput,
   ListUserGroupsCommand,
@@ -1009,6 +1034,11 @@ import {
   type SearchTopicsCommandOutput,
   SearchTopicsCommand,
 } from "./commands/SearchTopicsCommand";
+import {
+  type SearchTopicsV2CommandInput,
+  type SearchTopicsV2CommandOutput,
+  SearchTopicsV2Command,
+} from "./commands/SearchTopicsV2Command";
 import {
   type StartAssetBundleExportJobCommandInput,
   type StartAssetBundleExportJobCommandOutput,
@@ -1320,10 +1350,20 @@ import {
   UpdateTopicPermissionsCommand,
 } from "./commands/UpdateTopicPermissionsCommand";
 import {
+  type UpdateTopicPermissionsV2CommandInput,
+  type UpdateTopicPermissionsV2CommandOutput,
+  UpdateTopicPermissionsV2Command,
+} from "./commands/UpdateTopicPermissionsV2Command";
+import {
   type UpdateTopicRefreshScheduleCommandInput,
   type UpdateTopicRefreshScheduleCommandOutput,
   UpdateTopicRefreshScheduleCommand,
 } from "./commands/UpdateTopicRefreshScheduleCommand";
+import {
+  type UpdateTopicV2CommandInput,
+  type UpdateTopicV2CommandOutput,
+  UpdateTopicV2Command,
+} from "./commands/UpdateTopicV2Command";
 import {
   type UpdateUserCommandInput,
   type UpdateUserCommandOutput,
@@ -1370,6 +1410,7 @@ import { paginateListTemplateVersions } from "./pagination/ListTemplateVersionsP
 import { paginateListThemes } from "./pagination/ListThemesPaginator";
 import { paginateListThemeVersions } from "./pagination/ListThemeVersionsPaginator";
 import { paginateListTopics } from "./pagination/ListTopicsPaginator";
+import { paginateListTopicsV2 } from "./pagination/ListTopicsV2Paginator";
 import { paginateListUserGroups } from "./pagination/ListUserGroupsPaginator";
 import { paginateListUsers } from "./pagination/ListUsersPaginator";
 import { paginateListVPCConnections } from "./pagination/ListVPCConnectionsPaginator";
@@ -1383,6 +1424,7 @@ import { paginateSearchFolders } from "./pagination/SearchFoldersPaginator";
 import { paginateSearchGroups } from "./pagination/SearchGroupsPaginator";
 import { paginateSearchKnowledgeBases } from "./pagination/SearchKnowledgeBasesPaginator";
 import { paginateSearchTopics } from "./pagination/SearchTopicsPaginator";
+import { paginateSearchTopicsV2 } from "./pagination/SearchTopicsV2Paginator";
 import { QuickSightClient } from "./QuickSightClient";
 
 const commands = {
@@ -1419,6 +1461,7 @@ const commands = {
   CreateThemeAliasCommand,
   CreateTopicCommand,
   CreateTopicRefreshScheduleCommand,
+  CreateTopicV2Command,
   CreateVPCConnectionCommand,
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomPermissionCommand,
@@ -1454,6 +1497,7 @@ const commands = {
   DeleteThemeAliasCommand,
   DeleteTopicCommand,
   DeleteTopicRefreshScheduleCommand,
+  DeleteTopicV2Command,
   DeleteUserCommand,
   DeleteUserByPrincipalIdCommand,
   DeleteUserCustomPermissionCommand,
@@ -1518,8 +1562,10 @@ const commands = {
   DescribeThemePermissionsCommand,
   DescribeTopicCommand,
   DescribeTopicPermissionsCommand,
+  DescribeTopicPermissionsV2Command,
   DescribeTopicRefreshCommand,
   DescribeTopicRefreshScheduleCommand,
+  DescribeTopicV2Command,
   DescribeUserCommand,
   DescribeVPCConnectionCommand,
   GenerateEmbedUrlForAnonymousUserCommand,
@@ -1569,6 +1615,7 @@ const commands = {
   ListTopicRefreshSchedulesCommand,
   ListTopicReviewedAnswersCommand,
   ListTopicsCommand,
+  ListTopicsV2Command,
   ListUserGroupsCommand,
   ListUsersCommand,
   ListUsersIndexCapacityCommand,
@@ -1589,6 +1636,7 @@ const commands = {
   SearchKnowledgeBasesCommand,
   SearchSpacesCommand,
   SearchTopicsCommand,
+  SearchTopicsV2Command,
   StartAssetBundleExportJobCommand,
   StartAssetBundleImportJobCommand,
   StartAutomationJobCommand,
@@ -1651,7 +1699,9 @@ const commands = {
   UpdateThemePermissionsCommand,
   UpdateTopicCommand,
   UpdateTopicPermissionsCommand,
+  UpdateTopicPermissionsV2Command,
   UpdateTopicRefreshScheduleCommand,
+  UpdateTopicV2Command,
   UpdateUserCommand,
   UpdateUserCustomPermissionCommand,
   UpdateVPCConnectionCommand,
@@ -1688,6 +1738,7 @@ const paginators = {
   paginateListThemes,
   paginateListThemeVersions,
   paginateListTopics,
+  paginateListTopicsV2,
   paginateListUserGroups,
   paginateListUsers,
   paginateListVPCConnections,
@@ -1701,6 +1752,7 @@ const paginators = {
   paginateSearchGroups,
   paginateSearchKnowledgeBases,
   paginateSearchTopics,
+  paginateSearchTopicsV2,
 };
 
 export interface QuickSight {
@@ -2263,6 +2315,23 @@ export interface QuickSight {
     args: CreateTopicRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTopicV2Command}
+   */
+  createTopicV2(
+    args: CreateTopicV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTopicV2CommandOutput>;
+  createTopicV2(
+    args: CreateTopicV2CommandInput,
+    cb: (err: any, data?: CreateTopicV2CommandOutput) => void
+  ): void;
+  createTopicV2(
+    args: CreateTopicV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTopicV2CommandOutput) => void
   ): void;
 
   /**
@@ -2858,6 +2927,23 @@ export interface QuickSight {
     args: DeleteTopicRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTopicV2Command}
+   */
+  deleteTopicV2(
+    args: DeleteTopicV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTopicV2CommandOutput>;
+  deleteTopicV2(
+    args: DeleteTopicV2CommandInput,
+    cb: (err: any, data?: DeleteTopicV2CommandOutput) => void
+  ): void;
+  deleteTopicV2(
+    args: DeleteTopicV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTopicV2CommandOutput) => void
   ): void;
 
   /**
@@ -3949,6 +4035,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeTopicPermissionsV2Command}
+   */
+  describeTopicPermissionsV2(
+    args: DescribeTopicPermissionsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicPermissionsV2CommandOutput>;
+  describeTopicPermissionsV2(
+    args: DescribeTopicPermissionsV2CommandInput,
+    cb: (err: any, data?: DescribeTopicPermissionsV2CommandOutput) => void
+  ): void;
+  describeTopicPermissionsV2(
+    args: DescribeTopicPermissionsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicPermissionsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTopicRefreshCommand}
    */
   describeTopicRefresh(
@@ -3980,6 +4083,23 @@ export interface QuickSight {
     args: DescribeTopicRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTopicV2Command}
+   */
+  describeTopicV2(
+    args: DescribeTopicV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTopicV2CommandOutput>;
+  describeTopicV2(
+    args: DescribeTopicV2CommandInput,
+    cb: (err: any, data?: DescribeTopicV2CommandOutput) => void
+  ): void;
+  describeTopicV2(
+    args: DescribeTopicV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTopicV2CommandOutput) => void
   ): void;
 
   /**
@@ -4816,6 +4936,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListTopicsV2Command}
+   */
+  listTopicsV2(
+    args: ListTopicsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTopicsV2CommandOutput>;
+  listTopicsV2(
+    args: ListTopicsV2CommandInput,
+    cb: (err: any, data?: ListTopicsV2CommandOutput) => void
+  ): void;
+  listTopicsV2(
+    args: ListTopicsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTopicsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListUserGroupsCommand}
    */
   listUserGroups(
@@ -5153,6 +5290,23 @@ export interface QuickSight {
     args: SearchTopicsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchTopicsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchTopicsV2Command}
+   */
+  searchTopicsV2(
+    args: SearchTopicsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTopicsV2CommandOutput>;
+  searchTopicsV2(
+    args: SearchTopicsV2CommandInput,
+    cb: (err: any, data?: SearchTopicsV2CommandOutput) => void
+  ): void;
+  searchTopicsV2(
+    args: SearchTopicsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTopicsV2CommandOutput) => void
   ): void;
 
   /**
@@ -6210,6 +6364,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateTopicPermissionsV2Command}
+   */
+  updateTopicPermissionsV2(
+    args: UpdateTopicPermissionsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTopicPermissionsV2CommandOutput>;
+  updateTopicPermissionsV2(
+    args: UpdateTopicPermissionsV2CommandInput,
+    cb: (err: any, data?: UpdateTopicPermissionsV2CommandOutput) => void
+  ): void;
+  updateTopicPermissionsV2(
+    args: UpdateTopicPermissionsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTopicPermissionsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTopicRefreshScheduleCommand}
    */
   updateTopicRefreshSchedule(
@@ -6224,6 +6395,23 @@ export interface QuickSight {
     args: UpdateTopicRefreshScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTopicRefreshScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateTopicV2Command}
+   */
+  updateTopicV2(
+    args: UpdateTopicV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTopicV2CommandOutput>;
+  updateTopicV2(
+    args: UpdateTopicV2CommandInput,
+    cb: (err: any, data?: UpdateTopicV2CommandOutput) => void
+  ): void;
+  updateTopicV2(
+    args: UpdateTopicV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTopicV2CommandOutput) => void
   ): void;
 
   /**
@@ -6619,6 +6807,17 @@ export interface QuickSight {
   ): Paginator<ListTopicsCommandOutput>;
 
   /**
+   * @see {@link ListTopicsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListTopicsV2CommandOutput}.
+   */
+  paginateListTopicsV2(
+    args: ListTopicsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListTopicsV2CommandOutput>;
+
+  /**
    * @see {@link ListUserGroupsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -6760,6 +6959,17 @@ export interface QuickSight {
     args: SearchTopicsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchTopicsCommandOutput>;
+
+  /**
+   * @see {@link SearchTopicsV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchTopicsV2CommandOutput}.
+   */
+  paginateSearchTopicsV2(
+    args: SearchTopicsV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchTopicsV2CommandOutput>;
 }
 
 /**

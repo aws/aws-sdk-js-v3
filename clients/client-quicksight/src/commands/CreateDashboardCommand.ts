@@ -94,6 +94,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *           DataSetArn: "STRING_VALUE", // required
  *         },
  *       ],
+ *       TopicReferences: [ // TopicReferenceList
+ *         { // TopicReference
+ *           TopicPlaceholder: "STRING_VALUE", // required
+ *           TopicArn: "STRING_VALUE", // required
+ *         },
+ *       ],
  *       Arn: "STRING_VALUE", // required
  *     },
  *   },
@@ -159,6 +165,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       { // DataSetIdentifierDeclaration
  *         Identifier: "STRING_VALUE", // required
  *         DataSetArn: "STRING_VALUE", // required
+ *       },
+ *     ],
+ *     TopicIdentifierDeclarations: [ // TopicIdentifierDeclarationList
+ *       { // TopicIdentifierDeclaration
+ *         Identifier: "STRING_VALUE", // required
+ *         TopicArn: "STRING_VALUE", // required
  *       },
  *     ],
  *     Sheets: [ // SheetDefinitionList
@@ -243,7 +255,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   "STRING_VALUE",
  *                 ],
  *                 LinkToDataSetColumn: { // ColumnIdentifier
- *                   DataSetIdentifier: "STRING_VALUE", // required
+ *                   DataSetIdentifier: "STRING_VALUE",
+ *                   TopicIdentifier: "STRING_VALUE",
  *                   ColumnName: "STRING_VALUE", // required
  *                 },
  *               },
@@ -252,7 +265,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   { // CascadingControlSource
  *                     SourceSheetControlId: "STRING_VALUE",
  *                     ColumnToMatch: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
+ *                       DataSetIdentifier: "STRING_VALUE",
+ *                       TopicIdentifier: "STRING_VALUE",
  *                       ColumnName: "STRING_VALUE", // required
  *                     },
  *                   },
@@ -265,7 +279,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                   ControlColumnSort: { // AggregationSortConfiguration
  *                     Column: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
+ *                       DataSetIdentifier: "STRING_VALUE",
+ *                       TopicIdentifier: "STRING_VALUE",
  *                       ColumnName: "STRING_VALUE", // required
  *                     },
  *                     SortDirection: "ASC" || "DESC", // required
@@ -327,7 +342,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   "STRING_VALUE",
  *                 ],
  *                 LinkToDataSetColumn: {
- *                   DataSetIdentifier: "STRING_VALUE", // required
+ *                   DataSetIdentifier: "STRING_VALUE",
+ *                   TopicIdentifier: "STRING_VALUE",
  *                   ColumnName: "STRING_VALUE", // required
  *                 },
  *               },
@@ -336,7 +352,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   {
  *                     SourceSheetControlId: "STRING_VALUE",
  *                     ColumnToMatch: {
- *                       DataSetIdentifier: "STRING_VALUE", // required
+ *                       DataSetIdentifier: "STRING_VALUE",
+ *                       TopicIdentifier: "STRING_VALUE",
  *                       ColumnName: "STRING_VALUE", // required
  *                     },
  *                   },
@@ -4262,7 +4279,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             FunnelChartVisual: { // FunnelChartVisual
@@ -4738,7 +4756,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             SankeyDiagramVisual: { // SankeyDiagramVisual
@@ -4775,12 +4794,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             EmptyVisual: { // EmptyVisual
  *               VisualId: "STRING_VALUE", // required
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               Actions: "<VisualCustomActionList>",
  *             },
  *             RadarChartVisual: { // RadarChartVisual
@@ -6330,7 +6351,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             FunnelChartVisual: {
@@ -6722,7 +6744,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             SankeyDiagramVisual: {
@@ -6759,12 +6782,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               VisualContentAltText: "STRING_VALUE",
  *             },
  *             EmptyVisual: {
  *               VisualId: "STRING_VALUE", // required
- *               DataSetIdentifier: "STRING_VALUE", // required
+ *               DataSetIdentifier: "STRING_VALUE",
+ *               TopicIdentifier: "STRING_VALUE",
  *               Actions: "<VisualCustomActionList>",
  *             },
  *             RadarChartVisual: {
@@ -7051,7 +7076,8 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *     ],
  *     CalculatedFields: [ // CalculatedFields
  *       { // CalculatedField
- *         DataSetIdentifier: "STRING_VALUE", // required
+ *         DataSetIdentifier: "STRING_VALUE",
+ *         TopicIdentifier: "STRING_VALUE",
  *         Name: "STRING_VALUE", // required
  *         Expression: "STRING_VALUE", // required
  *       },
@@ -7723,6 +7749,18 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *       CustomActionDefaults: {
  *         highlightOperation: {
  *           Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ *         },
+ *       },
+ *       VisualMessages: { // VisualMessages
+ *         NoDataMessage: { // VisualMessageConfiguration
+ *           Enabled: true || false,
+ *           Title: "STRING_VALUE",
+ *           TitleVisibility: "HIDDEN" || "VISIBLE",
+ *           Description: "STRING_VALUE",
+ *           DescriptionVisibility: "HIDDEN" || "VISIBLE",
+ *           LinkText: "STRING_VALUE",
+ *           LinkUrl: "STRING_VALUE",
+ *           LinkVisibility: "HIDDEN" || "VISIBLE",
  *         },
  *       },
  *     },

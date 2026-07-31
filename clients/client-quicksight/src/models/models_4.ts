@@ -7,7 +7,6 @@ import type {
   DataSetStatus,
   DataSourceType,
   EmbeddingIdentityType,
-  FieldName,
   FilterOperator,
   FlowPublishState,
   FolderFilterAttribute,
@@ -37,20 +36,15 @@ import type {
   QSearchStatus,
   ResourceStatus,
   Role,
-  SearchFilterOperator,
   SelfUpgradeRequestStatus,
   SelfUpgradeStatus,
   SharingModel,
   SnapshotJobStatus,
   SortOrder,
   SpaceQuickSightResourceType,
-  SpaceQuickSightSearchFilterName,
-  SpaceSearchOperator,
   TemplateErrorType,
   ThemeErrorType,
   ThemeType,
-  TopicFilterAttribute,
-  TopicFilterOperator,
   TopicRefreshStatus,
   TopicUserExperienceVersion,
   UserIndexCapacitySortBy,
@@ -73,7 +67,6 @@ import type {
 } from "./models_0";
 import type {
   _Parameters,
-  AnalysisSearchFilter,
   AnalysisSummary,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserSnapshotJobResult,
@@ -81,10 +74,15 @@ import type {
   AssetBundleImportJobSummary,
   AuthorizedTargetsByService,
   BookmarksConfigurations,
+  BrandDefinition,
+  BrandDetail,
   BrandSummary,
   CapacityBytesRangeFilter,
+  DashboardPublishOptions,
+  DashboardVersionDefinition,
   DashboardVisualId,
   DataSetRefreshProperties,
+  LinkSharingConfiguration,
   ResourcePermission,
   SharedViewConfigurations,
   SnapshotFile,
@@ -96,18 +94,16 @@ import type {
 import type {
   CustomInstructions,
   CustomPermissions,
+  Dashboard,
   DashboardCustomizationSummaryConfigurations,
-  DashboardSearchFilter,
+  DashboardError,
   DashboardSummary,
   DashboardVersionSummary,
   DashboardVisualResult,
   DataSet,
   DataSetConfiguration,
-  DataSetSearchFilter,
   DataSetSummary,
   DataSource,
-  DataSourceSearchFilter,
-  DataSourceSummary,
   Group,
   GroupMember,
   KnowledgeBaseConfiguration,
@@ -118,9 +114,457 @@ import type {
   TemplateVersionDefinition,
   ThemeAlias,
   ThemeConfiguration,
+  TopicConfiguration,
   TopicDetails,
   TopicRefreshSchedule,
+  TopicV2Details,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeBrandResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandAssignmentRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand assignment.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandAssignmentResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the brand.</p>
+   * @public
+   */
+  BrandArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandPublishedVersionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the Quick brand.</p>
+   * @public
+   */
+  BrandId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBrandPublishedVersionResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The details of the brand.</p>
+   * @public
+   */
+  BrandDetail?: BrandDetail | undefined;
+
+  /**
+   * <p>The definition of the brand.</p>
+   * @public
+   */
+  BrandDefinition?: BrandDefinition | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the custom permissions profile that you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The name of the custom permissions profile to describe.</p>
+   * @public
+   */
+  CustomPermissionsName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCustomPermissionsResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The custom permissions profile.</p>
+   * @public
+   */
+  CustomPermissions?: CustomPermissions | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number for the dashboard. If a version number isn't passed, the
+   *             latest published dashboard version is described. </p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardResponse {
+  /**
+   * <p>Information about the dashboard.</p>
+   * @public
+   */
+  Dashboard?: Dashboard | undefined;
+
+  /**
+   * <p>The HTTP status of this request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardDefinitionRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The version number for the dashboard. If a version number isn't passed, the
+   *             latest published dashboard version is described. </p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The alias name.</p>
+   * @public
+   */
+  AliasName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardDefinitionResponse {
+  /**
+   * <p>The ID of the dashboard described.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>Errors associated with this dashboard version.</p>
+   * @public
+   */
+  Errors?: DashboardError[] | undefined;
+
+  /**
+   * <p>The display name of the dashboard.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>Status associated with the dashboard version.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CREATION_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_IN_PROGRESS</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_SUCCESSFUL</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATE_FAILED</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETED</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceStatus?: ResourceStatus | undefined;
+
+  /**
+   * <p>The ARN of the theme of the dashboard.</p>
+   * @public
+   */
+  ThemeArn?: string | undefined;
+
+  /**
+   * <p>The definition of a dashboard.</p>
+   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
+   * @public
+   */
+  Definition?: DashboardVersionDefinition | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>Options for publishing the dashboard:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>AdHocFilteringOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. When this is
+   *                     set to <code>DISABLED</code>, Amazon Quick Sight disables the left filter pane on
+   *                     the published dashboard, which can be used for ad hoc (one-time) filtering. This
+   *                     option is <code>ENABLED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExportToCSVOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The visual
+   *                     option to export data to .CSV format isn't enabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by default.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VisibilityState</code> for <code>SheetControlsOption</code> - This
+   *                     visibility state can be either <code>COLLAPSED</code> or <code>EXPANDED</code>.
+   *                     This option is <code>COLLAPSED</code> by default. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>QuickSuiteActionsOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>.
+   *                     Features related to Actions in Amazon Quick Suite on dashboards are disabled
+   *                     when this is set to <code>DISABLED</code>. This option is <code>DISABLED</code>
+   *                     by default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>ExecutiveSummaryOption</code> - This
+   *                     status can be either <code>ENABLED</code> or <code>DISABLED</code>. The option
+   *                     to build an executive summary is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AvailabilityStatus</code> for <code>DataStoriesSharingOption</code> -
+   *                     This status can be either <code>ENABLED</code> or <code>DISABLED</code>. The
+   *                     option to share a data story is disabled when this is set to
+   *                         <code>DISABLED</code>. This option is <code>ENABLED</code> by
+   *                     default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DashboardPublishOptions?: DashboardPublishOptions | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardPermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the dashboard that you're
+   *             describing permissions for.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the dashboard, also added to the IAM policy.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardPermissionsResponse {
+  /**
+   * <p>The ID for the dashboard.</p>
+   * @public
+   */
+  DashboardId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dashboard.</p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>A structure that contains the permissions for the dashboard.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>A structure that contains the configuration of a shareable link that grants access to
+   *             the dashboard. Your users can use the link to view and interact with the dashboard, if
+   *             the dashboard has been shared with them. For more information about sharing dashboards,
+   *             see <a href="https://docs.aws.amazon.com/quicksight/latest/user/sharing-a-dashboard.html">Sharing Dashboards</a>.</p>
+   * @public
+   */
+  LinkSharingConfiguration?: LinkSharingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDashboardSnapshotJobRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the dashboard snapshot job is executed in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dashboard that you have started a snapshot job for.</p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>The ID of the job to be described. The job ID is set when you start a new job with a <code>StartDashboardSnapshotJob</code> API call.</p>
+   * @public
+   */
+  SnapshotJobId: string | undefined;
+}
 
 /**
  * <p>A structure that contains information on the Amazon S3 destinations of the generated snapshot.</p>
@@ -2712,6 +3156,14 @@ export interface TemplateVersion {
   DataSetConfigurations?: DataSetConfiguration[] | undefined;
 
   /**
+   * <p>Schema of the topic identified by the placeholder. Any dashboard created from this
+   *             template should be bound to new topics matching the same schema described through this
+   *             API operation.</p>
+   * @public
+   */
+  TopicConfigurations?: TopicConfiguration[] | undefined;
+
+  /**
    * <p>The description of the template.</p>
    * @public
    */
@@ -3426,6 +3878,59 @@ export interface DescribeTopicPermissionsResponse {
 /**
  * @public
  */
+export interface DescribeTopicPermissionsV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want
+   *          described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicPermissionsV2Response {
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>A list of resource permissions that are configured to the topic.</p>
+   * @public
+   */
+  Permissions?: ResourcePermission[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeTopicRefreshRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the topic whose refresh you want
@@ -3546,6 +4051,65 @@ export interface DescribeTopicRefreshScheduleResponse {
    * @public
    */
   RefreshSchedule?: TopicRefreshSchedule | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic that you want to
+   *          describe.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeTopicV2Response {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The definition of a topic.</p>
+   * @public
+   */
+  Topic?: TopicV2Details | undefined;
+
+  /**
+   * <p>Instructions that provide additional guidance and context for response generation.</p>
+   * @public
+   */
+  CustomInstructions?: CustomInstructions | undefined;
 
   /**
    * <p>The HTTP status of the request.</p>
@@ -8067,6 +8631,83 @@ export interface ListTopicsResponse {
 /**
  * @public
  */
+export interface ListTopicsV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topics that you want to
+   *          list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of the topic.</p>
+ * @public
+ */
+export interface TopicV2Summary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsV2Response {
+  /**
+   * <p>A list of topic summaries.</p>
+   * @public
+   */
+  TopicSummaryList?: TopicV2Summary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListUserGroupsRequest {
   /**
    * <p>The Amazon Quick Sight user name that you want to list group memberships for.</p>
@@ -9015,652 +9656,4 @@ export interface SearchAgentsResponse {
    * @public
    */
   RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAnalysesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analyses that you're searching
-   *             for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The structure for the search filters that you want to apply to your search. </p>
-   * @public
-   */
-  Filters: AnalysisSearchFilter[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchAnalysesResponse {
-  /**
-   * <p>Metadata describing the analyses that you searched for.</p>
-   * @public
-   */
-  AnalysisSummaryList?: AnalysisSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.
-   *             </p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDashboardsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the user whose dashboards
-   *             you're searching for. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters to apply to the search. Currently, you can search only by user name, for
-   *             example, <code>"Filters": [ \{ "Name": "QUICKSIGHT_USER", "Operator": "StringEquals",
-   *                 "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1" \}
-   *             ]</code>
-   *          </p>
-   * @public
-   */
-  Filters: DashboardSearchFilter[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDashboardsResponse {
-  /**
-   * <p>The list of dashboards owned by the user specified in <code>Filters</code> in your
-   *             request.</p>
-   * @public
-   */
-  DashboardSummaryList?: DashboardSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDataSetsRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters to apply to the search.</p>
-   * @public
-   */
-  Filters: DataSetSearchFilter[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDataSetsResponse {
-  /**
-   * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
-   * @public
-   */
-  DataSetSummaries?: DataSetSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDataSourcesRequest {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters to apply to the search.</p>
-   * @public
-   */
-  Filters: DataSourceSearchFilter[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDataSourcesResponse {
-  /**
-   * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data
-   * 			source.</p>
-   * @public
-   */
-  DataSourceSummaries?: DataSourceSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * <p>A structure that contains the filter information when searching flows.</p>
- * @public
- */
-export interface SearchFlowsFilter {
-  /**
-   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
-   *                 "DIRECT_QUICKSIGHT_SOLE_OWNER"</code>.</p>
-   *          <p>Valid values are defined as follows:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>assetName</code>: Any flows whose names have a substring match to this value will be returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>assetDescription</code>: Any flows whose descriptions have a substring match to this value will be returned.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Name: FieldName | undefined;
-
-  /**
-   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
-   * @public
-   */
-  Operator: SearchFilterOperator | undefined;
-
-  /**
-   * <p>The value of the named item, in this case <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>, that you want
-   *             to use as a filter, for example <code>"Value"</code>. An example is
-   *             <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchFlowsInput {
-  /**
-   * <p>The ID of the Amazon Web Services account where you are searching for flows from.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters applied to the search when searching for flows in the Amazon Web Services account.</p>
-   * @public
-   */
-  Filters: SearchFlowsFilter[] | undefined;
-
-  /**
-   * <p>The token to request the next set of results, or null if you want to retrieve the first set.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchFlowsOutput {
-  /**
-   * <p>The list of flows found against the search.</p>
-   * @public
-   */
-  FlowSummaryList: FlowSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchFoldersRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the folder.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The filters to apply to the search. Currently, you can search only by the parent folder ARN. For example, <code>"Filters": [ \{ "Name": "PARENT_FOLDER_ARN", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:folder/folderId" \} ]</code>.</p>
-   * @public
-   */
-  Filters: FolderSearchFilter[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to be returned per request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchFoldersResponse {
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>A structure that contains all of the folders in the Amazon Web Services account. This structure provides basic information about the folders.</p>
-   * @public
-   */
-  FolderSummaryList?: FolderSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchGroupsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that the group is in. Currently, you use the ID for the
-   *           Amazon Web Services account that contains your Amazon Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return from this request.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The namespace that you want to search.</p>
-   * @public
-   */
-  Namespace: string | undefined;
-
-  /**
-   * <p>The structure for the search filters that you want to apply to your search.</p>
-   * @public
-   */
-  Filters: GroupSearchFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchGroupsResponse {
-  /**
-   * <p>A list of groups in a specified namespace that match the filters you set in your <code>SearchGroups</code> request.</p>
-   * @public
-   */
-  GroupList?: Group[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in a subsequent request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchKnowledgeBasesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the knowledge base.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The filters to apply when searching knowledge bases.</p>
-   * @public
-   */
-  Filters?: KnowledgeBaseSearchFilter[] | undefined;
-
-  /**
-   * <p>The sort configuration for the search results.</p>
-   * @public
-   */
-  SortBy?: KnowledgeBaseSortBy | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchKnowledgeBasesResponse {
-  /**
-   * <p>A list of knowledge base summaries.</p>
-   * @public
-   */
-  KnowledgeBaseSummaries: KnowledgeBaseSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * <p>A filter to use when searching for spaces.</p>
- * @public
- */
-export interface SpaceQuicksightSearchFilter {
-  /**
-   * <p>The name of the filter field to use.</p>
-   * @public
-   */
-  name: SpaceQuickSightSearchFilterName | undefined;
-
-  /**
-   * <p>The comparison operator to use for the filter.</p>
-   * @public
-   */
-  operator: SpaceSearchOperator | undefined;
-
-  /**
-   * <p>The value to use for the filter.</p>
-   * @public
-   */
-  value: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchSpacesRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the spaces.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The filters to apply to the search.</p>
-   * @public
-   */
-  Filters: SpaceQuicksightSearchFilter[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchSpacesResponse {
-  /**
-   * <p>The ID of the space.</p>
-   * @public
-   */
-  spaceId: string | undefined;
-
-  /**
-   * <p>The ARN of the space.</p>
-   * @public
-   */
-  spaceArn?: string | undefined;
-
-  /**
-   * <p>A list of space summaries that match the search criteria.</p>
-   * @public
-   */
-  SpaceSummaries: SpaceSummary[] | undefined;
-
-  /**
-   * <p>The token for the next set of results, or null if there are no more results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * <p>The filter that is used to search for a topic.</p>
- * @public
- */
-export interface TopicSearchFilter {
-  /**
-   * <p>The operator like equals or like.</p>
-   * @public
-   */
-  Operator: TopicFilterOperator | undefined;
-
-  /**
-   * <p>The name of the topic search filter.</p>
-   * @public
-   */
-  Name: TopicFilterAttribute | undefined;
-
-  /**
-   * <p>The value of the topic search filter.</p>
-   * @public
-   */
-  Value: string | undefined;
 }

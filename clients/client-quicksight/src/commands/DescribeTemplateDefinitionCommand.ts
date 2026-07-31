@@ -89,6 +89,30 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //         ],
  * //       },
  * //     ],
+ * //     TopicConfigurations: [ // TopicConfigurationList
+ * //       { // TopicConfiguration
+ * //         Placeholder: "STRING_VALUE",
+ * //         DataSetSchema: {
+ * //           ColumnSchemaList: [
+ * //             {
+ * //               Name: "STRING_VALUE",
+ * //               DataType: "STRING_VALUE",
+ * //               GeographicRole: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //         ColumnGroupSchemaList: [
+ * //           {
+ * //             Name: "STRING_VALUE",
+ * //             ColumnGroupColumnSchemaList: [
+ * //               {
+ * //                 Name: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
  * //     Sheets: [ // SheetDefinitionList
  * //       { // SheetDefinition
  * //         SheetId: "STRING_VALUE", // required
@@ -171,7 +195,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 LinkToDataSetColumn: { // ColumnIdentifier
- * //                   DataSetIdentifier: "STRING_VALUE", // required
+ * //                   DataSetIdentifier: "STRING_VALUE",
+ * //                   TopicIdentifier: "STRING_VALUE",
  * //                   ColumnName: "STRING_VALUE", // required
  * //                 },
  * //               },
@@ -180,7 +205,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   { // CascadingControlSource
  * //                     SourceSheetControlId: "STRING_VALUE",
  * //                     ColumnToMatch: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                   },
@@ -193,7 +219,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   },
  * //                   ControlColumnSort: { // AggregationSortConfiguration
  * //                     Column: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                     SortDirection: "ASC" || "DESC", // required
@@ -255,7 +282,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 LinkToDataSetColumn: {
- * //                   DataSetIdentifier: "STRING_VALUE", // required
+ * //                   DataSetIdentifier: "STRING_VALUE",
+ * //                   TopicIdentifier: "STRING_VALUE",
  * //                   ColumnName: "STRING_VALUE", // required
  * //                 },
  * //               },
@@ -264,7 +292,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                   {
  * //                     SourceSheetControlId: "STRING_VALUE",
  * //                     ColumnToMatch: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                   },
@@ -4192,7 +4221,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 },
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FunnelChartVisual: { // FunnelChartVisual
@@ -4668,7 +4698,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             SankeyDiagramVisual: { // SankeyDiagramVisual
@@ -4705,12 +4736,14 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             EmptyVisual: { // EmptyVisual
  * //               VisualId: "STRING_VALUE", // required
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               Actions: "<VisualCustomActionList>",
  * //             },
  * //             RadarChartVisual: { // RadarChartVisual
@@ -6260,7 +6293,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 },
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FunnelChartVisual: {
@@ -6652,7 +6686,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             SankeyDiagramVisual: {
@@ -6689,12 +6724,14 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             EmptyVisual: {
  * //               VisualId: "STRING_VALUE", // required
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               Actions: "<VisualCustomActionList>",
  * //             },
  * //             RadarChartVisual: {
@@ -6981,7 +7018,8 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //     ],
  * //     CalculatedFields: [ // CalculatedFields
  * //       { // CalculatedField
- * //         DataSetIdentifier: "STRING_VALUE", // required
+ * //         DataSetIdentifier: "STRING_VALUE",
+ * //         TopicIdentifier: "STRING_VALUE",
  * //         Name: "STRING_VALUE", // required
  * //         Expression: "STRING_VALUE", // required
  * //       },
@@ -7653,6 +7691,18 @@ export interface DescribeTemplateDefinitionCommandOutput extends DescribeTemplat
  * //       CustomActionDefaults: {
  * //         highlightOperation: {
  * //           Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ * //         },
+ * //       },
+ * //       VisualMessages: { // VisualMessages
+ * //         NoDataMessage: { // VisualMessageConfiguration
+ * //           Enabled: true || false,
+ * //           Title: "STRING_VALUE",
+ * //           TitleVisibility: "HIDDEN" || "VISIBLE",
+ * //           Description: "STRING_VALUE",
+ * //           DescriptionVisibility: "HIDDEN" || "VISIBLE",
+ * //           LinkText: "STRING_VALUE",
+ * //           LinkUrl: "STRING_VALUE",
+ * //           LinkVisibility: "HIDDEN" || "VISIBLE",
  * //         },
  * //       },
  * //     },

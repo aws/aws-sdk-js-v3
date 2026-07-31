@@ -74,7 +74,6 @@ import type {
   AxisDisplayOptions,
   BarChartDefaultSeriesSettings,
   BarChartFieldWells,
-  BarChartSortConfiguration,
   BarSeriesItem,
   BorderSettings,
   ChartAxisLabelOptions,
@@ -89,7 +88,6 @@ import type {
   DecalSettings,
   DimensionField,
   FieldSort,
-  FieldSortOptions,
   FontConfiguration,
   FormatConfiguration,
   ItemsLimitConfiguration,
@@ -102,6 +100,66 @@ import type {
   VisualCustomAction,
   VisualInteractionOptions,
 } from "./models_0";
+
+/**
+ * <p>The field sort options in a chart configuration.</p>
+ * @public
+ */
+export interface FieldSortOptions {
+  /**
+   * <p>The sort configuration for a field in a field well.</p>
+   * @public
+   */
+  FieldSort?: FieldSort | undefined;
+
+  /**
+   * <p>The sort configuration for a column that is not used in a field well.</p>
+   * @public
+   */
+  ColumnSort?: ColumnSort | undefined;
+}
+
+/**
+ * <p>sort-configuration-description</p>
+ * @public
+ */
+export interface BarChartSortConfiguration {
+  /**
+   * <p>The sort configuration of category fields.</p>
+   * @public
+   */
+  CategorySort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of categories displayed in a bar chart.</p>
+   * @public
+   */
+  CategoryItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of color fields in a bar chart.</p>
+   * @public
+   */
+  ColorSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of values displayed in a bar chart.</p>
+   * @public
+   */
+  ColorItemsLimit?: ItemsLimitConfiguration | undefined;
+
+  /**
+   * <p>The sort configuration of the small multiples field.</p>
+   * @public
+   */
+  SmallMultiplesSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of small multiples panels that are displayed.</p>
+   * @public
+   */
+  SmallMultiplesLimitConfiguration?: ItemsLimitConfiguration | undefined;
+}
 
 /**
  * <p>The tooltip item for the columns that are not part of a field well.</p>
@@ -1645,10 +1703,16 @@ export interface CustomContentVisual {
   Actions?: VisualCustomAction[] | undefined;
 
   /**
-   * <p>The dataset that is used to create the custom content visual. You can't create a visual without a dataset.</p>
+   * <p>The dataset that is used to create the custom content visual. You can't create a visual without a dataset or a topic.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that is used in the custom content visual. You can't create a visual without a dataset or a topic.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The alt text for the visual.</p>
@@ -1670,10 +1734,16 @@ export interface EmptyVisual {
   VisualId: string | undefined;
 
   /**
-   * <p>The data set that is used in the empty visual. Every visual requires a dataset to render.</p>
+   * <p>The data set that is used in the empty visual. Every visual requires a dataset or a topic to render.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that is used in the empty visual. Every visual requires a dataset or a topic to render.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The list of custom actions that are configured for a visual.</p>
@@ -4034,7 +4104,13 @@ export interface InsightVisual {
    * <p>The dataset that is used in the insight visual.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that is used in the insight visual.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The alt text for the visual.</p>
@@ -5127,10 +5203,16 @@ export interface LayerMapVisual {
   ChartConfiguration?: GeospatialLayerMapConfiguration | undefined;
 
   /**
-   * <p>The dataset that is used to create the layer map visual. You can't create a visual without a dataset.</p>
+   * <p>The dataset that is used to create the layer map visual. You can't create a visual without a dataset or a topic.</p>
    * @public
    */
-  DataSetIdentifier: string | undefined;
+  DataSetIdentifier?: string | undefined;
+
+  /**
+   * <p>The topic that is used in the layer map visual. You can't create a visual without a dataset or a topic.</p>
+   * @public
+   */
+  TopicIdentifier?: string | undefined;
 
   /**
    * <p>The alt text for the visual.</p>
@@ -8376,88 +8458,4 @@ export interface TreeMapFieldWells {
    * @public
    */
   TreeMapAggregatedFieldWells?: TreeMapAggregatedFieldWells | undefined;
-}
-
-/**
- * <p>The sort configuration of a tree map.</p>
- * @public
- */
-export interface TreeMapSortConfiguration {
-  /**
-   * <p>The sort configuration of group by fields.</p>
-   * @public
-   */
-  TreeMapSort?: FieldSortOptions[] | undefined;
-
-  /**
-   * <p>The limit on the number of groups that are displayed.</p>
-   * @public
-   */
-  TreeMapGroupItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
-}
-
-/**
- * <p>The configuration of a tree map.</p>
- * @public
- */
-export interface TreeMapConfiguration {
-  /**
-   * <p>The field wells of the visual.</p>
-   * @public
-   */
-  FieldWells?: TreeMapFieldWells | undefined;
-
-  /**
-   * <p>The sort configuration of a tree map.</p>
-   * @public
-   */
-  SortConfiguration?: TreeMapSortConfiguration | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility) of the groups that are displayed in a tree map.</p>
-   * @public
-   */
-  GroupLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility) of the sizes that are displayed in a tree map.</p>
-   * @public
-   */
-  SizeLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The label options (label text, label visibility) for the colors displayed in a tree map.</p>
-   * @public
-   */
-  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
-
-  /**
-   * <p>The color options (gradient color, point of divergence) of a tree map.</p>
-   * @public
-   */
-  ColorScale?: ColorScale | undefined;
-
-  /**
-   * <p>The legend display setup of the visual.</p>
-   * @public
-   */
-  Legend?: LegendOptions | undefined;
-
-  /**
-   * <p>The options that determine if visual data labels are displayed.</p>
-   * @public
-   */
-  DataLabels?: DataLabelOptions | undefined;
-
-  /**
-   * <p>The tooltip display setup of the visual.</p>
-   * @public
-   */
-  Tooltip?: TooltipOptions | undefined;
-
-  /**
-   * <p>The general visual interactions setup for a visual.</p>
-   * @public
-   */
-  Interactions?: VisualInteractionOptions | undefined;
 }

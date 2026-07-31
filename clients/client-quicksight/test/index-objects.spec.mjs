@@ -437,6 +437,10 @@ import {
   CreateTopicRequest$,
   CreateTopicResponse$,
   CreateTopicReviewedAnswer$,
+  CreateTopicV2$,
+  CreateTopicV2Command,
+  CreateTopicV2Request$,
+  CreateTopicV2Response$,
   CreateVPCConnection$,
   CreateVPCConnectionCommand,
   CreateVPCConnectionRequest$,
@@ -746,6 +750,10 @@ import {
   DeleteTopicRefreshScheduleResponse$,
   DeleteTopicRequest$,
   DeleteTopicResponse$,
+  DeleteTopicV2$,
+  DeleteTopicV2Command,
+  DeleteTopicV2Request$,
+  DeleteTopicV2Response$,
   DeleteUser$,
   DeleteUserByPrincipalId$,
   DeleteUserByPrincipalIdCommand,
@@ -1000,6 +1008,10 @@ import {
   DescribeTopicPermissionsCommand,
   DescribeTopicPermissionsRequest$,
   DescribeTopicPermissionsResponse$,
+  DescribeTopicPermissionsV2$,
+  DescribeTopicPermissionsV2Command,
+  DescribeTopicPermissionsV2Request$,
+  DescribeTopicPermissionsV2Response$,
   DescribeTopicRefresh$,
   DescribeTopicRefreshCommand,
   DescribeTopicRefreshRequest$,
@@ -1010,6 +1022,10 @@ import {
   DescribeTopicRefreshScheduleResponse$,
   DescribeTopicRequest$,
   DescribeTopicResponse$,
+  DescribeTopicV2$,
+  DescribeTopicV2Command,
+  DescribeTopicV2Request$,
+  DescribeTopicV2Response$,
   DescribeUser$,
   DescribeUserCommand,
   DescribeUserRequest$,
@@ -1537,6 +1553,10 @@ import {
   ListTopicsCommand,
   ListTopicsRequest$,
   ListTopicsResponse$,
+  ListTopicsV2$,
+  ListTopicsV2Command,
+  ListTopicsV2Request$,
+  ListTopicsV2Response$,
   ListUserGroups$,
   ListUserGroupsCommand,
   ListUserGroupsRequest$,
@@ -1585,6 +1605,7 @@ import {
   NamedEntityDefinition$,
   NamedEntityDefinitionMetric$,
   NamedEntityRef$,
+  NamedEntitySort$,
   NamedFilterAggType,
   NamedFilterType,
   NamespaceError$,
@@ -1661,6 +1682,7 @@ import {
   paginateListThemes,
   paginateListThemeVersions,
   paginateListTopics,
+  paginateListTopicsV2,
   paginateListUserGroups,
   paginateListUsers,
   paginateListVPCConnections,
@@ -1674,6 +1696,7 @@ import {
   paginateSearchGroups,
   paginateSearchKnowledgeBases,
   paginateSearchTopics,
+  paginateSearchTopicsV2,
   PaginationConfiguration$,
   Palette$,
   PanelBorderStyle,
@@ -1945,6 +1968,10 @@ import {
   SearchTopicsCommand,
   SearchTopicsRequest$,
   SearchTopicsResponse$,
+  SearchTopicsV2$,
+  SearchTopicsV2Command,
+  SearchTopicsV2Request$,
+  SearchTopicsV2Response$,
   SecondaryValueOptions$,
   SectionAfterPageBreak$,
   SectionBasedLayoutCanvasSizeOptions$,
@@ -2203,12 +2230,14 @@ import {
   TopicCategoryFilterConstant$,
   TopicColumn$,
   TopicConfigOptions$,
+  TopicConfiguration$,
   TopicConstantValue$,
   TopicDateRangeFilter$,
   TopicDetails$,
   TopicFilter$,
   TopicFilterAttribute,
   TopicFilterOperator,
+  TopicIdentifierDeclaration$,
   TopicIR$,
   TopicIRComparisonMethod$,
   TopicIRContributionAnalysis$,
@@ -2223,6 +2252,7 @@ import {
   TopicNumericRangeFilter$,
   TopicNumericSeparatorSymbol,
   TopicRangeFilterConstant$,
+  TopicReference$,
   TopicRefreshDetails$,
   TopicRefreshSchedule$,
   TopicRefreshScheduleSummary$,
@@ -2239,6 +2269,12 @@ import {
   TopicTemplate$,
   TopicTimeGranularity,
   TopicUserExperienceVersion,
+  TopicV2DataSetReference$,
+  TopicV2DataSetRelation$,
+  TopicV2DataSetRelationEndpoint$,
+  TopicV2Details$,
+  TopicV2PublishOption,
+  TopicV2Summary$,
   TopicVisual$,
   TotalAggregationComputation$,
   TotalAggregationFunction$,
@@ -2491,12 +2527,20 @@ import {
   UpdateTopicPermissionsCommand,
   UpdateTopicPermissionsRequest$,
   UpdateTopicPermissionsResponse$,
+  UpdateTopicPermissionsV2$,
+  UpdateTopicPermissionsV2Command,
+  UpdateTopicPermissionsV2Request$,
+  UpdateTopicPermissionsV2Response$,
   UpdateTopicRefreshSchedule$,
   UpdateTopicRefreshScheduleCommand,
   UpdateTopicRefreshScheduleRequest$,
   UpdateTopicRefreshScheduleResponse$,
   UpdateTopicRequest$,
   UpdateTopicResponse$,
+  UpdateTopicV2$,
+  UpdateTopicV2Command,
+  UpdateTopicV2Request$,
+  UpdateTopicV2Response$,
   UpdateUser$,
   UpdateUserCommand,
   UpdateUserCustomPermission$,
@@ -2541,6 +2585,8 @@ import {
   VisualHighlightTrigger,
   VisualInteractionOptions$,
   VisualMenuOption$,
+  VisualMessageConfiguration$,
+  VisualMessages$,
   VisualOptions$,
   VisualPalette$,
   VisualRole,
@@ -2651,6 +2697,8 @@ assert(typeof CreateTopicCommand === "function");
 assert(typeof CreateTopic$ === "object");
 assert(typeof CreateTopicRefreshScheduleCommand === "function");
 assert(typeof CreateTopicRefreshSchedule$ === "object");
+assert(typeof CreateTopicV2Command === "function");
+assert(typeof CreateTopicV2$ === "object");
 assert(typeof CreateVPCConnectionCommand === "function");
 assert(typeof CreateVPCConnection$ === "object");
 assert(typeof DeleteAccountCustomizationCommand === "function");
@@ -2721,6 +2769,8 @@ assert(typeof DeleteTopicCommand === "function");
 assert(typeof DeleteTopic$ === "object");
 assert(typeof DeleteTopicRefreshScheduleCommand === "function");
 assert(typeof DeleteTopicRefreshSchedule$ === "object");
+assert(typeof DeleteTopicV2Command === "function");
+assert(typeof DeleteTopicV2$ === "object");
 assert(typeof DeleteUserCommand === "function");
 assert(typeof DeleteUser$ === "object");
 assert(typeof DeleteUserByPrincipalIdCommand === "function");
@@ -2849,10 +2899,14 @@ assert(typeof DescribeTopicCommand === "function");
 assert(typeof DescribeTopic$ === "object");
 assert(typeof DescribeTopicPermissionsCommand === "function");
 assert(typeof DescribeTopicPermissions$ === "object");
+assert(typeof DescribeTopicPermissionsV2Command === "function");
+assert(typeof DescribeTopicPermissionsV2$ === "object");
 assert(typeof DescribeTopicRefreshCommand === "function");
 assert(typeof DescribeTopicRefresh$ === "object");
 assert(typeof DescribeTopicRefreshScheduleCommand === "function");
 assert(typeof DescribeTopicRefreshSchedule$ === "object");
+assert(typeof DescribeTopicV2Command === "function");
+assert(typeof DescribeTopicV2$ === "object");
 assert(typeof DescribeUserCommand === "function");
 assert(typeof DescribeUser$ === "object");
 assert(typeof DescribeVPCConnectionCommand === "function");
@@ -2951,6 +3005,8 @@ assert(typeof ListTopicReviewedAnswersCommand === "function");
 assert(typeof ListTopicReviewedAnswers$ === "object");
 assert(typeof ListTopicsCommand === "function");
 assert(typeof ListTopics$ === "object");
+assert(typeof ListTopicsV2Command === "function");
+assert(typeof ListTopicsV2$ === "object");
 assert(typeof ListUserGroupsCommand === "function");
 assert(typeof ListUserGroups$ === "object");
 assert(typeof ListUsersCommand === "function");
@@ -2991,6 +3047,8 @@ assert(typeof SearchSpacesCommand === "function");
 assert(typeof SearchSpaces$ === "object");
 assert(typeof SearchTopicsCommand === "function");
 assert(typeof SearchTopics$ === "object");
+assert(typeof SearchTopicsV2Command === "function");
+assert(typeof SearchTopicsV2$ === "object");
 assert(typeof StartAssetBundleExportJobCommand === "function");
 assert(typeof StartAssetBundleExportJob$ === "object");
 assert(typeof StartAssetBundleImportJobCommand === "function");
@@ -3115,8 +3173,12 @@ assert(typeof UpdateTopicCommand === "function");
 assert(typeof UpdateTopic$ === "object");
 assert(typeof UpdateTopicPermissionsCommand === "function");
 assert(typeof UpdateTopicPermissions$ === "object");
+assert(typeof UpdateTopicPermissionsV2Command === "function");
+assert(typeof UpdateTopicPermissionsV2$ === "object");
 assert(typeof UpdateTopicRefreshScheduleCommand === "function");
 assert(typeof UpdateTopicRefreshSchedule$ === "object");
+assert(typeof UpdateTopicV2Command === "function");
+assert(typeof UpdateTopicV2$ === "object");
 assert(typeof UpdateUserCommand === "function");
 assert(typeof UpdateUser$ === "object");
 assert(typeof UpdateUserCustomPermissionCommand === "function");
@@ -3422,6 +3484,8 @@ assert(typeof CreateTopicRefreshScheduleResponse$ === "object");
 assert(typeof CreateTopicRequest$ === "object");
 assert(typeof CreateTopicResponse$ === "object");
 assert(typeof CreateTopicReviewedAnswer$ === "object");
+assert(typeof CreateTopicV2Request$ === "object");
+assert(typeof CreateTopicV2Response$ === "object");
 assert(typeof CreateVPCConnectionRequest$ === "object");
 assert(typeof CreateVPCConnectionResponse$ === "object");
 assert(typeof CredentialPair$ === "object");
@@ -3626,6 +3690,8 @@ assert(typeof DeleteTopicRefreshScheduleRequest$ === "object");
 assert(typeof DeleteTopicRefreshScheduleResponse$ === "object");
 assert(typeof DeleteTopicRequest$ === "object");
 assert(typeof DeleteTopicResponse$ === "object");
+assert(typeof DeleteTopicV2Request$ === "object");
+assert(typeof DeleteTopicV2Response$ === "object");
 assert(typeof DeleteUserByPrincipalIdRequest$ === "object");
 assert(typeof DeleteUserByPrincipalIdResponse$ === "object");
 assert(typeof DeleteUserCustomPermissionRequest$ === "object");
@@ -3752,12 +3818,16 @@ assert(typeof DescribeThemeRequest$ === "object");
 assert(typeof DescribeThemeResponse$ === "object");
 assert(typeof DescribeTopicPermissionsRequest$ === "object");
 assert(typeof DescribeTopicPermissionsResponse$ === "object");
+assert(typeof DescribeTopicPermissionsV2Request$ === "object");
+assert(typeof DescribeTopicPermissionsV2Response$ === "object");
 assert(typeof DescribeTopicRefreshRequest$ === "object");
 assert(typeof DescribeTopicRefreshResponse$ === "object");
 assert(typeof DescribeTopicRefreshScheduleRequest$ === "object");
 assert(typeof DescribeTopicRefreshScheduleResponse$ === "object");
 assert(typeof DescribeTopicRequest$ === "object");
 assert(typeof DescribeTopicResponse$ === "object");
+assert(typeof DescribeTopicV2Request$ === "object");
+assert(typeof DescribeTopicV2Response$ === "object");
 assert(typeof DescribeUserRequest$ === "object");
 assert(typeof DescribeUserResponse$ === "object");
 assert(typeof DescribeVPCConnectionRequest$ === "object");
@@ -4108,6 +4178,8 @@ assert(typeof ListTopicReviewedAnswersRequest$ === "object");
 assert(typeof ListTopicReviewedAnswersResponse$ === "object");
 assert(typeof ListTopicsRequest$ === "object");
 assert(typeof ListTopicsResponse$ === "object");
+assert(typeof ListTopicsV2Request$ === "object");
+assert(typeof ListTopicsV2Response$ === "object");
 assert(typeof ListUserGroupsRequest$ === "object");
 assert(typeof ListUserGroupsResponse$ === "object");
 assert(typeof ListUsersIndexCapacityRequest$ === "object");
@@ -4142,6 +4214,7 @@ assert(typeof MySqlParameters$ === "object");
 assert(typeof NamedEntityDefinition$ === "object");
 assert(typeof NamedEntityDefinitionMetric$ === "object");
 assert(typeof NamedEntityRef$ === "object");
+assert(typeof NamedEntitySort$ === "object");
 assert(typeof NamespaceError$ === "object");
 assert(typeof NamespaceInfoV2$ === "object");
 assert(typeof NavbarStyle$ === "object");
@@ -4361,6 +4434,8 @@ assert(typeof SearchSpacesRequest$ === "object");
 assert(typeof SearchSpacesResponse$ === "object");
 assert(typeof SearchTopicsRequest$ === "object");
 assert(typeof SearchTopicsResponse$ === "object");
+assert(typeof SearchTopicsV2Request$ === "object");
+assert(typeof SearchTopicsV2Response$ === "object");
 assert(typeof SecondaryValueOptions$ === "object");
 assert(typeof SectionAfterPageBreak$ === "object");
 assert(typeof SectionBasedLayoutCanvasSizeOptions$ === "object");
@@ -4550,10 +4625,12 @@ assert(typeof TopicCategoryFilter$ === "object");
 assert(typeof TopicCategoryFilterConstant$ === "object");
 assert(typeof TopicColumn$ === "object");
 assert(typeof TopicConfigOptions$ === "object");
+assert(typeof TopicConfiguration$ === "object");
 assert(typeof TopicConstantValue$ === "object");
 assert(typeof TopicDateRangeFilter$ === "object");
 assert(typeof TopicDetails$ === "object");
 assert(typeof TopicFilter$ === "object");
+assert(typeof TopicIdentifierDeclaration$ === "object");
 assert(typeof TopicIR$ === "object");
 assert(typeof TopicIRComparisonMethod$ === "object");
 assert(typeof TopicIRContributionAnalysis$ === "object");
@@ -4565,6 +4642,7 @@ assert(typeof TopicNullFilter$ === "object");
 assert(typeof TopicNumericEqualityFilter$ === "object");
 assert(typeof TopicNumericRangeFilter$ === "object");
 assert(typeof TopicRangeFilterConstant$ === "object");
+assert(typeof TopicReference$ === "object");
 assert(typeof TopicRefreshDetails$ === "object");
 assert(typeof TopicRefreshSchedule$ === "object");
 assert(typeof TopicRefreshScheduleSummary$ === "object");
@@ -4575,6 +4653,11 @@ assert(typeof TopicSingularFilterConstant$ === "object");
 assert(typeof TopicSortClause$ === "object");
 assert(typeof TopicSummary$ === "object");
 assert(typeof TopicTemplate$ === "object");
+assert(typeof TopicV2DataSetReference$ === "object");
+assert(typeof TopicV2DataSetRelation$ === "object");
+assert(typeof TopicV2DataSetRelationEndpoint$ === "object");
+assert(typeof TopicV2Details$ === "object");
+assert(typeof TopicV2Summary$ === "object");
 assert(typeof TopicVisual$ === "object");
 assert(typeof TotalAggregationComputation$ === "object");
 assert(typeof TotalAggregationFunction$ === "object");
@@ -4709,10 +4792,14 @@ assert(typeof UpdateThemeRequest$ === "object");
 assert(typeof UpdateThemeResponse$ === "object");
 assert(typeof UpdateTopicPermissionsRequest$ === "object");
 assert(typeof UpdateTopicPermissionsResponse$ === "object");
+assert(typeof UpdateTopicPermissionsV2Request$ === "object");
+assert(typeof UpdateTopicPermissionsV2Response$ === "object");
 assert(typeof UpdateTopicRefreshScheduleRequest$ === "object");
 assert(typeof UpdateTopicRefreshScheduleResponse$ === "object");
 assert(typeof UpdateTopicRequest$ === "object");
 assert(typeof UpdateTopicResponse$ === "object");
+assert(typeof UpdateTopicV2Request$ === "object");
+assert(typeof UpdateTopicV2Response$ === "object");
 assert(typeof UpdateUserCustomPermissionRequest$ === "object");
 assert(typeof UpdateUserCustomPermissionResponse$ === "object");
 assert(typeof UpdateUserRequest$ === "object");
@@ -4739,6 +4826,8 @@ assert(typeof VisualCustomizationFieldsConfiguration$ === "object");
 assert(typeof VisualHighlightOperation$ === "object");
 assert(typeof VisualInteractionOptions$ === "object");
 assert(typeof VisualMenuOption$ === "object");
+assert(typeof VisualMessageConfiguration$ === "object");
+assert(typeof VisualMessages$ === "object");
 assert(typeof VisualOptions$ === "object");
 assert(typeof VisualPalette$ === "object");
 assert(typeof VisualSubtitleFontConfiguration$ === "object");
@@ -5050,6 +5139,7 @@ assert(typeof TopicScheduleType === "object");
 assert(typeof TopicSortDirection === "object");
 assert(typeof TopicTimeGranularity === "object");
 assert(typeof TopicUserExperienceVersion === "object");
+assert(typeof TopicV2PublishOption === "object");
 assert(typeof TransposedColumnType === "object");
 assert(typeof UndefinedSpecifiedValueType === "object");
 assert(typeof URLTargetConfiguration === "object");
@@ -5154,6 +5244,7 @@ assert(typeof paginateListTemplates === "function");
 assert(typeof paginateListThemeVersions === "function");
 assert(typeof paginateListThemes === "function");
 assert(typeof paginateListTopics === "function");
+assert(typeof paginateListTopicsV2 === "function");
 assert(typeof paginateListUserGroups === "function");
 assert(typeof paginateListUsers === "function");
 assert(typeof paginateListVPCConnections === "function");
@@ -5167,4 +5258,5 @@ assert(typeof paginateSearchFolders === "function");
 assert(typeof paginateSearchGroups === "function");
 assert(typeof paginateSearchKnowledgeBases === "function");
 assert(typeof paginateSearchTopics === "function");
+assert(typeof paginateSearchTopicsV2 === "function");
 console.log(`QuickSight index test passed.`);

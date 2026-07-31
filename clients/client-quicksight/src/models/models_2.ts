@@ -93,10 +93,8 @@ import type {
   ChartAxisLabelOptions,
   ColumnConfiguration,
   DataLabelOptions,
-  DataSetColumnIdMapping,
   DataSetIdentifierDeclaration,
   DimensionField,
-  FieldSortOptions,
   FilterControl,
   FilterGroup,
   FontConfiguration,
@@ -119,10 +117,12 @@ import type {
 import type {
   BarChartVisual,
   BoxPlotVisual,
+  ColorScale,
   ColumnHierarchy,
   ComboChartVisual,
   CustomContentVisual,
   EmptyVisual,
+  FieldSortOptions,
   FilledMapVisual,
   FunnelChartVisual,
   GaugeChartVisual,
@@ -140,11 +140,96 @@ import type {
   SankeyDiagramVisual,
   ScatterPlotVisual,
   TableVisual,
-  TreeMapConfiguration,
+  TooltipOptions,
+  TreeMapFieldWells,
   VisualPalette,
   VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
 } from "./models_1";
+
+/**
+ * <p>The sort configuration of a tree map.</p>
+ * @public
+ */
+export interface TreeMapSortConfiguration {
+  /**
+   * <p>The sort configuration of group by fields.</p>
+   * @public
+   */
+  TreeMapSort?: FieldSortOptions[] | undefined;
+
+  /**
+   * <p>The limit on the number of groups that are displayed.</p>
+   * @public
+   */
+  TreeMapGroupItemsLimitConfiguration?: ItemsLimitConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration of a tree map.</p>
+ * @public
+ */
+export interface TreeMapConfiguration {
+  /**
+   * <p>The field wells of the visual.</p>
+   * @public
+   */
+  FieldWells?: TreeMapFieldWells | undefined;
+
+  /**
+   * <p>The sort configuration of a tree map.</p>
+   * @public
+   */
+  SortConfiguration?: TreeMapSortConfiguration | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility) of the groups that are displayed in a tree map.</p>
+   * @public
+   */
+  GroupLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility) of the sizes that are displayed in a tree map.</p>
+   * @public
+   */
+  SizeLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The label options (label text, label visibility) for the colors displayed in a tree map.</p>
+   * @public
+   */
+  ColorLabelOptions?: ChartAxisLabelOptions | undefined;
+
+  /**
+   * <p>The color options (gradient color, point of divergence) of a tree map.</p>
+   * @public
+   */
+  ColorScale?: ColorScale | undefined;
+
+  /**
+   * <p>The legend display setup of the visual.</p>
+   * @public
+   */
+  Legend?: LegendOptions | undefined;
+
+  /**
+   * <p>The options that determine if visual data labels are displayed.</p>
+   * @public
+   */
+  DataLabels?: DataLabelOptions | undefined;
+
+  /**
+   * <p>The tooltip display setup of the visual.</p>
+   * @public
+   */
+  Tooltip?: TooltipOptions | undefined;
+
+  /**
+   * <p>The general visual interactions setup for a visual.</p>
+   * @public
+   */
+  Interactions?: VisualInteractionOptions | undefined;
+}
 
 /**
  * <p>A tree map.</p>
@@ -1032,6 +1117,24 @@ export interface TooltipSheetDefinition {
 }
 
 /**
+ * <p>A topic.</p>
+ * @public
+ */
+export interface TopicIdentifierDeclaration {
+  /**
+   * <p>The identifier of the topic, typically the topic's name.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+}
+
+/**
  * <p>The definition of an analysis.</p>
  * @public
  */
@@ -1042,6 +1145,13 @@ export interface AnalysisDefinition {
    * @public
    */
   DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
+
+  /**
+   * <p>An array of topic identifier declarations. This mapping allows the usage of topic identifiers instead
+   *             of topic ARNs throughout analysis sub-structures.</p>
+   * @public
+   */
+  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
 
   /**
    * <p>An array of sheet definitions for an analysis. Each <code>SheetDefinition</code> provides detailed information about
@@ -1187,6 +1297,24 @@ export interface DataSetReference {
 }
 
 /**
+ * <p>Topic reference.</p>
+ * @public
+ */
+export interface TopicReference {
+  /**
+   * <p>Topic placeholder.</p>
+   * @public
+   */
+  TopicPlaceholder: string | undefined;
+
+  /**
+   * <p>Topic Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+}
+
+/**
  * <p>The source template of an analysis.</p>
  * @public
  */
@@ -1196,6 +1324,12 @@ export interface AnalysisSourceTemplate {
    * @public
    */
   DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * <p>The topic references of the source template of an analysis.</p>
+   * @public
+   */
+  TopicReferences?: TopicReference[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
@@ -7950,6 +8084,678 @@ export interface Capabilities {
   KnowledgeBase?: CapabilityState | undefined;
 
   /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateKnowledgeBases?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareKnowledgeBases?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SharePointKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateSharePointKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareSharePointKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseSharePointKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  GoogleDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateGoogleDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareGoogleDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseGoogleDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  WebCrawlerKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateWebCrawlerKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareWebCrawlerKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseWebCrawlerKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  S3KnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateS3KnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareS3KnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseS3KnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConfluenceKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateConfluenceKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareConfluenceKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseConfluenceKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  OneDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateOneDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareOneDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseOneDriveKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QBusinessKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateQBusinessKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareQBusinessKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseQBusinessKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BedrockManagedKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateBedrockManagedKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareBedrockManagedKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseBedrockManagedKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  BoxKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateBoxKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareBoxKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseBoxKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IDCKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CreateAndUpdateIDCKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ShareIDCKnowledgeBase?: CapabilityState | undefined;
+
+  /**
+   * <p>The permission state of a capability in a custom permissions profile. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DENY</code> – Amazon Quick denies this capability for users assigned to the profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALLOW</code> – Amazon Quick grants this capability to users assigned to the profile. This value is only relevant when governance is enabled for the capability's category. Without governance, the default effect is always <code>ALLOW</code>. In a governed category, this value overrides the category-level deny-by-default behavior for that capability only.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UseIDCKnowledgeBase?: CapabilityState | undefined;
+
+  /**
    * <p>The ability to perform actions in external services through Action connectors. Actions allow users to interact with third-party systems.</p>
    * @public
    */
@@ -10297,7 +11103,7 @@ export interface CreateAnalysisRequest {
 
   /**
    * <p>A source entity to use for the analysis that you're creating. This metadata structure
-   *             contains details that describe a source template and one or more datasets.</p>
+   *             contains details that describe a source template and one or more datasets or topics.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
    *             order for the request to be valid.</p>
    * @public
@@ -10801,6 +11607,13 @@ export interface DashboardVersionDefinition {
   DataSetIdentifierDeclarations: DataSetIdentifierDeclaration[] | undefined;
 
   /**
+   * <p>An array of topic identifier declarations. With
+   *             this mapping, you can use topic identifiers instead of topic Amazon Resource Names (ARNs) throughout the dashboard's sub-structures.</p>
+   * @public
+   */
+  TopicIdentifierDeclarations?: TopicIdentifierDeclaration[] | undefined;
+
+  /**
    * <p>An array of sheet definitions for a dashboard.</p>
    * @public
    */
@@ -10884,6 +11697,12 @@ export interface DashboardSourceTemplate {
   DataSetReferences: DataSetReference[] | undefined;
 
   /**
+   * <p>The topic references for the source template of a dashboard.</p>
+   * @public
+   */
+  TopicReferences?: TopicReference[] | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the resource.</p>
    * @public
    */
@@ -10955,7 +11774,9 @@ export interface CreateDashboardRequest {
    *                 Amazon Quick Sight-supported Amazon Web Services Region. </p>
    *          <p>Use the <code>DataSetReferences</code> entity within <code>SourceTemplate</code> to
    *             list the replacement datasets for the placeholders listed in the original. The schema in
-   *             each dataset must match its placeholder. </p>
+   *             each dataset must match its placeholder. Use the <code>TopicReferences</code>
+   *             entity to list the replacement topics for the topic placeholders listed in the original.
+   *             The schema in each topic must match its placeholder.</p>
    *          <p>Either a <code>SourceEntity</code> or a <code>Definition</code> must be provided in
    *             order for the request to be valid.</p>
    * @public
@@ -11448,101 +12269,4 @@ export interface DataSetStringListFilterCondition {
    * @public
    */
   Values?: DataSetStringListFilterValue | undefined;
-}
-
-/**
- * <p>A filter condition for string columns, supporting both comparison and list-based filtering.</p>
- * @public
- */
-export interface DataSetStringFilterCondition {
-  /**
-   * <p>The name of the string column to filter.</p>
-   * @public
-   */
-  ColumnName?: string | undefined;
-
-  /**
-   * <p>A comparison-based filter condition for the string column.</p>
-   * @public
-   */
-  ComparisonFilterCondition?: DataSetStringComparisonFilterCondition | undefined;
-
-  /**
-   * <p>A list-based filter condition that includes or excludes values from a specified list.</p>
-   * @public
-   */
-  ListFilterCondition?: DataSetStringListFilterCondition | undefined;
-}
-
-/**
- * <p>A transform operation that filters rows based on a condition.</p>
- * @public
- */
-export interface FilterOperation {
-  /**
-   * <p>An expression that must evaluate to a Boolean value. Rows for which the expression
-   *             evaluates to true are kept in the dataset.</p>
-   * @public
-   */
-  ConditionExpression?: string | undefined;
-
-  /**
-   * <p>A string-based filter condition within a filter operation.</p>
-   * @public
-   */
-  StringFilterCondition?: DataSetStringFilterCondition | undefined;
-
-  /**
-   * <p>A numeric-based filter condition within a filter operation.</p>
-   * @public
-   */
-  NumericFilterCondition?: DataSetNumericFilterCondition | undefined;
-
-  /**
-   * <p>A date-based filter condition within a filter operation.</p>
-   * @public
-   */
-  DateFilterCondition?: DataSetDateFilterCondition | undefined;
-}
-
-/**
- * <p>A transform operation that applies one or more filter conditions.</p>
- * @public
- */
-export interface FiltersOperation {
-  /**
-   * <p>Alias for this operation.</p>
-   * @public
-   */
-  Alias: string | undefined;
-
-  /**
-   * <p>The source transform operation that provides input data for filtering.</p>
-   * @public
-   */
-  Source: TransformOperationSource | undefined;
-
-  /**
-   * <p>The list of filter operations to apply.</p>
-   * @public
-   */
-  FilterOperations: FilterOperation[] | undefined;
-}
-
-/**
- * <p>Specifies the source table and column mappings for an import table operation.</p>
- * @public
- */
-export interface ImportTableOperationSource {
-  /**
-   * <p>The identifier of the source table to import data from.</p>
-   * @public
-   */
-  SourceTableId: string | undefined;
-
-  /**
-   * <p>The mappings between source column identifiers and target column identifiers during the import.</p>
-   * @public
-   */
-  ColumnIdMappings?: DataSetColumnIdMapping[] | undefined;
 }

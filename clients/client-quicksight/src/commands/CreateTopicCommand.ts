@@ -51,7 +51,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *         Filters: [ // TopicFilters
  *           { // TopicFilter
  *             FilterDescription: "STRING_VALUE",
- *             FilterClass: "ENFORCED_VALUE_FILTER" || "CONDITIONAL_VALUE_FILTER" || "NAMED_VALUE_FILTER",
+ *             FilterClass: "ENFORCED_VALUE_FILTER" || "CONDITIONAL_VALUE_FILTER" || "NAMED_VALUE_FILTER" || "DASHBOARD_DEFAULT_FILTER",
  *             FilterName: "STRING_VALUE", // required
  *             FilterSynonyms: [ // Synonyms
  *               "STRING_VALUE",
@@ -71,6 +71,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 },
  *               },
  *               Inverse: true || false,
+ *               NullFilter: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
  *             },
  *             NumericEqualityFilter: { // TopicNumericEqualityFilter
  *               Constant: { // TopicSingularFilterConstant
@@ -78,6 +79,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 SingularConstant: "STRING_VALUE",
  *               },
  *               Aggregation: "NO_AGGREGATION" || "SUM" || "AVERAGE" || "COUNT" || "DISTINCT_COUNT" || "MAX" || "MEDIAN" || "MIN" || "STDEV" || "STDEVP" || "VAR" || "VARP",
+ *               Inverse: true || false,
+ *               NullFilter: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
  *             },
  *             NumericRangeFilter: { // TopicNumericRangeFilter
  *               Inclusive: true || false,
@@ -89,6 +92,8 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 },
  *               },
  *               Aggregation: "NO_AGGREGATION" || "SUM" || "AVERAGE" || "COUNT" || "DISTINCT_COUNT" || "MAX" || "MEDIAN" || "MIN" || "STDEV" || "STDEVP" || "VAR" || "VARP",
+ *               Inverse: true || false,
+ *               NullFilter: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
  *             },
  *             DateRangeFilter: { // TopicDateRangeFilter
  *               Inclusive: true || false,
@@ -99,6 +104,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                   Maximum: "STRING_VALUE",
  *                 },
  *               },
+ *               NullFilter: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
  *             },
  *             RelativeDateFilter: { // TopicRelativeDateFilter
  *               TimeGranularity: "SECOND" || "MINUTE" || "HOUR" || "DAY" || "WEEK" || "MONTH" || "QUARTER" || "YEAR",
@@ -107,6 +113,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                 ConstantType: "SINGULAR" || "RANGE" || "COLLECTIVE",
  *                 SingularConstant: "STRING_VALUE",
  *               },
+ *               NullFilter: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
  *             },
  *             NullFilter: { // TopicNullFilter
  *               NullFilterType: "ALL_VALUES" || "NON_NULLS_ONLY" || "NULLS_ONLY",
@@ -183,7 +190,9 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *             CellValueSynonyms: [ // CellValueSynonyms
  *               { // CellValueSynonym
  *                 CellValue: "STRING_VALUE",
- *                 Synonyms: "<StringList>",
+ *                 Synonyms: [
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *             ],
  *             NonAdditive: true || false,
@@ -224,7 +233,9 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *             Aggregation: "SUM" || "MAX" || "MIN" || "COUNT" || "DISTINCT_COUNT" || "AVERAGE" || "MEDIAN" || "STDEV" || "STDEVP" || "VAR" || "VARP",
  *             ComparativeOrder: {
  *               UseOrdering: "GREATER_IS_BETTER" || "LESSER_IS_BETTER" || "SPECIFIED",
- *               SpecifedOrder: "<StringList>",
+ *               SpecifedOrder: [
+ *                 "STRING_VALUE",
+ *               ],
  *               TreatUndefinedSpecifiedValues: "LEAST" || "MOST",
  *             },
  *             SemanticType: {
@@ -252,7 +263,7 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *             CellValueSynonyms: [
  *               {
  *                 CellValue: "STRING_VALUE",
- *                 Synonyms: "<StringList>",
+ *                 Synonyms: "<SensitiveStringList>",
  *               },
  *             ],
  *             NonAdditive: true || false,
@@ -284,8 +295,19 @@ export interface CreateTopicCommandOutput extends CreateTopicResponse, __Metadat
  *                     "<keys>": "STRING_VALUE",
  *                   },
  *                 },
+ *                 RankOrder: Number("int"),
+ *                 PresentationOrder: Number("int"),
+ *                 IsHidden: true || false,
  *               },
  *             ],
+ *             Sort: [ // NamedEntitySortList
+ *               { // NamedEntitySort
+ *                 FieldName: "STRING_VALUE", // required
+ *                 Direction: "ASCENDING" || "DESCENDING", // required
+ *               },
+ *             ],
+ *             RankOrder: Number("int"),
+ *             PresentationOrder: Number("int"),
  *           },
  *         ],
  *       },

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeDashboardDefinitionRequest, DescribeDashboardDefinitionResponse } from "../models/models_3";
+import type { DescribeDashboardDefinitionRequest, DescribeDashboardDefinitionResponse } from "../models/models_4";
 import { DescribeDashboardDefinition$ } from "../schemas/schemas_0";
 
 /**
@@ -68,6 +68,12 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //       { // DataSetIdentifierDeclaration
  * //         Identifier: "STRING_VALUE", // required
  * //         DataSetArn: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     TopicIdentifierDeclarations: [ // TopicIdentifierDeclarationList
+ * //       { // TopicIdentifierDeclaration
+ * //         Identifier: "STRING_VALUE", // required
+ * //         TopicArn: "STRING_VALUE", // required
  * //       },
  * //     ],
  * //     Sheets: [ // SheetDefinitionList
@@ -152,7 +158,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 LinkToDataSetColumn: { // ColumnIdentifier
- * //                   DataSetIdentifier: "STRING_VALUE", // required
+ * //                   DataSetIdentifier: "STRING_VALUE",
+ * //                   TopicIdentifier: "STRING_VALUE",
  * //                   ColumnName: "STRING_VALUE", // required
  * //                 },
  * //               },
@@ -161,7 +168,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                   { // CascadingControlSource
  * //                     SourceSheetControlId: "STRING_VALUE",
  * //                     ColumnToMatch: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                   },
@@ -174,7 +182,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                   },
  * //                   ControlColumnSort: { // AggregationSortConfiguration
  * //                     Column: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                     SortDirection: "ASC" || "DESC", // required
@@ -236,7 +245,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 LinkToDataSetColumn: {
- * //                   DataSetIdentifier: "STRING_VALUE", // required
+ * //                   DataSetIdentifier: "STRING_VALUE",
+ * //                   TopicIdentifier: "STRING_VALUE",
  * //                   ColumnName: "STRING_VALUE", // required
  * //                 },
  * //               },
@@ -245,7 +255,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                   {
  * //                     SourceSheetControlId: "STRING_VALUE",
  * //                     ColumnToMatch: {
- * //                       DataSetIdentifier: "STRING_VALUE", // required
+ * //                       DataSetIdentifier: "STRING_VALUE",
+ * //                       TopicIdentifier: "STRING_VALUE",
  * //                       ColumnName: "STRING_VALUE", // required
  * //                     },
  * //                   },
@@ -4173,7 +4184,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 },
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FunnelChartVisual: { // FunnelChartVisual
@@ -4649,7 +4661,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             SankeyDiagramVisual: { // SankeyDiagramVisual
@@ -4686,12 +4699,14 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             EmptyVisual: { // EmptyVisual
  * //               VisualId: "STRING_VALUE", // required
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               Actions: "<VisualCustomActionList>",
  * //             },
  * //             RadarChartVisual: { // RadarChartVisual
@@ -6241,7 +6256,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 },
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             FunnelChartVisual: {
@@ -6633,7 +6649,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             SankeyDiagramVisual: {
@@ -6670,12 +6687,14 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               VisualContentAltText: "STRING_VALUE",
  * //             },
  * //             EmptyVisual: {
  * //               VisualId: "STRING_VALUE", // required
- * //               DataSetIdentifier: "STRING_VALUE", // required
+ * //               DataSetIdentifier: "STRING_VALUE",
+ * //               TopicIdentifier: "STRING_VALUE",
  * //               Actions: "<VisualCustomActionList>",
  * //             },
  * //             RadarChartVisual: {
@@ -6962,7 +6981,8 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //     ],
  * //     CalculatedFields: [ // CalculatedFields
  * //       { // CalculatedField
- * //         DataSetIdentifier: "STRING_VALUE", // required
+ * //         DataSetIdentifier: "STRING_VALUE",
+ * //         TopicIdentifier: "STRING_VALUE",
  * //         Name: "STRING_VALUE", // required
  * //         Expression: "STRING_VALUE", // required
  * //       },
@@ -7634,6 +7654,18 @@ export interface DescribeDashboardDefinitionCommandOutput extends DescribeDashbo
  * //       CustomActionDefaults: {
  * //         highlightOperation: {
  * //           Trigger: "DATA_POINT_CLICK" || "DATA_POINT_HOVER" || "NONE", // required
+ * //         },
+ * //       },
+ * //       VisualMessages: { // VisualMessages
+ * //         NoDataMessage: { // VisualMessageConfiguration
+ * //           Enabled: true || false,
+ * //           Title: "STRING_VALUE",
+ * //           TitleVisibility: "HIDDEN" || "VISIBLE",
+ * //           Description: "STRING_VALUE",
+ * //           DescriptionVisibility: "HIDDEN" || "VISIBLE",
+ * //           LinkText: "STRING_VALUE",
+ * //           LinkUrl: "STRING_VALUE",
+ * //           LinkVisibility: "HIDDEN" || "VISIBLE",
  * //         },
  * //       },
  * //     },

@@ -135,6 +135,7 @@ import type {
   CreateTopicRefreshScheduleCommandInput,
   CreateTopicRefreshScheduleCommandOutput,
 } from "./commands/CreateTopicRefreshScheduleCommand";
+import type { CreateTopicV2CommandInput, CreateTopicV2CommandOutput } from "./commands/CreateTopicV2Command";
 import type {
   CreateVPCConnectionCommandInput,
   CreateVPCConnectionCommandOutput,
@@ -230,6 +231,7 @@ import type {
   DeleteTopicRefreshScheduleCommandInput,
   DeleteTopicRefreshScheduleCommandOutput,
 } from "./commands/DeleteTopicRefreshScheduleCommand";
+import type { DeleteTopicV2CommandInput, DeleteTopicV2CommandOutput } from "./commands/DeleteTopicV2Command";
 import type {
   DeleteUserByPrincipalIdCommandInput,
   DeleteUserByPrincipalIdCommandOutput,
@@ -451,6 +453,10 @@ import type {
   DescribeTopicPermissionsCommandOutput,
 } from "./commands/DescribeTopicPermissionsCommand";
 import type {
+  DescribeTopicPermissionsV2CommandInput,
+  DescribeTopicPermissionsV2CommandOutput,
+} from "./commands/DescribeTopicPermissionsV2Command";
+import type {
   DescribeTopicRefreshCommandInput,
   DescribeTopicRefreshCommandOutput,
 } from "./commands/DescribeTopicRefreshCommand";
@@ -458,6 +464,7 @@ import type {
   DescribeTopicRefreshScheduleCommandInput,
   DescribeTopicRefreshScheduleCommandOutput,
 } from "./commands/DescribeTopicRefreshScheduleCommand";
+import type { DescribeTopicV2CommandInput, DescribeTopicV2CommandOutput } from "./commands/DescribeTopicV2Command";
 import type { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import type {
   DescribeVPCConnectionCommandInput,
@@ -597,6 +604,7 @@ import type {
   ListTopicReviewedAnswersCommandOutput,
 } from "./commands/ListTopicReviewedAnswersCommand";
 import type { ListTopicsCommandInput, ListTopicsCommandOutput } from "./commands/ListTopicsCommand";
+import type { ListTopicsV2CommandInput, ListTopicsV2CommandOutput } from "./commands/ListTopicsV2Command";
 import type { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand";
 import type { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import type {
@@ -635,6 +643,7 @@ import type {
 } from "./commands/SearchKnowledgeBasesCommand";
 import type { SearchSpacesCommandInput, SearchSpacesCommandOutput } from "./commands/SearchSpacesCommand";
 import type { SearchTopicsCommandInput, SearchTopicsCommandOutput } from "./commands/SearchTopicsCommand";
+import type { SearchTopicsV2CommandInput, SearchTopicsV2CommandOutput } from "./commands/SearchTopicsV2Command";
 import type {
   StartAssetBundleExportJobCommandInput,
   StartAssetBundleExportJobCommandOutput,
@@ -836,9 +845,14 @@ import type {
   UpdateTopicPermissionsCommandOutput,
 } from "./commands/UpdateTopicPermissionsCommand";
 import type {
+  UpdateTopicPermissionsV2CommandInput,
+  UpdateTopicPermissionsV2CommandOutput,
+} from "./commands/UpdateTopicPermissionsV2Command";
+import type {
   UpdateTopicRefreshScheduleCommandInput,
   UpdateTopicRefreshScheduleCommandOutput,
 } from "./commands/UpdateTopicRefreshScheduleCommand";
+import type { UpdateTopicV2CommandInput, UpdateTopicV2CommandOutput } from "./commands/UpdateTopicV2Command";
 import type { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import type {
   UpdateUserCustomPermissionCommandInput,
@@ -896,6 +910,7 @@ export type ServiceInputTypes =
   | CreateThemeCommandInput
   | CreateTopicCommandInput
   | CreateTopicRefreshScheduleCommandInput
+  | CreateTopicV2CommandInput
   | CreateVPCConnectionCommandInput
   | DeleteAccountCustomPermissionCommandInput
   | DeleteAccountCustomizationCommandInput
@@ -931,6 +946,7 @@ export type ServiceInputTypes =
   | DeleteThemeCommandInput
   | DeleteTopicCommandInput
   | DeleteTopicRefreshScheduleCommandInput
+  | DeleteTopicV2CommandInput
   | DeleteUserByPrincipalIdCommandInput
   | DeleteUserCommandInput
   | DeleteUserCustomPermissionCommandInput
@@ -995,8 +1011,10 @@ export type ServiceInputTypes =
   | DescribeThemePermissionsCommandInput
   | DescribeTopicCommandInput
   | DescribeTopicPermissionsCommandInput
+  | DescribeTopicPermissionsV2CommandInput
   | DescribeTopicRefreshCommandInput
   | DescribeTopicRefreshScheduleCommandInput
+  | DescribeTopicV2CommandInput
   | DescribeUserCommandInput
   | DescribeVPCConnectionCommandInput
   | GenerateEmbedUrlForAnonymousUserCommandInput
@@ -1046,6 +1064,7 @@ export type ServiceInputTypes =
   | ListTopicRefreshSchedulesCommandInput
   | ListTopicReviewedAnswersCommandInput
   | ListTopicsCommandInput
+  | ListTopicsV2CommandInput
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
   | ListUsersIndexCapacityCommandInput
@@ -1066,6 +1085,7 @@ export type ServiceInputTypes =
   | SearchKnowledgeBasesCommandInput
   | SearchSpacesCommandInput
   | SearchTopicsCommandInput
+  | SearchTopicsV2CommandInput
   | StartAssetBundleExportJobCommandInput
   | StartAssetBundleImportJobCommandInput
   | StartAutomationJobCommandInput
@@ -1128,7 +1148,9 @@ export type ServiceInputTypes =
   | UpdateThemePermissionsCommandInput
   | UpdateTopicCommandInput
   | UpdateTopicPermissionsCommandInput
+  | UpdateTopicPermissionsV2CommandInput
   | UpdateTopicRefreshScheduleCommandInput
+  | UpdateTopicV2CommandInput
   | UpdateUserCommandInput
   | UpdateUserCustomPermissionCommandInput
   | UpdateVPCConnectionCommandInput;
@@ -1170,6 +1192,7 @@ export type ServiceOutputTypes =
   | CreateThemeCommandOutput
   | CreateTopicCommandOutput
   | CreateTopicRefreshScheduleCommandOutput
+  | CreateTopicV2CommandOutput
   | CreateVPCConnectionCommandOutput
   | DeleteAccountCustomPermissionCommandOutput
   | DeleteAccountCustomizationCommandOutput
@@ -1205,6 +1228,7 @@ export type ServiceOutputTypes =
   | DeleteThemeCommandOutput
   | DeleteTopicCommandOutput
   | DeleteTopicRefreshScheduleCommandOutput
+  | DeleteTopicV2CommandOutput
   | DeleteUserByPrincipalIdCommandOutput
   | DeleteUserCommandOutput
   | DeleteUserCustomPermissionCommandOutput
@@ -1269,8 +1293,10 @@ export type ServiceOutputTypes =
   | DescribeThemePermissionsCommandOutput
   | DescribeTopicCommandOutput
   | DescribeTopicPermissionsCommandOutput
+  | DescribeTopicPermissionsV2CommandOutput
   | DescribeTopicRefreshCommandOutput
   | DescribeTopicRefreshScheduleCommandOutput
+  | DescribeTopicV2CommandOutput
   | DescribeUserCommandOutput
   | DescribeVPCConnectionCommandOutput
   | GenerateEmbedUrlForAnonymousUserCommandOutput
@@ -1320,6 +1346,7 @@ export type ServiceOutputTypes =
   | ListTopicRefreshSchedulesCommandOutput
   | ListTopicReviewedAnswersCommandOutput
   | ListTopicsCommandOutput
+  | ListTopicsV2CommandOutput
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
   | ListUsersIndexCapacityCommandOutput
@@ -1340,6 +1367,7 @@ export type ServiceOutputTypes =
   | SearchKnowledgeBasesCommandOutput
   | SearchSpacesCommandOutput
   | SearchTopicsCommandOutput
+  | SearchTopicsV2CommandOutput
   | StartAssetBundleExportJobCommandOutput
   | StartAssetBundleImportJobCommandOutput
   | StartAutomationJobCommandOutput
@@ -1402,7 +1430,9 @@ export type ServiceOutputTypes =
   | UpdateThemePermissionsCommandOutput
   | UpdateTopicCommandOutput
   | UpdateTopicPermissionsCommandOutput
+  | UpdateTopicPermissionsV2CommandOutput
   | UpdateTopicRefreshScheduleCommandOutput
+  | UpdateTopicV2CommandOutput
   | UpdateUserCommandOutput
   | UpdateUserCustomPermissionCommandOutput
   | UpdateVPCConnectionCommandOutput;
