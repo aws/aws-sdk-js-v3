@@ -72,6 +72,13 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   exporters: [ // ExporterList
+ *     { // ExporterConfiguration Union: only one key present
+ *       openSearchConfiguration: { // OpenSearchExporterConfiguration
+ *         domainArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateScraperCommand(input);
  * const response = await client.send(command);

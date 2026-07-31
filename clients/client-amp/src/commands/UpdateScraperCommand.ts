@@ -51,6 +51,13 @@ export interface UpdateScraperCommandOutput extends UpdateScraperResponse, __Met
  *     targetRoleArn: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
+ *   exporters: [ // ExporterList
+ *     { // ExporterConfiguration Union: only one key present
+ *       openSearchConfiguration: { // OpenSearchExporterConfiguration
+ *         domainArn: "STRING_VALUE", // required
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new UpdateScraperCommand(input);
  * const response = await client.send(command);

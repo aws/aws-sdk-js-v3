@@ -84,6 +84,8 @@ const _DWRe = "DescribeWorkspaceRequest";
 const _DWRes = "DescribeWorkspaceResponse";
 const _DWe = "DescribeWorkspace";
 const _EC = "EksConfiguration";
+const _ECx = "ExporterConfiguration";
+const _EL = "ExporterList";
 const _GDSC = "GetDefaultScraperConfiguration";
 const _GDSCR = "GetDefaultScraperConfigurationRequest";
 const _GDSCRe = "GetDefaultScraperConfigurationResponse";
@@ -112,6 +114,7 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _LW = "ListWorkspaces";
 const _LWR = "ListWorkspacesRequest";
 const _LWRi = "ListWorkspacesResponse";
+const _OSEC = "OpenSearchExporterConfiguration";
 const _PAD = "PutAnomalyDetector";
 const _PADR = "PutAnomalyDetectorRequest";
 const _PADRu = "PutAnomalyDetectorResponse";
@@ -199,11 +202,13 @@ const _co = "configuration";
 const _con = "config";
 const _d = "data";
 const _dA = "datasetArn";
+const _dAo = "domainArn";
 const _de = "destinations";
 const _des = "destination";
 const _e = "error";
 const _eC = "eksConfiguration";
 const _eIIS = "evaluationIntervalInSeconds";
+const _ex = "exporters";
 const _f = "filters";
 const _fL = "fieldList";
 const _h = "http";
@@ -232,6 +237,7 @@ const _n = "name";
 const _nT = "nextToken";
 const _o = "options";
 const _oOOTWIS = "outOfOrderTimeWindowInSeconds";
+const _oSC = "openSearchConfiguration";
 const _pD = "policyDocument";
 const _pE = "prometheusEndpoint";
 const _pS = "policyStatus";
@@ -458,8 +464,8 @@ export var CreateRuleGroupsNamespaceResponse$: StaticStructureSchema = [3, n0, _
 ];
 export var CreateScraperRequest$: StaticStructureSchema = [3, n0, _CSR,
   0,
-  [_sCc, _so, _des, _al, _rC, _cT, _t],
-  [() => ScrapeConfiguration$, () => Source$, () => Destination$, 0, () => RoleConfiguration$, [0, 4], 128 | 0], 3
+  [_sCc, _so, _des, _al, _rC, _cT, _t, _ex],
+  [() => ScrapeConfiguration$, () => Source$, () => Destination$, 0, () => RoleConfiguration$, [0, 4], 128 | 0, () => ExporterList], 3
 ];
 export var CreateScraperResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
@@ -721,6 +727,11 @@ export var LoggingFilter$: StaticStructureSchema = [3, n0, _LF,
   [_qT],
   [1], 1
 ];
+export var OpenSearchExporterConfiguration$: StaticStructureSchema = [3, n0, _OSEC,
+  0,
+  [_dAo],
+  [0], 1
+];
 export var PutAlertManagerDefinitionRequest$: StaticStructureSchema = [3, n0, _PAMDR,
   0,
   [_wI, _d, _cT],
@@ -803,8 +814,8 @@ export var ScraperComponent$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var ScraperDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_sI, _a, _rAo, _st, _cA, _lMA, _sCc, _so, _des, _al, _t, _sR, _rC],
-  [0, 0, 0, () => ScraperStatus$, 4, 4, () => ScrapeConfiguration$, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$], 9
+  [_sI, _a, _rAo, _st, _cA, _lMA, _sCc, _so, _des, _al, _t, _sR, _rC, _ex],
+  [0, 0, 0, () => ScraperStatus$, 4, 4, () => ScrapeConfiguration$, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$, () => ExporterList], 9
 ];
 export var ScraperLoggingConfigurationStatus$: StaticStructureSchema = [3, n0, _SLCS,
   0,
@@ -818,8 +829,8 @@ export var ScraperStatus$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var ScraperSummary$: StaticStructureSchema = [3, n0, _SSc,
   0,
-  [_sI, _a, _rAo, _st, _cA, _lMA, _so, _des, _al, _t, _sR, _rC],
-  [0, 0, 0, () => ScraperStatus$, 4, 4, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$], 8
+  [_sI, _a, _rAo, _st, _cA, _lMA, _so, _des, _al, _t, _sR, _rC, _ex],
+  [0, 0, 0, () => ScraperStatus$, 4, 4, () => Source$, () => Destination$, 0, 128 | 0, 0, () => RoleConfiguration$, () => ExporterList], 8
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
@@ -873,8 +884,8 @@ export var UpdateScraperLoggingConfigurationResponse$: StaticStructureSchema = [
 ];
 export var UpdateScraperRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sI, _al, _sCc, _des, _rC, _cT],
-  [[0, 1], 0, () => ScrapeConfiguration$, () => Destination$, () => RoleConfiguration$, [0, 4]], 1
+  [_sI, _al, _sCc, _des, _rC, _cT, _ex],
+  [[0, 1], 0, () => ScrapeConfiguration$, () => Destination$, () => RoleConfiguration$, [0, 4], () => ExporterList], 1
 ];
 export var UpdateScraperResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
@@ -935,6 +946,9 @@ var __Unit = "unit" as const;
 var AnomalyDetectorSummaryList: StaticListSchema = [1, n0, _ADSL,
   0, () => AnomalyDetectorSummary$
 ];
+var ExporterList: StaticListSchema = [1, n0, _EL,
+  0, () => ExporterConfiguration$
+];
 var FilterValues = 64 | 0;
 var LimitsPerLabelSetList: StaticListSchema = [1, n0, _LPLSL,
   0, () => LimitsPerLabelSet$
@@ -981,6 +995,11 @@ export var Destination$: StaticUnionSchema = [4, n0, _D,
   0,
   [_aC, _cWC],
   [() => AmpConfiguration$, () => CloudWatchConfiguration$]
+];
+export var ExporterConfiguration$: StaticUnionSchema = [4, n0, _ECx,
+  0,
+  [_oSC],
+  [() => OpenSearchExporterConfiguration$]
 ];
 export var IgnoreNearExpected$: StaticUnionSchema = [4, n0, _INE,
   0,

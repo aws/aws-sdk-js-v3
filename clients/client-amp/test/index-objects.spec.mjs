@@ -117,6 +117,7 @@ import {
   DescribeWorkspaceResponse$,
   Destination$,
   EksConfiguration$,
+  ExporterConfiguration$,
   GetDefaultScraperConfiguration$,
   GetDefaultScraperConfigurationCommand,
   GetDefaultScraperConfigurationRequest$,
@@ -151,6 +152,7 @@ import {
   LoggingConfigurationStatusCode,
   LoggingDestination$,
   LoggingFilter$,
+  OpenSearchExporterConfiguration$,
   paginateListAnomalyDetectors,
   paginateListRuleGroupsNamespaces,
   paginateListScrapers,
@@ -405,6 +407,7 @@ assert(typeof DescribeWorkspaceRequest$ === "object");
 assert(typeof DescribeWorkspaceResponse$ === "object");
 assert(typeof Destination$ === "object");
 assert(typeof EksConfiguration$ === "object");
+assert(typeof ExporterConfiguration$ === "object");
 assert(typeof GetDefaultScraperConfigurationRequest$ === "object");
 assert(typeof GetDefaultScraperConfigurationResponse$ === "object");
 assert(typeof IgnoreNearExpected$ === "object");
@@ -424,6 +427,7 @@ assert(typeof LoggingConfigurationMetadata$ === "object");
 assert(typeof LoggingConfigurationStatus$ === "object");
 assert(typeof LoggingDestination$ === "object");
 assert(typeof LoggingFilter$ === "object");
+assert(typeof OpenSearchExporterConfiguration$ === "object");
 assert(typeof PutAlertManagerDefinitionRequest$ === "object");
 assert(typeof PutAlertManagerDefinitionResponse$ === "object");
 assert(typeof PutAnomalyDetectorRequest$ === "object");

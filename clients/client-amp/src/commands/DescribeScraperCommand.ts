@@ -86,6 +86,13 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //       sourceRoleArn: "STRING_VALUE",
  * //       targetRoleArn: "STRING_VALUE",
  * //     },
+ * //     exporters: [ // ExporterList
+ * //       { // ExporterConfiguration Union: only one key present
+ * //         openSearchConfiguration: { // OpenSearchExporterConfiguration
+ * //           domainArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

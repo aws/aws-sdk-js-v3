@@ -311,6 +311,57 @@ export namespace Destination {
 }
 
 /**
+ * <p>The configuration for exporting metrics to an Amazon OpenSearch Service domain.</p>
+ * @public
+ */
+export interface OpenSearchExporterConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  domainArn: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration for an exporter managed by the scraper.</p>
+ * @public
+ */
+export type ExporterConfiguration =
+  | ExporterConfiguration.OpenSearchConfigurationMember
+  | ExporterConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ExporterConfiguration {
+  /**
+   * <p>The configuration that the scraper uses to export metrics to an Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  export interface OpenSearchConfigurationMember {
+    openSearchConfiguration: OpenSearchExporterConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    openSearchConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    openSearchConfiguration: (value: OpenSearchExporterConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Use this structure to enable cross-account access, so that you can use a target account to access Prometheus metrics from source accounts.</p>
  * @public
  */
@@ -508,6 +559,12 @@ export interface CreateScraperRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The exporter configurations for the scraper. You can configure at most one Amazon OpenSearch Service domain. If you don't specify a value, the scraper is created without an exporter configuration.</p>
+   * @public
+   */
+  exporters?: ExporterConfiguration[] | undefined;
 }
 
 /**
@@ -682,6 +739,12 @@ export interface ScraperDescription {
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
+
+  /**
+   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration for an Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  exporters?: ExporterConfiguration[] | undefined;
 }
 
 /**
@@ -796,6 +859,12 @@ export interface ScraperSummary {
    * @public
    */
   roleConfiguration?: RoleConfiguration | undefined;
+
+  /**
+   * <p>The exporter configurations for the scraper, if configured. The list contains at most one configuration for an Amazon OpenSearch Service domain.</p>
+   * @public
+   */
+  exporters?: ExporterConfiguration[] | undefined;
 }
 
 /**
@@ -1051,6 +1120,12 @@ export interface UpdateScraperRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The exporter configurations for the scraper. You can configure at most one Amazon OpenSearch Service domain. If you don't specify a value, the existing exporter configuration remains unchanged.</p>
+   * @public
+   */
+  exporters?: ExporterConfiguration[] | undefined;
 }
 
 /**

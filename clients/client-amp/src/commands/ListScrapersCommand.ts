@@ -90,6 +90,13 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * //         sourceRoleArn: "STRING_VALUE",
  * //         targetRoleArn: "STRING_VALUE",
  * //       },
+ * //       exporters: [ // ExporterList
+ * //         { // ExporterConfiguration Union: only one key present
+ * //           openSearchConfiguration: { // OpenSearchExporterConfiguration
+ * //             domainArn: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
