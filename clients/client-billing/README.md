@@ -237,6 +237,20 @@ GetCredits
 </details>
 <details>
 <summary>
+GetEnterpriseSupportChargeSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetEnterpriseSupportChargeSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetEnterpriseSupportChargeSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetEnterpriseSupportChargeSummaryCommandOutput/)
+</details>
+<details>
+<summary>
+GetEnterpriseSupportContractDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/GetEnterpriseSupportContractDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetEnterpriseSupportContractDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/GetEnterpriseSupportContractDetailsCommandOutput/)
+</details>
+<details>
+<summary>
 GetResourcePolicy
 </summary>
 
@@ -248,6 +262,13 @@ ListBillingViews
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/ListBillingViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBillingViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListBillingViewsCommandOutput/)
+</details>
+<details>
+<summary>
+ListEnterpriseSupportLinkedAccountCharges
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/billing/command/ListEnterpriseSupportLinkedAccountChargesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListEnterpriseSupportLinkedAccountChargesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-billing/Interface/ListEnterpriseSupportLinkedAccountChargesCommandOutput/)
 </details>
 <details>
 <summary>

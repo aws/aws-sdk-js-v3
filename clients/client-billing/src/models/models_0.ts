@@ -32,6 +32,30 @@ export interface ActiveTimeRange {
 }
 
 /**
+ * <p>An additional charge applied to an Enterprise Support contract.</p>
+ * @public
+ */
+export interface AdditionalCharge {
+  /**
+   * <p>A description of the additional charge.</p>
+   * @public
+   */
+  description: string | undefined;
+
+  /**
+   * <p>The charge amount.</p>
+   * @public
+   */
+  amount?: string | undefined;
+
+  /**
+   * <p>The type of additional charge.</p>
+   * @public
+   */
+  chargeType?: string | undefined;
+}
+
+/**
  * <p>A monetary amount with a currency code. Used throughout the Billing API to represent credit balances, allocations, and adjustments.</p>
  * @public
  */
@@ -862,6 +886,360 @@ export interface GetCreditsResponse {
 }
 
 /**
+ * <p>The request structure for GetEnterpriseSupportChargeSummary.</p>
+ * @public
+ */
+export interface GetEnterpriseSupportChargeSummaryRequest {
+  /**
+   * <p>The billing month in YYYY-MM format. This must be a month in the past.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+}
+
+/**
+ * <p>A tier within an Enterprise Support pricing plan.</p>
+ * @public
+ */
+export interface PricingPlanTier {
+  /**
+   * <p>The minimum spend threshold for this tier.</p>
+   * @public
+   */
+  tierMinimum: string | undefined;
+
+  /**
+   * <p>The maximum spend threshold for this tier.</p>
+   * @public
+   */
+  tierMaximum?: string | undefined;
+
+  /**
+   * <p>The base charge for this tier.</p>
+   * @public
+   */
+  baseCharge: string | undefined;
+
+  /**
+   * <p>The additional percentage applied to aggregate charges in this tier.</p>
+   * @public
+   */
+  additionalPercentageOfAggregateCharges: string | undefined;
+
+  /**
+   * <p>The adjustment applied to aggregate charges.</p>
+   * @public
+   */
+  aggregateChargesAdjustment: string | undefined;
+
+  /**
+   * <p>Whether the tier charges are calculated incrementally.</p>
+   * @public
+   */
+  incremental: boolean | undefined;
+
+  /**
+   * <p>The increment amount for incremental tier calculations.</p>
+   * @public
+   */
+  increment?: string | undefined;
+
+  /**
+   * <p>The charge per increment.</p>
+   * @public
+   */
+  incrementCharge?: string | undefined;
+}
+
+/**
+ * <p>A pricing plan for Enterprise Support billing.</p>
+ * @public
+ */
+export interface PricingPlan {
+  /**
+   * <p>The unique identifier for the pricing plan.</p>
+   * @public
+   */
+  pricingPlanId?: string | undefined;
+
+  /**
+   * <p>The name of the pricing plan.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>A description of the pricing plan.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The start date of the pricing plan.</p>
+   * @public
+   */
+  startDate?: Date | undefined;
+
+  /**
+   * <p>The end date of the pricing plan.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+
+  /**
+   * <p>The discount percentage applied by this pricing plan.</p>
+   * @public
+   */
+  planDiscountPercent?: string | undefined;
+
+  /**
+   * <p>Whether the discount applies to the minimum Support charge.</p>
+   * @public
+   */
+  discountAppliesToMinimumCharge?: boolean | undefined;
+
+  /**
+   * <p>The minimum Support charge amount for this pricing plan.</p>
+   * @public
+   */
+  minimumCharge?: string | undefined;
+
+  /**
+   * <p>Whether the pricing plan uses tiered pricing.</p>
+   * @public
+   */
+  tiered?: string | undefined;
+
+  /**
+   * <p>The pricing tiers within this plan.</p>
+   * @public
+   */
+  tiers: PricingPlanTier[] | undefined;
+}
+
+/**
+ * <p>The response structure for GetEnterpriseSupportChargeSummary.</p>
+ * @public
+ */
+export interface GetEnterpriseSupportChargeSummaryResponse {
+  /**
+   * <p>The payer account ID that is authorized to view Enterprise Support data for all accounts in its Support profile.</p>
+   * @public
+   */
+  payerAccountId: string | undefined;
+
+  /**
+   * <p>The billing month in YYYY-MM format. This must be a month in the past.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+
+  /**
+   * <p>The start date of the billing period.</p>
+   * @public
+   */
+  billingPeriodStartDate: Date | undefined;
+
+  /**
+   * <p>The end date of the billing period.</p>
+   * @public
+   */
+  billingPeriodEndDate: Date | undefined;
+
+  /**
+   * <p>When true, the Support charge amount is estimated. When false, the Support charge amount is finalized.</p>
+   * @public
+   */
+  isEstimated: boolean | undefined;
+
+  /**
+   * <p>The date the bill was generated.</p>
+   * @public
+   */
+  billDate: Date | undefined;
+
+  /**
+   * <p>The Support charge amount for the account.</p>
+   * @public
+   */
+  supportCharge: string | undefined;
+
+  /**
+   * <p>The total Support charge amount for all accounts in the Support profile.</p>
+   * @public
+   */
+  totalSupportCharge: string | undefined;
+
+  /**
+   * <p>The support discount amount.</p>
+   * @public
+   */
+  supportDiscount: string | undefined;
+
+  /**
+   * <p>The total Support-eligible Spend from all accounts in the Support profile. This includes eligible spend from usage of Amazon Web Services, Reserved Instances, and Savings Plans.</p>
+   * @public
+   */
+  totalSupportEligibleSpend: string | undefined;
+
+  /**
+   * <p>The total Support-eligible spend from usage of Amazon Web Services from all accounts in the Support profile.</p>
+   * @public
+   */
+  totalSupportEligibleUsageSpend: string | undefined;
+
+  /**
+   * <p>The total Support-eligible Reserved Instance spend from all accounts in the Support profile.</p>
+   * @public
+   */
+  totalSupportEligibleReservedInstanceSpend: string | undefined;
+
+  /**
+   * <p>The total Support-eligible Savings Plan spend from all accounts in the Support profile.</p>
+   * @public
+   */
+  totalSupportEligibleSavingsPlanSpend: string | undefined;
+
+  /**
+   * <p>The percentage applied to the total Support-eligible spend to calculate the total Support charge across all accounts in the Support profile.</p>
+   * @public
+   */
+  supportChargePercentage: string | undefined;
+
+  /**
+   * <p>The effective pricing plan used for the support charge calculation.</p>
+   * @public
+   */
+  supportEffectivePricingPlan: PricingPlan | undefined;
+}
+
+/**
+ * <p>The request structure for GetEnterpriseSupportContractDetails.</p>
+ * @public
+ */
+export interface GetEnterpriseSupportContractDetailsRequest {
+  /**
+   * <p>The billing month in YYYY-MM format. This must be a month in the past.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+}
+
+/**
+ * <p>An account that is charged all or a portion of the total Support charge and the percentage of the charge allocated to it.</p>
+ * @public
+ */
+export interface ChargeAccount {
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The percentage of the total Support charge allocated to this account. This is 0.0 when supportAllocationMethod = Proportional.</p>
+   * @public
+   */
+  chargePercentage: string | undefined;
+}
+
+/**
+ * <p>An account that is covered by the Enterprise Support contract.</p>
+ * @public
+ */
+export interface ContractAccount {
+  /**
+   * <p>The account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>When true, Support charges are calculated on charges before private discounts. When false, they are calculated after private discounts.</p>
+   * @public
+   */
+  isGdn: boolean | undefined;
+}
+
+/**
+ * <p>The response structure for GetEnterpriseSupportContractDetails.</p>
+ * @public
+ */
+export interface GetEnterpriseSupportContractDetailsResponse {
+  /**
+   * <p>When true, the Enterprise Support contract is active. When false, the Enterprise Support Contract is inactive.</p>
+   * @public
+   */
+  isContractActive?: boolean | undefined;
+
+  /**
+   * <p>The method used to distribute the total Support charge amount across each account in the Support profile. Valid values: Proportional, Fixed_Percentage. Proportional means support charges are distributed to each account in proportion to its eligible Spend. Fixed_Percentage means support charges are distributed across accounts according to pre-configured percentages from the contract.</p>
+   * @public
+   */
+  supportAllocationMethod: string | undefined;
+
+  /**
+   * <p>When supportReservedInstanceTreatmentMethod = AmortizedCustom, only amortized fees for Reserved Instances purchased on or after this date are included in the calculation. This field is Null for all other treatment methods.</p>
+   * @public
+   */
+  supportReservedInstanceAmortizationStartDate?: Date | undefined;
+
+  /**
+   * <p>The method used to include Reserved Instance (RI) fees in the Enterprise Support charge calculation. Valid values: None (RI fees excluded from Support-eligible spend), Upfront (full upfront RI fees included in month of purchase), Amortized (RI fees spread over commitment term for RIs purchased on or after Support subscription start date), AmortizedCustom (same as Amortized but only for RIs purchased on or after a specified custom start date), AmortizedAll (RI fees amortized for all active RIs including those purchased before Support subscription started).</p>
+   * @public
+   */
+  supportReservedInstanceTreatmentMethod?: string | undefined;
+
+  /**
+   * <p>This is applicable when supportSavingsPlansTreatmentMethod = Amortized and is Null for all other methods. It shows the start date from which Savings Plan fees are included in Support Eligible Spend.</p>
+   * @public
+   */
+  supportSavingsPlansAmortizationStartDate?: Date | undefined;
+
+  /**
+   * <p>The method used to include Savings Plans fees in Enterprise Support charge calculations. Valid values: None (Savings Plan fees excluded from Support-eligible spend), Upfront (full upfront Savings Plan fees included in month of purchase), Amortized (Savings Plan fees spread over commitment term for Savings Plans purchased on or after Support subscription start date), AmortizedCustom (same as Amortized but only for Savings Plans purchased on or after a specified custom start date), AmortizedAll (Savings Plan fees amortized for all active Savings Plans including those purchased before Support subscription started).</p>
+   * @public
+   */
+  supportSavingsPlansTreatmentMethod?: string | undefined;
+
+  /**
+   * <p>The start date for accounts subscribed or unsubscribed to Support billing during the billing month.</p>
+   * @public
+   */
+  supportProrateStartDate?: Date | undefined;
+
+  /**
+   * <p>The list of accounts covered by the Enterprise Support contract.</p>
+   * @public
+   */
+  contractPayerAccountIds: ContractAccount[] | undefined;
+
+  /**
+   * <p>The list of payer accounts and their charge allocation percentages.</p>
+   * @public
+   */
+  chargedPayerAccountIds: ChargeAccount[] | undefined;
+
+  /**
+   * <p>Any Additional support charges applied to the contract.</p>
+   * @public
+   */
+  additionalSupportCharge?: AdditionalCharge[] | undefined;
+
+  /**
+   * <p>Any Additional support-eligible usage spend charges.</p>
+   * @public
+   */
+  additionalSupportEligibleUsageSpend?: AdditionalCharge[] | undefined;
+
+  /**
+   * <p>The pricing plans associated with this Enterprise Support contract.</p>
+   * @public
+   */
+  pricingPlans: PricingPlan[] | undefined;
+}
+
+/**
  * @public
  */
 export interface GetResourcePolicyRequest {
@@ -1020,6 +1398,168 @@ export interface ListBillingViewsResponse {
 
   /**
    * <p>The pagination token to use on subsequent calls to list billing views. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>The request structure for ListEnterpriseSupportLinkedAccountCharges.</p>
+ * @public
+ */
+export interface ListEnterpriseSupportLinkedAccountChargesRequest {
+  /**
+   * <p>The billing month in YYYY-MM format. This must be a month in the past.</p>
+   * @public
+   */
+  billingMonth: string | undefined;
+
+  /**
+   * <p>An optional linked account ID to filter results to a specific account.</p>
+   * @public
+   */
+  accountId?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A time period for Enterprise Support billing.</p>
+ * @public
+ */
+export interface EnterpriseSupportTimePeriod {
+  /**
+   * <p>The begin date of the time period.</p>
+   * @public
+   */
+  beginDate: Date | undefined;
+
+  /**
+   * <p>The end date of the time period.</p>
+   * @public
+   */
+  endDate?: Date | undefined;
+}
+
+/**
+ * <p>Service-level usage details by account.</p>
+ * @public
+ */
+export interface ServiceLevelAccountUsage {
+  /**
+   * <p>The service code for which to return Support-eligible spend data.</p>
+   * @public
+   */
+  serviceCode?: string | undefined;
+
+  /**
+   * <p>The total support-eligible spend for the service.</p>
+   * @public
+   */
+  totalSupportEligibleSpend?: string | undefined;
+}
+
+/**
+ * <p>Enterprise Support charges for a linked account.</p>
+ * @public
+ */
+export interface LinkedAccountCharge {
+  /**
+   * <p>The linked account ID.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The payer account ID that is authorized to view Enterprise Support data for all accounts in its Support profile.</p>
+   * @public
+   */
+  payerAccountId: string | undefined;
+
+  /**
+   * <p>The type of account.</p>
+   * @public
+   */
+  accountType?: string | undefined;
+
+  /**
+   * <p>The number of billable seconds in the billing period based on when the account was subscribed to Enterprise Support.</p>
+   * @public
+   */
+  billableSeconds: number | undefined;
+
+  /**
+   * <p>The total number of seconds in the billing period.</p>
+   * @public
+   */
+  totalSeconds: number | undefined;
+
+  /**
+   * <p>The total support-eligible spend for this account.</p>
+   * @public
+   */
+  totalSupportEligibleSpend: string | undefined;
+
+  /**
+   * <p>The prorated total support-eligible spend based on when the account was subscribed to Enterprise Support.</p>
+   * @public
+   */
+  proratedTotalSupportEligibleSpend: string | undefined;
+
+  /**
+   * <p>The time periods during which this account was linked.</p>
+   * @public
+   */
+  linkedTimePeriods?: EnterpriseSupportTimePeriod[] | undefined;
+
+  /**
+   * <p>The subscription time periods for this account.</p>
+   * @public
+   */
+  subscriptionTimePeriods?: EnterpriseSupportTimePeriod[] | undefined;
+
+  /**
+   * <p>The total support-eligible Reserved Instance spend for this account.</p>
+   * @public
+   */
+  totalSupportEligibleReservedInstanceSpend?: string | undefined;
+
+  /**
+   * <p>The total support-eligible Savings Plan spend for this account.</p>
+   * @public
+   */
+  totalSupportEligibleSavingsPlanSpend?: string | undefined;
+
+  /**
+   * <p>The support-eligible spend broken down by service.</p>
+   * @public
+   */
+  supportEligibleSpendByService?: ServiceLevelAccountUsage[] | undefined;
+}
+
+/**
+ * <p>The response structure for ListEnterpriseSupportLinkedAccountCharges.</p>
+ * @public
+ */
+export interface ListEnterpriseSupportLinkedAccountChargesResponse {
+  /**
+   * <p>The list of Enterprise Support charges per linked account.</p>
+   * @public
+   */
+  linkedAccount: LinkedAccountCharge[] | undefined;
+
+  /**
+   * <p>The pagination token for the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;

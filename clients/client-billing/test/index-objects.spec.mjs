@@ -2,6 +2,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   ActiveTimeRange$,
+  AdditionalCharge$,
   Amount$,
   ApplicationType,
   AssociateSourceViews$,
@@ -25,8 +26,10 @@ import {
   BillingViewStatus,
   BillingViewStatusReason,
   BillingViewType,
+  ChargeAccount$,
   ConflictException,
   ConflictException$,
+  ContractAccount$,
   CostCategoryValues$,
   CreateBillingView$,
   CreateBillingViewCommand,
@@ -46,6 +49,7 @@ import {
   DisassociateSourceViewsCommand,
   DisassociateSourceViewsRequest$,
   DisassociateSourceViewsResponse$,
+  EnterpriseSupportTimePeriod$,
   Expression$,
   GetBillingPreferences$,
   GetBillingPreferencesCommand,
@@ -63,16 +67,29 @@ import {
   GetCreditsCommand,
   GetCreditsRequest$,
   GetCreditsResponse$,
+  GetEnterpriseSupportChargeSummary$,
+  GetEnterpriseSupportChargeSummaryCommand,
+  GetEnterpriseSupportChargeSummaryRequest$,
+  GetEnterpriseSupportChargeSummaryResponse$,
+  GetEnterpriseSupportContractDetails$,
+  GetEnterpriseSupportContractDetailsCommand,
+  GetEnterpriseSupportContractDetailsRequest$,
+  GetEnterpriseSupportContractDetailsResponse$,
   GetResourcePolicy$,
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
   GetResourcePolicyResponse$,
   InternalServerException,
   InternalServerException$,
+  LinkedAccountCharge$,
   ListBillingViews$,
   ListBillingViewsCommand,
   ListBillingViewsRequest$,
   ListBillingViewsResponse$,
+  ListEnterpriseSupportLinkedAccountCharges$,
+  ListEnterpriseSupportLinkedAccountChargesCommand,
+  ListEnterpriseSupportLinkedAccountChargesRequest$,
+  ListEnterpriseSupportLinkedAccountChargesResponse$,
   ListSourceViewsForBillingView$,
   ListSourceViewsForBillingViewCommand,
   ListSourceViewsForBillingViewRequest$,
@@ -83,8 +100,11 @@ import {
   ListTagsForResourceResponse$,
   paginateGetCreditAllocationHistory,
   paginateListBillingViews,
+  paginateListEnterpriseSupportLinkedAccountCharges,
   paginateListSourceViewsForBillingView,
   PreferenceValue,
+  PricingPlan$,
+  PricingPlanTier$,
   RedeemCredits$,
   RedeemCreditsCommand,
   RedeemCreditsRequest$,
@@ -93,6 +113,7 @@ import {
   ResourceNotFoundException$,
   ResourceTag$,
   SearchOption,
+  ServiceLevelAccountUsage$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   StringSearch$,
@@ -142,10 +163,16 @@ assert(typeof GetCreditAllocationHistoryCommand === "function");
 assert(typeof GetCreditAllocationHistory$ === "object");
 assert(typeof GetCreditsCommand === "function");
 assert(typeof GetCredits$ === "object");
+assert(typeof GetEnterpriseSupportChargeSummaryCommand === "function");
+assert(typeof GetEnterpriseSupportChargeSummary$ === "object");
+assert(typeof GetEnterpriseSupportContractDetailsCommand === "function");
+assert(typeof GetEnterpriseSupportContractDetails$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
 assert(typeof ListBillingViewsCommand === "function");
 assert(typeof ListBillingViews$ === "object");
+assert(typeof ListEnterpriseSupportLinkedAccountChargesCommand === "function");
+assert(typeof ListEnterpriseSupportLinkedAccountCharges$ === "object");
 assert(typeof ListSourceViewsForBillingViewCommand === "function");
 assert(typeof ListSourceViewsForBillingView$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
@@ -162,6 +189,7 @@ assert(typeof UpdateBillingViewCommand === "function");
 assert(typeof UpdateBillingView$ === "object");
 // structural schemas
 assert(typeof ActiveTimeRange$ === "object");
+assert(typeof AdditionalCharge$ === "object");
 assert(typeof Amount$ === "object");
 assert(typeof AssociateSourceViewsRequest$ === "object");
 assert(typeof AssociateSourceViewsResponse$ === "object");
@@ -172,6 +200,8 @@ assert(typeof BillingPreferenceSummary$ === "object");
 assert(typeof BillingViewElement$ === "object");
 assert(typeof BillingViewHealthStatus$ === "object");
 assert(typeof BillingViewListElement$ === "object");
+assert(typeof ChargeAccount$ === "object");
+assert(typeof ContractAccount$ === "object");
 assert(typeof CostCategoryValues$ === "object");
 assert(typeof CreateBillingViewRequest$ === "object");
 assert(typeof CreateBillingViewResponse$ === "object");
@@ -182,6 +212,7 @@ assert(typeof DeleteBillingViewResponse$ === "object");
 assert(typeof DimensionValues$ === "object");
 assert(typeof DisassociateSourceViewsRequest$ === "object");
 assert(typeof DisassociateSourceViewsResponse$ === "object");
+assert(typeof EnterpriseSupportTimePeriod$ === "object");
 assert(typeof Expression$ === "object");
 assert(typeof GetBillingPreferencesRequest$ === "object");
 assert(typeof GetBillingPreferencesResponse$ === "object");
@@ -191,17 +222,27 @@ assert(typeof GetCreditAllocationHistoryRequest$ === "object");
 assert(typeof GetCreditAllocationHistoryResponse$ === "object");
 assert(typeof GetCreditsRequest$ === "object");
 assert(typeof GetCreditsResponse$ === "object");
+assert(typeof GetEnterpriseSupportChargeSummaryRequest$ === "object");
+assert(typeof GetEnterpriseSupportChargeSummaryResponse$ === "object");
+assert(typeof GetEnterpriseSupportContractDetailsRequest$ === "object");
+assert(typeof GetEnterpriseSupportContractDetailsResponse$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
+assert(typeof LinkedAccountCharge$ === "object");
 assert(typeof ListBillingViewsRequest$ === "object");
 assert(typeof ListBillingViewsResponse$ === "object");
+assert(typeof ListEnterpriseSupportLinkedAccountChargesRequest$ === "object");
+assert(typeof ListEnterpriseSupportLinkedAccountChargesResponse$ === "object");
 assert(typeof ListSourceViewsForBillingViewRequest$ === "object");
 assert(typeof ListSourceViewsForBillingViewResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
+assert(typeof PricingPlan$ === "object");
+assert(typeof PricingPlanTier$ === "object");
 assert(typeof RedeemCreditsRequest$ === "object");
 assert(typeof RedeemCreditsResponse$ === "object");
 assert(typeof ResourceTag$ === "object");
+assert(typeof ServiceLevelAccountUsage$ === "object");
 assert(typeof StringSearch$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -248,5 +289,6 @@ assert(BillingServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetCreditAllocationHistory === "function");
 assert(typeof paginateListBillingViews === "function");
+assert(typeof paginateListEnterpriseSupportLinkedAccountCharges === "function");
 assert(typeof paginateListSourceViewsForBillingView === "function");
 console.log(`Billing index test passed.`);

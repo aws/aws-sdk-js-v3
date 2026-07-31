@@ -81,10 +81,22 @@ import type {
 } from "./commands/GetCreditAllocationHistoryCommand";
 import type { GetCreditsCommandInput, GetCreditsCommandOutput } from "./commands/GetCreditsCommand";
 import type {
+  GetEnterpriseSupportChargeSummaryCommandInput,
+  GetEnterpriseSupportChargeSummaryCommandOutput,
+} from "./commands/GetEnterpriseSupportChargeSummaryCommand";
+import type {
+  GetEnterpriseSupportContractDetailsCommandInput,
+  GetEnterpriseSupportContractDetailsCommandOutput,
+} from "./commands/GetEnterpriseSupportContractDetailsCommand";
+import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import type { ListBillingViewsCommandInput, ListBillingViewsCommandOutput } from "./commands/ListBillingViewsCommand";
+import type {
+  ListEnterpriseSupportLinkedAccountChargesCommandInput,
+  ListEnterpriseSupportLinkedAccountChargesCommandOutput,
+} from "./commands/ListEnterpriseSupportLinkedAccountChargesCommand";
 import type {
   ListSourceViewsForBillingViewCommandInput,
   ListSourceViewsForBillingViewCommandOutput,
@@ -127,8 +139,11 @@ export type ServiceInputTypes =
   | GetBillingViewCommandInput
   | GetCreditAllocationHistoryCommandInput
   | GetCreditsCommandInput
+  | GetEnterpriseSupportChargeSummaryCommandInput
+  | GetEnterpriseSupportContractDetailsCommandInput
   | GetResourcePolicyCommandInput
   | ListBillingViewsCommandInput
+  | ListEnterpriseSupportLinkedAccountChargesCommandInput
   | ListSourceViewsForBillingViewCommandInput
   | ListTagsForResourceCommandInput
   | RedeemCreditsCommandInput
@@ -149,8 +164,11 @@ export type ServiceOutputTypes =
   | GetBillingViewCommandOutput
   | GetCreditAllocationHistoryCommandOutput
   | GetCreditsCommandOutput
+  | GetEnterpriseSupportChargeSummaryCommandOutput
+  | GetEnterpriseSupportContractDetailsCommandOutput
   | GetResourcePolicyCommandOutput
   | ListBillingViewsCommandOutput
+  | ListEnterpriseSupportLinkedAccountChargesCommandOutput
   | ListSourceViewsForBillingViewCommandOutput
   | ListTagsForResourceCommandOutput
   | RedeemCreditsCommandOutput

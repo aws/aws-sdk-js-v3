@@ -44,6 +44,16 @@ import {
   GetCreditsCommand,
 } from "./commands/GetCreditsCommand";
 import {
+  type GetEnterpriseSupportChargeSummaryCommandInput,
+  type GetEnterpriseSupportChargeSummaryCommandOutput,
+  GetEnterpriseSupportChargeSummaryCommand,
+} from "./commands/GetEnterpriseSupportChargeSummaryCommand";
+import {
+  type GetEnterpriseSupportContractDetailsCommandInput,
+  type GetEnterpriseSupportContractDetailsCommandOutput,
+  GetEnterpriseSupportContractDetailsCommand,
+} from "./commands/GetEnterpriseSupportContractDetailsCommand";
+import {
   type GetResourcePolicyCommandInput,
   type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
@@ -53,6 +63,11 @@ import {
   type ListBillingViewsCommandOutput,
   ListBillingViewsCommand,
 } from "./commands/ListBillingViewsCommand";
+import {
+  type ListEnterpriseSupportLinkedAccountChargesCommandInput,
+  type ListEnterpriseSupportLinkedAccountChargesCommandOutput,
+  ListEnterpriseSupportLinkedAccountChargesCommand,
+} from "./commands/ListEnterpriseSupportLinkedAccountChargesCommand";
 import {
   type ListSourceViewsForBillingViewCommandInput,
   type ListSourceViewsForBillingViewCommandOutput,
@@ -90,6 +105,9 @@ import {
 } from "./commands/UpdateBillingViewCommand";
 import { paginateGetCreditAllocationHistory } from "./pagination/GetCreditAllocationHistoryPaginator";
 import { paginateListBillingViews } from "./pagination/ListBillingViewsPaginator";
+import {
+  paginateListEnterpriseSupportLinkedAccountCharges,
+} from "./pagination/ListEnterpriseSupportLinkedAccountChargesPaginator";
 import { paginateListSourceViewsForBillingView } from "./pagination/ListSourceViewsForBillingViewPaginator";
 
 const commands = {
@@ -101,8 +119,11 @@ const commands = {
   GetBillingViewCommand,
   GetCreditAllocationHistoryCommand,
   GetCreditsCommand,
+  GetEnterpriseSupportChargeSummaryCommand,
+  GetEnterpriseSupportContractDetailsCommand,
   GetResourcePolicyCommand,
   ListBillingViewsCommand,
+  ListEnterpriseSupportLinkedAccountChargesCommand,
   ListSourceViewsForBillingViewCommand,
   ListTagsForResourceCommand,
   RedeemCreditsCommand,
@@ -114,6 +135,7 @@ const commands = {
 const paginators = {
   paginateGetCreditAllocationHistory,
   paginateListBillingViews,
+  paginateListEnterpriseSupportLinkedAccountCharges,
   paginateListSourceViewsForBillingView,
 };
 
@@ -255,6 +277,40 @@ export interface Billing {
   ): void;
 
   /**
+   * @see {@link GetEnterpriseSupportChargeSummaryCommand}
+   */
+  getEnterpriseSupportChargeSummary(
+    args: GetEnterpriseSupportChargeSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnterpriseSupportChargeSummaryCommandOutput>;
+  getEnterpriseSupportChargeSummary(
+    args: GetEnterpriseSupportChargeSummaryCommandInput,
+    cb: (err: any, data?: GetEnterpriseSupportChargeSummaryCommandOutput) => void
+  ): void;
+  getEnterpriseSupportChargeSummary(
+    args: GetEnterpriseSupportChargeSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnterpriseSupportChargeSummaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnterpriseSupportContractDetailsCommand}
+   */
+  getEnterpriseSupportContractDetails(
+    args: GetEnterpriseSupportContractDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnterpriseSupportContractDetailsCommandOutput>;
+  getEnterpriseSupportContractDetails(
+    args: GetEnterpriseSupportContractDetailsCommandInput,
+    cb: (err: any, data?: GetEnterpriseSupportContractDetailsCommandOutput) => void
+  ): void;
+  getEnterpriseSupportContractDetails(
+    args: GetEnterpriseSupportContractDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnterpriseSupportContractDetailsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourcePolicyCommand}
    */
   getResourcePolicy(
@@ -287,6 +343,23 @@ export interface Billing {
     args: ListBillingViewsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBillingViewsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnterpriseSupportLinkedAccountChargesCommand}
+   */
+  listEnterpriseSupportLinkedAccountCharges(
+    args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnterpriseSupportLinkedAccountChargesCommandOutput>;
+  listEnterpriseSupportLinkedAccountCharges(
+    args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
+    cb: (err: any, data?: ListEnterpriseSupportLinkedAccountChargesCommandOutput) => void
+  ): void;
+  listEnterpriseSupportLinkedAccountCharges(
+    args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnterpriseSupportLinkedAccountChargesCommandOutput) => void
   ): void;
 
   /**
@@ -429,6 +502,17 @@ export interface Billing {
     args?: ListBillingViewsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBillingViewsCommandOutput>;
+
+  /**
+   * @see {@link ListEnterpriseSupportLinkedAccountChargesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListEnterpriseSupportLinkedAccountChargesCommandOutput}.
+   */
+  paginateListEnterpriseSupportLinkedAccountCharges(
+    args: ListEnterpriseSupportLinkedAccountChargesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListEnterpriseSupportLinkedAccountChargesCommandOutput>;
 
   /**
    * @see {@link ListSourceViewsForBillingViewCommand}
