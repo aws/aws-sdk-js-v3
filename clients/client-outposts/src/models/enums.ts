@@ -50,6 +50,7 @@ export type ComputeAssetState = (typeof ComputeAssetState)[keyof typeof ComputeA
 export const AWSServiceName = {
   AWS: "AWS",
   EC2: "EC2",
+  EKS: "EKS",
   ELASTICACHE: "ELASTICACHE",
   ELB: "ELB",
   RDS: "RDS",

@@ -45,7 +45,7 @@ export interface ListAssetInstancesCommandOutput extends ListAssetInstancesOutpu
  *     "STRING_VALUE",
  *   ],
  *   AwsServiceFilter: [ // AWSServiceNameList
- *     "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ *     "AWS" || "EC2" || "EKS" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
@@ -59,7 +59,7 @@ export interface ListAssetInstancesCommandOutput extends ListAssetInstancesOutpu
  * //       InstanceType: "STRING_VALUE",
  * //       AssetId: "STRING_VALUE",
  * //       AccountId: "STRING_VALUE",
- * //       AwsServiceName: "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //       AwsServiceName: "AWS" || "EC2" || "EKS" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

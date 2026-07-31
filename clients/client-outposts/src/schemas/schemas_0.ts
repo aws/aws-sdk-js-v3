@@ -483,7 +483,7 @@ export const errorTypeRegistries = [
 ]
 var QuoteDescription: StaticSimpleSchema = [0, n0, _QD, 8, 0];
 export var Address$: StaticStructureSchema = [3, n0, _A,
-  0,
+  8,
   [_CN, _CPN, _AL, _C, _SOR, _PC, _CC, _ALd, _ALdd, _DOC, _Mu],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 7
 ];
@@ -605,7 +605,7 @@ export var CreateRenewalOutput$: StaticStructureSchema = [3, n0, _CRO,
 export var CreateSiteInput$: StaticStructureSchema = [3, n0, _CSI,
   0,
   [_N, _D, _No, _Ta, _OA, _SA, _RPP],
-  [0, 0, 0, 128 | 0, () => Address$, () => Address$, () => RackPhysicalProperties$], 1
+  [0, 0, 0, 128 | 0, [() => Address$, 0], [() => Address$, 0], () => RackPhysicalProperties$], 1
 ];
 export var CreateSiteOutput$: StaticStructureSchema = [3, n0, _CSO,
   0,
@@ -765,7 +765,7 @@ export var GetSiteAddressInput$: StaticStructureSchema = [3, n0, _GSAI,
 export var GetSiteAddressOutput$: StaticStructureSchema = [3, n0, _GSAO,
   0,
   [_SI, _ATd, _A],
-  [0, 0, () => Address$]
+  [0, 0, [() => Address$, 0]]
 ];
 export var GetSiteInput$: StaticStructureSchema = [3, n0, _GSI,
   0,
@@ -1080,12 +1080,12 @@ export var UpdateQuoteOutput$: StaticStructureSchema = [3, n0, _UQO,
 export var UpdateSiteAddressInput$: StaticStructureSchema = [3, n0, _USAI,
   0,
   [_SI, _ATd, _A],
-  [[0, 1], 0, () => Address$], 3
+  [[0, 1], 0, [() => Address$, 0]], 3
 ];
 export var UpdateSiteAddressOutput$: StaticStructureSchema = [3, n0, _USAO,
   0,
   [_ATd, _A],
-  [0, () => Address$]
+  [0, [() => Address$, 0]]
 ];
 export var UpdateSiteInput$: StaticStructureSchema = [3, n0, _USI,
   0,

@@ -57,7 +57,7 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * //       "STRING_VALUE",
  * //     ],
  * //     Services: [ // AWSServiceNameList
- * //       "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //       "AWS" || "EC2" || "EKS" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
  * //     ],
  * //   },
  * //   DryRun: true || false,

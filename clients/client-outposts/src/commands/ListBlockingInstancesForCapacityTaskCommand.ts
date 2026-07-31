@@ -50,7 +50,7 @@ export interface ListBlockingInstancesForCapacityTaskCommandOutput extends ListB
  * //     { // BlockingInstance
  * //       InstanceId: "STRING_VALUE",
  * //       AccountId: "STRING_VALUE",
- * //       AwsServiceName: "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //       AwsServiceName: "AWS" || "EC2" || "EKS" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
