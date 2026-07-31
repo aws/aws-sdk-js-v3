@@ -22,6 +22,7 @@ import type {
   Pronouns,
   Sentiment,
   Specialty,
+  TranscriptFormat,
   Type,
   VocabularyFilterMethod,
 } from "./enums";
@@ -766,8 +767,11 @@ export namespace CallAnalyticsTranscriptResultStream {
   }
 
   /**
-   * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
-   *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+   *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+   *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+   *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+   *       strategy.</p>
    * @public
    */
   export interface LimitExceededExceptionMember {
@@ -1850,8 +1854,11 @@ export namespace MedicalScribeResultStream {
   }
 
   /**
-   * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
-   *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+   *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+   *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+   *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+   *       strategy.</p>
    * @public
    */
   export interface LimitExceededExceptionMember {
@@ -2027,8 +2034,11 @@ export namespace MedicalTranscriptResultStream {
   }
 
   /**
-   * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
-   *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+   *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+   *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+   *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+   *       strategy.</p>
    * @public
    */
   export interface LimitExceededExceptionMember {
@@ -3157,6 +3167,27 @@ export interface StartStreamTranscriptionRequest {
    * @public
    */
   SessionResumeWindow?: number | undefined;
+
+  /**
+   * <p>Specify how numbers, dates, and other alphanumeric entities are rendered in your
+   *       transcription results.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>WRITTEN</code> renders these entities in their standard written form
+   *         (for example, <code>$50</code>, <code>10:30 AM</code>, and <code>101</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPOKEN</code> renders these entities as words, exactly as they were
+   *         spoken (for example, <code>fifty dollars</code>, <code>ten thirty a m</code>, and
+   *         <code>one oh one</code>).</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a value, Amazon Transcribe uses <code>WRITTEN</code> by default.</p>
+   * @public
+   */
+  TranscriptFormat?: TranscriptFormat | undefined;
 }
 
 /**
@@ -3247,8 +3278,11 @@ export namespace TranscriptResultStream {
   }
 
   /**
-   * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
-   *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+   * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+   *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+   *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+   *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+   *       strategy.</p>
    * @public
    */
   export interface LimitExceededExceptionMember {
@@ -3489,4 +3523,10 @@ export interface StartStreamTranscriptionResponse {
    * @public
    */
   SessionResumeWindow?: number | undefined;
+
+  /**
+   * <p>Provides the transcript format that you specified in your request.</p>
+   * @public
+   */
+  TranscriptFormat?: TranscriptFormat | undefined;
 }

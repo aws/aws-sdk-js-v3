@@ -39,6 +39,7 @@ export type {
   Pronouns,
   Sentiment,
   Specialty,
+  TranscriptFormat,
   Type,
   VocabularyFilterMethod,
   Alternative,

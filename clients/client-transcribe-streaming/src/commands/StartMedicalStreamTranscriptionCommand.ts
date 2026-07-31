@@ -61,7 +61,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedic
  * const input = { // StartMedicalStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "th-TH" || "es-ES" || "ar-SA" || "pt-PT" || "ca-ES" || "ar-AE" || "hi-IN" || "zh-HK" || "nl-NL" || "no-NO" || "sv-SE" || "pl-PL" || "fi-FI" || "zh-TW" || "en-IN" || "en-IE" || "en-NZ" || "en-AB" || "en-ZA" || "en-WL" || "de-CH" || "af-ZA" || "eu-ES" || "hr-HR" || "cs-CZ" || "da-DK" || "fa-IR" || "gl-ES" || "el-GR" || "he-IL" || "id-ID" || "lv-LV" || "ms-MY" || "ro-RO" || "ru-RU" || "sr-RS" || "sk-SK" || "so-SO" || "tl-PH" || "uk-UA" || "vi-VN" || "zu-ZA" || "am-ET" || "be-BY" || "bg-BG" || "bn-IN" || "bs-BA" || "ckb-IQ" || "ckb-IR" || "cy-WL" || "es-MX" || "et-ET" || "fa-AF" || "gu-IN" || "ht-HT" || "hu-HU" || "hy-AM" || "is-IS" || "jv-ID" || "ka-GE" || "kab-DZ" || "kk-KZ" || "km-KH" || "kn-IN" || "lg-IN" || "lt-LT" || "mk-MK" || "ml-IN" || "mr-IN" || "my-MM" || "ne-NP" || "or-IN" || "pa-IN" || "ps-AF" || "si-LK" || "sl-SI" || "sq-AL" || "su-ID" || "sw-BI" || "sw-KE" || "sw-RW" || "sw-TZ" || "sw-UG" || "ta-IN" || "te-IN" || "tr-TR" || "uz-UZ", // required
  *   MediaSampleRateHertz: Number("int"), // required
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
+ *   MediaEncoding: "pcm" || "ogg-opus" || "flac" || "g711-alaw" || "g711-ulaw" || "g729", // required
  *   VocabularyName: "STRING_VALUE",
  *   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY", // required
  *   Type: "CONVERSATION" || "DICTATION", // required
@@ -96,7 +96,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedic
  * //   RequestId: "STRING_VALUE",
  * //   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "th-TH" || "es-ES" || "ar-SA" || "pt-PT" || "ca-ES" || "ar-AE" || "hi-IN" || "zh-HK" || "nl-NL" || "no-NO" || "sv-SE" || "pl-PL" || "fi-FI" || "zh-TW" || "en-IN" || "en-IE" || "en-NZ" || "en-AB" || "en-ZA" || "en-WL" || "de-CH" || "af-ZA" || "eu-ES" || "hr-HR" || "cs-CZ" || "da-DK" || "fa-IR" || "gl-ES" || "el-GR" || "he-IL" || "id-ID" || "lv-LV" || "ms-MY" || "ro-RO" || "ru-RU" || "sr-RS" || "sk-SK" || "so-SO" || "tl-PH" || "uk-UA" || "vi-VN" || "zu-ZA" || "am-ET" || "be-BY" || "bg-BG" || "bn-IN" || "bs-BA" || "ckb-IQ" || "ckb-IR" || "cy-WL" || "es-MX" || "et-ET" || "fa-AF" || "gu-IN" || "ht-HT" || "hu-HU" || "hy-AM" || "is-IS" || "jv-ID" || "ka-GE" || "kab-DZ" || "kk-KZ" || "km-KH" || "kn-IN" || "lg-IN" || "lt-LT" || "mk-MK" || "ml-IN" || "mr-IN" || "my-MM" || "ne-NP" || "or-IN" || "pa-IN" || "ps-AF" || "si-LK" || "sl-SI" || "sq-AL" || "su-ID" || "sw-BI" || "sw-KE" || "sw-RW" || "sw-TZ" || "sw-UG" || "ta-IN" || "te-IN" || "tr-TR" || "uz-UZ",
  * //   MediaSampleRateHertz: Number("int"),
- * //   MediaEncoding: "pcm" || "ogg-opus" || "flac",
+ * //   MediaEncoding: "pcm" || "ogg-opus" || "flac" || "g711-alaw" || "g711-ulaw" || "g729",
  * //   VocabularyName: "STRING_VALUE",
  * //   Specialty: "PRIMARYCARE" || "CARDIOLOGY" || "NEUROLOGY" || "ONCOLOGY" || "RADIOLOGY" || "UROLOGY",
  * //   Type: "CONVERSATION" || "DICTATION",
@@ -183,8 +183,11 @@ export interface StartMedicalStreamTranscriptionCommandOutput extends StartMedic
  *       processing.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
- *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+ *  <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+ *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+ *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+ *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+ *       strategy.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is currently unavailable. Try your request later.</p>

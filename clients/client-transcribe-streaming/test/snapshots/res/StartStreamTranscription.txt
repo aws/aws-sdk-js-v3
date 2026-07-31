@@ -52,6 +52,7 @@ x-amzn-transcribe-identify-multiple-languages: false
 x-amzn-transcribe-vocabulary-names: __VocabularyNames__
 x-amzn-transcribe-vocabulary-filter-names: __VocabularyFilterNames__
 x-amzn-transcribe-session-resume-window: 0
+x-amzn-transcribe-transcript-format: __TranscriptFormat__
 
 [async_iterable (Readable)]
 
@@ -232,6 +233,7 @@ Cg==
   VocabularyNames: "__VocabularyNames__",
   VocabularyFilterNames: "__VocabularyFilterNames__",
   SessionResumeWindow: (number) 0,
+  TranscriptFormat: "__TranscriptFormat__",
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

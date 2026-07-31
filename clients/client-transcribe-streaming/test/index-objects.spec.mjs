@@ -101,6 +101,7 @@ import {
   TranscribeStreamingServiceException,
   Transcript$,
   TranscriptEvent$,
+  TranscriptFormat,
   TranscriptResultStream$,
   Type,
   UtteranceEvent$,
@@ -202,6 +203,7 @@ assert(typeof ParticipantRole === "object");
 assert(typeof Pronouns === "object");
 assert(typeof Sentiment === "object");
 assert(typeof Specialty === "object");
+assert(typeof TranscriptFormat === "object");
 assert(typeof Type === "object");
 assert(typeof VocabularyFilterMethod === "object");
 // errors

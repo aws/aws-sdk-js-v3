@@ -59,7 +59,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput extends Star
  * const input = { // StartCallAnalyticsStreamTranscriptionRequest
  *   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  *   MediaSampleRateHertz: Number("int"), // required
- *   MediaEncoding: "pcm" || "ogg-opus" || "flac", // required
+ *   MediaEncoding: "pcm" || "ogg-opus" || "flac" || "g711-alaw" || "g711-ulaw" || "g729", // required
  *   VocabularyName: "STRING_VALUE",
  *   SessionId: "STRING_VALUE",
  *   AudioStream: { // AudioStream Union: only one key present
@@ -101,7 +101,7 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput extends Star
  * //   RequestId: "STRING_VALUE",
  * //   LanguageCode: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  * //   MediaSampleRateHertz: Number("int"),
- * //   MediaEncoding: "pcm" || "ogg-opus" || "flac",
+ * //   MediaEncoding: "pcm" || "ogg-opus" || "flac" || "g711-alaw" || "g711-ulaw" || "g729",
  * //   VocabularyName: "STRING_VALUE",
  * //   SessionId: "STRING_VALUE",
  * //   CallAnalyticsTranscriptResultStream: { // CallAnalyticsTranscriptResultStream Union: only one key present
@@ -218,8 +218,11 @@ export interface StartCallAnalyticsStreamTranscriptionCommandOutput extends Star
  *       processing.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
- *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+ *  <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+ *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+ *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+ *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+ *       strategy.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is currently unavailable. Try your request later.</p>

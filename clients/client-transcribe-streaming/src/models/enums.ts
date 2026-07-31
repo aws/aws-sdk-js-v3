@@ -316,6 +316,9 @@ export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode];
  */
 export const MediaEncoding = {
   FLAC: "flac",
+  G711_ALAW: "g711-alaw",
+  G711_ULAW: "g711-ulaw",
+  G729: "g729",
   OGG_OPUS: "ogg-opus",
   PCM: "pcm",
 } as const;
@@ -435,3 +438,16 @@ export const Type = {
  * @public
  */
 export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscriptFormat = {
+  SPOKEN: "spoken",
+  WRITTEN: "written",
+} as const;
+/**
+ * @public
+ */
+export type TranscriptFormat = (typeof TranscriptFormat)[keyof typeof TranscriptFormat];

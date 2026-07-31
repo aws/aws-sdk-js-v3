@@ -74,8 +74,11 @@ export class InternalFailureException extends __BaseException {
 }
 
 /**
- * <p>Your client has exceeded one of the Amazon Transcribe limits. This is typically the audio length
- *       limit. Break your audio stream into smaller chunks and try your request again.</p>
+ * <p>Your client has exceeded one of the Amazon Transcribe limits, typically the concurrent stream
+ *       service quota. This error can also occur if a stream exceeds the maximum session duration. In rare
+ *       cases, this error can also occur if you increase your number of concurrent streams too quickly.
+ *       Reduce your number of concurrent streams and try your request again using an exponential backoff
+ *       strategy.</p>
  * @public
  */
 export class LimitExceededException extends __BaseException {
