@@ -17,6 +17,7 @@ const _BDER = "BatchDescribeEntitiesRequest";
 const _BDERa = "BatchDescribeEntitiesResponse";
 const _BV = "BeforeValue";
 const _C = "Catalog";
+const _CBS = "CreatedBySource";
 const _CCS = "CancelChangeSet";
 const _CCSR = "CancelChangeSetRequest";
 const _CCSRa = "CancelChangeSetResponse";
@@ -121,6 +122,7 @@ const _NT = "NextToken";
 const _OAEDF = "OfferAvailabilityEndDateFilter";
 const _OAEDFDR = "OfferAvailabilityEndDateFilterDateRange";
 const _OBAF = "OfferBuyerAccountsFilter";
+const _OCBSF = "OfferCreatedBySourceFilter";
 const _OEIF = "OfferEntityIdFilter";
 const _OES = "OfferExtendedStatus";
 const _OF = "OfferFilters";
@@ -149,6 +151,8 @@ const _OSSIF = "OfferSetSolutionIdFilter";
 const _OSSf = "OfferSetSort";
 const _OSf = "OfferSort";
 const _OT = "OwnershipType";
+const _OTAIF = "OfferTargetAgreementIdFilter";
+const _OTAIFf = "OfferTargetAgreementIntentFilter";
 const _OTF = "OfferTargetingFilter";
 const _P = "Policy";
 const _PI = "ProductId";
@@ -207,6 +211,8 @@ const _ST = "StartTime";
 const _So = "Sort";
 const _St = "State";
 const _T = "Type";
+const _TAI = "TargetAgreementId";
+const _TAIa = "TargetAgreementIntent";
 const _TE = "ThrottlingException";
 const _TK = "TagKeys";
 const _TL = "TagList";
@@ -637,6 +643,11 @@ export var OfferBuyerAccountsFilter$: StaticStructureSchema = [3, n0, _OBAF,
   [_WCV],
   [0]
 ];
+export var OfferCreatedBySourceFilter$: StaticStructureSchema = [3, n0, _OCBSF,
+  0,
+  [_VL],
+  [64 | 0]
+];
 export var OfferEntityIdFilter$: StaticStructureSchema = [3, n0, _OEIF,
   0,
   [_VL],
@@ -644,8 +655,8 @@ export var OfferEntityIdFilter$: StaticStructureSchema = [3, n0, _OEIF,
 ];
 export var OfferFilters$: StaticStructureSchema = [3, n0, _OF,
   0,
-  [_EI, _N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _LMD, _OSI],
-  [() => OfferEntityIdFilter$, () => OfferNameFilter$, () => OfferProductIdFilter$, () => OfferResaleAuthorizationIdFilter$, () => OfferReleaseDateFilter$, () => OfferAvailabilityEndDateFilter$, () => OfferBuyerAccountsFilter$, () => OfferStateFilter$, () => OfferTargetingFilter$, () => OfferLastModifiedDateFilter$, () => OfferSetIdFilter$]
+  [_EI, _N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _LMD, _OSI, _TAI, _TAIa, _CBS],
+  [() => OfferEntityIdFilter$, () => OfferNameFilter$, () => OfferProductIdFilter$, () => OfferResaleAuthorizationIdFilter$, () => OfferReleaseDateFilter$, () => OfferAvailabilityEndDateFilter$, () => OfferBuyerAccountsFilter$, () => OfferStateFilter$, () => OfferTargetingFilter$, () => OfferLastModifiedDateFilter$, () => OfferSetIdFilter$, () => OfferTargetAgreementIdFilter$, () => OfferTargetAgreementIntentFilter$, () => OfferCreatedBySourceFilter$]
 ];
 export var OfferLastModifiedDateFilter$: StaticStructureSchema = [3, n0, _OLMDF,
   0,
@@ -759,8 +770,18 @@ export var OfferStateFilter$: StaticStructureSchema = [3, n0, _OSFf,
 ];
 export var OfferSummary$: StaticStructureSchema = [3, n0, _OS,
   0,
-  [_N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _OSI],
-  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0]
+  [_N, _PI, _RAI, _RD, _AED, _BA, _St, _Tar, _OSI, _TAI, _TAIa, _CBS],
+  [0, 0, 0, 0, 0, 64 | 0, 0, 64 | 0, 0, 0, 0, 0]
+];
+export var OfferTargetAgreementIdFilter$: StaticStructureSchema = [3, n0, _OTAIF,
+  0,
+  [_VL],
+  [64 | 0]
+];
+export var OfferTargetAgreementIntentFilter$: StaticStructureSchema = [3, n0, _OTAIFf,
+  0,
+  [_VL],
+  [64 | 0]
 ];
 export var OfferTargetingFilter$: StaticStructureSchema = [3, n0, _OTF,
   0,
@@ -988,6 +1009,7 @@ var MachineLearningProductEntityIdFilterValueList = 64 | 0;
 var MachineLearningProductTitleFilterValueList = 64 | 0;
 var MachineLearningProductVisibilityFilterValueList = 64 | 0;
 var OfferBuyerAccountsList = 64 | 0;
+var OfferCreatedBySourceFilterValueList = 64 | 0;
 var OfferEntityIdFilterValueList = 64 | 0;
 var OfferNameFilterValueList = 64 | 0;
 var OfferProductIdFilterValueList = 64 | 0;
@@ -1000,6 +1022,8 @@ var OfferSetNameFilterValueList = 64 | 0;
 var OfferSetSolutionIdFilterValueList = 64 | 0;
 var OfferSetStateFilterValueList = 64 | 0;
 var OfferStateFilterValueList = 64 | 0;
+var OfferTargetAgreementIdFilterValueList = 64 | 0;
+var OfferTargetAgreementIntentFilterValueList = 64 | 0;
 var OfferTargetingFilterValueList = 64 | 0;
 var OfferTargetingList = 64 | 0;
 var RequestedChangeList: StaticListSchema = [1, n0, _RCL,

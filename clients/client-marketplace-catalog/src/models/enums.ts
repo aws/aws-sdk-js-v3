@@ -137,6 +137,19 @@ export type MachineLearningProductVisibilityString =
  * @public
  * @enum
  */
+export const OfferCreatedBySourceString = {
+  AwsMarketplace: "AwsMarketplace",
+  Seller: "Seller",
+} as const;
+/**
+ * @public
+ */
+export type OfferCreatedBySourceString = (typeof OfferCreatedBySourceString)[keyof typeof OfferCreatedBySourceString];
+
+/**
+ * @public
+ * @enum
+ */
 export const OfferStateString = {
   Draft: "Draft",
   Released: "Released",
@@ -145,6 +158,19 @@ export const OfferStateString = {
  * @public
  */
 export type OfferStateString = (typeof OfferStateString)[keyof typeof OfferStateString];
+
+/**
+ * @public
+ * @enum
+ */
+export const OfferTargetAgreementIntentString = {
+  Renew: "Renew",
+} as const;
+/**
+ * @public
+ */
+export type OfferTargetAgreementIntentString =
+  (typeof OfferTargetAgreementIntentString)[keyof typeof OfferTargetAgreementIntentString];
 
 /**
  * @public
@@ -290,6 +316,7 @@ export type OfferSetSortBy = (typeof OfferSetSortBy)[keyof typeof OfferSetSortBy
 export const OfferSortBy = {
   AvailabilityEndDate: "AvailabilityEndDate",
   BuyerAccounts: "BuyerAccounts",
+  CreatedBySource: "CreatedBySource",
   EntityId: "EntityId",
   LastModifiedDate: "LastModifiedDate",
   Name: "Name",
@@ -298,6 +325,8 @@ export const OfferSortBy = {
   ReleaseDate: "ReleaseDate",
   ResaleAuthorizationId: "ResaleAuthorizationId",
   State: "State",
+  TargetAgreementId: "TargetAgreementId",
+  TargetAgreementIntent: "TargetAgreementIntent",
   Targeting: "Targeting",
 } as const;
 /**

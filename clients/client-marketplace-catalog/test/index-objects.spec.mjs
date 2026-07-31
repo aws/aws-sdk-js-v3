@@ -100,6 +100,8 @@ import {
   OfferAvailabilityEndDateFilter$,
   OfferAvailabilityEndDateFilterDateRange$,
   OfferBuyerAccountsFilter$,
+  OfferCreatedBySourceFilter$,
+  OfferCreatedBySourceString,
   OfferEntityIdFilter$,
   OfferFilters$,
   OfferLastModifiedDateFilter$,
@@ -129,6 +131,9 @@ import {
   OfferStateFilter$,
   OfferStateString,
   OfferSummary$,
+  OfferTargetAgreementIdFilter$,
+  OfferTargetAgreementIntentFilter$,
+  OfferTargetAgreementIntentString,
   OfferTargetingFilter$,
   OfferTargetingString,
   OwnershipType,
@@ -296,6 +301,7 @@ assert(typeof MachineLearningProductVisibilityFilter$ === "object");
 assert(typeof OfferAvailabilityEndDateFilter$ === "object");
 assert(typeof OfferAvailabilityEndDateFilterDateRange$ === "object");
 assert(typeof OfferBuyerAccountsFilter$ === "object");
+assert(typeof OfferCreatedBySourceFilter$ === "object");
 assert(typeof OfferEntityIdFilter$ === "object");
 assert(typeof OfferFilters$ === "object");
 assert(typeof OfferLastModifiedDateFilter$ === "object");
@@ -321,6 +327,8 @@ assert(typeof OfferSetSummary$ === "object");
 assert(typeof OfferSort$ === "object");
 assert(typeof OfferStateFilter$ === "object");
 assert(typeof OfferSummary$ === "object");
+assert(typeof OfferTargetAgreementIdFilter$ === "object");
+assert(typeof OfferTargetAgreementIntentFilter$ === "object");
 assert(typeof OfferTargetingFilter$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
@@ -372,10 +380,12 @@ assert(typeof FailureCode === "object");
 assert(typeof Intent === "object");
 assert(typeof MachineLearningProductSortBy === "object");
 assert(typeof MachineLearningProductVisibilityString === "object");
+assert(typeof OfferCreatedBySourceString === "object");
 assert(typeof OfferSetSortBy === "object");
 assert(typeof OfferSetStateString === "object");
 assert(typeof OfferSortBy === "object");
 assert(typeof OfferStateString === "object");
+assert(typeof OfferTargetAgreementIntentString === "object");
 assert(typeof OfferTargetingString === "object");
 assert(typeof OwnershipType === "object");
 assert(typeof ResaleAuthorizationResellerRoleString === "object");

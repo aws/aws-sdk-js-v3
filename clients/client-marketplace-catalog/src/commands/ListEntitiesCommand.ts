@@ -181,6 +181,21 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *           "STRING_VALUE",
  *         ],
  *       },
+ *       TargetAgreementId: { // OfferTargetAgreementIdFilter
+ *         ValueList: [ // OfferTargetAgreementIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       TargetAgreementIntent: { // OfferTargetAgreementIntentFilter
+ *         ValueList: [ // OfferTargetAgreementIntentFilterValueList
+ *           "Renew",
+ *         ],
+ *       },
+ *       CreatedBySource: { // OfferCreatedBySourceFilter
+ *         ValueList: [ // OfferCreatedBySourceFilterValueList
+ *           "Seller" || "AwsMarketplace",
+ *         ],
+ *       },
  *     },
  *     ContainerProductFilters: { // ContainerProductFilters
  *       EntityId: { // ContainerProductEntityIdFilter
@@ -372,7 +387,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     OfferSort: { // OfferSort
- *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate" || "OfferSetId",
+ *       SortBy: "EntityId" || "Name" || "ProductId" || "ResaleAuthorizationId" || "ReleaseDate" || "AvailabilityEndDate" || "BuyerAccounts" || "State" || "Targeting" || "LastModifiedDate" || "OfferSetId" || "TargetAgreementId" || "TargetAgreementIntent" || "CreatedBySource",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *     ContainerProductSort: { // ContainerProductSort
@@ -434,6 +449,9 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //           "BuyerAccounts" || "ParticipatingPrograms" || "CountryCodes" || "None",
  * //         ],
  * //         OfferSetId: "STRING_VALUE",
+ * //         TargetAgreementId: "STRING_VALUE",
+ * //         TargetAgreementIntent: "Renew",
+ * //         CreatedBySource: "Seller" || "AwsMarketplace",
  * //       },
  * //       ResaleAuthorizationSummary: { // ResaleAuthorizationSummary
  * //         Name: "STRING_VALUE",

@@ -13,10 +13,12 @@ import type {
   Intent,
   MachineLearningProductSortBy,
   MachineLearningProductVisibilityString,
+  OfferCreatedBySourceString,
   OfferSetSortBy,
   OfferSetStateString,
   OfferSortBy,
   OfferStateString,
+  OfferTargetAgreementIntentString,
   OfferTargetingString,
   OwnershipType,
   ResaleAuthorizationResellerRoleString,
@@ -1146,6 +1148,18 @@ export interface OfferBuyerAccountsFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>CreatedBySource</code> of an offer.</p>
+ * @public
+ */
+export interface OfferCreatedBySourceFilter {
+  /**
+   * <p>Allows filtering on the <code>CreatedBySource</code> of an offer with list input.</p>
+   * @public
+   */
+  ValueList?: OfferCreatedBySourceString[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the entity id of an offer.</p>
  * @public
  */
@@ -1288,6 +1302,30 @@ export interface OfferStateFilter {
 }
 
 /**
+ * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer.</p>
+ * @public
+ */
+export interface OfferTargetAgreementIdFilter {
+  /**
+   * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer with list input.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer.</p>
+ * @public
+ */
+export interface OfferTargetAgreementIntentFilter {
+  /**
+   * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer with list input.</p>
+   * @public
+   */
+  ValueList?: OfferTargetAgreementIntentString[] | undefined;
+}
+
+/**
  * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
  * @public
  */
@@ -1373,6 +1411,24 @@ export interface OfferFilters {
    * @public
    */
   OfferSetId?: OfferSetIdFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>TargetAgreementId</code> of an offer.</p>
+   * @public
+   */
+  TargetAgreementId?: OfferTargetAgreementIdFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>TargetAgreementIntent</code> of an offer.</p>
+   * @public
+   */
+  TargetAgreementIntent?: OfferTargetAgreementIntentFilter | undefined;
+
+  /**
+   * <p>Allows filtering on the <code>CreatedBySource</code> of an offer.</p>
+   * @public
+   */
+  CreatedBySource?: OfferCreatedBySourceFilter | undefined;
 }
 
 /**
@@ -2722,6 +2778,24 @@ export interface OfferSummary {
    * @public
    */
   OfferSetId?: string | undefined;
+
+  /**
+   * <p>The target agreement ID of the offer.</p>
+   * @public
+   */
+  TargetAgreementId?: string | undefined;
+
+  /**
+   * <p>The target agreement intent of the offer.</p>
+   * @public
+   */
+  TargetAgreementIntent?: OfferTargetAgreementIntentString | undefined;
+
+  /**
+   * <p>The creation source of the offer.</p>
+   * @public
+   */
+  CreatedBySource?: OfferCreatedBySourceString | undefined;
 }
 
 /**
