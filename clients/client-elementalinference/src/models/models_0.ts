@@ -39,10 +39,34 @@ export interface ClippingConfig {
 }
 
 /**
+ * <p>A named set of graphics-compositing templates used by the crop feature, specified in the templateGroups array of a CroppingConfig. </p>
+ * @public
+ */
+export interface TemplateGroup {
+  /**
+   * <p>A name for the template group.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An array of Amazon S3 URIs that point to the graphics-compositing templates for this group. You can specify 1 or 2 URIs. Each URI must be in the form <code>s3://bucket-name/key</code>. Elemental Inference reads these templates using the IAM role that you specify in accessRoleArn. </p>
+   * @public
+   */
+  templateUris: string[] | undefined;
+}
+
+/**
  * <p>A type of OutputConfig, used when the output in a feed is for the crop feature.</p>
  * @public
  */
-export interface CroppingConfig {}
+export interface CroppingConfig {
+  /**
+   * <p>An array of template groups for the crop output. Each template group provides the graphics-compositing templates that Elemental Inference applies to the cropped video. You can specify from 1 to 4 template groups. </p>
+   * @public
+   */
+  templateGroups?: TemplateGroup[] | undefined;
+}
 
 /**
  * <p>A type of OutputConfig, used when the output in a feed is for the smart subtitling feature. smart subtitling uses automatic speech recognition (ASR) to generate live TTML subtitles from the audio in your source media. </p>
@@ -304,6 +328,12 @@ export interface CreateFeedRequest {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. For example, the smart crop feature uses this role to read graphics-compositing templates from your Amazon S3 bucket. You specify one access role for each feed. </p>
+   * @public
+   */
+  accessRoleArn?: string | undefined;
 
   /**
    * <p>An array of outputs for this feed. Each output represents a specific Elemental Inference feature. For example, there is one output type for the smart crop feature. You must specify at least one output, but you can later add outputs using AssociateFeed, or add, modify, and delete outputs using UpdateFeed. </p>
@@ -932,6 +962,12 @@ export interface UpdateFeedRequest {
    * @public
    */
   name: string | undefined;
+
+  /**
+   * <p>The ARN of an IAM role that Elemental Inference assumes to access resources in your account on your behalf. You can specify the existing role (to leave it unchanged) or a new role. You specify one access role for each feed. </p>
+   * @public
+   */
+  accessRoleArn?: string | undefined;
 
   /**
    * <p>The ID of the feed to update.</p>

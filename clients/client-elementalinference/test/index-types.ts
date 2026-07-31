@@ -91,6 +91,7 @@ export type {
   OutputConfig,
   SubtitlingConfig,
   TagResourceRequest,
+  TemplateGroup,
   UntagResourceRequest,
   UpdateDictionaryRequest,
   UpdateDictionaryResponse,

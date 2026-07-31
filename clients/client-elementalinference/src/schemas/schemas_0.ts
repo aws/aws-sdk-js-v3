@@ -53,6 +53,8 @@ const _OC = "OutputConfig";
 const _RNFE = "ResourceNotFoundException";
 const _SC = "SubtitlingConfig";
 const _SQEE = "ServiceQuotaExceededException";
+const _TG = "TemplateGroup";
+const _TGL = "TemplateGroupList";
 const _TMRE = "TooManyRequestException";
 const _TR = "TagResource";
 const _TRR = "TagResourceRequest";
@@ -69,6 +71,7 @@ const _URR = "UntagResourceRequest";
 const _VE = "ValidationException";
 const _a = "arn";
 const _aR = "aspectRatio";
+const _aRA = "accessRoleArn";
 const _aRN = "associatedResourceName";
 const _as = "association";
 const _c = "client";
@@ -104,7 +107,9 @@ const _se = "server";
 const _st = "status";
 const _su = "subtitling";
 const _t = "tags";
+const _tG = "templateGroups";
 const _tK = "tagKeys";
+const _tU = "templateUris";
 const _w = "width";
 const n0 = "com.amazonaws.elementalinference";
 
@@ -218,8 +223,8 @@ export var CreateDictionaryResponse$: StaticStructureSchema = [3, n0, _CDRr,
 ];
 export var CreateFeedRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_n, _o, _t],
-  [0, () => CreateOutputList, 128 | 0], 2
+  [_n, _o, _aRA, _t],
+  [0, () => CreateOutputList, 0, 128 | 0], 2
 ];
 export var CreateFeedResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -233,8 +238,8 @@ export var CreateOutput$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var CroppingConfig$: StaticStructureSchema = [3, n0, _CCr,
   0,
-  [],
-  []
+  [_tG],
+  [() => TemplateGroupList]
 ];
 export var DeleteDictionaryRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
@@ -356,6 +361,11 @@ export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   [_rA, _t],
   [[0, 1], 128 | 0], 2
 ];
+export var TemplateGroup$: StaticStructureSchema = [3, n0, _TG,
+  0,
+  [_n, _tU],
+  [0, 64 | 0], 2
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -373,8 +383,8 @@ export var UpdateDictionaryResponse$: StaticStructureSchema = [3, n0, _UDRp,
 ];
 export var UpdateFeedRequest$: StaticStructureSchema = [3, n0, _UFR,
   0,
-  [_n, _i, _o],
-  [0, [0, 1], () => UpdateOutputList], 3
+  [_n, _i, _o, _aRA],
+  [0, [0, 1], () => UpdateOutputList, 0], 3
 ];
 export var UpdateFeedResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
@@ -402,6 +412,10 @@ var GetOutputList: StaticListSchema = [1, n0, _GOL,
 ];
 var StringList = 64 | 0;
 var TagKeyList = 64 | 0;
+var TemplateGroupList: StaticListSchema = [1, n0, _TGL,
+  0, () => TemplateGroup$
+];
+var TemplateUriList = 64 | 0;
 var UpdateOutputList: StaticListSchema = [1, n0, _UOL,
   0, () => UpdateOutput$
 ];

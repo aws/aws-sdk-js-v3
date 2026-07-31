@@ -80,6 +80,7 @@ import {
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
+  TemplateGroup$,
   TooManyRequestException,
   TooManyRequestException$,
   TranscriptionLanguage,
@@ -173,6 +174,7 @@ assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof SubtitlingConfig$ === "object");
 assert(typeof TagResourceRequest$ === "object");
+assert(typeof TemplateGroup$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateDictionaryRequest$ === "object");
 assert(typeof UpdateDictionaryResponse$ === "object");

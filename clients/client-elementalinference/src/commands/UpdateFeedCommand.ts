@@ -34,12 +34,22 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * const client = new ElementalInferenceClient(config);
  * const input = { // UpdateFeedRequest
  *   name: "STRING_VALUE", // required
+ *   accessRoleArn: "STRING_VALUE",
  *   id: "STRING_VALUE", // required
  *   outputs: [ // UpdateOutputList // required
  *     { // UpdateOutput
  *       name: "STRING_VALUE", // required
  *       outputConfig: { // OutputConfig Union: only one key present
- *         cropping: {},
+ *         cropping: { // CroppingConfig
+ *           templateGroups: [ // TemplateGroupList
+ *             { // TemplateGroup
+ *               name: "STRING_VALUE", // required
+ *               templateUris: [ // TemplateUriList // required
+ *                 "STRING_VALUE",
+ *               ],
+ *             },
+ *           ],
+ *         },
  *         clipping: { // ClippingConfig
  *           callbackMetadata: "STRING_VALUE",
  *         },
@@ -72,7 +82,16 @@ export interface UpdateFeedCommandOutput extends UpdateFeedResponse, __MetadataB
  * //     { // GetOutput
  * //       name: "STRING_VALUE", // required
  * //       outputConfig: { // OutputConfig Union: only one key present
- * //         cropping: {},
+ * //         cropping: { // CroppingConfig
+ * //           templateGroups: [ // TemplateGroupList
+ * //             { // TemplateGroup
+ * //               name: "STRING_VALUE", // required
+ * //               templateUris: [ // TemplateUriList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //         clipping: { // ClippingConfig
  * //           callbackMetadata: "STRING_VALUE",
  * //         },

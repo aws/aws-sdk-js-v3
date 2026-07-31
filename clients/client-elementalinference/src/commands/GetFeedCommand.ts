@@ -48,7 +48,16 @@ export interface GetFeedCommandOutput extends GetFeedResponse, __MetadataBearer 
  * //     { // GetOutput
  * //       name: "STRING_VALUE", // required
  * //       outputConfig: { // OutputConfig Union: only one key present
- * //         cropping: {},
+ * //         cropping: { // CroppingConfig
+ * //           templateGroups: [ // TemplateGroupList
+ * //             { // TemplateGroup
+ * //               name: "STRING_VALUE", // required
+ * //               templateUris: [ // TemplateUriList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //         clipping: { // ClippingConfig
  * //           callbackMetadata: "STRING_VALUE",
  * //         },
