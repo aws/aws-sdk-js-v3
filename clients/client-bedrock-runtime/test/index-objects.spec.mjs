@@ -252,9 +252,12 @@ import {
   ThrottlingException$,
   TokenUsage$,
   Tool$,
+  ToolAdditionBlock$,
   ToolChoice$,
   ToolConfiguration$,
   ToolInputSchema$,
+  ToolReference$,
+  ToolRemovalBlock$,
   ToolResultBlock$,
   ToolResultBlockDelta$,
   ToolResultBlockStart$,
@@ -465,9 +468,12 @@ assert(typeof SystemTool$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TokenUsage$ === "object");
 assert(typeof Tool$ === "object");
+assert(typeof ToolAdditionBlock$ === "object");
 assert(typeof ToolChoice$ === "object");
 assert(typeof ToolConfiguration$ === "object");
 assert(typeof ToolInputSchema$ === "object");
+assert(typeof ToolReference$ === "object");
+assert(typeof ToolRemovalBlock$ === "object");
 assert(typeof ToolResultBlock$ === "object");
 assert(typeof ToolResultBlockDelta$ === "object");
 assert(typeof ToolResultBlockStart$ === "object");

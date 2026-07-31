@@ -2,14 +2,14 @@ POST https://bedrock-runtime.us-east-1.amazonaws.com
 /model/__modelId__/count-tokens
 
 content-type: application/json
-content-length: 1507
+content-length: 1437
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/bedrock-runtime#_.__ m/E,e
 host: bedrock-runtime.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: c14406302addd7625a7e5312ae16c9ad4ce25feae6c7135b90139f5fe095f161
+x-amz-content-sha256: bb265e9f4ad85408eb62b91d7f491dde45ca9bff0b1944d7d404660c3a30325e
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (json)]
@@ -21,22 +21,11 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/bedrock/aws4_r
           "role": "__role__",
           "content": [
             {
-              "searchResult": {
-                "source": "__source__",
-                "title": "__title__",
-                "content": [
-                  {
-                    "text": "__text__"
-                  },
-                  {
-                    "text": "__text__"
-                  },
-                  {
-                    "text": "__text__"
-                  }
-                ],
-                "citations": {
-                  "enabled": false
+              "toolRemoval": {
+                "tool": {
+                  "type": "__type__",
+                  "name": "__name__",
+                  "serverName": "__serverName__"
                 }
               }
             },

@@ -2961,6 +2961,54 @@ export interface SearchResultBlock {
 }
 
 /**
+ * <p>A reference to a tool in the tool configuration. Used with <code>ToolAdditionBlock</code> and <code>ToolRemovalBlock</code> to identify which tool to add or remove mid-conversation.</p>
+ * @public
+ */
+export interface ToolReference {
+  /**
+   * <p>The type of tool reference.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The name of the tool. Must match the name of a tool declared in the top-level tool configuration.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The name of the MCP server that provides the tool. Required when referencing an MCP tool.</p>
+   * @public
+   */
+  serverName?: string | undefined;
+}
+
+/**
+ * <p>A content block for adding a tool to the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to make a tool available without re-sending the full tool configuration.</p>
+ * @public
+ */
+export interface ToolAdditionBlock {
+  /**
+   * <p>A reference to the tool to add to the available tool set.</p>
+   * @public
+   */
+  tool: ToolReference | undefined;
+}
+
+/**
+ * <p>A content block for removing a tool from the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to remove a tool without re-sending the full tool configuration.</p>
+ * @public
+ */
+export interface ToolRemovalBlock {
+  /**
+   * <p>A reference to the tool to remove from the available tool set.</p>
+   * @public
+   */
+  tool: ToolReference | undefined;
+}
+
+/**
  * <p>A video source. You can upload a smaller video as a base64-encoded string as long as the encoded file is less than 25MB. You can also transfer videos up to 1GB in size from an S3 bucket.</p>
  * @public
  */
@@ -3234,6 +3282,8 @@ export type ContentBlock =
   | ContentBlock.ReasoningContentMember
   | ContentBlock.SearchResultMember
   | ContentBlock.TextMember
+  | ContentBlock.ToolAdditionMember
+  | ContentBlock.ToolRemovalMember
   | ContentBlock.ToolResultMember
   | ContentBlock.ToolUseMember
   | ContentBlock.VideoMember
@@ -3260,6 +3310,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3280,6 +3332,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3300,6 +3354,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3320,6 +3376,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3340,6 +3398,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3360,6 +3420,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3380,6 +3442,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3400,6 +3464,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3420,6 +3486,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3440,6 +3508,8 @@ export namespace ContentBlock {
     reasoningContent: ReasoningContentBlock;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3460,6 +3530,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent: CitationsContentBlock;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown?: never;
   }
 
@@ -3480,6 +3552,52 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult: SearchResultBlock;
+    toolAddition?: never;
+    toolRemoval?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A content block for adding a tool to the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to make a tool available without re-sending the full tool configuration.</p>
+   * @public
+   */
+  export interface ToolAdditionMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    audio?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    cachePoint?: never;
+    reasoningContent?: never;
+    citationsContent?: never;
+    searchResult?: never;
+    toolAddition: ToolAdditionBlock;
+    toolRemoval?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A content block for removing a tool from the available tool set mid-conversation. Each block references a single tool via its <code>tool</code> field. Use within a <code>system</code> role message to remove a tool without re-sending the full tool configuration.</p>
+   * @public
+   */
+  export interface ToolRemovalMember {
+    text?: never;
+    image?: never;
+    document?: never;
+    video?: never;
+    audio?: never;
+    toolUse?: never;
+    toolResult?: never;
+    guardContent?: never;
+    cachePoint?: never;
+    reasoningContent?: never;
+    citationsContent?: never;
+    searchResult?: never;
+    toolAddition?: never;
+    toolRemoval: ToolRemovalBlock;
     $unknown?: never;
   }
 
@@ -3499,6 +3617,8 @@ export namespace ContentBlock {
     reasoningContent?: never;
     citationsContent?: never;
     searchResult?: never;
+    toolAddition?: never;
+    toolRemoval?: never;
     $unknown: [string, any];
   }
 
@@ -3519,6 +3639,8 @@ export namespace ContentBlock {
     reasoningContent: (value: ReasoningContentBlock) => T;
     citationsContent: (value: CitationsContentBlock) => T;
     searchResult: (value: SearchResultBlock) => T;
+    toolAddition: (value: ToolAdditionBlock) => T;
+    toolRemoval: (value: ToolRemovalBlock) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -3632,6 +3754,12 @@ export interface OutputConfig {
    * @public
    */
   textFormat?: OutputFormat | undefined;
+
+  /**
+   * <p>The effort level for the model to use when generating a response. Higher effort levels allow the model to spend more time reasoning before responding. Supported values are <code>low</code>, <code>medium</code>, <code>high</code>, <code>xhigh</code>, and <code>max</code>.</p> <note> <p>When extended thinking is disabled, the effort level is capped at <code>high</code>. Use effort <code>high</code> or below, or enable thinking to use higher effort levels.</p> </note>
+   * @public
+   */
+  effort?: string | undefined;
 }
 
 /**

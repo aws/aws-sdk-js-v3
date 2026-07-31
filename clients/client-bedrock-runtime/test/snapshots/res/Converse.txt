@@ -120,87 +120,52 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "role": "__role__",
       "content": [
         {
-          "audio": {
-            "format": "__format__",
-            "source": {
-              "s3Location": {
-                "uri": "__uri__",
-                "bucketOwner": "__bucketOwner__"
+          "citationsContent": {
+            "content": [
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
               }
-            },
-            "error": {
-              "message": "__message__"
+            ],
+            "citations": [
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          "searchResult": {
+            "source": "__source__",
+            "title": "__title__",
+            "content": [
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
+              },
+              {
+                "text": "__text__"
+              }
+            ],
+            "citations": {
+              "enabled": false
             }
           }
         },
         {
-          "toolUse": {
-            "toolUseId": "__toolUseId__",
-            "name": "__name__",
-            "input": {
-              "doc_note": "this is a document",
-              "doc_date": 946702799.999,
-              "doc_blob": "AQAAAQ==",
-              "doc_list": [
-                -7,
-                -3,
-                0,
-                1,
-                5
-              ]
-            },
-            "type": "__type__"
-          }
-        },
-        {
-          "toolResult": {
-            "toolUseId": "__toolUseId__",
-            "content": [
-              {
-                "image": {
-                  "format": "__format__",
-                  "source": {
-                    "bytes": "AQAAAQ=="
-                  },
-                  "error": {
-                    "message": "__message__"
-                  }
-                }
-              },
-              {
-                "document": {
-                  "name": "__name__",
-                  "source": {
-                    "content": [
-                      {
-                        "text": "__text__"
-                      },
-                      {
-                        "text": "__text__"
-                      },
-                      {
-                        "text": "__text__"
-                      }
-                    ]
-                  },
-                  "format": "__format__",
-                  "context": "__context__",
-                  "citations": {
-                    "enabled": false
-                  }
-                }
-              },
-              {
-                "video": {
-                  "format": "__format__",
-                  "source": {
-                    "bytes": "AQAAAQ=="
-                  }
-                }
-              }
-            ],
-            "status": "__status__",
-            "type": "__type__"
+          "toolAddition": {
+            "tool": {
+              "type": "__type__",
+              "name": "__name__",
+              "serverName": "__serverName__"
+            }
           }
         }
       ]
@@ -1226,87 +1191,52 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       role: "__role__",
       content: [
         {
-          audio: {
-            format: "__format__",
-            source: {
-              s3Location: {
-                uri: "__uri__",
-                bucketOwner: "__bucketOwner__"
+          citationsContent: {
+            content: [
+              {
+                text: "__text__"
+              },
+              {
+                text: "__text__"
+              },
+              {
+                text: "__text__"
               }
-            },
-            error: {
-              message: "__message__"
+            ],
+            citations: [
+              {},
+              {},
+              {}
+            ]
+          }
+        },
+        {
+          searchResult: {
+            source: "__source__",
+            title: "__title__",
+            content: [
+              {
+                text: "__text__"
+              },
+              {
+                text: "__text__"
+              },
+              {
+                text: "__text__"
+              }
+            ],
+            citations: {
+              enabled: (boolean) false
             }
           }
         },
         {
-          toolUse: {
-            toolUseId: "__toolUseId__",
-            name: "__name__",
-            input: {
-              doc_note: "this is a document",
-              doc_date: (number) 946702799.999,
-              doc_blob: "AQAAAQ==",
-              doc_list: [
-                (number) -7,
-                (number) -3,
-                (number) 0,
-                (number) 1,
-                (number) 5
-              ]
-            },
-            type: "__type__"
-          }
-        },
-        {
-          toolResult: {
-            toolUseId: "__toolUseId__",
-            content: [
-              {
-                image: {
-                  format: "__format__",
-                  source: {
-                    bytes: (Uint8Array) bytes[1, 0, 0, 1]
-                  },
-                  error: {
-                    message: "__message__"
-                  }
-                }
-              },
-              {
-                document: {
-                  name: "__name__",
-                  source: {
-                    content: [
-                      {
-                        text: "__text__"
-                      },
-                      {
-                        text: "__text__"
-                      },
-                      {
-                        text: "__text__"
-                      }
-                    ]
-                  },
-                  format: "__format__",
-                  context: "__context__",
-                  citations: {
-                    enabled: (boolean) false
-                  }
-                }
-              },
-              {
-                video: {
-                  format: "__format__",
-                  source: {
-                    bytes: (Uint8Array) bytes[1, 0, 0, 1]
-                  }
-                }
-              }
-            ],
-            status: "__status__",
-            type: "__type__"
+          toolAddition: {
+            tool: {
+              type: "__type__",
+              name: "__name__",
+              serverName: "__serverName__"
+            }
           }
         }
       ]

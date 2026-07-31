@@ -231,15 +231,18 @@ const _STC = "SpecificToolChoice";
 const _STy = "SystemTool";
 const _SUE = "ServiceUnavailableException";
 const _T = "Tag";
+const _TAB = "ToolAdditionBlock";
 const _TC = "ToolConfiguration";
 const _TCo = "ToolChoice";
 const _TE = "ThrottlingException";
 const _TIS = "ToolInputSchema";
 const _TL = "TagList";
-const _TRB = "ToolResultBlock";
+const _TR = "ToolReference";
+const _TRB = "ToolRemovalBlock";
 const _TRBD = "ToolResultBlocksDelta";
 const _TRBDo = "ToolResultBlockDelta";
 const _TRBS = "ToolResultBlockStart";
+const _TRBo = "ToolResultBlock";
 const _TRCB = "ToolResultContentBlocks";
 const _TRCBo = "ToolResultContentBlock";
 const _TS = "ToolSpecification";
@@ -328,6 +331,7 @@ const _doc = "document";
 const _e = "error";
 const _eO = "endOffset";
 const _eT = "endTime";
+const _ef = "effort";
 const _en = "enabled";
 const _end = "end";
 const _ent = "entities";
@@ -435,6 +439,7 @@ const _sIP = "sensitiveInformationPolicy";
 const _sIPFU = "sensitiveInformationPolicyFreeUnits";
 const _sIPU = "sensitiveInformationPolicyUnits";
 const _sL = "s3Location";
+const _sN = "serverName";
 const _sO = "sortOrder";
 const _sODC = "s3OutputDataConfig";
 const _sPM = "streamProcessingMode";
@@ -467,7 +472,8 @@ const _stri = "strict";
 const _stru = "structure";
 const _sy = "system";
 const _t = "ttl";
-const _tA = "translationAmbiguous";
+const _tA = "toolAddition";
+const _tAr = "translationAmbiguous";
 const _tC = "toolConfig";
 const _tCe = "textCharacters";
 const _tCo = "toolChoice";
@@ -478,6 +484,7 @@ const _tP = "topicPolicy";
 const _tPU = "topicPolicyUnits";
 const _tPo = "topP";
 const _tR = "toolResult";
+const _tRo = "toolRemoval";
 const _tS = "toolSpec";
 const _tT = "totalTokens";
 const _tU = "textUnits";
@@ -489,8 +496,8 @@ const _tem = "temperature";
 const _th = "threshold";
 const _ti = "title";
 const _to = "total";
-const _too = "tools";
-const _tool = "tool";
+const _too = "tool";
+const _tool = "tools";
 const _top = "topics";
 const _tr = "trace";
 const _tra = "translation";
@@ -1225,8 +1232,8 @@ export var MessageStopEvent$: StaticStructureSchema = [3, n0, _MSEe,
 ];
 export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
   0,
-  [_tF],
-  [[() => OutputFormat$, 0]]
+  [_tF, _ef],
+  [[() => OutputFormat$, 0], 0]
 ];
 export var OutputFormat$: StaticStructureSchema = [3, n0, _OF,
   0,
@@ -1308,12 +1315,27 @@ export var TokenUsage$: StaticStructureSchema = [3, n0, _TU,
   [_iT, _oT, _tT, _cRIT, _cWIT, _cD],
   [1, 1, 1, 1, 1, () => CacheDetailsList], 3
 ];
+export var ToolAdditionBlock$: StaticStructureSchema = [3, n0, _TAB,
+  0,
+  [_too],
+  [() => ToolReference$], 1
+];
 export var ToolConfiguration$: StaticStructureSchema = [3, n0, _TC,
   0,
-  [_too, _tCo],
+  [_tool, _tCo],
   [() => Tools, () => ToolChoice$], 1
 ];
-export var ToolResultBlock$: StaticStructureSchema = [3, n0, _TRB,
+export var ToolReference$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_ty, _n, _sN],
+  [0, 0, 0]
+];
+export var ToolRemovalBlock$: StaticStructureSchema = [3, n0, _TRB,
+  0,
+  [_too],
+  [() => ToolReference$], 1
+];
+export var ToolResultBlock$: StaticStructureSchema = [3, n0, _TRBo,
   0,
   [_tUI, _co, _st, _ty],
   [0, [() => ToolResultContentBlocks, 0], 0, 0], 2
@@ -1539,8 +1561,8 @@ export var CitationSourceContent$: StaticUnionSchema = [4, n0, _CSC,
 ];
 export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
   0,
-  [_te, _ima, _doc, _vi, _au, _tUo, _tR, _gCua, _cPa, _rC, _cC, _sRe],
-  [0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, [() => AudioBlock$, 0], () => ToolUseBlock$, [() => ToolResultBlock$, 0], [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$, [() => ReasoningContentBlock$, 0], () => CitationsContentBlock$, () => SearchResultBlock$]
+  [_te, _ima, _doc, _vi, _au, _tUo, _tR, _gCua, _cPa, _rC, _cC, _sRe, _tA, _tRo],
+  [0, [() => ImageBlock$, 0], () => DocumentBlock$, () => VideoBlock$, [() => AudioBlock$, 0], () => ToolUseBlock$, [() => ToolResultBlock$, 0], [() => GuardrailConverseContentBlock$, 0], () => CachePointBlock$, [() => ReasoningContentBlock$, 0], () => CitationsContentBlock$, () => SearchResultBlock$, () => ToolAdditionBlock$, () => ToolRemovalBlock$]
 ];
 export var ContentBlockDelta$: StaticUnionSchema = [4, n0, _CBD,
   0,
@@ -1579,7 +1601,7 @@ export var DocumentSource$: StaticUnionSchema = [4, n0, _DS,
 ];
 export var GuardrailAutomatedReasoningFinding$: StaticUnionSchema = [4, n0, _GARF,
   0,
-  [_va, _in, _sa, _imp, _tA, _tCoo, _nTo],
+  [_va, _in, _sa, _imp, _tAr, _tCoo, _nTo],
   [[() => GuardrailAutomatedReasoningValidFinding$, 0], [() => GuardrailAutomatedReasoningInvalidFinding$, 0], [() => GuardrailAutomatedReasoningSatisfiableFinding$, 0], [() => GuardrailAutomatedReasoningImpossibleFinding$, 0], [() => GuardrailAutomatedReasoningTranslationAmbiguousFinding$, 0], () => GuardrailAutomatedReasoningTooComplexFinding$, () => GuardrailAutomatedReasoningNoTranslationsFinding$]
 ];
 export var GuardrailChecksContentBlock$: StaticUnionSchema = [4, n0, _GCCB,
@@ -1659,7 +1681,7 @@ export var Tool$: StaticUnionSchema = [4, n0, _Too,
 ];
 export var ToolChoice$: StaticUnionSchema = [4, n0, _TCo,
   0,
-  [_aut, _an, _tool],
+  [_aut, _an, _too],
   [() => AutoToolChoice$, () => AnyToolChoice$, () => SpecificToolChoice$]
 ];
 export var ToolInputSchema$: StaticUnionSchema = [4, n0, _TIS,

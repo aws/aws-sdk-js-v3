@@ -245,6 +245,20 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *               enabled: true || false, // required
  *             },
  *           },
+ *           toolAddition: { // ToolAdditionBlock
+ *             tool: { // ToolReference
+ *               type: "STRING_VALUE",
+ *               name: "STRING_VALUE",
+ *               serverName: "STRING_VALUE",
+ *             },
+ *           },
+ *           toolRemoval: { // ToolRemovalBlock
+ *             tool: {
+ *               type: "STRING_VALUE",
+ *               name: "STRING_VALUE",
+ *               serverName: "STRING_VALUE",
+ *             },
+ *           },
  *         },
  *       ],
  *     },
@@ -339,6 +353,7 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  *         },
  *       },
  *     },
+ *     effort: "STRING_VALUE",
  *   },
  * };
  * const command = new ConverseCommand(input);
@@ -553,6 +568,20 @@ export interface ConverseCommandOutput extends ConverseResponse, __MetadataBeare
  * //             ],
  * //             citations: {
  * //               enabled: true || false, // required
+ * //             },
+ * //           },
+ * //           toolAddition: { // ToolAdditionBlock
+ * //             tool: { // ToolReference
+ * //               type: "STRING_VALUE",
+ * //               name: "STRING_VALUE",
+ * //               serverName: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           toolRemoval: { // ToolRemovalBlock
+ * //             tool: {
+ * //               type: "STRING_VALUE",
+ * //               name: "STRING_VALUE",
+ * //               serverName: "STRING_VALUE",
  * //             },
  * //           },
  * //         },
