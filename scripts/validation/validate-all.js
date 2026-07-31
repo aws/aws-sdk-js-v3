@@ -63,6 +63,12 @@ const SUBPROCESS_VALIDATIONS = [
   },
   { name: "eslint", label: "oxlint passes on source", script: "oxlint.js", inspects: ["src"] },
   {
+    name: "api-extractor-config",
+    label: "packages with @public symbols are configured for API docs",
+    script: "api-extractor-config.js",
+    inspects: ["src"],
+  },
+  {
     name: "filenames",
     label: "no suspicious multi-dot filenames in dist",
     script: "filenames.js",
