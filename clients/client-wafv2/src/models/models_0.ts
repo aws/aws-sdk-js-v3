@@ -1171,7 +1171,7 @@ export interface ByteMatchStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
@@ -2841,7 +2841,7 @@ export interface RegexMatchStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
@@ -2876,7 +2876,7 @@ export interface RegexPatternSetReferenceStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
@@ -2950,7 +2950,7 @@ export interface SizeConstraintStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
@@ -2977,7 +2977,7 @@ export interface SqliMatchStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
@@ -3022,7 +3022,7 @@ export interface XssMatchStatement {
    * <p>Pre-parse text transformations normalize the raw query string before WAF parses it into individual
    *          query arguments. They are applied before the standard text transformations. Pre-parse text transformations
    *          are only supported when <code>FieldToMatch</code> is <code>SingleQueryArgument</code> or
-   *          <code>AllQueryArguments</code>. You can specify up to 3 pre-parse text transformations per rule statement.</p>
+   *          <code>AllQueryArguments</code>. You can specify up to 10 pre-parse text transformations per rule statement.</p>
    * @public
    */
   PreParseTextTransformations?: PreParseTextTransformation[] | undefined;
