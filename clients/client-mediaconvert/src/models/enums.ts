@@ -2357,6 +2357,7 @@ export type S3ServerSideEncryptionType = (typeof S3ServerSideEncryptionType)[key
 export const S3StorageClass = {
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   GLACIER: "GLACIER",
+  GLACIER_IR: "GLACIER_IR",
   INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
   ONEZONE_IA: "ONEZONE_IA",
   REDUCED_REDUNDANCY: "REDUCED_REDUNDANCY",

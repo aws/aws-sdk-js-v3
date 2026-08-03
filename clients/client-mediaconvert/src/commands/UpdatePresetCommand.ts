@@ -420,6 +420,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  *         VideoPid: Number("int"),
  *       },
  *       MovSettings: { // MovSettings
+ *         AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  *         ClapAtom: "INCLUDE" || "EXCLUDE",
  *         CslgAtom: "INCLUDE" || "EXCLUDE",
  *         Mpeg2FourCCControl: "XDCAM" || "MPEG",
@@ -1320,6 +1321,7 @@ export interface UpdatePresetCommandOutput extends UpdatePresetResponse, __Metad
  * //           VideoPid: Number("int"),
  * //         },
  * //         MovSettings: { // MovSettings
+ * //           AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //           ClapAtom: "INCLUDE" || "EXCLUDE",
  * //           CslgAtom: "INCLUDE" || "EXCLUDE",
  * //           Mpeg2FourCCControl: "XDCAM" || "MPEG",

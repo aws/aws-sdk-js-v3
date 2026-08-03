@@ -45,6 +45,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //   ProbeResults: [ // __listOfProbeResult
  * //     { // ProbeResult
  * //       Container: { // Container
+ * //         BitRate: Number("long"),
  * //         Duration: Number("double"),
  * //         Format: "mp4" || "quicktime" || "matroska" || "webm" || "mxf" || "wave" || "avi" || "mpegts" || "mpegps" || "mp3",
  * //         StartTimecode: "STRING_VALUE",
@@ -84,6 +85,7 @@ export interface ProbeCommandOutput extends ProbeResponse, __MetadataBearer {}
  * //                   MaxContentLightLevel: Number("int"),
  * //                   MaxFrameAverageLightLevel: Number("int"),
  * //                 },
+ * //                 FieldOrder: "STRING_VALUE",
  * //                 Height: Number("int"),
  * //                 Level: "STRING_VALUE",
  * //                 MatrixCoefficients: "RGB" || "ITU_709" || "UNSPECIFIED" || "RESERVED" || "FCC" || "ITU_470BG" || "SMPTE_170M" || "SMPTE_240M" || "YCgCo" || "ITU_2020_NCL" || "ITU_2020_CL" || "SMPTE_2085" || "CD_NCL" || "CD_CL" || "ITU_2100ICtCp" || "IPT" || "EBU3213" || "LAST",

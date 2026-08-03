@@ -562,7 +562,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
- * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                   },
  * //                 },
  * //                 Encryption: { // CmafEncryptionSettings
@@ -654,7 +654,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
- * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                   },
  * //                 },
  * //                 Encryption: { // DashIsoEncryptionSettings
@@ -716,7 +716,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
- * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                   },
  * //                 },
  * //               },
@@ -757,7 +757,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
- * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                   },
  * //                 },
  * //                 DirectoryStructure: "SINGLE_DIRECTORY" || "SUBDIRECTORY_PER_STREAM",
@@ -844,7 +844,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                       KmsEncryptionContext: "STRING_VALUE",
  * //                       KmsKeyArn: "STRING_VALUE",
  * //                     },
- * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                     StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                   },
  * //                 },
  * //                 Encryption: { // MsSmoothEncryptionSettings
@@ -1239,6 +1239,7 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * //                     VideoPid: Number("int"),
  * //                   },
  * //                   MovSettings: { // MovSettings
+ * //                     AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //                     ClapAtom: "INCLUDE" || "EXCLUDE",
  * //                     CslgAtom: "INCLUDE" || "EXCLUDE",
  * //                     Mpeg2FourCCControl: "XDCAM" || "MPEG",

@@ -429,6 +429,7 @@ export interface GetPresetCommandOutput extends GetPresetResponse, __MetadataBea
  * //           VideoPid: Number("int"),
  * //         },
  * //         MovSettings: { // MovSettings
+ * //           AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //           ClapAtom: "INCLUDE" || "EXCLUDE",
  * //           CslgAtom: "INCLUDE" || "EXCLUDE",
  * //           Mpeg2FourCCControl: "XDCAM" || "MPEG",

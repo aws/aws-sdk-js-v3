@@ -344,7 +344,8 @@ const _FMS = "FeedManagementState";
 const _FN = "FramerateNumerator";
 const _FO = "FontOpacity";
 const _FOa = "FadeOut";
-const _FOi = "FileOffset";
+const _FOi = "FieldOrder";
+const _FOil = "FileOffset";
 const _FR = "FrameRate";
 const _FRo = "FontResolution";
 const _FS = "FlacSettings";
@@ -1270,7 +1271,8 @@ const _fMS = "feedManagementState";
 const _fN = "framerateNumerator";
 const _fO = "fontOpacity";
 const _fOa = "fadeOut";
-const _fOi = "fileOffset";
+const _fOi = "fieldOrder";
+const _fOil = "fileOffset";
 const _fR = "frameRate";
 const _fRo = "fontResolution";
 const _fS = "flacSettings";
@@ -2152,8 +2154,8 @@ export var CmfcSettings$: StaticStructureSchema = [3, n0, _CSm,
 ];
 export var CodecMetadata$: StaticStructureSchema = [3, n0, _CMo,
   0,
-  [_BD, _CSh, _CFR, _CPo, _CLL, _H, _L, _MCat, _Pr, _Ro, _STc, _TCr, _W],
-  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
+  [_BD, _CSh, _CFR, _CPo, _CLL, _FOi, _H, _L, _MCat, _Pr, _Ro, _STc, _TCr, _W],
+  [[1, { [_jN]: _bD }], [0, { [_jN]: _cSh }], [() => FrameRate$, { [_jN]: _cFR }], [0, { [_jN]: _cPo }], [() => ContentLightLevel$, { [_jN]: _cLL }], [0, { [_jN]: _fOi }], [1, { [_jN]: _h }], [0, { [_jN]: _l }], [0, { [_jN]: _mCat }], [0, { [_jN]: _pr }], [1, { [_jN]: _ro }], [0, { [_jN]: _sTc }], [0, { [_jN]: _tCr }], [1, { [_jN]: _w }]]
 ];
 export var ColorConversion3DLUTSetting$: StaticStructureSchema = [3, n0, _CCDLUTS,
   0,
@@ -2167,8 +2169,8 @@ export var ColorCorrector$: StaticStructureSchema = [3, n0, _CCo,
 ];
 export var Container$: StaticStructureSchema = [3, n0, _Cont,
   0,
-  [_Du, _F, _STt, _T],
-  [[1, { [_jN]: _du }], [0, { [_jN]: _f }], [0, { [_jN]: _sTt }], [() => __listOfTrack, { [_jN]: _t }]]
+  [_BR, _Du, _F, _STt, _T],
+  [[1, { [_jN]: _bR }], [1, { [_jN]: _du }], [0, { [_jN]: _f }], [0, { [_jN]: _sTt }], [() => __listOfTrack, { [_jN]: _t }]]
 ];
 export var ContainerSettings$: StaticStructureSchema = [3, n0, _CSon,
   0,
@@ -2702,8 +2704,8 @@ export var JobTemplateSettings$: StaticStructureSchema = [3, n0, _JTS,
 ];
 export var KantarWatermarkSettings$: StaticStructureSchema = [3, n0, _KWS,
   0,
-  [_CN, _CR, _CSNr, _FOi, _KLI, _KSU, _LDo, _Met, _Meta, _Metad, _Metada, _Metadat, _Metadata],
-  [[0, { [_jN]: _cN }], [0, { [_jN]: _cR }], [0, { [_jN]: _cSNr }], [1, { [_jN]: _fOi }], [1, { [_jN]: _kLI }], [0, { [_jN]: _kSU }], [0, { [_jN]: _lDo }], [0, { [_jN]: _met }], [0, { [_jN]: _meta }], [0, { [_jN]: _metad }], [0, { [_jN]: _metada }], [0, { [_jN]: _metadat }], [0, { [_jN]: _metadata }]]
+  [_CN, _CR, _CSNr, _FOil, _KLI, _KSU, _LDo, _Met, _Meta, _Metad, _Metada, _Metadat, _Metadata],
+  [[0, { [_jN]: _cN }], [0, { [_jN]: _cR }], [0, { [_jN]: _cSNr }], [1, { [_jN]: _fOil }], [1, { [_jN]: _kLI }], [0, { [_jN]: _kSU }], [0, { [_jN]: _lDo }], [0, { [_jN]: _met }], [0, { [_jN]: _meta }], [0, { [_jN]: _metad }], [0, { [_jN]: _metada }], [0, { [_jN]: _metadat }], [0, { [_jN]: _metadata }]]
 ];
 export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
   0,
@@ -2817,8 +2819,8 @@ export var MotionImageInsertionOffset$: StaticStructureSchema = [3, n0, _MIIO,
 ];
 export var MovSettings$: StaticStructureSchema = [3, n0, _MSo,
   0,
-  [_CAl, _CAs, _MFCCC, _PCad, _Re],
-  [[0, { [_jN]: _cAl }], [0, { [_jN]: _cAs }], [0, { [_jN]: _mFCCC }], [0, { [_jN]: _pCad }], [0, { [_jN]: _re }]]
+  [_ADu, _CAl, _CAs, _MFCCC, _PCad, _Re],
+  [[0, { [_jN]: _aD }], [0, { [_jN]: _cAl }], [0, { [_jN]: _cAs }], [0, { [_jN]: _mFCCC }], [0, { [_jN]: _pCad }], [0, { [_jN]: _re }]]
 ];
 export var Mp2Settings$: StaticStructureSchema = [3, n0, _MS,
   0,

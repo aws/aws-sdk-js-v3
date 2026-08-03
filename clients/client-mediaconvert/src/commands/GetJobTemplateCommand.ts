@@ -482,7 +482,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     KmsEncryptionContext: "STRING_VALUE",
  * //                     KmsKeyArn: "STRING_VALUE",
  * //                   },
- * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                 },
  * //               },
  * //               Encryption: { // CmafEncryptionSettings
@@ -574,7 +574,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     KmsEncryptionContext: "STRING_VALUE",
  * //                     KmsKeyArn: "STRING_VALUE",
  * //                   },
- * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                 },
  * //               },
  * //               Encryption: { // DashIsoEncryptionSettings
@@ -636,7 +636,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     KmsEncryptionContext: "STRING_VALUE",
  * //                     KmsKeyArn: "STRING_VALUE",
  * //                   },
- * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                 },
  * //               },
  * //             },
@@ -677,7 +677,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     KmsEncryptionContext: "STRING_VALUE",
  * //                     KmsKeyArn: "STRING_VALUE",
  * //                   },
- * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                 },
  * //               },
  * //               DirectoryStructure: "SINGLE_DIRECTORY" || "SUBDIRECTORY_PER_STREAM",
@@ -764,7 +764,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                     KmsEncryptionContext: "STRING_VALUE",
  * //                     KmsKeyArn: "STRING_VALUE",
  * //                   },
- * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE",
+ * //                   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "GLACIER_IR",
  * //                 },
  * //               },
  * //               Encryption: { // MsSmoothEncryptionSettings
@@ -1159,6 +1159,7 @@ export interface GetJobTemplateCommandOutput extends GetJobTemplateResponse, __M
  * //                   VideoPid: Number("int"),
  * //                 },
  * //                 MovSettings: { // MovSettings
+ * //                   AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
  * //                   ClapAtom: "INCLUDE" || "EXCLUDE",
  * //                   CslgAtom: "INCLUDE" || "EXCLUDE",
  * //                   Mpeg2FourCCControl: "XDCAM" || "MPEG",

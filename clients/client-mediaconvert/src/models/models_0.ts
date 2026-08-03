@@ -6112,6 +6112,12 @@ export interface M3u8Settings {
  */
 export interface MovSettings {
   /**
+   * Specify this setting only when your output will be consumed by a downstream repackaging workflow that is sensitive to very small duration differences between video and audio. For this situation, choose Match video duration. In all other cases, keep the default value, Default codec duration. When you choose Match video duration, MediaConvert pads the output audio streams with silence or trims them to ensure that the total duration of each audio stream is at least as long as the total duration of the video stream. After padding or trimming, the audio stream duration is no more than one frame longer than the video stream. MediaConvert applies audio padding or trimming only to the end of the last segment of the output. For unsegmented outputs, MediaConvert adds padding only to the end of the file. When you keep the default value, any minor discrepancies between audio and video duration will depend on your output audio codec.
+   * @public
+   */
+  AudioDuration?: CmfcAudioDuration | undefined;
+
+  /**
    * When enabled, include 'clap' atom if appropriate for the video output settings.
    * @public
    */
@@ -9813,6 +9819,12 @@ export interface CodecMetadata {
   ContentLightLevel?: ContentLightLevel | undefined;
 
   /**
+   * The field order of interlaced video, which indicates whether the top or bottom field is displayed first. Use this to select the correct deinterlacing behavior. One of "TopFieldFirst" or "BottomFieldFirst". This field is present only for interlaced video; it is omitted for progressive video and when the field order is not indicated by the source.
+   * @public
+   */
+  FieldOrder?: string | undefined;
+
+  /**
    * The height in pixels as coded by the codec. This represents the actual encoded video height as specified in the video stream headers.
    * @public
    */
@@ -10070,6 +10082,12 @@ export interface Track {
  * @public
  */
 export interface Container {
+  /**
+   * The overall bit rate of your media file, in bits per second. This is derived from the file size and duration as (file size in bytes * 8) / duration in seconds.
+   * @public
+   */
+  BitRate?: number | undefined;
+
   /**
    * The total duration of your media file, in seconds.
    * @public
