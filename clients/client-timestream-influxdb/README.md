@@ -23,16 +23,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `TimestreamInfluxDBClient` and
-the commands you need, for example `ListDbClustersCommand`:
+the commands you need, for example `ListDbBackupsCommand`:
 
 ```js
 // ES5 example
-const { TimestreamInfluxDBClient, ListDbClustersCommand } = require("@aws-sdk/client-timestream-influxdb");
+const { TimestreamInfluxDBClient, ListDbBackupsCommand } = require("@aws-sdk/client-timestream-influxdb");
 ```
 
 ```ts
 // ES6+ example
-import { TimestreamInfluxDBClient, ListDbClustersCommand } from "@aws-sdk/client-timestream-influxdb";
+import { TimestreamInfluxDBClient, ListDbBackupsCommand } from "@aws-sdk/client-timestream-influxdb";
 ```
 
 ### Usage
@@ -49,7 +49,7 @@ To send a request:
 const client = new TimestreamInfluxDBClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListDbClustersCommand(params);
+const command = new ListDbBackupsCommand(params);
 ```
 
 #### Async/await
@@ -105,7 +105,7 @@ const client = new TimestreamInfluxDB({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listDbClusters(params);
+  const data = await client.listDbBackups(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -113,7 +113,7 @@ try {
 
 // Promises.
 client
-  .listDbClusters(params)
+  .listDbBackups(params)
   .then((data) => {
     // process data.
   })
@@ -122,7 +122,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listDbClusters(params, (err, data) => {
+client.listDbBackups(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -182,6 +182,13 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateDbBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/CreateDbBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/CreateDbBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/CreateDbBackupCommandOutput/)
+</details>
+<details>
+<summary>
 CreateDbCluster
 </summary>
 
@@ -203,6 +210,13 @@ CreateDbParameterGroup
 </details>
 <details>
 <summary>
+DeleteDbBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/DeleteDbBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbBackupCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteDbCluster
 </summary>
 
@@ -214,6 +228,13 @@ DeleteDbInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/DeleteDbInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/DeleteDbInstanceCommandOutput/)
+</details>
+<details>
+<summary>
+GetDbBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/GetDbBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbBackupCommandOutput/)
 </details>
 <details>
 <summary>
@@ -235,6 +256,13 @@ GetDbParameterGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/GetDbParameterGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbParameterGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/GetDbParameterGroupCommandOutput/)
+</details>
+<details>
+<summary>
+ListDbBackups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/ListDbBackupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbBackupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/ListDbBackupsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -284,6 +312,13 @@ RebootDbInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/RebootDbInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RebootDbInstanceCommandOutput/)
+</details>
+<details>
+<summary>
+RestoreFromDbBackup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/timestream-influxdb/command/RestoreFromDbBackupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RestoreFromDbBackupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-timestream-influxdb/Interface/RestoreFromDbBackupCommandOutput/)
 </details>
 <details>
 <summary>

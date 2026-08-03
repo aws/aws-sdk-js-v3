@@ -41,7 +41,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE" || "RESTORING" || "RESTORE_FAILED",
  * //   endpoint: "STRING_VALUE",
  * //   readerEndpoint: "STRING_VALUE",
  * //   port: Number("int"),
@@ -78,6 +78,16 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //     queryOnlyInstances: Number("int"),
  * //     dedicatedCompactor: true || false,
  * //   },
+ * //   dbBackupConfigurations: [ // DbBackupConfigurationOutputList
+ * //     { // DbBackupConfigurationOutput
+ * //       type: "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "CUSTOM_SCHEDULE" || "CONTINUOUS", // required
+ * //       retentionDays: Number("int"), // required
+ * //       enabled: true || false, // required
+ * //       customSchedule: "STRING_VALUE",
+ * //       nextAutomatedBackupTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   kmsKeyId: "STRING_VALUE",
  * // };
  *
  * ```

@@ -48,11 +48,19 @@ export interface UpdateDbClusterCommandOutput extends UpdateDbClusterOutput, __M
  *     timezone: "STRING_VALUE", // required
  *     preferredMaintenanceWindow: "STRING_VALUE", // required
  *   },
+ *   dbBackupConfigurations: [ // DbBackupConfigurationInputList
+ *     { // DbBackupConfiguration
+ *       type: "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "CUSTOM_SCHEDULE" || "CONTINUOUS", // required
+ *       retentionDays: Number("int"), // required
+ *       enabled: true || false, // required
+ *       customSchedule: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new UpdateDbClusterCommand(input);
  * const response = await client.send(command);
  * // { // UpdateDbClusterOutput
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE" || "RESTORING" || "RESTORE_FAILED",
  * // };
  *
  * ```

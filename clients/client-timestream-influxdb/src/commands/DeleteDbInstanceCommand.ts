@@ -34,6 +34,7 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // DeleteDbInstanceInput
  *   identifier: "STRING_VALUE", // required
+ *   retainAutomatedBackups: true || false,
  * };
  * const command = new DeleteDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -41,7 +42,7 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE" || "REBOOTING" || "REBOOT_FAILED",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE" || "MAINTENANCE" || "REBOOTING" || "REBOOT_FAILED" || "RESTORING" || "RESTORE_FAILED",
  * //   endpoint: "STRING_VALUE",
  * //   port: Number("int"),
  * //   networkType: "IPV4" || "DUAL",
@@ -77,6 +78,16 @@ export interface DeleteDbInstanceCommandOutput extends DeleteDbInstanceOutput, _
  * //   },
  * //   lastMaintenanceTime: new Date("TIMESTAMP"),
  * //   nextMaintenanceTime: new Date("TIMESTAMP"),
+ * //   dbBackupConfigurations: [ // DbBackupConfigurationOutputList
+ * //     { // DbBackupConfigurationOutput
+ * //       type: "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "CUSTOM_SCHEDULE" || "CONTINUOUS", // required
+ * //       retentionDays: Number("int"), // required
+ * //       enabled: true || false, // required
+ * //       customSchedule: "STRING_VALUE",
+ * //       nextAutomatedBackupTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   kmsKeyId: "STRING_VALUE",
  * // };
  *
  * ```

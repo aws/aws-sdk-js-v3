@@ -54,20 +54,24 @@ import {
   defaultTimestreamInfluxDBHttpAuthSchemeParametersProvider,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import type { CreateDbBackupCommandInput, CreateDbBackupCommandOutput } from "./commands/CreateDbBackupCommand";
 import type { CreateDbClusterCommandInput, CreateDbClusterCommandOutput } from "./commands/CreateDbClusterCommand";
 import type { CreateDbInstanceCommandInput, CreateDbInstanceCommandOutput } from "./commands/CreateDbInstanceCommand";
 import type {
   CreateDbParameterGroupCommandInput,
   CreateDbParameterGroupCommandOutput,
 } from "./commands/CreateDbParameterGroupCommand";
+import type { DeleteDbBackupCommandInput, DeleteDbBackupCommandOutput } from "./commands/DeleteDbBackupCommand";
 import type { DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput } from "./commands/DeleteDbClusterCommand";
 import type { DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput } from "./commands/DeleteDbInstanceCommand";
+import type { GetDbBackupCommandInput, GetDbBackupCommandOutput } from "./commands/GetDbBackupCommand";
 import type { GetDbClusterCommandInput, GetDbClusterCommandOutput } from "./commands/GetDbClusterCommand";
 import type { GetDbInstanceCommandInput, GetDbInstanceCommandOutput } from "./commands/GetDbInstanceCommand";
 import type {
   GetDbParameterGroupCommandInput,
   GetDbParameterGroupCommandOutput,
 } from "./commands/GetDbParameterGroupCommand";
+import type { ListDbBackupsCommandInput, ListDbBackupsCommandOutput } from "./commands/ListDbBackupsCommand";
 import type { ListDbClustersCommandInput, ListDbClustersCommandOutput } from "./commands/ListDbClustersCommand";
 import type { ListDbInstancesCommandInput, ListDbInstancesCommandOutput } from "./commands/ListDbInstancesCommand";
 import type {
@@ -84,6 +88,10 @@ import type {
 } from "./commands/ListTagsForResourceCommand";
 import type { RebootDbClusterCommandInput, RebootDbClusterCommandOutput } from "./commands/RebootDbClusterCommand";
 import type { RebootDbInstanceCommandInput, RebootDbInstanceCommandOutput } from "./commands/RebootDbInstanceCommand";
+import type {
+  RestoreFromDbBackupCommandInput,
+  RestoreFromDbBackupCommandOutput,
+} from "./commands/RestoreFromDbBackupCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "./commands/UpdateDbClusterCommand";
@@ -103,14 +111,18 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateDbBackupCommandInput
   | CreateDbClusterCommandInput
   | CreateDbInstanceCommandInput
   | CreateDbParameterGroupCommandInput
+  | DeleteDbBackupCommandInput
   | DeleteDbClusterCommandInput
   | DeleteDbInstanceCommandInput
+  | GetDbBackupCommandInput
   | GetDbClusterCommandInput
   | GetDbInstanceCommandInput
   | GetDbParameterGroupCommandInput
+  | ListDbBackupsCommandInput
   | ListDbClustersCommandInput
   | ListDbInstancesCommandInput
   | ListDbInstancesForClusterCommandInput
@@ -118,6 +130,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | RebootDbClusterCommandInput
   | RebootDbInstanceCommandInput
+  | RestoreFromDbBackupCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDbClusterCommandInput
@@ -127,14 +140,18 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateDbBackupCommandOutput
   | CreateDbClusterCommandOutput
   | CreateDbInstanceCommandOutput
   | CreateDbParameterGroupCommandOutput
+  | DeleteDbBackupCommandOutput
   | DeleteDbClusterCommandOutput
   | DeleteDbInstanceCommandOutput
+  | GetDbBackupCommandOutput
   | GetDbClusterCommandOutput
   | GetDbInstanceCommandOutput
   | GetDbParameterGroupCommandOutput
+  | ListDbBackupsCommandOutput
   | ListDbClustersCommandOutput
   | ListDbInstancesCommandOutput
   | ListDbInstancesForClusterCommandOutput
@@ -142,6 +159,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | RebootDbClusterCommandOutput
   | RebootDbInstanceCommandOutput
+  | RestoreFromDbBackupCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDbClusterCommandOutput

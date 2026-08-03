@@ -1,8 +1,11 @@
 // smithy-typescript generated code
 import type {
+  AutomatedDbBackupType,
   ClusterDeploymentType,
   ClusterStatus,
   DataFusionRuntimeType,
+  DbBackupStatus,
+  DbBackupType,
   DbInstanceType,
   DbStorageType,
   DeploymentType,
@@ -13,9 +16,66 @@ import type {
   LogFormats,
   LogLevel,
   NetworkType,
+  ResourceDeploymentType,
+  ResourceType,
+  RestoreMode,
+  RestoreStatus,
   Status,
   TracingType,
 } from "./enums";
+
+/**
+ * @public
+ */
+export interface CreateDbBackupInput {
+  /**
+   * <p>The name of the backup. Must be unique within the account and region.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The id of the DB instance or DB cluster to back up.</p>
+   * @public
+   */
+  dbResourceId: string | undefined;
+
+  /**
+   * <p>The number of days to retain the backup. Valid values are 1 to 3650.</p>
+   * @public
+   */
+  retentionDays?: number | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the backup.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Configuration for node modes in the DbCluster.</p>
+ * @public
+ */
+export interface ClusterConfiguration {
+  /**
+   * <p>The number of instances in the DbCluster which can both ingest and query.</p>
+   * @public
+   */
+  ingestQueryInstances?: number | undefined;
+
+  /**
+   * <p>The number of instances in the DbCluster which can only query.</p>
+   * @public
+   */
+  queryOnlyInstances?: number | undefined;
+
+  /**
+   * <p>Indicates if the compactor instance is a standalone instance or not.</p>
+   * @public
+   */
+  dedicatedCompactor?: boolean | undefined;
+}
 
 /**
  * <p>Configuration for S3 bucket log delivery.</p>
@@ -63,6 +123,765 @@ export interface MaintenanceSchedule {
    * @public
    */
   preferredMaintenanceWindow: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDbBackupOutput {
+  /**
+   * <p>Service-generated unique identifier of the backup.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-provided name of the backup.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the backup.</p>
+   * @public
+   */
+  status?: DbBackupStatus | undefined;
+
+  /**
+   * <p>The time when the backup was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date after which the backup will be automatically deleted.</p>
+   * @public
+   */
+  expiresAfter?: string | undefined;
+
+  /**
+   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * @public
+   */
+  dbResourceId?: string | undefined;
+
+  /**
+   * <p>The type of backup.</p>
+   * @public
+   */
+  type?: DbBackupType | undefined;
+
+  /**
+   * <p>The engine type of the resource that the backup was created from.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
+
+  /**
+   * <p>The deployment type of the resource that the backup was created from.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The cluster configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * @public
+   */
+  dbParameterGroupId?: string | undefined;
+
+  /**
+   * <p>The DB instance type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The failover mode of the resource at the time of backup.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p>The storage type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The port number of the resource at the time of backup.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>The network type of the resource at the time of backup.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDbBackupInput {
+  /**
+   * <p>The identifier of the backup to delete.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDbBackupOutput {
+  /**
+   * <p>Service-generated unique identifier of the deleted backup.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-provided name of the deleted backup.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted backup.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the backup.</p>
+   * @public
+   */
+  status?: DbBackupStatus | undefined;
+
+  /**
+   * <p>The time when the backup was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date after which the backup was set to be automatically deleted.</p>
+   * @public
+   */
+  expiresAfter?: string | undefined;
+
+  /**
+   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * @public
+   */
+  dbResourceId?: string | undefined;
+
+  /**
+   * <p>The type of backup.</p>
+   * @public
+   */
+  type?: DbBackupType | undefined;
+
+  /**
+   * <p>The engine type of the resource that the backup was created from.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
+
+  /**
+   * <p>The deployment type of the resource that the backup was created from.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The cluster configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * @public
+   */
+  dbParameterGroupId?: string | undefined;
+
+  /**
+   * <p>The DB instance type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The failover mode of the resource at the time of backup.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p>The storage type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The port number of the resource at the time of backup.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>The network type of the resource at the time of backup.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDbBackupInput {
+  /**
+   * <p>The identifier of the backup to retrieve information for.</p>
+   * @public
+   */
+  identifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDbBackupOutput {
+  /**
+   * <p>Service-generated unique identifier of the backup.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-provided name of the backup.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The current status of the backup.</p>
+   * @public
+   */
+  status?: DbBackupStatus | undefined;
+
+  /**
+   * <p>The time when the backup was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date after which the backup will be automatically deleted.</p>
+   * @public
+   */
+  expiresAfter?: string | undefined;
+
+  /**
+   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * @public
+   */
+  dbResourceId?: string | undefined;
+
+  /**
+   * <p>The type of backup.</p>
+   * @public
+   */
+  type?: DbBackupType | undefined;
+
+  /**
+   * <p>The engine type of the resource that the backup was created from.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
+
+  /**
+   * <p>The deployment type of the resource that the backup was created from.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The cluster configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The identifier of the DB parameter group associated with the backup.</p>
+   * @public
+   */
+  dbParameterGroupId?: string | undefined;
+
+  /**
+   * <p>The DB instance type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbInstanceType?: DbInstanceType | undefined;
+
+  /**
+   * <p>The log delivery configuration of the resource at the time of backup.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The failover mode of the resource at the time of backup.</p>
+   * @public
+   */
+  failoverMode?: FailoverMode | undefined;
+
+  /**
+   * <p>The storage type of the resource at the time of backup.</p>
+   * @public
+   */
+  dbStorageType?: DbStorageType | undefined;
+
+  /**
+   * <p>The allocated storage of the resource at the time of backup, in GiB.</p>
+   * @public
+   */
+  allocatedStorage?: number | undefined;
+
+  /**
+   * <p>The VPC subnet IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The VPC security group IDs associated with the resource at the time of backup.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether the resource was publicly accessible at the time of backup.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>The port number of the resource at the time of backup.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>The network type of the resource at the time of backup.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>The ARN of the Secrets Manager secret containing the InfluxDB auth parameters.</p>
+   * @public
+   */
+  influxAuthParametersSecretArn?: string | undefined;
+
+  /**
+   * <p>The maintenance schedule of the resource at the time of backup.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbBackupsInput {
+  /**
+   * <p>The identifier of the DB instance or DB cluster to list backups for. If not specified, returns all backups in the account and region.</p>
+   * @public
+   */
+  dbResourceId?: string | undefined;
+
+  /**
+   * <p>The pagination token. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return in the output. If the total number of items available is more than the value specified, a nextToken is provided in the output. To resume pagination, provide the nextToken value as an argument of a subsequent API invocation.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * <p>Contains a summary of a Timestream for InfluxDB backup.</p>
+ * @public
+ */
+export interface DbBackupSummary {
+  /**
+   * <p>Service-generated unique identifier of the backup.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The customer-provided name of the backup.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the backup. Valid values are IN_PROGRESS, COMPLETED, FAILED, DELETING, and DELETED.</p>
+   * @public
+   */
+  status?: DbBackupStatus | undefined;
+
+  /**
+   * <p>The time when the backup was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The date after which the backup will be automatically deleted.</p>
+   * @public
+   */
+  expiresAfter?: string | undefined;
+
+  /**
+   * <p>The identifier of the DB resource that the backup was created from.</p>
+   * @public
+   */
+  dbResourceId?: string | undefined;
+
+  /**
+   * <p>The type of backup. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, ON_DEMAND, and CONTINUOUS.</p>
+   * @public
+   */
+  type?: DbBackupType | undefined;
+
+  /**
+   * <p>The engine type of the resource that the backup was created from.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
+
+  /**
+   * <p>The deployment type of the resource that the backup was created from.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the resource at the time of backup.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDbBackupsOutput {
+  /**
+   * <p>A list of Timestream for InfluxDB backup summaries.</p>
+   * @public
+   */
+  items: DbBackupSummary[] | undefined;
+
+  /**
+   * <p>Token from a previous call of the operation. When this value is provided, the service returns results from where the previous response left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Specifies the configuration for an automated backup schedule.</p>
+ * @public
+ */
+export interface DbBackupConfiguration {
+  /**
+   * <p>The type of automated backup schedule. Valid values are HOURLY, DAILY, WEEKLY, MONTHLY, CUSTOM_SCHEDULE, and CONTINUOUS.</p>
+   * @public
+   */
+  type: AutomatedDbBackupType | undefined;
+
+  /**
+   * <p>The number of days to retain automated backups. Valid values are 1 to 365.</p>
+   * @public
+   */
+  retentionDays: number | undefined;
+
+  /**
+   * <p>Specifies whether this backup configuration is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>A custom cron schedule expression for the backup. Required when type is CUSTOM_SCHEDULE.</p>
+   * @public
+   */
+  customSchedule?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreFromDbBackupInput {
+  /**
+   * <p>The name of the new resource to create from the restore. If restoring to an existing resource, the name must match the existing resource name.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The identifier of the backup to restore from.</p>
+   * @public
+   */
+  dbBackupId: string | undefined;
+
+  /**
+   * <p>The point in time to restore to, for continuous backups. Must be within the backup's retention window.</p>
+   * @public
+   */
+  restoreToTime?: Date | undefined;
+
+  /**
+   * <p>Specifies whether to restore to a new resource or replace the existing resource. Valid values are NEW_RESOURCE (default) and REPLACE_EXISTING.</p>
+   * @public
+   */
+  restoreMode?: RestoreMode | undefined;
+
+  /**
+   * <p>A list of VPC subnet IDs for the restored resource. If not specified, the restored resource uses the same subnets as the backup.</p>
+   * @public
+   */
+  vpcSubnetIds?: string[] | undefined;
+
+  /**
+   * <p>A list of VPC security group IDs for the restored resource. If not specified, the restored resource uses the same security groups as the backup.</p>
+   * @public
+   */
+  vpcSecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>Specifies whether the restored resource is publicly accessible.</p>
+   * @public
+   */
+  publiclyAccessible?: boolean | undefined;
+
+  /**
+   * <p>Configuration for sending InfluxDB engine logs to the specified S3 bucket for the restored resource.</p>
+   * @public
+   */
+  logDeliveryConfiguration?: LogDeliveryConfiguration | undefined;
+
+  /**
+   * <p>The maintenance schedule for the restored resource.</p>
+   * @public
+   */
+  maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>A list of key-value pairs to associate with the restored resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The port number on which the restored InfluxDB resource accepts connections.</p>
+   * @public
+   */
+  port?: number | undefined;
+
+  /**
+   * <p>Specifies the network type of the restored resource. Valid values are IPV4 and DUAL.</p>
+   * @public
+   */
+  networkType?: NetworkType | undefined;
+
+  /**
+   * <p>Specifies the deployment type of the restored resource. Valid values are SINGLE_AZ, WITH_MULTIAZ_STANDBY, and MULTI_NODE_READ_REPLICAS.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
+
+  /**
+   * <p>A list of backup configurations to apply to the restored resource.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to use for encryption of the restored resource. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreFromDbBackupOutput {
+  /**
+   * <p>The identifier of the restored DB resource.</p>
+   * @public
+   */
+  restoredDbResourceId?: string | undefined;
+
+  /**
+   * <p>The status of the restore operation.</p>
+   * @public
+   */
+  restoreStatus?: RestoreStatus | undefined;
+
+  /**
+   * <p>The type of the restored resource. Valid values are DB_INSTANCE and DB_CLUSTER.</p>
+   * @public
+   */
+  resourceType?: ResourceType | undefined;
+
+  /**
+   * <p>The engine type of the restored resource.</p>
+   * @public
+   */
+  engineType?: EngineType | undefined;
+
+  /**
+   * <p>The deployment type of the restored resource.</p>
+   * @public
+   */
+  deploymentType?: ResourceDeploymentType | undefined;
 }
 
 /**
@@ -195,6 +1014,18 @@ export interface CreateDbClusterInput {
   maintenanceSchedule?: MaintenanceSchedule | undefined;
 
   /**
+   * <p>A list of backup configurations to enable automated backups for the DB cluster.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to use for encryption of the DB cluster. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
    * <p>A list of key-value pairs to associate with the DB instance.</p>
    * @public
    */
@@ -227,6 +1058,12 @@ export interface DeleteDbClusterInput {
    * @public
    */
   dbClusterId: string | undefined;
+
+  /**
+   * <p>Specifies whether to retain automated backups after the DB cluster is deleted. If set to true, automated backups are not deleted and can be restored later.</p>
+   * @public
+   */
+  retainAutomatedBackups?: boolean | undefined;
 }
 
 /**
@@ -252,27 +1089,39 @@ export interface GetDbClusterInput {
 }
 
 /**
- * <p>Configuration for node modes in the DbCluster.</p>
+ * <p>Contains the configuration and status for an automated backup schedule.</p>
  * @public
  */
-export interface ClusterConfiguration {
+export interface DbBackupConfigurationOutput {
   /**
-   * <p>The number of instances in the DbCluster which can both ingest and query.</p>
+   * <p>The type of automated backup schedule.</p>
    * @public
    */
-  ingestQueryInstances?: number | undefined;
+  type: AutomatedDbBackupType | undefined;
 
   /**
-   * <p>The number of instances in the DbCluster which can only query.</p>
+   * <p>The number of days automated backups are retained.</p>
    * @public
    */
-  queryOnlyInstances?: number | undefined;
+  retentionDays: number | undefined;
 
   /**
-   * <p>Indicates if the compactor instance is a standalone instance or not.</p>
+   * <p>Indicates whether this backup configuration is enabled.</p>
    * @public
    */
-  dedicatedCompactor?: boolean | undefined;
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The custom cron schedule expression for the backup, if applicable.</p>
+   * @public
+   */
+  customSchedule?: string | undefined;
+
+  /**
+   * <p>The next scheduled time for an automated backup to be taken.</p>
+   * @public
+   */
+  nextAutomatedBackupTime?: Date | undefined;
 }
 
 /**
@@ -422,6 +1271,18 @@ export interface GetDbClusterOutput {
    * @public
    */
   clusterConfiguration?: ClusterConfiguration | undefined;
+
+  /**
+   * <p>The backup configurations for the DB cluster.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB cluster.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -741,6 +1602,12 @@ export interface UpdateDbClusterInput {
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>A list of backup configurations to update for the DB cluster.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
 }
 
 /**
@@ -883,6 +1750,18 @@ export interface CreateDbInstanceInput {
    * @public
    */
   networkType?: NetworkType | undefined;
+
+  /**
+   * <p>A list of backup configurations to enable automated backups for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to use for encryption of the DB instance. Can be a key ID, key ARN, alias name, or alias ARN.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1038,6 +1917,18 @@ export interface CreateDbInstanceOutput {
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The backup configurations for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1049,6 +1940,12 @@ export interface DeleteDbInstanceInput {
    * @public
    */
   identifier: string | undefined;
+
+  /**
+   * <p>Specifies whether to retain automated backups after the DB instance is deleted. If set to true, automated backups are not deleted and can be restored later.</p>
+   * @public
+   */
+  retainAutomatedBackups?: boolean | undefined;
 }
 
 /**
@@ -1204,6 +2101,18 @@ export interface DeleteDbInstanceOutput {
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The backup configurations that were associated with the deleted DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN that was used for encryption of the deleted DB instance.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1370,6 +2279,18 @@ export interface GetDbInstanceOutput {
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The backup configurations for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1644,6 +2565,18 @@ export interface RebootDbInstanceOutput {
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The backup configurations for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -1707,6 +2640,12 @@ export interface UpdateDbInstanceInput {
    * @public
    */
   maintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>A list of backup configurations to update for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfiguration[] | undefined;
 }
 
 /**
@@ -1863,6 +2802,18 @@ export interface UpdateDbInstanceOutput {
    * @public
    */
   nextMaintenanceTime?: Date | undefined;
+
+  /**
+   * <p>The backup configurations for the DB instance.</p>
+   * @public
+   */
+  dbBackupConfigurations?: DbBackupConfigurationOutput[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services KMS key ARN used for encryption of the DB instance.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
 }
 
 /**
@@ -2000,7 +2951,7 @@ export interface InfluxDBv2Parameters {
   queryInitialMemoryBytes?: number | undefined;
 
   /**
-   * <p>Maximum number of queries allowed in execution queue. When queue limit is reached, new queries are rejected. Setting to 0 allows an unlimited number of queries in the queue.</p>
+   * <p>Maximum total bytes of memory allowed for all running queries. When this limit is reached, new queries are rejected. Setting to 0 allows unlimited memory usage.</p>
    *          <p>Default: 0</p>
    * @public
    */

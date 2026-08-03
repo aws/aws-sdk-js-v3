@@ -37,13 +37,29 @@ export type DbStorageType = (typeof DbStorageType)[keyof typeof DbStorageType];
  * @public
  * @enum
  */
-export const ClusterDeploymentType = {
+export const ResourceDeploymentType = {
   MULTI_NODE_READ_REPLICAS: "MULTI_NODE_READ_REPLICAS",
+  SINGLE_AZ: "SINGLE_AZ",
+  WITH_MULTIAZ_STANDBY: "WITH_MULTIAZ_STANDBY",
 } as const;
 /**
  * @public
  */
-export type ClusterDeploymentType = (typeof ClusterDeploymentType)[keyof typeof ClusterDeploymentType];
+export type ResourceDeploymentType = (typeof ResourceDeploymentType)[keyof typeof ResourceDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const EngineType = {
+  INFLUXDB_V2: "INFLUXDB_V2",
+  INFLUXDB_V3_CORE: "INFLUXDB_V3_CORE",
+  INFLUXDB_V3_ENTERPRISE: "INFLUXDB_V3_ENTERPRISE",
+} as const;
+/**
+ * @public
+ */
+export type EngineType = (typeof EngineType)[keyof typeof EngineType];
 
 /**
  * @public
@@ -75,23 +91,35 @@ export type NetworkType = (typeof NetworkType)[keyof typeof NetworkType];
  * @public
  * @enum
  */
-export const ClusterStatus = {
-  AVAILABLE: "AVAILABLE",
-  CREATING: "CREATING",
+export const DbBackupStatus = {
+  COMPLETED: "COMPLETED",
   DELETED: "DELETED",
   DELETING: "DELETING",
   FAILED: "FAILED",
-  MAINTENANCE: "MAINTENANCE",
-  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
-  REBOOTING: "REBOOTING",
-  REBOOT_FAILED: "REBOOT_FAILED",
-  UPDATING: "UPDATING",
-  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
+  IN_PROGRESS: "IN_PROGRESS",
 } as const;
 /**
  * @public
  */
-export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
+export type DbBackupStatus = (typeof DbBackupStatus)[keyof typeof DbBackupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DbBackupType = {
+  CONTINUOUS: "CONTINUOUS",
+  CUSTOM_SCHEDULE: "CUSTOM_SCHEDULE",
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+  ON_DEMAND: "ON_DEMAND",
+  WEEKLY: "WEEKLY",
+} as const;
+/**
+ * @public
+ */
+export type DbBackupType = (typeof DbBackupType)[keyof typeof DbBackupType];
 
 /**
  * @public
@@ -110,15 +138,92 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
-export const EngineType = {
-  INFLUXDB_V2: "INFLUXDB_V2",
-  INFLUXDB_V3_CORE: "INFLUXDB_V3_CORE",
-  INFLUXDB_V3_ENTERPRISE: "INFLUXDB_V3_ENTERPRISE",
+export const AutomatedDbBackupType = {
+  CONTINUOUS: "CONTINUOUS",
+  CUSTOM_SCHEDULE: "CUSTOM_SCHEDULE",
+  DAILY: "DAILY",
+  HOURLY: "HOURLY",
+  MONTHLY: "MONTHLY",
+  WEEKLY: "WEEKLY",
 } as const;
 /**
  * @public
  */
-export type EngineType = (typeof EngineType)[keyof typeof EngineType];
+export type AutomatedDbBackupType = (typeof AutomatedDbBackupType)[keyof typeof AutomatedDbBackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreMode = {
+  NEW_RESOURCE: "NEW_RESOURCE",
+  REPLACE_EXISTING: "REPLACE_EXISTING",
+} as const;
+/**
+ * @public
+ */
+export type RestoreMode = (typeof RestoreMode)[keyof typeof RestoreMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceType = {
+  DB_CLUSTER: "DB_CLUSTER",
+  DB_INSTANCE: "DB_INSTANCE",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RestoreStatus = {
+  RESTORING: "RESTORING",
+} as const;
+/**
+ * @public
+ */
+export type RestoreStatus = (typeof RestoreStatus)[keyof typeof RestoreStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterDeploymentType = {
+  MULTI_NODE_READ_REPLICAS: "MULTI_NODE_READ_REPLICAS",
+} as const;
+/**
+ * @public
+ */
+export type ClusterDeploymentType = (typeof ClusterDeploymentType)[keyof typeof ClusterDeploymentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ClusterStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETED: "DELETED",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  MAINTENANCE: "MAINTENANCE",
+  PARTIALLY_AVAILABLE: "PARTIALLY_AVAILABLE",
+  REBOOTING: "REBOOTING",
+  REBOOT_FAILED: "REBOOT_FAILED",
+  RESTORE_FAILED: "RESTORE_FAILED",
+  RESTORING: "RESTORING",
+  UPDATING: "UPDATING",
+  UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",
+} as const;
+/**
+ * @public
+ */
+export type ClusterStatus = (typeof ClusterStatus)[keyof typeof ClusterStatus];
 
 /**
  * @public
@@ -165,6 +270,8 @@ export const Status = {
   MODIFYING: "MODIFYING",
   REBOOTING: "REBOOTING",
   REBOOT_FAILED: "REBOOT_FAILED",
+  RESTORE_FAILED: "RESTORE_FAILED",
+  RESTORING: "RESTORING",
   UPDATING: "UPDATING",
   UPDATING_DEPLOYMENT_TYPE: "UPDATING_DEPLOYMENT_TYPE",
   UPDATING_INSTANCE_TYPE: "UPDATING_INSTANCE_TYPE",

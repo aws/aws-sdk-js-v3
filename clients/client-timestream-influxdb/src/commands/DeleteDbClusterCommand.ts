@@ -34,11 +34,12 @@ export interface DeleteDbClusterCommandOutput extends DeleteDbClusterOutput, __M
  * const client = new TimestreamInfluxDBClient(config);
  * const input = { // DeleteDbClusterInput
  *   dbClusterId: "STRING_VALUE", // required
+ *   retainAutomatedBackups: true || false,
  * };
  * const command = new DeleteDbClusterCommand(input);
  * const response = await client.send(command);
  * // { // DeleteDbClusterOutput
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE",
+ * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE" || "RESTORING" || "RESTORE_FAILED",
  * // };
  *
  * ```

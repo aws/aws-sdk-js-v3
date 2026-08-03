@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateDbClusterInput, CreateDbClusterOutput } from "../models/models_0";
-import { CreateDbCluster$ } from "../schemas/schemas_0";
+import type { RestoreFromDbBackupInput, RestoreFromDbBackupOutput } from "../models/models_0";
+import { RestoreFromDbBackup$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,47 +12,38 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link CreateDbClusterCommand}.
+ * The input for {@link RestoreFromDbBackupCommand}.
  */
-export interface CreateDbClusterCommandInput extends CreateDbClusterInput {}
+export interface RestoreFromDbBackupCommandInput extends RestoreFromDbBackupInput {}
 /**
  * @public
  *
- * The output of {@link CreateDbClusterCommand}.
+ * The output of {@link RestoreFromDbBackupCommand}.
  */
-export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __MetadataBearer {}
+export interface RestoreFromDbBackupCommandOutput extends RestoreFromDbBackupOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Timestream for InfluxDB cluster.</p>
+ * <p>Restores a Timestream for InfluxDB resource from a backup. By default, a new resource is created. You can optionally restore to the same resource using the REPLACE_EXISTING restore mode.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TimestreamInfluxDBClient, CreateDbClusterCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
- * // const { TimestreamInfluxDBClient, CreateDbClusterCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
+ * import { TimestreamInfluxDBClient, RestoreFromDbBackupCommand } from "@aws-sdk/client-timestream-influxdb"; // ES Modules import
+ * // const { TimestreamInfluxDBClient, RestoreFromDbBackupCommand } = require("@aws-sdk/client-timestream-influxdb"); // CommonJS import
  * // import type { TimestreamInfluxDBClientConfig } from "@aws-sdk/client-timestream-influxdb";
  * const config = {}; // type is TimestreamInfluxDBClientConfig
  * const client = new TimestreamInfluxDBClient(config);
- * const input = { // CreateDbClusterInput
+ * const input = { // RestoreFromDbBackupInput
  *   name: "STRING_VALUE", // required
- *   username: "STRING_VALUE",
- *   password: "STRING_VALUE",
- *   organization: "STRING_VALUE",
- *   bucket: "STRING_VALUE",
- *   port: Number("int"),
- *   dbParameterGroupIdentifier: "STRING_VALUE",
- *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge" || "db.influx.24xlarge", // required
- *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
- *   allocatedStorage: Number("int"),
- *   networkType: "IPV4" || "DUAL",
+ *   dbBackupId: "STRING_VALUE", // required
+ *   restoreToTime: new Date("TIMESTAMP"),
+ *   restoreMode: "NEW_RESOURCE" || "REPLACE_EXISTING",
+ *   vpcSubnetIds: [ // VpcSubnetIdList
+ *     "STRING_VALUE",
+ *   ],
+ *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList
+ *     "STRING_VALUE",
+ *   ],
  *   publiclyAccessible: true || false,
- *   vpcSubnetIds: [ // VpcSubnetIdList // required
- *     "STRING_VALUE",
- *   ],
- *   vpcSecurityGroupIds: [ // VpcSecurityGroupIdList // required
- *     "STRING_VALUE",
- *   ],
- *   deploymentType: "MULTI_NODE_READ_REPLICAS",
- *   failoverMode: "AUTOMATIC" || "NO_FAILOVER",
  *   logDeliveryConfiguration: { // LogDeliveryConfiguration
  *     s3Configuration: { // S3Configuration
  *       bucketName: "STRING_VALUE", // required
@@ -63,6 +54,12 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *     timezone: "STRING_VALUE", // required
  *     preferredMaintenanceWindow: "STRING_VALUE", // required
  *   },
+ *   tags: { // RequestTagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
+ *   port: Number("int"),
+ *   networkType: "IPV4" || "DUAL",
+ *   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY" || "MULTI_NODE_READ_REPLICAS",
  *   dbBackupConfigurations: [ // DbBackupConfigurationInputList
  *     { // DbBackupConfiguration
  *       type: "HOURLY" || "DAILY" || "WEEKLY" || "MONTHLY" || "CUSTOM_SCHEDULE" || "CONTINUOUS", // required
@@ -72,23 +69,23 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *     },
  *   ],
  *   kmsKeyId: "STRING_VALUE",
- *   tags: { // RequestTagMap
- *     "<keys>": "STRING_VALUE",
- *   },
  * };
- * const command = new CreateDbClusterCommand(input);
+ * const command = new RestoreFromDbBackupCommand(input);
  * const response = await client.send(command);
- * // { // CreateDbClusterOutput
- * //   dbClusterId: "STRING_VALUE",
- * //   dbClusterStatus: "CREATING" || "UPDATING" || "DELETING" || "AVAILABLE" || "FAILED" || "DELETED" || "MAINTENANCE" || "UPDATING_INSTANCE_TYPE" || "REBOOTING" || "REBOOT_FAILED" || "PARTIALLY_AVAILABLE" || "RESTORING" || "RESTORE_FAILED",
+ * // { // RestoreFromDbBackupOutput
+ * //   restoredDbResourceId: "STRING_VALUE",
+ * //   restoreStatus: "RESTORING",
+ * //   resourceType: "DB_INSTANCE" || "DB_CLUSTER",
+ * //   engineType: "INFLUXDB_V2" || "INFLUXDB_V3_CORE" || "INFLUXDB_V3_ENTERPRISE",
+ * //   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY" || "MULTI_NODE_READ_REPLICAS",
  * // };
  *
  * ```
  *
- * @param CreateDbClusterCommandInput - {@link CreateDbClusterCommandInput}
- * @returns {@link CreateDbClusterCommandOutput}
- * @see {@link CreateDbClusterCommandInput} for command's `input` shape.
- * @see {@link CreateDbClusterCommandOutput} for command's `response` shape.
+ * @param RestoreFromDbBackupCommandInput - {@link RestoreFromDbBackupCommandInput}
+ * @returns {@link RestoreFromDbBackupCommandOutput}
+ * @see {@link RestoreFromDbBackupCommandInput} for command's `input` shape.
+ * @see {@link RestoreFromDbBackupCommandOutput} for command's `response` shape.
  * @see {@link TimestreamInfluxDBClientResolvedConfig | config} for TimestreamInfluxDBClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -118,21 +115,21 @@ export interface CreateDbClusterCommandOutput extends CreateDbClusterOutput, __M
  *
  * @public
  */
-export class CreateDbClusterCommand extends command<CreateDbClusterCommandInput, CreateDbClusterCommandOutput>(
+export class RestoreFromDbBackupCommand extends command<RestoreFromDbBackupCommandInput, RestoreFromDbBackupCommandOutput>(
   _ep0,
   _mw0,
-  "CreateDbCluster",
-  CreateDbCluster$
+  "RestoreFromDbBackup",
+  RestoreFromDbBackup$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateDbClusterInput;
-      output: CreateDbClusterOutput;
+      input: RestoreFromDbBackupInput;
+      output: RestoreFromDbBackupOutput;
     };
     sdk: {
-      input: CreateDbClusterCommandInput;
-      output: CreateDbClusterCommandOutput;
+      input: RestoreFromDbBackupCommandInput;
+      output: RestoreFromDbBackupCommandOutput;
     };
   };
 }

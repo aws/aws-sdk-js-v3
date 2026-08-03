@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/core/client";
 import type { HttpHandlerOptions as __HttpHandlerOptions, PaginationConfiguration, Paginator } from "@smithy/types";
 
 import {
+  type CreateDbBackupCommandInput,
+  type CreateDbBackupCommandOutput,
+  CreateDbBackupCommand,
+} from "./commands/CreateDbBackupCommand";
+import {
   type CreateDbClusterCommandInput,
   type CreateDbClusterCommandOutput,
   CreateDbClusterCommand,
@@ -18,6 +23,11 @@ import {
   CreateDbParameterGroupCommand,
 } from "./commands/CreateDbParameterGroupCommand";
 import {
+  type DeleteDbBackupCommandInput,
+  type DeleteDbBackupCommandOutput,
+  DeleteDbBackupCommand,
+} from "./commands/DeleteDbBackupCommand";
+import {
   type DeleteDbClusterCommandInput,
   type DeleteDbClusterCommandOutput,
   DeleteDbClusterCommand,
@@ -27,6 +37,11 @@ import {
   type DeleteDbInstanceCommandOutput,
   DeleteDbInstanceCommand,
 } from "./commands/DeleteDbInstanceCommand";
+import {
+  type GetDbBackupCommandInput,
+  type GetDbBackupCommandOutput,
+  GetDbBackupCommand,
+} from "./commands/GetDbBackupCommand";
 import {
   type GetDbClusterCommandInput,
   type GetDbClusterCommandOutput,
@@ -42,6 +57,11 @@ import {
   type GetDbParameterGroupCommandOutput,
   GetDbParameterGroupCommand,
 } from "./commands/GetDbParameterGroupCommand";
+import {
+  type ListDbBackupsCommandInput,
+  type ListDbBackupsCommandOutput,
+  ListDbBackupsCommand,
+} from "./commands/ListDbBackupsCommand";
 import {
   type ListDbClustersCommandInput,
   type ListDbClustersCommandOutput,
@@ -78,6 +98,11 @@ import {
   RebootDbInstanceCommand,
 } from "./commands/RebootDbInstanceCommand";
 import {
+  type RestoreFromDbBackupCommandInput,
+  type RestoreFromDbBackupCommandOutput,
+  RestoreFromDbBackupCommand,
+} from "./commands/RestoreFromDbBackupCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -97,6 +122,7 @@ import {
   type UpdateDbInstanceCommandOutput,
   UpdateDbInstanceCommand,
 } from "./commands/UpdateDbInstanceCommand";
+import { paginateListDbBackups } from "./pagination/ListDbBackupsPaginator";
 import { paginateListDbClusters } from "./pagination/ListDbClustersPaginator";
 import { paginateListDbInstancesForCluster } from "./pagination/ListDbInstancesForClusterPaginator";
 import { paginateListDbInstances } from "./pagination/ListDbInstancesPaginator";
@@ -104,14 +130,18 @@ import { paginateListDbParameterGroups } from "./pagination/ListDbParameterGroup
 import { TimestreamInfluxDBClient } from "./TimestreamInfluxDBClient";
 
 const commands = {
+  CreateDbBackupCommand,
   CreateDbClusterCommand,
   CreateDbInstanceCommand,
   CreateDbParameterGroupCommand,
+  DeleteDbBackupCommand,
   DeleteDbClusterCommand,
   DeleteDbInstanceCommand,
+  GetDbBackupCommand,
   GetDbClusterCommand,
   GetDbInstanceCommand,
   GetDbParameterGroupCommand,
+  ListDbBackupsCommand,
   ListDbClustersCommand,
   ListDbInstancesCommand,
   ListDbInstancesForClusterCommand,
@@ -119,12 +149,14 @@ const commands = {
   ListTagsForResourceCommand,
   RebootDbClusterCommand,
   RebootDbInstanceCommand,
+  RestoreFromDbBackupCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDbClusterCommand,
   UpdateDbInstanceCommand,
 };
 const paginators = {
+  paginateListDbBackups,
   paginateListDbClusters,
   paginateListDbInstances,
   paginateListDbInstancesForCluster,
@@ -132,6 +164,23 @@ const paginators = {
 };
 
 export interface TimestreamInfluxDB {
+  /**
+   * @see {@link CreateDbBackupCommand}
+   */
+  createDbBackup(
+    args: CreateDbBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDbBackupCommandOutput>;
+  createDbBackup(
+    args: CreateDbBackupCommandInput,
+    cb: (err: any, data?: CreateDbBackupCommandOutput) => void
+  ): void;
+  createDbBackup(
+    args: CreateDbBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDbBackupCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateDbClusterCommand}
    */
@@ -184,6 +233,23 @@ export interface TimestreamInfluxDB {
   ): void;
 
   /**
+   * @see {@link DeleteDbBackupCommand}
+   */
+  deleteDbBackup(
+    args: DeleteDbBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDbBackupCommandOutput>;
+  deleteDbBackup(
+    args: DeleteDbBackupCommandInput,
+    cb: (err: any, data?: DeleteDbBackupCommandOutput) => void
+  ): void;
+  deleteDbBackup(
+    args: DeleteDbBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDbBackupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteDbClusterCommand}
    */
   deleteDbCluster(
@@ -215,6 +281,23 @@ export interface TimestreamInfluxDB {
     args: DeleteDbInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDbInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDbBackupCommand}
+   */
+  getDbBackup(
+    args: GetDbBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDbBackupCommandOutput>;
+  getDbBackup(
+    args: GetDbBackupCommandInput,
+    cb: (err: any, data?: GetDbBackupCommandOutput) => void
+  ): void;
+  getDbBackup(
+    args: GetDbBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDbBackupCommandOutput) => void
   ): void;
 
   /**
@@ -266,6 +349,24 @@ export interface TimestreamInfluxDB {
     args: GetDbParameterGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDbParameterGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDbBackupsCommand}
+   */
+  listDbBackups(): Promise<ListDbBackupsCommandOutput>;
+  listDbBackups(
+    args: ListDbBackupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDbBackupsCommandOutput>;
+  listDbBackups(
+    args: ListDbBackupsCommandInput,
+    cb: (err: any, data?: ListDbBackupsCommandOutput) => void
+  ): void;
+  listDbBackups(
+    args: ListDbBackupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDbBackupsCommandOutput) => void
   ): void;
 
   /**
@@ -391,6 +492,23 @@ export interface TimestreamInfluxDB {
   ): void;
 
   /**
+   * @see {@link RestoreFromDbBackupCommand}
+   */
+  restoreFromDbBackup(
+    args: RestoreFromDbBackupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreFromDbBackupCommandOutput>;
+  restoreFromDbBackup(
+    args: RestoreFromDbBackupCommandInput,
+    cb: (err: any, data?: RestoreFromDbBackupCommandOutput) => void
+  ): void;
+  restoreFromDbBackup(
+    args: RestoreFromDbBackupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreFromDbBackupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -457,6 +575,17 @@ export interface TimestreamInfluxDB {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDbInstanceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListDbBackupsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDbBackupsCommandOutput}.
+   */
+  paginateListDbBackups(
+    args?: ListDbBackupsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDbBackupsCommandOutput>;
 
   /**
    * @see {@link ListDbClustersCommand}
