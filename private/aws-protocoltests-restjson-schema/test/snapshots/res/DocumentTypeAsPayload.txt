@@ -30,12 +30,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 {
   "doc_note": "this is a document",
   "doc_date": 946702799.999,
-  "doc_blob": {
-    "0": 1,
-    "1": 0,
-    "2": 0,
-    "3": 1
-  },
+  "doc_blob": "AQAAAQ==",
   "doc_list": [
     -7,
     -3,
@@ -51,12 +46,7 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   documentValue: {
     doc_note: "this is a document",
     doc_date: (number) 946702799.999,
-    doc_blob: {
-      0: (number) 1,
-      1: (number) 0,
-      2: (number) 0,
-      3: (number) 1
-    },
+    doc_blob: "AQAAAQ==",
     doc_list: [
       (number) -7,
       (number) -3,
