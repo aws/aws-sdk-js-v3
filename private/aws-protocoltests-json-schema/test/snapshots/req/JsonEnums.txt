@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: b01cdc21b89b2ee9a9c65f044106d1f3910a16bc4b84ba83c5bdb898d91f18fe
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/jsonprotocol/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "fooEnum1": "__fooEnum1__",
   "fooEnum2": "__fooEnum2__",

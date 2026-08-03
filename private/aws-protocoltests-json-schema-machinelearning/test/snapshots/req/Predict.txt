@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 867ae4bdd6c3d8f7e7f378d2a761ae08bef8158adbe29729cf0874a58b8e2611
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/machinelearning/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "MLModelId": "__MLModelId__",
   "Record": {

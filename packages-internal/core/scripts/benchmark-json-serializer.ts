@@ -108,6 +108,14 @@ const listFloatSchema = [
   ["items"],
   [[1, "", "FloatList", 0, 1 satisfies NumericSchema]],
 ] satisfies StaticStructureSchema;
+const listBlobSchema = [
+  3,
+  "",
+  "BlobListInput",
+  0,
+  ["items"],
+  [[1, "", "BlobList", 0, 21 satisfies BlobSchema]],
+] satisfies StaticStructureSchema;
 const mapStringStringSchema = [
   3,
   "",
@@ -384,6 +392,17 @@ function getScenarios(): Scenario[] {
       schema: widget,
       data: { blob: new Uint8Array(kb * 1024) },
       iterations: kb > 256 ? SCALE : SCALE * 4,
+    });
+  }
+
+  // List of blobs (many base64-encoded chunks)
+  for (const [totalKB, chunkKB] of [[1024, 8] as const]) {
+    const count = (totalKB / chunkKB) | 0;
+    scenarios.push({
+      name: `list<blob> ${totalKB}KB (${chunkKB}KB×${count})`,
+      schema: listBlobSchema,
+      data: { items: Array.from({ length: count }, () => new Uint8Array(chunkKB * 1024)) },
+      iterations: SCALE,
     });
   }
 
@@ -712,6 +731,17 @@ function getDeserScenarios(): Scenario[] {
       schema: mapStringStringSchema,
       data: createMapStringString(count),
       iterations: count > 2000 ? SCALE : SCALE * 2,
+    });
+  }
+
+  // List of blobs (many base64-encoded chunks)
+  for (const [totalKB, chunkKB] of [[1024, 8] as const]) {
+    const count = (totalKB / chunkKB) | 0;
+    scenarios.push({
+      name: `list<blob> ${totalKB}KB (${chunkKB}KB×${count})`,
+      schema: listBlobSchema,
+      data: { items: Array.from({ length: count }, () => new Uint8Array(chunkKB * 1024)) },
+      iterations: SCALE,
     });
   }
 

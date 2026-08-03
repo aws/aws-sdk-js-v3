@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 0b9ace88aa4754581e975a6a10084371d69a9495803a30a98185cbfca98b93dc
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/dynamodb/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "GlobalTableName": "__GlobalTableName__",
   "GlobalTableBillingMode": "__GlobalTableBillingMode__",

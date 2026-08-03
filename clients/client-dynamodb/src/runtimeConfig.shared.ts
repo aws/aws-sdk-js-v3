@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { AwsSdkSigV4Signer } from "@aws-sdk/core/httpAuthSchemes";
 import { AwsJson1_0Protocol } from "@aws-sdk/core/protocols";
-import { DynamoDBJsonCodec } from "@aws-sdk/dynamodb-codec";
+import { DynamoDBJsonCodec2 } from "@aws-sdk/dynamodb-codec";
 import { Sha256 } from "@smithy/core/checksum";
 import { NoOpLogger } from "@smithy/core/client";
 import { parseUrl } from "@smithy/core/protocols";
@@ -41,7 +41,7 @@ export const getRuntimeConfig = (config: DynamoDBClientConfig) => {
       xmlNamespace: "http://dynamodb.amazonaws.com/doc/2012-08-10/",
       version: "2012-08-10",
       serviceTarget: "DynamoDB_20120810",
-      jsonCodec: new DynamoDBJsonCodec(),
+      jsonCodec: new DynamoDBJsonCodec2(),
     },
     serviceId: config?.serviceId ?? "DynamoDB",
     sha256: config?.sha256 ?? Sha256,

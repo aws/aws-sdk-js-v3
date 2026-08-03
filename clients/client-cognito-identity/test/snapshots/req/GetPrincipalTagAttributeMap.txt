@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: d167cbb2c7265be00efdba3762abad48bb555c4e202f1197ebf4192c2f236582
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/cognito-identity/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "IdentityPoolId": "__IdentityPoolId__",
   "IdentityProviderName": "__IdentityProviderName__"

@@ -76,8 +76,8 @@ public final class AddProtocolConfig implements TypeScriptIntegration {
     public static final Map<ShapeId, Consumer<TypeScriptWriter>> CUSTOMIZATIONS = MapUtils.of(
         ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
         writer -> {
-            writer.addImport("DynamoDBJsonCodec", null, AwsDependency.DYNAMODB_CODEC);
-            writer.write("jsonCodec: new DynamoDBJsonCodec(),");
+            writer.addImport("DynamoDBJsonCodec2", null, AwsDependency.DYNAMODB_CODEC);
+            writer.write("jsonCodec: new DynamoDBJsonCodec2(),");
         }
     );
 

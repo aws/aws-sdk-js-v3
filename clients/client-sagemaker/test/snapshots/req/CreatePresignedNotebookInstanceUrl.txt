@@ -13,7 +13,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: 754dacfc6fae4b1d0a2cb856af0019c079a2c2bfacfc1912612d6a6734710fcd
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "NotebookInstanceName": "__NotebookInstanceName__",
   "SessionExpirationDurationInSeconds": 0

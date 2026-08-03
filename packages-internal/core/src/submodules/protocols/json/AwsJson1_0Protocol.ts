@@ -2,6 +2,7 @@ import type { TypeRegistry } from "@smithy/core/schema";
 
 import { AwsJsonRpcProtocol } from "./AwsJsonRpcProtocol";
 import type { JsonCodec } from "./codec-v1/JsonCodec";
+import type { JsonCodec2 } from "./codec-v2/JsonCodec2";
 
 /**
  * @public
@@ -19,7 +20,7 @@ export class AwsJson1_0Protocol extends AwsJsonRpcProtocol {
     errorTypeRegistries?: TypeRegistry[];
     serviceTarget: string;
     awsQueryCompatible?: boolean;
-    jsonCodec?: JsonCodec;
+    jsonCodec?: JsonCodec | JsonCodec2;
   }) {
     super({
       defaultNamespace,

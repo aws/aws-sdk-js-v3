@@ -12,7 +12,7 @@ x-amz-date: 19991231T235959Z
 x-amz-content-sha256: df6a085d7c04608bd73b38960e8a3ec0e8465eacde2de26786ff19e8de7bc127
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/polly/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
-[string (json)]
+[Uint8Array (json)]
 {
   "OutputFormat": "__OutputFormat__",
   "OutputS3BucketName": "__OutputS3BucketName__",
