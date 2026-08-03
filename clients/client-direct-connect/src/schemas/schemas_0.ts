@@ -15,6 +15,8 @@ const _AL = "AgreementList";
 const _AMSK = "AssociateMacSecKey";
 const _AMSKR = "AssociateMacSecKeyRequest";
 const _AMSKRs = "AssociateMacSecKeyResponse";
+const _APS = "AsPathSegment";
+const _APSL = "AsPathSegmentList";
 const _APVI = "AllocatePrivateVirtualInterface";
 const _APVIR = "AllocatePrivateVirtualInterfaceRequest";
 const _APVIRl = "AllocatePublicVirtualInterfaceRequest";
@@ -157,6 +159,9 @@ const _L = "Lag";
 const _LEE = "LimitExceededException";
 const _LL = "LagList";
 const _LLo = "LocationList";
+const _LVIR = "ListVirtualInterfaceRoutes";
+const _LVIRR = "ListVirtualInterfaceRoutesRequest";
+const _LVIRRi = "ListVirtualInterfaceRoutesResponse";
 const _LVITH = "ListVirtualInterfaceTestHistory";
 const _LVITHR = "ListVirtualInterfaceTestHistoryRequest";
 const _LVITHRi = "ListVirtualInterfaceTestHistoryResponse";
@@ -173,8 +178,11 @@ const _NPVIAe = "NewPublicVirtualInterfaceAllocation";
 const _NPVIe = "NewPublicVirtualInterface";
 const _NTVI = "NewTransitVirtualInterface";
 const _NTVIA = "NewTransitVirtualInterfaceAllocation";
+const _R = "Route";
+const _RF = "RouteFilters";
 const _RFP = "RouteFilterPrefix";
 const _RFPL = "RouteFilterPrefixList";
+const _RL = "RouteList";
 const _RLS = "RateLimiterStatus";
 const _RT = "ResourceTag";
 const _RTL = "ResourceTagList";
@@ -235,6 +243,7 @@ const _aN = "agreementName";
 const _aP = "availableProviders";
 const _aPS = "availablePortSpeeds";
 const _aPTDCG = "allowedPrefixesToDirectConnectGateway";
+const _aPs = "asPath";
 const _aS = "associationState";
 const _aSA = "amazonSideAsn";
 const _aSt = "attachmentState";
@@ -255,8 +264,10 @@ const _cRC = "customerRouterConfig";
 const _cS = "connectionState";
 const _ca = "cak";
 const _ci = "cidr";
+const _cid = "cidrs";
 const _ck = "ckn";
 const _co = "connections";
+const _com = "communities";
 const _dCG = "directConnectGateway";
 const _dCGA = "directConnectGatewayAssociation";
 const _dCGAP = "directConnectGatewayAssociationProposal";
@@ -273,6 +284,7 @@ const _eAPTDCG = "existingAllowedPrefixesToDirectConnectGateway";
 const _eM = "encryptionMode";
 const _eSL = "enableSiteLink";
 const _eT = "endTime";
+const _f = "filters";
 const _gI = "gatewayId";
 const _hE = "httpError";
 const _hLR = "hasLogicalRedundancy";
@@ -316,7 +328,7 @@ const _nTVI = "newTransitVirtualInterface";
 const _nTVIA = "newTransitVirtualInterfaceAllocation";
 const _oA = "ownerAccount";
 const _oAPTDCG = "overrideAllowedPrefixesToDirectConnectGateway";
-const _p = "platform";
+const _p = "path";
 const _pCI = "parentConnectionId";
 const _pES = "portEncryptionStatus";
 const _pI = "proposalId";
@@ -324,12 +336,16 @@ const _pIMSC = "partnerInterconnectMacSecCapable";
 const _pN = "partnerName";
 const _pNr = "providerName";
 const _pS = "proposalState";
+const _pT = "pathType";
+const _pl = "platform";
 const _r = "region";
 const _rA = "resourceArns";
 const _rAPTDCG = "removeAllowedPrefixesToDirectConnectGateway";
 const _rAPTDCGe = "requestedAllowedPrefixesToDirectConnectGateway";
 const _rAe = "resourceArn";
+const _rD = "routeDirection";
 const _rFP = "routeFilterPrefixes";
+const _rIA = "routeInstalledAt";
 const _rL = "rateLimit";
 const _rLS = "rateLimiterStatus";
 const _rMACS = "requestMACSec";
@@ -337,6 +353,7 @@ const _rT = "resourceTags";
 const _rTI = "routerTypeIdentifier";
 const _re = "remaining";
 const _ro = "router";
+const _rou = "routes";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.directconnect";
 const _sARN = "secretARN";
 const _sCE = "stateChangeError";
@@ -471,6 +488,11 @@ export var AllocateTransitVirtualInterfaceResult$: StaticStructureSchema = [3, n
   0,
   [_vI],
   [() => VirtualInterface$]
+];
+export var AsPathSegment$: StaticStructureSchema = [3, n0, _APS,
+  0,
+  [_pT, _p],
+  [0, 64 | 1]
 ];
 export var AssociateConnectionWithLagRequest$: StaticStructureSchema = [3, n0, _ACWLR,
   0,
@@ -897,6 +919,16 @@ export var Lags$: StaticStructureSchema = [3, n0, _La,
   [_la, _nT],
   [() => LagList, 0]
 ];
+export var ListVirtualInterfaceRoutesRequest$: StaticStructureSchema = [3, n0, _LVIRR,
+  0,
+  [_vII, _f, _mR, _nT],
+  [0, () => RouteFilters$, 1, 0]
+];
+export var ListVirtualInterfaceRoutesResponse$: StaticStructureSchema = [3, n0, _LVIRRi,
+  0,
+  [_vII, _rou, _nT],
+  [0, () => RouteList, 0]
+];
 export var ListVirtualInterfaceTestHistoryRequest$: StaticStructureSchema = [3, n0, _LVITHR,
   0,
   [_tI, _vII, _bP, _st, _mR, _nT],
@@ -972,14 +1004,24 @@ export var ResourceTag$: StaticStructureSchema = [3, n0, _RT,
   [_rAe, _t],
   [0, () => TagList]
 ];
+export var Route$: StaticStructureSchema = [3, n0, _R,
+  0,
+  [_ci, _rD, _aF, _aPs, _com, _aLDI, _rIA],
+  [0, 0, 0, () => AsPathSegmentList, 64 | 0, 0, 4]
+];
 export var RouteFilterPrefix$: StaticStructureSchema = [3, n0, _RFP,
   0,
   [_ci],
   [0]
 ];
+export var RouteFilters$: StaticStructureSchema = [3, n0, _RF,
+  0,
+  [_rD, _aF, _cid, _aPs, _com],
+  [0, 0, 64 | 0, 64 | 1, 64 | 0]
+];
 export var RouterType$: StaticStructureSchema = [3, n0, _RTo,
   0,
-  [_ve, _p, _so, _xTN, _xTNFMS, _rTI],
+  [_ve, _pl, _so, _xTN, _xTNFMS, _rTI],
   [0, 0, 0, 0, 0, 0]
 ];
 export var StartBgpFailoverTestRequest$: StaticStructureSchema = [3, n0, _SBFTR,
@@ -1091,12 +1133,17 @@ var __Unit = "unit" as const;
 var AgreementList: StaticListSchema = [1, n0, _AL,
   0, () => CustomerAgreement$
 ];
+var AsPathList = 64 | 1;
+var AsPathSegmentList: StaticListSchema = [1, n0, _APSL,
+  0, () => AsPathSegment$
+];
 var AvailableMacSecPortSpeeds = 64 | 0;
 var AvailablePortSpeeds = 64 | 0;
 var BGPPeerIdList = 64 | 0;
 var BGPPeerList: StaticListSchema = [1, n0, _BGPPL,
   0, () => BGPPeer$
 ];
+var CommunityList = 64 | 0;
 var ConnectionList: StaticListSchema = [1, n0, _CL,
   0, () => Connection$
 ];
@@ -1129,8 +1176,12 @@ var ResourceArnList = 64 | 0;
 var ResourceTagList: StaticListSchema = [1, n0, _RTL,
   0, () => ResourceTag$
 ];
+var RouteFilterCidrStringList = 64 | 0;
 var RouteFilterPrefixList: StaticListSchema = [1, n0, _RFPL,
   0, () => RouteFilterPrefix$
+];
+var RouteList: StaticListSchema = [1, n0, _RL,
+  0, () => Route$
 ];
 var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
@@ -1303,6 +1354,9 @@ export var DisassociateConnectionFromLag$: StaticOperationSchema = [9, n0, _DCFL
 ];
 export var DisassociateMacSecKey$: StaticOperationSchema = [9, n0, _DMSK,
   0, () => DisassociateMacSecKeyRequest$, () => DisassociateMacSecKeyResponse$
+];
+export var ListVirtualInterfaceRoutes$: StaticOperationSchema = [9, n0, _LVIR,
+  0, () => ListVirtualInterfaceRoutesRequest$, () => ListVirtualInterfaceRoutesResponse$
 ];
 export var ListVirtualInterfaceTestHistory$: StaticOperationSchema = [9, n0, _LVITH,
   0, () => ListVirtualInterfaceTestHistoryRequest$, () => ListVirtualInterfaceTestHistoryResponse$

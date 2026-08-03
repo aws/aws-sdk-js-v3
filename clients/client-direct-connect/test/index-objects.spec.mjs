@@ -20,6 +20,8 @@ import {
   AllocateTransitVirtualInterfaceCommand,
   AllocateTransitVirtualInterfaceRequest$,
   AllocateTransitVirtualInterfaceResult$,
+  AsPathSegment$,
+  AsPathType,
   AssociateConnectionWithLag$,
   AssociateConnectionWithLagCommand,
   AssociateConnectionWithLagRequest$,
@@ -222,6 +224,10 @@ import {
   LagState,
   LimitExceededException,
   LimitExceededException$,
+  ListVirtualInterfaceRoutes$,
+  ListVirtualInterfaceRoutesCommand,
+  ListVirtualInterfaceRoutesRequest$,
+  ListVirtualInterfaceRoutesResponse$,
   ListVirtualInterfaceTestHistory$,
   ListVirtualInterfaceTestHistoryCommand,
   ListVirtualInterfaceTestHistoryRequest$,
@@ -241,7 +247,10 @@ import {
   NniPartnerType,
   RateLimiterStatus$,
   ResourceTag$,
+  Route$,
+  RouteDirection,
   RouteFilterPrefix$,
+  RouteFilters$,
   RouterType$,
   StartBgpFailoverTest$,
   StartBgpFailoverTestCommand,
@@ -397,6 +406,8 @@ assert(typeof DisassociateConnectionFromLagCommand === "function");
 assert(typeof DisassociateConnectionFromLag$ === "object");
 assert(typeof DisassociateMacSecKeyCommand === "function");
 assert(typeof DisassociateMacSecKey$ === "object");
+assert(typeof ListVirtualInterfaceRoutesCommand === "function");
+assert(typeof ListVirtualInterfaceRoutes$ === "object");
 assert(typeof ListVirtualInterfaceTestHistoryCommand === "function");
 assert(typeof ListVirtualInterfaceTestHistory$ === "object");
 assert(typeof StartBgpFailoverTestCommand === "function");
@@ -426,6 +437,7 @@ assert(typeof AllocatePrivateVirtualInterfaceRequest$ === "object");
 assert(typeof AllocatePublicVirtualInterfaceRequest$ === "object");
 assert(typeof AllocateTransitVirtualInterfaceRequest$ === "object");
 assert(typeof AllocateTransitVirtualInterfaceResult$ === "object");
+assert(typeof AsPathSegment$ === "object");
 assert(typeof AssociateConnectionWithLagRequest$ === "object");
 assert(typeof AssociatedCoreNetwork$ === "object");
 assert(typeof AssociatedGateway$ === "object");
@@ -511,6 +523,8 @@ assert(typeof Interconnect$ === "object");
 assert(typeof Interconnects$ === "object");
 assert(typeof Lag$ === "object");
 assert(typeof Lags$ === "object");
+assert(typeof ListVirtualInterfaceRoutesRequest$ === "object");
+assert(typeof ListVirtualInterfaceRoutesResponse$ === "object");
 assert(typeof ListVirtualInterfaceTestHistoryRequest$ === "object");
 assert(typeof ListVirtualInterfaceTestHistoryResponse$ === "object");
 assert(typeof Loa$ === "object");
@@ -526,7 +540,9 @@ assert(typeof NewTransitVirtualInterface$ === "object");
 assert(typeof NewTransitVirtualInterfaceAllocation$ === "object");
 assert(typeof RateLimiterStatus$ === "object");
 assert(typeof ResourceTag$ === "object");
+assert(typeof Route$ === "object");
 assert(typeof RouteFilterPrefix$ === "object");
+assert(typeof RouteFilters$ === "object");
 assert(typeof RouterType$ === "object");
 assert(typeof StartBgpFailoverTestRequest$ === "object");
 assert(typeof StartBgpFailoverTestResponse$ === "object");
@@ -551,6 +567,7 @@ assert(typeof VirtualInterfaces$ === "object");
 assert(typeof VirtualInterfaceTestHistory$ === "object");
 // enums
 assert(typeof AddressFamily === "object");
+assert(typeof AsPathType === "object");
 assert(typeof BGPPeerState === "object");
 assert(typeof BGPStatus === "object");
 assert(typeof ConnectionState === "object");
@@ -565,6 +582,7 @@ assert(typeof InterconnectState === "object");
 assert(typeof LagState === "object");
 assert(typeof LoaContentType === "object");
 assert(typeof NniPartnerType === "object");
+assert(typeof RouteDirection === "object");
 assert(typeof VirtualInterfaceState === "object");
 // errors
 assert(DirectConnectClientException.prototype instanceof DirectConnectServiceException);

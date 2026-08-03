@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   AddressFamily,
+  AsPathType,
   BGPPeerState,
   BGPStatus,
   ConnectionState,
@@ -15,6 +16,7 @@ import type {
   LagState,
   LoaContentType,
   NniPartnerType,
+  RouteDirection,
   VirtualInterfaceState,
 } from "./enums";
 
@@ -1448,6 +1450,25 @@ export interface AllocateTransitVirtualInterfaceResult {
    * @public
    */
   virtualInterface?: VirtualInterface | undefined;
+}
+
+/**
+ * <p>A segment of an autonomous system (AS) path.</p>
+ * @public
+ */
+export interface AsPathSegment {
+  /**
+   * <p>The type of the AS path segment.</p>
+   *          <p>The valid values are <code>seq</code> (an ordered <code>AS_SEQUENCE</code>) and <code>set</code> (an unordered <code>AS_SET</code>).</p>
+   * @public
+   */
+  pathType?: AsPathType | undefined;
+
+  /**
+   * <p>The autonomous system (AS) numbers in the segment.</p>
+   * @public
+   */
+  path?: number[] | undefined;
 }
 
 /**
@@ -4316,6 +4337,150 @@ export interface DisassociateMacSecKeyResponse {
    * @public
    */
   macSecKeys?: MacSecKey[] | undefined;
+}
+
+/**
+ * <p>The filters used to limit the routes returned by <a>ListVirtualInterfaceRoutes</a>.</p>
+ * @public
+ */
+export interface RouteFilters {
+  /**
+   * <p>The direction of the routes to return.</p>
+   *          <p>The valid values are <code>accepted</code> (routes received from the customer network) and <code>advertised</code> (routes advertised to the customer network).</p>
+   * @public
+   */
+  routeDirection?: RouteDirection | undefined;
+
+  /**
+   * <p>The address family of the routes to return.</p>
+   *          <p>The valid values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   * @public
+   */
+  addressFamily?: AddressFamily | undefined;
+
+  /**
+   * <p>The CIDRs (prefixes) used to filter the routes. You can specify up to 10 CIDRs.</p>
+   * @public
+   */
+  cidrs?: string[] | undefined;
+
+  /**
+   * <p>The autonomous system (AS) numbers used to filter the routes by their AS path.</p>
+   * @public
+   */
+  asPath?: number[] | undefined;
+
+  /**
+   * <p>The BGP communities used to filter the routes.</p>
+   * @public
+   */
+  communities?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVirtualInterfaceRoutesRequest {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   * @public
+   */
+  virtualInterfaceId?: string | undefined;
+
+  /**
+   * <p>The filters to apply to the routes returned.</p>
+   * @public
+   */
+  filters?: RouteFilters | undefined;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   *          <p>If <code>MaxResults</code> is given a value larger than 100, only 100 results are
+   *       returned.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a route for a virtual interface.</p>
+ * @public
+ */
+export interface Route {
+  /**
+   * <p>The CIDR (prefix) of the route.</p>
+   * @public
+   */
+  cidr?: string | undefined;
+
+  /**
+   * <p>The direction of the route.</p>
+   *          <p>The valid values are <code>accepted</code> (received from the customer network) and <code>advertised</code> (advertised to the customer network).</p>
+   * @public
+   */
+  routeDirection?: RouteDirection | undefined;
+
+  /**
+   * <p>The address family of the route.</p>
+   *          <p>The valid values are <code>ipv4</code> and <code>ipv6</code>.</p>
+   * @public
+   */
+  addressFamily?: AddressFamily | undefined;
+
+  /**
+   * <p>The autonomous system (AS) path of the route.</p>
+   * @public
+   */
+  asPath?: AsPathSegment[] | undefined;
+
+  /**
+   * <p>The BGP communities associated with the route.</p>
+   * @public
+   */
+  communities?: string[] | undefined;
+
+  /**
+   * <p>The Direct Connect endpoint that terminates the logical connection. This device might be
+   *       different than the device that terminates the physical connection.</p>
+   * @public
+   */
+  awsLogicalDeviceId?: string | undefined;
+
+  /**
+   * <p>The time when the route was installed. The value is displayed in UTC format.</p>
+   * @public
+   */
+  routeInstalledAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVirtualInterfaceRoutesResponse {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   * @public
+   */
+  virtualInterfaceId?: string | undefined;
+
+  /**
+   * <p>The routes for the virtual interface.</p>
+   * @public
+   */
+  routes?: Route[] | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

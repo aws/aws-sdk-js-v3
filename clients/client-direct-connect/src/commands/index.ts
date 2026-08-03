@@ -52,6 +52,7 @@ export * from "./DescribeVirtualGatewaysCommand";
 export * from "./DescribeVirtualInterfacesCommand";
 export * from "./DisassociateConnectionFromLagCommand";
 export * from "./DisassociateMacSecKeyCommand";
+export * from "./ListVirtualInterfaceRoutesCommand";
 export * from "./ListVirtualInterfaceTestHistoryCommand";
 export * from "./StartBgpFailoverTestCommand";
 export * from "./StopBgpFailoverTestCommand";

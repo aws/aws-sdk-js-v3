@@ -27,16 +27,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DirectConnectClient` and
-the commands you need, for example `ListVirtualInterfaceTestHistoryCommand`:
+the commands you need, for example `ListVirtualInterfaceRoutesCommand`:
 
 ```js
 // ES5 example
-const { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } = require("@aws-sdk/client-direct-connect");
+const { DirectConnectClient, ListVirtualInterfaceRoutesCommand } = require("@aws-sdk/client-direct-connect");
 ```
 
 ```ts
 // ES6+ example
-import { DirectConnectClient, ListVirtualInterfaceTestHistoryCommand } from "@aws-sdk/client-direct-connect";
+import { DirectConnectClient, ListVirtualInterfaceRoutesCommand } from "@aws-sdk/client-direct-connect";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ To send a request:
 const client = new DirectConnectClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListVirtualInterfaceTestHistoryCommand(params);
+const command = new ListVirtualInterfaceRoutesCommand(params);
 ```
 
 #### Async/await
@@ -109,7 +109,7 @@ const client = new DirectConnect({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listVirtualInterfaceTestHistory(params);
+  const data = await client.listVirtualInterfaceRoutes(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -117,7 +117,7 @@ try {
 
 // Promises.
 client
-  .listVirtualInterfaceTestHistory(params)
+  .listVirtualInterfaceRoutes(params)
   .then((data) => {
     // process data.
   })
@@ -126,7 +126,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listVirtualInterfaceTestHistory(params, (err, data) => {
+client.listVirtualInterfaceRoutes(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -554,6 +554,13 @@ DisassociateMacSecKey
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/DisassociateMacSecKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/DisassociateMacSecKeyCommandOutput/)
+</details>
+<details>
+<summary>
+ListVirtualInterfaceRoutes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/direct-connect/command/ListVirtualInterfaceRoutesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListVirtualInterfaceRoutesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-direct-connect/Interface/ListVirtualInterfaceRoutesCommandOutput/)
 </details>
 <details>
 <summary>

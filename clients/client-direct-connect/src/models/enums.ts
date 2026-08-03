@@ -131,6 +131,19 @@ export type VirtualInterfaceState = (typeof VirtualInterfaceState)[keyof typeof 
  * @public
  * @enum
  */
+export const AsPathType = {
+  Seq: "seq",
+  Set: "set",
+} as const;
+/**
+ * @public
+ */
+export type AsPathType = (typeof AsPathType)[keyof typeof AsPathType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DirectConnectGatewayState = {
   available: "available",
   deleted: "deleted",
@@ -248,3 +261,16 @@ export const DirectConnectGatewayAttachmentType = {
  */
 export type DirectConnectGatewayAttachmentType =
   (typeof DirectConnectGatewayAttachmentType)[keyof typeof DirectConnectGatewayAttachmentType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RouteDirection = {
+  Accepted: "accepted",
+  Advertised: "advertised",
+} as const;
+/**
+ * @public
+ */
+export type RouteDirection = (typeof RouteDirection)[keyof typeof RouteDirection];

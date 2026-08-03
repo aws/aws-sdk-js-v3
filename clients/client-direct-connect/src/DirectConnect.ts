@@ -260,6 +260,11 @@ import {
   DisassociateMacSecKeyCommand,
 } from "./commands/DisassociateMacSecKeyCommand";
 import {
+  type ListVirtualInterfaceRoutesCommandInput,
+  type ListVirtualInterfaceRoutesCommandOutput,
+  ListVirtualInterfaceRoutesCommand,
+} from "./commands/ListVirtualInterfaceRoutesCommand";
+import {
   type ListVirtualInterfaceTestHistoryCommandInput,
   type ListVirtualInterfaceTestHistoryCommandOutput,
   ListVirtualInterfaceTestHistoryCommand,
@@ -361,6 +366,7 @@ const commands = {
   DescribeVirtualInterfacesCommand,
   DisassociateConnectionFromLagCommand,
   DisassociateMacSecKeyCommand,
+  ListVirtualInterfaceRoutesCommand,
   ListVirtualInterfaceTestHistoryCommand,
   StartBgpFailoverTestCommand,
   StopBgpFailoverTestCommand,
@@ -1288,6 +1294,24 @@ export interface DirectConnect {
     args: DisassociateMacSecKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateMacSecKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListVirtualInterfaceRoutesCommand}
+   */
+  listVirtualInterfaceRoutes(): Promise<ListVirtualInterfaceRoutesCommandOutput>;
+  listVirtualInterfaceRoutes(
+    args: ListVirtualInterfaceRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVirtualInterfaceRoutesCommandOutput>;
+  listVirtualInterfaceRoutes(
+    args: ListVirtualInterfaceRoutesCommandInput,
+    cb: (err: any, data?: ListVirtualInterfaceRoutesCommandOutput) => void
+  ): void;
+  listVirtualInterfaceRoutes(
+    args: ListVirtualInterfaceRoutesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVirtualInterfaceRoutesCommandOutput) => void
   ): void;
 
   /**

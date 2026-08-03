@@ -240,6 +240,10 @@ import type {
   DisassociateMacSecKeyCommandOutput,
 } from "./commands/DisassociateMacSecKeyCommand";
 import type {
+  ListVirtualInterfaceRoutesCommandInput,
+  ListVirtualInterfaceRoutesCommandOutput,
+} from "./commands/ListVirtualInterfaceRoutesCommand";
+import type {
   ListVirtualInterfaceTestHistoryCommandInput,
   ListVirtualInterfaceTestHistoryCommandOutput,
 } from "./commands/ListVirtualInterfaceTestHistoryCommand";
@@ -335,6 +339,7 @@ export type ServiceInputTypes =
   | DescribeVirtualInterfacesCommandInput
   | DisassociateConnectionFromLagCommandInput
   | DisassociateMacSecKeyCommandInput
+  | ListVirtualInterfaceRoutesCommandInput
   | ListVirtualInterfaceTestHistoryCommandInput
   | StartBgpFailoverTestCommandInput
   | StopBgpFailoverTestCommandInput
@@ -403,6 +408,7 @@ export type ServiceOutputTypes =
   | DescribeVirtualInterfacesCommandOutput
   | DisassociateConnectionFromLagCommandOutput
   | DisassociateMacSecKeyCommandOutput
+  | ListVirtualInterfaceRoutesCommandOutput
   | ListVirtualInterfaceTestHistoryCommandOutput
   | StartBgpFailoverTestCommandOutput
   | StopBgpFailoverTestCommandOutput
