@@ -74,7 +74,7 @@ export class LoginCredentialsFetcher {
   }
 
   private async refresh(token: LoginToken): Promise<AwsCredentialIdentity> {
-    // first reload the token from disk to ensure the token hasn't already been refreshed externally.
+    // first reload the token from disk in case the token has been refreshed externally.
     // Use disk token unless it's expired and the in-memory token is unexpired.
     const diskToken = await this.loadToken().catch(() => token);
     const now = Date.now();
