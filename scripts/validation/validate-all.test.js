@@ -81,6 +81,12 @@ module.exports = { blorp: toHex };
 
   // filenames violation: multi-dot filename that is not an allowed suffix
   fs.writeFileSync(path.join(distCjs, "blorp.spec.js"), `"use strict";\nmodule.exports = {};\n`);
+
+  // api-extractor-config violation: @public symbol without api-extractor.json
+  fs.writeFileSync(
+    path.join(tmpPkgDir, "src", "public-api.ts"),
+    `/**\n * @public\n */\nexport const blorp = () => {};\n`
+  );
 }
 
 function teardown() {
@@ -169,6 +175,11 @@ function runTests() {
   const filenames = runValidator("filenames.js", [pkg]);
   check(filenames.exitCode !== 0, "filenames detects suspicious multi-dot filename");
   check(filenames.output.includes("blorp.spec.js"), "filenames identifies the offending file");
+
+  // 9. api-extractor-config (src/public-api.ts has @public but package has no api-extractor.json)
+  const apiExtractorConfig = runValidator("api-extractor-config.js", [pkg]);
+  check(apiExtractorConfig.exitCode !== 0, "api-extractor-config detects @public without api-extractor.json");
+  check(apiExtractorConfig.output.includes("no api-extractor.json"), "api-extractor-config names the missing config");
 
   console.log(`\n${passed + failed} tests: ${passed} passed, ${failed} failed`);
   return failed === 0;
