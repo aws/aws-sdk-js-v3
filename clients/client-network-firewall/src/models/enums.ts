@@ -164,6 +164,19 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
  * @public
  * @enum
  */
+export const ListenerPropertyType = {
+  HTTP: "HTTP",
+  HTTPS: "HTTPS",
+} as const;
+/**
+ * @public
+ */
+export type ListenerPropertyType = (typeof ListenerPropertyType)[keyof typeof ListenerPropertyType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FirewallStatusValue = {
   DELETING: "DELETING",
   PROVISIONING: "PROVISIONING",
@@ -189,6 +202,22 @@ export const PerObjectSyncStatus = {
  * @public
  */
 export type PerObjectSyncStatus = (typeof PerObjectSyncStatus)[keyof typeof PerObjectSyncStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const NatGatewayAttachmentStatus = {
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  READY: "READY",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type NatGatewayAttachmentStatus = (typeof NatGatewayAttachmentStatus)[keyof typeof NatGatewayAttachmentStatus];
 
 /**
  * @public
@@ -242,19 +271,6 @@ export const ResourceStatus = {
  * @public
  */
 export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
- * @public
- * @enum
- */
-export const ListenerPropertyType = {
-  HTTP: "HTTP",
-  HTTPS: "HTTPS",
-} as const;
-/**
- * @public
- */
-export type ListenerPropertyType = (typeof ListenerPropertyType)[keyof typeof ListenerPropertyType];
 
 /**
  * @public

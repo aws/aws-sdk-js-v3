@@ -145,6 +145,7 @@ const _DFe = "DescribeFirewall";
 const _DLC = "DescribeLoggingConfiguration";
 const _DLCR = "DescribeLoggingConfigurationRequest";
 const _DLCRe = "DescribeLoggingConfigurationResponse";
+const _DN = "DnsName";
 const _DNFTGA = "DeleteNetworkFirewallTransitGatewayAttachment";
 const _DNFTGAR = "DeleteNetworkFirewallTransitGatewayAttachmentRequest";
 const _DNFTGARe = "DeleteNetworkFirewallTransitGatewayAttachmentResponse";
@@ -354,9 +355,16 @@ const _Ma = "Masks";
 const _Me = "Metadata";
 const _Ms = "Msg";
 const _N = "Name";
+const _NGA = "NatGatewayAttachment";
+const _NGAL = "NatGatewayAttachmentsList";
+const _NGAa = "NatGatewayAttachments";
 const _NGI = "NatGatewayId";
+const _NGM = "NatGatewayMappings";
+const _NGML = "NatGatewayMappingsList";
+const _NGMa = "NatGatewayMapping";
 const _NOA = "NumberOfAssociations";
 const _NP = "NewPosition";
+const _NSP = "NoSourcePreservation";
 const _NT = "NextToken";
 const _O = "Override";
 const _P = "Protocol";
@@ -405,9 +413,10 @@ const _PRPRu = "PutResourcePolicyResponse";
 const _PRPu = "PutResourcePolicy";
 const _PRo = "PortRange";
 const _PRor = "PortRanges";
-const _PS = "ProxyState";
+const _PS = "ProxySettings";
 const _PSo = "PortSet";
 const _PSor = "PortSets";
+const _PSr = "ProxyState";
 const _PV = "PolicyVariables";
 const _Po = "Policy";
 const _Por = "Port";
@@ -588,6 +597,9 @@ const _UPRR = "UpdateProxyRuleRequest";
 const _UPRRp = "UpdateProxyRuleResponse";
 const _UPRp = "UpdateProxyResponse";
 const _UPRpd = "UpdateProxyRule";
+const _UPS = "UpdateProxySettings";
+const _UPSR = "UpdateProxySettingsRequest";
+const _UPSRp = "UpdateProxySettingsResponse";
 const _UR = "UntagResource";
 const _URG = "UpdateRuleGroup";
 const _URGR = "UpdateRuleGroupRequest";
@@ -605,6 +617,7 @@ const _UTLSICR = "UpdateTLSInspectionConfigurationRequest";
 const _UTLSICRp = "UpdateTLSInspectionConfigurationResponse";
 const _UTp = "UpdateTime";
 const _V = "Value";
+const _VE = "VpcEndpoint";
 const _VEA = "VpcEndpointAssociation";
 const _VEAA = "VpcEndpointAssociationArn";
 const _VEAI = "VpcEndpointAssociationId";
@@ -801,8 +814,8 @@ export var AssociateSubnetsResponse$: StaticStructureSchema = [3, n0, _ASRs,
 ];
 export var Attachment$: StaticStructureSchema = [3, n0, _At,
   0,
-  [_SI, _EI, _S, _SMt],
-  [0, 0, 0, 0]
+  [_SI, _EI, _S, _SMt, _DN],
+  [0, 0, 0, 0, 0]
 ];
 export var AttachRuleGroupsToProxyConfigurationRequest$: StaticStructureSchema = [3, n0, _ARGTPCR,
   0,
@@ -881,8 +894,8 @@ export var CreateFirewallPolicyResponse$: StaticStructureSchema = [3, n0, _CFPRr
 ];
 export var CreateFirewallRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
-  [_FN, _FPA, _VI, _SM, _DP, _SCP, _FPCP, _De, _Ta, _EC, _EAT, _TGI, _AZM, _AZCP],
-  [0, 0, 0, () => SubnetMappings, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 64 | 0, 0, () => AvailabilityZoneMappings, 2], 2
+  [_FN, _FPA, _VI, _SM, _DP, _SCP, _FPCP, _De, _Ta, _EC, _EAT, _TGI, _AZM, _AZCP, _NGM, _PS, _NSP, _VE],
+  [0, 0, 0, () => SubnetMappings, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 64 | 0, 0, () => AvailabilityZoneMappings, 2, () => NatGatewayMappingsList, () => ProxySettings$, 2, () => VpcEndpoint$], 2
 ];
 export var CreateFirewallResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
@@ -1171,7 +1184,7 @@ export var DescribeProxyRequest$: StaticStructureSchema = [3, n0, _DPRes,
 ];
 export var DescribeProxyResource$: StaticStructureSchema = [3, n0, _DPResc,
   0,
-  [_PN, _PA, _PCN, _PCA, _NGI, _PS, _PMS, _LP, _TIP, _VESN, _PDNSN, _CT, _DT, _UTp, _FC, _FM, _Ta],
+  [_PN, _PA, _PCN, _PCA, _NGI, _PSr, _PMS, _LP, _TIP, _VESN, _PDNSN, _CT, _DT, _UTp, _FC, _FM, _Ta],
   [0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties$, 0, 0, 4, 4, 4, 0, 0, () => TagList]
 ];
 export var DescribeProxyResponse$: StaticStructureSchema = [3, n0, _DPRescr,
@@ -1301,8 +1314,8 @@ export var EncryptionConfiguration$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Firewall$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_FPA, _VI, _SM, _FI, _FN, _FAi, _DP, _SCP, _FPCP, _De, _Ta, _EC, _NOA, _EAT, _TGI, _TGOAI, _AZM, _AZCP],
-  [0, 0, () => SubnetMappings, 0, 0, 0, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 1, 64 | 0, 0, 0, () => AvailabilityZoneMappings, 2], 4
+  [_FPA, _VI, _SM, _FI, _FN, _FAi, _DP, _SCP, _FPCP, _De, _Ta, _EC, _NOA, _EAT, _TGI, _TGOAI, _AZM, _AZCP, _NGM, _PS, _NSP, _VE],
+  [0, 0, () => SubnetMappings, 0, 0, 0, 2, 2, 2, 0, () => TagList, () => EncryptionConfiguration$, 1, 64 | 0, 0, 0, () => AvailabilityZoneMappings, 2, () => NatGatewayMappingsList, () => ProxySettings$, 2, () => VpcEndpoint$], 4
 ];
 export var FirewallMetadata$: StaticStructureSchema = [3, n0, _FMi,
   0,
@@ -1544,6 +1557,16 @@ export var MatchAttributes$: StaticStructureSchema = [3, n0, _MA,
   [_Sou, _Dest, _SPo, _DPes, _Pro, _TCPF],
   [() => Addresses, () => Addresses, () => PortRanges, () => PortRanges, 64 | 1, () => TCPFlags]
 ];
+export var NatGatewayAttachment$: StaticStructureSchema = [3, n0, _NGA,
+  0,
+  [_NGI, _S, _SMt, _DN],
+  [0, 0, 0, 0], 2
+];
+export var NatGatewayMapping$: StaticStructureSchema = [3, n0, _NGMa,
+  0,
+  [_NGI],
+  [0], 1
+];
 export var PerObjectStatus$: StaticStructureSchema = [3, n0, _POS,
   0,
   [_SSy, _UT],
@@ -1566,7 +1589,7 @@ export var PortSet$: StaticStructureSchema = [3, n0, _PSo,
 ];
 export var Proxy$: StaticStructureSchema = [3, n0, _Pr,
   0,
-  [_CT, _DT, _UTp, _FC, _FM, _PS, _PMS, _NGI, _PCN, _PCA, _PN, _PA, _LP, _TIP, _Ta],
+  [_CT, _DT, _UTp, _FC, _FM, _PSr, _PMS, _NGI, _PCN, _PCA, _PN, _PA, _LP, _TIP, _Ta],
   [4, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => ListenerProperties, () => TlsInterceptProperties$, () => TagList]
 ];
 export var ProxyConfigDefaultRulePhaseActionsRequest$: StaticStructureSchema = [3, n0, _PCDRPAR,
@@ -1638,6 +1661,11 @@ export var ProxyRulesByRequestPhase$: StaticStructureSchema = [3, n0, _PRBRP,
   0,
   [_PDNS, _PREQUEST, _PRESPONSE],
   [() => ProxyRuleList, () => ProxyRuleList, () => ProxyRuleList]
+];
+export var ProxySettings$: StaticStructureSchema = [3, n0, _PS,
+  0,
+  [_LP],
+  [() => ListenerProperties], 1
 ];
 export var PublishMetricAction$: StaticStructureSchema = [3, n0, _PMA,
   0,
@@ -1821,8 +1849,8 @@ export var SummaryConfiguration$: StaticStructureSchema = [3, n0, _SC,
 ];
 export var SyncState$: StaticStructureSchema = [3, n0, _SSyn,
   0,
-  [_At, _Con],
-  [() => Attachment$, () => SyncStateConfig]
+  [_At, _Con, _NGAa],
+  [() => Attachment$, () => SyncStateConfig, () => NatGatewayAttachmentsList]
 ];
 export var Tag$: StaticStructureSchema = [3, n0, _Tag,
   0,
@@ -2034,6 +2062,16 @@ export var UpdateProxyRuleResponse$: StaticStructureSchema = [3, n0, _UPRRp,
   [_PR, _RCe, _UT],
   [() => ProxyRule$, () => ProxyRuleConditionList, 0]
 ];
+export var UpdateProxySettingsRequest$: StaticStructureSchema = [3, n0, _UPSR,
+  0,
+  [_FAi, _FN, _UT, _PS],
+  [0, 0, 0, () => ProxySettings$]
+];
+export var UpdateProxySettingsResponse$: StaticStructureSchema = [3, n0, _UPSRp,
+  0,
+  [_FAi, _FN, _UT, _PS],
+  [0, 0, 0, () => ProxySettings$]
+];
 export var UpdateRuleGroupRequest$: StaticStructureSchema = [3, n0, _URGR,
   0,
   [_UT, _RGAu, _RGNu, _RGu, _R, _T, _De, _DR, _EC, _SMo, _ARG, _SC],
@@ -2063,6 +2101,11 @@ export var UpdateTLSInspectionConfigurationResponse$: StaticStructureSchema = [3
   0,
   [_UT, _TLSICR],
   [0, () => TLSInspectionConfigurationResponse$], 2
+];
+export var VpcEndpoint$: StaticStructureSchema = [3, n0, _VE,
+  0,
+  [_VI, _SM],
+  [0, () => SubnetMappings], 2
 ];
 export var VpcEndpointAssociation$: StaticStructureSchema = [3, n0, _VEA,
   0,
@@ -2141,6 +2184,12 @@ var ListenerPropertiesRequest: StaticListSchema = [1, n0, _LPRist,
 ];
 var LogDestinationConfigs: StaticListSchema = [1, n0, _LDCo,
   0, () => LogDestinationConfig$
+];
+var NatGatewayAttachmentsList: StaticListSchema = [1, n0, _NGAL,
+  0, () => NatGatewayAttachment$
+];
+var NatGatewayMappingsList: StaticListSchema = [1, n0, _NGML,
+  0, () => NatGatewayMapping$
 ];
 var PortRanges: StaticListSchema = [1, n0, _PRor,
   0, () => PortRange$
@@ -2502,6 +2551,9 @@ export var UpdateProxyRuleGroupPriorities$: StaticOperationSchema = [9, n0, _UPR
 ];
 export var UpdateProxyRulePriorities$: StaticOperationSchema = [9, n0, _UPRP,
   0, () => UpdateProxyRulePrioritiesRequest$, () => UpdateProxyRulePrioritiesResponse$
+];
+export var UpdateProxySettings$: StaticOperationSchema = [9, n0, _UPS,
+  0, () => UpdateProxySettingsRequest$, () => UpdateProxySettingsResponse$
 ];
 export var UpdateRuleGroup$: StaticOperationSchema = [9, n0, _URG,
   0, () => UpdateRuleGroupRequest$, () => UpdateRuleGroupResponse$

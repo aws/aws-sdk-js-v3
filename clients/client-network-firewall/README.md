@@ -834,6 +834,13 @@ UpdateProxyRulePriorities
 </details>
 <details>
 <summary>
+UpdateProxySettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/network-firewall/command/UpdateProxySettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateProxySettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-network-firewall/Interface/UpdateProxySettingsCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateRuleGroup
 </summary>
 

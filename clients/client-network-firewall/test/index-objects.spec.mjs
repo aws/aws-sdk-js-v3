@@ -312,6 +312,9 @@ import {
   LoggingConfiguration$,
   LogType,
   MatchAttributes$,
+  NatGatewayAttachment$,
+  NatGatewayAttachmentStatus,
+  NatGatewayMapping$,
   NetworkFirewall,
   NetworkFirewallClient,
   NetworkFirewallServiceException,
@@ -352,6 +355,7 @@ import {
   ProxyRulePhaseAction,
   ProxyRulePriority$,
   ProxyRulesByRequestPhase$,
+  ProxySettings$,
   ProxyState,
   PublishMetricAction$,
   PutResourcePolicy$,
@@ -499,6 +503,10 @@ import {
   UpdateProxyRulePrioritiesResponse$,
   UpdateProxyRuleRequest$,
   UpdateProxyRuleResponse$,
+  UpdateProxySettings$,
+  UpdateProxySettingsCommand,
+  UpdateProxySettingsRequest$,
+  UpdateProxySettingsResponse$,
   UpdateRuleGroup$,
   UpdateRuleGroupCommand,
   UpdateRuleGroupRequest$,
@@ -511,6 +519,7 @@ import {
   UpdateTLSInspectionConfigurationCommand,
   UpdateTLSInspectionConfigurationRequest$,
   UpdateTLSInspectionConfigurationResponse$,
+  VpcEndpoint$,
   VpcEndpointAssociation$,
   VpcEndpointAssociationMetadata$,
   VpcEndpointAssociationStatus$,
@@ -682,6 +691,8 @@ assert(typeof UpdateProxyRuleGroupPrioritiesCommand === "function");
 assert(typeof UpdateProxyRuleGroupPriorities$ === "object");
 assert(typeof UpdateProxyRulePrioritiesCommand === "function");
 assert(typeof UpdateProxyRulePriorities$ === "object");
+assert(typeof UpdateProxySettingsCommand === "function");
+assert(typeof UpdateProxySettings$ === "object");
 assert(typeof UpdateRuleGroupCommand === "function");
 assert(typeof UpdateRuleGroup$ === "object");
 assert(typeof UpdateSubnetChangeProtectionCommand === "function");
@@ -851,6 +862,8 @@ assert(typeof ListVpcEndpointAssociationsResponse$ === "object");
 assert(typeof LogDestinationConfig$ === "object");
 assert(typeof LoggingConfiguration$ === "object");
 assert(typeof MatchAttributes$ === "object");
+assert(typeof NatGatewayAttachment$ === "object");
+assert(typeof NatGatewayMapping$ === "object");
 assert(typeof PerObjectStatus$ === "object");
 assert(typeof PolicyVariables$ === "object");
 assert(typeof PortRange$ === "object");
@@ -870,6 +883,7 @@ assert(typeof ProxyRuleGroupPriority$ === "object");
 assert(typeof ProxyRuleGroupPriorityResult$ === "object");
 assert(typeof ProxyRulePriority$ === "object");
 assert(typeof ProxyRulesByRequestPhase$ === "object");
+assert(typeof ProxySettings$ === "object");
 assert(typeof PublishMetricAction$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
@@ -949,12 +963,15 @@ assert(typeof UpdateProxyRulePrioritiesRequest$ === "object");
 assert(typeof UpdateProxyRulePrioritiesResponse$ === "object");
 assert(typeof UpdateProxyRuleRequest$ === "object");
 assert(typeof UpdateProxyRuleResponse$ === "object");
+assert(typeof UpdateProxySettingsRequest$ === "object");
+assert(typeof UpdateProxySettingsResponse$ === "object");
 assert(typeof UpdateRuleGroupRequest$ === "object");
 assert(typeof UpdateRuleGroupResponse$ === "object");
 assert(typeof UpdateSubnetChangeProtectionRequest$ === "object");
 assert(typeof UpdateSubnetChangeProtectionResponse$ === "object");
 assert(typeof UpdateTLSInspectionConfigurationRequest$ === "object");
 assert(typeof UpdateTLSInspectionConfigurationResponse$ === "object");
+assert(typeof VpcEndpoint$ === "object");
 assert(typeof VpcEndpointAssociation$ === "object");
 assert(typeof VpcEndpointAssociationMetadata$ === "object");
 assert(typeof VpcEndpointAssociationStatus$ === "object");
@@ -974,6 +991,7 @@ assert(typeof IPAddressType === "object");
 assert(typeof ListenerPropertyType === "object");
 assert(typeof LogDestinationType === "object");
 assert(typeof LogType === "object");
+assert(typeof NatGatewayAttachmentStatus === "object");
 assert(typeof OverrideAction === "object");
 assert(typeof PerObjectSyncStatus === "object");
 assert(typeof ProxyModifyState === "object");

@@ -408,6 +408,11 @@ import {
   UpdateProxyRulePrioritiesCommand,
 } from "./commands/UpdateProxyRulePrioritiesCommand";
 import {
+  type UpdateProxySettingsCommandInput,
+  type UpdateProxySettingsCommandOutput,
+  UpdateProxySettingsCommand,
+} from "./commands/UpdateProxySettingsCommand";
+import {
   type UpdateRuleGroupCommandInput,
   type UpdateRuleGroupCommandOutput,
   UpdateRuleGroupCommand,
@@ -520,6 +525,7 @@ const commands = {
   UpdateProxyRuleCommand,
   UpdateProxyRuleGroupPrioritiesCommand,
   UpdateProxyRulePrioritiesCommand,
+  UpdateProxySettingsCommand,
   UpdateRuleGroupCommand,
   UpdateSubnetChangeProtectionCommand,
   UpdateTLSInspectionConfigurationCommand,
@@ -1950,6 +1956,24 @@ export interface NetworkFirewall {
     args: UpdateProxyRulePrioritiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProxyRulePrioritiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateProxySettingsCommand}
+   */
+  updateProxySettings(): Promise<UpdateProxySettingsCommandOutput>;
+  updateProxySettings(
+    args: UpdateProxySettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateProxySettingsCommandOutput>;
+  updateProxySettings(
+    args: UpdateProxySettingsCommandInput,
+    cb: (err: any, data?: UpdateProxySettingsCommandOutput) => void
+  ): void;
+  updateProxySettings(
+    args: UpdateProxySettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateProxySettingsCommandOutput) => void
   ): void;
 
   /**

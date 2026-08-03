@@ -318,6 +318,10 @@ import type {
   UpdateProxyRulePrioritiesCommandInput,
   UpdateProxyRulePrioritiesCommandOutput,
 } from "./commands/UpdateProxyRulePrioritiesCommand";
+import type {
+  UpdateProxySettingsCommandInput,
+  UpdateProxySettingsCommandOutput,
+} from "./commands/UpdateProxySettingsCommand";
 import type { UpdateRuleGroupCommandInput, UpdateRuleGroupCommandOutput } from "./commands/UpdateRuleGroupCommand";
 import type {
   UpdateSubnetChangeProtectionCommandInput,
@@ -423,6 +427,7 @@ export type ServiceInputTypes =
   | UpdateProxyRuleCommandInput
   | UpdateProxyRuleGroupPrioritiesCommandInput
   | UpdateProxyRulePrioritiesCommandInput
+  | UpdateProxySettingsCommandInput
   | UpdateRuleGroupCommandInput
   | UpdateSubnetChangeProtectionCommandInput
   | UpdateTLSInspectionConfigurationCommandInput;
@@ -512,6 +517,7 @@ export type ServiceOutputTypes =
   | UpdateProxyRuleCommandOutput
   | UpdateProxyRuleGroupPrioritiesCommandOutput
   | UpdateProxyRulePrioritiesCommandOutput
+  | UpdateProxySettingsCommandOutput
   | UpdateRuleGroupCommandOutput
   | UpdateSubnetChangeProtectionCommandOutput
   | UpdateTLSInspectionConfigurationCommandOutput;

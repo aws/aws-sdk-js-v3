@@ -78,6 +78,29 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //       },
  * //     ],
  * //     AvailabilityZoneChangeProtection: true || false,
+ * //     NatGatewayMappings: [ // NatGatewayMappingsList
+ * //       { // NatGatewayMapping
+ * //         NatGatewayId: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     ProxySettings: { // ProxySettings
+ * //       ListenerProperties: [ // ListenerProperties // required
+ * //         { // ListenerProperty
+ * //           Port: Number("int"),
+ * //           Type: "HTTP" || "HTTPS",
+ * //         },
+ * //       ],
+ * //     },
+ * //     NoSourcePreservation: true || false,
+ * //     VpcEndpoint: { // VpcEndpoint
+ * //       VpcId: "STRING_VALUE", // required
+ * //       SubnetMappings: [ // required
+ * //         {
+ * //           SubnetId: "STRING_VALUE", // required
+ * //           IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
@@ -89,6 +112,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //           EndpointId: "STRING_VALUE",
  * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY",
  * //           StatusMessage: "STRING_VALUE",
+ * //           DnsName: "STRING_VALUE",
  * //         },
  * //         Config: { // SyncStateConfig
  * //           "<keys>": { // PerObjectStatus
@@ -96,6 +120,14 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //             UpdateToken: "STRING_VALUE",
  * //           },
  * //         },
+ * //         NatGatewayAttachments: [ // NatGatewayAttachmentsList
+ * //           { // NatGatewayAttachment
+ * //             NatGatewayId: "STRING_VALUE", // required
+ * //             Status: "CREATING" || "READY" || "UPDATING" || "FAILED" || "DELETING", // required
+ * //             StatusMessage: "STRING_VALUE",
+ * //             DnsName: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //     CapacityUsageSummary: { // CapacityUsageSummary

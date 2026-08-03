@@ -15,6 +15,7 @@ import type {
   ListenerPropertyType,
   LogDestinationType,
   LogType,
+  NatGatewayAttachmentStatus,
   OverrideAction,
   PerObjectSyncStatus,
   ProxyModifyState,
@@ -602,6 +603,12 @@ export interface Attachment {
    * @public
    */
   StatusMessage?: string | undefined;
+
+  /**
+   * <p>The DNS name that resolves to the firewall endpoint in the subnet. This is populated for proxy mode firewalls, where clients direct traffic to the firewall's proxy using this name. </p>
+   * @public
+   */
+  DnsName?: string | undefined;
 }
 
 /**
@@ -1159,6 +1166,67 @@ export interface EncryptionConfiguration {
 }
 
 /**
+ * <p>A NAT gateway that a proxy mode firewall uses to proxy traffic. This is used in <a>CreateFirewall</a> when <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+ * @public
+ */
+export interface NatGatewayMapping {
+  /**
+   * <p>A unique identifier for the NAT gateway to use with proxy resources.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+}
+
+/**
+ * <p>Open port for taking HTTP or HTTPS traffic. </p>
+ * @public
+ */
+export interface ListenerProperty {
+  /**
+   * <p>Port for processing traffic.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>Selection of HTTP or HTTPS traffic.</p>
+   * @public
+   */
+  Type?: ListenerPropertyType | undefined;
+}
+
+/**
+ * <p>The listener configuration for a proxy mode firewall. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+ * @public
+ */
+export interface ProxySettings {
+  /**
+   * <p>Listener properties for HTTP and HTTPS traffic. </p>
+   * @public
+   */
+  ListenerProperties: ListenerProperty[] | undefined;
+}
+
+/**
+ * <p>The VPC and subnets for a proxy mode firewall endpoint. This is used in <a>CreateFirewall</a> when <code>NoSourcePreservation</code> is <code>TRUE</code>, to specify where Network Firewall creates the firewall endpoint. </p>
+ *          <p>This differs from <a>VpcEndpointAssociation</a>, which defines additional secondary endpoints for a firewall in other VPCs. </p>
+ * @public
+ */
+export interface VpcEndpoint {
+  /**
+   * <p>The unique identifier of the VPC where Network Firewall creates the proxy mode firewall endpoint. </p>
+   * @public
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>The subnets in which Network Firewall creates the firewall endpoint for a proxy mode firewall. Each subnet must belong to a different Availability Zone in the VPC. </p>
+   * @public
+   */
+  SubnetMappings: SubnetMapping[] | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateFirewallRequest {
@@ -1262,6 +1330,35 @@ export interface CreateFirewallRequest {
    * @public
    */
   AvailabilityZoneChangeProtection?: boolean | undefined;
+
+  /**
+   * <p>The NAT gateways that the firewall uses to proxy traffic when <code>NoSourcePreservation</code> is <code>TRUE</code>. Network Firewall attaches the firewall to each NAT gateway that you specify, so that egress traffic is proxied through the NAT gateway. </p>
+   * @public
+   */
+  NatGatewayMappings?: NatGatewayMapping[] | undefined;
+
+  /**
+   * <p>The listener configuration for a proxy mode firewall, used when <code>NoSourcePreservation</code> is <code>TRUE</code>. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+   * @public
+   */
+  ProxySettings?: ProxySettings | undefined;
+
+  /**
+   * <p>Optional. Indicates whether the firewall operates in proxy mode, in which the source IP address of the traffic is not preserved. When set to <code>TRUE</code>, the firewall proxies traffic through a NAT gateway and the traffic reaching the destination uses the NAT gateway's IP address as the source. </p>
+   *          <p>When you set this to <code>TRUE</code>, you must specify <code>NatGatewayMappings</code> and <code>VpcEndpoint</code> instead of a top-level <code>VpcId</code> and <code>SubnetMappings</code>. </p>
+   *          <p>You can't change this setting after you create the firewall. </p>
+   *          <p>Default value: <code>FALSE</code>
+   *          </p>
+   * @public
+   */
+  NoSourcePreservation?: boolean | undefined;
+
+  /**
+   * <p>The VPC and subnets for the firewall endpoint, used when <code>NoSourcePreservation</code> is <code>TRUE</code>. Network Firewall creates the firewall endpoint in the subnets that you specify here. </p>
+   *          <p>For proxy mode firewalls, provide the firewall's VPC and endpoint subnets through this parameter instead of the top-level <code>VpcId</code> and <code>SubnetMappings</code>. </p>
+   * @public
+   */
+  VpcEndpoint?: VpcEndpoint | undefined;
 }
 
 /**
@@ -1391,6 +1488,30 @@ export interface Firewall {
    * @public
    */
   AvailabilityZoneChangeProtection?: boolean | undefined;
+
+  /**
+   * <p>The NAT gateways that the firewall uses to proxy traffic. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * @public
+   */
+  NatGatewayMappings?: NatGatewayMapping[] | undefined;
+
+  /**
+   * <p>The listener configuration for the firewall's proxy. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * @public
+   */
+  ProxySettings?: ProxySettings | undefined;
+
+  /**
+   * <p>Indicates whether the firewall operates in proxy mode, in which the source IP address of the traffic is not preserved. When this value is <code>TRUE</code>, the firewall proxies traffic through a NAT gateway and uses the NAT gateway's IP address as the source for traffic reaching the destination. </p>
+   * @public
+   */
+  NoSourcePreservation?: boolean | undefined;
+
+  /**
+   * <p>The VPC and subnets for the firewall endpoint. This is set for proxy mode firewalls, where <code>NoSourcePreservation</code> is <code>TRUE</code>. </p>
+   * @public
+   */
+  VpcEndpoint?: VpcEndpoint | undefined;
 }
 
 /**
@@ -1412,6 +1533,37 @@ export interface PerObjectStatus {
    * @public
    */
   UpdateToken?: string | undefined;
+}
+
+/**
+ * <p>The definition and status of the attachment between a proxy mode firewall and a NAT gateway that proxies its traffic. </p>
+ * @public
+ */
+export interface NatGatewayAttachment {
+  /**
+   * <p>A unique identifier for the NAT gateway to use with proxy resources.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+
+  /**
+   * <p>The current status of the NAT gateway attachment. </p>
+   *          <p>When this value is <code>READY</code>, the attachment is available to proxy traffic. Otherwise, this value reflects its state, for example <code>CREATING</code> or <code>DELETING</code>.</p>
+   * @public
+   */
+  Status: NatGatewayAttachmentStatus | undefined;
+
+  /**
+   * <p>If Network Firewall encounters an issue with the NAT gateway attachment, it populates this with an explanation of the problem. </p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>The DNS name that resolves to the firewall's proxy for traffic sent through this NAT gateway attachment. </p>
+   * @public
+   */
+  DnsName?: string | undefined;
 }
 
 /**
@@ -1450,6 +1602,12 @@ export interface SyncState {
    * @public
    */
   Config?: Record<string, PerObjectStatus> | undefined;
+
+  /**
+   * <p>The status of the NAT gateway attachments for a proxy mode firewall in the Availability Zone. This reflects the attachment of the firewall to each NAT gateway that proxies its traffic. </p>
+   * @public
+   */
+  NatGatewayAttachments?: NatGatewayAttachment[] | undefined;
 }
 
 /**
@@ -2197,24 +2355,6 @@ export interface CreateProxyRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Open port for taking HTTP or HTTPS traffic. </p>
- * @public
- */
-export interface ListenerProperty {
-  /**
-   * <p>Port for processing traffic.</p>
-   * @public
-   */
-  Port?: number | undefined;
-
-  /**
-   * <p>Selection of HTTP or HTTPS traffic.</p>
-   * @public
-   */
-  Type?: ListenerPropertyType | undefined;
 }
 
 /**
@@ -8251,6 +8391,70 @@ export interface UpdateProxyRulePrioritiesResponse {
    * @public
    */
   UpdateToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProxySettingsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   *          <p>You must specify the ARN or the name, and you can specify both. </p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The proxy listener configuration to set on the firewall. This specifies the ports and protocols on which the firewall's proxy listens for traffic. </p>
+   * @public
+   */
+  ProxySettings?: ProxySettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateProxySettingsResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the firewall.</p>
+   * @public
+   */
+  FirewallArn?: string | undefined;
+
+  /**
+   * <p>The descriptive name of the firewall. You can't change the name of a firewall after you create it.</p>
+   * @public
+   */
+  FirewallName?: string | undefined;
+
+  /**
+   * <p>An optional token that you can use for optimistic locking. Network Firewall returns a token to your requests that access the firewall. The token marks the state of the firewall resource at the time of the request. </p>
+   *          <p>To make an unconditional change to the firewall, omit the token in your update request. Without the token, Network Firewall performs your updates regardless of whether the firewall has changed since you last retrieved it.</p>
+   *          <p>To make a conditional change to the firewall, provide the token in your update request. Network Firewall uses the token to ensure that the firewall hasn't changed since you last retrieved it. If it has changed, the operation fails with an <code>InvalidTokenException</code>. If this happens, retrieve the firewall again to get a current copy of it with a new token. Reapply your changes as needed, then try the operation again using the new token. </p>
+   * @public
+   */
+  UpdateToken?: string | undefined;
+
+  /**
+   * <p>The updated proxy listener configuration on the firewall. </p>
+   * @public
+   */
+  ProxySettings?: ProxySettings | undefined;
 }
 
 /**

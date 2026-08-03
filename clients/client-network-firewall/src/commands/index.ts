@@ -80,6 +80,7 @@ export * from "./UpdateProxyConfigurationCommand";
 export * from "./UpdateProxyRuleCommand";
 export * from "./UpdateProxyRuleGroupPrioritiesCommand";
 export * from "./UpdateProxyRulePrioritiesCommand";
+export * from "./UpdateProxySettingsCommand";
 export * from "./UpdateRuleGroupCommand";
 export * from "./UpdateSubnetChangeProtectionCommand";
 export * from "./UpdateTLSInspectionConfigurationCommand";

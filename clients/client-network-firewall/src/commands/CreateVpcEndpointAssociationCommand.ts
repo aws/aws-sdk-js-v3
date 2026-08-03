@@ -76,6 +76,7 @@ export interface CreateVpcEndpointAssociationCommandOutput extends CreateVpcEndp
  * //           EndpointId: "STRING_VALUE",
  * //           Status: "CREATING" || "DELETING" || "FAILED" || "ERROR" || "SCALING" || "READY",
  * //           StatusMessage: "STRING_VALUE",
+ * //           DnsName: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
