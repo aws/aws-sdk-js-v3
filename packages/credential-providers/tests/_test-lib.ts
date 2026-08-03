@@ -7,8 +7,9 @@ import { HttpResponse } from "@smithy/core/protocols";
 import { externalDataInterceptor } from "@smithy/core/config";
 import type { HttpRequest, NodeHttpHandlerOptions } from "@smithy/types";
 import child_process from "node:child_process";
-import { createHash } from "node:crypto";
-import { homedir } from "node:os";
+import { createHash, randomUUID } from "node:crypto";
+import { promises as fsPromises } from "node:fs";
+import { homedir, tmpdir } from "node:os";
 import { join } from "node:path";
 import { PassThrough } from "node:stream";
 import { afterAll, afterEach, beforeAll, beforeEach, expect, test as it } from "vitest";
@@ -155,6 +156,8 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       externalDataInterceptor.interceptToken("token-filepath", "token-contents");
 
       // Setup login credentials cache
+      const loginCacheDir = join(tmpdir(), `aws-sdk-login-test-${randomUUID()}`);
+      process.env.AWS_LOGIN_CACHE_DIRECTORY = loginCacheDir;
       let loginCreds = {
         accessToken: {
           accessKeyId: "LOGIN_ACCESS_KEY_ID",
@@ -171,13 +174,11 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       };
       const loginSessionBytes = Buffer.from("arn:aws:sts::012345678910:assumed-role/Test", "utf8");
       const loginCacheName = createHash("sha256").update(loginSessionBytes).digest("hex");
-      const loginCachePath = join(
-        process.env.AWS_LOGIN_CACHE_DIRECTORY ?? join(homedir(), ".aws", "login", "cache"),
-        `${loginCacheName}.json`
-      );
-      externalDataInterceptor.interceptFile(loginCachePath, JSON.stringify(loginCreds));
+      const loginCachePath = join(loginCacheDir, `${loginCacheName}.json`);
+      await fsPromises.mkdir(loginCacheDir, { recursive: true });
+      await fsPromises.writeFile(loginCachePath, JSON.stringify(loginCreds), "utf8");
       externalDataInterceptor.interceptToken("loginCachePath", loginCreds);
-      externalDataInterceptor.interceptToken("updateLoginCreds", (region: string) => {
+      externalDataInterceptor.interceptToken("updateLoginCreds", async (region: string) => {
         loginCreds = {
           ...loginCreds,
           accessToken: {
@@ -185,18 +186,21 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
             sessionToken: `LOGIN_SESSION_TOKEN_${region}`,
           },
         };
-        // Update the file content with new credentials
-        externalDataInterceptor.interceptFile(loginCachePath, JSON.stringify(loginCreds));
+        await fsPromises.writeFile(loginCachePath, JSON.stringify(loginCreds), "utf8");
       });
       externalDataInterceptor.interceptToken("login_session", "arn:aws:sts::012345678910:assumed-role/Test");
     });
 
     afterEach(async () => {
+      const loginCacheDir = process.env.AWS_LOGIN_CACHE_DIRECTORY;
       Object.assign(process.env, processSnapshot);
       setIniProfileData({
         default: {},
       });
       assumeRoleArns.length = 0;
+      if (loginCacheDir) {
+        await fsPromises.rm(loginCacheDir, { recursive: true, force: true });
+      }
     });
 
     afterAll(() => {
@@ -318,7 +322,7 @@ export class CTest<P extends (init?: any) => RuntimeConfigAwsCredentialIdentityP
       if (expectedRegion) {
         const updateLoginCreds = externalDataInterceptor.getTokenRecord().updateLoginCreds;
         if (updateLoginCreds) {
-          updateLoginCreds(expectedRegion);
+          await updateLoginCreds(expectedRegion);
         }
       }
     }
