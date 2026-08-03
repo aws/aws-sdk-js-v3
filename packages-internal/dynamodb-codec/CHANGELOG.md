@@ -71,6 +71,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.40 (2026-08-03)
+### Chores
+* **dynamodb-codec:** update dependencies.
+
+
+
 # 3.973.39 (2026-07-30)
 ### Bug Fixes
 * **core/protocols:** v2 JSON codec updates and JsonBytesStringAdapter ([#8238](https://github.com/aws/aws-sdk-js-v3/issues/8238)) ([a1001f4](https://github.com/aws/aws-sdk-js-v3/commit/a1001f4b580d631ee5307774f564ad6bff6ef486))

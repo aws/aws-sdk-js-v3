@@ -71,6 +71,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.5 (2026-08-03)
+### Bug Fixes
+* **core/protocols:** document and number serialization fixes ([#8245](https://github.com/aws/aws-sdk-js-v3/issues/8245)) ([71d4384](https://github.com/aws/aws-sdk-js-v3/commit/71d4384273083464c78fa30c2f88a21f1d6e147b))
+### Chores
+* **core/protocols:** switch to v2 JSON codecs ([#8234](https://github.com/aws/aws-sdk-js-v3/issues/8234)) ([54c1c23](https://github.com/aws/aws-sdk-js-v3/commit/54c1c236f6a9e7914c061cac0d6af7bf4a607d1e))
+
+
+
 # 3.977.4 (2026-07-30)
 ### Bug Fixes
 * **core/protocols:** v2 JSON codec updates and JsonBytesStringAdapter ([#8238](https://github.com/aws/aws-sdk-js-v3/issues/8238)) ([a1001f4](https://github.com/aws/aws-sdk-js-v3/commit/a1001f4b580d631ee5307774f564ad6bff6ef486))

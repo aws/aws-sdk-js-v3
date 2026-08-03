@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
+
+
+### Features
+
+* **client-network-firewall:** This launch allows customers to use Network Firewall as an explicit Proxy and protect their workloads against threat of data exfiltration. ([46a686e](https://github.com/aws/aws-sdk-js-v3/commit/46a686e22b479eaad5b02c7c2507c13b8bd7773a))
+
+
+
+
+
 # [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
 
 

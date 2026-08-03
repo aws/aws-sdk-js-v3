@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
+
+
+### Bug Fixes
+
+* **core/protocols:** document and number serialization fixes ([#8245](https://github.com/aws/aws-sdk-js-v3/issues/8245)) ([71d4384](https://github.com/aws/aws-sdk-js-v3/commit/71d4384273083464c78fa30c2f88a21f1d6e147b))
+* **credential-provider-login:** always read token from disk ([#8216](https://github.com/aws/aws-sdk-js-v3/issues/8216)) ([5caf21f](https://github.com/aws/aws-sdk-js-v3/commit/5caf21f6aea89905f0b54aa4fec9dea7786a2463))
+
+
+### Features
+
+* **client-direct-connect:** Added route visibility support for AWS Direct Connect, allowing customers to call ListVirtualInterfaceRoutes to view the BGP routes including AS path and BGP communities advertised over their virtual interfaces. ([1267534](https://github.com/aws/aws-sdk-js-v3/commit/1267534822ae551665baa29f858bc4a8299d0445))
+* **client-eks-auth:** Added eksNodeName, instanceId, and zone optional parameters to the AssumeRoleForPodIdentity API. ([bbb99c9](https://github.com/aws/aws-sdk-js-v3/commit/bbb99c9a76c36ae3c48d36ef4d01e8b82a474868))
+* **client-mediaconvert:** Updates Kantar server URL validation to accept Fifty5Blue domain. Adds support for output to S3 Glacier Instant Retrieval. ([01860cb](https://github.com/aws/aws-sdk-js-v3/commit/01860cb3161a1a5736473991921c340ba84b83d5))
+* **client-network-firewall:** This launch allows customers to use Network Firewall as an explicit Proxy and protect their workloads against threat of data exfiltration. ([46a686e](https://github.com/aws/aws-sdk-js-v3/commit/46a686e22b479eaad5b02c7c2507c13b8bd7773a))
+* **client-observabilityadmin:** Launch CMK support for Telemetry Enablement Organization and Account Rules. ([d6dcfbd](https://github.com/aws/aws-sdk-js-v3/commit/d6dcfbd3e0a78e0d8443a63cb5e2822bdb88cdfe))
+* **client-timestream-influxdb:** This release adds support for customer-managed backup restore, and encryption of new DbInstances and DbClusters using customer-managed KMS keys. ([8eb5763](https://github.com/aws/aws-sdk-js-v3/commit/8eb57639feafc5795d766cb37b0872af8cf623c5))
+
+
+
+
+
 # [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
 
 

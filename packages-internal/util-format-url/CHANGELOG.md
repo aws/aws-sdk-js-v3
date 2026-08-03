@@ -44,6 +44,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.42 (2026-08-03)
+### Chores
+* **util-format-url:** update dependencies.
+
+
+
 # 3.972.41 (2026-07-31)
 ### Chores
 * **util-format-url:** update dependencies.

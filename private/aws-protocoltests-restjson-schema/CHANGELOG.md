@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
+
+
+### Bug Fixes
+
+* **core/protocols:** document and number serialization fixes ([#8245](https://github.com/aws/aws-sdk-js-v3/issues/8245)) ([71d4384](https://github.com/aws/aws-sdk-js-v3/commit/71d4384273083464c78fa30c2f88a21f1d6e147b))
+
+
+
+
+
 # [3.1101.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1100.0...v3.1101.0) (2026-07-31)
 
 **Note:** Version bump only for package @aws-sdk/aws-protocoltests-restjson-schema
