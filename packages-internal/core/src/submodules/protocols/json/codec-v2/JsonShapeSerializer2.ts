@@ -413,7 +413,7 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     }
 
     if (typeof value === "number") {
-      if (ns.isNumericSchema() && (Math.abs(value) === Infinity || isNaN(value))) {
+      if (Math.abs(value) === Infinity || Number.isNaN(value)) {
         // Infinity/NaN as quoted strings
         this.writeAsciiQuoted(String(value));
         return;
@@ -521,8 +521,32 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     const valueSchema = ns.getValueSchema();
 
     if (!isDocument) {
+      // Use JSON.stringify for values that likely need no special handling.
       if (valueSchema.isStringSchema() || valueSchema.isNumericSchema() || valueSchema.isBooleanSchema()) {
-        const json = sparse ? JSON.stringify(value) : JSON.stringify(value.filter((_) => _ != null));
+        let hasSpecials = false;
+        for (let i = 0; i < value.length; ++i) {
+          const v = value[i];
+          if (Number.isNaN(v) || v === Infinity || v === -Infinity || (v == null && !sparse)) {
+            hasSpecials = true;
+            break;
+          }
+        }
+        let json: string;
+        if (!hasSpecials) {
+          json = JSON.stringify(value);
+        } else {
+          const out: unknown[] = [];
+          for (let i = 0; i < value.length; ++i) {
+            const v = value[i];
+            if (v == null && !sparse) continue;
+            if (Number.isNaN(v) || v === Infinity || v === -Infinity) {
+              out.push(String(v));
+            } else {
+              out.push(v);
+            }
+          }
+          json = JSON.stringify(out);
+        }
         this.ensure(json.length * 3);
         this.i += encoder.encodeInto(json, this.json.subarray(this.i)).written;
         return;
@@ -555,25 +579,24 @@ export class JsonShapeSerializer2 extends SerdeContextConfig implements ShapeSer
     const sparse = !!ns.getMergedTraits().sparse;
     const valueSchema = ns.getValueSchema();
 
-    // Fast path: when value type is a JSON-native primitive (string, number, boolean),
-    // delegate the entire map to JSON.stringify + encodeInto.
-    // This leverages V8's native C++ string escaping which is significantly faster than
-    // character-by-character escaping in JS for string-heavy maps.
     if (!isDocument) {
+      // Use JSON.stringify for values that likely need no special handling.
       if (valueSchema.isStringSchema() || valueSchema.isNumericSchema() || valueSchema.isBooleanSchema()) {
-        // For sparse maps, JSON.stringify omits undefined values instead of writing null.
-        // Convert undefined to null to match production serializer behavior.
-        let input: Record<string, unknown> = value;
-        if (sparse) {
-          input = {};
-          for (const k in value) {
-            if (k === "__proto__") {
-              writeKey(input);
-            }
-            input[k] = value[k] ?? null;
+        let modifications: Record<string, number | null> | undefined;
+        for (const k in value) {
+          const v = value[k];
+          if (Number.isNaN(v) || v === Infinity || v === -Infinity) {
+            (modifications ??= {})[k] = v as number;
+            value[k] = String(v);
+          } else if (v === null && !sparse) {
+            (modifications ??= {})[k] = null;
+            value[k] = undefined;
           }
         }
-        const json = JSON.stringify(input);
+        const json = JSON.stringify(value);
+        if (modifications) {
+          Object.assign(value, modifications);
+        }
         this.ensure(json.length * 3); // worst-case UTF-8 expansion
         this.i += encoder.encodeInto(json, this.json.subarray(this.i)).written;
         return;

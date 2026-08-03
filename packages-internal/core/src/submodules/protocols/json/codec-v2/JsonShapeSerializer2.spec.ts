@@ -369,11 +369,9 @@ describe(JsonShapeSerializer2.name, () => {
     });
 
     it("skips null values in non-sparse maps", () => {
-      // Note: The widget map schema is Map<string, string>, which triggers
-      // the JSON.stringify fast path. JSON.stringify converts null to null.
       serializer.write(widget, { map: { a: "hello", b: null, c: "world" } });
       const result = JSON.parse(decode(serializer.flush()));
-      expect(result.map).toEqual({ a: "hello", b: null, c: "world" });
+      expect(result.map).toEqual({ a: "hello", c: "world" });
     });
 
     it("preserves null values in sparse maps", () => {

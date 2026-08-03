@@ -308,6 +308,95 @@ describe("JsonShapeSerializer correctness", () => {
       expect(parsed.token).toEqual("my-custom-token-123");
       expect(parsed.name).toEqual("hello");
     });
+
+    describe("NaN/Infinity in document context", () => {
+      it("serializes NaN as 'NaN' in document context (differs from JSON.stringify)", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { val: NaN });
+        const result = adapter.flush();
+        expect(() => JSON.parse(result)).not.toThrow();
+        expect(JSON.parse(result)).toEqual({ val: "NaN" });
+      });
+
+      it("serializes Infinity as 'Infinity'' in document context (differs from JSON.stringify)", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { val: Infinity });
+        const result = adapter.flush();
+        expect(() => JSON.parse(result)).not.toThrow();
+        expect(JSON.parse(result)).toEqual({ val: "Infinity" });
+      });
+
+      it("serializes -Infinity as '-Infinity' in document context (differs from JSON.stringify)", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { val: -Infinity });
+        const result = adapter.flush();
+        expect(() => JSON.parse(result)).not.toThrow();
+        expect(JSON.parse(result)).toEqual({ val: "-Infinity" });
+      });
+
+      it("serializes mixed NaN/Infinity/normal in document context", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { a: 1, b: NaN, c: Infinity, d: -Infinity, e: "hello" });
+        const result = adapter.flush();
+        expect(() => JSON.parse(result)).not.toThrow();
+        expect(JSON.parse(result)).toEqual({ a: 1, b: "NaN", c: "Infinity", d: "-Infinity", e: "hello" });
+      });
+
+      it("serializes NaN in nested document arrays as 'NaN'", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, [1, NaN, 3, Infinity]);
+        const result = adapter.flush();
+        expect(() => JSON.parse(result)).not.toThrow();
+        expect(JSON.parse(result)).toEqual([1, "NaN", 3, "Infinity"]);
+      });
+    });
+
+    describe("Uint8Array in document", () => {
+      it("serializes empty Uint8Array as base64 in document context", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { blob: new Uint8Array(0) });
+        expect(JSON.parse(adapter.flush())).toEqual({
+          blob: "",
+        });
+      });
+
+      it("serializes non-empty Uint8Array as base64 in document context", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { blob: new Uint8Array([1, 0, 0, 1]) });
+        expect(JSON.parse(adapter.flush())).toEqual({
+          blob: "AQAAAQ==",
+        });
+      });
+
+      it("serializes Uint8Array in nested document as base64", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, { outer: { data: new Uint8Array([10, 20, 30]) } });
+        expect(JSON.parse(adapter.flush())).toEqual({
+          outer: {
+            data: "ChQe",
+          },
+        });
+      });
+
+      it("serializes Uint8Array in document array as base64", () => {
+        const docSchema = 15;
+        adapter.write(docSchema, [new Uint8Array([255]), "text"]);
+        expect(JSON.parse(adapter.flush())).toEqual(["/w==", "text"]);
+      });
+    });
+
+    describe("non-sparse map null equivalence", () => {
+      it("non-sparse string map with null value produces equivalent output", () => {
+        const data = { map: { a: "hello", b: null, c: "world" } };
+        adapter.write(widget, data);
+        expect(JSON.parse(adapter.flush())).toEqual({
+          map: {
+            a: "hello",
+            c: "world",
+          },
+        });
+      });
+    });
   });
 
   // ─── Broad equivalence test ────────────────────────────────────────────────

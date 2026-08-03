@@ -146,7 +146,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
         return out;
       }
 
-      if (value instanceof Uint8Array && (ns.isBlobSchema() || ns.isDocumentSchema())) {
+      if (value instanceof Uint8Array && ns.isBlobSchema()) {
         if (ns === this.rootSchema) {
           return value;
         }
@@ -193,7 +193,7 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
       return value;
     }
 
-    if (typeof value === "number" && ns.isNumericSchema()) {
+    if (typeof value === "number") {
       if (Math.abs(value) === Infinity || isNaN(value)) {
         return String(value);
       }
@@ -213,6 +213,10 @@ export class JsonShapeSerializer extends SerdeContextConfig implements ShapeSeri
 
     if (ns.isDocumentSchema()) {
       if (isObject) {
+        if (value instanceof Uint8Array) {
+          return (this.serdeContext?.base64Encoder ?? toBase64)(value);
+        }
+
         const out = Array.isArray(value) ? [] : ({} as any);
         for (const k in value as Record<string, unknown>) {
           const v = (value as Record<string, unknown>)[k];
