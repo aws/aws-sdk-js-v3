@@ -60,6 +60,7 @@ export interface UpdateCentralizationRuleForOrganizationCommandOutput extends Up
  *           EncryptionStrategy: "CUSTOMER_MANAGED" || "AWS_OWNED", // required
  *           KmsKeyArn: "STRING_VALUE",
  *           EncryptionConflictResolutionStrategy: "ALLOW" || "SKIP",
+ *           EncryptionScope: "ENCRYPTED_SOURCE_ONLY" || "NEW_DESTINATION_LOG_GROUPS",
  *         },
  *         BackupConfiguration: { // LogsBackupConfiguration
  *           Region: "STRING_VALUE", // required

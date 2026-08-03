@@ -49,6 +49,25 @@ export type EncryptionConflictResolutionStrategy =
  * @public
  * @enum
  */
+export const EncryptionScope = {
+  /**
+   * <p>Only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured <code>KmsKeyArn</code>. This is the default behavior.</p>
+   */
+  ENCRYPTED_SOURCE_ONLY: "ENCRYPTED_SOURCE_ONLY",
+  /**
+   * <p>Every new destination log group created by this rule uses the configured <code>KmsKeyArn</code>, regardless of whether the source log group is encrypted with a customer managed key or Amazon Web Services owned encryption.</p>
+   */
+  NEW_DESTINATION_LOG_GROUPS: "NEW_DESTINATION_LOG_GROUPS",
+} as const;
+/**
+ * @public
+ */
+export type EncryptionScope = (typeof EncryptionScope)[keyof typeof EncryptionScope];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptionStrategy = {
   AWS_OWNED: "AWS_OWNED",
   CUSTOMER_MANAGED: "CUSTOMER_MANAGED",

@@ -5,6 +5,7 @@ import type {
   DestinationType,
   EncryptedLogGroupStrategy,
   EncryptionConflictResolutionStrategy,
+  EncryptionScope,
   EncryptionStrategy,
   FilterBehavior,
   FilterRequirement,
@@ -135,7 +136,7 @@ export interface LogGroupNameConfiguration {
 }
 
 /**
- * <p>Configuration for encrypting centralized log groups. This configuration is only applied to destination log groups for which the corresponding source log groups are encrypted using Customer Managed KMS Keys.</p>
+ * <p>Configuration for encrypting centralized destination log groups. By default, this configuration applies only to destination log groups whose corresponding source log groups are encrypted using customer managed KMS keys. To encrypt all destination log groups created by the rule, set <code>EncryptionScope</code> to <code>NEW_DESTINATION_LOG_GROUPS</code>.</p>
  * @public
  */
 export interface LogsEncryptionConfiguration {
@@ -156,6 +157,12 @@ export interface LogsEncryptionConfiguration {
    * @public
    */
   EncryptionConflictResolutionStrategy?: EncryptionConflictResolutionStrategy | undefined;
+
+  /**
+   * <p>Determines which newly created destination log groups are encrypted with the configured <code>KmsKeyArn</code> when <code>EncryptionStrategy</code> is <code>CUSTOMER_MANAGED</code>.</p> <p>If you set this to <code>ENCRYPTED_SOURCE_ONLY</code> (the default), only destination log groups whose source log group is encrypted with a customer managed KMS key use the configured <code>KmsKeyArn</code>. Destination log groups derived from Amazon Web Services owned encrypted source log groups remain Amazon Web Services owned encrypted.</p> <p>If you set this to <code>NEW_DESTINATION_LOG_GROUPS</code>, every new destination log group created by this rule uses the configured <code>KmsKeyArn</code>, regardless of the source log group's encryption posture.</p> <p>This field is not valid when <code>EncryptionStrategy</code> is <code>AWS_OWNED</code>.</p>
+   * @public
+   */
+  EncryptionScope?: EncryptionScope | undefined;
 }
 
 /**
@@ -669,12 +676,12 @@ export interface ELBLoadBalancerLoggingParameters {
 }
 
 /**
- * <p>Configuration parameters for Amazon Bedrock AgentCore logging, including <code>logType</code> settings.</p>
+ * <p>The configuration parameters for log delivery, including <code>logType</code> settings. Applies to resource types that support configurable log delivery, such as Amazon Bedrock Knowledge Bases and Elastic Load Balancing Application Load Balancers.</p>
  * @public
  */
 export interface LogDeliveryParameters {
   /**
-   * <p>The type of log that the source is sending.</p>
+   * <p>The types of logs to collect from the resource.</p>
    * @public
    */
   LogTypes?: LogType[] | undefined;
@@ -872,7 +879,7 @@ export interface TelemetryDestinationConfiguration {
   WAFLoggingParameters?: WAFLoggingParameters | undefined;
 
   /**
-   * <p>Configuration parameters specific to Amazon Bedrock AgentCore logging when Amazon Bedrock AgentCore is the resource type.</p>
+   * <p>The configuration parameters for log delivery when the resource type supports configurable log types, such as Amazon Bedrock Knowledge Bases or Elastic Load Balancing Application Load Balancers.</p>
    * @public
    */
   LogDeliveryParameters?: LogDeliveryParameters | undefined;
@@ -882,6 +889,12 @@ export interface TelemetryDestinationConfiguration {
    * @public
    */
   MskMonitoringParameters?: MskMonitoringParameters | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) of the customer-managed Amazon Web Services KMS key used to encrypt the log groups created during telemetry rule remediation. </p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
 }
 
 /**
@@ -890,7 +903,7 @@ export interface TelemetryDestinationConfiguration {
  */
 export interface TelemetryRule {
   /**
-   * <p> The type of Amazon Web Services resource to configure telemetry for (e.g., "AWS::EC2::VPC", "AWS::EKS::Cluster", "AWS::WAFv2::WebACL"). </p>
+   * <p> The type of Amazon Web Services resource to configure telemetry for (for example, <code>AWS::EC2::VPC</code>, <code>AWS::EKS::Cluster</code>, <code>AWS::ElasticLoadBalancingV2::LoadBalancer</code>, or <code>AWS::Bedrock::KnowledgeBase</code>). </p>
    * @public
    */
   ResourceType?: ResourceType | undefined;

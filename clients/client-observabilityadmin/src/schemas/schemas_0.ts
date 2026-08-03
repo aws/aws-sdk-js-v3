@@ -75,6 +75,7 @@ const _ELBLBLP = "ELBLoadBalancerLoggingParameters";
 const _ELGS = "EncryptedLogGroupStrategy";
 const _EM = "EnhancedMonitoring";
 const _ES = "EncryptionStrategy";
+const _ESn = "EncryptionScope";
 const _EW = "EndsWith";
 const _En = "Encryption";
 const _Eq = "Equals";
@@ -715,8 +716,8 @@ export var LogsBackupConfiguration$: StaticStructureSchema = [3, n0, _LBC,
 ];
 export var LogsEncryptionConfiguration$: StaticStructureSchema = [3, n0, _LEC,
   0,
-  [_ES, _KKA, _ECRS],
-  [0, 0, 0], 1
+  [_ES, _KKA, _ECRS, _ESn],
+  [0, 0, 0, 0], 1
 ];
 export var MetricsBackupConfiguration$: StaticStructureSchema = [3, n0, _MBC,
   0,
@@ -800,8 +801,8 @@ export var TelemetryConfiguration$: StaticStructureSchema = [3, n0, _TCe,
 ];
 export var TelemetryDestinationConfiguration$: StaticStructureSchema = [3, n0, _TDC,
   0,
-  [_DT, _DP, _RID, _VPCFLP, _CP, _ELBLBLP, _WAFLP, _LDP, _MMP],
-  [0, 0, 1, () => VPCFlowLogParameters$, () => CloudtrailParameters$, () => ELBLoadBalancerLoggingParameters$, () => WAFLoggingParameters$, () => LogDeliveryParameters$, () => MskMonitoringParameters$]
+  [_DT, _DP, _RID, _VPCFLP, _CP, _ELBLBLP, _WAFLP, _LDP, _MMP, _KKA],
+  [0, 0, 1, () => VPCFlowLogParameters$, () => CloudtrailParameters$, () => ELBLoadBalancerLoggingParameters$, () => WAFLoggingParameters$, () => LogDeliveryParameters$, () => MskMonitoringParameters$, 0]
 ];
 export var TelemetryPipeline$: StaticStructureSchema = [3, n0, _TP,
   0,

@@ -60,6 +60,7 @@ import {
   EncryptedLogGroupStrategy,
   Encryption$,
   EncryptionConflictResolutionStrategy,
+  EncryptionScope,
   EncryptionStrategy,
   FieldToMatch$,
   Filter$,
@@ -438,6 +439,7 @@ assert(typeof CentralizationFailureReason === "object");
 assert(typeof DestinationType === "object");
 assert(typeof EncryptedLogGroupStrategy === "object");
 assert(typeof EncryptionConflictResolutionStrategy === "object");
+assert(typeof EncryptionScope === "object");
 assert(typeof EncryptionStrategy === "object");
 assert(typeof FilterBehavior === "object");
 assert(typeof FilterRequirement === "object");

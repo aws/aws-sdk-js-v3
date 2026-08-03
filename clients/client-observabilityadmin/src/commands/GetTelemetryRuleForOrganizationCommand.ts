@@ -129,6 +129,7 @@ export interface GetTelemetryRuleForOrganizationCommandOutput extends GetTelemet
  * //       MskMonitoringParameters: { // MskMonitoringParameters
  * //         EnhancedMonitoring: "DEFAULT" || "PER_BROKER" || "PER_TOPIC_PER_BROKER" || "PER_TOPIC_PER_PARTITION",
  * //       },
+ * //       KmsKeyArn: "STRING_VALUE",
  * //     },
  * //     Scope: "STRING_VALUE",
  * //     SelectionCriteria: "STRING_VALUE",

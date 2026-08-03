@@ -127,6 +127,7 @@ export type {
   DestinationType,
   EncryptedLogGroupStrategy,
   EncryptionConflictResolutionStrategy,
+  EncryptionScope,
   EncryptionStrategy,
   FilterBehavior,
   FilterRequirement,
