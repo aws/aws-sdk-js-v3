@@ -23,11 +23,7 @@ export interface AssumeRoleForPodIdentityCommandInput extends AssumeRoleForPodId
 export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodIdentityResponse, __MetadataBearer {}
 
 /**
- * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used
- *             by the EKS Pod Identity Agent.</p>
- *          <p>We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if
- *             credentials from an EKS Pod Identity association are available in the pod, the latest versions of the
- *             SDKs use them automatically.</p>
+ * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used by the EKS Pod Identity Agent.</p> <p>We recommend that applications use the Amazon Web Services SDKs to connect to Amazon Web Services services; if credentials from an EKS Pod Identity association are available in the pod, the latest versions of the SDKs use them automatically.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +35,9 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * const input = { // AssumeRoleForPodIdentityRequest
  *   clusterName: "STRING_VALUE", // required
  *   token: "STRING_VALUE", // required
+ *   eksNodeName: "STRING_VALUE",
+ *   instanceId: "STRING_VALUE",
+ *   zone: "STRING_VALUE",
  * };
  * const command = new AssumeRoleForPodIdentityCommand(input);
  * const response = await client.send(command);
@@ -73,10 +72,7 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  * @see {@link EKSAuthClientResolvedConfig | config} for EKSAuthClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You don't have permissions to perform the requested operation. The IAM principal
- *             making the request must have at least one IAM permissions policy attached
- *             that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
- *                 management</a> in the <i>IAM User Guide</i>. </p>
+ *  <p>You don't have permissions to perform the requested operation. The IAM principal making the request must have at least one IAM permissions policy attached that grants the required permissions. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access management</a> in the <i>IAM User Guide</i>. </p>
  *
  * @throws {@link ExpiredTokenException} (client fault)
  *  <p>The specified Kubernetes service account token is expired.</p>
@@ -85,12 +81,10 @@ export interface AssumeRoleForPodIdentityCommandOutput extends AssumeRoleForPodI
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  <p>The specified parameter is invalid. Review the available parameters for the API
- *             request.</p>
+ *  <p>The specified parameter is invalid. Review the available parameters for the API request.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>This exception is thrown if the request contains a semantic error. The precise meaning
- *             will depend on the API, and will be documented in the error message.</p>
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning will depend on the API, and will be documented in the error message.</p>
  *
  * @throws {@link InvalidTokenException} (client fault)
  *  <p>The specified Kubernetes service account token is invalid.</p>

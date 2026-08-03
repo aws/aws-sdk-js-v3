@@ -26,9 +26,11 @@ const _c = "client";
 const _cN = "clusterName";
 const _cr = "credentials";
 const _e = "error";
+const _eNN = "eksNodeName";
 const _ex = "expiration";
 const _h = "http";
 const _hE = "httpError";
+const _iI = "instanceId";
 const _m = "message";
 const _n = "namespace";
 const _pIA = "podIdentityAssociation";
@@ -39,6 +41,7 @@ const _sT = "sessionToken";
 const _se = "server";
 const _su = "subject";
 const _t = "token";
+const _z = "zone";
 const n0 = "com.amazonaws.eksauth";
 
 // smithy-typescript generated code
@@ -139,8 +142,8 @@ export var AssumedRoleUser$: StaticStructureSchema = [3, n0, _ARU,
 ];
 export var AssumeRoleForPodIdentityRequest$: StaticStructureSchema = [3, n0, _ARFPIR,
   0,
-  [_cN, _t],
-  [[0, 1], [() => JwtToken, 0]], 2
+  [_cN, _t, _eNN, _iI, _z],
+  [[0, 1], [() => JwtToken, 0], 0, 0, 0], 2
 ];
 export var AssumeRoleForPodIdentityResponse$: StaticStructureSchema = [3, n0, _ARFPIRs,
   0,

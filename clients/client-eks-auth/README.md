@@ -6,8 +6,7 @@
 
 AWS SDK for JavaScript EKSAuth Client for Node.js, Browser and React Native.
 
-<p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only
-used by the EKS Pod Identity Agent.</p>
+<p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used by the EKS Pod Identity Agent.</p>
 
 ## Installing
 

@@ -1,8 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only
- *             used by the EKS Pod Identity Agent.</p>
+ * <p>The Amazon EKS Auth API and the <code>AssumeRoleForPodIdentity</code> action are only used by the EKS Pod Identity Agent.</p>
  *
  * @packageDocumentation
  */
