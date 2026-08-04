@@ -72,6 +72,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.6 (2026-08-04)
+### Bug Fixes
+* **core/protocols:** fix number precision check ([#8252](https://github.com/aws/aws-sdk-js-v3/issues/8252)) ([3ab3c0e](https://github.com/aws/aws-sdk-js-v3/commit/3ab3c0e2eab6fd19ab26d011061095d2a090040f))
+
+
+
 # 3.977.5 (2026-08-03)
 ### Bug Fixes
 * **core/protocols:** document and number serialization fixes ([#8245](https://github.com/aws/aws-sdk-js-v3/issues/8245)) ([71d4384](https://github.com/aws/aws-sdk-js-v3/commit/71d4384273083464c78fa30c2f88a21f1d6e147b))

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
+
+
+### Features
+
+* **client-partnercentral-selling:** Partners can now create leads with only 5 required fields and free-text values for all other fields, reducing import friction. Engagement invitations now include enrichment data (propensity scores, lead readiness) directly in the response. ([108bded](https://github.com/aws/aws-sdk-js-v3/commit/108bdedcc7520760281fdd65eb10fcfb24168946))
+
+
+
+
+
 # [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

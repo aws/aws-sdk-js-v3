@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
+
+
+### Bug Fixes
+
+* **core/protocols:** fix number precision check ([#8252](https://github.com/aws/aws-sdk-js-v3/issues/8252)) ([3ab3c0e](https://github.com/aws/aws-sdk-js-v3/commit/3ab3c0e2eab6fd19ab26d011061095d2a090040f))
+
+
+### Features
+
+* **client-connect:** Amazon Connect Customer now supports up to 50 attachments per email, increased from the previous limit of 10. The individual maximum attachment size limit of 20 MB and the total email size limit of 25 MB still hold true. ([a0b556c](https://github.com/aws/aws-sdk-js-v3/commit/a0b556cba045b055d6c01fa414555fe25055a855))
+* **client-dynamodb:** Vector indexes are a type of index in Amazon DynamoDB that enable similarity search on vector embedding stored in your table items. Vector indexes use approximate nearest neighbor search to find items whose vectors are most similar to a query vector that you provide. ([3b4460c](https://github.com/aws/aws-sdk-js-v3/commit/3b4460cb551ec1b3969ff1f1dc0bc87eee1fe661))
+* **client-ec2:** Amazon EC2 now supports Application Status Checks, a new status check that monitors your application's health through configurable HTTP(S) paths and ports, so you can detect and automatically respond to application-level impairments. ([b66fadc](https://github.com/aws/aws-sdk-js-v3/commit/b66fadcac6a74c151a905255046f72f2ec15331b))
+* **client-iam:** Updating endpoint generation logic ([4f3cb1d](https://github.com/aws/aws-sdk-js-v3/commit/4f3cb1da9b9500c0e19c1e1593a1a50be69fe26a))
+* **client-inspector2:** Adding Azure SBOM export capability. ([c8824ff](https://github.com/aws/aws-sdk-js-v3/commit/c8824ff264dd01096be66458cd7f2fde2db871dd))
+* **client-partnercentral-selling:** Partners can now create leads with only 5 required fields and free-text values for all other fields, reducing import friction. Engagement invitations now include enrichment data (propensity scores, lead readiness) directly in the response. ([108bded](https://github.com/aws/aws-sdk-js-v3/commit/108bdedcc7520760281fdd65eb10fcfb24168946))
+* **client-sso-admin:** AWS IAM Identity Center now lets you create organization-level instances without enabling multi-account permissions. You can enable multi-account permissions during instance creation or later via console or API, which then provisions the necessary service-linked roles. ([97c52b6](https://github.com/aws/aws-sdk-js-v3/commit/97c52b6c02bb13e8e44d81019a3dd791dd02c6bc))
+* **client-workspaces:** Added ClientExperiencePolicy to ClientProperties object for ModifyClientProperties and DescribeClientProperties APIs. ([c05ebd0](https://github.com/aws/aws-sdk-js-v3/commit/c05ebd0e43d10af5a49342343075795b5bdb02e7))
+
+
+
+
+
 # [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
 
 

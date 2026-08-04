@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
+
+
+### Features
+
+* **client-ec2:** Amazon EC2 now supports Application Status Checks, a new status check that monitors your application's health through configurable HTTP(S) paths and ports, so you can detect and automatically respond to application-level impairments. ([b66fadc](https://github.com/aws/aws-sdk-js-v3/commit/b66fadcac6a74c151a905255046f72f2ec15331b))
+
+
+
+
+
 # [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2

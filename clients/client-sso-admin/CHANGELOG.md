@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
+
+
+### Features
+
+* **client-sso-admin:** AWS IAM Identity Center now lets you create organization-level instances without enabling multi-account permissions. You can enable multi-account permissions during instance creation or later via console or API, which then provisions the necessary service-linked roles. ([97c52b6](https://github.com/aws/aws-sdk-js-v3/commit/97c52b6c02bb13e8e44d81019a3dd791dd02c6bc))
+
+
+
+
+
 # [3.1102.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1101.0...v3.1102.0) (2026-08-03)
 
 **Note:** Version bump only for package @aws-sdk/client-sso-admin

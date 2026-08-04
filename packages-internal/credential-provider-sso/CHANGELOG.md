@@ -75,6 +75,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.973.11 (2026-08-04)
+### Chores
+* **credential-provider-sso:** update dependencies.
+
+
+
 # 3.973.10 (2026-08-03)
 ### Chores
 * **credential-provider-sso:** update dependencies.

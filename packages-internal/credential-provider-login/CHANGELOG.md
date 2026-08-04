@@ -76,6 +76,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.74 (2026-08-04)
+### Chores
+* **credential-provider-login:** update dependencies.
+
+
+
 # 3.972.73 (2026-08-03)
 ### Bug Fixes
 * **credential-provider-login:** always read token from disk ([#8216](https://github.com/aws/aws-sdk-js-v3/issues/8216)) ([5caf21f](https://github.com/aws/aws-sdk-js-v3/commit/5caf21f6aea89905f0b54aa4fec9dea7786a2463))

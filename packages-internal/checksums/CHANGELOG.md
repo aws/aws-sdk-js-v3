@@ -26,6 +26,13 @@
 
 
 
+
+# 3.1000.26 (2026-08-04)
+### Chores
+* **checksums:** update dependencies.
+
+
+
 # 3.1000.25 (2026-07-31)
 ### Docs
 * **checksums:** populate readme with package overview ([#8243](https://github.com/aws/aws-sdk-js-v3/issues/8243)) ([353e67d](https://github.com/aws/aws-sdk-js-v3/commit/353e67ddd8bc3ca9fe8d18995d1248ac3ed5af5b))
