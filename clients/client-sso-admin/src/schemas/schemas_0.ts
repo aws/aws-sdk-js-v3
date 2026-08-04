@@ -324,6 +324,7 @@ const _PPSRr = "ProvisionPermissionSetResponse";
 const _PR = "PrimaryRegion";
 const _PS = "PermissionSet";
 const _PSA = "PermissionSetArn";
+const _PSE = "PermissionSetsEnabled";
 const _PSPS = "PermissionSetProvisioningStatus";
 const _PSPSL = "PermissionSetProvisioningStatusList";
 const _PSPSM = "PermissionSetProvisioningStatusMetadata";
@@ -832,8 +833,8 @@ export var DescribeInstanceRequest$: StaticStructureSchema = [3, n0, _DIRes,
 ];
 export var DescribeInstanceResponse$: StaticStructureSchema = [3, n0, _DIResc,
   0,
-  [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _ECD],
-  [0, 0, 0, 0, 4, 0, 0, () => EncryptionConfigurationDetails$]
+  [_IA, _ISI, _OAI, _N, _CD, _St, _SR, _ECD, _PSE],
+  [0, 0, 0, 0, 4, 0, 0, () => EncryptionConfigurationDetails$, 2]
 ];
 export var DescribePermissionSetProvisioningStatusRequest$: StaticStructureSchema = [3, n0, _DPSPSR,
   0,
@@ -1437,8 +1438,8 @@ export var UpdateInstanceAccessControlAttributeConfigurationResponse$: StaticStr
 ];
 export var UpdateInstanceRequest$: StaticStructureSchema = [3, n0, _UIR,
   0,
-  [_IA, _N, _EC],
-  [0, 0, () => EncryptionConfiguration$], 1
+  [_IA, _N, _EC, _PSE],
+  [0, 0, () => EncryptionConfiguration$, 2], 1
 ];
 export var UpdateInstanceResponse$: StaticStructureSchema = [3, n0, _UIRp,
   0,

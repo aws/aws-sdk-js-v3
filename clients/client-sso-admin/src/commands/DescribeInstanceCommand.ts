@@ -51,6 +51,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //     EncryptionStatus: "UPDATING" || "ENABLED" || "UPDATE_FAILED",
  * //     EncryptionStatusReason: "STRING_VALUE",
  * //   },
+ * //   PermissionSetsEnabled: true || false,
  * // };
  *
  * ```

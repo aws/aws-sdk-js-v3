@@ -2104,6 +2104,12 @@ export interface DescribeInstanceResponse {
    * @public
    */
   EncryptionConfigurationDetails?: EncryptionConfigurationDetails | undefined;
+
+  /**
+   * <p>Indicates whether permission sets are enabled for this Identity Center instance.</p>
+   * @public
+   */
+  PermissionSetsEnabled?: boolean | undefined;
 }
 
 /**
@@ -3845,6 +3851,12 @@ export interface UpdateInstanceRequest {
    * @public
    */
   EncryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>Enables permission sets for this Identity Center instance. The only accepted value is <code>true </code>. After permission sets are enabled, they cannot be disabled.</p> <note> <p>You can't set <code>EncryptionConfiguration</code> and <code>PermissionSetsEnabled</code> in the same request. To configure both, make two separate <code>UpdateInstance</code> calls. These calls can be made in parallel.</p> </note>
+   * @public
+   */
+  PermissionSetsEnabled?: boolean | undefined;
 }
 
 /**
