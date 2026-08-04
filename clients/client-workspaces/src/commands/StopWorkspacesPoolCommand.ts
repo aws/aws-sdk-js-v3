@@ -23,7 +23,13 @@ export interface StopWorkspacesPoolCommandInput extends StopWorkspacesPoolReques
 export interface StopWorkspacesPoolCommandOutput extends StopWorkspacesPoolResult, __MetadataBearer {}
 
 /**
- * <p>Stops the specified pool.</p>
+ * <note>
+ *             <p>End of support notice: On December 31, 2027, Amazon Web Services will end support for Amazon WorkSpaces Pools. After December 31, 2027,
+ * you will no longer be able to access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For more information, see
+ * <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html">Amazon WorkSpaces Pools end of support</a>.
+ *  </p>
+ *          </note>
+ *          <p>Stops the specified pool.</p>
  *          <p>You cannot stop a WorkSpace pool unless it has a running mode of <code>AutoStop</code>
  *          and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
  * @example

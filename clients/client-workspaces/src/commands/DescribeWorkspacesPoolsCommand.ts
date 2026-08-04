@@ -23,7 +23,13 @@ export interface DescribeWorkspacesPoolsCommandInput extends DescribeWorkspacesP
 export interface DescribeWorkspacesPoolsCommandOutput extends DescribeWorkspacesPoolsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified WorkSpaces Pools.</p>
+ * <note>
+ *             <p>End of support notice: On December 31, 2027, Amazon Web Services will end support for Amazon WorkSpaces Pools. After December 31, 2027,
+ * you will no longer be able to access the Amazon WorkSpaces Pools console or Amazon WorkSpaces Pools resources. For more information, see
+ * <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/wsp-pools-end-of-support.html">Amazon WorkSpaces Pools end of support</a>.
+ *  </p>
+ *          </note>
+ *          <p>Describes the specified WorkSpaces Pools.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

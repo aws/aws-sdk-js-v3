@@ -763,6 +763,15 @@ export interface ClientProperties {
    * @public
    */
   LogUploadEnabled?: LogUploadEnum | undefined;
+
+  /**
+   * <p>The client experience policy that determines which client experience the user sees.
+   *          Administrators can set this policy to control the client experience for users in a directory.
+   *          Valid values include <code>FORCE_CLASSIC</code>, <code>FORCE_UI_2026</code>,
+   *          and <code>USER_CHOICE</code>.</p>
+   * @public
+   */
+  ClientExperiencePolicy?: string | undefined;
 }
 
 /**

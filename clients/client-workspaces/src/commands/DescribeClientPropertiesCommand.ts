@@ -46,6 +46,7 @@ export interface DescribeClientPropertiesCommandOutput extends DescribeClientPro
  * //       ClientProperties: { // ClientProperties
  * //         ReconnectEnabled: "ENABLED" || "DISABLED",
  * //         LogUploadEnabled: "ENABLED" || "DISABLED",
+ * //         ClientExperiencePolicy: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],

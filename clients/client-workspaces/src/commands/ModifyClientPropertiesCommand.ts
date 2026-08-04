@@ -37,6 +37,7 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  *   ClientProperties: { // ClientProperties
  *     ReconnectEnabled: "ENABLED" || "DISABLED",
  *     LogUploadEnabled: "ENABLED" || "DISABLED",
+ *     ClientExperiencePolicy: "STRING_VALUE",
  *   },
  * };
  * const command = new ModifyClientPropertiesCommand(input);

@@ -92,6 +92,7 @@ const _CCCAIR = "CreateConnectClientAddInRequest";
 const _CCCAIRr = "CreateConnectClientAddInResult";
 const _CCT = "ChangeComputeType";
 const _CE = "ConflictException";
+const _CEP = "ClientExperiencePolicy";
 const _CI = "ConnectionIdentifier";
 const _CIG = "CreateIpGroup";
 const _CIGR = "CreateIpGroupRequest";
@@ -994,8 +995,8 @@ export var CertificateBasedAuthProperties$: StaticStructureSchema = [3, n0, _CBA
 ];
 export var ClientProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_RE, _LUE],
-  [0, 0]
+  [_RE, _LUE, _CEP],
+  [0, 0, 0]
 ];
 export var ClientPropertiesResult$: StaticStructureSchema = [3, n0, _CPR,
   0,
