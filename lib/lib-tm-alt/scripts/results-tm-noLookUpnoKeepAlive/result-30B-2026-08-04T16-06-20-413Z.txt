@@ -1,0 +1,13 @@
+Workload: s3tm-30gb (30.0 GiB)
+Workers: 64, Concurrency: 256
+
+Run:1 Secs:20.507848 Gb/s:12.565826
+Run:2 Secs:25.081685 Gb/s:10.274351
+Run:3 Secs:24.668981 Gb/s:10.446237
+Run:4 Secs:24.667858 Gb/s:10.446713
+Run:5 Secs:24.960530 Gb/s:10.324221
+Run:6 Secs:24.757443 Gb/s:10.408912
+Run:7 Secs:24.880464 Gb/s:10.357445
+Run:8 Secs:24.441699 Gb/s:10.543377
+Run:9 Secs:24.632958 Gb/s:10.461514
+Run:10 Secs:24.704859 Gb/s:10.431067
