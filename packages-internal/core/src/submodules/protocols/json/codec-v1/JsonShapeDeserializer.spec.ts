@@ -1,4 +1,4 @@
-import { NumericValue } from "@smithy/core/serde";
+import { NumericValue, nv } from "@smithy/core/serde";
 import type { TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
@@ -100,12 +100,42 @@ describe(JsonShapeDeserializer.name, () => {
     });
   });
 
+  (contextSourceAvailable ? it : it.skip)(
+    "deserializes numeric members to number when the reviver is active",
+    async () => {
+      expect(await deserializer.read(widget, `{ "scalar": 1.0 }`)).toEqual({ scalar: 1 });
+      expect(await deserializer.read(widget, `{ "scalar": 0.0 }`)).toEqual({ scalar: 0 });
+      expect(
+        await deserializer.read(
+          widget,
+          `{
+            "scalar": 1.000000000000000000000001e3,
+            "documentMap": {
+              "a": 1.000000000000000000000001e3,
+              "b": 1.000000000000000000000001e3,
+              "c": 1.000000000000000000000000e3,
+              "d": 1.000000000000000000000000e3
+            }
+          }`
+        )
+      ).toEqual({
+        scalar: nv("1.000000000000000000000001e3"),
+        documentMap: {
+          a: nv("1.000000000000000000000001e3"),
+          b: nv("1.000000000000000000000001e3"),
+          c: 1000,
+          d: 1000,
+        },
+      });
+    }
+  );
+
   it("deserializes big integers from string or number", async () => {
     expect(
       await deserializer.read(
         widget,
         `{
-      "bigint": "1000000000000000000000000000000000000" 
+      "bigint": "1000000000000000000000000000000000000"
     }`
       )
     ).toEqual({
@@ -131,7 +161,7 @@ describe(JsonShapeDeserializer.name, () => {
       await deserializer.read(
         widget,
         `{
-      "bigdecimal": "0.0000000000000000000000000000000000001" 
+      "bigdecimal": "0.0000000000000000000000000000000000001"
     }`
       )
     ).toEqual({
@@ -142,7 +172,7 @@ describe(JsonShapeDeserializer.name, () => {
       await deserializer.read(
         widget,
         `{
-      "bigdecimal": 0.0001 
+      "bigdecimal": 0.0001
     }`
       )
     ).toEqual({
