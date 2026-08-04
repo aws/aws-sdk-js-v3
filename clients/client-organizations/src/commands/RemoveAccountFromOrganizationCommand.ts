@@ -32,7 +32,7 @@ export interface RemoveAccountFromOrganizationCommandOutput extends __MetadataBe
  *          <p>When an account is removed from an organization, Organizations logs a membership
  *             event in CloudTrail. The event is an
  *             <code>AccountDepartedOrganization</code> event with
- *             <code>departedMethod:Removed</code> and <code>departedTime</code>. This event is
+ *             <code>departureMethod:REMOVED</code> and <code>departureTime</code>. This event is
  *             available only in the management account's event history.</p>
  *          <important>
  *             <ul>

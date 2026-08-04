@@ -79,7 +79,7 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *          <p>After the permanent termination of the account after the 90-day waiting period,
  *             Organizations logs a membership event in CloudTrail. The event is an
  *             <code>AccountDepartedOrganization</code> event with
- *             <code>departedMethod:Cleaned</code> and <code>departedTime</code>. This event is
+ *             <code>departureMethod:CLEANED</code> and <code>departureTime</code>. This event is
  *             available only in the management account's event history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

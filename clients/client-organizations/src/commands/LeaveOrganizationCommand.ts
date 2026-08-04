@@ -29,7 +29,7 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *          <p>You can only call from operation from a member account.</p>
  *          <p>When an account leaves an organization, Organizations logs a membership event in
  *             CloudTrail. The event is an <code>AccountDepartedOrganization</code> event with
- *             <code>departedMethod:Left</code> and <code>departedTime</code>. This event is available
+ *             <code>departureMethod:LEFT</code> and <code>departureTime</code>. This event is available
  *             only in the management account's event history.</p>
  *          <important>
  *             <ul>

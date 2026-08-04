@@ -26,7 +26,7 @@ export interface DeleteOrganizationCommandOutput extends __MetadataBearer {}
  *             from the management account. The organization must be empty of member accounts.</p>
  *          <p>When an organization is deleted, Organizations logs a membership event in CloudTrail. The
  *             event is an <code>AccountDepartedOrganization</code> event with
- *             <code>departedMethod:Left</code> and <code>departedTime</code>. This event is available
+ *             <code>departureMethod:LEFT</code> and <code>departureTime</code>. This event is available
  *             only in the management account's event history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

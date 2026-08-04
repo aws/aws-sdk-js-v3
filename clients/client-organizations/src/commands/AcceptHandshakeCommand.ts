@@ -55,11 +55,11 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *          <p>When a handshake is accepted, Organizations logs membership events in CloudTrail, available
  *             only in the management account's event history. If the account was standalone and joined
  *             a new organization, an <code>AccountJoinedOrganization</code> event is logged with
- *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> fields. If the account
+ *             <code>joinedMethod:INVITED</code> and <code>joinedTime</code> fields. If the account
  *             departed one organization and joined another, both an
- *             <code>AccountDepartedOrganization</code> event with <code>departedMethod:Left</code>
- *             and <code>departedTime</code> and an <code>AccountJoinedOrganization</code> event with
- *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> are logged in their
+ *             <code>AccountDepartedOrganization</code> event with <code>departureMethod:LEFT</code>
+ *             and <code>departureTime</code> and an <code>AccountJoinedOrganization</code> event with
+ *             <code>joinedMethod:INVITED</code> and <code>joinedTime</code> are logged in their
  *             respective management accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

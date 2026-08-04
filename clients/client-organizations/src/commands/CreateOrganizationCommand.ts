@@ -36,7 +36,7 @@ export interface CreateOrganizationCommandOutput extends CreateOrganizationRespo
  *             and you can't use organization policies.</p>
  *          <p>The <code>AccountJoinedOrganization</code> event is logged in CloudTrail and
  *             is available only in the management account's event history. This event includes
- *             <code>joinedMethod:Invited</code> and <code>joinedTime</code> fields to provide
+ *             <code>joinedMethod:INVITED</code> and <code>joinedTime</code> fields to provide
  *             context on how and when the account joined the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
