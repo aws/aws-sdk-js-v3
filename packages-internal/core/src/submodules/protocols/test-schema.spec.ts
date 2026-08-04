@@ -3,6 +3,7 @@ import type {
   BigDecimalSchema,
   BigIntegerSchema,
   BlobSchema,
+  DocumentSchema,
   NumericSchema,
   StaticListSchema,
   StaticOperationSchema,
@@ -23,7 +24,20 @@ export const widget = [
   "",
   "Struct",
   0,
-  ["list", "sparseList", "map", "sparseMap", "blob", "media", "timestamp", "bigint", "bigdecimal", "scalar"],
+  [
+    "list",
+    "sparseList",
+    "map",
+    "sparseMap",
+    "blob",
+    "media",
+    "timestamp",
+    "bigint",
+    "bigdecimal",
+    "scalar",
+    "document",
+    "documentMap",
+  ],
   [
     [[1, "", "List", 0, 0] satisfies StaticListSchema, 0],
     [[1, "", "List", 0, 0] satisfies StaticListSchema, { sparse: 1 }],
@@ -35,6 +49,8 @@ export const widget = [
     17 satisfies BigIntegerSchema,
     19 satisfies BigDecimalSchema,
     1 satisfies NumericSchema,
+    15 satisfies DocumentSchema,
+    128 | 15,
   ],
 ] satisfies StaticStructureSchema;
 
