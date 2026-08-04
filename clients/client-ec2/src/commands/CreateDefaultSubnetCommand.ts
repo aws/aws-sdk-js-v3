@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateDefaultSubnetRequest } from "../models/models_0";
-import type { CreateDefaultSubnetResult } from "../models/models_1";
+import type { CreateDefaultSubnetRequest, CreateDefaultSubnetResult } from "../models/models_1";
 import { CreateDefaultSubnet$ } from "../schemas/schemas_0";
 
 /**

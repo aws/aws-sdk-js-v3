@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableTransitGatewayRouteTablePropagationRequest,
   EnableTransitGatewayRouteTablePropagationResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { EnableTransitGatewayRouteTablePropagation$ } from "../schemas/schemas_0";
 
 /**

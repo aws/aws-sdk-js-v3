@@ -38,6 +38,12 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *             </li>
  *             <li>
  *                <p>
+ *                   <b>Application status checks</b> - Amazon EC2 reports
+ *                     application-level health status for instances, indicating whether applications
+ *                     running on the instance are functioning properly.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <b>Scheduled events</b> - Amazon EC2 can schedule
  *                     events (such as reboot, stop, or terminate) for your instances related to
  *                     hardware issues, software updates, or system maintenance. For more information,
@@ -146,6 +152,10 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  * //           },
  * //         ],
  * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //       },
+ * //       ApplicationStatus: { // ApplicationStatusSummary
+ * //         Status: "ok" || "impaired" || "insufficient-data" || "not-applicable" || "initializing",
+ * //         ImpairedSince: new Date("TIMESTAMP"),
  * //       },
  * //     },
  * //   ],

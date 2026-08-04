@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableIpamOrganizationAdminAccountRequest,
   EnableIpamOrganizationAdminAccountResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { EnableIpamOrganizationAdminAccount$ } from "../schemas/schemas_0";
 
 /**

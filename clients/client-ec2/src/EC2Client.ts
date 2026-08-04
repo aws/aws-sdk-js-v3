@@ -118,6 +118,10 @@ import type {
 } from "./commands/AssignPrivateNatGatewayAddressCommand";
 import type { AssociateAddressCommandInput, AssociateAddressCommandOutput } from "./commands/AssociateAddressCommand";
 import type {
+  AssociateApplicationStatusCheckCommandInput,
+  AssociateApplicationStatusCheckCommandOutput,
+} from "./commands/AssociateApplicationStatusCheckCommand";
+import type {
   AssociateCapacityReservationBillingOwnerCommandInput,
   AssociateCapacityReservationBillingOwnerCommandOutput,
 } from "./commands/AssociateCapacityReservationBillingOwnerCommand";
@@ -267,6 +271,10 @@ import type { CopyFpgaImageCommandInput, CopyFpgaImageCommandOutput } from "./co
 import type { CopyImageCommandInput, CopyImageCommandOutput } from "./commands/CopyImageCommand";
 import type { CopySnapshotCommandInput, CopySnapshotCommandOutput } from "./commands/CopySnapshotCommand";
 import type { CopyVolumesCommandInput, CopyVolumesCommandOutput } from "./commands/CopyVolumesCommand";
+import type {
+  CreateApplicationStatusCheckCommandInput,
+  CreateApplicationStatusCheckCommandOutput,
+} from "./commands/CreateApplicationStatusCheckCommand";
 import type {
   CreateCapacityManagerDataExportCommandInput,
   CreateCapacityManagerDataExportCommandOutput,
@@ -622,6 +630,10 @@ import type {
   CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand";
 import type { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "./commands/CreateVpnGatewayCommand";
+import type {
+  DeleteApplicationStatusCheckCommandInput,
+  DeleteApplicationStatusCheckCommandOutput,
+} from "./commands/DeleteApplicationStatusCheckCommand";
 import type {
   DeleteCapacityManagerDataExportCommandInput,
   DeleteCapacityManagerDataExportCommandOutput,
@@ -991,6 +1003,18 @@ import type {
   DescribeAggregateIdFormatCommandInput,
   DescribeAggregateIdFormatCommandOutput,
 } from "./commands/DescribeAggregateIdFormatCommand";
+import type {
+  DescribeApplicationStatusCheckAssociationsCommandInput,
+  DescribeApplicationStatusCheckAssociationsCommandOutput,
+} from "./commands/DescribeApplicationStatusCheckAssociationsCommand";
+import type {
+  DescribeApplicationStatusChecksCommandInput,
+  DescribeApplicationStatusChecksCommandOutput,
+} from "./commands/DescribeApplicationStatusChecksCommand";
+import type {
+  DescribeApplicationStatusCommandInput,
+  DescribeApplicationStatusCommandOutput,
+} from "./commands/DescribeApplicationStatusCommand";
 import type {
   DescribeAvailabilityZonesCommandInput,
   DescribeAvailabilityZonesCommandOutput,
@@ -1711,6 +1735,10 @@ import type {
   DisableAllowedImagesSettingsCommandOutput,
 } from "./commands/DisableAllowedImagesSettingsCommand";
 import type {
+  DisableApplicationStatusCheckSuppressionCommandInput,
+  DisableApplicationStatusCheckSuppressionCommandOutput,
+} from "./commands/DisableApplicationStatusCheckSuppressionCommand";
+import type {
   DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
 } from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
@@ -1788,6 +1816,10 @@ import type {
   DisassociateAddressCommandOutput,
 } from "./commands/DisassociateAddressCommand";
 import type {
+  DisassociateApplicationStatusCheckCommandInput,
+  DisassociateApplicationStatusCheckCommandOutput,
+} from "./commands/DisassociateApplicationStatusCheckCommand";
+import type {
   DisassociateCapacityReservationBillingOwnerCommandInput,
   DisassociateCapacityReservationBillingOwnerCommandOutput,
 } from "./commands/DisassociateCapacityReservationBillingOwnerCommand";
@@ -1863,6 +1895,10 @@ import type {
   EnableAllowedImagesSettingsCommandInput,
   EnableAllowedImagesSettingsCommandOutput,
 } from "./commands/EnableAllowedImagesSettingsCommand";
+import type {
+  EnableApplicationStatusCheckSuppressionCommandInput,
+  EnableApplicationStatusCheckSuppressionCommandOutput,
+} from "./commands/EnableApplicationStatusCheckSuppressionCommand";
 import type {
   EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
@@ -2247,6 +2283,10 @@ import type {
   ModifyAddressAttributeCommandInput,
   ModifyAddressAttributeCommandOutput,
 } from "./commands/ModifyAddressAttributeCommand";
+import type {
+  ModifyApplicationStatusCheckCommandInput,
+  ModifyApplicationStatusCheckCommandOutput,
+} from "./commands/ModifyApplicationStatusCheckCommand";
 import type {
   ModifyAvailabilityZoneGroupCommandInput,
   ModifyAvailabilityZoneGroupCommandOutput,
@@ -2857,6 +2897,7 @@ export type ServiceInputTypes =
   | AssignPrivateIpAddressesCommandInput
   | AssignPrivateNatGatewayAddressCommandInput
   | AssociateAddressCommandInput
+  | AssociateApplicationStatusCheckCommandInput
   | AssociateCapacityReservationBillingOwnerCommandInput
   | AssociateClientVpnTargetNetworkCommandInput
   | AssociateDhcpOptionsCommandInput
@@ -2902,6 +2943,7 @@ export type ServiceInputTypes =
   | CopyImageCommandInput
   | CopySnapshotCommandInput
   | CopyVolumesCommandInput
+  | CreateApplicationStatusCheckCommandInput
   | CreateCapacityManagerDataExportCommandInput
   | CreateCapacityReservationBySplittingCommandInput
   | CreateCapacityReservationCancellationQuoteCommandInput
@@ -3008,6 +3050,7 @@ export type ServiceInputTypes =
   | CreateVpnConnectionCommandInput
   | CreateVpnConnectionRouteCommandInput
   | CreateVpnGatewayCommandInput
+  | DeleteApplicationStatusCheckCommandInput
   | DeleteCapacityManagerDataExportCommandInput
   | DeleteCarrierGatewayCommandInput
   | DeleteClientVpnEndpointCommandInput
@@ -3116,6 +3159,9 @@ export type ServiceInputTypes =
   | DescribeAddressesAttributeCommandInput
   | DescribeAddressesCommandInput
   | DescribeAggregateIdFormatCommandInput
+  | DescribeApplicationStatusCheckAssociationsCommandInput
+  | DescribeApplicationStatusChecksCommandInput
+  | DescribeApplicationStatusCommandInput
   | DescribeAvailabilityZonesCommandInput
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   | DescribeBundleTasksCommandInput
@@ -3307,6 +3353,7 @@ export type ServiceInputTypes =
   | DetachVpnGatewayCommandInput
   | DisableAddressTransferCommandInput
   | DisableAllowedImagesSettingsCommandInput
+  | DisableApplicationStatusCheckSuppressionCommandInput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | DisableCapacityManagerCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
@@ -3327,6 +3374,7 @@ export type ServiceInputTypes =
   | DisableVpcClassicLinkCommandInput
   | DisableVpcClassicLinkDnsSupportCommandInput
   | DisassociateAddressCommandInput
+  | DisassociateApplicationStatusCheckCommandInput
   | DisassociateCapacityReservationBillingOwnerCommandInput
   | DisassociateClientVpnTargetNetworkCommandInput
   | DisassociateEnclaveCertificateIamRoleCommandInput
@@ -3346,6 +3394,7 @@ export type ServiceInputTypes =
   | DisassociateVpcCidrBlockCommandInput
   | EnableAddressTransferCommandInput
   | EnableAllowedImagesSettingsCommandInput
+  | EnableApplicationStatusCheckSuppressionCommandInput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | EnableCapacityManagerCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
@@ -3454,6 +3503,7 @@ export type ServiceInputTypes =
   | LockSnapshotCommandInput
   | ModifyAccountVpcEncryptionControlCommandInput
   | ModifyAddressAttributeCommandInput
+  | ModifyApplicationStatusCheckCommandInput
   | ModifyAvailabilityZoneGroupCommandInput
   | ModifyCapacityReservationCommandInput
   | ModifyCapacityReservationFleetCommandInput
@@ -3637,6 +3687,7 @@ export type ServiceOutputTypes =
   | AssignPrivateIpAddressesCommandOutput
   | AssignPrivateNatGatewayAddressCommandOutput
   | AssociateAddressCommandOutput
+  | AssociateApplicationStatusCheckCommandOutput
   | AssociateCapacityReservationBillingOwnerCommandOutput
   | AssociateClientVpnTargetNetworkCommandOutput
   | AssociateDhcpOptionsCommandOutput
@@ -3682,6 +3733,7 @@ export type ServiceOutputTypes =
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
   | CopyVolumesCommandOutput
+  | CreateApplicationStatusCheckCommandOutput
   | CreateCapacityManagerDataExportCommandOutput
   | CreateCapacityReservationBySplittingCommandOutput
   | CreateCapacityReservationCancellationQuoteCommandOutput
@@ -3788,6 +3840,7 @@ export type ServiceOutputTypes =
   | CreateVpnConnectionCommandOutput
   | CreateVpnConnectionRouteCommandOutput
   | CreateVpnGatewayCommandOutput
+  | DeleteApplicationStatusCheckCommandOutput
   | DeleteCapacityManagerDataExportCommandOutput
   | DeleteCarrierGatewayCommandOutput
   | DeleteClientVpnEndpointCommandOutput
@@ -3896,6 +3949,9 @@ export type ServiceOutputTypes =
   | DescribeAddressesAttributeCommandOutput
   | DescribeAddressesCommandOutput
   | DescribeAggregateIdFormatCommandOutput
+  | DescribeApplicationStatusCheckAssociationsCommandOutput
+  | DescribeApplicationStatusChecksCommandOutput
+  | DescribeApplicationStatusCommandOutput
   | DescribeAvailabilityZonesCommandOutput
   | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
   | DescribeBundleTasksCommandOutput
@@ -4087,6 +4143,7 @@ export type ServiceOutputTypes =
   | DetachVpnGatewayCommandOutput
   | DisableAddressTransferCommandOutput
   | DisableAllowedImagesSettingsCommandOutput
+  | DisableApplicationStatusCheckSuppressionCommandOutput
   | DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | DisableCapacityManagerCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
@@ -4107,6 +4164,7 @@ export type ServiceOutputTypes =
   | DisableVpcClassicLinkCommandOutput
   | DisableVpcClassicLinkDnsSupportCommandOutput
   | DisassociateAddressCommandOutput
+  | DisassociateApplicationStatusCheckCommandOutput
   | DisassociateCapacityReservationBillingOwnerCommandOutput
   | DisassociateClientVpnTargetNetworkCommandOutput
   | DisassociateEnclaveCertificateIamRoleCommandOutput
@@ -4126,6 +4184,7 @@ export type ServiceOutputTypes =
   | DisassociateVpcCidrBlockCommandOutput
   | EnableAddressTransferCommandOutput
   | EnableAllowedImagesSettingsCommandOutput
+  | EnableApplicationStatusCheckSuppressionCommandOutput
   | EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | EnableCapacityManagerCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
@@ -4234,6 +4293,7 @@ export type ServiceOutputTypes =
   | LockSnapshotCommandOutput
   | ModifyAccountVpcEncryptionControlCommandOutput
   | ModifyAddressAttributeCommandOutput
+  | ModifyApplicationStatusCheckCommandOutput
   | ModifyAvailabilityZoneGroupCommandOutput
   | ModifyCapacityReservationCommandOutput
   | ModifyCapacityReservationFleetCommandOutput

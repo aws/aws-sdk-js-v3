@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  EnableImageDeregistrationProtectionRequest,
-  EnableImageDeregistrationProtectionResult,
-} from "../models/models_5";
+import type { EnableImageDeregistrationProtectionRequest } from "../models/models_5";
+import type { EnableImageDeregistrationProtectionResult } from "../models/models_6";
 import { EnableImageDeregistrationProtection$ } from "../schemas/schemas_0";
 
 /**

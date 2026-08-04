@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_2";
+import type { DeletePublicIpv4PoolRequest, DeletePublicIpv4PoolResult } from "../models/models_3";
 import { DeletePublicIpv4Pool$ } from "../schemas/schemas_0";
 
 /**

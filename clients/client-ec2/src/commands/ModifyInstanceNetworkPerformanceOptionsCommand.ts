@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyInstanceNetworkPerformanceRequest,
   ModifyInstanceNetworkPerformanceResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import { ModifyInstanceNetworkPerformanceOptions$ } from "../schemas/schemas_0";
 
 /**

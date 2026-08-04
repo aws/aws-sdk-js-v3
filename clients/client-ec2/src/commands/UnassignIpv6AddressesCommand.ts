@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
+import type { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_8";
 import { UnassignIpv6Addresses$ } from "../schemas/schemas_0";
 
 /**

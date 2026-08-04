@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import { DescribeIamInstanceProfileAssociations$ } from "../schemas/schemas_0";
 
 /**

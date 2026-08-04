@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyIdFormatRequest } from "../models/models_6";
+import type { ModifyIdFormatRequest } from "../models/models_7";
 import { ModifyIdFormat$ } from "../schemas/schemas_0";
 
 /**

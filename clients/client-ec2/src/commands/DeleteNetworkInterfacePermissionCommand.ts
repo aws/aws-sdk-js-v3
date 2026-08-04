@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DeleteNetworkInterfacePermissionRequest,
   DeleteNetworkInterfacePermissionResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import { DeleteNetworkInterfacePermission$ } from "../schemas/schemas_0";
 
 /**

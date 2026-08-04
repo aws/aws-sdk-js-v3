@@ -7,11 +7,11 @@ import type {
   ConnectionNotificationState,
   ConnectionNotificationType,
   CopyTagsFromSource,
+  CurrencyCodeValues,
   DatafeedSubscriptionState,
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   DeleteFleetErrorCode,
-  DeleteQueuedReservedInstancesErrorCode,
   DeviceTrustProviderType,
   DnsNameState,
   DnsRecordIpType,
@@ -32,11 +32,16 @@ import type {
   PayerResponsibilityScope,
   PayerResponsibilityType,
   ProtocolValue,
+  ReplaceRootVolumeTaskState,
   RouteOrigin,
   RouteServerBfdState,
   RouteServerBgpState,
+  RouteServerEndpointState,
   RouteServerPeerLivenessMode,
   RouteServerPeerState,
+  RouteServerPersistRoutesAction,
+  RouteServerPersistRoutesState,
+  RouteServerState,
   RouteState,
   SecondaryNetworkCidrBlockAssociationState,
   SecondaryNetworkState,
@@ -96,11 +101,9 @@ import type {
   VpnTunnelBandwidth,
 } from "./enums";
 import type {
+  ApplicationStatusCheckResponseObject,
   CarrierGateway,
-  ClientVpnEndpointStatus,
-  ClientVpnRouteStatus,
-  CoipCidr,
-  CoipPool,
+  ReservedInstancesListing,
   RouteTableAssociationState,
   Tag,
   TagSpecification,
@@ -114,6 +117,10 @@ import type {
   VpcPeeringConnection,
 } from "./models_0";
 import type {
+  ClientVpnEndpointStatus,
+  ClientVpnRouteStatus,
+  CoipCidr,
+  CoipPool,
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,
@@ -136,6 +143,610 @@ import type {
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Information about a root volume replacement task.</p>
+ * @public
+ */
+export interface ReplaceRootVolumeTask {
+  /**
+   * <p>The ID of the root volume replacement task.</p>
+   * @public
+   */
+  ReplaceRootVolumeTaskId?: string | undefined;
+
+  /**
+   * <p>The ID of the instance for which the root volume replacement task was created.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The state of the task. The task can be in one of the following states:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>pending</code> - the replacement volume is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>in-progress</code> - the original volume is being detached and the
+   *           replacement volume is being attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>succeeded</code> - the replacement volume has been successfully attached
+   *           to the instance and the instance is available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing</code> - the replacement task is in the process of failing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed</code> - the replacement task has failed but the original root
+   *           volume is still attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failing-detached</code> - the replacement task is in the process of failing.
+   *           The instance might have no root volume attached.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>failed-detached</code> - the replacement task has failed and the instance
+   *           has no root volume attached.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TaskState?: ReplaceRootVolumeTaskState | undefined;
+
+  /**
+   * <p>The time the task was started.</p>
+   * @public
+   */
+  StartTime?: string | undefined;
+
+  /**
+   * <p>The time the task completed.</p>
+   * @public
+   */
+  CompleteTime?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the task.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The ID of the AMI used to create the replacement root volume.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot used to create the replacement root volume.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>Indicates whether the original root volume is to be deleted after the root volume
+   *       replacement task completes.</p>
+   * @public
+   */
+  DeleteReplacedRootVolume?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateReplaceRootVolumeTaskResult {
+  /**
+   * <p>Information about the root volume replacement task.</p>
+   * @public
+   */
+  ReplaceRootVolumeTask?: ReplaceRootVolumeTask | undefined;
+}
+
+/**
+ * <p>Describes the price for a Reserved Instance.</p>
+ * @public
+ */
+export interface PriceScheduleSpecification {
+  /**
+   * <p>The number of months remaining in the reservation. For example, 2 is the second to the
+   *       last month before the capacity reservation expires.</p>
+   * @public
+   */
+  Term?: number | undefined;
+
+  /**
+   * <p>The fixed price for the term.</p>
+   * @public
+   */
+  Price?: number | undefined;
+
+  /**
+   * <p>The currency for transacting the Reserved Instance resale. At this time, the only
+   *       supported currency is <code>USD</code>.</p>
+   * @public
+   */
+  CurrencyCode?: CurrencyCodeValues | undefined;
+}
+
+/**
+ * <p>Contains the parameters for CreateReservedInstancesListing.</p>
+ * @public
+ */
+export interface CreateReservedInstancesListingRequest {
+  /**
+   * <p>The ID of the active Standard Reserved Instance.</p>
+   * @public
+   */
+  ReservedInstancesId: string | undefined;
+
+  /**
+   * <p>The number of instances that are a part of a Reserved Instance account to be listed in the
+   *       Reserved Instance Marketplace. This number should be less than or equal to the instance count
+   *       associated with the Reserved Instance ID specified in this call.</p>
+   * @public
+   */
+  InstanceCount: number | undefined;
+
+  /**
+   * <p>A list specifying the price of the Standard Reserved Instance for each month remaining in
+   *       the Reserved Instance term.</p>
+   * @public
+   */
+  PriceSchedules: PriceScheduleSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of your listings. This
+   *       helps avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
+   *       Idempotency</a>.</p>
+   * @public
+   */
+  ClientToken: string | undefined;
+}
+
+/**
+ * <p>Contains the output of CreateReservedInstancesListing.</p>
+ * @public
+ */
+export interface CreateReservedInstancesListingResult {
+  /**
+   * <p>Information about the Standard Reserved Instance listing.</p>
+   * @public
+   */
+  ReservedInstancesListings?: ReservedInstancesListing[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreImageTaskRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   * @public
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>The name for the restored AMI. The name must be unique for AMIs in the Region for this
+   *       account. If you do not provide a name, the new AMI gets the same name as the original
+   *       AMI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the AMI and snapshots on restoration. You can tag the AMI, the
+   *       snapshots, or both.</p>
+   *          <ul>
+   *             <li>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>To tag the snapshots, the value for <code>ResourceType</code> must be
+   *           <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRestoreImageTaskResult {
+  /**
+   * <p>The AMI ID.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteRequest {
+  /**
+   * <p>The ID of a prefix list used for the destination match.</p>
+   * @public
+   */
+  DestinationPrefixListId?: string | undefined;
+
+  /**
+   * <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of a transit gateway.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   * @public
+   */
+  LocalGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of the carrier gateway.</p>
+   *          <p>You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</p>
+   * @public
+   */
+  CarrierGatewayId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the core network.</p>
+   * @public
+   */
+  CoreNetworkArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network.</p>
+   * @public
+   */
+  OdbNetworkArn?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the route table for the route.</p>
+   * @public
+   */
+  RouteTableId: string | undefined;
+
+  /**
+   * <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   * @public
+   */
+  DestinationCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ID of an internet gateway or virtual private gateway attached to your
+   * 			VPC.</p>
+   * @public
+   */
+  GatewayId?: string | undefined;
+
+  /**
+   * <p>The IPv6 CIDR block used for the destination match. Routing decisions are based on the most specific match.</p>
+   * @public
+   */
+  DestinationIpv6CidrBlock?: string | undefined;
+
+  /**
+   * <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
+   * @public
+   */
+  EgressOnlyInternetGatewayId?: string | undefined;
+
+  /**
+   * <p>The ID of a NAT instance in your VPC. The operation fails if you specify an instance ID unless exactly one network interface is attached.</p>
+   * @public
+   */
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The ID of a network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The ID of a VPC peering connection.</p>
+   * @public
+   */
+  VpcPeeringConnectionId?: string | undefined;
+
+  /**
+   * <p>[IPv4 traffic only] The ID of a NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerRequest {
+  /**
+   * <p>The private Autonomous System Number (ASN) for the Amazon side of the BGP session. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  AmazonSideAsn: number | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether routes should be persisted after all BGP sessions are terminated.</p>
+   * @public
+   */
+  PersistRoutes?: RouteServerPersistRoutesAction | undefined;
+
+  /**
+   * <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. Required if PersistRoutes is <code>enabled</code>.</p>
+   *          <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
+   * @public
+   */
+  PersistRoutesDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether SNS notifications should be enabled for route server events. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
+   * @public
+   */
+  SnsNotificationsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes a route server and its configuration.</p>
+ *          <p>Amazon VPC Route Server simplifies routing for traffic between workloads that are deployed within a VPC and its internet gateways. With this feature,
+ * VPC Route Server dynamically updates VPC and internet gateway route tables with your preferred IPv4 or IPv6 routes to achieve routing fault tolerance for those workloads. This enables you to automatically reroute traffic within a VPC, which increases the manageability of VPC routing and interoperability with third-party workloads.</p>
+ *          <p>Route server supports the follow route table types:</p>
+ *          <ul>
+ *             <li>
+ *                <p>VPC route tables not associated with subnets</p>
+ *             </li>
+ *             <li>
+ *                <p>Subnet route tables</p>
+ *             </li>
+ *             <li>
+ *                <p>Internet gateway route tables</p>
+ *             </li>
+ *          </ul>
+ *          <p>Route server does not support route tables associated with virtual private gateways. To propagate routes into a transit gateway route table, use <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html">Transit Gateway Connect</a>.</p>
+ * @public
+ */
+export interface RouteServer {
+  /**
+   * <p>The unique identifier of the route server.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.</p>
+   * @public
+   */
+  AmazonSideAsn?: number | undefined;
+
+  /**
+   * <p>The current state of the route server.</p>
+   * @public
+   */
+  State?: RouteServerState | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The current state of route persistence for the route server.</p>
+   * @public
+   */
+  PersistRoutesState?: RouteServerPersistRoutesState | undefined;
+
+  /**
+   * <p>The number of minutes a route server will wait after BGP is re-established to unpersist the routes in the FIB and RIB. Value must be in the range of 1-5. The default value is 1. Only valid if <code>persistRoutesState</code> is 'enabled'.</p>
+   *          <p>If you set the duration to 1 minute, then when your network appliance re-establishes BGP with route server, it has 1 minute to relearn it's adjacent network and advertise those routes to route server before route server resumes normal functionality. In most cases, 1 minute is probably sufficient. If, however, you have concerns that your BGP network may not be capable of fully re-establishing and re-learning everything in 1 minute, you can increase the duration up to 5 minutes.</p>
+   * @public
+   */
+  PersistRoutesDuration?: number | undefined;
+
+  /**
+   * <p>Indicates whether SNS notifications are enabled for the route server. Enabling SNS notifications persists BGP status changes to an SNS topic provisioned by Amazon Web Services.</p>
+   * @public
+   */
+  SnsNotificationsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The ARN of the SNS topic where notifications are published.</p>
+   * @public
+   */
+  SnsTopicArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerResult {
+  /**
+   * <p>Information about the created route server.</p>
+   * @public
+   */
+  RouteServer?: RouteServer | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerEndpointRequest {
+  /**
+   * <p>The ID of the route server for which to create an endpoint.</p>
+   * @public
+   */
+  RouteServerId: string | undefined;
+
+  /**
+   * <p>The ID of the subnet in which to create the route server endpoint.</p>
+   * @public
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the route server endpoint during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+}
+
+/**
+ * <p>Describes a route server endpoint and its properties.</p>
+ *          <p>A route server endpoint is an Amazon Web Services-managed component inside a subnet that facilitates <a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP (Border Gateway Protocol)</a> connections between your route server and your BGP peers.</p>
+ * @public
+ */
+export interface RouteServerEndpoint {
+  /**
+   * <p>The ID of the route server associated with this endpoint.</p>
+   * @public
+   */
+  RouteServerId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpointId?: string | undefined;
+
+  /**
+   * <p>The ID of the VPC containing the endpoint.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The ID of the subnet to place the route server endpoint into.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the Elastic network interface for the endpoint.</p>
+   * @public
+   */
+  EniId?: string | undefined;
+
+  /**
+   * <p>The IP address of the Elastic network interface for the endpoint.</p>
+   * @public
+   */
+  EniAddress?: string | undefined;
+
+  /**
+   * <p>The current state of the route server endpoint.</p>
+   * @public
+   */
+  State?: RouteServerEndpointState | undefined;
+
+  /**
+   * <p>The reason for any failure in endpoint creation or operation.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>Any tags assigned to the route server endpoint.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRouteServerEndpointResult {
+  /**
+   * <p>Information about the created route server endpoint.</p>
+   * @public
+   */
+  RouteServerEndpoint?: RouteServerEndpoint | undefined;
+}
 
 /**
  * <p>The BGP configuration options requested for a route server peer.</p>
@@ -682,7 +1293,7 @@ export interface CreateSecondaryNetworkRequest {
    * <p>The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.</p>
    * @public
    */
-  Ipv4CidrBlock: string | undefined;
+  Ipv4CidrBlock?: string | undefined;
 
   /**
    * <p>The type of secondary network.</p>
@@ -8261,6 +8872,42 @@ export interface CreateVpnGatewayResult {
 /**
  * @public
  */
+export interface DeleteApplicationStatusCheckRequest {
+  /**
+   * <p>The ID of the application status check to delete.</p>
+   * @public
+   */
+  ApplicationStatusCheckId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteApplicationStatusCheckResult {
+  /**
+   * <p>Information about the deleted application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheck?: ApplicationStatusCheckResponseObject | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteCapacityManagerDataExportRequest {
   /**
    * <p>
@@ -9661,296 +10308,4 @@ export interface DeleteNetworkInsightsAccessScopeResult {
    * @public
    */
   NetworkInsightsAccessScopeId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisRequest {
-  /**
-   * <p>The ID of the Network Access Scope analysis.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeAnalysisId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeAnalysisResult {
-  /**
-   * <p>The ID of the Network Access Scope analysis.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeAnalysisId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   * @public
-   */
-  NetworkInsightsAnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAnalysisResult {
-  /**
-   * <p>The ID of the network insights analysis.</p>
-   * @public
-   */
-  NetworkInsightsAnalysisId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsPathResult {
-  /**
-   * <p>The ID of the path.</p>
-   * @public
-   */
-  NetworkInsightsPathId?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DeleteNetworkInterface.</p>
- * @public
- */
-export interface DeleteNetworkInterfaceRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
- * @public
- */
-export interface DeleteNetworkInterfacePermissionRequest {
-  /**
-   * <p>The ID of the network interface permission.</p>
-   * @public
-   */
-  NetworkInterfacePermissionId: string | undefined;
-
-  /**
-   * <p>Specify <code>true</code> to remove the permission even if the network interface is
-   *             attached to an instance.</p>
-   * @public
-   */
-  Force?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Contains the output for DeleteNetworkInterfacePermission.</p>
- * @public
- */
-export interface DeleteNetworkInterfacePermissionResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePlacementGroupRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The name of the placement group.</p>
-   * @public
-   */
-  GroupName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the public IPv4 pool you want to delete.</p>
-   * @public
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePublicIpv4PoolResult {
-  /**
-   * <p>Information about the result of deleting the public IPv4 pool.</p>
-   * @public
-   */
-  ReturnValue?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteQueuedReservedInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making
-   *       the request, and provides an error response. If you have the required permissions, the error
-   *       response is <code>DryRunOperation</code>. Otherwise, it is
-   *       <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The IDs of the Reserved Instances.</p>
-   * @public
-   */
-  ReservedInstancesIds: string[] | undefined;
-}
-
-/**
- * <p>Describes the error for a Reserved Instance whose queued purchase could not be
- *       deleted.</p>
- * @public
- */
-export interface DeleteQueuedReservedInstancesError {
-  /**
-   * <p>The error code.</p>
-   * @public
-   */
-  Code?: DeleteQueuedReservedInstancesErrorCode | undefined;
-
-  /**
-   * <p>The error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance whose queued purchase was not deleted.</p>
- * @public
- */
-export interface FailedQueuedPurchaseDeletion {
-  /**
-   * <p>The error.</p>
-   * @public
-   */
-  Error?: DeleteQueuedReservedInstancesError | undefined;
-
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-}
-
-/**
- * <p>Describes a Reserved Instance whose queued purchase was successfully deleted.</p>
- * @public
- */
-export interface SuccessfulQueuedPurchaseDeletion {
-  /**
-   * <p>The ID of the Reserved Instance.</p>
-   * @public
-   */
-  ReservedInstancesId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteQueuedReservedInstancesResult {
-  /**
-   * <p>Information about the queued purchases that were successfully deleted.</p>
-   * @public
-   */
-  SuccessfulQueuedPurchaseDeletions?: SuccessfulQueuedPurchaseDeletion[] | undefined;
-
-  /**
-   * <p>Information about the queued purchases that could not be deleted.</p>
-   * @public
-   */
-  FailedQueuedPurchaseDeletions?: FailedQueuedPurchaseDeletion[] | undefined;
 }

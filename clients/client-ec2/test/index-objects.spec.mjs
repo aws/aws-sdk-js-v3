@@ -72,6 +72,7 @@ import {
   AdvertiseByoipCidrRequest$,
   AdvertiseByoipCidrResult$,
   Affinity,
+  AggregationStatusEnum,
   AllocateAddress$,
   AllocateAddressCommand,
   AllocateAddressRequest$,
@@ -103,6 +104,15 @@ import {
   AnalysisSecurityGroupRule$,
   AnalysisStatus,
   ApplianceModeSupportValue,
+  ApplicationStatus$,
+  ApplicationStatusCheckAssociationObject$,
+  ApplicationStatusCheckEnum,
+  ApplicationStatusCheckResponseObject$,
+  ApplicationStatusDetail$,
+  ApplicationStatusEnum,
+  ApplicationStatusesResponseType$,
+  ApplicationStatusReason$,
+  ApplicationStatusSummary$,
   ApplyCancellationCharges,
   ApplySecurityGroupsToClientVpnTargetNetwork$,
   ApplySecurityGroupsToClientVpnTargetNetworkCommand,
@@ -131,6 +141,10 @@ import {
   AssociateAddressCommand,
   AssociateAddressRequest$,
   AssociateAddressResult$,
+  AssociateApplicationStatusCheck$,
+  AssociateApplicationStatusCheckCommand,
+  AssociateApplicationStatusCheckRequest$,
+  AssociateApplicationStatusCheckResult$,
   AssociateCapacityReservationBillingOwner$,
   AssociateCapacityReservationBillingOwnerCommand,
   AssociateCapacityReservationBillingOwnerRequest$,
@@ -207,6 +221,7 @@ import {
   AssociateVpcCidrBlockResult$,
   AssociationStatus$,
   AssociationStatusCode,
+  AssociationTypeEnum,
   AthenaIntegration$,
   AttachClassicLinkVpc$,
   AttachClassicLinkVpcCommand,
@@ -470,6 +485,10 @@ import {
   CpuOptionsRequest$,
   CpuPerformanceFactor$,
   CpuPerformanceFactorRequest$,
+  CreateApplicationStatusCheck$,
+  CreateApplicationStatusCheckCommand,
+  CreateApplicationStatusCheckRequest$,
+  CreateApplicationStatusCheckResult$,
   CreateCapacityManagerDataExport$,
   CreateCapacityManagerDataExportCommand,
   CreateCapacityManagerDataExportRequest$,
@@ -910,6 +929,8 @@ import {
   CreditSpecificationRequest$,
   CurrencyCodeValues,
   CustomerGateway$,
+  CustomTagKeyValueRequestPair$,
+  CustomTagKeyValueResponsePair$,
   DatafeedSubscriptionState,
   DataQuery$,
   DataResponse$,
@@ -921,6 +942,10 @@ import {
   DefaultRouteTableAssociationValue,
   DefaultRouteTablePropagationValue,
   DefaultTargetCapacityType,
+  DeleteApplicationStatusCheck$,
+  DeleteApplicationStatusCheckCommand,
+  DeleteApplicationStatusCheckRequest$,
+  DeleteApplicationStatusCheckResult$,
   DeleteCapacityManagerDataExport$,
   DeleteCapacityManagerDataExportCommand,
   DeleteCapacityManagerDataExportRequest$,
@@ -1347,6 +1372,18 @@ import {
   DescribeAggregateIdFormatCommand,
   DescribeAggregateIdFormatRequest$,
   DescribeAggregateIdFormatResult$,
+  DescribeApplicationStatus$,
+  DescribeApplicationStatusCheckAssociations$,
+  DescribeApplicationStatusCheckAssociationsCommand,
+  DescribeApplicationStatusCheckAssociationsRequest$,
+  DescribeApplicationStatusCheckAssociationsResult$,
+  DescribeApplicationStatusChecks$,
+  DescribeApplicationStatusChecksCommand,
+  DescribeApplicationStatusChecksRequest$,
+  DescribeApplicationStatusChecksResult$,
+  DescribeApplicationStatusCommand,
+  DescribeApplicationStatusRequest$,
+  DescribeApplicationStatusResult$,
   DescribeAvailabilityZones$,
   DescribeAvailabilityZonesCommand,
   DescribeAvailabilityZonesRequest$,
@@ -2120,6 +2157,10 @@ import {
   DisableAllowedImagesSettingsCommand,
   DisableAllowedImagesSettingsRequest$,
   DisableAllowedImagesSettingsResult$,
+  DisableApplicationStatusCheckSuppression$,
+  DisableApplicationStatusCheckSuppressionCommand,
+  DisableApplicationStatusCheckSuppressionRequest$,
+  DisableApplicationStatusCheckSuppressionResult$,
   DisableAwsNetworkPerformanceMetricSubscription$,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   DisableAwsNetworkPerformanceMetricSubscriptionRequest$,
@@ -2202,6 +2243,10 @@ import {
   DisassociateAddress$,
   DisassociateAddressCommand,
   DisassociateAddressRequest$,
+  DisassociateApplicationStatusCheck$,
+  DisassociateApplicationStatusCheckCommand,
+  DisassociateApplicationStatusCheckRequest$,
+  DisassociateApplicationStatusCheckResult$,
   DisassociateCapacityReservationBillingOwner$,
   DisassociateCapacityReservationBillingOwnerCommand,
   DisassociateCapacityReservationBillingOwnerRequest$,
@@ -2323,6 +2368,10 @@ import {
   EnableAllowedImagesSettingsCommand,
   EnableAllowedImagesSettingsRequest$,
   EnableAllowedImagesSettingsResult$,
+  EnableApplicationStatusCheckSuppression$,
+  EnableApplicationStatusCheckSuppressionCommand,
+  EnableApplicationStatusCheckSuppressionRequest$,
+  EnableApplicationStatusCheckSuppressionResult$,
   EnableAwsNetworkPerformanceMetricSubscription$,
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
   EnableAwsNetworkPerformanceMetricSubscriptionRequest$,
@@ -2801,6 +2850,12 @@ import {
   GroupBy,
   GroupIdentifier$,
   HaStatus,
+  HealthCheckPathDestinationRequestObject$,
+  HealthCheckPathDestinationResponseObject$,
+  HealthCheckPathRequestObject$,
+  HealthCheckPathResponseObject$,
+  HealthCheckPathSourceRequestObject$,
+  HealthCheckPathSourceResponseObject$,
   HibernationOptions$,
   HibernationOptionsRequest$,
   HistoryRecord$,
@@ -2893,6 +2948,7 @@ import {
   InitializationStatusDetails$,
   InitializationType,
   Instance$,
+  InstanceApplicationStatus$,
   InstanceAttachmentEnaSrdSpecification$,
   InstanceAttachmentEnaSrdUdpSpecification$,
   InstanceAttribute$,
@@ -3061,6 +3117,7 @@ import {
   IpamTier,
   IpPermission$,
   IpRange$,
+  IpScopeEnum,
   IpSource,
   Ipv4PrefixSpecification$,
   Ipv4PrefixSpecificationRequest$,
@@ -3074,6 +3131,7 @@ import {
   Ipv6PrefixSpecificationResponse$,
   Ipv6Range$,
   Ipv6SupportValue,
+  IpVersionEnum,
   KeyFormat,
   KeyPair$,
   KeyPairInfo$,
@@ -3216,6 +3274,10 @@ import {
   ModifyAddressAttributeCommand,
   ModifyAddressAttributeRequest$,
   ModifyAddressAttributeResult$,
+  ModifyApplicationStatusCheck$,
+  ModifyApplicationStatusCheckCommand,
+  ModifyApplicationStatusCheckRequest$,
+  ModifyApplicationStatusCheckResult$,
   ModifyAvailabilityZoneGroup$,
   ModifyAvailabilityZoneGroupCommand,
   ModifyAvailabilityZoneGroupRequest$,
@@ -3597,6 +3659,7 @@ import {
   NetworkInterfacePrivateIpAddress$,
   NetworkInterfaceStatus,
   NetworkInterfaceType,
+  NetworkProtocolEnum,
   NeuronDeviceCoreInfo$,
   NeuronDeviceInfo$,
   NeuronDeviceMemoryInfo$,
@@ -4306,8 +4369,10 @@ import {
   SubnetIpv6CidrBlockAssociation$,
   SubnetState,
   Subscription$,
+  SuccessfulAssociationResponseObject$,
   SuccessfulInstanceCreditSpecificationItem$,
   SuccessfulQueuedPurchaseDeletion$,
+  SuccessfulSuppressionResponseObject$,
   SummaryStatus,
   SupportedAdditionalProcessorFeature,
   SupportedRegionDetail$,
@@ -4454,11 +4519,13 @@ import {
   UnmonitorInstancesCommand,
   UnmonitorInstancesRequest$,
   UnmonitorInstancesResult$,
+  UnsuccessfulAssociationResponseObject$,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
   UnsuccessfulInstanceCreditSpecificationItem$,
   UnsuccessfulInstanceCreditSpecificationItemError$,
   UnsuccessfulItem$,
   UnsuccessfulItemError$,
+  UnsuccessfulSuppressionResponseObject$,
   UpdateCapacityManagerMonitoredTagKeys$,
   UpdateCapacityManagerMonitoredTagKeysCommand,
   UpdateCapacityManagerMonitoredTagKeysRequest$,
@@ -4727,6 +4794,8 @@ assert(typeof AssignPrivateNatGatewayAddressCommand === "function");
 assert(typeof AssignPrivateNatGatewayAddress$ === "object");
 assert(typeof AssociateAddressCommand === "function");
 assert(typeof AssociateAddress$ === "object");
+assert(typeof AssociateApplicationStatusCheckCommand === "function");
+assert(typeof AssociateApplicationStatusCheck$ === "object");
 assert(typeof AssociateCapacityReservationBillingOwnerCommand === "function");
 assert(typeof AssociateCapacityReservationBillingOwner$ === "object");
 assert(typeof AssociateClientVpnTargetNetworkCommand === "function");
@@ -4817,6 +4886,8 @@ assert(typeof CopySnapshotCommand === "function");
 assert(typeof CopySnapshot$ === "object");
 assert(typeof CopyVolumesCommand === "function");
 assert(typeof CopyVolumes$ === "object");
+assert(typeof CreateApplicationStatusCheckCommand === "function");
+assert(typeof CreateApplicationStatusCheck$ === "object");
 assert(typeof CreateCapacityManagerDataExportCommand === "function");
 assert(typeof CreateCapacityManagerDataExport$ === "object");
 assert(typeof CreateCapacityReservationCommand === "function");
@@ -5029,6 +5100,8 @@ assert(typeof CreateVpnConnectionRouteCommand === "function");
 assert(typeof CreateVpnConnectionRoute$ === "object");
 assert(typeof CreateVpnGatewayCommand === "function");
 assert(typeof CreateVpnGateway$ === "object");
+assert(typeof DeleteApplicationStatusCheckCommand === "function");
+assert(typeof DeleteApplicationStatusCheck$ === "object");
 assert(typeof DeleteCapacityManagerDataExportCommand === "function");
 assert(typeof DeleteCapacityManagerDataExport$ === "object");
 assert(typeof DeleteCarrierGatewayCommand === "function");
@@ -5245,6 +5318,12 @@ assert(typeof DescribeAddressTransfersCommand === "function");
 assert(typeof DescribeAddressTransfers$ === "object");
 assert(typeof DescribeAggregateIdFormatCommand === "function");
 assert(typeof DescribeAggregateIdFormat$ === "object");
+assert(typeof DescribeApplicationStatusCommand === "function");
+assert(typeof DescribeApplicationStatus$ === "object");
+assert(typeof DescribeApplicationStatusCheckAssociationsCommand === "function");
+assert(typeof DescribeApplicationStatusCheckAssociations$ === "object");
+assert(typeof DescribeApplicationStatusChecksCommand === "function");
+assert(typeof DescribeApplicationStatusChecks$ === "object");
 assert(typeof DescribeAvailabilityZonesCommand === "function");
 assert(typeof DescribeAvailabilityZones$ === "object");
 assert(typeof DescribeAwsNetworkPerformanceMetricSubscriptionsCommand === "function");
@@ -5627,6 +5706,8 @@ assert(typeof DisableAddressTransferCommand === "function");
 assert(typeof DisableAddressTransfer$ === "object");
 assert(typeof DisableAllowedImagesSettingsCommand === "function");
 assert(typeof DisableAllowedImagesSettings$ === "object");
+assert(typeof DisableApplicationStatusCheckSuppressionCommand === "function");
+assert(typeof DisableApplicationStatusCheckSuppression$ === "object");
 assert(typeof DisableAwsNetworkPerformanceMetricSubscriptionCommand === "function");
 assert(typeof DisableAwsNetworkPerformanceMetricSubscription$ === "object");
 assert(typeof DisableCapacityManagerCommand === "function");
@@ -5667,6 +5748,8 @@ assert(typeof DisableVpcClassicLinkDnsSupportCommand === "function");
 assert(typeof DisableVpcClassicLinkDnsSupport$ === "object");
 assert(typeof DisassociateAddressCommand === "function");
 assert(typeof DisassociateAddress$ === "object");
+assert(typeof DisassociateApplicationStatusCheckCommand === "function");
+assert(typeof DisassociateApplicationStatusCheck$ === "object");
 assert(typeof DisassociateCapacityReservationBillingOwnerCommand === "function");
 assert(typeof DisassociateCapacityReservationBillingOwner$ === "object");
 assert(typeof DisassociateClientVpnTargetNetworkCommand === "function");
@@ -5705,6 +5788,8 @@ assert(typeof EnableAddressTransferCommand === "function");
 assert(typeof EnableAddressTransfer$ === "object");
 assert(typeof EnableAllowedImagesSettingsCommand === "function");
 assert(typeof EnableAllowedImagesSettings$ === "object");
+assert(typeof EnableApplicationStatusCheckSuppressionCommand === "function");
+assert(typeof EnableApplicationStatusCheckSuppression$ === "object");
 assert(typeof EnableAwsNetworkPerformanceMetricSubscriptionCommand === "function");
 assert(typeof EnableAwsNetworkPerformanceMetricSubscription$ === "object");
 assert(typeof EnableCapacityManagerCommand === "function");
@@ -5921,6 +6006,8 @@ assert(typeof ModifyAccountVpcEncryptionControlCommand === "function");
 assert(typeof ModifyAccountVpcEncryptionControl$ === "object");
 assert(typeof ModifyAddressAttributeCommand === "function");
 assert(typeof ModifyAddressAttribute$ === "object");
+assert(typeof ModifyApplicationStatusCheckCommand === "function");
+assert(typeof ModifyApplicationStatusCheck$ === "object");
 assert(typeof ModifyAvailabilityZoneGroupCommand === "function");
 assert(typeof ModifyAvailabilityZoneGroup$ === "object");
 assert(typeof ModifyCapacityReservationCommand === "function");
@@ -6298,6 +6385,13 @@ assert(typeof AnalysisLoadBalancerTarget$ === "object");
 assert(typeof AnalysisPacketHeader$ === "object");
 assert(typeof AnalysisRouteTableRoute$ === "object");
 assert(typeof AnalysisSecurityGroupRule$ === "object");
+assert(typeof ApplicationStatus$ === "object");
+assert(typeof ApplicationStatusCheckAssociationObject$ === "object");
+assert(typeof ApplicationStatusCheckResponseObject$ === "object");
+assert(typeof ApplicationStatusDetail$ === "object");
+assert(typeof ApplicationStatusesResponseType$ === "object");
+assert(typeof ApplicationStatusReason$ === "object");
+assert(typeof ApplicationStatusSummary$ === "object");
 assert(typeof ApplySecurityGroupsToClientVpnTargetNetworkRequest$ === "object");
 assert(typeof ApplySecurityGroupsToClientVpnTargetNetworkResult$ === "object");
 assert(typeof AsnAssociation$ === "object");
@@ -6311,6 +6405,8 @@ assert(typeof AssignPrivateNatGatewayAddressRequest$ === "object");
 assert(typeof AssignPrivateNatGatewayAddressResult$ === "object");
 assert(typeof AssociateAddressRequest$ === "object");
 assert(typeof AssociateAddressResult$ === "object");
+assert(typeof AssociateApplicationStatusCheckRequest$ === "object");
+assert(typeof AssociateApplicationStatusCheckResult$ === "object");
 assert(typeof AssociateCapacityReservationBillingOwnerRequest$ === "object");
 assert(typeof AssociateCapacityReservationBillingOwnerResult$ === "object");
 assert(typeof AssociateClientVpnTargetNetworkRequest$ === "object");
@@ -6503,6 +6599,8 @@ assert(typeof CpuOptions$ === "object");
 assert(typeof CpuOptionsRequest$ === "object");
 assert(typeof CpuPerformanceFactor$ === "object");
 assert(typeof CpuPerformanceFactorRequest$ === "object");
+assert(typeof CreateApplicationStatusCheckRequest$ === "object");
+assert(typeof CreateApplicationStatusCheckResult$ === "object");
 assert(typeof CreateCapacityManagerDataExportRequest$ === "object");
 assert(typeof CreateCapacityManagerDataExportResult$ === "object");
 assert(typeof CreateCapacityReservationBySplittingRequest$ === "object");
@@ -6730,10 +6828,14 @@ assert(typeof CreationDateConditionRequest$ === "object");
 assert(typeof CreditSpecification$ === "object");
 assert(typeof CreditSpecificationRequest$ === "object");
 assert(typeof CustomerGateway$ === "object");
+assert(typeof CustomTagKeyValueRequestPair$ === "object");
+assert(typeof CustomTagKeyValueResponsePair$ === "object");
 assert(typeof DataQuery$ === "object");
 assert(typeof DataResponse$ === "object");
 assert(typeof DeclarativePoliciesReport$ === "object");
 assert(typeof DefaultConnectionTrackingConfiguration$ === "object");
+assert(typeof DeleteApplicationStatusCheckRequest$ === "object");
+assert(typeof DeleteApplicationStatusCheckResult$ === "object");
 assert(typeof DeleteCapacityManagerDataExportRequest$ === "object");
 assert(typeof DeleteCapacityManagerDataExportResult$ === "object");
 assert(typeof DeleteCarrierGatewayRequest$ === "object");
@@ -6942,6 +7044,12 @@ assert(typeof DescribeAddressTransfersRequest$ === "object");
 assert(typeof DescribeAddressTransfersResult$ === "object");
 assert(typeof DescribeAggregateIdFormatRequest$ === "object");
 assert(typeof DescribeAggregateIdFormatResult$ === "object");
+assert(typeof DescribeApplicationStatusCheckAssociationsRequest$ === "object");
+assert(typeof DescribeApplicationStatusCheckAssociationsResult$ === "object");
+assert(typeof DescribeApplicationStatusChecksRequest$ === "object");
+assert(typeof DescribeApplicationStatusChecksResult$ === "object");
+assert(typeof DescribeApplicationStatusRequest$ === "object");
+assert(typeof DescribeApplicationStatusResult$ === "object");
 assert(typeof DescribeAvailabilityZonesRequest$ === "object");
 assert(typeof DescribeAvailabilityZonesResult$ === "object");
 assert(typeof DescribeAwsNetworkPerformanceMetricSubscriptionsRequest$ === "object");
@@ -7330,6 +7438,8 @@ assert(typeof DisableAddressTransferRequest$ === "object");
 assert(typeof DisableAddressTransferResult$ === "object");
 assert(typeof DisableAllowedImagesSettingsRequest$ === "object");
 assert(typeof DisableAllowedImagesSettingsResult$ === "object");
+assert(typeof DisableApplicationStatusCheckSuppressionRequest$ === "object");
+assert(typeof DisableApplicationStatusCheckSuppressionResult$ === "object");
 assert(typeof DisableAwsNetworkPerformanceMetricSubscriptionRequest$ === "object");
 assert(typeof DisableAwsNetworkPerformanceMetricSubscriptionResult$ === "object");
 assert(typeof DisableCapacityManagerRequest$ === "object");
@@ -7372,6 +7482,8 @@ assert(typeof DisableVpcClassicLinkDnsSupportResult$ === "object");
 assert(typeof DisableVpcClassicLinkRequest$ === "object");
 assert(typeof DisableVpcClassicLinkResult$ === "object");
 assert(typeof DisassociateAddressRequest$ === "object");
+assert(typeof DisassociateApplicationStatusCheckRequest$ === "object");
+assert(typeof DisassociateApplicationStatusCheckResult$ === "object");
 assert(typeof DisassociateCapacityReservationBillingOwnerRequest$ === "object");
 assert(typeof DisassociateCapacityReservationBillingOwnerResult$ === "object");
 assert(typeof DisassociateClientVpnTargetNetworkRequest$ === "object");
@@ -7437,6 +7549,8 @@ assert(typeof EnableAddressTransferRequest$ === "object");
 assert(typeof EnableAddressTransferResult$ === "object");
 assert(typeof EnableAllowedImagesSettingsRequest$ === "object");
 assert(typeof EnableAllowedImagesSettingsResult$ === "object");
+assert(typeof EnableApplicationStatusCheckSuppressionRequest$ === "object");
+assert(typeof EnableApplicationStatusCheckSuppressionResult$ === "object");
 assert(typeof EnableAwsNetworkPerformanceMetricSubscriptionRequest$ === "object");
 assert(typeof EnableAwsNetworkPerformanceMetricSubscriptionResult$ === "object");
 assert(typeof EnableCapacityManagerRequest$ === "object");
@@ -7686,6 +7800,12 @@ assert(typeof GpuDeviceInfo$ === "object");
 assert(typeof GpuDeviceMemoryInfo$ === "object");
 assert(typeof GpuInfo$ === "object");
 assert(typeof GroupIdentifier$ === "object");
+assert(typeof HealthCheckPathDestinationRequestObject$ === "object");
+assert(typeof HealthCheckPathDestinationResponseObject$ === "object");
+assert(typeof HealthCheckPathRequestObject$ === "object");
+assert(typeof HealthCheckPathResponseObject$ === "object");
+assert(typeof HealthCheckPathSourceRequestObject$ === "object");
+assert(typeof HealthCheckPathSourceResponseObject$ === "object");
 assert(typeof HibernationOptions$ === "object");
 assert(typeof HibernationOptionsRequest$ === "object");
 assert(typeof HistoryRecord$ === "object");
@@ -7747,6 +7867,7 @@ assert(typeof InferenceDeviceInfo$ === "object");
 assert(typeof InferenceDeviceMemoryInfo$ === "object");
 assert(typeof InitializationStatusDetails$ === "object");
 assert(typeof Instance$ === "object");
+assert(typeof InstanceApplicationStatus$ === "object");
 assert(typeof InstanceAttachmentEnaSrdSpecification$ === "object");
 assert(typeof InstanceAttachmentEnaSrdUdpSpecification$ === "object");
 assert(typeof InstanceAttribute$ === "object");
@@ -7961,6 +8082,8 @@ assert(typeof ModifyAccountVpcEncryptionControlRequest$ === "object");
 assert(typeof ModifyAccountVpcEncryptionControlResult$ === "object");
 assert(typeof ModifyAddressAttributeRequest$ === "object");
 assert(typeof ModifyAddressAttributeResult$ === "object");
+assert(typeof ModifyApplicationStatusCheckRequest$ === "object");
+assert(typeof ModifyApplicationStatusCheckResult$ === "object");
 assert(typeof ModifyAvailabilityZoneGroupRequest$ === "object");
 assert(typeof ModifyAvailabilityZoneGroupResult$ === "object");
 assert(typeof ModifyCapacityReservationFleetRequest$ === "object");
@@ -8475,8 +8598,10 @@ assert(typeof SubnetConfiguration$ === "object");
 assert(typeof SubnetIpPrefixes$ === "object");
 assert(typeof SubnetIpv6CidrBlockAssociation$ === "object");
 assert(typeof Subscription$ === "object");
+assert(typeof SuccessfulAssociationResponseObject$ === "object");
 assert(typeof SuccessfulInstanceCreditSpecificationItem$ === "object");
 assert(typeof SuccessfulQueuedPurchaseDeletion$ === "object");
+assert(typeof SuccessfulSuppressionResponseObject$ === "object");
 assert(typeof SupportedRegionDetail$ === "object");
 assert(typeof Tag$ === "object");
 assert(typeof TagDescription$ === "object");
@@ -8566,10 +8691,12 @@ assert(typeof UnlockSnapshotRequest$ === "object");
 assert(typeof UnlockSnapshotResult$ === "object");
 assert(typeof UnmonitorInstancesRequest$ === "object");
 assert(typeof UnmonitorInstancesResult$ === "object");
+assert(typeof UnsuccessfulAssociationResponseObject$ === "object");
 assert(typeof UnsuccessfulInstanceCreditSpecificationItem$ === "object");
 assert(typeof UnsuccessfulInstanceCreditSpecificationItemError$ === "object");
 assert(typeof UnsuccessfulItem$ === "object");
 assert(typeof UnsuccessfulItemError$ === "object");
+assert(typeof UnsuccessfulSuppressionResponseObject$ === "object");
 assert(typeof UpdateCapacityManagerMonitoredTagKeysRequest$ === "object");
 assert(typeof UpdateCapacityManagerMonitoredTagKeysResult$ === "object");
 assert(typeof UpdateCapacityManagerOrganizationsAccessRequest$ === "object");
@@ -8673,6 +8800,7 @@ assert(typeof AddressAttributeName === "object");
 assert(typeof AddressFamily === "object");
 assert(typeof AddressTransferStatus === "object");
 assert(typeof Affinity === "object");
+assert(typeof AggregationStatusEnum === "object");
 assert(typeof AllocationState === "object");
 assert(typeof AllocationStrategy === "object");
 assert(typeof AllocationType === "object");
@@ -8683,6 +8811,8 @@ assert(typeof AmdSevSnp === "object");
 assert(typeof AmdSevSnpSpecification === "object");
 assert(typeof AnalysisStatus === "object");
 assert(typeof ApplianceModeSupportValue === "object");
+assert(typeof ApplicationStatusCheckEnum === "object");
+assert(typeof ApplicationStatusEnum === "object");
 assert(typeof ApplyCancellationCharges === "object");
 assert(typeof ArchitectureType === "object");
 assert(typeof ArchitectureValues === "object");
@@ -8690,6 +8820,7 @@ assert(typeof AsnAssociationState === "object");
 assert(typeof AsnState === "object");
 assert(typeof AssociatedNetworkType === "object");
 assert(typeof AssociationStatusCode === "object");
+assert(typeof AssociationTypeEnum === "object");
 assert(typeof AttachmentLimitType === "object");
 assert(typeof AttachmentStatus === "object");
 assert(typeof AutoAcceptSharedAssociationsValue === "object");
@@ -8892,9 +9023,11 @@ assert(typeof IpamScopeState === "object");
 assert(typeof IpamScopeType === "object");
 assert(typeof IpamState === "object");
 assert(typeof IpamTier === "object");
+assert(typeof IpScopeEnum === "object");
 assert(typeof IpSource === "object");
 assert(typeof Ipv6AddressAttribute === "object");
 assert(typeof Ipv6SupportValue === "object");
+assert(typeof IpVersionEnum === "object");
 assert(typeof KeyFormat === "object");
 assert(typeof KeyType === "object");
 assert(typeof LaunchTemplateAutoRecoveryState === "object");
@@ -8942,6 +9075,7 @@ assert(typeof NetworkInterfaceCreationType === "object");
 assert(typeof NetworkInterfacePermissionStateCode === "object");
 assert(typeof NetworkInterfaceStatus === "object");
 assert(typeof NetworkInterfaceType === "object");
+assert(typeof NetworkProtocolEnum === "object");
 assert(typeof NitroEnclavesSupport === "object");
 assert(typeof NitroTpmSupport === "object");
 assert(typeof OfferingClassType === "object");

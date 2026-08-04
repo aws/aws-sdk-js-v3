@@ -1,0 +1,693 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeApplicationStatusResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DescribeApplicationStatusResult xmlns="https://placeholder.amazonaws.com">
+    <applicationStatusesResponseType>
+        <instanceSet>
+            <item>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+                <applicationStatus>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusTimeStamp>
+                        2000-01-01T04:59:59.999Z
+                    </statusTimeStamp>
+                    <statusSince>
+                        2000-01-01T04:59:59.999Z
+                    </statusSince>
+                    <resumeAt>
+                        2000-01-01T04:59:59.999Z
+                    </resumeAt>
+                    <detailSet>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                    </detailSet>
+                </applicationStatus>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </item>
+            <item>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+                <applicationStatus>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusTimeStamp>
+                        2000-01-01T04:59:59.999Z
+                    </statusTimeStamp>
+                    <statusSince>
+                        2000-01-01T04:59:59.999Z
+                    </statusSince>
+                    <resumeAt>
+                        2000-01-01T04:59:59.999Z
+                    </resumeAt>
+                    <detailSet>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                    </detailSet>
+                </applicationStatus>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </item>
+            <item>
+                <instanceId>
+                    __InstanceId__
+                </instanceId>
+                <availabilityZone>
+                    __AvailabilityZone__
+                </availabilityZone>
+                <availabilityZoneId>
+                    __AvailabilityZoneId__
+                </availabilityZoneId>
+                <applicationStatus>
+                    <status>
+                        __Status__
+                    </status>
+                    <statusTimeStamp>
+                        2000-01-01T04:59:59.999Z
+                    </statusTimeStamp>
+                    <statusSince>
+                        2000-01-01T04:59:59.999Z
+                    </statusSince>
+                    <resumeAt>
+                        2000-01-01T04:59:59.999Z
+                    </resumeAt>
+                    <detailSet>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                        <item>
+                            <applicationStatusCheckId>
+                                __ApplicationStatusCheckId__
+                            </applicationStatusCheckId>
+                            <checkUpdateTime>
+                                2000-01-01T04:59:59.999Z
+                            </checkUpdateTime>
+                            <aggregation>
+                                __Aggregation__
+                            </aggregation>
+                            <status>
+                                __Status__
+                            </status>
+                            <statusTimeStamp>
+                                2000-01-01T04:59:59.999Z
+                            </statusTimeStamp>
+                            <statusSince>
+                                2000-01-01T04:59:59.999Z
+                            </statusSince>
+                            <reason>
+                                <code>
+                                    __Code__
+                                </code>
+                                <statusCode>
+                                    0
+                                </statusCode>
+                                <protocol>
+                                    __Protocol__
+                                </protocol>
+                            </reason>
+                        </item>
+                    </detailSet>
+                </applicationStatus>
+                <tagSet>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                    <item>
+                        <key>
+                            __Key__
+                        </key>
+                        <value>
+                            __Value__
+                        </value>
+                    </item>
+                </tagSet>
+            </item>
+        </instanceSet>
+    </applicationStatusesResponseType>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</DescribeApplicationStatusResult>
+
+
+--- [output object] ---
+{
+  ApplicationStatuses: {
+    Instances: [
+      {
+        InstanceId: "__InstanceId__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__",
+        ApplicationStatus: {
+          Status: "__Status__",
+          StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ResumeAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Details: [
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            }
+          ]
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        InstanceId: "__InstanceId__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__",
+        ApplicationStatus: {
+          Status: "__Status__",
+          StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ResumeAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Details: [
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            }
+          ]
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      },
+      {
+        InstanceId: "__InstanceId__",
+        AvailabilityZone: "__AvailabilityZone__",
+        AvailabilityZoneId: "__AvailabilityZoneId__",
+        ApplicationStatus: {
+          Status: "__Status__",
+          StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          ResumeAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+          Details: [
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            },
+            {
+              ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+              CheckUpdateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Aggregation: "__Aggregation__",
+              Status: "__Status__",
+              StatusTimeStamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              StatusSince: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+              Reason: {
+                Code: "__Code__",
+                StatusCode: (number) 0,
+                Protocol: "__Protocol__"
+              }
+            }
+          ]
+        },
+        Tags: [
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          },
+          {
+            Key: "__Key__",
+            Value: "__Value__"
+          }
+        ]
+      }
+    ]
+  },
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

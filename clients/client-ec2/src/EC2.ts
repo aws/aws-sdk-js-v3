@@ -98,6 +98,11 @@ import {
   AssociateAddressCommand,
 } from "./commands/AssociateAddressCommand";
 import {
+  type AssociateApplicationStatusCheckCommandInput,
+  type AssociateApplicationStatusCheckCommandOutput,
+  AssociateApplicationStatusCheckCommand,
+} from "./commands/AssociateApplicationStatusCheckCommand";
+import {
   type AssociateCapacityReservationBillingOwnerCommandInput,
   type AssociateCapacityReservationBillingOwnerCommandOutput,
   AssociateCapacityReservationBillingOwnerCommand,
@@ -318,6 +323,11 @@ import {
   type CopyVolumesCommandOutput,
   CopyVolumesCommand,
 } from "./commands/CopyVolumesCommand";
+import {
+  type CreateApplicationStatusCheckCommandInput,
+  type CreateApplicationStatusCheckCommandOutput,
+  CreateApplicationStatusCheckCommand,
+} from "./commands/CreateApplicationStatusCheckCommand";
 import {
   type CreateCapacityManagerDataExportCommandInput,
   type CreateCapacityManagerDataExportCommandOutput,
@@ -844,6 +854,11 @@ import {
   type CreateVpnGatewayCommandOutput,
   CreateVpnGatewayCommand,
 } from "./commands/CreateVpnGatewayCommand";
+import {
+  type DeleteApplicationStatusCheckCommandInput,
+  type DeleteApplicationStatusCheckCommandOutput,
+  DeleteApplicationStatusCheckCommand,
+} from "./commands/DeleteApplicationStatusCheckCommand";
 import {
   type DeleteCapacityManagerDataExportCommandInput,
   type DeleteCapacityManagerDataExportCommandOutput,
@@ -1380,6 +1395,21 @@ import {
   type DescribeAggregateIdFormatCommandOutput,
   DescribeAggregateIdFormatCommand,
 } from "./commands/DescribeAggregateIdFormatCommand";
+import {
+  type DescribeApplicationStatusCheckAssociationsCommandInput,
+  type DescribeApplicationStatusCheckAssociationsCommandOutput,
+  DescribeApplicationStatusCheckAssociationsCommand,
+} from "./commands/DescribeApplicationStatusCheckAssociationsCommand";
+import {
+  type DescribeApplicationStatusChecksCommandInput,
+  type DescribeApplicationStatusChecksCommandOutput,
+  DescribeApplicationStatusChecksCommand,
+} from "./commands/DescribeApplicationStatusChecksCommand";
+import {
+  type DescribeApplicationStatusCommandInput,
+  type DescribeApplicationStatusCommandOutput,
+  DescribeApplicationStatusCommand,
+} from "./commands/DescribeApplicationStatusCommand";
 import {
   type DescribeAvailabilityZonesCommandInput,
   type DescribeAvailabilityZonesCommandOutput,
@@ -2336,6 +2366,11 @@ import {
   DisableAllowedImagesSettingsCommand,
 } from "./commands/DisableAllowedImagesSettingsCommand";
 import {
+  type DisableApplicationStatusCheckSuppressionCommandInput,
+  type DisableApplicationStatusCheckSuppressionCommandOutput,
+  DisableApplicationStatusCheckSuppressionCommand,
+} from "./commands/DisableApplicationStatusCheckSuppressionCommand";
+import {
   type DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   type DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
@@ -2436,6 +2471,11 @@ import {
   DisassociateAddressCommand,
 } from "./commands/DisassociateAddressCommand";
 import {
+  type DisassociateApplicationStatusCheckCommandInput,
+  type DisassociateApplicationStatusCheckCommandOutput,
+  DisassociateApplicationStatusCheckCommand,
+} from "./commands/DisassociateApplicationStatusCheckCommand";
+import {
   type DisassociateCapacityReservationBillingOwnerCommandInput,
   type DisassociateCapacityReservationBillingOwnerCommandOutput,
   DisassociateCapacityReservationBillingOwnerCommand,
@@ -2530,6 +2570,11 @@ import {
   type EnableAllowedImagesSettingsCommandOutput,
   EnableAllowedImagesSettingsCommand,
 } from "./commands/EnableAllowedImagesSettingsCommand";
+import {
+  type EnableApplicationStatusCheckSuppressionCommandInput,
+  type EnableApplicationStatusCheckSuppressionCommandOutput,
+  EnableApplicationStatusCheckSuppressionCommand,
+} from "./commands/EnableApplicationStatusCheckSuppressionCommand";
 import {
   type EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
   type EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
@@ -3070,6 +3115,11 @@ import {
   type ModifyAddressAttributeCommandOutput,
   ModifyAddressAttributeCommand,
 } from "./commands/ModifyAddressAttributeCommand";
+import {
+  type ModifyApplicationStatusCheckCommandInput,
+  type ModifyApplicationStatusCheckCommandOutput,
+  ModifyApplicationStatusCheckCommand,
+} from "./commands/ModifyApplicationStatusCheckCommand";
 import {
   type ModifyAvailabilityZoneGroupCommandInput,
   type ModifyAvailabilityZoneGroupCommandOutput,
@@ -4175,6 +4225,7 @@ const commands = {
   AssignPrivateIpAddressesCommand,
   AssignPrivateNatGatewayAddressCommand,
   AssociateAddressCommand,
+  AssociateApplicationStatusCheckCommand,
   AssociateCapacityReservationBillingOwnerCommand,
   AssociateClientVpnTargetNetworkCommand,
   AssociateDhcpOptionsCommand,
@@ -4220,6 +4271,7 @@ const commands = {
   CopyImageCommand,
   CopySnapshotCommand,
   CopyVolumesCommand,
+  CreateApplicationStatusCheckCommand,
   CreateCapacityManagerDataExportCommand,
   CreateCapacityReservationCommand,
   CreateCapacityReservationBySplittingCommand,
@@ -4326,6 +4378,7 @@ const commands = {
   CreateVpnConnectionCommand,
   CreateVpnConnectionRouteCommand,
   CreateVpnGatewayCommand,
+  DeleteApplicationStatusCheckCommand,
   DeleteCapacityManagerDataExportCommand,
   DeleteCarrierGatewayCommand,
   DeleteClientVpnEndpointCommand,
@@ -4434,6 +4487,9 @@ const commands = {
   DescribeAddressesAttributeCommand,
   DescribeAddressTransfersCommand,
   DescribeAggregateIdFormatCommand,
+  DescribeApplicationStatusCommand,
+  DescribeApplicationStatusCheckAssociationsCommand,
+  DescribeApplicationStatusChecksCommand,
   DescribeAvailabilityZonesCommand,
   DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
   DescribeBundleTasksCommand,
@@ -4625,6 +4681,7 @@ const commands = {
   DetachVpnGatewayCommand,
   DisableAddressTransferCommand,
   DisableAllowedImagesSettingsCommand,
+  DisableApplicationStatusCheckSuppressionCommand,
   DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   DisableCapacityManagerCommand,
   DisableEbsEncryptionByDefaultCommand,
@@ -4645,6 +4702,7 @@ const commands = {
   DisableVpcClassicLinkCommand,
   DisableVpcClassicLinkDnsSupportCommand,
   DisassociateAddressCommand,
+  DisassociateApplicationStatusCheckCommand,
   DisassociateCapacityReservationBillingOwnerCommand,
   DisassociateClientVpnTargetNetworkCommand,
   DisassociateEnclaveCertificateIamRoleCommand,
@@ -4664,6 +4722,7 @@ const commands = {
   DisassociateVpcCidrBlockCommand,
   EnableAddressTransferCommand,
   EnableAllowedImagesSettingsCommand,
+  EnableApplicationStatusCheckSuppressionCommand,
   EnableAwsNetworkPerformanceMetricSubscriptionCommand,
   EnableCapacityManagerCommand,
   EnableEbsEncryptionByDefaultCommand,
@@ -4772,6 +4831,7 @@ const commands = {
   LockSnapshotCommand,
   ModifyAccountVpcEncryptionControlCommand,
   ModifyAddressAttributeCommand,
+  ModifyApplicationStatusCheckCommand,
   ModifyAvailabilityZoneGroupCommand,
   ModifyCapacityReservationCommand,
   ModifyCapacityReservationFleetCommand,
@@ -5460,6 +5520,23 @@ export interface EC2 {
     args: AssociateAddressCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateAddressCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateApplicationStatusCheckCommand}
+   */
+  associateApplicationStatusCheck(
+    args: AssociateApplicationStatusCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateApplicationStatusCheckCommandOutput>;
+  associateApplicationStatusCheck(
+    args: AssociateApplicationStatusCheckCommandInput,
+    cb: (err: any, data?: AssociateApplicationStatusCheckCommandOutput) => void
+  ): void;
+  associateApplicationStatusCheck(
+    args: AssociateApplicationStatusCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateApplicationStatusCheckCommandOutput) => void
   ): void;
 
   /**
@@ -6227,6 +6304,23 @@ export interface EC2 {
     args: CopyVolumesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyVolumesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateApplicationStatusCheckCommand}
+   */
+  createApplicationStatusCheck(
+    args: CreateApplicationStatusCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApplicationStatusCheckCommandOutput>;
+  createApplicationStatusCheck(
+    args: CreateApplicationStatusCheckCommandInput,
+    cb: (err: any, data?: CreateApplicationStatusCheckCommandOutput) => void
+  ): void;
+  createApplicationStatusCheck(
+    args: CreateApplicationStatusCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApplicationStatusCheckCommandOutput) => void
   ): void;
 
   /**
@@ -8045,6 +8139,23 @@ export interface EC2 {
     args: CreateVpnGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateVpnGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteApplicationStatusCheckCommand}
+   */
+  deleteApplicationStatusCheck(
+    args: DeleteApplicationStatusCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApplicationStatusCheckCommandOutput>;
+  deleteApplicationStatusCheck(
+    args: DeleteApplicationStatusCheckCommandInput,
+    cb: (err: any, data?: DeleteApplicationStatusCheckCommandOutput) => void
+  ): void;
+  deleteApplicationStatusCheck(
+    args: DeleteApplicationStatusCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApplicationStatusCheckCommandOutput) => void
   ): void;
 
   /**
@@ -9893,6 +10004,60 @@ export interface EC2 {
     args: DescribeAggregateIdFormatCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAggregateIdFormatCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationStatusCommand}
+   */
+  describeApplicationStatus(): Promise<DescribeApplicationStatusCommandOutput>;
+  describeApplicationStatus(
+    args: DescribeApplicationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationStatusCommandOutput>;
+  describeApplicationStatus(
+    args: DescribeApplicationStatusCommandInput,
+    cb: (err: any, data?: DescribeApplicationStatusCommandOutput) => void
+  ): void;
+  describeApplicationStatus(
+    args: DescribeApplicationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationStatusCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationStatusCheckAssociationsCommand}
+   */
+  describeApplicationStatusCheckAssociations(): Promise<DescribeApplicationStatusCheckAssociationsCommandOutput>;
+  describeApplicationStatusCheckAssociations(
+    args: DescribeApplicationStatusCheckAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationStatusCheckAssociationsCommandOutput>;
+  describeApplicationStatusCheckAssociations(
+    args: DescribeApplicationStatusCheckAssociationsCommandInput,
+    cb: (err: any, data?: DescribeApplicationStatusCheckAssociationsCommandOutput) => void
+  ): void;
+  describeApplicationStatusCheckAssociations(
+    args: DescribeApplicationStatusCheckAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationStatusCheckAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeApplicationStatusChecksCommand}
+   */
+  describeApplicationStatusChecks(): Promise<DescribeApplicationStatusChecksCommandOutput>;
+  describeApplicationStatusChecks(
+    args: DescribeApplicationStatusChecksCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationStatusChecksCommandOutput>;
+  describeApplicationStatusChecks(
+    args: DescribeApplicationStatusChecksCommandInput,
+    cb: (err: any, data?: DescribeApplicationStatusChecksCommandOutput) => void
+  ): void;
+  describeApplicationStatusChecks(
+    args: DescribeApplicationStatusChecksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationStatusChecksCommandOutput) => void
   ): void;
 
   /**
@@ -13301,6 +13466,24 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisableApplicationStatusCheckSuppressionCommand}
+   */
+  disableApplicationStatusCheckSuppression(): Promise<DisableApplicationStatusCheckSuppressionCommandOutput>;
+  disableApplicationStatusCheckSuppression(
+    args: DisableApplicationStatusCheckSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableApplicationStatusCheckSuppressionCommandOutput>;
+  disableApplicationStatusCheckSuppression(
+    args: DisableApplicationStatusCheckSuppressionCommandInput,
+    cb: (err: any, data?: DisableApplicationStatusCheckSuppressionCommandOutput) => void
+  ): void;
+  disableApplicationStatusCheckSuppression(
+    args: DisableApplicationStatusCheckSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableApplicationStatusCheckSuppressionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}
    */
   disableAwsNetworkPerformanceMetricSubscription(): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
@@ -13649,6 +13832,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DisassociateApplicationStatusCheckCommand}
+   */
+  disassociateApplicationStatusCheck(
+    args: DisassociateApplicationStatusCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateApplicationStatusCheckCommandOutput>;
+  disassociateApplicationStatusCheck(
+    args: DisassociateApplicationStatusCheckCommandInput,
+    cb: (err: any, data?: DisassociateApplicationStatusCheckCommandOutput) => void
+  ): void;
+  disassociateApplicationStatusCheck(
+    args: DisassociateApplicationStatusCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateApplicationStatusCheckCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateCapacityReservationBillingOwnerCommand}
    */
   disassociateCapacityReservationBillingOwner(
@@ -13969,6 +14169,24 @@ export interface EC2 {
     args: EnableAllowedImagesSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableAllowedImagesSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link EnableApplicationStatusCheckSuppressionCommand}
+   */
+  enableApplicationStatusCheckSuppression(): Promise<EnableApplicationStatusCheckSuppressionCommandOutput>;
+  enableApplicationStatusCheckSuppression(
+    args: EnableApplicationStatusCheckSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableApplicationStatusCheckSuppressionCommandOutput>;
+  enableApplicationStatusCheckSuppression(
+    args: EnableApplicationStatusCheckSuppressionCommandInput,
+    cb: (err: any, data?: EnableApplicationStatusCheckSuppressionCommandOutput) => void
+  ): void;
+  enableApplicationStatusCheckSuppression(
+    args: EnableApplicationStatusCheckSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableApplicationStatusCheckSuppressionCommandOutput) => void
   ): void;
 
   /**
@@ -15830,6 +16048,23 @@ export interface EC2 {
     args: ModifyAddressAttributeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyAddressAttributeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyApplicationStatusCheckCommand}
+   */
+  modifyApplicationStatusCheck(
+    args: ModifyApplicationStatusCheckCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyApplicationStatusCheckCommandOutput>;
+  modifyApplicationStatusCheck(
+    args: ModifyApplicationStatusCheckCommandInput,
+    cb: (err: any, data?: ModifyApplicationStatusCheckCommandOutput) => void
+  ): void;
+  modifyApplicationStatusCheck(
+    args: ModifyApplicationStatusCheckCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyApplicationStatusCheckCommandOutput) => void
   ): void;
 
   /**

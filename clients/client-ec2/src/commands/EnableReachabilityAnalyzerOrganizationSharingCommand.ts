@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { EnableReachabilityAnalyzerOrganizationSharing$ } from "../schemas/schemas_0";
 
 /**

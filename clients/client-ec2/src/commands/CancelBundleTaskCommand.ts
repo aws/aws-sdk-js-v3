@@ -24,6 +24,10 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
 
 /**
  * <p>Cancels a bundling operation for an instance store-backed Windows instance.</p>
+ *          <note>
+ *             <p>CancelBundleTask is no longer supported because <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_BundleInstance.html">BundleInstance</a>,
+ *         the operation it cancels, is no longer supported.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

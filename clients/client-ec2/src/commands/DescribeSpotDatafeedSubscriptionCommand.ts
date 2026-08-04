@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   DescribeSpotDatafeedSubscriptionRequest,
   DescribeSpotDatafeedSubscriptionResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import { DescribeSpotDatafeedSubscription$ } from "../schemas/schemas_0";
 
 /**

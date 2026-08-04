@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeSecurityGroupRulesRequest, DescribeSecurityGroupRulesResult } from "../models/models_4";
+import type { DescribeSecurityGroupRulesRequest } from "../models/models_4";
+import type { DescribeSecurityGroupRulesResult } from "../models/models_5";
 import { DescribeSecurityGroupRules$ } from "../schemas/schemas_0";
 
 /**

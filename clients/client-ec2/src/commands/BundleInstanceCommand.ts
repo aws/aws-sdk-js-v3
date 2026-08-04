@@ -27,9 +27,9 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  *          <p>During bundling, only the root device volume (C:\) is bundled. Data on other instance
  *       store volumes is not preserved.</p>
  *          <note>
- *             <p>This action is no longer supported. To create an AMI, use
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a>.
- *         For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">
+ *             <p>BundleInstance is no longer supported. To create an AMI, use
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">CreateImage</a> instead.
+ *         For more information about creating an Amazon EBS-backed AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">
  *         Create an Amazon EBS-backed AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          </note>
  * @example

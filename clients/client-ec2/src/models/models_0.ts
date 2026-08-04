@@ -4,6 +4,7 @@ import type {
   AccountVpcEncryptionControlMode,
   AccountVpcEncryptionControlState,
   AddressTransferStatus,
+  AggregationStatusEnum,
   AllocationType,
   AmdSevSnp,
   ApplianceModeSupportValue,
@@ -27,8 +28,6 @@ import type {
   CarrierGatewayState,
   ClientVpnAuthenticationType,
   ClientVpnAuthorizationRuleStatusCode,
-  ClientVpnEndpointStatusCode,
-  ClientVpnRouteStatusCode,
   CurrencyCodeValues,
   DeviceTrustProviderType,
   DnsSupportValue,
@@ -38,7 +37,6 @@ import type {
   EndpointIpAddressType,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
-  GatewayType,
   HostMaintenance,
   HostRecovery,
   IamInstanceProfileAssociationState,
@@ -51,13 +49,16 @@ import type {
   IpamAssociatedResourceDiscoveryStatus,
   IpamPoolAllocationResourceType,
   IpamResourceDiscoveryAssociationState,
+  IpScopeEnum,
   IpSource,
   Ipv6AddressAttribute,
   Ipv6SupportValue,
+  IpVersionEnum,
   ListingState,
   ListingStatus,
   ManagedBy,
   NatGatewayAddressStatus,
+  NetworkProtocolEnum,
   OutputFormat,
   PrincipalType,
   Protocol,
@@ -3967,6 +3968,132 @@ export interface AssociateAddressResult {
    * @public
    */
   AssociationId?: string | undefined;
+}
+
+/**
+ * <p>Describes a tag key-value pair for an application status check association request.</p>
+ * @public
+ */
+export interface CustomTagKeyValueRequestPair {
+  /**
+   * <p>The key of the tag.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateApplicationStatusCheckRequest {
+  /**
+   * <p>The ID of the application status check to associate.</p>
+   * @public
+   */
+  ApplicationStatusCheckId: string | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a> to associate the application status check with. Each tag is a key-value pair. When you associate tags, the application status check automatically monitors all instances that have the specified tags.</p>
+   * @public
+   */
+  TargetTagAssociations?: CustomTagKeyValueRequestPair[] | undefined;
+
+  /**
+   * <p>The IDs of the instances to associate with the application status check.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a successful application status check association.</p>
+ * @public
+ */
+export interface SuccessfulAssociationResponseObject {
+  /**
+   * <p>The ID of the application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheckId?: string | undefined;
+
+  /**
+   * <p>The type of association. Valid values: <code>EC2TAG</code> and <code>INSTANCE_ID</code>.</p>
+   * @public
+   */
+  AssociationType?: string | undefined;
+
+  /**
+   * <p>The association value. For <code>EC2TAG</code>, the value is formatted as <code>key=value</code>. For <code>INSTANCE_ID</code>, the value is the instance ID.</p>
+   * @public
+   */
+  AssociationValue?: string | undefined;
+}
+
+/**
+ * <p>Describes an unsuccessful application status check association.</p>
+ * @public
+ */
+export interface UnsuccessfulAssociationResponseObject {
+  /**
+   * <p>The ID of the application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheckId?: string | undefined;
+
+  /**
+   * <p>The type of association. Valid values: <code>EC2TAG</code> and <code>INSTANCE_ID</code>.</p>
+   * @public
+   */
+  AssociationType?: string | undefined;
+
+  /**
+   * <p>The association value. For <code>EC2TAG</code>, the value is formatted as <code>key=value</code>. For <code>INSTANCE_ID</code>, the value is the instance ID.</p>
+   * @public
+   */
+  AssociationValue?: string | undefined;
+
+  /**
+   * <p>The reason the association failed.</p>
+   * @public
+   */
+  Reason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateApplicationStatusCheckResult {
+  /**
+   * <p>The associations that were successfully created.</p>
+   * @public
+   */
+  SuccessfulResults?: SuccessfulAssociationResponseObject[] | undefined;
+
+  /**
+   * <p>The associations that failed to be created.</p>
+   * @public
+   */
+  UnsuccessfulResults?: UnsuccessfulAssociationResponseObject[] | undefined;
 }
 
 /**
@@ -8347,6 +8474,384 @@ export interface CopyVolumesResult {
 }
 
 /**
+ * <p>Describes a destination for a health check path in a request. Destinations can be in a different Availability Zone than the source (cross-AZ) or in a Local Zone (AZ to Local Zone), enabling remote health validation of your application.</p>
+ * @public
+ */
+export interface HealthCheckPathDestinationRequestObject {
+  /**
+   * <p>The ID of the subnet for the destination.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group for the destination.</p>
+   * @public
+   */
+  SecurityGroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes the source for a health check path in a request. The source defines the subnet and security group where a health check elastic network interface (ENI) is created to originate health check traffic.</p>
+ * @public
+ */
+export interface HealthCheckPathSourceRequestObject {
+  /**
+   * <p>The ID of the subnet for the source.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group for the source.</p>
+   * @public
+   */
+  SecurityGroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes a health check path for an application status check request.</p>
+ * @public
+ */
+export interface HealthCheckPathRequestObject {
+  /**
+   * <p>The source for the health check path.</p>
+   * @public
+   */
+  Source?: HealthCheckPathSourceRequestObject | undefined;
+
+  /**
+   * <p>The destinations for the health check path.</p>
+   * @public
+   */
+  Destinations?: HealthCheckPathDestinationRequestObject[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationStatusCheckRequest {
+  /**
+   * <p>The health check paths to use for the application status check. Health check paths define the network path from a source subnet to one or more destination subnets for cross-Availability Zone or Availability Zone to Local Zone health checking. If omitted, health checks are performed in the same subnet as the instance.</p>
+   * @public
+   */
+  HealthCheckPaths?: HealthCheckPathRequestObject[] | undefined;
+
+  /**
+   * <p>The aggregation setting for the application status check. When set to <code>included</code>, the result of this check contributes to the instance-level application status reported by <code>DescribeApplicationStatus</code>. When set to <code>excluded</code>, the check runs independently and does not affect the instance-level status. Valid values: <code>included</code> | <code>excluded</code>.</p>
+   * @public
+   */
+  Aggregation?: AggregationStatusEnum | undefined;
+
+  /**
+   * <p>The protocol to use for the health check. Valid values: <code>http</code> | <code>https</code>.</p>
+   * @public
+   */
+  Protocol: NetworkProtocolEnum | undefined;
+
+  /**
+   * <p>The port to use for the health check. Valid values: 1 to 65535.</p>
+   * @public
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The URL path to use for the health check HTTP request (for example, <code>/health</code> or <code>/status</code>).</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The index of the network device to use for the health check. The value must be greater than or equal to 0.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The IP version to use for the health check. Valid values: <code>ipv4</code> and <code>ipv6</code>.</p>
+   * @public
+   */
+  IpVersion?: IpVersionEnum | undefined;
+
+  /**
+   * <p>The IP scope to use for the health check. Valid value: <code>private</code>.</p>
+   * @public
+   */
+  IpScope?: IpScopeEnum | undefined;
+
+  /**
+   * <p>The interval, in seconds, between health checks. Valid value: 60.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, to wait for a health check response before considering it failed. Valid values: 1 to 30. The value must be less than <code>Interval</code>.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The number of consecutive failed health checks before the application status is considered impaired. The value must be greater than 0.</p>
+   * @public
+   */
+  FailureThreshold?: number | undefined;
+
+  /**
+   * <p>The number of consecutive successful health checks before the application status is considered healthy. The value must be greater than 0.</p>
+   * @public
+   */
+  SuccessThreshold?: number | undefined;
+
+  /**
+   * <p>The HTTP status codes that indicate a successful health check response. Specify a comma-separated list of individual status codes or ranges, for example, <code>200,202,300-399</code>. For a range, the first value must be less than the second value. Maximum length: 64 characters. Default: <code>200</code>.</p>
+   * @public
+   */
+  StatusCodeMatcher?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait before starting health checks after an instance is launched. Valid values: 1 to 600.</p>
+   * @public
+   */
+  InitializationGracePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>The tags to apply to the application status check.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a destination for a health check path.</p>
+ * @public
+ */
+export interface HealthCheckPathDestinationResponseObject {
+  /**
+   * <p>The ID of the subnet for the destination.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group for the destination.</p>
+   * @public
+   */
+  SecurityGroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes the source for a health check path.</p>
+ * @public
+ */
+export interface HealthCheckPathSourceResponseObject {
+  /**
+   * <p>The ID of the subnet for the source.</p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The ID of the security group for the source.</p>
+   * @public
+   */
+  SecurityGroupId?: string | undefined;
+}
+
+/**
+ * <p>Describes a health check path for an application status check.</p>
+ * @public
+ */
+export interface HealthCheckPathResponseObject {
+  /**
+   * <p>The source for the health check path.</p>
+   * @public
+   */
+  Source?: HealthCheckPathSourceResponseObject | undefined;
+
+  /**
+   * <p>The destinations for the health check path.</p>
+   * @public
+   */
+  Destinations?: HealthCheckPathDestinationResponseObject[] | undefined;
+}
+
+/**
+ * <p>Describes a tag key-value pair for an application status check association.</p>
+ * @public
+ */
+export interface CustomTagKeyValueResponsePair {
+  /**
+   * <p>The key of the tag.</p>
+   * @public
+   */
+  Key?: string | undefined;
+
+  /**
+   * <p>The value of the tag.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Describes an application status check.</p>
+ * @public
+ */
+export interface ApplicationStatusCheckResponseObject {
+  /**
+   * <p>The ID of the application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheckId?: string | undefined;
+
+  /**
+   * <p>The aggregation setting for the application status check. When set to <code>included</code>, the result of this check contributes to the instance-level application status. When set to <code>excluded</code>, the check runs independently and does not affect the instance-level status.</p>
+   * @public
+   */
+  Aggregation?: AggregationStatusEnum | undefined;
+
+  /**
+   * <p>The health check paths for the application status check.</p>
+   * @public
+   */
+  HealthCheckPaths?: HealthCheckPathResponseObject[] | undefined;
+
+  /**
+   * <p>The protocol used for the health check.</p>
+   * @public
+   */
+  Protocol?: NetworkProtocolEnum | undefined;
+
+  /**
+   * <p>The port used for the health check.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The URL path used for the health check HTTP request.</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The index of the network device used for the health check. The value is greater than or equal to 0.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The IP version used for the health check.</p>
+   * @public
+   */
+  IpVersion?: IpVersionEnum | undefined;
+
+  /**
+   * <p>The IP scope used for the health check.</p>
+   * @public
+   */
+  IpScope?: IpScopeEnum | undefined;
+
+  /**
+   * <p>The interval, in seconds, between health checks. Valid value: 60.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, to wait for a health check response. Valid values: 1 to 30.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The number of consecutive failed health checks before the application status is considered impaired. The value must be greater than 0.</p>
+   * @public
+   */
+  FailureThreshold?: number | undefined;
+
+  /**
+   * <p>The number of consecutive successful health checks before the application status is considered healthy. The value must be greater than 0.</p>
+   * @public
+   */
+  SuccessThreshold?: number | undefined;
+
+  /**
+   * <p>The comma-separated list of individual HTTP status codes or ranges that indicate a successful health check response.</p>
+   * @public
+   */
+  StatusCodeMatcher?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait before starting health checks after an instance is launched. Valid values: 1 to 600.</p>
+   * @public
+   */
+  InitializationGracePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>The date and time when the application status check was last updated.</p>
+   * @public
+   */
+  LastUpdatedAt?: Date | undefined;
+
+  /**
+   * <p>The <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a> associated with the application status check. Instances with these tags are automatically monitored by this check.</p>
+   * @public
+   */
+  TargetTagAssociations?: CustomTagKeyValueResponsePair[] | undefined;
+
+  /**
+   * <p>The tags assigned to the application status check.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The date and time when the application status check was created.</p>
+   * @public
+   */
+  CreationTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the application status check was last modified.</p>
+   * @public
+   */
+  ModifyTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the application status check was deleted.</p>
+   * @public
+   */
+  DeletionTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApplicationStatusCheckResult {
+  /**
+   * <p>Information about the application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheck?: ApplicationStatusCheckResponseObject | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateCapacityManagerDataExportRequest {
@@ -10120,504 +10625,4 @@ export interface CreateClientVpnEndpointRequest {
    * @public
    */
   TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint.</p>
- * @public
- */
-export interface ClientVpnEndpointStatus {
-  /**
-   * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
-   * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
-   * 					associated. The Client VPN endpoint can accept connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
-   * 					connections.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - The Client VPN endpoint has been created with a Transit Gateway configuration and is waiting for the Transit Gateway attachment to be accepted. The Client VPN endpoint cannot accept connections.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Code?: ClientVpnEndpointStatusCode | undefined;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClientVpnEndpointResult {
-  /**
-   * <p>The ID of the Client VPN endpoint.</p>
-   * @public
-   */
-  ClientVpnEndpointId?: string | undefined;
-
-  /**
-   * <p>The current state of the Client VPN endpoint.</p>
-   * @public
-   */
-  Status?: ClientVpnEndpointStatus | undefined;
-
-  /**
-   * <p>The DNS name to be used by clients when establishing their VPN session.</p>
-   * @public
-   */
-  DnsName?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClientVpnRouteRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which to add the route.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for an on-premises network, enter the Amazon Web Services Site-to-Site VPN connection's IPv4 CIDR range</p>
-   *             </li>
-   *             <li>
-   *                <p>To add a route for the local network, enter the client CIDR range</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
-   * 			an existing target network of the Client VPN endpoint.</p>
-   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
-   *          <p>This parameter is required for VPC-based Client VPN endpoints. For Transit Gateway-based endpoints, this parameter is not required.</p>
-   * @public
-   */
-  TargetVpcSubnetId?: string | undefined;
-
-  /**
-   * <p>A brief description of the route.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the state of a Client VPN endpoint route.</p>
- * @public
- */
-export interface ClientVpnRouteStatus {
-  /**
-   * <p>The state of the Client VPN endpoint route.</p>
-   * @public
-   */
-  Code?: ClientVpnRouteStatusCode | undefined;
-
-  /**
-   * <p>A message about the status of the Client VPN endpoint route, if applicable.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClientVpnRouteResult {
-  /**
-   * <p>The current state of the route.</p>
-   * @public
-   */
-  Status?: ClientVpnRouteStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCoipCidrRequest {
-  /**
-   * <p>
-   *       A customer-owned IP address range to create.
-   *       </p>
-   * @public
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   * @public
-   */
-  CoipPoolId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>
- *       Information about a customer-owned IP address range.
- *       </p>
- * @public
- */
-export interface CoipCidr {
-  /**
-   * <p>
-   *       An address range in a customer-owned IP address space.
-   *       </p>
-   * @public
-   */
-  Cidr?: string | undefined;
-
-  /**
-   * <p>
-   *          The ID of the address pool.
-   *       </p>
-   * @public
-   */
-  CoipPoolId?: string | undefined;
-
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCoipCidrResult {
-  /**
-   * <p>
-   *          Information about a range of customer-owned IP addresses.
-   *       </p>
-   * @public
-   */
-  CoipCidr?: CoipCidr | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCoipPoolRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   * @public
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *       The tags to assign to the CoIP address pool.
-   *       </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a customer-owned address pool.</p>
- * @public
- */
-export interface CoipPool {
-  /**
-   * <p>The ID of the address pool.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-
-  /**
-   * <p>The address ranges of the address pool.</p>
-   * @public
-   */
-  PoolCidrs?: string[] | undefined;
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   * @public
-   */
-  LocalGatewayRouteTableId?: string | undefined;
-
-  /**
-   * <p>The tags.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The ARN of the address pool.</p>
-   * @public
-   */
-  PoolArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateCoipPoolResult {
-  /**
-   * <p>Information about the CoIP address pool.</p>
-   * @public
-   */
-  CoipPool?: CoipPool | undefined;
-}
-
-/**
- * <p>Contains the parameters for CreateCustomerGateway.</p>
- * @public
- */
-export interface CreateCustomerGatewayRequest {
-  /**
-   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
-   *          <p>Default: 65000</p>
-   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
-   *          </p>
-   * @public
-   */
-  BgpAsn?: number | undefined;
-
-  /**
-   * <p>
-   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
-   *             address must be static.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-
-  /**
-   * <p>The type of VPN connection that this customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   * @public
-   */
-  Type: GatewayType | undefined;
-
-  /**
-   * <p>The tags to apply to the customer gateway.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>A name for the customer gateway device.</p>
-   *          <p>Length Constraints: Up to 255 characters.</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>The IP address for the customer gateway device's outside interface. The address must be
-   *             static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to
-   *                 <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If
-   *                 <code>OutsideIpAddressType</code> is set to <code>Ipv6</code>, you can use an IPv6 address. </p>
-   * @public
-   */
-  IpAddress?: string | undefined;
-
-  /**
-   * <p>For customer gateway devices that support BGP, specify the device's ASN. You must specify either <code>BgpAsn</code> or <code>BgpAsnExtended</code> when creating the customer gateway. If the ASN is larger than <code>2,147,483,647</code>, you must use <code>BgpAsnExtended</code>.</p>
-   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
-   *          </p>
-   * @public
-   */
-  BgpAsnExtended?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes a customer gateway.</p>
- * @public
- */
-export interface CustomerGateway {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   * @public
-   */
-  CertificateArn?: string | undefined;
-
-  /**
-   * <p>The name of customer gateway device.</p>
-   * @public
-   */
-  DeviceName?: string | undefined;
-
-  /**
-   * <p>Any tags assigned to the customer gateway.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   *          <p>Valid values: <code>2,147,483,648</code> to <code>4,294,967,295</code>
-   *          </p>
-   * @public
-   */
-  BgpAsnExtended?: string | undefined;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   * @public
-   */
-  CustomerGatewayId?: string | undefined;
-
-  /**
-   * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *                 deleted</code>).</p>
-   * @public
-   */
-  State?: string | undefined;
-
-  /**
-   * <p>The type of VPN connection the customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   * @public
-   */
-  Type?: string | undefined;
-
-  /**
-   * <p>
-   *             The IP address for the customer gateway device's outside interface. The address must be static. If <code>OutsideIpAddressType</code> in your VPN connection options is set to <code>PrivateIpv4</code>, you can use an RFC6598 or RFC1918 private IPv4 address. If
-   *             <code>OutsideIpAddressType</code> is set to <code>PublicIpv4</code>, you can use a public IPv4 address. If <code>OutsideIpAddressType</code> is set to <code>Ipv6</code>, you can use a public IPv6 address.
-   *         </p>
-   * @public
-   */
-  IpAddress?: string | undefined;
-
-  /**
-   * <p>The customer gateway device's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   *          <p>Valid values: <code>1</code> to <code>2,147,483,647</code>
-   *          </p>
-   * @public
-   */
-  BgpAsn?: string | undefined;
-}
-
-/**
- * <p>Contains the output of CreateCustomerGateway.</p>
- * @public
- */
-export interface CreateCustomerGatewayResult {
-  /**
-   * <p>Information about the customer gateway.</p>
-   * @public
-   */
-  CustomerGateway?: CustomerGateway | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateDefaultSubnetRequest {
-  /**
-   * <p>The Availability Zone in which to create the default subnet.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
-   *             but not both.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
-   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
-   * @public
-   */
-  Ipv6Native?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Availability Zone.</p>
-   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
-   *             but not both.</p>
-   * @public
-   */
-  AvailabilityZoneId?: string | undefined;
 }

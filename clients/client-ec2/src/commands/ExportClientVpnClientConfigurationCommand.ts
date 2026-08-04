@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import { ExportClientVpnClientConfiguration$ } from "../schemas/schemas_0";
 
 /**

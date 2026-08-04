@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyInstanceCpuOptionsRequest, ModifyInstanceCpuOptionsResult } from "../models/models_6";
+import type { ModifyInstanceCpuOptionsRequest, ModifyInstanceCpuOptionsResult } from "../models/models_7";
 import { ModifyInstanceCpuOptions$ } from "../schemas/schemas_0";
 
 /**

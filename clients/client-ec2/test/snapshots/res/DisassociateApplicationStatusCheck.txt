@@ -1,0 +1,161 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateApplicationStatusCheckResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DisassociateApplicationStatusCheckResult xmlns="https://placeholder.amazonaws.com">
+    <successfulResultSet>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+        </item>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+        </item>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+        </item>
+    </successfulResultSet>
+    <unsuccessfulResultSet>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+            <reason>
+                __Reason__
+            </reason>
+        </item>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+            <reason>
+                __Reason__
+            </reason>
+        </item>
+        <item>
+            <applicationStatusCheckId>
+                __ApplicationStatusCheckId__
+            </applicationStatusCheckId>
+            <associationType>
+                __AssociationType__
+            </associationType>
+            <associationValue>
+                __AssociationValue__
+            </associationValue>
+            <reason>
+                __Reason__
+            </reason>
+        </item>
+    </unsuccessfulResultSet>
+</DisassociateApplicationStatusCheckResult>
+
+
+--- [output object] ---
+{
+  SuccessfulResults: [
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__"
+    },
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__"
+    },
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__"
+    }
+  ],
+  UnsuccessfulResults: [
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__",
+      Reason: "__Reason__"
+    },
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__",
+      Reason: "__Reason__"
+    },
+    {
+      ApplicationStatusCheckId: "__ApplicationStatusCheckId__",
+      AssociationType: "__AssociationType__",
+      AssociationValue: "__AssociationValue__",
+      Reason: "__Reason__"
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

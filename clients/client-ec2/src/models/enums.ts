@@ -65,6 +65,7 @@ export type AcceleratorType = (typeof AcceleratorType)[keyof typeof AcceleratorT
  * @enum
  */
 export const ResourceType = {
+  application_status_check: "application-status-check",
   capacity_block: "capacity-block",
   capacity_manager_data_export: "capacity-manager-data-export",
   capacity_reservation: "capacity-reservation",
@@ -614,6 +615,19 @@ export const Affinity = {
  * @public
  */
 export type Affinity = (typeof Affinity)[keyof typeof Affinity];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregationStatusEnum = {
+  EXCLUDED: "excluded",
+  INCLUDED: "included",
+} as const;
+/**
+ * @public
+ */
+export type AggregationStatusEnum = (typeof AggregationStatusEnum)[keyof typeof AggregationStatusEnum];
 
 /**
  * @public
@@ -1310,6 +1324,44 @@ export const VolumeState = {
  * @public
  */
 export type VolumeState = (typeof VolumeState)[keyof typeof VolumeState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpScopeEnum = {
+  PRIVATE: "private",
+} as const;
+/**
+ * @public
+ */
+export type IpScopeEnum = (typeof IpScopeEnum)[keyof typeof IpScopeEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpVersionEnum = {
+  IPV4: "ipv4",
+  IPV6: "ipv6",
+} as const;
+/**
+ * @public
+ */
+export type IpVersionEnum = (typeof IpVersionEnum)[keyof typeof IpVersionEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const NetworkProtocolEnum = {
+  HTTP: "http",
+  HTTPS: "https",
+} as const;
+/**
+ * @public
+ */
+export type NetworkProtocolEnum = (typeof NetworkProtocolEnum)[keyof typeof NetworkProtocolEnum];
 
 /**
  * @public
@@ -5863,6 +5915,52 @@ export type SnapshotReturnCodes = (typeof SnapshotReturnCodes)[keyof typeof Snap
  * @public
  * @enum
  */
+export const ApplicationStatusCheckEnum = {
+  FAILED: "failed",
+  INITIALIZING: "initializing",
+  INSUFFICIENT_DATA: "insufficient-data",
+  NOT_APPLICABLE: "not-applicable",
+  PASSED: "passed",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationStatusCheckEnum = (typeof ApplicationStatusCheckEnum)[keyof typeof ApplicationStatusCheckEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApplicationStatusEnum = {
+  IMPAIRED: "impaired",
+  INITIALIZING: "initializing",
+  INSUFFICIENT_DATA: "insufficient-data",
+  NOT_APPLICABLE: "not-applicable",
+  OK: "ok",
+  SUPPRESSED: "suppressed",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationStatusEnum = (typeof ApplicationStatusEnum)[keyof typeof ApplicationStatusEnum];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssociationTypeEnum = {
+  INSTANCE_ID: "instance-id",
+  TAG: "tag",
+} as const;
+/**
+ * @public
+ */
+export type AssociationTypeEnum = (typeof AssociationTypeEnum)[keyof typeof AssociationTypeEnum];
+
+/**
+ * @public
+ * @enum
+ */
 export const AvailabilityZoneOptInStatus = {
   not_opted_in: "not-opted-in",
   opt_in_not_required: "opt-in-not-required",
@@ -6708,6 +6806,22 @@ export type SqlServerLicenseUsage = (typeof SqlServerLicenseUsage)[keyof typeof 
  * @public
  * @enum
  */
+export const SummaryStatus = {
+  impaired: "impaired",
+  initializing: "initializing",
+  insufficient_data: "insufficient-data",
+  not_applicable: "not-applicable",
+  ok: "ok",
+} as const;
+/**
+ * @public
+ */
+export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const StatusName = {
   reachability: "reachability",
 } as const;
@@ -6730,22 +6844,6 @@ export const StatusType = {
  * @public
  */
 export type StatusType = (typeof StatusType)[keyof typeof StatusType];
-
-/**
- * @public
- * @enum
- */
-export const SummaryStatus = {
-  impaired: "impaired",
-  initializing: "initializing",
-  insufficient_data: "insufficient-data",
-  not_applicable: "not-applicable",
-  ok: "ok",
-} as const;
-/**
- * @public
- */
-export type SummaryStatus = (typeof SummaryStatus)[keyof typeof SummaryStatus];
 
 /**
  * @public

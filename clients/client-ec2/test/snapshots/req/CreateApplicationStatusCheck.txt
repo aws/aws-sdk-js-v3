@@ -1,0 +1,59 @@
+POST https://ec2.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-www-form-urlencoded
+content-length: 1948
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
+host: ec2.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: c011c782916c99cf3b26124bd4ed985f918eea6facb4ad876489fbb19324502e
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
+
+[string (query)]
+Action=CreateApplicationStatusCheck&
+Version=2016-11-15&
+Protocol=__Protocol__&
+Port=0&
+HealthCheckPath.1.Source.SubnetId=__SubnetId__&
+HealthCheckPath.1.Source.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.1.Destination.1.SubnetId=__SubnetId__&
+HealthCheckPath.1.Destination.1.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.1.Destination.2.SubnetId=__SubnetId__&
+HealthCheckPath.1.Destination.2.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.1.Destination.3.SubnetId=__SubnetId__&
+HealthCheckPath.1.Destination.3.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.2.Source.SubnetId=__SubnetId__&
+HealthCheckPath.2.Source.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.2.Destination.1.SubnetId=__SubnetId__&
+HealthCheckPath.2.Destination.1.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.2.Destination.2.SubnetId=__SubnetId__&
+HealthCheckPath.2.Destination.2.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.2.Destination.3.SubnetId=__SubnetId__&
+HealthCheckPath.2.Destination.3.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.3.Source.SubnetId=__SubnetId__&
+HealthCheckPath.3.Source.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.3.Destination.1.SubnetId=__SubnetId__&
+HealthCheckPath.3.Destination.1.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.3.Destination.2.SubnetId=__SubnetId__&
+HealthCheckPath.3.Destination.2.SecurityGroupId=__SecurityGroupId__&
+HealthCheckPath.3.Destination.3.SubnetId=__SubnetId__&
+HealthCheckPath.3.Destination.3.SecurityGroupId=__SecurityGroupId__&
+Aggregation=__Aggregation__&
+Path=__Path__&
+DeviceIndex=0&
+IpVersion=__IpVersion__&
+IpScope=__IpScope__&
+Interval=0&
+Timeout=0&
+FailureThreshold=0&
+SuccessThreshold=0&
+StatusCodeMatcher=__StatusCodeMatcher__&
+InitializationGracePeriodSeconds=0&
+TagSpecification.1.ResourceType=__ResourceType__&
+TagSpecification.2.ResourceType=__ResourceType__&
+TagSpecification.3.ResourceType=__ResourceType__&
+ClientToken=1111abcd-uuid-uuid-uuid-000000001111&
+DryRun=false
