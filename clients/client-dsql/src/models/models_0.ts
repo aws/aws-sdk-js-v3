@@ -493,7 +493,7 @@ export interface UpdateClusterInput {
   deletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p>
+   * <p>The KMS key that encrypts and protects the data on your cluster. You can specify the ARN, ID, or alias of an existing key or have Amazon Web Services create a default key for you.</p> <p>To switch to the key owned by Amazon Web Services, specify the reserved value <code>AWS_OWNED_KMS_KEY</code>.</p>
    * @public
    */
   kmsEncryptionKey?: string | undefined;
