@@ -212,6 +212,11 @@ import {
 } from "./commands/RestoreTableToPointInTimeCommand";
 import { type ScanCommandInput, type ScanCommandOutput, ScanCommand } from "./commands/ScanCommand";
 import {
+  type SearchVectorsCommandInput,
+  type SearchVectorsCommandOutput,
+  SearchVectorsCommand,
+} from "./commands/SearchVectorsCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -337,6 +342,7 @@ const commands = {
   RestoreTableFromBackupCommand,
   RestoreTableToPointInTimeCommand,
   ScanCommand,
+  SearchVectorsCommand,
   TagResourceCommand,
   TransactGetItemsCommand,
   TransactWriteItemsCommand,
@@ -1123,6 +1129,23 @@ export interface DynamoDB {
     args: ScanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ScanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchVectorsCommand}
+   */
+  searchVectors(
+    args: SearchVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchVectorsCommandOutput>;
+  searchVectors(
+    args: SearchVectorsCommandInput,
+    cb: (err: any, data?: SearchVectorsCommandOutput) => void
+  ): void;
+  searchVectors(
+    args: SearchVectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchVectorsCommandOutput) => void
   ): void;
 
   /**

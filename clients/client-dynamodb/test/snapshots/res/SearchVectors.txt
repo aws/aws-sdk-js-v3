@@ -1,0 +1,217 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{}
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.0
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ConsumedCapacity": {
+    "VectorSearchRequestBytes": 0,
+    "VectorWriteRequestBytes": 0
+  },
+  "SearchResults": [
+    {
+      "Item": {
+        "key1": {
+          "B": "AQAAAQ=="
+        },
+        "key2": {
+          "SS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "key3": {
+          "NS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      "Score": 0
+    },
+    {
+      "Item": {
+        "key1": {
+          "SS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "key2": {
+          "NS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "key3": {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        }
+      },
+      "Score": 0
+    },
+    {
+      "Item": {
+        "key1": {
+          "NS": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "key2": {
+          "BS": [
+            "AQAAAQ==",
+            "AQAAAQ==",
+            "AQAAAQ=="
+          ]
+        },
+        "key3": {
+          "M": {
+            "key1": {
+              "NULL": false
+            },
+            "key2": {
+              "BOOL": false
+            },
+            "key3": {
+              "S": "__S__"
+            }
+          }
+        }
+      },
+      "Score": 0
+    }
+  ]
+}
+
+
+--- [output object] ---
+{
+  ConsumedCapacity: {
+    VectorSearchRequestBytes: (number) 0,
+    VectorWriteRequestBytes: (number) 0
+  },
+  SearchResults: [
+    {
+      Item: {
+        key1: {
+          B: (Uint8Array) bytes[1, 0, 0, 1]
+        },
+        key2: {
+          SS: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        key3: {
+          NS: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
+      },
+      Score: (number) 0
+    },
+    {
+      Item: {
+        key1: {
+          SS: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        key2: {
+          NS: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        key3: {
+          BS: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        }
+      },
+      Score: (number) 0
+    },
+    {
+      Item: {
+        key1: {
+          NS: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        key2: {
+          BS: [
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1],
+            (Uint8Array) bytes[1, 0, 0, 1]
+          ]
+        },
+        key3: {
+          M: {
+            key1: {
+              NULL: (boolean) false
+            },
+            key2: {
+              BOOL: (boolean) false
+            },
+            key3: {
+              S: "__S__"
+            }
+          }
+        }
+      },
+      Score: (number) 0
+    }
+  ],
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

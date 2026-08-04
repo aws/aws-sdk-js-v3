@@ -18,6 +18,7 @@ import type { GetCommandInput, GetCommandOutput } from "./commands/GetCommand";
 import type { PutCommandInput, PutCommandOutput } from "./commands/PutCommand";
 import type { QueryCommandInput, QueryCommandOutput } from "./commands/QueryCommand";
 import type { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import type { SearchVectorsCommandInput, SearchVectorsCommandOutput } from "./commands/SearchVectorsCommand";
 import type { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
 import type { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
 import type { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
@@ -48,6 +49,7 @@ export type ServiceInputTypes =
   | PutCommandInput
   | QueryCommandInput
   | ScanCommandInput
+  | SearchVectorsCommandInput
   | TransactGetCommandInput
   | TransactWriteCommandInput
   | UpdateCommandInput;
@@ -67,6 +69,7 @@ export type ServiceOutputTypes =
   | PutCommandOutput
   | QueryCommandOutput
   | ScanCommandOutput
+  | SearchVectorsCommandOutput
   | TransactGetCommandOutput
   | TransactWriteCommandOutput
   | UpdateCommandOutput;

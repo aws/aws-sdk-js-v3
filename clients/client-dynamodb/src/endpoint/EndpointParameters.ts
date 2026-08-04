@@ -63,4 +63,5 @@ export interface EndpointParameters extends __EndpointParameters {
   AccountIdEndpointMode?: string | undefined;
   ResourceArn?: string | undefined;
   ResourceArnList?: string[] | undefined;
+  IsSearchOperation?: boolean | undefined;
 }

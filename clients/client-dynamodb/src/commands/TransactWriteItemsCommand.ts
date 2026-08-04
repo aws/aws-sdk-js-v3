@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep12, _mw0, command } from "../commandBuilder";
+import { _ep13, _mw0, command } from "../commandBuilder";
 import type { TransactWriteItemsInput, TransactWriteItemsOutput } from "../models/models_0";
 import { TransactWriteItems$ } from "../schemas/schemas_0";
 
@@ -240,6 +240,12 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * //           CapacityUnits: Number("double"),
  * //         },
  * //       },
+ * //       VectorIndexes: { // VectorIndexesCapacityMap
+ * //         "<keys>": { // VectorCapacity
+ * //           VectorSearchRequestBytes: Number("double"),
+ * //           VectorWriteRequestBytes: Number("double"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   ItemCollectionMetrics: { // ItemCollectionMetricsPerTable
@@ -398,7 +404,10 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *             <p>DynamoDB lists the cancellation reasons on the
  *                     <code>CancellationReasons</code> property. Transaction cancellation reasons are ordered in the order of requested
  *                 items, if an item has no error it will have <code>None</code> code and
- *                     <code>Null</code> message.</p>
+ *                     <code>Null</code> message. The <code>None</code> code is returned as the literal
+ *                 string <code>"None"</code>, not a null or absent value; the message field is omitted
+ *                 entirely for an item that has no error. This is important to note when using an SDK
+ *                 that surfaces the code as an optional or nullable type.</p>
  *          </note>
  *          <p>Cancellation reason codes and possible error messages:</p>
  *          <ul>
@@ -641,7 +650,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * @public
  */
 export class TransactWriteItemsCommand extends command<TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput>(
-  _ep12,
+  _ep13,
   _mw0,
   "TransactWriteItems",
   TransactWriteItems$

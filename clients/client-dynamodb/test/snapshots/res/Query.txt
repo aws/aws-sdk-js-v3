@@ -123,6 +123,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "WriteCapacityUnits": 0,
         "CapacityUnits": 0
       }
+    },
+    "VectorIndexes": {
+      "key1": {
+        "VectorSearchRequestBytes": 0,
+        "VectorWriteRequestBytes": 0
+      },
+      "key2": {
+        "VectorSearchRequestBytes": 0,
+        "VectorWriteRequestBytes": 0
+      },
+      "key3": {
+        "VectorSearchRequestBytes": 0,
+        "VectorWriteRequestBytes": 0
+      }
     }
   }
 }
@@ -224,6 +238,20 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         ReadCapacityUnits: (number) 0,
         WriteCapacityUnits: (number) 0,
         CapacityUnits: (number) 0
+      }
+    },
+    VectorIndexes: {
+      key1: {
+        VectorSearchRequestBytes: (number) 0,
+        VectorWriteRequestBytes: (number) 0
+      },
+      key2: {
+        VectorSearchRequestBytes: (number) 0,
+        VectorWriteRequestBytes: (number) 0
+      },
+      key3: {
+        VectorSearchRequestBytes: (number) 0,
+        VectorWriteRequestBytes: (number) 0
       }
     }
   },

@@ -184,6 +184,12 @@ export interface DeleteItemCommandOutput extends DeleteItemOutput, __MetadataBea
  * //         CapacityUnits: Number("double"),
  * //       },
  * //     },
+ * //     VectorIndexes: { // VectorIndexesCapacityMap
+ * //       "<keys>": { // VectorCapacity
+ * //         VectorSearchRequestBytes: Number("double"),
+ * //         VectorWriteRequestBytes: Number("double"),
+ * //       },
+ * //     },
  * //   },
  * //   ItemCollectionMetrics: { // ItemCollectionMetrics
  * //     ItemCollectionKey: { // ItemCollectionKeyAttributeMap

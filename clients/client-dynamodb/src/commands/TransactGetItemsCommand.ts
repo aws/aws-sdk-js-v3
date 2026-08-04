@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep11, _mw0, command } from "../commandBuilder";
+import { _ep12, _mw0, command } from "../commandBuilder";
 import type { TransactGetItemsInput, TransactGetItemsOutput } from "../models/models_0";
 import { TransactGetItems$ } from "../schemas/schemas_0";
 
@@ -143,6 +143,12 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * //           ReadCapacityUnits: Number("double"),
  * //           WriteCapacityUnits: Number("double"),
  * //           CapacityUnits: Number("double"),
+ * //         },
+ * //       },
+ * //       VectorIndexes: { // VectorIndexesCapacityMap
+ * //         "<keys>": { // VectorCapacity
+ * //           VectorSearchRequestBytes: Number("double"),
+ * //           VectorWriteRequestBytes: Number("double"),
  * //         },
  * //       },
  * //     },
@@ -294,7 +300,10 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *             <p>DynamoDB lists the cancellation reasons on the
  *                     <code>CancellationReasons</code> property. Transaction cancellation reasons are ordered in the order of requested
  *                 items, if an item has no error it will have <code>None</code> code and
- *                     <code>Null</code> message.</p>
+ *                     <code>Null</code> message. The <code>None</code> code is returned as the literal
+ *                 string <code>"None"</code>, not a null or absent value; the message field is omitted
+ *                 entirely for an item that has no error. This is important to note when using an SDK
+ *                 that surfaces the code as an optional or nullable type.</p>
  *          </note>
  *          <p>Cancellation reason codes and possible error messages:</p>
  *          <ul>
@@ -478,7 +487,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @public
  */
 export class TransactGetItemsCommand extends command<TransactGetItemsCommandInput, TransactGetItemsCommandOutput>(
-  _ep11,
+  _ep12,
   _mw0,
   "TransactGetItems",
   TransactGetItems$

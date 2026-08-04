@@ -228,6 +228,12 @@ export interface ScanCommandOutput extends ScanOutput, __MetadataBearer {}
  * //         CapacityUnits: Number("double"),
  * //       },
  * //     },
+ * //     VectorIndexes: { // VectorIndexesCapacityMap
+ * //       "<keys>": { // VectorCapacity
+ * //         VectorSearchRequestBytes: Number("double"),
+ * //         VectorWriteRequestBytes: Number("double"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *

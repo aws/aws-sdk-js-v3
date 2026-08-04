@@ -43,6 +43,7 @@ export * from "./QueryCommand";
 export * from "./RestoreTableFromBackupCommand";
 export * from "./RestoreTableToPointInTimeCommand";
 export * from "./ScanCommand";
+export * from "./SearchVectorsCommand";
 export * from "./TagResourceCommand";
 export * from "./TransactGetItemsCommand";
 export * from "./TransactWriteItemsCommand";

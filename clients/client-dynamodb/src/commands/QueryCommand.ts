@@ -244,6 +244,12 @@ export interface QueryCommandOutput extends QueryOutput, __MetadataBearer {}
  * //         CapacityUnits: Number("double"),
  * //       },
  * //     },
+ * //     VectorIndexes: { // VectorIndexesCapacityMap
+ * //       "<keys>": { // VectorCapacity
+ * //         VectorSearchRequestBytes: Number("double"),
+ * //         VectorWriteRequestBytes: Number("double"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *

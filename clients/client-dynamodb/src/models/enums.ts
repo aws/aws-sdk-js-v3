@@ -172,6 +172,33 @@ export type TimeToLiveStatus = (typeof TimeToLiveStatus)[keyof typeof TimeToLive
  * @public
  * @enum
  */
+export const VectorDistanceFunction = {
+  COSINE: "COSINE",
+  DOT_PRODUCT: "DOT_PRODUCT",
+  EUCLIDEAN: "EUCLIDEAN",
+} as const;
+/**
+ * @public
+ */
+export type VectorDistanceFunction = (typeof VectorDistanceFunction)[keyof typeof VectorDistanceFunction];
+
+/**
+ * @public
+ * @enum
+ */
+export const SearchSchemaElementType = {
+  HASH: "HASH",
+  INLINE_FILTER: "INLINE_FILTER",
+} as const;
+/**
+ * @public
+ */
+export type SearchSchemaElementType = (typeof SearchSchemaElementType)[keyof typeof SearchSchemaElementType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BackupTypeFilter = {
   ALL: "ALL",
   AWS_BACKUP: "AWS_BACKUP",

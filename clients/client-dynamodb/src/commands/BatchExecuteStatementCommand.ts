@@ -184,6 +184,12 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * //           CapacityUnits: Number("double"),
  * //         },
  * //       },
+ * //       VectorIndexes: { // VectorIndexesCapacityMap
+ * //         "<keys>": { // VectorCapacity
+ * //           VectorSearchRequestBytes: Number("double"),
+ * //           VectorWriteRequestBytes: Number("double"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

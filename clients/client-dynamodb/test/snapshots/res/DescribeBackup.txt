@@ -261,7 +261,99 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         "SSEType": "__SSEType__",
         "KMSMasterKeyArn": "__KMSMasterKeyArn__",
         "InaccessibleEncryptionDateTime": 946702799.999
-      }
+      },
+      "VectorIndexes": [
+        {
+          "IndexName": "__IndexName__",
+          "VectorAttribute": {
+            "AttributeName": "__AttributeName__"
+          },
+          "SearchSchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Dimensions": 0,
+          "DistanceFunction": "__DistanceFunction__"
+        },
+        {
+          "IndexName": "__IndexName__",
+          "VectorAttribute": {
+            "AttributeName": "__AttributeName__"
+          },
+          "SearchSchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Dimensions": 0,
+          "DistanceFunction": "__DistanceFunction__"
+        },
+        {
+          "IndexName": "__IndexName__",
+          "VectorAttribute": {
+            "AttributeName": "__AttributeName__"
+          },
+          "SearchSchema": [
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            },
+            {
+              "AttributeName": "__AttributeName__",
+              "SearchSchemaElementType": "__SearchSchemaElementType__"
+            }
+          ],
+          "Projection": {
+            "ProjectionType": "__ProjectionType__",
+            "NonKeyAttributes": [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          "Dimensions": 0,
+          "DistanceFunction": "__DistanceFunction__"
+        }
+      ]
     }
   }
 }
@@ -502,7 +594,99 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         SSEType: "__SSEType__",
         KMSMasterKeyArn: "__KMSMasterKeyArn__",
         InaccessibleEncryptionDateTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
-      }
+      },
+      VectorIndexes: [
+        {
+          IndexName: "__IndexName__",
+          VectorAttribute: {
+            AttributeName: "__AttributeName__"
+          },
+          SearchSchema: [
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Dimensions: (number) 0,
+          DistanceFunction: "__DistanceFunction__"
+        },
+        {
+          IndexName: "__IndexName__",
+          VectorAttribute: {
+            AttributeName: "__AttributeName__"
+          },
+          SearchSchema: [
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Dimensions: (number) 0,
+          DistanceFunction: "__DistanceFunction__"
+        },
+        {
+          IndexName: "__IndexName__",
+          VectorAttribute: {
+            AttributeName: "__AttributeName__"
+          },
+          SearchSchema: [
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            },
+            {
+              AttributeName: "__AttributeName__",
+              SearchSchemaElementType: "__SearchSchemaElementType__"
+            }
+          ],
+          Projection: {
+            ProjectionType: "__ProjectionType__",
+            NonKeyAttributes: [
+              "__member__",
+              "__member__",
+              "__member__"
+            ]
+          },
+          Dimensions: (number) 0,
+          DistanceFunction: "__DistanceFunction__"
+        }
+      ]
     }
   },
   $metadata: {

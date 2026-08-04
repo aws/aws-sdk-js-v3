@@ -28,6 +28,11 @@ import { type PutCommandInput, type PutCommandOutput, PutCommand } from "./comma
 import { type QueryCommandInput, type QueryCommandOutput, QueryCommand } from "./commands/QueryCommand";
 import { type ScanCommandInput, type ScanCommandOutput, ScanCommand } from "./commands/ScanCommand";
 import {
+  type SearchVectorsCommandInput,
+  type SearchVectorsCommandOutput,
+  SearchVectorsCommand,
+} from "./commands/SearchVectorsCommand";
+import {
   type TransactGetCommandInput,
   type TransactGetCommandOutput,
   TransactGetCommand,
@@ -460,6 +465,44 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     cb?: (err: any, data?: ScanCommandOutput) => void
   ): Promise<ScanCommandOutput> | void {
     const command = new ScanCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * Accepts native JavaScript types instead of `AttributeValue`s, and calls
+   * SearchVectorsCommand operation from {@link @aws-sdk/client-dynamodb#SearchVectorsCommand}.
+   *
+   * JavaScript objects passed in as parameters are marshalled into `AttributeValue` shapes
+   * required by Amazon DynamoDB. Responses from DynamoDB are unmarshalled into plain JavaScript objects.
+   */
+  public searchVectors(
+    args: SearchVectorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchVectorsCommandOutput>;
+  public searchVectors(
+    args: SearchVectorsCommandInput,
+    cb: (err: any, data?: SearchVectorsCommandOutput) => void
+  ): void;
+  public searchVectors(
+    args: SearchVectorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchVectorsCommandOutput) => void
+  ): void;
+  public searchVectors(
+    args: SearchVectorsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchVectorsCommandOutput) => void),
+    cb?: (err: any, data?: SearchVectorsCommandOutput) => void
+  ): Promise<SearchVectorsCommandOutput> | void {
+    const command = new SearchVectorsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

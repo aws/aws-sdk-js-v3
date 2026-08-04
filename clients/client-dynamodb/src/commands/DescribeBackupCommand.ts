@@ -130,6 +130,28 @@ export interface DescribeBackupCommandOutput extends DescribeBackupOutput, __Met
  * //         KMSMasterKeyArn: "STRING_VALUE",
  * //         InaccessibleEncryptionDateTime: new Date("TIMESTAMP"),
  * //       },
+ * //       VectorIndexes: [ // VectorIndexes
+ * //         { // VectorIndexInfo
+ * //           IndexName: "STRING_VALUE",
+ * //           VectorAttribute: { // VectorAttributeDefinition
+ * //             AttributeName: "STRING_VALUE", // required
+ * //           },
+ * //           SearchSchema: [ // SearchSchema
+ * //             { // SearchSchemaElement
+ * //               AttributeName: "STRING_VALUE", // required
+ * //               SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ * //             },
+ * //           ],
+ * //           Projection: {
+ * //             ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ * //             NonKeyAttributes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Dimensions: Number("long"),
+ * //           DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN",
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * // };

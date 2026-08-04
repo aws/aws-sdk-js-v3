@@ -118,6 +118,28 @@ export interface DescribeImportCommandOutput extends DescribeImportOutput, __Met
  * //           },
  * //         },
  * //       ],
+ * //       VectorIndexes: [ // VectorIndexList
+ * //         { // VectorIndex
+ * //           IndexName: "STRING_VALUE", // required
+ * //           VectorAttribute: { // VectorAttributeDefinition
+ * //             AttributeName: "STRING_VALUE", // required
+ * //           },
+ * //           SearchSchema: [ // SearchSchema
+ * //             { // SearchSchemaElement
+ * //               AttributeName: "STRING_VALUE", // required
+ * //               SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ * //             },
+ * //           ],
+ * //           Projection: {
+ * //             ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ * //             NonKeyAttributes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Dimensions: Number("long"), // required
+ * //           DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN", // required
+ * //         },
+ * //       ],
  * //     },
  * //     StartTime: new Date("TIMESTAMP"),
  * //     EndTime: new Date("TIMESTAMP"),

@@ -35,6 +35,7 @@ import type {
   ReturnValuesOnConditionCheckFailure,
   S3SseAlgorithm,
   ScalarAttributeType,
+  SearchSchemaElementType,
   Select,
   SSEStatus,
   SSEType,
@@ -42,6 +43,7 @@ import type {
   TableClass,
   TableStatus,
   TimeToLiveStatus,
+  VectorDistanceFunction,
   WitnessStatus,
 } from "./enums";
 
@@ -843,6 +845,95 @@ export interface TimeToLiveDescription {
 }
 
 /**
+ * <p>An element in the search schema of a vector index.</p>
+ * @public
+ */
+export interface SearchSchemaElement {
+  /**
+   * <p>The name of the attribute.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+
+  /**
+   * <p>The role of the attribute in the search schema. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>HASH</code> - A partition key that partitions the vector index for
+   *                     independent scaling. When specified, you must provide this attribute's value
+   *                     in the <code>SearchConditionExpression</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INLINE_FILTER</code> - An attribute projected into the vector index
+   *                     for filtering at the storage layer during search. Inline filters are
+   *                     optional in the <code>SearchConditionExpression</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SearchSchemaElementType: SearchSchemaElementType | undefined;
+}
+
+/**
+ * <p>The definition of a vector attribute for a vector index.</p>
+ * @public
+ */
+export interface VectorAttributeDefinition {
+  /**
+   * <p>The name of the vector attribute.</p>
+   * @public
+   */
+  AttributeName: string | undefined;
+}
+
+/**
+ * <p>Contains the configuration of a vector index as it existed at the time a backup
+ *             was created.</p>
+ * @public
+ */
+export interface VectorIndexInfo {
+  /**
+   * <p>The name of the vector index.</p>
+   * @public
+   */
+  IndexName?: string | undefined;
+
+  /**
+   * <p>The vector attribute configuration for the index.</p>
+   * @public
+   */
+  VectorAttribute?: VectorAttributeDefinition | undefined;
+
+  /**
+   * <p>The search schema that defines partition key and inline filter attributes for
+   *             the vector index.</p>
+   * @public
+   */
+  SearchSchema?: SearchSchemaElement[] | undefined;
+
+  /**
+   * <p>Specifies attributes that are copied (projected) from the table into the vector
+   *             index.</p>
+   * @public
+   */
+  Projection?: Projection | undefined;
+
+  /**
+   * <p>The number of dimensions in each vector.</p>
+   * @public
+   */
+  Dimensions?: number | undefined;
+
+  /**
+   * <p>The distance function used to calculate similarity between vectors.</p>
+   * @public
+   */
+  DistanceFunction?: VectorDistanceFunction | undefined;
+}
+
+/**
  * <p>Contains the details of the features enabled on the table when the backup was created.
  *             For example, LSIs, GSIs, streams, TTL. </p>
  * @public
@@ -882,6 +973,14 @@ export interface SourceTableFeatureDetails {
    * @public
    */
   SSEDescription?: SSEDescription | undefined;
+
+  /**
+   * <p>The vector index properties for the table at the time the backup was created,
+   *             including the index name, vector attribute, dimensions, distance function, search
+   *             schema, and projection.</p>
+   * @public
+   */
+  VectorIndexes?: VectorIndexInfo[] | undefined;
 }
 
 /**
@@ -1021,6 +1120,28 @@ export interface Capacity {
 }
 
 /**
+ * <p>The consumed capacity for vector index operations, including vector search request bytes
+ *             and vector write request bytes.</p>
+ * @public
+ */
+export interface VectorCapacity {
+  /**
+   * <p>The number of vector search request bytes consumed by a
+   *             <code>SearchVectors</code> operation.</p>
+   * @public
+   */
+  VectorSearchRequestBytes?: number | undefined;
+
+  /**
+   * <p>The number of vector write request bytes consumed when writing to a vector index.
+   *             Reported for write operations that modify attributes indexed by a vector
+   *             index.</p>
+   * @public
+   */
+  VectorWriteRequestBytes?: number | undefined;
+}
+
+/**
  * <p>The capacity units consumed by an operation. The data returned includes the total
  *             provisioned throughput consumed, along with statistics for the table and any indexes
  *             involved in the operation. <code>ConsumedCapacity</code> is only returned if the request
@@ -1073,6 +1194,14 @@ export interface ConsumedCapacity {
    * @public
    */
   GlobalSecondaryIndexes?: Record<string, Capacity> | undefined;
+
+  /**
+   * <p>The amount of throughput consumed on each vector index affected by the operation.
+   *             Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or
+   *             <code>VectorSearchRequestBytes</code> (for search operations).</p>
+   * @public
+   */
+  VectorIndexes?: Record<string, VectorCapacity> | undefined;
 }
 
 /**
@@ -2070,6 +2199,53 @@ export interface Tag {
 }
 
 /**
+ * <p>Contains the configuration settings for a vector index, including the index name,
+ *             vector attribute, dimensions, distance function, search schema, and
+ *             projection.</p>
+ * @public
+ */
+export interface VectorIndex {
+  /**
+   * <p>The name of the vector index.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The vector attribute configuration for the index.</p>
+   * @public
+   */
+  VectorAttribute: VectorAttributeDefinition | undefined;
+
+  /**
+   * <p>The search schema that defines partition key and inline filter attributes for
+   *             the vector index.</p>
+   * @public
+   */
+  SearchSchema?: SearchSchemaElement[] | undefined;
+
+  /**
+   * <p>Specifies attributes that are copied (projected) from the table into the vector
+   *             index.</p>
+   * @public
+   */
+  Projection: Projection | undefined;
+
+  /**
+   * <p>The number of dimensions in each vector.</p>
+   * @public
+   */
+  Dimensions: number | undefined;
+
+  /**
+   * <p>The distance function used to calculate similarity between vectors. Valid values:
+   *             <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
+   * @public
+   */
+  DistanceFunction: VectorDistanceFunction | undefined;
+}
+
+/**
  * <p>Represents the input of a <code>CreateTable</code> operation.</p>
  * @public
  */
@@ -2422,6 +2598,51 @@ export interface CreateTableInput {
    * @public
    */
   GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
+
+  /**
+   * <p>One or more vector indexes to be created on the table. Each vector index enables
+   *             similarity search on a vector attribute. Each element in the list consists of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IndexName</code> - The name of the vector index. Must be unique
+   *                     within the table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorAttribute</code> - The attribute that contains vector
+   *                     embeddings. If multiple vector indexes reference the same attribute, they
+   *                     must all use the same number of dimensions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code> - The number of dimensions in each vector.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DistanceFunction</code> - The distance function used to calculate
+   *                     similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>,
+   *                     <code>DOT_PRODUCT</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Projection</code> - Specifies attributes that are copied (projected)
+   *                     from the table into the vector index. The total number of projected
+   *                     non-key attributes is shared across the vector attribute (counts as 1)
+   *                     and <code>INLINE_FILTER</code> search schema elements (each counts as 1).
+   *                     <code>HASH</code> search schema elements do not count toward this
+   *                     limit.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SearchSchema</code> - (Optional) Defines the partition key
+   *                     (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes
+   *                     for the vector index.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VectorIndexes?: VectorIndex[] | undefined;
 }
 
 /**
@@ -2457,6 +2678,9 @@ export interface ProvisionedThroughputDescription {
    *             effort than strongly consistent reads, so a setting of 50 <code>ReadCapacityUnits</code>
    *             per second provides 100 eventually consistent <code>ReadCapacityUnits</code> per
    *             second.</p>
+   *          <p>For a table or global secondary index that uses on-demand capacity mode
+   *                 (<code>PAY_PER_REQUEST</code>), this value is <code>0</code>, because on-demand mode
+   *             does not use provisioned throughput.</p>
    * @public
    */
   ReadCapacityUnits?: number | undefined;
@@ -2464,6 +2688,9 @@ export interface ProvisionedThroughputDescription {
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
    *                 <code>ThrottlingException</code>.</p>
+   *          <p>For a table or global secondary index that uses on-demand capacity mode
+   *                 (<code>PAY_PER_REQUEST</code>), this value is <code>0</code>, because on-demand mode
+   *             does not use provisioned throughput.</p>
    * @public
    */
   WriteCapacityUnits?: number | undefined;
@@ -2724,6 +2951,101 @@ export interface RestoreSummary {
 }
 
 /**
+ * <p>Contains the current state and configuration of a vector index, including its
+ *             status, size, item count, and the settings specified when the index was
+ *             created.</p>
+ * @public
+ */
+export interface VectorIndexDescription {
+  /**
+   * <p>The name of the vector index.</p>
+   * @public
+   */
+  IndexName?: string | undefined;
+
+  /**
+   * <p>The search schema that defines partition key and inline filter attributes for
+   *             the vector index.</p>
+   * @public
+   */
+  SearchSchema?: SearchSchemaElement[] | undefined;
+
+  /**
+   * <p>Specifies attributes that are copied (projected) from the table into the vector
+   *             index.</p>
+   * @public
+   */
+  Projection?: Projection | undefined;
+
+  /**
+   * <p>The vector attribute configuration for the index.</p>
+   * @public
+   */
+  VectorAttribute?: VectorAttributeDefinition | undefined;
+
+  /**
+   * <p>The number of dimensions in each vector.</p>
+   * @public
+   */
+  Dimensions?: number | undefined;
+
+  /**
+   * <p>The distance function used to calculate similarity between vectors.</p>
+   * @public
+   */
+  DistanceFunction?: VectorDistanceFunction | undefined;
+
+  /**
+   * <p>The current state of the vector index:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code> - The index is being created.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The index is ready for use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code> - The index is being deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IndexStatus?: IndexStatus | undefined;
+
+  /**
+   * <p>Specifies whether the index is currently backfilling. During backfill,
+   *             <code>SearchVectors</code> operations might return incomplete results.</p>
+   * @public
+   */
+  Backfilling?: boolean | undefined;
+
+  /**
+   * <p>The total size of the vector index, in bytes. Amazon DynamoDB updates this value
+   *             approximately every six hours. Recent changes might not be reflected in this
+   *             value.</p>
+   * @public
+   */
+  IndexSizeBytes?: number | undefined;
+
+  /**
+   * <p>The number of items indexed in the vector index. Amazon DynamoDB updates this
+   *             value approximately every six hours. Recent changes might not be reflected in
+   *             this value.</p>
+   * @public
+   */
+  ItemCount?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the vector index.</p>
+   * @public
+   */
+  IndexArn?: string | undefined;
+}
+
+/**
  * <p>Represents the properties of a table.</p>
  * @public
  */
@@ -2870,7 +3192,8 @@ export interface TableDescription {
   TableArn?: string | undefined;
 
   /**
-   * <p>Unique identifier for the table for which the backup was created. </p>
+   * <p>A unique identifier for the table, in UUID format, generated by DynamoDB when the
+   *             table is created.</p>
    * @public
    */
   TableId?: string | undefined;
@@ -3225,6 +3548,73 @@ export interface TableDescription {
    * @public
    */
   MultiRegionConsistency?: MultiRegionConsistency | undefined;
+
+  /**
+   * <p>The vector indexes, if any, on the table. Each element is composed of:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>IndexName</code> - The name of the vector index.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IndexStatus</code> - The current status of the vector index:
+   *                     <code>CREATING</code>, <code>ACTIVE</code>, or
+   *                     <code>DELETING</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Backfilling</code> - Specifies whether the index is currently
+   *                     backfilling. During backfill, <code>SearchVectors</code> operations might
+   *                     return incomplete results.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>VectorAttribute</code> - The attribute that contains vector
+   *                     embeddings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Dimensions</code> - The number of dimensions in each
+   *                     vector.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DistanceFunction</code> - The distance function used to calculate
+   *                     similarity (<code>COSINE</code>, <code>EUCLIDEAN</code>, or
+   *                     <code>DOT_PRODUCT</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SearchSchema</code> - The partition key and inline filter
+   *                     attributes for the vector index.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Projection</code> - Specifies attributes that are copied
+   *                     (projected) from the table into the vector index.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IndexArn</code> - The Amazon Resource Name (ARN) that uniquely
+   *                     identifies the index.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IndexSizeBytes</code> - The total size of the vector index, in
+   *                     bytes. Amazon DynamoDB updates this value approximately every six hours.
+   *                     Recent changes might not be reflected in this value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ItemCount</code> - The number of items indexed in the vector
+   *                     index. Amazon DynamoDB updates this value approximately every six hours.
+   *                     Recent changes might not be reflected in this value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  VectorIndexes?: VectorIndexDescription[] | undefined;
 }
 
 /**
@@ -3237,6 +3627,53 @@ export interface CreateTableOutput {
    * @public
    */
   TableDescription?: TableDescription | undefined;
+}
+
+/**
+ * <p>A new vector index to be added to a table.</p>
+ * @public
+ */
+export interface CreateVectorIndexAction {
+  /**
+   * <p>The name of the vector index. Must be unique within the table.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The attribute that contains vector embeddings. If multiple vector indexes
+   *             reference the same attribute, they must all use the same number of
+   *             dimensions.</p>
+   * @public
+   */
+  VectorAttribute: VectorAttributeDefinition | undefined;
+
+  /**
+   * <p>The partition key and inline filter attribute definitions for the vector
+   *             index.</p>
+   * @public
+   */
+  SearchSchema?: SearchSchemaElement[] | undefined;
+
+  /**
+   * <p>Specifies attributes that are copied (projected) from the table into the vector
+   *             index.</p>
+   * @public
+   */
+  Projection: Projection | undefined;
+
+  /**
+   * <p>The number of dimensions in each vector.</p>
+   * @public
+   */
+  Dimensions: number | undefined;
+
+  /**
+   * <p>The distance function used to calculate similarity. Valid values:
+   *             <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
+   * @public
+   */
+  DistanceFunction: VectorDistanceFunction | undefined;
 }
 
 /**
@@ -3393,6 +3830,18 @@ export interface DeleteTableOutput {
    * @public
    */
   TableDescription?: TableDescription | undefined;
+}
+
+/**
+ * <p>A vector index to be removed from a table.</p>
+ * @public
+ */
+export interface DeleteVectorIndexAction {
+  /**
+   * <p>The name of the vector index to delete.</p>
+   * @public
+   */
+  IndexName: string | undefined;
 }
 
 /**
@@ -3618,6 +4067,14 @@ export interface IncrementalExportSpecification {
    * <p>The view type that was chosen for the export. Valid values are
    *                 <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is
    *                 <code>NEW_AND_OLD_IMAGES</code>.</p>
+   *          <p>
+   *             <code>NEW_AND_OLD_IMAGES</code> exports both the new and old images of each changed
+   *             item, while <code>NEW_IMAGES</code> exports only the new (latest) image. The view type
+   *             you choose determines the structure of each item in the output for
+   *                 <code>insert</code>, <code>update</code>, and <code>delete</code> operations. For
+   *             details and examples of how each view type shapes the export output, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.Output.html">DynamoDB table
+   *                 export output format</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
   ExportViewType?: ExportViewType | undefined;
@@ -4096,6 +4553,13 @@ export interface TableCreationParameters {
    * @public
    */
   GlobalSecondaryIndexes?: GlobalSecondaryIndex[] | undefined;
+
+  /**
+   * <p>The vector indexes of the table to be created as part of the import
+   *             operation.</p>
+   * @public
+   */
+  VectorIndexes?: VectorIndex[] | undefined;
 }
 
 /**
@@ -5190,8 +5654,7 @@ export interface ImportSummary {
   StartTime?: Date | undefined;
 
   /**
-   * <p> The time at which this import task ended. (Does this include the successful complete
-   *             creation of the table it was imported to?) </p>
+   * <p> The time at which this import task ended. </p>
    * @public
    */
   EndTime?: Date | undefined;
@@ -5426,6 +5889,15 @@ export interface RestoreTableFromBackupInput {
    * @public
    */
   SSESpecificationOverride?: SSESpecification | undefined;
+
+  /**
+   * <p>The vector indexes for the restored table. If not specified, all vector indexes
+   *             from the backup are restored. The indexes provided must match existing vector
+   *             indexes from the backup. You can choose to exclude some or all of the vector
+   *             indexes at the time of restore.</p>
+   * @public
+   */
+  VectorIndexOverride?: VectorIndex[] | undefined;
 }
 
 /**
@@ -5485,6 +5957,11 @@ export interface RestoreTableToPointInTimeInput {
    * <p>List of global secondary indexes for the restored table. The indexes provided should
    *             match existing secondary indexes. You can choose to exclude some or all of the indexes
    *             at the time of restore.</p>
+   *          <p>The <code>WarmThroughput</code> setting is not supported on global secondary indexes
+   *             when you use <code>RestoreTableToPointInTime</code>. Although <code>WarmThroughput</code>
+   *             appears in the shared index definition, including it in a
+   *             <code>GlobalSecondaryIndexOverride</code> entry causes the request to fail with a
+   *             validation error.</p>
    * @public
    */
   GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[] | undefined;
@@ -5516,6 +5993,15 @@ export interface RestoreTableToPointInTimeInput {
    * @public
    */
   SSESpecificationOverride?: SSESpecification | undefined;
+
+  /**
+   * <p>The vector indexes for the restored table. If not specified, all vector indexes
+   *             from the source table are restored. The indexes provided must match existing
+   *             vector indexes from the source table. You can choose to exclude some or all of
+   *             the vector indexes at the time of restore.</p>
+   * @public
+   */
+  VectorIndexOverride?: VectorIndex[] | undefined;
 }
 
 /**
@@ -6203,6 +6689,24 @@ export interface ReplicationGroupUpdate {
 }
 
 /**
+ * <p>A vector index to be added to or removed from a table.</p>
+ * @public
+ */
+export interface VectorIndexUpdate {
+  /**
+   * <p>The configuration for creating a new vector index on the table.</p>
+   * @public
+   */
+  Create?: CreateVectorIndexAction | undefined;
+
+  /**
+   * <p>The configuration for deleting an existing vector index from the table.</p>
+   * @public
+   */
+  Delete?: DeleteVectorIndexAction | undefined;
+}
+
+/**
  * <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  * @public
  */
@@ -6398,6 +6902,17 @@ export interface UpdateTableInput {
    * @public
    */
   GlobalTableSettingsReplicationMode?: GlobalTableSettingsReplicationMode | undefined;
+
+  /**
+   * <p>A list of vector indexes to be added to or removed from the table. You can add or
+   *             remove one vector index for each <code>UpdateTable</code> operation.</p>
+   *          <p>To add a vector index, specify <code>IndexName</code>,
+   *             <code>VectorAttribute</code>, <code>Dimensions</code>,
+   *             <code>DistanceFunction</code>, and <code>Projection</code>. To remove a vector
+   *             index, specify only the <code>IndexName</code>.</p>
+   * @public
+   */
+  VectorIndexUpdates?: VectorIndexUpdate[] | undefined;
 }
 
 /**
@@ -7671,6 +8186,27 @@ export interface PutRequest {
 }
 
 /**
+ * <p>A single result from a <code>SearchVectors</code> operation.</p>
+ * @public
+ */
+export interface SearchResultItem {
+  /**
+   * <p>A map of attribute names to <code>AttributeValue</code> objects, representing the
+   *             projected attributes of the item returned by the vector search.</p>
+   * @public
+   */
+  Item?: Record<string, AttributeValue> | undefined;
+
+  /**
+   * <p>The similarity score for this item relative to the search vector. The
+   *             interpretation depends on the distance function configured for the vector
+   *             index.</p>
+   * @public
+   */
+  Score?: number | undefined;
+}
+
+/**
  * <p>Represents a set of primary keys and, for each key, the attributes to retrieve from
  *             the table.</p>
  *          <p>For each primary key, you must provide <i>all</i> of the key attributes.
@@ -7868,6 +8404,27 @@ export interface ExecuteTransactionOutput {
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchVectorsOutput {
+  /**
+   * <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains
+   *             <code>VectorSearchRequestBytes</code>, which represents the vector search capacity
+   *             consumed.</p>
+   * @public
+   */
+  ConsumedCapacity?: VectorCapacity | undefined;
+
+  /**
+   * <p>A list of items returned by the vector similarity search, sorted by similarity
+   *             with the most similar item first. Each item contains the projected attributes and
+   *             a similarity score.</p>
+   * @public
+   */
+  SearchResults?: SearchResultItem[] | undefined;
 }
 
 /**
@@ -8351,6 +8908,9 @@ export interface TransactWriteItemsOutput {
    * <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation.
    *             The values of the list are ordered according to the ordering of the
    *                 <code>TransactItems</code> request parameter. </p>
+   *          <p>If the table has vector indexes, each element also includes a
+   *             <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed
+   *             for each affected vector index.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity[] | undefined;
@@ -8519,6 +9079,104 @@ export interface Put {
 }
 
 /**
+ * @public
+ */
+export interface SearchVectorsInput {
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the table containing the vector index.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The name of the vector index to search. The index must be in the
+   *             <code>ACTIVE</code> state.</p>
+   * @public
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>Determines the level of detail about either provisioned or on-demand throughput
+   *             consumption that is returned in the response:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INDEXES</code> - The response includes the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation, together with
+   *                         <code>ConsumedCapacity</code> for each table and secondary index that was
+   *                     accessed.</p>
+   *                <p>Note that some operations, such as <code>GetItem</code> and
+   *                         <code>BatchGetItem</code>, do not access any indexes at all. In these cases,
+   *                     specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code>
+   *                     information for table(s).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TOTAL</code> - The response includes only the aggregate
+   *                         <code>ConsumedCapacity</code> for the operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the
+   *                     response.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
+
+  /**
+   * <p>One or more substitution tokens for attribute names in an expression. Use the
+   *             <code>#</code> character in an expression to dereference an attribute name.</p>
+   * @public
+   */
+  ExpressionAttributeNames?: Record<string, string> | undefined;
+
+  /**
+   * <p>One or more values that can be substituted in an expression. Use the
+   *             <code>:</code> character in an expression to dereference an attribute value.</p>
+   * @public
+   */
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
+
+  /**
+   * <p>A string that identifies one or more attributes to retrieve from the index.
+   *             Separate attribute names with commas. If not specified, the operation returns all
+   *             attributes projected into the vector index.</p>
+   *          <p>Only attributes projected into the vector index can be retrieved.</p>
+   * @public
+   */
+  ProjectionExpression?: string | undefined;
+
+  /**
+   * <p>The search vector to compare against the indexed vectors. Each element is a 32-bit
+   *             IEEE-754 floating point number, provided in DynamoDB list format.</p>
+   *          <p>The number of dimensions must match the number of dimensions configured for the
+   *             vector index.</p>
+   * @public
+   */
+  SearchVector: AttributeValue[] | undefined;
+
+  /**
+   * <p>A condition expression used to filter the vector search results. The expression can
+   *             reference attributes defined in the vector index search schema, including
+   *             <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
+   *          <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code>
+   *             attributes. Comparison and range operators are supported for
+   *             <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search
+   *             schema can be referenced.</p>
+   * @public
+   */
+  SearchConditionExpression?: string | undefined;
+
+  /**
+   * <p>The number of most similar results to return.</p>
+   * @public
+   */
+  TopK: number | undefined;
+}
+
+/**
  * <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
  * @public
  */
@@ -8618,6 +9276,9 @@ export interface DeleteItemOutput {
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
    *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
+   *          <p>If the table has vector indexes, the response includes a
+   *             <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed
+   *             for each affected vector index.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity | undefined;
@@ -8715,6 +9376,9 @@ export interface PutItemOutput {
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
    *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
    *                 DynamoDB Developer Guide</i>.</p>
+   *          <p>If the table has vector indexes, the response includes a
+   *             <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed
+   *             for each affected vector index.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity | undefined;
@@ -8890,6 +9554,9 @@ export interface UpdateItemOutput {
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
    *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
    *                 DynamoDB Developer Guide</i>.</p>
+   *          <p>If the table has vector indexes, the response includes a
+   *             <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed
+   *             for each affected vector index.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity | undefined;
@@ -9696,6 +10363,23 @@ export interface PutItemInput {
    *          <p>If you specify any attributes that are part of an index key, then the data types for
    *             those attributes must match those of the schema in the table's attribute
    *             definition.</p>
+   *          <p>If the table has vector indexes, the following validations apply to write
+   *             operations. A violation of any of these constraints results in a
+   *             <code>ValidationException</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The vector attribute must be a list of numbers with dimensions matching the
+   *                     index configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>Vector values must fit in 32-bit IEEE-754 floating point format
+   *                     (f32).</p>
+   *             </li>
+   *             <li>
+   *                <p>Partition key and inline filter attributes defined in the search schema
+   *                     must have data types matching the index schema definition.</p>
+   *             </li>
+   *          </ul>
    *          <p>Empty String and Binary attribute values are allowed. Attribute values of type String
    *             and Binary must have a length greater than zero if the attribute is used as a key
    *             attribute for a table or index.</p>
@@ -10430,6 +11114,9 @@ export interface BatchWriteItemOutput {
    *                   <code>CapacityUnits</code> - The total number of capacity units consumed.</p>
    *             </li>
    *          </ul>
+   *          <p>If the table has vector indexes, each element also includes a
+   *             <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed
+   *             for each affected vector index.</p>
    * @public
    */
   ConsumedCapacity?: ConsumedCapacity[] | undefined;

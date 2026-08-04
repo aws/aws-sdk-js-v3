@@ -174,6 +174,7 @@ import type {
   RestoreTableToPointInTimeCommandOutput,
 } from "./commands/RestoreTableToPointInTimeCommand";
 import type { ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand";
+import type { SearchVectorsCommandInput, SearchVectorsCommandOutput } from "./commands/SearchVectorsCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "./commands/TransactGetItemsCommand";
 import type {
@@ -267,6 +268,7 @@ export type ServiceInputTypes =
   | RestoreTableFromBackupCommandInput
   | RestoreTableToPointInTimeCommandInput
   | ScanCommandInput
+  | SearchVectorsCommandInput
   | TagResourceCommandInput
   | TransactGetItemsCommandInput
   | TransactWriteItemsCommandInput
@@ -329,6 +331,7 @@ export type ServiceOutputTypes =
   | RestoreTableFromBackupCommandOutput
   | RestoreTableToPointInTimeCommandOutput
   | ScanCommandOutput
+  | SearchVectorsCommandOutput
   | TagResourceCommandOutput
   | TransactGetItemsCommandOutput
   | TransactWriteItemsCommandOutput

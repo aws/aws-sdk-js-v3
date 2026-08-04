@@ -505,6 +505,13 @@ Scan
 </details>
 <details>
 <summary>
+SearchVectors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dynamodb/command/SearchVectorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb/Interface/SearchVectorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dynamodb/Interface/SearchVectorsCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

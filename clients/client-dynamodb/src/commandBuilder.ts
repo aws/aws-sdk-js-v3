@@ -91,13 +91,21 @@ export const _ep10: EndpointParameterInstructions = {
  * @internal
  */
 export const _ep11: EndpointParameterInstructions = {
-  ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
+  IsSearchOperation: { type: "staticContextParams", value: true },
+  ResourceArn: { type: "contextParams", name: "TableName" },
 };
 
 /**
  * @internal
  */
 export const _ep12: EndpointParameterInstructions = {
+  ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName) },
+};
+
+/**
+ * @internal
+ */
+export const _ep13: EndpointParameterInstructions = {
   ResourceArnList: { type: "operationContextParams", get: (input?: any) => input?.TransactItems?.map((obj: any) => [obj?.ConditionCheck?.TableName,obj?.Put?.TableName,obj?.Delete?.TableName,obj?.Update?.TableName].filter((i) => i)).flat() },
 };
 

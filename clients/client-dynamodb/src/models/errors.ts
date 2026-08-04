@@ -895,7 +895,10 @@ export class ConditionalCheckFailedException extends __BaseException {
  *             <p>DynamoDB lists the cancellation reasons on the
  *                     <code>CancellationReasons</code> property. Transaction cancellation reasons are ordered in the order of requested
  *                 items, if an item has no error it will have <code>None</code> code and
- *                     <code>Null</code> message.</p>
+ *                     <code>Null</code> message. The <code>None</code> code is returned as the literal
+ *                 string <code>"None"</code>, not a null or absent value; the message field is omitted
+ *                 entirely for an item that has no error. This is important to note when using an SDK
+ *                 that surfaces the code as an optional or nullable type.</p>
  *          </note>
  *          <p>Cancellation reason codes and possible error messages:</p>
  *          <ul>

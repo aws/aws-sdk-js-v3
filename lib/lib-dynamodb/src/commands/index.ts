@@ -9,6 +9,7 @@ export * from './GetCommand';
 export * from './PutCommand';
 export * from './QueryCommand';
 export * from './ScanCommand';
+export * from './SearchVectorsCommand';
 export * from './TransactGetCommand';
 export * from './TransactWriteCommand';
 export * from './UpdateCommand';

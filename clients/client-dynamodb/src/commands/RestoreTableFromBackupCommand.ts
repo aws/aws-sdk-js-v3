@@ -119,6 +119,28 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *     SSEType: "AES256" || "KMS",
  *     KMSMasterKeyId: "STRING_VALUE",
  *   },
+ *   VectorIndexOverride: [ // VectorIndexList
+ *     { // VectorIndex
+ *       IndexName: "STRING_VALUE", // required
+ *       VectorAttribute: { // VectorAttributeDefinition
+ *         AttributeName: "STRING_VALUE", // required
+ *       },
+ *       SearchSchema: [ // SearchSchema
+ *         { // SearchSchemaElement
+ *           AttributeName: "STRING_VALUE", // required
+ *           SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ *         },
+ *       ],
+ *       Projection: {
+ *         ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *         NonKeyAttributes: [
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       Dimensions: Number("long"), // required
+ *       DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN", // required
+ *     },
+ *   ],
  * };
  * const command = new RestoreTableFromBackupCommand(input);
  * const response = await client.send(command);
@@ -301,6 +323,33 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED" || "REPLICATION_NOT_AUTHORIZED",
  * //     },
  * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
+ * //     VectorIndexes: [ // VectorIndexDescriptionList
+ * //       { // VectorIndexDescription
+ * //         IndexName: "STRING_VALUE",
+ * //         SearchSchema: [ // SearchSchema
+ * //           { // SearchSchemaElement
+ * //             AttributeName: "STRING_VALUE", // required
+ * //             SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ * //           },
+ * //         ],
+ * //         Projection: {
+ * //           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ * //           NonKeyAttributes: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         VectorAttribute: { // VectorAttributeDefinition
+ * //           AttributeName: "STRING_VALUE", // required
+ * //         },
+ * //         Dimensions: Number("long"),
+ * //         DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN",
+ * //         IndexStatus: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         Backfilling: true || false,
+ * //         IndexSizeBytes: Number("long"),
+ * //         ItemCount: Number("long"),
+ * //         IndexArn: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

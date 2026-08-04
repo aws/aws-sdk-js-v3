@@ -72,6 +72,7 @@ import {
   CreateTableCommand,
   CreateTableInput$,
   CreateTableOutput$,
+  CreateVectorIndexAction$,
   CsvOptions$,
   Delete$,
   DeleteBackup$,
@@ -95,6 +96,7 @@ import {
   DeleteTableCommand,
   DeleteTableInput$,
   DeleteTableOutput$,
+  DeleteVectorIndexAction$,
   DescribeBackup$,
   DescribeBackupCommand,
   DescribeBackupInput$,
@@ -365,6 +367,13 @@ import {
   ScanCommand,
   ScanInput$,
   ScanOutput$,
+  SearchResultItem$,
+  SearchSchemaElement$,
+  SearchSchemaElementType,
+  SearchVectors$,
+  SearchVectorsCommand,
+  SearchVectorsInput$,
+  SearchVectorsOutput$,
   Select,
   SourceTableDetails$,
   SourceTableFeatureDetails$,
@@ -456,6 +465,13 @@ import {
   UpdateTimeToLiveCommand,
   UpdateTimeToLiveInput$,
   UpdateTimeToLiveOutput$,
+  VectorAttributeDefinition$,
+  VectorCapacity$,
+  VectorDistanceFunction,
+  VectorIndex$,
+  VectorIndexDescription$,
+  VectorIndexInfo$,
+  VectorIndexUpdate$,
   waitForContributorInsightsEnabled,
   waitForExportCompleted,
   waitForImportCompleted,
@@ -565,6 +581,8 @@ assert(typeof RestoreTableToPointInTimeCommand === "function");
 assert(typeof RestoreTableToPointInTime$ === "object");
 assert(typeof ScanCommand === "function");
 assert(typeof Scan$ === "object");
+assert(typeof SearchVectorsCommand === "function");
+assert(typeof SearchVectors$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof TransactGetItemsCommand === "function");
@@ -632,6 +650,7 @@ assert(typeof CreateReplicaAction$ === "object");
 assert(typeof CreateReplicationGroupMemberAction$ === "object");
 assert(typeof CreateTableInput$ === "object");
 assert(typeof CreateTableOutput$ === "object");
+assert(typeof CreateVectorIndexAction$ === "object");
 assert(typeof CsvOptions$ === "object");
 assert(typeof Delete$ === "object");
 assert(typeof DeleteBackupInput$ === "object");
@@ -647,6 +666,7 @@ assert(typeof DeleteResourcePolicyInput$ === "object");
 assert(typeof DeleteResourcePolicyOutput$ === "object");
 assert(typeof DeleteTableInput$ === "object");
 assert(typeof DeleteTableOutput$ === "object");
+assert(typeof DeleteVectorIndexAction$ === "object");
 assert(typeof DescribeBackupInput$ === "object");
 assert(typeof DescribeBackupOutput$ === "object");
 assert(typeof DescribeContinuousBackupsInput$ === "object");
@@ -770,6 +790,10 @@ assert(typeof RestoreTableToPointInTimeOutput$ === "object");
 assert(typeof S3BucketSource$ === "object");
 assert(typeof ScanInput$ === "object");
 assert(typeof ScanOutput$ === "object");
+assert(typeof SearchResultItem$ === "object");
+assert(typeof SearchSchemaElement$ === "object");
+assert(typeof SearchVectorsInput$ === "object");
+assert(typeof SearchVectorsOutput$ === "object");
 assert(typeof SourceTableDetails$ === "object");
 assert(typeof SourceTableFeatureDetails$ === "object");
 assert(typeof SSEDescription$ === "object");
@@ -814,6 +838,12 @@ assert(typeof UpdateTableReplicaAutoScalingInput$ === "object");
 assert(typeof UpdateTableReplicaAutoScalingOutput$ === "object");
 assert(typeof UpdateTimeToLiveInput$ === "object");
 assert(typeof UpdateTimeToLiveOutput$ === "object");
+assert(typeof VectorAttributeDefinition$ === "object");
+assert(typeof VectorCapacity$ === "object");
+assert(typeof VectorIndex$ === "object");
+assert(typeof VectorIndexDescription$ === "object");
+assert(typeof VectorIndexInfo$ === "object");
+assert(typeof VectorIndexUpdate$ === "object");
 assert(typeof WarmThroughput$ === "object");
 assert(typeof WriteRequest$ === "object");
 // enums
@@ -852,6 +882,7 @@ assert(typeof ReturnValue === "object");
 assert(typeof ReturnValuesOnConditionCheckFailure === "object");
 assert(typeof S3SseAlgorithm === "object");
 assert(typeof ScalarAttributeType === "object");
+assert(typeof SearchSchemaElementType === "object");
 assert(typeof Select === "object");
 assert(typeof SSEStatus === "object");
 assert(typeof SSEType === "object");
@@ -859,6 +890,7 @@ assert(typeof StreamViewType === "object");
 assert(typeof TableClass === "object");
 assert(typeof TableStatus === "object");
 assert(typeof TimeToLiveStatus === "object");
+assert(typeof VectorDistanceFunction === "object");
 assert(typeof WitnessStatus === "object");
 // errors
 assert(BackupInUseException.prototype instanceof DynamoDBServiceException);

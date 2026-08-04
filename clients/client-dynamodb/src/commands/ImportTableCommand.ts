@@ -106,6 +106,28 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *         },
  *       },
  *     ],
+ *     VectorIndexes: [ // VectorIndexList
+ *       { // VectorIndex
+ *         IndexName: "STRING_VALUE", // required
+ *         VectorAttribute: { // VectorAttributeDefinition
+ *           AttributeName: "STRING_VALUE", // required
+ *         },
+ *         SearchSchema: [ // SearchSchema
+ *           { // SearchSchemaElement
+ *             AttributeName: "STRING_VALUE", // required
+ *             SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ *           },
+ *         ],
+ *         Projection: {
+ *           ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ *           NonKeyAttributes: [
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *         Dimensions: Number("long"), // required
+ *         DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN", // required
+ *       },
+ *     ],
  *   },
  * };
  * const command = new ImportTableCommand(input);
@@ -189,6 +211,28 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * //             ReadUnitsPerSecond: Number("long"),
  * //             WriteUnitsPerSecond: Number("long"),
  * //           },
+ * //         },
+ * //       ],
+ * //       VectorIndexes: [ // VectorIndexList
+ * //         { // VectorIndex
+ * //           IndexName: "STRING_VALUE", // required
+ * //           VectorAttribute: { // VectorAttributeDefinition
+ * //             AttributeName: "STRING_VALUE", // required
+ * //           },
+ * //           SearchSchema: [ // SearchSchema
+ * //             { // SearchSchemaElement
+ * //               AttributeName: "STRING_VALUE", // required
+ * //               SearchSchemaElementType: "HASH" || "INLINE_FILTER", // required
+ * //             },
+ * //           ],
+ * //           Projection: {
+ * //             ProjectionType: "ALL" || "KEYS_ONLY" || "INCLUDE",
+ * //             NonKeyAttributes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Dimensions: Number("long"), // required
+ * //           DistanceFunction: "COSINE" || "DOT_PRODUCT" || "EUCLIDEAN", // required
  * //         },
  * //       ],
  * //     },

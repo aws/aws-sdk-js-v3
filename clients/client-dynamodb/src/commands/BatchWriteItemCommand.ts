@@ -45,13 +45,12 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *                 <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed
  *             items and submit a new <code>BatchWriteItem</code> request with those unprocessed items
  *             until all items have been processed.</p>
- *          <p>For tables and indexes with provisioned capacity, if none of the items can be
- *             processed due to insufficient provisioned throughput on all of the tables in the
- *             request, then <code>BatchWriteItem</code> returns a
- *                 <code>ProvisionedThroughputExceededException</code>. For all tables and indexes, if
- *             none of the items can be processed due to other throttling scenarios (such as exceeding
- *             partition level limits), then <code>BatchWriteItem</code> returns a
- *                 <code>ThrottlingException</code>.</p>
+ *          <p>If <code>BatchWriteItem</code> cannot process any items due to throttling (for
+ *             example, insufficient provisioned throughput on the tables in the request, or
+ *             partition-level or account-level limits), it returns a
+ *                 <code>ProvisionedThroughputExceededException</code> or a
+ *                 <code>ThrottlingException</code>. Both indicate that the request was throttled;
+ *             check the <code>ThrottlingReason</code> field in the returned exception for details.</p>
  *          <important>
  *             <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on
  *                 those items. However, <i>we strongly recommend that you use an exponential
@@ -279,6 +278,12 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * //           ReadCapacityUnits: Number("double"),
  * //           WriteCapacityUnits: Number("double"),
  * //           CapacityUnits: Number("double"),
+ * //         },
+ * //       },
+ * //       VectorIndexes: { // VectorIndexesCapacityMap
+ * //         "<keys>": { // VectorCapacity
+ * //           VectorSearchRequestBytes: Number("double"),
+ * //           VectorWriteRequestBytes: Number("double"),
  * //         },
  * //       },
  * //     },

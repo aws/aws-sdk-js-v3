@@ -12,6 +12,7 @@ const cache = new EndpointCache({
     "AccountId",
     "AccountIdEndpointMode",
     "Endpoint",
+    "IsSearchOperation",
     "Region",
     "ResourceArn",
     "ResourceArnList",

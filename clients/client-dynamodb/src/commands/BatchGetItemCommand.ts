@@ -239,6 +239,12 @@ export interface BatchGetItemCommandOutput extends BatchGetItemOutput, __Metadat
  * //           CapacityUnits: Number("double"),
  * //         },
  * //       },
+ * //       VectorIndexes: { // VectorIndexesCapacityMap
+ * //         "<keys>": { // VectorCapacity
+ * //           VectorSearchRequestBytes: Number("double"),
+ * //           VectorWriteRequestBytes: Number("double"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

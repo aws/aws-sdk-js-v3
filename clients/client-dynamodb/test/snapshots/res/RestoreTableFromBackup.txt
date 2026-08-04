@@ -563,7 +563,114 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "WriteUnitsPerSecond": 0,
       "Status": "__Status__"
     },
-    "MultiRegionConsistency": "__MultiRegionConsistency__"
+    "MultiRegionConsistency": "__MultiRegionConsistency__",
+    "VectorIndexes": [
+      {
+        "IndexName": "__IndexName__",
+        "SearchSchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "VectorAttribute": {
+          "AttributeName": "__AttributeName__"
+        },
+        "Dimensions": 0,
+        "DistanceFunction": "__DistanceFunction__",
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      },
+      {
+        "IndexName": "__IndexName__",
+        "SearchSchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "VectorAttribute": {
+          "AttributeName": "__AttributeName__"
+        },
+        "Dimensions": 0,
+        "DistanceFunction": "__DistanceFunction__",
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      },
+      {
+        "IndexName": "__IndexName__",
+        "SearchSchema": [
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          },
+          {
+            "AttributeName": "__AttributeName__",
+            "SearchSchemaElementType": "__SearchSchemaElementType__"
+          }
+        ],
+        "Projection": {
+          "ProjectionType": "__ProjectionType__",
+          "NonKeyAttributes": [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        "VectorAttribute": {
+          "AttributeName": "__AttributeName__"
+        },
+        "Dimensions": 0,
+        "DistanceFunction": "__DistanceFunction__",
+        "IndexStatus": "__IndexStatus__",
+        "Backfilling": false,
+        "IndexSizeBytes": 0,
+        "ItemCount": 0,
+        "IndexArn": "__IndexArn__"
+      }
+    ]
   }
 }
 
@@ -1105,7 +1212,114 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       WriteUnitsPerSecond: (number) 0,
       Status: "__Status__"
     },
-    MultiRegionConsistency: "__MultiRegionConsistency__"
+    MultiRegionConsistency: "__MultiRegionConsistency__",
+    VectorIndexes: [
+      {
+        IndexName: "__IndexName__",
+        SearchSchema: [
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        VectorAttribute: {
+          AttributeName: "__AttributeName__"
+        },
+        Dimensions: (number) 0,
+        DistanceFunction: "__DistanceFunction__",
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      },
+      {
+        IndexName: "__IndexName__",
+        SearchSchema: [
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        VectorAttribute: {
+          AttributeName: "__AttributeName__"
+        },
+        Dimensions: (number) 0,
+        DistanceFunction: "__DistanceFunction__",
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      },
+      {
+        IndexName: "__IndexName__",
+        SearchSchema: [
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          },
+          {
+            AttributeName: "__AttributeName__",
+            SearchSchemaElementType: "__SearchSchemaElementType__"
+          }
+        ],
+        Projection: {
+          ProjectionType: "__ProjectionType__",
+          NonKeyAttributes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        },
+        VectorAttribute: {
+          AttributeName: "__AttributeName__"
+        },
+        Dimensions: (number) 0,
+        DistanceFunction: "__DistanceFunction__",
+        IndexStatus: "__IndexStatus__",
+        Backfilling: (boolean) false,
+        IndexSizeBytes: (number) 0,
+        ItemCount: (number) 0,
+        IndexArn: "__IndexArn__"
+      }
+    ]
   },
   $metadata: {
     httpStatusCode: (number) 200,
