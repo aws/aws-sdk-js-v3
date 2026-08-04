@@ -1,4 +1,4 @@
-import { nv, NumericValue } from "@smithy/core/serde";
+import { NumericValue } from "@smithy/core/serde";
 import type { StaticStructureSchema, TimestampEpochSecondsSchema } from "@smithy/types";
 import { describe, expect, test as it } from "vitest";
 
@@ -151,6 +151,15 @@ describe(JsonShapeDeserializer2.name, () => {
     });
   });
 
+  it("deserializes numeric members to number when the reviver is active", async () => {
+    expect(await deserializer.read(widget, `{ "scalar": 1.0 }`)).toEqual({ scalar: 1 });
+    expect(await deserializer.read(widget, `{ "scalar": 0.0 }`)).toEqual({ scalar: 0 });
+    expect(await deserializer.read(widget, `{ "scalar": 1e3 }`)).toEqual({ scalar: 1000 });
+
+    const data = (await deserializer.read(widget, `{ "scalar": 1.0 }`)) as { scalar: unknown };
+    expect(typeof data.scalar).toBe("number");
+  });
+
   it("deserializes infinite and NaN numerics", async () => {
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "Infinity" }))).toEqual({ scalar: Infinity });
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "-Infinity" }))).toEqual({ scalar: -Infinity });
@@ -300,10 +309,10 @@ describe(JsonShapeDeserializer2.name, () => {
       async () => {
         const json = `{"scalar": 1.123456789012345678E16}`;
         await expect(v1Deserializer.read(widget, json)).resolves.toEqual({
-          scalar: nv("1.123456789012345678E16"),
+          scalar: 11234567890123456,
         });
         await expect(deserializer.read(widget, json)).resolves.toEqual({
-          scalar: nv("1.123456789012345678E16"),
+          scalar: 11234567890123456,
         });
       }
     );

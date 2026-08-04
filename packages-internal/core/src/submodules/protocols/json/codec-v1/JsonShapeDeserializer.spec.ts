@@ -150,6 +150,15 @@ describe(JsonShapeDeserializer.name, () => {
     });
   });
 
+  it("deserializes numeric members to number when the reviver is active", async () => {
+    expect(await deserializer.read(widget, `{ "scalar": 1.0 }`)).toEqual({ scalar: 1 });
+    expect(await deserializer.read(widget, `{ "scalar": 0.0 }`)).toEqual({ scalar: 0 });
+    expect(await deserializer.read(widget, `{ "scalar": 1e3 }`)).toEqual({ scalar: 1000 });
+
+    const data = (await deserializer.read(widget, `{ "scalar": 1.0 }`)) as { scalar: unknown };
+    expect(typeof data.scalar).toBe("number");
+  });
+
   it("deserializes infinite and NaN numerics", async () => {
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "Infinity" }))).toEqual({ scalar: Infinity });
     expect(await deserializer.read(widget, JSON.stringify({ scalar: "-Infinity" }))).toEqual({ scalar: -Infinity });

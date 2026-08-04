@@ -151,16 +151,28 @@ export class JsonShapeDeserializer2 extends SerdeContextConfig implements ShapeD
       return new NumericValue(String(value), "bigDecimal");
     }
 
-    if (ns.isNumericSchema() && typeof value === "string") {
-      switch (value) {
-        case "Infinity":
-          return Infinity;
-        case "-Infinity":
-          return -Infinity;
-        case "NaN":
-          return NaN;
+    if (ns.isNumericSchema() && value != undefined) {
+      if (typeof value === "string") {
+        switch (value) {
+          case "Infinity":
+            return Infinity;
+          case "-Infinity":
+            return -Infinity;
+          case "NaN":
+            return NaN;
+        }
+        return value;
       }
-      return value;
+      if (typeof value === "bigint") {
+        return Number(value);
+      }
+      if (value instanceof NumericValue) {
+        return Number(value.string);
+      }
+      const untyped = value as any;
+      if (untyped.type === "bigDecimal" && "string" in untyped) {
+        return Number(untyped.string);
+      }
     }
 
     if (ns.isDocumentSchema()) {
