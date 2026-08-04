@@ -92,6 +92,7 @@ import {
   EngagementSort$,
   EngagementSortName,
   EngagementSummary$,
+  EnrichmentContext$,
   ExpectedContractDuration$,
   ExpectedContractDurationTerm,
   ExpectedCustomerSpend$,
@@ -131,9 +132,11 @@ import {
   InternalServerException,
   InternalServerException$,
   Invitation$,
+  InvitationProspectingResultAws$,
   InvitationStatus,
   InvolvementTypeChangeReason,
   LastModifiedDate$,
+  LeadAddress$,
   LeadContact$,
   LeadContext$,
   LeadCustomer$,
@@ -204,7 +207,6 @@ import {
   ListTasksSortName,
   Marketing$,
   MarketingSource,
-  MarketSegment,
   MonetaryValue$,
   NationalSecurity,
   NextStepsHistory$,
@@ -488,6 +490,7 @@ assert(typeof EngagementProspectingResult$ === "object");
 assert(typeof EngagementResourceAssociationSummary$ === "object");
 assert(typeof EngagementSort$ === "object");
 assert(typeof EngagementSummary$ === "object");
+assert(typeof EnrichmentContext$ === "object");
 assert(typeof ExpectedContractDuration$ === "object");
 assert(typeof ExpectedCustomerSpend$ === "object");
 assert(typeof GetAwsOpportunitySummaryRequest$ === "object");
@@ -507,7 +510,9 @@ assert(typeof GetResourceSnapshotResponse$ === "object");
 assert(typeof GetSellingSystemSettingsRequest$ === "object");
 assert(typeof GetSellingSystemSettingsResponse$ === "object");
 assert(typeof Invitation$ === "object");
+assert(typeof InvitationProspectingResultAws$ === "object");
 assert(typeof LastModifiedDate$ === "object");
+assert(typeof LeadAddress$ === "object");
 assert(typeof LeadContact$ === "object");
 assert(typeof LeadContext$ === "object");
 assert(typeof LeadCustomer$ === "object");
@@ -631,7 +636,6 @@ assert(typeof InvitationStatus === "object");
 assert(typeof InvolvementTypeChangeReason === "object");
 assert(typeof ListTasksSortName === "object");
 assert(typeof MarketingSource === "object");
-assert(typeof MarketSegment === "object");
 assert(typeof NationalSecurity === "object");
 assert(typeof OpportunityEngagementInvitationSortName === "object");
 assert(typeof OpportunityOrigin === "object");

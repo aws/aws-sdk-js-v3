@@ -764,22 +764,6 @@ export type Visibility = (typeof Visibility)[keyof typeof Visibility];
  * @public
  * @enum
  */
-export const MarketSegment = {
-  ENTERPRISE: "Enterprise",
-  LARGE: "Large",
-  MEDIUM: "Medium",
-  MICRO: "Micro",
-  SMALL: "Small",
-} as const;
-/**
- * @public
- */
-export type MarketSegment = (typeof MarketSegment)[keyof typeof MarketSegment];
-
-/**
- * @public
- * @enum
- */
 export const EngagementContextType = {
   CUSTOMER_PROJECT: "CustomerProject",
   LEAD: "Lead",

@@ -140,7 +140,8 @@ const _ECPD = "EngagementCustomerProjectDetails";
 const _ECS = "ExpectedCustomerSpend";
 const _ECSL = "ExpectedCustomerSpendList";
 const _ECT = "ExcludeContextTypes";
-const _ECn = "EngagementContexts";
+const _ECn = "EnrichmentContext";
+const _ECng = "EngagementContexts";
 const _ED = "ExpirationDate";
 const _EDf = "EffectiveDate";
 const _EDn = "EngagementDescription";
@@ -205,6 +206,7 @@ const _I = "Identifier";
 const _ID = "InvitationDate";
 const _IDn = "InteractionDate";
 const _IM = "InvitationMessage";
+const _IPRA = "InvitationProspectingResultAws";
 const _ISE = "InternalServerException";
 const _IT = "InvolvementType";
 const _ITCR = "InvolvementTypeChangeReason";
@@ -218,7 +220,10 @@ const _Inv = "Invitation";
 const _JT = "JobTitle";
 const _K = "Key";
 const _L = "Lifecycle";
+const _LA = "LeadAddress";
+const _LBP = "LeadBusinessProblem";
 const _LC = "LifeCycle";
+const _LCC = "LeadCountryCode";
 const _LCFV = "LifeCycleForView";
 const _LCRS = "LifeCycleReviewStatus";
 const _LCS = "LifeCycleSummary";
@@ -226,7 +231,7 @@ const _LCSi = "LifeCycleStage";
 const _LCe = "LeadContact";
 const _LCea = "LeadContext";
 const _LCead = "LeadCustomer";
-const _LE = "ListEngagements";
+const _LE = "LeadEmail";
 const _LEBAIT = "ListEngagementByAcceptingInvitationTasks";
 const _LEBAITR = "ListEngagementByAcceptingInvitationTasksRequest";
 const _LEBAITRi = "ListEngagementByAcceptingInvitationTasksResponse";
@@ -248,6 +253,7 @@ const _LERA = "ListEngagementResourceAssociations";
 const _LERAR = "ListEngagementResourceAssociationsRequest";
 const _LERARi = "ListEngagementResourceAssociationsResponse";
 const _LERi = "ListEngagementsResponse";
+const _LEi = "ListEngagements";
 const _LF = "LastFailure";
 const _LI = "LeadInsights";
 const _LIC = "LeadInvitationCustomer";
@@ -256,6 +262,7 @@ const _LIL = "LeadInteractionList";
 const _LIP = "LeadInvitationPayload";
 const _LIe = "LeadInteraction";
 const _LIea = "LeadInvitation";
+const _LJT = "LeadJobTitle";
 const _LMD = "LastModifiedDate";
 const _LN = "LastName";
 const _LO = "ListOpportunities";
@@ -269,6 +276,7 @@ const _LORi = "ListOpportunitiesResponse";
 const _LPFET = "ListProspectingFromEngagementTasks";
 const _LPFETR = "ListProspectingFromEngagementTasksRequest";
 const _LPFETRi = "ListProspectingFromEngagementTasksResponse";
+const _LPN = "LeadPhoneNumber";
 const _LRS = "LeadReadinessScore";
 const _LRSJ = "ListResourceSnapshotJobs";
 const _LRSJR = "ListResourceSnapshotJobsRequest";
@@ -284,6 +292,7 @@ const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
 const _LTSB = "ListTasksSortBase";
+const _LWU = "LeadWebsiteUrl";
 const _Le = "Lead";
 const _M = "Message";
 const _MA = "MonetaryAmount";
@@ -595,6 +604,12 @@ var Email: StaticSimpleSchema = [0, n0, _E, 8, 0];
 var EngagementCustomerBusinessProblem: StaticSimpleSchema = [0, n0, _ECBP, 8, 0];
 var InvitationMessage: StaticSimpleSchema = [0, n0, _IM, 8, 0];
 var JobTitle: StaticSimpleSchema = [0, n0, _JT, 8, 0];
+var LeadBusinessProblem: StaticSimpleSchema = [0, n0, _LBP, 8, 0];
+var LeadCountryCode: StaticSimpleSchema = [0, n0, _LCC, 8, 0];
+var LeadEmail: StaticSimpleSchema = [0, n0, _LE, 8, 0];
+var LeadJobTitle: StaticSimpleSchema = [0, n0, _LJT, 8, 0];
+var LeadPhoneNumber: StaticSimpleSchema = [0, n0, _LPN, 8, 0];
+var LeadWebsiteUrl: StaticSimpleSchema = [0, n0, _LWU, 8, 0];
 var MemberCompanyName: StaticSimpleSchema = [0, n0, _MCN, 8, 0];
 var MonetaryAmount: StaticSimpleSchema = [0, n0, _MA, 8, 0];
 var Name: StaticSimpleSchema = [0, n0, _N, 8, 0];
@@ -739,8 +754,8 @@ export var CreateEngagementInvitationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateEngagementRequest$: StaticStructureSchema = [3, n0, _CER,
   0,
-  [_C, _Ti, _De, _CT, _Cont],
-  [0, 0, 0, [0, 4], [() => EngagementContexts, 0]], 3
+  [_C, _CT, _Ti, _De, _Cont],
+  [0, [0, 4], 0, 0, [() => EngagementContexts, 0]], 1
 ];
 export var CreateEngagementResponse$: StaticStructureSchema = [3, n0, _CERr,
   0,
@@ -852,6 +867,11 @@ export var EngagementSummary$: StaticStructureSchema = [3, n0, _ESng,
   [_Ar, _Id, _Ti, _CA, _CB, _MC, _MAo, _MB, _CTo],
   [0, 0, 0, 5, [() => AwsAccount, 0], 1, 5, [() => AwsAccount, 0], 64 | 0]
 ];
+export var EnrichmentContext$: StaticStructureSchema = [3, n0, _ECn,
+  0,
+  [_PRA, _LI],
+  [[() => InvitationProspectingResultAws$, 0], () => LeadInsights$]
+];
 export var ExpectedContractDuration$: StaticStructureSchema = [3, n0, _ECDx,
   0,
   [_Te, _Va],
@@ -879,8 +899,8 @@ export var GetEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _GEI
 ];
 export var GetEngagementInvitationResponse$: StaticStructureSchema = [3, n0, _GEIRe,
   0,
-  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _RR, _Pay, _IM, _EDn, _EMx],
-  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, [() => Payload$, 0], [() => InvitationMessage, 0], 0, [() => EngagementMemberSummaries, 0]], 2
+  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _RR, _Pay, _IM, _EDn, _EMx, _ECn],
+  [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, [() => Payload$, 0], [() => InvitationMessage, 0], 0, [() => EngagementMemberSummaries, 0], [() => EnrichmentContext$, 0]], 2
 ];
 export var GetEngagementRequest$: StaticStructureSchema = [3, n0, _GER,
   0,
@@ -947,15 +967,25 @@ export var Invitation$: StaticStructureSchema = [3, n0, _Inv,
   [_M, _Rec, _Pay],
   [[() => InvitationMessage, 0], [() => Receiver$, 0], [() => Payload$, 0]], 3
 ];
+export var InvitationProspectingResultAws$: StaticStructureSchema = [3, n0, _IPRA,
+  0,
+  [_Cu, _Ins],
+  [[() => ProspectingResultCustomer$, 0], () => ProspectingInsights$]
+];
 export var LastModifiedDate$: StaticStructureSchema = [3, n0, _LMD,
   0,
   [_ALMD, _BLMD],
   [5, 5]
 ];
+export var LeadAddress$: StaticStructureSchema = [3, n0, _LA,
+  0,
+  [_Ci, _PC, _SOR, _CC],
+  [0, 0, 0, [() => LeadCountryCode, 0]]
+];
 export var LeadContact$: StaticStructureSchema = [3, n0, _LCe,
   0,
   [_BT, _E, _FN, _LN, _P],
-  [[() => JobTitle, 0], [() => Email, 0], [() => Name, 0], [() => Name, 0], [() => PhoneNumber, 0]], 4
+  [[() => LeadJobTitle, 0], [() => LeadEmail, 0], [() => Name, 0], [() => Name, 0], [() => LeadPhoneNumber, 0]], 4
 ];
 export var LeadContext$: StaticStructureSchema = [3, n0, _LCea,
   0,
@@ -964,8 +994,8 @@ export var LeadContext$: StaticStructureSchema = [3, n0, _LCea,
 ];
 export var LeadCustomer$: StaticStructureSchema = [3, n0, _LCead,
   0,
-  [_CN, _Ad, _In, _WU, _AM, _MS],
-  [[() => CompanyName, 0], [() => AddressSummary$, 0], 0, [() => CompanyWebsiteUrl, 0], 0, 0], 2
+  [_CN, _In, _WU, _Ad, _AM, _MS],
+  [[() => CompanyName, 0], 0, [() => LeadWebsiteUrl, 0], [() => LeadAddress$, 0], 0, 0], 1
 ];
 export var LeadInsights$: StaticStructureSchema = [3, n0, _LI,
   0,
@@ -974,18 +1004,18 @@ export var LeadInsights$: StaticStructureSchema = [3, n0, _LI,
 ];
 export var LeadInteraction$: StaticStructureSchema = [3, n0, _LIe,
   0,
-  [_STo, _SI, _SN, _CAu, _Con, _U, _IDn, _BP],
-  [0, 0, 0, 0, [() => LeadContact$, 0], 0, 5, [() => EngagementCustomerBusinessProblem, 0]], 5
+  [_Con, _STo, _SI, _SN, _U, _IDn, _CAu, _BP],
+  [[() => LeadContact$, 0], 0, 0, 0, 0, 5, 0, [() => LeadBusinessProblem, 0]], 1
 ];
 export var LeadInvitationCustomer$: StaticStructureSchema = [3, n0, _LIC,
   0,
-  [_CN, _CC, _In, _WU, _AM, _MS],
-  [[() => CompanyName, 0], [() => CountryCode, 0], 0, [() => CompanyWebsiteUrl, 0], 0, 0], 2
+  [_CN, _In, _WU, _CC, _AM, _MS],
+  [[() => CompanyName, 0], 0, [() => LeadWebsiteUrl, 0], [() => LeadCountryCode, 0], 0, 0], 1
 ];
 export var LeadInvitationInteraction$: StaticStructureSchema = [3, n0, _LII,
   0,
-  [_STo, _SI, _SN, _CBT, _U],
-  [0, 0, 0, [() => JobTitle, 0], 0], 4
+  [_CBT, _STo, _SI, _SN, _U],
+  [[() => JobTitle, 0], 0, 0, 0, 0], 1
 ];
 export var LeadInvitationPayload$: StaticStructureSchema = [3, n0, _LIP,
   0,
@@ -1244,8 +1274,8 @@ export var ProspectingResult$: StaticStructureSchema = [3, n0, _PR,
 ];
 export var ProspectingResultAws$: StaticStructureSchema = [3, n0, _PRA,
   0,
-  [_ST, _ETn, _TIa, _TAa, _TN, _Cu, _Ins],
-  [5, 5, 0, 0, 0, [() => ProspectingResultCustomer$, 0], () => ProspectingInsights$]
+  [_Cu, _Ins, _ST, _ETn, _TIa, _TAa, _TN],
+  [[() => ProspectingResultCustomer$, 0], () => ProspectingInsights$, 5, 5, 0, 0, 0]
 ];
 export var ProspectingResultCustomer$: StaticStructureSchema = [3, n0, _PRC,
   0,
@@ -1468,7 +1498,7 @@ var CustomerContactsList: StaticListSchema = [1, n0, _CCL,
 ];
 var DeliveryModels = 64 | 0;
 var EligibleProgramsList = 64 | 0;
-var EngagementContexts: StaticListSchema = [1, n0, _ECn,
+var EngagementContexts: StaticListSchema = [1, n0, _ECng,
   0, [() => EngagementContextDetails$,
     0]
 ];
@@ -1678,7 +1708,7 @@ export var ListEngagementMembers$: StaticOperationSchema = [9, n0, _LEM,
 export var ListEngagementResourceAssociations$: StaticOperationSchema = [9, n0, _LERA,
   { [_h]: ["POST", "/ListEngagementResourceAssociations", 200] }, () => ListEngagementResourceAssociationsRequest$, () => ListEngagementResourceAssociationsResponse$
 ];
-export var ListEngagements$: StaticOperationSchema = [9, n0, _LE,
+export var ListEngagements$: StaticOperationSchema = [9, n0, _LEi,
   { [_h]: ["POST", "/ListEngagements", 200] }, () => ListEngagementsRequest$, () => ListEngagementsResponse$
 ];
 export var ListOpportunities$: StaticOperationSchema = [9, n0, _LO,

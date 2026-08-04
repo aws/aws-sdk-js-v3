@@ -21,7 +21,6 @@ import type {
   InvolvementTypeChangeReason,
   ListTasksSortName,
   MarketingSource,
-  MarketSegment,
   NationalSecurity,
   OpportunityEngagementInvitationSortName,
   OpportunityOrigin,
@@ -925,6 +924,36 @@ export interface CustomerProjectsContext {
 }
 
 /**
+ * <p>The address information for a lead customer, including city, state or region, postal code, and country code.</p>
+ * @public
+ */
+export interface LeadAddress {
+  /**
+   * <p>The city of the lead customer's address.</p>
+   * @public
+   */
+  City?: string | undefined;
+
+  /**
+   * <p>The postal code of the lead customer's address.</p>
+   * @public
+   */
+  PostalCode?: string | undefined;
+
+  /**
+   * <p>The state or region of the lead customer's address.</p>
+   * @public
+   */
+  StateOrRegion?: string | undefined;
+
+  /**
+   * <p>The country code of the lead customer's address.</p>
+   * @public
+   */
+  CountryCode?: string | undefined;
+}
+
+/**
  * <p>Contains detailed information about the customer associated with the lead, including company details, industry classification, and AWS maturity level. This information helps qualify and categorize the lead for appropriate engagement strategies.</p>
  * @public
  */
@@ -933,7 +962,7 @@ export interface LeadCustomer {
    * <p>Specifies the industry sector to which the lead customer's company belongs. This categorization helps in understanding the customer's business context and tailoring appropriate solutions.</p>
    * @public
    */
-  Industry?: Industry | undefined;
+  Industry?: string | undefined;
 
   /**
    * <p>The name of the lead customer's company. This field is essential for identifying and tracking the customer organization associated with the lead.</p>
@@ -948,10 +977,10 @@ export interface LeadCustomer {
   WebsiteUrl?: string | undefined;
 
   /**
-   * <p>An object that contains an <code>Address</code> object's subset of fields.</p>
+   * <p>The address information for the lead customer.</p>
    * @public
    */
-  Address: AddressSummary | undefined;
+  Address?: LeadAddress | undefined;
 
   /**
    * <p>Indicates the customer's level of experience and adoption with AWS services. This assessment helps determine the appropriate engagement approach and solution complexity.</p>
@@ -963,7 +992,7 @@ export interface LeadCustomer {
    * <p>Specifies the market segment classification of the lead customer, such as enterprise, mid-market, or small business. This segmentation helps in targeting appropriate solutions and engagement strategies.</p>
    * @public
    */
-  MarketSegment?: MarketSegment | undefined;
+  MarketSegment?: string | undefined;
 }
 
 /**
@@ -1023,19 +1052,19 @@ export interface LeadInteraction {
    * <p>Specifies the type of source that generated the lead interaction, such as "Event", "Website", "Referral", or "Campaign". This categorization helps track lead generation effectiveness across different channels.</p>
    * @public
    */
-  SourceType: string | undefined;
+  SourceType?: string | undefined;
 
   /**
    * <p>The unique identifier of the specific source that generated the lead interaction. This ID provides traceability back to the original lead generation activity.</p>
    * @public
    */
-  SourceId: string | undefined;
+  SourceId?: string | undefined;
 
   /**
    * <p>The descriptive name of the source that generated the lead interaction, providing a human-readable identifier for the lead generation channel or activity.</p>
    * @public
    */
-  SourceName: string | undefined;
+  SourceName?: string | undefined;
 
   /**
    * <p>Describes the specific use case or business scenario discussed during the lead interaction. This helps categorize the customer's interests and potential solutions.</p>
@@ -1053,7 +1082,7 @@ export interface LeadInteraction {
    * <p>Describes the action taken by the customer during or as a result of the interaction, such as requesting information, scheduling a meeting, or expressing interest in a solution.</p>
    * @public
    */
-  CustomerAction: string | undefined;
+  CustomerAction?: string | undefined;
 
   /**
    * <p>Describes the business problem or challenge that the customer discussed during the interaction. This information helps qualify the lead and identify appropriate solutions.</p>
@@ -1206,6 +1235,18 @@ export interface ProspectingInsights {
  */
 export interface ProspectingResultAws {
   /**
+   * <p>Contains details about the prospected customer account, including geographic, industry, and segment classifications.</p>
+   * @public
+   */
+  Customer?: ProspectingResultCustomer | undefined;
+
+  /**
+   * <p>Insights that AI generates from the prospecting analysis. These insights include engagement scores and solution fit assessments for the prospected customer.</p>
+   * @public
+   */
+  Insights?: ProspectingInsights | undefined;
+
+  /**
    * <p>The timestamp when the prospecting result context was created. The format is ISO 8601 (UTC).</p>
    * @public
    */
@@ -1234,18 +1275,6 @@ export interface ProspectingResultAws {
    * @public
    */
   TaskName?: string | undefined;
-
-  /**
-   * <p>Contains details about the prospected customer account, including geographic, industry, and segment classifications.</p>
-   * @public
-   */
-  Customer?: ProspectingResultCustomer | undefined;
-
-  /**
-   * <p>Insights that AI generates from the prospecting analysis. These insights include engagement scores and solution fit assessments for the prospected customer.</p>
-   * @public
-   */
-  Insights?: ProspectingInsights | undefined;
 }
 
 /**
@@ -1437,13 +1466,13 @@ export interface CreateEngagementRequest {
    * <p>Specifies the title of the <code>Engagement</code>.</p>
    * @public
    */
-  Title: string | undefined;
+  Title?: string | undefined;
 
   /**
    * <p>Provides a description of the <code>Engagement</code>.</p>
    * @public
    */
-  Description: string | undefined;
+  Description?: string | undefined;
 
   /**
    * <p>The <code>Contexts</code> field is a required array of objects, with a maximum of 5 contexts allowed, specifying detailed information about customer projects associated with the Engagement. Each context object contains a <code>Type</code> field indicating the context type, which must be <code>CustomerProject</code> in this version, and a <code>Payload</code> field containing the <code>CustomerProject</code> details. The <code>CustomerProject</code> object is composed of two main components: <code>Customer</code> and <code>Project</code>. The <code>Customer</code> object includes information such as <code>CompanyName</code>, <code>WebsiteUrl</code>, <code>Industry</code>, and <code>CountryCode</code>, providing essential details about the customer. The <code>Project</code> object contains <code>Title</code>, <code>BusinessProblem</code>, and <code>TargetCompletionDate</code>, offering insights into the specific project associated with the customer. This structure allows comprehensive context to be included within the Engagement, facilitating effective collaboration between parties by providing relevant customer and project information.</p>
@@ -2298,7 +2327,7 @@ export interface LeadInvitationCustomer {
    * <p>Specifies the industry sector of the customer company associated with the lead invitation. This categorization helps partners understand the customer's business context and assess solution fit.</p>
    * @public
    */
-  Industry?: Industry | undefined;
+  Industry?: string | undefined;
 
   /**
    * <p>The name of the customer company associated with the lead invitation. This field identifies the target organization for the lead engagement opportunity.</p>
@@ -2316,7 +2345,7 @@ export interface LeadInvitationCustomer {
    * <p>The country code indicating the geographic location of the customer company. This information helps partners understand regional requirements and assess their ability to serve the customer effectively.</p>
    * @public
    */
-  CountryCode: CountryCode | undefined;
+  CountryCode?: string | undefined;
 
   /**
    * <p>Indicates the customer's level of experience and adoption with AWS services. This assessment helps partners understand the customer's cloud maturity and tailor their engagement approach accordingly.</p>
@@ -2328,7 +2357,7 @@ export interface LeadInvitationCustomer {
    * <p>Specifies the market segment classification of the customer, such as enterprise, mid-market, or small business. This segmentation helps partners determine the appropriate solution complexity and engagement strategy.</p>
    * @public
    */
-  MarketSegment?: MarketSegment | undefined;
+  MarketSegment?: string | undefined;
 }
 
 /**
@@ -2340,19 +2369,19 @@ export interface LeadInvitationInteraction {
    * <p>Specifies the type of source that generated the lead interaction, such as "Event", "Website", or "Campaign". This helps partners understand the lead generation channel and assess lead quality based on the source type.</p>
    * @public
    */
-  SourceType: string | undefined;
+  SourceType?: string | undefined;
 
   /**
    * <p>The unique identifier of the specific source that generated the lead interaction. This provides traceability to the original lead generation activity for reference and follow-up purposes.</p>
    * @public
    */
-  SourceId: string | undefined;
+  SourceId?: string | undefined;
 
   /**
    * <p>The descriptive name of the source that generated the lead interaction. This human-readable identifier helps partners understand the specific lead generation channel or campaign that created the opportunity.</p>
    * @public
    */
-  SourceName: string | undefined;
+  SourceName?: string | undefined;
 
   /**
    * <p>Describes the specific use case or business scenario associated with the lead interaction. This information helps partners understand the customer's interests and potential solution requirements.</p>
@@ -2661,6 +2690,42 @@ export interface GetEngagementInvitationRequest {
 }
 
 /**
+ * <p>A subset of prospecting result data visible to invitation receivers. It includes customer account details and AI-generated insights.</p>
+ * @public
+ */
+export interface InvitationProspectingResultAws {
+  /**
+   * <p>The prospected customer account details, including geographic classification, industry segmentation, company size, and program eligibility.</p>
+   * @public
+   */
+  Customer?: ProspectingResultCustomer | undefined;
+
+  /**
+   * <p>The AI-generated insights from the prospecting analysis, including marketplace engagement scoring, solution fit assessments, and solution categorization.</p>
+   * @public
+   */
+  Insights?: ProspectingInsights | undefined;
+}
+
+/**
+ * <p>Contains enrichment data for engagement invitations. You can view propensity scores, program eligibility, and lead readiness insights directly in the invitation, before you take action on the invitation.</p>
+ * @public
+ */
+export interface EnrichmentContext {
+  /**
+   * <p>The customer account data and propensity insights for the prospected account. It includes geographic, industry, and segment classifications, along with engagement and solution scoring.</p>
+   * @public
+   */
+  ProspectingResultAws?: InvitationProspectingResultAws | undefined;
+
+  /**
+   * <p>The AI-generated lead readiness score for this lead. Use this score to assess lead quality and prioritize engagement efforts.</p>
+   * @public
+   */
+  LeadInsights?: LeadInsights | undefined;
+}
+
+/**
  * <p>The EngagementMemberSummary provides a snapshot of essential information about participants in an AWS Partner Central Engagement. This compact data structure encapsulates key details of each member, facilitating efficient collaboration and management within the Engagement. </p>
  * @public
  */
@@ -2783,6 +2848,12 @@ export interface GetEngagementInvitationResponse {
    * @public
    */
   ExistingMembers?: EngagementMemberSummary[] | undefined;
+
+  /**
+   * <p>The enrichment data for the engagement associated with this invitation. You can view propensity scores, program eligibility, and lead readiness assessments before taking action on the invitation.</p>
+   * @public
+   */
+  EnrichmentContext?: EnrichmentContext | undefined;
 }
 
 /**
