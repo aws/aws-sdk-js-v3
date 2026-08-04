@@ -79,6 +79,29 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  *         value: "STRING_VALUE",
  *       },
  *     ],
+ *     cloudProvider: "<ResourceStringFilterList>",
+ *     cloudProviderAccountId: "<ResourceStringFilterList>",
+ *     cloudProviderOrgId: "<ResourceStringFilterList>",
+ *     cloudProviderRegion: "<ResourceStringFilterList>",
+ *     cloudVmInstanceTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
+ *     cloudContainerImageTags: "<ResourceStringFilterList>",
+ *     cloudContainerRepositoryName: "<ResourceStringFilterList>",
+ *     cloudContainerRegistryName: "<ResourceStringFilterList>",
+ *     cloudServerlessFunctionName: "<ResourceStringFilterList>",
+ *     cloudServerlessFunctionRuntime: "<ResourceStringFilterList>",
+ *     cloudServerlessFunctionTags: [
+ *       {
+ *         comparison: "STRING_VALUE", // required
+ *         key: "STRING_VALUE", // required
+ *         value: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  *   reportFormat: "STRING_VALUE", // required
  *   s3Destination: { // Destination

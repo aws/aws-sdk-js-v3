@@ -2656,8 +2656,8 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RD,
 ];
 export var ResourceFilterCriteria$: StaticStructureSchema = [3, n0, _RFC,
   0,
-  [_aI, _rI, _rT, _eRN, _lFN, _eIT, _eITc, _lFT],
-  [() => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceMapFilterList, () => ResourceMapFilterList]
+  [_aI, _rI, _rT, _eRN, _lFN, _eIT, _eITc, _lFT, _cP, _cPAI, _cPOI, _cPR, _cVIT, _cCIT, _cCRN, _cCRNl, _cSFN, _cSFR, _cSFT],
+  [() => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceMapFilterList, () => ResourceMapFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceMapFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceStringFilterList, () => ResourceMapFilterList]
 ];
 export var ResourceMapFilter$: StaticStructureSchema = [3, n0, _RMF,
   0,

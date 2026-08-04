@@ -8123,6 +8123,72 @@ export interface ResourceFilterCriteria {
    * @public
    */
   lambdaFunctionTags?: ResourceMapFilter[] | undefined;
+
+  /**
+   * <p>The cloud providers used as resource filter criteria.</p>
+   * @public
+   */
+  cloudProvider?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider account IDs used as resource filter criteria.</p>
+   * @public
+   */
+  cloudProviderAccountId?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider organization IDs used as resource filter criteria.</p>
+   * @public
+   */
+  cloudProviderOrgId?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud provider regions used as resource filter criteria.</p>
+   * @public
+   */
+  cloudProviderRegion?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud VM instance tags used as resource filter criteria.</p>
+   * @public
+   */
+  cloudVmInstanceTags?: ResourceMapFilter[] | undefined;
+
+  /**
+   * <p>The cloud container image tags used as resource filter criteria.</p>
+   * @public
+   */
+  cloudContainerImageTags?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud container repository names used as resource filter criteria.</p>
+   * @public
+   */
+  cloudContainerRepositoryName?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud container registry names used as resource filter criteria.</p>
+   * @public
+   */
+  cloudContainerRegistryName?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function names used as resource filter criteria.</p>
+   * @public
+   */
+  cloudServerlessFunctionName?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function runtimes used as resource filter criteria.</p>
+   * @public
+   */
+  cloudServerlessFunctionRuntime?: ResourceStringFilter[] | undefined;
+
+  /**
+   * <p>The cloud serverless function tags used as resource filter criteria.</p>
+   * @public
+   */
+  cloudServerlessFunctionTags?: ResourceMapFilter[] | undefined;
 }
 
 /**
