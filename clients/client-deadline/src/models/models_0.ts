@@ -23,7 +23,6 @@ import type {
   CustomerManagedFleetOperatingSystemFamily,
   DeadlinePrincipalType,
   DefaultQueueBudgetAction,
-  DependencyConsumerResolutionStatus,
   DesiredWorkerStatus,
   EbsVolumeType,
   Ec2MarketType,
@@ -1530,10 +1529,10 @@ export interface JobAttachmentDetailsEntity {
 }
 
 /**
- * <p>The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
+ * <p>The job attachment settings returned to workers for a job. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
  * @public
  */
-export interface JobAttachmentSettings {
+export interface JobDetailsJobAttachmentSettings {
   /**
    * <p>The Amazon S3 bucket name.</p>
    * @public
@@ -1646,7 +1645,7 @@ export interface JobDetailsEntity {
    * <p>The job attachment settings.</p>
    * @public
    */
-  jobAttachmentSettings?: JobAttachmentSettings | undefined;
+  jobAttachmentSettings?: JobDetailsJobAttachmentSettings | undefined;
 
   /**
    * <p>The user name and group that the job uses when run.</p>
@@ -5180,6 +5179,24 @@ export interface CreateMonitorResponse {
    * @public
    */
   identityCenterApplicationArn: string | undefined;
+}
+
+/**
+ * <p>The job attachment settings. These are the Amazon S3 bucket name and the Amazon S3 prefix.</p>
+ * @public
+ */
+export interface JobAttachmentSettings {
+  /**
+   * <p>The Amazon S3 bucket name.</p>
+   * @public
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * <p>The root prefix.</p>
+   * @public
+   */
+  rootPrefix: string | undefined;
 }
 
 /**
@@ -9579,22 +9596,4 @@ export interface ListStepConsumersRequest {
    * @public
    */
   maxResults?: number | undefined;
-}
-
-/**
- * <p>The details of a step consumer.</p>
- * @public
- */
-export interface StepConsumer {
-  /**
-   * <p>The step ID.</p>
-   * @public
-   */
-  stepId: string | undefined;
-
-  /**
-   * <p>The step consumer status.</p>
-   * @public
-   */
-  status: DependencyConsumerResolutionStatus | undefined;
 }

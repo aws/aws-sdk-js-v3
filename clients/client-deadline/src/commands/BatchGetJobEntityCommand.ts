@@ -62,7 +62,7 @@ export interface BatchGetJobEntityCommandOutput extends BatchGetJobEntityRespons
  * //     { // JobEntity Union: only one key present
  * //       jobDetails: { // JobDetailsEntity
  * //         jobId: "STRING_VALUE", // required
- * //         jobAttachmentSettings: { // JobAttachmentSettings
+ * //         jobAttachmentSettings: { // JobDetailsJobAttachmentSettings
  * //           s3BucketName: "STRING_VALUE", // required
  * //           rootPrefix: "STRING_VALUE", // required
  * //         },

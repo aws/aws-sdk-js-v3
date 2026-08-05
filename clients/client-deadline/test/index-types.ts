@@ -669,6 +669,7 @@ export type {
   JobDetailsEntity,
   JobDetailsError,
   JobDetailsIdentifiers,
+  JobDetailsJobAttachmentSettings,
   JobEntity,
   JobEntityIdentifiersUnion,
   JobMember,

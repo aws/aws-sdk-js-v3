@@ -338,6 +338,7 @@ const _JD = "JobDescription";
 const _JDE = "JobDetailsEntity";
 const _JDEo = "JobDetailsError";
 const _JDI = "JobDetailsIdentifiers";
+const _JDJAS = "JobDetailsJobAttachmentSettings";
 const _JDO = "JobDescriptionOverride";
 const _JE = "JobEntity";
 const _JEI = "JobEntityIdentifiers";
@@ -2151,7 +2152,7 @@ export var JobAttachmentSettings$: StaticStructureSchema = [3, n0, _JAS,
 export var JobDetailsEntity$: StaticStructureSchema = [3, n0, _JDE,
   0,
   [_jI, _lGN, _sV, _jAS, _jRAU, _qRA, _p, _pMR],
-  [0, 0, 0, () => JobAttachmentSettings$, () => JobRunAsUser$, 0, [() => JobParameters, 0], [() => PathMappingRules, 0]], 3
+  [0, 0, 0, () => JobDetailsJobAttachmentSettings$, () => JobRunAsUser$, 0, [() => JobParameters, 0], [() => PathMappingRules, 0]], 3
 ];
 export var JobDetailsError$: StaticStructureSchema = [3, n0, _JDEo,
   0,
@@ -2162,6 +2163,11 @@ export var JobDetailsIdentifiers$: StaticStructureSchema = [3, n0, _JDI,
   0,
   [_jI],
   [0], 1
+];
+export var JobDetailsJobAttachmentSettings$: StaticStructureSchema = [3, n0, _JDJAS,
+  0,
+  [_sBN, _rP],
+  [0, 0], 2
 ];
 export var JobMember$: StaticStructureSchema = [3, n0, _JM,
   0,

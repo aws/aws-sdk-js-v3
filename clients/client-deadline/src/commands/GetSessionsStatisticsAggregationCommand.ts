@@ -51,7 +51,7 @@ export interface GetSessionsStatisticsAggregationCommandOutput extends GetSessio
  * //       jobId: "STRING_VALUE",
  * //       jobName: "STRING_VALUE",
  * //       userId: "STRING_VALUE",
- * //       usageType: "COMPUTE" || "LICENSE",
+ * //       usageType: "COMPUTE" || "LICENSE" || "PERSISTENT_VOLUME",
  * //       licenseProduct: "STRING_VALUE",
  * //       instanceType: "STRING_VALUE",
  * //       count: Number("int"), // required

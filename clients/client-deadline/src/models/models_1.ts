@@ -42,10 +42,27 @@ import type {
   JobRunAsUser,
   ParameterSpace,
   SchedulingConfiguration,
-  StepConsumer,
   StorageProfileSummary,
   TaskParameterValue,
 } from "./models_0";
+
+/**
+ * <p>The details of a step consumer.</p>
+ * @public
+ */
+export interface StepConsumer {
+  /**
+   * <p>The step ID.</p>
+   * @public
+   */
+  stepId: string | undefined;
+
+  /**
+   * <p>The step consumer status.</p>
+   * @public
+   */
+  status: DependencyConsumerResolutionStatus | undefined;
+}
 
 /**
  * Shared pagination field for List operation outputs (nextToken).

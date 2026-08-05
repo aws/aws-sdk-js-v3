@@ -399,6 +399,7 @@ import {
   JobDetailsEntity$,
   JobDetailsError$,
   JobDetailsIdentifiers$,
+  JobDetailsJobAttachmentSettings$,
   JobEntity$,
   JobEntityErrorCode,
   JobEntityIdentifiersUnion$,
@@ -1283,6 +1284,7 @@ assert(typeof JobAttachmentSettings$ === "object");
 assert(typeof JobDetailsEntity$ === "object");
 assert(typeof JobDetailsError$ === "object");
 assert(typeof JobDetailsIdentifiers$ === "object");
+assert(typeof JobDetailsJobAttachmentSettings$ === "object");
 assert(typeof JobEntity$ === "object");
 assert(typeof JobEntityIdentifiersUnion$ === "object");
 assert(typeof JobMember$ === "object");

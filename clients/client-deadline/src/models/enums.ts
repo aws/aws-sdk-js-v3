@@ -892,6 +892,7 @@ export type QueueLimitAssociationStatus =
 export const UsageType = {
   COMPUTE: "COMPUTE",
   LICENSE: "LICENSE",
+  PERSISTENT_VOLUME: "PERSISTENT_VOLUME",
 } as const;
 /**
  * @public
