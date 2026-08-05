@@ -13,6 +13,8 @@ import type {
   DataQualityModelStatus,
   EnableHybridValues,
   ExistCondition,
+  ExportSetting,
+  ExportStatus,
   FieldName,
   FilterOperator,
   FunctionType,
@@ -33,7 +35,6 @@ import type {
   SchemaDiffType,
   SchemaStatus,
   SchemaVersionStatus,
-  SearchFilterOperator,
   SortDirectionType,
   StatementState,
   StatisticEvaluationLevel,
@@ -137,6 +138,70 @@ export interface GetDataCatalogEncryptionSettingsResponse {
    * @public
    */
   DataCatalogEncryptionSettings?: DataCatalogEncryptionSettings | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataCatalogExportConfigurationInput {}
+
+/**
+ * <p>The encryption configuration for exported data catalog metadata.</p>
+ * @public
+ */
+export interface ExportEncryptionConfiguration {
+  /**
+   * <p>The server-side encryption algorithm used for the exported data. Valid values are <code>AES256</code> and <code>aws:kms</code>.</p>
+   * @public
+   */
+  SseAlgorithm?: string | undefined;
+
+  /**
+   * <p>The ARN of the KMS key used to encrypt the exported data.</p>
+   * @public
+   */
+  KmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDataCatalogExportConfigurationOutput {
+  /**
+   * <p>The export setting for the data catalog. Valid values are <code>ENABLED</code> and <code>DISABLED</code>.</p>
+   * @public
+   */
+  ExportSetting?: ExportSetting | undefined;
+
+  /**
+   * <p>The current status of the export. Valid values are <code>ENABLING</code>, <code>ENABLED</code>, <code>DISABLING</code>, <code>DISABLED</code>, and <code>FAILED</code>.</p>
+   * @public
+   */
+  Status?: ExportStatus | undefined;
+
+  /**
+   * <p>The encryption configuration for the exported data.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The ARN of the S3 Tables bucket where catalog metadata is exported.</p>
+   * @public
+   */
+  S3TableBucketArn?: string | undefined;
+
+  /**
+   * <p>The timestamp at which the export configuration was created.</p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>The timestamp at which the export configuration was last updated.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -7823,6 +7888,46 @@ export interface PutDataCatalogEncryptionSettingsResponse {}
 /**
  * @public
  */
+export interface PutDataCatalogExportConfigurationInput {
+  /**
+   * <p>The export setting for the data catalog. Specify <code>ENABLED</code> to start exporting catalog metadata to S3 Tables, or <code>DISABLED</code> to stop exporting. This field is required.</p>
+   * @public
+   */
+  ExportSetting: ExportSetting | undefined;
+
+  /**
+   * <p>The encryption configuration for the exported data. If not specified, the default encryption settings are used.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataCatalogExportConfigurationOutput {
+  /**
+   * <p>The export setting for the data catalog.</p>
+   * @public
+   */
+  ExportSetting?: ExportSetting | undefined;
+
+  /**
+   * <p>The encryption configuration for the exported data.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ExportEncryptionConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
 export interface PutDataQualityProfileAnnotationRequest {
   /**
    * <p>The ID of the data quality monitoring profile to annotate.</p>
@@ -8707,154 +8812,4 @@ export interface ResumeWorkflowRunResponse {
    * @public
    */
   NodeIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RunStatementRequest {
-  /**
-   * <p>The Session Id of the statement to be run.</p>
-   * @public
-   */
-  SessionId: string | undefined;
-
-  /**
-   * <p>The statement code to be run.</p>
-   * @public
-   */
-  Code: string | undefined;
-
-  /**
-   * <p>The origin of the request.</p>
-   * @public
-   */
-  RequestOrigin?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RunStatementResponse {
-  /**
-   * <p>Returns the Id of the statement that was run.</p>
-   * @public
-   */
-  Id?: number | undefined;
-}
-
-/**
- * <p>A filter value. Exactly one of <code>stringValue</code> or <code>longValue</code> must be specified.</p>
- * @public
- */
-export type SearchFilterValue =
-  | SearchFilterValue.LongValueMember
-  | SearchFilterValue.StringValueMember
-  | SearchFilterValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SearchFilterValue {
-  /**
-   * <p>A string filter value.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    StringValue: string;
-    LongValue?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A long integer filter value.</p>
-   * @public
-   */
-  export interface LongValueMember {
-    StringValue?: never;
-    LongValue: number;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    StringValue?: never;
-    LongValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    LongValue: (value: number) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A filter that compares an attribute value using an operator.</p>
- * @public
- */
-export interface SearchAttributeFilter {
-  /**
-   * <p>The attribute name to filter on.</p>
-   * @public
-   */
-  Attribute: string | undefined;
-
-  /**
-   * <p>The comparison operator. Valid values are <code>equals</code>, <code>greaterThan</code>, <code>greaterThanOrEquals</code>, <code>lessThan</code>, <code>lessThanOrEquals</code>, and <code>notExists</code>.</p>
-   * @public
-   */
-  Operator: SearchFilterOperator | undefined;
-
-  /**
-   * <p>The value to compare against.</p>
-   * @public
-   */
-  Value?: SearchFilterValue | undefined;
-}
-
-/**
- * <p>A map filter value. Currently supports string comparison only.</p>
- * @public
- */
-export type SearchMapFilterValue =
-  | SearchMapFilterValue.StringValueMember
-  | SearchMapFilterValue.$UnknownMember;
-
-/**
- * @public
- */
-export namespace SearchMapFilterValue {
-  /**
-   * <p>A string filter value.</p>
-   * @public
-   */
-  export interface StringValueMember {
-    StringValue: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    StringValue?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    StringValue: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
 }

@@ -385,6 +385,10 @@ import type {
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
+import type {
+  GetDataCatalogExportConfigurationCommandInput,
+  GetDataCatalogExportConfigurationCommandOutput,
+} from "./commands/GetDataCatalogExportConfigurationCommand";
 import type { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
 import type {
   GetDataQualityModelCommandInput,
@@ -616,6 +620,10 @@ import type {
   PutDataCatalogEncryptionSettingsCommandInput,
   PutDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import type {
+  PutDataCatalogExportConfigurationCommandInput,
+  PutDataCatalogExportConfigurationCommandOutput,
+} from "./commands/PutDataCatalogExportConfigurationCommand";
 import type {
   PutDataQualityProfileAnnotationCommandInput,
   PutDataQualityProfileAnnotationCommandOutput,
@@ -947,6 +955,7 @@ export type ServiceInputTypes =
   | GetCustomEntityTypeCommandInput
   | GetDashboardUrlCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
+  | GetDataCatalogExportConfigurationCommandInput
   | GetDataQualityModelCommandInput
   | GetDataQualityModelResultCommandInput
   | GetDataQualityResultCommandInput
@@ -1048,6 +1057,7 @@ export type ServiceInputTypes =
   | PutAssetTypeCommandInput
   | PutAttachmentCommandInput
   | PutDataCatalogEncryptionSettingsCommandInput
+  | PutDataCatalogExportConfigurationCommandInput
   | PutDataQualityProfileAnnotationCommandInput
   | PutFormTypeCommandInput
   | PutResourcePolicyCommandInput
@@ -1249,6 +1259,7 @@ export type ServiceOutputTypes =
   | GetCustomEntityTypeCommandOutput
   | GetDashboardUrlCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
+  | GetDataCatalogExportConfigurationCommandOutput
   | GetDataQualityModelCommandOutput
   | GetDataQualityModelResultCommandOutput
   | GetDataQualityResultCommandOutput
@@ -1350,6 +1361,7 @@ export type ServiceOutputTypes =
   | PutAssetTypeCommandOutput
   | PutAttachmentCommandOutput
   | PutDataCatalogEncryptionSettingsCommandOutput
+  | PutDataCatalogExportConfigurationCommandOutput
   | PutDataQualityProfileAnnotationCommandOutput
   | PutFormTypeCommandOutput
   | PutResourcePolicyCommandOutput

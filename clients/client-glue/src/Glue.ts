@@ -626,6 +626,11 @@ import {
   GetDataCatalogEncryptionSettingsCommand,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import {
+  type GetDataCatalogExportConfigurationCommandInput,
+  type GetDataCatalogExportConfigurationCommandOutput,
+  GetDataCatalogExportConfigurationCommand,
+} from "./commands/GetDataCatalogExportConfigurationCommand";
+import {
   type GetDataflowGraphCommandInput,
   type GetDataflowGraphCommandOutput,
   GetDataflowGraphCommand,
@@ -1080,6 +1085,11 @@ import {
   type PutDataCatalogEncryptionSettingsCommandOutput,
   PutDataCatalogEncryptionSettingsCommand,
 } from "./commands/PutDataCatalogEncryptionSettingsCommand";
+import {
+  type PutDataCatalogExportConfigurationCommandInput,
+  type PutDataCatalogExportConfigurationCommandOutput,
+  PutDataCatalogExportConfigurationCommand,
+} from "./commands/PutDataCatalogExportConfigurationCommand";
 import {
   type PutDataQualityProfileAnnotationCommandInput,
   type PutDataQualityProfileAnnotationCommandOutput,
@@ -1617,6 +1627,7 @@ const commands = {
   GetDatabaseCommand,
   GetDatabasesCommand,
   GetDataCatalogEncryptionSettingsCommand,
+  GetDataCatalogExportConfigurationCommand,
   GetDataflowGraphCommand,
   GetDataQualityModelCommand,
   GetDataQualityModelResultCommand,
@@ -1716,6 +1727,7 @@ const commands = {
   PutAssetTypeCommand,
   PutAttachmentCommand,
   PutDataCatalogEncryptionSettingsCommand,
+  PutDataCatalogExportConfigurationCommand,
   PutDataQualityProfileAnnotationCommand,
   PutFormTypeCommand,
   PutResourcePolicyCommand,
@@ -4018,6 +4030,24 @@ export interface Glue {
   ): void;
 
   /**
+   * @see {@link GetDataCatalogExportConfigurationCommand}
+   */
+  getDataCatalogExportConfiguration(): Promise<GetDataCatalogExportConfigurationCommandOutput>;
+  getDataCatalogExportConfiguration(
+    args: GetDataCatalogExportConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataCatalogExportConfigurationCommandOutput>;
+  getDataCatalogExportConfiguration(
+    args: GetDataCatalogExportConfigurationCommandInput,
+    cb: (err: any, data?: GetDataCatalogExportConfigurationCommandOutput) => void
+  ): void;
+  getDataCatalogExportConfiguration(
+    args: GetDataCatalogExportConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataCatalogExportConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetDataflowGraphCommand}
    */
   getDataflowGraph(): Promise<GetDataflowGraphCommandOutput>;
@@ -5734,6 +5764,23 @@ export interface Glue {
     args: PutDataCatalogEncryptionSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutDataCatalogEncryptionSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutDataCatalogExportConfigurationCommand}
+   */
+  putDataCatalogExportConfiguration(
+    args: PutDataCatalogExportConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutDataCatalogExportConfigurationCommandOutput>;
+  putDataCatalogExportConfiguration(
+    args: PutDataCatalogExportConfigurationCommandInput,
+    cb: (err: any, data?: PutDataCatalogExportConfigurationCommandOutput) => void
+  ): void;
+  putDataCatalogExportConfiguration(
+    args: PutDataCatalogExportConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutDataCatalogExportConfigurationCommandOutput) => void
   ): void;
 
   /**

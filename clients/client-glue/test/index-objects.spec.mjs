@@ -652,7 +652,10 @@ import {
   ExecutionProperty$,
   ExecutionStatus,
   ExistCondition,
+  ExportEncryptionConfiguration$,
   ExportLabelsTaskRunProperties$,
+  ExportSetting,
+  ExportStatus,
   ExtractedParameter$,
   FederatedCatalog$,
   FederatedDatabase$,
@@ -787,6 +790,10 @@ import {
   GetDataCatalogEncryptionSettingsCommand,
   GetDataCatalogEncryptionSettingsRequest$,
   GetDataCatalogEncryptionSettingsResponse$,
+  GetDataCatalogExportConfiguration$,
+  GetDataCatalogExportConfigurationCommand,
+  GetDataCatalogExportConfigurationInput$,
+  GetDataCatalogExportConfigurationOutput$,
   GetDataflowGraph$,
   GetDataflowGraphCommand,
   GetDataflowGraphRequest$,
@@ -1443,6 +1450,10 @@ import {
   PutDataCatalogEncryptionSettingsCommand,
   PutDataCatalogEncryptionSettingsRequest$,
   PutDataCatalogEncryptionSettingsResponse$,
+  PutDataCatalogExportConfiguration$,
+  PutDataCatalogExportConfigurationCommand,
+  PutDataCatalogExportConfigurationInput$,
+  PutDataCatalogExportConfigurationOutput$,
   PutDataQualityProfileAnnotation$,
   PutDataQualityProfileAnnotationCommand,
   PutDataQualityProfileAnnotationRequest$,
@@ -2206,6 +2217,8 @@ assert(typeof GetDatabasesCommand === "function");
 assert(typeof GetDatabases$ === "object");
 assert(typeof GetDataCatalogEncryptionSettingsCommand === "function");
 assert(typeof GetDataCatalogEncryptionSettings$ === "object");
+assert(typeof GetDataCatalogExportConfigurationCommand === "function");
+assert(typeof GetDataCatalogExportConfiguration$ === "object");
 assert(typeof GetDataflowGraphCommand === "function");
 assert(typeof GetDataflowGraph$ === "object");
 assert(typeof GetDataQualityModelCommand === "function");
@@ -2404,6 +2417,8 @@ assert(typeof PutAttachmentCommand === "function");
 assert(typeof PutAttachment$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsCommand === "function");
 assert(typeof PutDataCatalogEncryptionSettings$ === "object");
+assert(typeof PutDataCatalogExportConfigurationCommand === "function");
+assert(typeof PutDataCatalogExportConfiguration$ === "object");
 assert(typeof PutDataQualityProfileAnnotationCommand === "function");
 assert(typeof PutDataQualityProfileAnnotation$ === "object");
 assert(typeof PutFormTypeCommand === "function");
@@ -2925,6 +2940,7 @@ assert(typeof EvaluationMetrics$ === "object");
 assert(typeof EventBatchingCondition$ === "object");
 assert(typeof ExecutionAttempt$ === "object");
 assert(typeof ExecutionProperty$ === "object");
+assert(typeof ExportEncryptionConfiguration$ === "object");
 assert(typeof ExportLabelsTaskRunProperties$ === "object");
 assert(typeof ExtractedParameter$ === "object");
 assert(typeof FederatedCatalog$ === "object");
@@ -2994,6 +3010,8 @@ assert(typeof GetDatabasesRequest$ === "object");
 assert(typeof GetDatabasesResponse$ === "object");
 assert(typeof GetDataCatalogEncryptionSettingsRequest$ === "object");
 assert(typeof GetDataCatalogEncryptionSettingsResponse$ === "object");
+assert(typeof GetDataCatalogExportConfigurationInput$ === "object");
+assert(typeof GetDataCatalogExportConfigurationOutput$ === "object");
 assert(typeof GetDataflowGraphRequest$ === "object");
 assert(typeof GetDataflowGraphResponse$ === "object");
 assert(typeof GetDataQualityModelRequest$ === "object");
@@ -3310,6 +3328,8 @@ assert(typeof PutAttachmentRequest$ === "object");
 assert(typeof PutAttachmentResponse$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsRequest$ === "object");
 assert(typeof PutDataCatalogEncryptionSettingsResponse$ === "object");
+assert(typeof PutDataCatalogExportConfigurationInput$ === "object");
+assert(typeof PutDataCatalogExportConfigurationOutput$ === "object");
 assert(typeof PutDataQualityProfileAnnotationRequest$ === "object");
 assert(typeof PutDataQualityProfileAnnotationResponse$ === "object");
 assert(typeof PutFormTypeRequest$ === "object");
@@ -3648,6 +3668,8 @@ assert(typeof EnableHybridValues === "object");
 assert(typeof ExecutionClass === "object");
 assert(typeof ExecutionStatus === "object");
 assert(typeof ExistCondition === "object");
+assert(typeof ExportSetting === "object");
+assert(typeof ExportStatus === "object");
 assert(typeof FederationSourceErrorCode === "object");
 assert(typeof FieldDataType === "object");
 assert(typeof FieldFilterOperator === "object");

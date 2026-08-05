@@ -1071,6 +1071,13 @@ GetDataCatalogEncryptionSettings
 </details>
 <details>
 <summary>
+GetDataCatalogExportConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataCatalogExportConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataCatalogExportConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataCatalogExportConfigurationCommandOutput/)
+</details>
+<details>
+<summary>
 GetDataflowGraph
 </summary>
 
@@ -1761,6 +1768,13 @@ PutDataCatalogEncryptionSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataCatalogEncryptionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandOutput/)
+</details>
+<details>
+<summary>
+PutDataCatalogExportConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataCatalogExportConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogExportConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogExportConfigurationCommandOutput/)
 </details>
 <details>
 <summary>

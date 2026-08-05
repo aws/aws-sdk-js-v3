@@ -13,6 +13,7 @@ import type {
   ResourceAction,
   ResourceShareType,
   ResourceState,
+  SearchFilterOperator,
   SearchSortOrder,
   Sort,
   SourceControlAuthStrategy,
@@ -149,11 +150,159 @@ import type {
   FederatedTable,
   IcebergTableMetadata,
   SchemaVersionNumber,
-  SearchAttributeFilter,
-  SearchMapFilterValue,
   ViewDefinition,
   ViewValidation,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface RunStatementRequest {
+  /**
+   * <p>The Session Id of the statement to be run.</p>
+   * @public
+   */
+  SessionId: string | undefined;
+
+  /**
+   * <p>The statement code to be run.</p>
+   * @public
+   */
+  Code: string | undefined;
+
+  /**
+   * <p>The origin of the request.</p>
+   * @public
+   */
+  RequestOrigin?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RunStatementResponse {
+  /**
+   * <p>Returns the Id of the statement that was run.</p>
+   * @public
+   */
+  Id?: number | undefined;
+}
+
+/**
+ * <p>A filter value. Exactly one of <code>stringValue</code> or <code>longValue</code> must be specified.</p>
+ * @public
+ */
+export type SearchFilterValue =
+  | SearchFilterValue.LongValueMember
+  | SearchFilterValue.StringValueMember
+  | SearchFilterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SearchFilterValue {
+  /**
+   * <p>A string filter value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    LongValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A long integer filter value.</p>
+   * @public
+   */
+  export interface LongValueMember {
+    StringValue?: never;
+    LongValue: number;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    LongValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    LongValue: (value: number) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A filter that compares an attribute value using an operator.</p>
+ * @public
+ */
+export interface SearchAttributeFilter {
+  /**
+   * <p>The attribute name to filter on.</p>
+   * @public
+   */
+  Attribute: string | undefined;
+
+  /**
+   * <p>The comparison operator. Valid values are <code>equals</code>, <code>greaterThan</code>, <code>greaterThanOrEquals</code>, <code>lessThan</code>, <code>lessThanOrEquals</code>, and <code>notExists</code>.</p>
+   * @public
+   */
+  Operator: SearchFilterOperator | undefined;
+
+  /**
+   * <p>The value to compare against.</p>
+   * @public
+   */
+  Value?: SearchFilterValue | undefined;
+}
+
+/**
+ * <p>A map filter value. Currently supports string comparison only.</p>
+ * @public
+ */
+export type SearchMapFilterValue =
+  | SearchMapFilterValue.StringValueMember
+  | SearchMapFilterValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SearchMapFilterValue {
+  /**
+   * <p>A string filter value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    StringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    StringValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    StringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * <p>A filter on a map attribute's key-value pair.</p>

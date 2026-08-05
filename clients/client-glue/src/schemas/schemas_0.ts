@@ -830,6 +830,7 @@ const _EDQ = "EvaluateDataQuality";
 const _EDQMF = "EvaluateDataQualityMultiFrame";
 const _EDr = "ErrorDetails";
 const _EDv = "EvaluatedDistributions";
+const _EEC = "ExportEncryptionConfiguration";
 const _EH = "EnableHybrid";
 const _EJSP = "ExtraJarsS3Path";
 const _EK = "EncryptionKey";
@@ -858,6 +859,7 @@ const _ER = "EvaluatedRule";
 const _ERSP = "ExecutionRoleSessionPolicy";
 const _ES = "ErrorString";
 const _ESP = "EnableSamplePath";
+const _ESx = "ExportSetting";
 const _ET = "EndTime";
 const _ETTD = "EntityTypesToDetect";
 const _ETx = "ExecutionTime";
@@ -1004,6 +1006,9 @@ const _GCeton = "GetConnections";
 const _GCetr = "GetCrawler";
 const _GCetra = "GetCrawlers";
 const _GD = "GetDatabase";
+const _GDCEC = "GetDataCatalogExportConfiguration";
+const _GDCECI = "GetDataCatalogExportConfigurationInput";
+const _GDCECO = "GetDataCatalogExportConfigurationOutput";
 const _GDCES = "GetDataCatalogEncryptionSettings";
 const _GDCESR = "GetDataCatalogEncryptionSettingsRequest";
 const _GDCESRe = "GetDataCatalogEncryptionSettingsResponse";
@@ -1758,6 +1763,9 @@ const _PCPR = "PhysicalConnectionPropertiesRequired";
 const _PCR = "PhysicalConnectionRequirements";
 const _PCa = "PaginationConfiguration";
 const _PCr = "ProfileConfiguration";
+const _PDCEC = "PutDataCatalogExportConfiguration";
+const _PDCECI = "PutDataCatalogExportConfigurationInput";
+const _PDCECO = "PutDataCatalogExportConfigurationOutput";
 const _PDCES = "PutDataCatalogEncryptionSettings";
 const _PDCESR = "PutDataCatalogEncryptionSettingsRequest";
 const _PDCESRu = "PutDataCatalogEncryptionSettingsResponse";
@@ -2020,6 +2028,7 @@ const _SAk = "SkipArchive";
 const _SAo = "SourceArn";
 const _SAq = "SqlAliases";
 const _SAql = "SqlAlias";
+const _SAs = "SseAlgorithm";
 const _SAt = "StartedAfter";
 const _SAta = "StatisticAnnotation";
 const _SAto = "StoppedActions";
@@ -2234,6 +2243,7 @@ const _SSt = "StatisticSummary";
 const _SSto = "StopSession";
 const _SSu = "SuccessfulSubmissions";
 const _ST = "SourceType";
+const _STBA = "S3TableBucketArn";
 const _STC = "SourceTableConfig";
 const _STE = "SchedulerTransitioningException";
 const _STL = "S3TargetList";
@@ -4933,6 +4943,11 @@ export var ExecutionProperty$: StaticStructureSchema = [3, n0, _EP,
   [_MCR],
   [1]
 ];
+export var ExportEncryptionConfiguration$: StaticStructureSchema = [3, n0, _EEC,
+  0,
+  [_SAs, _KKA],
+  [0, 0]
+];
 export var ExportLabelsTaskRunProperties$: StaticStructureSchema = [3, n0, _ELTRP,
   0,
   [_OSP],
@@ -5277,6 +5292,16 @@ export var GetDataCatalogEncryptionSettingsResponse$: StaticStructureSchema = [3
   0,
   [_DCES],
   [() => DataCatalogEncryptionSettings$]
+];
+export var GetDataCatalogExportConfigurationInput$: StaticStructureSchema = [3, n0, _GDCECI,
+  0,
+  [],
+  []
+];
+export var GetDataCatalogExportConfigurationOutput$: StaticStructureSchema = [3, n0, _GDCECO,
+  0,
+  [_ESx, _St, _ECn, _STBA, _CAr, _UA],
+  [0, 0, () => ExportEncryptionConfiguration$, 0, 4, 4]
 ];
 export var GetDataflowGraphRequest$: StaticStructureSchema = [3, n0, _GDGR,
   0,
@@ -6857,6 +6882,16 @@ export var PutDataCatalogEncryptionSettingsResponse$: StaticStructureSchema = [3
   0,
   [],
   []
+];
+export var PutDataCatalogExportConfigurationInput$: StaticStructureSchema = [3, n0, _PDCECI,
+  0,
+  [_ESx, _ECn, _CTl],
+  [0, () => ExportEncryptionConfiguration$, [0, 4]], 1
+];
+export var PutDataCatalogExportConfigurationOutput$: StaticStructureSchema = [3, n0, _PDCECO,
+  0,
+  [_ESx, _ECn],
+  [0, () => ExportEncryptionConfiguration$]
 ];
 export var PutDataQualityProfileAnnotationRequest$: StaticStructureSchema = [3, n0, _PDQPAR,
   0,
@@ -9326,6 +9361,9 @@ export var GetDatabases$: StaticOperationSchema = [9, n0, _GDe,
 export var GetDataCatalogEncryptionSettings$: StaticOperationSchema = [9, n0, _GDCES,
   0, () => GetDataCatalogEncryptionSettingsRequest$, () => GetDataCatalogEncryptionSettingsResponse$
 ];
+export var GetDataCatalogExportConfiguration$: StaticOperationSchema = [9, n0, _GDCEC,
+  { [_h]: ["POST", "/get-data-catalog-export-configuration", 200] }, () => GetDataCatalogExportConfigurationInput$, () => GetDataCatalogExportConfigurationOutput$
+];
 export var GetDataflowGraph$: StaticOperationSchema = [9, n0, _GDG,
   0, () => GetDataflowGraphRequest$, () => GetDataflowGraphResponse$
 ];
@@ -9622,6 +9660,9 @@ export var PutAttachment$: StaticOperationSchema = [9, n0, _PAutt,
 ];
 export var PutDataCatalogEncryptionSettings$: StaticOperationSchema = [9, n0, _PDCES,
   0, () => PutDataCatalogEncryptionSettingsRequest$, () => PutDataCatalogEncryptionSettingsResponse$
+];
+export var PutDataCatalogExportConfiguration$: StaticOperationSchema = [9, n0, _PDCEC,
+  { [_h]: ["POST", "/put-data-catalog-export-configuration", 200] }, () => PutDataCatalogExportConfigurationInput$, () => PutDataCatalogExportConfigurationOutput$
 ];
 export var PutDataQualityProfileAnnotation$: StaticOperationSchema = [9, n0, _PDQPA,
   0, () => PutDataQualityProfileAnnotationRequest$, () => PutDataQualityProfileAnnotationResponse$

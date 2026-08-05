@@ -1865,6 +1865,35 @@ export type CatalogEncryptionMode = (typeof CatalogEncryptionMode)[keyof typeof 
  * @public
  * @enum
  */
+export const ExportSetting = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type ExportSetting = (typeof ExportSetting)[keyof typeof ExportSetting];
+
+/**
+ * @public
+ * @enum
+ */
+export const ExportStatus = {
+  DISABLED: "DISABLED",
+  DISABLING: "DISABLING",
+  ENABLED: "ENABLED",
+  ENABLING: "ENABLING",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type ExportStatus = (typeof ExportStatus)[keyof typeof ExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const DataQualityModelStatus = {
   FAILED: "FAILED",
   RUNNING: "RUNNING",
