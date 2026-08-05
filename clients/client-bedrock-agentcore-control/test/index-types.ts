@@ -876,6 +876,8 @@ export type {
   HarnessVersionSummary,
   HostingEnvironment,
   HttpApiSchemaConfiguration,
+  HttpConnectorSource,
+  HttpConnectorTargetConfiguration,
   HttpTargetConfiguration,
   IamCredentialProvider,
   IamPrincipal,

@@ -31,12 +31,42 @@ import type {
 import type {
   CustomDescriptor,
   Descriptors,
+  RegistryRecordCredentialProviderConfiguration,
   ServerDefinition,
-  SynchronizationConfiguration,
   ToolsDefinition,
   UpdatedAuthorizerConfiguration,
   UpdatedDescription,
 } from "./models_1";
+
+/**
+ * <p>Configuration for synchronizing from a URL-based MCP server.</p>
+ * @public
+ */
+export interface FromUrlSynchronizationConfiguration {
+  /**
+   * <p>The HTTPS URL of the MCP server to synchronize from.</p>
+   * @public
+   */
+  url: string | undefined;
+
+  /**
+   * <p>Optional list of credential provider configurations for authenticating with the MCP server. At most one credential provider configuration can be specified.</p>
+   * @public
+   */
+  credentialProviderConfigurations?: RegistryRecordCredentialProviderConfiguration[] | undefined;
+}
+
+/**
+ * <p>Configuration for synchronizing registry record metadata from an external source.</p>
+ * @public
+ */
+export interface SynchronizationConfiguration {
+  /**
+   * <p>Configuration for synchronizing from a URL-based source.</p>
+   * @public
+   */
+  fromUrl?: FromUrlSynchronizationConfiguration | undefined;
+}
 
 /**
  * @public

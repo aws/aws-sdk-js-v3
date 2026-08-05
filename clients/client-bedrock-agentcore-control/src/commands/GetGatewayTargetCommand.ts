@@ -186,6 +186,14 @@ export interface GetGatewayTargetCommandOutput extends GetGatewayTargetResponse,
  * //           timeout: Number("int"),
  * //         },
  * //       },
+ * //       connector: { // HttpConnectorTargetConfiguration
+ * //         source: { // HttpConnectorSource
+ * //           connectorId: "STRING_VALUE", // required
+ * //         },
+ * //         parameters: { // HttpConnectorParameters
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     inference: { // InferenceTargetConfiguration Union: only one key present
  * //       connector: { // InferenceConnectorTargetConfiguration

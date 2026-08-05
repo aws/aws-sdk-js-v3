@@ -553,6 +553,8 @@ import {
   HarnessVersionSummary$,
   HostingEnvironment$,
   HttpApiSchemaConfiguration$,
+  HttpConnectorSource$,
+  HttpConnectorTargetConfiguration$,
   HttpTargetConfiguration$,
   IamCredentialProvider$,
   IamPrincipal$,
@@ -1783,6 +1785,8 @@ assert(typeof HarnessTruncationStrategyConfiguration$ === "object");
 assert(typeof HarnessVersionSummary$ === "object");
 assert(typeof HostingEnvironment$ === "object");
 assert(typeof HttpApiSchemaConfiguration$ === "object");
+assert(typeof HttpConnectorSource$ === "object");
+assert(typeof HttpConnectorTargetConfiguration$ === "object");
 assert(typeof HttpTargetConfiguration$ === "object");
 assert(typeof IamCredentialProvider$ === "object");
 assert(typeof IamPrincipal$ === "object");

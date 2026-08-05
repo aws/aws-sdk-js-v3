@@ -29,7 +29,6 @@ import type {
   GatewayProtocolType,
   GatewayRuleStatus,
   GatewayStatus,
-  HarnessBedrockApiFormat,
   HarnessEndpointStatus,
   HarnessManagedMemoryStrategyType,
   InboundTokenClaimValueType,
@@ -7836,6 +7835,36 @@ export interface RuntimeTargetConfiguration {
 }
 
 /**
+ * <p>The source identifying the HTTP connector integration.</p>
+ * @public
+ */
+export interface HttpConnectorSource {
+  /**
+   * <p>The identifier for the HTTP connector integration.</p>
+   * @public
+   */
+  connectorId: string | undefined;
+}
+
+/**
+ * <p>The configuration for an HTTP connector target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+ * @public
+ */
+export interface HttpConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which HTTP connector to use.</p>
+   * @public
+   */
+  source: HttpConnectorSource | undefined;
+
+  /**
+   * <p>The resource parameters for this connector (for example, <code>memoryId</code>). The service validates these parameters against the request path at runtime.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+}
+
+/**
  * <p>The configuration for session-sticky routing to a target. Session stickiness routes requests that share a session identifier to the same target.</p>
  * @public
  */
@@ -7889,6 +7918,7 @@ export interface PassthroughTargetConfiguration {
  */
 export type HttpTargetConfiguration =
   | HttpTargetConfiguration.AgentcoreRuntimeMember
+  | HttpTargetConfiguration.ConnectorMember
   | HttpTargetConfiguration.PassthroughMember
   | HttpTargetConfiguration.$UnknownMember;
 
@@ -7903,6 +7933,7 @@ export namespace HttpTargetConfiguration {
   export interface AgentcoreRuntimeMember {
     agentcoreRuntime: RuntimeTargetConfiguration;
     passthrough?: never;
+    connector?: never;
     $unknown?: never;
   }
 
@@ -7913,6 +7944,18 @@ export namespace HttpTargetConfiguration {
   export interface PassthroughMember {
     agentcoreRuntime?: never;
     passthrough: PassthroughTargetConfiguration;
+    connector?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The connector-based configuration for the HTTP target. Use this configuration when you want to route HTTP requests through a managed connector.</p>
+   * @public
+   */
+  export interface ConnectorMember {
+    agentcoreRuntime?: never;
+    passthrough?: never;
+    connector: HttpConnectorTargetConfiguration;
     $unknown?: never;
   }
 
@@ -7922,6 +7965,7 @@ export namespace HttpTargetConfiguration {
   export interface $UnknownMember {
     agentcoreRuntime?: never;
     passthrough?: never;
+    connector?: never;
     $unknown: [string, any];
   }
 
@@ -7932,6 +7976,7 @@ export namespace HttpTargetConfiguration {
   export interface Visitor<T> {
     agentcoreRuntime: (value: RuntimeTargetConfiguration) => T;
     passthrough: (value: PassthroughTargetConfiguration) => T;
+    connector: (value: HttpConnectorTargetConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9181,117 +9226,6 @@ export interface HarnessManagedMemoryConfiguration {
    * @public
    */
   encryptionKeyArn?: string | undefined;
-}
-
-/**
- * <p>The memory configuration for a harness.</p>
- * @public
- */
-export type HarnessMemoryConfiguration =
-  | HarnessMemoryConfiguration.AgentCoreMemoryConfigurationMember
-  | HarnessMemoryConfiguration.DisabledMember
-  | HarnessMemoryConfiguration.ManagedMemoryConfigurationMember
-  | HarnessMemoryConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessMemoryConfiguration {
-  /**
-   * <p>The AgentCore Memory configuration.</p>
-   * @public
-   */
-  export interface AgentCoreMemoryConfigurationMember {
-    agentCoreMemoryConfiguration: HarnessAgentCoreMemoryConfiguration;
-    managedMemoryConfiguration?: never;
-    disabled?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Harness creates and manages a memory resource in the customer's account.</p>
-   * @public
-   */
-  export interface ManagedMemoryConfigurationMember {
-    agentCoreMemoryConfiguration?: never;
-    managedMemoryConfiguration: HarnessManagedMemoryConfiguration;
-    disabled?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Explicitly opt out of memory.</p>
-   * @public
-   */
-  export interface DisabledMember {
-    agentCoreMemoryConfiguration?: never;
-    managedMemoryConfiguration?: never;
-    disabled: HarnessDisabledMemoryConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    agentCoreMemoryConfiguration?: never;
-    managedMemoryConfiguration?: never;
-    disabled?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    agentCoreMemoryConfiguration: (value: HarnessAgentCoreMemoryConfiguration) => T;
-    managedMemoryConfiguration: (value: HarnessManagedMemoryConfiguration) => T;
-    disabled: (value: HarnessDisabledMemoryConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for an Amazon Bedrock model provider.</p>
- * @public
- */
-export interface HarnessBedrockModelConfig {
-  /**
-   * <p>The Bedrock model ID.</p>
-   * @public
-   */
-  modelId: string | undefined;
-
-  /**
-   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
-   * @public
-   */
-  maxTokens?: number | undefined;
-
-  /**
-   * <p>The temperature to set when calling the model.</p>
-   * @public
-   */
-  temperature?: number | undefined;
-
-  /**
-   * <p>The topP set when calling the model.</p>
-   * @public
-   */
-  topP?: number | undefined;
-
-  /**
-   * <p>The API format to use when calling the Bedrock provider.</p>
-   * @public
-   */
-  apiFormat?: HarnessBedrockApiFormat | undefined;
-
-  /**
-   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
-   * @public
-   */
-  additionalParams?: __DocumentType | undefined;
 }
 
 /**

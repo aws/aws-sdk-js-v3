@@ -438,6 +438,8 @@ const _HACRE = "HarnessAgentCoreRuntimeEnvironment";
 const _HACRER = "HarnessAgentCoreRuntimeEnvironmentRequest";
 const _HASC = "HttpApiSchemaConfiguration";
 const _HBMC = "HarnessBedrockModelConfig";
+const _HCS = "HttpConnectorSource";
+const _HCTC = "HttpConnectorTargetConfiguration";
 const _HDMC = "HarnessDisabledMemoryConfiguration";
 const _HE = "HarnessEndpoint";
 const _HEA = "HarnessEnvironmentArtifact";
@@ -1387,6 +1389,7 @@ const _pV = "parameterValues";
 const _pVI = "parentVersionIds";
 const _pVr = "protocolVersion";
 const _pa = "paths";
+const _par = "parameters";
 const _pas = "passthrough";
 const _po = "policy";
 const _pol = "policies";
@@ -3148,6 +3151,16 @@ export var HttpApiSchemaConfiguration$: StaticStructureSchema = [3, n0, _HASC,
   0,
   [_so],
   [[() => ApiSchemaConfiguration$, 0]], 1
+];
+export var HttpConnectorSource$: StaticStructureSchema = [3, n0, _HCS,
+  0,
+  [_cIo],
+  [0], 1
+];
+export var HttpConnectorTargetConfiguration$: StaticStructureSchema = [3, n0, _HCTC,
+  0,
+  [_so, _par],
+  [() => HttpConnectorSource$, 128 | 0], 1
 ];
 export var IamCredentialProvider$: StaticStructureSchema = [3, n0, _ICP,
   0,
@@ -5049,6 +5062,7 @@ var EnvironmentVariablesMap: StaticMapSchema = [2, n0, _EVM,
 var HarnessAgentCoreMemoryRetrievalConfigs: StaticMapSchema = [2, n0, _HACMRCa,
   0, 0, () => HarnessAgentCoreMemoryRetrievalConfig$
 ];
+var HttpConnectorParameters = 128 | 0;
 var HttpHeadersMap: StaticMapSchema = [2, n0, _HHM,
   8, 0, 0
 ];
@@ -5275,8 +5289,8 @@ export var HarnessTruncationStrategyConfiguration$: StaticUnionSchema = [4, n0, 
 ];
 export var HttpTargetConfiguration$: StaticUnionSchema = [4, n0, _HTCt,
   0,
-  [_aRg, _pas],
-  [[() => RuntimeTargetConfiguration$, 0], [() => PassthroughTargetConfiguration$, 0]]
+  [_aRg, _pas, _conn],
+  [[() => RuntimeTargetConfiguration$, 0], [() => PassthroughTargetConfiguration$, 0], () => HttpConnectorTargetConfiguration$]
 ];
 export var InferenceTargetConfiguration$: StaticUnionSchema = [4, n0, _ITC,
   0,

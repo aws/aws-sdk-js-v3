@@ -173,6 +173,14 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  *           timeout: Number("int"),
  *         },
  *       },
+ *       connector: { // HttpConnectorTargetConfiguration
+ *         source: { // HttpConnectorSource
+ *           connectorId: "STRING_VALUE", // required
+ *         },
+ *         parameters: { // HttpConnectorParameters
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *       },
  *     },
  *     inference: { // InferenceTargetConfiguration Union: only one key present
  *       connector: { // InferenceConnectorTargetConfiguration
@@ -408,6 +416,14 @@ export interface CreateGatewayTargetCommandOutput extends CreateGatewayTargetRes
  * //         stickinessConfiguration: { // StickinessConfiguration
  * //           identifier: "STRING_VALUE", // required
  * //           timeout: Number("int"),
+ * //         },
+ * //       },
+ * //       connector: { // HttpConnectorTargetConfiguration
+ * //         source: { // HttpConnectorSource
+ * //           connectorId: "STRING_VALUE", // required
+ * //         },
+ * //         parameters: { // HttpConnectorParameters
+ * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
  * //     },

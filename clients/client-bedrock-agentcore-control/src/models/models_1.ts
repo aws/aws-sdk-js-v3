@@ -12,6 +12,7 @@ import type {
   ExtractionType,
   FilterOperator,
   FindingType,
+  HarnessBedrockApiFormat,
   HarnessOpenAiApiFormat,
   HarnessStatus,
   HarnessToolType,
@@ -45,10 +46,11 @@ import type {
   AgentSkillsDescriptor,
   AuthorizerConfiguration,
   FilesystemConfiguration,
-  HarnessBedrockModelConfig,
+  HarnessAgentCoreMemoryConfiguration,
+  HarnessDisabledMemoryConfiguration,
   HarnessEnvironmentArtifact,
   HarnessEnvironmentProviderRequest,
-  HarnessMemoryConfiguration,
+  HarnessManagedMemoryConfiguration,
   LifecycleConfiguration,
   NetworkConfiguration,
   OAuthCredentialProvider,
@@ -59,6 +61,117 @@ import type {
   Unit,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The memory configuration for a harness.</p>
+ * @public
+ */
+export type HarnessMemoryConfiguration =
+  | HarnessMemoryConfiguration.AgentCoreMemoryConfigurationMember
+  | HarnessMemoryConfiguration.DisabledMember
+  | HarnessMemoryConfiguration.ManagedMemoryConfigurationMember
+  | HarnessMemoryConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessMemoryConfiguration {
+  /**
+   * <p>The AgentCore Memory configuration.</p>
+   * @public
+   */
+  export interface AgentCoreMemoryConfigurationMember {
+    agentCoreMemoryConfiguration: HarnessAgentCoreMemoryConfiguration;
+    managedMemoryConfiguration?: never;
+    disabled?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Harness creates and manages a memory resource in the customer's account.</p>
+   * @public
+   */
+  export interface ManagedMemoryConfigurationMember {
+    agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration: HarnessManagedMemoryConfiguration;
+    disabled?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Explicitly opt out of memory.</p>
+   * @public
+   */
+  export interface DisabledMember {
+    agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration?: never;
+    disabled: HarnessDisabledMemoryConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreMemoryConfiguration?: never;
+    managedMemoryConfiguration?: never;
+    disabled?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreMemoryConfiguration: (value: HarnessAgentCoreMemoryConfiguration) => T;
+    managedMemoryConfiguration: (value: HarnessManagedMemoryConfiguration) => T;
+    disabled: (value: HarnessDisabledMemoryConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for an Amazon Bedrock model provider.</p>
+ * @public
+ */
+export interface HarnessBedrockModelConfig {
+  /**
+   * <p>The Bedrock model ID.</p>
+   * @public
+   */
+  modelId: string | undefined;
+
+  /**
+   * <p>The maximum number of tokens to allow in the generated response per model call.</p>
+   * @public
+   */
+  maxTokens?: number | undefined;
+
+  /**
+   * <p>The temperature to set when calling the model.</p>
+   * @public
+   */
+  temperature?: number | undefined;
+
+  /**
+   * <p>The topP set when calling the model.</p>
+   * @public
+   */
+  topP?: number | undefined;
+
+  /**
+   * <p>The API format to use when calling the Bedrock provider.</p>
+   * @public
+   */
+  apiFormat?: HarnessBedrockApiFormat | undefined;
+
+  /**
+   * <p>Provider-specific parameters passed through to the model provider unchanged.</p>
+   * @public
+   */
+  additionalParams?: __DocumentType | undefined;
+}
 
 /**
  * <p>Configuration for a Google Gemini model provider. Requires an API key stored in AgentCore Identity.</p>
@@ -10336,34 +10449,4 @@ export interface RegistryRecordCredentialProviderConfiguration {
    * @public
    */
   credentialProvider: RegistryRecordCredentialProviderUnion | undefined;
-}
-
-/**
- * <p>Configuration for synchronizing from a URL-based MCP server.</p>
- * @public
- */
-export interface FromUrlSynchronizationConfiguration {
-  /**
-   * <p>The HTTPS URL of the MCP server to synchronize from.</p>
-   * @public
-   */
-  url: string | undefined;
-
-  /**
-   * <p>Optional list of credential provider configurations for authenticating with the MCP server. At most one credential provider configuration can be specified.</p>
-   * @public
-   */
-  credentialProviderConfigurations?: RegistryRecordCredentialProviderConfiguration[] | undefined;
-}
-
-/**
- * <p>Configuration for synchronizing registry record metadata from an external source.</p>
- * @public
- */
-export interface SynchronizationConfiguration {
-  /**
-   * <p>Configuration for synchronizing from a URL-based source.</p>
-   * @public
-   */
-  fromUrl?: FromUrlSynchronizationConfiguration | undefined;
 }

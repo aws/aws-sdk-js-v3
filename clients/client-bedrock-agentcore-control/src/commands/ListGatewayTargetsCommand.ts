@@ -56,7 +56,7 @@ export interface ListGatewayTargetsCommandOutput extends ListGatewayTargetsRespo
  * //           userId: "STRING_VALUE",
  * //         },
  * //       },
- * //       targetType: "OPEN_API_SCHEMA" || "SMITHY_MODEL" || "MCP_SERVER" || "LAMBDA" || "API_GATEWAY" || "CONNECTOR" || "AGENTCORE_RUNTIME" || "PASSTHROUGH" || "PROVIDER",
+ * //       targetType: "OPEN_API_SCHEMA" || "SMITHY_MODEL" || "MCP_SERVER" || "LAMBDA" || "API_GATEWAY" || "CONNECTOR" || "AGENTCORE_RUNTIME" || "PASSTHROUGH" || "PROVIDER" || "HTTP_CONNECTOR",
  * //       listingMode: "DEFAULT" || "DYNAMIC",
  * //     },
  * //   ],
