@@ -112,7 +112,7 @@ export interface DeregisterContainerInstanceCommandOutput extends DeregisterCont
  * //       overallStatus: "OK" || "IMPAIRED" || "INSUFFICIENT_DATA" || "INITIALIZING",
  * //       details: [ // InstanceHealthCheckResultList
  * //         { // InstanceHealthCheckResult
- * //           type: "CONTAINER_RUNTIME" || "ACCELERATED_COMPUTE" || "DAEMON",
+ * //           type: "CONTAINER_RUNTIME" || "ACCELERATED_COMPUTE" || "DAEMON" || "AGENT_CONNECTIVITY",
  * //           status: "OK" || "IMPAIRED" || "INSUFFICIENT_DATA" || "INITIALIZING",
  * //           statusReason: "STRING_VALUE",
  * //           lastUpdated: new Date("TIMESTAMP"),

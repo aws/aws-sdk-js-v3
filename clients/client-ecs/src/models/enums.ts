@@ -395,6 +395,7 @@ export type InstanceHealthCheckState = (typeof InstanceHealthCheckState)[keyof t
  */
 export const InstanceHealthCheckType = {
   ACCELERATED_COMPUTE: "ACCELERATED_COMPUTE",
+  AGENT_CONNECTIVITY: "AGENT_CONNECTIVITY",
   CONTAINER_RUNTIME: "CONTAINER_RUNTIME",
   DAEMON: "DAEMON",
 } as const;
@@ -1532,6 +1533,7 @@ export type HealthStatus = (typeof HealthStatus)[keyof typeof HealthStatus];
  */
 export const TaskStopCode = {
   ESSENTIAL_CONTAINER_EXITED: "EssentialContainerExited",
+  INFRASTRUCTURE_HEALTH: "InfrastructureHealth",
   SERVICE_SCHEDULER_INITIATED: "ServiceSchedulerInitiated",
   SPOT_INTERRUPTION: "SpotInterruption",
   TASK_FAILED_TO_START: "TaskFailedToStart",

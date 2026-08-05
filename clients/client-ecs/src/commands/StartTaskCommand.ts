@@ -282,7 +282,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //       pullStoppedAt: new Date("TIMESTAMP"),
  * //       startedAt: new Date("TIMESTAMP"),
  * //       startedBy: "STRING_VALUE",
- * //       stopCode: "TaskFailedToStart" || "EssentialContainerExited" || "UserInitiated" || "ServiceSchedulerInitiated" || "SpotInterruption" || "TerminationNotice",
+ * //       stopCode: "TaskFailedToStart" || "EssentialContainerExited" || "UserInitiated" || "ServiceSchedulerInitiated" || "SpotInterruption" || "TerminationNotice" || "InfrastructureHealth",
  * //       stoppedAt: new Date("TIMESTAMP"),
  * //       stoppedReason: "STRING_VALUE",
  * //       stoppingAt: new Date("TIMESTAMP"),
