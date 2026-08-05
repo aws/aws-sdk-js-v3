@@ -22,11 +22,12 @@ import type { SearchVectorsCommandInput, SearchVectorsCommandOutput } from "./co
 import type { TransactGetCommandInput, TransactGetCommandOutput } from "./commands/TransactGetCommand";
 import type { TransactWriteCommandInput, TransactWriteCommandOutput } from "./commands/TransactWriteCommand";
 import type { UpdateCommandInput, UpdateCommandOutput } from "./commands/UpdateCommand";
-import type {
+import {
   DynamoDBClient,
-  DynamoDBClientResolvedConfig,
-  ServiceInputTypes as __ServiceInputTypes,
-  ServiceOutputTypes as __ServiceOutputTypes,
+  type DynamoDBClientConfig,
+  type DynamoDBClientResolvedConfig,
+  type ServiceInputTypes as __ServiceInputTypes,
+  type ServiceOutputTypes as __ServiceOutputTypes,
 } from "@aws-sdk/client-dynamodb";
 import type { marshallOptions, unmarshallOptions } from "@aws-sdk/util-dynamodb";
 
@@ -150,6 +151,54 @@ export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, Servi
         "@aws-sdk/lib-dynamodb - cacheMiddleware=true is not compatible with the" +
           " DynamoDBDocumentClient. This option must be set to false."
       );
+    }
+    /**
+     * The code below checks for incompatibility between the supplied
+     * DynamoDBClient and this DynamoDBDocumentClient.
+     *
+     * This can happen when the dependency graph is invalid, including
+     * for example, a Lambda layer exposing certain packages being merged
+     * with the Node.js Lambda provided JS SDK.
+     *
+     * This is not supported and we can only make a best-effort attempt
+     * to repair the error if there is a 2nd client-dynamodb within the
+     * dependency enclosure.
+     */
+    const middlewares = client.middlewareStack.identify?.() ?? [];
+    const hasSerializer = middlewares.some((m) => m.includes?.("serializerMiddleware"));
+    if (!hasSerializer) {
+      const configuredLogger = this.config.logger;
+      const logger =
+        configuredLogger && !configuredLogger.constructor?.name.includes("NoOp")
+          ? configuredLogger
+          : console
+      ;
+      const substituteClient = new DynamoDBClient(Object.assign(
+        {}, this.config, {
+          defaultUserAgentProvider: undefined,
+          retryStrategy: undefined,
+          extensions: undefined
+        } satisfies DynamoDBClientConfig
+      ) as DynamoDBClientConfig);
+      const substituteClientHasSerializer = substituteClient.middlewareStack
+        .identify?.()
+        .some((m) => m.includes?.("serializerMiddleware"));
+      if (!substituteClientHasSerializer) {
+        throw new Error(
+          "@aws-sdk/lib-dynamodb - ERROR: incompatible version of DynamoDBClient given to DynamoDBDocumentClient. " +
+            "Check @aws-sdk/lib-dynamodb package.json requirements."
+        );
+      }
+      else {
+        this.middlewareStack = substituteClient.middlewareStack;
+        this.config = substituteClient.config;
+        this.config.translateConfig = translateConfig;
+        logger.warn(
+          "@aws-sdk/lib-dynamodb - WARN: incompatible version of DynamoDBClient given to DynamoDBDocumentClient. " +
+            "We have forwarded your client's configuration to a newer version of DynamoDBClient in " +
+            "the dependency closure to instantiate DynamoDBDocumentClient."
+        );
+      }
     }
   }
 
