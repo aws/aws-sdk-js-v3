@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+
+### Features
+
+* **client-deadline:** AWS Deadline Cloud now reports persistent volume costs alongside compute and license costs. Customers can view per-fleet storage costs in Usage Explorer by selecting the Usage Type grouping, helping them better understand the costs of their infrastructure. ([f6649b9](https://github.com/aws/aws-sdk-js-v3/commit/f6649b9d31255c736336eb0f0092f6c34ebd9758))
+
+
+
+
+
 # [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-deadline

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+
+### Features
+
+* **client-glue:** Added the PutDataCatalogExportConfiguration to export Glue Data Catalog metadata to systems tables stored in S3 Tables. ([31c6944](https://github.com/aws/aws-sdk-js-v3/commit/31c69446c13c149c89c50b588648ae6b304bd2a7))
+
+
+
+
+
 # [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+
+### Features
+
+* **client-acm-pca:** Private Certificate Authority service now supports RSASSA-PSS signing algorithm. ([203b57d](https://github.com/aws/aws-sdk-js-v3/commit/203b57d1eca019243b0b8ee1223ced5c9a92cd9a))
+* **client-bedrock-agentcore-control:** Adding support for fine-grained access control for AgentCore Memory through managed AgentCore Gateway HTTP Connectors. ([448fc0f](https://github.com/aws/aws-sdk-js-v3/commit/448fc0f78c7165b1132f341c8e63fc8343672f00))
+* **client-deadline:** AWS Deadline Cloud now reports persistent volume costs alongside compute and license costs. Customers can view per-fleet storage costs in Usage Explorer by selecting the Usage Type grouping, helping them better understand the costs of their infrastructure. ([f6649b9](https://github.com/aws/aws-sdk-js-v3/commit/f6649b9d31255c736336eb0f0092f6c34ebd9758))
+* **client-ecs:** New enum values added for Agent Connectivity issues ([13e0f98](https://github.com/aws/aws-sdk-js-v3/commit/13e0f989a80604286d673cfe3ee2524723decfeb))
+* **client-glue:** Added the PutDataCatalogExportConfiguration to export Glue Data Catalog metadata to systems tables stored in S3 Tables. ([31c6944](https://github.com/aws/aws-sdk-js-v3/commit/31c69446c13c149c89c50b588648ae6b304bd2a7))
+
+
+
+
+
 # [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
 
 

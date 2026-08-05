@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adding support for fine-grained access control for AgentCore Memory through managed AgentCore Gateway HTTP Connectors. ([448fc0f](https://github.com/aws/aws-sdk-js-v3/commit/448fc0f78c7165b1132f341c8e63fc8343672f00))
+
+
+
+
+
 # [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

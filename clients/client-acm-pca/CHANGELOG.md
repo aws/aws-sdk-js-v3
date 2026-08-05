@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
+
+
+### Features
+
+* **client-acm-pca:** Private Certificate Authority service now supports RSASSA-PSS signing algorithm. ([203b57d](https://github.com/aws/aws-sdk-js-v3/commit/203b57d1eca019243b0b8ee1223ced5c9a92cd9a))
+
+
+
+
+
 # [3.1103.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1102.0...v3.1103.0) (2026-08-04)
 
 **Note:** Version bump only for package @aws-sdk/client-acm-pca
