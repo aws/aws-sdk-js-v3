@@ -137,7 +137,7 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *   },
  *   CertificateAuthorityArn: "STRING_VALUE", // required
  *   Csr: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87", // required
+ *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SHA256WITHRSA_PSS" || "SHA384WITHRSA_PSS" || "SHA512WITHRSA_PSS" || "SM3WITHSM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87", // required
  *   TemplateArn: "STRING_VALUE",
  *   Validity: { // Validity
  *     Value: Number("long"), // required

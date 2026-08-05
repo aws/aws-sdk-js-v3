@@ -35,7 +35,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * const input = { // CreateCertificateAuthorityRequest
  *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
  *     KeyAlgorithm: "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87" || "SM2", // required
- *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87", // required
+ *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SHA256WITHRSA_PSS" || "SHA384WITHRSA_PSS" || "SHA512WITHRSA_PSS" || "SM3WITHSM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87", // required
  *     Subject: { // ASN1Subject
  *       Country: "STRING_VALUE",
  *       Organization: "STRING_VALUE",
