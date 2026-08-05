@@ -155,7 +155,7 @@ export class DynamoDBDocumentClient extends __Client<__HttpHandlerOptions, Servi
      *
      * This can happen when the dependency graph is invalid, including
      * for example, a Lambda layer exposing certain packages being merged
-     * with the Lambda Node.js runtime-bundled AWS SDK.
+     * with the Node.js Lambda provided JS SDK.
      *
      * This is not supported and we can only make a best-effort attempt
      * to repair the error if there is a 2nd client-dynamodb within the
