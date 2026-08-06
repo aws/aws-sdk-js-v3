@@ -4,6 +4,9 @@ const _AIPT = "AssociateInProgressToken";
 const _AWABA = "AssociateWhatsAppBusinessAccount";
 const _AWABAI = "AssociateWhatsAppBusinessAccountInput";
 const _AWABAO = "AssociateWhatsAppBusinessAccountOutput";
+const _CWAD = "CreateWhatsAppDataset";
+const _CWADI = "CreateWhatsAppDatasetInput";
+const _CWADO = "CreateWhatsAppDatasetOutput";
 const _CWAF = "CreateWhatsAppFlow";
 const _CWAFI = "CreateWhatsAppFlowInput";
 const _CWAFO = "CreateWhatsAppFlowOutput";
@@ -107,6 +110,9 @@ const _RNFE = "ResourceNotFoundException";
 const _SA = "SupportedApps";
 const _SF = "S3File";
 const _SPU = "S3PresignedUrl";
+const _SWACE = "SendWhatsAppConversionEvent";
+const _SWACEI = "SendWhatsAppConversionEventInput";
+const _SWACEO = "SendWhatsAppConversionEventOutput";
 const _SWAM = "SendWhatsAppMessage";
 const _SWAMI = "SendWhatsAppMessageInput";
 const _SWAMO = "SendWhatsAppMessageOutput";
@@ -134,6 +140,7 @@ const _UWAMTO = "UpdateWhatsAppMessageTemplateOutput";
 const _VE = "ValidationException";
 const _WABAED = "WhatsAppBusinessAccountEventDestination";
 const _WABAEDh = "WhatsAppBusinessAccountEventDestinations";
+const _WACEB = "WhatsAppConversionEventBlob";
 const _WAMB = "WhatsAppMessageBlob";
 const _WAPND = "WhatsAppPhoneNumberDetail";
 const _WAPNDL = "WhatsAppPhoneNumberDetailList";
@@ -169,6 +176,7 @@ const _cu = "currency";
 const _dAL = "deleteAllLanguages";
 const _dAT = "deleteAllTemplates";
 const _dAV = "dataApiVersion";
+const _dI = "datasetId";
 const _dLR = "dataLocalizationRegion";
 const _dPN = "displayPhoneNumber";
 const _dPNN = "displayPhoneNumberName";
@@ -179,6 +187,7 @@ const _e = "error";
 const _eA = "expiresAt";
 const _eD = "eventDestinations";
 const _eDA = "eventDestinationArn";
+const _eDv = "eventData";
 const _eT = "entityType";
 const _eU = "endpointUri";
 const _en = "entities";
@@ -237,6 +246,7 @@ const _pr = "preview";
 const _qR = "qualityRating";
 const _rA = "resourceArn";
 const _rAo = "roleArn";
+const _rI = "requestId";
 const _rS = "registrationStatus";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.socialmessaging";
 const _sA = "supportedApps";
@@ -377,6 +387,7 @@ export const errorTypeRegistries = [
 ]
 var AssociateInProgressToken: StaticSimpleSchema = [0, n0, _AIPT, 8, 0];
 var TwoFactorPin: StaticSimpleSchema = [0, n0, _TFP, 8, 0];
+var WhatsAppConversionEventBlob: StaticSimpleSchema = [0, n0, _WACEB, 8, 21];
 var WhatsAppMessageBlob: StaticSimpleSchema = [0, n0, _WAMB, 8, 21];
 export var AssociateWhatsAppBusinessAccountInput$: StaticStructureSchema = [3, n0, _AWABAI,
   0,
@@ -387,6 +398,16 @@ export var AssociateWhatsAppBusinessAccountOutput$: StaticStructureSchema = [3, 
   0,
   [_sCR, _sCt, _lWABAI],
   [[() => WhatsAppSignupCallbackResult$, 0], 1, 0]
+];
+export var CreateWhatsAppDatasetInput$: StaticStructureSchema = [3, n0, _CWADI,
+  0,
+  [_i],
+  [0], 1
+];
+export var CreateWhatsAppDatasetOutput$: StaticStructureSchema = [3, n0, _CWADO,
+  0,
+  [_dI],
+  [0], 1
 ];
 export var CreateWhatsAppFlowInput$: StaticStructureSchema = [3, n0, _CWAFI,
   0,
@@ -555,8 +576,8 @@ export var LibraryTemplateButtonList$: StaticStructureSchema = [3, n0, _LTBL,
 ];
 export var LinkedWhatsAppBusinessAccount$: StaticStructureSchema = [3, n0, _LWABA,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh, _mMOS],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList, 0], 8
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _pNh, _mMOS, _dI],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, () => WhatsAppPhoneNumberSummaryList, 0, 0], 8
 ];
 export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3, n0, _LWABAIMD,
   0,
@@ -565,8 +586,8 @@ export var LinkedWhatsAppBusinessAccountIdMetaData$: StaticStructureSchema = [3,
 ];
 export var LinkedWhatsAppBusinessAccountSummary$: StaticStructureSchema = [3, n0, _LWABAS,
   0,
-  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _mMOS],
-  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, 0], 7
+  [_ar, _i, _wI, _rS, _lD, _wN, _eD, _mMOS, _dI],
+  [0, 0, 0, 0, 4, 0, () => WhatsAppBusinessAccountEventDestinations, 0, 0], 7
 ];
 export var ListLinkedWhatsAppBusinessAccountsInput$: StaticStructureSchema = [3, n0, _LLWABAI,
   0,
@@ -712,6 +733,16 @@ export var S3PresignedUrl$: StaticStructureSchema = [3, n0, _SPU,
   8,
   [_u, _h],
   [0, 128 | 0], 2
+];
+export var SendWhatsAppConversionEventInput$: StaticStructureSchema = [3, n0, _SWACEI,
+  0,
+  [_i, _dI, _eDv],
+  [0, 0, [() => WhatsAppConversionEventBlob, 0]], 3
+];
+export var SendWhatsAppConversionEventOutput$: StaticStructureSchema = [3, n0, _SWACEO,
+  0,
+  [_rI],
+  [0], 1
 ];
 export var SendWhatsAppMessageInput$: StaticStructureSchema = [3, n0, _SWAMI,
   0,
@@ -881,6 +912,9 @@ var SupportedApp = 128 | 0;
 export var AssociateWhatsAppBusinessAccount$: StaticOperationSchema = [9, n0, _AWABA,
   { [_ht]: ["POST", "/v1/whatsapp/signup", 200] }, () => AssociateWhatsAppBusinessAccountInput$, () => AssociateWhatsAppBusinessAccountOutput$
 ];
+export var CreateWhatsAppDataset$: StaticOperationSchema = [9, n0, _CWAD,
+  { [_ht]: ["POST", "/v1/whatsapp/waba/dataset", 200] }, () => CreateWhatsAppDatasetInput$, () => CreateWhatsAppDatasetOutput$
+];
 export var CreateWhatsAppFlow$: StaticOperationSchema = [9, n0, _CWAF,
   { [_ht]: ["POST", "/v1/whatsapp/flow/create", 200] }, () => CreateWhatsAppFlowInput$, () => CreateWhatsAppFlowOutput$
 ];
@@ -952,6 +986,9 @@ export var PublishWhatsAppFlow$: StaticOperationSchema = [9, n0, _PWAF,
 ];
 export var PutWhatsAppBusinessAccountEventDestinations$: StaticOperationSchema = [9, n0, _PWABAED,
   { [_ht]: ["PUT", "/v1/whatsapp/waba/eventdestinations", 200] }, () => PutWhatsAppBusinessAccountEventDestinationsInput$, () => PutWhatsAppBusinessAccountEventDestinationsOutput$
+];
+export var SendWhatsAppConversionEvent$: StaticOperationSchema = [9, n0, _SWACE,
+  { [_ht]: ["POST", "/v1/whatsapp/waba/dataset/events", 200] }, () => SendWhatsAppConversionEventInput$, () => SendWhatsAppConversionEventOutput$
 ];
 export var SendWhatsAppMessage$: StaticOperationSchema = [9, n0, _SWAM,
   { [_ht]: ["POST", "/v1/whatsapp/send", 200] }, () => SendWhatsAppMessageInput$, () => SendWhatsAppMessageOutput$

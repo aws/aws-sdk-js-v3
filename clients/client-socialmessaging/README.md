@@ -213,6 +213,13 @@ AssociateWhatsAppBusinessAccount
 </details>
 <details>
 <summary>
+CreateWhatsAppDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/CreateWhatsAppDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/CreateWhatsAppDatasetCommandOutput/)
+</details>
+<details>
+<summary>
 CreateWhatsAppFlow
 </summary>
 
@@ -378,6 +385,13 @@ PutWhatsAppBusinessAccountEventDestinations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/PutWhatsAppBusinessAccountEventDestinationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessAccountEventDestinationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/PutWhatsAppBusinessAccountEventDestinationsCommandOutput/)
+</details>
+<details>
+<summary>
+SendWhatsAppConversionEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/socialmessaging/command/SendWhatsAppConversionEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/SendWhatsAppConversionEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-socialmessaging/Interface/SendWhatsAppConversionEventCommandOutput/)
 </details>
 <details>
 <summary>

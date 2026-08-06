@@ -373,6 +373,28 @@ export interface AssociateWhatsAppBusinessAccountOutput {
 /**
  * @public
  */
+export interface CreateWhatsAppDatasetInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account to create a dataset for, formatted as <code>waba-01234567890123456789012345678901</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateWhatsAppDatasetOutput {
+  /**
+   * <p>The Meta-generated dataset ID, a numeric string of 10 to 20 digits.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateWhatsAppFlowInput {
   /**
    * <p>The ID of the WhatsApp Business Account to associate with this Flow.</p>
@@ -929,6 +951,12 @@ export interface LinkedWhatsAppBusinessAccount {
   marketingMessagesOnboardingStatus?: string | undefined;
 
   /**
+   * <p>The Meta Conversions API dataset ID associated with this WhatsApp Business Account. This value is a numeric string of 10 to 20 digits. This field is not present when no dataset has been created for this account.</p>
+   * @public
+   */
+  datasetId?: string | undefined;
+
+  /**
    * <p>The phone numbers associated with the Linked WhatsApp Business Account.</p>
    * @public
    */
@@ -1466,6 +1494,12 @@ export interface LinkedWhatsAppBusinessAccountSummary {
    * @public
    */
   marketingMessagesOnboardingStatus?: string | undefined;
+
+  /**
+   * <p>The Meta Conversions API dataset ID associated with this WhatsApp Business Account. This value is a numeric string of 10 to 20 digits. This field is not present when no dataset has been created for this account.</p>
+   * @public
+   */
+  datasetId?: string | undefined;
 }
 
 /**
@@ -1876,6 +1910,40 @@ export interface PutWhatsAppBusinessAccountEventDestinationsInput {
  * @public
  */
 export interface PutWhatsAppBusinessAccountEventDestinationsOutput {}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppConversionEventInput {
+  /**
+   * <p>The ID of the WhatsApp Business Account associated with the dataset, formatted as <code>waba-01234567890123456789012345678901</code>.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The Meta-generated dataset ID to send the event to.</p>
+   * @public
+   */
+  datasetId: string | undefined;
+
+  /**
+   * <p>The raw Meta Conversions API event payload as a JSON blob. See <a href="https://developers.facebook.com/docs/marketing-api/conversions-api/parameters/server-event">Meta's server event parameters</a> for the supported format.</p>
+   * @public
+   */
+  eventData: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SendWhatsAppConversionEventOutput {
+  /**
+   * <p>The unique identifier for the conversion event request.</p>
+   * @public
+   */
+  requestId: string | undefined;
+}
 
 /**
  * @public

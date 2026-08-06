@@ -59,6 +59,10 @@ import type {
   AssociateWhatsAppBusinessAccountCommandOutput,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import type {
+  CreateWhatsAppDatasetCommandInput,
+  CreateWhatsAppDatasetCommandOutput,
+} from "./commands/CreateWhatsAppDatasetCommand";
+import type {
   CreateWhatsAppFlowCommandInput,
   CreateWhatsAppFlowCommandOutput,
 } from "./commands/CreateWhatsAppFlowCommand";
@@ -152,6 +156,10 @@ import type {
   PutWhatsAppBusinessAccountEventDestinationsCommandOutput,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
 import type {
+  SendWhatsAppConversionEventCommandInput,
+  SendWhatsAppConversionEventCommandOutput,
+} from "./commands/SendWhatsAppConversionEventCommand";
+import type {
   SendWhatsAppMessageCommandInput,
   SendWhatsAppMessageCommandOutput,
 } from "./commands/SendWhatsAppMessageCommand";
@@ -185,6 +193,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateWhatsAppBusinessAccountCommandInput
+  | CreateWhatsAppDatasetCommandInput
   | CreateWhatsAppFlowCommandInput
   | CreateWhatsAppMessageTemplateCommandInput
   | CreateWhatsAppMessageTemplateFromLibraryCommandInput
@@ -209,6 +218,7 @@ export type ServiceInputTypes =
   | PostWhatsAppMessageMediaCommandInput
   | PublishWhatsAppFlowCommandInput
   | PutWhatsAppBusinessAccountEventDestinationsCommandInput
+  | SendWhatsAppConversionEventCommandInput
   | SendWhatsAppMessageCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
@@ -221,6 +231,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateWhatsAppBusinessAccountCommandOutput
+  | CreateWhatsAppDatasetCommandOutput
   | CreateWhatsAppFlowCommandOutput
   | CreateWhatsAppMessageTemplateCommandOutput
   | CreateWhatsAppMessageTemplateFromLibraryCommandOutput
@@ -245,6 +256,7 @@ export type ServiceOutputTypes =
   | PostWhatsAppMessageMediaCommandOutput
   | PublishWhatsAppFlowCommandOutput
   | PutWhatsAppBusinessAccountEventDestinationsCommandOutput
+  | SendWhatsAppConversionEventCommandOutput
   | SendWhatsAppMessageCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

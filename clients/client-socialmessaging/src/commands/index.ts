@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AssociateWhatsAppBusinessAccountCommand";
+export * from "./CreateWhatsAppDatasetCommand";
 export * from "./CreateWhatsAppFlowCommand";
 export * from "./CreateWhatsAppMessageTemplateCommand";
 export * from "./CreateWhatsAppMessageTemplateFromLibraryCommand";
@@ -24,6 +25,7 @@ export * from "./ListWhatsAppTemplateLibraryCommand";
 export * from "./PostWhatsAppMessageMediaCommand";
 export * from "./PublishWhatsAppFlowCommand";
 export * from "./PutWhatsAppBusinessAccountEventDestinationsCommand";
+export * from "./SendWhatsAppConversionEventCommand";
 export * from "./SendWhatsAppMessageCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

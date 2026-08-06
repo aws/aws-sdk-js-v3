@@ -7,6 +7,10 @@ import {
   AssociateWhatsAppBusinessAccountCommand,
   AssociateWhatsAppBusinessAccountInput$,
   AssociateWhatsAppBusinessAccountOutput$,
+  CreateWhatsAppDataset$,
+  CreateWhatsAppDatasetCommand,
+  CreateWhatsAppDatasetInput$,
+  CreateWhatsAppDatasetOutput$,
   CreateWhatsAppFlow$,
   CreateWhatsAppFlowCommand,
   CreateWhatsAppFlowInput$,
@@ -137,6 +141,10 @@ import {
   ResourceNotFoundException$,
   S3File$,
   S3PresignedUrl$,
+  SendWhatsAppConversionEvent$,
+  SendWhatsAppConversionEventCommand,
+  SendWhatsAppConversionEventInput$,
+  SendWhatsAppConversionEventOutput$,
   SendWhatsAppMessage$,
   SendWhatsAppMessageCommand,
   SendWhatsAppMessageInput$,
@@ -186,6 +194,8 @@ assert(typeof SocialMessaging === "function");
 // commands
 assert(typeof AssociateWhatsAppBusinessAccountCommand === "function");
 assert(typeof AssociateWhatsAppBusinessAccount$ === "object");
+assert(typeof CreateWhatsAppDatasetCommand === "function");
+assert(typeof CreateWhatsAppDataset$ === "object");
 assert(typeof CreateWhatsAppFlowCommand === "function");
 assert(typeof CreateWhatsAppFlow$ === "object");
 assert(typeof CreateWhatsAppMessageTemplateCommand === "function");
@@ -234,6 +244,8 @@ assert(typeof PublishWhatsAppFlowCommand === "function");
 assert(typeof PublishWhatsAppFlow$ === "object");
 assert(typeof PutWhatsAppBusinessAccountEventDestinationsCommand === "function");
 assert(typeof PutWhatsAppBusinessAccountEventDestinations$ === "object");
+assert(typeof SendWhatsAppConversionEventCommand === "function");
+assert(typeof SendWhatsAppConversionEvent$ === "object");
 assert(typeof SendWhatsAppMessageCommand === "function");
 assert(typeof SendWhatsAppMessage$ === "object");
 assert(typeof TagResourceCommand === "function");
@@ -249,6 +261,8 @@ assert(typeof UpdateWhatsAppMessageTemplate$ === "object");
 // structural schemas
 assert(typeof AssociateWhatsAppBusinessAccountInput$ === "object");
 assert(typeof AssociateWhatsAppBusinessAccountOutput$ === "object");
+assert(typeof CreateWhatsAppDatasetInput$ === "object");
+assert(typeof CreateWhatsAppDatasetOutput$ === "object");
 assert(typeof CreateWhatsAppFlowInput$ === "object");
 assert(typeof CreateWhatsAppFlowOutput$ === "object");
 assert(typeof CreateWhatsAppMessageTemplateFromLibraryInput$ === "object");
@@ -314,6 +328,8 @@ assert(typeof PutWhatsAppBusinessAccountEventDestinationsInput$ === "object");
 assert(typeof PutWhatsAppBusinessAccountEventDestinationsOutput$ === "object");
 assert(typeof S3File$ === "object");
 assert(typeof S3PresignedUrl$ === "object");
+assert(typeof SendWhatsAppConversionEventInput$ === "object");
+assert(typeof SendWhatsAppConversionEventOutput$ === "object");
 assert(typeof SendWhatsAppMessageInput$ === "object");
 assert(typeof SendWhatsAppMessageOutput$ === "object");
 assert(typeof Tag$ === "object");

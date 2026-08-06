@@ -8,6 +8,11 @@ import {
   AssociateWhatsAppBusinessAccountCommand,
 } from "./commands/AssociateWhatsAppBusinessAccountCommand";
 import {
+  type CreateWhatsAppDatasetCommandInput,
+  type CreateWhatsAppDatasetCommandOutput,
+  CreateWhatsAppDatasetCommand,
+} from "./commands/CreateWhatsAppDatasetCommand";
+import {
   type CreateWhatsAppFlowCommandInput,
   type CreateWhatsAppFlowCommandOutput,
   CreateWhatsAppFlowCommand,
@@ -128,6 +133,11 @@ import {
   PutWhatsAppBusinessAccountEventDestinationsCommand,
 } from "./commands/PutWhatsAppBusinessAccountEventDestinationsCommand";
 import {
+  type SendWhatsAppConversionEventCommandInput,
+  type SendWhatsAppConversionEventCommandOutput,
+  SendWhatsAppConversionEventCommand,
+} from "./commands/SendWhatsAppConversionEventCommand";
+import {
   type SendWhatsAppMessageCommandInput,
   type SendWhatsAppMessageCommandOutput,
   SendWhatsAppMessageCommand,
@@ -166,6 +176,7 @@ import { SocialMessagingClient } from "./SocialMessagingClient";
 
 const commands = {
   AssociateWhatsAppBusinessAccountCommand,
+  CreateWhatsAppDatasetCommand,
   CreateWhatsAppFlowCommand,
   CreateWhatsAppMessageTemplateCommand,
   CreateWhatsAppMessageTemplateFromLibraryCommand,
@@ -190,6 +201,7 @@ const commands = {
   PostWhatsAppMessageMediaCommand,
   PublishWhatsAppFlowCommand,
   PutWhatsAppBusinessAccountEventDestinationsCommand,
+  SendWhatsAppConversionEventCommand,
   SendWhatsAppMessageCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -222,6 +234,23 @@ export interface SocialMessaging {
     args: AssociateWhatsAppBusinessAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateWhatsAppBusinessAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWhatsAppDatasetCommand}
+   */
+  createWhatsAppDataset(
+    args: CreateWhatsAppDatasetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWhatsAppDatasetCommandOutput>;
+  createWhatsAppDataset(
+    args: CreateWhatsAppDatasetCommandInput,
+    cb: (err: any, data?: CreateWhatsAppDatasetCommandOutput) => void
+  ): void;
+  createWhatsAppDataset(
+    args: CreateWhatsAppDatasetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWhatsAppDatasetCommandOutput) => void
   ): void;
 
   /**
@@ -631,6 +660,23 @@ export interface SocialMessaging {
     args: PutWhatsAppBusinessAccountEventDestinationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutWhatsAppBusinessAccountEventDestinationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendWhatsAppConversionEventCommand}
+   */
+  sendWhatsAppConversionEvent(
+    args: SendWhatsAppConversionEventCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendWhatsAppConversionEventCommandOutput>;
+  sendWhatsAppConversionEvent(
+    args: SendWhatsAppConversionEventCommandInput,
+    cb: (err: any, data?: SendWhatsAppConversionEventCommandOutput) => void
+  ): void;
+  sendWhatsAppConversionEvent(
+    args: SendWhatsAppConversionEventCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendWhatsAppConversionEventCommandOutput) => void
   ): void;
 
   /**
