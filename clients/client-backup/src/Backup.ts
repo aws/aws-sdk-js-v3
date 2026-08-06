@@ -14,6 +14,11 @@ import {
   CancelLegalHoldCommand,
 } from "./commands/CancelLegalHoldCommand";
 import {
+  type CreateBackupAccessPointCommandInput,
+  type CreateBackupAccessPointCommandOutput,
+  CreateBackupAccessPointCommand,
+} from "./commands/CreateBackupAccessPointCommand";
+import {
   type CreateBackupPlanCommandInput,
   type CreateBackupPlanCommandOutput,
   CreateBackupPlanCommand,
@@ -68,6 +73,11 @@ import {
   type CreateTieringConfigurationCommandOutput,
   CreateTieringConfigurationCommand,
 } from "./commands/CreateTieringConfigurationCommand";
+import {
+  type DeleteBackupAccessPointCommandInput,
+  type DeleteBackupAccessPointCommandOutput,
+  DeleteBackupAccessPointCommand,
+} from "./commands/DeleteBackupAccessPointCommand";
 import {
   type DeleteBackupPlanCommandInput,
   type DeleteBackupPlanCommandOutput,
@@ -128,6 +138,11 @@ import {
   type DeleteTieringConfigurationCommandOutput,
   DeleteTieringConfigurationCommand,
 } from "./commands/DeleteTieringConfigurationCommand";
+import {
+  type DescribeBackupAccessPointCommandInput,
+  type DescribeBackupAccessPointCommandOutput,
+  DescribeBackupAccessPointCommand,
+} from "./commands/DescribeBackupAccessPointCommand";
 import {
   type DescribeBackupJobCommandInput,
   type DescribeBackupJobCommandOutput,
@@ -288,6 +303,21 @@ import {
   type GetTieringConfigurationCommandOutput,
   GetTieringConfigurationCommand,
 } from "./commands/GetTieringConfigurationCommand";
+import {
+  type ListBackupAccessPointsByRecoveryPointCommandInput,
+  type ListBackupAccessPointsByRecoveryPointCommandOutput,
+  ListBackupAccessPointsByRecoveryPointCommand,
+} from "./commands/ListBackupAccessPointsByRecoveryPointCommand";
+import {
+  type ListBackupAccessPointsByResourceCommandInput,
+  type ListBackupAccessPointsByResourceCommandOutput,
+  ListBackupAccessPointsByResourceCommand,
+} from "./commands/ListBackupAccessPointsByResourceCommand";
+import {
+  type ListBackupAccessPointsCommandInput,
+  type ListBackupAccessPointsCommandOutput,
+  ListBackupAccessPointsCommand,
+} from "./commands/ListBackupAccessPointsCommand";
 import {
   type ListBackupJobsCommandInput,
   type ListBackupJobsCommandOutput,
@@ -544,6 +574,11 @@ import {
   type UpdateTieringConfigurationCommandOutput,
   UpdateTieringConfigurationCommand,
 } from "./commands/UpdateTieringConfigurationCommand";
+import {
+  paginateListBackupAccessPointsByRecoveryPoint,
+} from "./pagination/ListBackupAccessPointsByRecoveryPointPaginator";
+import { paginateListBackupAccessPointsByResource } from "./pagination/ListBackupAccessPointsByResourcePaginator";
+import { paginateListBackupAccessPoints } from "./pagination/ListBackupAccessPointsPaginator";
 import { paginateListBackupJobs } from "./pagination/ListBackupJobsPaginator";
 import { paginateListBackupJobSummaries } from "./pagination/ListBackupJobSummariesPaginator";
 import { paginateListBackupPlans } from "./pagination/ListBackupPlansPaginator";
@@ -577,6 +612,7 @@ import { paginateListTieringConfigurations } from "./pagination/ListTieringConfi
 const commands = {
   AssociateBackupVaultMpaApprovalTeamCommand,
   CancelLegalHoldCommand,
+  CreateBackupAccessPointCommand,
   CreateBackupPlanCommand,
   CreateBackupSelectionCommand,
   CreateBackupVaultCommand,
@@ -588,6 +624,7 @@ const commands = {
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingSelectionCommand,
   CreateTieringConfigurationCommand,
+  DeleteBackupAccessPointCommand,
   DeleteBackupPlanCommand,
   DeleteBackupSelectionCommand,
   DeleteBackupVaultCommand,
@@ -600,6 +637,7 @@ const commands = {
   DeleteRestoreTestingPlanCommand,
   DeleteRestoreTestingSelectionCommand,
   DeleteTieringConfigurationCommand,
+  DescribeBackupAccessPointCommand,
   DescribeBackupJobCommand,
   DescribeBackupVaultCommand,
   DescribeCopyJobCommand,
@@ -632,6 +670,9 @@ const commands = {
   GetRestoreTestingSelectionCommand,
   GetSupportedResourceTypesCommand,
   GetTieringConfigurationCommand,
+  ListBackupAccessPointsCommand,
+  ListBackupAccessPointsByRecoveryPointCommand,
+  ListBackupAccessPointsByResourceCommand,
   ListBackupJobsCommand,
   ListBackupJobSummariesCommand,
   ListBackupPlansCommand,
@@ -686,6 +727,9 @@ const commands = {
   UpdateTieringConfigurationCommand,
 };
 const paginators = {
+  paginateListBackupAccessPoints,
+  paginateListBackupAccessPointsByRecoveryPoint,
+  paginateListBackupAccessPointsByResource,
   paginateListBackupJobs,
   paginateListBackupJobSummaries,
   paginateListBackupPlans,
@@ -750,6 +794,23 @@ export interface Backup {
     args: CancelLegalHoldCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CancelLegalHoldCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBackupAccessPointCommand}
+   */
+  createBackupAccessPoint(
+    args: CreateBackupAccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBackupAccessPointCommandOutput>;
+  createBackupAccessPoint(
+    args: CreateBackupAccessPointCommandInput,
+    cb: (err: any, data?: CreateBackupAccessPointCommandOutput) => void
+  ): void;
+  createBackupAccessPoint(
+    args: CreateBackupAccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBackupAccessPointCommandOutput) => void
   ): void;
 
   /**
@@ -937,6 +998,23 @@ export interface Backup {
     args: CreateTieringConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTieringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBackupAccessPointCommand}
+   */
+  deleteBackupAccessPoint(
+    args: DeleteBackupAccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBackupAccessPointCommandOutput>;
+  deleteBackupAccessPoint(
+    args: DeleteBackupAccessPointCommandInput,
+    cb: (err: any, data?: DeleteBackupAccessPointCommandOutput) => void
+  ): void;
+  deleteBackupAccessPoint(
+    args: DeleteBackupAccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBackupAccessPointCommandOutput) => void
   ): void;
 
   /**
@@ -1141,6 +1219,23 @@ export interface Backup {
     args: DeleteTieringConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTieringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBackupAccessPointCommand}
+   */
+  describeBackupAccessPoint(
+    args: DescribeBackupAccessPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBackupAccessPointCommandOutput>;
+  describeBackupAccessPoint(
+    args: DescribeBackupAccessPointCommandInput,
+    cb: (err: any, data?: DescribeBackupAccessPointCommandOutput) => void
+  ): void;
+  describeBackupAccessPoint(
+    args: DescribeBackupAccessPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBackupAccessPointCommandOutput) => void
   ): void;
 
   /**
@@ -1688,6 +1783,58 @@ export interface Backup {
     args: GetTieringConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTieringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBackupAccessPointsCommand}
+   */
+  listBackupAccessPoints(): Promise<ListBackupAccessPointsCommandOutput>;
+  listBackupAccessPoints(
+    args: ListBackupAccessPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupAccessPointsCommandOutput>;
+  listBackupAccessPoints(
+    args: ListBackupAccessPointsCommandInput,
+    cb: (err: any, data?: ListBackupAccessPointsCommandOutput) => void
+  ): void;
+  listBackupAccessPoints(
+    args: ListBackupAccessPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupAccessPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBackupAccessPointsByRecoveryPointCommand}
+   */
+  listBackupAccessPointsByRecoveryPoint(
+    args: ListBackupAccessPointsByRecoveryPointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupAccessPointsByRecoveryPointCommandOutput>;
+  listBackupAccessPointsByRecoveryPoint(
+    args: ListBackupAccessPointsByRecoveryPointCommandInput,
+    cb: (err: any, data?: ListBackupAccessPointsByRecoveryPointCommandOutput) => void
+  ): void;
+  listBackupAccessPointsByRecoveryPoint(
+    args: ListBackupAccessPointsByRecoveryPointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupAccessPointsByRecoveryPointCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBackupAccessPointsByResourceCommand}
+   */
+  listBackupAccessPointsByResource(
+    args: ListBackupAccessPointsByResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBackupAccessPointsByResourceCommandOutput>;
+  listBackupAccessPointsByResource(
+    args: ListBackupAccessPointsByResourceCommandInput,
+    cb: (err: any, data?: ListBackupAccessPointsByResourceCommandOutput) => void
+  ): void;
+  listBackupAccessPointsByResource(
+    args: ListBackupAccessPointsByResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBackupAccessPointsByResourceCommandOutput) => void
   ): void;
 
   /**
@@ -2594,6 +2741,39 @@ export interface Backup {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateTieringConfigurationCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListBackupAccessPointsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupAccessPointsCommandOutput}.
+   */
+  paginateListBackupAccessPoints(
+    args?: ListBackupAccessPointsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupAccessPointsCommandOutput>;
+
+  /**
+   * @see {@link ListBackupAccessPointsByRecoveryPointCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupAccessPointsByRecoveryPointCommandOutput}.
+   */
+  paginateListBackupAccessPointsByRecoveryPoint(
+    args: ListBackupAccessPointsByRecoveryPointCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupAccessPointsByRecoveryPointCommandOutput>;
+
+  /**
+   * @see {@link ListBackupAccessPointsByResourceCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListBackupAccessPointsByResourceCommandOutput}.
+   */
+  paginateListBackupAccessPointsByResource(
+    args: ListBackupAccessPointsByResourceCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListBackupAccessPointsByResourceCommandOutput>;
 
   /**
    * @see {@link ListBackupJobsCommand}

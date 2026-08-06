@@ -3,6 +3,24 @@
  * @public
  * @enum
  */
+export const AccessPointStatus = {
+  AVAILABLE: "AVAILABLE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  DISASSOCIATED: "DISASSOCIATED",
+  DISASSOCIATING: "DISASSOCIATING",
+  EXPIRED: "EXPIRED",
+  FAILED: "FAILED",
+} as const;
+/**
+ * @public
+ */
+export type AccessPointStatus = (typeof AccessPointStatus)[keyof typeof AccessPointStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ScanFinding = {
   MALWARE: "MALWARE",
 } as const;
@@ -121,6 +139,12 @@ export type ConditionType = (typeof ConditionType)[keyof typeof ConditionType];
  * @enum
  */
 export const BackupVaultEvent = {
+  ACCESS_POINT_AVAILABLE: "ACCESS_POINT_AVAILABLE",
+  ACCESS_POINT_CREATION_FAILED: "ACCESS_POINT_CREATION_FAILED",
+  ACCESS_POINT_DELETED: "ACCESS_POINT_DELETED",
+  ACCESS_POINT_DELETION_FAILED: "ACCESS_POINT_DELETION_FAILED",
+  ACCESS_POINT_DISASSOCIATED: "ACCESS_POINT_DISASSOCIATED",
+  ACCESS_POINT_EXPIRED: "ACCESS_POINT_EXPIRED",
   BACKUP_JOB_COMPLETED: "BACKUP_JOB_COMPLETED",
   BACKUP_JOB_EXPIRED: "BACKUP_JOB_EXPIRED",
   BACKUP_JOB_FAILED: "BACKUP_JOB_FAILED",

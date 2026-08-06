@@ -59,6 +59,10 @@ import type {
   AssociateBackupVaultMpaApprovalTeamCommandOutput,
 } from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
 import type { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
+import type {
+  CreateBackupAccessPointCommandInput,
+  CreateBackupAccessPointCommandOutput,
+} from "./commands/CreateBackupAccessPointCommand";
 import type { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
 import type {
   CreateBackupSelectionCommandInput,
@@ -91,6 +95,10 @@ import type {
   CreateTieringConfigurationCommandInput,
   CreateTieringConfigurationCommandOutput,
 } from "./commands/CreateTieringConfigurationCommand";
+import type {
+  DeleteBackupAccessPointCommandInput,
+  DeleteBackupAccessPointCommandOutput,
+} from "./commands/DeleteBackupAccessPointCommand";
 import type { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import type {
   DeleteBackupSelectionCommandInput,
@@ -130,6 +138,10 @@ import type {
   DeleteTieringConfigurationCommandInput,
   DeleteTieringConfigurationCommandOutput,
 } from "./commands/DeleteTieringConfigurationCommand";
+import type {
+  DescribeBackupAccessPointCommandInput,
+  DescribeBackupAccessPointCommandOutput,
+} from "./commands/DescribeBackupAccessPointCommand";
 import type {
   DescribeBackupJobCommandInput,
   DescribeBackupJobCommandOutput,
@@ -246,6 +258,18 @@ import type {
   GetTieringConfigurationCommandInput,
   GetTieringConfigurationCommandOutput,
 } from "./commands/GetTieringConfigurationCommand";
+import type {
+  ListBackupAccessPointsByRecoveryPointCommandInput,
+  ListBackupAccessPointsByRecoveryPointCommandOutput,
+} from "./commands/ListBackupAccessPointsByRecoveryPointCommand";
+import type {
+  ListBackupAccessPointsByResourceCommandInput,
+  ListBackupAccessPointsByResourceCommandOutput,
+} from "./commands/ListBackupAccessPointsByResourceCommand";
+import type {
+  ListBackupAccessPointsCommandInput,
+  ListBackupAccessPointsCommandOutput,
+} from "./commands/ListBackupAccessPointsCommand";
 import type { ListBackupJobsCommandInput, ListBackupJobsCommandOutput } from "./commands/ListBackupJobsCommand";
 import type {
   ListBackupJobSummariesCommandInput,
@@ -405,6 +429,7 @@ export { __Client };
 export type ServiceInputTypes =
   | AssociateBackupVaultMpaApprovalTeamCommandInput
   | CancelLegalHoldCommandInput
+  | CreateBackupAccessPointCommandInput
   | CreateBackupPlanCommandInput
   | CreateBackupSelectionCommandInput
   | CreateBackupVaultCommandInput
@@ -416,6 +441,7 @@ export type ServiceInputTypes =
   | CreateRestoreTestingPlanCommandInput
   | CreateRestoreTestingSelectionCommandInput
   | CreateTieringConfigurationCommandInput
+  | DeleteBackupAccessPointCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
   | DeleteBackupVaultAccessPolicyCommandInput
@@ -428,6 +454,7 @@ export type ServiceInputTypes =
   | DeleteRestoreTestingPlanCommandInput
   | DeleteRestoreTestingSelectionCommandInput
   | DeleteTieringConfigurationCommandInput
+  | DescribeBackupAccessPointCommandInput
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
@@ -460,6 +487,9 @@ export type ServiceInputTypes =
   | GetRestoreTestingSelectionCommandInput
   | GetSupportedResourceTypesCommandInput
   | GetTieringConfigurationCommandInput
+  | ListBackupAccessPointsByRecoveryPointCommandInput
+  | ListBackupAccessPointsByResourceCommandInput
+  | ListBackupAccessPointsCommandInput
   | ListBackupJobSummariesCommandInput
   | ListBackupJobsCommandInput
   | ListBackupPlanTemplatesCommandInput
@@ -519,6 +549,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateBackupVaultMpaApprovalTeamCommandOutput
   | CancelLegalHoldCommandOutput
+  | CreateBackupAccessPointCommandOutput
   | CreateBackupPlanCommandOutput
   | CreateBackupSelectionCommandOutput
   | CreateBackupVaultCommandOutput
@@ -530,6 +561,7 @@ export type ServiceOutputTypes =
   | CreateRestoreTestingPlanCommandOutput
   | CreateRestoreTestingSelectionCommandOutput
   | CreateTieringConfigurationCommandOutput
+  | DeleteBackupAccessPointCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
   | DeleteBackupVaultAccessPolicyCommandOutput
@@ -542,6 +574,7 @@ export type ServiceOutputTypes =
   | DeleteRestoreTestingPlanCommandOutput
   | DeleteRestoreTestingSelectionCommandOutput
   | DeleteTieringConfigurationCommandOutput
+  | DescribeBackupAccessPointCommandOutput
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
@@ -574,6 +607,9 @@ export type ServiceOutputTypes =
   | GetRestoreTestingSelectionCommandOutput
   | GetSupportedResourceTypesCommandOutput
   | GetTieringConfigurationCommandOutput
+  | ListBackupAccessPointsByRecoveryPointCommandOutput
+  | ListBackupAccessPointsByResourceCommandOutput
+  | ListBackupAccessPointsCommandOutput
   | ListBackupJobSummariesCommandOutput
   | ListBackupJobsCommandOutput
   | ListBackupPlanTemplatesCommandOutput

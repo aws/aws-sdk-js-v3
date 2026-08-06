@@ -7,10 +7,15 @@ const _AD = "ApprovalDate";
 const _AEE = "AlreadyExistsException";
 const _AI = "AccountId";
 const _AP = "AggregationPeriod";
+const _APA = "AccessPointArn";
+const _APM = "AccessPointMetadata";
+const _APMM = "AccessPointMetadataMap";
+const _APP = "AccessPointPolicy";
 const _ASR = "AggregatedScanResult";
 const _Ac = "Accounts";
 const _Al = "Algorithm";
 const _BAI = "ByAccountId";
+const _BAP = "BackupAccessPoints";
 const _BBPI = "ByBackupPlanId";
 const _BBVN = "ByBackupVaultName";
 const _BCA = "ByCreatedAfter";
@@ -90,6 +95,9 @@ const _CAo = "CopyAction";
 const _CAr = "CreatedAfter";
 const _CAre = "CreationAfter";
 const _CB = "CreatedBy";
+const _CBAP = "CreateBackupAccessPoint";
+const _CBAPR = "CreateBackupAccessPointRequest";
+const _CBAPRr = "CreateBackupAccessPointResponse";
 const _CBBJI = "CreatedByBackupJobId";
 const _CBP = "CreateBackupPlan";
 const _CBPI = "CreateBackupPlanInput";
@@ -173,6 +181,11 @@ const _D = "Description";
 const _DA = "DeleteAt";
 const _DAD = "DeleteAfterDays";
 const _DAE = "DeleteAfterEvent";
+const _DBAP = "DeleteBackupAccessPoint";
+const _DBAPI = "DeleteBackupAccessPointInput";
+const _DBAPIe = "DescribeBackupAccessPointInput";
+const _DBAPR = "DescribeBackupAccessPointResponse";
+const _DBAPe = "DescribeBackupAccessPoint";
 const _DBJ = "DescribeBackupJob";
 const _DBJI = "DescribeBackupJobInput";
 const _DBJO = "DescribeBackupJobOutput";
@@ -356,6 +369,16 @@ const _KVL = "KeyValueList";
 const _L = "Lifecycle";
 const _LAET = "LastAttemptedExecutionTime";
 const _LAGBVA = "LogicallyAirGappedBackupVaultArn";
+const _LAPM = "ListAccessPointsMember";
+const _LBAP = "ListBackupAccessPoints";
+const _LBAPBR = "ListBackupAccessPointsByResource";
+const _LBAPBRP = "ListBackupAccessPointsByRecoveryPoint";
+const _LBAPBRPR = "ListBackupAccessPointsByRecoveryPointRequest";
+const _LBAPBRPRi = "ListBackupAccessPointsByRecoveryPointResponse";
+const _LBAPBRR = "ListBackupAccessPointsByResourceRequest";
+const _LBAPBRRi = "ListBackupAccessPointsByResourceResponse";
+const _LBAPR = "ListBackupAccessPointsRequest";
+const _LBAPRi = "ListBackupAccessPointsResponse";
 const _LBJ = "ListBackupJobs";
 const _LBJI = "ListBackupJobsInput";
 const _LBJO = "ListBackupJobsOutput";
@@ -483,6 +506,7 @@ const _MSRP = "MaxScheduledRunsPreview";
 const _MTCSA = "MoveToColdStorageAt";
 const _MTCSAD = "MoveToColdStorageAfterDays";
 const _Me = "Metadata";
+const _N = "Name";
 const _NOC = "NumberOfControls";
 const _NOCJ = "NumberOfChildJobs";
 const _NOF = "NumberOfFrameworks";
@@ -676,6 +700,7 @@ const _TDSID = "TieringDownSettingsInDays";
 const _TII = "TotalItemsIndexed";
 const _TKL = "TagKeyList";
 const _TLAGBVA = "TargetLogicallyAirGappedBackupVaultArn";
+const _TM = "TagMap";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _Ta = "Tags";
@@ -987,6 +1012,16 @@ export var CopyJobSummary$: StaticStructureSchema = [3, n0, _CJS,
   [_R, _AI, _S, _RT, _MC, _Cou, _ST, _ET],
   [0, 0, 0, 0, 0, 1, 4, 4]
 ];
+export var CreateBackupAccessPointRequest$: StaticStructureSchema = [3, n0, _CBAPR,
+  0,
+  [_N, _RPA, _APM, _APP, _Ta],
+  [0, 0, [() => AccessPointMetadataMap, 0], 0, [() => TagMap, 0]], 2
+];
+export var CreateBackupAccessPointResponse$: StaticStructureSchema = [3, n0, _CBAPRr,
+  0,
+  [_APA, _St],
+  [0, 0], 2
+];
 export var CreateBackupPlanInput$: StaticStructureSchema = [3, n0, _CBPI,
   0,
   [_BP, _BPT, _CRI],
@@ -1102,6 +1137,11 @@ export var DateRange$: StaticStructureSchema = [3, n0, _DR,
   [_FDr, _TD],
   [4, 4], 2
 ];
+export var DeleteBackupAccessPointInput$: StaticStructureSchema = [3, n0, _DBAPI,
+  0,
+  [_APA],
+  [[0, 1]], 1
+];
 export var DeleteBackupPlanInput$: StaticStructureSchema = [3, n0, _DBPI,
   0,
   [_BPIa],
@@ -1171,6 +1211,16 @@ export var DeleteTieringConfigurationOutput$: StaticStructureSchema = [3, n0, _D
   0,
   [],
   []
+];
+export var DescribeBackupAccessPointInput$: StaticStructureSchema = [3, n0, _DBAPIe,
+  0,
+  [_APA],
+  [[0, 1]], 1
+];
+export var DescribeBackupAccessPointResponse$: StaticStructureSchema = [3, n0, _DBAPR,
+  0,
+  [_APA, _BVN, _CTr, _N, _RPA, _RA, _RT, _St, _APM, _BVA, _SM],
+  [0, 0, 4, 0, 0, 0, 0, 0, [() => AccessPointMetadataMap, 0], 0, 0], 8
 ];
 export var DescribeBackupJobInput$: StaticStructureSchema = [3, n0, _DBJI,
   0,
@@ -1516,6 +1566,41 @@ export var Lifecycle$: StaticStructureSchema = [3, n0, _L,
   0,
   [_MTCSAD, _DAD, _OITAFSR, _DAE],
   [1, 1, 2, 0]
+];
+export var ListAccessPointsMember$: StaticStructureSchema = [3, n0, _LAPM,
+  0,
+  [_APA, _APM, _BVN, _CTr, _N, _RPA, _RA, _RT, _St, _BVA, _SM],
+  [0, [() => AccessPointMetadataMap, 0], 0, 4, 0, 0, 0, 0, 0, 0, 0], 9
+];
+export var ListBackupAccessPointsByRecoveryPointRequest$: StaticStructureSchema = [3, n0, _LBAPBRPR,
+  0,
+  [_RPA, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
+];
+export var ListBackupAccessPointsByRecoveryPointResponse$: StaticStructureSchema = [3, n0, _LBAPBRPRi,
+  0,
+  [_BAP, _NT],
+  [[() => BackupAccessPoints, 0], 0], 1
+];
+export var ListBackupAccessPointsByResourceRequest$: StaticStructureSchema = [3, n0, _LBAPBRR,
+  0,
+  [_RA, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
+];
+export var ListBackupAccessPointsByResourceResponse$: StaticStructureSchema = [3, n0, _LBAPBRRi,
+  0,
+  [_BAP, _NT],
+  [[() => BackupAccessPoints, 0], 0], 1
+];
+export var ListBackupAccessPointsRequest$: StaticStructureSchema = [3, n0, _LBAPR,
+  0,
+  [_MR, _NT],
+  [[1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]]
+];
+export var ListBackupAccessPointsResponse$: StaticStructureSchema = [3, n0, _LBAPRi,
+  0,
+  [_BAP, _NT],
+  [[() => BackupAccessPoints, 0], 0], 1
 ];
 export var ListBackupJobsInput$: StaticStructureSchema = [3, n0, _LBJI,
   0,
@@ -2181,6 +2266,10 @@ var __Unit = "unit" as const;
 var AdvancedBackupSettings: StaticListSchema = [1, n0, _ABSd,
   0, () => AdvancedBackupSetting$
 ];
+var BackupAccessPoints: StaticListSchema = [1, n0, _BAP,
+  0, [() => ListAccessPointsMember$,
+    0]
+];
 var BackupJobsList: StaticListSchema = [1, n0, _BJL,
   0, () => BackupJob$
 ];
@@ -2317,6 +2406,9 @@ var TieringConfigurationsList: StaticListSchema = [1, n0, _TCL,
   0, () => TieringConfigurationsListMember$
 ];
 var VaultNames = 64 | 0;
+var AccessPointMetadataMap: StaticMapSchema = [2, n0, _APMM,
+  8, 0, 0
+];
 var BackupJobChildJobsInState = 128 | 1;
 var BackupOptions = 128 | 0;
 var CopyJobChildJobsInState = 128 | 1;
@@ -2330,6 +2422,9 @@ var SensitiveStringMap: StaticMapSchema = [2, n0, _SSM,
   8, 0, 0
 ];
 var stringMap = 128 | 0;
+var TagMap: StaticMapSchema = [2, n0, _TM,
+  8, 0, 0
+];
 var Tags: StaticMapSchema = [2, n0, _Ta,
   8, 0, 0
 ];
@@ -2338,6 +2433,9 @@ export var AssociateBackupVaultMpaApprovalTeam$: StaticOperationSchema = [9, n0,
 ];
 export var CancelLegalHold$: StaticOperationSchema = [9, n0, _CLH,
   { [_h]: ["DELETE", "/legal-holds/{LegalHoldId}", 201] }, () => CancelLegalHoldInput$, () => CancelLegalHoldOutput$
+];
+export var CreateBackupAccessPoint$: StaticOperationSchema = [9, n0, _CBAP,
+  { [_h]: ["PUT", "/backup-access-point/create", 201] }, () => CreateBackupAccessPointRequest$, () => CreateBackupAccessPointResponse$
 ];
 export var CreateBackupPlan$: StaticOperationSchema = [9, n0, _CBP,
   { [_h]: ["PUT", "/backup/plans", 200] }, () => CreateBackupPlanInput$, () => CreateBackupPlanOutput$
@@ -2371,6 +2469,9 @@ export var CreateRestoreTestingSelection$: StaticOperationSchema = [9, n0, _CRTS
 ];
 export var CreateTieringConfiguration$: StaticOperationSchema = [9, n0, _CTC,
   { [_h]: ["PUT", "/tiering-configurations", 200] }, () => CreateTieringConfigurationInput$, () => CreateTieringConfigurationOutput$
+];
+export var DeleteBackupAccessPoint$: StaticOperationSchema = [9, n0, _DBAP,
+  { [_h]: ["DELETE", "/backup-access-point/delete/{AccessPointArn}", 204] }, () => DeleteBackupAccessPointInput$, () => __Unit
 ];
 export var DeleteBackupPlan$: StaticOperationSchema = [9, n0, _DBP,
   { [_h]: ["DELETE", "/backup/plans/{BackupPlanId}", 200] }, () => DeleteBackupPlanInput$, () => DeleteBackupPlanOutput$
@@ -2407,6 +2508,9 @@ export var DeleteRestoreTestingSelection$: StaticOperationSchema = [9, n0, _DRTS
 ];
 export var DeleteTieringConfiguration$: StaticOperationSchema = [9, n0, _DTC,
   { [_h]: ["DELETE", "/tiering-configurations/{TieringConfigurationName}", 200] }, () => DeleteTieringConfigurationInput$, () => DeleteTieringConfigurationOutput$
+];
+export var DescribeBackupAccessPoint$: StaticOperationSchema = [9, n0, _DBAPe,
+  { [_h]: ["GET", "/backup-access-point/{AccessPointArn}", 200] }, () => DescribeBackupAccessPointInput$, () => DescribeBackupAccessPointResponse$
 ];
 export var DescribeBackupJob$: StaticOperationSchema = [9, n0, _DBJ,
   { [_h]: ["GET", "/backup-jobs/{BackupJobId}", 200] }, () => DescribeBackupJobInput$, () => DescribeBackupJobOutput$
@@ -2503,6 +2607,15 @@ export var GetSupportedResourceTypes$: StaticOperationSchema = [9, n0, _GSRT,
 ];
 export var GetTieringConfiguration$: StaticOperationSchema = [9, n0, _GTC,
   { [_h]: ["GET", "/tiering-configurations/{TieringConfigurationName}", 200] }, () => GetTieringConfigurationInput$, () => GetTieringConfigurationOutput$
+];
+export var ListBackupAccessPoints$: StaticOperationSchema = [9, n0, _LBAP,
+  { [_h]: ["GET", "/backup-access-point", 200] }, () => ListBackupAccessPointsRequest$, () => ListBackupAccessPointsResponse$
+];
+export var ListBackupAccessPointsByRecoveryPoint$: StaticOperationSchema = [9, n0, _LBAPBRP,
+  { [_h]: ["POST", "/backup-access-point/recovery-point/{RecoveryPointArn}", 200] }, () => ListBackupAccessPointsByRecoveryPointRequest$, () => ListBackupAccessPointsByRecoveryPointResponse$
+];
+export var ListBackupAccessPointsByResource$: StaticOperationSchema = [9, n0, _LBAPBR,
+  { [_h]: ["POST", "/backup-access-point/resource/{ResourceArn}", 200] }, () => ListBackupAccessPointsByResourceRequest$, () => ListBackupAccessPointsByResourceResponse$
 ];
 export var ListBackupJobs$: StaticOperationSchema = [9, n0, _LBJ,
   { [_h]: ["GET", "/backup-jobs", 200] }, () => ListBackupJobsInput$, () => ListBackupJobsOutput$

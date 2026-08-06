@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  AccessPointStatus,
   AggregationPeriod,
   BackupJobState,
   BackupJobStatus,
@@ -115,6 +116,86 @@ export interface AssociateBackupVaultMpaApprovalTeamInput {
    * @public
    */
   RequesterComment?: string | undefined;
+}
+
+/**
+ * <p>Contains metadata about a backup access point.</p>
+ * @public
+ */
+export interface ListAccessPointsMember {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the backup access point.</p>
+   * @public
+   */
+  AccessPointArn: string | undefined;
+
+  /**
+   * <p>Metadata for the backup access point. After the backup access point reaches the <code>AVAILABLE</code>
+   *          status, this map contains <code>S3AccessPointArn</code> and <code>S3AccessPointAlias</code>, which you use with
+   *          standard Amazon S3 read APIs to access the backup data. For continuous recovery points, this map also
+   *          contains <code>AccessPointInTime</code> (in format <code>2021-11-27T03:30:27Z</code>). The access point
+   *          provides access to the content present in the backup at that specific time.</p>
+   * @public
+   */
+  AccessPointMetadata: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup vault that contains the recovery point.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
+
+  /**
+   * <p>The name of the backup vault that contains the recovery point.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The date and time that the backup access point was created, in Unix format and Coordinated Universal Time
+   *          (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For example, the value
+   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name of the backup access point.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recovery point that the backup access point provides access to.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that was backed up, such as an Amazon S3 bucket.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource associated with the recovery point. For example, <code>S3</code> for
+   *         Amazon Simple Storage Service.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The current status of the backup access point.</p>
+   * @public
+   */
+  Status: AccessPointStatus | undefined;
+
+  /**
+   * <p>A message that provides additional detail about the status of the backup access point, such as the reason a
+   *          creation or deletion attempt failed.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
 }
 
 /**
@@ -1376,7 +1457,8 @@ export interface BackupVaultListMember {
   CreatorRequestId?: string | undefined;
 
   /**
-   * <p>The number of recovery points that are stored in a backup vault.</p>
+   * <p>The number of recovery points that are stored in a backup vault. Recovery point count
+   *          value displayed in the console can be an approximation.</p>
    * @public
    */
   NumberOfRecoveryPoints?: number | undefined;
@@ -1839,6 +1921,71 @@ export interface CopyJobSummary {
    * @public
    */
   EndTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBackupAccessPointRequest {
+  /**
+   * <p>Metadata for the backup access point. For continuous (point-in-time) recovery points, you must include an
+   *          <code>AccessPointInTime</code> timestamp (in format <code>2021-11-27T03:30:27Z</code>). The access point
+   *          provides access to the content present in the backup at that specific time. You can specify any time
+   *          within the continuous backup's retention period, up to the latest restorable time. For snapshot recovery
+   *          points, do not include <code>AccessPointInTime</code>.</p>
+   * @public
+   */
+  AccessPointMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>An optional resource-based policy, in JSON format, to apply to the underlying Amazon S3 access
+   *          point. The policy controls how backup data can be accessed through the access point. If you do not specify
+   *          a policy, access is governed by the caller's IAM permissions. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-policies.html">Configuring IAM policies
+   *             for using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * @public
+   */
+  AccessPointPolicy?: string | undefined;
+
+  /**
+   * <p>The name of the backup access point. This name is shared with the Amazon S3 access point namespace.
+   *          It must be unique within your account and Region and cannot conflict with an existing Amazon S3 access
+   *          point. For more information about access point naming, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-restrictions-limitations-naming-rules.html">Access points naming rules, restrictions, and limitations</a> in the <i>Amazon S3 User
+   *          Guide</i>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recovery point for which to create the backup access point. The
+   *          recovery point must be an Amazon S3 recovery point in the <code>AVAILABLE</code>, <code>STOPPED</code>,
+   *          or <code>COMPLETED</code> state.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>The tags to assign to the backup access point.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBackupAccessPointResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the created backup access point.</p>
+   * @public
+   */
+  AccessPointArn: string | undefined;
+
+  /**
+   * <p>The current status of the backup access point. A newly created backup access point begins in the
+   *          <code>CREATING</code> state and becomes usable when it reaches <code>AVAILABLE</code>.</p>
+   * @public
+   */
+  Status: AccessPointStatus | undefined;
 }
 
 /**
@@ -3167,6 +3314,17 @@ export interface CreateTieringConfigurationOutput {
 /**
  * @public
  */
+export interface DeleteBackupAccessPointInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup access point to delete.</p>
+   * @public
+   */
+  AccessPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteBackupPlanInput {
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -3366,6 +3524,96 @@ export interface DeleteTieringConfigurationInput {
  * @public
  */
 export interface DeleteTieringConfigurationOutput {}
+
+/**
+ * @public
+ */
+export interface DescribeBackupAccessPointInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup access point to describe.</p>
+   * @public
+   */
+  AccessPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeBackupAccessPointResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) that uniquely identifies the backup access point.</p>
+   * @public
+   */
+  AccessPointArn: string | undefined;
+
+  /**
+   * <p>Metadata for the backup access point. After the backup access point reaches the <code>AVAILABLE</code>
+   *          status, this map contains <code>S3AccessPointArn</code> and <code>S3AccessPointAlias</code>, which you use with
+   *          standard Amazon S3 read APIs to access the backup data. For continuous recovery points, this map also
+   *          contains <code>AccessPointInTime</code> (in format <code>2021-11-27T03:30:27Z</code>). The access point
+   *          provides access to the content present in the backup at that specific time.</p>
+   * @public
+   */
+  AccessPointMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the backup vault that contains the recovery point.</p>
+   * @public
+   */
+  BackupVaultArn?: string | undefined;
+
+  /**
+   * <p>The name of the backup vault that contains the recovery point.</p>
+   * @public
+   */
+  BackupVaultName: string | undefined;
+
+  /**
+   * <p>The date and time that the backup access point was created, in Unix format and Coordinated Universal Time
+   *          (UTC). The value of <code>CreationTime</code> is accurate to milliseconds. For example, the value
+   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * @public
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name of the backup access point.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recovery point that the backup access point provides access to.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource that was backed up, such as an Amazon S3 bucket.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services resource associated with the recovery point. For example, <code>S3</code> for
+   *         Amazon Simple Storage Service.</p>
+   * @public
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The current status of the backup access point.</p>
+   * @public
+   */
+  Status: AccessPointStatus | undefined;
+
+  /**
+   * <p>A message that provides additional detail about the status of the backup access point, such as the reason a
+   *          creation or deletion attempt failed.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
 
 /**
  * @public
@@ -6258,6 +6506,135 @@ export interface GetTieringConfigurationOutput {
 /**
  * @public
  */
+export interface ListBackupAccessPointsRequest {
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupAccessPointsResponse {
+  /**
+   * <p>A list of backup access points, each containing metadata such as its name, ARN, status, and associated
+   *          recovery point.</p>
+   * @public
+   */
+  BackupAccessPoints: ListAccessPointsMember[] | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupAccessPointsByRecoveryPointRequest {
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the recovery point whose backup access points you want to list.</p>
+   * @public
+   */
+  RecoveryPointArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupAccessPointsByRecoveryPointResponse {
+  /**
+   * <p>A list of backup access points, each containing metadata such as its name, ARN, status, and associated
+   *          recovery point.</p>
+   * @public
+   */
+  BackupAccessPoints: ListAccessPointsMember[] | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupAccessPointsByResourceRequest {
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource whose backup access points you want to list.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListBackupAccessPointsByResourceResponse {
+  /**
+   * <p>A list of backup access points, each containing metadata such as its name, ARN, status, and associated
+   *          recovery point.</p>
+   * @public
+   */
+  BackupAccessPoints: ListAccessPointsMember[] | undefined;
+
+  /**
+   * <p>The next item following a partial list of returned items. For example, if a request is made to return
+   *          <code>MaxResults</code> number of items, <code>NextToken</code> allows you to return more items in your list
+   *          starting at the location pointed to by the next token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListBackupJobsInput {
   /**
    * <p>The next item following a partial list of returned items. For example, if a request is
@@ -8205,7 +8582,8 @@ export interface ListRecoveryPointsByResourceInput {
    *          set to <code>TRUE</code>, the response will contain recovery points associated
    *          with the selected resources that are managed by Backup.</p>
    *          <p>If this is set to <code>FALSE</code>, the response will contain all
-   *          recovery points associated with the selected resource.</p>
+   *          recovery points associated with the selected resource, except for EBS
+   *          snapshots copied within the same Region and account.</p>
    *          <p>Type: Boolean</p>
    * @public
    */

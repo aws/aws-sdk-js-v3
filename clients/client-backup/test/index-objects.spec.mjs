@@ -1,4 +1,5 @@
 import {
+  AccessPointStatus,
   AdvancedBackupSetting$,
   AggregatedScanResult$,
   AggregationPeriod,
@@ -42,6 +43,10 @@ import {
   CopyJobState,
   CopyJobStatus,
   CopyJobSummary$,
+  CreateBackupAccessPoint$,
+  CreateBackupAccessPointCommand,
+  CreateBackupAccessPointRequest$,
+  CreateBackupAccessPointResponse$,
   CreateBackupPlan$,
   CreateBackupPlanCommand,
   CreateBackupPlanInput$,
@@ -87,6 +92,9 @@ import {
   CreateTieringConfigurationInput$,
   CreateTieringConfigurationOutput$,
   DateRange$,
+  DeleteBackupAccessPoint$,
+  DeleteBackupAccessPointCommand,
+  DeleteBackupAccessPointInput$,
   DeleteBackupPlan$,
   DeleteBackupPlanCommand,
   DeleteBackupPlanInput$,
@@ -127,6 +135,10 @@ import {
   DeleteTieringConfigurationOutput$,
   DependencyFailureException,
   DependencyFailureException$,
+  DescribeBackupAccessPoint$,
+  DescribeBackupAccessPointCommand,
+  DescribeBackupAccessPointInput$,
+  DescribeBackupAccessPointResponse$,
   DescribeBackupJob$,
   DescribeBackupJobCommand,
   DescribeBackupJobInput$,
@@ -273,6 +285,19 @@ import {
   LifecycleDeleteAfterEvent,
   LimitExceededException,
   LimitExceededException$,
+  ListAccessPointsMember$,
+  ListBackupAccessPoints$,
+  ListBackupAccessPointsByRecoveryPoint$,
+  ListBackupAccessPointsByRecoveryPointCommand,
+  ListBackupAccessPointsByRecoveryPointRequest$,
+  ListBackupAccessPointsByRecoveryPointResponse$,
+  ListBackupAccessPointsByResource$,
+  ListBackupAccessPointsByResourceCommand,
+  ListBackupAccessPointsByResourceRequest$,
+  ListBackupAccessPointsByResourceResponse$,
+  ListBackupAccessPointsCommand,
+  ListBackupAccessPointsRequest$,
+  ListBackupAccessPointsResponse$,
   ListBackupJobs$,
   ListBackupJobsCommand,
   ListBackupJobsInput$,
@@ -394,6 +419,9 @@ import {
   MissingParameterValueException$,
   MpaRevokeSessionStatus,
   MpaSessionStatus,
+  paginateListBackupAccessPoints,
+  paginateListBackupAccessPointsByRecoveryPoint,
+  paginateListBackupAccessPointsByResource,
   paginateListBackupJobs,
   paginateListBackupJobSummaries,
   paginateListBackupPlans,
@@ -575,6 +603,8 @@ assert(typeof AssociateBackupVaultMpaApprovalTeamCommand === "function");
 assert(typeof AssociateBackupVaultMpaApprovalTeam$ === "object");
 assert(typeof CancelLegalHoldCommand === "function");
 assert(typeof CancelLegalHold$ === "object");
+assert(typeof CreateBackupAccessPointCommand === "function");
+assert(typeof CreateBackupAccessPoint$ === "object");
 assert(typeof CreateBackupPlanCommand === "function");
 assert(typeof CreateBackupPlan$ === "object");
 assert(typeof CreateBackupSelectionCommand === "function");
@@ -597,6 +627,8 @@ assert(typeof CreateRestoreTestingSelectionCommand === "function");
 assert(typeof CreateRestoreTestingSelection$ === "object");
 assert(typeof CreateTieringConfigurationCommand === "function");
 assert(typeof CreateTieringConfiguration$ === "object");
+assert(typeof DeleteBackupAccessPointCommand === "function");
+assert(typeof DeleteBackupAccessPoint$ === "object");
 assert(typeof DeleteBackupPlanCommand === "function");
 assert(typeof DeleteBackupPlan$ === "object");
 assert(typeof DeleteBackupSelectionCommand === "function");
@@ -621,6 +653,8 @@ assert(typeof DeleteRestoreTestingSelectionCommand === "function");
 assert(typeof DeleteRestoreTestingSelection$ === "object");
 assert(typeof DeleteTieringConfigurationCommand === "function");
 assert(typeof DeleteTieringConfiguration$ === "object");
+assert(typeof DescribeBackupAccessPointCommand === "function");
+assert(typeof DescribeBackupAccessPoint$ === "object");
 assert(typeof DescribeBackupJobCommand === "function");
 assert(typeof DescribeBackupJob$ === "object");
 assert(typeof DescribeBackupVaultCommand === "function");
@@ -685,6 +719,12 @@ assert(typeof GetSupportedResourceTypesCommand === "function");
 assert(typeof GetSupportedResourceTypes$ === "object");
 assert(typeof GetTieringConfigurationCommand === "function");
 assert(typeof GetTieringConfiguration$ === "object");
+assert(typeof ListBackupAccessPointsCommand === "function");
+assert(typeof ListBackupAccessPoints$ === "object");
+assert(typeof ListBackupAccessPointsByRecoveryPointCommand === "function");
+assert(typeof ListBackupAccessPointsByRecoveryPoint$ === "object");
+assert(typeof ListBackupAccessPointsByResourceCommand === "function");
+assert(typeof ListBackupAccessPointsByResource$ === "object");
 assert(typeof ListBackupJobsCommand === "function");
 assert(typeof ListBackupJobs$ === "object");
 assert(typeof ListBackupJobSummariesCommand === "function");
@@ -815,6 +855,8 @@ assert(typeof ControlScope$ === "object");
 assert(typeof CopyAction$ === "object");
 assert(typeof CopyJob$ === "object");
 assert(typeof CopyJobSummary$ === "object");
+assert(typeof CreateBackupAccessPointRequest$ === "object");
+assert(typeof CreateBackupAccessPointResponse$ === "object");
 assert(typeof CreateBackupPlanInput$ === "object");
 assert(typeof CreateBackupPlanOutput$ === "object");
 assert(typeof CreateBackupSelectionInput$ === "object");
@@ -838,6 +880,7 @@ assert(typeof CreateRestoreTestingSelectionOutput$ === "object");
 assert(typeof CreateTieringConfigurationInput$ === "object");
 assert(typeof CreateTieringConfigurationOutput$ === "object");
 assert(typeof DateRange$ === "object");
+assert(typeof DeleteBackupAccessPointInput$ === "object");
 assert(typeof DeleteBackupPlanInput$ === "object");
 assert(typeof DeleteBackupPlanOutput$ === "object");
 assert(typeof DeleteBackupSelectionInput$ === "object");
@@ -852,6 +895,8 @@ assert(typeof DeleteRestoreTestingPlanInput$ === "object");
 assert(typeof DeleteRestoreTestingSelectionInput$ === "object");
 assert(typeof DeleteTieringConfigurationInput$ === "object");
 assert(typeof DeleteTieringConfigurationOutput$ === "object");
+assert(typeof DescribeBackupAccessPointInput$ === "object");
+assert(typeof DescribeBackupAccessPointResponse$ === "object");
 assert(typeof DescribeBackupJobInput$ === "object");
 assert(typeof DescribeBackupJobOutput$ === "object");
 assert(typeof DescribeBackupVaultInput$ === "object");
@@ -921,6 +966,13 @@ assert(typeof LatestMpaApprovalTeamUpdate$ === "object");
 assert(typeof LatestRevokeRequest$ === "object");
 assert(typeof LegalHold$ === "object");
 assert(typeof Lifecycle$ === "object");
+assert(typeof ListAccessPointsMember$ === "object");
+assert(typeof ListBackupAccessPointsByRecoveryPointRequest$ === "object");
+assert(typeof ListBackupAccessPointsByRecoveryPointResponse$ === "object");
+assert(typeof ListBackupAccessPointsByResourceRequest$ === "object");
+assert(typeof ListBackupAccessPointsByResourceResponse$ === "object");
+assert(typeof ListBackupAccessPointsRequest$ === "object");
+assert(typeof ListBackupAccessPointsResponse$ === "object");
 assert(typeof ListBackupJobsInput$ === "object");
 assert(typeof ListBackupJobsOutput$ === "object");
 assert(typeof ListBackupJobSummariesInput$ === "object");
@@ -1054,6 +1106,7 @@ assert(typeof UpdateRestoreTestingSelectionOutput$ === "object");
 assert(typeof UpdateTieringConfigurationInput$ === "object");
 assert(typeof UpdateTieringConfigurationOutput$ === "object");
 // enums
+assert(typeof AccessPointStatus === "object");
 assert(typeof AggregationPeriod === "object");
 assert(typeof BackupJobState === "object");
 assert(typeof BackupJobStatus === "object");
@@ -1110,6 +1163,9 @@ assert(ServiceUnavailableException.prototype instanceof BackupServiceException);
 assert(typeof ServiceUnavailableException$ === "object");
 assert(BackupServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListBackupAccessPoints === "function");
+assert(typeof paginateListBackupAccessPointsByRecoveryPoint === "function");
+assert(typeof paginateListBackupAccessPointsByResource === "function");
 assert(typeof paginateListBackupJobSummaries === "function");
 assert(typeof paginateListBackupJobs === "function");
 assert(typeof paginateListBackupPlanTemplates === "function");
