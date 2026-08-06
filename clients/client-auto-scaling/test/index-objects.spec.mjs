@@ -274,6 +274,7 @@ import {
   NetworkBandwidthGbpsRequest$,
   NetworkInterfaceCountRequest$,
   NotificationConfiguration$,
+  Operator$,
   paginateDescribeAutoScalingGroups,
   paginateDescribeAutoScalingInstances,
   paginateDescribeInstanceRefreshes,
@@ -674,6 +675,7 @@ assert(typeof MixedInstancesPolicy$ === "object");
 assert(typeof NetworkBandwidthGbpsRequest$ === "object");
 assert(typeof NetworkInterfaceCountRequest$ === "object");
 assert(typeof NotificationConfiguration$ === "object");
+assert(typeof Operator$ === "object");
 assert(typeof PerformanceFactorReferenceRequest$ === "object");
 assert(typeof PoliciesType$ === "object");
 assert(typeof PolicyARNType$ === "object");

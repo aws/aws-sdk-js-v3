@@ -369,6 +369,7 @@ export type {
   NetworkBandwidthGbpsRequest,
   NetworkInterfaceCountRequest,
   NotificationConfiguration,
+  Operator,
   PerformanceFactorReferenceRequest,
   PoliciesType,
   PolicyARNType,

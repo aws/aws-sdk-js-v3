@@ -385,11 +385,12 @@ const _NTARN = "NotificationTargetARN";
 const _NTo = "NotificationType";
 const _NTot = "NotificationTypes";
 const _Na = "Name";
-const _O = "Overrides";
+const _O = "Operator";
 const _ODAS = "OnDemandAllocationStrategy";
 const _ODBC = "OnDemandBaseCapacity";
 const _ODMPPOLP = "OnDemandMaxPricePercentageOverLowestPrice";
 const _ODPABC = "OnDemandPercentageAboveBaseCapacity";
+const _Ov = "Overrides";
 const _P = "Progress";
 const _PAL = "PropagateAtLaunch";
 const _PARN = "PolicyARN";
@@ -441,6 +442,7 @@ const _PWPA = "PutWarmPoolAnswer";
 const _PWPT = "PutWarmPoolType";
 const _Pe = "Period";
 const _Pr = "Preferences";
+const _Pri = "Principal";
 const _Pro = "Processes";
 const _R = "References";
 const _RARN = "RoleARN";
@@ -763,8 +765,8 @@ export var AttachTrafficSourcesType$: StaticStructureSchema = [3, n0, _ATST,
 ];
 export var AutoScalingGroup$: StaticStructureSchema = [3, n0, _ASG,
   0,
-  [_ASGN, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _CT, _ASGARN, _LCN, _LT, _MIP, _PC, _AZI, _LBN, _TGARN, _HCGP, _I, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _DP, _AZD, _AZIP, _CRS, _ILP],
-  [0, 1, 1, 1, 1, 64 | 0, 0, 4, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 64 | 0, 64 | 0, 64 | 0, 1, () => Instances, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, 0, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 8
+  [_ASGN, _MS, _MSa, _DC, _DCe, _AZ, _HCT, _CT, _ASGARN, _LCN, _LT, _MIP, _PC, _AZI, _LBN, _TGARN, _HCGP, _I, _SP, _PG, _VPCZI, _EM, _S, _T, _TP, _NIPFSI, _SLRARN, _MIL, _CR, _WPC, _WPS, _Co, _DCT, _DIW, _TS, _IMP, _DP, _AZD, _AZIP, _CRS, _ILP, _O],
+  [0, 1, 1, 1, 1, 64 | 0, 0, 4, 0, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 1, 64 | 0, 64 | 0, 64 | 0, 1, () => Instances, () => SuspendedProcesses, 0, 0, () => EnabledMetrics, 0, () => TagDescriptionList, 64 | 0, 2, 0, 1, 2, () => WarmPoolConfiguration$, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, 0, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$, () => Operator$], 8
 ];
 export var AutoScalingGroupNamesType$: StaticStructureSchema = [3, n0, _ASGNT,
   0,
@@ -873,8 +875,8 @@ export var CpuPerformanceFactorRequest$: StaticStructureSchema = [3, n0, _CPFR,
 ];
 export var CreateAutoScalingGroupType$: StaticStructureSchema = [3, n0, _CASGT,
   0,
-  [_ASGN, _MS, _MSa, _LCN, _LT, _MIP, _IIns, _DC, _DCe, _AZ, _AZI, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _DP, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP],
-  [0, 1, 1, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, 0, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$], 3
+  [_ASGN, _MS, _MSa, _LCN, _LT, _MIP, _IIns, _DC, _DCe, _AZ, _AZI, _LBN, _TGARN, _HCT, _HCGP, _PG, _VPCZI, _TP, _NIPFSI, _CR, _LHSL, _DP, _T, _SLRARN, _MIL, _Co, _DCT, _DIW, _TS, _IMP, _AZD, _AZIP, _SZSV, _CRS, _ILP, _O],
+  [0, 1, 1, 0, () => LaunchTemplateSpecification$, [() => MixedInstancesPolicy$, 0], 0, 1, 1, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 1, 0, 0, 64 | 0, 2, 2, () => LifecycleHookSpecifications, 0, () => Tags, 0, 1, 0, 0, 1, () => TrafficSources, () => InstanceMaintenancePolicy$, () => AvailabilityZoneDistribution$, () => AvailabilityZoneImpairmentPolicy$, 2, () => CapacityReservationSpecification$, () => InstanceLifecyclePolicy$, () => Operator$], 3
 ];
 export var CreateLaunchConfigurationType$: StaticStructureSchema = [3, n0, _CLCT,
   0,
@@ -1273,7 +1275,7 @@ export var LaunchInstancesResult$: StaticStructureSchema = [3, n0, _LIRa,
 ];
 export var LaunchTemplate$: StaticStructureSchema = [3, n0, _LT,
   0,
-  [_LTS, _O],
+  [_LTS, _Ov],
   [() => LaunchTemplateSpecification$, [() => Overrides, 0]]
 ];
 export var LaunchTemplateOverrides$: StaticStructureSchema = [3, n0, _LTO,
@@ -1370,6 +1372,11 @@ export var NotificationConfiguration$: StaticStructureSchema = [3, n0, _NCo,
   0,
   [_ASGN, _TARN, _NTo],
   [0, 0, 0]
+];
+export var Operator$: StaticStructureSchema = [3, n0, _O,
+  0,
+  [_Pri],
+  [0], 1
 ];
 export var PerformanceFactorReferenceRequest$: StaticStructureSchema = [3, n0, _PFRR,
   0,
@@ -1742,7 +1749,7 @@ var Metrics = 64 | 0;
 var NotificationConfigurations: StaticListSchema = [1, n0, _NC,
   0, () => NotificationConfiguration$
 ];
-var Overrides: StaticListSchema = [1, n0, _O,
+var Overrides: StaticListSchema = [1, n0, _Ov,
   0, [() => LaunchTemplateOverrides$,
     0]
 ];

@@ -243,6 +243,9 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       TerminateHookAbandon: "retain" || "terminate",
  *     },
  *   },
+ *   Operator: { // Operator
+ *     Principal: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

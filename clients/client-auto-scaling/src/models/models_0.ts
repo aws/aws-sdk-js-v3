@@ -634,7 +634,7 @@ export interface AvailabilityZoneDistribution {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>reservations-then-balanced</code> - Auto Scaling will first attempt to launch into your Capacity Reservations, and then balance any remaining capacity across the healthy Availability Zones.</p>
+   *                   <code>reservations-then-balanced</code> - Auto Scaling will first attempt to launch into your Capacity Reservations, and then balance any remaining capacity across healthy Availability Zones.</p>
    *             </li>
    *          </ul>
    * @public
@@ -1856,6 +1856,20 @@ export interface MixedInstancesPolicy {
 }
 
 /**
+ * <p>Describes the entity that manages an Auto Scaling group.</p>
+ * @public
+ */
+export interface Operator {
+  /**
+   * <p>The service principal that is authorized to manage the Auto Scaling group. When an operator is
+   *             specified, only the designated operator service principal can make mutating changes to
+   *             the Auto Scaling group.</p>
+   * @public
+   */
+  Principal: string | undefined;
+}
+
+/**
  * <p>Describes a tag for an Auto Scaling group.</p>
  * @public
  */
@@ -2277,6 +2291,15 @@ export interface CreateAutoScalingGroupType {
    * @public
    */
   InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
+
+  /**
+   * <p>The entity that manages the Auto Scaling group. If you specify this parameter, Amazon EC2 Auto Scaling
+   *             passes the operator identity to EC2 for instance launches and only allows the
+   *             designated operator to make changes to the Auto Scaling group. All mutating API calls from
+   *             non-operator callers are rejected with an <code>AccessDenied</code> exception.</p>
+   * @public
+   */
+  Operator?: Operator | undefined;
 }
 
 /**
@@ -3666,6 +3689,13 @@ export interface AutoScalingGroup {
    * @public
    */
   InstanceLifecyclePolicy?: InstanceLifecyclePolicy | undefined;
+
+  /**
+   * <p>The entity that manages the Auto Scaling group, if applicable. When set, only the designated
+   *             operator can make changes to the group configuration.</p>
+   * @public
+   */
+  Operator?: Operator | undefined;
 }
 
 /**

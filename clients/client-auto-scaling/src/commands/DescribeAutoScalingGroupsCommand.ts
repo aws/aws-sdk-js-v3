@@ -284,6 +284,9 @@ export interface DescribeAutoScalingGroupsCommandOutput extends AutoScalingGroup
  * //           TerminateHookAbandon: "retain" || "terminate",
  * //         },
  * //       },
+ * //       Operator: { // Operator
+ * //         Principal: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
