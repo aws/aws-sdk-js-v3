@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+
+### Features
+
+* **client-backup:** AWS Backup now lets you create read-only access points for Amazon S3 recovery points, enabling you to access backup data using S3 APIs without initiating a restore. ([636228a](https://github.com/aws/aws-sdk-js-v3/commit/636228a9535bd3992a69093e27dcdc5d376f8b61))
+
+
+
+
+
 # [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
 
 **Note:** Version bump only for package @aws-sdk/client-backup

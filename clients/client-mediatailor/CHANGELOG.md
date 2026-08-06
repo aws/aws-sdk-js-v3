@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+
+### Features
+
+* **client-mediatailor:** AWS Elemental MediaTailor now supports concurrent function execution. The new Concurrent Executor function type runs multiple independent child functions in parallel within a single lifecycle hook, reducing pipeline latency to the duration of the slowest call instead of the sum of all calls. ([1cf6147](https://github.com/aws/aws-sdk-js-v3/commit/1cf61475d4320afddf9610addf91742d0f8173c3))
+
+
+
+
+
 # [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
 
 **Note:** Version bump only for package @aws-sdk/client-mediatailor

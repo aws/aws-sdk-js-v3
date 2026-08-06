@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+
+### Features
+
+* **client-kafka:** MSK Clusters can now deliver authorizer logs alongside broker logs to the destinations defined by you ([b7e3193](https://github.com/aws/aws-sdk-js-v3/commit/b7e319378345cbd88c558df301477edc98939855))
+
+
+
+
+
 # [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

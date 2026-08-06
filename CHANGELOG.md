@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+
+### Features
+
+* **client-agent-registry-control:** Agent Registry's Public Preview release ([a137863](https://github.com/aws/aws-sdk-js-v3/commit/a137863d854230093579807ab5f1d4edfedb2582))
+* **client-agent-registry:** Agent Registry's Public Preview release ([632ae47](https://github.com/aws/aws-sdk-js-v3/commit/632ae47917c818dc16fa4fba183a90d3a6a8b931))
+* **client-auto-scaling:** EC2 Auto Scaling now supports being managed by other AWS services via the operator field. ([f5d54fc](https://github.com/aws/aws-sdk-js-v3/commit/f5d54fce5f196113a276fa282da2ad0e1190838a))
+* **client-backup:** AWS Backup now lets you create read-only access points for Amazon S3 recovery points, enabling you to access backup data using S3 APIs without initiating a restore. ([636228a](https://github.com/aws/aws-sdk-js-v3/commit/636228a9535bd3992a69093e27dcdc5d376f8b61))
+* **client-bedrock-agentcore-control:** Add support for Gateway rate limits and Runtime instances in Amazon Bedrock AgentCore. Customers can now configure rate limits scoped to control request rates, token consumption rates, and active connection rates. Customers can now create capacity providers to launch runtimes on their EC2 instances. ([865d21e](https://github.com/aws/aws-sdk-js-v3/commit/865d21efa6b8b76fcf693655e3eb34d498027a00))
+* **client-bedrock-agentcore:** Add support for capacity provider sessions in Amazon Bedrock AgentCore. Customers can now delete an active session running on a runtime instance launched through their capacity provider. ([bd30153](https://github.com/aws/aws-sdk-js-v3/commit/bd301533b88ffe5eead68964c90cb82a76d4dc3b))
+* **client-cloudwatch-logs:** This release adds index category support to the CloudWatch Logs DescribeFieldIndexes API. Customers can filter and identify DEFAULT, CUSTOM, AUTO, and INACTIVE field indexes. ([e17fff6](https://github.com/aws/aws-sdk-js-v3/commit/e17fff6fee91039894b4004860657b0eedeed439))
+* **client-device-farm:** Adds support for service generated insights across runs, jobs, and tests. ([6c601b7](https://github.com/aws/aws-sdk-js-v3/commit/6c601b71011de09898e06a1a24f2a6cfc34b8a83))
+* **client-ec2:** Adds a new optional IncludeLocalZones parameter to the Spot Placement Score API that defaults to false. When set to true, the Spot Placement Score API will consider the relevant Local Zones with Spot capacity when computing the Spot Placement Score. ([4367384](https://github.com/aws/aws-sdk-js-v3/commit/43673842a0545caf2e6843c7d3e82349270f48df))
+* **client-gamelift:** Adds support for C8a, C8i, C9g, M8a, M8i, and M9g EC2 instance type families for managed EC2 and container fleets. Also adds explicit anchors on most string regexes. ([30dfd63](https://github.com/aws/aws-sdk-js-v3/commit/30dfd63ab84fbcca27dc257af51e44359eb9c75d))
+* **client-kafka:** MSK Clusters can now deliver authorizer logs alongside broker logs to the destinations defined by you ([b7e3193](https://github.com/aws/aws-sdk-js-v3/commit/b7e319378345cbd88c558df301477edc98939855))
+* **client-marketplace-agreement:** GetAgreementTerms now returns a new term variant in AcceptedTerm, netPaymentTerm, with a paymentDuePeriod field (example "P30D"). ([50b0d6d](https://github.com/aws/aws-sdk-js-v3/commit/50b0d6d565c7f1ce784ab870ec6a89c4c859f3fb))
+* **client-marketplace-discovery:** GetOfferTerms now returns netPaymentTerm in offerTerms, specifying payment due period after invoice date. The paymentDuePeriod field uses ISO 8601 duration format (e.g., "P30D" for net 30 days). This is a backward-compatible addition. See API documentation for full structure and examples. ([f4fd7ae](https://github.com/aws/aws-sdk-js-v3/commit/f4fd7ae7b8b872cb9f4e497470ea401a642683fd))
+* **client-mediatailor:** AWS Elemental MediaTailor now supports concurrent function execution. The new Concurrent Executor function type runs multiple independent child functions in parallel within a single lifecycle hook, reducing pipeline latency to the duration of the slowest call instead of the sum of all calls. ([1cf6147](https://github.com/aws/aws-sdk-js-v3/commit/1cf61475d4320afddf9610addf91742d0f8173c3))
+* **client-s3:** AWS Backup now lets you create read-only access points for Amazon S3 recovery points, enabling you to access backup data using S3 APIs without initiating a restore. ([faf6560](https://github.com/aws/aws-sdk-js-v3/commit/faf65602698bd9924362b5f1544b40f410cffb7d))
+* **client-sagemaker:** Releases new Model Customization SequenceLength parameter for Training and g7 instance types for Training and Processing. ([14bd2ac](https://github.com/aws/aws-sdk-js-v3/commit/14bd2ac7dcd439796f379b9b44cd3f6ce9094984))
+* **client-securityhub:** Security Hub is adding a new public API, ListFreeTrialStatusesV2 to describe the free trial statuses of the Security Hub service and its opt-in features. ([e44b358](https://github.com/aws/aws-sdk-js-v3/commit/e44b3582d5bb381c6ab6798c1718bc177d266011))
+* **client-socialmessaging:** Add support for WhatsApp Conversions APIs. ([5c29a86](https://github.com/aws/aws-sdk-js-v3/commit/5c29a869869738008410e38f2d353c12139a0344))
+* **clients:** update client endpoints as of 2026-08-06 ([e4f7b32](https://github.com/aws/aws-sdk-js-v3/commit/e4f7b32fca9d7c72e76dad9be36dcc2b2665e965))
+
+
+
+
+
 # [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
 
 

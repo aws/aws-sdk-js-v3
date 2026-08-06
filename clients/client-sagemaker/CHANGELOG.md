@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
+
+
+### Features
+
+* **client-sagemaker:** Releases new Model Customization SequenceLength parameter for Training and g7 instance types for Training and Processing. ([14bd2ac](https://github.com/aws/aws-sdk-js-v3/commit/14bd2ac7dcd439796f379b9b44cd3f6ce9094984))
+
+
+
+
+
 # [3.1104.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1103.0...v3.1104.0) (2026-08-05)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
