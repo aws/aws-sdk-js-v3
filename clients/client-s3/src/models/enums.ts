@@ -110,6 +110,7 @@ export type ChecksumType = (typeof ChecksumType)[keyof typeof ChecksumType];
  */
 export const ServerSideEncryption = {
   AES256: "AES256",
+  aws_backup: "aws:backup",
   aws_fsx: "aws:fsx",
   aws_kms: "aws:kms",
   aws_kms_dsse: "aws:kms:dsse",
@@ -215,6 +216,8 @@ export type ObjectLockMode = (typeof ObjectLockMode)[keyof typeof ObjectLockMode
  * @enum
  */
 export const StorageClass = {
+  AWS_BACKUP_LOW_COST_WARM: "AWS_BACKUP_LOW_COST_WARM",
+  AWS_BACKUP_WARM: "AWS_BACKUP_WARM",
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
   FSX_ONTAP: "FSX_ONTAP",
@@ -960,6 +963,8 @@ export type EncodingType = (typeof EncodingType)[keyof typeof EncodingType];
  * @enum
  */
 export const ObjectStorageClass = {
+  AWS_BACKUP_LOW_COST_WARM: "AWS_BACKUP_LOW_COST_WARM",
+  AWS_BACKUP_WARM: "AWS_BACKUP_WARM",
   DEEP_ARCHIVE: "DEEP_ARCHIVE",
   EXPRESS_ONEZONE: "EXPRESS_ONEZONE",
   FSX_ONTAP: "FSX_ONTAP",
