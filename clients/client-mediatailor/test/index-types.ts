@@ -195,6 +195,7 @@ export type {
   CdnConfiguration,
   Channel,
   ClipRange,
+  ConcurrentExecutorConfiguration,
   ConfigureLogsForChannelRequest,
   ConfigureLogsForChannelResponse,
   ConfigureLogsForPlaybackConfigurationRequest,

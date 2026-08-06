@@ -151,6 +151,7 @@ export type RuntimeType = (typeof RuntimeType)[keyof typeof RuntimeType];
  * @enum
  */
 export const FunctionType = {
+  CONCURRENT_EXECUTOR: "CONCURRENT_EXECUTOR",
   CUSTOM_OUTPUT: "CUSTOM_OUTPUT",
   HTTP_REQUEST: "HTTP_REQUEST",
   SEQUENTIAL_EXECUTOR: "SEQUENTIAL_EXECUTOR",

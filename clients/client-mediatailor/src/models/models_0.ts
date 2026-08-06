@@ -547,6 +547,48 @@ export interface FunctionRef {
    * @public
    */
   FunctionId?: string | undefined;
+
+  /**
+   * <p>An optional alternate name for the function within the executor. If omitted, MediaTailor uses the function identifier.</p>
+   * @public
+   */
+  Alias?: string | undefined;
+}
+
+/**
+ * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. A <code>CONCURRENT_EXECUTOR</code> runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see <a href="https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html">Working with functions</a> in the <i>MediaTailor User Guide</i>.</p>
+ * @public
+ */
+export interface ConcurrentExecutorConfiguration {
+  /**
+   * <p>The expression language used to evaluate expressions in the function configuration. Set this to <code>JSONata</code>.</p>
+   * @public
+   */
+  Runtime: RuntimeType | undefined;
+
+  /**
+   * <p>A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.</p>
+   * @public
+   */
+  Output: Record<string, string> | undefined;
+
+  /**
+   * <p>The list of child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs.</p>
+   * @public
+   */
+  FunctionList: FunctionRef[] | undefined;
+
+  /**
+   * <p>The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior.</p>
+   * @public
+   */
+  TimeoutMilliseconds: number | undefined;
+
+  /**
+   * <p>The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than <code>MaxConcurrency</code>, MediaTailor starts additional functions as running ones complete, so that no more than <code>MaxConcurrency</code> functions run at the same time.</p>
+   * @public
+   */
+  MaxConcurrency: number | undefined;
 }
 
 /**
@@ -679,6 +721,12 @@ export interface Function {
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * @public
+   */
+  ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
    * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
@@ -3706,6 +3754,12 @@ export interface GetFunctionResponse {
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
+   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * @public
+   */
+  ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
+
+  /**
    * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>
    * @public
    */
@@ -3794,6 +3848,12 @@ export interface PutFunctionRequest {
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
 
   /**
+   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function. Specifies the list of child functions to run in parallel, the maximum concurrency, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>CONCURRENT_EXECUTOR</code>.</p>
+   * @public
+   */
+  ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
+
+  /**
    * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function. Specifies the ordered list of child functions to execute, an optional output block, and a timeout. Required when <code>FunctionType</code> is <code>SEQUENTIAL_EXECUTOR</code>.</p>
    * @public
    */
@@ -3840,6 +3900,12 @@ export interface PutFunctionResponse {
    * @public
    */
   CustomOutputConfiguration?: CustomOutputConfiguration | undefined;
+
+  /**
+   * <p>The configuration for a <code>CONCURRENT_EXECUTOR</code> function.</p>
+   * @public
+   */
+  ConcurrentExecutorConfiguration?: ConcurrentExecutorConfiguration | undefined;
 
   /**
    * <p>The configuration for a <code>SEQUENTIAL_EXECUTOR</code> function.</p>

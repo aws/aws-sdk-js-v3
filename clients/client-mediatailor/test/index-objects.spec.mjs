@@ -26,6 +26,7 @@ import {
   ChannelState,
   ClipRange$,
   CompressionMethod,
+  ConcurrentExecutorConfiguration$,
   ConfigureLogsForChannel$,
   ConfigureLogsForChannelCommand,
   ConfigureLogsForChannelRequest$,
@@ -420,6 +421,7 @@ assert(typeof Bumper$ === "object");
 assert(typeof CdnConfiguration$ === "object");
 assert(typeof Channel$ === "object");
 assert(typeof ClipRange$ === "object");
+assert(typeof ConcurrentExecutorConfiguration$ === "object");
 assert(typeof ConfigureLogsForChannelRequest$ === "object");
 assert(typeof ConfigureLogsForChannelResponse$ === "object");
 assert(typeof ConfigureLogsForPlaybackConfigurationRequest$ === "object");

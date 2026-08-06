@@ -34,7 +34,7 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * const client = new MediaTailorClient(config);
  * const input = { // PutFunctionRequest
  *   FunctionId: "STRING_VALUE", // required
- *   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "SEQUENTIAL_EXECUTOR", // required
+ *   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR", // required
  *   Description: "STRING_VALUE",
  *   HttpRequestConfiguration: { // HttpRequestConfiguration
  *     Runtime: "JSONATA", // required
@@ -55,28 +55,42 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  *       "<keys>": "STRING_VALUE",
  *     },
  *   },
- *   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
+ *   ConcurrentExecutorConfiguration: { // ConcurrentExecutorConfiguration
  *     Runtime: "JSONATA", // required
- *     Output: {
+ *     Output: { // required
  *       "<keys>": "STRING_VALUE",
  *     },
  *     FunctionList: [ // __listOfFunctionsRef // required
  *       { // FunctionRef
  *         RunCondition: "STRING_VALUE",
  *         FunctionId: "STRING_VALUE",
+ *         Alias: "STRING_VALUE",
+ *       },
+ *     ],
+ *     TimeoutMilliseconds: Number("int"), // required
+ *     MaxConcurrency: Number("int"), // required
+ *   },
+ *   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
+ *     Runtime: "JSONATA", // required
+ *     Output: {
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     FunctionList: [ // required
+ *       {
+ *         RunCondition: "STRING_VALUE",
+ *         FunctionId: "STRING_VALUE",
+ *         Alias: "STRING_VALUE",
  *       },
  *     ],
  *     TimeoutMilliseconds: Number("int"), // required
  *   },
- *   Tags: {
- *     "<keys>": "STRING_VALUE",
- *   },
+ *   Tags: "<__mapOf__string>",
  * };
  * const command = new PutFunctionCommand(input);
  * const response = await client.send(command);
  * // { // PutFunctionResponse
  * //   FunctionId: "STRING_VALUE", // required
- * //   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "SEQUENTIAL_EXECUTOR", // required
+ * //   FunctionType: "HTTP_REQUEST" || "CUSTOM_OUTPUT" || "CONCURRENT_EXECUTOR" || "SEQUENTIAL_EXECUTOR", // required
  * //   Description: "STRING_VALUE",
  * //   HttpRequestConfiguration: { // HttpRequestConfiguration
  * //     Runtime: "JSONATA", // required
@@ -97,22 +111,36 @@ export interface PutFunctionCommandOutput extends PutFunctionResponse, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
- * //   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
+ * //   ConcurrentExecutorConfiguration: { // ConcurrentExecutorConfiguration
  * //     Runtime: "JSONATA", // required
- * //     Output: {
+ * //     Output: { // required
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     FunctionList: [ // __listOfFunctionsRef // required
  * //       { // FunctionRef
  * //         RunCondition: "STRING_VALUE",
  * //         FunctionId: "STRING_VALUE",
+ * //         Alias: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     TimeoutMilliseconds: Number("int"), // required
+ * //     MaxConcurrency: Number("int"), // required
+ * //   },
+ * //   SequentialExecutorConfiguration: { // SequentialExecutorConfiguration
+ * //     Runtime: "JSONATA", // required
+ * //     Output: {
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     FunctionList: [ // required
+ * //       {
+ * //         RunCondition: "STRING_VALUE",
+ * //         FunctionId: "STRING_VALUE",
+ * //         Alias: "STRING_VALUE",
  * //       },
  * //     ],
  * //     TimeoutMilliseconds: Number("int"), // required
  * //   },
- * //   Tags: {
- * //     "<keys>": "STRING_VALUE",
- * //   },
+ * //   Tags: "<__mapOf__string>",
  * //   Arn: "STRING_VALUE",
  * // };
  *
