@@ -175,6 +175,7 @@ export const TermType = {
   FIXED_UPFRONT_PRICING_TERM: "FixedUpfrontPricingTerm",
   FREE_TRIAL_PRICING_TERM: "FreeTrialPricingTerm",
   LEGAL_TERM: "LegalTerm",
+  NET_PAYMENT_TERM: "NetPaymentTerm",
   PAYMENT_SCHEDULE_TERM: "PaymentScheduleTerm",
   RECURRING_PAYMENT_TERM: "RecurringPaymentTerm",
   RENEWAL_TERM: "RenewalTerm",

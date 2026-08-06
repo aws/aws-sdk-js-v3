@@ -72,6 +72,7 @@ const _LSAE = "ListingSummaryAssociatedEntity";
 const _LSAEL = "ListingSummaryAssociatedEntityList";
 const _LSL = "ListingSummaryList";
 const _LT = "LegalTerm";
+const _NPT = "NetPaymentTerm";
 const _OAE = "OfferAssociatedEntity";
 const _OAEL = "OfferAssociatedEntityList";
 const _OI = "OfferInformation";
@@ -222,6 +223,7 @@ const _mQ = "maxQuantity";
 const _mR = "maxResults";
 const _mTCA = "maxTotalChargeAmount";
 const _ma = "manufacturer";
+const _nPT = "netPaymentTerm";
 const _nT = "nextToken";
 const _o = "offer";
 const _oI = "offerId";
@@ -235,6 +237,7 @@ const _oSV = "operatingSystemVersion";
 const _oSf = "offerSet";
 const _oT = "offerTerms";
 const _p = "price";
+const _pDP = "paymentDuePeriod";
 const _pI = "productId";
 const _pM = "pricingModels";
 const _pMT = "pricingModelType";
@@ -503,8 +506,8 @@ export var GetOfferInput$: StaticStructureSchema = [3, n0, _GOI,
 ];
 export var GetOfferOutput$: StaticStructureSchema = [3, n0, _GOO,
   0,
-  [_oI, _ca, _aPI, _sOR, _pMri, _b, _aE, _oN, _eT, _aFT, _rAI],
-  [0, 0, 0, () => SellerInformation$, () => PricingModel$, () => PurchaseOptionBadgeList, () => OfferAssociatedEntityList, 0, 4, 4, 0], 7
+  [_oI, _ca, _sOR, _aE, _aPI, _pMri, _b, _oN, _eT, _aFT, _rAI],
+  [0, 0, () => SellerInformation$, () => OfferAssociatedEntityList, 0, () => PricingModel$, () => PurchaseOptionBadgeList, 0, 4, 4, 0], 7
 ];
 export var GetOfferSetInput$: StaticStructureSchema = [3, n0, _GOSI,
   0,
@@ -533,8 +536,8 @@ export var GetProductInput$: StaticStructureSchema = [3, n0, _GPI,
 ];
 export var GetProductOutput$: StaticStructureSchema = [3, n0, _GPO,
   0,
-  [_pI, _ca, _pN, _dOA, _sD, _lD, _ma, _lTU, _fOS, _cat, _h, _pMr, _res, _sE],
-  [0, 0, 0, 0, 0, 0, () => SellerInformation$, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList], 14
+  [_pI, _ca, _pN, _ma, _dOA, _sD, _lD, _lTU, _fOS, _cat, _h, _pMr, _res, _sE],
+  [0, 0, 0, () => SellerInformation$, 0, 0, 0, 0, () => FulfillmentOptionSummaryList, () => CategoryList, 64 | 0, () => PromotionalMediaList, () => ResourceList, () => SellerEngagementList], 14
 ];
 export var GrantItem$: StaticStructureSchema = [3, n0, _GI,
   0,
@@ -583,8 +586,8 @@ export var ListingFacet$: StaticStructureSchema = [3, n0, _LF,
 ];
 export var ListingSummary$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_lI, _lN, _pu, _ca, _sD, _lTU, _cat, _fOS, _b, _rS, _pM, _pU, _aE],
-  [0, 0, () => SellerInformation$, 0, 0, 0, () => CategoryList, () => FulfillmentOptionSummaryList, () => ListingBadgeList, () => ReviewSummary$, () => PricingModelList, () => PricingUnitList, () => ListingSummaryAssociatedEntityList], 13
+  [_lI, _lN, _pu, _fOS, _ca, _sD, _lTU, _cat, _b, _rS, _pM, _pU, _aE],
+  [0, 0, () => SellerInformation$, () => FulfillmentOptionSummaryList, 0, 0, 0, () => CategoryList, () => ListingBadgeList, () => ReviewSummary$, () => PricingModelList, () => PricingUnitList, () => ListingSummaryAssociatedEntityList], 13
 ];
 export var ListingSummaryAssociatedEntity$: StaticStructureSchema = [3, n0, _LSAE,
   0,
@@ -600,6 +603,11 @@ export var ListPurchaseOptionsOutput$: StaticStructureSchema = [3, n0, _LPOO,
   0,
   [_pO, _nT],
   [() => PurchaseOptionSummaryList, 0]
+];
+export var NetPaymentTerm$: StaticStructureSchema = [3, n0, _NPT,
+  0,
+  [_i, _t, _pDP],
+  [0, 0, 0], 3
 ];
 export var OfferAssociatedEntity$: StaticStructureSchema = [3, n0, _OAE,
   0,
@@ -933,8 +941,8 @@ export var FulfillmentOption$: StaticUnionSchema = [4, n0, _FO,
 ];
 export var OfferTerm$: StaticUnionSchema = [4, n0, _OT,
   0,
-  [_bPT, _cUPT, _fUPT, _fTPT, _lTe, _pST, _rPT, _rTe, _sTu, _uBPT, _vT, _vPT],
-  [() => ByolPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => FixedUpfrontPricingTerm$, () => FreeTrialPricingTerm$, () => LegalTerm$, () => PaymentScheduleTerm$, () => RecurringPaymentTerm$, () => RenewalTerm$, () => SupportTerm$, () => UsageBasedPricingTerm$, () => ValidityTerm$, () => VariablePaymentTerm$]
+  [_bPT, _cUPT, _fUPT, _fTPT, _lTe, _pST, _rPT, _rTe, _sTu, _uBPT, _vT, _vPT, _nPT],
+  [() => ByolPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => FixedUpfrontPricingTerm$, () => FreeTrialPricingTerm$, () => LegalTerm$, () => PaymentScheduleTerm$, () => RecurringPaymentTerm$, () => RenewalTerm$, () => SupportTerm$, () => UsageBasedPricingTerm$, () => ValidityTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
 export var PromotionalMedia$: StaticUnionSchema = [4, n0, _PMr,
   0,

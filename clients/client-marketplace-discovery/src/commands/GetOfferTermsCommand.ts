@@ -44,11 +44,11 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //     { // OfferTerm Union: only one key present
  * //       byolPricingTerm: { // ByolPricingTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //       },
  * //       configurableUpfrontPricingTerm: { // ConfigurableUpfrontPricingTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         rateCards: [ // ConfigurableUpfrontRateCardList
  * //           { // ConfigurableUpfrontRateCardItem
@@ -81,7 +81,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       fixedUpfrontPricingTerm: { // FixedUpfrontPricingTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         duration: "STRING_VALUE",
  * //         price: "STRING_VALUE", // required
@@ -104,7 +104,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       freeTrialPricingTerm: { // FreeTrialPricingTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         duration: "STRING_VALUE",
  * //         grants: [ // required
  * //           {
@@ -125,7 +125,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       legalTerm: { // LegalTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         documents: [ // DocumentList // required
  * //           { // DocumentItem
  * //             type: "CustomEula" || "CustomDsa" || "EnterpriseEula" || "StandardEula" || "StandardDsa", // required
@@ -136,7 +136,7 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       paymentScheduleTerm: { // PaymentScheduleTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         schedule: [ // ScheduleList // required
  * //           { // ScheduleItem
@@ -147,23 +147,23 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       recurringPaymentTerm: { // RecurringPaymentTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         billingPeriod: "Monthly", // required
  * //         price: "STRING_VALUE", // required
  * //       },
  * //       renewalTerm: { // RenewalTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //       },
  * //       supportTerm: { // SupportTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         refundPolicy: "STRING_VALUE", // required
  * //       },
  * //       usageBasedPricingTerm: { // UsageBasedPricingTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         rateCards: [ // UsageBasedRateCardList // required
  * //           { // UsageBasedRateCardItem
@@ -188,16 +188,21 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  * //       },
  * //       validityTerm: { // ValidityTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         agreementDuration: "STRING_VALUE",
  * //         agreementEndDate: new Date("TIMESTAMP"),
  * //         agreementStartDate: new Date("TIMESTAMP"),
  * //       },
  * //       variablePaymentTerm: { // VariablePaymentTerm
  * //         id: "STRING_VALUE", // required
- * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
  * //         currencyCode: "STRING_VALUE", // required
  * //         maxTotalChargeAmount: "STRING_VALUE", // required
+ * //       },
+ * //       netPaymentTerm: { // NetPaymentTerm
+ * //         id: "STRING_VALUE", // required
+ * //         type: "ByolPricingTerm" || "ConfigurableUpfrontPricingTerm" || "FixedUpfrontPricingTerm" || "UsageBasedPricingTerm" || "FreeTrialPricingTerm" || "LegalTerm" || "PaymentScheduleTerm" || "RecurringPaymentTerm" || "RenewalTerm" || "SupportTerm" || "ValidityTerm" || "VariablePaymentTerm" || "NetPaymentTerm", // required
+ * //         paymentDuePeriod: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],
@@ -662,6 +667,29 @@ export interface GetOfferTermsCommandOutput extends GetOfferTermsOutput, __Metad
  *         agreementStartDate: "2026-01-01T00:00:00.000Z",
  *         id: "term-validity-001",
  *         type: "ValidityTerm"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example GetOfferTerms for net payment term
+ * ```javascript
+ * //
+ * const input = {
+ *   offerId: "offer-sampleNetPaymentId"
+ * };
+ * const command = new GetOfferTermsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   offerTerms: [
+ *     {
+ *       netPaymentTerm: {
+ *         id: "term-netpay-001",
+ *         paymentDuePeriod: "P30D",
+ *         type: "NetPaymentTerm"
  *       }
  *     }
  *   ]

@@ -100,6 +100,7 @@ export type {
   ListingSummaryAssociatedEntity,
   ListPurchaseOptionsInput,
   ListPurchaseOptionsOutput,
+  NetPaymentTerm,
   OfferAssociatedEntity,
   OfferInformation,
   OfferSetAssociatedEntity,

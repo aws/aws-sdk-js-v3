@@ -21,4 +21,4 @@ export const paginateGetOfferTerms: (
   MarketplaceDiscoveryPaginationConfiguration,
   GetOfferTermsCommandInput,
   GetOfferTermsCommandOutput
->(MarketplaceDiscoveryClient, GetOfferTermsCommand, "nextToken", "nextToken", "");
+>(MarketplaceDiscoveryClient, GetOfferTermsCommand, "nextToken", "nextToken", "maxResults");

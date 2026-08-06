@@ -41,24 +41,12 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * //   offerId: "STRING_VALUE", // required
  * //   catalog: "STRING_VALUE", // required
  * //   offerName: "STRING_VALUE",
- * //   agreementProposalId: "STRING_VALUE", // required
  * //   expirationTime: new Date("TIMESTAMP"),
  * //   availableFromTime: new Date("TIMESTAMP"),
  * //   sellerOfRecord: { // SellerInformation
  * //     sellerProfileId: "STRING_VALUE", // required
  * //     displayName: "STRING_VALUE", // required
  * //   },
- * //   replacementAgreementId: "STRING_VALUE",
- * //   pricingModel: { // PricingModel
- * //     pricingModelType: "USAGE" || "CONTRACT" || "BYOL" || "FREE", // required
- * //     displayName: "STRING_VALUE", // required
- * //   },
- * //   badges: [ // PurchaseOptionBadgeList // required
- * //     { // PurchaseOptionBadge
- * //       displayName: "STRING_VALUE", // required
- * //       badgeType: "PRIVATE_PRICING" || "FUTURE_DATED" || "REPLACEMENT_OFFER", // required
- * //     },
- * //   ],
  * //   associatedEntities: [ // OfferAssociatedEntityList // required
  * //     { // OfferAssociatedEntity
  * //       product: { // ProductInformation
@@ -76,6 +64,18 @@ export interface GetOfferCommandOutput extends GetOfferOutput, __MetadataBearer 
  * //           displayName: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //     },
+ * //   ],
+ * //   agreementProposalId: "STRING_VALUE", // required
+ * //   replacementAgreementId: "STRING_VALUE",
+ * //   pricingModel: { // PricingModel
+ * //     pricingModelType: "USAGE" || "CONTRACT" || "BYOL" || "FREE", // required
+ * //     displayName: "STRING_VALUE", // required
+ * //   },
+ * //   badges: [ // PurchaseOptionBadgeList // required
+ * //     { // PurchaseOptionBadge
+ * //       displayName: "STRING_VALUE", // required
+ * //       badgeType: "PRIVATE_PRICING" || "FUTURE_DATED" || "REPLACEMENT_OFFER", // required
  * //     },
  * //   ],
  * // };

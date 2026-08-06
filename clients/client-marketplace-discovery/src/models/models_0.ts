@@ -830,12 +830,6 @@ export interface GetOfferOutput {
   offerName?: string | undefined;
 
   /**
-   * <p>An encoded string to be passed by the acceptor of the terms when creating an agreement.</p>
-   * @public
-   */
-  agreementProposalId: string | undefined;
-
-  /**
    * <p>The date and time until when the offer can be procured. This value is null for offers that never expire.</p>
    * @public
    */
@@ -854,6 +848,18 @@ export interface GetOfferOutput {
   sellerOfRecord: SellerInformation | undefined;
 
   /**
+   * <p>The products and offer sets associated with this offer.</p>
+   * @public
+   */
+  associatedEntities: OfferAssociatedEntity[] | undefined;
+
+  /**
+   * <p>An encoded string to be passed by the acceptor of the terms when creating an agreement.</p>
+   * @public
+   */
+  agreementProposalId: string | undefined;
+
+  /**
    * <p>The identifier of the existing agreement that this offer would replace. Enables agreement-based offer functionality.</p>
    * @public
    */
@@ -870,12 +876,6 @@ export interface GetOfferOutput {
    * @public
    */
   badges: PurchaseOptionBadge[] | undefined;
-
-  /**
-   * <p>The products and offer sets associated with this offer.</p>
-   * @public
-   */
-  associatedEntities: OfferAssociatedEntity[] | undefined;
 }
 
 /**
@@ -1326,6 +1326,30 @@ export interface LegalTerm {
 }
 
 /**
+ * <p>Defines a net payment term that sets how many days after the invoice date the payment is due.</p>
+ * @public
+ */
+export interface NetPaymentTerm {
+  /**
+   * <p>The unique identifier of the term.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The category of the term.</p>
+   * @public
+   */
+  type: TermType | undefined;
+
+  /**
+   * <p>The duration after invoice date by which payment is due.</p>
+   * @public
+   */
+  paymentDuePeriod: string | undefined;
+}
+
+/**
  * <p>A payment installment within a payment schedule term.</p>
  * @public
  */
@@ -1569,6 +1593,7 @@ export type OfferTerm =
   | OfferTerm.FixedUpfrontPricingTermMember
   | OfferTerm.FreeTrialPricingTermMember
   | OfferTerm.LegalTermMember
+  | OfferTerm.NetPaymentTermMember
   | OfferTerm.PaymentScheduleTermMember
   | OfferTerm.RecurringPaymentTermMember
   | OfferTerm.RenewalTermMember
@@ -1599,6 +1624,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1619,6 +1645,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1639,6 +1666,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1659,6 +1687,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1679,6 +1708,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1699,6 +1729,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1719,6 +1750,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1739,6 +1771,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1759,6 +1792,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1779,6 +1813,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm: UsageBasedPricingTerm;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1799,6 +1834,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm: ValidityTerm;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1819,6 +1855,28 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm: VariablePaymentTerm;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A net payment term.</p>
+   * @public
+   */
+  export interface NetPaymentTermMember {
+    byolPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    freeTrialPricingTerm?: never;
+    legalTerm?: never;
+    paymentScheduleTerm?: never;
+    recurringPaymentTerm?: never;
+    renewalTerm?: never;
+    supportTerm?: never;
+    usageBasedPricingTerm?: never;
+    validityTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm: NetPaymentTerm;
     $unknown?: never;
   }
 
@@ -1838,6 +1896,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm?: never;
     validityTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown: [string, any];
   }
 
@@ -1858,6 +1917,7 @@ export namespace OfferTerm {
     usageBasedPricingTerm: (value: UsageBasedPricingTerm) => T;
     validityTerm: (value: ValidityTerm) => T;
     variablePaymentTerm: (value: VariablePaymentTerm) => T;
+    netPaymentTerm: (value: NetPaymentTerm) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1913,6 +1973,12 @@ export interface GetProductOutput {
   productName: string | undefined;
 
   /**
+   * <p>The entity who manufactured the product.</p>
+   * @public
+   */
+  manufacturer: SellerInformation | undefined;
+
+  /**
    * <p>Indicates whether the product is deployed on AWS infrastructure.</p>
    * @public
    */
@@ -1929,12 +1995,6 @@ export interface GetProductOutput {
    * @public
    */
   longDescription: string | undefined;
-
-  /**
-   * <p>The entity who manufactured the product.</p>
-   * @public
-   */
-  manufacturer: SellerInformation | undefined;
 
   /**
    * <p>The URL of the logo thumbnail image for the product.</p>
@@ -3241,6 +3301,12 @@ export interface ListingSummary {
   publisher: SellerInformation | undefined;
 
   /**
+   * <p>A summary of fulfillment options available for the listing.</p>
+   * @public
+   */
+  fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
+
+  /**
    * <p>The name of the catalog that the listing belongs to.</p>
    * @public
    */
@@ -3263,12 +3329,6 @@ export interface ListingSummary {
    * @public
    */
   categories: Category[] | undefined;
-
-  /**
-   * <p>A summary of fulfillment options available for the listing.</p>
-   * @public
-   */
-  fulfillmentOptionSummaries: FulfillmentOptionSummary[] | undefined;
 
   /**
    * <p>Badges indicating special attributes of the listing.</p>

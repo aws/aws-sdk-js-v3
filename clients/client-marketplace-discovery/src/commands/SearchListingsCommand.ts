@@ -59,18 +59,18 @@ export interface SearchListingsCommandOutput extends SearchListingsOutput, __Met
  * //         sellerProfileId: "STRING_VALUE", // required
  * //         displayName: "STRING_VALUE", // required
  * //       },
+ * //       fulfillmentOptionSummaries: [ // FulfillmentOptionSummaryList // required
+ * //         { // FulfillmentOptionSummary
+ * //           fulfillmentOptionType: "AMAZON_MACHINE_IMAGE" || "API" || "CLOUDFORMATION_TEMPLATE" || "CONTAINER" || "HELM" || "EKS_ADD_ON" || "EC2_IMAGE_BUILDER_COMPONENT" || "DATA_EXCHANGE" || "PROFESSIONAL_SERVICES" || "SAAS" || "SAGEMAKER_ALGORITHM" || "SAGEMAKER_MODEL", // required
+ * //           displayName: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //       catalog: "STRING_VALUE", // required
  * //       shortDescription: "STRING_VALUE", // required
  * //       logoThumbnailUrl: "STRING_VALUE", // required
  * //       categories: [ // CategoryList // required
  * //         { // Category
  * //           categoryId: "STRING_VALUE", // required
- * //           displayName: "STRING_VALUE", // required
- * //         },
- * //       ],
- * //       fulfillmentOptionSummaries: [ // FulfillmentOptionSummaryList // required
- * //         { // FulfillmentOptionSummary
- * //           fulfillmentOptionType: "AMAZON_MACHINE_IMAGE" || "API" || "CLOUDFORMATION_TEMPLATE" || "CONTAINER" || "HELM" || "EKS_ADD_ON" || "EC2_IMAGE_BUILDER_COMPONENT" || "DATA_EXCHANGE" || "PROFESSIONAL_SERVICES" || "SAAS" || "SAGEMAKER_ALGORITHM" || "SAGEMAKER_MODEL", // required
  * //           displayName: "STRING_VALUE", // required
  * //         },
  * //       ],

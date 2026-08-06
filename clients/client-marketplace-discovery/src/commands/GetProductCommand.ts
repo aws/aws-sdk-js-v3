@@ -41,13 +41,13 @@ export interface GetProductCommandOutput extends GetProductOutput, __MetadataBea
  * //   productId: "STRING_VALUE", // required
  * //   catalog: "STRING_VALUE", // required
  * //   productName: "STRING_VALUE", // required
- * //   deployedOnAws: "DEPLOYED" || "NOT_DEPLOYED" || "NOT_APPLICABLE", // required
- * //   shortDescription: "STRING_VALUE", // required
- * //   longDescription: "STRING_VALUE", // required
  * //   manufacturer: { // SellerInformation
  * //     sellerProfileId: "STRING_VALUE", // required
  * //     displayName: "STRING_VALUE", // required
  * //   },
+ * //   deployedOnAws: "DEPLOYED" || "NOT_DEPLOYED" || "NOT_APPLICABLE", // required
+ * //   shortDescription: "STRING_VALUE", // required
+ * //   longDescription: "STRING_VALUE", // required
  * //   logoThumbnailUrl: "STRING_VALUE", // required
  * //   fulfillmentOptionSummaries: [ // FulfillmentOptionSummaryList // required
  * //     { // FulfillmentOptionSummary

@@ -73,6 +73,7 @@ import {
   MarketplaceDiscovery,
   MarketplaceDiscoveryClient,
   MarketplaceDiscoveryServiceException,
+  NetPaymentTerm$,
   OfferAssociatedEntity$,
   OfferInformation$,
   OfferSetAssociatedEntity$,
@@ -222,6 +223,7 @@ assert(typeof ListingSummary$ === "object");
 assert(typeof ListingSummaryAssociatedEntity$ === "object");
 assert(typeof ListPurchaseOptionsInput$ === "object");
 assert(typeof ListPurchaseOptionsOutput$ === "object");
+assert(typeof NetPaymentTerm$ === "object");
 assert(typeof OfferAssociatedEntity$ === "object");
 assert(typeof OfferInformation$ === "object");
 assert(typeof OfferSetAssociatedEntity$ === "object");
