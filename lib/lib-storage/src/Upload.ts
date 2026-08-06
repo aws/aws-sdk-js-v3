@@ -222,6 +222,7 @@ export class Upload extends EventEmitter {
   }
 
   private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
+    this.__validateChecksumForMultipart();
     const requestChecksumCalculation = await this.client.config.requestChecksumCalculation();
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
@@ -496,6 +497,37 @@ to input.params.ContentLength in bytes.
 
     if (this.queueSize < 1) {
       throw new Error(`Queue size: Must have at least one uploading queue.`);
+    }
+  }
+
+  /**
+   * Fail fast when the caller provided a precomputed full-object Checksum* value
+   * but the body is large enough to be uploaded as multipart. S3 computes a
+   * composite (per-part) checksum for multipart uploads, which never matches a
+   * full-object checksum supplied by the caller, so the request would otherwise
+   * fail server-side with a confusing BadDigest error after the full upload.
+   *
+   * See https://github.com/aws/aws-sdk-js-v3/issues/6742
+   */
+  private __validateChecksumForMultipart(): void {
+    const precomputedChecksumKeys = [
+      "ChecksumSHA256",
+      "ChecksumSHA1",
+      "ChecksumCRC32",
+      "ChecksumCRC32C",
+      "ChecksumCRC64NVME",
+    ] as const;
+
+    const providedKey = precomputedChecksumKeys.find(
+      (key) => (this.params as Record<string, unknown>)[key] !== undefined
+    );
+
+    if (providedKey) {
+      throw new Error(
+        `lib-storage Upload does not support a precomputed full-object ${providedKey} parameter when the upload is multipart (body > partSize). ` +
+          `For multipart uploads, drop the precomputed checksum and pass ChecksumAlgorithm instead so per-part checksums are computed; ` +
+          `or call PutObject directly. See https://github.com/aws/aws-sdk-js-v3/issues/6742`
+      );
     }
   }
 }
