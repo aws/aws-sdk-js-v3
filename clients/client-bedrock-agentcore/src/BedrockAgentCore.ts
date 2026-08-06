@@ -54,6 +54,11 @@ import {
   DeleteBatchEvaluationCommand,
 } from "./commands/DeleteBatchEvaluationCommand";
 import {
+  type DeleteCapacityProviderSessionCommandInput,
+  type DeleteCapacityProviderSessionCommandOutput,
+  DeleteCapacityProviderSessionCommand,
+} from "./commands/DeleteCapacityProviderSessionCommand";
+import {
   type DeleteEventCommandInput,
   type DeleteEventCommandOutput,
   DeleteEventCommand,
@@ -339,6 +344,7 @@ const commands = {
   CreatePaymentSessionCommand,
   DeleteABTestCommand,
   DeleteBatchEvaluationCommand,
+  DeleteCapacityProviderSessionCommand,
   DeleteEventCommand,
   DeleteMemoryRecordCommand,
   DeletePaymentInstrumentCommand,
@@ -578,6 +584,23 @@ export interface BedrockAgentCore {
     args: DeleteBatchEvaluationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBatchEvaluationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCapacityProviderSessionCommand}
+   */
+  deleteCapacityProviderSession(
+    args: DeleteCapacityProviderSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityProviderSessionCommandOutput>;
+  deleteCapacityProviderSession(
+    args: DeleteCapacityProviderSessionCommandInput,
+    cb: (err: any, data?: DeleteCapacityProviderSessionCommandOutput) => void
+  ): void;
+  deleteCapacityProviderSession(
+    args: DeleteCapacityProviderSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityProviderSessionCommandOutput) => void
   ): void;
 
   /**

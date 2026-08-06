@@ -49,6 +49,7 @@ import {
   BrowserSessionStatus,
   BrowserSessionStream$,
   BrowserSessionSummary$,
+  CapacityProviderSessionStatus,
   Certificate$,
   CertificateLocation$,
   CloudWatchFilterConfig$,
@@ -113,6 +114,10 @@ import {
   DeleteBatchEvaluationCommand,
   DeleteBatchEvaluationRequest$,
   DeleteBatchEvaluationResponse$,
+  DeleteCapacityProviderSession$,
+  DeleteCapacityProviderSessionCommand,
+  DeleteCapacityProviderSessionRequest$,
+  DeleteCapacityProviderSessionResponse$,
   DeleteEvent$,
   DeleteEventCommand,
   DeleteEventInput$,
@@ -627,6 +632,8 @@ assert(typeof DeleteABTestCommand === "function");
 assert(typeof DeleteABTest$ === "object");
 assert(typeof DeleteBatchEvaluationCommand === "function");
 assert(typeof DeleteBatchEvaluation$ === "object");
+assert(typeof DeleteCapacityProviderSessionCommand === "function");
+assert(typeof DeleteCapacityProviderSession$ === "object");
 assert(typeof DeleteEventCommand === "function");
 assert(typeof DeleteEvent$ === "object");
 assert(typeof DeleteMemoryRecordCommand === "function");
@@ -811,6 +818,8 @@ assert(typeof DeleteABTestRequest$ === "object");
 assert(typeof DeleteABTestResponse$ === "object");
 assert(typeof DeleteBatchEvaluationRequest$ === "object");
 assert(typeof DeleteBatchEvaluationResponse$ === "object");
+assert(typeof DeleteCapacityProviderSessionRequest$ === "object");
+assert(typeof DeleteCapacityProviderSessionResponse$ === "object");
 assert(typeof DeleteEventInput$ === "object");
 assert(typeof DeleteEventOutput$ === "object");
 assert(typeof DeleteMemoryRecordInput$ === "object");
@@ -1126,6 +1135,7 @@ assert(typeof BlockchainChainId === "object");
 assert(typeof BrowserActionStatus === "object");
 assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserSessionStatus === "object");
+assert(typeof CapacityProviderSessionStatus === "object");
 assert(typeof CloudWatchLogsFilterOperator === "object");
 assert(typeof CodeInterpreterSessionStatus === "object");
 assert(typeof CommandExecutionStatus === "object");

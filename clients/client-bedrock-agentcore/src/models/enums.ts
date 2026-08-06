@@ -210,6 +210,24 @@ export type BrowserActionStatus = (typeof BrowserActionStatus)[keyof typeof Brow
  * @public
  * @enum
  */
+export const CapacityProviderSessionStatus = {
+  ACTIVE: "Active",
+  DELETED: "Deleted",
+  DELETING: "Deleting",
+  DEPROVISIONING: "Deprovisioning",
+  PROVISIONING: "Provisioning",
+  STOPPED: "Stopped",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderSessionStatus =
+  (typeof CapacityProviderSessionStatus)[keyof typeof CapacityProviderSessionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeInterpreterSessionStatus = {
   READY: "READY",
   TERMINATED: "TERMINATED",

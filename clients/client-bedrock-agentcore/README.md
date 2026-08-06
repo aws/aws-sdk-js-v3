@@ -251,6 +251,13 @@ DeleteBatchEvaluation
 </details>
 <details>
 <summary>
+DeleteCapacityProviderSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/DeleteCapacityProviderSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/DeleteCapacityProviderSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/DeleteCapacityProviderSessionCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteEvent
 </summary>
 

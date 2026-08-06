@@ -29,6 +29,59 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
+ * @public
+ */
+export interface MemoryRecord {
+  /**
+   * <p>The unique identifier of the memory record.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+
+  /**
+   * <p>The content of the memory record.</p>
+   * @public
+   */
+  content: MemoryContent | undefined;
+
+  /**
+   * <p>The identifier of the memory strategy associated with this record.</p>
+   * @public
+   */
+  memoryStrategyId: string | undefined;
+
+  /**
+   * <p>The namespaces associated with this memory record. Namespaces help organize and categorize memory records.</p>
+   * @public
+   */
+  namespaces: string[] | undefined;
+
+  /**
+   * <p>The timestamp when the memory record was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>A map of metadata key-value pairs associated with a memory record.</p>
+   * @public
+   */
+  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetMemoryRecordOutput {
+  /**
+   * <p>The requested memory record.</p>
+   * @public
+   */
+  memoryRecord: MemoryRecord | undefined;
+}
+
+/**
  * @public
  */
 export interface ListActorsInput {

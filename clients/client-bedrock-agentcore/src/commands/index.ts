@@ -9,6 +9,7 @@ export * from "./CreatePaymentInstrumentCommand";
 export * from "./CreatePaymentSessionCommand";
 export * from "./DeleteABTestCommand";
 export * from "./DeleteBatchEvaluationCommand";
+export * from "./DeleteCapacityProviderSessionCommand";
 export * from "./DeleteEventCommand";
 export * from "./DeleteMemoryRecordCommand";
 export * from "./DeletePaymentInstrumentCommand";

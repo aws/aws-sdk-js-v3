@@ -92,6 +92,10 @@ import type {
   DeleteBatchEvaluationCommandInput,
   DeleteBatchEvaluationCommandOutput,
 } from "./commands/DeleteBatchEvaluationCommand";
+import type {
+  DeleteCapacityProviderSessionCommandInput,
+  DeleteCapacityProviderSessionCommandOutput,
+} from "./commands/DeleteCapacityProviderSessionCommand";
 import type { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand";
 import type {
   DeleteMemoryRecordCommandInput,
@@ -295,6 +299,7 @@ export type ServiceInputTypes =
   | CreatePaymentSessionCommandInput
   | DeleteABTestCommandInput
   | DeleteBatchEvaluationCommandInput
+  | DeleteCapacityProviderSessionCommandInput
   | DeleteEventCommandInput
   | DeleteMemoryRecordCommandInput
   | DeletePaymentInstrumentCommandInput
@@ -365,6 +370,7 @@ export type ServiceOutputTypes =
   | CreatePaymentSessionCommandOutput
   | DeleteABTestCommandOutput
   | DeleteBatchEvaluationCommandOutput
+  | DeleteCapacityProviderSessionCommandOutput
   | DeleteEventCommandOutput
   | DeleteMemoryRecordCommandOutput
   | DeletePaymentInstrumentCommandOutput

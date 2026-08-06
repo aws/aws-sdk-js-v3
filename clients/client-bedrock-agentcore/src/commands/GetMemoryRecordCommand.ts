@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetMemoryRecordInput, GetMemoryRecordOutput } from "../models/models_0";
+import type { GetMemoryRecordInput } from "../models/models_0";
+import type { GetMemoryRecordOutput } from "../models/models_1";
 import { GetMemoryRecord$ } from "../schemas/schemas_0";
 
 /**

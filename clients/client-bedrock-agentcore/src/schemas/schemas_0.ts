@@ -104,6 +104,9 @@ const _DABTRe = "DeleteABTestResponse";
 const _DBE = "DeleteBatchEvaluation";
 const _DBER = "DeleteBatchEvaluationRequest";
 const _DBERe = "DeleteBatchEvaluationResponse";
+const _DCPS = "DeleteCapacityProviderSession";
+const _DCPSR = "DeleteCapacityProviderSessionRequest";
+const _DCPSRe = "DeleteCapacityProviderSessionResponse";
 const _DE = "DeleteEvent";
 const _DEI = "DeleteEventInput";
 const _DEO = "DeleteEventOutput";
@@ -653,6 +656,8 @@ const _cII = "codeInterpreterIdentifier";
 const _cIo = "confidenceInterval";
 const _cL = "cloudwatchLogs";
 const _cP = "customParameters";
+const _cPA = "capacityProviderArn";
+const _cPI = "capacityProviderId";
 const _cRI = "currentRunId";
 const _cRIT = "cacheReadInputTokens";
 const _cS = "controlStats";
@@ -1568,6 +1573,16 @@ export var DeleteBatchEvaluationRequest$: StaticStructureSchema = [3, n0, _DBER,
 export var DeleteBatchEvaluationResponse$: StaticStructureSchema = [3, n0, _DBERe,
   0,
   [_bEI, _bEA, _sta],
+  [0, 0, 0], 3
+];
+export var DeleteCapacityProviderSessionRequest$: StaticStructureSchema = [3, n0, _DCPSR,
+  0,
+  [_cPI, _sI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteCapacityProviderSessionResponse$: StaticStructureSchema = [3, n0, _DCPSRe,
+  0,
+  [_cPA, _sI, _sta],
   [0, 0, 0], 3
 ];
 export var DeleteEventInput$: StaticStructureSchema = [3, n0, _DEI,
@@ -3432,6 +3447,9 @@ export var DeleteABTest$: StaticOperationSchema = [9, n0, _DABT,
 ];
 export var DeleteBatchEvaluation$: StaticOperationSchema = [9, n0, _DBE,
   { [_ht]: ["DELETE", "/evaluations/batch-evaluate/{batchEvaluationId}", 202] }, () => DeleteBatchEvaluationRequest$, () => DeleteBatchEvaluationResponse$
+];
+export var DeleteCapacityProviderSession$: StaticOperationSchema = [9, n0, _DCPS,
+  { [_ht]: ["DELETE", "/capacity-providers/{capacityProviderId}/sessions/{sessionId}", 202] }, () => DeleteCapacityProviderSessionRequest$, () => DeleteCapacityProviderSessionResponse$
 ];
 export var DeleteEvent$: StaticOperationSchema = [9, n0, _DE,
   { [_ht]: ["DELETE", "/memories/{memoryId}/actor/{actorId}/sessions/{sessionId}/events/{eventId}", 200] }, () => DeleteEventInput$, () => DeleteEventOutput$

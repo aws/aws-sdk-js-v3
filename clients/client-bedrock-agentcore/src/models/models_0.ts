@@ -9,6 +9,7 @@ import type {
   BrowserActionStatus,
   BrowserEnterprisePolicyType,
   BrowserSessionStatus,
+  CapacityProviderSessionStatus,
   CloudWatchLogsFilterOperator,
   CodeInterpreterSessionStatus,
   CommandExecutionStatus,
@@ -3135,6 +3136,46 @@ export interface UpdateBrowserStreamResponse {
    * @public
    */
   updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderSessionRequest {
+  /**
+   * <p>The unique identifier of the capacity provider associated with the session.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the capacity provider session to delete.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderSessionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider associated with the deleted session.</p>
+   * @public
+   */
+  capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted capacity provider session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider session. When the status is <code>Deleting</code>, the session is being deleted and is not available. When the status is <code>Deleted</code>, the session is no longer available.</p>
+   * @public
+   */
+  status: CapacityProviderSessionStatus | undefined;
 }
 
 /**
@@ -10003,57 +10044,4 @@ export interface GetMemoryRecordInput {
    * @public
    */
   memoryRecordId: string | undefined;
-}
-
-/**
- * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
- * @public
- */
-export interface MemoryRecord {
-  /**
-   * <p>The unique identifier of the memory record.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
-
-  /**
-   * <p>The content of the memory record.</p>
-   * @public
-   */
-  content: MemoryContent | undefined;
-
-  /**
-   * <p>The identifier of the memory strategy associated with this record.</p>
-   * @public
-   */
-  memoryStrategyId: string | undefined;
-
-  /**
-   * <p>The namespaces associated with this memory record. Namespaces help organize and categorize memory records.</p>
-   * @public
-   */
-  namespaces: string[] | undefined;
-
-  /**
-   * <p>The timestamp when the memory record was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>A map of metadata key-value pairs associated with a memory record.</p>
-   * @public
-   */
-  metadata?: Record<string, MemoryRecordMetadataValue> | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemoryRecordOutput {
-  /**
-   * <p>The requested memory record.</p>
-   * @public
-   */
-  memoryRecord: MemoryRecord | undefined;
 }
