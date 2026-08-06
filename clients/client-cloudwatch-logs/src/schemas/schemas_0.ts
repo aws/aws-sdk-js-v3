@@ -670,6 +670,8 @@ const _hE = "httpError";
 const _i = "identifier";
 const _iA = "integrationArn";
 const _iB = "importBatches";
+const _iC = "indexCategories";
+const _iCn = "indexCategory";
 const _iD = "integrationDetails";
 const _iDA = "importDestinationArn";
 const _iDs = "isDynamic";
@@ -1512,8 +1514,8 @@ export var DescribeExportTasksResponse$: StaticStructureSchema = [3, n0, _DETRe,
 ];
 export var DescribeFieldIndexesRequest$: StaticStructureSchema = [3, n0, _DFIR,
   0,
-  [_lGI, _nT],
-  [64 | 0, 0], 1
+  [_lGI, _iC, _nT],
+  [64 | 0, 64 | 0, 0], 1
 ];
 export var DescribeFieldIndexesResponse$: StaticStructureSchema = [3, n0, _DFIRe,
   0,
@@ -1677,8 +1679,8 @@ export var ExportTaskStatus$: StaticStructureSchema = [3, n0, _ETS,
 ];
 export var FieldIndex$: StaticStructureSchema = [3, n0, _FI,
   0,
-  [_lGIo, _fIN, _lST, _fET, _lET, _ty],
-  [0, 0, 1, 1, 1, 0]
+  [_lGIo, _fIN, _lST, _fET, _lET, _ty, _iCn],
+  [0, 0, 1, 1, 1, 0, 0]
 ];
 export var FieldsData$: StaticStructureSchema = [3, n0, _FD,
   0,
@@ -2765,6 +2767,7 @@ var ImportList: StaticListSchema = [1, n0, _IL,
   0, () => Import$
 ];
 var ImportStatusList = 64 | 0;
+var IndexCategories = 64 | 0;
 var IndexPolicies: StaticListSchema = [1, n0, _IPn,
   0, () => IndexPolicy$
 ];

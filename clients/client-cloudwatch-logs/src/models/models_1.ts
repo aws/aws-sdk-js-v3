@@ -325,8 +325,9 @@ export interface UpdateLookupTableRequest {
   tableBody?: string | undefined;
 
   /**
-   * <p>The ID of a completed CloudWatch Logs query whose results replace
-   *       the lookup table content.</p>
+   * <p>The ID of a completed or cancelled CloudWatch Logs query whose results replace
+   *       the lookup table content. A cancelled query replaces the content with the partial results
+   *       that were available when the query was stopped.</p>
    *          <p>You must specify either <code>tableBody</code> or <code>queryId</code>, but not
    *       both.</p>
    * @public

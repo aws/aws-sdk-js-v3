@@ -371,6 +371,7 @@ export type {
   ExportTaskStatusCode,
   FlattenedElement,
   ImportStatus,
+  IndexCategory,
   IndexSource,
   IndexType,
   InheritedProperty,

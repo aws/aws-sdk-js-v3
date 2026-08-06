@@ -35,7 +35,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "lastScanTime": 0,
       "firstEventTime": 0,
       "lastEventTime": 0,
-      "type": "__type__"
+      "type": "__type__",
+      "indexCategory": "__indexCategory__"
     },
     {
       "logGroupIdentifier": "__logGroupIdentifier__",
@@ -43,7 +44,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "lastScanTime": 0,
       "firstEventTime": 0,
       "lastEventTime": 0,
-      "type": "__type__"
+      "type": "__type__",
+      "indexCategory": "__indexCategory__"
     },
     {
       "logGroupIdentifier": "__logGroupIdentifier__",
@@ -51,7 +53,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "lastScanTime": 0,
       "firstEventTime": 0,
       "lastEventTime": 0,
-      "type": "__type__"
+      "type": "__type__",
+      "indexCategory": "__indexCategory__"
     }
   ],
   "nextToken": "__nextToken__"
@@ -67,7 +70,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       lastScanTime: (number) 0,
       firstEventTime: (number) 0,
       lastEventTime: (number) 0,
-      type: "__type__"
+      type: "__type__",
+      indexCategory: "__indexCategory__"
     },
     {
       logGroupIdentifier: "__logGroupIdentifier__",
@@ -75,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       lastScanTime: (number) 0,
       firstEventTime: (number) 0,
       lastEventTime: (number) 0,
-      type: "__type__"
+      type: "__type__",
+      indexCategory: "__indexCategory__"
     },
     {
       logGroupIdentifier: "__logGroupIdentifier__",
@@ -83,7 +88,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       lastScanTime: (number) 0,
       firstEventTime: (number) 0,
       lastEventTime: (number) 0,
-      type: "__type__"
+      type: "__type__",
+      indexCategory: "__indexCategory__"
     }
   ],
   nextToken: "__nextToken__",

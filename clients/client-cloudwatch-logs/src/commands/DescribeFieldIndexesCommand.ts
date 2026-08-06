@@ -23,8 +23,10 @@ export interface DescribeFieldIndexesCommandInput extends DescribeFieldIndexesRe
 export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of custom and default field indexes which are discovered in log data. For
- *       more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.</p>
+ * <p>Returns a list of field indexes discovered in log data. By default, the response includes
+ *       the <code>DEFAULT</code>, <code>CUSTOM</code>, and <code>INACTIVE</code> index categories. To
+ *       return indexes from other categories, use the <code>indexCategories</code> parameter.</p>
+ *          <p>For more information about field index policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutIndexPolicy.html">PutIndexPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,6 +38,9 @@ export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesR
  * const input = { // DescribeFieldIndexesRequest
  *   logGroupIdentifiers: [ // DescribeFieldIndexesLogGroupIdentifiers // required
  *     "STRING_VALUE",
+ *   ],
+ *   indexCategories: [ // IndexCategories
+ *     "DEFAULT" || "CUSTOM" || "AUTO" || "INACTIVE",
  *   ],
  *   nextToken: "STRING_VALUE",
  * };
@@ -50,6 +55,7 @@ export interface DescribeFieldIndexesCommandOutput extends DescribeFieldIndexesR
  * //       firstEventTime: Number("long"),
  * //       lastEventTime: Number("long"),
  * //       type: "FACET" || "FIELD_INDEX",
+ * //       indexCategory: "DEFAULT" || "CUSTOM" || "AUTO" || "INACTIVE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

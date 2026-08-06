@@ -329,6 +329,7 @@ import {
   ImportFilter$,
   ImportStatistics$,
   ImportStatus,
+  IndexCategory,
   IndexPolicy$,
   IndexSource,
   IndexType,
@@ -1238,6 +1239,7 @@ assert(typeof ExecutionStatus === "object");
 assert(typeof ExportTaskStatusCode === "object");
 assert(typeof FlattenedElement === "object");
 assert(typeof ImportStatus === "object");
+assert(typeof IndexCategory === "object");
 assert(typeof IndexSource === "object");
 assert(typeof IndexType === "object");
 assert(typeof InheritedProperty === "object");

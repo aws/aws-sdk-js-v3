@@ -255,6 +255,21 @@ export type ExportTaskStatusCode = (typeof ExportTaskStatusCode)[keyof typeof Ex
  * @public
  * @enum
  */
+export const IndexCategory = {
+  AUTO: "AUTO",
+  CUSTOM: "CUSTOM",
+  DEFAULT: "DEFAULT",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type IndexCategory = (typeof IndexCategory)[keyof typeof IndexCategory];
+
+/**
+ * @public
+ * @enum
+ */
 export const IndexType = {
   FACET: "FACET",
   FIELD_INDEX: "FIELD_INDEX",
