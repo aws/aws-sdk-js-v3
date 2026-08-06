@@ -204,6 +204,10 @@ export interface DeleteHarnessCommandOutput extends DeleteHarnessResponse, __Met
  * //               accessPointArn: "STRING_VALUE", // required
  * //               mountPath: "STRING_VALUE", // required
  * //             },
+ * //             capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ * //               volumeName: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         ],
  * //       },

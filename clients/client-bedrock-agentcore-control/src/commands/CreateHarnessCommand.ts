@@ -67,6 +67,10 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  *             accessPointArn: "STRING_VALUE", // required
  *             mountPath: "STRING_VALUE", // required
  *           },
+ *           capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ *             volumeName: "STRING_VALUE", // required
+ *             mountPath: "STRING_VALUE", // required
+ *           },
  *         },
  *       ],
  *     },
@@ -478,6 +482,10 @@ export interface CreateHarnessCommandOutput extends CreateHarnessResponse, __Met
  * //             },
  * //             efsAccessPoint: { // EfsAccessPointConfiguration
  * //               accessPointArn: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
+ * //             capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ * //               volumeName: "STRING_VALUE", // required
  * //               mountPath: "STRING_VALUE", // required
  * //             },
  * //           },

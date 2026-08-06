@@ -182,8 +182,15 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *         accessPointArn: "STRING_VALUE", // required
  *         mountPath: "STRING_VALUE", // required
  *       },
+ *       capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ *         volumeName: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
+ *   capacityProviderConfiguration: { // CapacityProviderConfiguration
+ *     capacityProviderArn: "STRING_VALUE",
+ *   },
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateAgentRuntimeCommand(input);

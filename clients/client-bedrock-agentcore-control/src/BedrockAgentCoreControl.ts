@@ -14,6 +14,11 @@ import {
   AddDatasetExamplesCommand,
 } from "./commands/AddDatasetExamplesCommand";
 import {
+  type BatchPutGatewayRateLimitsCommandInput,
+  type BatchPutGatewayRateLimitsCommandOutput,
+  BatchPutGatewayRateLimitsCommand,
+} from "./commands/BatchPutGatewayRateLimitsCommand";
+import {
   type CreateAgentRuntimeCommandInput,
   type CreateAgentRuntimeCommandOutput,
   CreateAgentRuntimeCommand,
@@ -38,6 +43,11 @@ import {
   type CreateBrowserProfileCommandOutput,
   CreateBrowserProfileCommand,
 } from "./commands/CreateBrowserProfileCommand";
+import {
+  type CreateCapacityProviderCommandInput,
+  type CreateCapacityProviderCommandOutput,
+  CreateCapacityProviderCommand,
+} from "./commands/CreateCapacityProviderCommand";
 import {
   type CreateCodeInterpreterCommandInput,
   type CreateCodeInterpreterCommandOutput,
@@ -68,6 +78,11 @@ import {
   type CreateGatewayCommandOutput,
   CreateGatewayCommand,
 } from "./commands/CreateGatewayCommand";
+import {
+  type CreateGatewayRateLimitCommandInput,
+  type CreateGatewayRateLimitCommandOutput,
+  CreateGatewayRateLimitCommand,
+} from "./commands/CreateGatewayRateLimitCommand";
 import {
   type CreateGatewayRuleCommandInput,
   type CreateGatewayRuleCommandOutput,
@@ -169,6 +184,11 @@ import {
   DeleteBrowserProfileCommand,
 } from "./commands/DeleteBrowserProfileCommand";
 import {
+  type DeleteCapacityProviderCommandInput,
+  type DeleteCapacityProviderCommandOutput,
+  DeleteCapacityProviderCommand,
+} from "./commands/DeleteCapacityProviderCommand";
+import {
   type DeleteCodeInterpreterCommandInput,
   type DeleteCodeInterpreterCommandOutput,
   DeleteCodeInterpreterCommand,
@@ -198,6 +218,11 @@ import {
   type DeleteGatewayCommandOutput,
   DeleteGatewayCommand,
 } from "./commands/DeleteGatewayCommand";
+import {
+  type DeleteGatewayRateLimitCommandInput,
+  type DeleteGatewayRateLimitCommandOutput,
+  DeleteGatewayRateLimitCommand,
+} from "./commands/DeleteGatewayRateLimitCommand";
 import {
   type DeleteGatewayRuleCommandInput,
   type DeleteGatewayRuleCommandOutput,
@@ -304,6 +329,11 @@ import {
   GetBrowserProfileCommand,
 } from "./commands/GetBrowserProfileCommand";
 import {
+  type GetCapacityProviderCommandInput,
+  type GetCapacityProviderCommandOutput,
+  GetCapacityProviderCommand,
+} from "./commands/GetCapacityProviderCommand";
+import {
   type GetCodeInterpreterCommandInput,
   type GetCodeInterpreterCommandOutput,
   GetCodeInterpreterCommand,
@@ -333,6 +363,11 @@ import {
   type GetGatewayCommandOutput,
   GetGatewayCommand,
 } from "./commands/GetGatewayCommand";
+import {
+  type GetGatewayRateLimitCommandInput,
+  type GetGatewayRateLimitCommandOutput,
+  GetGatewayRateLimitCommand,
+} from "./commands/GetGatewayRateLimitCommand";
 import {
   type GetGatewayRuleCommandInput,
   type GetGatewayRuleCommandOutput,
@@ -441,6 +476,11 @@ import {
   ListAgentRuntimesCommand,
 } from "./commands/ListAgentRuntimesCommand";
 import {
+  type ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+  type ListAgentRuntimeVersionsByCapacityProviderCommandOutput,
+  ListAgentRuntimeVersionsByCapacityProviderCommand,
+} from "./commands/ListAgentRuntimeVersionsByCapacityProviderCommand";
+import {
   type ListAgentRuntimeVersionsCommandInput,
   type ListAgentRuntimeVersionsCommandOutput,
   ListAgentRuntimeVersionsCommand,
@@ -460,6 +500,11 @@ import {
   type ListBrowsersCommandOutput,
   ListBrowsersCommand,
 } from "./commands/ListBrowsersCommand";
+import {
+  type ListCapacityProvidersCommandInput,
+  type ListCapacityProvidersCommandOutput,
+  ListCapacityProvidersCommand,
+} from "./commands/ListCapacityProvidersCommand";
 import {
   type ListCodeInterpretersCommandInput,
   type ListCodeInterpretersCommandOutput,
@@ -495,6 +540,11 @@ import {
   type ListEvaluatorsCommandOutput,
   ListEvaluatorsCommand,
 } from "./commands/ListEvaluatorsCommand";
+import {
+  type ListGatewayRateLimitsCommandInput,
+  type ListGatewayRateLimitsCommandOutput,
+  ListGatewayRateLimitsCommand,
+} from "./commands/ListGatewayRateLimitsCommand";
 import {
   type ListGatewayRulesCommandInput,
   type ListGatewayRulesCommandOutput,
@@ -661,6 +711,11 @@ import {
   UpdateApiKeyCredentialProviderCommand,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
 import {
+  type UpdateCapacityProviderCommandInput,
+  type UpdateCapacityProviderCommandOutput,
+  UpdateCapacityProviderCommand,
+} from "./commands/UpdateCapacityProviderCommand";
+import {
   type UpdateConfigurationBundleCommandInput,
   type UpdateConfigurationBundleCommandOutput,
   UpdateConfigurationBundleCommand,
@@ -685,6 +740,11 @@ import {
   type UpdateGatewayCommandOutput,
   UpdateGatewayCommand,
 } from "./commands/UpdateGatewayCommand";
+import {
+  type UpdateGatewayRateLimitCommandInput,
+  type UpdateGatewayRateLimitCommandOutput,
+  UpdateGatewayRateLimitCommand,
+} from "./commands/UpdateGatewayRateLimitCommand";
 import {
   type UpdateGatewayRuleCommandInput,
   type UpdateGatewayRuleCommandOutput,
@@ -769,10 +829,14 @@ import type { BedrockAgentCoreControlServiceException } from "./models/BedrockAg
 import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListAgentRuntimeEndpoints } from "./pagination/ListAgentRuntimeEndpointsPaginator";
 import { paginateListAgentRuntimes } from "./pagination/ListAgentRuntimesPaginator";
+import {
+  paginateListAgentRuntimeVersionsByCapacityProvider,
+} from "./pagination/ListAgentRuntimeVersionsByCapacityProviderPaginator";
 import { paginateListAgentRuntimeVersions } from "./pagination/ListAgentRuntimeVersionsPaginator";
 import { paginateListApiKeyCredentialProviders } from "./pagination/ListApiKeyCredentialProvidersPaginator";
 import { paginateListBrowserProfiles } from "./pagination/ListBrowserProfilesPaginator";
 import { paginateListBrowsers } from "./pagination/ListBrowsersPaginator";
+import { paginateListCapacityProviders } from "./pagination/ListCapacityProvidersPaginator";
 import { paginateListCodeInterpreters } from "./pagination/ListCodeInterpretersPaginator";
 import { paginateListConfigurationBundles } from "./pagination/ListConfigurationBundlesPaginator";
 import { paginateListConfigurationBundleVersions } from "./pagination/ListConfigurationBundleVersionsPaginator";
@@ -780,6 +844,7 @@ import { paginateListDatasetExamples } from "./pagination/ListDatasetExamplesPag
 import { paginateListDatasets } from "./pagination/ListDatasetsPaginator";
 import { paginateListDatasetVersions } from "./pagination/ListDatasetVersionsPaginator";
 import { paginateListEvaluators } from "./pagination/ListEvaluatorsPaginator";
+import { paginateListGatewayRateLimits } from "./pagination/ListGatewayRateLimitsPaginator";
 import { paginateListGatewayRules } from "./pagination/ListGatewayRulesPaginator";
 import { paginateListGateways } from "./pagination/ListGatewaysPaginator";
 import { paginateListGatewayTargets } from "./pagination/ListGatewayTargetsPaginator";
@@ -811,17 +876,20 @@ import { waitUntilPolicyGenerationCompleted } from "./waiters/waitForPolicyGener
 
 const commands = {
   AddDatasetExamplesCommand,
+  BatchPutGatewayRateLimitsCommand,
   CreateAgentRuntimeCommand,
   CreateAgentRuntimeEndpointCommand,
   CreateApiKeyCredentialProviderCommand,
   CreateBrowserCommand,
   CreateBrowserProfileCommand,
+  CreateCapacityProviderCommand,
   CreateCodeInterpreterCommand,
   CreateConfigurationBundleCommand,
   CreateDatasetCommand,
   CreateDatasetVersionCommand,
   CreateEvaluatorCommand,
   CreateGatewayCommand,
+  CreateGatewayRateLimitCommand,
   CreateGatewayRuleCommand,
   CreateGatewayTargetCommand,
   CreateHarnessCommand,
@@ -842,12 +910,14 @@ const commands = {
   DeleteApiKeyCredentialProviderCommand,
   DeleteBrowserCommand,
   DeleteBrowserProfileCommand,
+  DeleteCapacityProviderCommand,
   DeleteCodeInterpreterCommand,
   DeleteConfigurationBundleCommand,
   DeleteDatasetCommand,
   DeleteDatasetExamplesCommand,
   DeleteEvaluatorCommand,
   DeleteGatewayCommand,
+  DeleteGatewayRateLimitCommand,
   DeleteGatewayRuleCommand,
   DeleteGatewayTargetCommand,
   DeleteHarnessCommand,
@@ -869,12 +939,14 @@ const commands = {
   GetApiKeyCredentialProviderCommand,
   GetBrowserCommand,
   GetBrowserProfileCommand,
+  GetCapacityProviderCommand,
   GetCodeInterpreterCommand,
   GetConfigurationBundleCommand,
   GetConfigurationBundleVersionCommand,
   GetDatasetCommand,
   GetEvaluatorCommand,
   GetGatewayCommand,
+  GetGatewayRateLimitCommand,
   GetGatewayRuleCommand,
   GetGatewayTargetCommand,
   GetHarnessCommand,
@@ -899,9 +971,11 @@ const commands = {
   ListAgentRuntimeEndpointsCommand,
   ListAgentRuntimesCommand,
   ListAgentRuntimeVersionsCommand,
+  ListAgentRuntimeVersionsByCapacityProviderCommand,
   ListApiKeyCredentialProvidersCommand,
   ListBrowserProfilesCommand,
   ListBrowsersCommand,
+  ListCapacityProvidersCommand,
   ListCodeInterpretersCommand,
   ListConfigurationBundlesCommand,
   ListConfigurationBundleVersionsCommand,
@@ -909,6 +983,7 @@ const commands = {
   ListDatasetsCommand,
   ListDatasetVersionsCommand,
   ListEvaluatorsCommand,
+  ListGatewayRateLimitsCommand,
   ListGatewayRulesCommand,
   ListGatewaysCommand,
   ListGatewayTargetsCommand,
@@ -942,11 +1017,13 @@ const commands = {
   UpdateAgentRuntimeCommand,
   UpdateAgentRuntimeEndpointCommand,
   UpdateApiKeyCredentialProviderCommand,
+  UpdateCapacityProviderCommand,
   UpdateConfigurationBundleCommand,
   UpdateDatasetCommand,
   UpdateDatasetExamplesCommand,
   UpdateEvaluatorCommand,
   UpdateGatewayCommand,
+  UpdateGatewayRateLimitCommand,
   UpdateGatewayRuleCommand,
   UpdateGatewayTargetCommand,
   UpdateHarnessCommand,
@@ -968,9 +1045,11 @@ const paginators = {
   paginateListAgentRuntimeEndpoints,
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
+  paginateListAgentRuntimeVersionsByCapacityProvider,
   paginateListApiKeyCredentialProviders,
   paginateListBrowserProfiles,
   paginateListBrowsers,
+  paginateListCapacityProviders,
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
@@ -978,6 +1057,7 @@ const paginators = {
   paginateListDatasets,
   paginateListDatasetVersions,
   paginateListEvaluators,
+  paginateListGatewayRateLimits,
   paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
@@ -1026,6 +1106,23 @@ export interface BedrockAgentCoreControl {
     args: AddDatasetExamplesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddDatasetExamplesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchPutGatewayRateLimitsCommand}
+   */
+  batchPutGatewayRateLimits(
+    args: BatchPutGatewayRateLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchPutGatewayRateLimitsCommandOutput>;
+  batchPutGatewayRateLimits(
+    args: BatchPutGatewayRateLimitsCommandInput,
+    cb: (err: any, data?: BatchPutGatewayRateLimitsCommandOutput) => void
+  ): void;
+  batchPutGatewayRateLimits(
+    args: BatchPutGatewayRateLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchPutGatewayRateLimitsCommandOutput) => void
   ): void;
 
   /**
@@ -1111,6 +1208,23 @@ export interface BedrockAgentCoreControl {
     args: CreateBrowserProfileCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBrowserProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCapacityProviderCommand}
+   */
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCapacityProviderCommandOutput>;
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    cb: (err: any, data?: CreateCapacityProviderCommandOutput) => void
+  ): void;
+  createCapacityProvider(
+    args: CreateCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCapacityProviderCommandOutput) => void
   ): void;
 
   /**
@@ -1213,6 +1327,23 @@ export interface BedrockAgentCoreControl {
     args: CreateGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateGatewayRateLimitCommand}
+   */
+  createGatewayRateLimit(
+    args: CreateGatewayRateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateGatewayRateLimitCommandOutput>;
+  createGatewayRateLimit(
+    args: CreateGatewayRateLimitCommandInput,
+    cb: (err: any, data?: CreateGatewayRateLimitCommandOutput) => void
+  ): void;
+  createGatewayRateLimit(
+    args: CreateGatewayRateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateGatewayRateLimitCommandOutput) => void
   ): void;
 
   /**
@@ -1556,6 +1687,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link DeleteCapacityProviderCommand}
+   */
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCapacityProviderCommandOutput>;
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): void;
+  deleteCapacityProvider(
+    args: DeleteCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCapacityProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCodeInterpreterCommand}
    */
   deleteCodeInterpreter(
@@ -1655,6 +1803,23 @@ export interface BedrockAgentCoreControl {
     args: DeleteGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteGatewayRateLimitCommand}
+   */
+  deleteGatewayRateLimit(
+    args: DeleteGatewayRateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteGatewayRateLimitCommandOutput>;
+  deleteGatewayRateLimit(
+    args: DeleteGatewayRateLimitCommandInput,
+    cb: (err: any, data?: DeleteGatewayRateLimitCommandOutput) => void
+  ): void;
+  deleteGatewayRateLimit(
+    args: DeleteGatewayRateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteGatewayRateLimitCommandOutput) => void
   ): void;
 
   /**
@@ -2015,6 +2180,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link GetCapacityProviderCommand}
+   */
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCapacityProviderCommandOutput>;
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    cb: (err: any, data?: GetCapacityProviderCommandOutput) => void
+  ): void;
+  getCapacityProvider(
+    args: GetCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCapacityProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCodeInterpreterCommand}
    */
   getCodeInterpreter(
@@ -2114,6 +2296,23 @@ export interface BedrockAgentCoreControl {
     args: GetGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetGatewayRateLimitCommand}
+   */
+  getGatewayRateLimit(
+    args: GetGatewayRateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGatewayRateLimitCommandOutput>;
+  getGatewayRateLimit(
+    args: GetGatewayRateLimitCommandInput,
+    cb: (err: any, data?: GetGatewayRateLimitCommandOutput) => void
+  ): void;
+  getGatewayRateLimit(
+    args: GetGatewayRateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGatewayRateLimitCommandOutput) => void
   ): void;
 
   /**
@@ -2527,6 +2726,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link ListAgentRuntimeVersionsByCapacityProviderCommand}
+   */
+  listAgentRuntimeVersionsByCapacityProvider(
+    args: ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentRuntimeVersionsByCapacityProviderCommandOutput>;
+  listAgentRuntimeVersionsByCapacityProvider(
+    args: ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+    cb: (err: any, data?: ListAgentRuntimeVersionsByCapacityProviderCommandOutput) => void
+  ): void;
+  listAgentRuntimeVersionsByCapacityProvider(
+    args: ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentRuntimeVersionsByCapacityProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListApiKeyCredentialProvidersCommand}
    */
   listApiKeyCredentialProviders(): Promise<ListApiKeyCredentialProvidersCommandOutput>;
@@ -2578,6 +2794,24 @@ export interface BedrockAgentCoreControl {
     args: ListBrowsersCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBrowsersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCapacityProvidersCommand}
+   */
+  listCapacityProviders(): Promise<ListCapacityProvidersCommandOutput>;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCapacityProvidersCommandOutput>;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    cb: (err: any, data?: ListCapacityProvidersCommandOutput) => void
+  ): void;
+  listCapacityProviders(
+    args: ListCapacityProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCapacityProvidersCommandOutput) => void
   ): void;
 
   /**
@@ -2701,6 +2935,23 @@ export interface BedrockAgentCoreControl {
     args: ListEvaluatorsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEvaluatorsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGatewayRateLimitsCommand}
+   */
+  listGatewayRateLimits(
+    args: ListGatewayRateLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGatewayRateLimitsCommandOutput>;
+  listGatewayRateLimits(
+    args: ListGatewayRateLimitsCommandInput,
+    cb: (err: any, data?: ListGatewayRateLimitsCommandOutput) => void
+  ): void;
+  listGatewayRateLimits(
+    args: ListGatewayRateLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGatewayRateLimitsCommandOutput) => void
   ): void;
 
   /**
@@ -3276,6 +3527,23 @@ export interface BedrockAgentCoreControl {
   ): void;
 
   /**
+   * @see {@link UpdateCapacityProviderCommand}
+   */
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCapacityProviderCommandOutput>;
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): void;
+  updateCapacityProvider(
+    args: UpdateCapacityProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCapacityProviderCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateConfigurationBundleCommand}
    */
   updateConfigurationBundle(
@@ -3358,6 +3626,23 @@ export interface BedrockAgentCoreControl {
     args: UpdateGatewayCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGatewayCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateGatewayRateLimitCommand}
+   */
+  updateGatewayRateLimit(
+    args: UpdateGatewayRateLimitCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateGatewayRateLimitCommandOutput>;
+  updateGatewayRateLimit(
+    args: UpdateGatewayRateLimitCommandInput,
+    cb: (err: any, data?: UpdateGatewayRateLimitCommandOutput) => void
+  ): void;
+  updateGatewayRateLimit(
+    args: UpdateGatewayRateLimitCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateGatewayRateLimitCommandOutput) => void
   ): void;
 
   /**
@@ -3666,6 +3951,17 @@ export interface BedrockAgentCoreControl {
   ): Paginator<ListAgentRuntimeVersionsCommandOutput>;
 
   /**
+   * @see {@link ListAgentRuntimeVersionsByCapacityProviderCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRuntimeVersionsByCapacityProviderCommandOutput}.
+   */
+  paginateListAgentRuntimeVersionsByCapacityProvider(
+    args: ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRuntimeVersionsByCapacityProviderCommandOutput>;
+
+  /**
    * @see {@link ListApiKeyCredentialProvidersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -3697,6 +3993,17 @@ export interface BedrockAgentCoreControl {
     args?: ListBrowsersCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListBrowsersCommandOutput>;
+
+  /**
+   * @see {@link ListCapacityProvidersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCapacityProvidersCommandOutput}.
+   */
+  paginateListCapacityProviders(
+    args?: ListCapacityProvidersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCapacityProvidersCommandOutput>;
 
   /**
    * @see {@link ListCodeInterpretersCommand}
@@ -3774,6 +4081,17 @@ export interface BedrockAgentCoreControl {
     args?: ListEvaluatorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEvaluatorsCommandOutput>;
+
+  /**
+   * @see {@link ListGatewayRateLimitsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGatewayRateLimitsCommandOutput}.
+   */
+  paginateListGatewayRateLimits(
+    args: ListGatewayRateLimitsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGatewayRateLimitsCommandOutput>;
 
   /**
    * @see {@link ListGatewayRulesCommand}

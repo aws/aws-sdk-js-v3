@@ -15,6 +15,7 @@ import {
   AgentRuntimeEndpoint$,
   AgentRuntimeEndpointStatus,
   AgentRuntimeStatus,
+  AgentRuntimeVersionSummary$,
   AgentSkillsDescriptor$,
   AllowedWorkloadConfiguration$,
   ApiGatewayTargetConfiguration$,
@@ -31,6 +32,11 @@ import {
   AuthorizerConfiguration$,
   AuthorizerType,
   AuthorizingClaimMatchValueType$,
+  BatchPutGatewayRateLimits$,
+  BatchPutGatewayRateLimitsCommand,
+  BatchPutGatewayRateLimitsRequest$,
+  BatchPutGatewayRateLimitsResponse$,
+  BatchPutLimitEntry$,
   BedrockAgentCoreControl,
   BedrockAgentCoreControlClient,
   BedrockAgentCoreControlServiceException,
@@ -45,6 +51,14 @@ import {
   BrowserSigningConfigOutput$,
   BrowserStatus,
   BrowserSummary$,
+  CapacityProviderConfiguration$,
+  CapacityProviderStatus,
+  CapacityProviderStatusCode,
+  CapacityProviderSummary$,
+  CapacityProviderVolumeConfiguration$,
+  CapacityReservationPreference,
+  CapacityReservationSpecification$,
+  CapacityReservationTarget$,
   CategoricalScaleDefinition$,
   CedarPolicy$,
   Certificate$,
@@ -66,6 +80,7 @@ import {
   CoinbaseCdpConfigurationInput$,
   CoinbaseCdpConfigurationOutput$,
   ComponentConfiguration$,
+  ComputeConfiguration$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
   Condition$,
@@ -106,6 +121,10 @@ import {
   CreateBrowserProfileResponse$,
   CreateBrowserRequest$,
   CreateBrowserResponse$,
+  CreateCapacityProvider$,
+  CreateCapacityProviderCommand,
+  CreateCapacityProviderInput$,
+  CreateCapacityProviderOutput$,
   CreateCodeInterpreter$,
   CreateCodeInterpreterCommand,
   CreateCodeInterpreterRequest$,
@@ -128,6 +147,10 @@ import {
   CreateEvaluatorResponse$,
   CreateGateway$,
   CreateGatewayCommand,
+  CreateGatewayRateLimit$,
+  CreateGatewayRateLimitCommand,
+  CreateGatewayRateLimitRequest$,
+  CreateGatewayRateLimitResponse$,
   CreateGatewayRequest$,
   CreateGatewayResponse$,
   CreateGatewayRule$,
@@ -237,6 +260,10 @@ import {
   DeleteBrowserProfileResponse$,
   DeleteBrowserRequest$,
   DeleteBrowserResponse$,
+  DeleteCapacityProvider$,
+  DeleteCapacityProviderCommand,
+  DeleteCapacityProviderInput$,
+  DeleteCapacityProviderOutput$,
   DeleteCodeInterpreter$,
   DeleteCodeInterpreterCommand,
   DeleteCodeInterpreterRequest$,
@@ -259,6 +286,10 @@ import {
   DeleteEvaluatorResponse$,
   DeleteGateway$,
   DeleteGatewayCommand,
+  DeleteGatewayRateLimit$,
+  DeleteGatewayRateLimitCommand,
+  DeleteGatewayRateLimitRequest$,
+  DeleteGatewayRateLimitResponse$,
   DeleteGatewayRequest$,
   DeleteGatewayResponse$,
   DeleteGatewayRule$,
@@ -329,12 +360,17 @@ import {
   Descriptors$,
   DescriptorType,
   DraftStatus,
+  EbsVolumeConfiguration$,
+  EbsVolumeType,
+  Ec2Configuration$,
   EfsAccessPointConfiguration$,
   EfsConfiguration$,
   EncryptionFailure,
   EncryptionFailure$,
   EndpointIpAddressType,
   EnforcementMode,
+  EphemeralBlockDeviceMapping$,
+  EphemeralEBSVolumeConfiguration$,
   EpisodicConsolidationOverride$,
   EpisodicExtractionOverride$,
   EpisodicMemoryStrategyInput$,
@@ -370,6 +406,8 @@ import {
   GatewayPolicyEngineMode,
   GatewayProtocolConfiguration$,
   GatewayProtocolType,
+  GatewayRateLimitDetail$,
+  GatewayRateLimitStatus,
   GatewayRuleDetail$,
   GatewayRuleStatus,
   GatewayStatus,
@@ -395,6 +433,10 @@ import {
   GetBrowserProfileResponse$,
   GetBrowserRequest$,
   GetBrowserResponse$,
+  GetCapacityProvider$,
+  GetCapacityProviderCommand,
+  GetCapacityProviderInput$,
+  GetCapacityProviderOutput$,
   GetCodeInterpreter$,
   GetCodeInterpreterCommand,
   GetCodeInterpreterRequest$,
@@ -417,6 +459,10 @@ import {
   GetEvaluatorResponse$,
   GetGateway$,
   GetGatewayCommand,
+  GetGatewayRateLimit$,
+  GetGatewayRateLimitCommand,
+  GetGatewayRateLimitRequest$,
+  GetGatewayRateLimitResponse$,
   GetGatewayRequest$,
   GetGatewayResponse$,
   GetGatewayRule$,
@@ -571,6 +617,8 @@ import {
   InferenceTargetConfiguration$,
   InlineExamplesSource$,
   Insight$,
+  InstanceLifecycleConfiguration$,
+  InstanceRequirements$,
   InterceptorConfiguration$,
   InterceptorInputConfiguration$,
   InterceptorPayloadExclusion,
@@ -587,7 +635,11 @@ import {
   LambdaEvaluatorConfig$,
   LambdaInterceptorConfiguration$,
   LambdaTransformConfiguration$,
+  LaunchParameters$,
+  LaunchTemplateSource$,
+  LicenseSpecification$,
   LifecycleConfiguration$,
+  LimitEntry$,
   LinkedinOauth2ProviderConfigInput$,
   LinkedinOauth2ProviderConfigOutput$,
   ListAgentRuntimeEndpoints$,
@@ -599,6 +651,10 @@ import {
   ListAgentRuntimesRequest$,
   ListAgentRuntimesResponse$,
   ListAgentRuntimeVersions$,
+  ListAgentRuntimeVersionsByCapacityProvider$,
+  ListAgentRuntimeVersionsByCapacityProviderCommand,
+  ListAgentRuntimeVersionsByCapacityProviderInput$,
+  ListAgentRuntimeVersionsByCapacityProviderOutput$,
   ListAgentRuntimeVersionsCommand,
   ListAgentRuntimeVersionsRequest$,
   ListAgentRuntimeVersionsResponse$,
@@ -614,6 +670,10 @@ import {
   ListBrowsersCommand,
   ListBrowsersRequest$,
   ListBrowsersResponse$,
+  ListCapacityProviders$,
+  ListCapacityProvidersCommand,
+  ListCapacityProvidersInput$,
+  ListCapacityProvidersOutput$,
   ListCodeInterpreters$,
   ListCodeInterpretersCommand,
   ListCodeInterpretersRequest$,
@@ -642,6 +702,10 @@ import {
   ListEvaluatorsCommand,
   ListEvaluatorsRequest$,
   ListEvaluatorsResponse$,
+  ListGatewayRateLimits$,
+  ListGatewayRateLimitsCommand,
+  ListGatewayRateLimitsRequest$,
+  ListGatewayRateLimitsResponse$,
   ListGatewayRules$,
   ListGatewayRulesCommand,
   ListGatewayRulesRequest$,
@@ -774,6 +838,7 @@ import {
   ModifyReflectionConfiguration$,
   ModifySelfManagedConfiguration$,
   ModifyStrategyConfiguration$,
+  Monitoring,
   NetworkConfiguration$,
   NetworkMode,
   NumberValidation$,
@@ -792,14 +857,17 @@ import {
   OnlineEvaluationConfigSummary$,
   OnlineEvaluationExecutionStatus,
   OpenResponsesEvaluatorModelConfig$,
+  OperatingSystem,
   OutputConfig$,
   OverrideType,
   paginateListAgentRuntimeEndpoints,
   paginateListAgentRuntimes,
   paginateListAgentRuntimeVersions,
+  paginateListAgentRuntimeVersionsByCapacityProvider,
   paginateListApiKeyCredentialProviders,
   paginateListBrowserProfiles,
   paginateListBrowsers,
+  paginateListCapacityProviders,
   paginateListCodeInterpreters,
   paginateListConfigurationBundles,
   paginateListConfigurationBundleVersions,
@@ -807,6 +875,7 @@ import {
   paginateListDatasets,
   paginateListDatasetVersions,
   paginateListEvaluators,
+  paginateListGatewayRateLimits,
   paginateListGatewayRules,
   paginateListGateways,
   paginateListGatewayTargets,
@@ -842,6 +911,8 @@ import {
   PaymentProviderConfigurationInput$,
   PaymentProviderConfigurationOutput$,
   PaymentsAuthorizerType,
+  Period,
+  PermissionsConfiguration$,
   Policy$,
   PolicyDefinition$,
   PolicyEngine$,
@@ -867,6 +938,7 @@ import {
   PutResourcePolicyCommand,
   PutResourcePolicyRequest$,
   PutResourcePolicyResponse$,
+  RateConfig$,
   RatingScale$,
   ReasoningConfiguration$,
   RecordingConfig$,
@@ -891,6 +963,9 @@ import {
   ResourceNotFoundException$,
   ResourceType,
   RestApiMethod,
+  RetryableConflictException,
+  RetryableConflictException$,
+  RootVolumeConfiguration$,
   RouteToTargetAction$,
   Rule$,
   RuntimeMetadataConfiguration$,
@@ -1012,6 +1087,10 @@ import {
   UpdateApiKeyCredentialProviderCommand,
   UpdateApiKeyCredentialProviderRequest$,
   UpdateApiKeyCredentialProviderResponse$,
+  UpdateCapacityProvider$,
+  UpdateCapacityProviderCommand,
+  UpdateCapacityProviderInput$,
+  UpdateCapacityProviderOutput$,
   UpdateConfigurationBundle$,
   UpdateConfigurationBundleCommand,
   UpdateConfigurationBundleRequest$,
@@ -1049,6 +1128,10 @@ import {
   UpdateEvaluatorResponse$,
   UpdateGateway$,
   UpdateGatewayCommand,
+  UpdateGatewayRateLimit$,
+  UpdateGatewayRateLimitCommand,
+  UpdateGatewayRateLimitRequest$,
+  UpdateGatewayRateLimitResponse$,
   UpdateGatewayRequest$,
   UpdateGatewayResponse$,
   UpdateGatewayRule$,
@@ -1129,7 +1212,9 @@ import {
   VersionCreatedBySource$,
   VersionFilter$,
   VersionLineageMetadata$,
+  VolumeConfiguration$,
   VpcConfig$,
+  VpcConfiguration$,
   WafConfiguration$,
   WafFailureMode,
   waitForMemoryCreated,
@@ -1156,6 +1241,8 @@ assert(typeof BedrockAgentCoreControl === "function");
 // commands
 assert(typeof AddDatasetExamplesCommand === "function");
 assert(typeof AddDatasetExamples$ === "object");
+assert(typeof BatchPutGatewayRateLimitsCommand === "function");
+assert(typeof BatchPutGatewayRateLimits$ === "object");
 assert(typeof CreateAgentRuntimeCommand === "function");
 assert(typeof CreateAgentRuntime$ === "object");
 assert(typeof CreateAgentRuntimeEndpointCommand === "function");
@@ -1166,6 +1253,8 @@ assert(typeof CreateBrowserCommand === "function");
 assert(typeof CreateBrowser$ === "object");
 assert(typeof CreateBrowserProfileCommand === "function");
 assert(typeof CreateBrowserProfile$ === "object");
+assert(typeof CreateCapacityProviderCommand === "function");
+assert(typeof CreateCapacityProvider$ === "object");
 assert(typeof CreateCodeInterpreterCommand === "function");
 assert(typeof CreateCodeInterpreter$ === "object");
 assert(typeof CreateConfigurationBundleCommand === "function");
@@ -1178,6 +1267,8 @@ assert(typeof CreateEvaluatorCommand === "function");
 assert(typeof CreateEvaluator$ === "object");
 assert(typeof CreateGatewayCommand === "function");
 assert(typeof CreateGateway$ === "object");
+assert(typeof CreateGatewayRateLimitCommand === "function");
+assert(typeof CreateGatewayRateLimit$ === "object");
 assert(typeof CreateGatewayRuleCommand === "function");
 assert(typeof CreateGatewayRule$ === "object");
 assert(typeof CreateGatewayTargetCommand === "function");
@@ -1218,6 +1309,8 @@ assert(typeof DeleteBrowserCommand === "function");
 assert(typeof DeleteBrowser$ === "object");
 assert(typeof DeleteBrowserProfileCommand === "function");
 assert(typeof DeleteBrowserProfile$ === "object");
+assert(typeof DeleteCapacityProviderCommand === "function");
+assert(typeof DeleteCapacityProvider$ === "object");
 assert(typeof DeleteCodeInterpreterCommand === "function");
 assert(typeof DeleteCodeInterpreter$ === "object");
 assert(typeof DeleteConfigurationBundleCommand === "function");
@@ -1230,6 +1323,8 @@ assert(typeof DeleteEvaluatorCommand === "function");
 assert(typeof DeleteEvaluator$ === "object");
 assert(typeof DeleteGatewayCommand === "function");
 assert(typeof DeleteGateway$ === "object");
+assert(typeof DeleteGatewayRateLimitCommand === "function");
+assert(typeof DeleteGatewayRateLimit$ === "object");
 assert(typeof DeleteGatewayRuleCommand === "function");
 assert(typeof DeleteGatewayRule$ === "object");
 assert(typeof DeleteGatewayTargetCommand === "function");
@@ -1272,6 +1367,8 @@ assert(typeof GetBrowserCommand === "function");
 assert(typeof GetBrowser$ === "object");
 assert(typeof GetBrowserProfileCommand === "function");
 assert(typeof GetBrowserProfile$ === "object");
+assert(typeof GetCapacityProviderCommand === "function");
+assert(typeof GetCapacityProvider$ === "object");
 assert(typeof GetCodeInterpreterCommand === "function");
 assert(typeof GetCodeInterpreter$ === "object");
 assert(typeof GetConfigurationBundleCommand === "function");
@@ -1284,6 +1381,8 @@ assert(typeof GetEvaluatorCommand === "function");
 assert(typeof GetEvaluator$ === "object");
 assert(typeof GetGatewayCommand === "function");
 assert(typeof GetGateway$ === "object");
+assert(typeof GetGatewayRateLimitCommand === "function");
+assert(typeof GetGatewayRateLimit$ === "object");
 assert(typeof GetGatewayRuleCommand === "function");
 assert(typeof GetGatewayRule$ === "object");
 assert(typeof GetGatewayTargetCommand === "function");
@@ -1332,12 +1431,16 @@ assert(typeof ListAgentRuntimesCommand === "function");
 assert(typeof ListAgentRuntimes$ === "object");
 assert(typeof ListAgentRuntimeVersionsCommand === "function");
 assert(typeof ListAgentRuntimeVersions$ === "object");
+assert(typeof ListAgentRuntimeVersionsByCapacityProviderCommand === "function");
+assert(typeof ListAgentRuntimeVersionsByCapacityProvider$ === "object");
 assert(typeof ListApiKeyCredentialProvidersCommand === "function");
 assert(typeof ListApiKeyCredentialProviders$ === "object");
 assert(typeof ListBrowserProfilesCommand === "function");
 assert(typeof ListBrowserProfiles$ === "object");
 assert(typeof ListBrowsersCommand === "function");
 assert(typeof ListBrowsers$ === "object");
+assert(typeof ListCapacityProvidersCommand === "function");
+assert(typeof ListCapacityProviders$ === "object");
 assert(typeof ListCodeInterpretersCommand === "function");
 assert(typeof ListCodeInterpreters$ === "object");
 assert(typeof ListConfigurationBundlesCommand === "function");
@@ -1352,6 +1455,8 @@ assert(typeof ListDatasetVersionsCommand === "function");
 assert(typeof ListDatasetVersions$ === "object");
 assert(typeof ListEvaluatorsCommand === "function");
 assert(typeof ListEvaluators$ === "object");
+assert(typeof ListGatewayRateLimitsCommand === "function");
+assert(typeof ListGatewayRateLimits$ === "object");
 assert(typeof ListGatewayRulesCommand === "function");
 assert(typeof ListGatewayRules$ === "object");
 assert(typeof ListGatewaysCommand === "function");
@@ -1418,6 +1523,8 @@ assert(typeof UpdateAgentRuntimeEndpointCommand === "function");
 assert(typeof UpdateAgentRuntimeEndpoint$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderCommand === "function");
 assert(typeof UpdateApiKeyCredentialProvider$ === "object");
+assert(typeof UpdateCapacityProviderCommand === "function");
+assert(typeof UpdateCapacityProvider$ === "object");
 assert(typeof UpdateConfigurationBundleCommand === "function");
 assert(typeof UpdateConfigurationBundle$ === "object");
 assert(typeof UpdateDatasetCommand === "function");
@@ -1428,6 +1535,8 @@ assert(typeof UpdateEvaluatorCommand === "function");
 assert(typeof UpdateEvaluator$ === "object");
 assert(typeof UpdateGatewayCommand === "function");
 assert(typeof UpdateGateway$ === "object");
+assert(typeof UpdateGatewayRateLimitCommand === "function");
+assert(typeof UpdateGatewayRateLimit$ === "object");
 assert(typeof UpdateGatewayRuleCommand === "function");
 assert(typeof UpdateGatewayRule$ === "object");
 assert(typeof UpdateGatewayTargetCommand === "function");
@@ -1469,6 +1578,7 @@ assert(typeof AgentCardDefinition$ === "object");
 assert(typeof AgentRuntime$ === "object");
 assert(typeof AgentRuntimeArtifact$ === "object");
 assert(typeof AgentRuntimeEndpoint$ === "object");
+assert(typeof AgentRuntimeVersionSummary$ === "object");
 assert(typeof AgentSkillsDescriptor$ === "object");
 assert(typeof AllowedWorkloadConfiguration$ === "object");
 assert(typeof ApiGatewayTargetConfiguration$ === "object");
@@ -1483,6 +1593,9 @@ assert(typeof AtlassianOauth2ProviderConfigOutput$ === "object");
 assert(typeof AuthorizationData$ === "object");
 assert(typeof AuthorizerConfiguration$ === "object");
 assert(typeof AuthorizingClaimMatchValueType$ === "object");
+assert(typeof BatchPutGatewayRateLimitsRequest$ === "object");
+assert(typeof BatchPutGatewayRateLimitsResponse$ === "object");
+assert(typeof BatchPutLimitEntry$ === "object");
 assert(typeof BedrockEvaluatorModelConfig$ === "object");
 assert(typeof BrowserEnterprisePolicy$ === "object");
 assert(typeof BrowserNetworkConfiguration$ === "object");
@@ -1490,6 +1603,11 @@ assert(typeof BrowserProfileSummary$ === "object");
 assert(typeof BrowserSigningConfigInput$ === "object");
 assert(typeof BrowserSigningConfigOutput$ === "object");
 assert(typeof BrowserSummary$ === "object");
+assert(typeof CapacityProviderConfiguration$ === "object");
+assert(typeof CapacityProviderSummary$ === "object");
+assert(typeof CapacityProviderVolumeConfiguration$ === "object");
+assert(typeof CapacityReservationSpecification$ === "object");
+assert(typeof CapacityReservationTarget$ === "object");
 assert(typeof CategoricalScaleDefinition$ === "object");
 assert(typeof CedarPolicy$ === "object");
 assert(typeof Certificate$ === "object");
@@ -1506,6 +1624,7 @@ assert(typeof CodeInterpreterSummary$ === "object");
 assert(typeof CoinbaseCdpConfigurationInput$ === "object");
 assert(typeof CoinbaseCdpConfigurationOutput$ === "object");
 assert(typeof ComponentConfiguration$ === "object");
+assert(typeof ComputeConfiguration$ === "object");
 assert(typeof Condition$ === "object");
 assert(typeof ConfigurationBundleAction$ === "object");
 assert(typeof ConfigurationBundleReference$ === "object");
@@ -1529,6 +1648,8 @@ assert(typeof CreateBrowserProfileRequest$ === "object");
 assert(typeof CreateBrowserProfileResponse$ === "object");
 assert(typeof CreateBrowserRequest$ === "object");
 assert(typeof CreateBrowserResponse$ === "object");
+assert(typeof CreateCapacityProviderInput$ === "object");
+assert(typeof CreateCapacityProviderOutput$ === "object");
 assert(typeof CreateCodeInterpreterRequest$ === "object");
 assert(typeof CreateCodeInterpreterResponse$ === "object");
 assert(typeof CreateConfigurationBundleRequest$ === "object");
@@ -1539,6 +1660,8 @@ assert(typeof CreateDatasetVersionRequest$ === "object");
 assert(typeof CreateDatasetVersionResponse$ === "object");
 assert(typeof CreateEvaluatorRequest$ === "object");
 assert(typeof CreateEvaluatorResponse$ === "object");
+assert(typeof CreateGatewayRateLimitRequest$ === "object");
+assert(typeof CreateGatewayRateLimitResponse$ === "object");
 assert(typeof CreateGatewayRequest$ === "object");
 assert(typeof CreateGatewayResponse$ === "object");
 assert(typeof CreateGatewayRuleRequest$ === "object");
@@ -1602,6 +1725,8 @@ assert(typeof DeleteBrowserProfileRequest$ === "object");
 assert(typeof DeleteBrowserProfileResponse$ === "object");
 assert(typeof DeleteBrowserRequest$ === "object");
 assert(typeof DeleteBrowserResponse$ === "object");
+assert(typeof DeleteCapacityProviderInput$ === "object");
+assert(typeof DeleteCapacityProviderOutput$ === "object");
 assert(typeof DeleteCodeInterpreterRequest$ === "object");
 assert(typeof DeleteCodeInterpreterResponse$ === "object");
 assert(typeof DeleteConfigurationBundleRequest$ === "object");
@@ -1612,6 +1737,8 @@ assert(typeof DeleteDatasetRequest$ === "object");
 assert(typeof DeleteDatasetResponse$ === "object");
 assert(typeof DeleteEvaluatorRequest$ === "object");
 assert(typeof DeleteEvaluatorResponse$ === "object");
+assert(typeof DeleteGatewayRateLimitRequest$ === "object");
+assert(typeof DeleteGatewayRateLimitResponse$ === "object");
 assert(typeof DeleteGatewayRequest$ === "object");
 assert(typeof DeleteGatewayResponse$ === "object");
 assert(typeof DeleteGatewayRuleRequest$ === "object");
@@ -1648,8 +1775,12 @@ assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
 assert(typeof Descriptors$ === "object");
+assert(typeof EbsVolumeConfiguration$ === "object");
+assert(typeof Ec2Configuration$ === "object");
 assert(typeof EfsAccessPointConfiguration$ === "object");
 assert(typeof EfsConfiguration$ === "object");
+assert(typeof EphemeralBlockDeviceMapping$ === "object");
+assert(typeof EphemeralEBSVolumeConfiguration$ === "object");
 assert(typeof EpisodicConsolidationOverride$ === "object");
 assert(typeof EpisodicExtractionOverride$ === "object");
 assert(typeof EpisodicMemoryStrategyInput$ === "object");
@@ -1675,6 +1806,7 @@ assert(typeof GatewayApiKeyCredentialProvider$ === "object");
 assert(typeof GatewayInterceptorConfiguration$ === "object");
 assert(typeof GatewayPolicyEngineConfiguration$ === "object");
 assert(typeof GatewayProtocolConfiguration$ === "object");
+assert(typeof GatewayRateLimitDetail$ === "object");
 assert(typeof GatewayRuleDetail$ === "object");
 assert(typeof GatewaySummary$ === "object");
 assert(typeof GatewayTarget$ === "object");
@@ -1688,6 +1820,8 @@ assert(typeof GetBrowserProfileRequest$ === "object");
 assert(typeof GetBrowserProfileResponse$ === "object");
 assert(typeof GetBrowserRequest$ === "object");
 assert(typeof GetBrowserResponse$ === "object");
+assert(typeof GetCapacityProviderInput$ === "object");
+assert(typeof GetCapacityProviderOutput$ === "object");
 assert(typeof GetCodeInterpreterRequest$ === "object");
 assert(typeof GetCodeInterpreterResponse$ === "object");
 assert(typeof GetConfigurationBundleRequest$ === "object");
@@ -1698,6 +1832,8 @@ assert(typeof GetDatasetRequest$ === "object");
 assert(typeof GetDatasetResponse$ === "object");
 assert(typeof GetEvaluatorRequest$ === "object");
 assert(typeof GetEvaluatorResponse$ === "object");
+assert(typeof GetGatewayRateLimitRequest$ === "object");
+assert(typeof GetGatewayRateLimitResponse$ === "object");
 assert(typeof GetGatewayRequest$ === "object");
 assert(typeof GetGatewayResponse$ === "object");
 assert(typeof GetGatewayRuleRequest$ === "object");
@@ -1801,6 +1937,8 @@ assert(typeof InferenceProviderTargetConfiguration$ === "object");
 assert(typeof InferenceTargetConfiguration$ === "object");
 assert(typeof InlineExamplesSource$ === "object");
 assert(typeof Insight$ === "object");
+assert(typeof InstanceLifecycleConfiguration$ === "object");
+assert(typeof InstanceRequirements$ === "object");
 assert(typeof InterceptorConfiguration$ === "object");
 assert(typeof InterceptorInputConfiguration$ === "object");
 assert(typeof InterceptorPayloadExclusionSelector$ === "object");
@@ -1813,13 +1951,19 @@ assert(typeof KmsKeySourceType$ === "object");
 assert(typeof LambdaEvaluatorConfig$ === "object");
 assert(typeof LambdaInterceptorConfiguration$ === "object");
 assert(typeof LambdaTransformConfiguration$ === "object");
+assert(typeof LaunchParameters$ === "object");
+assert(typeof LaunchTemplateSource$ === "object");
+assert(typeof LicenseSpecification$ === "object");
 assert(typeof LifecycleConfiguration$ === "object");
+assert(typeof LimitEntry$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigInput$ === "object");
 assert(typeof LinkedinOauth2ProviderConfigOutput$ === "object");
 assert(typeof ListAgentRuntimeEndpointsRequest$ === "object");
 assert(typeof ListAgentRuntimeEndpointsResponse$ === "object");
 assert(typeof ListAgentRuntimesRequest$ === "object");
 assert(typeof ListAgentRuntimesResponse$ === "object");
+assert(typeof ListAgentRuntimeVersionsByCapacityProviderInput$ === "object");
+assert(typeof ListAgentRuntimeVersionsByCapacityProviderOutput$ === "object");
 assert(typeof ListAgentRuntimeVersionsRequest$ === "object");
 assert(typeof ListAgentRuntimeVersionsResponse$ === "object");
 assert(typeof ListApiKeyCredentialProvidersRequest$ === "object");
@@ -1828,6 +1972,8 @@ assert(typeof ListBrowserProfilesRequest$ === "object");
 assert(typeof ListBrowserProfilesResponse$ === "object");
 assert(typeof ListBrowsersRequest$ === "object");
 assert(typeof ListBrowsersResponse$ === "object");
+assert(typeof ListCapacityProvidersInput$ === "object");
+assert(typeof ListCapacityProvidersOutput$ === "object");
 assert(typeof ListCodeInterpretersRequest$ === "object");
 assert(typeof ListCodeInterpretersResponse$ === "object");
 assert(typeof ListConfigurationBundlesRequest$ === "object");
@@ -1842,6 +1988,8 @@ assert(typeof ListDatasetVersionsRequest$ === "object");
 assert(typeof ListDatasetVersionsResponse$ === "object");
 assert(typeof ListEvaluatorsRequest$ === "object");
 assert(typeof ListEvaluatorsResponse$ === "object");
+assert(typeof ListGatewayRateLimitsRequest$ === "object");
+assert(typeof ListGatewayRateLimitsResponse$ === "object");
 assert(typeof ListGatewayRulesRequest$ === "object");
 assert(typeof ListGatewayRulesResponse$ === "object");
 assert(typeof ListGatewaysRequest$ === "object");
@@ -1943,6 +2091,7 @@ assert(typeof PaymentCredentialProviderItem$ === "object");
 assert(typeof PaymentManagerSummary$ === "object");
 assert(typeof PaymentProviderConfigurationInput$ === "object");
 assert(typeof PaymentProviderConfigurationOutput$ === "object");
+assert(typeof PermissionsConfiguration$ === "object");
 assert(typeof Policy$ === "object");
 assert(typeof PolicyDefinition$ === "object");
 assert(typeof PolicyEngine$ === "object");
@@ -1961,6 +2110,7 @@ assert(typeof ProtocolConfiguration$ === "object");
 assert(typeof ProviderPrefix$ === "object");
 assert(typeof PutResourcePolicyRequest$ === "object");
 assert(typeof PutResourcePolicyResponse$ === "object");
+assert(typeof RateConfig$ === "object");
 assert(typeof RatingScale$ === "object");
 assert(typeof ReasoningConfiguration$ === "object");
 assert(typeof RecordingConfig$ === "object");
@@ -1974,6 +2124,7 @@ assert(typeof RegistrySummary$ === "object");
 assert(typeof RequestHeaderConfiguration$ === "object");
 assert(typeof Resource$ === "object");
 assert(typeof ResourceLocation$ === "object");
+assert(typeof RootVolumeConfiguration$ === "object");
 assert(typeof RouteToTargetAction$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof RuntimeMetadataConfiguration$ === "object");
@@ -2057,6 +2208,8 @@ assert(typeof UpdateAgentRuntimeRequest$ === "object");
 assert(typeof UpdateAgentRuntimeResponse$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderRequest$ === "object");
 assert(typeof UpdateApiKeyCredentialProviderResponse$ === "object");
+assert(typeof UpdateCapacityProviderInput$ === "object");
+assert(typeof UpdateCapacityProviderOutput$ === "object");
 assert(typeof UpdateConfigurationBundleRequest$ === "object");
 assert(typeof UpdateConfigurationBundleResponse$ === "object");
 assert(typeof UpdatedA2aDescriptor$ === "object");
@@ -2084,6 +2237,8 @@ assert(typeof UpdatedSynchronizationType$ === "object");
 assert(typeof UpdatedToolsDefinition$ === "object");
 assert(typeof UpdateEvaluatorRequest$ === "object");
 assert(typeof UpdateEvaluatorResponse$ === "object");
+assert(typeof UpdateGatewayRateLimitRequest$ === "object");
+assert(typeof UpdateGatewayRateLimitResponse$ === "object");
 assert(typeof UpdateGatewayRequest$ === "object");
 assert(typeof UpdateGatewayResponse$ === "object");
 assert(typeof UpdateGatewayRuleRequest$ === "object");
@@ -2129,7 +2284,9 @@ assert(typeof ValidationExceptionField$ === "object");
 assert(typeof VersionCreatedBySource$ === "object");
 assert(typeof VersionFilter$ === "object");
 assert(typeof VersionLineageMetadata$ === "object");
+assert(typeof VolumeConfiguration$ === "object");
 assert(typeof VpcConfig$ === "object");
+assert(typeof VpcConfiguration$ === "object");
 assert(typeof WafConfiguration$ === "object");
 assert(typeof WeightedOverride$ === "object");
 assert(typeof WeightedRoute$ === "object");
@@ -2146,6 +2303,9 @@ assert(typeof BrowserEnterprisePolicyType === "object");
 assert(typeof BrowserNetworkMode === "object");
 assert(typeof BrowserProfileStatus === "object");
 assert(typeof BrowserStatus === "object");
+assert(typeof CapacityProviderStatus === "object");
+assert(typeof CapacityProviderStatusCode === "object");
+assert(typeof CapacityReservationPreference === "object");
 assert(typeof ClaimMatchOperatorType === "object");
 assert(typeof ClientAuthenticationMethodType === "object");
 assert(typeof ClusteringFrequency === "object");
@@ -2160,6 +2320,7 @@ assert(typeof DatasetSchemaType === "object");
 assert(typeof DatasetStatus === "object");
 assert(typeof DescriptorType === "object");
 assert(typeof DraftStatus === "object");
+assert(typeof EbsVolumeType === "object");
 assert(typeof EndpointIpAddressType === "object");
 assert(typeof EnforcementMode === "object");
 assert(typeof EvaluatorLevel === "object");
@@ -2172,6 +2333,7 @@ assert(typeof FindingType === "object");
 assert(typeof GatewayInterceptionPoint === "object");
 assert(typeof GatewayPolicyEngineMode === "object");
 assert(typeof GatewayProtocolType === "object");
+assert(typeof GatewayRateLimitStatus === "object");
 assert(typeof GatewayRuleStatus === "object");
 assert(typeof GatewayStatus === "object");
 assert(typeof HarnessBedrockApiFormat === "object");
@@ -2191,11 +2353,13 @@ assert(typeof MemoryStrategyStatus === "object");
 assert(typeof MemoryStrategyType === "object");
 assert(typeof MemoryView === "object");
 assert(typeof MetadataValueType === "object");
+assert(typeof Monitoring === "object");
 assert(typeof NetworkMode === "object");
 assert(typeof OAuthGrantType === "object");
 assert(typeof OnBehalfOfTokenExchangeGrantTypeType === "object");
 assert(typeof OnlineEvaluationConfigStatus === "object");
 assert(typeof OnlineEvaluationExecutionStatus === "object");
+assert(typeof OperatingSystem === "object");
 assert(typeof OverrideType === "object");
 assert(typeof PassthroughProtocolType === "object");
 assert(typeof PaymentConnectorStatus === "object");
@@ -2203,6 +2367,7 @@ assert(typeof PaymentConnectorType === "object");
 assert(typeof PaymentCredentialProviderVendorType === "object");
 assert(typeof PaymentManagerStatus === "object");
 assert(typeof PaymentsAuthorizerType === "object");
+assert(typeof Period === "object");
 assert(typeof PolicyEngineStatus === "object");
 assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
@@ -2244,6 +2409,8 @@ assert(ResourceLimitExceededException.prototype instanceof BedrockAgentCoreContr
 assert(typeof ResourceLimitExceededException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
+assert(RetryableConflictException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(typeof RetryableConflictException$ === "object");
 assert(ServiceException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(typeof ServiceException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreControlServiceException);
@@ -2273,10 +2440,12 @@ assert(typeof waitUntilPolicyGenerationCompleted === "function");
 // paginators
 assert(typeof paginateListAgentRuntimeEndpoints === "function");
 assert(typeof paginateListAgentRuntimeVersions === "function");
+assert(typeof paginateListAgentRuntimeVersionsByCapacityProvider === "function");
 assert(typeof paginateListAgentRuntimes === "function");
 assert(typeof paginateListApiKeyCredentialProviders === "function");
 assert(typeof paginateListBrowserProfiles === "function");
 assert(typeof paginateListBrowsers === "function");
+assert(typeof paginateListCapacityProviders === "function");
 assert(typeof paginateListCodeInterpreters === "function");
 assert(typeof paginateListConfigurationBundleVersions === "function");
 assert(typeof paginateListConfigurationBundles === "function");
@@ -2284,6 +2453,7 @@ assert(typeof paginateListDatasetExamples === "function");
 assert(typeof paginateListDatasetVersions === "function");
 assert(typeof paginateListDatasets === "function");
 assert(typeof paginateListEvaluators === "function");
+assert(typeof paginateListGatewayRateLimits === "function");
 assert(typeof paginateListGatewayRules === "function");
 assert(typeof paginateListGatewayTargets === "function");
 assert(typeof paginateListGateways === "function");

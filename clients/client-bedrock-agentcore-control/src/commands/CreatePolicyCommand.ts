@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_1";
+import type { CreatePolicyRequest, CreatePolicyResponse } from "../models/models_2";
 import { CreatePolicy$ } from "../schemas/schemas_0";
 
 /**

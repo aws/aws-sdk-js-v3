@@ -203,6 +203,10 @@ export interface GetHarnessCommandOutput extends GetHarnessResponse, __MetadataB
  * //               accessPointArn: "STRING_VALUE", // required
  * //               mountPath: "STRING_VALUE", // required
  * //             },
+ * //             capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ * //               volumeName: "STRING_VALUE", // required
+ * //               mountPath: "STRING_VALUE", // required
+ * //             },
  * //           },
  * //         ],
  * //       },

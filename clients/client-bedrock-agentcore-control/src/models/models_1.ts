@@ -8,15 +8,17 @@ import type {
   ContentLevel,
   ContentType,
   CredentialProviderVendorType,
-  EnforcementMode,
   ExtractionType,
   FilterOperator,
-  FindingType,
   HarnessBedrockApiFormat,
+  HarnessEndpointStatus,
+  HarnessManagedMemoryStrategyType,
   HarnessOpenAiApiFormat,
   HarnessStatus,
   HarnessToolType,
   HarnessTruncationStrategy,
+  KeyType,
+  ListingMode,
   MemoryStatus,
   MemoryStrategyStatus,
   MemoryStrategyType,
@@ -32,35 +34,1253 @@ import type {
   PaymentManagerStatus,
   PaymentsAuthorizerType,
   PolicyEngineStatus,
-  PolicyGenerationStatus,
-  PolicyStatus,
-  PolicyValidationMode,
-  RegistryRecordCredentialProviderType,
-  RegistryRecordOAuthGrantType,
+  RestApiMethod,
   SecretSourceType,
   SigningAlgorithm,
   Status,
+  TargetStatus,
+  TargetType,
 } from "./enums";
 import type {
-  A2aDescriptor,
-  AgentSkillsDescriptor,
   AuthorizerConfiguration,
+  ContainerConfiguration,
   FilesystemConfiguration,
-  HarnessAgentCoreMemoryConfiguration,
-  HarnessDisabledMemoryConfiguration,
-  HarnessEnvironmentArtifact,
-  HarnessEnvironmentProviderRequest,
-  HarnessManagedMemoryConfiguration,
+  InferenceConnectorTargetConfiguration,
   LifecycleConfiguration,
   NetworkConfiguration,
   OAuthCredentialProvider,
   PrivateEndpoint,
   PrivateEndpointOverride,
+  S3Configuration,
   Secret,
   SecretReference,
   Unit,
+  UpdatedDescription,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The configuration that controls how a provider prefix is applied to model IDs during translation.</p>
+ * @public
+ */
+export interface ProviderPrefix {
+  /**
+   * <p>Whether clients can omit the provider prefix from model IDs. If <code>true</code>, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. The default is <code>false</code>.</p>
+   * @public
+   */
+  strip?: boolean | undefined;
+
+  /**
+   * <p>The single character that separates the provider prefix from the model name (for example, <code>.</code>). The default is <code>.</code>.</p>
+   * @public
+   */
+  separator?: string | undefined;
+}
+
+/**
+ * <p>The configuration that translates model IDs between client-facing names and provider model IDs.</p>
+ * @public
+ */
+export interface ModelMapping {
+  /**
+   * <p>The provider prefix configuration used for model ID translation.</p>
+   * @public
+   */
+  providerPrefix?: ProviderPrefix | undefined;
+}
+
+/**
+ * <p>A model entry that specifies a model supported for an inference operation.</p>
+ * @public
+ */
+export interface ModelEntry {
+  /**
+   * <p>The model ID or glob pattern that identifies the model (for example, <code>anthropic.claude-opus-*</code> or <code>openai.gpt-oss-*</code>).</p>
+   * @public
+   */
+  model: string | undefined;
+}
+
+/**
+ * <p>The configuration for a specific inference operation, including its request path and the models that the operation supports.</p>
+ * @public
+ */
+export interface InferenceOperationConfiguration {
+  /**
+   * <p>The request path for this operation (for example, <code>/v1/messages</code> or <code>/v1/responses</code>).</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The provider path to forward requests to, if it differs from the request path. For example, <code>/anthropic/v1/messages</code> when the provider expects a different path than the client-facing <code>/v1/messages</code>.</p>
+   * @public
+   */
+  providerPath?: string | undefined;
+
+  /**
+   * <p>The list of models supported for this operation.</p>
+   * @public
+   */
+  models?: ModelEntry[] | undefined;
+}
+
+/**
+ * <p>The configuration for a provider-based inference target. This configuration explicitly defines the endpoint, model mapping, and operations used to route requests to a large language model (LLM) provider.</p>
+ * @public
+ */
+export interface InferenceProviderTargetConfiguration {
+  /**
+   * <p>The HTTPS endpoint of the inference provider that the gateway forwards requests to.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The configuration that translates client-facing model IDs to the model IDs expected by the provider.</p>
+   * @public
+   */
+  modelMapping?: ModelMapping | undefined;
+
+  /**
+   * <p>A list of per-operation configurations that map request paths to the models supported for each operation.</p>
+   * @public
+   */
+  operations?: InferenceOperationConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration for an inference target. An inference target routes requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider.</p>
+ * @public
+ */
+export type InferenceTargetConfiguration =
+  | InferenceTargetConfiguration.ConnectorMember
+  | InferenceTargetConfiguration.ProviderMember
+  | InferenceTargetConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace InferenceTargetConfiguration {
+  /**
+   * <p>The connector-based inference configuration. Use this option to route requests to an LLM provider through a built-in connector that includes predefined provider rules.</p>
+   * @public
+   */
+  export interface ConnectorMember {
+    connector: InferenceConnectorTargetConfiguration;
+    provider?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The provider-based inference configuration. Use this option to explicitly configure the endpoint, model mapping, and operations for an LLM provider.</p>
+   * @public
+   */
+  export interface ProviderMember {
+    connector?: never;
+    provider: InferenceProviderTargetConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    connector?: never;
+    provider?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    connector: (value: InferenceConnectorTargetConfiguration) => T;
+    provider: (value: InferenceProviderTargetConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.</p>
+ * @public
+ */
+export interface ApiGatewayToolFilter {
+  /**
+   * <p>Resource path to match in the REST API. Supports exact paths (for example, <code>/pets</code>) or wildcard paths (for example, <code>/pets/*</code> to match all paths under <code>/pets</code>). Must match existing paths in the REST API.</p>
+   * @public
+   */
+  filterPath: string | undefined;
+
+  /**
+   * <p>The methods to filter for.</p>
+   * @public
+   */
+  methods: RestApiMethod[] | undefined;
+}
+
+/**
+ * <p>Settings to override configurations for a tool.</p>
+ * @public
+ */
+export interface ApiGatewayToolOverride {
+  /**
+   * <p>The name of tool. Identifies the tool in the Model Context Protocol.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Resource path in the REST API (e.g., <code>/pets</code>). Must explicitly match an existing path in the REST API.</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>The HTTP method to expose for the specified path.</p>
+   * @public
+   */
+  method: RestApiMethod | undefined;
+}
+
+/**
+ * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
+ * @public
+ */
+export interface ApiGatewayToolConfiguration {
+  /**
+   * <p>A list of explicit tool definitions with optional custom names and descriptions.</p>
+   * @public
+   */
+  toolOverrides?: ApiGatewayToolOverride[] | undefined;
+
+  /**
+   * <p>A list of path and method patterns to expose as tools using metadata from the REST API's OpenAPI specification.</p>
+   * @public
+   */
+  toolFilters: ApiGatewayToolFilter[] | undefined;
+}
+
+/**
+ * <p>The configuration for an Amazon API Gateway target.</p>
+ * @public
+ */
+export interface ApiGatewayTargetConfiguration {
+  /**
+   * <p>The ID of the API Gateway REST API.</p>
+   * @public
+   */
+  restApiId: string | undefined;
+
+  /**
+   * <p>The ID of the stage of the REST API to add as a target.</p>
+   * @public
+   */
+  stage: string | undefined;
+
+  /**
+   * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
+   * @public
+   */
+  apiGatewayToolConfiguration: ApiGatewayToolConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies a parameter override for a connector tool, allowing you to control parameter visibility and descriptions.</p>
+ * @public
+ */
+export interface ConnectorParameterOverride {
+  /**
+   * <p>A JSON Pointer path identifying the parameter (for example, <code>/numberOfResults</code> or <code>/filter</code>).</p>
+   * @public
+   */
+  path: string | undefined;
+
+  /**
+   * <p>An agent-facing description override for this parameter.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Whether this parameter is visible to the agent. If not specified, uses the service default.</p>
+   * @public
+   */
+  visible?: boolean | undefined;
+}
+
+/**
+ * <p>Configuration for a single tool within a connector.</p>
+ * @public
+ */
+export interface ConnectorConfiguration {
+  /**
+   * <p>The tool or operation name (for example, <code>retrieve</code> or <code>webSearch</code>).</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An agent-facing description override for this tool.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Parameters to set as fixed or default values when provisioning this tool.</p>
+   * @public
+   */
+  parameterValues?: __DocumentType | undefined;
+
+  /**
+   * <p>Parameters to expose to the agent at runtime, with optional description overrides.</p>
+   * @public
+   */
+  parameterOverrides?: ConnectorParameterOverride[] | undefined;
+}
+
+/**
+ * <p>The source identifying the connector integration.</p>
+ * @public
+ */
+export interface ConnectorSource {
+  /**
+   * <p>The identifier for the connector integration (for example, <code>bedrock-knowledge-bases</code>).</p>
+   * @public
+   */
+  connectorId: string | undefined;
+
+  /**
+   * <p>The version of the connector to use (for example, <code>1.1.0</code>). If you don't specify a version, the service uses the latest available version.</p>
+   * @public
+   */
+  version?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.</p>
+ * @public
+ */
+export interface ConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which connector to use.</p>
+   * @public
+   */
+  source: ConnectorSource | undefined;
+
+  /**
+   * <p>A list of tool names to enable from this connector. If absent, all tools provided by the connector are enabled.</p>
+   * @public
+   */
+  enabled?: string[] | undefined;
+
+  /**
+   * <p>A list of per-tool configurations for the connector.</p>
+   * @public
+   */
+  configurations?: ConnectorConfiguration[] | undefined;
+}
+
+/**
+ * <p>The MCP tool schema configuration for an MCP server target. The tool schema must be aligned with the MCP specification.</p>
+ * @public
+ */
+export type McpToolSchemaConfiguration =
+  | McpToolSchemaConfiguration.InlinePayloadMember
+  | McpToolSchemaConfiguration.S3Member
+  | McpToolSchemaConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace McpToolSchemaConfiguration {
+  /**
+   * <p>The Amazon S3 location of the tool schema. This location contains the schema definition file.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Configuration;
+    inlinePayload?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The inline payload containing the MCP tool schema definition.</p>
+   * @public
+   */
+  export interface InlinePayloadMember {
+    s3?: never;
+    inlinePayload: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    inlinePayload?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Configuration) => T;
+    inlinePayload: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The target configuration for the MCP server.</p>
+ * @public
+ */
+export interface McpServerTargetConfiguration {
+  /**
+   * <p>The endpoint for the MCP server target configuration.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. Dynamic tool discovery/synchronization will be disabled when target is configured with mcpToolSchema.</p>
+   * @public
+   */
+  mcpToolSchema?: McpToolSchemaConfiguration | undefined;
+
+  /**
+   * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
+   * @public
+   */
+  listingMode?: ListingMode | undefined;
+
+  /**
+   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * @public
+   */
+  resourcePriority?: number | undefined;
+}
+
+/**
+ * <p>OAuth2-specific authorization data, including the authorization URL and user identifier for the authorization session.</p>
+ * @public
+ */
+export interface OAuth2AuthorizationData {
+  /**
+   * <p>The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.</p>
+   * @public
+   */
+  authorizationUrl: string | undefined;
+
+  /**
+   * <p>The user identifier associated with the OAuth2 authorization session that is defined by AgentCore Gateway.</p>
+   * @public
+   */
+  userId?: string | undefined;
+}
+
+/**
+ * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+ * @public
+ */
+export type AuthorizationData =
+  | AuthorizationData.Oauth2Member
+  | AuthorizationData.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AuthorizationData {
+  /**
+   * <p>OAuth2 authorization data for the gateway target.</p>
+   * @public
+   */
+  export interface Oauth2Member {
+    oauth2: OAuth2AuthorizationData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    oauth2?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    oauth2: (value: OAuth2AuthorizationData) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>
+ * @public
+ */
+export interface ManagedResourceDetails {
+  /**
+   * <p>The domain associated with this managed resource.</p>
+   * @public
+   */
+  domain?: string | undefined;
+
+  /**
+   * <p>The ARN of the VPC Lattice resource gateway created in your account.</p>
+   * @public
+   */
+  resourceGatewayArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the service network resource association.</p>
+   * @public
+   */
+  resourceAssociationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayTargetRequest {
+  /**
+   * <p>The unique identifier of the gateway associated with the target.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway target to delete.</p>
+   * @public
+   */
+  targetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayTargetResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
+   * @public
+   */
+  gatewayArn: string | undefined;
+
+  /**
+   * <p>The unique identifier of the deleted gateway target.</p>
+   * @public
+   */
+  targetId: string | undefined;
+
+  /**
+   * <p>The current status of the gateway target deletion.</p>
+   * @public
+   */
+  status: TargetStatus | undefined;
+
+  /**
+   * <p>The reasons for the current status of the gateway target deletion.</p>
+   * @public
+   */
+  statusReasons?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGatewayTargetRequest {
+  /**
+   * <p>The identifier of the gateway that contains the target.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the target to retrieve.</p>
+   * @public
+   */
+  targetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayTargetsRequest {
+  /**
+   * <p>The identifier of the gateway to list targets for.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a gateway target. A target represents an endpoint that the gateway can connect to.</p>
+ * @public
+ */
+export interface TargetSummary {
+  /**
+   * <p>The unique identifier of the target.</p>
+   * @public
+   */
+  targetId: string | undefined;
+
+  /**
+   * <p>The name of the target.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the target.</p>
+   * @public
+   */
+  status: TargetStatus | undefined;
+
+  /**
+   * <p>The description of the target.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The timestamp when the target was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the target was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>Priority for resolving resource URI conflicts across targets. Lower values take precedence. Defaults to 1000 when not set.</p>
+   * @public
+   */
+  resourcePriority?: number | undefined;
+
+  /**
+   * <p>The timestamp when the target was last synchronized.</p>
+   * @public
+   */
+  lastSynchronizedAt?: Date | undefined;
+
+  /**
+   * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
+   * @public
+   */
+  authorizationData?: AuthorizationData | undefined;
+
+  /**
+   * <p>The type of the target.</p>
+   * @public
+   */
+  targetType?: TargetType | undefined;
+
+  /**
+   * <p>The listing mode for the target. MCP resources for <code>DEFAULT</code> targets are cached at the control plane for faster access. MCP resources for <code>DYNAMIC</code> targets are retrieved dynamically when listing tools.</p>
+   * @public
+   */
+  listingMode?: ListingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayTargetsResponse {
+  /**
+   * <p>The list of gateway target summaries.</p>
+   * @public
+   */
+  items: TargetSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SynchronizeGatewayTargetsRequest {
+  /**
+   * <p>The gateway Identifier.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The target ID list.</p>
+   * @public
+   */
+  targetIdList: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the resource policy.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The resource policy associated with the specified resource.</p>
+   * @public
+   */
+  policy?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTokenVaultRequest {
+  /**
+   * <p>The unique identifier of the token vault to retrieve.</p>
+   * @public
+   */
+  tokenVaultId?: string | undefined;
+}
+
+/**
+ * <p>Contains the KMS configuration for a resource.</p>
+ * @public
+ */
+export interface KmsConfiguration {
+  /**
+   * <p>The type of KMS key (CustomerManagedKey or ServiceManagedKey).</p>
+   * @public
+   */
+  keyType: KeyType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTokenVaultResponse {
+  /**
+   * <p>The ID of the token vault.</p>
+   * @public
+   */
+  tokenVaultId: string | undefined;
+
+  /**
+   * <p>The KMS configuration for the token vault.</p>
+   * @public
+   */
+  kmsConfiguration: KmsConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the token vault was last modified.</p>
+   * @public
+   */
+  lastModifiedDate: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness to create an endpoint for.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to and serves invocations from.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>A description of the endpoint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Tags to apply to the endpoint resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Representation of a harness endpoint. An endpoint is a named, stable reference to a specific version of a harness that callers invoke, allowing the underlying version to be updated without changing how the agent is invoked.</p>
+ * @public
+ */
+export interface HarnessEndpoint {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessName: string | undefined;
+
+  /**
+   * <p>The name of the endpoint.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The ARN of the endpoint.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The status of the endpoint.</p>
+   * @public
+   */
+  status: HarnessEndpointStatus | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the endpoint was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The harness version that the endpoint is currently serving.</p>
+   * @public
+   */
+  liveVersion?: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to. While an update is in progress, this can differ from the live version until the endpoint finishes transitioning.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>The description of the endpoint.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The reason the endpoint's last create or update operation failed.</p>
+   * @public
+   */
+  failureReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateHarnessEndpointResponse {
+  /**
+   * <p>The endpoint that was created.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to delete.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteHarnessEndpointResponse {
+  /**
+   * <p>The endpoint that was deleted.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to retrieve.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetHarnessEndpointResponse {
+  /**
+   * <p>The endpoint resource.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessEndpointsRequest {
+  /**
+   * <p>The ID of the harness whose endpoints are listed.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHarnessEndpointsResponse {
+  /**
+   * <p>The list of harness endpoints.</p>
+   * @public
+   */
+  endpoints: HarnessEndpoint[] | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessEndpointRequest {
+  /**
+   * <p>The ID of the harness that the endpoint belongs to.</p>
+   * @public
+   */
+  harnessId: string | undefined;
+
+  /**
+   * <p>The name of the endpoint to update.</p>
+   * @public
+   */
+  endpointName: string | undefined;
+
+  /**
+   * <p>The harness version that the endpoint points to. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  targetVersion?: string | undefined;
+
+  /**
+   * <p>A description of the endpoint. If not specified, the existing value is retained.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateHarnessEndpointResponse {
+  /**
+   * <p>The updated endpoint.</p>
+   * @public
+   */
+  endpoint: HarnessEndpoint | undefined;
+}
+
+/**
+ * <p>The AgentCore Runtime environment request configuration.</p>
+ * @public
+ */
+export interface HarnessAgentCoreRuntimeEnvironmentRequest {
+  /**
+   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
+   * @public
+   */
+  lifecycleConfiguration?: LifecycleConfiguration | undefined;
+
+  /**
+   * <p>SecurityConfig for the Agent.</p>
+   * @public
+   */
+  networkConfiguration?: NetworkConfiguration | undefined;
+
+  /**
+   * <p>The filesystem configurations for the runtime environment.</p>
+   * @public
+   */
+  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+}
+
+/**
+ * <p>The environment provider request configuration.</p>
+ * @public
+ */
+export type HarnessEnvironmentProviderRequest =
+  | HarnessEnvironmentProviderRequest.AgentCoreRuntimeEnvironmentMember
+  | HarnessEnvironmentProviderRequest.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentProviderRequest {
+  /**
+   * <p>The AgentCore Runtime environment configuration.</p>
+   * @public
+   */
+  export interface AgentCoreRuntimeEnvironmentMember {
+    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironmentRequest;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    agentCoreRuntimeEnvironment?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironmentRequest) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The environment artifact for a harness, such as a container image containing custom dependencies.</p>
+ * @public
+ */
+export type HarnessEnvironmentArtifact =
+  | HarnessEnvironmentArtifact.ContainerConfigurationMember
+  | HarnessEnvironmentArtifact.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace HarnessEnvironmentArtifact {
+  /**
+   * <p>Representation of a container configuration.</p>
+   * @public
+   */
+  export interface ContainerConfigurationMember {
+    containerConfiguration: ContainerConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    containerConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    containerConfiguration: (value: ContainerConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Configuration for memory retrieval within a namespace.</p>
+ * @public
+ */
+export interface HarnessAgentCoreMemoryRetrievalConfig {
+  /**
+   * <p>The maximum number of memory entries to retrieve.</p>
+   * @public
+   */
+  topK?: number | undefined;
+
+  /**
+   * <p>The minimum relevance score for retrieved memories.</p>
+   * @public
+   */
+  relevanceScore?: number | undefined;
+
+  /**
+   * <p>The ID of the retrieval strategy to use.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+}
+
+/**
+ * <p>Configuration for AgentCore Memory integration.</p>
+ * @public
+ */
+export interface HarnessAgentCoreMemoryConfiguration {
+  /**
+   * <p>The ARN of the AgentCore Memory resource.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The actor ID for memory operations.</p>
+   * @public
+   */
+  actorId?: string | undefined;
+
+  /**
+   * <p>The number of messages to retrieve from memory.</p>
+   * @public
+   */
+  messagesCount?: number | undefined;
+
+  /**
+   * <p>The retrieval configuration for long-term memory, mapping namespace path templates to retrieval settings.</p>
+   * @public
+   */
+  retrievalConfig?: Record<string, HarnessAgentCoreMemoryRetrievalConfig> | undefined;
+}
+
+/**
+ * <p>Explicitly opt out of memory.</p>
+ * @public
+ */
+export interface HarnessDisabledMemoryConfiguration {}
+
+/**
+ * <p>Configuration for managed memory creation.</p>
+ * @public
+ */
+export interface HarnessManagedMemoryConfiguration {
+  /**
+   * <p>The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update input.</p>
+   * @public
+   */
+  arn?: string | undefined;
+
+  /**
+   * <p>Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].</p>
+   * @public
+   */
+  strategies?: HarnessManagedMemoryStrategyType[] | undefined;
+
+  /**
+   * <p>Event retention in days. Defaults to 30.</p>
+   * @public
+   */
+  eventExpiryDuration?: number | undefined;
+
+  /**
+   * <p>Customer-managed KMS key. Defaults to AWS-owned key. Not updatable after creation.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
 
 /**
  * <p>The memory configuration for a harness.</p>
@@ -8674,18 +9894,6 @@ export interface ListPolicyEngineSummariesResponse {
 }
 
 /**
- * <p>Wrapper for updating an optional Description field with PATCH semantics. When present in an update request, the description is replaced with optionalValue. When absent, the description is left unchanged. To unset the description, include the wrapper with optionalValue not specified.</p>
- * @public
- */
-export interface UpdatedDescription {
-  /**
-   * <p>Represents an optional value that is used to update the human-readable description of the resource. If not specified, it will clear the current description of the resource.</p>
-   * @public
-   */
-  optionalValue?: string | undefined;
-}
-
-/**
  * @public
  */
 export interface UpdatePolicyEngineRequest {
@@ -8776,1677 +9984,4 @@ export interface GetPolicyGenerationRequest {
    * @public
    */
   policyEngineId: string | undefined;
-}
-
-/**
- * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
- * @public
- */
-export type Resource =
-  | Resource.ArnMember
-  | Resource.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Resource {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource. This globally unique identifier specifies the exact resource that policies will be evaluated against for access control decisions. </p>
-   * @public
-   */
-  export interface ArnMember {
-    arn: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    arn?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    arn: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationResponse {
-  /**
-   * <p>The identifier of the policy engine associated with this policy generation. This confirms the policy engine context for the generation operation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy generation request. This matches the generation ID provided in the request and serves as the tracking identifier.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for the policy generation request. This helps identify and track generation operations across multiple requests.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy generation. This globally unique identifier can be used for tracking, auditing, and cross-service references.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with the policy generation. This provides context about the target resources for which the policies are being generated.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation request was created. This is used for tracking and auditing generation operations and their lifecycle.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation was last updated. This tracks the progress of the generation process and any status changes.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the policy generation. This indicates whether the generation is in progress, completed successfully, or failed during processing.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>The findings and results from the policy generation process. This includes any issues, recommendations, validation results, or insights from the generated policies.</p>
-   * @public
-   */
-  findings?: string | undefined;
-
-  /**
-   * <p>Additional information about the generation status. This provides details about any failures, warnings, or the current state of the generation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationSummaryRequest {
-  /**
-   * <p>The unique identifier of the policy generation request to retrieve the summary for.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine associated with the policy generation request.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationSummaryResponse {
-  /**
-   * <p>The identifier of the policy engine associated with this policy generation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for the policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with the policy generation.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of the policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>The findings from the policy generation process, if available.</p>
-   * @public
-   */
-  findings?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationAssetsRequest {
-  /**
-   * <p>The unique identifier of the policy generation request whose assets are to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call that has completed processing.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and ensures assets are retrieved from the correct policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> call. Use this token to retrieve the next page of assets when the response is paginated due to large numbers of generated policy options.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy generation assets to return in a single response. If not specified, the default is 10 assets per page, with a maximum of 100 per page. This helps control response size when dealing with policy generations that produce many alternative policy options.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-}
-
-/**
- * <p>Represents a Cedar policy statement within the AgentCore Policy system. Cedar is a policy language designed for authorization that provides human-readable, analyzable, and high-performance policy evaluation for controlling agent behavior and access decisions. </p>
- * @public
- */
-export interface CedarPolicy {
-  /**
-   * <p>The Cedar policy statement that defines the authorization logic. This statement follows Cedar syntax and specifies principals, actions, resources, and conditions that determine when access should be allowed or denied.</p>
-   * @public
-   */
-  statement: string | undefined;
-}
-
-/**
- * <p>An AgentCore policy statement, which supports plain Cedar policies as well as guardrails definitions.</p>
- * @public
- */
-export interface PolicyStatement {
-  /**
-   * <p>The body of the AgentCore policy statement. Contains the policy logic, which can be a Cedar policy or a guardrails definition.</p>
-   * @public
-   */
-  statement: string | undefined;
-}
-
-/**
- * <p>Represents the information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
- * @public
- */
-export interface PolicyGenerationDetails {
-  /**
-   * <p>The unique identifier for this policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The unique identifier for this generated policy asset within the policy generation request.</p>
-   * @public
-   */
-  policyGenerationAssetId: string | undefined;
-}
-
-/**
- * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
- * @public
- */
-export type PolicyDefinition =
-  | PolicyDefinition.CedarMember
-  | PolicyDefinition.PolicyMember
-  | PolicyDefinition.PolicyGenerationMember
-  | PolicyDefinition.$UnknownMember;
-
-/**
- * @public
- */
-export namespace PolicyDefinition {
-  /**
-   * <p>The Cedar policy definition within the policy definition structure. This contains the Cedar policy statement that defines the authorization logic using Cedar's human-readable, analyzable policy language. Cedar policies specify principals (who can access), actions (what operations are allowed), resources (what can be accessed), and optional conditions for fine-grained control. Cedar provides a formal policy language designed for authorization with deterministic evaluation, making policies testable, reviewable, and auditable. All Cedar policies follow a default-deny model where actions are denied unless explicitly permitted, and forbid policies always override permit policies.</p>
-   * @public
-   */
-  export interface CedarMember {
-    cedar: CedarPolicy;
-    policyGeneration?: never;
-    policy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The generated policy asset information within the policy definition structure. This contains information identifying a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
-   * @public
-   */
-  export interface PolicyGenerationMember {
-    cedar?: never;
-    policyGeneration: PolicyGenerationDetails;
-    policy?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An AgentCore policy statement that defines the access control rules. The statement can be a Cedar policy or a guardrails definition.</p>
-   * @public
-   */
-  export interface PolicyMember {
-    cedar?: never;
-    policyGeneration?: never;
-    policy: PolicyStatement;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    cedar?: never;
-    policyGeneration?: never;
-    policy?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    cedar: (value: CedarPolicy) => T;
-    policyGeneration: (value: PolicyGenerationDetails) => T;
-    policy: (value: PolicyStatement) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Represents a finding or issue discovered during policy generation or validation. Findings provide insights about potential problems, recommendations, or validation results from policy analysis operations. Finding types include: VALID (policy is ready to use), INVALID (policy has validation errors that must be fixed), NOT_TRANSLATABLE (input couldn't be converted to policy), ALLOW_ALL (policy would allow all actions, potential security risk), ALLOW_NONE (policy would allow no actions, unusable), DENY_ALL (policy would deny all actions, may be too restrictive), and DENY_NONE (policy would deny no actions, ineffective). Review all findings before creating policies from generated assets to ensure they match your security requirements.</p>
- * @public
- */
-export interface Finding {
-  /**
-   * <p>The type or category of the finding. This classifies the finding as an error, warning, recommendation, or informational message to help users understand the severity and nature of the issue.</p>
-   * @public
-   */
-  type?: FindingType | undefined;
-
-  /**
-   * <p>A human-readable description of the finding. This provides detailed information about the issue, recommendation, or validation result to help users understand and address the finding. </p>
-   * @public
-   */
-  description?: string | undefined;
-}
-
-/**
- * <p>Represents a generated policy asset from the AI-powered policy generation process within the AgentCore Policy system. Each asset contains a Cedar policy statement generated from natural language input, along with associated metadata and analysis findings to help users evaluate and select the most appropriate policy option.</p>
- * @public
- */
-export interface PolicyGenerationAsset {
-  /**
-   * <p>The unique identifier for this generated policy asset within the policy generation request. This ID can be used to reference specific generated policy options when creating actual policies from the generation results.</p>
-   * @public
-   */
-  policyGenerationAssetId: string | undefined;
-
-  /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
-   * @public
-   */
-  definition?: PolicyDefinition | undefined;
-
-  /**
-   * <p>The portion of the original natural language input that this generated policy asset addresses. This helps users understand which part of their policy description was translated into this specific Cedar policy statement, enabling better policy selection and refinement. When a single natural language input describes multiple authorization requirements, the generation process creates separate policy assets for each requirement, with each asset's rawTextFragment showing which requirement it addresses. Use this mapping to verify that all parts of your natural language input were correctly translated into Cedar policies.</p>
-   * @public
-   */
-  rawTextFragment: string | undefined;
-
-  /**
-   * <p>Analysis findings and insights related to this specific generated policy asset. These findings may include validation results, potential issues, or recommendations for improvement to help users evaluate the quality and appropriateness of the generated policy.</p>
-   * @public
-   */
-  findings: Finding[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationAssetsResponse {
-  /**
-   * <p>An array of generated policy assets including Cedar policies and related artifacts from the AI-powered policy generation process. Each asset represents a different policy option or variation generated from the original natural language input.</p>
-   * @public
-   */
-  policyGenerationAssets?: PolicyGenerationAsset[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationAssets.html">ListPolicyGenerationAssets</a> calls to retrieve additional assets. This token is only present when there are more generated policy assets available beyond the current response.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationsRequest {
-  /**
-   * <p>A pagination token for retrieving additional policy generations when results are paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy generations to return in a single response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policy generations to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * <p>Represents a policy generation request within the AgentCore Policy system. Tracks the AI-powered conversion of natural language descriptions into Cedar policy statements, enabling users to author policies by describing authorization requirements in plain English. The generation process analyzes the natural language input along with the Gateway's tool context and Cedar schema to produce one or more validated policy options. Each generation request tracks the status of the conversion process and maintains findings about the generated policies, including validation results and potential issues. Generated policy assets remain available for one week after successful generation, allowing time to review and create policies from the generated options.</p>
- * @public
- */
-export interface PolicyGeneration {
-  /**
-   * <p>The identifier of the policy engine associated with this generation request.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier for this policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for this policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of this policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with this policy generation.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of this policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Findings and insights from this policy generation process.</p>
-   * @public
-   */
-  findings?: string | undefined;
-
-  /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationsResponse {
-  /**
-   * <p>An array of policy generation objects that match the specified criteria.</p>
-   * @public
-   */
-  policyGenerations: PolicyGeneration[] | undefined;
-
-  /**
-   * <p>A pagination token for retrieving additional policy generations if more results are available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationSummariesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy generation summaries to return in a single response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policy generation summaries to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-}
-
-/**
- * <p>Represents a metadata-only summary of a policy generation resource. This structure contains resource identifiers, status, timestamps, and findings without customer-encrypted fields such as status reasons. Policy generation summaries are returned by operations that do not require access to the customer's KMS key.</p>
- * @public
- */
-export interface PolicyGenerationSummary {
-  /**
-   * <p>The identifier of the policy engine associated with this generation request.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier for this policy generation request.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for this policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of this policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with this policy generation.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when this policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The current status of this policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Findings and insights from this policy generation process.</p>
-   * @public
-   */
-  findings?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicyGenerationSummariesResponse {
-  /**
-   * <p>An array of policy generation summary objects that match the specified criteria. Each summary contains resource identifiers, status, timestamps, and findings without customer-encrypted content.</p>
-   * @public
-   */
-  policyGenerations: PolicyGenerationSummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicyGenerationSummaries.html">ListPolicyGenerationSummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Represents content input for policy generation operations. This structure encapsulates the natural language descriptions or other content formats that are used as input for AI-powered policy generation.</p>
- * @public
- */
-export type Content =
-  | Content.RawTextMember
-  | Content.$UnknownMember;
-
-/**
- * @public
- */
-export namespace Content {
-  /**
-   * <p>The raw text content containing natural language descriptions of desired policy behavior. This text is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
-   * @public
-   */
-  export interface RawTextMember {
-    rawText: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    rawText?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    rawText: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface StartPolicyGenerationRequest {
-  /**
-   * <p>The identifier of the policy engine that provides the context for policy generation. This engine's schema and tool context are used to ensure generated policies are valid and applicable.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The resource information that provides context for policy generation. This helps the AI understand the target resources and generate appropriate access control rules.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The natural language description of the desired policy behavior. This content is processed by AI to generate corresponding Cedar policy statements that match the described intent.</p>
-   * @public
-   */
-  content: Content | undefined;
-
-  /**
-   * <p>A customer-assigned name for the policy generation request. This helps track and identify generation operations, especially when running multiple generations simultaneously.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without starting a duplicate generation.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface StartPolicyGenerationResponse {
-  /**
-   * <p>The identifier of the policy engine associated with the started policy generation. </p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier assigned to the policy generation request for tracking progress. </p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name for the policy generation request.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The ARN of the created policy generation request.</p>
-   * @public
-   */
-  policyGenerationArn: string | undefined;
-
-  /**
-   * <p>The resource information associated with the policy generation request.</p>
-   * @public
-   */
-  resource: Resource | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation request was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy generation was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The initial status of the policy generation request.</p>
-   * @public
-   */
-  status: PolicyGenerationStatus | undefined;
-
-  /**
-   * <p>Initial findings from the policy generation process.</p>
-   * @public
-   */
-  findings?: string | undefined;
-
-  /**
-   * <p>Additional information about the generation status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyRequest {
-  /**
-   * <p>The customer-assigned immutable name for the policy. Must be unique within the account. This name is used for policy identification and cannot be changed after creation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic written in Cedar policy language, specifying effect (permit or forbid), principals, actions, resources, and conditions for agent behavior control.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>A human-readable description of the policy's purpose and functionality (1-4,096 characters). This helps policy administrators understand the policy's intent, business rules, and operational scope. Use this field to document why the policy exists, what business requirement it addresses, and any special considerations for maintenance. Clear descriptions are essential for policy governance, auditing, and troubleshooting.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The validation mode for the policy creation. Determines how Cedar analyzer validation results are handled during policy creation. FAIL_ON_ANY_FINDINGS (default) runs the Cedar analyzer to validate the policy against the Cedar schema and tool context, failing creation if the analyzer detects any validation issues to ensure strict conformance. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows policy creation even if validation issues are detected, useful for testing or when the policy schema is evolving. Use FAIL_ON_ANY_FINDINGS for production policies to ensure correctness, and IGNORE_ALL_FINDINGS only when you understand and accept the analyzer findings.</p>
-   * @public
-   */
-  validationMode?: PolicyValidationMode | undefined;
-
-  /**
-   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. Defaults to <code>ACTIVE</code>.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>The identifier of the policy engine which contains this policy. Policy engines group related policies and provide the execution context for policy evaluation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure the idempotency of the request. The AWS SDK automatically generates this token, so you don't need to provide it in most cases. If you retry a request with the same client token, the service returns the same response without creating a duplicate policy.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePolicyResponse {
-  /**
-   * <p>The unique identifier for the created policy. This is a system-generated identifier consisting of the user name plus a 10-character generated suffix, used for all subsequent policy operations.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the created policy. This matches the name provided in the request and serves as the human-readable identifier for the policy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine assignment and is used for policy evaluation routing.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last updated. For newly created policies, this matches the createdAt timestamp.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy. A status of <code>ACTIVE</code> indicates the policy is ready for use.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The enforcement mode of the created policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>The Cedar policy statement that was created. This is the validated policy definition that will be used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy creation process.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to be deleted. This ensures the policy is deleted from the correct policy engine context.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to be deleted. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeletePolicyResponse {
-  /**
-   * <p>The unique identifier of the policy being deleted. This confirms which policy the deletion operation targets.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the deleted policy. This confirms which policy was successfully removed from the system and matches the name that was originally assigned during policy creation.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine from which the policy was deleted. This confirms the policy engine context for the deletion operation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the deleted policy was last modified before deletion. This tracks the final state of the policy before it was removed from the system.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the deleted policy. This globally unique identifier confirms which policy resource was successfully removed.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The status of the policy deletion operation. This provides information about any issues that occurred during the deletion process.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The enforcement mode of the deleted policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>Represents the definition structure for policies within the AgentCore Policy system. This structure encapsulates different policy formats and languages that can be used to define access control rules.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the deleted policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the deletion status. This provides details about the deletion process or any issues that may have occurred.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to be retrieved.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to be retrieved. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyResponse {
-  /**
-   * <p>The unique identifier of the retrieved policy. This matches the policy ID provided in the request and serves as the system identifier for the policy.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy. This is the human-readable identifier that was specified when the policy was created.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy. This confirms the policy engine context for the retrieved policy.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The current enforcement mode of the policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The human-readable description of the policy's purpose and functionality. This helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicySummaryRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to retrieve the summary for.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to retrieve the summary for. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicySummaryResponse {
-  /**
-   * <p>The unique identifier of the policy.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last modified.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The current enforcement mode of the policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPoliciesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicies.html">ListPolicies</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policies to return in a single response. If not specified, the default is 10 policies per page, with a maximum of 100 per page.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policies to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>Optional filter to list policies that apply to a specific resource scope or resource type. This helps narrow down policy results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
-   * @public
-   */
-  targetResourceScope?: string | undefined;
-}
-
-/**
- * <p>Represents a complete policy resource within the AgentCore Policy system. Policies are ARN-able resources that contain Cedar policy statements and associated metadata for controlling agent behavior and access decisions. Each policy belongs to a policy engine and defines fine-grained authorization rules that are evaluated in real-time as agents interact with tools through Gateway. Policies use the Cedar policy language to specify who (principals based on OAuth claims like username, role, or scope) can perform what actions (tool calls) on which resources (Gateways), with optional conditions for attribute-based access control. Multiple policies can apply to a single request, with Cedar's forbid-wins semantics ensuring that security restrictions are never accidentally overridden.</p>
- * @public
- */
-export interface Policy {
-  /**
-   * <p>The unique identifier for the policy. This system-generated identifier consists of the user name plus a 10-character generated suffix and serves as the primary key for policy operations.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned immutable name for the policy. This human-readable identifier must be unique within the account and cannot exceed 48 characters.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy. This establishes the policy engine context for policy evaluation and management.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was originally created. This is automatically set by the service and used for auditing and lifecycle management.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last modified. This tracks the most recent changes to the policy configuration or metadata.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy. This globally unique identifier can be used for cross-service references and IAM policy statements.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The current enforcement mode of the policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>The Cedar policy statement that defines the access control rules. This contains the actual policy logic used for agent behavior control and access decisions.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>A human-readable description of the policy's purpose and functionality. Limited to 4,096 characters, this helps administrators understand and manage the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the policy status. This provides details about any failures or the current state of the policy lifecycle.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPoliciesResponse {
-  /**
-   * <p>An array of policy objects that match the specified criteria. Each policy object contains the policy metadata, status, and key identifiers for further operations.</p>
-   * @public
-   */
-  policies: Policy[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent ListPolicies calls to retrieve additional results. This token is only present when there are more results available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicySummariesRequest {
-  /**
-   * <p>A pagination token returned from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> call. Use this token to retrieve the next page of results when the response is paginated.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of policy summaries to return in a single response.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The identifier of the policy engine whose policy summaries to retrieve.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>Optional filter to list policy summaries that apply to a specific resource scope or resource type. This helps narrow down results to those relevant for particular Amazon Web Services resources, agent tools, or operational contexts within the policy engine ecosystem.</p>
-   * @public
-   */
-  targetResourceScope?: string | undefined;
-}
-
-/**
- * <p>Represents a metadata-only summary of a policy resource. This structure contains resource identifiers, status, and timestamps without customer-encrypted fields such as definition, description, or status reasons. Policy summaries are returned by operations that do not require access to the customer's KMS key.</p>
- * @public
- */
-export interface PolicySummary {
-  /**
-   * <p>The unique identifier for the policy.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The customer-assigned name of the policy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine that manages this policy.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The timestamp when the policy was originally created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last modified.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the policy.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The current enforcement mode of the policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ListPolicySummariesResponse {
-  /**
-   * <p>An array of policy summary objects that match the specified criteria. Each summary contains resource identifiers, status, and timestamps without customer-encrypted content.</p>
-   * @public
-   */
-  policies: PolicySummary[] | undefined;
-
-  /**
-   * <p>A pagination token that can be used in subsequent <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_ListPolicySummaries.html">ListPolicySummaries</a> calls to retrieve additional results. This token is only present when there are more results available.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyRequest {
-  /**
-   * <p>The identifier of the policy engine that manages the policy to be updated. This ensures the policy is updated within the correct policy engine context.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the policy to be updated. This must be a valid policy ID that exists within the specified policy engine.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The new human-readable description for the policy. This optional field allows updating the policy's documentation while keeping the same policy logic.</p>
-   * @public
-   */
-  description?: UpdatedDescription | undefined;
-
-  /**
-   * <p>The new Cedar policy statement that defines the access control rules. This replaces the existing policy definition with new logic while maintaining the policy's identity.</p>
-   * @public
-   */
-  definition?: PolicyDefinition | undefined;
-
-  /**
-   * <p>The validation mode for the policy update. Determines how Cedar analyzer validation results are handled during policy updates. FAIL_ON_ANY_FINDINGS runs the Cedar analyzer and fails the update if validation issues are detected, ensuring the policy conforms to the Cedar schema and tool context. IGNORE_ALL_FINDINGS runs the Cedar analyzer but allows updates despite validation warnings. Use FAIL_ON_ANY_FINDINGS to ensure policy correctness during updates, especially when modifying policy logic or conditions.</p>
-   * @public
-   */
-  validationMode?: PolicyValidationMode | undefined;
-
-  /**
-   * <p>The enforcement mode for the policy. Run this policy in <code>LOG_ONLY</code> mode to collect data on how it affects your application. Once you are satisfied with the data gathered, switch the policy to <code>ACTIVE</code>. If you omit this field, the policy's existing enforcement mode is unchanged.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyResponse {
-  /**
-   * <p>The unique identifier of the updated policy.</p>
-   * @public
-   */
-  policyId: string | undefined;
-
-  /**
-   * <p>The name of the updated policy.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine managing the updated policy.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The original creation timestamp of the policy.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The ARN of the updated policy.</p>
-   * @public
-   */
-  policyArn: string | undefined;
-
-  /**
-   * <p>The current status of the updated policy.</p>
-   * @public
-   */
-  status: PolicyStatus | undefined;
-
-  /**
-   * <p>The current enforcement mode of the updated policy.</p>
-   * @public
-   */
-  enforcementMode?: EnforcementMode | undefined;
-
-  /**
-   * <p>The updated Cedar policy statement.</p>
-   * @public
-   */
-  definition: PolicyDefinition | undefined;
-
-  /**
-   * <p>The updated description of the policy.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the update status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourcePolicyRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>The resource policy to create or update.</p>
-   * @public
-   */
-  policy: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PutResourcePolicyResponse {
-  /**
-   * <p>The resource policy that was created or updated.</p>
-   * @public
-   */
-  policy: string | undefined;
-}
-
-/**
- * <p>A custom descriptor for a registry record. Use this for resources such as APIs, Lambda functions, or servers that do not conform to a standard protocol like MCP or A2A.</p>
- * @public
- */
-export interface CustomDescriptor {
-  /**
-   * <p>The custom descriptor content as a valid JSON document. You can define any custom schema that describes your resource.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
-}
-
-/**
- * <p>The server definition for an MCP descriptor. Contains the schema version and inline content for the MCP server configuration.</p>
- * @public
- */
-export interface ServerDefinition {
-  /**
-   * <p>The schema version of the server definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
-   * @public
-   */
-  schemaVersion?: string | undefined;
-
-  /**
-   * <p>The JSON content containing the MCP server definition, conforming to the MCP protocol specification.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
-}
-
-/**
- * <p>The tools definition for an MCP descriptor. Contains the protocol version and inline content describing the available tools.</p>
- * @public
- */
-export interface ToolsDefinition {
-  /**
-   * <p>The protocol version of the tools definition based on the MCP protocol specification. If not specified, the version is auto-detected from the content.</p>
-   * @public
-   */
-  protocolVersion?: string | undefined;
-
-  /**
-   * <p>The JSON content containing the MCP tools definition, conforming to the MCP protocol specification.</p>
-   * @public
-   */
-  inlineContent?: string | undefined;
-}
-
-/**
- * <p>The Model Context Protocol (MCP) descriptor for a registry record. Contains the server definition and tools definition for an MCP-compatible server. The schema is validated against the MCP protocol specification.</p>
- * @public
- */
-export interface McpDescriptor {
-  /**
-   * <p>The MCP server definition, containing the server configuration and schema as defined by the MCP protocol specification.</p>
-   * @public
-   */
-  server?: ServerDefinition | undefined;
-
-  /**
-   * <p>The MCP tools definition, containing the tools available on the MCP server as defined by the MCP protocol specification.</p>
-   * @public
-   */
-  tools?: ToolsDefinition | undefined;
-}
-
-/**
- * <p>Contains descriptor-type-specific configurations for a registry record. Only the descriptor matching the record's <code>descriptorType</code> should be populated.</p>
- * @public
- */
-export interface Descriptors {
-  /**
-   * <p>The Model Context Protocol (MCP) descriptor configuration. Use this when the <code>descriptorType</code> is <code>MCP</code>.</p>
-   * @public
-   */
-  mcp?: McpDescriptor | undefined;
-
-  /**
-   * <p>The Agent-to-Agent (A2A) protocol descriptor configuration. Use this when the <code>descriptorType</code> is <code>A2A</code>.</p>
-   * @public
-   */
-  a2a?: A2aDescriptor | undefined;
-
-  /**
-   * <p>The custom descriptor configuration. Use this when the <code>descriptorType</code> is <code>CUSTOM</code>.</p>
-   * @public
-   */
-  custom?: CustomDescriptor | undefined;
-
-  /**
-   * <p>The agent skills descriptor configuration. Use this when the <code>descriptorType</code> is <code>AGENT_SKILLS</code>.</p>
-   * @public
-   */
-  agentSkills?: AgentSkillsDescriptor | undefined;
-}
-
-/**
- * <p>IAM credential provider configuration for authenticating with an external source using SigV4 signing during synchronization.</p>
- * @public
- */
-export interface RegistryRecordIamCredentialProvider {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role to assume for SigV4 signing.</p>
-   * @public
-   */
-  roleArn?: string | undefined;
-
-  /**
-   * <p>The SigV4 signing service name (for example, <code>execute-api</code> or <code>bedrock-agentcore</code>).</p>
-   * @public
-   */
-  service?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services region for SigV4 signing (for example, <code>us-west-2</code>). If not specified, the region is extracted from the MCP server URL hostname, with fallback to the service's own region.</p>
-   * @public
-   */
-  region?: string | undefined;
-}
-
-/**
- * <p>OAuth credential provider configuration for authenticating with an external source during synchronization.</p>
- * @public
- */
-export interface RegistryRecordOAuthCredentialProvider {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the OAuth credential provider resource.</p>
-   * @public
-   */
-  providerArn: string | undefined;
-
-  /**
-   * <p>The OAuth grant type. Currently only <code>CLIENT_CREDENTIALS</code> is supported.</p>
-   * @public
-   */
-  grantType?: RegistryRecordOAuthGrantType | undefined;
-
-  /**
-   * <p>The OAuth scopes to request during authentication.</p>
-   * @public
-   */
-  scopes?: string[] | undefined;
-
-  /**
-   * <p>Additional custom parameters for the OAuth flow.</p>
-   * @public
-   */
-  customParameters?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Union of supported credential provider types for registry record synchronization.</p>
- * @public
- */
-export type RegistryRecordCredentialProviderUnion =
-  | RegistryRecordCredentialProviderUnion.IamCredentialProviderMember
-  | RegistryRecordCredentialProviderUnion.OauthCredentialProviderMember
-  | RegistryRecordCredentialProviderUnion.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RegistryRecordCredentialProviderUnion {
-  /**
-   * <p>The OAuth credential provider configuration for authenticating with the external source.</p>
-   * @public
-   */
-  export interface OauthCredentialProviderMember {
-    oauthCredentialProvider: RegistryRecordOAuthCredentialProvider;
-    iamCredentialProvider?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The IAM credential provider configuration for authenticating with the external source using SigV4 signing.</p>
-   * @public
-   */
-  export interface IamCredentialProviderMember {
-    oauthCredentialProvider?: never;
-    iamCredentialProvider: RegistryRecordIamCredentialProvider;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    oauthCredentialProvider?: never;
-    iamCredentialProvider?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    oauthCredentialProvider: (value: RegistryRecordOAuthCredentialProvider) => T;
-    iamCredentialProvider: (value: RegistryRecordIamCredentialProvider) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>A pairing of a credential provider type with its corresponding provider details for authenticating with external sources.</p>
- * @public
- */
-export interface RegistryRecordCredentialProviderConfiguration {
-  /**
-   * <p>The type of credential provider.</p> <ul> <li> <p> <code>OAUTH</code> - OAuth-based authentication.</p> </li> <li> <p> <code>IAM</code> - Amazon Web Services IAM-based authentication using SigV4 signing.</p> </li> </ul>
-   * @public
-   */
-  credentialProviderType: RegistryRecordCredentialProviderType | undefined;
-
-  /**
-   * <p>The credential provider configuration details. The structure depends on the <code>credentialProviderType</code>.</p>
-   * @public
-   */
-  credentialProvider: RegistryRecordCredentialProviderUnion | undefined;
 }

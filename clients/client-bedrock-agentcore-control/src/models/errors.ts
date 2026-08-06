@@ -230,6 +230,27 @@ export class UnauthorizedException extends __BaseException {
 }
 
 /**
+ * <p>The operation failed because of a conflicting request. Retry the request.</p>
+ * @public
+ */
+export class RetryableConflictException extends __BaseException {
+  readonly name = "RetryableConflictException" as const;
+  readonly $fault = "client" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RetryableConflictException, __BaseException>) {
+    super({
+      name: "RetryableConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RetryableConflictException.prototype);
+  }
+}
+
+/**
  * <p>An internal error occurred.</p>
  * @public
  */

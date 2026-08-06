@@ -11,6 +11,9 @@ import type {
   BrowserNetworkMode,
   BrowserProfileStatus,
   BrowserStatus,
+  CapacityProviderStatus,
+  CapacityProviderStatusCode,
+  CapacityReservationPreference,
   ClaimMatchOperatorType,
   CodeInterpreterNetworkMode,
   CodeInterpreterStatus,
@@ -19,6 +22,7 @@ import type {
   DatasetSchemaType,
   DatasetStatus,
   DraftStatus,
+  EbsVolumeType,
   EndpointIpAddressType,
   EvaluatorLevel,
   EvaluatorStatus,
@@ -27,26 +31,23 @@ import type {
   GatewayInterceptionPoint,
   GatewayPolicyEngineMode,
   GatewayProtocolType,
+  GatewayRateLimitStatus,
   GatewayRuleStatus,
   GatewayStatus,
-  HarnessEndpointStatus,
-  HarnessManagedMemoryStrategyType,
   InboundTokenClaimValueType,
   IncludedData,
   InterceptorPayloadExclusion,
-  KeyType,
-  ListingMode,
+  Monitoring,
   NetworkMode,
   OAuthGrantType,
+  OperatingSystem,
   PassthroughProtocolType,
+  Period,
   PrincipalMatchOperator,
   ResourceType,
-  RestApiMethod,
   SearchType,
   SecretSourceType,
   ServerProtocol,
-  TargetStatus,
-  TargetType,
   WafFailureMode,
 } from "./enums";
 
@@ -1481,6 +1482,36 @@ export namespace AuthorizerConfiguration {
 }
 
 /**
+ * <p>Configuration for customer-managed compute capacity for the AgentCore Runtime. A capacity provider runs the AgentCore Runtime on the Instances compute type, using Amazon Web Services managed compute in your account.</p>
+ * @public
+ */
+export interface CapacityProviderConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider to use for the AgentCore Runtime.</p>
+   * @public
+   */
+  capacityProviderArn?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a capacity provider volume mounted into the AgentCore Runtime. This references a persistent volume by its logical name, as defined in the capacity provider's list of volumes.</p>
+ * @public
+ */
+export interface CapacityProviderVolumeConfiguration {
+  /**
+   * <p>The logical name of the capacity provider volume to mount. This name must match a volume that is defined in the capacity provider's list of volumes.</p>
+   * @public
+   */
+  volumeName: string | undefined;
+
+  /**
+   * <p>The mount path for the capacity provider volume inside the AgentCore Runtime. The path must be under <code>/mnt</code> with exactly one subdirectory level (for example, <code>/mnt/data</code>).</p>
+   * @public
+   */
+  mountPath: string | undefined;
+}
+
+/**
  * <p>Configuration for an Amazon EFS access point filesystem mounted into the AgentCore Runtime. EFS access points provide shared file storage accessible from your AgentCore Runtime sessions.</p>
  * @public
  */
@@ -1533,6 +1564,7 @@ export interface SessionStorageConfiguration {
  * @public
  */
 export type FilesystemConfiguration =
+  | FilesystemConfiguration.CapacityProviderVolumeMember
   | FilesystemConfiguration.EfsAccessPointMember
   | FilesystemConfiguration.S3FilesAccessPointMember
   | FilesystemConfiguration.SessionStorageMember
@@ -1550,6 +1582,7 @@ export namespace FilesystemConfiguration {
     sessionStorage: SessionStorageConfiguration;
     s3FilesAccessPoint?: never;
     efsAccessPoint?: never;
+    capacityProviderVolume?: never;
     $unknown?: never;
   }
 
@@ -1561,6 +1594,7 @@ export namespace FilesystemConfiguration {
     sessionStorage?: never;
     s3FilesAccessPoint: S3FilesAccessPointConfiguration;
     efsAccessPoint?: never;
+    capacityProviderVolume?: never;
     $unknown?: never;
   }
 
@@ -1572,6 +1606,19 @@ export namespace FilesystemConfiguration {
     sessionStorage?: never;
     s3FilesAccessPoint?: never;
     efsAccessPoint: EfsAccessPointConfiguration;
+    capacityProviderVolume?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Configuration for a capacity provider volume to mount into the AgentCore Runtime. This mounts a persistent volume that is defined on the capacity provider, referenced by its logical name.</p>
+   * @public
+   */
+  export interface CapacityProviderVolumeMember {
+    sessionStorage?: never;
+    s3FilesAccessPoint?: never;
+    efsAccessPoint?: never;
+    capacityProviderVolume: CapacityProviderVolumeConfiguration;
     $unknown?: never;
   }
 
@@ -1582,6 +1629,7 @@ export namespace FilesystemConfiguration {
     sessionStorage?: never;
     s3FilesAccessPoint?: never;
     efsAccessPoint?: never;
+    capacityProviderVolume?: never;
     $unknown: [string, any];
   }
 
@@ -1593,6 +1641,7 @@ export namespace FilesystemConfiguration {
     sessionStorage: (value: SessionStorageConfiguration) => T;
     s3FilesAccessPoint: (value: S3FilesAccessPointConfiguration) => T;
     efsAccessPoint: (value: EfsAccessPointConfiguration) => T;
+    capacityProviderVolume: (value: CapacityProviderVolumeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -1734,7 +1783,7 @@ export interface CreateAgentRuntimeRequest {
    * <p>The network configuration for the AgentCore Runtime.</p>
    * @public
    */
-  networkConfiguration: NetworkConfiguration | undefined;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
@@ -1783,6 +1832,12 @@ export interface CreateAgentRuntimeRequest {
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+
+  /**
+   * <p>The capacity provider configuration for the AgentCore Runtime. Use a capacity provider to run the AgentCore Runtime on the Instances compute type, which provisions Amazon Web Services managed compute in your account.</p>
+   * @public
+   */
+  capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
 
   /**
    * <p>A map of tag keys and values to assign to the agent runtime. Tags enable you to categorize your resources in different ways, for example, by purpose, owner, or environment.</p>
@@ -1855,6 +1910,12 @@ export interface DeleteAgentRuntimeRequest {
   agentRuntimeId: string | undefined;
 
   /**
+   * <p>The version of the AgentCore Runtime to delete. When you provide this value, only that version is deleted. When you omit it, the entire AgentCore Runtime and all of its versions are deleted.</p>
+   * @public
+   */
+  agentRuntimeVersion?: string | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request but does not return an error.</p>
    * @public
    */
@@ -1876,6 +1937,12 @@ export interface DeleteAgentRuntimeResponse {
    * @public
    */
   agentRuntimeId?: string | undefined;
+
+  /**
+   * <p>The version of the AgentCore Runtime that was deleted. This value is present only when you delete a single version.</p>
+   * @public
+   */
+  agentRuntimeVersion?: string | undefined;
 }
 
 /**
@@ -2030,6 +2097,12 @@ export interface GetAgentRuntimeResponse {
    * @public
    */
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
+
+  /**
+   * <p>The capacity provider configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
 }
 
 /**
@@ -2180,7 +2253,7 @@ export interface UpdateAgentRuntimeRequest {
    * <p>The updated network configuration for the AgentCore Runtime.</p>
    * @public
    */
-  networkConfiguration: NetworkConfiguration | undefined;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The updated description of the AgentCore Runtime.</p>
@@ -2231,6 +2304,12 @@ export interface UpdateAgentRuntimeRequest {
   filesystemConfigurations?: FilesystemConfiguration[] | undefined;
 
   /**
+   * <p>The updated capacity provider configuration for the AgentCore Runtime.</p>
+   * @public
+   */
+  capacityProviderConfiguration?: CapacityProviderConfiguration | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
    * @public
    */
@@ -2279,6 +2358,30 @@ export interface UpdateAgentRuntimeResponse {
 
   /**
    * <p>The current status of the updated AgentCore Runtime.</p>
+   * @public
+   */
+  status: AgentRuntimeStatus | undefined;
+}
+
+/**
+ * <p>Summary information about an agent runtime version associated with a capacity provider. This is returned by <code>ListAgentRuntimeVersionsByCapacityProvider</code>.</p>
+ * @public
+ */
+export interface AgentRuntimeVersionSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeArn: string | undefined;
+
+  /**
+   * <p>The version of the agent runtime.</p>
+   * @public
+   */
+  agentRuntimeVersion: string | undefined;
+
+  /**
+   * <p>The current status of the agent runtime version.</p>
    * @public
    */
   status: AgentRuntimeStatus | undefined;
@@ -3551,6 +3654,879 @@ export interface ListBrowsersResponse {
    * @public
    */
   nextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about the target Capacity Reservation or Capacity Reservation group for the instances.</p>
+ * @public
+ */
+export interface CapacityReservationTarget {
+  /**
+   * <p>The ID of the Capacity Reservation in which to run the instances.</p>
+   * @public
+   */
+  capacityReservationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instances.</p>
+   * @public
+   */
+  capacityReservationResourceGroupArn?: string | undefined;
+}
+
+/**
+ * <p>The Capacity Reservation targeting option for the instances.</p>
+ * @public
+ */
+export interface CapacityReservationSpecification {
+  /**
+   * <p>The Capacity Reservation preference for the instances.</p>
+   * @public
+   */
+  capacityReservationPreference?: CapacityReservationPreference | undefined;
+
+  /**
+   * <p>The target Capacity Reservation or Capacity Reservation group for the instances.</p>
+   * @public
+   */
+  capacityReservationTarget?: CapacityReservationTarget | undefined;
+}
+
+/**
+ * <p>The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.</p>
+ * @public
+ */
+export interface EphemeralEBSVolumeConfiguration {
+  /**
+   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * @public
+   */
+  volumeType?: EbsVolumeType | undefined;
+
+  /**
+   * <p>The number of IOPS to provision. For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this is the number of IOPS provisioned for the volume. For <code>gp2</code> volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: <code>gp3</code>, 3,000–80,000; <code>io1</code>, 100–64,000; <code>io2</code>, 100–256,000.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>The throughput to provision, in MiB/s. Valid only for <code>gp3</code> volumes. Valid range: 125–2,000 MiB/s.</p>
+   * @public
+   */
+  throughput?: number | undefined;
+
+  /**
+   * <p>Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.</p>
+   * @public
+   */
+  encrypted?: boolean | undefined;
+
+  /**
+   * <p>The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  snapshotId?: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB. You must specify either a snapshot ID or a volume size. Supported sizes: <code>gp2</code>, 1–16,384; <code>gp3</code>, 1–65,536; <code>io1</code>, 4–16,384; <code>io2</code>, 4–65,536.</p>
+   * @public
+   */
+  volumeSize?: number | undefined;
+
+  /**
+   * <p>The rate at which the volume is initialized after creation, in MiB/s. Supported only for volumes created from snapshots. Valid range: 100–300 MiB/s.</p>
+   * @public
+   */
+  volumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The index of the Amazon EBS card. Applies to instances with multiple Amazon EBS cards.</p>
+   * @public
+   */
+  ebsCardIndex?: number | undefined;
+}
+
+/**
+ * <p>A block device mapping for an instance store (ephemeral) volume.</p>
+ * @public
+ */
+export interface EphemeralBlockDeviceMapping {
+  /**
+   * <p>The device name, for example <code>/dev/sdh</code> or <code>xvdh</code>.</p>
+   * @public
+   */
+  deviceName?: string | undefined;
+
+  /**
+   * <p>The virtual device name (<code>ephemeralN</code>). Instance store volumes are numbered starting from 0. The number of available instance store volumes depends on the instance type. After you connect to the instance, you must mount the volume.</p>
+   * @public
+   */
+  virtualName?: string | undefined;
+
+  /**
+   * <p>The shared Amazon EBS performance and encryption properties for a volume. These properties are common across the different volume configurations for a capacity provider.</p>
+   * @public
+   */
+  ebs?: EphemeralEBSVolumeConfiguration | undefined;
+}
+
+/**
+ * <p>The requirements for Amazon EC2 instance types in a capacity provider.</p>
+ * @public
+ */
+export interface InstanceRequirements {
+  /**
+   * <p>The list of allowed instance types. You can specify up to 30 instance types.</p>
+   * @public
+   */
+  allowedInstanceTypes: string[] | undefined;
+}
+
+/**
+ * <p>A license configuration to associate with the instances.</p>
+ * @public
+ */
+export interface LicenseSpecification {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
+   * @public
+   */
+  licenseConfigurationArn: string | undefined;
+}
+
+/**
+ * <p>The parameters for launching Amazon EC2 instances in a capacity provider.</p>
+ * @public
+ */
+export interface LaunchParameters {
+  /**
+   * <p>The operating system and CPU architecture for the instances.</p>
+   * @public
+   */
+  operatingSystem: OperatingSystem | undefined;
+
+  /**
+   * <p>The requirements that determine which instance types can be launched.</p>
+   * @public
+   */
+  instanceRequirements: InstanceRequirements | undefined;
+
+  /**
+   * <p>The block device mappings for instance store (ephemeral) volumes. You can specify up to five mappings.</p>
+   * @public
+   */
+  ephemeralVolumes?: EphemeralBlockDeviceMapping[] | undefined;
+
+  /**
+   * <p>The monitoring level for the instances.</p>
+   * @public
+   */
+  monitoring?: Monitoring | undefined;
+
+  /**
+   * <p>The license configurations to associate with the instances. You can specify up to five configurations.</p>
+   * @public
+   */
+  licenseSpecifications?: LicenseSpecification[] | undefined;
+
+  /**
+   * <p>The Capacity Reservation targeting option for the instances.</p>
+   * @public
+   */
+  capacityReservationSpecification?: CapacityReservationSpecification | undefined;
+
+  /**
+   * <p>The name of the SSH key pair to configure on the instances for SSH connectivity.</p>
+   * @public
+   */
+  sshKeyName?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM instance profile to associate with launched instances. If provided, this overrides the default instance profile.</p>
+   * @public
+   */
+  instanceProfileArn?: string | undefined;
+
+  /**
+   * <p>The tags to propagate to all Amazon EC2 resources (instances, volumes, and network interfaces) that the capacity provider creates.</p>
+   * @public
+   */
+  propagatedTags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The source of the launch template configuration for a capacity provider. The <code>launchParameters</code> member specifies the operating system, instance requirements, and other settings used to launch instances.</p>
+ * @public
+ */
+export type LaunchTemplateSource =
+  | LaunchTemplateSource.LaunchParametersMember
+  | LaunchTemplateSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace LaunchTemplateSource {
+  /**
+   * <p>The parameters that AgentCore uses to create the launch template.</p>
+   * @public
+   */
+  export interface LaunchParametersMember {
+    launchParameters: LaunchParameters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    launchParameters?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    launchParameters: (value: LaunchParameters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The configuration that manages the lifecycle of instances in a capacity provider, including idle timeout and maximum lifetime.</p>
+ * @public
+ */
+export interface InstanceLifecycleConfiguration {
+  /**
+   * <p>The number of seconds an instance can remain idle before it is stopped. An instance is considered idle when all of its agents are idle. The default is 900 seconds (15 minutes).</p>
+   * @public
+   */
+  idleInstanceTimeout?: number | undefined;
+
+  /**
+   * <p>The maximum lifetime of an instance, in seconds. When an instance reaches this limit, the service terminates it regardless of activity. The default is 28800 seconds (8 hours). The maximum is 1209600 seconds (14 days).</p>
+   * @public
+   */
+  maxLifetime?: number | undefined;
+}
+
+/**
+ * <p>The configuration for the root volume of a capacity provider instance. Specify the amount of free space to guarantee on the root volume. The device name and delete-on-termination settings are fixed and cannot be changed.</p>
+ * @public
+ */
+export interface RootVolumeConfiguration {
+  /**
+   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * @public
+   */
+  volumeType?: EbsVolumeType | undefined;
+
+  /**
+   * <p>The number of IOPS to provision. For <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes, this is the number of IOPS provisioned for the volume. For <code>gp2</code> volumes, this sets the baseline IOPS performance. It also controls the rate at which the volume accumulates I/O credits for bursting. Supported values: <code>gp3</code>, 3,000–80,000; <code>io1</code>, 100–64,000; <code>io2</code>, 100–256,000.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>The throughput to provision, in MiB/s. Valid only for <code>gp3</code> volumes. Valid range: 125–2,000 MiB/s.</p>
+   * @public
+   */
+  throughput?: number | undefined;
+
+  /**
+   * <p>Specifies whether to encrypt the volume. Encrypted volumes can be attached only to instances that support Amazon EBS encryption. If you create a volume from a snapshot, you cannot specify an encryption value.</p>
+   * @public
+   */
+  encrypted?: boolean | undefined;
+
+  /**
+   * <p>The identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for Amazon EBS encryption.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>The free space guaranteed on the root volume, in GiB. AgentCore adds the operating system overhead on top of this value. The default is 8 GiB.</p>
+   * @public
+   */
+  freeSpaceGiB?: number | undefined;
+}
+
+/**
+ * <p>The configuration for an Amazon EBS-backed persistent volume. The service creates persistent volumes when a session first launches, and the volumes survive instance termination. The volumes persist until you delete the session.</p>
+ * @public
+ */
+export interface EbsVolumeConfiguration {
+  /**
+   * <p>The logical name of the volume. Use this name to reference the volume when you mount it into an agent runtime.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  sizeGiB: number | undefined;
+
+  /**
+   * <p>The Amazon EBS volume type. If you do not specify a type, the default is <code>gp3</code>.</p>
+   * @public
+   */
+  volumeType?: EbsVolumeType | undefined;
+
+  /**
+   * <p>The number of IOPS to provision. Valid only for <code>gp3</code>, <code>io1</code>, and <code>io2</code> volumes.</p>
+   * @public
+   */
+  iops?: number | undefined;
+
+  /**
+   * <p>The throughput, in MiB/s. Valid only for <code>gp3</code> volumes.</p>
+   * @public
+   */
+  throughput?: number | undefined;
+
+  /**
+   * <p>Specifies whether to encrypt the volume. If <code>true</code>, the service encrypts the volume with the KMS key that you specify in <code>kmsKeyId</code>, or the default KMS key for Amazon EBS if you do not specify one. The default is <code>true</code>.</p>
+   * @public
+   */
+  encrypted?: boolean | undefined;
+
+  /**
+   * <p>The identifier of the KMS key to use for encryption.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>An optional Amazon EBS snapshot ID. If provided, the volume is initialized from this snapshot the first time it is created. On subsequent restarts, the existing volume is used and the snapshot is ignored.</p>
+   * @public
+   */
+  snapshotId?: string | undefined;
+}
+
+/**
+ * <p>The configuration for a persistent volume attached to a capacity provider. This structure defines the storage backing for the persistent volumes used by agents that run on capacity provider instances.</p>
+ * @public
+ */
+export type VolumeConfiguration =
+  | VolumeConfiguration.EbsConfigurationMember
+  | VolumeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace VolumeConfiguration {
+  /**
+   * <p>The configuration for an Amazon EBS-backed persistent volume.</p>
+   * @public
+   */
+  export interface EbsConfigurationMember {
+    ebsConfiguration: EbsVolumeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ebsConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ebsConfiguration: (value: EbsVolumeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The VPC configuration for launching Amazon EC2 instances.</p>
+ * @public
+ */
+export interface VpcConfiguration {
+  /**
+   * <p>The IDs of the subnets in which to launch instances. You must specify at least one subnet.</p>
+   * @public
+   */
+  subnets: string[] | undefined;
+
+  /**
+   * <p>The IDs of the security groups to associate with the instances. You must specify at least one security group.</p>
+   * @public
+   */
+  securityGroups: string[] | undefined;
+}
+
+/**
+ * <p>The configuration for Amazon EC2-based compute, including the launch template source, networking, storage volumes, and instance lifecycle settings.</p>
+ * @public
+ */
+export interface Ec2Configuration {
+  /**
+   * <p>The source of the launch template configuration that defines how instances are launched.</p>
+   * @public
+   */
+  launchTemplateSource: LaunchTemplateSource | undefined;
+
+  /**
+   * <p>The VPC configuration for launching instances, including subnets and security groups.</p>
+   * @public
+   */
+  vpcConfiguration: VpcConfiguration | undefined;
+
+  /**
+   * <p>The named persistent Amazon EBS volumes for the capacity provider. A capacity provider can define up to five volumes.</p>
+   * @public
+   */
+  volumes?: VolumeConfiguration[] | undefined;
+
+  /**
+   * <p>The lifecycle configuration for instances in the capacity provider.</p>
+   * @public
+   */
+  lifecycleConfiguration?: InstanceLifecycleConfiguration | undefined;
+
+  /**
+   * <p>The configuration for the instance root volume. Specify the amount of free space to guarantee and, optionally, the Amazon EBS performance and encryption settings. The device name and delete-on-termination behavior are not configurable.</p>
+   * @public
+   */
+  rootVolume?: RootVolumeConfiguration | undefined;
+}
+
+/**
+ * <p>The compute configuration for a capacity provider. This structure defines the type and settings of the compute resources used to launch instances.</p>
+ * @public
+ */
+export type ComputeConfiguration =
+  | ComputeConfiguration.Ec2ConfigurationMember
+  | ComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ComputeConfiguration {
+  /**
+   * <p>The Amazon EC2 compute configuration for the capacity provider.</p>
+   * @public
+   */
+  export interface Ec2ConfigurationMember {
+    ec2Configuration: Ec2Configuration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ec2Configuration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ec2Configuration: (value: Ec2Configuration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The permissions configuration for a capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances for the capacity provider on your behalf.</p>
+ * @public
+ */
+export interface PermissionsConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that AgentCore assumes to manage the capacity provider, including launching, tagging, and terminating instances and their network interfaces. We recommend scoping this role to the minimum permissions that your workloads require.</p>
+   * @public
+   */
+  capacityProviderOperatorRoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityProviderInput {
+  /**
+   * <p>The name of the capacity provider. The name must be unique within your account.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>An optional description of the capacity provider. If you don't specify a description, the service creates the capacity provider without one.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The permissions configuration for the capacity provider. This specifies the IAM role that AgentCore uses to manage the Amazon EC2 instances on your behalf.</p>
+   * @public
+   */
+  permissionsConfiguration: PermissionsConfiguration | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>A map of tag keys and values to associate with the capacity provider. If you don't specify tags, the capacity provider is created with no tags.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration for the capacity provider. This defines the Amazon EC2 compute resources used to launch instances: the operating system, allowed instance types, networking, and storage.</p>
+   * @public
+   */
+  computeConfiguration: ComputeConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCapacityProviderOutput {
+  /**
+   * <p>The unique identifier of the created capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The name of the capacity provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * @public
+   */
+  status: CapacityProviderStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderInput {
+  /**
+   * <p>The unique identifier of the capacity provider to delete.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCapacityProviderOutput {
+  /**
+   * <p>The unique identifier of the deleted capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * @public
+   */
+  status: CapacityProviderStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityProviderInput {
+  /**
+   * <p>The unique identifier of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCapacityProviderOutput {
+  /**
+   * <p>The unique identifier of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The name of the capacity provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * @public
+   */
+  status: CapacityProviderStatus | undefined;
+
+  /**
+   * <p>The description of the capacity provider, if one was provided.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A reason code for a capacity provider that is not in the <code>READY</code> state. Use this code for programmatic error handling.</p>
+   * @public
+   */
+  statusCode?: CapacityProviderStatusCode | undefined;
+
+  /**
+   * <p>A human-readable message that describes why the capacity provider is not in the <code>READY</code> state. Because these messages can change, use <code>statusCode</code> for programmatic error handling.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The permissions configuration for the capacity provider.</p>
+   * @public
+   */
+  permissionsConfiguration: PermissionsConfiguration | undefined;
+
+  /**
+   * <p>The compute configuration for the capacity provider.</p>
+   * @public
+   */
+  computeConfiguration: ComputeConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the capacity provider was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the capacity provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentRuntimeVersionsByCapacityProviderInput {
+  /**
+   * <p>The unique identifier of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAgentRuntimeVersionsByCapacityProviderOutput {
+  /**
+   * <p>The list of agent runtime versions that are associated with the capacity provider.</p>
+   * @public
+   */
+  agentRuntimes: AgentRuntimeVersionSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityProvidersInput {
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a capacity provider, as returned by <code>ListCapacityProviders</code>. Each summary includes the capacity provider identifier, Amazon Resource Name (ARN), name, status, and last-updated timestamp.</p>
+ * @public
+ */
+export interface CapacityProviderSummary {
+  /**
+   * <p>The unique identifier of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The name of the capacity provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * @public
+   */
+  status: CapacityProviderStatus | undefined;
+
+  /**
+   * <p>The timestamp when the capacity provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCapacityProvidersOutput {
+  /**
+   * <p>The list of capacity provider summaries.</p>
+   * @public
+   */
+  capacityProviders: CapacityProviderSummary[] | undefined;
+
+  /**
+   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Wrapper for updating an optional Description field with PATCH semantics. When present in an update request, the description is replaced with optionalValue. When absent, the description is left unchanged. To unset the description, include the wrapper with optionalValue not specified.</p>
+ * @public
+ */
+export interface UpdatedDescription {
+  /**
+   * <p>Represents an optional value that is used to update the human-readable description of the resource. If not specified, it will clear the current description of the resource.</p>
+   * @public
+   */
+  optionalValue?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityProviderInput {
+  /**
+   * <p>The unique identifier of the capacity provider to update.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The updated description of the capacity provider.</p>
+   * @public
+   */
+  description?: UpdatedDescription | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCapacityProviderOutput {
+  /**
+   * <p>The unique identifier of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
+   * @public
+   */
+  capacityProviderArn: string | undefined;
+
+  /**
+   * <p>The name of the capacity provider.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The current status of the capacity provider. For possible values, see <code>CapacityProviderStatus</code>.</p>
+   * @public
+   */
+  status: CapacityProviderStatus | undefined;
+
+  /**
+   * <p>The timestamp when the capacity provider was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the capacity provider was last updated.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
 }
 
 /**
@@ -5942,6 +6918,503 @@ export interface UpdateEvaluatorResponse {
 }
 
 /**
+ * Rate configuration for a metric (requests or tokens)
+ * @public
+ */
+export interface RateConfig {
+  /**
+   * <p>The rate value for the limit. For request limits, this is the number of requests allowed per period. For token limits, this is the number of tokens allowed per period. For connection limits, this is the number of concurrent connections allowed.</p>
+   * @public
+   */
+  rate: number | undefined;
+
+  /**
+   * Time period for rate limiting
+   * @public
+   */
+  period: Period | undefined;
+}
+
+/**
+ * A single rule entry within a limit, mapping dimension values to rate configurations
+ * @public
+ */
+export interface LimitEntry {
+  /**
+   * Map of dimension name to dimension value, matching the parent limit's dimensionKeys.
+   * Keys must exactly match the dimensionKeys. Values may be "*" as a wildcard.
+   * "*" may only appear at trailing positions (based on dimensionKeys ordering).
+   * @public
+   */
+  dimensions: Record<string, string> | undefined;
+
+  /**
+   * Request rate limits (RPS or RPM). Limited to 1 entry for now.
+   * @public
+   */
+  requests?: RateConfig[] | undefined;
+
+  /**
+   * Token rate limits (TPM). Limited to 1 entry for now. — P1
+   * @public
+   */
+  tokens?: RateConfig[] | undefined;
+
+  /**
+   * Connection rate limits (per second only). Limited to 1 entry for now. — P2
+   * @public
+   */
+  connections?: RateConfig[] | undefined;
+}
+
+/**
+ * A limit definition within a BatchPut request (rateLimitId used for upsert matching)
+ * @public
+ */
+export interface BatchPutLimitEntry {
+  /**
+   * Optional — if provided, used for upsert matching against existing limits.
+   * @public
+   */
+  rateLimitId?: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension key names defining the scope of a limit
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * List of rule entries within a limit
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutGatewayRateLimitsRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Complete set of rate limits for this gateway. Replaces all existing limits atomically.
+   * @public
+   */
+  rateLimits: BatchPutLimitEntry[] | undefined;
+}
+
+/**
+ * Shared fields for GatewayRateLimit responses
+ * @public
+ */
+export interface GatewayRateLimitDetail {
+  /**
+   * Limit identifier. Optional on Create (system-generates if not provided by customer).
+   * Always present in responses.
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension key names defining the scope of a limit
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * List of rule entries within a limit
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+
+  /**
+   * Status of a gateway limit
+   * @public
+   */
+  status: GatewayRateLimitStatus | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchPutGatewayRateLimitsResponse {
+  /**
+   * The resulting set of rate limits after the batch operation.
+   * @public
+   */
+  rateLimits: GatewayRateLimitDetail[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateGatewayRateLimitRequest {
+  /**
+   * <p>The unique identifier of the gateway to create the rate limit for.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * Optional customer-defined limit ID. If not provided, system generates one.
+   * @public
+   */
+  rateLimitId?: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension names defining the scope of this limit.
+   * Unique per gateway — no two limits can share the same dimensionKeys.
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * Rule entries mapping dimension values to rate configurations.
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+}
+
+/**
+ * Shared fields for GatewayRateLimit responses
+ * @public
+ */
+export interface CreateGatewayRateLimitResponse {
+  /**
+   * Limit identifier. Optional on Create (system-generates if not provided by customer).
+   * Always present in responses.
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension key names defining the scope of a limit
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * List of rule entries within a limit
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+
+  /**
+   * Status of a gateway limit
+   * @public
+   */
+  status: GatewayRateLimitStatus | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRateLimitRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rate limit to delete.</p>
+   * @public
+   */
+  rateLimitId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteGatewayRateLimitResponse {
+  /**
+   * Limit identifier. Optional on Create (system-generates if not provided by customer).
+   * Always present in responses.
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * Status of a gateway limit
+   * @public
+   */
+  status: GatewayRateLimitStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGatewayRateLimitRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rate limit to retrieve.</p>
+   * @public
+   */
+  rateLimitId: string | undefined;
+}
+
+/**
+ * Shared fields for GatewayRateLimit responses
+ * @public
+ */
+export interface GetGatewayRateLimitResponse {
+  /**
+   * Limit identifier. Optional on Create (system-generates if not provided by customer).
+   * Always present in responses.
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension key names defining the scope of a limit
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * List of rule entries within a limit
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+
+  /**
+   * Status of a gateway limit
+   * @public
+   */
+  status: GatewayRateLimitStatus | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayRateLimitsRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next page of results. Use the value returned in a previous <code>ListGatewayRateLimits</code> response.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGatewayRateLimitsResponse {
+  /**
+   * <p>The list of rate limits for the gateway.</p>
+   * @public
+   */
+  rateLimits: GatewayRateLimitDetail[] | undefined;
+
+  /**
+   * <p>The token for the next page of results. If this value is absent, there are no more results to retrieve.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateGatewayRateLimitRequest {
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the rate limit to update.</p>
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Updated rule entries. key and dimensionKeys are immutable and cannot be changed.
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+}
+
+/**
+ * Shared fields for GatewayRateLimit responses
+ * @public
+ */
+export interface UpdateGatewayRateLimitResponse {
+  /**
+   * Limit identifier. Optional on Create (system-generates if not provided by customer).
+   * Always present in responses.
+   * @public
+   */
+  rateLimitId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the gateway.</p>
+   * @public
+   */
+  gatewayIdentifier: string | undefined;
+
+  /**
+   * Optional human-readable description for this limit.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * Ordered list of dimension key names defining the scope of a limit
+   * @public
+   */
+  dimensionKeys: string[] | undefined;
+
+  /**
+   * List of rule entries within a limit
+   * @public
+   */
+  entries: LimitEntry[] | undefined;
+
+  /**
+   * Status of a gateway limit
+   * @public
+   */
+  status: GatewayRateLimitStatus | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the rate limit was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+}
+
+/**
  * <p>A selector that identifies a payload field to exclude from the interceptor input.</p>
  * @public
  */
@@ -8003,1229 +9476,6 @@ export interface InferenceConnectorTargetConfiguration {
    * @public
    */
   source: InferenceConnectorSource | undefined;
-}
-
-/**
- * <p>The configuration that controls how a provider prefix is applied to model IDs during translation.</p>
- * @public
- */
-export interface ProviderPrefix {
-  /**
-   * <p>Whether clients can omit the provider prefix from model IDs. If <code>true</code>, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. The default is <code>false</code>.</p>
-   * @public
-   */
-  strip?: boolean | undefined;
-
-  /**
-   * <p>The single character that separates the provider prefix from the model name (for example, <code>.</code>). The default is <code>.</code>.</p>
-   * @public
-   */
-  separator?: string | undefined;
-}
-
-/**
- * <p>The configuration that translates model IDs between client-facing names and provider model IDs.</p>
- * @public
- */
-export interface ModelMapping {
-  /**
-   * <p>The provider prefix configuration used for model ID translation.</p>
-   * @public
-   */
-  providerPrefix?: ProviderPrefix | undefined;
-}
-
-/**
- * <p>A model entry that specifies a model supported for an inference operation.</p>
- * @public
- */
-export interface ModelEntry {
-  /**
-   * <p>The model ID or glob pattern that identifies the model (for example, <code>anthropic.claude-opus-*</code> or <code>openai.gpt-oss-*</code>).</p>
-   * @public
-   */
-  model: string | undefined;
-}
-
-/**
- * <p>The configuration for a specific inference operation, including its request path and the models that the operation supports.</p>
- * @public
- */
-export interface InferenceOperationConfiguration {
-  /**
-   * <p>The request path for this operation (for example, <code>/v1/messages</code> or <code>/v1/responses</code>).</p>
-   * @public
-   */
-  path: string | undefined;
-
-  /**
-   * <p>The provider path to forward requests to, if it differs from the request path. For example, <code>/anthropic/v1/messages</code> when the provider expects a different path than the client-facing <code>/v1/messages</code>.</p>
-   * @public
-   */
-  providerPath?: string | undefined;
-
-  /**
-   * <p>The list of models supported for this operation.</p>
-   * @public
-   */
-  models?: ModelEntry[] | undefined;
-}
-
-/**
- * <p>The configuration for a provider-based inference target. This configuration explicitly defines the endpoint, model mapping, and operations used to route requests to a large language model (LLM) provider.</p>
- * @public
- */
-export interface InferenceProviderTargetConfiguration {
-  /**
-   * <p>The HTTPS endpoint of the inference provider that the gateway forwards requests to.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The configuration that translates client-facing model IDs to the model IDs expected by the provider.</p>
-   * @public
-   */
-  modelMapping?: ModelMapping | undefined;
-
-  /**
-   * <p>A list of per-operation configurations that map request paths to the models supported for each operation.</p>
-   * @public
-   */
-  operations?: InferenceOperationConfiguration[] | undefined;
-}
-
-/**
- * <p>The configuration for an inference target. An inference target routes requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider.</p>
- * @public
- */
-export type InferenceTargetConfiguration =
-  | InferenceTargetConfiguration.ConnectorMember
-  | InferenceTargetConfiguration.ProviderMember
-  | InferenceTargetConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace InferenceTargetConfiguration {
-  /**
-   * <p>The connector-based inference configuration. Use this option to route requests to an LLM provider through a built-in connector that includes predefined provider rules.</p>
-   * @public
-   */
-  export interface ConnectorMember {
-    connector: InferenceConnectorTargetConfiguration;
-    provider?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The provider-based inference configuration. Use this option to explicitly configure the endpoint, model mapping, and operations for an LLM provider.</p>
-   * @public
-   */
-  export interface ProviderMember {
-    connector?: never;
-    provider: InferenceProviderTargetConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    connector?: never;
-    provider?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    connector: (value: InferenceConnectorTargetConfiguration) => T;
-    provider: (value: InferenceProviderTargetConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Specifies which operations from an API Gateway REST API are exposed as tools. Tool names and descriptions are derived from the operationId and description fields in the API's exported OpenAPI specification.</p>
- * @public
- */
-export interface ApiGatewayToolFilter {
-  /**
-   * <p>Resource path to match in the REST API. Supports exact paths (for example, <code>/pets</code>) or wildcard paths (for example, <code>/pets/*</code> to match all paths under <code>/pets</code>). Must match existing paths in the REST API.</p>
-   * @public
-   */
-  filterPath: string | undefined;
-
-  /**
-   * <p>The methods to filter for.</p>
-   * @public
-   */
-  methods: RestApiMethod[] | undefined;
-}
-
-/**
- * <p>Settings to override configurations for a tool.</p>
- * @public
- */
-export interface ApiGatewayToolOverride {
-  /**
-   * <p>The name of tool. Identifies the tool in the Model Context Protocol.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The description of the tool. Provides information about the purpose and usage of the tool. If not provided, uses the description from the API's OpenAPI specification.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Resource path in the REST API (e.g., <code>/pets</code>). Must explicitly match an existing path in the REST API.</p>
-   * @public
-   */
-  path: string | undefined;
-
-  /**
-   * <p>The HTTP method to expose for the specified path.</p>
-   * @public
-   */
-  method: RestApiMethod | undefined;
-}
-
-/**
- * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
- * @public
- */
-export interface ApiGatewayToolConfiguration {
-  /**
-   * <p>A list of explicit tool definitions with optional custom names and descriptions.</p>
-   * @public
-   */
-  toolOverrides?: ApiGatewayToolOverride[] | undefined;
-
-  /**
-   * <p>A list of path and method patterns to expose as tools using metadata from the REST API's OpenAPI specification.</p>
-   * @public
-   */
-  toolFilters: ApiGatewayToolFilter[] | undefined;
-}
-
-/**
- * <p>The configuration for an Amazon API Gateway target.</p>
- * @public
- */
-export interface ApiGatewayTargetConfiguration {
-  /**
-   * <p>The ID of the API Gateway REST API.</p>
-   * @public
-   */
-  restApiId: string | undefined;
-
-  /**
-   * <p>The ID of the stage of the REST API to add as a target.</p>
-   * @public
-   */
-  stage: string | undefined;
-
-  /**
-   * <p>The configuration for defining REST API tool filters and overrides for the gateway target.</p>
-   * @public
-   */
-  apiGatewayToolConfiguration: ApiGatewayToolConfiguration | undefined;
-}
-
-/**
- * <p>Specifies a parameter override for a connector tool, allowing you to control parameter visibility and descriptions.</p>
- * @public
- */
-export interface ConnectorParameterOverride {
-  /**
-   * <p>A JSON Pointer path identifying the parameter (for example, <code>/numberOfResults</code> or <code>/filter</code>).</p>
-   * @public
-   */
-  path: string | undefined;
-
-  /**
-   * <p>An agent-facing description override for this parameter.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Whether this parameter is visible to the agent. If not specified, uses the service default.</p>
-   * @public
-   */
-  visible?: boolean | undefined;
-}
-
-/**
- * <p>Configuration for a single tool within a connector.</p>
- * @public
- */
-export interface ConnectorConfiguration {
-  /**
-   * <p>The tool or operation name (for example, <code>retrieve</code> or <code>webSearch</code>).</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>An agent-facing description override for this tool.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Parameters to set as fixed or default values when provisioning this tool.</p>
-   * @public
-   */
-  parameterValues?: __DocumentType | undefined;
-
-  /**
-   * <p>Parameters to expose to the agent at runtime, with optional description overrides.</p>
-   * @public
-   */
-  parameterOverrides?: ConnectorParameterOverride[] | undefined;
-}
-
-/**
- * <p>The source identifying the connector integration.</p>
- * @public
- */
-export interface ConnectorSource {
-  /**
-   * <p>The identifier for the connector integration (for example, <code>bedrock-knowledge-bases</code>).</p>
-   * @public
-   */
-  connectorId: string | undefined;
-
-  /**
-   * <p>The version of the connector to use (for example, <code>1.1.0</code>). If you don't specify a version, the service uses the latest available version.</p>
-   * @public
-   */
-  version?: string | undefined;
-}
-
-/**
- * <p>Configuration for a connector integration target. Connectors provide pre-built integrations with Amazon Web Services services and third-party tools.</p>
- * @public
- */
-export interface ConnectorTargetConfiguration {
-  /**
-   * <p>The source configuration identifying which connector to use.</p>
-   * @public
-   */
-  source: ConnectorSource | undefined;
-
-  /**
-   * <p>A list of tool names to enable from this connector. If absent, all tools provided by the connector are enabled.</p>
-   * @public
-   */
-  enabled?: string[] | undefined;
-
-  /**
-   * <p>A list of per-tool configurations for the connector.</p>
-   * @public
-   */
-  configurations?: ConnectorConfiguration[] | undefined;
-}
-
-/**
- * <p>The MCP tool schema configuration for an MCP server target. The tool schema must be aligned with the MCP specification.</p>
- * @public
- */
-export type McpToolSchemaConfiguration =
-  | McpToolSchemaConfiguration.InlinePayloadMember
-  | McpToolSchemaConfiguration.S3Member
-  | McpToolSchemaConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace McpToolSchemaConfiguration {
-  /**
-   * <p>The Amazon S3 location of the tool schema. This location contains the schema definition file.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3Configuration;
-    inlinePayload?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The inline payload containing the MCP tool schema definition.</p>
-   * @public
-   */
-  export interface InlinePayloadMember {
-    s3?: never;
-    inlinePayload: string;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    inlinePayload?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3Configuration) => T;
-    inlinePayload: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The target configuration for the MCP server.</p>
- * @public
- */
-export interface McpServerTargetConfiguration {
-  /**
-   * <p>The endpoint for the MCP server target configuration.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. Dynamic tool discovery/synchronization will be disabled when target is configured with mcpToolSchema.</p>
-   * @public
-   */
-  mcpToolSchema?: McpToolSchemaConfiguration | undefined;
-
-  /**
-   * <p>The listing mode for the MCP server target configuration. MCP resources for default targets are cached at the control plane for faster access. MCP resources for dynamic targets will be dynamically retrieved when listing tools.</p>
-   * @public
-   */
-  listingMode?: ListingMode | undefined;
-
-  /**
-   * <p>Priority for resolving MCP server targets with shared resource URIs. Lower values take precedence. Defaults to 1000 when not set.</p>
-   * @public
-   */
-  resourcePriority?: number | undefined;
-}
-
-/**
- * <p>OAuth2-specific authorization data, including the authorization URL and user identifier for the authorization session.</p>
- * @public
- */
-export interface OAuth2AuthorizationData {
-  /**
-   * <p>The URL to initiate the authorization process. This URL is provided when the OAuth2 access token requires user authorization.</p>
-   * @public
-   */
-  authorizationUrl: string | undefined;
-
-  /**
-   * <p>The user identifier associated with the OAuth2 authorization session that is defined by AgentCore Gateway.</p>
-   * @public
-   */
-  userId?: string | undefined;
-}
-
-/**
- * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
- * @public
- */
-export type AuthorizationData =
-  | AuthorizationData.Oauth2Member
-  | AuthorizationData.$UnknownMember;
-
-/**
- * @public
- */
-export namespace AuthorizationData {
-  /**
-   * <p>OAuth2 authorization data for the gateway target.</p>
-   * @public
-   */
-  export interface Oauth2Member {
-    oauth2: OAuth2AuthorizationData;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    oauth2?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    oauth2: (value: OAuth2AuthorizationData) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Details of a resource created and managed by the gateway for private endpoint connectivity.</p>
- * @public
- */
-export interface ManagedResourceDetails {
-  /**
-   * <p>The domain associated with this managed resource.</p>
-   * @public
-   */
-  domain?: string | undefined;
-
-  /**
-   * <p>The ARN of the VPC Lattice resource gateway created in your account.</p>
-   * @public
-   */
-  resourceGatewayArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the service network resource association.</p>
-   * @public
-   */
-  resourceAssociationArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayTargetRequest {
-  /**
-   * <p>The unique identifier of the gateway associated with the target.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the gateway target to delete.</p>
-   * @public
-   */
-  targetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteGatewayTargetResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the gateway.</p>
-   * @public
-   */
-  gatewayArn: string | undefined;
-
-  /**
-   * <p>The unique identifier of the deleted gateway target.</p>
-   * @public
-   */
-  targetId: string | undefined;
-
-  /**
-   * <p>The current status of the gateway target deletion.</p>
-   * @public
-   */
-  status: TargetStatus | undefined;
-
-  /**
-   * <p>The reasons for the current status of the gateway target deletion.</p>
-   * @public
-   */
-  statusReasons?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetGatewayTargetRequest {
-  /**
-   * <p>The identifier of the gateway that contains the target.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the target to retrieve.</p>
-   * @public
-   */
-  targetId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayTargetsRequest {
-  /**
-   * <p>The identifier of the gateway to list targets for.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in the response. If the total number of results is greater than this value, use the token returned in the response in the <code>nextToken</code> field when making another request to return the next batch of results.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about a gateway target. A target represents an endpoint that the gateway can connect to.</p>
- * @public
- */
-export interface TargetSummary {
-  /**
-   * <p>The unique identifier of the target.</p>
-   * @public
-   */
-  targetId: string | undefined;
-
-  /**
-   * <p>The name of the target.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The current status of the target.</p>
-   * @public
-   */
-  status: TargetStatus | undefined;
-
-  /**
-   * <p>The description of the target.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The timestamp when the target was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the target was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>Priority for resolving resource URI conflicts across targets. Lower values take precedence. Defaults to 1000 when not set.</p>
-   * @public
-   */
-  resourcePriority?: number | undefined;
-
-  /**
-   * <p>The timestamp when the target was last synchronized.</p>
-   * @public
-   */
-  lastSynchronizedAt?: Date | undefined;
-
-  /**
-   * <p>Contains the authorization data that is returned when a gateway target is configured with a credential provider with authorization code grant type and requires user federation.</p>
-   * @public
-   */
-  authorizationData?: AuthorizationData | undefined;
-
-  /**
-   * <p>The type of the target.</p>
-   * @public
-   */
-  targetType?: TargetType | undefined;
-
-  /**
-   * <p>The listing mode for the target. MCP resources for <code>DEFAULT</code> targets are cached at the control plane for faster access. MCP resources for <code>DYNAMIC</code> targets are retrieved dynamically when listing tools.</p>
-   * @public
-   */
-  listingMode?: ListingMode | undefined;
-}
-
-/**
- * @public
- */
-export interface ListGatewayTargetsResponse {
-  /**
-   * <p>The list of gateway target summaries.</p>
-   * @public
-   */
-  items: TargetSummary[] | undefined;
-
-  /**
-   * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, use this token when making another request in the <code>nextToken</code> field to return the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SynchronizeGatewayTargetsRequest {
-  /**
-   * <p>The gateway Identifier.</p>
-   * @public
-   */
-  gatewayIdentifier: string | undefined;
-
-  /**
-   * <p>The target ID list.</p>
-   * @public
-   */
-  targetIdList: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcePolicyRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the resource for which to retrieve the resource policy.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetResourcePolicyResponse {
-  /**
-   * <p>The resource policy associated with the specified resource.</p>
-   * @public
-   */
-  policy?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTokenVaultRequest {
-  /**
-   * <p>The unique identifier of the token vault to retrieve.</p>
-   * @public
-   */
-  tokenVaultId?: string | undefined;
-}
-
-/**
- * <p>Contains the KMS configuration for a resource.</p>
- * @public
- */
-export interface KmsConfiguration {
-  /**
-   * <p>The type of KMS key (CustomerManagedKey or ServiceManagedKey).</p>
-   * @public
-   */
-  keyType: KeyType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetTokenVaultResponse {
-  /**
-   * <p>The ID of the token vault.</p>
-   * @public
-   */
-  tokenVaultId: string | undefined;
-
-  /**
-   * <p>The KMS configuration for the token vault.</p>
-   * @public
-   */
-  kmsConfiguration: KmsConfiguration | undefined;
-
-  /**
-   * <p>The timestamp when the token vault was last modified.</p>
-   * @public
-   */
-  lastModifiedDate: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateHarnessEndpointRequest {
-  /**
-   * <p>The ID of the harness to create an endpoint for.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.</p>
-   * @public
-   */
-  endpointName: string | undefined;
-
-  /**
-   * <p>The harness version that the endpoint points to and serves invocations from.</p>
-   * @public
-   */
-  targetVersion?: string | undefined;
-
-  /**
-   * <p>A description of the endpoint.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-
-  /**
-   * <p>Tags to apply to the endpoint resource.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
-}
-
-/**
- * <p>Representation of a harness endpoint. An endpoint is a named, stable reference to a specific version of a harness that callers invoke, allowing the underlying version to be updated without changing how the agent is invoked.</p>
- * @public
- */
-export interface HarnessEndpoint {
-  /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the harness that the endpoint belongs to.</p>
-   * @public
-   */
-  harnessName: string | undefined;
-
-  /**
-   * <p>The name of the endpoint.</p>
-   * @public
-   */
-  endpointName: string | undefined;
-
-  /**
-   * <p>The ARN of the endpoint.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The status of the endpoint.</p>
-   * @public
-   */
-  status: HarnessEndpointStatus | undefined;
-
-  /**
-   * <p>The timestamp when the endpoint was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the endpoint was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The harness version that the endpoint is currently serving.</p>
-   * @public
-   */
-  liveVersion?: string | undefined;
-
-  /**
-   * <p>The harness version that the endpoint points to. While an update is in progress, this can differ from the live version until the endpoint finishes transitioning.</p>
-   * @public
-   */
-  targetVersion?: string | undefined;
-
-  /**
-   * <p>The description of the endpoint.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The reason the endpoint's last create or update operation failed.</p>
-   * @public
-   */
-  failureReason?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateHarnessEndpointResponse {
-  /**
-   * <p>The endpoint that was created.</p>
-   * @public
-   */
-  endpoint: HarnessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHarnessEndpointRequest {
-  /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the endpoint to delete.</p>
-   * @public
-   */
-  endpointName: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteHarnessEndpointResponse {
-  /**
-   * <p>The endpoint that was deleted.</p>
-   * @public
-   */
-  endpoint: HarnessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHarnessEndpointRequest {
-  /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the endpoint to retrieve.</p>
-   * @public
-   */
-  endpointName: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetHarnessEndpointResponse {
-  /**
-   * <p>The endpoint resource.</p>
-   * @public
-   */
-  endpoint: HarnessEndpoint | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHarnessEndpointsRequest {
-  /**
-   * <p>The ID of the harness whose endpoints are listed.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHarnessEndpointsResponse {
-  /**
-   * <p>The list of harness endpoints.</p>
-   * @public
-   */
-  endpoints: HarnessEndpoint[] | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHarnessEndpointRequest {
-  /**
-   * <p>The ID of the harness that the endpoint belongs to.</p>
-   * @public
-   */
-  harnessId: string | undefined;
-
-  /**
-   * <p>The name of the endpoint to update.</p>
-   * @public
-   */
-  endpointName: string | undefined;
-
-  /**
-   * <p>The harness version that the endpoint points to. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  targetVersion?: string | undefined;
-
-  /**
-   * <p>A description of the endpoint. If not specified, the existing value is retained.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier to ensure idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateHarnessEndpointResponse {
-  /**
-   * <p>The updated endpoint.</p>
-   * @public
-   */
-  endpoint: HarnessEndpoint | undefined;
-}
-
-/**
- * <p>The AgentCore Runtime environment request configuration.</p>
- * @public
- */
-export interface HarnessAgentCoreRuntimeEnvironmentRequest {
-  /**
-   * <p>LifecycleConfiguration lets you manage the lifecycle of runtime sessions and resources in AgentCore Runtime. This configuration helps optimize resource utilization by automatically cleaning up idle sessions and preventing long-running instances from consuming resources indefinitely.</p>
-   * @public
-   */
-  lifecycleConfiguration?: LifecycleConfiguration | undefined;
-
-  /**
-   * <p>SecurityConfig for the Agent.</p>
-   * @public
-   */
-  networkConfiguration?: NetworkConfiguration | undefined;
-
-  /**
-   * <p>The filesystem configurations for the runtime environment.</p>
-   * @public
-   */
-  filesystemConfigurations?: FilesystemConfiguration[] | undefined;
-}
-
-/**
- * <p>The environment provider request configuration.</p>
- * @public
- */
-export type HarnessEnvironmentProviderRequest =
-  | HarnessEnvironmentProviderRequest.AgentCoreRuntimeEnvironmentMember
-  | HarnessEnvironmentProviderRequest.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessEnvironmentProviderRequest {
-  /**
-   * <p>The AgentCore Runtime environment configuration.</p>
-   * @public
-   */
-  export interface AgentCoreRuntimeEnvironmentMember {
-    agentCoreRuntimeEnvironment: HarnessAgentCoreRuntimeEnvironmentRequest;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    agentCoreRuntimeEnvironment?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    agentCoreRuntimeEnvironment: (value: HarnessAgentCoreRuntimeEnvironmentRequest) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The environment artifact for a harness, such as a container image containing custom dependencies.</p>
- * @public
- */
-export type HarnessEnvironmentArtifact =
-  | HarnessEnvironmentArtifact.ContainerConfigurationMember
-  | HarnessEnvironmentArtifact.$UnknownMember;
-
-/**
- * @public
- */
-export namespace HarnessEnvironmentArtifact {
-  /**
-   * <p>Representation of a container configuration.</p>
-   * @public
-   */
-  export interface ContainerConfigurationMember {
-    containerConfiguration: ContainerConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    containerConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    containerConfiguration: (value: ContainerConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>Configuration for memory retrieval within a namespace.</p>
- * @public
- */
-export interface HarnessAgentCoreMemoryRetrievalConfig {
-  /**
-   * <p>The maximum number of memory entries to retrieve.</p>
-   * @public
-   */
-  topK?: number | undefined;
-
-  /**
-   * <p>The minimum relevance score for retrieved memories.</p>
-   * @public
-   */
-  relevanceScore?: number | undefined;
-
-  /**
-   * <p>The ID of the retrieval strategy to use.</p>
-   * @public
-   */
-  strategyId?: string | undefined;
-}
-
-/**
- * <p>Configuration for AgentCore Memory integration.</p>
- * @public
- */
-export interface HarnessAgentCoreMemoryConfiguration {
-  /**
-   * <p>The ARN of the AgentCore Memory resource.</p>
-   * @public
-   */
-  arn: string | undefined;
-
-  /**
-   * <p>The actor ID for memory operations.</p>
-   * @public
-   */
-  actorId?: string | undefined;
-
-  /**
-   * <p>The number of messages to retrieve from memory.</p>
-   * @public
-   */
-  messagesCount?: number | undefined;
-
-  /**
-   * <p>The retrieval configuration for long-term memory, mapping namespace path templates to retrieval settings.</p>
-   * @public
-   */
-  retrievalConfig?: Record<string, HarnessAgentCoreMemoryRetrievalConfig> | undefined;
-}
-
-/**
- * <p>Explicitly opt out of memory.</p>
- * @public
- */
-export interface HarnessDisabledMemoryConfiguration {}
-
-/**
- * <p>Configuration for managed memory creation.</p>
- * @public
- */
-export interface HarnessManagedMemoryConfiguration {
-  /**
-   * <p>The ARN of the managed AgentCore Memory resource. Read-only on Get, ignored on Create/Update input.</p>
-   * @public
-   */
-  arn?: string | undefined;
-
-  /**
-   * <p>Strategy types to enable. Defaults to [SEMANTIC, SUMMARIZATION].</p>
-   * @public
-   */
-  strategies?: HarnessManagedMemoryStrategyType[] | undefined;
-
-  /**
-   * <p>Event retention in days. Defaults to 30.</p>
-   * @public
-   */
-  eventExpiryDuration?: number | undefined;
-
-  /**
-   * <p>Customer-managed KMS key. Defaults to AWS-owned key. Not updatable after creation.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
 }
 
 /**

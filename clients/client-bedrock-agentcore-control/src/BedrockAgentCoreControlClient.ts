@@ -59,6 +59,10 @@ import type {
   AddDatasetExamplesCommandOutput,
 } from "./commands/AddDatasetExamplesCommand";
 import type {
+  BatchPutGatewayRateLimitsCommandInput,
+  BatchPutGatewayRateLimitsCommandOutput,
+} from "./commands/BatchPutGatewayRateLimitsCommand";
+import type {
   CreateAgentRuntimeCommandInput,
   CreateAgentRuntimeCommandOutput,
 } from "./commands/CreateAgentRuntimeCommand";
@@ -76,6 +80,10 @@ import type {
   CreateBrowserProfileCommandOutput,
 } from "./commands/CreateBrowserProfileCommand";
 import type {
+  CreateCapacityProviderCommandInput,
+  CreateCapacityProviderCommandOutput,
+} from "./commands/CreateCapacityProviderCommand";
+import type {
   CreateCodeInterpreterCommandInput,
   CreateCodeInterpreterCommandOutput,
 } from "./commands/CreateCodeInterpreterCommand";
@@ -90,6 +98,10 @@ import type {
 } from "./commands/CreateDatasetVersionCommand";
 import type { CreateEvaluatorCommandInput, CreateEvaluatorCommandOutput } from "./commands/CreateEvaluatorCommand";
 import type { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand";
+import type {
+  CreateGatewayRateLimitCommandInput,
+  CreateGatewayRateLimitCommandOutput,
+} from "./commands/CreateGatewayRateLimitCommand";
 import type {
   CreateGatewayRuleCommandInput,
   CreateGatewayRuleCommandOutput,
@@ -156,6 +168,10 @@ import type {
   DeleteBrowserProfileCommandOutput,
 } from "./commands/DeleteBrowserProfileCommand";
 import type {
+  DeleteCapacityProviderCommandInput,
+  DeleteCapacityProviderCommandOutput,
+} from "./commands/DeleteCapacityProviderCommand";
+import type {
   DeleteCodeInterpreterCommandInput,
   DeleteCodeInterpreterCommandOutput,
 } from "./commands/DeleteCodeInterpreterCommand";
@@ -170,6 +186,10 @@ import type {
 } from "./commands/DeleteDatasetExamplesCommand";
 import type { DeleteEvaluatorCommandInput, DeleteEvaluatorCommandOutput } from "./commands/DeleteEvaluatorCommand";
 import type { DeleteGatewayCommandInput, DeleteGatewayCommandOutput } from "./commands/DeleteGatewayCommand";
+import type {
+  DeleteGatewayRateLimitCommandInput,
+  DeleteGatewayRateLimitCommandOutput,
+} from "./commands/DeleteGatewayRateLimitCommand";
 import type {
   DeleteGatewayRuleCommandInput,
   DeleteGatewayRuleCommandOutput,
@@ -237,6 +257,10 @@ import type {
   GetBrowserProfileCommandOutput,
 } from "./commands/GetBrowserProfileCommand";
 import type {
+  GetCapacityProviderCommandInput,
+  GetCapacityProviderCommandOutput,
+} from "./commands/GetCapacityProviderCommand";
+import type {
   GetCodeInterpreterCommandInput,
   GetCodeInterpreterCommandOutput,
 } from "./commands/GetCodeInterpreterCommand";
@@ -251,6 +275,10 @@ import type {
 import type { GetDatasetCommandInput, GetDatasetCommandOutput } from "./commands/GetDatasetCommand";
 import type { GetEvaluatorCommandInput, GetEvaluatorCommandOutput } from "./commands/GetEvaluatorCommand";
 import type { GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import type {
+  GetGatewayRateLimitCommandInput,
+  GetGatewayRateLimitCommandOutput,
+} from "./commands/GetGatewayRateLimitCommand";
 import type { GetGatewayRuleCommandInput, GetGatewayRuleCommandOutput } from "./commands/GetGatewayRuleCommand";
 import type { GetGatewayTargetCommandInput, GetGatewayTargetCommandOutput } from "./commands/GetGatewayTargetCommand";
 import type { GetHarnessCommandInput, GetHarnessCommandOutput } from "./commands/GetHarnessCommand";
@@ -317,6 +345,10 @@ import type {
   ListAgentRuntimesCommandOutput,
 } from "./commands/ListAgentRuntimesCommand";
 import type {
+  ListAgentRuntimeVersionsByCapacityProviderCommandInput,
+  ListAgentRuntimeVersionsByCapacityProviderCommandOutput,
+} from "./commands/ListAgentRuntimeVersionsByCapacityProviderCommand";
+import type {
   ListAgentRuntimeVersionsCommandInput,
   ListAgentRuntimeVersionsCommandOutput,
 } from "./commands/ListAgentRuntimeVersionsCommand";
@@ -329,6 +361,10 @@ import type {
   ListBrowserProfilesCommandOutput,
 } from "./commands/ListBrowserProfilesCommand";
 import type { ListBrowsersCommandInput, ListBrowsersCommandOutput } from "./commands/ListBrowsersCommand";
+import type {
+  ListCapacityProvidersCommandInput,
+  ListCapacityProvidersCommandOutput,
+} from "./commands/ListCapacityProvidersCommand";
 import type {
   ListCodeInterpretersCommandInput,
   ListCodeInterpretersCommandOutput,
@@ -351,6 +387,10 @@ import type {
   ListDatasetVersionsCommandOutput,
 } from "./commands/ListDatasetVersionsCommand";
 import type { ListEvaluatorsCommandInput, ListEvaluatorsCommandOutput } from "./commands/ListEvaluatorsCommand";
+import type {
+  ListGatewayRateLimitsCommandInput,
+  ListGatewayRateLimitsCommandOutput,
+} from "./commands/ListGatewayRateLimitsCommand";
 import type { ListGatewayRulesCommandInput, ListGatewayRulesCommandOutput } from "./commands/ListGatewayRulesCommand";
 import type { ListGatewaysCommandInput, ListGatewaysCommandOutput } from "./commands/ListGatewaysCommand";
 import type {
@@ -457,6 +497,10 @@ import type {
   UpdateApiKeyCredentialProviderCommandOutput,
 } from "./commands/UpdateApiKeyCredentialProviderCommand";
 import type {
+  UpdateCapacityProviderCommandInput,
+  UpdateCapacityProviderCommandOutput,
+} from "./commands/UpdateCapacityProviderCommand";
+import type {
   UpdateConfigurationBundleCommandInput,
   UpdateConfigurationBundleCommandOutput,
 } from "./commands/UpdateConfigurationBundleCommand";
@@ -467,6 +511,10 @@ import type {
 } from "./commands/UpdateDatasetExamplesCommand";
 import type { UpdateEvaluatorCommandInput, UpdateEvaluatorCommandOutput } from "./commands/UpdateEvaluatorCommand";
 import type { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand";
+import type {
+  UpdateGatewayRateLimitCommandInput,
+  UpdateGatewayRateLimitCommandOutput,
+} from "./commands/UpdateGatewayRateLimitCommand";
 import type {
   UpdateGatewayRuleCommandInput,
   UpdateGatewayRuleCommandOutput,
@@ -535,17 +583,20 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddDatasetExamplesCommandInput
+  | BatchPutGatewayRateLimitsCommandInput
   | CreateAgentRuntimeCommandInput
   | CreateAgentRuntimeEndpointCommandInput
   | CreateApiKeyCredentialProviderCommandInput
   | CreateBrowserCommandInput
   | CreateBrowserProfileCommandInput
+  | CreateCapacityProviderCommandInput
   | CreateCodeInterpreterCommandInput
   | CreateConfigurationBundleCommandInput
   | CreateDatasetCommandInput
   | CreateDatasetVersionCommandInput
   | CreateEvaluatorCommandInput
   | CreateGatewayCommandInput
+  | CreateGatewayRateLimitCommandInput
   | CreateGatewayRuleCommandInput
   | CreateGatewayTargetCommandInput
   | CreateHarnessCommandInput
@@ -566,12 +617,14 @@ export type ServiceInputTypes =
   | DeleteApiKeyCredentialProviderCommandInput
   | DeleteBrowserCommandInput
   | DeleteBrowserProfileCommandInput
+  | DeleteCapacityProviderCommandInput
   | DeleteCodeInterpreterCommandInput
   | DeleteConfigurationBundleCommandInput
   | DeleteDatasetCommandInput
   | DeleteDatasetExamplesCommandInput
   | DeleteEvaluatorCommandInput
   | DeleteGatewayCommandInput
+  | DeleteGatewayRateLimitCommandInput
   | DeleteGatewayRuleCommandInput
   | DeleteGatewayTargetCommandInput
   | DeleteHarnessCommandInput
@@ -593,12 +646,14 @@ export type ServiceInputTypes =
   | GetApiKeyCredentialProviderCommandInput
   | GetBrowserCommandInput
   | GetBrowserProfileCommandInput
+  | GetCapacityProviderCommandInput
   | GetCodeInterpreterCommandInput
   | GetConfigurationBundleCommandInput
   | GetConfigurationBundleVersionCommandInput
   | GetDatasetCommandInput
   | GetEvaluatorCommandInput
   | GetGatewayCommandInput
+  | GetGatewayRateLimitCommandInput
   | GetGatewayRuleCommandInput
   | GetGatewayTargetCommandInput
   | GetHarnessCommandInput
@@ -621,11 +676,13 @@ export type ServiceInputTypes =
   | GetTokenVaultCommandInput
   | GetWorkloadIdentityCommandInput
   | ListAgentRuntimeEndpointsCommandInput
+  | ListAgentRuntimeVersionsByCapacityProviderCommandInput
   | ListAgentRuntimeVersionsCommandInput
   | ListAgentRuntimesCommandInput
   | ListApiKeyCredentialProvidersCommandInput
   | ListBrowserProfilesCommandInput
   | ListBrowsersCommandInput
+  | ListCapacityProvidersCommandInput
   | ListCodeInterpretersCommandInput
   | ListConfigurationBundleVersionsCommandInput
   | ListConfigurationBundlesCommandInput
@@ -633,6 +690,7 @@ export type ServiceInputTypes =
   | ListDatasetVersionsCommandInput
   | ListDatasetsCommandInput
   | ListEvaluatorsCommandInput
+  | ListGatewayRateLimitsCommandInput
   | ListGatewayRulesCommandInput
   | ListGatewayTargetsCommandInput
   | ListGatewaysCommandInput
@@ -666,11 +724,13 @@ export type ServiceInputTypes =
   | UpdateAgentRuntimeCommandInput
   | UpdateAgentRuntimeEndpointCommandInput
   | UpdateApiKeyCredentialProviderCommandInput
+  | UpdateCapacityProviderCommandInput
   | UpdateConfigurationBundleCommandInput
   | UpdateDatasetCommandInput
   | UpdateDatasetExamplesCommandInput
   | UpdateEvaluatorCommandInput
   | UpdateGatewayCommandInput
+  | UpdateGatewayRateLimitCommandInput
   | UpdateGatewayRuleCommandInput
   | UpdateGatewayTargetCommandInput
   | UpdateHarnessCommandInput
@@ -693,17 +753,20 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddDatasetExamplesCommandOutput
+  | BatchPutGatewayRateLimitsCommandOutput
   | CreateAgentRuntimeCommandOutput
   | CreateAgentRuntimeEndpointCommandOutput
   | CreateApiKeyCredentialProviderCommandOutput
   | CreateBrowserCommandOutput
   | CreateBrowserProfileCommandOutput
+  | CreateCapacityProviderCommandOutput
   | CreateCodeInterpreterCommandOutput
   | CreateConfigurationBundleCommandOutput
   | CreateDatasetCommandOutput
   | CreateDatasetVersionCommandOutput
   | CreateEvaluatorCommandOutput
   | CreateGatewayCommandOutput
+  | CreateGatewayRateLimitCommandOutput
   | CreateGatewayRuleCommandOutput
   | CreateGatewayTargetCommandOutput
   | CreateHarnessCommandOutput
@@ -724,12 +787,14 @@ export type ServiceOutputTypes =
   | DeleteApiKeyCredentialProviderCommandOutput
   | DeleteBrowserCommandOutput
   | DeleteBrowserProfileCommandOutput
+  | DeleteCapacityProviderCommandOutput
   | DeleteCodeInterpreterCommandOutput
   | DeleteConfigurationBundleCommandOutput
   | DeleteDatasetCommandOutput
   | DeleteDatasetExamplesCommandOutput
   | DeleteEvaluatorCommandOutput
   | DeleteGatewayCommandOutput
+  | DeleteGatewayRateLimitCommandOutput
   | DeleteGatewayRuleCommandOutput
   | DeleteGatewayTargetCommandOutput
   | DeleteHarnessCommandOutput
@@ -751,12 +816,14 @@ export type ServiceOutputTypes =
   | GetApiKeyCredentialProviderCommandOutput
   | GetBrowserCommandOutput
   | GetBrowserProfileCommandOutput
+  | GetCapacityProviderCommandOutput
   | GetCodeInterpreterCommandOutput
   | GetConfigurationBundleCommandOutput
   | GetConfigurationBundleVersionCommandOutput
   | GetDatasetCommandOutput
   | GetEvaluatorCommandOutput
   | GetGatewayCommandOutput
+  | GetGatewayRateLimitCommandOutput
   | GetGatewayRuleCommandOutput
   | GetGatewayTargetCommandOutput
   | GetHarnessCommandOutput
@@ -779,11 +846,13 @@ export type ServiceOutputTypes =
   | GetTokenVaultCommandOutput
   | GetWorkloadIdentityCommandOutput
   | ListAgentRuntimeEndpointsCommandOutput
+  | ListAgentRuntimeVersionsByCapacityProviderCommandOutput
   | ListAgentRuntimeVersionsCommandOutput
   | ListAgentRuntimesCommandOutput
   | ListApiKeyCredentialProvidersCommandOutput
   | ListBrowserProfilesCommandOutput
   | ListBrowsersCommandOutput
+  | ListCapacityProvidersCommandOutput
   | ListCodeInterpretersCommandOutput
   | ListConfigurationBundleVersionsCommandOutput
   | ListConfigurationBundlesCommandOutput
@@ -791,6 +860,7 @@ export type ServiceOutputTypes =
   | ListDatasetVersionsCommandOutput
   | ListDatasetsCommandOutput
   | ListEvaluatorsCommandOutput
+  | ListGatewayRateLimitsCommandOutput
   | ListGatewayRulesCommandOutput
   | ListGatewayTargetsCommandOutput
   | ListGatewaysCommandOutput
@@ -824,11 +894,13 @@ export type ServiceOutputTypes =
   | UpdateAgentRuntimeCommandOutput
   | UpdateAgentRuntimeEndpointCommandOutput
   | UpdateApiKeyCredentialProviderCommandOutput
+  | UpdateCapacityProviderCommandOutput
   | UpdateConfigurationBundleCommandOutput
   | UpdateDatasetCommandOutput
   | UpdateDatasetExamplesCommandOutput
   | UpdateEvaluatorCommandOutput
   | UpdateGatewayCommandOutput
+  | UpdateGatewayRateLimitCommandOutput
   | UpdateGatewayRuleCommandOutput
   | UpdateGatewayTargetCommandOutput
   | UpdateHarnessCommandOutput

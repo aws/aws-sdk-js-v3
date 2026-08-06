@@ -180,8 +180,15 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *         accessPointArn: "STRING_VALUE", // required
  *         mountPath: "STRING_VALUE", // required
  *       },
+ *       capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ *         volumeName: "STRING_VALUE", // required
+ *         mountPath: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
+ *   capacityProviderConfiguration: { // CapacityProviderConfiguration
+ *     capacityProviderArn: "STRING_VALUE",
+ *   },
  *   tags: "<TagsMap>",
  * };
  * const command = new CreateAgentRuntimeCommand(input);

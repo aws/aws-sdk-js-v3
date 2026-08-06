@@ -276,6 +276,98 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
  * @public
  * @enum
  */
+export const CapacityReservationPreference = {
+  CAPACITY_RESERVATIONS_ONLY: "capacity-reservations-only",
+  NONE: "none",
+  OPEN: "open",
+} as const;
+/**
+ * @public
+ */
+export type CapacityReservationPreference =
+  (typeof CapacityReservationPreference)[keyof typeof CapacityReservationPreference];
+
+/**
+ * @public
+ * @enum
+ */
+export const EbsVolumeType = {
+  GP2: "gp2",
+  GP3: "gp3",
+  IO1: "io1",
+  IO2: "io2",
+  SC1: "sc1",
+  ST1: "st1",
+  STANDARD: "standard",
+} as const;
+/**
+ * @public
+ */
+export type EbsVolumeType = (typeof EbsVolumeType)[keyof typeof EbsVolumeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Monitoring = {
+  BASIC: "BASIC",
+  DETAILED: "DETAILED",
+} as const;
+/**
+ * @public
+ */
+export type Monitoring = (typeof Monitoring)[keyof typeof Monitoring];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperatingSystem = {
+  LINUX_ARM64: "LINUX_ARM64",
+  LINUX_X86_64: "LINUX_X86_64",
+} as const;
+/**
+ * @public
+ */
+export type OperatingSystem = (typeof OperatingSystem)[keyof typeof OperatingSystem];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderStatus = {
+  CREATE_FAILED: "CREATE_FAILED",
+  CREATING: "CREATING",
+  DELETE_FAILED: "DELETE_FAILED",
+  DELETING: "DELETING",
+  READY: "READY",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderStatus = (typeof CapacityProviderStatus)[keyof typeof CapacityProviderStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CapacityProviderStatusCode = {
+  INTERNAL_SERVER_EXCEPTION: "INTERNAL_SERVER_EXCEPTION",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+  THROTTLED: "THROTTLED",
+  VALIDATION_ERROR: "VALIDATION_ERROR",
+} as const;
+/**
+ * @public
+ */
+export type CapacityProviderStatusCode = (typeof CapacityProviderStatusCode)[keyof typeof CapacityProviderStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const CodeInterpreterNetworkMode = {
   PUBLIC: "PUBLIC",
   SANDBOX: "SANDBOX",
@@ -416,6 +508,34 @@ export const EvaluatorType = {
  * @public
  */
 export type EvaluatorType = (typeof EvaluatorType)[keyof typeof EvaluatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Period = {
+  MINUTE: "minute",
+  SECOND: "second",
+} as const;
+/**
+ * @public
+ */
+export type Period = (typeof Period)[keyof typeof Period];
+
+/**
+ * @public
+ * @enum
+ */
+export const GatewayRateLimitStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type GatewayRateLimitStatus = (typeof GatewayRateLimitStatus)[keyof typeof GatewayRateLimitStatus];
 
 /**
  * @public

@@ -198,8 +198,15 @@ export interface GetAgentRuntimeCommandOutput extends GetAgentRuntimeResponse, _
  * //         accessPointArn: "STRING_VALUE", // required
  * //         mountPath: "STRING_VALUE", // required
  * //       },
+ * //       capacityProviderVolume: { // CapacityProviderVolumeConfiguration
+ * //         volumeName: "STRING_VALUE", // required
+ * //         mountPath: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
+ * //   capacityProviderConfiguration: { // CapacityProviderConfiguration
+ * //     capacityProviderArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
