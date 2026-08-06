@@ -11,6 +11,7 @@ import {
   AccessDeniedException,
   AccessDeniedException$,
   AccountDetails$,
+  AccountFreeTrialStatus$,
   Action$,
   ActionLocalIpDetails$,
   ActionLocalPortDetails$,
@@ -849,6 +850,9 @@ import {
   FirewallPolicyStatefulRuleGroupReferencesDetails$,
   FirewallPolicyStatelessCustomActionsDetails$,
   FirewallPolicyStatelessRuleGroupReferencesDetails$,
+  FreeTrialStatus$,
+  FreeTrialStatusValue,
+  FreeTrialType,
   GenerateRecommendedPolicyV2$,
   GenerateRecommendedPolicyV2Command,
   GenerateRecommendedPolicyV2Request$,
@@ -1027,6 +1031,10 @@ import {
   ListFindingAggregatorsCommand,
   ListFindingAggregatorsRequest$,
   ListFindingAggregatorsResponse$,
+  ListFreeTrialStatusesV2$,
+  ListFreeTrialStatusesV2Command,
+  ListFreeTrialStatusesV2Request$,
+  ListFreeTrialStatusesV2Response$,
   ListInvitations$,
   ListInvitationsCommand,
   ListInvitationsRequest$,
@@ -1113,6 +1121,7 @@ import {
   paginateListConfigurationPolicyAssociations,
   paginateListEnabledProductsForImport,
   paginateListFindingAggregators,
+  paginateListFreeTrialStatusesV2,
   paginateListInvitations,
   paginateListMembers,
   paginateListOrganizationAdminAccounts,
@@ -1562,6 +1571,8 @@ assert(typeof ListEnabledProductsForImportCommand === "function");
 assert(typeof ListEnabledProductsForImport$ === "object");
 assert(typeof ListFindingAggregatorsCommand === "function");
 assert(typeof ListFindingAggregators$ === "object");
+assert(typeof ListFreeTrialStatusesV2Command === "function");
+assert(typeof ListFreeTrialStatusesV2$ === "object");
 assert(typeof ListInvitationsCommand === "function");
 assert(typeof ListInvitations$ === "object");
 assert(typeof ListMembersCommand === "function");
@@ -1616,6 +1627,7 @@ assert(typeof AcceptAdministratorInvitationResponse$ === "object");
 assert(typeof AcceptInvitationRequest$ === "object");
 assert(typeof AcceptInvitationResponse$ === "object");
 assert(typeof AccountDetails$ === "object");
+assert(typeof AccountFreeTrialStatus$ === "object");
 assert(typeof Action$ === "object");
 assert(typeof ActionLocalIpDetails$ === "object");
 assert(typeof ActionLocalPortDetails$ === "object");
@@ -2311,6 +2323,7 @@ assert(typeof FirewallPolicyDetails$ === "object");
 assert(typeof FirewallPolicyStatefulRuleGroupReferencesDetails$ === "object");
 assert(typeof FirewallPolicyStatelessCustomActionsDetails$ === "object");
 assert(typeof FirewallPolicyStatelessRuleGroupReferencesDetails$ === "object");
+assert(typeof FreeTrialStatus$ === "object");
 assert(typeof GenerateRecommendedPolicyV2Request$ === "object");
 assert(typeof GenerateRecommendedPolicyV2Response$ === "object");
 assert(typeof GeneratorDetails$ === "object");
@@ -2404,6 +2417,8 @@ assert(typeof ListEnabledProductsForImportRequest$ === "object");
 assert(typeof ListEnabledProductsForImportResponse$ === "object");
 assert(typeof ListFindingAggregatorsRequest$ === "object");
 assert(typeof ListFindingAggregatorsResponse$ === "object");
+assert(typeof ListFreeTrialStatusesV2Request$ === "object");
+assert(typeof ListFreeTrialStatusesV2Response$ === "object");
 assert(typeof ListInvitationsRequest$ === "object");
 assert(typeof ListInvitationsResponse$ === "object");
 assert(typeof ListMembersRequest$ === "object");
@@ -2640,6 +2655,8 @@ assert(typeof FeatureName === "object");
 assert(typeof FeatureStatus === "object");
 assert(typeof FindingHistoryUpdateSourceType === "object");
 assert(typeof FindingsTrendsStringField === "object");
+assert(typeof FreeTrialStatusValue === "object");
+assert(typeof FreeTrialType === "object");
 assert(typeof GranularityField === "object");
 assert(typeof GroupByField === "object");
 assert(typeof HealthIssueCode === "object");
@@ -2748,6 +2765,7 @@ assert(typeof paginateListConfigurationPolicies === "function");
 assert(typeof paginateListConfigurationPolicyAssociations === "function");
 assert(typeof paginateListEnabledProductsForImport === "function");
 assert(typeof paginateListFindingAggregators === "function");
+assert(typeof paginateListFreeTrialStatusesV2 === "function");
 assert(typeof paginateListInvitations === "function");
 assert(typeof paginateListMembers === "function");
 assert(typeof paginateListOrganizationAdminAccounts === "function");

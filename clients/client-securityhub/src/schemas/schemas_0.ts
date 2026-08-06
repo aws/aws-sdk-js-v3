@@ -486,6 +486,9 @@ const _AEVw = "AwsEc2Vpc";
 const _AEc = "ActionsEnabled";
 const _AEu = "AutoEnable";
 const _AF = "AssociationFilters";
+const _AFTS = "AccountFreeTrialStatus";
+const _AFTSL = "AccountFreeTrialStatusList";
+const _AFTSc = "AccountFreeTrialStatuses";
 const _AGDD = "AwsGuardDutyDetector";
 const _AGDDD = "AwsGuardDutyDetectorDetails";
 const _AGDDDSCTD = "AwsGuardDutyDetectorDataSourcesCloudTrailDetails";
@@ -1572,11 +1575,13 @@ const _Dou = "Double";
 const _Dr = "Drop";
 const _Dri = "Driver";
 const _E = "Email";
-const _EA = "EndpointArn";
+const _EA = "EvaluatedAt";
 const _EAR = "EncryptionAtRest";
 const _EARO = "EncryptionAtRestOptions";
-const _EAn = "EnvironmentArn";
-const _EAx = "ExploitAvailable";
+const _EAn = "EndpointArn";
+const _EAnv = "EnvironmentArn";
+const _EAx = "ExpiresAt";
+const _EAxp = "ExploitAvailable";
 const _EB = "EventBuses";
 const _EBA = "EventBusArn";
 const _EBD = "EnabledByDefault";
@@ -1784,12 +1789,16 @@ const _FSI = "FileSystemId";
 const _FSe = "FeatureStatus";
 const _FSi = "FindingScopes";
 const _FSin = "FindingsSummary";
-const _FT = "FindingType";
+const _FT = "FeatureType";
 const _FTCF = "FindingsTrendsCompositeFilter";
 const _FTCFL = "FindingsTrendsCompositeFilterList";
 const _FTF = "FindingsTrendsFilters";
+const _FTS = "FreeTrialStatuses";
 const _FTSF = "FindingsTrendsStringFilter";
 const _FTSFL = "FindingsTrendsStringFilterList";
+const _FTSL = "FreeTrialStatusList";
+const _FTSr = "FreeTrialStatus";
+const _FTi = "FindingType";
 const _FV = "FieldValue";
 const _Fa = "Family";
 const _Fat = "Fatal";
@@ -2194,6 +2203,9 @@ const _LFAi = "ListFindingAggregators";
 const _LFM = "LastFailureMessage";
 const _LFP = "LogFilePrefix";
 const _LFT = "LastFailureTime";
+const _LFTSV = "ListFreeTrialStatusesV2";
+const _LFTSVR = "ListFreeTrialStatusesV2Request";
+const _LFTSVRi = "ListFreeTrialStatusesV2Response";
 const _LFVE = "LogFileValidationEnabled";
 const _LGA = "LogGroupArn";
 const _LGI = "LocalGatewayId";
@@ -3231,6 +3243,7 @@ const _Stan = "Standards";
 const _Stand = "Standard";
 const _Star = "Start";
 const _Stat = "Statistic";
+const _Statu = "Statuses";
 const _Str = "String";
 const _Su = "Subject";
 const _Sub = "Subnets";
@@ -3677,6 +3690,11 @@ export var AccountDetails$: StaticStructureSchema = [3, n0, _AD,
   0,
   [_AIc, _E],
   [0, 0], 1
+];
+export var AccountFreeTrialStatus$: StaticStructureSchema = [3, n0, _AFTS,
+  0,
+  [_AIc, _EA, _FTS],
+  [0, 5, () => FreeTrialStatusList], 3
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -4275,7 +4293,7 @@ export var AwsCorsConfiguration$: StaticStructureSchema = [3, n0, _ACC,
 ];
 export var AwsDmsEndpointDetails$: StaticStructureSchema = [3, n0, _ADED,
   0,
-  [_CAe, _DNa, _EA, _EI, _ETn, _EN, _EIx, _ECA, _KKI, _P, _SNe, _SMs, _Use],
+  [_CAe, _DNa, _EAn, _EI, _ETn, _EN, _EIx, _ECA, _KKI, _P, _SNe, _SMs, _Use],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0]
 ];
 export var AwsDmsReplicationInstanceDetails$: StaticStructureSchema = [3, n0, _ADRID,
@@ -5085,7 +5103,7 @@ export var AwsEksClusterResourcesVpcConfigDetails$: StaticStructureSchema = [3, 
 ];
 export var AwsElasticBeanstalkEnvironmentDetails$: StaticStructureSchema = [3, n0, _AEBED,
   0,
-  [_ANp, _Cn, _DCa, _DU, _D, _EU, _EAn, _EIn, _EL, _ENn, _OS, _PAl, _SSN, _St, _Tie, _VL],
+  [_ANp, _Cn, _DCa, _DU, _D, _EU, _EAnv, _EIn, _EL, _ENn, _OS, _PAl, _SSN, _St, _Tie, _VL],
   [0, 0, 0, 0, 0, 0, 0, 0, () => AwsElasticBeanstalkEnvironmentEnvironmentLinks, 0, () => AwsElasticBeanstalkEnvironmentOptionSettings, 0, 0, 0, () => AwsElasticBeanstalkEnvironmentTier$, 0]
 ];
 export var AwsElasticBeanstalkEnvironmentEnvironmentLink$: StaticStructureSchema = [3, n0, _AEBEEL,
@@ -7128,6 +7146,11 @@ export var FirewallPolicyStatelessRuleGroupReferencesDetails$: StaticStructureSc
   [_Prio, _RAe],
   [1, 0]
 ];
+export var FreeTrialStatus$: StaticStructureSchema = [3, n0, _FTSr,
+  0,
+  [_FT, _St, _SAt, _EAx],
+  [0, 0, 5, 5], 4
+];
 export var GenerateRecommendedPolicyV2Request$: StaticStructureSchema = [3, n0, _GRPVR,
   0,
   [_MUe],
@@ -7593,6 +7616,16 @@ export var ListFindingAggregatorsResponse$: StaticStructureSchema = [3, n0, _LFA
   [_FAind, _NTe],
   [() => FindingAggregatorList, 0]
 ];
+export var ListFreeTrialStatusesV2Request$: StaticStructureSchema = [3, n0, _LFTSVR,
+  0,
+  [_AIcc, _Statu, _MRa, _NTe],
+  [64 | 0, 64 | 0, 1, 0]
+];
+export var ListFreeTrialStatusesV2Response$: StaticStructureSchema = [3, n0, _LFTSVRi,
+  0,
+  [_AFTSc, _NTe],
+  [() => AccountFreeTrialStatusList, 0], 1
+];
 export var ListInvitationsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
   [_MRa, _NTe],
@@ -7900,7 +7933,7 @@ export var ResourceDetails$: StaticStructureSchema = [3, n0, _RDe,
 ];
 export var ResourceFindingsSummary$: StaticStructureSchema = [3, n0, _RFS,
   0,
-  [_FT, _PNr, _TF, _Sev],
+  [_FTi, _PNr, _TF, _Sev],
   [0, 0, 1, () => ResourceSeverityBreakdown$], 3
 ];
 export var ResourceGroupByRule$: StaticStructureSchema = [3, n0, _RGBR,
@@ -8540,7 +8573,7 @@ export var VpcInfoPeeringOptionsDetails$: StaticStructureSchema = [3, n0, _VIPOD
 ];
 export var Vulnerability$: StaticStructureSchema = [3, n0, _Vul,
   0,
-  [_I, _VPu, _Cv, _RVe, _Ve, _RUe, _FAix, _ESp, _EAx, _LKEA, _CVo],
+  [_I, _VPu, _Cv, _RVe, _Ve, _RUe, _FAix, _ESp, _EAxp, _LKEA, _CVo],
   [0, () => SoftwarePackageList, () => CvssList, 64 | 0, () => VulnerabilityVendor$, 64 | 0, 0, 1, 0, 0, () => VulnerabilityCodeVulnerabilitiesList], 1
 ];
 export var VulnerabilityCodeVulnerabilities$: StaticStructureSchema = [3, n0, _VCV,
@@ -8580,6 +8613,9 @@ export var WorkflowUpdate$: StaticStructureSchema = [3, n0, _WU,
 ];
 var AccountDetailsList: StaticListSchema = [1, n0, _ADL,
   0, () => AccountDetails$
+];
+var AccountFreeTrialStatusList: StaticListSchema = [1, n0, _AFTSL,
+  0, () => AccountFreeTrialStatus$
 ];
 var AccountIdList = 64 | 0;
 var ActionList: StaticListSchema = [1, n0, _ALct,
@@ -9154,6 +9190,11 @@ var FirewallPolicyStatelessCustomActionsList: StaticListSchema = [1, n0, _FPSCAL
 var FirewallPolicyStatelessRuleGroupReferencesList: StaticListSchema = [1, n0, _FPSRGRLi,
   0, () => FirewallPolicyStatelessRuleGroupReferencesDetails$
 ];
+var FreeTrialAccountIdList = 64 | 0;
+var FreeTrialStatusList: StaticListSchema = [1, n0, _FTSL,
+  0, () => FreeTrialStatus$
+];
+var FreeTrialStatusValueList = 64 | 0;
 var GroupByResults: StaticListSchema = [1, n0, _GBRr,
   0, () => GroupByResult$
 ];
@@ -9802,6 +9843,9 @@ export var ListEnabledProductsForImport$: StaticOperationSchema = [9, n0, _LEPFI
 ];
 export var ListFindingAggregators$: StaticOperationSchema = [9, n0, _LFAi,
   { [_h]: ["GET", "/findingAggregator/list", 200] }, () => ListFindingAggregatorsRequest$, () => ListFindingAggregatorsResponse$
+];
+export var ListFreeTrialStatusesV2$: StaticOperationSchema = [9, n0, _LFTSV,
+  { [_h]: ["POST", "/freetrial/statusv2/list", 200] }, () => ListFreeTrialStatusesV2Request$, () => ListFreeTrialStatusesV2Response$
 ];
 export var ListInvitations$: StaticOperationSchema = [9, n0, _LI,
   { [_h]: ["GET", "/invitations", 200] }, () => ListInvitationsRequest$, () => ListInvitationsResponse$

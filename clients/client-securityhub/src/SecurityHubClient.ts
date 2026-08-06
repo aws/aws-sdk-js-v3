@@ -356,6 +356,10 @@ import type {
   ListFindingAggregatorsCommandInput,
   ListFindingAggregatorsCommandOutput,
 } from "./commands/ListFindingAggregatorsCommand";
+import type {
+  ListFreeTrialStatusesV2CommandInput,
+  ListFreeTrialStatusesV2CommandOutput,
+} from "./commands/ListFreeTrialStatusesV2Command";
 import type { ListInvitationsCommandInput, ListInvitationsCommandOutput } from "./commands/ListInvitationsCommand";
 import type { ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand";
 import type {
@@ -538,6 +542,7 @@ export type ServiceInputTypes =
   | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
+  | ListFreeTrialStatusesV2CommandInput
   | ListInvitationsCommandInput
   | ListMembersCommandInput
   | ListOrganizationAdminAccountsCommandInput
@@ -659,6 +664,7 @@ export type ServiceOutputTypes =
   | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
+  | ListFreeTrialStatusesV2CommandOutput
   | ListInvitationsCommandOutput
   | ListMembersCommandOutput
   | ListOrganizationAdminAccountsCommandOutput

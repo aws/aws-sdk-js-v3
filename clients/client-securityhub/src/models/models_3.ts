@@ -16,6 +16,7 @@ import type {
   CspmEnablementStatus,
   DiscoveryType,
   EnablementStatus,
+  FreeTrialStatusValue,
   GroupByField,
   RecordState,
   RegionAvailabilityStatus,
@@ -31,8 +32,10 @@ import type {
   TargetType,
 } from "./enums";
 import type {
+  AccountFreeTrialStatus,
   AdminAccount,
   AggregatorV2,
+  AIDetails,
   AssociationFilters,
   AutomationRulesActionV2,
   AutomationRulesMetadata,
@@ -63,18 +66,46 @@ import type {
   ParameterConfiguration,
   Policy,
   ResourceFindingsSummary,
-  ResourceInfo,
   ResourceScopes,
   ResourcesDateFilter,
   ResourcesMapFilter,
   ResourcesNumberFilter,
   ResourcesStringFilter,
   ResourcesTrendsStringFilter,
-  ResourceTag,
   Result,
   SortCriterion,
   Target,
 } from "./models_2";
+
+/**
+ * <p>Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains <code>AIDetails</code>.</p>
+ * @public
+ */
+export interface ResourceInfo {
+  /**
+   * <p>Details that are specific to self-hosted AI resources and their host resources.</p>
+   * @public
+   */
+  AIDetails?: AIDetails | undefined;
+}
+
+/**
+ * <p>Represents tag information associated with Amazon Web Services resources.</p>
+ * @public
+ */
+export interface ResourceTag {
+  /**
+   * <p>The identifier or name of the tag.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The data associated with the tag key.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
 
 /**
  * <p>Provides comprehensive details about an Amazon Web Services resource and its associated security findings.</p>
@@ -803,6 +834,62 @@ export interface ListFindingAggregatorsResponse {
    * <p>If there are more results, this is the token to provide in the next call to <code>ListFindingAggregators</code>.</p>
    *          <p>This operation currently only returns a single result.
    *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFreeTrialStatusesV2Request {
+  /**
+   * <p>The Amazon Web Services account identifiers to list free trial status for. You can specify accounts other than your own only if you are a delegated Security Hub administrator.</p>
+   * @public
+   */
+  AccountIds?: string[] | undefined;
+
+  /**
+   * <p>The free trial statuses to filter the results by. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> returns only features with an ongoing free trial period.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> returns only features whose free trial period has ended, or that never started.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Statuses?: FreeTrialStatusValue[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return. If you don't specify a value, Security Hub returns up to 100 results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListFreeTrialStatusesV2Response {
+  /**
+   * <p>An array of free trial statuses, one for each account in scope.</p>
+   * @public
+   */
+  AccountFreeTrialStatuses: AccountFreeTrialStatus[] | undefined;
+
+  /**
+   * <p>The pagination token to use to request the next page of results. If there are no additional results, this value is null.</p>
    * @public
    */
   NextToken?: string | undefined;

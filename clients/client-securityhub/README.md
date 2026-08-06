@@ -896,6 +896,13 @@ ListFindingAggregators
 </details>
 <details>
 <summary>
+ListFreeTrialStatusesV2
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/securityhub/command/ListFreeTrialStatusesV2Command/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListFreeTrialStatusesV2CommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-securityhub/Interface/ListFreeTrialStatusesV2CommandOutput/)
+</details>
+<details>
+<summary>
 ListInvitations
 </summary>
 

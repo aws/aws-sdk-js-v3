@@ -8,6 +8,8 @@ import type {
   ConfigurationPolicyAssociationStatus,
   DateRangeComparison,
   DateRangeUnit,
+  FreeTrialStatusValue,
+  FreeTrialType,
   MapFilterComparison,
   RuleStatus,
   RuleStatusV2,
@@ -77,6 +79,81 @@ export interface AccountDetails {
    * @public
    */
   Email?: string | undefined;
+}
+
+/**
+ * <p>The free trial period for a Security Hub feature, and whether the trial is currently active.</p>
+ * @public
+ */
+export interface FreeTrialStatus {
+  /**
+   * <p>The feature that the free trial period applies to. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SECURITY_HUB_V2</code> specifies Security Hub.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SECURITY_HUB_V2_MULTI_CLOUD_AZURE</code> specifies Security Hub coverage for Microsoft Azure resources.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FeatureType: FreeTrialType | undefined;
+
+  /**
+   * <p>Whether the free trial period is currently active. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> specifies that the free trial period is ongoing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INACTIVE</code> specifies that the free trial period has ended, or that it never started.</p>
+   *             </li>
+   *          </ul>
+   *          <p>To determine whether a trial has expired, compare <code>ExpiresAt</code> to the current time.</p>
+   * @public
+   */
+  Status: FreeTrialStatusValue | undefined;
+
+  /**
+   * <p>The date and time at which the free trial period began.</p>
+   * @public
+   */
+  StartedAt: Date | undefined;
+
+  /**
+   * <p>The date and time at which the free trial period ends.</p>
+   * @public
+   */
+  ExpiresAt: Date | undefined;
+}
+
+/**
+ * <p>The free trial status of each Security Hub feature for an account.</p>
+ * @public
+ */
+export interface AccountFreeTrialStatus {
+  /**
+   * <p>The Amazon Web Services account identifier that the free trial statuses apply to.</p>
+   * @public
+   */
+  AccountId: string | undefined;
+
+  /**
+   * <p>The date and time at which Security Hub evaluated the free trial statuses for this account. Every status in <code>FreeTrialStatuses</code> reflects this point in time.</p>
+   * @public
+   */
+  EvaluatedAt: Date | undefined;
+
+  /**
+   * <p>An array of free trial statuses, one for each feature that has a free trial period for the account. The array is empty if the account has no free trial to report.</p>
+   * @public
+   */
+  FreeTrialStatuses: FreeTrialStatus[] | undefined;
 }
 
 /**
@@ -13049,59 +13126,4 @@ export interface AwsEcsTaskDefinitionProxyConfigurationDetails {
    * @public
    */
   Type?: string | undefined;
-}
-
-/**
- * <p>Information about a Docker volume.</p>
- * @public
- */
-export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
-  /**
-   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
-   * @public
-   */
-  Autoprovision?: boolean | undefined;
-
-  /**
-   * <p>The Docker volume driver to use.</p>
-   * @public
-   */
-  Driver?: string | undefined;
-
-  /**
-   * <p>A map of Docker driver-specific options that are passed through.</p>
-   * @public
-   */
-  DriverOpts?: Record<string, string> | undefined;
-
-  /**
-   * <p>Custom metadata to add to the Docker volume.</p>
-   * @public
-   */
-  Labels?: Record<string, string> | undefined;
-
-  /**
-   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
-   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
-   * @public
-   */
-  Scope?: string | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
-  /**
-   * <p>The Amazon EFS access point identifier to use.</p>
-   * @public
-   */
-  AccessPointId?: string | undefined;
-
-  /**
-   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
-   * @public
-   */
-  Iam?: string | undefined;
 }

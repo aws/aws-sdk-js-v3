@@ -18,10 +18,63 @@ import type {
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
   AwsEcsTaskDefinitionPlacementConstraintsDetails,
   AwsEcsTaskDefinitionProxyConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails,
-  AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails,
   RelatedFinding,
 } from "./models_0";
+
+/**
+ * <p>Information about a Docker volume.</p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails {
+  /**
+   * <p>Whether to create the Docker volume automatically if it does not already exist.</p>
+   * @public
+   */
+  Autoprovision?: boolean | undefined;
+
+  /**
+   * <p>The Docker volume driver to use.</p>
+   * @public
+   */
+  Driver?: string | undefined;
+
+  /**
+   * <p>A map of Docker driver-specific options that are passed through.</p>
+   * @public
+   */
+  DriverOpts?: Record<string, string> | undefined;
+
+  /**
+   * <p>Custom metadata to add to the Docker volume.</p>
+   * @public
+   */
+  Labels?: Record<string, string> | undefined;
+
+  /**
+   * <p>The scope for the Docker volume that determines its lifecycle. Docker volumes that are scoped to a task are provisioned
+   * automatically when the task starts and destroyed when the task stops. Docker volumes that are shared persist after the task stops. Valid values are <code>shared</code> or <code>task</code>.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+}
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails {
+  /**
+   * <p>The Amazon EFS access point identifier to use.</p>
+   * @public
+   */
+  AccessPointId?: string | undefined;
+
+  /**
+   * <p>Whether to use the Amazon ECS task IAM role defined in a task definition when mounting the Amazon EFS file system.</p>
+   * @public
+   */
+  Iam?: string | undefined;
+}
 
 /**
  * <p>Information about the Amazon Elastic File System file system that is used for task storage.</p>
@@ -11174,54 +11227,4 @@ export interface AwsWafRuleDetails {
    * @public
    */
   RuleId?: string | undefined;
-}
-
-/**
- * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupRulesActionDetails {
-  /**
-   * <p>The action that WAF should take on a web request when it matches the rule's
-   *          statement.</p>
-   * @public
-   */
-  Type?: string | undefined;
-}
-
-/**
- * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
- *          allow, block, or count.
- *       </p>
- * @public
- */
-export interface AwsWafRuleGroupRulesDetails {
-  /**
-   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
-   *       </p>
-   * @public
-   */
-  Action?: AwsWafRuleGroupRulesActionDetails | undefined;
-
-  /**
-   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
-   *          based on the value of <code>Priority</code>.</p>
-   * @public
-   */
-  Priority?: number | undefined;
-
-  /**
-   * <p>The rule ID for a rule.
-   *       </p>
-   * @public
-   */
-  RuleId?: string | undefined;
-
-  /**
-   * <p>The type of rule.
-   *       </p>
-   * @public
-   */
-  Type?: string | undefined;
 }

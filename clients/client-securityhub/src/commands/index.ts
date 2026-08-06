@@ -91,6 +91,7 @@ export * from "./ListConnectorsCommand";
 export * from "./ListConnectorsV2Command";
 export * from "./ListEnabledProductsForImportCommand";
 export * from "./ListFindingAggregatorsCommand";
+export * from "./ListFreeTrialStatusesV2Command";
 export * from "./ListInvitationsCommand";
 export * from "./ListMembersCommand";
 export * from "./ListOrganizationAdminAccountsCommand";

@@ -3,6 +3,32 @@
  * @public
  * @enum
  */
+export const FreeTrialType = {
+  SECURITY_HUB_V2: "SECURITY_HUB_V2",
+  SECURITY_HUB_V2_MULTI_CLOUD_AZURE: "SECURITY_HUB_V2_MULTI_CLOUD_AZURE",
+} as const;
+/**
+ * @public
+ */
+export type FreeTrialType = (typeof FreeTrialType)[keyof typeof FreeTrialType];
+
+/**
+ * @public
+ * @enum
+ */
+export const FreeTrialStatusValue = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type FreeTrialStatusValue = (typeof FreeTrialStatusValue)[keyof typeof FreeTrialStatusValue];
+
+/**
+ * @public
+ * @enum
+ */
 export const SeverityLabel = {
   CRITICAL: "CRITICAL",
   HIGH: "HIGH",

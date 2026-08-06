@@ -463,6 +463,11 @@ import {
   ListFindingAggregatorsCommand,
 } from "./commands/ListFindingAggregatorsCommand";
 import {
+  type ListFreeTrialStatusesV2CommandInput,
+  type ListFreeTrialStatusesV2CommandOutput,
+  ListFreeTrialStatusesV2Command,
+} from "./commands/ListFreeTrialStatusesV2Command";
+import {
   type ListInvitationsCommandInput,
   type ListInvitationsCommandOutput,
   ListInvitationsCommand,
@@ -601,6 +606,7 @@ import { paginateListConfigurationPolicies } from "./pagination/ListConfiguratio
 import { paginateListConfigurationPolicyAssociations } from "./pagination/ListConfigurationPolicyAssociationsPaginator";
 import { paginateListEnabledProductsForImport } from "./pagination/ListEnabledProductsForImportPaginator";
 import { paginateListFindingAggregators } from "./pagination/ListFindingAggregatorsPaginator";
+import { paginateListFreeTrialStatusesV2 } from "./pagination/ListFreeTrialStatusesV2Paginator";
 import { paginateListInvitations } from "./pagination/ListInvitationsPaginator";
 import { paginateListMembers } from "./pagination/ListMembersPaginator";
 import { paginateListOrganizationAdminAccounts } from "./pagination/ListOrganizationAdminAccountsPaginator";
@@ -701,6 +707,7 @@ const commands = {
   ListConnectorsV2Command,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
+  ListFreeTrialStatusesV2Command,
   ListInvitationsCommand,
   ListMembersCommand,
   ListOrganizationAdminAccountsCommand,
@@ -746,6 +753,7 @@ const paginators = {
   paginateListConfigurationPolicyAssociations,
   paginateListEnabledProductsForImport,
   paginateListFindingAggregators,
+  paginateListFreeTrialStatusesV2,
   paginateListInvitations,
   paginateListMembers,
   paginateListOrganizationAdminAccounts,
@@ -2350,6 +2358,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link ListFreeTrialStatusesV2Command}
+   */
+  listFreeTrialStatusesV2(): Promise<ListFreeTrialStatusesV2CommandOutput>;
+  listFreeTrialStatusesV2(
+    args: ListFreeTrialStatusesV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFreeTrialStatusesV2CommandOutput>;
+  listFreeTrialStatusesV2(
+    args: ListFreeTrialStatusesV2CommandInput,
+    cb: (err: any, data?: ListFreeTrialStatusesV2CommandOutput) => void
+  ): void;
+  listFreeTrialStatusesV2(
+    args: ListFreeTrialStatusesV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFreeTrialStatusesV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListInvitationsCommand}
    */
   listInvitations(): Promise<ListInvitationsCommandOutput>;
@@ -2970,6 +2996,17 @@ export interface SecurityHub {
     args?: ListFindingAggregatorsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFindingAggregatorsCommandOutput>;
+
+  /**
+   * @see {@link ListFreeTrialStatusesV2Command}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListFreeTrialStatusesV2CommandOutput}.
+   */
+  paginateListFreeTrialStatusesV2(
+    args?: ListFreeTrialStatusesV2CommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListFreeTrialStatusesV2CommandOutput>;
 
   /**
    * @see {@link ListInvitationsCommand}

@@ -71,7 +71,6 @@ import type {
   Action,
   ActionTarget,
   Adjustment,
-  AIDetails,
   AutomationRulesAction,
   AutomationRulesConfig,
   AutomationRulesFindingFilters,
@@ -178,7 +177,6 @@ import type {
   AwsWafRegionalRuleGroupDetails,
   AwsWafRegionalWebAclDetails,
   AwsWafRuleDetails,
-  AwsWafRuleGroupRulesDetails,
   Compliance,
   DataClassificationDetails,
   Detection,
@@ -192,6 +190,56 @@ import type {
   ProcessDetails,
   Remediation,
 } from "./models_1";
+
+/**
+ * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRuleGroupRulesActionDetails {
+  /**
+   * <p>The action that WAF should take on a web request when it matches the rule's
+   *          statement.</p>
+   * @public
+   */
+  Type?: string | undefined;
+}
+
+/**
+ * <p>Provides information about the rules attached to the rule group. These rules identify the web requests that you want to
+ *          allow, block, or count.
+ *       </p>
+ * @public
+ */
+export interface AwsWafRuleGroupRulesDetails {
+  /**
+   * <p>Provides information about what action WAF should take on a web request when it matches the criteria defined in the rule.
+   *       </p>
+   * @public
+   */
+  Action?: AwsWafRuleGroupRulesActionDetails | undefined;
+
+  /**
+   * <p>If you define more than one rule in a web ACL, WAF evaluates each request against the rules in order
+   *          based on the value of <code>Priority</code>.</p>
+   * @public
+   */
+  Priority?: number | undefined;
+
+  /**
+   * <p>The rule ID for a rule.
+   *       </p>
+   * @public
+   */
+  RuleId?: string | undefined;
+
+  /**
+   * <p>The type of rule.
+   *       </p>
+   * @public
+   */
+  Type?: string | undefined;
+}
 
 /**
  * <p>Provides information about an WAF rule group. A rule group is a collection of rules for inspecting and controlling web requests.
@@ -10386,34 +10434,4 @@ export interface ResourceFindingsSummary {
    * @public
    */
   Severities?: ResourceSeverityBreakdown | undefined;
-}
-
-/**
- * <p>Additional details about a resource that are specific to its category. For AI/ML resources and their host resources, this structure contains <code>AIDetails</code>.</p>
- * @public
- */
-export interface ResourceInfo {
-  /**
-   * <p>Details that are specific to self-hosted AI resources and their host resources.</p>
-   * @public
-   */
-  AIDetails?: AIDetails | undefined;
-}
-
-/**
- * <p>Represents tag information associated with Amazon Web Services resources.</p>
- * @public
- */
-export interface ResourceTag {
-  /**
-   * <p>The identifier or name of the tag.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The data associated with the tag key.</p>
-   * @public
-   */
-  Value: string | undefined;
 }
