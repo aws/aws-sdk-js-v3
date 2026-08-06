@@ -91,7 +91,7 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //         },
  * //         KafkaVersion: "STRING_VALUE",
  * //         LoggingInfo: { // LoggingInfo
- * //           BrokerLogs: { // BrokerLogs
+ * //           AuthorizerLogs: { // AuthorizerLogs
  * //             CloudWatchLogs: { // CloudWatchLogs
  * //               Enabled: true || false, // required
  * //               LogGroup: "STRING_VALUE",
@@ -101,6 +101,21 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //               Enabled: true || false, // required
  * //             },
  * //             S3: { // S3
+ * //               Bucket: "STRING_VALUE",
+ * //               Enabled: true || false, // required
+ * //               Prefix: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           BrokerLogs: { // BrokerLogs
+ * //             CloudWatchLogs: {
+ * //               Enabled: true || false, // required
+ * //               LogGroup: "STRING_VALUE",
+ * //             },
+ * //             Firehose: {
+ * //               DeliveryStream: "STRING_VALUE",
+ * //               Enabled: true || false, // required
+ * //             },
+ * //             S3: {
  * //               Bucket: "STRING_VALUE",
  * //               Enabled: true || false, // required
  * //               Prefix: "STRING_VALUE",
@@ -202,6 +217,21 @@ export interface DescribeClusterOperationV2CommandOutput extends DescribeCluster
  * //         },
  * //         KafkaVersion: "STRING_VALUE",
  * //         LoggingInfo: {
+ * //           AuthorizerLogs: {
+ * //             CloudWatchLogs: {
+ * //               Enabled: true || false, // required
+ * //               LogGroup: "STRING_VALUE",
+ * //             },
+ * //             Firehose: {
+ * //               DeliveryStream: "STRING_VALUE",
+ * //               Enabled: true || false, // required
+ * //             },
+ * //             S3: {
+ * //               Bucket: "STRING_VALUE",
+ * //               Enabled: true || false, // required
+ * //               Prefix: "STRING_VALUE",
+ * //             },
+ * //           },
  * //           BrokerLogs: {
  * //             CloudWatchLogs: {
  * //               Enabled: true || false, // required

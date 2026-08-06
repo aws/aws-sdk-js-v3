@@ -552,6 +552,30 @@ export interface S3 {
 }
 
 /**
+ * <p>The authorizer logs configuration for this MSK cluster.</p>
+ * @public
+ */
+export interface AuthorizerLogs {
+  /**
+   * <p>Details of the CloudWatch Logs destination for authorizer logs.</p>
+   * @public
+   */
+  CloudWatchLogs?: CloudWatchLogs | undefined;
+
+  /**
+   * <p>Details of the Kinesis Data Firehose delivery stream that is the destination for authorizer logs.</p>
+   * @public
+   */
+  Firehose?: Firehose | undefined;
+
+  /**
+   * <p>Details of the Amazon S3 destination for authorizer logs.</p>
+   * @public
+   */
+  S3?: S3 | undefined;
+}
+
+/**
  * @public
  */
 export interface BrokerLogs {
@@ -564,6 +588,12 @@ export interface BrokerLogs {
  * @public
  */
 export interface LoggingInfo {
+  /**
+   * <p>You can configure your MSK cluster to send authorizer logs to different destination types.</p>
+   * @public
+   */
+  AuthorizerLogs?: AuthorizerLogs | undefined;
+
   BrokerLogs: BrokerLogs | undefined;
 }
 

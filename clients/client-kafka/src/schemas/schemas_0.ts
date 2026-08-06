@@ -2,6 +2,7 @@ const _A = "Authentication";
 const _AENII = "AttachedENIId";
 const _AKC = "ApacheKafkaCluster";
 const _AKCI = "ApacheKafkaClusterId";
+const _AL = "AuthorizerLogs";
 const _AMC = "AmazonMskCluster";
 const _AO = "AppendOnly";
 const _AOA = "ActiveOperationArn";
@@ -538,6 +539,7 @@ const _a = "authentication";
 const _aENII = "attachedENIId";
 const _aKC = "apacheKafkaCluster";
 const _aKCI = "apacheKafkaClusterId";
+const _aL = "authorizerLogs";
 const _aMC = "amazonMskCluster";
 const _aO = "appendOnly";
 const _aOA = "activeOperationArn";
@@ -996,6 +998,11 @@ export var ApacheKafkaCluster$: StaticStructureSchema = [3, n0, _AKC,
   0,
   [_AKCI, _BBS],
   [[0, { [_jN]: _aKCI }], [0, { [_jN]: _bBS }]], 2
+];
+export var AuthorizerLogs$: StaticStructureSchema = [3, n0, _AL,
+  0,
+  [_CWL, _F, _S],
+  [[() => CloudWatchLogs$, { [_jN]: _cWL }], [() => Firehose$, { [_jN]: _f }], [() => S3$, { [_jN]: _s_ }]]
 ];
 export var BatchAssociateScramSecretRequest$: StaticStructureSchema = [3, n0, _BASSR,
   0,
@@ -1719,8 +1726,8 @@ export var LogDelivery$: StaticStructureSchema = [3, n0, _LD,
 ];
 export var LoggingInfo$: StaticStructureSchema = [3, n0, _LI,
   0,
-  [_BL],
-  [[() => BrokerLogs$, { [_jN]: _bL }]], 1
+  [_BL, _AL],
+  [[() => BrokerLogs$, { [_jN]: _bL }], [() => AuthorizerLogs$, { [_jN]: _aL }]], 1
 ];
 export var MutableClusterInfo$: StaticStructureSchema = [3, n0, _MCI,
   0,

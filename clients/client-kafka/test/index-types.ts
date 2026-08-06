@@ -225,6 +225,7 @@ export type {
   VpcConnectionState,
   AmazonMskCluster,
   ApacheKafkaCluster,
+  AuthorizerLogs,
   BatchAssociateScramSecretRequest,
   BatchAssociateScramSecretResponse,
   BatchDisassociateScramSecretRequest,

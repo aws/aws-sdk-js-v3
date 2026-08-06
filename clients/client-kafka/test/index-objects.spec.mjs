@@ -1,6 +1,7 @@
 import {
   AmazonMskCluster$,
   ApacheKafkaCluster$,
+  AuthorizerLogs$,
   BadRequestException,
   BadRequestException$,
   BatchAssociateScramSecret$,
@@ -591,6 +592,7 @@ assert(typeof UpdateTopic$ === "object");
 // structural schemas
 assert(typeof AmazonMskCluster$ === "object");
 assert(typeof ApacheKafkaCluster$ === "object");
+assert(typeof AuthorizerLogs$ === "object");
 assert(typeof BatchAssociateScramSecretRequest$ === "object");
 assert(typeof BatchAssociateScramSecretResponse$ === "object");
 assert(typeof BatchDisassociateScramSecretRequest$ === "object");
