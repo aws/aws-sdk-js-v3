@@ -287,7 +287,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "CustomizationTechnique": "__CustomizationTechnique__",
     "Peft": "__Peft__",
     "EvaluationType": "__EvaluationType__",
-    "EvaluatorArn": "__EvaluatorArn__"
+    "EvaluatorArn": "__EvaluatorArn__",
+    "SequenceLength": "__SequenceLength__"
   },
   "MlflowConfig": {
     "MlflowResourceArn": "__MlflowResourceArn__",
@@ -587,7 +588,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     CustomizationTechnique: "__CustomizationTechnique__",
     Peft: "__Peft__",
     EvaluationType: "__EvaluationType__",
-    EvaluatorArn: "__EvaluatorArn__"
+    EvaluatorArn: "__EvaluatorArn__",
+    SequenceLength: "__SequenceLength__"
   },
   MlflowConfig: {
     MlflowResourceArn: "__MlflowResourceArn__",
@@ -1125,7 +1127,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "CustomizationTechnique": "__CustomizationTechnique__",
     "Peft": "__Peft__",
     "EvaluationType": "__EvaluationType__",
-    "EvaluatorArn": "__EvaluatorArn__"
+    "EvaluatorArn": "__EvaluatorArn__",
+    "SequenceLength": "__SequenceLength__"
   },
   "MlflowConfig": {
     "MlflowResourceArn": "__MlflowResourceArn__",
@@ -1658,7 +1661,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     CustomizationTechnique: "__CustomizationTechnique__",
     Peft: "__Peft__",
     EvaluationType: "__EvaluationType__",
-    EvaluatorArn: "__EvaluatorArn__"
+    EvaluatorArn: "__EvaluatorArn__",
+    SequenceLength: "__SequenceLength__"
   },
   MlflowConfig: {
     MlflowResourceArn: "__MlflowResourceArn__",

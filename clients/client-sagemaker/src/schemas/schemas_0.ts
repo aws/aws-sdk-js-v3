@@ -3124,7 +3124,7 @@ const _SJLAS = "SpaceJupyterLabAppSettings";
 const _SJR = "StopJobRequest";
 const _SJRt = "StopJobResponse";
 const _SKKI = "S3KmsKeyId";
-const _SL = "SpaceList";
+const _SL = "SequenceLength";
 const _SLC = "StudioLifecycleConfigs";
 const _SLCA = "StudioLifecycleConfigArn";
 const _SLCAT = "StudioLifecycleConfigAppType";
@@ -3134,6 +3134,7 @@ const _SLCL = "StudioLifecycleConfigsList";
 const _SLCN = "StudioLifecycleConfigName";
 const _SLJ = "StopLabelingJob";
 const _SLJR = "StopLabelingJobRequest";
+const _SLp = "SpaceList";
 const _SM = "StatusMessage";
 const _SMA = "S3ModelArtifacts";
 const _SMC = "ShadowModeConfig";
@@ -10221,8 +10222,8 @@ export var SendPipelineExecutionStepSuccessResponse$: StaticStructureSchema = [3
 ];
 export var ServerlessJobConfig$: StaticStructureSchema = [3, n0, _SJC,
   0,
-  [_BMA, _JT, _AEc, _CTus, _Pef, _ETva, _EAv],
-  [0, 0, 2, 0, 0, 0, 0], 2
+  [_BMA, _JT, _AEc, _CTus, _Pef, _ETva, _EAv, _SL],
+  [0, 0, 2, 0, 0, 0, 0, 0], 2
 ];
 export var ServiceCatalogProvisionedProductDetails$: StaticStructureSchema = [3, n0, _SCPPD,
   0,
@@ -12161,7 +12162,7 @@ var ShadowModelVariantConfigList: StaticListSchema = [1, n0, _SMVCL,
 var SourceAlgorithmList: StaticListSchema = [1, n0, _SAL,
   0, () => SourceAlgorithm$
 ];
-var SpaceList: StaticListSchema = [1, n0, _SL,
+var SpaceList: StaticListSchema = [1, n0, _SLp,
   0, () => SpaceDetails$
 ];
 var StudioLifecycleConfigsList: StaticListSchema = [1, n0, _SLCL,
