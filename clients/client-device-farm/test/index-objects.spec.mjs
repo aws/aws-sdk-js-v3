@@ -183,6 +183,7 @@ import {
   IdempotencyException,
   IdempotencyException$,
   IncompatibilityMessage$,
+  InsightsType,
   InstallToRemoteAccessSession$,
   InstallToRemoteAccessSessionCommand,
   InstallToRemoteAccessSessionRequest$,
@@ -195,6 +196,9 @@ import {
   InvalidOperationException,
   InvalidOperationException$,
   Job$,
+  JobInsights$,
+  JobReport$,
+  JobReportMetrics$,
   LimitExceededException,
   LimitExceededException$,
   ListArtifacts$,
@@ -341,10 +345,12 @@ import {
   RenewOfferingCommand,
   RenewOfferingRequest$,
   RenewOfferingResult$,
+  ReportStatus,
   Resolution$,
   Rule$,
   RuleOperator,
   Run$,
+  RunInsights$,
   Sample$,
   SampleType,
   ScheduleRun$,
@@ -386,6 +392,8 @@ import {
   TestGridSessionArtifactType,
   TestGridSessionStatus,
   TestGridVpcConfig$,
+  TestReport$,
+  TestReportMetrics$,
   TestType,
   TooManyTagsException,
   TooManyTagsException$,
@@ -688,6 +696,9 @@ assert(typeof InstallToRemoteAccessSessionRequest$ === "object");
 assert(typeof InstallToRemoteAccessSessionResult$ === "object");
 assert(typeof InstanceProfile$ === "object");
 assert(typeof Job$ === "object");
+assert(typeof JobInsights$ === "object");
+assert(typeof JobReport$ === "object");
+assert(typeof JobReportMetrics$ === "object");
 assert(typeof ListArtifactsRequest$ === "object");
 assert(typeof ListArtifactsResult$ === "object");
 assert(typeof ListDeviceInstancesRequest$ === "object");
@@ -757,6 +768,7 @@ assert(typeof RenewOfferingResult$ === "object");
 assert(typeof Resolution$ === "object");
 assert(typeof Rule$ === "object");
 assert(typeof Run$ === "object");
+assert(typeof RunInsights$ === "object");
 assert(typeof Sample$ === "object");
 assert(typeof ScheduleRunConfiguration$ === "object");
 assert(typeof ScheduleRunRequest$ === "object");
@@ -778,6 +790,8 @@ assert(typeof TestGridSession$ === "object");
 assert(typeof TestGridSessionAction$ === "object");
 assert(typeof TestGridSessionArtifact$ === "object");
 assert(typeof TestGridVpcConfig$ === "object");
+assert(typeof TestReport$ === "object");
+assert(typeof TestReportMetrics$ === "object");
 assert(typeof TrialMinutes$ === "object");
 assert(typeof UniqueProblem$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
@@ -815,12 +829,14 @@ assert(typeof DevicePoolType === "object");
 assert(typeof ExecutionResult === "object");
 assert(typeof ExecutionResultCode === "object");
 assert(typeof ExecutionStatus === "object");
+assert(typeof InsightsType === "object");
 assert(typeof InstanceStatus === "object");
 assert(typeof InteractionMode === "object");
 assert(typeof NetworkProfileType === "object");
 assert(typeof OfferingTransactionType === "object");
 assert(typeof OfferingType === "object");
 assert(typeof RecurringChargeFrequency === "object");
+assert(typeof ReportStatus === "object");
 assert(typeof RuleOperator === "object");
 assert(typeof SampleType === "object");
 assert(typeof TestGridSessionArtifactCategory === "object");

@@ -13,12 +13,14 @@ import type {
   ExecutionResult,
   ExecutionResultCode,
   ExecutionStatus,
+  InsightsType,
   InstanceStatus,
   InteractionMode,
   NetworkProfileType,
   OfferingTransactionType,
   OfferingType,
   RecurringChargeFrequency,
+  ReportStatus,
   RuleOperator,
   SampleType,
   TestGridSessionArtifactCategory,
@@ -2477,6 +2479,15 @@ export interface ScheduleRunConfiguration {
    * @public
    */
   executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The types of insights to generate for a run. Specify one or more values to opt in to
+   *             insights generation when scheduling a run.</p>
+   *          <p>Insights are currently supported for custom mode runs with Instrumentation, Appium Java TestNG,
+   *             and XCTest UI test types.</p>
+   * @public
+   */
+  insightsTypes?: InsightsType[] | undefined;
 }
 
 /**
@@ -2856,6 +2867,108 @@ export interface GetJobRequest {
 }
 
 /**
+ * <p>Contains aggregated metrics across all tests in a job.</p>
+ * @public
+ */
+export interface TestReportMetrics {
+  /**
+   * <p>The total number of tests in the job.</p>
+   * @public
+   */
+  testsTotal?: number | undefined;
+
+  /**
+   * <p>The number of tests that passed.</p>
+   * @public
+   */
+  testsPassed?: number | undefined;
+
+  /**
+   * <p>The number of tests that failed.</p>
+   * @public
+   */
+  testsFailed?: number | undefined;
+
+  /**
+   * <p>The number of tests that were skipped.</p>
+   * @public
+   */
+  testsSkipped?: number | undefined;
+
+  /**
+   * <p>The number of tests that errored.</p>
+   * @public
+   */
+  testsErrored?: number | undefined;
+
+  /**
+   * <p>The number of tests with other result types.</p>
+   * @public
+   */
+  testsOther?: number | undefined;
+
+  /**
+   * <p>The percentage of tests that passed.</p>
+   * @public
+   */
+  testsPassedPercentage?: number | undefined;
+
+  /**
+   * <p>The total execution duration of all tests in the job, in seconds.</p>
+   * @public
+   */
+  totalTestExecutionDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The median execution duration of tests in the job, in seconds.</p>
+   * @public
+   */
+  medianTestExecutionDurationSeconds?: number | undefined;
+}
+
+/**
+ * <p>Contains aggregated test-level metrics for a job.</p>
+ * @public
+ */
+export interface TestReport {
+  /**
+   * <p>A message associated with the test report.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The aggregated test-level metrics for the job.</p>
+   * @public
+   */
+  metrics?: TestReportMetrics | undefined;
+
+  /**
+   * <p>A URL to the detailed test results.</p>
+   * @public
+   */
+  testDetailsUrl?: string | undefined;
+}
+
+/**
+ * <p>Contains insights for a job, including report status, and test-level aggregated metrics such as per test execution time and median test execution time.</p>
+ * @public
+ */
+export interface JobInsights {
+  /**
+   * <p>The status of the insights report for the job.</p>
+   * @public
+   */
+  status?: ReportStatus | undefined;
+
+  /**
+   * <p>The test-level aggregated report for the job.</p>
+   * @public
+   */
+  testReport?: TestReport | undefined;
+}
+
+/**
  * <p>Represents a device.</p>
  * @public
  */
@@ -3048,6 +3161,12 @@ export interface Job {
    * @public
    */
   videoCapture?: boolean | undefined;
+
+  /**
+   * <p>The insights for the job, including the report status and test-level metrics. This field contains data only if you specified <code>insightsTypes</code> when you scheduled the run.</p>
+   * @public
+   */
+  insights?: JobInsights | undefined;
 }
 
 /**
@@ -3463,6 +3582,114 @@ export interface DeviceSelectionResult {
 }
 
 /**
+ * <p>Contains aggregated metrics across all jobs in a run.</p>
+ * @public
+ */
+export interface JobReportMetrics {
+  /**
+   * <p>The total number of jobs in the run.</p>
+   * @public
+   */
+  jobsTotal?: number | undefined;
+
+  /**
+   * <p>The number of jobs that passed.</p>
+   * @public
+   */
+  jobsPassed?: number | undefined;
+
+  /**
+   * <p>The number of jobs that failed.</p>
+   * @public
+   */
+  jobsFailed?: number | undefined;
+
+  /**
+   * <p>The number of jobs that were skipped.</p>
+   * @public
+   */
+  jobsSkipped?: number | undefined;
+
+  /**
+   * <p>The number of jobs that errored.</p>
+   * @public
+   */
+  jobsErrored?: number | undefined;
+
+  /**
+   * <p>The number of jobs that were stopped.</p>
+   * @public
+   */
+  jobsStopped?: number | undefined;
+
+  /**
+   * <p>The percentage of jobs that passed.</p>
+   * @public
+   */
+  jobsPassedPercentage?: number | undefined;
+
+  /**
+   * <p>The total execution duration of all jobs in the run, in seconds.</p>
+   * @public
+   */
+  totalJobExecutionDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The average execution duration of jobs in the run, in seconds.</p>
+   * @public
+   */
+  averageJobExecutionDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The median execution duration of jobs in the run, in seconds.</p>
+   * @public
+   */
+  medianJobExecutionDurationSeconds?: number | undefined;
+}
+
+/**
+ * <p>Contains aggregated job-level metrics for a run.</p>
+ * @public
+ */
+export interface JobReport {
+  /**
+   * <p>A message associated with the job report.</p>
+   * @public
+   */
+  message?: string | undefined;
+
+  /**
+   * <p>The aggregated job-level metrics for the run.</p>
+   * @public
+   */
+  metrics?: JobReportMetrics | undefined;
+
+  /**
+   * <p>A URL to the detailed job results.</p>
+   * @public
+   */
+  jobDetailsUrl?: string | undefined;
+}
+
+/**
+ * <p>Contains insights for a run, including report status, and job-level aggregated metrics such as per job execution time and median job execution time.</p>
+ * @public
+ */
+export interface RunInsights {
+  /**
+   * <p>The status of the insights report for the run.</p>
+   * @public
+   */
+  status?: ReportStatus | undefined;
+
+  /**
+   * <p>The job-level aggregated report for the run.</p>
+   * @public
+   */
+  jobReport?: JobReport | undefined;
+}
+
+/**
  * <p>Represents a test run on a set of devices with a given app package, test parameters, and so
  *             on.</p>
  * @public
@@ -3799,6 +4026,18 @@ export interface Run {
    * @public
    */
   environmentVariables?: EnvironmentVariable[] | undefined;
+
+  /**
+   * <p>The types of insights requested for the run.</p>
+   * @public
+   */
+  insightsTypes?: InsightsType[] | undefined;
+
+  /**
+   * <p>The insights for the run, including the report status and job-level metrics. This field contains data only if you specified <code>insightsTypes</code> when you scheduled the run.</p>
+   * @public
+   */
+  insights?: RunInsights | undefined;
 }
 
 /**

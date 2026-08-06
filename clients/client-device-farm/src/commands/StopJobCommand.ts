@@ -118,6 +118,24 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * //     },
  * //     videoEndpoint: "STRING_VALUE",
  * //     videoCapture: true || false,
+ * //     insights: { // JobInsights
+ * //       status: "PENDING" || "RUNNING" || "COMPLETED" || "SKIPPED" || "ERRORED",
+ * //       testReport: { // TestReport
+ * //         message: "STRING_VALUE",
+ * //         metrics: { // TestReportMetrics
+ * //           testsTotal: Number("int"),
+ * //           testsPassed: Number("int"),
+ * //           testsFailed: Number("int"),
+ * //           testsSkipped: Number("int"),
+ * //           testsErrored: Number("int"),
+ * //           testsOther: Number("int"),
+ * //           testsPassedPercentage: Number("double"),
+ * //           totalTestExecutionDurationSeconds: Number("double"),
+ * //           medianTestExecutionDurationSeconds: Number("double"),
+ * //         },
+ * //         testDetailsUrl: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

@@ -329,6 +329,18 @@ export type CurrencyCode = (typeof CurrencyCode)[keyof typeof CurrencyCode];
  * @public
  * @enum
  */
+export const InsightsType = {
+  TEST_REPORT: "TEST_REPORT",
+} as const;
+/**
+ * @public
+ */
+export type InsightsType = (typeof InsightsType)[keyof typeof InsightsType];
+
+/**
+ * @public
+ * @enum
+ */
 export const TestType = {
   APPIUM_JAVA_JUNIT: "APPIUM_JAVA_JUNIT",
   APPIUM_JAVA_TESTNG: "APPIUM_JAVA_TESTNG",
@@ -349,6 +361,22 @@ export const TestType = {
  * @public
  */
 export type TestType = (typeof TestType)[keyof typeof TestType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReportStatus = {
+  COMPLETED: "COMPLETED",
+  ERRORED: "ERRORED",
+  PENDING: "PENDING",
+  RUNNING: "RUNNING",
+  SKIPPED: "SKIPPED",
+} as const;
+/**
+ * @public
+ */
+export type ReportStatus = (typeof ReportStatus)[keyof typeof ReportStatus];
 
 /**
  * @public

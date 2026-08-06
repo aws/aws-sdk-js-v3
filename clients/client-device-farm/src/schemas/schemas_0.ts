@@ -143,6 +143,9 @@ const _ITRAS = "InstallToRemoteAccessSession";
 const _ITRASR = "InstallToRemoteAccessSessionRequest";
 const _ITRASRn = "InstallToRemoteAccessSessionResult";
 const _J = "Job";
+const _JI = "JobInsights";
+const _JR = "JobReport";
+const _JRM = "JobReportMetrics";
 const _Jo = "Jobs";
 const _K = "Key";
 const _L = "Location";
@@ -247,6 +250,7 @@ const _RAS = "RemoteAccessSession";
 const _RASe = "RemoteAccessSessions";
 const _RC = "RecurringCharge";
 const _RCe = "RecurringCharges";
+const _RI = "RunInsights";
 const _RO = "RenewOffering";
 const _ROR = "RenewOfferingRequest";
 const _RORe = "RenewOfferingResult";
@@ -292,9 +296,11 @@ const _TM = "TrialMinutes";
 const _TMTE = "TooManyTagsException";
 const _TOE = "TagOperationException";
 const _TPE = "TagPolicyException";
-const _TR = "TagResource";
+const _TR = "TestReport";
+const _TRM = "TestReportMetrics";
 const _TRR = "TagResourceRequest";
 const _TRRa = "TagResourceResponse";
+const _TRa = "TagResource";
 const _Ta = "Tag";
 const _Te = "Test";
 const _Tes = "Tests";
@@ -339,6 +345,7 @@ const _aA = "auxiliaryApps";
 const _aAN = "awsAccountNumber";
 const _aAp = "appArn";
 const _aC = "accountsCleanup";
+const _aJEDS = "averageJobExecutionDurationSeconds";
 const _aP = "androidPaths";
 const _aPC = "appPackagesCleanup";
 const _aS = "accountSettings";
@@ -434,9 +441,20 @@ const _iMn = "incompatibilityMessages";
 const _iP = "instanceProfile";
 const _iPn = "instanceProfiles";
 const _iPo = "iosPaths";
+const _iT = "insightsTypes";
 const _id = "id";
 const _in = "instances";
+const _ins = "insights";
 const _j = "job";
+const _jDU = "jobDetailsUrl";
+const _jE = "jobsErrored";
+const _jF = "jobsFailed";
+const _jP = "jobsPassed";
+const _jPP = "jobsPassedPercentage";
+const _jR = "jobReport";
+const _jS = "jobsSkipped";
+const _jSo = "jobsStopped";
+const _jT = "jobsTotal";
 const _jTM = "jobTimeoutMinutes";
 const _jo = "jobs";
 const _l = "labels";
@@ -448,14 +466,17 @@ const _m = "message";
 const _mD = "maxDevices";
 const _mDC = "matchedDevicesCount";
 const _mI = "modelId";
+const _mJEDS = "medianJobExecutionDurationSeconds";
 const _mJTM = "maxJobTimeoutMinutes";
 const _mR = "maxResults";
 const _mRa = "maxResult";
 const _mS = "maxSlots";
+const _mTEDS = "medianTestExecutionDurationSeconds";
 const _ma = "manufacturer";
 const _me = "memory";
 const _met = "metered";
 const _meta = "metadata";
+const _metr = "metrics";
 const _mo = "model";
 const _n = "name";
 const _nP = "networkProfile";
@@ -524,16 +545,27 @@ const _star = "started";
 const _su = "suite";
 const _sui = "suites";
 const _t = "type";
+const _tDU = "testDetailsUrl";
+const _tE = "testsErrored";
+const _tF = "testsFailed";
 const _tGP = "testGridProject";
 const _tGPe = "testGridProjects";
 const _tGS = "testGridSession";
 const _tGSe = "testGridSessions";
 const _tI = "transactionId";
 const _tJ = "totalJobs";
+const _tJEDS = "totalJobExecutionDurationSeconds";
 const _tM = "trialMinutes";
+const _tO = "testsOther";
+const _tP = "testsPassed";
 const _tPA = "testPackageArn";
+const _tPP = "testsPassedPercentage";
+const _tR = "testReport";
+const _tS = "testsSkipped";
 const _tSA = "testSpecArn";
 const _tT = "testType";
+const _tTEDS = "totalTestExecutionDurationSeconds";
+const _tTe = "testsTotal";
 const _te = "test";
 const _tes = "tests";
 const _to = "total";
@@ -1015,7 +1047,7 @@ export var GetJobRequest$: StaticStructureSchema = [3, n0, _GJR,
 export var GetJobResult$: StaticStructureSchema = [3, n0, _GJRe,
   0,
   [_j],
-  [() => Job$]
+  [[() => Job$, 0]]
 ];
 export var GetNetworkProfileRequest$: StaticStructureSchema = [3, n0, _GNPR,
   0,
@@ -1065,7 +1097,7 @@ export var GetRunRequest$: StaticStructureSchema = [3, n0, _GRR,
 export var GetRunResult$: StaticStructureSchema = [3, n0, _GRRe,
   0,
   [_ru],
-  [() => Run$]
+  [[() => Run$, 0]]
 ];
 export var GetSuiteRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
@@ -1149,8 +1181,23 @@ export var InstanceProfile$: StaticStructureSchema = [3, n0, _IP,
 ];
 export var Job$: StaticStructureSchema = [3, n0, _J,
   0,
-  [_a, _n, _t, _cr, _sta, _res, _star, _st, _cou, _m, _de, _iA, _dM, _vE, _vCi],
-  [0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, () => Device$, 0, () => DeviceMinutes$, 0, 2]
+  [_a, _n, _t, _cr, _sta, _res, _star, _st, _cou, _m, _de, _iA, _dM, _vE, _vCi, _ins],
+  [0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, () => Device$, 0, () => DeviceMinutes$, 0, 2, [() => JobInsights$, 0]]
+];
+export var JobInsights$: StaticStructureSchema = [3, n0, _JI,
+  0,
+  [_sta, _tR],
+  [0, [() => TestReport$, 0]]
+];
+export var JobReport$: StaticStructureSchema = [3, n0, _JR,
+  0,
+  [_m, _metr, _jDU],
+  [0, () => JobReportMetrics$, [() => SensitiveURL, 0]]
+];
+export var JobReportMetrics$: StaticStructureSchema = [3, n0, _JRM,
+  0,
+  [_jT, _jP, _jF, _jS, _jE, _jSo, _jPP, _tJEDS, _aJEDS, _mJEDS],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 export var ListArtifactsRequest$: StaticStructureSchema = [3, n0, _LAR,
   0,
@@ -1210,7 +1257,7 @@ export var ListJobsRequest$: StaticStructureSchema = [3, n0, _LJR,
 export var ListJobsResult$: StaticStructureSchema = [3, n0, _LJRi,
   0,
   [_jo, _nT],
-  [() => Jobs, 0]
+  [[() => Jobs, 0], 0]
 ];
 export var ListNetworkProfilesRequest$: StaticStructureSchema = [3, n0, _LNPR,
   0,
@@ -1280,7 +1327,7 @@ export var ListRunsRequest$: StaticStructureSchema = [3, n0, _LRR,
 export var ListRunsResult$: StaticStructureSchema = [3, n0, _LRRi,
   0,
   [_run, _nT],
-  [() => Runs, 0]
+  [[() => Runs, 0], 0]
 ];
 export var ListSamplesRequest$: StaticStructureSchema = [3, n0, _LSR,
   0,
@@ -1494,8 +1541,13 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var Run$: StaticStructureSchema = [3, n0, _Run,
   0,
-  [_a, _n, _t, _pl, _cr, _sta, _res, _star, _st, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _dSR, _vC, _eRA, _eV],
-  [0, 0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, 1, 1, 0, () => DeviceMinutes$, () => NetworkProfile$, () => DeviceProxy$, 0, 0, 1, 0, 1, 1, 0, 0, () => Radios$, () => Location$, () => CustomerArtifactPaths$, 0, 2, 0, () => DeviceSelectionResult$, () => VpcConfig$, 0, () => EnvironmentVariables]
+  [_a, _n, _t, _pl, _cr, _sta, _res, _star, _st, _cou, _m, _tJ, _cJ, _bM, _dM, _nP, _dPe, _pRU, _rCe, _see, _aU, _eC, _jTM, _dPA, _loc, _rad, _loca, _cAP, _wU, _sAR, _tSA, _dSR, _vC, _eRA, _eV, _iT, _ins],
+  [0, 0, 0, 0, 4, 0, 0, 4, 4, () => Counters$, 0, 1, 1, 0, () => DeviceMinutes$, () => NetworkProfile$, () => DeviceProxy$, 0, 0, 1, 0, 1, 1, 0, 0, () => Radios$, () => Location$, () => CustomerArtifactPaths$, 0, 2, 0, () => DeviceSelectionResult$, () => VpcConfig$, 0, () => EnvironmentVariables, 64 | 0, [() => RunInsights$, 0]]
+];
+export var RunInsights$: StaticStructureSchema = [3, n0, _RI,
+  0,
+  [_sta, _jR],
+  [0, [() => JobReport$, 0]]
 ];
 export var Sample$: StaticStructureSchema = [3, n0, _S,
   0,
@@ -1504,8 +1556,8 @@ export var Sample$: StaticStructureSchema = [3, n0, _S,
 ];
 export var ScheduleRunConfiguration$: StaticStructureSchema = [3, n0, _SRC,
   0,
-  [_eDPA, _nPA, _loc, _loca, _vCA, _dPe, _cAP, _rad, _aA, _bM, _eV, _eRA],
-  [0, 0, 0, () => Location$, 64 | 0, () => DeviceProxy$, () => CustomerArtifactPaths$, () => Radios$, 64 | 0, 0, () => EnvironmentVariables, 0]
+  [_eDPA, _nPA, _loc, _loca, _vCA, _dPe, _cAP, _rad, _aA, _bM, _eV, _eRA, _iT],
+  [0, 0, 0, () => Location$, 64 | 0, () => DeviceProxy$, () => CustomerArtifactPaths$, () => Radios$, 64 | 0, 0, () => EnvironmentVariables, 0, 64 | 0]
 ];
 export var ScheduleRunRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
@@ -1515,7 +1567,7 @@ export var ScheduleRunRequest$: StaticStructureSchema = [3, n0, _SRR,
 export var ScheduleRunResult$: StaticStructureSchema = [3, n0, _SRRc,
   0,
   [_ru],
-  [() => Run$]
+  [[() => Run$, 0]]
 ];
 export var ScheduleRunTest$: StaticStructureSchema = [3, n0, _SRT,
   0,
@@ -1530,7 +1582,7 @@ export var StopJobRequest$: StaticStructureSchema = [3, n0, _SJR,
 export var StopJobResult$: StaticStructureSchema = [3, n0, _SJRt,
   0,
   [_j],
-  [() => Job$]
+  [[() => Job$, 0]]
 ];
 export var StopRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _SRASR,
   0,
@@ -1550,7 +1602,7 @@ export var StopRunRequest$: StaticStructureSchema = [3, n0, _SRRt,
 export var StopRunResult$: StaticStructureSchema = [3, n0, _SRRto,
   0,
   [_ru],
-  [() => Run$]
+  [[() => Run$, 0]]
 ];
 export var Suite$: StaticStructureSchema = [3, n0, _Su,
   0,
@@ -1601,6 +1653,16 @@ export var TestGridVpcConfig$: StaticStructureSchema = [3, n0, _TGVC,
   0,
   [_sGI, _sIu, _vI],
   [64 | 0, 64 | 0, 0], 3
+];
+export var TestReport$: StaticStructureSchema = [3, n0, _TR,
+  0,
+  [_m, _metr, _tDU],
+  [0, () => TestReportMetrics$, [() => SensitiveURL, 0]]
+];
+export var TestReportMetrics$: StaticStructureSchema = [3, n0, _TRM,
+  0,
+  [_tTe, _tP, _tF, _tS, _tE, _tO, _tPP, _tTEDS, _mTEDS],
+  [1, 1, 1, 1, 1, 1, 1, 1, 1]
 ];
 export var TrialMinutes$: StaticStructureSchema = [3, n0, _TM,
   0,
@@ -1746,13 +1808,15 @@ var EnvironmentVariables: StaticListSchema = [1, n0, _EVn,
 var IncompatibilityMessages: StaticListSchema = [1, n0, _IMn,
   0, () => IncompatibilityMessage$
 ];
+var InsightsTypes = 64 | 0;
 var InstanceLabels = 64 | 0;
 var InstanceProfiles: StaticListSchema = [1, n0, _IPn,
   0, () => InstanceProfile$
 ];
 var IosPaths = 64 | 0;
 var Jobs: StaticListSchema = [1, n0, _Jo,
-  0, () => Job$
+  0, [() => Job$,
+    0]
 ];
 var NetworkProfiles: StaticListSchema = [1, n0, _NPe,
   0, () => NetworkProfile$
@@ -1784,7 +1848,8 @@ var Rules: StaticListSchema = [1, n0, _Rul,
   0, () => Rule$
 ];
 var Runs: StaticListSchema = [1, n0, _Runs,
-  0, () => Run$
+  0, [() => Run$,
+    0]
 ];
 var Samples: StaticListSchema = [1, n0, _Sa,
   0, () => Sample$
@@ -2036,7 +2101,7 @@ export var StopRemoteAccessSession$: StaticOperationSchema = [9, n0, _SRAS,
 export var StopRun$: StaticOperationSchema = [9, n0, _SRt,
   0, () => StopRunRequest$, () => StopRunResult$
 ];
-export var TagResource$: StaticOperationSchema = [9, n0, _TR,
+export var TagResource$: StaticOperationSchema = [9, n0, _TRa,
   0, () => TagResourceRequest$, () => TagResourceResponse$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,

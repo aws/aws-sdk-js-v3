@@ -101,6 +101,9 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  *       },
  *     ],
  *     executionRoleArn: "STRING_VALUE",
+ *     insightsTypes: [ // InsightsTypes
+ *       "TEST_REPORT",
+ *     ],
  *   },
  *   executionConfiguration: { // ExecutionConfiguration
  *     jobTimeoutMinutes: Number("int"),
@@ -220,6 +223,28 @@ export interface ScheduleRunCommandOutput extends ScheduleRunResult, __MetadataB
  * //         value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     insightsTypes: [ // InsightsTypes
+ * //       "TEST_REPORT",
+ * //     ],
+ * //     insights: { // RunInsights
+ * //       status: "PENDING" || "RUNNING" || "COMPLETED" || "SKIPPED" || "ERRORED",
+ * //       jobReport: { // JobReport
+ * //         message: "STRING_VALUE",
+ * //         metrics: { // JobReportMetrics
+ * //           jobsTotal: Number("int"),
+ * //           jobsPassed: Number("int"),
+ * //           jobsFailed: Number("int"),
+ * //           jobsSkipped: Number("int"),
+ * //           jobsErrored: Number("int"),
+ * //           jobsStopped: Number("int"),
+ * //           jobsPassedPercentage: Number("double"),
+ * //           totalJobExecutionDurationSeconds: Number("double"),
+ * //           averageJobExecutionDurationSeconds: Number("double"),
+ * //           medianJobExecutionDurationSeconds: Number("double"),
+ * //         },
+ * //         jobDetailsUrl: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

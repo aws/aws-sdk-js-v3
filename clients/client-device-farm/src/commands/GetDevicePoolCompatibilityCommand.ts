@@ -88,6 +88,9 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *       },
  *     ],
  *     executionRoleArn: "STRING_VALUE",
+ *     insightsTypes: [ // InsightsTypes
+ *       "TEST_REPORT",
+ *     ],
  *   },
  *   projectArn: "STRING_VALUE",
  * };
