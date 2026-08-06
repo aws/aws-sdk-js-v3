@@ -165,6 +165,7 @@ export type {
   ListAgreementPaymentRequestsOutput,
   ListBillingAdjustmentRequestsInput,
   ListBillingAdjustmentRequestsOutput,
+  NetPaymentTerm,
   PaymentRequestSummary,
   PaymentScheduleTerm,
   PricingCurrencyAmount,

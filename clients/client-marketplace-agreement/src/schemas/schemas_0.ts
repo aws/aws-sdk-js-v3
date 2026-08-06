@@ -111,6 +111,7 @@ const _LBAR = "ListBillingAdjustmentRequests";
 const _LBARI = "ListBillingAdjustmentRequestsInput";
 const _LBARO = "ListBillingAdjustmentRequestsOutput";
 const _LT = "LegalTerm";
+const _NPT = "NetPaymentTerm";
 const _P = "Proposer";
 const _PCA = "PricingCurrencyAmount";
 const _PO = "PurchaseOrder";
@@ -260,6 +261,7 @@ const _mo = "month";
 const _n = "name";
 const _nAV = "newAgreementValue";
 const _nAVAT = "newAgreementValueAfterTax";
+const _nPT = "netPaymentTerm";
 const _nQ = "newQuantity";
 const _nT = "nextToken";
 const _oI = "offerId";
@@ -268,6 +270,7 @@ const _oQ = "oldQuantity";
 const _oSI = "offerSetId";
 const _p = "proposer";
 const _pCA = "pricingCurrencyAmount";
+const _pDP = "paymentDuePeriod";
 const _pO = "purchaseOrders";
 const _pOR = "purchaseOrderReference";
 const _pRAS = "paymentRequestApprovalStrategy";
@@ -753,6 +756,11 @@ export var ListBillingAdjustmentRequestsOutput$: StaticStructureSchema = [3, n0,
   [_i, _nT],
   [() => BillingAdjustmentSummaryList, 0], 1
 ];
+export var NetPaymentTerm$: StaticStructureSchema = [3, n0, _NPT,
+  0,
+  [_t, _id, _pDP],
+  [0, 0, 0]
+];
 export var PaymentRequestSummary$: StaticStructureSchema = [3, n0, _PRS,
   0,
   [_pRI, _aI, _st, _n, _cI, _cAh, _cC, _cA, _uA],
@@ -1018,8 +1026,8 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
 ];
 export var AcceptedTerm$: StaticUnionSchema = [4, n0, _AT,
   0,
-  [_lT, _sTu, _rTen, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT],
-  [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$]
+  [_lT, _sTu, _rTen, _uBPT, _cUPT, _bPT, _rPT, _vT, _pST, _fTPT, _fUPT, _vPT, _nPT],
+  [() => LegalTerm$, () => SupportTerm$, () => RenewalTerm$, () => UsageBasedPricingTerm$, () => ConfigurableUpfrontPricingTerm$, () => ByolPricingTerm$, () => RecurringPaymentTerm$, () => ValidityTerm$, () => PaymentScheduleTerm$, () => FreeTrialPricingTerm$, () => FixedUpfrontPricingTerm$, () => VariablePaymentTerm$, () => NetPaymentTerm$]
 ];
 export var RequestedTermConfiguration$: StaticUnionSchema = [4, n0, _RTCe,
   0,

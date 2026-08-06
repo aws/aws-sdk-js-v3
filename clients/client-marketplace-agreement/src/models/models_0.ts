@@ -547,6 +547,30 @@ export interface LegalTerm {
 }
 
 /**
+ * <p>Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.</p>
+ * @public
+ */
+export interface NetPaymentTerm {
+  /**
+   * <p>Type of the term being updated.</p>
+   * @public
+   */
+  type?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the term.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The duration after an invoice is issued within which the payment is due. The duration is represented in the ISO 8601 format (for example, <code>P30D</code> for 30 days or <code>P60D</code> for 60 days).</p>
+   * @public
+   */
+  paymentDuePeriod?: string | undefined;
+}
+
+/**
  * <p>An individual installment of the payment that includes the date and amount of the charge.</p>
  * @public
  */
@@ -832,6 +856,7 @@ export type AcceptedTerm =
   | AcceptedTerm.FixedUpfrontPricingTermMember
   | AcceptedTerm.FreeTrialPricingTermMember
   | AcceptedTerm.LegalTermMember
+  | AcceptedTerm.NetPaymentTermMember
   | AcceptedTerm.PaymentScheduleTermMember
   | AcceptedTerm.RecurringPaymentTermMember
   | AcceptedTerm.RenewalTermMember
@@ -862,6 +887,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -882,6 +908,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -902,6 +929,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -922,6 +950,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -942,6 +971,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -962,6 +992,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -982,6 +1013,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1002,6 +1034,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1022,6 +1055,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1042,6 +1076,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm: FreeTrialPricingTerm;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1062,6 +1097,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm: FixedUpfrontPricingTerm;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown?: never;
   }
 
@@ -1082,6 +1118,28 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm: VariablePaymentTerm;
+    netPaymentTerm?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Defines the net payment due period for the agreement, specifying when payment is due after an invoice is issued.</p>
+   * @public
+   */
+  export interface NetPaymentTermMember {
+    legalTerm?: never;
+    supportTerm?: never;
+    renewalTerm?: never;
+    usageBasedPricingTerm?: never;
+    configurableUpfrontPricingTerm?: never;
+    byolPricingTerm?: never;
+    recurringPaymentTerm?: never;
+    validityTerm?: never;
+    paymentScheduleTerm?: never;
+    freeTrialPricingTerm?: never;
+    fixedUpfrontPricingTerm?: never;
+    variablePaymentTerm?: never;
+    netPaymentTerm: NetPaymentTerm;
     $unknown?: never;
   }
 
@@ -1101,6 +1159,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm?: never;
     fixedUpfrontPricingTerm?: never;
     variablePaymentTerm?: never;
+    netPaymentTerm?: never;
     $unknown: [string, any];
   }
 
@@ -1121,6 +1180,7 @@ export namespace AcceptedTerm {
     freeTrialPricingTerm: (value: FreeTrialPricingTerm) => T;
     fixedUpfrontPricingTerm: (value: FixedUpfrontPricingTerm) => T;
     variablePaymentTerm: (value: VariablePaymentTerm) => T;
+    netPaymentTerm: (value: NetPaymentTerm) => T;
     _: (name: string, value: any) => T;
   }
 }

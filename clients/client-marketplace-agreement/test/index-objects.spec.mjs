@@ -127,6 +127,7 @@ import {
   MarketplaceAgreement,
   MarketplaceAgreementClient,
   MarketplaceAgreementServiceException,
+  NetPaymentTerm$,
   paginateGetAgreementEntitlements,
   paginateGetAgreementTerms,
   paginateListAgreementCancellationRequests,
@@ -325,6 +326,7 @@ assert(typeof ListAgreementPaymentRequestsInput$ === "object");
 assert(typeof ListAgreementPaymentRequestsOutput$ === "object");
 assert(typeof ListBillingAdjustmentRequestsInput$ === "object");
 assert(typeof ListBillingAdjustmentRequestsOutput$ === "object");
+assert(typeof NetPaymentTerm$ === "object");
 assert(typeof PaymentRequestSummary$ === "object");
 assert(typeof PaymentScheduleTerm$ === "object");
 assert(typeof PricingCurrencyAmount$ === "object");
