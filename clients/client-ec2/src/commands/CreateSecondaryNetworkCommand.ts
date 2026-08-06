@@ -36,7 +36,7 @@ export interface CreateSecondaryNetworkCommandOutput extends CreateSecondaryNetw
  * const input = { // CreateSecondaryNetworkRequest
  *   ClientToken: "STRING_VALUE",
  *   DryRun: true || false,
- *   Ipv4CidrBlock: "STRING_VALUE",
+ *   Ipv4CidrBlock: "STRING_VALUE", // required
  *   NetworkType: "rdma", // required
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification

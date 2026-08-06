@@ -6222,6 +6222,13 @@ export interface GetSpotPlacementScoresRequest {
    * @public
    */
   NextToken?: string | undefined;
+
+  /**
+   * <p>Specify <code>true</code> so that the response returns scores that include Local Zones. Otherwise, the response ignores Local Zones.</p>
+   *          <p>When you request regional scores, Local Zone capacity counts toward its parent Region.</p>
+   * @public
+   */
+  IncludeLocalZones?: boolean | undefined;
 }
 
 /**

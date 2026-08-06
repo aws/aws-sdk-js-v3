@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 5320
+content-length: 5344
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 32a885184780869be6d8d1467c39cbbbcf118c884c1e9fe5e12109e5358fb100
+x-amz-content-sha256: 80bd6aa36c6c5c48cd2298deb8855a85d774e078e7707a8c5cb50d72fd0e8721
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -85,4 +85,5 @@ InstanceRequirementsWithMetadata.InstanceRequirements.BaselinePerformanceFactors
 InstanceRequirementsWithMetadata.InstanceRequirements.RequireEncryptionInTransit=false&
 DryRun=false&
 MaxResults=0&
-NextToken=__NextToken__
+NextToken=__NextToken__&
+IncludeLocalZones=false

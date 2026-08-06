@@ -139,6 +139,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *   DryRun: true || false,
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   IncludeLocalZones: true || false,
  * };
  * const command = new GetSpotPlacementScoresCommand(input);
  * const response = await client.send(command);

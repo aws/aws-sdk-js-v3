@@ -1293,7 +1293,7 @@ export interface CreateSecondaryNetworkRequest {
    * <p>The IPv4 CIDR block for the secondary network. The CIDR block size must be between /12 and /28.</p>
    * @public
    */
-  Ipv4CidrBlock?: string | undefined;
+  Ipv4CidrBlock: string | undefined;
 
   /**
    * <p>The type of secondary network.</p>

@@ -3295,6 +3295,7 @@ const _IKP = "ImportKeyPair";
 const _IKPR = "ImportKeyPairRequest";
 const _IKPRm = "ImportKeyPairResult";
 const _IL = "ImageLocation";
+const _ILZ = "IncludeLocalZones";
 const _ILm = "ImageList";
 const _ILn = "InstanceLifecycle";
 const _ILns = "InstanceList";
@@ -11329,8 +11330,8 @@ export var CreateRouteTableResult$: StaticStructureSchema = [3, n0, _CRTRre,
 ];
 export var CreateSecondaryNetworkRequest$: StaticStructureSchema = [3, n0, _CSNR,
   0,
-  [_NT, _CT, _DR, _ICBp, _TS],
-  [0, [0, 4], 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }]], 1
+  [_ICBp, _NT, _CT, _DR, _TS],
+  [0, 0, [0, 4], 2, [() => TagSpecificationList, { [_xN]: _TSa }]], 2
 ];
 export var CreateSecondaryNetworkResult$: StaticStructureSchema = [3, n0, _CSNRr,
   0,
@@ -17913,8 +17914,8 @@ export var GetSnapshotBlockPublicAccessStateResult$: StaticStructureSchema = [3,
 ];
 export var GetSpotPlacementScoresRequest$: StaticStructureSchema = [3, n0, _GSPSR,
   0,
-  [_TCar, _ITnst, _TCUT, _SAZ, _RNe, _IRWM, _DR, _MR, _NTe],
-  [1, [64 | 0, { [_xN]: _IT }], 0, 2, [64 | 0, { [_xN]: _RN }], [() => InstanceRequirementsWithMetadataRequest$, 0], 2, 1, 0], 1
+  [_TCar, _ITnst, _TCUT, _SAZ, _RNe, _IRWM, _DR, _MR, _NTe, _ILZ],
+  [1, [64 | 0, { [_xN]: _IT }], 0, 2, [64 | 0, { [_xN]: _RN }], [() => InstanceRequirementsWithMetadataRequest$, 0], 2, 1, 0, 2], 1
 ];
 export var GetSpotPlacementScoresResult$: StaticStructureSchema = [3, n0, _GSPSRe,
   0,
