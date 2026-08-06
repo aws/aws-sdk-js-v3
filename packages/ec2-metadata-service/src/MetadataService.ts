@@ -42,8 +42,8 @@ export class MetadataService {
   }
 
   private validateTokenTtl(tokenTtl: number): number {
-    if (!Number.isInteger(tokenTtl) || tokenTtl <= 0) {
-      throw new Error("tokenTtl must be a positive integer");
+    if (!Number.isInteger(tokenTtl) || tokenTtl <= 0 || tokenTtl > 21600) {
+      throw new Error("tokenTtl must be a positive integer less than or equal to 21600");
     }
     return tokenTtl;
   }

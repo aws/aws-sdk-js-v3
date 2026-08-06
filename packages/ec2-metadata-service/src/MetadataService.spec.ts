@@ -428,10 +428,11 @@ describe("MetadataService Token TTL Configuration", () => {
     expect(requestArg.headers["x-aws-ec2-metadata-token-ttl-seconds"]).toBe("3600");
   });
 
-  it("should validate tokenTtl as positive integer", () => {
-    expect(() => new MetadataService({ tokenTtl: -1 })).toThrow("tokenTtl must be a positive integer");
-    expect(() => new MetadataService({ tokenTtl: 0 })).toThrow("tokenTtl must be a positive integer");
-    expect(() => new MetadataService({ tokenTtl: 3.14 })).toThrow("tokenTtl must be a positive integer");
+  it("should validate tokenTtl as positive integer between 1 and 21600", () => {
+    expect(() => new MetadataService({ tokenTtl: -1 })).toThrow("tokenTtl must be a positive integer less than or equal to 21600");
+    expect(() => new MetadataService({ tokenTtl: 0 })).toThrow("tokenTtl must be a positive integer less than or equal to 21600");
+    expect(() => new MetadataService({ tokenTtl: 3.14 })).toThrow("tokenTtl must be a positive integer less than or equal to 21600");
+    expect(() => new MetadataService({ tokenTtl: 21601 })).toThrow("tokenTtl must be a positive integer less than or equal to 21600");
   });
 
   it("should accept valid positive integer tokenTtl values", () => {
