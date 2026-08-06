@@ -378,6 +378,7 @@ const _GPCD = "GetPlayerConnectionDetails";
 const _GPCDI = "GetPlayerConnectionDetailsInput";
 const _GPCDO = "GetPlayerConnectionDetailsOutput";
 const _GPL = "GamePropertyList";
+const _GPV = "GamePropertyValue";
 const _GPa = "GameProperty";
 const _GS = "GameServer";
 const _GSA = "GameSessionArn";
@@ -505,6 +506,7 @@ const _LFI = "ListFleetsInput";
 const _LFO = "ListFleetsOutput";
 const _LGA = "LogGroupArn";
 const _LGS = "ListGameServers";
+const _LGSD = "LargeGameSessionData";
 const _LGSG = "ListGameServerGroups";
 const _LGSGI = "ListGameServerGroupsInput";
 const _LGSGO = "ListGameServerGroupsOutput";
@@ -638,6 +640,7 @@ const _Pa = "Parameters";
 const _Pl = "Players";
 const _Pla = "Player";
 const _Po = "Port";
+const _QCED = "QueueCustomEventData";
 const _R = "Retries";
 const _RA = "RoleArn";
 const _RAI = "ResolveAliasInput";
@@ -996,10 +999,18 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var CustomEventData: StaticSimpleSchema = [0, n0, _CED, 8, 0];
+var GamePropertyValue: StaticSimpleSchema = [0, n0, _GPV, 8, 0];
+var GameServerData: StaticSimpleSchema = [0, n0, _GSD, 8, 0];
+var GameSessionData: StaticSimpleSchema = [0, n0, _GSDa, 8, 0];
 var IpAddress: StaticSimpleSchema = [0, n0, _IA, 8, 0];
 var IpRange: StaticSimpleSchema = [0, n0, _IR, 8, 0];
+var LargeGameSessionData: StaticSimpleSchema = [0, n0, _LGSD, 8, 0];
+var MatchmakerData: StaticSimpleSchema = [0, n0, _MD, 8, 0];
+var PlayerData: StaticSimpleSchema = [0, n0, _PD, 8, 0];
 var PlayerId: StaticSimpleSchema = [0, n0, _PI, 8, 0];
 var PortNumber: StaticSimpleSchema = [0, n0, _PN, 8, 1];
+var QueueCustomEventData: StaticSimpleSchema = [0, n0, _QCED, 8, 0];
 export var AcceptMatchInput$: StaticStructureSchema = [3, n0, _AMI,
   0,
   [_TI, _PIl, _AT],
@@ -1048,12 +1059,12 @@ export var ClaimFilterOption$: StaticStructureSchema = [3, n0, _CFO,
 export var ClaimGameServerInput$: StaticStructureSchema = [3, n0, _CGSI,
   0,
   [_GSGN, _GSI, _GSD, _FO],
-  [0, 0, 0, () => ClaimFilterOption$], 1
+  [0, 0, [() => GameServerData, 0], () => ClaimFilterOption$], 1
 ];
 export var ClaimGameServerOutput$: StaticStructureSchema = [3, n0, _CGSO,
   0,
   [_GS],
-  [() => GameServer$]
+  [[() => GameServer$, 0]]
 ];
 export var Compute$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -1203,7 +1214,7 @@ export var CreateGameServerGroupOutput$: StaticStructureSchema = [3, n0, _CGSGO,
 export var CreateGameSessionInput$: StaticStructureSchema = [3, n0, _CGSIr,
   0,
   [_MPSC, _FI, _AI, _N, _GP, _CIr, _GSIa, _ITd, _GSDa, _L],
-  [1, 0, 0, 0, () => GamePropertyList, 0, 0, 0, 0, 0], 1
+  [1, 0, 0, 0, [() => GamePropertyList, 0], 0, 0, 0, [() => LargeGameSessionData, 0], 0], 1
 ];
 export var CreateGameSessionOutput$: StaticStructureSchema = [3, n0, _CGSOr,
   0,
@@ -1213,12 +1224,12 @@ export var CreateGameSessionOutput$: StaticStructureSchema = [3, n0, _CGSOr,
 export var CreateGameSessionQueueInput$: StaticStructureSchema = [3, n0, _CGSQI,
   0,
   [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT, _Ta],
-  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, 0, 0, () => TagList], 1
+  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0, () => TagList], 1
 ];
 export var CreateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _CGSQO,
   0,
   [_GSQ],
-  [() => GameSessionQueue$]
+  [[() => GameSessionQueue$, 0]]
 ];
 export var CreateLocationInput$: StaticStructureSchema = [3, n0, _CLI,
   0,
@@ -1233,12 +1244,12 @@ export var CreateLocationOutput$: StaticStructureSchema = [3, n0, _CLO,
 export var CreateMatchmakingConfigurationInput$: StaticStructureSchema = [3, n0, _CMCI,
   0,
   [_N, _RTS, _AR, _RSN, _D, _GSQA, _ATS, _NT, _APC, _CED, _GP, _GSDa, _BM, _FMM, _Ta],
-  [0, 1, 2, 0, 0, 64 | 0, 1, 0, 1, 0, () => GamePropertyList, 0, 0, 0, () => TagList], 4
+  [0, 1, 2, 0, 0, 64 | 0, 1, 0, 1, [() => CustomEventData, 0], [() => GamePropertyList, 0], [() => GameSessionData, 0], 0, 0, () => TagList], 4
 ];
 export var CreateMatchmakingConfigurationOutput$: StaticStructureSchema = [3, n0, _CMCO,
   0,
   [_Conf],
-  [() => MatchmakingConfiguration$]
+  [[() => MatchmakingConfiguration$, 0]]
 ];
 export var CreateMatchmakingRuleSetInput$: StaticStructureSchema = [3, n0, _CMRSI,
   0,
@@ -1253,7 +1264,7 @@ export var CreateMatchmakingRuleSetOutput$: StaticStructureSchema = [3, n0, _CMR
 export var CreatePlayerSessionInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
   [_GSIa, _PI, _PD],
-  [0, [() => PlayerId, 0], 0], 2
+  [0, [() => PlayerId, 0], [() => PlayerData, 0]], 2
 ];
 export var CreatePlayerSessionOutput$: StaticStructureSchema = [3, n0, _CPSO,
   0,
@@ -1263,7 +1274,7 @@ export var CreatePlayerSessionOutput$: StaticStructureSchema = [3, n0, _CPSO,
 export var CreatePlayerSessionsInput$: StaticStructureSchema = [3, n0, _CPSIr,
   0,
   [_GSIa, _PIl, _PDM],
-  [0, [() => PlayerIdList, 0], 128 | 0], 2
+  [0, [() => PlayerIdList, 0], [() => PlayerDataMap, 0]], 2
 ];
 export var CreatePlayerSessionsOutput$: StaticStructureSchema = [3, n0, _CPSOr,
   0,
@@ -1638,7 +1649,7 @@ export var DescribeGameServerInstancesOutput$: StaticStructureSchema = [3, n0, _
 export var DescribeGameServerOutput$: StaticStructureSchema = [3, n0, _DGSO,
   0,
   [_GS],
-  [() => GameServer$]
+  [[() => GameServer$, 0]]
 ];
 export var DescribeGameSessionDetailsInput$: StaticStructureSchema = [3, n0, _DGSDI,
   0,
@@ -1668,7 +1679,7 @@ export var DescribeGameSessionQueuesInput$: StaticStructureSchema = [3, n0, _DGS
 export var DescribeGameSessionQueuesOutput$: StaticStructureSchema = [3, n0, _DGSQOe,
   0,
   [_GSQa, _NTe],
-  [() => GameSessionQueueList, 0]
+  [[() => GameSessionQueueList, 0], 0]
 ];
 export var DescribeGameSessionsInput$: StaticStructureSchema = [3, n0, _DGSIes,
   0,
@@ -1698,7 +1709,7 @@ export var DescribeMatchmakingConfigurationsInput$: StaticStructureSchema = [3, 
 export var DescribeMatchmakingConfigurationsOutput$: StaticStructureSchema = [3, n0, _DMCOe,
   0,
   [_Confi, _NTe],
-  [() => MatchmakingConfigurationList, 0]
+  [[() => MatchmakingConfigurationList, 0], 0]
 ];
 export var DescribeMatchmakingInput$: StaticStructureSchema = [3, n0, _DMI,
   0,
@@ -1783,7 +1794,7 @@ export var DescribeVpcPeeringConnectionsOutput$: StaticStructureSchema = [3, n0,
 export var DesiredPlayerSession$: StaticStructureSchema = [3, n0, _DPS,
   0,
   [_PI, _PD],
-  [[() => PlayerId, 0], 0]
+  [[() => PlayerId, 0], [() => PlayerData, 0]]
 ];
 export var EC2InstanceCounts$: StaticStructureSchema = [3, n0, _ECIC,
   0,
@@ -1828,12 +1839,12 @@ export var FleetUtilization$: StaticStructureSchema = [3, n0, _FU,
 export var GameProperty$: StaticStructureSchema = [3, n0, _GPa,
   0,
   [_K, _Va],
-  [0, 0], 2
+  [0, [() => GamePropertyValue, 0]], 2
 ];
 export var GameServer$: StaticStructureSchema = [3, n0, _GS,
   0,
   [_GSGN, _GSGA, _GSI, _II, _CIo, _GSD, _CSl, _USt, _RT, _LCT, _LHCT],
-  [0, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4]
+  [0, 0, 0, 0, 0, [() => GameServerData, 0], 0, 0, 4, 4, 4]
 ];
 export var GameServerContainerDefinition$: StaticStructureSchema = [3, n0, _GSCD,
   0,
@@ -1868,7 +1879,7 @@ export var GameServerInstance$: StaticStructureSchema = [3, n0, _GSIame,
 export var GameSession$: StaticStructureSchema = [3, n0, _GSa,
   0,
   [_GSIa, _N, _FI, _FA, _CT, _TT, _CPSC, _MPSC, _St, _SR, _GP, _IA, _DN, _Po, _PSCP, _CIr, _GSDa, _MD, _L, _CN, _PGS],
-  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, () => GamePropertyList, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, 0, 0, 0, 0, 0]
+  [0, 0, 0, 0, 4, 4, 1, 1, 0, 0, [() => GamePropertyList, 0], [() => IpAddress, 0], 0, [() => PortNumber, 0], 0, 0, [() => LargeGameSessionData, 0], [() => MatchmakerData, 0], 0, 0, 0]
 ];
 export var GameSessionConnectionInfo$: StaticStructureSchema = [3, n0, _GSCI,
   0,
@@ -1888,12 +1899,12 @@ export var GameSessionDetail$: StaticStructureSchema = [3, n0, _GSDame,
 export var GameSessionPlacement$: StaticStructureSchema = [3, n0, _GSP,
   0,
   [_PIla, _GSQN, _St, _GP, _MPSC, _GSN, _GSIa, _GSA, _GSR, _PL, _STt, _ET, _IA, _DN, _Po, _PPS, _GSDa, _MD, _PCO, _PGS],
-  [0, 0, 0, () => GamePropertyList, 1, 0, 0, 0, 0, [() => PlayerLatencyList, 0], 4, 4, [() => IpAddress, 0], 0, [() => PortNumber, 0], [() => PlacedPlayerSessionList, 0], 0, 0, () => PriorityConfigurationOverride$, 0]
+  [0, 0, 0, [() => GamePropertyList, 0], 1, 0, 0, 0, 0, [() => PlayerLatencyList, 0], 4, 4, [() => IpAddress, 0], 0, [() => PortNumber, 0], [() => PlacedPlayerSessionList, 0], [() => LargeGameSessionData, 0], [() => MatchmakerData, 0], () => PriorityConfigurationOverride$, 0]
 ];
 export var GameSessionQueue$: StaticStructureSchema = [3, n0, _GSQ,
   0,
   [_N, _GSQAa, _TIS, _PLP, _De, _FC, _PC, _CED, _NT],
-  [0, 0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, 0, 0]
+  [0, 0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0]
 ];
 export var GameSessionQueueDestination$: StaticStructureSchema = [3, n0, _GSQD,
   0,
@@ -2083,7 +2094,7 @@ export var ListGameServersInput$: StaticStructureSchema = [3, n0, _LGSI,
 export var ListGameServersOutput$: StaticStructureSchema = [3, n0, _LGSO,
   0,
   [_GSame, _NTe],
-  [() => GameServers, 0]
+  [[() => GameServers, 0], 0]
 ];
 export var ListLocationsInput$: StaticStructureSchema = [3, n0, _LLI,
   0,
@@ -2158,7 +2169,7 @@ export var MatchedPlayerSession$: StaticStructureSchema = [3, n0, _MPSa,
 export var MatchmakingConfiguration$: StaticStructureSchema = [3, n0, _MC,
   0,
   [_N, _CAonf, _D, _GSQA, _RTS, _ATS, _AR, _RSN, _RSA, _NT, _APC, _CED, _CT, _GP, _GSDa, _BM, _FMM],
-  [0, 0, 0, 64 | 0, 1, 1, 2, 0, 0, 0, 1, 0, 4, () => GamePropertyList, 0, 0, 0]
+  [0, 0, 0, 64 | 0, 1, 1, 2, 0, 0, 0, 1, [() => CustomEventData, 0], 4, [() => GamePropertyList, 0], [() => GameSessionData, 0], 0, 0]
 ];
 export var MatchmakingRuleSet$: StaticStructureSchema = [3, n0, _MRS,
   0,
@@ -2213,7 +2224,7 @@ export var PlayerLatencyPolicy$: StaticStructureSchema = [3, n0, _PLPl,
 export var PlayerSession$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_PSI, _PI, _GSIa, _FI, _FA, _CT, _TT, _St, _IA, _DN, _Po, _PD],
-  [0, [() => PlayerId, 0], 0, 0, 0, 4, 4, 0, [() => IpAddress, 0], 0, [() => PortNumber, 0], 0]
+  [0, [() => PlayerId, 0], 0, 0, 0, 4, 4, 0, [() => IpAddress, 0], 0, [() => PortNumber, 0], [() => PlayerData, 0]]
 ];
 export var PriorityConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -2248,12 +2259,12 @@ export var RegisterComputeOutput$: StaticStructureSchema = [3, n0, _RCO,
 export var RegisterGameServerInput$: StaticStructureSchema = [3, n0, _RGSI,
   0,
   [_GSGN, _GSI, _II, _CIo, _GSD],
-  [0, 0, 0, 0, 0], 3
+  [0, 0, 0, 0, [() => GameServerData, 0]], 3
 ];
 export var RegisterGameServerOutput$: StaticStructureSchema = [3, n0, _RGSO,
   0,
   [_GS],
-  [() => GameServer$]
+  [[() => GameServer$, 0]]
 ];
 export var RequestUploadCredentialsInput$: StaticStructureSchema = [3, n0, _RUCI,
   0,
@@ -2343,7 +2354,7 @@ export var StartFleetActionsOutput$: StaticStructureSchema = [3, n0, _SFAO,
 export var StartGameSessionPlacementInput$: StaticStructureSchema = [3, n0, _SGSPI,
   0,
   [_PIla, _GSQN, _MPSC, _GP, _GSN, _PL, _DPSe, _GSDa, _PCO],
-  [0, 0, 1, () => GamePropertyList, 0, [() => PlayerLatencyList, 0], [() => DesiredPlayerSessionList, 0], 0, () => PriorityConfigurationOverride$], 3
+  [0, 0, 1, [() => GamePropertyList, 0], 0, [() => PlayerLatencyList, 0], [() => DesiredPlayerSessionList, 0], [() => LargeGameSessionData, 0], () => PriorityConfigurationOverride$], 3
 ];
 export var StartGameSessionPlacementOutput$: StaticStructureSchema = [3, n0, _SGSPO,
   0,
@@ -2553,17 +2564,17 @@ export var UpdateGameServerGroupOutput$: StaticStructureSchema = [3, n0, _UGSGO,
 export var UpdateGameServerInput$: StaticStructureSchema = [3, n0, _UGSI,
   0,
   [_GSGN, _GSI, _GSD, _USt, _HC],
-  [0, 0, 0, 0, 0], 2
+  [0, 0, [() => GameServerData, 0], 0, 0], 2
 ];
 export var UpdateGameServerOutput$: StaticStructureSchema = [3, n0, _UGSO,
   0,
   [_GS],
-  [() => GameServer$]
+  [[() => GameServer$, 0]]
 ];
 export var UpdateGameSessionInput$: StaticStructureSchema = [3, n0, _UGSIp,
   0,
   [_GSIa, _MPSC, _N, _PSCP, _PP, _GP],
-  [0, 1, 0, 0, 0, () => GamePropertyList], 1
+  [0, 1, 0, 0, 0, [() => GamePropertyList, 0]], 1
 ];
 export var UpdateGameSessionOutput$: StaticStructureSchema = [3, n0, _UGSOp,
   0,
@@ -2573,22 +2584,22 @@ export var UpdateGameSessionOutput$: StaticStructureSchema = [3, n0, _UGSOp,
 export var UpdateGameSessionQueueInput$: StaticStructureSchema = [3, n0, _UGSQI,
   0,
   [_N, _TIS, _PLP, _De, _FC, _PC, _CED, _NT],
-  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, 0, 0], 1
+  [0, 1, () => PlayerLatencyPolicyList, () => GameSessionQueueDestinationList, () => FilterConfiguration$, () => PriorityConfiguration$, [() => QueueCustomEventData, 0], 0], 1
 ];
 export var UpdateGameSessionQueueOutput$: StaticStructureSchema = [3, n0, _UGSQO,
   0,
   [_GSQ],
-  [() => GameSessionQueue$]
+  [[() => GameSessionQueue$, 0]]
 ];
 export var UpdateMatchmakingConfigurationInput$: StaticStructureSchema = [3, n0, _UMCI,
   0,
   [_N, _D, _GSQA, _RTS, _ATS, _AR, _RSN, _NT, _APC, _CED, _GP, _GSDa, _BM, _FMM],
-  [0, 0, 64 | 0, 1, 1, 2, 0, 0, 1, 0, () => GamePropertyList, 0, 0, 0], 1
+  [0, 0, 64 | 0, 1, 1, 2, 0, 0, 1, [() => CustomEventData, 0], [() => GamePropertyList, 0], [() => GameSessionData, 0], 0, 0], 1
 ];
 export var UpdateMatchmakingConfigurationOutput$: StaticStructureSchema = [3, n0, _UMCO,
   0,
   [_Conf],
-  [() => MatchmakingConfiguration$]
+  [[() => MatchmakingConfiguration$, 0]]
 ];
 export var UpdateRuntimeConfigurationInput$: StaticStructureSchema = [3, n0, _URCI,
   0,
@@ -2714,7 +2725,8 @@ var FleetUtilizationList: StaticListSchema = [1, n0, _FUL,
   0, () => FleetUtilization$
 ];
 var GamePropertyList: StaticListSchema = [1, n0, _GPL,
-  0, () => GameProperty$
+  0, [() => GameProperty$,
+    0]
 ];
 var GameServerGroupActions = 64 | 0;
 var GameServerGroups: StaticListSchema = [1, n0, _GSGa,
@@ -2725,7 +2737,8 @@ var GameServerInstances: StaticListSchema = [1, n0, _GSIam,
   0, () => GameServerInstance$
 ];
 var GameServers: StaticListSchema = [1, n0, _GSame,
-  0, () => GameServer$
+  0, [() => GameServer$,
+    0]
 ];
 var GameSessionDetailList: StaticListSchema = [1, n0, _GSDL,
   0, [() => GameSessionDetail$,
@@ -2739,7 +2752,8 @@ var GameSessionQueueDestinationList: StaticListSchema = [1, n0, _GSQDL,
   0, () => GameSessionQueueDestination$
 ];
 var GameSessionQueueList: StaticListSchema = [1, n0, _GSQL,
-  0, () => GameSessionQueue$
+  0, [() => GameSessionQueue$,
+    0]
 ];
 var GameSessionQueueNameOrArnList = 64 | 0;
 var InstanceDefinitions: StaticListSchema = [1, n0, _ID,
@@ -2774,7 +2788,8 @@ var MatchedPlayerSessionList: StaticListSchema = [1, n0, _MPSL,
     0]
 ];
 var MatchmakingConfigurationList: StaticListSchema = [1, n0, _MCL,
-  0, () => MatchmakingConfiguration$
+  0, [() => MatchmakingConfiguration$,
+    0]
 ];
 var MatchmakingConfigurationNameList = 64 | 0;
 var MatchmakingIdList = 64 | 0;
@@ -2862,7 +2877,12 @@ var PlayerAttributeMap: StaticMapSchema = [2, n0, _PAM,
   0, 0, () => AttributeValue$
 ];
 var PlayerAttributeStringDoubleMap = 128 | 1;
-var PlayerDataMap = 128 | 0;
+var PlayerDataMap: StaticMapSchema = [2, n0, _PDM,
+  0, [0,
+    0]
+  , [() => PlayerData,
+    0]
+];
 export var AcceptMatch$: StaticOperationSchema = [9, n0, _AM,
   0, () => AcceptMatchInput$, () => AcceptMatchOutput$
 ];

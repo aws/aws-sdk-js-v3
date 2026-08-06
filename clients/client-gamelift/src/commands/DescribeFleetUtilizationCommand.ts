@@ -24,7 +24,7 @@ export interface DescribeFleetUtilizationCommandOutput extends DescribeFleetUtil
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
  *          <p>Retrieves utilization statistics for one or more fleets. Utilization data provides a
  *             snapshot of how the fleet's hosting resources are currently being used. For fleets with
  *             remote locations, this operation retrieves data for the fleet's home Region only. See

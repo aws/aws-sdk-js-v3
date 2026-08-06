@@ -24,7 +24,7 @@ export interface CreateFleetLocationsCommandOutput extends CreateFleetLocationsO
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
  *          <p>Adds remote locations to an EC2 and begins populating the new locations with
  *             instances. The new instances conform to the fleet's instance type, auto-scaling, and
  *             other configuration settings.</p>

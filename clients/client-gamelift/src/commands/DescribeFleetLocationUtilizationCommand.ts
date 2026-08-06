@@ -24,7 +24,7 @@ export interface DescribeFleetLocationUtilizationCommandOutput extends DescribeF
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
  *          <p>Retrieves current usage data for a fleet location. Utilization data provides a
  *             snapshot of current game hosting activity at the requested location. Use this operation
  *             to retrieve utilization information for a fleet's remote location or home Region (you

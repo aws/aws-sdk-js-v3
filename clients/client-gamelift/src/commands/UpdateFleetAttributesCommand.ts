@@ -24,7 +24,7 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
  *          <p>Updates a fleet's mutable attributes, such as game session protection and resource
  *             creation limits.</p>
  *          <p>To update fleet attributes, specify the fleet ID and the property values that you want

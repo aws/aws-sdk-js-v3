@@ -24,7 +24,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Container</p>
  *          <p>Retrieves all scaling policies applied to a fleet.</p>
  *          <p>To get a fleet's scaling policies, specify the fleet ID. You can filter this request
  *             by policy status, such as to retrieve only active scaling policies. Use the pagination

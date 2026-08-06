@@ -24,7 +24,7 @@ export interface DescribeFleetLocationAttributesCommandOutput extends DescribeFl
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
  *          <p>Retrieves information on a fleet's remote locations, including life-cycle status and
  *             any suspended fleet activity. </p>
  *          <p>This operation can be used in the following ways: </p>

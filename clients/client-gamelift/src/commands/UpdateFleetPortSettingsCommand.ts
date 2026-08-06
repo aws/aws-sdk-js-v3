@@ -24,7 +24,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2</p>
  *          <p>Updates permissions that allow inbound traffic to connect to game sessions in the
  *             fleet. </p>
  *          <p>To update settings, specify the fleet ID to be updated and specify the changes to be

@@ -24,7 +24,7 @@ export interface DeleteFleetCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>
- *             <b>This API works with the following fleet types:</b> EC2, Anywhere, Container</p>
+ *             <b>This API works with the following fleet types:</b> EC2, Anywhere</p>
  *          <p>Deletes all resources and information related to a fleet and shuts down any currently
  *             running fleet instances, including those in remote locations.</p>
  *          <note>
