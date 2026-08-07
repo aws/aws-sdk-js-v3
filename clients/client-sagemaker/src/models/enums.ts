@@ -5285,8 +5285,10 @@ export type ScheduleStatus = (typeof ScheduleStatus)[keyof typeof ScheduleStatus
 export const NotebookInstanceStatus = {
   Deleting: "Deleting",
   Failed: "Failed",
+  InMaintenance: "InMaintenance",
   InService: "InService",
   Pending: "Pending",
+  PendingMaintenance: "PendingMaintenance",
   Stopped: "Stopped",
   Stopping: "Stopping",
   Updating: "Updating",
