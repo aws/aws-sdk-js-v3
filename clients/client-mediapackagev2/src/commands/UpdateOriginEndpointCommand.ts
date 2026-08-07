@@ -224,6 +224,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *     ],
  *   },
  *   UriSeparator: "UNDERSCORE" || "HYPHEN",
+ *   StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  *   ETag: "STRING_VALUE",
  * };
  * const command = new UpdateOriginEndpointCommand(input);
@@ -354,6 +355,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //     ],
  * //   },
  * //   UriSeparator: "UNDERSCORE" || "HYPHEN",
+ * //   StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

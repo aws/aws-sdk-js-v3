@@ -240,6 +240,7 @@ const _SIS = "ScteInSegments";
 const _SKP = "SpekeKeyProvider";
 const _SL = "ServiceLocation";
 const _SN = "SegmentName";
+const _SNOM = "StreamNameOutputMode";
 const _SPDS = "SuggestedPresentationDelaySeconds";
 const _SQEE = "ServiceQuotaExceededException";
 const _SRA = "SecretsRoleArn";
@@ -460,13 +461,13 @@ export var CreateMssManifestConfiguration$: StaticStructureSchema = [3, n0, _CMM
 ];
 export var CreateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _COER,
   0,
-  [_CGN, _CN, _OEN, _CTo, _Se, _CT, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _T],
-  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, 128 | 0], 4
+  [_CGN, _CN, _OEN, _CTo, _Se, _CT, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM, _T],
+  [[0, 1], [0, 1], 0, 0, () => Segment$, [0, { [_hH]: _xact, [_iT]: 1 }], 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 128 | 0], 4
 ];
 export var CreateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _COERr,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 128 | 0], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM, _ET, _T],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 0, 128 | 0], 8
 ];
 export var DashBaseUrl$: StaticStructureSchema = [3, n0, _DBU,
   0,
@@ -665,8 +666,8 @@ export var GetOriginEndpointRequest$: StaticStructureSchema = [3, n0, _GOER,
 ];
 export var GetOriginEndpointResponse$: StaticStructureSchema = [3, n0, _GOERe,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _RA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET, _T],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 128 | 0], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _RA, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM, _ET, _T],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetDashManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 0, 128 | 0], 8
 ];
 export var HarvestedDashManifest$: StaticStructureSchema = [3, n0, _HDM,
   0,
@@ -780,8 +781,8 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
 ];
 export var OriginEndpointListConfiguration$: StaticStructureSchema = [3, n0, _OELC,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC, _US],
-  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$, 0], 5
+  [_A, _CGN, _CN, _OEN, _CTo, _D, _CA, _MA, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM],
+  [0, 0, 0, 0, 0, 0, 4, 4, () => ListHlsManifests, () => ListLowLatencyHlsManifests, () => ListDashManifests, () => ListMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0], 5
 ];
 export var OutputHeaderConfiguration$: StaticStructureSchema = [3, n0, _OHC,
   0,
@@ -895,13 +896,13 @@ export var UpdateChannelResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateOriginEndpointRequest$: StaticStructureSchema = [3, n0, _UOER,
   0,
-  [_CGN, _CN, _OEN, _CTo, _Se, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _ET],
-  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, [0, { [_hH]: _xauim }]], 4
+  [_CGN, _CN, _OEN, _CTo, _Se, _D, _SWS, _HMl, _LLHM, _DM, _MM, _FEEC, _US, _SNOM, _ET],
+  [[0, 1], [0, 1], [0, 1], 0, () => Segment$, 0, 1, () => CreateHlsManifests, () => CreateLowLatencyHlsManifests, () => CreateDashManifests, () => CreateMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, [0, { [_hH]: _xauim }]], 4
 ];
 export var UpdateOriginEndpointResponse$: StaticStructureSchema = [3, n0, _UOERp,
   0,
-  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _US, _ET, _T, _DM],
-  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
+  [_A, _CGN, _CN, _OEN, _CTo, _Se, _CA, _MA, _D, _SWS, _HMl, _LLHM, _MM, _FEEC, _US, _SNOM, _ET, _T, _DM],
+  [0, 0, 0, 0, 0, () => Segment$, 4, 4, 0, 1, () => GetHlsManifests, () => GetLowLatencyHlsManifests, () => GetMssManifests, () => ForceEndpointErrorConfiguration$, 0, 0, 0, [128 | 0, { [_jN]: _t }], () => GetDashManifests], 8
 ];
 var __Unit = "unit" as const;
 var CdnIdentifierSecretArns = 64 | 0;

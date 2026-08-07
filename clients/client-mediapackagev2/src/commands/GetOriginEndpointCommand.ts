@@ -239,6 +239,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //     ],
  * //   },
  * //   UriSeparator: "UNDERSCORE" || "HYPHEN",
+ * //   StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

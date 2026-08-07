@@ -83,6 +83,7 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //         ],
  * //       },
  * //       UriSeparator: "UNDERSCORE" || "HYPHEN",
+ * //       StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

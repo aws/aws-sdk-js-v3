@@ -225,6 +225,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     ],
  *   },
  *   UriSeparator: "UNDERSCORE" || "HYPHEN",
+ *   StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -430,6 +431,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //     ],
  * //   },
  * //   UriSeparator: "UNDERSCORE" || "HYPHEN",
+ * //   StreamNameOutputMode: "INDEX" || "PASSTHROUGH_NAME",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -562,6 +564,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     TsUseAudioRenditionGroup: true
  *   },
  *   StartoverWindowSeconds: 300,
+ *   StreamNameOutputMode: "INDEX",
  *   Tags: {
  *     key1: "value1",
  *     key2: "value2"
@@ -671,6 +674,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  *     TsUseAudioRenditionGroup: true
  *   },
  *   StartoverWindowSeconds: 300,
+ *   StreamNameOutputMode: "INDEX",
  *   Tags: {
  *     key1: "value1",
  *     key2: "value2"

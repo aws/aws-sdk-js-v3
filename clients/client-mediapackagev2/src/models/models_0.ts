@@ -26,6 +26,7 @@ import type {
   ScteFilter,
   ScteInManifests,
   ScteInSegments,
+  StreamNameOutputMode,
   TsEncryptionMethod,
   UriPathType,
   UriSeparator,
@@ -1505,6 +1506,12 @@ export interface CreateOriginEndpointRequest {
   UriSeparator?: UriSeparator | undefined;
 
   /**
+   * <p>The output mode for stream names in egress manifests. This setting is valid only when the associated channel's <code>InputType</code> is <code>HLS</code>. You can't change the stream name output mode after you create the endpoint.</p> <p> <code>INDEX</code> uses numeric indices for stream names (for example, 1, 2, 3). <code>PASSTHROUGH_NAME</code> uses the stream names from the input manifest. If you don't specify a value, the default is <code>INDEX</code>.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
+
+  /**
    * <p>A comma-separated list of tag key:value pairs that you define. For example:</p> <p> <code>"Key1": "Value1",</code> </p> <p> <code>"Key2": "Value2"</code> </p>
    * @public
    */
@@ -1912,6 +1919,12 @@ export interface CreateOriginEndpointResponse {
   UriSeparator?: UriSeparator | undefined;
 
   /**
+   * <p>The output mode for stream names in egress manifests for this origin endpoint.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
+
+  /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
    * @public
    */
@@ -2080,6 +2093,12 @@ export interface GetOriginEndpointResponse {
    * @public
    */
   UriSeparator?: UriSeparator | undefined;
+
+  /**
+   * <p>The output mode for stream names in egress manifests for this origin endpoint.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
@@ -2295,6 +2314,12 @@ export interface OriginEndpointListConfiguration {
    * @public
    */
   UriSeparator?: UriSeparator | undefined;
+
+  /**
+   * <p>The output mode for stream names in egress manifests for this origin endpoint.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
 }
 
 /**
@@ -2581,6 +2606,12 @@ export interface UpdateOriginEndpointRequest {
   UriSeparator?: UriSeparator | undefined;
 
   /**
+   * <p>The output mode for stream names in egress manifests. If you provide a value, it must match the current value. You can't change the stream name output mode after you create the endpoint.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
+
+  /**
    * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
    * @public
    */
@@ -2680,6 +2711,12 @@ export interface UpdateOriginEndpointResponse {
    * @public
    */
   UriSeparator?: UriSeparator | undefined;
+
+  /**
+   * <p>The output mode for stream names in egress manifests for this origin endpoint.</p>
+   * @public
+   */
+  StreamNameOutputMode?: StreamNameOutputMode | undefined;
 
   /**
    * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>

@@ -120,6 +120,7 @@ export type {
   ScteFilter,
   ScteInManifests,
   ScteInSegments,
+  StreamNameOutputMode,
   TsEncryptionMethod,
   UriPathType,
   UriSeparator,

@@ -191,6 +191,7 @@ import {
   ServiceQuotaExceededException$,
   SpekeKeyProvider$,
   StartTag$,
+  StreamNameOutputMode,
   TagResource$,
   TagResourceCommand,
   TagResourceRequest$,
@@ -420,6 +421,7 @@ assert(typeof ResourceTypeNotFound === "object");
 assert(typeof ScteFilter === "object");
 assert(typeof ScteInManifests === "object");
 assert(typeof ScteInSegments === "object");
+assert(typeof StreamNameOutputMode === "object");
 assert(typeof TsEncryptionMethod === "object");
 assert(typeof UriPathType === "object");
 assert(typeof UriSeparator === "object");
