@@ -2,6 +2,12 @@
 
 [Commit logs](https://github.com/aws/aws-sdk-js-v3/commits/main/codegen/smithy-aws-typescript-codegen/src/main/java/software/amazon/smithy/aws/typescript/codegen)
 
+## 0.52.0 (2026-08-07)
+
+### Chores
+
+- Upgraded to smithy-typescript 0.52.0 ([Release Notes](https://github.com/smithy-lang/smithy-typescript/blob/main/CHANGELOG.md#0520-2026-08-07))
+
 ## 0.51.0 (2026-07-13)
 
 ### Chores
