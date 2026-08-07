@@ -7,6 +7,7 @@ import {
   AdDecisionServerConfiguration$,
   AdMarkerPassthrough$,
   AdMarkupType,
+  AdSequencingMode,
   AdsInteractionExcludeEventType,
   AdsInteractionLog$,
   AdsInteractionPublishOptInEventType,
@@ -224,6 +225,9 @@ import {
   PrefetchRetrieval$,
   PrefetchSchedule$,
   PrefetchScheduleType,
+  PreRollAdDecisionServerConfiguration$,
+  PreRollAdSequencingMode,
+  PreRollVastResponse$,
   PutChannelPolicy$,
   PutChannelPolicyCommand,
   PutChannelPolicyRequest$,
@@ -299,6 +303,7 @@ import {
   UpdateVodSourceCommand,
   UpdateVodSourceRequest$,
   UpdateVodSourceResponse$,
+  VastResponse$,
   VodSource$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
@@ -518,6 +523,8 @@ assert(typeof PlaybackConfiguration$ === "object");
 assert(typeof PrefetchConsumption$ === "object");
 assert(typeof PrefetchRetrieval$ === "object");
 assert(typeof PrefetchSchedule$ === "object");
+assert(typeof PreRollAdDecisionServerConfiguration$ === "object");
+assert(typeof PreRollVastResponse$ === "object");
 assert(typeof PutChannelPolicyRequest$ === "object");
 assert(typeof PutChannelPolicyResponse$ === "object");
 assert(typeof PutFunctionRequest$ === "object");
@@ -562,10 +569,12 @@ assert(typeof UpdateSourceLocationRequest$ === "object");
 assert(typeof UpdateSourceLocationResponse$ === "object");
 assert(typeof UpdateVodSourceRequest$ === "object");
 assert(typeof UpdateVodSourceResponse$ === "object");
+assert(typeof VastResponse$ === "object");
 assert(typeof VodSource$ === "object");
 // enums
 assert(typeof AccessType === "object");
 assert(typeof AdMarkupType === "object");
+assert(typeof AdSequencingMode === "object");
 assert(typeof AdsInteractionExcludeEventType === "object");
 assert(typeof AdsInteractionPublishOptInEventType === "object");
 assert(typeof AlertCategory === "object");
@@ -588,6 +597,7 @@ assert(typeof Operator === "object");
 assert(typeof OriginManifestType === "object");
 assert(typeof PlaybackMode === "object");
 assert(typeof PrefetchScheduleType === "object");
+assert(typeof PreRollAdSequencingMode === "object");
 assert(typeof RelativePosition === "object");
 assert(typeof RuntimeType === "object");
 assert(typeof ScheduleEntryType === "object");

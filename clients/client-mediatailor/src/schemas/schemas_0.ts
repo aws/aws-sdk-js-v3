@@ -24,6 +24,7 @@ const _APC = "AdsPersonalizationConcurrency";
 const _APT = "AdsPersonalizationTimeouts";
 const _ARTM = "AdsRequestTimeoutMilliseconds";
 const _AS = "AvailSuppression";
+const _ASM = "AdSequencingMode";
 const _AST = "ApproximateStartTime";
 const _ASUP = "AdSegmentUrlPrefix";
 const _AT = "AccessType";
@@ -256,6 +257,8 @@ const _PPC = "PutPlaybackConfiguration";
 const _PPCR = "PutPlaybackConfigurationRequest";
 const _PPCRu = "PutPlaybackConfigurationResponse";
 const _PR = "PrefetchRetrieval";
+const _PRADSC = "PreRollAdDecisionServerConfiguration";
+const _PRVR = "PreRollVastResponse";
 const _PS = "PrefetchSchedule";
 const _PT = "PeakTps";
 const _PTS = "PersonalizationThresholdSeconds";
@@ -362,6 +365,7 @@ const _UVSRp = "UpdateVodSourceResponse";
 const _V = "Value";
 const _VCSU = "VideoContentSourceUrl";
 const _VMAPTM = "VodMaximumAdsPersonalizationTimeMilliseconds";
+const _VR = "VastResponse";
 const _VS = "VodSource";
 const _VSN = "VodSourceName";
 const _a = "audience";
@@ -451,8 +455,8 @@ export var AdConditioningConfiguration$: StaticStructureSchema = [3, n0, _ACC,
 ];
 export var AdDecisionServerConfiguration$: StaticStructureSchema = [3, n0, _ADSC,
   0,
-  [_HR],
-  [() => HttpRequest$]
+  [_HR, _VR],
+  [() => HttpRequest$, () => VastResponse$]
 ];
 export var AdMarkerPassthrough$: StaticStructureSchema = [3, n0, _AMP,
   0,
@@ -956,8 +960,8 @@ export var ListVodSourcesResponse$: StaticStructureSchema = [3, n0, _LVSRi,
 ];
 export var LivePreRollConfiguration$: StaticStructureSchema = [3, n0, _LPRC,
   0,
-  [_ADSU, _MDS],
-  [0, 1]
+  [_ADSU, _MDS, _ADSC],
+  [0, 1, () => PreRollAdDecisionServerConfiguration$]
 ];
 export var LiveSource$: StaticStructureSchema = [3, n0, _LS,
   0,
@@ -1003,6 +1007,16 @@ export var PrefetchSchedule$: StaticStructureSchema = [3, n0, _PS,
   0,
   [_Ar, _N, _PCN, _Co, _Re, _ST, _RPC, _SI, _Ta],
   [0, 0, 0, () => PrefetchConsumption$, () => PrefetchRetrieval$, 0, () => RecurringPrefetchConfiguration$, 0, [128 | 0, { [_jN]: _t }]], 3
+];
+export var PreRollAdDecisionServerConfiguration$: StaticStructureSchema = [3, n0, _PRADSC,
+  0,
+  [_VR],
+  [() => PreRollVastResponse$]
+];
+export var PreRollVastResponse$: StaticStructureSchema = [3, n0, _PRVR,
+  0,
+  [_ASM],
+  [0]
 ];
 export var PutChannelPolicyRequest$: StaticStructureSchema = [3, n0, _PCPR,
   0,
@@ -1223,6 +1237,11 @@ export var UpdateVodSourceResponse$: StaticStructureSchema = [3, n0, _UVSRp,
   0,
   [_Ar, _CT, _HPC, _LMT, _SLN, _Ta, _VSN],
   [0, 7, () => HttpPackageConfigurations, 7, 0, [128 | 0, { [_jN]: _t }], 0]
+];
+export var VastResponse$: StaticStructureSchema = [3, n0, _VR,
+  0,
+  [_ASM],
+  [0]
 ];
 export var VodSource$: StaticStructureSchema = [3, n0, _VS,
   0,

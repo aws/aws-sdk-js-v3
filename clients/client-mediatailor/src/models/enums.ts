@@ -244,6 +244,21 @@ export type Method = (typeof Method)[keyof typeof Method];
  * @public
  * @enum
  */
+export const AdSequencingMode = {
+  FOLLOW_AD_SEQUENCE: "FOLLOW_AD_SEQUENCE",
+  FOLLOW_AD_SEQUENCE_ONLY_LIVE: "FOLLOW_AD_SEQUENCE_ONLY_LIVE",
+  FOLLOW_AD_SEQUENCE_ONLY_VOD: "FOLLOW_AD_SEQUENCE_ONLY_VOD",
+  IGNORE_AD_SEQUENCE: "IGNORE_AD_SEQUENCE",
+} as const;
+/**
+ * @public
+ */
+export type AdSequencingMode = (typeof AdSequencingMode)[keyof typeof AdSequencingMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const FillPolicy = {
   FULL_AVAIL_ONLY: "FULL_AVAIL_ONLY",
   PARTIAL_AVAIL: "PARTIAL_AVAIL",
@@ -305,6 +320,19 @@ export const InsertionMode = {
  * @public
  */
 export type InsertionMode = (typeof InsertionMode)[keyof typeof InsertionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const PreRollAdSequencingMode = {
+  FOLLOW_AD_SEQUENCE: "FOLLOW_AD_SEQUENCE",
+  IGNORE_AD_SEQUENCE: "IGNORE_AD_SEQUENCE",
+} as const;
+/**
+ * @public
+ */
+export type PreRollAdSequencingMode = (typeof PreRollAdSequencingMode)[keyof typeof PreRollAdSequencingMode];
 
 /**
  * @public

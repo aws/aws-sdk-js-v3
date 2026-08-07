@@ -2,6 +2,7 @@
 import type {
   AccessType,
   AdMarkupType,
+  AdSequencingMode,
   AdsInteractionExcludeEventType,
   AdsInteractionPublishOptInEventType,
   AlertCategory,
@@ -24,6 +25,7 @@ import type {
   OriginManifestType,
   PlaybackMode,
   PrefetchScheduleType,
+  PreRollAdSequencingMode,
   RelativePosition,
   RuntimeType,
   ScheduleEntryType,
@@ -862,6 +864,18 @@ export interface HttpRequest {
 }
 
 /**
+ * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server.</p>
+ * @public
+ */
+export interface VastResponse {
+  /**
+   * <p>The ad sequencing mode that controls how MediaTailor handles sequenced and standalone ads in VAST responses. <code>FOLLOW_AD_SEQUENCE</code> inserts sequenced ads in increasing order for both live and VOD workflows, using standalone ads only as replacements when a sequenced ad fails. <code>FOLLOW_AD_SEQUENCE_ONLY_LIVE</code> enables ad sequencing for live workflows only. <code>FOLLOW_AD_SEQUENCE_ONLY_VOD</code> enables ad sequencing for VOD workflows only. <code>IGNORE_AD_SEQUENCE</code> inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is <code>IGNORE_AD_SEQUENCE</code>.</p>
+   * @public
+   */
+  AdSequencingMode?: AdSequencingMode | undefined;
+}
+
+/**
  * <p>Configuration parameters for customizing HTTP requests sent to the ad decision server (ADS). This allows you to specify the HTTP method, headers, request body, and compression settings for ADS requests.</p>
  * @public
  */
@@ -871,6 +885,12 @@ export interface AdDecisionServerConfiguration {
    * @public
    */
   HttpRequest?: HttpRequest | undefined;
+
+  /**
+   * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server.</p>
+   * @public
+   */
+  VastResponse?: VastResponse | undefined;
 }
 
 /**
@@ -1036,6 +1056,30 @@ export interface HlsConfiguration {
 }
 
 /**
+ * <p>The settings that control how MediaTailor processes VAST responses from the ad decision server for live pre-roll ad breaks.</p>
+ * @public
+ */
+export interface PreRollVastResponse {
+  /**
+   * <p>The ad sequencing mode for live pre-roll ads. <code>FOLLOW_AD_SEQUENCE</code> inserts sequenced ads in increasing order and uses standalone ads only as replacements when a sequenced ad fails. <code>IGNORE_AD_SEQUENCE</code> inserts ads in the order they appear in the VAST response, regardless of sequence attributes. The default behavior is <code>IGNORE_AD_SEQUENCE</code>.</p>
+   * @public
+   */
+  AdSequencingMode?: PreRollAdSequencingMode | undefined;
+}
+
+/**
+ * <p>The ad decision server configuration for live pre-roll ads. It contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.</p>
+ * @public
+ */
+export interface PreRollAdDecisionServerConfiguration {
+  /**
+   * <p>The settings that control how MediaTailor processes VAST responses for live pre-roll ad breaks.</p>
+   * @public
+   */
+  VastResponse?: PreRollVastResponse | undefined;
+}
+
+/**
  * <p>The configuration for pre-roll ad insertion.</p>
  * @public
  */
@@ -1051,6 +1095,12 @@ export interface LivePreRollConfiguration {
    * @public
    */
   MaxDurationSeconds?: number | undefined;
+
+  /**
+   * <p>The configuration for the ad decision server (ADS) for live pre-roll ads. The configuration contains settings that control how MediaTailor processes VAST responses for pre-roll ad breaks.</p>
+   * @public
+   */
+  AdDecisionServerConfiguration?: PreRollAdDecisionServerConfiguration | undefined;
 }
 
 /**

@@ -74,6 +74,11 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //       LivePreRollConfiguration: { // LivePreRollConfiguration
  * //         AdDecisionServerUrl: "STRING_VALUE",
  * //         MaxDurationSeconds: Number("int"),
+ * //         AdDecisionServerConfiguration: { // PreRollAdDecisionServerConfiguration
+ * //           VastResponse: { // PreRollVastResponse
+ * //             AdSequencingMode: "FOLLOW_AD_SEQUENCE" || "IGNORE_AD_SEQUENCE",
+ * //           },
+ * //         },
  * //       },
  * //       LogConfiguration: { // LogConfiguration
  * //         PercentEnabled: Number("int"), // required
@@ -126,6 +131,9 @@ export interface ListPlaybackConfigurationsCommandOutput extends ListPlaybackCon
  * //             "<keys>": "STRING_VALUE",
  * //           },
  * //           CompressRequest: "NONE" || "GZIP",
+ * //         },
+ * //         VastResponse: { // VastResponse
+ * //           AdSequencingMode: "FOLLOW_AD_SEQUENCE" || "IGNORE_AD_SEQUENCE" || "FOLLOW_AD_SEQUENCE_ONLY_LIVE" || "FOLLOW_AD_SEQUENCE_ONLY_VOD",
  * //         },
  * //       },
  * //       FunctionMapping: { // FunctionMapping
