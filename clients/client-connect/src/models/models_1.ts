@@ -862,8 +862,7 @@ export interface DeleteAttachedFileRequest {
   FileId: string | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
-   *    resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -889,17 +888,28 @@ export interface DeleteContactDataRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The identifier of the contact. PII can be deleted only from a contact that has been
+   * <p>The identifier of the contact. You can delete PII only from a contact that has been
    *    disconnected (is in a terminated state).</p>
    * @public
    */
   ContactId: string | undefined;
 
   /**
-   * <p>The categories of PII to redact from the contact. Valid values are
-   *    <code>CUSTOMER_ENDPOINT</code>, <code>ADDITIONAL_EMAIL_RECIPIENTS</code>, and
-   *    <code>EMAIL_SUBJECT</code>. <code>ADDITIONAL_EMAIL_RECIPIENTS</code> and <code>EMAIL_SUBJECT</code>
-   *    are supported only for contacts in the email channel.</p>
+   * <p>The categories of PII to redact from the contact. Specify one or more of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOMER_ENDPOINT</code> – The customer's contact endpoint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADDITIONAL_EMAIL_RECIPIENTS</code> – Additional recipients on an email contact (email channel only).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EMAIL_SUBJECT</code> – The subject line of an email contact (email channel only).</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   ContactFields: ContactField[] | undefined;
@@ -6992,7 +7002,7 @@ export interface GetAttachedFileRequest {
   UrlExpiryInSeconds?: number | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -7063,8 +7073,7 @@ export interface GetAttachedFileResponse {
   FileSizeInBytes: number | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Cases</a> are the only current supported
-   *    resource.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
    * @public
    */
   AssociatedResourceArn?: string | undefined;

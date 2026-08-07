@@ -132,7 +132,6 @@ import type {
 import type {
   BooleanCondition,
   ContactFlowModuleSearchFilter,
-  ContactFlowSearchFilter,
   ControlPlaneTagFilter,
   DateTimeCondition,
   DecimalCondition,
@@ -2642,7 +2641,7 @@ export interface StartAttachedFileUploadRequest {
   FileUseCaseType: FileUseCaseType | undefined;
 
   /**
-   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>.</p>
+   * <p>The resource to which the attached file is (being) uploaded to. The supported resources are <a href="https://docs.aws.amazon.com/connect/latest/adminguide/cases.html">Cases</a>, <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Email</a>, and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-getting-started-tasks.html">Task</a>.</p>
    *          <note>
    *             <p>This value must be a valid ARN.</p>
    *          </note>
@@ -4968,6 +4967,34 @@ export interface UpdateContactScheduleRequest {
  * @public
  */
 export interface UpdateContactScheduleResponse {}
+
+/**
+ * @public
+ */
+export interface UpdateContactTaskTemplateRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the task template. For more information about task templates, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/task-templates.html">Task templates</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+   * @public
+   */
+  TaskTemplateId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateContactTaskTemplateResponse {}
 
 /**
  * @public
@@ -8169,83 +8196,4 @@ export interface SearchContactFlowModulesRequest {
    * @public
    */
   SearchCriteria?: ContactFlowModuleSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactFlowsRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name
-   *    (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
-   *    retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Filters to be applied to search results.</p>
-   * @public
-   */
-  SearchFilter?: ContactFlowSearchFilter | undefined;
-
-  /**
-   * <p>The search criteria to be used to return flows.</p>
-   *          <note>
-   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2
-   *     characters and a maximum of 25 characters. Any queries with character lengths outside of this range will result in
-   *     invalid results.</p>
-   *          </note>
-   * @public
-   */
-  SearchCriteria?: ContactFlowSearchCriteria | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchDataTablesRequest {
-  /**
-   * <p>The unique identifier for the Amazon Connect instance to search within.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of data tables to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>Optional filters to apply to the search results, such as tag-based filtering for attribute-based access
-   *    control.</p>
-   * @public
-   */
-  SearchFilter?: DataTableSearchFilter | undefined;
-
-  /**
-   * <p>Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports
-   *    STARTS_WITH, CONTAINS, and EXACT comparison types.</p>
-   * @public
-   */
-  SearchCriteria?: DataTableSearchCriteria | undefined;
 }

@@ -328,6 +328,7 @@ export * from "./UpdateContactFlowModuleMetadataCommand";
 export * from "./UpdateContactFlowNameCommand";
 export * from "./UpdateContactRoutingDataCommand";
 export * from "./UpdateContactScheduleCommand";
+export * from "./UpdateContactTaskTemplateCommand";
 export * from "./UpdateDataTableAttributeCommand";
 export * from "./UpdateDataTableMetadataCommand";
 export * from "./UpdateDataTablePrimaryValuesCommand";

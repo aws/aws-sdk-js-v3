@@ -2096,6 +2096,10 @@ import {
   UpdateContactScheduleCommand,
   UpdateContactScheduleRequest$,
   UpdateContactScheduleResponse$,
+  UpdateContactTaskTemplate$,
+  UpdateContactTaskTemplateCommand,
+  UpdateContactTaskTemplateRequest$,
+  UpdateContactTaskTemplateResponse$,
   UpdateDataTableAttribute$,
   UpdateDataTableAttributeCommand,
   UpdateDataTableAttributeRequest$,
@@ -2996,6 +3000,8 @@ assert(typeof UpdateContactRoutingDataCommand === "function");
 assert(typeof UpdateContactRoutingData$ === "object");
 assert(typeof UpdateContactScheduleCommand === "function");
 assert(typeof UpdateContactSchedule$ === "object");
+assert(typeof UpdateContactTaskTemplateCommand === "function");
+assert(typeof UpdateContactTaskTemplate$ === "object");
 assert(typeof UpdateDataTableAttributeCommand === "function");
 assert(typeof UpdateDataTableAttribute$ === "object");
 assert(typeof UpdateDataTableMetadataCommand === "function");
@@ -4214,6 +4220,8 @@ assert(typeof UpdateContactRoutingDataRequest$ === "object");
 assert(typeof UpdateContactRoutingDataResponse$ === "object");
 assert(typeof UpdateContactScheduleRequest$ === "object");
 assert(typeof UpdateContactScheduleResponse$ === "object");
+assert(typeof UpdateContactTaskTemplateRequest$ === "object");
+assert(typeof UpdateContactTaskTemplateResponse$ === "object");
 assert(typeof UpdateDataTableAttributeRequest$ === "object");
 assert(typeof UpdateDataTableAttributeResponse$ === "object");
 assert(typeof UpdateDataTableMetadataRequest$ === "object");

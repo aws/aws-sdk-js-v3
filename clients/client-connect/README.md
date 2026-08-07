@@ -2509,6 +2509,13 @@ UpdateContactSchedule
 </details>
 <details>
 <summary>
+UpdateContactTaskTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateContactTaskTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateContactTaskTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateContactTaskTemplateCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateDataTableAttribute
 </summary>
 

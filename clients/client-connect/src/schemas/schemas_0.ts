@@ -2610,6 +2610,9 @@ const _UCSL = "UseCaseSummaryList";
 const _UCSR = "UpdateContactScheduleRequest";
 const _UCSRp = "UpdateContactScheduleResponse";
 const _UCT = "UseCaseType";
+const _UCTT = "UpdateContactTaskTemplate";
+const _UCTTR = "UpdateContactTaskTemplateRequest";
+const _UCTTRp = "UpdateContactTaskTemplateResponse";
 const _UCn = "UntagContact";
 const _UCp = "UpdateContact";
 const _UCs = "UseCase";
@@ -8673,6 +8676,16 @@ export var UpdateContactScheduleResponse$: StaticStructureSchema = [3, n0, _UCSR
   [],
   []
 ];
+export var UpdateContactTaskTemplateRequest$: StaticStructureSchema = [3, n0, _UCTTR,
+  0,
+  [_II, _TTIa, _CI],
+  [0, 0, 0], 3
+];
+export var UpdateContactTaskTemplateResponse$: StaticStructureSchema = [3, n0, _UCTTRp,
+  0,
+  [],
+  []
+];
 export var UpdateDataTableAttributeRequest$: StaticStructureSchema = [3, n0, _UDTAR,
   0,
   [_II, _DTI, _AN, _N, _VT, _D, _Pri, _Val],
@@ -11244,6 +11257,9 @@ export var UpdateContactRoutingData$: StaticOperationSchema = [9, n0, _UCRD,
 ];
 export var UpdateContactSchedule$: StaticOperationSchema = [9, n0, _UCS,
   { [_h]: ["POST", "/contact/schedule", 200] }, () => UpdateContactScheduleRequest$, () => UpdateContactScheduleResponse$
+];
+export var UpdateContactTaskTemplate$: StaticOperationSchema = [9, n0, _UCTT,
+  { [_h]: ["POST", "/contact/task-template", 200] }, () => UpdateContactTaskTemplateRequest$, () => UpdateContactTaskTemplateResponse$
 ];
 export var UpdateDataTableAttribute$: StaticOperationSchema = [9, n0, _UDTA,
   { [_h]: ["POST", "/data-tables/{InstanceId}/{DataTableId}/attributes/{AttributeName}", 200] }, () => UpdateDataTableAttributeRequest$, () => UpdateDataTableAttributeResponse$

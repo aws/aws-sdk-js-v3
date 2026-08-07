@@ -510,9 +510,9 @@ export class TooManyRequestsException extends __BaseException {
 }
 
 /**
- * <p>The contact has not been disconnected and is not in a terminated state. PII can be deleted
- *    only from a contact that has been disconnected. This error is returned with an HTTP 409 status
- *    code.</p>
+ * <p>The contact has not been disconnected and is not in a terminated state. To delete PII,
+ *    disconnect the contact first. Wait for it to reach the terminated state, then retry the
+ *    request.</p>
  * @public
  */
 export class ContactNotTerminatedException extends __BaseException {

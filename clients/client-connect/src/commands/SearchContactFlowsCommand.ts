@@ -3,7 +3,7 @@ import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
 import type { SearchContactFlowsResponse } from "../models/models_2";
-import type { SearchContactFlowsRequest } from "../models/models_3";
+import type { SearchContactFlowsRequest } from "../models/models_4";
 import { SearchContactFlows$ } from "../schemas/schemas_0";
 
 /**

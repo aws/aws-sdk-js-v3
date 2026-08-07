@@ -42,11 +42,15 @@ import type {
   TaskTemplateInfoV2,
   WisdomInfo,
 } from "./models_1";
+import type { ContactFlowSearchFilter } from "./models_2";
 import type {
   ChatMessage,
+  ContactFlowSearchCriteria,
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryAiAgentInfo,
   ContactSearchSummaryQueueInfo,
+  DataTableSearchCriteria,
+  DataTableSearchFilter,
   EmailAddressInfo,
   EmailAddressSearchCriteria,
   EmailAddressSearchFilter,
@@ -96,6 +100,85 @@ import type {
   WorkspaceSearchCriteria,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface SearchContactFlowsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name
+   *    (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return flows.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2
+   *     characters and a maximum of 25 characters. Any queries with character lengths outside of this range will result in
+   *     invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchDataTablesRequest {
+  /**
+   * <p>The unique identifier for the Amazon Connect instance to search within.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of data tables to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Optional filters to apply to the search results, such as tag-based filtering for attribute-based access
+   *    control.</p>
+   * @public
+   */
+  SearchFilter?: DataTableSearchFilter | undefined;
+
+  /**
+   * <p>Search criteria including string conditions for matching table names, descriptions, or resource IDs. Supports
+   *    STARTS_WITH, CONTAINS, and EXACT comparison types.</p>
+   * @public
+   */
+  SearchCriteria?: DataTableSearchCriteria | undefined;
+}
 
 /**
  * @public

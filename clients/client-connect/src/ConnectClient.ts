@@ -1122,6 +1122,10 @@ import type {
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
 import type {
+  UpdateContactTaskTemplateCommandInput,
+  UpdateContactTaskTemplateCommandOutput,
+} from "./commands/UpdateContactTaskTemplateCommand";
+import type {
   UpdateDataTableAttributeCommandInput,
   UpdateDataTableAttributeCommandOutput,
 } from "./commands/UpdateDataTableAttributeCommand";
@@ -1650,6 +1654,7 @@ export type ServiceInputTypes =
   | UpdateContactFlowNameCommandInput
   | UpdateContactRoutingDataCommandInput
   | UpdateContactScheduleCommandInput
+  | UpdateContactTaskTemplateCommandInput
   | UpdateDataTableAttributeCommandInput
   | UpdateDataTableMetadataCommandInput
   | UpdateDataTablePrimaryValuesCommandInput
@@ -2034,6 +2039,7 @@ export type ServiceOutputTypes =
   | UpdateContactFlowNameCommandOutput
   | UpdateContactRoutingDataCommandOutput
   | UpdateContactScheduleCommandOutput
+  | UpdateContactTaskTemplateCommandOutput
   | UpdateDataTableAttributeCommandOutput
   | UpdateDataTableMetadataCommandOutput
   | UpdateDataTablePrimaryValuesCommandOutput

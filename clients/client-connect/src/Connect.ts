@@ -1632,6 +1632,11 @@ import {
   UpdateContactScheduleCommand,
 } from "./commands/UpdateContactScheduleCommand";
 import {
+  type UpdateContactTaskTemplateCommandInput,
+  type UpdateContactTaskTemplateCommandOutput,
+  UpdateContactTaskTemplateCommand,
+} from "./commands/UpdateContactTaskTemplateCommand";
+import {
   type UpdateDataTableAttributeCommandInput,
   type UpdateDataTableAttributeCommandOutput,
   UpdateDataTableAttributeCommand,
@@ -2304,6 +2309,7 @@ const commands = {
   UpdateContactFlowNameCommand,
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
+  UpdateContactTaskTemplateCommand,
   UpdateDataTableAttributeCommand,
   UpdateDataTableMetadataCommand,
   UpdateDataTablePrimaryValuesCommand,
@@ -8042,6 +8048,23 @@ export interface Connect {
     args: UpdateContactScheduleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateContactScheduleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateContactTaskTemplateCommand}
+   */
+  updateContactTaskTemplate(
+    args: UpdateContactTaskTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactTaskTemplateCommandOutput>;
+  updateContactTaskTemplate(
+    args: UpdateContactTaskTemplateCommandInput,
+    cb: (err: any, data?: UpdateContactTaskTemplateCommandOutput) => void
+  ): void;
+  updateContactTaskTemplate(
+    args: UpdateContactTaskTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactTaskTemplateCommandOutput) => void
   ): void;
 
   /**
