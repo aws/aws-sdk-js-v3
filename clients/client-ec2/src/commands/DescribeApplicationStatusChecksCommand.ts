@@ -139,13 +139,13 @@ export interface DescribeApplicationStatusChecksCommandOutput extends DescribeAp
  *     {
  *       Aggregation: "included",
  *       ApplicationStatusCheckId: "asc-0123456789abcdef0",
- *       FailureThreshold: 3,
- *       Interval: 10,
+ *       FailureThreshold: 2,
+ *       Interval: 60,
  *       Path: "/health",
  *       Port: 80,
  *       Protocol: "http",
  *       SuccessThreshold: 2,
- *       Timeout: 5
+ *       Timeout: 6
  *     }
  *   ]
  * }
@@ -154,13 +154,13 @@ export interface DescribeApplicationStatusChecksCommandOutput extends DescribeAp
  *
  * @example To describe application status checks using filters
  * ```javascript
- * // This example uses filters to describe application status checks with a specific tag.
+ * // This example uses a filter to describe application status checks included in aggregation.
  * const input = {
  *   Filters: [
  *     {
- *       Name: "tag:Environment",
+ *       Name: "aggregation",
  *       Values: [
- *         "Production"
+ *         "included"
  *       ]
  *     }
  *   ],
@@ -174,13 +174,13 @@ export interface DescribeApplicationStatusChecksCommandOutput extends DescribeAp
  *     {
  *       Aggregation: "included",
  *       ApplicationStatusCheckId: "asc-0123456789abcdef0",
- *       FailureThreshold: 3,
- *       Interval: 10,
+ *       FailureThreshold: 2,
+ *       Interval: 60,
  *       Path: "/health",
  *       Port: 80,
  *       Protocol: "http",
  *       SuccessThreshold: 2,
- *       Timeout: 5
+ *       Timeout: 6
  *     }
  *   ]
  * }

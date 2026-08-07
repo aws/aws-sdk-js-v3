@@ -1,0 +1,609 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamRouteProtectionFindingsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamRouteProtectionFindingsResult xmlns="https://placeholder.amazonaws.com">
+    <ipamId>
+        __IpamId__
+    </ipamId>
+    <routeProtectionFindingSet>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <advertisementType>
+                __AdvertisementType__
+            </advertisementType>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <asn>
+                __Asn__
+            </asn>
+            <rpkiStatus>
+                __RpkiStatus__
+            </rpkiStatus>
+            <rpkiStrength>
+                __RpkiStrength__
+            </rpkiStrength>
+            <roaSet>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+            </roaSet>
+            <routeOverlapSet>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+            </routeOverlapSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+            <roaSampleTime>
+                2000-01-01T04:59:59.999Z
+            </roaSampleTime>
+        </item>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <advertisementType>
+                __AdvertisementType__
+            </advertisementType>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <asn>
+                __Asn__
+            </asn>
+            <rpkiStatus>
+                __RpkiStatus__
+            </rpkiStatus>
+            <rpkiStrength>
+                __RpkiStrength__
+            </rpkiStrength>
+            <roaSet>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+            </roaSet>
+            <routeOverlapSet>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+            </routeOverlapSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+            <roaSampleTime>
+                2000-01-01T04:59:59.999Z
+            </roaSampleTime>
+        </item>
+        <item>
+            <resourceOwnerId>
+                __ResourceOwnerId__
+            </resourceOwnerId>
+            <resourceRegion>
+                __ResourceRegion__
+            </resourceRegion>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <state>
+                __State__
+            </state>
+            <advertisementType>
+                __AdvertisementType__
+            </advertisementType>
+            <networkBorderGroup>
+                __NetworkBorderGroup__
+            </networkBorderGroup>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <asn>
+                __Asn__
+            </asn>
+            <rpkiStatus>
+                __RpkiStatus__
+            </rpkiStatus>
+            <rpkiStrength>
+                __RpkiStrength__
+            </rpkiStrength>
+            <roaSet>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+                <item>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <maxLength>
+                        0
+                    </maxLength>
+                    <match>
+                        false
+                    </match>
+                    <expiration>
+                        2000-01-01T04:59:59.999Z
+                    </expiration>
+                </item>
+            </roaSet>
+            <routeOverlapSet>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+                <item>
+                    <prefix>
+                        __Prefix__
+                    </prefix>
+                    <asn>
+                        __Asn__
+                    </asn>
+                    <detectedAt>
+                        2000-01-01T04:59:59.999Z
+                    </detectedAt>
+                </item>
+            </routeOverlapSet>
+            <sampleTime>
+                2000-01-01T04:59:59.999Z
+            </sampleTime>
+            <roaSampleTime>
+                2000-01-01T04:59:59.999Z
+            </roaSampleTime>
+        </item>
+    </routeProtectionFindingSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamRouteProtectionFindingsResult>
+
+
+--- [output object] ---
+{
+  IpamId: "__IpamId__",
+  RouteProtectionFindings: [
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      IpamPoolId: "__IpamPoolId__",
+      Cidr: "__Cidr__",
+      State: "__State__",
+      AdvertisementType: "__AdvertisementType__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      PoolId: "__PoolId__",
+      Asn: "__Asn__",
+      RpkiStatus: "__RpkiStatus__",
+      RpkiStrength: "__RpkiStrength__",
+      Roas: [
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      RouteOverlaps: [
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      RoaSampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      IpamPoolId: "__IpamPoolId__",
+      Cidr: "__Cidr__",
+      State: "__State__",
+      AdvertisementType: "__AdvertisementType__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      PoolId: "__PoolId__",
+      Asn: "__Asn__",
+      RpkiStatus: "__RpkiStatus__",
+      RpkiStrength: "__RpkiStrength__",
+      Roas: [
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      RouteOverlaps: [
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      RoaSampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    },
+    {
+      ResourceOwnerId: "__ResourceOwnerId__",
+      ResourceRegion: "__ResourceRegion__",
+      IpamPoolId: "__IpamPoolId__",
+      Cidr: "__Cidr__",
+      State: "__State__",
+      AdvertisementType: "__AdvertisementType__",
+      NetworkBorderGroup: "__NetworkBorderGroup__",
+      PoolId: "__PoolId__",
+      Asn: "__Asn__",
+      RpkiStatus: "__RpkiStatus__",
+      RpkiStrength: "__RpkiStrength__",
+      Roas: [
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Asn: "__Asn__",
+          Prefix: "__Prefix__",
+          MaxLength: (number) 0,
+          Match: (boolean) false,
+          Expiration: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      RouteOverlaps: [
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          Prefix: "__Prefix__",
+          Asn: "__Asn__",
+          DetectedAt: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      SampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      RoaSampleTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -92,6 +92,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <advertisementType>
                 __AdvertisementType__
             </advertisementType>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
         </item>
         <item>
             <cidr>
@@ -156,6 +162,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <advertisementType>
                 __AdvertisementType__
             </advertisementType>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
         </item>
         <item>
             <cidr>
@@ -220,6 +232,12 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             <advertisementType>
                 __AdvertisementType__
             </advertisementType>
+            <poolId>
+                __PoolId__
+            </poolId>
+            <ipamPoolId>
+                __IpamPoolId__
+            </ipamPoolId>
         </item>
     </byoipCidrSet>
     <nextToken>
@@ -257,7 +275,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       StatusMessage: "__StatusMessage__",
       State: "__State__",
       NetworkBorderGroup: "__NetworkBorderGroup__",
-      AdvertisementType: "__AdvertisementType__"
+      AdvertisementType: "__AdvertisementType__",
+      PoolId: "__PoolId__",
+      IpamPoolId: "__IpamPoolId__"
     },
     {
       Cidr: "__Cidr__",
@@ -285,7 +305,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       StatusMessage: "__StatusMessage__",
       State: "__State__",
       NetworkBorderGroup: "__NetworkBorderGroup__",
-      AdvertisementType: "__AdvertisementType__"
+      AdvertisementType: "__AdvertisementType__",
+      PoolId: "__PoolId__",
+      IpamPoolId: "__IpamPoolId__"
     },
     {
       Cidr: "__Cidr__",
@@ -313,7 +335,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       StatusMessage: "__StatusMessage__",
       State: "__State__",
       NetworkBorderGroup: "__NetworkBorderGroup__",
-      AdvertisementType: "__AdvertisementType__"
+      AdvertisementType: "__AdvertisementType__",
+      PoolId: "__PoolId__",
+      IpamPoolId: "__IpamPoolId__"
     }
   ],
   NextToken: "__NextToken__",

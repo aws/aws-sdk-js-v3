@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_7";
+import type { RestoreAddressToClassicRequest, RestoreAddressToClassicResult } from "../models/models_8";
 import { RestoreAddressToClassic$ } from "../schemas/schemas_0";
 
 /**

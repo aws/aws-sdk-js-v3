@@ -227,6 +227,10 @@ import type {
   AuthorizeSecurityGroupIngressCommandInput,
   AuthorizeSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeSecurityGroupIngressCommand";
+import type {
+  BatchModifyIpamRoutingPolicyRegistrationsCommandInput,
+  BatchModifyIpamRoutingPolicyRegistrationsCommandOutput,
+} from "./commands/BatchModifyIpamRoutingPolicyRegistrationsCommand";
 import type { BundleInstanceCommandInput, BundleInstanceCommandOutput } from "./commands/BundleInstanceCommand";
 import type { CancelBundleTaskCommandInput, CancelBundleTaskCommandOutput } from "./commands/CancelBundleTaskCommand";
 import type {
@@ -363,6 +367,10 @@ import type {
   CreateIpamExternalResourceVerificationTokenCommandInput,
   CreateIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
+import type {
+  CreateIpamInternetRegistryAssociationCommandInput,
+  CreateIpamInternetRegistryAssociationCommandOutput,
+} from "./commands/CreateIpamInternetRegistryAssociationCommand";
 import type { CreateIpamPolicyCommandInput, CreateIpamPolicyCommandOutput } from "./commands/CreateIpamPolicyCommand";
 import type { CreateIpamPoolCommandInput, CreateIpamPoolCommandOutput } from "./commands/CreateIpamPoolCommand";
 import type {
@@ -377,6 +385,10 @@ import type {
   CreateIpamResourceDiscoveryCommandInput,
   CreateIpamResourceDiscoveryCommandOutput,
 } from "./commands/CreateIpamResourceDiscoveryCommand";
+import type {
+  CreateIpamRoutingPolicyRegistrationCommandInput,
+  CreateIpamRoutingPolicyRegistrationCommandOutput,
+} from "./commands/CreateIpamRoutingPolicyRegistrationCommand";
 import type { CreateIpamScopeCommandInput, CreateIpamScopeCommandOutput } from "./commands/CreateIpamScopeCommand";
 import type { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "./commands/CreateKeyPairCommand";
 import type {
@@ -688,6 +700,10 @@ import type {
   DeleteIpamExternalResourceVerificationTokenCommandInput,
   DeleteIpamExternalResourceVerificationTokenCommandOutput,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
+import type {
+  DeleteIpamInternetRegistryAssociationCommandInput,
+  DeleteIpamInternetRegistryAssociationCommandOutput,
+} from "./commands/DeleteIpamInternetRegistryAssociationCommand";
 import type { DeleteIpamPolicyCommandInput, DeleteIpamPolicyCommandOutput } from "./commands/DeleteIpamPolicyCommand";
 import type { DeleteIpamPoolCommandInput, DeleteIpamPoolCommandOutput } from "./commands/DeleteIpamPoolCommand";
 import type {
@@ -702,6 +718,10 @@ import type {
   DeleteIpamResourceDiscoveryCommandInput,
   DeleteIpamResourceDiscoveryCommandOutput,
 } from "./commands/DeleteIpamResourceDiscoveryCommand";
+import type {
+  DeleteIpamRoutingPolicyRegistrationCommandInput,
+  DeleteIpamRoutingPolicyRegistrationCommandOutput,
+} from "./commands/DeleteIpamRoutingPolicyRegistrationCommand";
 import type { DeleteIpamScopeCommandInput, DeleteIpamScopeCommandOutput } from "./commands/DeleteIpamScopeCommand";
 import type { DeleteKeyPairCommandInput, DeleteKeyPairCommandOutput } from "./commands/DeleteKeyPairCommand";
 import type {
@@ -1272,6 +1292,10 @@ import type {
   DescribeIpamExternalResourceVerificationTokensCommandInput,
   DescribeIpamExternalResourceVerificationTokensCommandOutput,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
+import type {
+  DescribeIpamInternetRegistryAssociationsCommandInput,
+  DescribeIpamInternetRegistryAssociationsCommandOutput,
+} from "./commands/DescribeIpamInternetRegistryAssociationsCommand";
 import type {
   DescribeIpamPoliciesCommandInput,
   DescribeIpamPoliciesCommandOutput,
@@ -1934,6 +1958,10 @@ import type {
   EnableInstanceSqlHaStandbyDetectionsCommandOutput,
 } from "./commands/EnableInstanceSqlHaStandbyDetectionsCommand";
 import type {
+  EnableIpamInternetRegistryAssociationCommandInput,
+  EnableIpamInternetRegistryAssociationCommandOutput,
+} from "./commands/EnableIpamInternetRegistryAssociationCommand";
+import type {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
@@ -2104,6 +2132,18 @@ import type {
   GetIpamDiscoveredResourceCidrsCommandOutput,
 } from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import type {
+  GetIpamDiscoveredRoutesCommandInput,
+  GetIpamDiscoveredRoutesCommandOutput,
+} from "./commands/GetIpamDiscoveredRoutesCommand";
+import type {
+  GetIpamInternetRegistryAssociationAsnsCommandInput,
+  GetIpamInternetRegistryAssociationAsnsCommandOutput,
+} from "./commands/GetIpamInternetRegistryAssociationAsnsCommand";
+import type {
+  GetIpamInternetRegistryAssociationCidrsCommandInput,
+  GetIpamInternetRegistryAssociationCidrsCommandOutput,
+} from "./commands/GetIpamInternetRegistryAssociationCidrsCommand";
+import type {
   GetIpamPolicyAllocationRulesCommandInput,
   GetIpamPolicyAllocationRulesCommandOutput,
 } from "./commands/GetIpamPolicyAllocationRulesCommand";
@@ -2132,6 +2172,22 @@ import type {
   GetIpamResourceCidrsCommandInput,
   GetIpamResourceCidrsCommandOutput,
 } from "./commands/GetIpamResourceCidrsCommand";
+import type {
+  GetIpamRouteOriginAuthorizationsCommandInput,
+  GetIpamRouteOriginAuthorizationsCommandOutput,
+} from "./commands/GetIpamRouteOriginAuthorizationsCommand";
+import type {
+  GetIpamRouteProtectionFindingsCommandInput,
+  GetIpamRouteProtectionFindingsCommandOutput,
+} from "./commands/GetIpamRouteProtectionFindingsCommand";
+import type {
+  GetIpamRoutingPolicyRegistrationDeltasCommandInput,
+  GetIpamRoutingPolicyRegistrationDeltasCommandOutput,
+} from "./commands/GetIpamRoutingPolicyRegistrationDeltasCommand";
+import type {
+  GetIpamRoutingPolicyRegistrationsCommandInput,
+  GetIpamRoutingPolicyRegistrationsCommandOutput,
+} from "./commands/GetIpamRoutingPolicyRegistrationsCommand";
 import type {
   GetLaunchTemplateDataCommandInput,
   GetLaunchTemplateDataCommandOutput,
@@ -2400,6 +2456,10 @@ import type {
   ModifyIpamResourceDiscoveryCommandInput,
   ModifyIpamResourceDiscoveryCommandOutput,
 } from "./commands/ModifyIpamResourceDiscoveryCommand";
+import type {
+  ModifyIpamRoutingPolicyRegistrationCommandInput,
+  ModifyIpamRoutingPolicyRegistrationCommandOutput,
+} from "./commands/ModifyIpamRoutingPolicyRegistrationCommand";
 import type { ModifyIpamScopeCommandInput, ModifyIpamScopeCommandOutput } from "./commands/ModifyIpamScopeCommand";
 import type {
   ModifyLaunchTemplateCommandInput,
@@ -2926,6 +2986,7 @@ export type ServiceInputTypes =
   | AuthorizeClientVpnIngressCommandInput
   | AuthorizeSecurityGroupEgressCommandInput
   | AuthorizeSecurityGroupIngressCommandInput
+  | BatchModifyIpamRoutingPolicyRegistrationsCommandInput
   | BundleInstanceCommandInput
   | CancelBundleTaskCommandInput
   | CancelCapacityReservationCommandInput
@@ -2972,11 +3033,13 @@ export type ServiceInputTypes =
   | CreateInterruptibleCapacityReservationAllocationCommandInput
   | CreateIpamCommandInput
   | CreateIpamExternalResourceVerificationTokenCommandInput
+  | CreateIpamInternetRegistryAssociationCommandInput
   | CreateIpamPolicyCommandInput
   | CreateIpamPoolCommandInput
   | CreateIpamPrefixListResolverCommandInput
   | CreateIpamPrefixListResolverTargetCommandInput
   | CreateIpamResourceDiscoveryCommandInput
+  | CreateIpamRoutingPolicyRegistrationCommandInput
   | CreateIpamScopeCommandInput
   | CreateKeyPairCommandInput
   | CreateLaunchTemplateCommandInput
@@ -3069,11 +3132,13 @@ export type ServiceInputTypes =
   | DeleteInternetGatewayCommandInput
   | DeleteIpamCommandInput
   | DeleteIpamExternalResourceVerificationTokenCommandInput
+  | DeleteIpamInternetRegistryAssociationCommandInput
   | DeleteIpamPolicyCommandInput
   | DeleteIpamPoolCommandInput
   | DeleteIpamPrefixListResolverCommandInput
   | DeleteIpamPrefixListResolverTargetCommandInput
   | DeleteIpamResourceDiscoveryCommandInput
+  | DeleteIpamRoutingPolicyRegistrationCommandInput
   | DeleteIpamScopeCommandInput
   | DeleteKeyPairCommandInput
   | DeleteLaunchTemplateCommandInput
@@ -3230,6 +3295,7 @@ export type ServiceInputTypes =
   | DescribeInternetGatewaysCommandInput
   | DescribeIpamByoasnCommandInput
   | DescribeIpamExternalResourceVerificationTokensCommandInput
+  | DescribeIpamInternetRegistryAssociationsCommandInput
   | DescribeIpamPoliciesCommandInput
   | DescribeIpamPoolAllocationsCommandInput
   | DescribeIpamPoolsCommandInput
@@ -3405,6 +3471,7 @@ export type ServiceInputTypes =
   | EnableImageDeprecationCommandInput
   | EnableImageDeregistrationProtectionCommandInput
   | EnableInstanceSqlHaStandbyDetectionsCommandInput
+  | EnableIpamInternetRegistryAssociationCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
   | EnableIpamPolicyCommandInput
   | EnableReachabilityAnalyzerOrganizationSharingCommandInput
@@ -3452,6 +3519,9 @@ export type ServiceInputTypes =
   | GetIpamDiscoveredAccountsCommandInput
   | GetIpamDiscoveredPublicAddressesCommandInput
   | GetIpamDiscoveredResourceCidrsCommandInput
+  | GetIpamDiscoveredRoutesCommandInput
+  | GetIpamInternetRegistryAssociationAsnsCommandInput
+  | GetIpamInternetRegistryAssociationCidrsCommandInput
   | GetIpamPolicyAllocationRulesCommandInput
   | GetIpamPolicyOrganizationTargetsCommandInput
   | GetIpamPoolAllocationsCommandInput
@@ -3460,6 +3530,10 @@ export type ServiceInputTypes =
   | GetIpamPrefixListResolverVersionEntriesCommandInput
   | GetIpamPrefixListResolverVersionsCommandInput
   | GetIpamResourceCidrsCommandInput
+  | GetIpamRouteOriginAuthorizationsCommandInput
+  | GetIpamRouteProtectionFindingsCommandInput
+  | GetIpamRoutingPolicyRegistrationDeltasCommandInput
+  | GetIpamRoutingPolicyRegistrationsCommandInput
   | GetLaunchTemplateDataCommandInput
   | GetManagedPrefixListAssociationsCommandInput
   | GetManagedPrefixListEntriesCommandInput
@@ -3536,6 +3610,7 @@ export type ServiceInputTypes =
   | ModifyIpamPrefixListResolverTargetCommandInput
   | ModifyIpamResourceCidrCommandInput
   | ModifyIpamResourceDiscoveryCommandInput
+  | ModifyIpamRoutingPolicyRegistrationCommandInput
   | ModifyIpamScopeCommandInput
   | ModifyLaunchTemplateCommandInput
   | ModifyLocalGatewayRouteCommandInput
@@ -3716,6 +3791,7 @@ export type ServiceOutputTypes =
   | AuthorizeClientVpnIngressCommandOutput
   | AuthorizeSecurityGroupEgressCommandOutput
   | AuthorizeSecurityGroupIngressCommandOutput
+  | BatchModifyIpamRoutingPolicyRegistrationsCommandOutput
   | BundleInstanceCommandOutput
   | CancelBundleTaskCommandOutput
   | CancelCapacityReservationCommandOutput
@@ -3762,11 +3838,13 @@ export type ServiceOutputTypes =
   | CreateInterruptibleCapacityReservationAllocationCommandOutput
   | CreateIpamCommandOutput
   | CreateIpamExternalResourceVerificationTokenCommandOutput
+  | CreateIpamInternetRegistryAssociationCommandOutput
   | CreateIpamPolicyCommandOutput
   | CreateIpamPoolCommandOutput
   | CreateIpamPrefixListResolverCommandOutput
   | CreateIpamPrefixListResolverTargetCommandOutput
   | CreateIpamResourceDiscoveryCommandOutput
+  | CreateIpamRoutingPolicyRegistrationCommandOutput
   | CreateIpamScopeCommandOutput
   | CreateKeyPairCommandOutput
   | CreateLaunchTemplateCommandOutput
@@ -3859,11 +3937,13 @@ export type ServiceOutputTypes =
   | DeleteInternetGatewayCommandOutput
   | DeleteIpamCommandOutput
   | DeleteIpamExternalResourceVerificationTokenCommandOutput
+  | DeleteIpamInternetRegistryAssociationCommandOutput
   | DeleteIpamPolicyCommandOutput
   | DeleteIpamPoolCommandOutput
   | DeleteIpamPrefixListResolverCommandOutput
   | DeleteIpamPrefixListResolverTargetCommandOutput
   | DeleteIpamResourceDiscoveryCommandOutput
+  | DeleteIpamRoutingPolicyRegistrationCommandOutput
   | DeleteIpamScopeCommandOutput
   | DeleteKeyPairCommandOutput
   | DeleteLaunchTemplateCommandOutput
@@ -4020,6 +4100,7 @@ export type ServiceOutputTypes =
   | DescribeInternetGatewaysCommandOutput
   | DescribeIpamByoasnCommandOutput
   | DescribeIpamExternalResourceVerificationTokensCommandOutput
+  | DescribeIpamInternetRegistryAssociationsCommandOutput
   | DescribeIpamPoliciesCommandOutput
   | DescribeIpamPoolAllocationsCommandOutput
   | DescribeIpamPoolsCommandOutput
@@ -4195,6 +4276,7 @@ export type ServiceOutputTypes =
   | EnableImageDeprecationCommandOutput
   | EnableImageDeregistrationProtectionCommandOutput
   | EnableInstanceSqlHaStandbyDetectionsCommandOutput
+  | EnableIpamInternetRegistryAssociationCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
   | EnableIpamPolicyCommandOutput
   | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
@@ -4242,6 +4324,9 @@ export type ServiceOutputTypes =
   | GetIpamDiscoveredAccountsCommandOutput
   | GetIpamDiscoveredPublicAddressesCommandOutput
   | GetIpamDiscoveredResourceCidrsCommandOutput
+  | GetIpamDiscoveredRoutesCommandOutput
+  | GetIpamInternetRegistryAssociationAsnsCommandOutput
+  | GetIpamInternetRegistryAssociationCidrsCommandOutput
   | GetIpamPolicyAllocationRulesCommandOutput
   | GetIpamPolicyOrganizationTargetsCommandOutput
   | GetIpamPoolAllocationsCommandOutput
@@ -4250,6 +4335,10 @@ export type ServiceOutputTypes =
   | GetIpamPrefixListResolverVersionEntriesCommandOutput
   | GetIpamPrefixListResolverVersionsCommandOutput
   | GetIpamResourceCidrsCommandOutput
+  | GetIpamRouteOriginAuthorizationsCommandOutput
+  | GetIpamRouteProtectionFindingsCommandOutput
+  | GetIpamRoutingPolicyRegistrationDeltasCommandOutput
+  | GetIpamRoutingPolicyRegistrationsCommandOutput
   | GetLaunchTemplateDataCommandOutput
   | GetManagedPrefixListAssociationsCommandOutput
   | GetManagedPrefixListEntriesCommandOutput
@@ -4326,6 +4415,7 @@ export type ServiceOutputTypes =
   | ModifyIpamPrefixListResolverTargetCommandOutput
   | ModifyIpamResourceCidrCommandOutput
   | ModifyIpamResourceDiscoveryCommandOutput
+  | ModifyIpamRoutingPolicyRegistrationCommandOutput
   | ModifyIpamScopeCommandOutput
   | ModifyLaunchTemplateCommandOutput
   | ModifyLocalGatewayRouteCommandOutput

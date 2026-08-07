@@ -44,28 +44,21 @@ import type {
   FleetReservationType,
   FleetStateCode,
   FleetType,
-  FpgaImageAttributeName,
-  FpgaImageStateCode,
   InstanceLifecycle,
   IpamPoolCidrFailureCode,
   IpamPoolCidrState,
-  LogDestinationType,
   MetricType,
   OutputFormat,
   PeriodType,
-  PermissionGroup,
   PlatformValues,
-  ProductCodeValues,
   ReportState,
   Schedule,
   SnapshotReturnCodes,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   StatisticType,
-  TaggableResourceType,
   TargetCapacityUnitType,
   TrafficIpAddressType,
-  TrafficType,
   TransportProtocol,
   VpnProtocol,
 } from "./enums";
@@ -105,6 +98,9 @@ import type {
   FleetLaunchTemplateSpecification,
   GroupIdentifier,
   LaunchTemplateAndOverridesResponse,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
+  ManagedPrefixList,
   VpcEncryptionControl,
 } from "./models_1";
 import type {
@@ -130,6 +126,206 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceRequest {
+  /**
+   * <p>The ID of the local virtual interface to delete.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceResult {
+  /**
+   * <p>Information about the deleted local gateway virtual interface.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterface?: LocalGatewayVirtualInterface | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceGroupRequest {
+  /**
+   * <p>The ID of the local gateway virtual interface group to delete.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroupId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayVirtualInterfaceGroupResult {
+  /**
+   * <p>Information about the deleted local gateway virtual interface group.</p>
+   * @public
+   */
+  LocalGatewayVirtualInterfaceGroup?: LocalGatewayVirtualInterfaceGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteManagedPrefixListRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the prefix list.</p>
+   * @public
+   */
+  PrefixListId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteManagedPrefixListResult {
+  /**
+   * <p>Information about the prefix list.</p>
+   * @public
+   */
+  PrefixList?: ManagedPrefixList | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNatGatewayRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNatGatewayResult {
+  /**
+   * <p>The ID of the NAT gateway.</p>
+   * @public
+   */
+  NatGatewayId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkAclRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkAclEntryRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the network ACL.</p>
+   * @public
+   */
+  NetworkAclId: string | undefined;
+
+  /**
+   * <p>The rule number of the entry to delete.</p>
+   * @public
+   */
+  RuleNumber: number | undefined;
+
+  /**
+   * <p>Indicates whether the rule is an egress rule.</p>
+   * @public
+   */
+  Egress: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteNetworkInsightsAccessScopeResult {
+  /**
+   * <p>The ID of the Network Access Scope.</p>
+   * @public
+   */
+  NetworkInsightsAccessScopeId?: string | undefined;
+}
 
 /**
  * @public
@@ -9152,525 +9348,4 @@ export interface DestinationOptionsResponse {
    * @public
    */
   PerHourPartition?: boolean | undefined;
-}
-
-/**
- * <p>A single resource's tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
- * @public
- */
-export interface TagFieldSpecificationResponse {
-  /**
-   * <p>The resource type for the tag keys associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
-   * @public
-   */
-  ResourceType?: TaggableResourceType | undefined;
-
-  /**
-   * <p>The tag keys on your tagged resources to be displayed by the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
-   * @public
-   */
-  TagKeys?: string[] | undefined;
-}
-
-/**
- * <p>Describes a flow log.</p>
- * @public
- */
-export interface FlowLog {
-  /**
-   * <p>The date and time the flow log was created.</p>
-   * @public
-   */
-  CreationTime?: Date | undefined;
-
-  /**
-   * <p>Information about the error that occurred. <code>Rate limited</code> indicates that
-   *             CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've
-   *             reached the limit on the number of log groups that you can create. <code>Access
-   *                 error</code> indicates that the IAM role associated with the flow log does not have
-   *             sufficient permissions to publish to CloudWatch Logs. <code>Unknown error</code> indicates an
-   *             internal error.</p>
-   * @public
-   */
-  DeliverLogsErrorMessage?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role allows the service to publish logs to CloudWatch Logs.</p>
-   * @public
-   */
-  DeliverLogsPermissionArn?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role that allows the service to publish flow logs across accounts.</p>
-   * @public
-   */
-  DeliverCrossAccountRole?: string | undefined;
-
-  /**
-   * <p>The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p>
-   * @public
-   */
-  DeliverLogsStatus?: string | undefined;
-
-  /**
-   * <p>The ID of the flow log.</p>
-   * @public
-   */
-  FlowLogId?: string | undefined;
-
-  /**
-   * <p>The status of the flow log (<code>ACTIVE</code>).</p>
-   * @public
-   */
-  FlowLogStatus?: string | undefined;
-
-  /**
-   * <p>The name of the flow log group.</p>
-   * @public
-   */
-  LogGroupName?: string | undefined;
-
-  /**
-   * <p>The ID of the resource being monitored.</p>
-   * @public
-   */
-  ResourceId?: string | undefined;
-
-  /**
-   * <p>The type of traffic captured for the flow log.</p>
-   * @public
-   */
-  TrafficType?: TrafficType | undefined;
-
-  /**
-   * <p>The type of destination for the flow log data.</p>
-   * @public
-   */
-  LogDestinationType?: LogDestinationType | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the destination for the flow log data.</p>
-   * @public
-   */
-  LogDestination?: string | undefined;
-
-  /**
-   * <p>The format of the flow log record.</p>
-   * @public
-   */
-  LogFormat?: string | undefined;
-
-  /**
-   * <p>The tags for the flow log.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The maximum interval of time, in seconds, during which a flow of packets is captured and aggregated into a flow log record.</p>
-   *          <p>When a network interface is attached to a <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-nitro-instances.html">Nitro-based
-   *                 instance</a>, the aggregation interval is always 60 seconds (1 minute) or less,
-   *             regardless of the specified value.</p>
-   *          <p>Valid Values: <code>60</code> | <code>600</code>
-   *          </p>
-   * @public
-   */
-  MaxAggregationInterval?: number | undefined;
-
-  /**
-   * <p>The destination options.</p>
-   * @public
-   */
-  DestinationOptions?: DestinationOptionsResponse | undefined;
-
-  /**
-   * <p>The tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
-   * @public
-   */
-  TagFieldSpecifications?: TagFieldSpecificationResponse[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowLogsResult {
-  /**
-   * <p>Information about the flow logs.</p>
-   * @public
-   */
-  FlowLogs?: FlowLog[] | undefined;
-
-  /**
-   * <p>The token to request the next page of items. This value is <code>null</code> when there are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The AFI attribute.</p>
-   * @public
-   */
-  Attribute: FpgaImageAttributeName | undefined;
-}
-
-/**
- * <p>Describes a load permission.</p>
- * @public
- */
-export interface LoadPermission {
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p>The name of the group.</p>
-   * @public
-   */
-  Group?: PermissionGroup | undefined;
-}
-
-/**
- * <p>Describes a product code.</p>
- * @public
- */
-export interface ProductCode {
-  /**
-   * <p>The product code.</p>
-   * @public
-   */
-  ProductCodeId?: string | undefined;
-
-  /**
-   * <p>The type of product code.</p>
-   * @public
-   */
-  ProductCodeType?: ProductCodeValues | undefined;
-}
-
-/**
- * <p>Describes an Amazon FPGA image (AFI) attribute.</p>
- * @public
- */
-export interface FpgaImageAttribute {
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId?: string | undefined;
-
-  /**
-   * <p>The name of the AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The load permissions.</p>
-   * @public
-   */
-  LoadPermissions?: LoadPermission[] | undefined;
-
-  /**
-   * <p>The product codes.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImageAttributeResult {
-  /**
-   * <p>Information about the attribute.</p>
-   * @public
-   */
-  FpgaImageAttribute?: FpgaImageAttribute | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFpgaImagesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The AFI IDs.</p>
-   * @public
-   */
-  FpgaImageIds?: string[] | undefined;
-
-  /**
-   * <p>Filters the AFI by owner. Specify an Amazon Web Services account ID, <code>self</code>
-   * 			(owner is the sender of the request), or an Amazon Web Services owner alias (valid values are
-   * 			<code>amazon</code> | <code>aws-marketplace</code>).</p>
-   * @public
-   */
-  Owners?: string[] | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>create-time</code> - The creation time of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-id</code> - The FPGA image identifier (AFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>fpga-image-global-id</code> - The global FPGA image identifier (AGFI ID).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>name</code> - The name of the AFI.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the AFI owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>product-code</code> - The product code.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>shell-version</code> - The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the AFI (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>unavailable</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>update-time</code> - The time of the most recent update.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Describes the data that identifies an Amazon FPGA image (AFI) on the PCI bus.</p>
- * @public
- */
-export interface PciId {
-  /**
-   * <p>The ID of the device.</p>
-   * @public
-   */
-  DeviceId?: string | undefined;
-
-  /**
-   * <p>The ID of the vendor.</p>
-   * @public
-   */
-  VendorId?: string | undefined;
-
-  /**
-   * <p>The ID of the subsystem.</p>
-   * @public
-   */
-  SubsystemId?: string | undefined;
-
-  /**
-   * <p>The ID of the vendor for the subsystem.</p>
-   * @public
-   */
-  SubsystemVendorId?: string | undefined;
-}
-
-/**
- * <p>Describes the state of the bitstream generation process for an Amazon FPGA image (AFI).</p>
- * @public
- */
-export interface FpgaImageState {
-  /**
-   * <p>The state. The following are the possible values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>pending</code> - AFI bitstream generation is in progress.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available</code> - The AFI is available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>failed</code> - AFI bitstream generation failed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>unavailable</code> - The AFI is no longer available for use.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Code?: FpgaImageStateCode | undefined;
-
-  /**
-   * <p>If the state is <code>failed</code>, this is the error message.</p>
-   * @public
-   */
-  Message?: string | undefined;
-}
-
-/**
- * <p>Describes an Amazon FPGA image (AFI).</p>
- * @public
- */
-export interface FpgaImage {
-  /**
-   * <p>The FPGA image identifier (AFI ID).</p>
-   * @public
-   */
-  FpgaImageId?: string | undefined;
-
-  /**
-   * <p>The global FPGA image identifier (AGFI ID).</p>
-   * @public
-   */
-  FpgaImageGlobalId?: string | undefined;
-
-  /**
-   * <p>The name of the AFI.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the AFI.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The version of the Amazon Web Services Shell that was used to create the bitstream.</p>
-   * @public
-   */
-  ShellVersion?: string | undefined;
-
-  /**
-   * <p>Information about the PCI bus.</p>
-   * @public
-   */
-  PciId?: PciId | undefined;
-
-  /**
-   * <p>Information about the state of the AFI.</p>
-   * @public
-   */
-  State?: FpgaImageState | undefined;
-
-  /**
-   * <p>The date and time the AFI was created.</p>
-   * @public
-   */
-  CreateTime?: Date | undefined;
-
-  /**
-   * <p>The time of the most recent update to the AFI.</p>
-   * @public
-   */
-  UpdateTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the AFI.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The alias of the AFI owner. Possible values include <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.</p>
-   * @public
-   */
-  OwnerAlias?: string | undefined;
-
-  /**
-   * <p>The product codes for the AFI.</p>
-   * @public
-   */
-  ProductCodes?: ProductCode[] | undefined;
-
-  /**
-   * <p>Any tags assigned to the AFI.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Indicates whether the AFI is public.</p>
-   * @public
-   */
-  Public?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether data retention support is enabled for the AFI.</p>
-   * @public
-   */
-  DataRetentionSupport?: boolean | undefined;
-
-  /**
-   * <p>The instance types supported by the AFI.</p>
-   * @public
-   */
-  InstanceTypes?: string[] | undefined;
 }

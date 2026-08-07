@@ -1,0 +1,129 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamInternetRegistryAssociationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<DeleteIpamInternetRegistryAssociationResult xmlns="https://placeholder.amazonaws.com">
+    <ipamInternetRegistryAssociation>
+        <ownerId>
+            __OwnerId__
+        </ownerId>
+        <ipamInternetRegistryAssociationId>
+            __IpamInternetRegistryAssociationId__
+        </ipamInternetRegistryAssociationId>
+        <ipamInternetRegistryAssociationArn>
+            __IpamInternetRegistryAssociationArn__
+        </ipamInternetRegistryAssociationArn>
+        <ipamId>
+            __IpamId__
+        </ipamId>
+        <ipamRegion>
+            __IpamRegion__
+        </ipamRegion>
+        <rir>
+            __Rir__
+        </rir>
+        <organizationHandle>
+            __OrganizationHandle__
+        </organizationHandle>
+        <description>
+            __Description__
+        </description>
+        <state>
+            __State__
+        </state>
+        <childRequestXml>
+            __ChildRequestXml__
+        </childRequestXml>
+        <tagSet>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+            <item>
+                <key>
+                    __Key__
+                </key>
+                <value>
+                    __Value__
+                </value>
+            </item>
+        </tagSet>
+    </ipamInternetRegistryAssociation>
+</DeleteIpamInternetRegistryAssociationResult>
+
+
+--- [output object] ---
+{
+  IpamInternetRegistryAssociation: {
+    OwnerId: "__OwnerId__",
+    IpamInternetRegistryAssociationId: "__IpamInternetRegistryAssociationId__",
+    IpamInternetRegistryAssociationArn: "__IpamInternetRegistryAssociationArn__",
+    IpamId: "__IpamId__",
+    IpamRegion: "__IpamRegion__",
+    Rir: "__Rir__",
+    OrganizationHandle: "__OrganizationHandle__",
+    Description: "__Description__",
+    State: "__State__",
+    ChildRequestXml: "__ChildRequestXml__",
+    Tags: [
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      },
+      {
+        Key: "__Key__",
+        Value: "__Value__"
+      }
+    ]
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -1,0 +1,65 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyIpamRoutingPolicyRegistrationResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<ModifyIpamRoutingPolicyRegistrationResult xmlns="https://placeholder.amazonaws.com">
+    <ipamRoutingPolicyRegistrationDelta>
+        <deltaId>
+            __DeltaId__
+        </deltaId>
+        <deltaJson>
+            __DeltaJson__
+        </deltaJson>
+        <state>
+            __State__
+        </state>
+        <stateMessage>
+            __StateMessage__
+        </stateMessage>
+    </ipamRoutingPolicyRegistrationDelta>
+</ModifyIpamRoutingPolicyRegistrationResult>
+
+
+--- [output object] ---
+{
+  IpamRoutingPolicyRegistrationDelta: {
+    DeltaId: "__DeltaId__",
+    DeltaJson: "__DeltaJson__",
+    State: "__State__",
+    StateMessage: "__StateMessage__"
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

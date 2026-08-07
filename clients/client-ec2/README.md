@@ -562,6 +562,13 @@ AuthorizeSecurityGroupIngress
 </details>
 <details>
 <summary>
+BatchModifyIpamRoutingPolicyRegistrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/BatchModifyIpamRoutingPolicyRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/BatchModifyIpamRoutingPolicyRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/BatchModifyIpamRoutingPolicyRegistrationsCommandOutput/)
+</details>
+<details>
+<summary>
 BundleInstance
 </summary>
 
@@ -884,6 +891,13 @@ CreateIpamExternalResourceVerificationToken
 </details>
 <details>
 <summary>
+CreateIpamInternetRegistryAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateIpamInternetRegistryAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamInternetRegistryAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamInternetRegistryAssociationCommandOutput/)
+</details>
+<details>
+<summary>
 CreateIpamPolicy
 </summary>
 
@@ -916,6 +930,13 @@ CreateIpamResourceDiscovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateIpamResourceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamResourceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamResourceDiscoveryCommandOutput/)
+</details>
+<details>
+<summary>
+CreateIpamRoutingPolicyRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateIpamRoutingPolicyRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamRoutingPolicyRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamRoutingPolicyRegistrationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1563,6 +1584,13 @@ DeleteIpamExternalResourceVerificationToken
 </details>
 <details>
 <summary>
+DeleteIpamInternetRegistryAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamInternetRegistryAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamInternetRegistryAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamInternetRegistryAssociationCommandOutput/)
+</details>
+<details>
+<summary>
 DeleteIpamPolicy
 </summary>
 
@@ -1595,6 +1623,13 @@ DeleteIpamResourceDiscovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamResourceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamResourceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamResourceDiscoveryCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteIpamRoutingPolicyRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamRoutingPolicyRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamRoutingPolicyRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamRoutingPolicyRegistrationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -2687,6 +2722,13 @@ DescribeIpamExternalResourceVerificationTokens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIpamExternalResourceVerificationTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamExternalResourceVerificationTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamExternalResourceVerificationTokensCommandOutput/)
+</details>
+<details>
+<summary>
+DescribeIpamInternetRegistryAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIpamInternetRegistryAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamInternetRegistryAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamInternetRegistryAssociationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -3915,6 +3957,13 @@ EnableInstanceSqlHaStandbyDetections
 </details>
 <details>
 <summary>
+EnableIpamInternetRegistryAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableIpamInternetRegistryAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableIpamInternetRegistryAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableIpamInternetRegistryAssociationCommandOutput/)
+</details>
+<details>
+<summary>
 EnableIpamOrganizationAdminAccount
 </summary>
 
@@ -4244,6 +4293,27 @@ GetIpamDiscoveredResourceCidrs
 </details>
 <details>
 <summary>
+GetIpamDiscoveredRoutes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamDiscoveredRoutesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamDiscoveredRoutesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamDiscoveredRoutesCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamInternetRegistryAssociationAsns
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamInternetRegistryAssociationAsnsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamInternetRegistryAssociationAsnsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamInternetRegistryAssociationAsnsCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamInternetRegistryAssociationCidrs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamInternetRegistryAssociationCidrsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamInternetRegistryAssociationCidrsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamInternetRegistryAssociationCidrsCommandOutput/)
+</details>
+<details>
+<summary>
 GetIpamPolicyAllocationRules
 </summary>
 
@@ -4297,6 +4367,34 @@ GetIpamResourceCidrs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamResourceCidrsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamResourceCidrsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamResourceCidrsCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamRouteOriginAuthorizations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamRouteOriginAuthorizationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRouteOriginAuthorizationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRouteOriginAuthorizationsCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamRouteProtectionFindings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamRouteProtectionFindingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRouteProtectionFindingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRouteProtectionFindingsCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamRoutingPolicyRegistrationDeltas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamRoutingPolicyRegistrationDeltasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRoutingPolicyRegistrationDeltasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRoutingPolicyRegistrationDeltasCommandOutput/)
+</details>
+<details>
+<summary>
+GetIpamRoutingPolicyRegistrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetIpamRoutingPolicyRegistrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRoutingPolicyRegistrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetIpamRoutingPolicyRegistrationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -4829,6 +4927,13 @@ ModifyIpamResourceDiscovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyIpamResourceDiscoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamResourceDiscoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamResourceDiscoveryCommandOutput/)
+</details>
+<details>
+<summary>
+ModifyIpamRoutingPolicyRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyIpamRoutingPolicyRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamRoutingPolicyRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyIpamRoutingPolicyRegistrationCommandOutput/)
 </details>
 <details>
 <summary>

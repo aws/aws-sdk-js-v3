@@ -172,6 +172,7 @@ const _ALT = "AttachmentLimitType";
 const _ALc = "AccessLogs";
 const _ALd = "AddressList";
 const _ALr = "ArnList";
+const _ALs = "AsnList";
 const _AM = "AllocationMetadata";
 const _AMAI = "AddMiddleboxAttachmentIds";
 const _AMAId = "AddMiddleboxAttachmentId";
@@ -451,6 +452,7 @@ const _Ar = "Arn";
 const _Arc = "Architecture";
 const _As = "Associations";
 const _Asn = "Asn";
+const _Asns = "Asns";
 const _Ass = "Association";
 const _At = "Attribute";
 const _Att = "Attachment";
@@ -489,6 +491,9 @@ const _BLE = "BgpLogEnabled";
 const _BLGA = "BgpLogGroupArn";
 const _BLOF = "BgpLogOutputFormat";
 const _BM = "BootMode";
+const _BMIRPR = "BatchModifyIpamRoutingPolicyRegistrations";
+const _BMIRPRR = "BatchModifyIpamRoutingPolicyRegistrationsRequest";
+const _BMIRPRRa = "BatchModifyIpamRoutingPolicyRegistrationsResult";
 const _BMTL = "BootModeTypeList";
 const _BMa = "BareMetal";
 const _BN = "BucketName";
@@ -696,6 +701,7 @@ const _CGa = "CarrierGateways";
 const _CGu = "CustomerGateway";
 const _CGur = "CurrentGeneration";
 const _CGus = "CustomerGateways";
+const _CH = "ChildHandle";
 const _CI = "CarrierIp";
 const _CIA = "ClientIpv6Address";
 const _CIBM = "CurrentInstanceBootMode";
@@ -718,6 +724,9 @@ const _CIEWRr = "CreateInstanceEventWindowResult";
 const _CIG = "CreateInternetGateway";
 const _CIGR = "CreateInternetGatewayRequest";
 const _CIGRr = "CreateInternetGatewayResult";
+const _CIIRA = "CreateIpamInternetRegistryAssociation";
+const _CIIRAR = "CreateIpamInternetRegistryAssociationRequest";
+const _CIIRARr = "CreateIpamInternetRegistryAssociationResult";
 const _CILP = "CancelImageLaunchPermission";
 const _CILPR = "CancelImageLaunchPermissionRequest";
 const _CILPRa = "CancelImageLaunchPermissionResult";
@@ -737,6 +746,9 @@ const _CIR = "CopyImageRequest";
 const _CIRD = "CreateIpamResourceDiscovery";
 const _CIRDR = "CreateIpamResourceDiscoveryRequest";
 const _CIRDRr = "CreateIpamResourceDiscoveryResult";
+const _CIRPR = "CreateIpamRoutingPolicyRegistration";
+const _CIRPRR = "CreateIpamRoutingPolicyRegistrationRequest";
+const _CIRPRRr = "CreateIpamRoutingPolicyRegistrationResult";
 const _CIRo = "CopyImageResult";
 const _CIRr = "CreateImageRequest";
 const _CIRre = "CreateImageResult";
@@ -875,6 +887,7 @@ const _COIP = "CustomerOwnedIpv4Pool";
 const _COP = "CoolOffPeriod";
 const _COPEO = "CoolOffPeriodExpiresOn";
 const _COR = "CpuOptionsRequest";
+const _COh = "ChronologicalOrder";
 const _COi = "CidrOptions";
 const _CP = "CoipPool";
 const _CPC = "ConnectPeerConfiguration";
@@ -967,6 +980,7 @@ const _CRTRre = "CreateRouteTableResult";
 const _CRTS = "CapacityReservationTopologySet";
 const _CRTa = "CapacityReservationTopology";
 const _CRTr = "CreateRouteTable";
+const _CRX = "ChildRequestXml";
 const _CRa = "CapacityReservation";
 const _CRap = "CapacityReservations";
 const _CRapa = "CapacityRebalance";
@@ -1285,6 +1299,7 @@ const _DAep = "DeprecateAt";
 const _DAes = "DestinationArn";
 const _DAesc = "DescribeAddresses";
 const _DAest = "DestinationAddress";
+const _DAet = "DetectedAt";
 const _DAi = "DisassociateAddress";
 const _DBC = "DeprovisionByoipCidr";
 const _DBCR = "DeprovisionByoipCidrRequest";
@@ -1597,6 +1612,12 @@ const _DIIPAR = "DescribeIamInstanceProfileAssociationsRequest";
 const _DIIPARe = "DescribeIamInstanceProfileAssociationsResult";
 const _DIIPR = "DisassociateIamInstanceProfileRequest";
 const _DIIPRi = "DisassociateIamInstanceProfileResult";
+const _DIIRA = "DeleteIpamInternetRegistryAssociation";
+const _DIIRAR = "DeleteIpamInternetRegistryAssociationRequest";
+const _DIIRARe = "DeleteIpamInternetRegistryAssociationResult";
+const _DIIRARes = "DescribeIpamInternetRegistryAssociationsRequest";
+const _DIIRAResc = "DescribeIpamInternetRegistryAssociationsResult";
+const _DIIRAe = "DescribeIpamInternetRegistryAssociations";
 const _DIIT = "DescribeImportImageTasks";
 const _DIITR = "DescribeImportImageTasksRequest";
 const _DIITRe = "DescribeImportImageTasksResult";
@@ -1654,6 +1675,9 @@ const _DIRDRi = "DisassociateIpamResourceDiscoveryRequest";
 const _DIRDRis = "DisassociateIpamResourceDiscoveryResult";
 const _DIRDe = "DescribeIpamResourceDiscoveries";
 const _DIRDi = "DisassociateIpamResourceDiscovery";
+const _DIRPR = "DeleteIpamRoutingPolicyRegistration";
+const _DIRPRR = "DeleteIpamRoutingPolicyRegistrationRequest";
+const _DIRPRRe = "DeleteIpamRoutingPolicyRegistrationResult";
 const _DIRR = "DescribeImageReferencesRequest";
 const _DIRRe = "DescribeImageReferencesResult";
 const _DIRe = "DeleteIpamResult";
@@ -1715,7 +1739,8 @@ const _DIW = "DetachImageWatermark";
 const _DIWR = "DetachImageWatermarkRequest";
 const _DIWRe = "DetachImageWatermarkResult";
 const _DIe = "DestinationIp";
-const _DIel = "DeleteIpam";
+const _DIel = "DeltaId";
+const _DIele = "DeleteIpam";
 const _DIer = "DeregisterImage";
 const _DIes = "DescribeImages";
 const _DIesc = "DescribeInstances";
@@ -1726,6 +1751,7 @@ const _DIis = "DiskImage";
 const _DIisa = "DisableImage";
 const _DIisk = "DiskInfo";
 const _DIiskm = "DiskImages";
+const _DJ = "DeltaJson";
 const _DKP = "DeleteKeyPair";
 const _DKPR = "DeleteKeyPairRequest";
 const _DKPRe = "DeleteKeyPairResult";
@@ -2535,6 +2561,9 @@ const _EIDPR = "EnableImageDeregistrationProtectionRequest";
 const _EIDPRn = "EnableImageDeregistrationProtectionResult";
 const _EIDR = "EnableImageDeprecationRequest";
 const _EIDRn = "EnableImageDeprecationResult";
+const _EIIRA = "EnableIpamInternetRegistryAssociation";
+const _EIIRAR = "EnableIpamInternetRegistryAssociationRequest";
+const _EIIRARn = "EnableIpamInternetRegistryAssociationResult";
 const _EIOAA = "EnableIpamOrganizationAdminAccount";
 const _EIOAAR = "EnableIpamOrganizationAdminAccountRequest";
 const _EIOAARn = "EnableIpamOrganizationAdminAccountResult";
@@ -2682,7 +2711,8 @@ const _Err = "Errors";
 const _Ev = "Events";
 const _Eve = "Event";
 const _Ex = "Explanation";
-const _Exp = "Explanations";
+const _Exp = "Expiration";
+const _Expl = "Explanations";
 const _F = "Force";
 const _FA = "FederatedAuthentication";
 const _FAD = "FilterAtDestination";
@@ -2881,9 +2911,18 @@ const _GIDARe = "GetIpamDiscoveredAccountsResult";
 const _GIDPA = "GetIpamDiscoveredPublicAddresses";
 const _GIDPAR = "GetIpamDiscoveredPublicAddressesRequest";
 const _GIDPARe = "GetIpamDiscoveredPublicAddressesResult";
+const _GIDR = "GetIpamDiscoveredRoutes";
 const _GIDRC = "GetIpamDiscoveredResourceCidrs";
 const _GIDRCR = "GetIpamDiscoveredResourceCidrsRequest";
 const _GIDRCRe = "GetIpamDiscoveredResourceCidrsResult";
+const _GIDRR = "GetIpamDiscoveredRoutesRequest";
+const _GIDRRe = "GetIpamDiscoveredRoutesResult";
+const _GIIRAA = "GetIpamInternetRegistryAssociationAsns";
+const _GIIRAAR = "GetIpamInternetRegistryAssociationAsnsRequest";
+const _GIIRAARe = "GetIpamInternetRegistryAssociationAsnsResult";
+const _GIIRAC = "GetIpamInternetRegistryAssociationCidrs";
+const _GIIRACR = "GetIpamInternetRegistryAssociationCidrsRequest";
+const _GIIRACRe = "GetIpamInternetRegistryAssociationCidrsResult";
 const _GIL = "GroupIdentifierList";
 const _GIMD = "GetInstanceMetadataDefaults";
 const _GIMDR = "GetInstanceMetadataDefaultsRequest";
@@ -2912,6 +2951,18 @@ const _GIPOTRe = "GetIpamPolicyOrganizationTargetsResult";
 const _GIRC = "GetIpamResourceCidrs";
 const _GIRCR = "GetIpamResourceCidrsRequest";
 const _GIRCRe = "GetIpamResourceCidrsResult";
+const _GIROA = "GetIpamRouteOriginAuthorizations";
+const _GIROAR = "GetIpamRouteOriginAuthorizationsRequest";
+const _GIROARe = "GetIpamRouteOriginAuthorizationsResult";
+const _GIRPF = "GetIpamRouteProtectionFindings";
+const _GIRPFR = "GetIpamRouteProtectionFindingsRequest";
+const _GIRPFRe = "GetIpamRouteProtectionFindingsResult";
+const _GIRPR = "GetIpamRoutingPolicyRegistrations";
+const _GIRPRD = "GetIpamRoutingPolicyRegistrationDeltas";
+const _GIRPRDR = "GetIpamRoutingPolicyRegistrationDeltasRequest";
+const _GIRPRDRe = "GetIpamRoutingPolicyRegistrationDeltasResult";
+const _GIRPRR = "GetIpamRoutingPolicyRegistrationsRequest";
+const _GIRPRRe = "GetIpamRoutingPolicyRegistrationsResult";
 const _GIS = "GroupIdentifierSet";
 const _GISL = "GroupIdStringList";
 const _GITEP = "GetInstanceTpmEkPub";
@@ -3180,9 +3231,12 @@ const _IDMI = "InferenceDeviceMemoryInfo";
 const _IDPA = "IpamDiscoveredPublicAddresses";
 const _IDPAS = "IpamDiscoveredPublicAddressSet";
 const _IDPAp = "IpamDiscoveredPublicAddress";
+const _IDR = "IpamDiscoveredRoutes";
 const _IDRC = "IpamDiscoveredResourceCidrs";
 const _IDRCS = "IpamDiscoveredResourceCidrSet";
 const _IDRCp = "IpamDiscoveredResourceCidr";
+const _IDRS = "IpamDiscoveredRouteSet";
+const _IDRp = "IpamDiscoveredRoute";
 const _IDm = "ImageData";
 const _IDn = "IncludeDisabled";
 const _IDs = "IsDefault";
@@ -3261,6 +3315,18 @@ const _IIPS = "IamInstanceProfileSpecification";
 const _IIPn = "InstanceIpv4Prefix";
 const _IIPns = "InstanceIpv6Prefix";
 const _IIR = "ImportImageRequest";
+const _IIRA = "IpamInternetRegistryAssociation";
+const _IIRAA = "IpamInternetRegistryAssociationAsns";
+const _IIRAAS = "IpamInternetRegistryAssociationAsnSet";
+const _IIRAAp = "IpamInternetRegistryAssociationArn";
+const _IIRAApa = "IpamInternetRegistryAssociationAsn";
+const _IIRAC = "IpamInternetRegistryAssociationCidrs";
+const _IIRACS = "IpamInternetRegistryAssociationCidrSet";
+const _IIRACp = "IpamInternetRegistryAssociationCidr";
+const _IIRAI = "IpamInternetRegistryAssociationId";
+const _IIRAIp = "IpamInternetRegistryAssociationIds";
+const _IIRAS = "IpamInternetRegistryAssociationSet";
+const _IIRAp = "IpamInternetRegistryAssociations";
 const _IIRm = "ImportImageResult";
 const _IIRmp = "ImportInstanceRequest";
 const _IIRmpo = "ImportInstanceResult";
@@ -3479,6 +3545,21 @@ const _IRDp = "IpamResourceDiscoveries";
 const _IRL = "ImageReferenceList";
 const _IRLp = "IpRangeList";
 const _IRLpv = "Ipv6RangeList";
+const _IRO = "IpamRouteOverlap";
+const _IROA = "IpamRouteOriginAuthorizations";
+const _IROAI = "IpamRouteOriginAuthorizationInfo";
+const _IROAIS = "IpamRouteOriginAuthorizationInfoSet";
+const _IROAS = "IpamRouteOriginAuthorizationSet";
+const _IROAp = "IpamRouteOriginAuthorization";
+const _IROS = "IpamRouteOverlapSet";
+const _IRPF = "IpamRouteProtectionFinding";
+const _IRPFS = "IpamRouteProtectionFindingSet";
+const _IRPR = "IpamRoutingPolicyRegistrations";
+const _IRPRD = "IpamRoutingPolicyRegistrationDelta";
+const _IRPRDS = "IpamRoutingPolicyRegistrationDeltaSet";
+const _IRPRDp = "IpamRoutingPolicyRegistrationDeltas";
+const _IRPRS = "IpamRoutingPolicyRegistrationSet";
+const _IRPRp = "IpamRoutingPolicyRegistration";
 const _IRR = "InstanceRequirementsRequest";
 const _IRSDA = "IntegrationResultS3DestinationArn";
 const _IRT = "IngressRouteTable";
@@ -3675,6 +3756,7 @@ const _LCR = "LicenseConfigurationRequest";
 const _LCi = "LicenseConfiguration";
 const _LCo = "LoggingConfiguration";
 const _LD = "LogDestination";
+const _LDI = "LatestDeltaId";
 const _LDS = "LatestDeliveryStatus";
 const _LDSLU = "LatestDeliveryS3LocationUri";
 const _LDSM = "LatestDeliveryStatusMessage";
@@ -3747,6 +3829,7 @@ const _LLT = "LastLaunchedTime";
 const _LM = "LockMode";
 const _LMA = "LastMaintenanceApplied";
 const _LO = "LogOptions";
+const _LOA = "LastObservedAt";
 const _LOF = "LogOutputFormat";
 const _LP = "LoadPermissions";
 const _LPL = "LaunchPermissionList";
@@ -4048,6 +4131,9 @@ const _MIRCRo = "ModifyIpamResourceCidrResult";
 const _MIRD = "ModifyIpamResourceDiscovery";
 const _MIRDR = "ModifyIpamResourceDiscoveryRequest";
 const _MIRDRo = "ModifyIpamResourceDiscoveryResult";
+const _MIRPR = "ModifyIpamRoutingPolicyRegistration";
+const _MIRPRR = "ModifyIpamRoutingPolicyRegistrationRequest";
+const _MIRPRRo = "ModifyIpamRoutingPolicyRegistrationResult";
 const _MIRo = "ModifyIpamResult";
 const _MIRon = "MonitorInstancesRequest";
 const _MIRoni = "MonitorInstancesResult";
@@ -4057,6 +4143,7 @@ const _MISRo = "ModifyIpamScopeResult";
 const _MIe = "MemoryInfo";
 const _MIo = "ModifyIpam";
 const _MIon = "MonitorInstances";
+const _ML = "MaxLength";
 const _MLGR = "ModifyLocalGatewayRoute";
 const _MLGRR = "ModifyLocalGatewayRouteRequest";
 const _MLGRRo = "ModifyLocalGatewayRouteResult";
@@ -4274,6 +4361,7 @@ const _Mai = "Main";
 const _Man = "Manufacturer";
 const _Mana = "Managed";
 const _Mar = "Marketplace";
+const _Mat = "Match";
 const _Me = "Message";
 const _Med = "Med";
 const _Mes = "Messages";
@@ -4434,7 +4522,8 @@ const _ODc = "OccurrenceDay";
 const _ODcc = "OccurenceDay";
 const _OEP = "OrganizationsEntityPath";
 const _OF = "OutputFormat";
-const _OH = "OutboundHeader";
+const _OH = "OrganizationHandle";
+const _OHu = "OutboundHeader";
 const _OI = "OwnerId";
 const _OIA = "OutsideIpAddress";
 const _OIAT = "OutsideIpAddressType";
@@ -4506,6 +4595,7 @@ const _PBC = "ProvisionByoipCidr";
 const _PBCR = "ProvisionByoipCidrRequest";
 const _PBCRr = "ProvisionByoipCidrResult";
 const _PBIG = "PeakBandwidthInGbps";
+const _PBT = "ParentBpkiTa";
 const _PC = "PoolCidrs";
 const _PCB = "PoolCidrBlocks";
 const _PCBE = "PurchaseCapacityBlockExtension";
@@ -4610,6 +4700,7 @@ const _PGIl = "PlacementGroupInfo";
 const _PGL = "PlacementGroupList";
 const _PGSL = "PlacementGroupStrategyList";
 const _PGl = "PlacementGroups";
+const _PH = "ParentHandle";
 const _PHP = "PerHourPartition";
 const _PHR = "PurchaseHostReservation";
 const _PHRR = "PurchaseHostReservationRequest";
@@ -4694,6 +4785,7 @@ const _PLa = "PacketLength";
 const _PLr = "PrefixLists";
 const _PLro = "ProtocolList";
 const _PM = "PendingMaintenance";
+const _PMSA = "PermitMoreSpecificAnnouncements";
 const _PN = "PartitionNumber";
 const _PNC = "PreviewNextCidr";
 const _PO = "PaymentOption";
@@ -5030,12 +5122,14 @@ const _ROUE = "RemoveOrganizationalUnitExclusions";
 const _ROUEe = "RemoveOrganizationalUnitExclusion";
 const _ROd = "RdsOptions";
 const _ROe = "ResourceOwner";
-const _ROo = "RouteOrigin";
+const _ROo = "RouteOverlaps";
+const _ROou = "RouteOrigin";
 const _ROu = "RuleOption";
 const _RP = "ResetPolicy";
 const _RPC = "ReturnPathComponents";
 const _RPCO = "RequesterPeeringConnectionOptions";
 const _RPDN = "RemovePrivateDnsName";
+const _RPF = "RouteProtectionFindings";
 const _RPLE = "RemovePrefixListEntry";
 const _RPLEe = "RemovePrefixListEntries";
 const _RR = "ResourceRegion";
@@ -5120,6 +5214,7 @@ const _RSTR = "RestoreSnapshotTierRequest";
 const _RSTRe = "RestoreSnapshotTierResult";
 const _RSTe = "RestoreStartTime";
 const _RSTes = "RestoreSnapshotTier";
+const _RSTo = "RoaSampleTime";
 const _RSe = "ReservationState";
 const _RSeg = "RegionalSummary";
 const _RSep = "ReplacementStrategy";
@@ -5127,6 +5222,8 @@ const _RSes = "ResourceStatement";
 const _RSo = "RouteServer";
 const _RSou = "RouteServers";
 const _RSout = "RouteStatus";
+const _RSp = "RpkiStatus";
+const _RSpk = "RpkiStrength";
 const _RT = "ReservationType";
 const _RTA = "RouteTableAssociation";
 const _RTAI = "RouteTableAssociationId";
@@ -5197,6 +5294,7 @@ const _RVT = "ReplaceVpnTunnel";
 const _RVTR = "ReplaceVpnTunnelRequest";
 const _RVTRe = "ReplaceVpnTunnelResult";
 const _RVe = "ReservationValue";
+const _RVp = "RpkiVersion";
 const _RWS = "ReplayWindowSize";
 const _Ra = "Ramdisk";
 const _Re = "Reason";
@@ -5213,7 +5311,9 @@ const _Rese = "Reservations";
 const _Reser = "Reservation";
 const _Reso = "Resource";
 const _Resu = "Result";
+const _Ri = "Rir";
 const _Ro = "Route";
+const _Roa = "Roas";
 const _Rol = "Role";
 const _Rou = "Routes";
 const _Ru = "Rules";
@@ -5599,6 +5699,7 @@ const _STto = "StorageTier";
 const _SU = "SensitiveUrl";
 const _SUC = "SupportedUsageClasses";
 const _SUD = "SensitiveUserData";
+const _SUe = "ServiceUri";
 const _SV = "SourceVersion";
 const _SVESPDV = "StartVpcEndpointServicePrivateDnsVerification";
 const _SVESPDVR = "StartVpcEndpointServicePrivateDnsVerificationRequest";
@@ -6388,6 +6489,7 @@ const _aSl = "allocationStrategy";
 const _aSn = "analysisStatus";
 const _aSp = "applicationStatus";
 const _aSs = "associationSet";
+const _aSsn = "asnSet";
 const _aSss = "associationStatus";
 const _aSt = "attachmentSet";
 const _aStt = "attachmentState";
@@ -6611,6 +6713,7 @@ const _cRS = "capacityReservationSet";
 const _cRSS = "capacityReservationStatusSet";
 const _cRSa = "capacityReservationSpecification";
 const _cRT = "capacityReservationTarget";
+const _cRX = "childRequestXml";
 const _cRa = "capacityRebalance";
 const _cRo = "componentRegion";
 const _cS = "cidrSet";
@@ -6659,14 +6762,15 @@ const _cor = "cores";
 const _cou = "count";
 const _cp = "cpu";
 const _d = "destination";
-const _dA = "destinationArn";
+const _dA = "detectedAt";
 const _dAIT = "denyAllIgwTraffic";
 const _dART = "defaultAssociationRouteTable";
 const _dAS = "destinationAddressSet";
 const _dASe = "deprovisionedAddressSet";
 const _dASi = "disableApiStop";
 const _dAT = "disableApiTermination";
-const _dAe = "destinationAddress";
+const _dAe = "destinationArn";
+const _dAes = "destinationAddress";
 const _dC = "destinationCidr";
 const _dCA = "domainCertificateArn";
 const _dCAR = "deliverCrossAccountRole";
@@ -6688,9 +6792,11 @@ const _dI = "deviceIndex";
 const _dICB = "destinationIpv6CidrBlock";
 const _dIF = "diskImageFormat";
 const _dIS = "diskImageSize";
-const _dIe = "destinationIp";
+const _dIe = "deltaId";
+const _dIes = "destinationIp";
 const _dIi = "directoryId";
 const _dIis = "diskImage";
+const _dJ = "deltaJson";
 const _dLEM = "deliverLogsErrorMessage";
 const _dLPA = "deliverLogsPermissionArn";
 const _dLS = "deliverLogsStatus";
@@ -6888,6 +6994,7 @@ const _end = "end";
 const _enf = "enforced";
 const _er = "error";
 const _ev = "event";
+const _ex = "expiration";
 const _f = "filter";
 const _fA = "federatedAuthentication";
 const _fAD = "filterAtDestination";
@@ -7033,6 +7140,7 @@ const _iD = "imageData";
 const _iDAS = "ipamDiscoveredAccountSet";
 const _iDPAS = "ipamDiscoveredPublicAddressSet";
 const _iDRCS = "ipamDiscoveredResourceCidrSet";
+const _iDRS = "ipamDiscoveredRouteSet";
 const _iDs = "isDefault";
 const _iE = "instanceExport";
 const _iEI = "instanceEventId";
@@ -7065,6 +7173,12 @@ const _iIMS = "instanceImageMetadataSet";
 const _iIP = "iamInstanceProfile";
 const _iIPA = "iamInstanceProfileAssociation";
 const _iIPAS = "iamInstanceProfileAssociationSet";
+const _iIRA = "ipamInternetRegistryAssociation";
+const _iIRAA = "ipamInternetRegistryAssociationArn";
+const _iIRAAS = "ipamInternetRegistryAssociationAsnSet";
+const _iIRACS = "ipamInternetRegistryAssociationCidrSet";
+const _iIRAI = "ipamInternetRegistryAssociationId";
+const _iIRAS = "ipamInternetRegistryAssociationSet";
 const _iIS = "instanceIdSet";
 const _iISB = "instanceInitiatedShutdownBehavior";
 const _iITS = "importImageTaskSet";
@@ -7103,8 +7217,8 @@ const _iPD = "ipamPolicyDocument";
 const _iPDS = "ipamPolicyDocumentSet";
 const _iPE = "ipamPolicyEnabled";
 const _iPEp = "ipPermissionsEgress";
-const _iPI = "ipamPolicyId";
-const _iPIp = "ipamPoolId";
+const _iPI = "ipamPoolId";
+const _iPIp = "ipamPolicyId";
 const _iPIs = "isPrimaryIpv6";
 const _iPLR = "ipamPrefixListResolver";
 const _iPLRA = "ipamPrefixListResolverArn";
@@ -7152,6 +7266,10 @@ const _iRDAp = "ipamResourceDiscoveryArn";
 const _iRDI = "ipamResourceDiscoveryId";
 const _iRDR = "ipamResourceDiscoveryRegion";
 const _iRDS = "ipamResourceDiscoverySet";
+const _iROAS = "ipamRouteOriginAuthorizationSet";
+const _iRPRD = "ipamRoutingPolicyRegistrationDelta";
+const _iRPRDS = "ipamRoutingPolicyRegistrationDeltaSet";
+const _iRPRS = "ipamRoutingPolicyRegistrationSet";
 const _iRS = "imageReferenceSet";
 const _iRT = "ingressRouteTable";
 const _iRp = "ipamRegion";
@@ -7260,6 +7378,7 @@ const _lCA = "licenseConfigurationArn";
 const _lCO = "lockCreatedOn";
 const _lCS = "loggingConfigurationSet";
 const _lD = "logDestination";
+const _lDI = "latestDeltaId";
 const _lDS = "latestDeliveryStatus";
 const _lDSLU = "latestDeliveryS3LocationUri";
 const _lDSM = "latestDeliveryStatusMessage";
@@ -7306,6 +7425,7 @@ const _lINCo = "localIpv6NetworkCidr";
 const _lLT = "lastLaunchedTime";
 const _lMA = "lastMaintenanceApplied";
 const _lO = "logOptions";
+const _lOA = "lastObservedAt";
 const _lOF = "logOutputFormat";
 const _lP = "loadPermissions";
 const _lPa = "launchPermission";
@@ -7386,6 +7506,7 @@ const _mGBPVC = "memoryGiBPerVCpu";
 const _mHS = "macHostSet";
 const _mI = "maximumIops";
 const _mIe = "memoryInfo";
+const _mL = "maxLength";
 const _mMB = "memoryMiB";
 const _mMT = "macModificationTask";
 const _mMTI = "macModificationTaskId";
@@ -7429,6 +7550,7 @@ const _mai = "main";
 const _man = "manufacturer";
 const _mana = "managed";
 const _mar = "marketplace";
+const _mat = "match";
 const _me = "message";
 const _med = "med";
 const _met = "metric";
@@ -7526,7 +7648,8 @@ const _oDS = "occurrenceDaySet";
 const _oDTC = "onDemandTargetCapacity";
 const _oEP = "organizationsEntityPath";
 const _oF = "outputFormat";
-const _oH = "outboundHeader";
+const _oH = "organizationHandle";
+const _oHu = "outboundHeader";
 const _oI = "ownerId";
 const _oIA = "outsideIpAddress";
 const _oIAT = "outsideIpAddressType";
@@ -7671,6 +7794,7 @@ const _pLSh = "phase1LifetimeSeconds";
 const _pLSha = "phase2LifetimeSeconds";
 const _pLa = "packetLength";
 const _pM = "pendingMaintenance";
+const _pMSA = "permitMoreSpecificAnnouncements";
 const _pN = "partitionNumber";
 const _pO = "paymentOption";
 const _pOI = "peerOwnerId";
@@ -7817,10 +7941,12 @@ const _rO = "resourceOwner";
 const _rOI = "resourceOwnerId";
 const _rOS = "ruleOptionSet";
 const _rOSe = "resourceOverlapStatus";
+const _rOSo = "routeOverlapSet";
 const _rOd = "rdsOptions";
 const _rOo = "routeOrigin";
 const _rPCO = "requesterPeeringConnectionOptions";
 const _rPCS = "returnPathComponentSet";
+const _rPFS = "routeProtectionFindingSet";
 const _rR = "resourceRegion";
 const _rRVT = "replaceRootVolumeTask";
 const _rRVTI = "replaceRootVolumeTaskId";
@@ -7842,6 +7968,7 @@ const _rSS = "regionalSummarySet";
 const _rSSo = "routeServerSet";
 const _rST = "reservationStartTimestamp";
 const _rSTe = "restoreStartTime";
+const _rSTo = "roaSampleTime";
 const _rSe = "referenceSet";
 const _rSep = "reportSet";
 const _rSepl = "replacementStrategy";
@@ -7849,8 +7976,11 @@ const _rSes = "reservationSet";
 const _rSeso = "resourceStatement";
 const _rSesou = "resourceSet";
 const _rSo = "routeServer";
+const _rSoa = "roaSet";
 const _rSou = "routeSet";
 const _rSout = "routeStatus";
+const _rSp = "rpkiStatus";
+const _rSpk = "rpkiStrength";
 const _rSu = "ruleSet";
 const _rT = "reservationType";
 const _rTAI = "routeTableAssociationId";
@@ -7885,6 +8015,7 @@ const _reg = "region";
 const _req = "requested";
 const _res = "resource";
 const _resu = "result";
+const _ri = "rir";
 const _ro = "route";
 const _rou = "routes";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.ec2";
@@ -9536,6 +9667,17 @@ export var BaselinePerformanceFactorsRequest$: StaticStructureSchema = [3, n0, _
   [_Cp],
   [[() => CpuPerformanceFactorRequest$, 0]]
 ];
+export var BatchModifyIpamRoutingPolicyRegistrationsRequest$: StaticStructureSchema = [3, n0, _BMIRPRR,
+  0,
+  [_IIRAI, _DJ, _DR, _F, _CT],
+  [0, 0, 2, 2, [0, 4]], 2
+];
+export var BatchModifyIpamRoutingPolicyRegistrationsResult$: StaticStructureSchema = [3, n0, _BMIRPRRa,
+  0,
+  [_IRPRD],
+  [[() => IpamRoutingPolicyRegistrationDelta$, { [_eQN]: `IpamRoutingPolicyRegistrationDelta`
+  , [_xN]: _iRPRD }]]
+];
 export var BlobAttributeValue$: StaticStructureSchema = [3, n0, _BAV,
   0,
   [_V],
@@ -9609,7 +9751,7 @@ export var Byoasn$: StaticStructureSchema = [3, n0, _B,
 ];
 export var ByoipCidr$: StaticStructureSchema = [3, n0, _BC,
   0,
-  [_Ci, _De, _AAsn, _SMt, _St, _NBG, _ATd],
+  [_Ci, _De, _AAsn, _SMt, _St, _NBG, _ATd, _PIo, _IPI],
   [[0, { [_eQN]: `Cidr`
   , [_xN]: _ci }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [() => AsnAssociationSet, { [_eQN]: `AsnAssociationSet`
@@ -9617,7 +9759,9 @@ export var ByoipCidr$: StaticStructureSchema = [3, n0, _BC,
   , [_xN]: _sMt }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `NetworkBorderGroup`
   , [_xN]: _nBG }], [0, { [_eQN]: `AdvertisementType`
-  , [_xN]: _aTd }]]
+  , [_xN]: _aTd }], [0, { [_eQN]: `PoolId`
+  , [_xN]: _pIo }], [0, { [_eQN]: `IpamPoolId`
+  , [_xN]: _iPI }]]
 ];
 export var CancelBundleTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
   0,
@@ -10909,6 +11053,17 @@ export var CreateIpamExternalResourceVerificationTokenResult$: StaticStructureSc
   [[() => IpamExternalResourceVerificationToken$, { [_eQN]: `IpamExternalResourceVerificationToken`
   , [_xN]: _iERVT }]]
 ];
+export var CreateIpamInternetRegistryAssociationRequest$: StaticStructureSchema = [3, n0, _CIIRAR,
+  0,
+  [_IIp, _Ri, _OH, _DR, _De, _TS, _CT],
+  [0, 0, 0, 2, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [0, 4]], 3
+];
+export var CreateIpamInternetRegistryAssociationResult$: StaticStructureSchema = [3, n0, _CIIRARr,
+  0,
+  [_IIRA],
+  [[() => IpamInternetRegistryAssociation$, { [_eQN]: `IpamInternetRegistryAssociation`
+  , [_xN]: _iIRA }]]
+];
 export var CreateIpamPolicyRequest$: StaticStructureSchema = [3, n0, _CIPR,
   0,
   [_IIp, _DR, _TS, _CT],
@@ -10974,6 +11129,17 @@ export var CreateIpamResult$: StaticStructureSchema = [3, n0, _CIRreat,
   [_Ip],
   [[() => Ipam$, { [_eQN]: `Ipam`
   , [_xN]: _ip }]]
+];
+export var CreateIpamRoutingPolicyRegistrationRequest$: StaticStructureSchema = [3, n0, _CIRPRR,
+  0,
+  [_IIRAI, _Ci, _Asns, _DR, _PMSA, _ML, _De, _F, _CT],
+  [0, 0, [() => AsnList, { [_xN]: _Asn }], 2, 2, 1, 0, 2, [0, 4]], 3
+];
+export var CreateIpamRoutingPolicyRegistrationResult$: StaticStructureSchema = [3, n0, _CIRPRRr,
+  0,
+  [_IRPRD],
+  [[() => IpamRoutingPolicyRegistrationDelta$, { [_eQN]: `IpamRoutingPolicyRegistrationDelta`
+  , [_xN]: _iRPRD }]]
 ];
 export var CreateIpamScopeRequest$: StaticStructureSchema = [3, n0, _CISR,
   0,
@@ -12183,6 +12349,17 @@ export var DeleteIpamExternalResourceVerificationTokenResult$: StaticStructureSc
   [[() => IpamExternalResourceVerificationToken$, { [_eQN]: `IpamExternalResourceVerificationToken`
   , [_xN]: _iERVT }]]
 ];
+export var DeleteIpamInternetRegistryAssociationRequest$: StaticStructureSchema = [3, n0, _DIIRAR,
+  0,
+  [_IIRAI, _DR],
+  [0, 2], 1
+];
+export var DeleteIpamInternetRegistryAssociationResult$: StaticStructureSchema = [3, n0, _DIIRARe,
+  0,
+  [_IIRA],
+  [[() => IpamInternetRegistryAssociation$, { [_eQN]: `IpamInternetRegistryAssociation`
+  , [_xN]: _iIRA }]]
+];
 export var DeleteIpamPolicyRequest$: StaticStructureSchema = [3, n0, _DIPR,
   0,
   [_IPIp, _DR],
@@ -12248,6 +12425,17 @@ export var DeleteIpamResult$: StaticStructureSchema = [3, n0, _DIRe,
   [_Ip],
   [[() => Ipam$, { [_eQN]: `Ipam`
   , [_xN]: _ip }]]
+];
+export var DeleteIpamRoutingPolicyRegistrationRequest$: StaticStructureSchema = [3, n0, _DIRPRR,
+  0,
+  [_IIRAI, _Ci, _DR, _F, _CT],
+  [0, 0, 2, 2, [0, 4]], 2
+];
+export var DeleteIpamRoutingPolicyRegistrationResult$: StaticStructureSchema = [3, n0, _DIRPRRe,
+  0,
+  [_IRPRD],
+  [[() => IpamRoutingPolicyRegistrationDelta$, { [_eQN]: `IpamRoutingPolicyRegistrationDelta`
+  , [_xN]: _iRPRD }]]
 ];
 export var DeleteIpamScopeRequest$: StaticStructureSchema = [3, n0, _DISR,
   0,
@@ -14098,6 +14286,18 @@ export var DescribeIpamExternalResourceVerificationTokensResult$: StaticStructur
   [[0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [() => IpamExternalResourceVerificationTokenSet, { [_eQN]: `IpamExternalResourceVerificationTokenSet`
   , [_xN]: _iERVTS }]]
+];
+export var DescribeIpamInternetRegistryAssociationsRequest$: StaticStructureSchema = [3, n0, _DIIRARes,
+  0,
+  [_DR, _IIRAIp, _MR, _NTe, _Fi],
+  [2, [() => ValueStringList, { [_xN]: _IIRAI }], 1, 0, [() => FilterList, { [_xN]: _Fil }]]
+];
+export var DescribeIpamInternetRegistryAssociationsResult$: StaticStructureSchema = [3, n0, _DIIRAResc,
+  0,
+  [_NTe, _IIRAp],
+  [[0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }], [() => IpamInternetRegistryAssociationSet, { [_eQN]: `IpamInternetRegistryAssociationSet`
+  , [_xN]: _iIRAS }]]
 ];
 export var DescribeIpamPoliciesRequest$: StaticStructureSchema = [3, n0, _DIPRes,
   0,
@@ -16595,6 +16795,17 @@ export var EnableInstanceSqlHaStandbyDetectionsResult$: StaticStructureSchema = 
   [[() => RegisteredInstanceList, { [_eQN]: `InstanceSet`
   , [_xN]: _iSn }]]
 ];
+export var EnableIpamInternetRegistryAssociationRequest$: StaticStructureSchema = [3, n0, _EIIRAR,
+  0,
+  [_IIRAI, _RVp, _SUe, _CH, _PH, _PBT, _DR, _CT],
+  [0, 0, 0, 0, 0, 0, 2, [0, 4]], 6
+];
+export var EnableIpamInternetRegistryAssociationResult$: StaticStructureSchema = [3, n0, _EIIRARn,
+  0,
+  [_IIRA],
+  [[() => IpamInternetRegistryAssociation$, { [_eQN]: `IpamInternetRegistryAssociation`
+  , [_xN]: _iIRA }]]
+];
 export var EnableIpamOrganizationAdminAccountRequest$: StaticStructureSchema = [3, n0, _EIOAAR,
   0,
   [_DAAI, _DR],
@@ -16615,7 +16826,7 @@ export var EnableIpamPolicyResult$: StaticStructureSchema = [3, n0, _EIPRn,
   0,
   [_IPIp],
   [[0, { [_eQN]: `IpamPolicyId`
-  , [_xN]: _iPI }]]
+  , [_xN]: _iPIp }]]
 ];
 export var EnableReachabilityAnalyzerOrganizationSharingRequest$: StaticStructureSchema = [3, n0, _ERAOSR,
   0,
@@ -17480,7 +17691,7 @@ export var GetEnabledIpamPolicyResult$: StaticStructureSchema = [3, n0, _GEIPRe,
   [_IPE, _IPIp, _MB],
   [[2, { [_eQN]: `IpamPolicyEnabled`
   , [_xN]: _iPE }], [0, { [_eQN]: `IpamPolicyId`
-  , [_xN]: _iPI }], [0, { [_eQN]: `ManagedBy`
+  , [_xN]: _iPIp }], [0, { [_eQN]: `ManagedBy`
   , [_xN]: _mB }]]
 ];
 export var GetFlowLogsIntegrationTemplateRequest$: StaticStructureSchema = [3, n0, _GFLITR,
@@ -17641,6 +17852,42 @@ export var GetIpamDiscoveredResourceCidrsResult$: StaticStructureSchema = [3, n0
   , [_xN]: _iDRCS }], [0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }]]
 ];
+export var GetIpamDiscoveredRoutesRequest$: StaticStructureSchema = [3, n0, _GIDRR,
+  0,
+  [_IRDI, _RR, _DR, _Fi, _NTe, _MR],
+  [0, 0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 1], 2
+];
+export var GetIpamDiscoveredRoutesResult$: StaticStructureSchema = [3, n0, _GIDRRe,
+  0,
+  [_IDR, _NTe],
+  [[() => IpamDiscoveredRouteSet, { [_eQN]: `IpamDiscoveredRouteSet`
+  , [_xN]: _iDRS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var GetIpamInternetRegistryAssociationAsnsRequest$: StaticStructureSchema = [3, n0, _GIIRAAR,
+  0,
+  [_IIRAI, _DR, _MR, _NTe, _Fi],
+  [0, 2, 1, 0, [() => FilterList, { [_xN]: _Fil }]], 1
+];
+export var GetIpamInternetRegistryAssociationAsnsResult$: StaticStructureSchema = [3, n0, _GIIRAARe,
+  0,
+  [_NTe, _IIRAA],
+  [[0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }], [() => IpamInternetRegistryAssociationAsnSet, { [_eQN]: `IpamInternetRegistryAssociationAsnSet`
+  , [_xN]: _iIRAAS }]]
+];
+export var GetIpamInternetRegistryAssociationCidrsRequest$: StaticStructureSchema = [3, n0, _GIIRACR,
+  0,
+  [_IIRAI, _DR, _MR, _NTe, _Fi],
+  [0, 2, 1, 0, [() => FilterList, { [_xN]: _Fil }]], 1
+];
+export var GetIpamInternetRegistryAssociationCidrsResult$: StaticStructureSchema = [3, n0, _GIIRACRe,
+  0,
+  [_NTe, _IIRAC],
+  [[0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }], [() => IpamInternetRegistryAssociationCidrSet, { [_eQN]: `IpamInternetRegistryAssociationCidrSet`
+  , [_xN]: _iIRACS }]]
+];
 export var GetIpamPolicyAllocationRulesRequest$: StaticStructureSchema = [3, n0, _GIPARR,
   0,
   [_IPIp, _DR, _Fi, _Lo, _RTe, _MR, _NTe],
@@ -17736,6 +17983,55 @@ export var GetIpamResourceCidrsResult$: StaticStructureSchema = [3, n0, _GIRCRe,
   [[0, { [_eQN]: `NextToken`
   , [_xN]: _nTe }], [() => IpamResourceCidrSet, { [_eQN]: `IpamResourceCidrSet`
   , [_xN]: _iRCS }]]
+];
+export var GetIpamRouteOriginAuthorizationsRequest$: StaticStructureSchema = [3, n0, _GIROAR,
+  0,
+  [_IIRAI, _DR, _Ci, _MR, _NTe],
+  [0, 2, 0, 1, 0], 1
+];
+export var GetIpamRouteOriginAuthorizationsResult$: StaticStructureSchema = [3, n0, _GIROARe,
+  0,
+  [_IROA, _NTe],
+  [[() => IpamRouteOriginAuthorizationInfoSet, { [_eQN]: `IpamRouteOriginAuthorizationSet`
+  , [_xN]: _iROAS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var GetIpamRouteProtectionFindingsRequest$: StaticStructureSchema = [3, n0, _GIRPFR,
+  0,
+  [_IIp, _DR, _Fi, _NTe, _MR],
+  [0, 2, [() => FilterList, { [_xN]: _Fil }], 0, 1], 1
+];
+export var GetIpamRouteProtectionFindingsResult$: StaticStructureSchema = [3, n0, _GIRPFRe,
+  0,
+  [_IIp, _RPF, _NTe],
+  [[0, { [_eQN]: `IpamId`
+  , [_xN]: _iIp }], [() => IpamRouteProtectionFindingSet, { [_eQN]: `RouteProtectionFindingSet`
+  , [_xN]: _rPFS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var GetIpamRoutingPolicyRegistrationDeltasRequest$: StaticStructureSchema = [3, n0, _GIRPRDR,
+  0,
+  [_IIRAI, _DR, _DIel, _STt, _ETnd, _COh, _MR, _NTe],
+  [0, 2, 0, 4, 4, 0, 1, 0], 1
+];
+export var GetIpamRoutingPolicyRegistrationDeltasResult$: StaticStructureSchema = [3, n0, _GIRPRDRe,
+  0,
+  [_IRPRDp, _NTe],
+  [[() => IpamRoutingPolicyRegistrationDeltaSet, { [_eQN]: `IpamRoutingPolicyRegistrationDeltaSet`
+  , [_xN]: _iRPRDS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
+];
+export var GetIpamRoutingPolicyRegistrationsRequest$: StaticStructureSchema = [3, n0, _GIRPRR,
+  0,
+  [_IIRAI, _DR, _Ci, _MR, _NTe],
+  [0, 2, 0, 1, 0], 1
+];
+export var GetIpamRoutingPolicyRegistrationsResult$: StaticStructureSchema = [3, n0, _GIRPRRe,
+  0,
+  [_IRPR, _NTe],
+  [[() => IpamRoutingPolicyRegistrationSet, { [_eQN]: `IpamRoutingPolicyRegistrationSet`
+  , [_xN]: _iRPRS }], [0, { [_eQN]: `NextToken`
+  , [_xN]: _nTe }]]
 ];
 export var GetLaunchTemplateDataRequest$: StaticStructureSchema = [3, n0, _GLTDR,
   0,
@@ -19545,6 +19841,22 @@ export var IpamDiscoveredResourceCidr$: StaticStructureSchema = [3, n0, _IDRCp,
   , [_xN]: _sTa }], [0, { [_eQN]: `AvailabilityZoneId`
   , [_xN]: _aZI }]]
 ];
+export var IpamDiscoveredRoute$: StaticStructureSchema = [3, n0, _IDRp,
+  0,
+  [_IRDI, _RR, _ROI, _Ci, _Asn, _St, _ATd, _NBG, _PIo, _IPI, _STam],
+  [[0, { [_eQN]: `IpamResourceDiscoveryId`
+  , [_xN]: _iRDI }], [0, { [_eQN]: `ResourceRegion`
+  , [_xN]: _rR }], [0, { [_eQN]: `ResourceOwnerId`
+  , [_xN]: _rOI }], [0, { [_eQN]: `Cidr`
+  , [_xN]: _ci }], [0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `AdvertisementType`
+  , [_xN]: _aTd }], [0, { [_eQN]: `NetworkBorderGroup`
+  , [_xN]: _nBG }], [0, { [_eQN]: `PoolId`
+  , [_xN]: _pIo }], [0, { [_eQN]: `IpamPoolId`
+  , [_xN]: _iPI }], [4, { [_eQN]: `SampleTime`
+  , [_xN]: _sTa }]]
+];
 export var IpamDiscoveryFailureReason$: StaticStructureSchema = [3, n0, _IDFR,
   0,
   [_Co, _Me],
@@ -19568,6 +19880,36 @@ export var IpamExternalResourceVerificationToken$: StaticStructureSchema = [3, n
   , [_xN]: _tS }], [0, { [_eQN]: `State`
   , [_xN]: _st }]]
 ];
+export var IpamInternetRegistryAssociation$: StaticStructureSchema = [3, n0, _IIRA,
+  0,
+  [_OI, _IIRAI, _IIRAAp, _IIp, _IRp, _Ri, _OH, _De, _St, _CRX, _T],
+  [[0, { [_eQN]: `OwnerId`
+  , [_xN]: _oI }], [0, { [_eQN]: `IpamInternetRegistryAssociationId`
+  , [_xN]: _iIRAI }], [0, { [_eQN]: `IpamInternetRegistryAssociationArn`
+  , [_xN]: _iIRAA }], [0, { [_eQN]: `IpamId`
+  , [_xN]: _iIp }], [0, { [_eQN]: `IpamRegion`
+  , [_xN]: _iRp }], [0, { [_eQN]: `Rir`
+  , [_xN]: _ri }], [0, { [_eQN]: `OrganizationHandle`
+  , [_xN]: _oH }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `ChildRequestXml`
+  , [_xN]: _cRX }], [() => TagList, { [_eQN]: `TagSet`
+  , [_xN]: _tS }]]
+];
+export var IpamInternetRegistryAssociationAsn$: StaticStructureSchema = [3, n0, _IIRAApa,
+  0,
+  [_Asn, _LOA],
+  [[0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [4, { [_eQN]: `LastObservedAt`
+  , [_xN]: _lOA }]]
+];
+export var IpamInternetRegistryAssociationCidr$: StaticStructureSchema = [3, n0, _IIRACp,
+  0,
+  [_Ci, _LOA],
+  [[0, { [_eQN]: `Cidr`
+  , [_xN]: _ci }], [4, { [_eQN]: `LastObservedAt`
+  , [_xN]: _lOA }]]
+];
 export var IpamOperatingRegion$: StaticStructureSchema = [3, n0, _IOR,
   0,
   [_RN],
@@ -19585,7 +19927,7 @@ export var IpamPolicy$: StaticStructureSchema = [3, n0, _IPpa,
   [_OI, _IPIp, _IPApa, _IPR, _St, _SMta, _T, _IIp],
   [[0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `IpamPolicyId`
-  , [_xN]: _iPI }], [0, { [_eQN]: `IpamPolicyArn`
+  , [_xN]: _iPIp }], [0, { [_eQN]: `IpamPolicyArn`
   , [_xN]: _iPAp }], [0, { [_eQN]: `IpamPolicyRegion`
   , [_xN]: _iPR }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `StateMessage`
@@ -19608,7 +19950,7 @@ export var IpamPolicyDocument$: StaticStructureSchema = [3, n0, _IPDp,
   0,
   [_IPIp, _Lo, _RTe, _ARllo],
   [[0, { [_eQN]: `IpamPolicyId`
-  , [_xN]: _iPI }], [0, { [_eQN]: `Locale`
+  , [_xN]: _iPIp }], [0, { [_eQN]: `Locale`
   , [_xN]: _loc }], [0, { [_eQN]: `ResourceType`
   , [_xN]: _rTe }], [() => IpamPolicyAllocationRuleList, { [_eQN]: `AllocationRuleSet`
   , [_xN]: _aRSl }]]
@@ -19624,7 +19966,7 @@ export var IpamPool$: StaticStructureSchema = [3, n0, _IPpam,
   [_OI, _IPI, _SIPI, _IPApam, _ISA, _ISTp, _IApa, _IRp, _Lo, _PDoo, _St, _SMta, _De, _AIu, _PAu, _AF, _AMNL, _AMNLl, _ADNL, _ART, _T, _ASw, _PIS, _SRou],
   [[0, { [_eQN]: `OwnerId`
   , [_xN]: _oI }], [0, { [_eQN]: `IpamPoolId`
-  , [_xN]: _iPIp }], [0, { [_eQN]: `SourceIpamPoolId`
+  , [_xN]: _iPI }], [0, { [_eQN]: `SourceIpamPoolId`
   , [_xN]: _sIPI }], [0, { [_eQN]: `IpamPoolArn`
   , [_xN]: _iPApa }], [0, { [_eQN]: `IpamScopeArn`
   , [_xN]: _iSA }], [0, { [_eQN]: `IpamScopeType`
@@ -19723,7 +20065,7 @@ export var IpamPrefixListResolverRuleCondition$: StaticStructureSchema = [3, n0,
   [_Ope, _IPI, _RIeso, _ROe, _RR, _RTeso, _Ci],
   [[0, { [_eQN]: `Operation`
   , [_xN]: _oper }], [0, { [_eQN]: `IpamPoolId`
-  , [_xN]: _iPIp }], [0, { [_eQN]: `ResourceId`
+  , [_xN]: _iPI }], [0, { [_eQN]: `ResourceId`
   , [_xN]: _rIes }], [0, { [_eQN]: `ResourceOwner`
   , [_xN]: _rO }], [0, { [_eQN]: `ResourceRegion`
   , [_xN]: _rR }], [() => IpamResourceTag$, { [_eQN]: `ResourceTag`
@@ -19795,7 +20137,7 @@ export var IpamResourceCidr$: StaticStructureSchema = [3, n0, _IRCp,
   [[0, { [_eQN]: `IpamId`
   , [_xN]: _iIp }], [0, { [_eQN]: `IpamScopeId`
   , [_xN]: _iSIp }], [0, { [_eQN]: `IpamPoolId`
-  , [_xN]: _iPIp }], [0, { [_eQN]: `ResourceRegion`
+  , [_xN]: _iPI }], [0, { [_eQN]: `ResourceRegion`
   , [_xN]: _rR }], [0, { [_eQN]: `ResourceOwnerId`
   , [_xN]: _rOI }], [0, { [_eQN]: `ResourceId`
   , [_xN]: _rIes }], [0, { [_eQN]: `ResourceName`
@@ -19847,6 +20189,73 @@ export var IpamResourceTag$: StaticStructureSchema = [3, n0, _IRTp,
   [[0, { [_eQN]: `Key`
   , [_xN]: _k }], [0, { [_eQN]: `Value`
   , [_xN]: _v }]]
+];
+export var IpamRouteOriginAuthorization$: StaticStructureSchema = [3, n0, _IROAp,
+  0,
+  [_Asn, _Pre, _ML, _Mat, _Exp],
+  [[0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [0, { [_eQN]: `Prefix`
+  , [_xN]: _pre }], [1, { [_eQN]: `MaxLength`
+  , [_xN]: _mL }], [2, { [_eQN]: `Match`
+  , [_xN]: _mat }], [4, { [_eQN]: `Expiration`
+  , [_xN]: _ex }]]
+];
+export var IpamRouteOriginAuthorizationInfo$: StaticStructureSchema = [3, n0, _IROAI,
+  0,
+  [_Ci, _Asn, _ML],
+  [[0, { [_eQN]: `Cidr`
+  , [_xN]: _ci }], [0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [1, { [_eQN]: `MaxLength`
+  , [_xN]: _mL }]]
+];
+export var IpamRouteOverlap$: StaticStructureSchema = [3, n0, _IRO,
+  0,
+  [_Pre, _Asn, _DAet],
+  [[0, { [_eQN]: `Prefix`
+  , [_xN]: _pre }], [0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [4, { [_eQN]: `DetectedAt`
+  , [_xN]: _dA }]]
+];
+export var IpamRouteProtectionFinding$: StaticStructureSchema = [3, n0, _IRPF,
+  0,
+  [_ROI, _RR, _IPI, _Ci, _St, _ATd, _NBG, _PIo, _Asn, _RSp, _RSpk, _Roa, _ROo, _STam, _RSTo],
+  [[0, { [_eQN]: `ResourceOwnerId`
+  , [_xN]: _rOI }], [0, { [_eQN]: `ResourceRegion`
+  , [_xN]: _rR }], [0, { [_eQN]: `IpamPoolId`
+  , [_xN]: _iPI }], [0, { [_eQN]: `Cidr`
+  , [_xN]: _ci }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `AdvertisementType`
+  , [_xN]: _aTd }], [0, { [_eQN]: `NetworkBorderGroup`
+  , [_xN]: _nBG }], [0, { [_eQN]: `PoolId`
+  , [_xN]: _pIo }], [0, { [_eQN]: `Asn`
+  , [_xN]: _as }], [0, { [_eQN]: `RpkiStatus`
+  , [_xN]: _rSp }], [0, { [_eQN]: `RpkiStrength`
+  , [_xN]: _rSpk }], [() => IpamRouteOriginAuthorizationSet, { [_eQN]: `RoaSet`
+  , [_xN]: _rSoa }], [() => IpamRouteOverlapSet, { [_eQN]: `RouteOverlapSet`
+  , [_xN]: _rOSo }], [4, { [_eQN]: `SampleTime`
+  , [_xN]: _sTa }], [4, { [_eQN]: `RoaSampleTime`
+  , [_xN]: _rSTo }]]
+];
+export var IpamRoutingPolicyRegistration$: StaticStructureSchema = [3, n0, _IRPRp,
+  0,
+  [_Ci, _Asns, _PMSA, _ML, _De, _LDI, _St],
+  [[0, { [_eQN]: `Cidr`
+  , [_xN]: _ci }], [() => AsnList, { [_eQN]: `AsnSet`
+  , [_xN]: _aSsn }], [2, { [_eQN]: `PermitMoreSpecificAnnouncements`
+  , [_xN]: _pMSA }], [1, { [_eQN]: `MaxLength`
+  , [_xN]: _mL }], [0, { [_eQN]: `Description`
+  , [_xN]: _de }], [0, { [_eQN]: `LatestDeltaId`
+  , [_xN]: _lDI }], [0, { [_eQN]: `State`
+  , [_xN]: _st }]]
+];
+export var IpamRoutingPolicyRegistrationDelta$: StaticStructureSchema = [3, n0, _IRPRD,
+  0,
+  [_DIel, _DJ, _St, _SMta],
+  [[0, { [_eQN]: `DeltaId`
+  , [_xN]: _dIe }], [0, { [_eQN]: `DeltaJson`
+  , [_xN]: _dJ }], [0, { [_eQN]: `State`
+  , [_xN]: _st }], [0, { [_eQN]: `StateMessage`
+  , [_xN]: _sMta }]]
 ];
 export var IpamScope$: StaticStructureSchema = [3, n0, _ISp,
   0,
@@ -21117,6 +21526,17 @@ export var ModifyIpamResult$: StaticStructureSchema = [3, n0, _MIRo,
   [[() => Ipam$, { [_eQN]: `Ipam`
   , [_xN]: _ip }]]
 ];
+export var ModifyIpamRoutingPolicyRegistrationRequest$: StaticStructureSchema = [3, n0, _MIRPRR,
+  0,
+  [_IIRAI, _Ci, _Asns, _DR, _PMSA, _ML, _De, _F, _CT],
+  [0, 0, [() => AsnList, { [_xN]: _Asn }], 2, 2, 1, 0, 2, [0, 4]], 3
+];
+export var ModifyIpamRoutingPolicyRegistrationResult$: StaticStructureSchema = [3, n0, _MIRPRRo,
+  0,
+  [_IRPRD],
+  [[() => IpamRoutingPolicyRegistrationDelta$, { [_eQN]: `IpamRoutingPolicyRegistrationDelta`
+  , [_xN]: _iRPRD }]]
+];
 export var ModifyIpamScopeRequest$: StaticStructureSchema = [3, n0, _MISR,
   0,
   [_ISI, _DR, _De, _EAC, _REAC],
@@ -21934,7 +22354,7 @@ export var NetworkInsightsAccessScopeContent$: StaticStructureSchema = [3, n0, _
 ];
 export var NetworkInsightsAnalysis$: StaticStructureSchema = [3, n0, _NIAe,
   0,
-  [_NIAI, _NIAA, _NIPI, _AAdd, _FIAi, _FOA, _SD, _Sta, _SMt, _WM, _NPF, _FPC, _RPC, _Exp, _APHl, _SAu, _T],
+  [_NIAI, _NIAA, _NIPI, _AAdd, _FIAi, _FOA, _SD, _Sta, _SMt, _WM, _NPF, _FPC, _RPC, _Expl, _APHl, _SAu, _T],
   [[0, { [_eQN]: `NetworkInsightsAnalysisId`
   , [_xN]: _nIAI }], [0, { [_eQN]: `NetworkInsightsAnalysisArn`
   , [_xN]: _nIAA }], [0, { [_eQN]: `NetworkInsightsPathId`
@@ -21964,9 +22384,9 @@ export var NetworkInsightsPath$: StaticStructureSchema = [3, n0, _NIP,
   , [_xN]: _so }], [0, { [_eQN]: `Destination`
   , [_xN]: _d }], [0, { [_eQN]: `SourceArn`
   , [_xN]: _sA }], [0, { [_eQN]: `DestinationArn`
-  , [_xN]: _dA }], [0, { [_eQN]: `SourceIp`
+  , [_xN]: _dAe }], [0, { [_eQN]: `SourceIp`
   , [_xN]: _sIo }], [0, { [_eQN]: `DestinationIp`
-  , [_xN]: _dIe }], [0, { [_eQN]: `Protocol`
+  , [_xN]: _dIes }], [0, { [_eQN]: `Protocol`
   , [_xN]: _pr }], [1, { [_eQN]: `DestinationPort`
   , [_xN]: _dPes }], [() => TagList, { [_eQN]: `TagSet`
   , [_xN]: _tS }], [() => PathFilter$, { [_eQN]: `FilterAtSource`
@@ -22204,14 +22624,14 @@ export var PacketHeaderStatementRequest$: StaticStructureSchema = [3, n0, _PHSR,
 ];
 export var PathComponent$: StaticStructureSchema = [3, n0, _PCat,
   0,
-  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OH, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADd, _TG, _TGRTR, _Exp, _ELBL, _FSRi, _FSRir, _SN],
+  [_SNeq, _ARcl, _ATtta, _C, _DVe, _OHu, _IHn, _RTR, _SGRe, _SVo, _Su, _Vp, _ADd, _TG, _TGRTR, _Expl, _ELBL, _FSRi, _FSRir, _SN],
   [[1, { [_eQN]: `SequenceNumber`
   , [_xN]: _sNeq }], [() => AnalysisAclRule$, { [_eQN]: `AclRule`
   , [_xN]: _aRc }], [() => AnalysisComponent$, { [_eQN]: `AttachedTo`
   , [_xN]: _aTtt }], [() => AnalysisComponent$, { [_eQN]: `Component`
   , [_xN]: _c }], [() => AnalysisComponent$, { [_eQN]: `DestinationVpc`
   , [_xN]: _dV }], [() => AnalysisPacketHeader$, { [_eQN]: `OutboundHeader`
-  , [_xN]: _oH }], [() => AnalysisPacketHeader$, { [_eQN]: `InboundHeader`
+  , [_xN]: _oHu }], [() => AnalysisPacketHeader$, { [_eQN]: `InboundHeader`
   , [_xN]: _iHn }], [() => AnalysisRouteTableRoute$, { [_eQN]: `RouteTableRoute`
   , [_xN]: _rTR }], [() => AnalysisSecurityGroupRule$, { [_eQN]: `SecurityGroupRule`
   , [_xN]: _sGR }], [() => AnalysisComponent$, { [_eQN]: `SourceVpc`
@@ -22233,7 +22653,7 @@ export var PathFilter$: StaticStructureSchema = [3, n0, _PFa,
   [[0, { [_eQN]: `SourceAddress`
   , [_xN]: _sAo }], [() => FilterPortRange$, { [_eQN]: `SourcePortRange`
   , [_xN]: _sPR }], [0, { [_eQN]: `DestinationAddress`
-  , [_xN]: _dAe }], [() => FilterPortRange$, { [_eQN]: `DestinationPortRange`
+  , [_xN]: _dAes }], [() => FilterPortRange$, { [_eQN]: `DestinationPortRange`
   , [_xN]: _dPR }]]
 ];
 export var PathRequestFilter$: StaticStructureSchema = [3, n0, _PRF,
@@ -25424,7 +25844,7 @@ export var TransitGatewayRouteTablePropagation$: StaticStructureSchema = [3, n0,
 ];
 export var TransitGatewayRouteTableRoute$: StaticStructureSchema = [3, n0, _TGRTR,
   0,
-  [_DCe, _St, _ROo, _PLI, _AItt, _RIeso, _RTe],
+  [_DCe, _St, _ROou, _PLI, _AItt, _RIeso, _RTe],
   [[0, { [_eQN]: `DestinationCidr`
   , [_xN]: _dC }], [0, { [_eQN]: `State`
   , [_xN]: _st }], [0, { [_eQN]: `RouteOrigin`
@@ -26613,6 +27033,10 @@ var AsnAssociationSet: StaticListSchema = [1, n0, _AAS,
   0, [() => AsnAssociation$,
     { [_xN]: _it }]
 ];
+var AsnList: StaticListSchema = [1, n0, _ALs,
+  0, [0,
+    { [_xN]: _it }]
+];
 var AsPath: StaticListSchema = [1, n0, _APsa,
   0, [0,
     { [_xN]: _it }]
@@ -27660,8 +28084,24 @@ var IpamDiscoveredResourceCidrSet: StaticListSchema = [1, n0, _IDRCS,
   0, [() => IpamDiscoveredResourceCidr$,
     { [_xN]: _it }]
 ];
+var IpamDiscoveredRouteSet: StaticListSchema = [1, n0, _IDRS,
+  0, [() => IpamDiscoveredRoute$,
+    { [_xN]: _it }]
+];
 var IpamExternalResourceVerificationTokenSet: StaticListSchema = [1, n0, _IERVTS,
   0, [() => IpamExternalResourceVerificationToken$,
+    { [_xN]: _it }]
+];
+var IpamInternetRegistryAssociationAsnSet: StaticListSchema = [1, n0, _IIRAAS,
+  0, [() => IpamInternetRegistryAssociationAsn$,
+    { [_xN]: _it }]
+];
+var IpamInternetRegistryAssociationCidrSet: StaticListSchema = [1, n0, _IIRACS,
+  0, [() => IpamInternetRegistryAssociationCidr$,
+    { [_xN]: _it }]
+];
+var IpamInternetRegistryAssociationSet: StaticListSchema = [1, n0, _IIRAS,
+  0, [() => IpamInternetRegistryAssociation$,
     { [_xN]: _it }]
 ];
 var IpamOperatingRegionSet: StaticListSchema = [1, n0, _IORS,
@@ -27770,6 +28210,30 @@ var IpamResourceDiscoverySet: StaticListSchema = [1, n0, _IRDS,
 ];
 var IpamResourceTagList: StaticListSchema = [1, n0, _IRTL,
   0, [() => IpamResourceTag$,
+    { [_xN]: _it }]
+];
+var IpamRouteOriginAuthorizationInfoSet: StaticListSchema = [1, n0, _IROAIS,
+  0, [() => IpamRouteOriginAuthorizationInfo$,
+    { [_xN]: _it }]
+];
+var IpamRouteOriginAuthorizationSet: StaticListSchema = [1, n0, _IROAS,
+  0, [() => IpamRouteOriginAuthorization$,
+    { [_xN]: _it }]
+];
+var IpamRouteOverlapSet: StaticListSchema = [1, n0, _IROS,
+  0, [() => IpamRouteOverlap$,
+    { [_xN]: _it }]
+];
+var IpamRouteProtectionFindingSet: StaticListSchema = [1, n0, _IRPFS,
+  0, [() => IpamRouteProtectionFinding$,
+    { [_xN]: _it }]
+];
+var IpamRoutingPolicyRegistrationDeltaSet: StaticListSchema = [1, n0, _IRPRDS,
+  0, [() => IpamRoutingPolicyRegistrationDelta$,
+    { [_xN]: _it }]
+];
+var IpamRoutingPolicyRegistrationSet: StaticListSchema = [1, n0, _IRPRS,
+  0, [() => IpamRoutingPolicyRegistration$,
     { [_xN]: _it }]
 ];
 var IpamScopeSet: StaticListSchema = [1, n0, _ISSp,
@@ -29596,6 +30060,9 @@ export var AuthorizeSecurityGroupEgress$: StaticOperationSchema = [9, n0, _ASGE,
 export var AuthorizeSecurityGroupIngress$: StaticOperationSchema = [9, n0, _ASGIu,
   0, () => AuthorizeSecurityGroupIngressRequest$, () => AuthorizeSecurityGroupIngressResult$
 ];
+export var BatchModifyIpamRoutingPolicyRegistrations$: StaticOperationSchema = [9, n0, _BMIRPR,
+  0, () => BatchModifyIpamRoutingPolicyRegistrationsRequest$, () => BatchModifyIpamRoutingPolicyRegistrationsResult$
+];
 export var BundleInstance$: StaticOperationSchema = [9, n0, _BIun,
   0, () => BundleInstanceRequest$, () => BundleInstanceResult$
 ];
@@ -29734,6 +30201,9 @@ export var CreateIpam$: StaticOperationSchema = [9, n0, _CIre,
 export var CreateIpamExternalResourceVerificationToken$: StaticOperationSchema = [9, n0, _CIERVT,
   0, () => CreateIpamExternalResourceVerificationTokenRequest$, () => CreateIpamExternalResourceVerificationTokenResult$
 ];
+export var CreateIpamInternetRegistryAssociation$: StaticOperationSchema = [9, n0, _CIIRA,
+  0, () => CreateIpamInternetRegistryAssociationRequest$, () => CreateIpamInternetRegistryAssociationResult$
+];
 export var CreateIpamPolicy$: StaticOperationSchema = [9, n0, _CIP,
   0, () => CreateIpamPolicyRequest$, () => CreateIpamPolicyResult$
 ];
@@ -29748,6 +30218,9 @@ export var CreateIpamPrefixListResolverTarget$: StaticOperationSchema = [9, n0, 
 ];
 export var CreateIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _CIRD,
   0, () => CreateIpamResourceDiscoveryRequest$, () => CreateIpamResourceDiscoveryResult$
+];
+export var CreateIpamRoutingPolicyRegistration$: StaticOperationSchema = [9, n0, _CIRPR,
+  0, () => CreateIpamRoutingPolicyRegistrationRequest$, () => CreateIpamRoutingPolicyRegistrationResult$
 ];
 export var CreateIpamScope$: StaticOperationSchema = [9, n0, _CIS,
   0, () => CreateIpamScopeRequest$, () => CreateIpamScopeResult$
@@ -30019,11 +30492,14 @@ export var DeleteInstanceEventWindow$: StaticOperationSchema = [9, n0, _DIEW,
 export var DeleteInternetGateway$: StaticOperationSchema = [9, n0, _DIG,
   0, () => DeleteInternetGatewayRequest$, () => __Unit
 ];
-export var DeleteIpam$: StaticOperationSchema = [9, n0, _DIel,
+export var DeleteIpam$: StaticOperationSchema = [9, n0, _DIele,
   0, () => DeleteIpamRequest$, () => DeleteIpamResult$
 ];
 export var DeleteIpamExternalResourceVerificationToken$: StaticOperationSchema = [9, n0, _DIERVT,
   0, () => DeleteIpamExternalResourceVerificationTokenRequest$, () => DeleteIpamExternalResourceVerificationTokenResult$
+];
+export var DeleteIpamInternetRegistryAssociation$: StaticOperationSchema = [9, n0, _DIIRA,
+  0, () => DeleteIpamInternetRegistryAssociationRequest$, () => DeleteIpamInternetRegistryAssociationResult$
 ];
 export var DeleteIpamPolicy$: StaticOperationSchema = [9, n0, _DIP,
   0, () => DeleteIpamPolicyRequest$, () => DeleteIpamPolicyResult$
@@ -30039,6 +30515,9 @@ export var DeleteIpamPrefixListResolverTarget$: StaticOperationSchema = [9, n0, 
 ];
 export var DeleteIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _DIRD,
   0, () => DeleteIpamResourceDiscoveryRequest$, () => DeleteIpamResourceDiscoveryResult$
+];
+export var DeleteIpamRoutingPolicyRegistration$: StaticOperationSchema = [9, n0, _DIRPR,
+  0, () => DeleteIpamRoutingPolicyRegistrationRequest$, () => DeleteIpamRoutingPolicyRegistrationResult$
 ];
 export var DeleteIpamScope$: StaticOperationSchema = [9, n0, _DISe,
   0, () => DeleteIpamScopeRequest$, () => DeleteIpamScopeResult$
@@ -30507,6 +30986,9 @@ export var DescribeIpamByoasn$: StaticOperationSchema = [9, n0, _DIBe,
 ];
 export var DescribeIpamExternalResourceVerificationTokens$: StaticOperationSchema = [9, n0, _DIERVTe,
   0, () => DescribeIpamExternalResourceVerificationTokensRequest$, () => DescribeIpamExternalResourceVerificationTokensResult$
+];
+export var DescribeIpamInternetRegistryAssociations$: StaticOperationSchema = [9, n0, _DIIRAe,
+  0, () => DescribeIpamInternetRegistryAssociationsRequest$, () => DescribeIpamInternetRegistryAssociationsResult$
 ];
 export var DescribeIpamPolicies$: StaticOperationSchema = [9, n0, _DIPes,
   0, () => DescribeIpamPoliciesRequest$, () => DescribeIpamPoliciesResult$
@@ -31033,6 +31515,9 @@ export var EnableImageDeregistrationProtection$: StaticOperationSchema = [9, n0,
 export var EnableInstanceSqlHaStandbyDetections$: StaticOperationSchema = [9, n0, _EISHSD,
   0, () => EnableInstanceSqlHaStandbyDetectionsRequest$, () => EnableInstanceSqlHaStandbyDetectionsResult$
 ];
+export var EnableIpamInternetRegistryAssociation$: StaticOperationSchema = [9, n0, _EIIRA,
+  0, () => EnableIpamInternetRegistryAssociationRequest$, () => EnableIpamInternetRegistryAssociationResult$
+];
 export var EnableIpamOrganizationAdminAccount$: StaticOperationSchema = [9, n0, _EIOAA,
   0, () => EnableIpamOrganizationAdminAccountRequest$, () => EnableIpamOrganizationAdminAccountResult$
 ];
@@ -31174,6 +31659,15 @@ export var GetIpamDiscoveredPublicAddresses$: StaticOperationSchema = [9, n0, _G
 export var GetIpamDiscoveredResourceCidrs$: StaticOperationSchema = [9, n0, _GIDRC,
   0, () => GetIpamDiscoveredResourceCidrsRequest$, () => GetIpamDiscoveredResourceCidrsResult$
 ];
+export var GetIpamDiscoveredRoutes$: StaticOperationSchema = [9, n0, _GIDR,
+  0, () => GetIpamDiscoveredRoutesRequest$, () => GetIpamDiscoveredRoutesResult$
+];
+export var GetIpamInternetRegistryAssociationAsns$: StaticOperationSchema = [9, n0, _GIIRAA,
+  0, () => GetIpamInternetRegistryAssociationAsnsRequest$, () => GetIpamInternetRegistryAssociationAsnsResult$
+];
+export var GetIpamInternetRegistryAssociationCidrs$: StaticOperationSchema = [9, n0, _GIIRAC,
+  0, () => GetIpamInternetRegistryAssociationCidrsRequest$, () => GetIpamInternetRegistryAssociationCidrsResult$
+];
 export var GetIpamPolicyAllocationRules$: StaticOperationSchema = [9, n0, _GIPARet,
   0, () => GetIpamPolicyAllocationRulesRequest$, () => GetIpamPolicyAllocationRulesResult$
 ];
@@ -31197,6 +31691,18 @@ export var GetIpamPrefixListResolverVersions$: StaticOperationSchema = [9, n0, _
 ];
 export var GetIpamResourceCidrs$: StaticOperationSchema = [9, n0, _GIRC,
   0, () => GetIpamResourceCidrsRequest$, () => GetIpamResourceCidrsResult$
+];
+export var GetIpamRouteOriginAuthorizations$: StaticOperationSchema = [9, n0, _GIROA,
+  0, () => GetIpamRouteOriginAuthorizationsRequest$, () => GetIpamRouteOriginAuthorizationsResult$
+];
+export var GetIpamRouteProtectionFindings$: StaticOperationSchema = [9, n0, _GIRPF,
+  0, () => GetIpamRouteProtectionFindingsRequest$, () => GetIpamRouteProtectionFindingsResult$
+];
+export var GetIpamRoutingPolicyRegistrationDeltas$: StaticOperationSchema = [9, n0, _GIRPRD,
+  0, () => GetIpamRoutingPolicyRegistrationDeltasRequest$, () => GetIpamRoutingPolicyRegistrationDeltasResult$
+];
+export var GetIpamRoutingPolicyRegistrations$: StaticOperationSchema = [9, n0, _GIRPR,
+  0, () => GetIpamRoutingPolicyRegistrationsRequest$, () => GetIpamRoutingPolicyRegistrationsResult$
 ];
 export var GetLaunchTemplateData$: StaticOperationSchema = [9, n0, _GLTD,
   0, () => GetLaunchTemplateDataRequest$, () => GetLaunchTemplateDataResult$
@@ -31425,6 +31931,9 @@ export var ModifyIpamResourceCidr$: StaticOperationSchema = [9, n0, _MIRC,
 ];
 export var ModifyIpamResourceDiscovery$: StaticOperationSchema = [9, n0, _MIRD,
   0, () => ModifyIpamResourceDiscoveryRequest$, () => ModifyIpamResourceDiscoveryResult$
+];
+export var ModifyIpamRoutingPolicyRegistration$: StaticOperationSchema = [9, n0, _MIRPR,
+  0, () => ModifyIpamRoutingPolicyRegistrationRequest$, () => ModifyIpamRoutingPolicyRegistrationResult$
 ];
 export var ModifyIpamScope$: StaticOperationSchema = [9, n0, _MIS,
   0, () => ModifyIpamScopeRequest$, () => ModifyIpamScopeResult$

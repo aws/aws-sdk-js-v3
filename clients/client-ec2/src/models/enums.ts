@@ -96,6 +96,7 @@ export const ResourceType = {
   internet_gateway: "internet-gateway",
   ipam: "ipam",
   ipam_external_resource_verification_token: "ipam-external-resource-verification-token",
+  ipam_internet_registry_association: "ipam-internet-registry-association",
   ipam_policy: "ipam-policy",
   ipam_pool: "ipam-pool",
   ipam_pool_allocation: "ipam-pool-allocation",
@@ -1132,6 +1133,21 @@ export const ClientVpnAuthorizationRuleStatusCode = {
  */
 export type ClientVpnAuthorizationRuleStatusCode =
   (typeof ClientVpnAuthorizationRuleStatusCode)[keyof typeof ClientVpnAuthorizationRuleStatusCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamRoutingPolicyRegistrationDeltaState = {
+  failed: "failed",
+  pending: "pending",
+  published: "published",
+} as const;
+/**
+ * @public
+ */
+export type IpamRoutingPolicyRegistrationDeltaState =
+  (typeof IpamRoutingPolicyRegistrationDeltaState)[keyof typeof IpamRoutingPolicyRegistrationDeltaState];
 
 /**
  * @public
@@ -3797,6 +3813,42 @@ export const TokenState = {
  * @public
  */
 export type TokenState = (typeof TokenState)[keyof typeof TokenState];
+
+/**
+ * @public
+ * @enum
+ */
+export const Rir = {
+  apnic: "apnic",
+  arin: "arin",
+  lacnic: "lacnic",
+  ripe: "ripe",
+} as const;
+/**
+ * @public
+ */
+export type Rir = (typeof Rir)[keyof typeof Rir];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamInternetRegistryAssociationState = {
+  create_failed: "create-failed",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_failed: "delete-failed",
+  delete_in_progress: "delete-in-progress",
+  enable_complete: "enable-complete",
+  enable_failed: "enable-failed",
+  enable_in_progress: "enable-in-progress",
+  pending_enable: "pending-enable",
+} as const;
+/**
+ * @public
+ */
+export type IpamInternetRegistryAssociationState =
+  (typeof IpamInternetRegistryAssociationState)[keyof typeof IpamInternetRegistryAssociationState];
 
 /**
  * @public
@@ -8110,6 +8162,40 @@ export type IpamNetworkInterfaceAttachmentStatus =
  * @public
  * @enum
  */
+export const IpamByoipAdvertisementType = {
+  global: "global",
+  regional: "regional",
+} as const;
+/**
+ * @public
+ */
+export type IpamByoipAdvertisementType = (typeof IpamByoipAdvertisementType)[keyof typeof IpamByoipAdvertisementType];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamByoipCidrState = {
+  advertised: "advertised",
+  deprovisioned: "deprovisioned",
+  failed_deprovision: "failed-deprovision",
+  failed_provision: "failed-provision",
+  pending_advertising: "pending-advertising",
+  pending_deprovision: "pending-deprovision",
+  pending_provision: "pending-provision",
+  pending_withdrawal: "pending-withdrawal",
+  provisioned: "provisioned",
+  provisioned_not_publicly_advertisable: "provisioned-not-publicly-advertisable",
+} as const;
+/**
+ * @public
+ */
+export type IpamByoipCidrState = (typeof IpamByoipCidrState)[keyof typeof IpamByoipCidrState];
+
+/**
+ * @public
+ * @enum
+ */
 export const IpamPolicyResourceType = {
   alb: "alb",
   eip: "eip",
@@ -8134,6 +8220,66 @@ export const IpamManagementState = {
  * @public
  */
 export type IpamManagementState = (typeof IpamManagementState)[keyof typeof IpamManagementState];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamRpkiStatus = {
+  invalid: "invalid",
+  unknown: "unknown",
+  valid: "valid",
+} as const;
+/**
+ * @public
+ */
+export type IpamRpkiStatus = (typeof IpamRpkiStatus)[keyof typeof IpamRpkiStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamRpkiStrength = {
+  permissive: "permissive",
+  strict: "strict",
+} as const;
+/**
+ * @public
+ */
+export type IpamRpkiStrength = (typeof IpamRpkiStrength)[keyof typeof IpamRpkiStrength];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChronologicalOrder = {
+  forward: "forward",
+  reverse: "reverse",
+} as const;
+/**
+ * @public
+ */
+export type ChronologicalOrder = (typeof ChronologicalOrder)[keyof typeof ChronologicalOrder];
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamRoutingPolicyRegistrationState = {
+  activate_failed: "activate-failed",
+  create_complete: "create-complete",
+  create_in_progress: "create-in-progress",
+  delete_complete: "delete-complete",
+  delete_in_progress: "delete-in-progress",
+  pending_activate: "pending-activate",
+  update_complete: "update-complete",
+  update_in_progress: "update-in-progress",
+} as const;
+/**
+ * @public
+ */
+export type IpamRoutingPolicyRegistrationState =
+  (typeof IpamRoutingPolicyRegistrationState)[keyof typeof IpamRoutingPolicyRegistrationState];
 
 /**
  * @public

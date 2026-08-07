@@ -1,0 +1,185 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamRoutingPolicyRegistrationsResult xmlns="https://placeholder.amazonaws.com"/>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetIpamRoutingPolicyRegistrationsResult xmlns="https://placeholder.amazonaws.com">
+    <ipamRoutingPolicyRegistrationSet>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <asnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asnSet>
+            <permitMoreSpecificAnnouncements>
+                false
+            </permitMoreSpecificAnnouncements>
+            <maxLength>
+                0
+            </maxLength>
+            <description>
+                __Description__
+            </description>
+            <latestDeltaId>
+                __LatestDeltaId__
+            </latestDeltaId>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <asnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asnSet>
+            <permitMoreSpecificAnnouncements>
+                false
+            </permitMoreSpecificAnnouncements>
+            <maxLength>
+                0
+            </maxLength>
+            <description>
+                __Description__
+            </description>
+            <latestDeltaId>
+                __LatestDeltaId__
+            </latestDeltaId>
+            <state>
+                __State__
+            </state>
+        </item>
+        <item>
+            <cidr>
+                __Cidr__
+            </cidr>
+            <asnSet>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+                <item>
+                    __member__
+                </item>
+            </asnSet>
+            <permitMoreSpecificAnnouncements>
+                false
+            </permitMoreSpecificAnnouncements>
+            <maxLength>
+                0
+            </maxLength>
+            <description>
+                __Description__
+            </description>
+            <latestDeltaId>
+                __LatestDeltaId__
+            </latestDeltaId>
+            <state>
+                __State__
+            </state>
+        </item>
+    </ipamRoutingPolicyRegistrationSet>
+    <nextToken>
+        __NextToken__
+    </nextToken>
+</GetIpamRoutingPolicyRegistrationsResult>
+
+
+--- [output object] ---
+{
+  IpamRoutingPolicyRegistrations: [
+    {
+      Cidr: "__Cidr__",
+      Asns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PermitMoreSpecificAnnouncements: (boolean) false,
+      MaxLength: (number) 0,
+      Description: "__Description__",
+      LatestDeltaId: "__LatestDeltaId__",
+      State: "__State__"
+    },
+    {
+      Cidr: "__Cidr__",
+      Asns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PermitMoreSpecificAnnouncements: (boolean) false,
+      MaxLength: (number) 0,
+      Description: "__Description__",
+      LatestDeltaId: "__LatestDeltaId__",
+      State: "__State__"
+    },
+    {
+      Cidr: "__Cidr__",
+      Asns: [
+        "__member__",
+        "__member__",
+        "__member__"
+      ],
+      PermitMoreSpecificAnnouncements: (boolean) false,
+      MaxLength: (number) 0,
+      Description: "__Description__",
+      LatestDeltaId: "__LatestDeltaId__",
+      State: "__State__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

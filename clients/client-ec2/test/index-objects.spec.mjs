@@ -289,6 +289,10 @@ import {
   BaselineEbsBandwidthMbpsRequest$,
   BaselinePerformanceFactors$,
   BaselinePerformanceFactorsRequest$,
+  BatchModifyIpamRoutingPolicyRegistrations$,
+  BatchModifyIpamRoutingPolicyRegistrationsCommand,
+  BatchModifyIpamRoutingPolicyRegistrationsRequest$,
+  BatchModifyIpamRoutingPolicyRegistrationsResult$,
   BatchState,
   BgpStatus,
   BlobAttributeValue$,
@@ -409,6 +413,7 @@ import {
   CarrierGatewayState,
   CertificateAuthentication$,
   CertificateAuthenticationRequest$,
+  ChronologicalOrder,
   CidrAuthorizationContext$,
   CidrBlock$,
   ClassicLinkDnsSupport$,
@@ -601,6 +606,10 @@ import {
   CreateIpamExternalResourceVerificationTokenCommand,
   CreateIpamExternalResourceVerificationTokenRequest$,
   CreateIpamExternalResourceVerificationTokenResult$,
+  CreateIpamInternetRegistryAssociation$,
+  CreateIpamInternetRegistryAssociationCommand,
+  CreateIpamInternetRegistryAssociationRequest$,
+  CreateIpamInternetRegistryAssociationResult$,
   CreateIpamPolicy$,
   CreateIpamPolicyCommand,
   CreateIpamPolicyRequest$,
@@ -623,6 +632,10 @@ import {
   CreateIpamResourceDiscoveryRequest$,
   CreateIpamResourceDiscoveryResult$,
   CreateIpamResult$,
+  CreateIpamRoutingPolicyRegistration$,
+  CreateIpamRoutingPolicyRegistrationCommand,
+  CreateIpamRoutingPolicyRegistrationRequest$,
+  CreateIpamRoutingPolicyRegistrationResult$,
   CreateIpamScope$,
   CreateIpamScopeCommand,
   CreateIpamScopeRequest$,
@@ -1017,6 +1030,10 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommand,
   DeleteIpamExternalResourceVerificationTokenRequest$,
   DeleteIpamExternalResourceVerificationTokenResult$,
+  DeleteIpamInternetRegistryAssociation$,
+  DeleteIpamInternetRegistryAssociationCommand,
+  DeleteIpamInternetRegistryAssociationRequest$,
+  DeleteIpamInternetRegistryAssociationResult$,
   DeleteIpamPolicy$,
   DeleteIpamPolicyCommand,
   DeleteIpamPolicyRequest$,
@@ -1039,6 +1056,10 @@ import {
   DeleteIpamResourceDiscoveryRequest$,
   DeleteIpamResourceDiscoveryResult$,
   DeleteIpamResult$,
+  DeleteIpamRoutingPolicyRegistration$,
+  DeleteIpamRoutingPolicyRegistrationCommand,
+  DeleteIpamRoutingPolicyRegistrationRequest$,
+  DeleteIpamRoutingPolicyRegistrationResult$,
   DeleteIpamScope$,
   DeleteIpamScopeCommand,
   DeleteIpamScopeRequest$,
@@ -1658,6 +1679,10 @@ import {
   DescribeIpamExternalResourceVerificationTokensCommand,
   DescribeIpamExternalResourceVerificationTokensRequest$,
   DescribeIpamExternalResourceVerificationTokensResult$,
+  DescribeIpamInternetRegistryAssociations$,
+  DescribeIpamInternetRegistryAssociationsCommand,
+  DescribeIpamInternetRegistryAssociationsRequest$,
+  DescribeIpamInternetRegistryAssociationsResult$,
   DescribeIpamPolicies$,
   DescribeIpamPoliciesCommand,
   DescribeIpamPoliciesRequest$,
@@ -2416,6 +2441,10 @@ import {
   EnableInstanceSqlHaStandbyDetectionsCommand,
   EnableInstanceSqlHaStandbyDetectionsRequest$,
   EnableInstanceSqlHaStandbyDetectionsResult$,
+  EnableIpamInternetRegistryAssociation$,
+  EnableIpamInternetRegistryAssociationCommand,
+  EnableIpamInternetRegistryAssociationRequest$,
+  EnableIpamInternetRegistryAssociationResult$,
   EnableIpamOrganizationAdminAccount$,
   EnableIpamOrganizationAdminAccountCommand,
   EnableIpamOrganizationAdminAccountRequest$,
@@ -2688,6 +2717,18 @@ import {
   GetIpamDiscoveredResourceCidrsCommand,
   GetIpamDiscoveredResourceCidrsRequest$,
   GetIpamDiscoveredResourceCidrsResult$,
+  GetIpamDiscoveredRoutes$,
+  GetIpamDiscoveredRoutesCommand,
+  GetIpamDiscoveredRoutesRequest$,
+  GetIpamDiscoveredRoutesResult$,
+  GetIpamInternetRegistryAssociationAsns$,
+  GetIpamInternetRegistryAssociationAsnsCommand,
+  GetIpamInternetRegistryAssociationAsnsRequest$,
+  GetIpamInternetRegistryAssociationAsnsResult$,
+  GetIpamInternetRegistryAssociationCidrs$,
+  GetIpamInternetRegistryAssociationCidrsCommand,
+  GetIpamInternetRegistryAssociationCidrsRequest$,
+  GetIpamInternetRegistryAssociationCidrsResult$,
   GetIpamPolicyAllocationRules$,
   GetIpamPolicyAllocationRulesCommand,
   GetIpamPolicyAllocationRulesRequest$,
@@ -2720,6 +2761,22 @@ import {
   GetIpamResourceCidrsCommand,
   GetIpamResourceCidrsRequest$,
   GetIpamResourceCidrsResult$,
+  GetIpamRouteOriginAuthorizations$,
+  GetIpamRouteOriginAuthorizationsCommand,
+  GetIpamRouteOriginAuthorizationsRequest$,
+  GetIpamRouteOriginAuthorizationsResult$,
+  GetIpamRouteProtectionFindings$,
+  GetIpamRouteProtectionFindingsCommand,
+  GetIpamRouteProtectionFindingsRequest$,
+  GetIpamRouteProtectionFindingsResult$,
+  GetIpamRoutingPolicyRegistrationDeltas$,
+  GetIpamRoutingPolicyRegistrationDeltasCommand,
+  GetIpamRoutingPolicyRegistrationDeltasRequest$,
+  GetIpamRoutingPolicyRegistrationDeltasResult$,
+  GetIpamRoutingPolicyRegistrations$,
+  GetIpamRoutingPolicyRegistrationsCommand,
+  GetIpamRoutingPolicyRegistrationsRequest$,
+  GetIpamRoutingPolicyRegistrationsResult$,
   GetLaunchTemplateData$,
   GetLaunchTemplateDataCommand,
   GetLaunchTemplateDataRequest$,
@@ -3045,15 +3102,22 @@ import {
   IpamAddressHistoryRecord$,
   IpamAddressHistoryResourceType,
   IpamAssociatedResourceDiscoveryStatus,
+  IpamByoipAdvertisementType,
+  IpamByoipCidrState,
   IpamCidrAuthorizationContext$,
   IpamComplianceStatus,
   IpamDiscoveredAccount$,
   IpamDiscoveredPublicAddress$,
   IpamDiscoveredResourceCidr$,
+  IpamDiscoveredRoute$,
   IpamDiscoveryFailureCode,
   IpamDiscoveryFailureReason$,
   IpamExternalResourceVerificationToken$,
   IpamExternalResourceVerificationTokenState,
+  IpamInternetRegistryAssociation$,
+  IpamInternetRegistryAssociationAsn$,
+  IpamInternetRegistryAssociationCidr$,
+  IpamInternetRegistryAssociationState,
   IpamManagementState,
   IpamMeteredAccount,
   IpamNetworkInterfaceAttachmentStatus,
@@ -3108,6 +3172,16 @@ import {
   IpamResourceDiscoveryState,
   IpamResourceTag$,
   IpamResourceType,
+  IpamRouteOriginAuthorization$,
+  IpamRouteOriginAuthorizationInfo$,
+  IpamRouteOverlap$,
+  IpamRouteProtectionFinding$,
+  IpamRoutingPolicyRegistration$,
+  IpamRoutingPolicyRegistrationDelta$,
+  IpamRoutingPolicyRegistrationDeltaState,
+  IpamRoutingPolicyRegistrationState,
+  IpamRpkiStatus,
+  IpamRpkiStrength,
   IpamScope$,
   IpamScopeExternalAuthorityConfiguration$,
   IpamScopeExternalAuthorityType,
@@ -3403,6 +3477,10 @@ import {
   ModifyIpamResourceDiscoveryRequest$,
   ModifyIpamResourceDiscoveryResult$,
   ModifyIpamResult$,
+  ModifyIpamRoutingPolicyRegistration$,
+  ModifyIpamRoutingPolicyRegistrationCommand,
+  ModifyIpamRoutingPolicyRegistrationRequest$,
+  ModifyIpamRoutingPolicyRegistrationResult$,
   ModifyIpamScope$,
   ModifyIpamScopeCommand,
   ModifyIpamScopeRequest$,
@@ -4170,6 +4248,7 @@ import {
   RevokeSecurityGroupIngressRequest$,
   RevokeSecurityGroupIngressResult$,
   RIProductDescription,
+  Rir,
   RootDeviceType,
   Route$,
   RouteOrigin,
@@ -4852,6 +4931,8 @@ assert(typeof AuthorizeSecurityGroupEgressCommand === "function");
 assert(typeof AuthorizeSecurityGroupEgress$ === "object");
 assert(typeof AuthorizeSecurityGroupIngressCommand === "function");
 assert(typeof AuthorizeSecurityGroupIngress$ === "object");
+assert(typeof BatchModifyIpamRoutingPolicyRegistrationsCommand === "function");
+assert(typeof BatchModifyIpamRoutingPolicyRegistrations$ === "object");
 assert(typeof BundleInstanceCommand === "function");
 assert(typeof BundleInstance$ === "object");
 assert(typeof CancelBundleTaskCommand === "function");
@@ -4944,6 +5025,8 @@ assert(typeof CreateIpamCommand === "function");
 assert(typeof CreateIpam$ === "object");
 assert(typeof CreateIpamExternalResourceVerificationTokenCommand === "function");
 assert(typeof CreateIpamExternalResourceVerificationToken$ === "object");
+assert(typeof CreateIpamInternetRegistryAssociationCommand === "function");
+assert(typeof CreateIpamInternetRegistryAssociation$ === "object");
 assert(typeof CreateIpamPolicyCommand === "function");
 assert(typeof CreateIpamPolicy$ === "object");
 assert(typeof CreateIpamPoolCommand === "function");
@@ -4954,6 +5037,8 @@ assert(typeof CreateIpamPrefixListResolverTargetCommand === "function");
 assert(typeof CreateIpamPrefixListResolverTarget$ === "object");
 assert(typeof CreateIpamResourceDiscoveryCommand === "function");
 assert(typeof CreateIpamResourceDiscovery$ === "object");
+assert(typeof CreateIpamRoutingPolicyRegistrationCommand === "function");
+assert(typeof CreateIpamRoutingPolicyRegistration$ === "object");
 assert(typeof CreateIpamScopeCommand === "function");
 assert(typeof CreateIpamScope$ === "object");
 assert(typeof CreateKeyPairCommand === "function");
@@ -5138,6 +5223,8 @@ assert(typeof DeleteIpamCommand === "function");
 assert(typeof DeleteIpam$ === "object");
 assert(typeof DeleteIpamExternalResourceVerificationTokenCommand === "function");
 assert(typeof DeleteIpamExternalResourceVerificationToken$ === "object");
+assert(typeof DeleteIpamInternetRegistryAssociationCommand === "function");
+assert(typeof DeleteIpamInternetRegistryAssociation$ === "object");
 assert(typeof DeleteIpamPolicyCommand === "function");
 assert(typeof DeleteIpamPolicy$ === "object");
 assert(typeof DeleteIpamPoolCommand === "function");
@@ -5148,6 +5235,8 @@ assert(typeof DeleteIpamPrefixListResolverTargetCommand === "function");
 assert(typeof DeleteIpamPrefixListResolverTarget$ === "object");
 assert(typeof DeleteIpamResourceDiscoveryCommand === "function");
 assert(typeof DeleteIpamResourceDiscovery$ === "object");
+assert(typeof DeleteIpamRoutingPolicyRegistrationCommand === "function");
+assert(typeof DeleteIpamRoutingPolicyRegistration$ === "object");
 assert(typeof DeleteIpamScopeCommand === "function");
 assert(typeof DeleteIpamScope$ === "object");
 assert(typeof DeleteKeyPairCommand === "function");
@@ -5460,6 +5549,8 @@ assert(typeof DescribeIpamByoasnCommand === "function");
 assert(typeof DescribeIpamByoasn$ === "object");
 assert(typeof DescribeIpamExternalResourceVerificationTokensCommand === "function");
 assert(typeof DescribeIpamExternalResourceVerificationTokens$ === "object");
+assert(typeof DescribeIpamInternetRegistryAssociationsCommand === "function");
+assert(typeof DescribeIpamInternetRegistryAssociations$ === "object");
 assert(typeof DescribeIpamPoliciesCommand === "function");
 assert(typeof DescribeIpamPolicies$ === "object");
 assert(typeof DescribeIpamPoolAllocationsCommand === "function");
@@ -5810,6 +5901,8 @@ assert(typeof EnableImageDeregistrationProtectionCommand === "function");
 assert(typeof EnableImageDeregistrationProtection$ === "object");
 assert(typeof EnableInstanceSqlHaStandbyDetectionsCommand === "function");
 assert(typeof EnableInstanceSqlHaStandbyDetections$ === "object");
+assert(typeof EnableIpamInternetRegistryAssociationCommand === "function");
+assert(typeof EnableIpamInternetRegistryAssociation$ === "object");
 assert(typeof EnableIpamOrganizationAdminAccountCommand === "function");
 assert(typeof EnableIpamOrganizationAdminAccount$ === "object");
 assert(typeof EnableIpamPolicyCommand === "function");
@@ -5904,6 +5997,12 @@ assert(typeof GetIpamDiscoveredPublicAddressesCommand === "function");
 assert(typeof GetIpamDiscoveredPublicAddresses$ === "object");
 assert(typeof GetIpamDiscoveredResourceCidrsCommand === "function");
 assert(typeof GetIpamDiscoveredResourceCidrs$ === "object");
+assert(typeof GetIpamDiscoveredRoutesCommand === "function");
+assert(typeof GetIpamDiscoveredRoutes$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationAsnsCommand === "function");
+assert(typeof GetIpamInternetRegistryAssociationAsns$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationCidrsCommand === "function");
+assert(typeof GetIpamInternetRegistryAssociationCidrs$ === "object");
 assert(typeof GetIpamPolicyAllocationRulesCommand === "function");
 assert(typeof GetIpamPolicyAllocationRules$ === "object");
 assert(typeof GetIpamPolicyOrganizationTargetsCommand === "function");
@@ -5920,6 +6019,14 @@ assert(typeof GetIpamPrefixListResolverVersionsCommand === "function");
 assert(typeof GetIpamPrefixListResolverVersions$ === "object");
 assert(typeof GetIpamResourceCidrsCommand === "function");
 assert(typeof GetIpamResourceCidrs$ === "object");
+assert(typeof GetIpamRouteOriginAuthorizationsCommand === "function");
+assert(typeof GetIpamRouteOriginAuthorizations$ === "object");
+assert(typeof GetIpamRouteProtectionFindingsCommand === "function");
+assert(typeof GetIpamRouteProtectionFindings$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationDeltasCommand === "function");
+assert(typeof GetIpamRoutingPolicyRegistrationDeltas$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationsCommand === "function");
+assert(typeof GetIpamRoutingPolicyRegistrations$ === "object");
 assert(typeof GetLaunchTemplateDataCommand === "function");
 assert(typeof GetLaunchTemplateData$ === "object");
 assert(typeof GetManagedPrefixListAssociationsCommand === "function");
@@ -6072,6 +6179,8 @@ assert(typeof ModifyIpamResourceCidrCommand === "function");
 assert(typeof ModifyIpamResourceCidr$ === "object");
 assert(typeof ModifyIpamResourceDiscoveryCommand === "function");
 assert(typeof ModifyIpamResourceDiscovery$ === "object");
+assert(typeof ModifyIpamRoutingPolicyRegistrationCommand === "function");
+assert(typeof ModifyIpamRoutingPolicyRegistration$ === "object");
 assert(typeof ModifyIpamScopeCommand === "function");
 assert(typeof ModifyIpamScope$ === "object");
 assert(typeof ModifyLaunchTemplateCommand === "function");
@@ -6480,6 +6589,8 @@ assert(typeof BaselineEbsBandwidthMbps$ === "object");
 assert(typeof BaselineEbsBandwidthMbpsRequest$ === "object");
 assert(typeof BaselinePerformanceFactors$ === "object");
 assert(typeof BaselinePerformanceFactorsRequest$ === "object");
+assert(typeof BatchModifyIpamRoutingPolicyRegistrationsRequest$ === "object");
+assert(typeof BatchModifyIpamRoutingPolicyRegistrationsResult$ === "object");
 assert(typeof BlobAttributeValue$ === "object");
 assert(typeof BlockDeviceMapping$ === "object");
 assert(typeof BlockDeviceMappingResponse$ === "object");
@@ -6657,6 +6768,8 @@ assert(typeof CreateInterruptibleCapacityReservationAllocationRequest$ === "obje
 assert(typeof CreateInterruptibleCapacityReservationAllocationResult$ === "object");
 assert(typeof CreateIpamExternalResourceVerificationTokenRequest$ === "object");
 assert(typeof CreateIpamExternalResourceVerificationTokenResult$ === "object");
+assert(typeof CreateIpamInternetRegistryAssociationRequest$ === "object");
+assert(typeof CreateIpamInternetRegistryAssociationResult$ === "object");
 assert(typeof CreateIpamPolicyRequest$ === "object");
 assert(typeof CreateIpamPolicyResult$ === "object");
 assert(typeof CreateIpamPoolRequest$ === "object");
@@ -6669,6 +6782,8 @@ assert(typeof CreateIpamRequest$ === "object");
 assert(typeof CreateIpamResourceDiscoveryRequest$ === "object");
 assert(typeof CreateIpamResourceDiscoveryResult$ === "object");
 assert(typeof CreateIpamResult$ === "object");
+assert(typeof CreateIpamRoutingPolicyRegistrationRequest$ === "object");
+assert(typeof CreateIpamRoutingPolicyRegistrationResult$ === "object");
 assert(typeof CreateIpamScopeRequest$ === "object");
 assert(typeof CreateIpamScopeResult$ === "object");
 assert(typeof CreateKeyPairRequest$ === "object");
@@ -6870,6 +6985,8 @@ assert(typeof DeleteInstanceEventWindowResult$ === "object");
 assert(typeof DeleteInternetGatewayRequest$ === "object");
 assert(typeof DeleteIpamExternalResourceVerificationTokenRequest$ === "object");
 assert(typeof DeleteIpamExternalResourceVerificationTokenResult$ === "object");
+assert(typeof DeleteIpamInternetRegistryAssociationRequest$ === "object");
+assert(typeof DeleteIpamInternetRegistryAssociationResult$ === "object");
 assert(typeof DeleteIpamPolicyRequest$ === "object");
 assert(typeof DeleteIpamPolicyResult$ === "object");
 assert(typeof DeleteIpamPoolRequest$ === "object");
@@ -6882,6 +6999,8 @@ assert(typeof DeleteIpamRequest$ === "object");
 assert(typeof DeleteIpamResourceDiscoveryRequest$ === "object");
 assert(typeof DeleteIpamResourceDiscoveryResult$ === "object");
 assert(typeof DeleteIpamResult$ === "object");
+assert(typeof DeleteIpamRoutingPolicyRegistrationRequest$ === "object");
+assert(typeof DeleteIpamRoutingPolicyRegistrationResult$ === "object");
 assert(typeof DeleteIpamScopeRequest$ === "object");
 assert(typeof DeleteIpamScopeResult$ === "object");
 assert(typeof DeleteKeyPairRequest$ === "object");
@@ -7188,6 +7307,8 @@ assert(typeof DescribeIpamByoasnRequest$ === "object");
 assert(typeof DescribeIpamByoasnResult$ === "object");
 assert(typeof DescribeIpamExternalResourceVerificationTokensRequest$ === "object");
 assert(typeof DescribeIpamExternalResourceVerificationTokensResult$ === "object");
+assert(typeof DescribeIpamInternetRegistryAssociationsRequest$ === "object");
+assert(typeof DescribeIpamInternetRegistryAssociationsResult$ === "object");
 assert(typeof DescribeIpamPoliciesRequest$ === "object");
 assert(typeof DescribeIpamPoliciesResult$ === "object");
 assert(typeof DescribeIpamPoolAllocationsRequest$ === "object");
@@ -7575,6 +7696,8 @@ assert(typeof EnableImageRequest$ === "object");
 assert(typeof EnableImageResult$ === "object");
 assert(typeof EnableInstanceSqlHaStandbyDetectionsRequest$ === "object");
 assert(typeof EnableInstanceSqlHaStandbyDetectionsResult$ === "object");
+assert(typeof EnableIpamInternetRegistryAssociationRequest$ === "object");
+assert(typeof EnableIpamInternetRegistryAssociationResult$ === "object");
 assert(typeof EnableIpamOrganizationAdminAccountRequest$ === "object");
 assert(typeof EnableIpamOrganizationAdminAccountResult$ === "object");
 assert(typeof EnableIpamPolicyRequest$ === "object");
@@ -7718,6 +7841,12 @@ assert(typeof GetIpamDiscoveredPublicAddressesRequest$ === "object");
 assert(typeof GetIpamDiscoveredPublicAddressesResult$ === "object");
 assert(typeof GetIpamDiscoveredResourceCidrsRequest$ === "object");
 assert(typeof GetIpamDiscoveredResourceCidrsResult$ === "object");
+assert(typeof GetIpamDiscoveredRoutesRequest$ === "object");
+assert(typeof GetIpamDiscoveredRoutesResult$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationAsnsRequest$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationAsnsResult$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationCidrsRequest$ === "object");
+assert(typeof GetIpamInternetRegistryAssociationCidrsResult$ === "object");
 assert(typeof GetIpamPolicyAllocationRulesRequest$ === "object");
 assert(typeof GetIpamPolicyAllocationRulesResult$ === "object");
 assert(typeof GetIpamPolicyOrganizationTargetsRequest$ === "object");
@@ -7734,6 +7863,14 @@ assert(typeof GetIpamPrefixListResolverVersionsRequest$ === "object");
 assert(typeof GetIpamPrefixListResolverVersionsResult$ === "object");
 assert(typeof GetIpamResourceCidrsRequest$ === "object");
 assert(typeof GetIpamResourceCidrsResult$ === "object");
+assert(typeof GetIpamRouteOriginAuthorizationsRequest$ === "object");
+assert(typeof GetIpamRouteOriginAuthorizationsResult$ === "object");
+assert(typeof GetIpamRouteProtectionFindingsRequest$ === "object");
+assert(typeof GetIpamRouteProtectionFindingsResult$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationDeltasRequest$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationDeltasResult$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationsRequest$ === "object");
+assert(typeof GetIpamRoutingPolicyRegistrationsResult$ === "object");
 assert(typeof GetLaunchTemplateDataRequest$ === "object");
 assert(typeof GetLaunchTemplateDataResult$ === "object");
 assert(typeof GetManagedPrefixListAssociationsRequest$ === "object");
@@ -7940,8 +8077,12 @@ assert(typeof IpamCidrAuthorizationContext$ === "object");
 assert(typeof IpamDiscoveredAccount$ === "object");
 assert(typeof IpamDiscoveredPublicAddress$ === "object");
 assert(typeof IpamDiscoveredResourceCidr$ === "object");
+assert(typeof IpamDiscoveredRoute$ === "object");
 assert(typeof IpamDiscoveryFailureReason$ === "object");
 assert(typeof IpamExternalResourceVerificationToken$ === "object");
+assert(typeof IpamInternetRegistryAssociation$ === "object");
+assert(typeof IpamInternetRegistryAssociationAsn$ === "object");
+assert(typeof IpamInternetRegistryAssociationCidr$ === "object");
 assert(typeof IpamOperatingRegion$ === "object");
 assert(typeof IpamOrganizationalUnitExclusion$ === "object");
 assert(typeof IpamPolicy$ === "object");
@@ -7970,6 +8111,12 @@ assert(typeof IpamResourceCidr$ === "object");
 assert(typeof IpamResourceDiscovery$ === "object");
 assert(typeof IpamResourceDiscoveryAssociation$ === "object");
 assert(typeof IpamResourceTag$ === "object");
+assert(typeof IpamRouteOriginAuthorization$ === "object");
+assert(typeof IpamRouteOriginAuthorizationInfo$ === "object");
+assert(typeof IpamRouteOverlap$ === "object");
+assert(typeof IpamRouteProtectionFinding$ === "object");
+assert(typeof IpamRoutingPolicyRegistration$ === "object");
+assert(typeof IpamRoutingPolicyRegistrationDelta$ === "object");
 assert(typeof IpamScope$ === "object");
 assert(typeof IpamScopeExternalAuthorityConfiguration$ === "object");
 assert(typeof IpPermission$ === "object");
@@ -8144,6 +8291,8 @@ assert(typeof ModifyIpamResourceCidrResult$ === "object");
 assert(typeof ModifyIpamResourceDiscoveryRequest$ === "object");
 assert(typeof ModifyIpamResourceDiscoveryResult$ === "object");
 assert(typeof ModifyIpamResult$ === "object");
+assert(typeof ModifyIpamRoutingPolicyRegistrationRequest$ === "object");
+assert(typeof ModifyIpamRoutingPolicyRegistrationResult$ === "object");
 assert(typeof ModifyIpamScopeRequest$ === "object");
 assert(typeof ModifyIpamScopeResult$ === "object");
 assert(typeof ModifyLaunchTemplateRequest$ === "object");
@@ -8861,6 +9010,7 @@ assert(typeof CapacityReservationTenancy === "object");
 assert(typeof CapacityReservationType === "object");
 assert(typeof CapacityTenancy === "object");
 assert(typeof CarrierGatewayState === "object");
+assert(typeof ChronologicalOrder === "object");
 assert(typeof ClientCertificateRevocationListStatusCode === "object");
 assert(typeof ClientVpnAuthenticationType === "object");
 assert(typeof ClientVpnAuthorizationRuleStatusCode === "object");
@@ -8989,9 +9139,12 @@ assert(typeof InterruptionType === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof IpamAddressHistoryResourceType === "object");
 assert(typeof IpamAssociatedResourceDiscoveryStatus === "object");
+assert(typeof IpamByoipAdvertisementType === "object");
+assert(typeof IpamByoipCidrState === "object");
 assert(typeof IpamComplianceStatus === "object");
 assert(typeof IpamDiscoveryFailureCode === "object");
 assert(typeof IpamExternalResourceVerificationTokenState === "object");
+assert(typeof IpamInternetRegistryAssociationState === "object");
 assert(typeof IpamManagementState === "object");
 assert(typeof IpamMeteredAccount === "object");
 assert(typeof IpamNetworkInterfaceAttachmentStatus === "object");
@@ -9018,6 +9171,10 @@ assert(typeof IpamResourceCidrIpSource === "object");
 assert(typeof IpamResourceDiscoveryAssociationState === "object");
 assert(typeof IpamResourceDiscoveryState === "object");
 assert(typeof IpamResourceType === "object");
+assert(typeof IpamRoutingPolicyRegistrationDeltaState === "object");
+assert(typeof IpamRoutingPolicyRegistrationState === "object");
+assert(typeof IpamRpkiStatus === "object");
+assert(typeof IpamRpkiStrength === "object");
 assert(typeof IpamScopeExternalAuthorityType === "object");
 assert(typeof IpamScopeState === "object");
 assert(typeof IpamScopeType === "object");
@@ -9116,6 +9273,7 @@ assert(typeof ResetFpgaImageAttributeName === "object");
 assert(typeof ResetImageAttributeName === "object");
 assert(typeof ResourceType === "object");
 assert(typeof RIProductDescription === "object");
+assert(typeof Rir === "object");
 assert(typeof RootDeviceType === "object");
 assert(typeof RouteOrigin === "object");
 assert(typeof RouteServerAssociationState === "object");

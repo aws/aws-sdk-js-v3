@@ -34,7 +34,6 @@ import type {
   DomainType,
   DynamicRoutingValue,
   EndDateType,
-  EndpointIpAddressType,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
   HostMaintenance,
@@ -49,6 +48,7 @@ import type {
   IpamAssociatedResourceDiscoveryStatus,
   IpamPoolAllocationResourceType,
   IpamResourceDiscoveryAssociationState,
+  IpamRoutingPolicyRegistrationDeltaState,
   IpScopeEnum,
   IpSource,
   Ipv6AddressAttribute,
@@ -68,17 +68,14 @@ import type {
   Schedule,
   SecurityGroupReferencingSupportValue,
   SecurityGroupVpcAssociationState,
-  SelfServicePortal,
   ServiceManaged,
   SSEType,
   SubnetCidrBlockStateCode,
-  TrafficIpAddressType,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
   TransitGatewayAttachmentStatusType,
   TransitGatewayMulitcastDomainAssociationState,
-  TransportProtocol,
   TrustProviderType,
   UserTrustProviderType,
   VolumeAttachmentState,
@@ -3102,6 +3099,18 @@ export interface ByoipCidr {
    * @public
    */
   AdvertisementType?: string | undefined;
+
+  /**
+   * <p>The ID of the address pool associated with the CIDR.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+
+  /**
+   * <p>The ID of the IPAM pool associated with the CIDR.</p>
+   * @public
+   */
+  IpamPoolId?: string | undefined;
 }
 
 /**
@@ -6944,6 +6953,82 @@ export interface AuthorizeSecurityGroupIngressResult {
 }
 
 /**
+ * @public
+ */
+export interface BatchModifyIpamRoutingPolicyRegistrationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+
+  /**
+   * <p>The batch modifications to apply, in JSON format.</p>
+   * @public
+   */
+  DeltaJson: string | undefined;
+
+  /**
+   * <p>Forces the batch modification even if individual changes conflict with announced routes. Default: <code>false</code>.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a routing policy registration change, including the changes applied and their publication state.</p>
+ * @public
+ */
+export interface IpamRoutingPolicyRegistrationDelta {
+  /**
+   * <p>The unique identifier of the delta.</p>
+   * @public
+   */
+  DeltaId?: string | undefined;
+
+  /**
+   * <p>The JSON specification describing the changes applied in this delta.</p>
+   * @public
+   */
+  DeltaJson?: string | undefined;
+
+  /**
+   * <p>The state of the delta. Valid values: <code>pending</code> | <code>published</code> | <code>failed</code>.</p>
+   * @public
+   */
+  State?: IpamRoutingPolicyRegistrationDeltaState | undefined;
+
+  /**
+   * <p>A message describing the current state, including error information if the delta failed.</p>
+   * @public
+   */
+  StateMessage?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchModifyIpamRoutingPolicyRegistrationsResult {
+  /**
+   * <p>Information about the routing policy registration delta created by this batch operation.</p>
+   * @public
+   */
+  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
+}
+
+/**
  * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed
  *       AMI.</p>
  * @public
@@ -10392,237 +10477,4 @@ export interface ClientRouteEnforcementOptions {
    * @public
    */
   Enforced?: boolean | undefined;
-}
-
-/**
- * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
- * @public
- */
-export interface ConnectionLogOptions {
-  /**
-   * <p>Indicates whether connection logging is enabled.</p>
-   * @public
-   */
-  Enabled?: boolean | undefined;
-
-  /**
-   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
-   * @public
-   */
-  CloudwatchLogGroup?: string | undefined;
-
-  /**
-   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
-   * @public
-   */
-  CloudwatchLogStream?: string | undefined;
-}
-
-/**
- * <p>The Transit Gateway configuration for a Client VPN endpoint.</p>
- * @public
- */
-export interface TransitGatewayConfigurationInputStructure {
-  /**
-   * <p>The ID of the Transit Gateway to associate with the Client VPN endpoint.</p>
-   * @public
-   */
-  TransitGatewayId?: string | undefined;
-
-  /**
-   * <p>The Availability Zone names for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
-   * @public
-   */
-  AvailabilityZones?: string[] | undefined;
-
-  /**
-   * <p>The Availability Zone IDs for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
-   * @public
-   */
-  AvailabilityZoneIds?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateClientVpnEndpointRequest {
-  /**
-   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
-   * @public
-   */
-  ClientCidrBlock?: string | undefined;
-
-  /**
-   * <p>The ARN of the server certificate. For more information, see
-   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
-   * @public
-   */
-  ServerCertificateArn: string | undefined;
-
-  /**
-   * <p>Information about the authentication method to be used to authenticate clients.</p>
-   * @public
-   */
-  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
-
-  /**
-   * <p>Information about the client connection logging options.</p>
-   *          <p>If you enable client connection logging, data about client connections is sent to a
-   * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection results (successful and unsuccessful)</p>
-   *             </li>
-   *             <li>
-   *                <p>Reasons for unsuccessful client connection requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Client connection termination time</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ConnectionLogOptions: ConnectionLogOptions | undefined;
-
-  /**
-   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
-   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
-   * @public
-   */
-  DnsServers?: string[] | undefined;
-
-  /**
-   * <p>The transport protocol to be used by the VPN session.</p>
-   *          <p>Default value: <code>udp</code>
-   *          </p>
-   * @public
-   */
-  TransportProtocol?: TransportProtocol | undefined;
-
-  /**
-   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   *          <p>Valid Values: <code>443</code> | <code>1194</code>
-   *          </p>
-   *          <p>Default Value: <code>443</code>
-   *          </p>
-   * @public
-   */
-  VpnPort?: number | undefined;
-
-  /**
-   * <p>A brief description of the Client VPN endpoint.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
-   * 			<i>Client VPN Administrator Guide</i>.</p>
-   * @public
-   */
-  SplitTunnel?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
-   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
-   * @public
-   */
-  VpcId?: string | undefined;
-
-  /**
-   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *          <p>Default Value: <code>enabled</code>
-   *          </p>
-   * @public
-   */
-  SelfServicePortal?: SelfServicePortal | undefined;
-
-  /**
-   * <p>The options for managing connection authorization for new client connections.</p>
-   * @public
-   */
-  ClientConnectOptions?: ClientConnectOptions | undefined;
-
-  /**
-   * <p>The maximum VPN session duration time in hours.</p>
-   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
-   *          </p>
-   *          <p>Default value: <code>24</code>
-   *          </p>
-   * @public
-   */
-  SessionTimeoutHours?: number | undefined;
-
-  /**
-   * <p>Options for enabling a customizable text banner that will be displayed on
-   * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   * @public
-   */
-  ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
-
-  /**
-   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
-   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
-   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
-   * 			reverting it back to the expected route configurations.</p>
-   * @public
-   */
-  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
-
-  /**
-   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>SessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically.
-   *                    The default value is <code>true</code>.</p>
-   * @public
-   */
-  DisconnectOnSessionTimeout?: boolean | undefined;
-
-  /**
-   * <p>The IP address type for the Client VPN endpoint. Valid values are <code>ipv4</code>
-   * 			(default) for IPv4 addressing only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6
-   * 			addressing. When set to <code>dual-stack,</code> clients can connect to the endpoint
-   * 			using either IPv4 or IPv6 addresses..</p>
-   * @public
-   */
-  EndpointIpAddressType?: EndpointIpAddressType | undefined;
-
-  /**
-   * <p>The IP address type for traffic within the Client VPN tunnel. Valid values are <code>ipv4</code> (default) for IPv4 traffic only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6 traffic. When set to <code>dual-stack</code>, clients can access both IPv4 and IPv6 resources through the VPN .</p>
-   * @public
-   */
-  TrafficIpAddressType?: TrafficIpAddressType | undefined;
-
-  /**
-   * <p>The Transit Gateway configuration for the Client VPN endpoint. Use this parameter to associate the endpoint with a Transit Gateway instead of a VPC. You cannot specify both <code>TransitGatewayConfiguration</code> and <code>VpcId</code>/<code>SecurityGroupIds</code>.</p>
-   * @public
-   */
-  TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
 }

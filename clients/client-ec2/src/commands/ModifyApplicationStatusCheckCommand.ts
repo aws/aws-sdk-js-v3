@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyApplicationStatusCheckRequest, ModifyApplicationStatusCheckResult } from "../models/models_6";
+import type { ModifyApplicationStatusCheckRequest, ModifyApplicationStatusCheckResult } from "../models/models_7";
 import { ModifyApplicationStatusCheck$ } from "../schemas/schemas_0";
 
 /**
@@ -150,13 +150,13 @@ export interface ModifyApplicationStatusCheckCommandOutput extends ModifyApplica
  *   ApplicationStatusCheck: {
  *     Aggregation: "included",
  *     ApplicationStatusCheckId: "asc-0123456789abcdef0",
- *     FailureThreshold: 3,
- *     Interval: 10,
+ *     FailureThreshold: 2,
+ *     Interval: 60,
  *     Path: "/healthv2",
  *     Port: 8080,
  *     Protocol: "http",
  *     SuccessThreshold: 2,
- *     Timeout: 5
+ *     Timeout: 6
  *   }
  * }
  * *\/

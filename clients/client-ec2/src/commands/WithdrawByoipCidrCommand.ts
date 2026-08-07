@@ -58,6 +58,8 @@ export interface WithdrawByoipCidrCommandOutput extends WithdrawByoipCidrResult,
  * //     State: "advertised" || "deprovisioned" || "failed-deprovision" || "failed-provision" || "pending-advertising" || "pending-deprovision" || "pending-provision" || "pending-withdrawal" || "provisioned" || "provisioned-not-publicly-advertisable",
  * //     NetworkBorderGroup: "STRING_VALUE",
  * //     AdvertisementType: "STRING_VALUE",
+ * //     PoolId: "STRING_VALUE",
+ * //     IpamPoolId: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -5,7 +5,7 @@ import { _ep0, _mw0, command } from "../commandBuilder";
 import type {
   ModifyDefaultCreditSpecificationRequest,
   ModifyDefaultCreditSpecificationResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import { ModifyDefaultCreditSpecification$ } from "../schemas/schemas_0";
 
 /**

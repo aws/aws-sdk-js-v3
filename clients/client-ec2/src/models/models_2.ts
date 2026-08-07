@@ -23,6 +23,7 @@ import type {
   GatewayType,
   Igmpv2SupportValue,
   InstanceEventWindowState,
+  InterfacePermissionType,
   InternetGatewayExclusionMode,
   IpAddressType,
   Ipv6SupportValue,
@@ -31,6 +32,8 @@ import type {
   PayerResponsibility,
   PayerResponsibilityScope,
   PayerResponsibilityType,
+  PlacementGroupState,
+  PlacementStrategy,
   ProtocolValue,
   ReplaceRootVolumeTaskState,
   RouteOrigin,
@@ -54,6 +57,7 @@ import type {
   ServiceType,
   SnapshotLocationEnum,
   SnapshotState,
+  SpreadLevel,
   SSEType,
   State,
   StaticSourcesSupportValue,
@@ -103,6 +107,8 @@ import type {
 import type {
   ApplicationStatusCheckResponseObject,
   CarrierGateway,
+  IpamRoutingPolicyRegistrationDelta,
+  OperatorResponse,
   ReservedInstancesListing,
   RouteTableAssociationState,
   Tag,
@@ -124,6 +130,7 @@ import type {
   Ec2InstanceConnectEndpoint,
   Ipam,
   IpamExternalResourceVerificationToken,
+  IpamInternetRegistryAssociation,
   IpamPolicy,
   IpamPool,
   IpamPrefixListResolver,
@@ -135,14 +142,364 @@ import type {
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
-  LocalGatewayVirtualInterface,
-  LocalGatewayVirtualInterfaceGroup,
-  ManagedPrefixList,
+  NetworkInterfacePermissionState,
   OperatorRequest,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Describes a permission for a network interface.</p>
+ * @public
+ */
+export interface NetworkInterfacePermission {
+  /**
+   * <p>The ID of the network interface permission.</p>
+   * @public
+   */
+  NetworkInterfacePermissionId?: string | undefined;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service.</p>
+   * @public
+   */
+  AwsService?: string | undefined;
+
+  /**
+   * <p>The type of permission.</p>
+   * @public
+   */
+  Permission?: InterfacePermissionType | undefined;
+
+  /**
+   * <p>Information about the state of the permission.</p>
+   * @public
+   */
+  PermissionState?: NetworkInterfacePermissionState | undefined;
+}
+
+/**
+ * <p>Contains the output of CreateNetworkInterfacePermission.</p>
+ * @public
+ */
+export interface CreateNetworkInterfacePermissionResult {
+  /**
+   * <p>Information about the permission for the network interface.</p>
+   * @public
+   */
+  InterfacePermission?: NetworkInterfacePermission | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupRequest {
+  /**
+   * <p>The number of partitions. Valid only when <b>Strategy</b> is
+   *             set to <code>partition</code>.</p>
+   * @public
+   */
+  PartitionCount?: number | undefined;
+
+  /**
+   * <p>The tags to apply to the new placement group.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Determines how placement groups spread instances. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Host – You can use <code>host</code> only with Outpost placement
+   *                     groups.</p>
+   *             </li>
+   *             <li>
+   *                <p>Rack – No usage restrictions.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SpreadLevel?: SpreadLevel | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
+
+  /**
+   * <p>Reserved for internal use.</p>
+   * @public
+   */
+  Operator?: OperatorRequest | undefined;
+
+  /**
+   * <p>The ID of a parent placement group. Valid only when <b>Strategy</b>
+   *             is set to <code>cluster</code>.</p>
+   * @public
+   */
+  ParentGroupId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A name for the placement group. Must be unique within the scope of your account for
+   *             the Region.</p>
+   *          <p>Constraints: Up to 255 ASCII characters</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The placement strategy.</p>
+   * @public
+   */
+  Strategy?: PlacementStrategy | undefined;
+}
+
+/**
+ * <p>Describes a placement group.</p>
+ * @public
+ */
+export interface PlacementGroup {
+  /**
+   * <p>The name of the placement group.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The state of the placement group.</p>
+   * @public
+   */
+  State?: PlacementGroupState | undefined;
+
+  /**
+   * <p>The placement strategy.</p>
+   * @public
+   */
+  Strategy?: PlacementStrategy | undefined;
+
+  /**
+   * <p>The number of partitions. Valid only if <b>strategy</b> is
+   *             set to <code>partition</code>.</p>
+   * @public
+   */
+  PartitionCount?: number | undefined;
+
+  /**
+   * <p>The ID of the placement group.</p>
+   * @public
+   */
+  GroupId?: string | undefined;
+
+  /**
+   * <p>Any tags applied to the placement group.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
+   *             groups can be spread across hosts.</p>
+   * @public
+   */
+  SpreadLevel?: SpreadLevel | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  LinkedGroupId?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the Placement Group.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The ID of the parent placement group.</p>
+   * @public
+   */
+  ParentGroupId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePlacementGroupResult {
+  /**
+   * <p>Information about the placement group.</p>
+   * @public
+   */
+  PlacementGroup?: PlacementGroup | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePublicIpv4PoolRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  NetworkBorderGroup?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePublicIpv4PoolResult {
+  /**
+   * <p>The ID of the public IPv4 pool.</p>
+   * @public
+   */
+  PoolId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateReplaceRootVolumeTaskRequest {
+  /**
+   * <p>The ID of the instance for which to replace the root volume.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the snapshot from which to restore the replacement root volume. The
+   *       specified snapshot must be a snapshot that you previously created from the original
+   *       root volume.</p>
+   *          <p>If you want to restore the replacement root volume to the initial launch state,
+   *       if you want to restore the replacement root volume from an AMI, or if you want to
+   *       replace the root volume with a specified volume, omit this parameter.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
+   *       If you do not specify a client token, a randomly generated token is used for the request
+   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The tags to apply to the root volume replacement task.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
+   *       same product code, billing information, architecture type, and virtualization type as
+   *       that of the instance.</p>
+   *          <p>If you want to restore the replacement volume from a specific snapshot, if you want
+   *       to restore it to its launch state, or if you want to replace the root volume with a
+   *       specified volume, omit this parameter.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>Indicates whether to automatically delete the original root volume after the root volume
+   *       replacement task completes. To delete the original root volume, specify <code>true</code>.
+   *       If you choose to keep the original root volume after the replacement task completes, you must
+   *       manually delete it when you no longer need it.</p>
+   * @public
+   */
+  DeleteReplacedRootVolume?: boolean | undefined;
+
+  /**
+   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download
+   *       the snapshot blocks from Amazon S3 to the replacement root volume. This is also known as
+   *       <i>volume initialization</i>. Specifying a volume initialization rate ensures that
+   *       the volume is initialized at a predictable and consistent rate after creation.</p>
+   *          <p>Omit this parameter if:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You want to create the volume using fast snapshot restore. You must specify a snapshot
+   *           that is enabled for fast snapshot restore. In this case, the volume is fully initialized at
+   *           creation.</p>
+   *                <note>
+   *                   <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate,
+   *             the volume will be initialized at the specified rate instead of fast snapshot restore.</p>
+   *                </note>
+   *             </li>
+   *             <li>
+   *                <p>You want to create a volume that is initialized at the default rate.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
+   *       Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>Valid range: 100 - 300 MiB/s</p>
+   * @public
+   */
+  VolumeInitializationRate?: number | undefined;
+
+  /**
+   * <p>The ID of the volume to use as the replacement root volume. The specified volume must
+   *       be in the same Availability Zone as the instance, must be in the <code>available</code>
+   *       state, and must not be attached to an instance. If the original root volume is encrypted,
+   *       the specified volume must also be encrypted.</p>
+   *          <p>If you want to restore the replacement root volume from a specific snapshot, an AMI,
+   *       or to its launch state, omit this parameter.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+}
 
 /**
  * <p>Information about a root volume replacement task.</p>
@@ -9573,6 +9930,34 @@ export interface DeleteIpamExternalResourceVerificationTokenResult {
 /**
  * @public
  */
+export interface DeleteIpamInternetRegistryAssociationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association to delete.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamInternetRegistryAssociationResult {
+  /**
+   * <p>Information about the deleted internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociation?: IpamInternetRegistryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteIpamPolicyRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -9729,6 +10114,52 @@ export interface DeleteIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRoutingPolicyRegistrationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+
+  /**
+   * <p>The IP address prefix in CIDR notation identifying the routing policy registration to delete.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>Forces the deletion even if it conflicts with an announced route. Default: <code>false</code>.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteIpamRoutingPolicyRegistrationResult {
+  /**
+   * <p>Information about the routing policy registration delta created by this deletion.</p>
+   * @public
+   */
+  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
 }
 
 /**
@@ -10108,204 +10539,4 @@ export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
    * @public
    */
   LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayVirtualInterfaceRequest {
-  /**
-   * <p>The ID of the local virtual interface to delete.</p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayVirtualInterfaceResult {
-  /**
-   * <p>Information about the deleted local gateway virtual interface.</p>
-   * @public
-   */
-  LocalGatewayVirtualInterface?: LocalGatewayVirtualInterface | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayVirtualInterfaceGroupRequest {
-  /**
-   * <p>The ID of the local gateway virtual interface group to delete.</p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroupId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayVirtualInterfaceGroupResult {
-  /**
-   * <p>Information about the deleted local gateway virtual interface group.</p>
-   * @public
-   */
-  LocalGatewayVirtualInterfaceGroup?: LocalGatewayVirtualInterfaceGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteManagedPrefixListRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteManagedPrefixListResult {
-  /**
-   * <p>Information about the prefix list.</p>
-   * @public
-   */
-  PrefixList?: ManagedPrefixList | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNatGatewayResult {
-  /**
-   * <p>The ID of the NAT gateway.</p>
-   * @public
-   */
-  NatGatewayId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkAclEntryRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network ACL.</p>
-   * @public
-   */
-  NetworkAclId: string | undefined;
-
-  /**
-   * <p>The rule number of the entry to delete.</p>
-   * @public
-   */
-  RuleNumber: number | undefined;
-
-  /**
-   * <p>Indicates whether the rule is an egress rule.</p>
-   * @public
-   */
-  Egress: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteNetworkInsightsAccessScopeResult {
-  /**
-   * <p>The ID of the Network Access Scope.</p>
-   * @public
-   */
-  NetworkInsightsAccessScopeId?: string | undefined;
 }

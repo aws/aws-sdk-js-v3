@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_7";
+import type { RestoreImageFromRecycleBinRequest, RestoreImageFromRecycleBinResult } from "../models/models_8";
 import { RestoreImageFromRecycleBin$ } from "../schemas/schemas_0";
 
 /**

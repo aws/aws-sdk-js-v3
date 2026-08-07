@@ -23,6 +23,7 @@ import type {
   DestinationFileFormat,
   DiskImageFormat,
   Ec2InstanceConnectEndpointState,
+  EndpointIpAddressType,
   ExportEnvironment,
   ExportTaskState,
   FleetCapacityReservationUsageStrategy,
@@ -45,6 +46,7 @@ import type {
   InterruptionType,
   IpAddressType,
   IpamExternalResourceVerificationTokenState,
+  IpamInternetRegistryAssociationState,
   IpamMeteredAccount,
   IpamPolicyState,
   IpamPoolAwsService,
@@ -92,26 +94,27 @@ import type {
   NetworkInterfacePermissionStateCode,
   NetworkInterfaceStatus,
   NetworkInterfaceType,
-  PlacementGroupState,
-  PlacementStrategy,
   PlatformValues,
   PrefixListState,
   Protocol,
   ResourceType,
+  Rir,
   RuleAction,
   SecondaryInterfaceType,
+  SelfServicePortal,
   ShutdownBehavior,
   SnapshotLocationEnum,
   SpotAllocationStrategy,
   SpotInstanceInterruptionBehavior,
   SpotInstanceType,
-  SpreadLevel,
   SubnetState,
   TaggableResourceType,
   TargetCapacityUnitType,
   Tenancy,
   TokenState,
+  TrafficIpAddressType,
   TrafficType,
+  TransportProtocol,
   VolumeType,
   VpcEncryptionControlExclusionState,
   VpcEncryptionControlMode,
@@ -128,7 +131,12 @@ import type {
   AccessScopePathRequest,
   AddIpamOperatingRegion,
   AddPrefixListEntry,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
+  ClientVpnAuthenticationRequest,
   InstanceEventWindow,
+  IpamRoutingPolicyRegistrationDelta,
   Ipv4PrefixSpecification,
   NatGatewayAddress,
   OperatorResponse,
@@ -140,6 +148,239 @@ import type {
   VpcCidrBlockAssociation,
   VpcIpv6CidrBlockAssociation,
 } from "./models_0";
+
+/**
+ * <p>Describes the client connection logging options for the Client VPN endpoint.</p>
+ * @public
+ */
+export interface ConnectionLogOptions {
+  /**
+   * <p>Indicates whether connection logging is enabled.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The name of the CloudWatch Logs log group. Required if connection logging is enabled.</p>
+   * @public
+   */
+  CloudwatchLogGroup?: string | undefined;
+
+  /**
+   * <p>The name of the CloudWatch Logs log stream to which the connection data is published.</p>
+   * @public
+   */
+  CloudwatchLogStream?: string | undefined;
+}
+
+/**
+ * <p>The Transit Gateway configuration for a Client VPN endpoint.</p>
+ * @public
+ */
+export interface TransitGatewayConfigurationInputStructure {
+  /**
+   * <p>The ID of the Transit Gateway to associate with the Client VPN endpoint.</p>
+   * @public
+   */
+  TransitGatewayId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone names for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
+   * @public
+   */
+  AvailabilityZones?: string[] | undefined;
+
+  /**
+   * <p>The Availability Zone IDs for the Transit Gateway association. You can specify up to the maximum number of Availability Zones supported by the Transit Gateway. You cannot specify both <code>AvailabilityZones</code> and <code>AvailabilityZoneIds</code>.</p>
+   * @public
+   */
+  AvailabilityZoneIds?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateClientVpnEndpointRequest {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. Client CIDR range must have a size of at least /22 and must not be greater than /12.</p>
+   * @public
+   */
+  ClientCidrBlock?: string | undefined;
+
+  /**
+   * <p>The ARN of the server certificate. For more information, see
+   * 			the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+   * @public
+   */
+  ServerCertificateArn: string | undefined;
+
+  /**
+   * <p>Information about the authentication method to be used to authenticate clients.</p>
+   * @public
+   */
+  AuthenticationOptions: ClientVpnAuthenticationRequest[] | undefined;
+
+  /**
+   * <p>Information about the client connection logging options.</p>
+   *          <p>If you enable client connection logging, data about client connections is sent to a
+   * 			Cloudwatch Logs log stream. The following information is logged:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection results (successful and unsuccessful)</p>
+   *             </li>
+   *             <li>
+   *                <p>Reasons for unsuccessful client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection termination time</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConnectionLogOptions: ConnectionLogOptions | undefined;
+
+  /**
+   * <p>Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can
+   * 			have up to two DNS servers. If no DNS server is specified, the DNS address configured on the device is used for the DNS server.</p>
+   * @public
+   */
+  DnsServers?: string[] | undefined;
+
+  /**
+   * <p>The transport protocol to be used by the VPN session.</p>
+   *          <p>Default value: <code>udp</code>
+   *          </p>
+   * @public
+   */
+  TransportProtocol?: TransportProtocol | undefined;
+
+  /**
+   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          </p>
+   *          <p>Default Value: <code>443</code>
+   *          </p>
+   * @public
+   */
+  VpnPort?: number | undefined;
+
+  /**
+   * <p>A brief description of the Client VPN endpoint.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
+   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   * 			<i>Client VPN Administrator Guide</i>.</p>
+   * @public
+   */
+  SplitTunnel?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.
+   * For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Client VPN endpoint during creation.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+   *          <p>Default Value: <code>enabled</code>
+   *          </p>
+   * @public
+   */
+  SelfServicePortal?: SelfServicePortal | undefined;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   * @public
+   */
+  ClientConnectOptions?: ClientConnectOptions | undefined;
+
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   *          <p>Default value: <code>24</code>
+   *          </p>
+   * @public
+   */
+  SessionTimeoutHours?: number | undefined;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   * @public
+   */
+  ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
+
+  /**
+   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+   * 			reverting it back to the expected route configurations.</p>
+   * @public
+   */
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
+
+  /**
+   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>SessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically.
+   *                    The default value is <code>true</code>.</p>
+   * @public
+   */
+  DisconnectOnSessionTimeout?: boolean | undefined;
+
+  /**
+   * <p>The IP address type for the Client VPN endpoint. Valid values are <code>ipv4</code>
+   * 			(default) for IPv4 addressing only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6
+   * 			addressing. When set to <code>dual-stack,</code> clients can connect to the endpoint
+   * 			using either IPv4 or IPv6 addresses..</p>
+   * @public
+   */
+  EndpointIpAddressType?: EndpointIpAddressType | undefined;
+
+  /**
+   * <p>The IP address type for traffic within the Client VPN tunnel. Valid values are <code>ipv4</code> (default) for IPv4 traffic only, <code>ipv6</code> for IPv6 addressing only, or <code>dual-stack</code> for both IPv4 and IPv6 traffic. When set to <code>dual-stack</code>, clients can access both IPv4 and IPv6 resources through the VPN .</p>
+   * @public
+   */
+  TrafficIpAddressType?: TrafficIpAddressType | undefined;
+
+  /**
+   * <p>The Transit Gateway configuration for the Client VPN endpoint. Use this parameter to associate the endpoint with a Transit Gateway instead of a VPC. You cannot specify both <code>TransitGatewayConfiguration</code> and <code>VpcId</code>/<code>SecurityGroupIds</code>.</p>
+   * @public
+   */
+  TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
+}
 
 /**
  * <p>Describes the state of a Client VPN endpoint.</p>
@@ -6451,6 +6692,172 @@ export interface CreateIpamExternalResourceVerificationTokenResult {
 /**
  * @public
  */
+export interface CreateIpamInternetRegistryAssociationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM to associate with the internet registry.</p>
+   * @public
+   */
+  IpamId: string | undefined;
+
+  /**
+   * <p>The Regional Internet Registry to associate with. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ripe</code> - RIPE NCC (Europe, the Middle East, and Central Asia).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apnic</code> - APNIC (Asia Pacific).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arin</code> - ARIN (North America).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>lacnic</code> - LACNIC (Latin America and the Caribbean).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Rir: Rir | undefined;
+
+  /**
+   * <p>The organization handle at the internet registry (for example, a RIPE NCC organization ID or ARIN Org ID).</p>
+   * @public
+   */
+  OrganizationHandle: string | undefined;
+
+  /**
+   * <p>A description for the internet registry association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The tags to assign to the internet registry association.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about an association between an IPAM and a Regional Internet Registry (RIR) for delegated RPKI management.</p>
+ * @public
+ */
+export interface IpamInternetRegistryAssociation {
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the internet registry association.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>The ID of the internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationArn?: string | undefined;
+
+  /**
+   * <p>The ID of the associated IPAM.</p>
+   * @public
+   */
+  IpamId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region of the IPAM.</p>
+   * @public
+   */
+  IpamRegion?: string | undefined;
+
+  /**
+   * <p>The Regional Internet Registry. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ripe</code> - RIPE NCC (Europe, the Middle East, and Central Asia).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>apnic</code> - APNIC (Asia Pacific).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>arin</code> - ARIN (North America).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>lacnic</code> - LACNIC (Latin America and the Caribbean).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Rir?: Rir | undefined;
+
+  /**
+   * <p>The organization handle at the internet registry.</p>
+   * @public
+   */
+  OrganizationHandle?: string | undefined;
+
+  /**
+   * <p>The description of the internet registry association.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The state of the internet registry association. Valid values: <code>pending-activation</code> | <code>pending-enable</code> | <code>create-in-progress</code> | <code>create-failed</code> | <code>enable-in-progress</code> | <code>enable-complete</code> | <code>enable-failed</code> | <code>delete-in-progress</code> | <code>delete-complete</code> | <code>delete-failed</code>.</p>
+   * @public
+   */
+  State?: IpamInternetRegistryAssociationState | undefined;
+
+  /**
+   * <p>The XML content for the child request to be submitted to the internet registry to complete the BPKI setup.</p>
+   * @public
+   */
+  ChildRequestXml?: string | undefined;
+
+  /**
+   * <p>The tags assigned to the internet registry association.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpamInternetRegistryAssociationResult {
+  /**
+   * <p>Information about the internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociation?: IpamInternetRegistryAssociation | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateIpamPolicyRequest {
   /**
    * <p>A check for whether you have the required permissions for the action without actually making the request
@@ -7696,6 +8103,76 @@ export interface CreateIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpamRoutingPolicyRegistrationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+
+  /**
+   * <p>The IP address prefix in CIDR notation to authorize in the ROA.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The Autonomous System Numbers (ASNs) authorized to originate the prefix.</p>
+   * @public
+   */
+  Asns: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to permit more specific route announcements than the CIDR prefix. When enabled, ASNs can announce sub-prefixes of the authorized CIDR up to the specified maximum length. Default: <code>false</code>.</p>
+   * @public
+   */
+  PermitMoreSpecificAnnouncements?: boolean | undefined;
+
+  /**
+   * <p>The maximum prefix length that the ASNs are authorized to announce. Must be greater than or equal to the prefix length of the CIDR. If not specified, defaults to the prefix length of the CIDR (exact match only).</p>
+   * @public
+   */
+  MaxLength?: number | undefined;
+
+  /**
+   * <p>A description for the routing policy registration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Forces the creation of the routing policy registration even if it conflicts with an announced route. Default: <code>false</code>.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateIpamRoutingPolicyRegistrationResult {
+  /**
+   * <p>Information about the routing policy registration delta created by this operation.</p>
+   * @public
+   */
+  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
 }
 
 /**
@@ -13883,356 +14360,4 @@ export interface NetworkInterfacePermissionState {
    * @public
    */
   StatusMessage?: string | undefined;
-}
-
-/**
- * <p>Describes a permission for a network interface.</p>
- * @public
- */
-export interface NetworkInterfacePermission {
-  /**
-   * <p>The ID of the network interface permission.</p>
-   * @public
-   */
-  NetworkInterfacePermissionId?: string | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services service.</p>
-   * @public
-   */
-  AwsService?: string | undefined;
-
-  /**
-   * <p>The type of permission.</p>
-   * @public
-   */
-  Permission?: InterfacePermissionType | undefined;
-
-  /**
-   * <p>Information about the state of the permission.</p>
-   * @public
-   */
-  PermissionState?: NetworkInterfacePermissionState | undefined;
-}
-
-/**
- * <p>Contains the output of CreateNetworkInterfacePermission.</p>
- * @public
- */
-export interface CreateNetworkInterfacePermissionResult {
-  /**
-   * <p>Information about the permission for the network interface.</p>
-   * @public
-   */
-  InterfacePermission?: NetworkInterfacePermission | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePlacementGroupRequest {
-  /**
-   * <p>The number of partitions. Valid only when <b>Strategy</b> is
-   *             set to <code>partition</code>.</p>
-   * @public
-   */
-  PartitionCount?: number | undefined;
-
-  /**
-   * <p>The tags to apply to the new placement group.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Determines how placement groups spread instances. </p>
-   *          <ul>
-   *             <li>
-   *                <p>Host – You can use <code>host</code> only with Outpost placement
-   *                     groups.</p>
-   *             </li>
-   *             <li>
-   *                <p>Rack – No usage restrictions.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SpreadLevel?: SpreadLevel | undefined;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  LinkedGroupId?: string | undefined;
-
-  /**
-   * <p>Reserved for internal use.</p>
-   * @public
-   */
-  Operator?: OperatorRequest | undefined;
-
-  /**
-   * <p>The ID of a parent placement group. Valid only when <b>Strategy</b>
-   *             is set to <code>cluster</code>.</p>
-   * @public
-   */
-  ParentGroupId?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A name for the placement group. Must be unique within the scope of your account for
-   *             the Region.</p>
-   *          <p>Constraints: Up to 255 ASCII characters</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The placement strategy.</p>
-   * @public
-   */
-  Strategy?: PlacementStrategy | undefined;
-}
-
-/**
- * <p>Describes a placement group.</p>
- * @public
- */
-export interface PlacementGroup {
-  /**
-   * <p>The name of the placement group.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The state of the placement group.</p>
-   * @public
-   */
-  State?: PlacementGroupState | undefined;
-
-  /**
-   * <p>The placement strategy.</p>
-   * @public
-   */
-  Strategy?: PlacementStrategy | undefined;
-
-  /**
-   * <p>The number of partitions. Valid only if <b>strategy</b> is
-   *             set to <code>partition</code>.</p>
-   * @public
-   */
-  PartitionCount?: number | undefined;
-
-  /**
-   * <p>The ID of the placement group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>Any tags applied to the placement group.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the placement group.</p>
-   * @public
-   */
-  GroupArn?: string | undefined;
-
-  /**
-   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
-   *             groups can be spread across hosts.</p>
-   * @public
-   */
-  SpreadLevel?: SpreadLevel | undefined;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  LinkedGroupId?: string | undefined;
-
-  /**
-   * <p>The service provider that manages the Placement Group.</p>
-   * @public
-   */
-  Operator?: OperatorResponse | undefined;
-
-  /**
-   * <p>The ID of the parent placement group.</p>
-   * @public
-   */
-  ParentGroupId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePlacementGroupResult {
-  /**
-   * <p>Information about the placement group.</p>
-   * @public
-   */
-  PlacementGroup?: PlacementGroup | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePublicIpv4PoolRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The Availability Zone (AZ) or Local Zone (LZ) network border group that the resource that the IP address is assigned to is in. Defaults to an AZ network border group. For more information on available Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#byoip-zone-avail">Local Zone availability</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  NetworkBorderGroup?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreatePublicIpv4PoolResult {
-  /**
-   * <p>The ID of the public IPv4 pool.</p>
-   * @public
-   */
-  PoolId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateReplaceRootVolumeTaskRequest {
-  /**
-   * <p>The ID of the instance for which to replace the root volume.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The ID of the snapshot from which to restore the replacement root volume. The
-   *       specified snapshot must be a snapshot that you previously created from the original
-   *       root volume.</p>
-   *          <p>If you want to restore the replacement root volume to the initial launch state,
-   *       if you want to restore the replacement root volume from an AMI, or if you want to
-   *       replace the root volume with a specified volume, omit this parameter.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.
-   *       If you do not specify a client token, a randomly generated token is used for the request
-   *       to ensure idempotency. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The tags to apply to the root volume replacement task.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The ID of the AMI to use to restore the root volume. The specified AMI must have the
-   *       same product code, billing information, architecture type, and virtualization type as
-   *       that of the instance.</p>
-   *          <p>If you want to restore the replacement volume from a specific snapshot, if you want
-   *       to restore it to its launch state, or if you want to replace the root volume with a
-   *       specified volume, omit this parameter.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>Indicates whether to automatically delete the original root volume after the root volume
-   *       replacement task completes. To delete the original root volume, specify <code>true</code>.
-   *       If you choose to keep the original root volume after the replacement task completes, you must
-   *       manually delete it when you no longer need it.</p>
-   * @public
-   */
-  DeleteReplacedRootVolume?: boolean | undefined;
-
-  /**
-   * <p>Specifies the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which to download
-   *       the snapshot blocks from Amazon S3 to the replacement root volume. This is also known as
-   *       <i>volume initialization</i>. Specifying a volume initialization rate ensures that
-   *       the volume is initialized at a predictable and consistent rate after creation.</p>
-   *          <p>Omit this parameter if:</p>
-   *          <ul>
-   *             <li>
-   *                <p>You want to create the volume using fast snapshot restore. You must specify a snapshot
-   *           that is enabled for fast snapshot restore. In this case, the volume is fully initialized at
-   *           creation.</p>
-   *                <note>
-   *                   <p>If you specify a snapshot that is enabled for fast snapshot restore and a volume initialization rate,
-   *             the volume will be initialized at the specified rate instead of fast snapshot restore.</p>
-   *                </note>
-   *             </li>
-   *             <li>
-   *                <p>You want to create a volume that is initialized at the default rate.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/initalize-volume.html">
-   *       Initialize Amazon EBS volumes</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Valid range: 100 - 300 MiB/s</p>
-   * @public
-   */
-  VolumeInitializationRate?: number | undefined;
-
-  /**
-   * <p>The ID of the volume to use as the replacement root volume. The specified volume must
-   *       be in the same Availability Zone as the instance, must be in the <code>available</code>
-   *       state, and must not be attached to an instance. If the original root volume is encrypted,
-   *       the specified volume must also be encrypted.</p>
-   *          <p>If you want to restore the replacement root volume from a specific snapshot, an AMI,
-   *       or to its launch state, omit this parameter.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
 }

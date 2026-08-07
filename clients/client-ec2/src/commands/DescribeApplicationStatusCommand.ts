@@ -113,6 +113,92 @@ export interface DescribeApplicationStatusCommandOutput extends DescribeApplicat
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  *
+ * @example To describe application status for instances
+ * ```javascript
+ * // This example describes the application status for the specified instance.
+ * const input = {
+ *   InstanceIds: [
+ *     "i-0123456789abcdef0"
+ *   ]
+ * };
+ * const command = new DescribeApplicationStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ApplicationStatuses: {
+ *     Instances: [
+ *       {
+ *         ApplicationStatus: {
+ *           Details: [
+ *             {
+ *               Aggregation: "included",
+ *               ApplicationStatusCheckId: "asc-0123456789abcdef0",
+ *               Reason: {
+ *                 Code: "ResponseCodeMatched",
+ *                 Protocol: "HTTP",
+ *                 StatusCode: 200
+ *               },
+ *               Status: "passed"
+ *             }
+ *           ],
+ *           Status: "ok"
+ *         },
+ *         InstanceId: "i-0123456789abcdef0"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To describe application status using filters
+ * ```javascript
+ * // This example uses a filter to describe impaired application status in a specific Availability Zone.
+ * const input = {
+ *   Filters: [
+ *     {
+ *       Name: "availability-zone-id",
+ *       Values: [
+ *         "use1-az1"
+ *       ]
+ *     },
+ *     {
+ *       Name: "status",
+ *       Values: [
+ *         "impaired"
+ *       ]
+ *     }
+ *   ],
+ *   MaxResults: 10
+ * };
+ * const command = new DescribeApplicationStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ApplicationStatuses: {
+ *     Instances: [
+ *       {
+ *         ApplicationStatus: {
+ *           Details: [
+ *             {
+ *               Aggregation: "included",
+ *               ApplicationStatusCheckId: "asc-0123456789abcdef0",
+ *               Reason: {
+ *                 Code: "ConnectionTimeout"
+ *               },
+ *               Status: "failed"
+ *             }
+ *           ],
+ *           Status: "impaired"
+ *         },
+ *         InstanceId: "i-0123456789abcdef0"
+ *       }
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeApplicationStatusCommand extends command<DescribeApplicationStatusCommandInput, DescribeApplicationStatusCommandOutput>(

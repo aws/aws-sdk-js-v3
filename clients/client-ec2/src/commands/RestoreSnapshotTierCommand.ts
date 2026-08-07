@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_7";
+import type { RestoreSnapshotTierRequest, RestoreSnapshotTierResult } from "../models/models_8";
 import { RestoreSnapshotTier$ } from "../schemas/schemas_0";
 
 /**

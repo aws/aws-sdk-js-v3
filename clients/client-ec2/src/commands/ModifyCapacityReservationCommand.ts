@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ModifyCapacityReservationRequest, ModifyCapacityReservationResult } from "../models/models_6";
+import type { ModifyCapacityReservationRequest, ModifyCapacityReservationResult } from "../models/models_7";
 import { ModifyCapacityReservation$ } from "../schemas/schemas_0";
 
 /**

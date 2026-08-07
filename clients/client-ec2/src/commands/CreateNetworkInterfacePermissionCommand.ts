@@ -2,10 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type {
-  CreateNetworkInterfacePermissionRequest,
-  CreateNetworkInterfacePermissionResult,
-} from "../models/models_1";
+import type { CreateNetworkInterfacePermissionRequest } from "../models/models_1";
+import type { CreateNetworkInterfacePermissionResult } from "../models/models_2";
 import { CreateNetworkInterfacePermission$ } from "../schemas/schemas_0";
 
 /**

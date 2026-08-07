@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_3";
+import type { DescribeFpgaImageAttributeRequest, DescribeFpgaImageAttributeResult } from "../models/models_4";
 import { DescribeFpgaImageAttribute$ } from "../schemas/schemas_0";
 
 /**

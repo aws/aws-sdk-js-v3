@@ -90,6 +90,37 @@ export interface DescribeApplicationStatusCheckAssociationsCommandOutput extends
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
  *
+ * @example To describe application status check associations
+ * ```javascript
+ * // This example describes instance ID associations for the specified application status check.
+ * const input = {
+ *   ApplicationStatusCheckIds: [
+ *     "asc-0123456789abcdef0"
+ *   ],
+ *   Filters: [
+ *     {
+ *       Name: "association-type",
+ *       Values: [
+ *         "instance-id"
+ *       ]
+ *     }
+ *   ]
+ * };
+ * const command = new DescribeApplicationStatusCheckAssociationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Associations: [
+ *     {
+ *       ApplicationStatusCheckId: "asc-0123456789abcdef0",
+ *       AssociationType: "instance-id",
+ *       Value: "i-0123456789abcdef0"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeApplicationStatusCheckAssociationsCommand extends command<DescribeApplicationStatusCheckAssociationsCommandInput, DescribeApplicationStatusCheckAssociationsCommandOutput>(

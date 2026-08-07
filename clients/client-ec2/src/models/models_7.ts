@@ -1,9 +1,10 @@
 // smithy-typescript generated code
 import type {
   _InstanceType,
+  AccountVpcEncryptionControlMode,
   AddressAttributeName,
   Affinity,
-  AmdSevSnpSpecification,
+  AggregationStatusEnum,
   ApplianceModeSupportValue,
   ArchitectureValues,
   AutoAcceptSharedAttachmentsValue,
@@ -19,7 +20,10 @@ import type {
   DefaultRouteTablePropagationValue,
   DnsSupportValue,
   EncryptionSupportOptionValue,
+  EndDateType,
   ExcessCapacityTerminationPolicy,
+  FleetExcessCapacityTerminationPolicy,
+  FpgaImageAttributeName,
   HostMaintenance,
   HostnameType,
   HostRecovery,
@@ -30,6 +34,7 @@ import type {
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
   InstanceInterruptionBehavior,
+  InstanceMatchCriteria,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
   InstanceMetadataTagsState,
@@ -40,29 +45,30 @@ import type {
   IpamMeteredAccount,
   IpamPolicyResourceType,
   IpamTier,
+  IpScopeEnum,
   Ipv6SupportValue,
+  IpVersionEnum,
+  LockMode,
+  LockState,
   ManagedResourceDefaultVisibility,
-  MarketType,
   MetadataDefaultHttpTokensState,
+  ModifyAvailabilityZoneOptInStatus,
   NestedVirtualizationSpecification,
+  NetworkProtocolEnum,
   OperationType,
   PayerResponsibility,
   PayerResponsibilityScope,
   PayerResponsibilityType,
+  PermissionGroup,
   PublicIpDnsOption,
   ReportInstanceReasonCodes,
   ReportStatusType,
-  ResetFpgaImageAttributeName,
-  ResetImageAttributeName,
   RouteServerPersistRoutesAction,
   RuleAction,
-  SecondaryInterfaceType,
   SecurityGroupReferencingSupportValue,
-  ShutdownBehavior,
+  SelfServicePortal,
   SnapshotAttributeName,
-  SnapshotState,
   SpotInstanceType,
-  SSEType,
   Status,
   TargetStorageTier,
   TpmSupportValues,
@@ -71,9 +77,11 @@ import type {
   TrafficMirrorNetworkService,
   TrafficMirrorRuleAction,
   TrafficMirrorSessionField,
+  UnlimitedSupportedInstanceFamily,
   UnsuccessfulInstanceCreditSpecificationErrorCode,
   VerificationMethod,
   VerifiedAccessEndpointProtocol,
+  VolumeState,
   VolumeType,
   VpcEncryptionControlExclusionStateInput,
   VpcEncryptionControlMode,
@@ -82,20 +90,26 @@ import type {
   VpnTunnelBandwidth,
 } from "./enums";
 import type {
+  AccountVpcEncryptionControl,
   AddedPrincipal,
   AddIpamOperatingRegion,
   AddIpamOrganizationalUnitExclusion,
   AddPrefixListEntry,
   AddressAttribute,
+  ApplicationStatusCheckResponseObject,
   ByoipCidr,
   CapacityReservation,
-  ClientVpnAuthorizationRuleStatus,
+  ClientConnectOptions,
+  ClientLoginBannerOptions,
+  ClientRouteEnforcementOptions,
   EnaSrdSpecification,
+  HealthCheckPathRequestObject,
   IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
   InstanceEventWindow,
   IpamPoolAllocation,
-  IpPermission,
+  IpamRoutingPolicyRegistrationDelta,
+  OperatorResponse,
   PortRange,
   RouteTableAssociationState,
   TagSpecification,
@@ -112,13 +126,12 @@ import type {
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationTarget,
+  ConnectionLogOptions,
   ConnectionTrackingSpecificationRequest,
-  CreditSpecificationRequest,
-  ElasticGpuSpecification,
   ExternalAuthorityConfiguration,
+  FleetLaunchTemplateConfigRequest,
   IcmpTypeCode,
   InstanceEventWindowTimeRangeRequest,
-  InstanceIpv6Address,
   Ipam,
   IpamPool,
   IpamPrefixListResolver,
@@ -129,9 +142,9 @@ import type {
   LaunchTemplate,
   LocalGatewayRoute,
   ManagedPrefixList,
-  OperatorRequest,
-  Placement,
   RequestIpamResourceTag,
+  TargetCapacitySpecificationRequest,
+  TransitGatewayConfigurationInputStructure,
   VpcEncryptionControl,
 } from "./models_1";
 import type {
@@ -167,11 +180,13 @@ import type {
   Byoasn,
   CapacityBlock,
   CapacityBlockExtension,
+  ConversionTask,
   InstanceTagNotificationAttribute,
   IpamPoolCidr,
 } from "./models_3";
 import type {
   AttributeBooleanValue,
+  FpgaImageAttribute,
   InstanceMetadataOptionsResponse,
   InstanceStatusEvent,
   LaunchPermission,
@@ -192,7 +207,1435 @@ import type {
   VolumeModification,
   VpcBlockPublicAccessOptions,
 } from "./models_5";
-import type { IpamPolicyDocument, IpamResourceCidr, ManagedResourceVisibilitySettings, Purchase } from "./models_6";
+import type {
+  DiskImageDetail,
+  InstanceFamilyCreditSpecification,
+  IpamPolicyDocument,
+  IpamResourceCidr,
+  ManagedResourceVisibilitySettings,
+  Purchase,
+  VolumeDetail,
+} from "./models_6";
+
+/**
+ * @public
+ */
+export interface ImportVolumeRequest {
+  /**
+   * <p>The ID of the Availability Zone for the resulting EBS volume.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *    but not both.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The Availability Zone for the resulting EBS volume.</p>
+   *          <p>Either <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code> must be specified,
+   *    but not both.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The disk image.</p>
+   * @public
+   */
+  Image: DiskImageDetail | undefined;
+
+  /**
+   * <p>A description of the volume.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The volume size.</p>
+   * @public
+   */
+  Volume: VolumeDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportVolumeResult {
+  /**
+   * <p>Information about the conversion task.</p>
+   * @public
+   */
+  ConversionTask?: ConversionTask | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImagesInRecycleBinRequest {
+  /**
+   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the
+   *       Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   * @public
+   */
+  ImageIds?: string[] | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about an AMI that is currently in the Recycle Bin.</p>
+ * @public
+ */
+export interface ImageRecycleBinInfo {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId?: string | undefined;
+
+  /**
+   * <p>The name of the AMI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the AMI.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The date and time when the AMI entered the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinEnterTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the AMI is to be permanently deleted from the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinExitTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListImagesInRecycleBinResult {
+  /**
+   * <p>Information about the AMIs.</p>
+   * @public
+   */
+  Images?: ImageRecycleBinInfo[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotsInRecycleBinRequest {
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The IDs of the snapshots to list. Omit this parameter to list all of the
+   *       snapshots that are in the Recycle Bin.</p>
+   * @public
+   */
+  SnapshotIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Information about a snapshot that is currently in the Recycle Bin.</p>
+ * @public
+ */
+export interface SnapshotRecycleBinInfo {
+  /**
+   * <p>The ID of the snapshot.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The date and time when the snapshot entered the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinEnterTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the snapshot is to be permanently deleted from the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinExitTime?: Date | undefined;
+
+  /**
+   * <p>The description for the snapshot.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The ID of the volume from which the snapshot was created.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSnapshotsInRecycleBinResult {
+  /**
+   * <p>Information about the snapshots.</p>
+   * @public
+   */
+  Snapshots?: SnapshotRecycleBinInfo[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVolumesInRecycleBinRequest {
+  /**
+   * <p>The IDs of the volumes to list. Omit this parameter to list all of the
+   *       volumes that are in the Recycle Bin.</p>
+   * @public
+   */
+  VolumeIds?: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>Valid range: 5 - 500</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request.
+   *   Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Information about a volume that is currently in the Recycle Bin.</p>
+ * @public
+ */
+export interface VolumeRecycleBinInfo {
+  /**
+   * <p>The ID of the volume.</p>
+   * @public
+   */
+  VolumeId?: string | undefined;
+
+  /**
+   * <p>The volume type.</p>
+   * @public
+   */
+  VolumeType?: VolumeType | undefined;
+
+  /**
+   * <p>The state of the volume.</p>
+   * @public
+   */
+  State?: VolumeState | undefined;
+
+  /**
+   * <p>The size of the volume, in GiB.</p>
+   * @public
+   */
+  Size?: number | undefined;
+
+  /**
+   * <p>The number of I/O operations per second (IOPS) for the volume.</p>
+   * @public
+   */
+  Iops?: number | undefined;
+
+  /**
+   * <p>The throughput that the volume supports, in MiB/s.</p>
+   * @public
+   */
+  Throughput?: number | undefined;
+
+  /**
+   * <p>The ARN of the Outpost on which the volume is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-outposts.html">Amazon EBS volumes on Outposts</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
+   * @public
+   */
+  OutpostArn?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The ID of the Availability Zone for the volume.</p>
+   * @public
+   */
+  AvailabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The ID of the source volume.</p>
+   * @public
+   */
+  SourceVolumeId?: string | undefined;
+
+  /**
+   * <p>The snapshot from which the volume was created, if applicable.</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The service provider that manages the volume.</p>
+   * @public
+   */
+  Operator?: OperatorResponse | undefined;
+
+  /**
+   * <p>The time stamp when volume creation was initiated.</p>
+   * @public
+   */
+  CreateTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the volume entered the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinEnterTime?: Date | undefined;
+
+  /**
+   * <p>The date and time when the volume is to be permanently deleted from the Recycle Bin.</p>
+   * @public
+   */
+  RecycleBinExitTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVolumesInRecycleBinResult {
+  /**
+   * <p>Information about the volumes.</p>
+   * @public
+   */
+  Volumes?: VolumeRecycleBinInfo[] | undefined;
+
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *   This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface LockSnapshotRequest {
+  /**
+   * <p>The ID of the snapshot to lock.</p>
+   * @public
+   */
+  SnapshotId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The mode in which to lock the snapshot. Specify one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - Locks the snapshot in governance mode. Snapshots locked in governance
+   *           mode can't be deleted until one of the following conditions are met:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The lock duration expires.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>The snapshot is unlocked by a user with the appropriate permissions.</p>
+   *                   </li>
+   *                </ul>
+   *                <p>Users with the appropriate IAM permissions can unlock the snapshot, increase or decrease the lock
+   *           duration, and change the lock mode to <code>compliance</code> at any time.</p>
+   *                <p>If you lock a snapshot in <code>governance</code> mode, omit <b>
+   *           CoolOffPeriod</b>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - Locks the snapshot in compliance mode. Snapshots locked in compliance
+   *           mode can't be unlocked by any user. They can be deleted only after the lock duration expires. Users
+   *           can't decrease the lock duration or change the lock mode to <code>governance</code>. However, users
+   *           with appropriate IAM permissions can increase the lock duration at any time.</p>
+   *                <p>If you lock a snapshot in <code>compliance</code> mode, you can optionally specify
+   *           <b>CoolOffPeriod</b>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LockMode: LockMode | undefined;
+
+  /**
+   * <p>The cooling-off period during which you can unlock the snapshot or modify the lock settings after
+   *       locking the snapshot in compliance mode, in hours. After the cooling-off period expires, you can't
+   *       unlock or delete the snapshot, decrease the lock duration, or change the lock mode. You can increase
+   *       the lock duration after the cooling-off period expires.</p>
+   *          <p>The cooling-off period is optional when locking a snapshot in compliance mode. If you are locking
+   *       the snapshot in governance mode, omit this parameter.</p>
+   *          <p>To lock the snapshot in compliance mode immediately without a cooling-off period, omit this
+   *       parameter.</p>
+   *          <p>If you are extending the lock duration for a snapshot that is locked in compliance mode after
+   *       the cooling-off period has expired, omit this parameter. If you specify a cooling-period in a such
+   *       a request, the request fails.</p>
+   *          <p>Allowed values: Min 1, max 72.</p>
+   * @public
+   */
+  CoolOffPeriod?: number | undefined;
+
+  /**
+   * <p>The period of time for which to lock the snapshot, in days. The snapshot lock will automatically
+   *       expire after this period lapses.</p>
+   *          <p>You must specify either this parameter or <b>ExpirationDate</b>, but
+   *       not both.</p>
+   *          <p>Allowed values: Min: 1, max 36500</p>
+   * @public
+   */
+  LockDuration?: number | undefined;
+
+  /**
+   * <p>The date and time at which the snapshot lock is to automatically expire, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   *          <p>You must specify either this parameter or <b>LockDuration</b>, but
+   *       not both.</p>
+   * @public
+   */
+  ExpirationDate?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface LockSnapshotResult {
+  /**
+   * <p>The ID of the snapshot</p>
+   * @public
+   */
+  SnapshotId?: string | undefined;
+
+  /**
+   * <p>The state of the snapshot lock. Valid states include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>compliance-cooloff</code> - The snapshot has been locked in
+   *           compliance mode but it is still within the cooling-off period. The snapshot can't be
+   *           deleted, but it can be unlocked and the lock settings can be modified by users with
+   *           appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>governance</code> - The snapshot is locked in governance mode. The
+   *           snapshot can't be deleted, but it can be unlocked and the lock settings can be
+   *           modified by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>compliance</code> - The snapshot is locked in compliance mode and the
+   *           cooling-off period has expired. The snapshot can't be unlocked or deleted. The lock
+   *           duration can only be increased by users with appropriate permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>expired</code> - The snapshot was locked in compliance or governance
+   *           mode but the lock duration has expired. The snapshot is not locked and can be deleted.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  LockState?: LockState | undefined;
+
+  /**
+   * <p>The period of time for which the snapshot is locked, in days.</p>
+   * @public
+   */
+  LockDuration?: number | undefined;
+
+  /**
+   * <p>The compliance mode cooling-off period, in hours.</p>
+   * @public
+   */
+  CoolOffPeriod?: number | undefined;
+
+  /**
+   * <p>The date and time at which the compliance mode cooling-off period expires, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  CoolOffPeriodExpiresOn?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the snapshot was locked, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LockCreatedOn?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the lock will expire, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LockExpiresOn?: Date | undefined;
+
+  /**
+   * <p>The date and time at which the lock duration started, in the UTC time zone
+   *       (<code>YYYY-MM-DDThh:mm:ss.sssZ</code>).</p>
+   * @public
+   */
+  LockDurationStartTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAccountVpcEncryptionControlRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The encryption mode for the account encryption control configuration.</p>
+   * @public
+   */
+  Mode?: AccountVpcEncryptionControlMode | undefined;
+
+  /**
+   * <p>Specifies whether to exclude internet gateway resource from account-level encryption enforcement.</p>
+   * @public
+   */
+  InternetGateway?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude egress-only internet gateway resource from account-level encryption enforcement.</p>
+   * @public
+   */
+  EgressOnlyInternetGateway?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude NAT gateway resource from account-level encryption enforcement.</p>
+   * @public
+   */
+  NatGateway?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude virtual private gateway resource from account-level encryption enforcement.</p>
+   * @public
+   */
+  VirtualPrivateGateway?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude VPC peering connection resource from account-level encryption enforcement.</p>
+   * @public
+   */
+  VpcPeering?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Lambda service from account-level encryption enforcement.</p>
+   * @public
+   */
+  Lambda?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude VPC Lattice service from account-level encryption enforcement.</p>
+   * @public
+   */
+  VpcLattice?: VpcEncryptionControlExclusionStateInput | undefined;
+
+  /**
+   * <p>Specifies whether to exclude Elastic File System service from account-level encryption enforcement.</p>
+   * @public
+   */
+  ElasticFileSystem?: VpcEncryptionControlExclusionStateInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAccountVpcEncryptionControlResult {
+  /**
+   * <p>Information about the account-level VPC Encryption Control configuration.</p>
+   * @public
+   */
+  AccountVpcEncryptionControl?: AccountVpcEncryptionControl | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAddressAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID.</p>
+   * @public
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The domain name to modify for the IP address.</p>
+   * @public
+   */
+  DomainName?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAddressAttributeResult {
+  /**
+   * <p>Information about the Elastic IP address.</p>
+   * @public
+   */
+  Address?: AddressAttribute | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyApplicationStatusCheckRequest {
+  /**
+   * <p>The ID of the application status check to modify.</p>
+   * @public
+   */
+  ApplicationStatusCheckId: string | undefined;
+
+  /**
+   * <p>The aggregation setting for the application status check. When set to <code>included</code>, the result of this check contributes to the instance-level application status reported by <code>DescribeApplicationStatus</code>. When set to <code>excluded</code>, the check runs independently and does not affect the instance-level status. Valid values: <code>included</code> | <code>excluded</code>.</p>
+   * @public
+   */
+  Aggregation?: AggregationStatusEnum | undefined;
+
+  /**
+   * <p>The health check paths to use for the application status check.</p>
+   * @public
+   */
+  HealthCheckPaths?: HealthCheckPathRequestObject[] | undefined;
+
+  /**
+   * <p>The protocol to use for the health check. Valid values: <code>http</code> | <code>https</code>.</p>
+   * @public
+   */
+  Protocol?: NetworkProtocolEnum | undefined;
+
+  /**
+   * <p>The port to use for the health check. Valid values: 1 to 65535.</p>
+   * @public
+   */
+  Port?: number | undefined;
+
+  /**
+   * <p>The URL path to use for the health check HTTP request (for example, <code>/health</code> or <code>/status</code>).</p>
+   * @public
+   */
+  Path?: string | undefined;
+
+  /**
+   * <p>The index of the network device to use for the health check. The value must be greater than or equal to 0.</p>
+   * @public
+   */
+  DeviceIndex?: number | undefined;
+
+  /**
+   * <p>The IP version to use for the health check. Valid values: <code>ipv4</code> and <code>ipv6</code>.</p>
+   * @public
+   */
+  IpVersion?: IpVersionEnum | undefined;
+
+  /**
+   * <p>The IP scope to use for the health check. Valid value: <code>private</code>.</p>
+   * @public
+   */
+  IpScope?: IpScopeEnum | undefined;
+
+  /**
+   * <p>The interval, in seconds, between health checks. Valid value: 60.</p>
+   * @public
+   */
+  Interval?: number | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, to wait for a health check response before considering it failed. Valid values: 1 to 30. The value must be less than <code>Interval</code>.</p>
+   * @public
+   */
+  Timeout?: number | undefined;
+
+  /**
+   * <p>The number of consecutive failed health checks before the application status is considered impaired. The value must be greater than 0.</p>
+   * @public
+   */
+  FailureThreshold?: number | undefined;
+
+  /**
+   * <p>The number of consecutive successful health checks before the application status is considered healthy. The value must be greater than 0.</p>
+   * @public
+   */
+  SuccessThreshold?: number | undefined;
+
+  /**
+   * <p>The HTTP status codes that indicate a successful health check response. Specify a comma-separated list of individual status codes or ranges, for example, <code>200,202,300-399</code>. For a range, the first value must be less than the second value. Maximum length: 64 characters.</p>
+   * @public
+   */
+  StatusCodeMatcher?: string | undefined;
+
+  /**
+   * <p>The number of seconds to wait before starting health checks after an instance is launched. Valid values: 1 to 600.</p>
+   * @public
+   */
+  InitializationGracePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyApplicationStatusCheckResult {
+  /**
+   * <p>Information about the modified application status check.</p>
+   * @public
+   */
+  ApplicationStatusCheck?: ApplicationStatusCheckResponseObject | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAvailabilityZoneGroupRequest {
+  /**
+   * <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone
+   *       group.</p>
+   * @public
+   */
+  GroupName: string | undefined;
+
+  /**
+   * <p>Indicates whether to opt in to the zone group. The only valid value is <code>opted-in</code>.
+   *       You must contact Amazon Web Services Support to opt out of a Local Zone or Wavelength Zone group.</p>
+   * @public
+   */
+  OptInStatus: ModifyAvailabilityZoneOptInStatus | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyAvailabilityZoneGroupResult {
+  /**
+   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationRequest {
+  /**
+   * <p>The ID of the Capacity Reservation.</p>
+   * @public
+   */
+  CapacityReservationId: string | undefined;
+
+  /**
+   * <p>The number of instances for which to reserve capacity. The number of instances can't
+   * 			be increased or decreased by more than <code>1000</code> in a single request.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation expires. When a Capacity
+   * 			Reservation expires, the reserved capacity is released and you can no longer launch
+   * 			instances into it. The Capacity Reservation's state changes to <code>expired</code> when
+   * 			it reaches its end date and time.</p>
+   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For
+   * 			example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to
+   * 			end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
+   * 				<code>unlimited</code>.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can
+   * 			have one of the following end types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>unlimited</code> - The Capacity Reservation remains active until you
+   * 					explicitly cancel it. Do not provide an <code>EndDate</code> value if
+   * 						<code>EndDateType</code> is <code>unlimited</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>limited</code> - The Capacity Reservation expires automatically at a
+   * 					specified date and time. You must provide an <code>EndDate</code> value if
+   * 						<code>EndDateType</code> is <code>limited</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  EndDateType?: EndDateType | undefined;
+
+  /**
+   * <p>Reserved. Capacity Reservations you have created are accepted by default.</p>
+   * @public
+   */
+  Accept?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Reserved for future use.</p>
+   * @public
+   */
+  AdditionalInfo?: string | undefined;
+
+  /**
+   * <p> The matching criteria (instance eligibility) that you want to use in the modified
+   * 			Capacity Reservation. If you change the instance eligibility of an existing Capacity
+   * 			Reservation from <code>targeted</code> to <code>open</code>, any running instances that
+   * 			match the attributes of the Capacity Reservation, have the
+   * 				<code>CapacityReservationPreference</code> set to <code>open</code>, and are not yet
+   * 			running in the Capacity Reservation, will automatically use the modified Capacity
+   * 			Reservation. </p>
+   *          <p>To modify the instance eligibility, the Capacity Reservation must be completely idle
+   * 			(zero usage).</p>
+   * @public
+   */
+  InstanceMatchCriteria?: InstanceMatchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationFleetRequest {
+  /**
+   * <p>The ID of the Capacity Reservation Fleet to modify.</p>
+   * @public
+   */
+  CapacityReservationFleetId: string | undefined;
+
+  /**
+   * <p>The total number of capacity units to be reserved by the Capacity Reservation Fleet.
+   * 			This value, together with the instance type weights that you assign to each instance
+   * 			type used by the Fleet determine the number of instances for which the Fleet reserves
+   * 			capacity. Both values are based on units that make sense for your workload. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#target-capacity">Total target
+   * 				capacity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * @public
+   */
+  TotalTargetCapacity?: number | undefined;
+
+  /**
+   * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
+   * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the
+   * 			Capacity Reservations in the Fleet expire.</p>
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For
+   * 			example, if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity
+   * 			Reservation Fleet is guaranteed to expire between <code>13:30:55</code> and
+   * 				<code>14:30:55</code> on <code>5/31/2019</code>.</p>
+   *          <p>You can't specify <b>EndDate</b> and <b>
+   * 				RemoveEndDate</b> in the same request.</p>
+   * @public
+   */
+  EndDate?: Date | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you
+   * 			remove the end date, the Capacity Reservation Fleet does not expire and it remains
+   * 			active until you explicitly cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
+   *          <p>You can't specify <b>RemoveEndDate</b> and <b> EndDate</b> in the same request.</p>
+   * @public
+   */
+  RemoveEndDate?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyCapacityReservationFleetResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Information about the DNS server to be used.</p>
+ * @public
+ */
+export interface DnsServersOptionsModifyStructure {
+  /**
+   * <p>The IPv4 address range, in CIDR notation, of the DNS servers to be used. You can specify up to
+   * 			two DNS servers. Ensure that the DNS servers can be reached by the clients. The specified values
+   * 			overwrite the existing values.</p>
+   * @public
+   */
+  CustomDnsServers?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether DNS servers should be used. Specify <code>False</code> to delete the existing DNS
+   * 			servers.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClientVpnEndpointRequest {
+  /**
+   * <p>The ID of the Client VPN endpoint to modify.</p>
+   * @public
+   */
+  ClientVpnEndpointId: string | undefined;
+
+  /**
+   * <p>The ARN of the server certificate to be used. The server certificate must be provisioned in
+   * 			Certificate Manager (ACM).</p>
+   * @public
+   */
+  ServerCertificateArn?: string | undefined;
+
+  /**
+   * <p>Information about the client connection logging options.</p>
+   *          <p>If you enable client connection logging, data about client connections is sent to a
+   * 			Cloudwatch Logs log stream. The following information is logged:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection results (successful and unsuccessful)</p>
+   *             </li>
+   *             <li>
+   *                <p>Reasons for unsuccessful client connection requests</p>
+   *             </li>
+   *             <li>
+   *                <p>Client connection termination time</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ConnectionLogOptions?: ConnectionLogOptions | undefined;
+
+  /**
+   * <p>Information about the DNS servers to be used by Client VPN connections. A Client VPN endpoint can have
+   * 			up to two DNS servers.</p>
+   * @public
+   */
+  DnsServers?: DnsServersOptionsModifyStructure | undefined;
+
+  /**
+   * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          </p>
+   *          <p>Default Value: <code>443</code>
+   *          </p>
+   * @public
+   */
+  VpnPort?: number | undefined;
+
+  /**
+   * <p>A brief description of the Client VPN endpoint.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the VPN is split-tunnel.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   *         	<i>Client VPN Administrator Guide</i>.</p>
+   * @public
+   */
+  SplitTunnel?: boolean | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The IDs of one or more security groups to apply to the target network.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the VPC to associate with the Client VPN endpoint.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+   * @public
+   */
+  SelfServicePortal?: SelfServicePortal | undefined;
+
+  /**
+   * <p>The options for managing connection authorization for new client connections.</p>
+   * @public
+   */
+  ClientConnectOptions?: ClientConnectOptions | undefined;
+
+  /**
+   * <p>The maximum VPN session duration time in hours.</p>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          </p>
+   *          <p>Default value: <code>24</code>
+   *          </p>
+   * @public
+   */
+  SessionTimeoutHours?: number | undefined;
+
+  /**
+   * <p>Options for enabling a customizable text banner that will be displayed on
+   * 			Amazon Web Services provided clients when a VPN session is established.</p>
+   * @public
+   */
+  ClientLoginBannerOptions?: ClientLoginBannerOptions | undefined;
+
+  /**
+   * <p>Client route enforcement is a feature of the Client VPN service that helps enforce administrator defined routes on devices connected through the VPN. T
+   * 		his feature helps improve your security posture by ensuring that network traffic originating from a connected client is not inadvertently sent outside the VPN tunnel.</p>
+   *          <p>Client route enforcement works by monitoring the route table of a connected device for routing policy changes to the VPN connection. If the feature detects any VPN routing policy modifications, it will automatically force an update to the route table,
+   * 			reverting it back to the expected route configurations.</p>
+   * @public
+   */
+  ClientRouteEnforcementOptions?: ClientRouteEnforcementOptions | undefined;
+
+  /**
+   * <p>Indicates whether the client VPN session is disconnected after the maximum timeout specified in <code>sessionTimeoutHours</code> is reached. If <code>true</code>, users are prompted to reconnect client VPN. If <code>false</code>, client VPN attempts to reconnect automatically. The default value is <code>true</code>.</p>
+   * @public
+   */
+  DisconnectOnSessionTimeout?: boolean | undefined;
+
+  /**
+   * <p>The Transit Gateway configuration for the Client VPN endpoint. This option is currently not supported.</p>
+   * @public
+   */
+  TransitGatewayConfiguration?: TransitGatewayConfigurationInputStructure | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClientVpnEndpointResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDefaultCreditSpecificationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the
+   *   request, and provides an error response. If you have the required permissions, the error response is
+   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The instance family.</p>
+   * @public
+   */
+  InstanceFamily: UnlimitedSupportedInstanceFamily | undefined;
+
+  /**
+   * <p>The credit option for CPU usage of the instance family.</p>
+   *          <p>Valid Values: <code>standard</code> | <code>unlimited</code>
+   *          </p>
+   * @public
+   */
+  CpuCredits: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyDefaultCreditSpecificationResult {
+  /**
+   * <p>The default credit option for CPU usage of the instance family.</p>
+   * @public
+   */
+  InstanceFamilyCreditSpecification?: InstanceFamilyCreditSpecification | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEbsDefaultKmsKeyIdRequest {
+  /**
+   * <p>The identifier of the KMS key to use for Amazon EBS encryption.
+   *       If this parameter is not specified, your KMS key for Amazon EBS is used. If <code>KmsKeyId</code> is
+   *       specified, the encrypted state must be <code>true</code>.</p>
+   *          <p>You can specify the KMS key using any of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key alias. For example, alias/ExampleAlias.</p>
+   *             </li>
+   *             <li>
+   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
+   *             <li>
+   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an ID, alias, or ARN that is not valid,
+   *       the action can appear to complete, but eventually fails.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   * @public
+   */
+  KmsKeyId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyEbsDefaultKmsKeyIdResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the default KMS key for encryption by default.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyFleetRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether running instances should be terminated if the total target capacity of
+   *          the EC2 Fleet is decreased below the current size of the EC2 Fleet.</p>
+   *          <p>Supported only for fleets of type <code>maintain</code>.</p>
+   * @public
+   */
+  ExcessCapacityTerminationPolicy?: FleetExcessCapacityTerminationPolicy | undefined;
+
+  /**
+   * <p>The launch template and overrides.</p>
+   * @public
+   */
+  LaunchTemplateConfigs?: FleetLaunchTemplateConfigRequest[] | undefined;
+
+  /**
+   * <p>The ID of the EC2 Fleet.</p>
+   * @public
+   */
+  FleetId: string | undefined;
+
+  /**
+   * <p>The size of the EC2 Fleet.</p>
+   * @public
+   */
+  TargetCapacitySpecification?: TargetCapacitySpecificationRequest | undefined;
+
+  /**
+   * <p>Reserved.</p>
+   * @public
+   */
+  Context?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyFleetResult {
+  /**
+   * <p>If the request succeeds, the response returns <code>true</code>. If the request fails,
+   *          no response is returned, and instead an error message is returned.</p>
+   * @public
+   */
+  Return?: boolean | undefined;
+}
+
+/**
+ * <p>Describes a load permission.</p>
+ * @public
+ */
+export interface LoadPermissionRequest {
+  /**
+   * <p>The name of the group.</p>
+   * @public
+   */
+  Group?: PermissionGroup | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+}
+
+/**
+ * <p>Describes modifications to the load permissions of an Amazon FPGA image (AFI).</p>
+ * @public
+ */
+export interface LoadPermissionModifications {
+  /**
+   * <p>The load permissions to add.</p>
+   * @public
+   */
+  Add?: LoadPermissionRequest[] | undefined;
+
+  /**
+   * <p>The load permissions to remove.</p>
+   * @public
+   */
+  Remove?: LoadPermissionRequest[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyFpgaImageAttributeRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the AFI.</p>
+   * @public
+   */
+  FpgaImageId: string | undefined;
+
+  /**
+   * <p>The name of the attribute.</p>
+   * @public
+   */
+  Attribute?: FpgaImageAttributeName | undefined;
+
+  /**
+   * <p>The operation type.</p>
+   * @public
+   */
+  OperationType?: OperationType | undefined;
+
+  /**
+   * <p>The Amazon Web Services account IDs. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
+   * @public
+   */
+  UserIds?: string[] | undefined;
+
+  /**
+   * <p>The user groups. This parameter is valid only when modifying the <code>loadPermission</code> attribute.</p>
+   * @public
+   */
+  UserGroups?: string[] | undefined;
+
+  /**
+   * <p>The product codes. After you add a product code to an AFI, it can't be removed.
+   * 		    This parameter is valid only when modifying the <code>productCodes</code> attribute.</p>
+   * @public
+   */
+  ProductCodes?: string[] | undefined;
+
+  /**
+   * <p>The load permission for the AFI.</p>
+   * @public
+   */
+  LoadPermission?: LoadPermissionModifications | undefined;
+
+  /**
+   * <p>A description for the AFI.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>A name for the AFI.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyFpgaImageAttributeResult {
+  /**
+   * <p>Information about the attribute.</p>
+   * @public
+   */
+  FpgaImageAttribute?: FpgaImageAttribute | undefined;
+}
 
 /**
  * @public
@@ -2127,6 +3570,76 @@ export interface ModifyIpamResourceDiscoveryResult {
    * @public
    */
   IpamResourceDiscovery?: IpamResourceDiscovery | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamRoutingPolicyRegistrationRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the operation, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The ID of the IPAM internet registry association.</p>
+   * @public
+   */
+  IpamInternetRegistryAssociationId: string | undefined;
+
+  /**
+   * <p>The IP address prefix in CIDR notation identifying the routing policy registration to modify.</p>
+   * @public
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The updated list of Autonomous System Numbers (ASNs) authorized to originate the prefix.</p>
+   * @public
+   */
+  Asns: string[] | undefined;
+
+  /**
+   * <p>Specifies whether to permit more specific route announcements than the CIDR prefix. Default: <code>false</code>.</p>
+   * @public
+   */
+  PermitMoreSpecificAnnouncements?: boolean | undefined;
+
+  /**
+   * <p>The new maximum prefix length that the ASNs are authorized to announce. Must be greater than or equal to the prefix length of the CIDR.</p>
+   * @public
+   */
+  MaxLength?: number | undefined;
+
+  /**
+   * <p>A new description for the routing policy registration.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Forces the modification even if it conflicts with an announced route. Default: <code>false</code>.</p>
+   * @public
+   */
+  Force?: boolean | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the operation ignores the request, but does not return an error.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyIpamRoutingPolicyRegistrationResult {
+  /**
+   * <p>Information about the routing policy registration delta created by this modification.</p>
+   * @public
+   */
+  IpamRoutingPolicyRegistrationDelta?: IpamRoutingPolicyRegistrationDelta | undefined;
 }
 
 /**
@@ -8333,1632 +9846,4 @@ export interface ResetEbsDefaultKmsKeyIdRequest {
    * @public
    */
   DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetEbsDefaultKmsKeyIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the default KMS key for EBS encryption by default.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the AFI.</p>
-   * @public
-   */
-  FpgaImageId: string | undefined;
-
-  /**
-   * <p>The attribute.</p>
-   * @public
-   */
-  Attribute?: ResetFpgaImageAttributeName | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetFpgaImageAttributeResult {
-  /**
-   * <p>Is <code>true</code> if the request succeeds, and an error otherwise.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * <p>Contains the parameters for ResetImageAttribute.</p>
- * @public
- */
-export interface ResetImageAttributeRequest {
-  /**
-   * <p>The attribute to reset (currently you can only reset the launch permission
-   *       attribute).</p>
-   * @public
-   */
-  Attribute: ResetImageAttributeName | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetInstanceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The attribute to reset.</p>
-   *          <important>
-   *             <p>You can only reset the following attributes: <code>kernel</code> |
-   *                     <code>ramdisk</code> | <code>sourceDestCheck</code>.</p>
-   *          </important>
-   * @public
-   */
-  Attribute: InstanceAttributeName | undefined;
-}
-
-/**
- * <p>Contains the parameters for ResetNetworkInterfaceAttribute.</p>
- * @public
- */
-export interface ResetNetworkInterfaceAttributeRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The source/destination checking attribute. Resets the value to
-   *             <code>true</code>.</p>
-   * @public
-   */
-  SourceDestCheck?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResetSnapshotAttributeRequest {
-  /**
-   * <p>The attribute to reset. Currently, only the attribute for permission to create volumes can
-   *       be reset.</p>
-   * @public
-   */
-  Attribute: SnapshotAttributeName | undefined;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAddressToClassicRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreAddressToClassicResult {
-  /**
-   * <p>The Elastic IP address.</p>
-   * @public
-   */
-  PublicIp?: string | undefined;
-
-  /**
-   * <p>The move status for the IP address.</p>
-   * @public
-   */
-  Status?: Status | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreImageFromRecycleBinRequest {
-  /**
-   * <p>The ID of the AMI to restore.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreImageFromRecycleBinResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreManagedPrefixListVersionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   * @public
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>The version to restore.</p>
-   * @public
-   */
-  PreviousVersion: number | undefined;
-
-  /**
-   * <p>The current version number for the prefix list.</p>
-   * @public
-   */
-  CurrentVersion: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreManagedPrefixListVersionResult {
-  /**
-   * <p>Information about the prefix list.</p>
-   * @public
-   */
-  PrefixList?: ManagedPrefixList | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotFromRecycleBinRequest {
-  /**
-   * <p>The ID of the snapshot to restore.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotFromRecycleBinResult {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *       <i>Amazon EBS User Guide</i>.</p>
-   * @public
-   */
-  OutpostArn?: string | undefined;
-
-  /**
-   * <p>The description for the snapshot.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the EBS snapshot.</p>
-   * @public
-   */
-  OwnerId?: string | undefined;
-
-  /**
-   * <p>The progress of the snapshot, as a percentage.</p>
-   * @public
-   */
-  Progress?: string | undefined;
-
-  /**
-   * <p>The time stamp when the snapshot was initiated.</p>
-   * @public
-   */
-  StartTime?: Date | undefined;
-
-  /**
-   * <p>The state of the snapshot.</p>
-   * @public
-   */
-  State?: SnapshotState | undefined;
-
-  /**
-   * <p>The ID of the volume that was used to create the snapshot.</p>
-   * @public
-   */
-  VolumeId?: string | undefined;
-
-  /**
-   * <p>The size of the volume, in GiB.</p>
-   * @public
-   */
-  VolumeSize?: number | undefined;
-
-  /**
-   * <p>Reserved for future use.</p>
-   * @public
-   */
-  SseType?: SSEType | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotTierRequest {
-  /**
-   * <p>The ID of the snapshot to restore.</p>
-   * @public
-   */
-  SnapshotId: string | undefined;
-
-  /**
-   * <p>Specifies the number of days for which to temporarily restore an archived snapshot.
-   *       Required for temporary restores only. The snapshot will be automatically re-archived
-   *       after this period.</p>
-   *          <p>To temporarily restore an archived snapshot, specify the number of days and omit
-   *       the <b>PermanentRestore</b> parameter or set it to
-   *       <code>false</code>.</p>
-   * @public
-   */
-  TemporaryRestoreDays?: number | undefined;
-
-  /**
-   * <p>Indicates whether to permanently restore an archived snapshot. To permanently restore
-   *       an archived snapshot, specify <code>true</code> and omit the
-   *       <b>RestoreSnapshotTierRequest$TemporaryRestoreDays</b> parameter.</p>
-   * @public
-   */
-  PermanentRestore?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreSnapshotTierResult {
-  /**
-   * <p>The ID of the snapshot.</p>
-   * @public
-   */
-  SnapshotId?: string | undefined;
-
-  /**
-   * <p>The date and time when the snapshot restore process started.</p>
-   * @public
-   */
-  RestoreStartTime?: Date | undefined;
-
-  /**
-   * <p>For temporary restores only. The number of days for which the archived snapshot
-   *       is temporarily restored.</p>
-   * @public
-   */
-  RestoreDuration?: number | undefined;
-
-  /**
-   * <p>Indicates whether the snapshot is permanently restored. <code>true</code> indicates a permanent
-   *       restore. <code>false</code> indicates a temporary restore.</p>
-   * @public
-   */
-  IsPermanentRestore?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreVolumeFromRecycleBinRequest {
-  /**
-   * <p>The ID of the volume to restore.</p>
-   * @public
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RestoreVolumeFromRecycleBinResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeClientVpnIngressRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint with which the authorization rule is associated.</p>
-   * @public
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>The IPv4 address range, in CIDR notation, of the network for which access is being removed.</p>
-   * @public
-   */
-  TargetNetworkCidr: string | undefined;
-
-  /**
-   * <p>The ID of the Active Directory group for which to revoke access. </p>
-   * @public
-   */
-  AccessGroupId?: string | undefined;
-
-  /**
-   * <p>Indicates whether access should be revoked for all groups for a single <code>TargetNetworkCidr</code> that earlier authorized ingress for all groups using <code>AuthorizeAllGroups</code>.
-   * 			This does not impact other authorization rules that allowed ingress to the same <code>TargetNetworkCidr</code> with a specific <code>AccessGroupId</code>.</p>
-   * @public
-   */
-  RevokeAllGroups?: boolean | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeClientVpnIngressResult {
-  /**
-   * <p>The current state of the authorization rule.</p>
-   * @public
-   */
-  Status?: ClientVpnAuthorizationRuleStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupEgressRequest {
-  /**
-   * <p>The IDs of the security group rules.</p>
-   * @public
-   */
-  SecurityGroupRuleIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId: string | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify a
-   *            destination security group.</p>
-   * @public
-   */
-  SourceSecurityGroupName?: string | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify a destination security
-   *             group.</p>
-   * @public
-   */
-  SourceSecurityGroupOwnerId?: string | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
-   *             number.</p>
-   * @public
-   */
-  IpProtocol?: string | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-
-  /**
-   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
-   * @public
-   */
-  CidrIp?: string | undefined;
-
-  /**
-   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP address range in the same set of permissions.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-}
-
-/**
- * <p>A security group rule removed with <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeSecurityGroupEgress.html">RevokeSecurityGroupEgress</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RevokeSecurityGroupIngress.html">RevokeSecurityGroupIngress</a>.</p>
- * @public
- */
-export interface RevokedSecurityGroupRule {
-  /**
-   * <p>A security group rule ID.</p>
-   * @public
-   */
-  SecurityGroupRuleId?: string | undefined;
-
-  /**
-   * <p>A security group ID.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>Defines if a security group rule is an outbound rule.</p>
-   * @public
-   */
-  IsEgress?: boolean | undefined;
-
-  /**
-   * <p>The security group rule's protocol.</p>
-   * @public
-   */
-  IpProtocol?: string | undefined;
-
-  /**
-   * <p>The 'from' port number of the security group rule.</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>The 'to' port number of the security group rule.</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-
-  /**
-   * <p>The IPv4 CIDR of the traffic source.</p>
-   * @public
-   */
-  CidrIpv4?: string | undefined;
-
-  /**
-   * <p>The IPv6 CIDR of the traffic source.</p>
-   * @public
-   */
-  CidrIpv6?: string | undefined;
-
-  /**
-   * <p>The ID of a prefix list that's the traffic source.</p>
-   * @public
-   */
-  PrefixListId?: string | undefined;
-
-  /**
-   * <p>The ID of a referenced security group.</p>
-   * @public
-   */
-  ReferencedGroupId?: string | undefined;
-
-  /**
-   * <p>A description of the revoked security group rule.</p>
-   * @public
-   */
-  Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupEgressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>The outbound rules that were unknown to the service. In some cases,
-   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
-   *             parameter. </p>
-   * @public
-   */
-  UnknownIpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>Details about the revoked security group rules.</p>
-   * @public
-   */
-  RevokedSecurityGroupRules?: RevokedSecurityGroupRule[] | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupIngressRequest {
-  /**
-   * <p>The CIDR IP address range. You can't specify this parameter when specifying a source security group.</p>
-   * @public
-   */
-  CidrIp?: string | undefined;
-
-  /**
-   * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *            If the protocol is ICMP, this is the ICMP type or -1 (all ICMP types).</p>
-   * @public
-   */
-  FromPort?: number | undefined;
-
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the security group. You must specify either the
-   *             security group ID or the security group name in the request. For security groups in a
-   *             nondefault VPC, you must specify the security group ID.</p>
-   * @public
-   */
-  GroupName?: string | undefined;
-
-  /**
-   * <p>The sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</p>
-   * @public
-   */
-  IpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
-   *         (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>).
-   *         Use <code>-1</code> to specify all.</p>
-   * @public
-   */
-  IpProtocol?: string | undefined;
-
-  /**
-   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
-   *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
-   *          the IP protocol, and the end of the port range. The source security group must be in the same VPC.
-   *          To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
-   * @public
-   */
-  SourceSecurityGroupName?: string | undefined;
-
-  /**
-   * <p>Not supported.</p>
-   * @public
-   */
-  SourceSecurityGroupOwnerId?: string | undefined;
-
-  /**
-   * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *          If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes).</p>
-   * @public
-   */
-  ToPort?: number | undefined;
-
-  /**
-   * <p>The IDs of the security group rules.</p>
-   * @public
-   */
-  SecurityGroupRuleIds?: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface RevokeSecurityGroupIngressResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
-   * @public
-   */
-  Return?: boolean | undefined;
-
-  /**
-   * <p>The inbound rules that were unknown to the service. In some cases,
-   *                 <code>unknownIpPermissionSet</code> might be in a different format from the request
-   *             parameter. </p>
-   * @public
-   */
-  UnknownIpPermissions?: IpPermission[] | undefined;
-
-  /**
-   * <p>Details about the revoked security group rules.</p>
-   * @public
-   */
-  RevokedSecurityGroupRules?: RevokedSecurityGroupRule[] | undefined;
-}
-
-/**
- * <p>The CPU options for the instance. Both the core count and threads per core must be
- *             specified in the request.</p>
- * @public
- */
-export interface CpuOptionsRequest {
-  /**
-   * <p>The number of CPU cores for the instance.</p>
-   * @public
-   */
-  CoreCount?: number | undefined;
-
-  /**
-   * <p>The number of threads per CPU core. To disable multithreading for the instance,
-   *             specify a value of <code>1</code>. Otherwise, specify the default value of
-   *                 <code>2</code>.</p>
-   * @public
-   */
-  ThreadsPerCore?: number | undefined;
-
-  /**
-   * <p>Indicates whether to enable the instance for AMD SEV-SNP. AMD SEV-SNP is supported
-   *             with M6a, R6a, and C6a instance types only. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sev-snp.html">AMD SEV-SNP</a>.</p>
-   * @public
-   */
-  AmdSevSnp?: AmdSevSnpSpecification | undefined;
-
-  /**
-   * <p>Indicates whether to enable the instance for nested virtualization.
-   *             Nested virtualization is supported only on 8th generation Intel-based instance types (c8i, m8i, r8i, and their flex variants).
-   *             When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance.</p>
-   * @public
-   */
-  NestedVirtualization?: NestedVirtualizationSpecification | undefined;
-}
-
-/**
- * <note>
- *             <p>Amazon Elastic Inference is no longer available.</p>
- *          </note>
- *          <p>
- *            Describes an elastic inference accelerator.
- *         </p>
- * @public
- */
-export interface ElasticInferenceAccelerator {
-  /**
-   * <p>
-   *         	The type of elastic inference accelerator. The possible values are <code>eia1.medium</code>, <code>eia1.large</code>, <code>eia1.xlarge</code>, <code>eia2.medium</code>, <code>eia2.large</code>, and <code>eia2.xlarge</code>.
-   *         </p>
-   * @public
-   */
-  Type: string | undefined;
-
-  /**
-   * <p>
-   *             The number of elastic inference accelerators to attach to the instance.
-   *         </p>
-   *          <p>Default: 1</p>
-   * @public
-   */
-  Count?: number | undefined;
-}
-
-/**
- * <p>Indicates whether your instance is configured for hibernation. This parameter is valid
- *             only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
- *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
- *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
- * @public
- */
-export interface HibernationOptionsRequest {
-  /**
-   * <p>Set to <code>true</code> to enable your instance for hibernation.</p>
-   *          <p>For Spot Instances, if you set <code>Configured</code> to <code>true</code>, either
-   *             omit the <code>InstanceInterruptionBehavior</code> parameter (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotMarketOptions.html">
-   *                <code>SpotMarketOptions</code>
-   *             </a>), or set it to
-   *                 <code>hibernate</code>. When <code>Configured</code> is true:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you omit <code>InstanceInterruptionBehavior</code>, it defaults to
-   *                         <code>hibernate</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you set <code>InstanceInterruptionBehavior</code> to a value other than
-   *                         <code>hibernate</code>, you'll get an error.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  Configured?: boolean | undefined;
-}
-
-/**
- * <p>The options for Spot Instances.</p>
- * @public
- */
-export interface SpotMarketOptions {
-  /**
-   * <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not
-   *             recommend using this parameter because it can lead to increased interruptions. If you do
-   *             not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
-   *                 frequently than if you do not specify this parameter.</p>
-   *             <p>If you specify a maximum price, it must be more than USD $0.001. Specifying a value
-   *                 below USD $0.001 will result in an <code>InvalidParameterValue</code> error
-   *                 message.</p>
-   *          </important>
-   * @public
-   */
-  MaxPrice?: string | undefined;
-
-  /**
-   * <p>The Spot Instance request type. For <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances">RunInstances</a>, persistent
-   *             Spot Instance requests are only supported when the instance interruption behavior is
-   *             either <code>hibernate</code> or <code>stop</code>.</p>
-   * @public
-   */
-  SpotInstanceType?: SpotInstanceType | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  BlockDurationMinutes?: number | undefined;
-
-  /**
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             Supported only for persistent requests.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it.</p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
-   *                     remains active until all instances launch or you cancel the request.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
-   *          <p>If <code>Configured</code> (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html">
-   *                <code>HibernationOptions</code>
-   *             </a>) is set to <code>true</code>, the
-   *                 <code>InstanceInterruptionBehavior</code> parameter is automatically set to
-   *                 <code>hibernate</code>. If you set it to <code>stop</code> or
-   *             <code>terminate</code>, you'll get an error.</p>
-   *          <p>If <code>Configured</code> (for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_HibernationOptionsRequest.html">
-   *                <code>HibernationOptions</code>
-   *             </a>) is set to <code>false</code> or
-   *                 <code>null</code>, the <code>InstanceInterruptionBehavior</code> parameter is
-   *             automatically set to <code>terminate</code>. You can also set it to <code>stop</code> or
-   *                 <code>hibernate</code>.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/interruption-behavior.html">Interruption
-   *                 behavior</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
-}
-
-/**
- * <p>Describes the market (purchasing) option for the instances.</p>
- * @public
- */
-export interface InstanceMarketOptionsRequest {
-  /**
-   * <p>The market type.</p>
-   * @public
-   */
-  MarketType?: MarketType | undefined;
-
-  /**
-   * <p>The options for Spot Instances.</p>
-   * @public
-   */
-  SpotOptions?: SpotMarketOptions | undefined;
-}
-
-/**
- * <p>Describes the launch template to use.</p>
- * @public
- */
-export interface LaunchTemplateSpecification {
-  /**
-   * <p>The ID of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>The name of the launch template.</p>
-   *          <p>You must specify either the launch template ID or the
-   *             launch template name, but not both.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>The launch template version number, <code>$Latest</code>, or
-   *             <code>$Default</code>.</p>
-   *          <p>A value of <code>$Latest</code> uses the latest version of the launch template.</p>
-   *          <p>A value of <code>$Default</code> uses the default version of the launch template.</p>
-   *          <p>Default: The default version of the launch template.</p>
-   * @public
-   */
-  Version?: string | undefined;
-}
-
-/**
- * <p>Describes a license configuration.</p>
- * @public
- */
-export interface LicenseConfigurationRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the license configuration.</p>
-   * @public
-   */
-  LicenseConfigurationArn?: string | undefined;
-}
-
-/**
- * <p>The maintenance options for the instance.</p>
- * @public
- */
-export interface InstanceMaintenanceOptionsRequest {
-  /**
-   * <p>Disables the automatic recovery behavior of your instance or sets it to default. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
-   * @public
-   */
-  AutoRecovery?: InstanceAutoRecoveryState | undefined;
-}
-
-/**
- * <p>The metadata options for the instance.</p>
- * @public
- */
-export interface InstanceMetadataOptionsRequest {
-  /**
-   * <p>Indicates whether IMDSv2 is required.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>optional</code> - IMDSv2 is optional, which means that you can use
-   *                     either IMDSv2 or IMDSv1.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>required</code> - IMDSv2 is required, which means that IMDSv1 is
-   *                     disabled, and you must use IMDSv2.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Default:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
-   *                     for your instance is <code>v2.0</code> and the account level default is set to
-   *                         <code>no-preference</code>, the default is <code>required</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>If the value of <code>ImdsSupport</code> for the Amazon Machine Image (AMI)
-   *                     for your instance is <code>v2.0</code>, but the account level default is set to
-   *                         <code>V1 or V2</code>, the default is <code>optional</code>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The default value can also be affected by other combinations of parameters. For more
-   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html#instance-metadata-options-order-of-precedence">Order of precedence for instance metadata options</a> in the
-   *             <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  HttpTokens?: HttpTokensState | undefined;
-
-  /**
-   * <p>The maximum number of hops that the metadata token can travel.</p>
-   *          <p>Possible values: Integers from 1 to 64</p>
-   * @public
-   */
-  HttpPutResponseHopLimit?: number | undefined;
-
-  /**
-   * <p>Enables or disables the HTTP metadata endpoint on your instances.</p>
-   *          <p>If you specify a value of <code>disabled</code>, you cannot access your instance
-   *             metadata.</p>
-   *          <p>Default: <code>enabled</code>
-   *          </p>
-   * @public
-   */
-  HttpEndpoint?: InstanceMetadataEndpointState | undefined;
-
-  /**
-   * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
-   *          <p>Default: <code>disabled</code>
-   *          </p>
-   * @public
-   */
-  HttpProtocolIpv6?: InstanceMetadataProtocolState | undefined;
-
-  /**
-   * <p>Set to <code>enabled</code> to allow access to instance tags from the instance
-   *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
-   *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/work-with-tags-in-IMDS.html">View tags for your EC2
-   *                 instances using instance metadata</a>.</p>
-   *          <p>Default: <code>disabled</code>
-   *          </p>
-   * @public
-   */
-  InstanceMetadataTags?: InstanceMetadataTagsState | undefined;
-}
-
-/**
- * <p>Configure network performance options for your instance that are geared towards performance
- *     		improvements based on the workload that it runs.</p>
- * @public
- */
-export interface InstanceNetworkPerformanceOptionsRequest {
-  /**
-   * <p>Specify the bandwidth weighting option to boost the associated type of baseline bandwidth,
-   *     		as follows:</p>
-   *          <dl>
-   *             <dt>default</dt>
-   *             <dd>
-   *                <p>This option uses the standard bandwidth configuration for your instance type.</p>
-   *             </dd>
-   *             <dt>vpc-1</dt>
-   *             <dd>
-   *                <p>This option boosts your networking baseline bandwidth and reduces your EBS baseline
-   *     					bandwidth.</p>
-   *             </dd>
-   *             <dt>ebs-1</dt>
-   *             <dd>
-   *                <p>This option boosts your EBS baseline bandwidth and reduces your networking baseline
-   *     					bandwidth.</p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  BandwidthWeighting?: InstanceBandwidthWeighting | undefined;
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- * @public
- */
-export interface PrivateDnsNameOptionsRequest {
-  /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
-   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
-   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
-   * @public
-   */
-  HostnameType?: HostnameType | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   * @public
-   */
-  EnableResourceNameDnsARecord?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA
-   *             records.</p>
-   * @public
-   */
-  EnableResourceNameDnsAAAARecord?: boolean | undefined;
-}
-
-/**
- * <p>Describes a private IPv4 address for a secondary interface request.</p>
- * @public
- */
-export interface InstanceSecondaryInterfacePrivateIpAddressRequest {
-  /**
-   * <p>The private IPv4 address.</p>
-   * @public
-   */
-  PrivateIpAddress: string | undefined;
-}
-
-/**
- * <p>Describes a secondary interface specification for launching an instance.</p>
- * @public
- */
-export interface InstanceSecondaryInterfaceSpecificationRequest {
-  /**
-   * <p>Indicates whether the secondary interface is deleted when the instance is terminated.</p>
-   *          <p>The only supported value for this field is <code>true</code>.</p>
-   * @public
-   */
-  DeleteOnTermination?: boolean | undefined;
-
-  /**
-   * <p>The device index for the secondary interface attachment.</p>
-   * @public
-   */
-  DeviceIndex?: number | undefined;
-
-  /**
-   * <p>The private IPv4 addresses to assign to the secondary interface.</p>
-   * @public
-   */
-  PrivateIpAddresses?: InstanceSecondaryInterfacePrivateIpAddressRequest[] | undefined;
-
-  /**
-   * <p>The number of private IPv4 addresses to assign to the secondary interface.</p>
-   * @public
-   */
-  PrivateIpAddressCount?: number | undefined;
-
-  /**
-   * <p>The ID of the secondary subnet.</p>
-   * @public
-   */
-  SecondarySubnetId?: string | undefined;
-
-  /**
-   * <p>The type of secondary interface.</p>
-   * @public
-   */
-  InterfaceType?: SecondaryInterfaceType | undefined;
-
-  /**
-   * <p>The index of the network card. The network card must support secondary interfaces.</p>
-   * @public
-   */
-  NetworkCardIndex?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface RunInstancesRequest {
-  /**
-   * <p>The block device mapping, which defines the EBS volumes and instance store volumes to
-   *             attach to the instance at launch. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html">Block device
-   *                 mappings</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>The ID of the AMI. An AMI ID is required to launch an instance and must be specified
-   *             here or in a launch template.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/instance-types.html">Amazon EC2 Instance
-   *                 Types Guide</a>.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The number of IPv6 addresses to associate with the primary network
-   *             interface. Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You
-   *             cannot specify this option and the option to assign specific IPv6 addresses in the same
-   *             request. You can specify this option if you've specified a minimum number of instances
-   *             to launch.</p>
-   *          <p>You cannot specify this option and the network interfaces option in the same
-   *             request.</p>
-   * @public
-   */
-  Ipv6AddressCount?: number | undefined;
-
-  /**
-   * <p>The IPv6 addresses from the range of the subnet to associate with the
-   *             primary network interface. You cannot specify this option and the option to assign a
-   *             number of IPv6 addresses in the same request. You cannot specify this option if you've
-   *             specified a minimum number of instances to launch.</p>
-   *          <p>You cannot specify this option and the network interfaces option in the same
-   *             request.</p>
-   * @public
-   */
-  Ipv6Addresses?: InstanceIpv6Address[] | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   *          <important>
-   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
-   *                     <i>Amazon EC2 User Guide</i>.</p>
-   *          </important>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The name of the key pair. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html">Create a key pair for your EC2 instance</a>.</p>
-   *          <important>
-   *             <p>If you do not specify a key pair, you can't connect to the instance unless you
-   *                 choose an AMI that is configured to allow users another way to log in.</p>
-   *          </important>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The maximum number of instances to launch. If you specify a value that is more
-   *             capacity than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
-   *             launches the largest possible number of instances above the specified minimum
-   *             count.</p>
-   *          <p>Constraints: Between 1 and the quota for the specified instance type for your account for this Region.
-   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon EC2 instance type quotas</a>.</p>
-   * @public
-   */
-  MaxCount: number | undefined;
-
-  /**
-   * <p>The minimum number of instances to launch. If you specify a value that is more
-   *             capacity than Amazon EC2 can provide in the target Availability Zone, Amazon EC2 does
-   *             not launch any instances.</p>
-   *          <p>Constraints: Between 1 and the quota for the specified instance type for your account for this Region.
-   *             For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/instancetypes/ec2-instance-quotas.html">Amazon EC2 instance type quotas</a>.</p>
-   * @public
-   */
-  MinCount: number | undefined;
-
-  /**
-   * <p>Specifies whether detailed monitoring is enabled for the instance.</p>
-   * @public
-   */
-  Monitoring?: RunInstancesMonitoringEnabled | undefined;
-
-  /**
-   * <p>The placement for the instance.</p>
-   * @public
-   */
-  Placement?: Placement | undefined;
-
-  /**
-   * <p>The ID of the RAM disk to select. Some kernels require additional drivers at launch.
-   *             Check the kernel requirements for information about whether you need to specify a RAM
-   *             disk. To find kernel requirements, go to the Amazon Web Services Resource Center and
-   *             search for the kernel ID.</p>
-   *          <important>
-   *             <p>We recommend that you use PV-GRUB instead of kernels and RAM disks. For more
-   *                 information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UserProvidedkernels.html">PV-GRUB</a> in the
-   *                     <i>Amazon EC2 User Guide</i>.</p>
-   *          </important>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The IDs of the security groups.</p>
-   *          <p>If you specify a network interface, you must specify any security groups as part of
-   *             the network interface instead of using this parameter.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>[Default VPC] The names of the security groups.</p>
-   *          <p>If you specify a network interface, you must specify any security groups as part of
-   *             the network interface instead of using this parameter.</p>
-   *          <p>Default: Amazon EC2 uses the default security group.</p>
-   * @public
-   */
-  SecurityGroups?: string[] | undefined;
-
-  /**
-   * <p>The ID of the subnet to launch the instance into.</p>
-   *          <p>If you specify a network interface, you must specify any subnets as part of the
-   *             network interface instead of using this parameter.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The user data to make available to the instance. User data must be base64-encoded.
-   *             Depending on the tool or SDK that you're using, the base64-encoding might be performed for you.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands at launch using instance user data</a>.</p>
-   * @public
-   */
-  UserData?: string | undefined;
-
-  /**
-   * <p>An elastic GPU to associate with the instance.</p>
-   *          <note>
-   *             <p>Amazon Elastic Graphics reached end of life on January 8, 2024.</p>
-   *          </note>
-   *
-   * @deprecated (since 2024-01-08) Specifying Elastic Graphics accelerators is no longer supported on the RunInstances API.
-   * @public
-   */
-  ElasticGpuSpecification?: ElasticGpuSpecification[] | undefined;
-
-  /**
-   * <p>An elastic inference accelerator to associate with the instance.</p>
-   *          <note>
-   *             <p>Amazon Elastic Inference is no longer available.</p>
-   *          </note>
-   *
-   * @deprecated (since 2024-01-08) Specifying Elastic Inference accelerators is no longer supported on the RunInstances API.
-   * @public
-   */
-  ElasticInferenceAccelerators?: ElasticInferenceAccelerator[] | undefined;
-
-  /**
-   * <p>The tags to apply to the resources that are created during instance launch.</p>
-   *          <p>You can specify tags for the following resources only:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Instances</p>
-   *             </li>
-   *             <li>
-   *                <p>Volumes</p>
-   *             </li>
-   *             <li>
-   *                <p>Spot Instance requests</p>
-   *             </li>
-   *             <li>
-   *                <p>Network interfaces</p>
-   *             </li>
-   *          </ul>
-   *          <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The launch template. Any additional parameters that you specify for the new instance
-   *             overwrite the corresponding parameters included in the launch template.</p>
-   * @public
-   */
-  LaunchTemplate?: LaunchTemplateSpecification | undefined;
-
-  /**
-   * <p>The market (purchasing) option for the instances.</p>
-   *          <p>For <a>RunInstances</a>, persistent Spot Instance requests are
-   *             only supported when <b>InstanceInterruptionBehavior</b> is set
-   *             to either <code>hibernate</code> or <code>stop</code>.</p>
-   * @public
-   */
-  InstanceMarketOptions?: InstanceMarketOptionsRequest | undefined;
-
-  /**
-   * <p>The credit option for CPU usage of the burstable performance instance. Valid values
-   *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
-   *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
-   *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a/T4g
-   *             instances)</p>
-   *          <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
-   *             supported.</p>
-   * @public
-   */
-  CreditSpecification?: CreditSpecificationRequest | undefined;
-
-  /**
-   * <p>The CPU options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  CpuOptions?: CpuOptionsRequest | undefined;
-
-  /**
-   * <p>Information about the Capacity Reservation targeting option. If you do not specify this parameter, the
-   *             instance's Capacity Reservation preference defaults to <code>open</code>, which enables
-   *             it to run in any open Capacity Reservation that has matching attributes (instance type,
-   *             platform, Availability Zone, and tenancy).</p>
-   * @public
-   */
-  CapacityReservationSpecification?: CapacityReservationSpecification | undefined;
-
-  /**
-   * <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only
-   *             if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/hibernating-prerequisites.html">hibernation
-   *                 prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your Amazon EC2
-   *                 instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
-   *             instance.</p>
-   * @public
-   */
-  HibernationOptions?: HibernationOptionsRequest | undefined;
-
-  /**
-   * <p>The license configurations.</p>
-   * @public
-   */
-  LicenseSpecifications?: LicenseConfigurationRequest[] | undefined;
-
-  /**
-   * <p>The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-options.html">Configure the Instance Metadata Service options</a>.</p>
-   * @public
-   */
-  MetadataOptions?: InstanceMetadataOptionsRequest | undefined;
-
-  /**
-   * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
-   *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/">Amazon Web Services Nitro
-   *                 Enclaves User Guide</a>.</p>
-   *          <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
-   *             instance.</p>
-   * @public
-   */
-  EnclaveOptions?: EnclaveOptionsRequest | undefined;
-
-  /**
-   * <p>The options for the instance hostname.
-   *             The default values are inherited from the subnet.
-   *             Applies only if creating a network interface, not attaching an existing one.</p>
-   * @public
-   */
-  PrivateDnsNameOptions?: PrivateDnsNameOptionsRequest | undefined;
-
-  /**
-   * <p>The maintenance and recovery options for the instance.</p>
-   * @public
-   */
-  MaintenanceOptions?: InstanceMaintenanceOptionsRequest | undefined;
-
-  /**
-   * <p>Indicates whether an instance is enabled for stop protection. For more information,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-stop-protection.html">Enable stop protection for your EC2 instances</a>.</p>
-   * @public
-   */
-  DisableApiStop?: boolean | undefined;
-
-  /**
-   * <p>If you’re launching an instance into a dual-stack or IPv6-only subnet, you can enable
-   *             assigning a primary IPv6 address. A primary IPv6 address is an IPv6 GUA address
-   *             associated with an ENI that you have enabled to use a primary IPv6 address. Use this
-   *             option if an instance relies on its IPv6 address not changing. When you launch the
-   *             instance, Amazon Web Services will automatically assign an IPv6 address associated with
-   *             the ENI attached to your instance to be the primary IPv6 address. Once you enable an
-   *             IPv6 GUA address to be a primary IPv6, you cannot disable it. When you enable an IPv6
-   *             GUA address to be a primary IPv6, the first IPv6 GUA will be made the primary IPv6
-   *             address until the instance is terminated or the network interface is detached. If you
-   *             have multiple IPv6 addresses associated with an ENI attached to your instance and you
-   *             enable a primary IPv6 address, the first IPv6 GUA address associated with the ENI
-   *             becomes the primary IPv6 address.</p>
-   * @public
-   */
-  EnablePrimaryIpv6?: boolean | undefined;
-
-  /**
-   * <p>Contains settings for the network performance options for the instance.</p>
-   * @public
-   */
-  NetworkPerformanceOptions?: InstanceNetworkPerformanceOptionsRequest | undefined;
-
-  /**
-   * <p>Reserved for internal use.</p>
-   * @public
-   */
-  Operator?: OperatorRequest | undefined;
-
-  /**
-   * <p>The secondary interfaces to associate with the instance.</p>
-   * @public
-   */
-  SecondaryInterfaces?: InstanceSecondaryInterfaceSpecificationRequest[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the operation, without actually making the
-   *   request, and provides an error response. If you have the required permissions, the error response is
-   *   <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether termination protection is enabled for the instance. The default
-   *             is <code>false</code>, which means that you can terminate the instance using
-   *             the Amazon EC2 console, command line tools, or API. You can enable termination protection
-   *             when you launch an instance, while the instance is running, or while the instance
-   *             is stopped.</p>
-   * @public
-   */
-  DisableApiTermination?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether an instance stops or terminates when you initiate shutdown from the
-   *             instance (using the operating system command for system shutdown).</p>
-   *          <p>Default: <code>stop</code>
-   *          </p>
-   * @public
-   */
-  InstanceInitiatedShutdownBehavior?: ShutdownBehavior | undefined;
-
-  /**
-   * <p>The primary IPv4 address. You must specify a value from the IPv4 address
-   *             range of the subnet.</p>
-   *          <p>Only one private IP address can be designated as primary. You can't specify this
-   *             option if you've specified the option to designate a private IP address as the primary
-   *             IP address in a network interface specification. You cannot specify this option if
-   *             you're launching more than one instance in the request.</p>
-   *          <p>You cannot specify this option and the network interfaces option in the same
-   *             request.</p>
-   * @public
-   */
-  PrivateIpAddress?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If you do not specify a client token, a randomly generated token is used for
-   *             the request to ensure idempotency.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">Ensuring idempotency in Amazon EC2 API requests</a>.</p>
-   *          <p>Constraints: Maximum 64 ASCII characters</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>Reserved.</p>
-   * @public
-   */
-  AdditionalInfo?: string | undefined;
-
-  /**
-   * <p>The network interfaces to associate with the instance.</p>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
-
-  /**
-   * <p>The name or Amazon Resource Name (ARN) of an IAM instance
-   *             profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>Indicates whether the instance is optimized for Amazon EBS I/O. This optimization
-   *             provides dedicated throughput to Amazon EBS and an optimized configuration stack to
-   *             provide optimal Amazon EBS I/O performance. This optimization isn't available with all
-   *             instance types. Additional usage charges apply when using an EBS-optimized
-   *             instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
 }

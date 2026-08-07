@@ -243,6 +243,11 @@ import {
   AuthorizeSecurityGroupIngressCommand,
 } from "./commands/AuthorizeSecurityGroupIngressCommand";
 import {
+  type BatchModifyIpamRoutingPolicyRegistrationsCommandInput,
+  type BatchModifyIpamRoutingPolicyRegistrationsCommandOutput,
+  BatchModifyIpamRoutingPolicyRegistrationsCommand,
+} from "./commands/BatchModifyIpamRoutingPolicyRegistrationsCommand";
+import {
   type BundleInstanceCommandInput,
   type BundleInstanceCommandOutput,
   BundleInstanceCommand,
@@ -469,6 +474,11 @@ import {
   CreateIpamExternalResourceVerificationTokenCommand,
 } from "./commands/CreateIpamExternalResourceVerificationTokenCommand";
 import {
+  type CreateIpamInternetRegistryAssociationCommandInput,
+  type CreateIpamInternetRegistryAssociationCommandOutput,
+  CreateIpamInternetRegistryAssociationCommand,
+} from "./commands/CreateIpamInternetRegistryAssociationCommand";
+import {
   type CreateIpamPolicyCommandInput,
   type CreateIpamPolicyCommandOutput,
   CreateIpamPolicyCommand,
@@ -493,6 +503,11 @@ import {
   type CreateIpamResourceDiscoveryCommandOutput,
   CreateIpamResourceDiscoveryCommand,
 } from "./commands/CreateIpamResourceDiscoveryCommand";
+import {
+  type CreateIpamRoutingPolicyRegistrationCommandInput,
+  type CreateIpamRoutingPolicyRegistrationCommandOutput,
+  CreateIpamRoutingPolicyRegistrationCommand,
+} from "./commands/CreateIpamRoutingPolicyRegistrationCommand";
 import {
   type CreateIpamScopeCommandInput,
   type CreateIpamScopeCommandOutput,
@@ -950,6 +965,11 @@ import {
   DeleteIpamExternalResourceVerificationTokenCommand,
 } from "./commands/DeleteIpamExternalResourceVerificationTokenCommand";
 import {
+  type DeleteIpamInternetRegistryAssociationCommandInput,
+  type DeleteIpamInternetRegistryAssociationCommandOutput,
+  DeleteIpamInternetRegistryAssociationCommand,
+} from "./commands/DeleteIpamInternetRegistryAssociationCommand";
+import {
   type DeleteIpamPolicyCommandInput,
   type DeleteIpamPolicyCommandOutput,
   DeleteIpamPolicyCommand,
@@ -974,6 +994,11 @@ import {
   type DeleteIpamResourceDiscoveryCommandOutput,
   DeleteIpamResourceDiscoveryCommand,
 } from "./commands/DeleteIpamResourceDiscoveryCommand";
+import {
+  type DeleteIpamRoutingPolicyRegistrationCommandInput,
+  type DeleteIpamRoutingPolicyRegistrationCommandOutput,
+  DeleteIpamRoutingPolicyRegistrationCommand,
+} from "./commands/DeleteIpamRoutingPolicyRegistrationCommand";
 import {
   type DeleteIpamScopeCommandInput,
   type DeleteIpamScopeCommandOutput,
@@ -1750,6 +1775,11 @@ import {
   type DescribeIpamExternalResourceVerificationTokensCommandOutput,
   DescribeIpamExternalResourceVerificationTokensCommand,
 } from "./commands/DescribeIpamExternalResourceVerificationTokensCommand";
+import {
+  type DescribeIpamInternetRegistryAssociationsCommandInput,
+  type DescribeIpamInternetRegistryAssociationsCommandOutput,
+  DescribeIpamInternetRegistryAssociationsCommand,
+} from "./commands/DescribeIpamInternetRegistryAssociationsCommand";
 import {
   type DescribeIpamPoliciesCommandInput,
   type DescribeIpamPoliciesCommandOutput,
@@ -2626,6 +2656,11 @@ import {
   EnableInstanceSqlHaStandbyDetectionsCommand,
 } from "./commands/EnableInstanceSqlHaStandbyDetectionsCommand";
 import {
+  type EnableIpamInternetRegistryAssociationCommandInput,
+  type EnableIpamInternetRegistryAssociationCommandOutput,
+  EnableIpamInternetRegistryAssociationCommand,
+} from "./commands/EnableIpamInternetRegistryAssociationCommand";
+import {
   type EnableIpamOrganizationAdminAccountCommandInput,
   type EnableIpamOrganizationAdminAccountCommandOutput,
   EnableIpamOrganizationAdminAccountCommand,
@@ -2861,6 +2896,21 @@ import {
   GetIpamDiscoveredResourceCidrsCommand,
 } from "./commands/GetIpamDiscoveredResourceCidrsCommand";
 import {
+  type GetIpamDiscoveredRoutesCommandInput,
+  type GetIpamDiscoveredRoutesCommandOutput,
+  GetIpamDiscoveredRoutesCommand,
+} from "./commands/GetIpamDiscoveredRoutesCommand";
+import {
+  type GetIpamInternetRegistryAssociationAsnsCommandInput,
+  type GetIpamInternetRegistryAssociationAsnsCommandOutput,
+  GetIpamInternetRegistryAssociationAsnsCommand,
+} from "./commands/GetIpamInternetRegistryAssociationAsnsCommand";
+import {
+  type GetIpamInternetRegistryAssociationCidrsCommandInput,
+  type GetIpamInternetRegistryAssociationCidrsCommandOutput,
+  GetIpamInternetRegistryAssociationCidrsCommand,
+} from "./commands/GetIpamInternetRegistryAssociationCidrsCommand";
+import {
   type GetIpamPolicyAllocationRulesCommandInput,
   type GetIpamPolicyAllocationRulesCommandOutput,
   GetIpamPolicyAllocationRulesCommand,
@@ -2900,6 +2950,26 @@ import {
   type GetIpamResourceCidrsCommandOutput,
   GetIpamResourceCidrsCommand,
 } from "./commands/GetIpamResourceCidrsCommand";
+import {
+  type GetIpamRouteOriginAuthorizationsCommandInput,
+  type GetIpamRouteOriginAuthorizationsCommandOutput,
+  GetIpamRouteOriginAuthorizationsCommand,
+} from "./commands/GetIpamRouteOriginAuthorizationsCommand";
+import {
+  type GetIpamRouteProtectionFindingsCommandInput,
+  type GetIpamRouteProtectionFindingsCommandOutput,
+  GetIpamRouteProtectionFindingsCommand,
+} from "./commands/GetIpamRouteProtectionFindingsCommand";
+import {
+  type GetIpamRoutingPolicyRegistrationDeltasCommandInput,
+  type GetIpamRoutingPolicyRegistrationDeltasCommandOutput,
+  GetIpamRoutingPolicyRegistrationDeltasCommand,
+} from "./commands/GetIpamRoutingPolicyRegistrationDeltasCommand";
+import {
+  type GetIpamRoutingPolicyRegistrationsCommandInput,
+  type GetIpamRoutingPolicyRegistrationsCommandOutput,
+  GetIpamRoutingPolicyRegistrationsCommand,
+} from "./commands/GetIpamRoutingPolicyRegistrationsCommand";
 import {
   type GetLaunchTemplateDataCommandInput,
   type GetLaunchTemplateDataCommandOutput,
@@ -3280,6 +3350,11 @@ import {
   type ModifyIpamResourceDiscoveryCommandOutput,
   ModifyIpamResourceDiscoveryCommand,
 } from "./commands/ModifyIpamResourceDiscoveryCommand";
+import {
+  type ModifyIpamRoutingPolicyRegistrationCommandInput,
+  type ModifyIpamRoutingPolicyRegistrationCommandOutput,
+  ModifyIpamRoutingPolicyRegistrationCommand,
+} from "./commands/ModifyIpamRoutingPolicyRegistrationCommand";
 import {
   type ModifyIpamScopeCommandInput,
   type ModifyIpamScopeCommandOutput,
@@ -4254,6 +4329,7 @@ const commands = {
   AuthorizeClientVpnIngressCommand,
   AuthorizeSecurityGroupEgressCommand,
   AuthorizeSecurityGroupIngressCommand,
+  BatchModifyIpamRoutingPolicyRegistrationsCommand,
   BundleInstanceCommand,
   CancelBundleTaskCommand,
   CancelCapacityReservationCommand,
@@ -4300,11 +4376,13 @@ const commands = {
   CreateInterruptibleCapacityReservationAllocationCommand,
   CreateIpamCommand,
   CreateIpamExternalResourceVerificationTokenCommand,
+  CreateIpamInternetRegistryAssociationCommand,
   CreateIpamPolicyCommand,
   CreateIpamPoolCommand,
   CreateIpamPrefixListResolverCommand,
   CreateIpamPrefixListResolverTargetCommand,
   CreateIpamResourceDiscoveryCommand,
+  CreateIpamRoutingPolicyRegistrationCommand,
   CreateIpamScopeCommand,
   CreateKeyPairCommand,
   CreateLaunchTemplateCommand,
@@ -4397,11 +4475,13 @@ const commands = {
   DeleteInternetGatewayCommand,
   DeleteIpamCommand,
   DeleteIpamExternalResourceVerificationTokenCommand,
+  DeleteIpamInternetRegistryAssociationCommand,
   DeleteIpamPolicyCommand,
   DeleteIpamPoolCommand,
   DeleteIpamPrefixListResolverCommand,
   DeleteIpamPrefixListResolverTargetCommand,
   DeleteIpamResourceDiscoveryCommand,
+  DeleteIpamRoutingPolicyRegistrationCommand,
   DeleteIpamScopeCommand,
   DeleteKeyPairCommand,
   DeleteLaunchTemplateCommand,
@@ -4558,6 +4638,7 @@ const commands = {
   DescribeInternetGatewaysCommand,
   DescribeIpamByoasnCommand,
   DescribeIpamExternalResourceVerificationTokensCommand,
+  DescribeIpamInternetRegistryAssociationsCommand,
   DescribeIpamPoliciesCommand,
   DescribeIpamPoolAllocationsCommand,
   DescribeIpamPoolsCommand,
@@ -4733,6 +4814,7 @@ const commands = {
   EnableImageDeprecationCommand,
   EnableImageDeregistrationProtectionCommand,
   EnableInstanceSqlHaStandbyDetectionsCommand,
+  EnableIpamInternetRegistryAssociationCommand,
   EnableIpamOrganizationAdminAccountCommand,
   EnableIpamPolicyCommand,
   EnableReachabilityAnalyzerOrganizationSharingCommand,
@@ -4780,6 +4862,9 @@ const commands = {
   GetIpamDiscoveredAccountsCommand,
   GetIpamDiscoveredPublicAddressesCommand,
   GetIpamDiscoveredResourceCidrsCommand,
+  GetIpamDiscoveredRoutesCommand,
+  GetIpamInternetRegistryAssociationAsnsCommand,
+  GetIpamInternetRegistryAssociationCidrsCommand,
   GetIpamPolicyAllocationRulesCommand,
   GetIpamPolicyOrganizationTargetsCommand,
   GetIpamPoolAllocationsCommand,
@@ -4788,6 +4873,10 @@ const commands = {
   GetIpamPrefixListResolverVersionEntriesCommand,
   GetIpamPrefixListResolverVersionsCommand,
   GetIpamResourceCidrsCommand,
+  GetIpamRouteOriginAuthorizationsCommand,
+  GetIpamRouteProtectionFindingsCommand,
+  GetIpamRoutingPolicyRegistrationDeltasCommand,
+  GetIpamRoutingPolicyRegistrationsCommand,
   GetLaunchTemplateDataCommand,
   GetManagedPrefixListAssociationsCommand,
   GetManagedPrefixListEntriesCommand,
@@ -4864,6 +4953,7 @@ const commands = {
   ModifyIpamPrefixListResolverTargetCommand,
   ModifyIpamResourceCidrCommand,
   ModifyIpamResourceDiscoveryCommand,
+  ModifyIpamRoutingPolicyRegistrationCommand,
   ModifyIpamScopeCommand,
   ModifyLaunchTemplateCommand,
   ModifyLocalGatewayRouteCommand,
@@ -6017,6 +6107,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link BatchModifyIpamRoutingPolicyRegistrationsCommand}
+   */
+  batchModifyIpamRoutingPolicyRegistrations(
+    args: BatchModifyIpamRoutingPolicyRegistrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchModifyIpamRoutingPolicyRegistrationsCommandOutput>;
+  batchModifyIpamRoutingPolicyRegistrations(
+    args: BatchModifyIpamRoutingPolicyRegistrationsCommandInput,
+    cb: (err: any, data?: BatchModifyIpamRoutingPolicyRegistrationsCommandOutput) => void
+  ): void;
+  batchModifyIpamRoutingPolicyRegistrations(
+    args: BatchModifyIpamRoutingPolicyRegistrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchModifyIpamRoutingPolicyRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BundleInstanceCommand}
    */
   bundleInstance(
@@ -6805,6 +6912,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link CreateIpamInternetRegistryAssociationCommand}
+   */
+  createIpamInternetRegistryAssociation(
+    args: CreateIpamInternetRegistryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamInternetRegistryAssociationCommandOutput>;
+  createIpamInternetRegistryAssociation(
+    args: CreateIpamInternetRegistryAssociationCommandInput,
+    cb: (err: any, data?: CreateIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+  createIpamInternetRegistryAssociation(
+    args: CreateIpamInternetRegistryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateIpamPolicyCommand}
    */
   createIpamPolicy(
@@ -6888,6 +7012,23 @@ export interface EC2 {
     args: CreateIpamResourceDiscoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIpamRoutingPolicyRegistrationCommand}
+   */
+  createIpamRoutingPolicyRegistration(
+    args: CreateIpamRoutingPolicyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIpamRoutingPolicyRegistrationCommandOutput>;
+  createIpamRoutingPolicyRegistration(
+    args: CreateIpamRoutingPolicyRegistrationCommandInput,
+    cb: (err: any, data?: CreateIpamRoutingPolicyRegistrationCommandOutput) => void
+  ): void;
+  createIpamRoutingPolicyRegistration(
+    args: CreateIpamRoutingPolicyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIpamRoutingPolicyRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -8465,6 +8606,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link DeleteIpamInternetRegistryAssociationCommand}
+   */
+  deleteIpamInternetRegistryAssociation(
+    args: DeleteIpamInternetRegistryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamInternetRegistryAssociationCommandOutput>;
+  deleteIpamInternetRegistryAssociation(
+    args: DeleteIpamInternetRegistryAssociationCommandInput,
+    cb: (err: any, data?: DeleteIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+  deleteIpamInternetRegistryAssociation(
+    args: DeleteIpamInternetRegistryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteIpamPolicyCommand}
    */
   deleteIpamPolicy(
@@ -8547,6 +8705,23 @@ export interface EC2 {
     args: DeleteIpamResourceDiscoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIpamRoutingPolicyRegistrationCommand}
+   */
+  deleteIpamRoutingPolicyRegistration(
+    args: DeleteIpamRoutingPolicyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIpamRoutingPolicyRegistrationCommandOutput>;
+  deleteIpamRoutingPolicyRegistration(
+    args: DeleteIpamRoutingPolicyRegistrationCommandInput,
+    cb: (err: any, data?: DeleteIpamRoutingPolicyRegistrationCommandOutput) => void
+  ): void;
+  deleteIpamRoutingPolicyRegistration(
+    args: DeleteIpamRoutingPolicyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIpamRoutingPolicyRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -11267,6 +11442,24 @@ export interface EC2 {
     args: DescribeIpamExternalResourceVerificationTokensCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIpamExternalResourceVerificationTokensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIpamInternetRegistryAssociationsCommand}
+   */
+  describeIpamInternetRegistryAssociations(): Promise<DescribeIpamInternetRegistryAssociationsCommandOutput>;
+  describeIpamInternetRegistryAssociations(
+    args: DescribeIpamInternetRegistryAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIpamInternetRegistryAssociationsCommandOutput>;
+  describeIpamInternetRegistryAssociations(
+    args: DescribeIpamInternetRegistryAssociationsCommandInput,
+    cb: (err: any, data?: DescribeIpamInternetRegistryAssociationsCommandOutput) => void
+  ): void;
+  describeIpamInternetRegistryAssociations(
+    args: DescribeIpamInternetRegistryAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIpamInternetRegistryAssociationsCommandOutput) => void
   ): void;
 
   /**
@@ -14363,6 +14556,23 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link EnableIpamInternetRegistryAssociationCommand}
+   */
+  enableIpamInternetRegistryAssociation(
+    args: EnableIpamInternetRegistryAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableIpamInternetRegistryAssociationCommandOutput>;
+  enableIpamInternetRegistryAssociation(
+    args: EnableIpamInternetRegistryAssociationCommandInput,
+    cb: (err: any, data?: EnableIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+  enableIpamInternetRegistryAssociation(
+    args: EnableIpamInternetRegistryAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableIpamInternetRegistryAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableIpamOrganizationAdminAccountCommand}
    */
   enableIpamOrganizationAdminAccount(
@@ -15174,6 +15384,57 @@ export interface EC2 {
   ): void;
 
   /**
+   * @see {@link GetIpamDiscoveredRoutesCommand}
+   */
+  getIpamDiscoveredRoutes(
+    args: GetIpamDiscoveredRoutesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamDiscoveredRoutesCommandOutput>;
+  getIpamDiscoveredRoutes(
+    args: GetIpamDiscoveredRoutesCommandInput,
+    cb: (err: any, data?: GetIpamDiscoveredRoutesCommandOutput) => void
+  ): void;
+  getIpamDiscoveredRoutes(
+    args: GetIpamDiscoveredRoutesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamDiscoveredRoutesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamInternetRegistryAssociationAsnsCommand}
+   */
+  getIpamInternetRegistryAssociationAsns(
+    args: GetIpamInternetRegistryAssociationAsnsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamInternetRegistryAssociationAsnsCommandOutput>;
+  getIpamInternetRegistryAssociationAsns(
+    args: GetIpamInternetRegistryAssociationAsnsCommandInput,
+    cb: (err: any, data?: GetIpamInternetRegistryAssociationAsnsCommandOutput) => void
+  ): void;
+  getIpamInternetRegistryAssociationAsns(
+    args: GetIpamInternetRegistryAssociationAsnsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamInternetRegistryAssociationAsnsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamInternetRegistryAssociationCidrsCommand}
+   */
+  getIpamInternetRegistryAssociationCidrs(
+    args: GetIpamInternetRegistryAssociationCidrsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamInternetRegistryAssociationCidrsCommandOutput>;
+  getIpamInternetRegistryAssociationCidrs(
+    args: GetIpamInternetRegistryAssociationCidrsCommandInput,
+    cb: (err: any, data?: GetIpamInternetRegistryAssociationCidrsCommandOutput) => void
+  ): void;
+  getIpamInternetRegistryAssociationCidrs(
+    args: GetIpamInternetRegistryAssociationCidrsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamInternetRegistryAssociationCidrsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetIpamPolicyAllocationRulesCommand}
    */
   getIpamPolicyAllocationRules(
@@ -15307,6 +15568,74 @@ export interface EC2 {
     args: GetIpamResourceCidrsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetIpamResourceCidrsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamRouteOriginAuthorizationsCommand}
+   */
+  getIpamRouteOriginAuthorizations(
+    args: GetIpamRouteOriginAuthorizationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamRouteOriginAuthorizationsCommandOutput>;
+  getIpamRouteOriginAuthorizations(
+    args: GetIpamRouteOriginAuthorizationsCommandInput,
+    cb: (err: any, data?: GetIpamRouteOriginAuthorizationsCommandOutput) => void
+  ): void;
+  getIpamRouteOriginAuthorizations(
+    args: GetIpamRouteOriginAuthorizationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamRouteOriginAuthorizationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamRouteProtectionFindingsCommand}
+   */
+  getIpamRouteProtectionFindings(
+    args: GetIpamRouteProtectionFindingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamRouteProtectionFindingsCommandOutput>;
+  getIpamRouteProtectionFindings(
+    args: GetIpamRouteProtectionFindingsCommandInput,
+    cb: (err: any, data?: GetIpamRouteProtectionFindingsCommandOutput) => void
+  ): void;
+  getIpamRouteProtectionFindings(
+    args: GetIpamRouteProtectionFindingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamRouteProtectionFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamRoutingPolicyRegistrationDeltasCommand}
+   */
+  getIpamRoutingPolicyRegistrationDeltas(
+    args: GetIpamRoutingPolicyRegistrationDeltasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamRoutingPolicyRegistrationDeltasCommandOutput>;
+  getIpamRoutingPolicyRegistrationDeltas(
+    args: GetIpamRoutingPolicyRegistrationDeltasCommandInput,
+    cb: (err: any, data?: GetIpamRoutingPolicyRegistrationDeltasCommandOutput) => void
+  ): void;
+  getIpamRoutingPolicyRegistrationDeltas(
+    args: GetIpamRoutingPolicyRegistrationDeltasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamRoutingPolicyRegistrationDeltasCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIpamRoutingPolicyRegistrationsCommand}
+   */
+  getIpamRoutingPolicyRegistrations(
+    args: GetIpamRoutingPolicyRegistrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIpamRoutingPolicyRegistrationsCommandOutput>;
+  getIpamRoutingPolicyRegistrations(
+    args: GetIpamRoutingPolicyRegistrationsCommandInput,
+    cb: (err: any, data?: GetIpamRoutingPolicyRegistrationsCommandOutput) => void
+  ): void;
+  getIpamRoutingPolicyRegistrations(
+    args: GetIpamRoutingPolicyRegistrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIpamRoutingPolicyRegistrationsCommandOutput) => void
   ): void;
 
   /**
@@ -16610,6 +16939,23 @@ export interface EC2 {
     args: ModifyIpamResourceDiscoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyIpamResourceDiscoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpamRoutingPolicyRegistrationCommand}
+   */
+  modifyIpamRoutingPolicyRegistration(
+    args: ModifyIpamRoutingPolicyRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyIpamRoutingPolicyRegistrationCommandOutput>;
+  modifyIpamRoutingPolicyRegistration(
+    args: ModifyIpamRoutingPolicyRegistrationCommandInput,
+    cb: (err: any, data?: ModifyIpamRoutingPolicyRegistrationCommandOutput) => void
+  ): void;
+  modifyIpamRoutingPolicyRegistration(
+    args: ModifyIpamRoutingPolicyRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpamRoutingPolicyRegistrationCommandOutput) => void
   ): void;
 
   /**
