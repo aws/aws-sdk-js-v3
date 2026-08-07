@@ -50,6 +50,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *   ProfileId: "STRING_VALUE",
  *   InputFormat: "STRING_VALUE",
  *   DriftDetectionEnabled: true || false,
+ *   ProvenanceEnabled: true || false,
  * };
  * const command = new StartFHIRImportJobCommand(input);
  * const response = await client.send(command);

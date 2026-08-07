@@ -663,8 +663,8 @@ export var StartFHIRExportJobResponse$: StaticStructureSchema = [3, n0, _SFHIREJ
 ];
 export var StartFHIRImportJobRequest$: StaticStructureSchema = [3, n0, _SFHIRIJR,
   0,
-  [_IDC, _JODC, _DI, _DARA, _JN, _CT, _VL, _PI, _IF, _DDE],
-  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, 0, 0, 2], 4
+  [_IDC, _JODC, _DI, _DARA, _JN, _CT, _VL, _PI, _IF, _DDE, _PE],
+  [() => InputDataConfig$, () => OutputDataConfig$, 0, 0, 0, [0, 4], 0, 0, 0, 2, 2], 4
 ];
 export var StartFHIRImportJobResponse$: StaticStructureSchema = [3, n0, _SFHIRIJRt,
   0,

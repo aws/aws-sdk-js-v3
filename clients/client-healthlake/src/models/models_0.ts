@@ -2270,6 +2270,12 @@ export interface StartFHIRImportJobRequest {
    * @public
    */
   DriftDetectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to enable provenance for the import job.</p>
+   * @public
+   */
+  ProvenanceEnabled?: boolean | undefined;
 }
 
 /**
