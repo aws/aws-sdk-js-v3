@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+
+### Features
+
+* **client-connect:** Supports updating the task template associated with in-progress task contacts using the new UpdateContactTaskTemplate API. This enables supervisors and developers to dynamically reassign task templates without creating a new task. ([24f4041](https://github.com/aws/aws-sdk-js-v3/commit/24f404168125e330e402673b14003258403979c7))
+
+
+
+
+
 # [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

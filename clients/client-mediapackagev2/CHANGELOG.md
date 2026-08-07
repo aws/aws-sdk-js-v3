@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+
+### Features
+
+* **client-mediapackagev2:** StreamNameOutputMode - a new optional field on MediaPackageV2 OriginEndpoints that lets customers choose whether egress manifests use numeric stream indices (default) or encoder-assigned stream names from the input ([7f49cb0](https://github.com/aws/aws-sdk-js-v3/commit/7f49cb060702dc502b6b5733a18eee753a84005e))
+
+
+
+
+
 # [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2

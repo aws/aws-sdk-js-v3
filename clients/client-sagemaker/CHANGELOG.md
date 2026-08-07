@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+
+### Features
+
+* **client-sagemaker:** Amazon SageMaker adds maintenance lifecycle statuses for Notebook Instances ([6ce0f88](https://github.com/aws/aws-sdk-js-v3/commit/6ce0f8843a4d69e0426e53dae61a194c8e576d76))
+
+
+
+
+
 # [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
 
 

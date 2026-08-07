@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+
+### Features
+
+* **client-amplify:** Increased the maximum allowed length of the oauthToken parameter in the CreateApp and UpdateApp APIs to support longer OAuth tokens issued by third-party Git providers. ([b239e29](https://github.com/aws/aws-sdk-js-v3/commit/b239e29295315bacf5d76a343e6d5aa397987642))
+* **client-connect:** Supports updating the task template associated with in-progress task contacts using the new UpdateContactTaskTemplate API. This enables supervisors and developers to dynamically reassign task templates without creating a new task. ([24f4041](https://github.com/aws/aws-sdk-js-v3/commit/24f404168125e330e402673b14003258403979c7))
+* **client-ec2:** This release adds support for BGP route protection in Amazon VPC IP Address Manager (IPAM), including route discovery, RPKI route protection findings, and delegated RPKI (Internet Registry Associations, routing policy registrations, and ROA management) for BYOIP prefixes. ([62f281d](https://github.com/aws/aws-sdk-js-v3/commit/62f281df5a1d7476485851907d2331f35c480d8e))
+* **client-healthlake:** Adds provenanceEnabled to StartFHIRImportJob ([18ac6ef](https://github.com/aws/aws-sdk-js-v3/commit/18ac6efeb92731ee5b0a8d616e05766a2dd33dbf))
+* **client-mediapackagev2:** StreamNameOutputMode - a new optional field on MediaPackageV2 OriginEndpoints that lets customers choose whether egress manifests use numeric stream indices (default) or encoder-assigned stream names from the input ([7f49cb0](https://github.com/aws/aws-sdk-js-v3/commit/7f49cb060702dc502b6b5733a18eee753a84005e))
+* **client-mediatailor:** Added support for inserting ads via the VAST Ad Buffet standard. You can now configure MediaTailor to insert ads in sequence order using the AdSequencingMode setting in your playback configuration. Standalone ads are used as fallbacks when a sequenced ad is unavailable. ([7bebb1e](https://github.com/aws/aws-sdk-js-v3/commit/7bebb1e56db3c40906a554b824640848c6f1539e))
+* **client-sagemaker:** Amazon SageMaker adds maintenance lifecycle statuses for Notebook Instances ([6ce0f88](https://github.com/aws/aws-sdk-js-v3/commit/6ce0f8843a4d69e0426e53dae61a194c8e576d76))
+* **client-securityagent:** Added enableEmailMfa input field on Actor to enable email-based MFA during penetration tests. When enabled, a server-generated mfaForwardingAddress is returned. Set up a forwarding rule in your email provider to forward MFA emails to this address so the agent can complete email-based MFA login flows ([e21d391](https://github.com/aws/aws-sdk-js-v3/commit/e21d39190ef400777abbaf689a61c6b231f333e0))
+* **clients:** update client endpoints as of 2026-08-07 ([c5d0542](https://github.com/aws/aws-sdk-js-v3/commit/c5d05426d83dccbcee03b0b0c024ba255bea4418))
+
+
+
+
+
 # [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
 
 

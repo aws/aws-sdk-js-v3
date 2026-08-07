@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
+
+
+### Features
+
+* **client-healthlake:** Adds provenanceEnabled to StartFHIRImportJob ([18ac6ef](https://github.com/aws/aws-sdk-js-v3/commit/18ac6efeb92731ee5b0a8d616e05766a2dd33dbf))
+
+
+
+
+
 # [3.1105.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1104.0...v3.1105.0) (2026-08-06)
 
 **Note:** Version bump only for package @aws-sdk/client-healthlake
