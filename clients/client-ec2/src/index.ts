@@ -64,9 +64,9 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { EC2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export { Command as $Command } from "@smithy/core/client";
-export * from "./schemas/schemas_0";
 export * from "./pagination";
 export * from "./waiters";
+export * from "./schemas/schemas_0";
 
 export * from "./models/enums";
 export * from "./models/models_0";

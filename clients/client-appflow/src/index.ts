@@ -46,8 +46,8 @@ export type { RuntimeExtension } from "./runtimeExtensions";
 export type { AppflowExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export { Command as $Command } from "@smithy/core/client";
-export * from "./schemas/schemas_0";
 export * from "./pagination";
+export * from "./schemas/schemas_0";
 
 export * from "./models/enums";
 export * from "./models/errors";
