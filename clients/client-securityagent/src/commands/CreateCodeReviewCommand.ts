@@ -52,6 +52,8 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *           value: "STRING_VALUE",
  *         },
  *         description: "STRING_VALUE",
+ *         enableEmailMfa: true || false,
+ *         mfaForwardingAddress: "STRING_VALUE",
  *       },
  *     ],
  *     documents: [ // DocumentList
@@ -109,6 +111,8 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * //           value: "STRING_VALUE",
  * //         },
  * //         description: "STRING_VALUE",
+ * //         enableEmailMfa: true || false,
+ * //         mfaForwardingAddress: "STRING_VALUE",
  * //       },
  * //     ],
  * //     documents: [ // DocumentList

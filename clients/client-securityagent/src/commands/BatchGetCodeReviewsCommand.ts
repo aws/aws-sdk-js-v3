@@ -63,6 +63,8 @@ export interface BatchGetCodeReviewsCommandOutput extends BatchGetCodeReviewsOut
  * //               value: "STRING_VALUE",
  * //             },
  * //             description: "STRING_VALUE",
+ * //             enableEmailMfa: true || false,
+ * //             mfaForwardingAddress: "STRING_VALUE",
  * //           },
  * //         ],
  * //         documents: [ // DocumentList

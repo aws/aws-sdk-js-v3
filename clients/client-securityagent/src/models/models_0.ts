@@ -92,6 +92,18 @@ export interface Actor {
    * @public
    */
   description?: string | undefined;
+
+  /**
+   * <p>Whether email-based MFA is enabled for this actor.</p>
+   * @public
+   */
+  enableEmailMfa?: boolean | undefined;
+
+  /**
+   * <p>Server-generated email forwarding address for receiving MFA codes.</p>
+   * @public
+   */
+  mfaForwardingAddress?: string | undefined;
 }
 
 /**

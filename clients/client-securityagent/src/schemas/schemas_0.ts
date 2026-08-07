@@ -350,6 +350,7 @@ const _SCRJt = "StopCodeReviewJob";
 const _SCRL = "SourceCodeRepositoryList";
 const _SCRO = "StartCodeRemediationOutput";
 const _SCRt = "StartCodeRemediation";
+const _SEA = "SensitiveEmailAddress";
 const _SL = "StepList";
 const _SMI = "SelfManagedInput";
 const _SMIe = "ServiceManagedInput";
@@ -543,6 +544,7 @@ const _do = "domain";
 const _doc = "documents";
 const _e = "error";
 const _eC = "executionContext";
+const _eEM = "enableEmailMfa";
 const _eET = "executionEndTime";
 const _eI = "errorInformation";
 const _eP = "excludePaths";
@@ -616,6 +618,7 @@ const _lSi = "lineStart";
 const _lT = "logType";
 const _lUB = "lastUpdatedBy";
 const _m = "message";
+const _mFA = "mfaForwardingAddress";
 const _mI = "membershipId";
 const _mR = "maxResults";
 const _mS = "membershipSummaries";
@@ -859,10 +862,11 @@ export const errorTypeRegistries = [
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
 var CertificateChain: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 var SecurityRequirementDocumentContent: StaticSimpleSchema = [0, n0, _SRDC, 8, 21];
+var SensitiveEmailAddress: StaticSimpleSchema = [0, n0, _SEA, 8, 0];
 export var Actor$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_i, _u, _a, _d],
-  [0, 64 | 0, () => Authentication$, 0]
+  [_i, _u, _a, _d, _eEM, _mFA],
+  [0, 64 | 0, () => Authentication$, 0, 2, [() => SensitiveEmailAddress, 0]]
 ];
 export var AddArtifactInput$: StaticStructureSchema = [3, n0, _AAI,
   0,
@@ -907,7 +911,7 @@ export var ArtifactSummary$: StaticStructureSchema = [3, n0, _ASr,
 export var Assets$: StaticStructureSchema = [3, n0, _As,
   0,
   [_en, _ac, _doc, _sCo, _iR],
-  [() => EndpointList, () => ActorList, () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList]
+  [() => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList]
 ];
 export var Authentication$: StaticStructureSchema = [3, n0, _Au,
   0,
@@ -952,7 +956,7 @@ export var BatchDeletePentestsInput$: StaticStructureSchema = [3, n0, _BDPI,
 export var BatchDeletePentestsOutput$: StaticStructureSchema = [3, n0, _BDPO,
   0,
   [_de, _f],
-  [() => PentestList, () => DeletePentestFailureList]
+  [[() => PentestList, 0], () => DeletePentestFailureList]
 ];
 export var BatchDeleteSecurityRequirementsInput$: StaticStructureSchema = [3, n0, _BDSRI,
   0,
@@ -1022,7 +1026,7 @@ export var BatchGetCodeReviewsInput$: StaticStructureSchema = [3, n0, _BGCRI,
 export var BatchGetCodeReviewsOutput$: StaticStructureSchema = [3, n0, _BGCRO,
   0,
   [_cR, _nF],
-  [() => CodeReviewList, 64 | 0]
+  [[() => CodeReviewList, 0], 64 | 0]
 ];
 export var BatchGetFindingsInput$: StaticStructureSchema = [3, n0, _BGFI,
   0,
@@ -1042,7 +1046,7 @@ export var BatchGetPentestJobsInput$: StaticStructureSchema = [3, n0, _BGPJI,
 export var BatchGetPentestJobsOutput$: StaticStructureSchema = [3, n0, _BGPJO,
   0,
   [_pJ, _nF],
-  [() => PentestJobList, 64 | 0]
+  [[() => PentestJobList, 0], 64 | 0]
 ];
 export var BatchGetPentestJobTasksInput$: StaticStructureSchema = [3, n0, _BGPJTI,
   0,
@@ -1062,7 +1066,7 @@ export var BatchGetPentestsInput$: StaticStructureSchema = [3, n0, _BGPI,
 export var BatchGetPentestsOutput$: StaticStructureSchema = [3, n0, _BGPO,
   0,
   [_p, _nF],
-  [() => PentestList, 64 | 0]
+  [[() => PentestList, 0], 64 | 0]
 ];
 export var BatchGetSecurityRequirementResult$: StaticStructureSchema = [3, n0, _BGSRR,
   0,
@@ -1117,7 +1121,7 @@ export var BatchGetThreatModelsInput$: StaticStructureSchema = [3, n0, _BGTMI,
 export var BatchGetThreatModelsOutput$: StaticStructureSchema = [3, n0, _BGTMO,
   0,
   [_tM, _nF],
-  [() => ThreatModelList, 64 | 0]
+  [[() => ThreatModelList, 0], 64 | 0]
 ];
 export var BatchGetThreatsInput$: StaticStructureSchema = [3, n0, _BGTI,
   0,
@@ -1192,7 +1196,7 @@ export var CodeRemediationTaskDetails$: StaticStructureSchema = [3, n0, _CRTD,
 export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
   0,
   [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _cA, _uA],
-  [0, 0, 0, () => Assets$, 0, () => CloudWatchLog$, 0, 0, 5, 5], 4
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 5, 5], 4
 ];
 export var CodeReviewJob$: StaticStructureSchema = [3, n0, _CRJ,
   0,
@@ -1267,12 +1271,12 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 export var CreateCodeReviewInput$: StaticStructureSchema = [3, n0, _CCRI,
   0,
   [_ti, _aSI, _as, _sRe, _lCo, _cRSo, _vM],
-  [0, 0, () => Assets$, 0, () => CloudWatchLog$, 0, 0], 3
+  [0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0], 3
 ];
 export var CreateCodeReviewOutput$: StaticStructureSchema = [3, n0, _CCRO,
   0,
   [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM],
-  [0, 0, 5, 5, () => Assets$, 0, () => CloudWatchLog$, 0, 0, 0], 1
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0], 1
 ];
 export var CreateIntegrationInput$: StaticStructureSchema = [3, n0, _CIIr,
   0,
@@ -1297,12 +1301,12 @@ export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRr,
 export var CreatePentestInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
   [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS],
-  [0, 0, () => Assets$, 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
+  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
 ];
 export var CreatePentestOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
   [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI],
-  [0, 0, 5, 5, () => Assets$, 64 | 0, 0, () => CloudWatchLog$, 0]
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0]
 ];
 export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
   0,
@@ -1347,12 +1351,12 @@ export var CreateThreatInput$: StaticStructureSchema = [3, n0, _CTI,
 export var CreateThreatModelInput$: StaticStructureSchema = [3, n0, _CTMI,
   0,
   [_ti, _aSI, _sRe, _d, _as, _sD, _lCo, _rD],
-  [0, 0, 0, 0, () => Assets$, () => DocumentList, () => CloudWatchLog$, () => ReportDestination$], 3
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, () => CloudWatchLog$, () => ReportDestination$], 3
 ];
 export var CreateThreatModelOutput$: StaticStructureSchema = [3, n0, _CTMO,
   0,
   [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, 0, () => Assets$, () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
 ];
 export var CreateThreatOutput$: StaticStructureSchema = [3, n0, _CTO,
   0,
@@ -1897,12 +1901,12 @@ export var NetworkTrafficRule$: StaticStructureSchema = [3, n0, _NTR,
 export var Pentest$: StaticStructureSchema = [3, n0, _P,
   0,
   [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _cA, _uA],
-  [0, 0, 0, () => Assets$, 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 5, 5], 4
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 5, 5], 4
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
   [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _cRSo, _cUS, _dMS, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, () => ActorList, () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 0, 64 | 0, 5, 5]
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 0, 64 | 0, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
@@ -2077,7 +2081,7 @@ export var ThreatEvidenceShape$: StaticStructureSchema = [3, n0, _TES,
 export var ThreatModel$: StaticStructureSchema = [3, n0, _TM,
   0,
   [_tMIh, _aSI, _ti, _as, _d, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, () => Assets$, 0, () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 4
+  [0, 0, 0, [() => Assets$, 0], 0, () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 4
 ];
 export var ThreatModelJob$: StaticStructureSchema = [3, n0, _TMJ,
   0,
@@ -2142,12 +2146,12 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 export var UpdateCodeReviewInput$: StaticStructureSchema = [3, n0, _UCRI,
   0,
   [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM],
-  [0, 0, 0, () => Assets$, 0, () => CloudWatchLog$, 0, 0], 2
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0], 2
 ];
 export var UpdateCodeReviewOutput$: StaticStructureSchema = [3, n0, _UCRO,
   0,
   [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM],
-  [0, 0, 5, 5, () => Assets$, 0, () => CloudWatchLog$, 0, 0, 0], 1
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0], 1
 ];
 export var UpdateFindingInput$: StaticStructureSchema = [3, n0, _UFI,
   0,
@@ -2172,12 +2176,12 @@ export var UpdateIntegratedResourcesOutput$: StaticStructureSchema = [3, n0, _UI
 export var UpdatePentestInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
   [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS],
-  [0, 0, 0, () => Assets$, 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
 ];
 export var UpdatePentestOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,
   [_pIen, _ti, _cA, _uA, _as, _eRT, _sRe, _lCo, _aSI],
-  [0, 0, 5, 5, () => Assets$, 64 | 0, 0, () => CloudWatchLog$, 0]
+  [0, 0, 5, 5, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, 0]
 ];
 export var UpdatePrivateConnectionCertificateInput$: StaticStructureSchema = [3, n0, _UPCCI,
   0,
@@ -2222,12 +2226,12 @@ export var UpdateThreatInput$: StaticStructureSchema = [3, n0, _UTI,
 export var UpdateThreatModelInput$: StaticStructureSchema = [3, n0, _UTMI,
   0,
   [_tMIh, _aSI, _ti, _d, _as, _sD, _sRe, _lCo],
-  [0, 0, 0, 0, () => Assets$, () => DocumentList, 0, () => CloudWatchLog$], 2
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$], 2
 ];
 export var UpdateThreatModelOutput$: StaticStructureSchema = [3, n0, _UTMO,
   0,
   [_tMIh, _ti, _aSI, _d, _as, _sD, _sRe, _lCo, _cA, _uA],
-  [0, 0, 0, 0, () => Assets$, () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
+  [0, 0, 0, 0, [() => Assets$, 0], () => DocumentList, 0, () => CloudWatchLog$, 5, 5], 1
 ];
 export var UpdateThreatOutput$: StaticStructureSchema = [3, n0, _UTO,
   0,
@@ -2281,7 +2285,8 @@ export var VpcConfig$: StaticStructureSchema = [3, n0, _VC,
 ];
 var __Unit = "unit" as const;
 var ActorList: StaticListSchema = [1, n0, _AL,
-  0, () => Actor$
+  0, [() => Actor$,
+    0]
 ];
 var AgentSpaceIdList = 64 | 0;
 var AgentSpaceList: StaticListSchema = [1, n0, _ASL,
@@ -2333,7 +2338,8 @@ var CodeReviewJobTaskSummaryList: StaticListSchema = [1, n0, _CRJTSL,
   0, () => CodeReviewJobTaskSummary$
 ];
 var CodeReviewList: StaticListSchema = [1, n0, _CRL,
-  0, () => CodeReview$
+  0, [() => CodeReview$,
+    0]
 ];
 var CodeReviewSummaryList: StaticListSchema = [1, n0, _CRSL,
   0, () => CodeReviewSummary$
@@ -2396,13 +2402,15 @@ var NetworkTrafficRuleList: StaticListSchema = [1, n0, _NTRL,
 var PentestIdList = 64 | 0;
 var PentestJobIdList = 64 | 0;
 var PentestJobList: StaticListSchema = [1, n0, _PJL,
-  0, () => PentestJob$
+  0, [() => PentestJob$,
+    0]
 ];
 var PentestJobSummaryList: StaticListSchema = [1, n0, _PJSL,
   0, () => PentestJobSummary$
 ];
 var PentestList: StaticListSchema = [1, n0, _PL,
-  0, () => Pentest$
+  0, [() => Pentest$,
+    0]
 ];
 var PentestSummaryList: StaticListSchema = [1, n0, _PSL,
   0, () => PentestSummary$
@@ -2475,7 +2483,8 @@ var ThreatModelJobTaskSummaryList: StaticListSchema = [1, n0, _TMJTSL,
   0, () => ThreatModelJobTaskSummary$
 ];
 var ThreatModelList: StaticListSchema = [1, n0, _TML,
-  0, () => ThreatModel$
+  0, [() => ThreatModel$,
+    0]
 ];
 var ThreatModelSummaryList: StaticListSchema = [1, n0, _TMSL,
   0, () => ThreatModelSummary$
