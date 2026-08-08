@@ -1066,4 +1066,50 @@ describe(Upload.name, () => {
       }).not.toThrow();
     });
   });
+
+  describe("completeMultipartUploadTimeout", () => {
+    const PART_SIZE = 1024 * 1024 * 5;
+    const multipartBody = Buffer.alloc(PART_SIZE + 1);
+
+    it("rejects with TimeoutError when CompleteMultipartUpload hangs past the timeout", async () => {
+      vi.useFakeTimers();
+
+      // The module is mocked so instanceof checks don't work — use a property discriminator.
+      vi.mocked(CompleteMultipartUploadCommand).mockImplementation(function () {
+        return { __isCompleteMultipartUpload: true } as any;
+      });
+      vi.mocked(S3Client).prototype.send = vi.fn().mockImplementation(async (command) => {
+        if ((command as any).__isCompleteMultipartUpload) {
+          return new Promise(() => {});
+        }
+        return command;
+      });
+
+      const upload = new Upload({
+        client: new S3Client({}),
+        params: { Bucket: "b", Key: "k", Body: multipartBody },
+        completeMultipartUploadTimeout: 5_000,
+      });
+
+      const donePromise = upload.done();
+      // Attach rejection handler before advancing timers to avoid unhandled-rejection warnings.
+      const assertion = expect(donePromise).rejects.toMatchObject({
+        name: "TimeoutError",
+        message: expect.stringContaining("CompleteMultipartUpload timed out after 5000ms"),
+      });
+      await vi.advanceTimersByTimeAsync(6_000);
+      await assertion;
+
+      vi.useRealTimers();
+    });
+
+    it("resolves normally when CompleteMultipartUpload completes without a timeout option", async () => {
+      const upload = new Upload({
+        client: new S3Client({}),
+        params: { Bucket: "b", Key: "k", Body: multipartBody },
+      });
+
+      await expect(upload.done()).resolves.toBeDefined();
+    });
+  });
 });
