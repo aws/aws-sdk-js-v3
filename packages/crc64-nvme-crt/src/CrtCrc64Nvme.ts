@@ -6,7 +6,7 @@ export class CrtCrc64Nvme implements Checksum {
   private checksum: DataView = new DataView(new ArrayBuffer(8));
 
   update(data: Uint8Array) {
-    this.checksum = checksums.crc64nvme(data, this.checksum);
+    this.checksum = checksums.crc64nvme(data as unknown as Buffer, this.checksum);
   }
 
   async digest(): Promise<Uint8Array> {

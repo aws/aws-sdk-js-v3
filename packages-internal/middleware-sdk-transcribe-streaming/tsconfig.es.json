@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "lib": ["DOM"],
     "outDir": "dist-es",
     "rootDir": "src",

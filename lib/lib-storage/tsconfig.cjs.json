@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "lib": ["es5", "es2015.collection", "dom"],
     "outDir": "dist-cjs",
     "rootDir": "src",

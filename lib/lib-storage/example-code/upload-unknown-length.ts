@@ -1,4 +1,5 @@
 import { S3Client } from "@aws-sdk/client-s3";
+import type { Progress } from "@aws-sdk/lib-storage";
 import { Upload } from "@aws-sdk/lib-storage";
 
 import { Readable } from "node:stream";
@@ -32,7 +33,7 @@ const uploadIndeterminateLengthStreamNode = async () => {
     },
   });
 
-  upload.on("httpUploadProgress", (progress: ProgressEvent) => {
+  upload.on("httpUploadProgress", (progress: Progress) => {
     console.log(progress);
   });
 

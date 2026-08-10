@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "noEmit": true,
     "noCheck": false,
     "moduleResolution": "bundler",
     "module": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["es2023", "dom"],
+    "types": ["*"]
   },
   "extends": "./tsconfig.cjs.json",
   "include": [

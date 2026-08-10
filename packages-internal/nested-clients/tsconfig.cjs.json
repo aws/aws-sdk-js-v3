@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "outDir": "dist-cjs",
     "rootDir": "src",
     "paths": {

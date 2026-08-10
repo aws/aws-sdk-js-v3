@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "outDir": "dist-es",
     "rootDir": "src",
     "noCheck": true

@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist-es",
-    "baseUrl": ".",
     "paths": {
       "@aws-sdk/config/credentials": ["./src/submodules/credentials/index.ts"],
       "@aws-sdk/config/protocol": ["./src/submodules/protocol/index.ts"],

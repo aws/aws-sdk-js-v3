@@ -5336,7 +5336,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
           ":message-type": { type: "string", value: "event" },
           ":content-type": { type: "string", value: "application/octet-stream" },
         }
-        let body = new Uint8Array();
+        let body: Uint8Array = new Uint8Array();
         if (input.payload != null) {
           body = input.payload;
         }
@@ -5351,7 +5351,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
             ":message-type": { type: "string", value: "event" },
             ":content-type": { type: "string", value: "application/json" },
           }
-          let body = new Uint8Array();
+          let body: Uint8Array = new Uint8Array();
           body = _json(input);
           body = context.utf8Decoder(JSON.stringify(body));
           return { headers, body };
@@ -5368,7 +5368,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
             if (input.header != null) {
               headers["header"] = { type: "string", value: input.header }
             }
-            let body = new Uint8Array();
+            let body: Uint8Array = new Uint8Array();
             if (input.payload != null) {
               body = _json(input.payload);
               body = context.utf8Decoder(JSON.stringify(body));
@@ -5387,7 +5387,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
               if (input.header != null) {
                 headers["header"] = { type: "string", value: input.header }
               }
-              let body = new Uint8Array();
+              let body: Uint8Array = new Uint8Array();
               delete input["header"]
               body = _json(input);
               body = context.utf8Decoder(JSON.stringify(body));
@@ -5426,7 +5426,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                 if (input.timestampHeader != null) {
                   headers["timestampHeader"] = { type: "timestamp", value: input.timestampHeader }
                 }
-                let body = new Uint8Array();
+                let body: Uint8Array = new Uint8Array();
                 delete input["booleanHeader"]
                 delete input["byteHeader"]
                 delete input["shortHeader"]
@@ -5448,7 +5448,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                     ":message-type": { type: "string", value: "event" },
                     ":content-type": { type: "string", value: "text/plain" },
                   }
-                  let body = new Uint8Array();
+                  let body: Uint8Array = new Uint8Array();
                   if (input.payload != null) {
                     body = context.utf8Decoder(input.payload);
                   }
@@ -5463,7 +5463,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                       ":message-type": { type: "string", value: "event" },
                       ":content-type": { type: "string", value: "application/json" },
                     }
-                    let body = new Uint8Array();
+                    let body: Uint8Array = new Uint8Array();
                     if (input.payload != null) {
                       body = _json(input.payload);
                       body = context.utf8Decoder(JSON.stringify(body));
@@ -5479,7 +5479,7 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                         ":message-type": { type: "string", value: "event" },
                         ":content-type": { type: "string", value: "application/json" },
                       }
-                      let body = new Uint8Array();
+                      let body: Uint8Array = new Uint8Array();
                       if (input.payload != null) {
                         body = _json(input.payload);
                         body = context.utf8Decoder(JSON.stringify(body));

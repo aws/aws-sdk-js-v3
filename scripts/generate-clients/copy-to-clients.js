@@ -78,7 +78,7 @@ const mergeManifest = async (fromContent = {}, toContent = {}, parentKey = "root
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           premove: "4.0.0",
-          typescript: "~5.8.3",
+          typescript: "~6.0.3",
         };
 
         fromContent[name] = Object.keys(fromContent[name])
