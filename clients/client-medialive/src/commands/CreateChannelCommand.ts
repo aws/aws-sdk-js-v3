@@ -59,6 +59,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *           StreamName: "STRING_VALUE",
  *           Url: "STRING_VALUE",
  *           Username: "STRING_VALUE",
+ *           VirtualSourceAddress: "STRING_VALUE",
  *         },
  *       ],
  *       SrtSettings: [ // __listOfSrtOutputDestinationSettings
@@ -1496,6 +1497,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //             StreamName: "STRING_VALUE",
  * //             Url: "STRING_VALUE",
  * //             Username: "STRING_VALUE",
+ * //             VirtualSourceAddress: "STRING_VALUE",
  * //           },
  * //         ],
  * //         SrtSettings: [ // __listOfSrtOutputDestinationSettings

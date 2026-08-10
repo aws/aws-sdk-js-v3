@@ -1462,6 +1462,7 @@ const _VP = "VideoPid";
 const _VQ = "VbrQuality";
 const _VQi = "VideoQuality";
 const _VS = "VideoSelector";
+const _VSA = "VirtualSourceAddress";
 const _VSCSS = "VideoSelectorColorSpaceSettings";
 const _VSP = "VideoSelectorPid";
 const _VSPI = "VideoSelectorProgramId";
@@ -2477,6 +2478,7 @@ const _vP = "videoPid";
 const _vQ = "vbrQuality";
 const _vQi = "videoQuality";
 const _vS = "videoSelector";
+const _vSA = "virtualSourceAddress";
 const _vSP = "videoSelectorPid";
 const _vSPI = "videoSelectorProgramId";
 const _vSi = "videoSettings";
@@ -4683,8 +4685,8 @@ export var OutputDestination$: StaticStructureSchema = [3, n0, _ODu,
 ];
 export var OutputDestinationSettings$: StaticStructureSchema = [3, n0, _ODS,
   0,
-  [_PP, _SN, _Ur, _Us],
-  [[0, { [_jN]: _pP }], [0, { [_jN]: _sN }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }]]
+  [_PP, _SN, _Ur, _Us, _VSA],
+  [[0, { [_jN]: _pP }], [0, { [_jN]: _sN }], [0, { [_jN]: _ur }], [0, { [_jN]: _us }], [0, { [_jN]: _vSA }]]
 ];
 export var OutputGroup$: StaticStructureSchema = [3, n0, _OGu,
   0,

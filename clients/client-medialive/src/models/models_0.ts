@@ -2314,6 +2314,12 @@ export interface OutputDestinationSettings {
    * @public
    */
   Username?: string | undefined;
+
+  /**
+   * Specifies the source IP address for outbound multicast packets.
+   * @public
+   */
+  VirtualSourceAddress?: string | undefined;
 }
 
 /**

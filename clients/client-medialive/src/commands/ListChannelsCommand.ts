@@ -68,6 +68,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               StreamName: "STRING_VALUE",
  * //               Url: "STRING_VALUE",
  * //               Username: "STRING_VALUE",
+ * //               VirtualSourceAddress: "STRING_VALUE",
  * //             },
  * //           ],
  * //           SrtSettings: [ // __listOfSrtOutputDestinationSettings

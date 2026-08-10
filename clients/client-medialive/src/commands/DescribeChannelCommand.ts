@@ -65,6 +65,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * //           StreamName: "STRING_VALUE",
  * //           Url: "STRING_VALUE",
  * //           Username: "STRING_VALUE",
+ * //           VirtualSourceAddress: "STRING_VALUE",
  * //         },
  * //       ],
  * //       SrtSettings: [ // __listOfSrtOutputDestinationSettings
