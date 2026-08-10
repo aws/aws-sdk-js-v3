@@ -517,7 +517,7 @@ export interface DescribeContactEvaluationCommandOutput extends DescribeContactE
  * //       ContactInteractionType: "AGENT" || "AUTOMATED" || "CUSTOMER", // required
  * //     },
  * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
- * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
+ * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "ms-MY",
  * //     },
  * //     ReviewConfiguration: { // EvaluationReviewConfiguration
  * //       ReviewNotificationRecipients: [ // EvaluationReviewNotificationRecipientList // required

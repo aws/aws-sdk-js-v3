@@ -164,7 +164,7 @@ export interface SearchEvaluationFormsCommandOutput extends SearchEvaluationForm
  * //       LatestVersion: Number("int"), // required
  * //       ActiveVersion: Number("int"),
  * //       AutoEvaluationEnabled: true || false,
- * //       EvaluationFormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
+ * //       EvaluationFormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "ms-MY",
  * //       ContactInteractionType: "AGENT" || "AUTOMATED" || "CUSTOMER",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",

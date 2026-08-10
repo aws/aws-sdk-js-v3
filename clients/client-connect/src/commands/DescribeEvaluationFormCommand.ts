@@ -400,7 +400,7 @@ export interface DescribeEvaluationFormCommandOutput extends DescribeEvaluationF
  * //       ContactInteractionType: "AGENT" || "AUTOMATED" || "CUSTOMER", // required
  * //     },
  * //     LanguageConfiguration: { // EvaluationFormLanguageConfiguration
- * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN",
+ * //       FormLanguage: "de-DE" || "en-US" || "es-ES" || "fr-FR" || "it-IT" || "pt-BR" || "ja-JP" || "ko-KR" || "zh-CN" || "ms-MY",
  * //     },
  * //     LatestValidationStatus: "IN_PROGRESS" || "COMPLETED" || "FAILED",
  * //     LastValidationTime: new Date("TIMESTAMP"),

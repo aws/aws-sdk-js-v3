@@ -851,6 +851,7 @@ export const EvaluationFormLanguageCode = {
   IT_IT: "it-IT",
   JA_JP: "ja-JP",
   KO_KR: "ko-KR",
+  MS_MY: "ms-MY",
   PT_BR: "pt-BR",
   ZH_CN: "zh-CN",
 } as const;
