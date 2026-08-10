@@ -9,9 +9,13 @@ import { HttpRequest } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import dns from "node:dns";
 import { openSync, readSync, closeSync } from "node:fs";
+import type { LookupOptions } from "node:dns";
 import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
 import { crc32 } from "node:zlib";
+
+const DNS_TTL_MS = 1000;
+const dnsCache = new Map<string, { ips: string[]; ts: number }>();
 
 /**
  * Resolves all A records for a hostname, picks one at random per connection
@@ -19,10 +23,11 @@ import { crc32 } from "node:zlib";
  * on resolution failure.
  * @internal
  */
-const DNS_TTL_MS = 1000;
-const dnsCache = new Map<string, { ips: string[]; ts: number }>();
-
-function spreadLookup(hostname: string, options: any, callback: any): void {
+function spreadLookup(
+  hostname: string,
+  options: LookupOptions,
+  callback: (err: NodeJS.ErrnoException | null, address: string | dns.LookupAddress[], family?: number) => void
+): void {
   if (options && options.family === 6) {
     return dns.lookup(hostname, options, callback);
   }
@@ -42,7 +47,7 @@ function spreadLookup(hostname: string, options: any, callback: any): void {
   }
 
   dns.resolve4(hostname, (err, ips) => {
-    if (err || !ips || !ips.length) {
+    if (err || !ips?.length) {
       return dns.lookup(hostname, options, callback);
     }
     dnsCache.set(hostname, { ips, ts: Date.now() });
@@ -249,7 +254,10 @@ if (parentPort) {
         try {
           closeSync(fd);
         } catch {
-          /* ignore */
+          /**
+           * Safe to ignore: process.exit(0) below will close all file descriptors.
+           * If we throw here, handler.destroy() would be skipped.
+           */
         }
       }
       handler?.destroy();
