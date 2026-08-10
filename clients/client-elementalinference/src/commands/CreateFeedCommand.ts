@@ -51,6 +51,9 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  *         },
  *         clipping: { // ClippingConfig
  *           callbackMetadata: "STRING_VALUE",
+ *           dataSourceConfiguration: { // DataSourceConfiguration
+ *             fixtureId: "STRING_VALUE", // required
+ *           },
  *         },
  *         subtitling: { // SubtitlingConfig
  *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required
@@ -95,6 +98,9 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  * //         },
  * //         clipping: { // ClippingConfig
  * //           callbackMetadata: "STRING_VALUE",
+ * //           dataSourceConfiguration: { // DataSourceConfiguration
+ * //             fixtureId: "STRING_VALUE", // required
+ * //           },
  * //         },
  * //         subtitling: { // SubtitlingConfig
  * //           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required

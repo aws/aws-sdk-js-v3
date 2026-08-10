@@ -11,6 +11,7 @@ export * from "./GetFeedCommand";
 export * from "./ListDictionariesCommand";
 export * from "./ListFeedsCommand";
 export * from "./ListTagsForResourceCommand";
+export * from "./SearchFixturesCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateDictionaryCommand";

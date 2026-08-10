@@ -7,6 +7,7 @@ import {
   AssociateFeedRequest$,
   AssociateFeedResponse$,
   ClippingConfig$,
+  Competitor$,
   ConflictException,
   ConflictException$,
   CreateDictionary$,
@@ -19,6 +20,8 @@ import {
   CreateFeedResponse$,
   CreateOutput$,
   CroppingConfig$,
+  DataSourceConfiguration$,
+  DataSourceSport,
   DeleteDictionary$,
   DeleteDictionaryCommand,
   DeleteDictionaryRequest$,
@@ -44,6 +47,10 @@ import {
   FeedAssociation$,
   FeedStatus,
   FeedSummary$,
+  FilterName,
+  FixtureSummary$,
+  GatewayTimedOutException,
+  GatewayTimedOutException$,
   GetDictionary$,
   GetDictionaryCommand,
   GetDictionaryRequest$,
@@ -71,11 +78,19 @@ import {
   OutputStatus,
   paginateListDictionaries,
   paginateListFeeds,
+  paginateSearchFixtures,
   ProfanityFilterMode,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  SearchFilter$,
+  SearchFixtures$,
+  SearchFixturesCommand,
+  SearchFixturesRequest$,
+  SearchFixturesResponse$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ServiceUnavailableException,
+  ServiceUnavailableException$,
   SubtitlingConfig$,
   TagResource$,
   TagResourceCommand,
@@ -130,6 +145,8 @@ assert(typeof ListFeedsCommand === "function");
 assert(typeof ListFeeds$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
+assert(typeof SearchFixturesCommand === "function");
+assert(typeof SearchFixtures$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
@@ -143,12 +160,14 @@ assert(typeof AspectRatio$ === "object");
 assert(typeof AssociateFeedRequest$ === "object");
 assert(typeof AssociateFeedResponse$ === "object");
 assert(typeof ClippingConfig$ === "object");
+assert(typeof Competitor$ === "object");
 assert(typeof CreateDictionaryRequest$ === "object");
 assert(typeof CreateDictionaryResponse$ === "object");
 assert(typeof CreateFeedRequest$ === "object");
 assert(typeof CreateFeedResponse$ === "object");
 assert(typeof CreateOutput$ === "object");
 assert(typeof CroppingConfig$ === "object");
+assert(typeof DataSourceConfiguration$ === "object");
 assert(typeof DeleteDictionaryRequest$ === "object");
 assert(typeof DeleteDictionaryResponse$ === "object");
 assert(typeof DeleteFeedRequest$ === "object");
@@ -160,6 +179,7 @@ assert(typeof ExportDictionaryEntriesRequest$ === "object");
 assert(typeof ExportDictionaryEntriesResponse$ === "object");
 assert(typeof FeedAssociation$ === "object");
 assert(typeof FeedSummary$ === "object");
+assert(typeof FixtureSummary$ === "object");
 assert(typeof GetDictionaryRequest$ === "object");
 assert(typeof GetDictionaryResponse$ === "object");
 assert(typeof GetFeedRequest$ === "object");
@@ -172,6 +192,9 @@ assert(typeof ListFeedsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof OutputConfig$ === "object");
+assert(typeof SearchFilter$ === "object");
+assert(typeof SearchFixturesRequest$ === "object");
+assert(typeof SearchFixturesResponse$ === "object");
 assert(typeof SubtitlingConfig$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TemplateGroup$ === "object");
@@ -182,9 +205,11 @@ assert(typeof UpdateFeedRequest$ === "object");
 assert(typeof UpdateFeedResponse$ === "object");
 assert(typeof UpdateOutput$ === "object");
 // enums
+assert(typeof DataSourceSport === "object");
 assert(typeof DictionaryLanguage === "object");
 assert(typeof DictionaryStatus === "object");
 assert(typeof FeedStatus === "object");
+assert(typeof FilterName === "object");
 assert(typeof OutputStatus === "object");
 assert(typeof ProfanityFilterMode === "object");
 assert(typeof TranscriptionLanguage === "object");
@@ -193,12 +218,16 @@ assert(AccessDeniedException.prototype instanceof ElementalInferenceServiceExcep
 assert(typeof AccessDeniedException$ === "object");
 assert(ConflictException.prototype instanceof ElementalInferenceServiceException);
 assert(typeof ConflictException$ === "object");
+assert(GatewayTimedOutException.prototype instanceof ElementalInferenceServiceException);
+assert(typeof GatewayTimedOutException$ === "object");
 assert(InternalServerErrorException.prototype instanceof ElementalInferenceServiceException);
 assert(typeof InternalServerErrorException$ === "object");
 assert(ResourceNotFoundException.prototype instanceof ElementalInferenceServiceException);
 assert(typeof ResourceNotFoundException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof ElementalInferenceServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(ServiceUnavailableException.prototype instanceof ElementalInferenceServiceException);
+assert(typeof ServiceUnavailableException$ === "object");
 assert(TooManyRequestException.prototype instanceof ElementalInferenceServiceException);
 assert(typeof TooManyRequestException$ === "object");
 assert(ValidationException.prototype instanceof ElementalInferenceServiceException);
@@ -210,4 +239,5 @@ assert(typeof waitUntilFeedDeleted === "function");
 // paginators
 assert(typeof paginateListDictionaries === "function");
 assert(typeof paginateListFeeds === "function");
+assert(typeof paginateSearchFixtures === "function");
 console.log(`ElementalInference index test passed.`);

@@ -51,6 +51,9 @@ export interface AssociateFeedCommandOutput extends AssociateFeedResponse, __Met
  *         },
  *         clipping: { // ClippingConfig
  *           callbackMetadata: "STRING_VALUE",
+ *           dataSourceConfiguration: { // DataSourceConfiguration
+ *             fixtureId: "STRING_VALUE", // required
+ *           },
  *         },
  *         subtitling: { // SubtitlingConfig
  *           language: "eng" || "eng-au" || "eng-gb" || "eng-us" || "fra" || "ita" || "deu" || "spa" || "por", // required

@@ -72,6 +72,7 @@ import type {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import type { SearchFixturesCommandInput, SearchFixturesCommandOutput } from "./commands/SearchFixturesCommand";
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateDictionaryCommandInput, UpdateDictionaryCommandOutput } from "./commands/UpdateDictionaryCommand";
@@ -103,6 +104,7 @@ export type ServiceInputTypes =
   | ListDictionariesCommandInput
   | ListFeedsCommandInput
   | ListTagsForResourceCommandInput
+  | SearchFixturesCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateDictionaryCommandInput
@@ -124,6 +126,7 @@ export type ServiceOutputTypes =
   | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
   | ListTagsForResourceCommandOutput
+  | SearchFixturesCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateDictionaryCommandOutput

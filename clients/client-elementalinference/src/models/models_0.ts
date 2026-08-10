@@ -1,8 +1,10 @@
 // smithy-typescript generated code
 import type {
+  DataSourceSport,
   DictionaryLanguage,
   DictionaryStatus,
   FeedStatus,
+  FilterName,
   OutputStatus,
   ProfanityFilterMode,
   TranscriptionLanguage,
@@ -27,6 +29,18 @@ export interface AspectRatio {
 }
 
 /**
+ * <p>Contains the data source configuration for a clipping output. It identifies the fixture whose event data Elemental Inference maps onto the clipping metadata. It is used in the dataSourceConfiguration property of a ClippingConfig. </p>
+ * @public
+ */
+export interface DataSourceConfiguration {
+  /**
+   * <p>The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. The fixture should be the sports event in the source media that the feed is processing. </p> <p>To obtain this ID, use the SearchFixtures operation to find the fixture, then use the fixtureId from the matching FixtureSummary. </p>
+   * @public
+   */
+  fixtureId: string | undefined;
+}
+
+/**
  * <p>A type of OutputConfig, used when the output in a feed is for the clip feature.</p>
  * @public
  */
@@ -36,6 +50,12 @@ export interface ClippingConfig {
    * @public
    */
   callbackMetadata?: string | undefined;
+
+  /**
+   * <p>The data source to map onto this clipping output. This parameter is optional. When you include this parameter, Elemental Inference reads the event data for the fixture that you specify, and includes that data in the event clipping metadata for this output. </p> <p>If you omit this parameter, Elemental Inference doesn't map a data source onto this output. </p>
+   * @public
+   */
+  dataSourceConfiguration?: DataSourceConfiguration | undefined;
 }
 
 /**
@@ -241,6 +261,24 @@ export interface AssociateFeedResponse {
    * @public
    */
   id: string | undefined;
+}
+
+/**
+ * <p>Contains information about one competitor in a fixture. It is used in the FixtureSummary that is in the SearchFixtures response. </p>
+ * @public
+ */
+export interface Competitor {
+  /**
+   * <p>The name of the competitor, as provided by the data source.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Specifies whether this competitor is the home side in the fixture. If true, this competitor is the home side. If false, this competitor is the away side. </p>
+   * @public
+   */
+  isHome?: boolean | undefined;
 }
 
 /**
@@ -1055,6 +1093,124 @@ export interface ListTagsForResourceResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>A filter for a fixture search. It is used in the filters array of a SearchFixtures request. </p>
+ * @public
+ */
+export interface SearchFilter {
+  /**
+   * <p>The dimension of the fixture to filter on. Valid values: COMPETITOR.</p>
+   * @public
+   */
+  name: FilterName | undefined;
+
+  /**
+   * <p>An array of values to match in the dimension that you specified in name. You can specify up to 10 values. A fixture appears in the results if it matches at least one of these values. </p>
+   * @public
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchFixturesRequest {
+  /**
+   * <p>The sport to search for fixtures. Valid values: basketball (search for basketball fixtures), american-football (search for american-football fixtures). </p>
+   * @public
+   */
+  sport: DataSourceSport | undefined;
+
+  /**
+   * <p>The first day of the search window, in UTC. The search includes fixtures that are scheduled on this day. </p> <p>Specify the date in ISO 8601 format, as <code>YYYY-MM-DD</code>. For example, 2026-03-14. </p>
+   * @public
+   */
+  startDate: string | undefined;
+
+  /**
+   * <p>The last day of the search window, in UTC. The search includes fixtures that are scheduled on this day. Specify the date in ISO 8601 format, as <code>YYYY-MM-DD</code>. </p> <p>If you omit this parameter, Elemental Inference searches only the day that you specified in startDate. The window from startDate through endDate must not exceed seven days. </p>
+   * @public
+   */
+  endDate?: string | undefined;
+
+  /**
+   * <p>An array of filters that narrow the results. Each filter applies to one dimension of a fixture, such as the competitor. You can specify up to 10 filters. </p> <p>A fixture must satisfy every filter in the array in order to appear in the results. Within one filter, a fixture must match at least one of the values. </p>
+   * @public
+   */
+  filters?: SearchFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of fixtures to return for each API request.</p> <p>The service might return fewer fixtures than the maxResults value. When more fixtures match the search, the response also includes a nextToken value that you can use to fetch the next batch of results. </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token that identifies the batch of results that you want to see.</p> <p>For example, you submit a SearchFixtures request with maxResults set at 5. The service returns the first batch of results (up to 5) and a nextToken value. To see the next batch of results, you submit the SearchFixtures request a second time, with the same search criteria, and specify the nextToken value. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains information about one fixture. It is used in the SearchFixtures response.</p> <p>Elemental Inference relays the information in this structure from the data source, so that you can identify the fixture that matches your source media. </p>
+ * @public
+ */
+export interface FixtureSummary {
+  /**
+   * <p>The ID of the fixture. Specify this ID in the clipping output of a feed, to identify the fixture whose event data you want Elemental Inference to map onto the clipping metadata. </p>
+   * @public
+   */
+  fixtureId: string | undefined;
+
+  /**
+   * <p>The name of the fixture, as provided by the data source. For example, the names of the two competing teams. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture. </p>
+   * @public
+   */
+  fixtureGroup?: string | undefined;
+
+  /**
+   * <p>The scheduled start time of the fixture, as provided by the data source. The actual start time might differ. </p>
+   * @public
+   */
+  scheduledStart?: Date | undefined;
+
+  /**
+   * <p>The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed. </p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>An array of the competitors (the teams or individuals) in the fixture.</p>
+   * @public
+   */
+  competitors: Competitor[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchFixturesResponse {
+  /**
+   * <p>An array of FixtureSummary objects, one for each fixture that matches the search. The array is empty if no fixtures match. </p>
+   * @public
+   */
+  fixtures: FixtureSummary[] | undefined;
+
+  /**
+   * <p>The token that identifies the next batch of results. To see the next batch, submit the SearchFixtures request again, with the same search criteria, and specify this value in nextToken. </p> <p>This parameter is absent when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**

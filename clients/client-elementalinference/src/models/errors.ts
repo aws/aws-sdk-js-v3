@@ -145,3 +145,45 @@ export class ValidationException extends __BaseException {
     Object.setPrototypeOf(this, ValidationException.prototype);
   }
 }
+
+/**
+ * <p>The request timed out before the service returned a response. This is a temporary condition. Retry the request. If the problem persists, contact AWS Support. </p>
+ * @public
+ */
+export class GatewayTimedOutException extends __BaseException {
+  readonly name = "GatewayTimedOutException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GatewayTimedOutException, __BaseException>) {
+    super({
+      name: "GatewayTimedOutException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GatewayTimedOutException.prototype);
+  }
+}
+
+/**
+ * <p>The service is temporarily unable to handle the request. Retry the request. If the problem persists, contact AWS Support. </p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}

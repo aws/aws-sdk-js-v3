@@ -3,6 +3,7 @@ const _AF = "AssociateFeed";
 const _AFR = "AssociateFeedRequest";
 const _AFRs = "AssociateFeedResponse";
 const _AR = "AspectRatio";
+const _C = "Competitor";
 const _CC = "ClippingConfig";
 const _CCr = "CroppingConfig";
 const _CD = "CreateDictionary";
@@ -12,6 +13,7 @@ const _CE = "ConflictException";
 const _CF = "CreateFeed";
 const _CFR = "CreateFeedRequest";
 const _CFRr = "CreateFeedResponse";
+const _CL = "CompetitorList";
 const _CO = "CreateOutput";
 const _COL = "CreateOutputList";
 const _DD = "DeleteDictionary";
@@ -24,6 +26,7 @@ const _DFRi = "DisassociateFeedRequest";
 const _DFRis = "DisassociateFeedResponse";
 const _DFi = "DisassociateFeed";
 const _DS = "DictionarySummary";
+const _DSC = "DataSourceConfiguration";
 const _DSL = "DictionarySummaryList";
 const _EDE = "ExportDictionaryEntries";
 const _EDER = "ExportDictionaryEntriesRequest";
@@ -31,6 +34,8 @@ const _EDERx = "ExportDictionaryEntriesResponse";
 const _FA = "FeedAssociation";
 const _FS = "FeedSummary";
 const _FSL = "FeedSummaryList";
+const _FSLi = "FixtureSummaryList";
+const _FSi = "FixtureSummary";
 const _GD = "GetDictionary";
 const _GDR = "GetDictionaryRequest";
 const _GDRe = "GetDictionaryResponse";
@@ -39,6 +44,7 @@ const _GFR = "GetFeedRequest";
 const _GFRe = "GetFeedResponse";
 const _GO = "GetOutput";
 const _GOL = "GetOutputList";
+const _GTOE = "GatewayTimedOutException";
 const _ISEE = "InternalServerErrorException";
 const _LD = "ListDictionaries";
 const _LDR = "ListDictionariesRequest";
@@ -52,7 +58,13 @@ const _LTFRRi = "ListTagsForResourceResponse";
 const _OC = "OutputConfig";
 const _RNFE = "ResourceNotFoundException";
 const _SC = "SubtitlingConfig";
+const _SF = "SearchFilter";
+const _SFL = "SearchFilterList";
+const _SFR = "SearchFixturesRequest";
+const _SFRe = "SearchFixturesResponse";
+const _SFe = "SearchFixtures";
 const _SQEE = "ServiceQuotaExceededException";
+const _SUE = "ServiceUnavailableException";
 const _TG = "TemplateGroup";
 const _TGL = "TemplateGroupList";
 const _TMRE = "TooManyRequestException";
@@ -77,21 +89,29 @@ const _as = "association";
 const _c = "client";
 const _cM = "callbackMetadata";
 const _cl = "clipping";
+const _co = "competitors";
 const _cr = "cropping";
 const _d = "description";
 const _dE = "dataEndpoints";
 const _dR = "dryRun";
+const _dSC = "dataSourceConfiguration";
 const _di = "dictionaries";
 const _dic = "dictionary";
 const _e = "error";
+const _eD = "endDate";
 const _en = "entries";
 const _f = "feeds";
 const _fA = "fromAssociation";
+const _fG = "fixtureGroup";
+const _fI = "fixtureId";
+const _fi = "filters";
+const _fix = "fixtures";
 const _h = "height";
 const _hE = "httpError";
 const _hQ = "httpQuery";
 const _ht = "http";
 const _i = "id";
+const _iH = "isHome";
 const _l = "language";
 const _m = "message";
 const _mR = "maxResults";
@@ -103,13 +123,17 @@ const _pF = "profanityFilter";
 const _r = "references";
 const _rA = "resourceArn";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.elementalinference";
+const _sD = "startDate";
+const _sS = "scheduledStart";
 const _se = "server";
+const _sp = "sport";
 const _st = "status";
 const _su = "subtitling";
 const _t = "tags";
 const _tG = "templateGroups";
 const _tK = "tagKeys";
 const _tU = "templateUris";
+const _v = "values";
 const _w = "width";
 const n0 = "com.amazonaws.elementalinference";
 
@@ -128,9 +152,11 @@ import { ElementalInferenceServiceException } from "../models/ElementalInference
 import {
   AccessDeniedException,
   ConflictException,
+  GatewayTimedOutException,
   InternalServerErrorException,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  ServiceUnavailableException,
   TooManyRequestException,
   ValidationException,
 } from "../models/errors";
@@ -152,6 +178,12 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   [0], 1
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
+export var GatewayTimedOutException$: StaticErrorSchema = [-3, n0, _GTOE,
+  { [_e]: _se, [_hE]: 504 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(GatewayTimedOutException$, GatewayTimedOutException);
 export var InternalServerErrorException$: StaticErrorSchema = [-3, n0, _ISEE,
   { [_e]: _se, [_hE]: 500 },
   [_m],
@@ -170,6 +202,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0], 1
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var ServiceUnavailableException$: StaticErrorSchema = [-3, n0, _SUE,
+  { [_e]: _se, [_hE]: 503 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(ServiceUnavailableException$, ServiceUnavailableException);
 export var TooManyRequestException$: StaticErrorSchema = [-3, n0, _TMRE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
@@ -208,8 +246,13 @@ export var AssociateFeedResponse$: StaticStructureSchema = [3, n0, _AFRs,
 ];
 export var ClippingConfig$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_cM],
-  [0]
+  [_cM, _dSC],
+  [0, () => DataSourceConfiguration$]
+];
+export var Competitor$: StaticStructureSchema = [3, n0, _C,
+  0,
+  [_n, _iH],
+  [0, 2]
 ];
 export var CreateDictionaryRequest$: StaticStructureSchema = [3, n0, _CDR,
   0,
@@ -240,6 +283,11 @@ export var CroppingConfig$: StaticStructureSchema = [3, n0, _CCr,
   0,
   [_tG],
   [() => TemplateGroupList]
+];
+export var DataSourceConfiguration$: StaticStructureSchema = [3, n0, _DSC,
+  0,
+  [_fI],
+  [0], 1
 ];
 export var DeleteDictionaryRequest$: StaticStructureSchema = [3, n0, _DDR,
   0,
@@ -296,6 +344,11 @@ export var FeedSummary$: StaticStructureSchema = [3, n0, _FS,
   [_a, _i, _n, _st, _as],
   [0, 0, 0, 0, () => FeedAssociation$], 4
 ];
+export var FixtureSummary$: StaticStructureSchema = [3, n0, _FSi,
+  0,
+  [_fI, _n, _st, _co, _fG, _sS],
+  [0, 0, 0, () => CompetitorList, 0, 5], 4
+];
 export var GetDictionaryRequest$: StaticStructureSchema = [3, n0, _GDR,
   0,
   [_i],
@@ -351,6 +404,21 @@ export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi
   [_t],
   [128 | 0]
 ];
+export var SearchFilter$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_n, _v],
+  [0, 64 | 0], 2
+];
+export var SearchFixturesRequest$: StaticStructureSchema = [3, n0, _SFR,
+  0,
+  [_sp, _sD, _eD, _fi, _mR, _nT],
+  [0, 0, 0, () => SearchFilterList, 1, 0], 2
+];
+export var SearchFixturesResponse$: StaticStructureSchema = [3, n0, _SFRe,
+  0,
+  [_fix, _nT],
+  [() => FixtureSummaryList, 0], 1
+];
 export var SubtitlingConfig$: StaticStructureSchema = [3, n0, _SC,
   0,
   [_l, _aR, _dic, _pF],
@@ -397,6 +465,9 @@ export var UpdateOutput$: StaticStructureSchema = [3, n0, _UO,
   [0, () => OutputConfig$, 0, 0, 2], 3
 ];
 var __Unit = "unit" as const;
+var CompetitorList: StaticListSchema = [1, n0, _CL,
+  0, () => Competitor$
+];
 var CreateOutputList: StaticListSchema = [1, n0, _COL,
   0, () => CreateOutput$
 ];
@@ -407,8 +478,15 @@ var FeedReferences = 64 | 0;
 var FeedSummaryList: StaticListSchema = [1, n0, _FSL,
   0, () => FeedSummary$
 ];
+var FilterValueList = 64 | 0;
+var FixtureSummaryList: StaticListSchema = [1, n0, _FSLi,
+  0, () => FixtureSummary$
+];
 var GetOutputList: StaticListSchema = [1, n0, _GOL,
   0, () => GetOutput$
+];
+var SearchFilterList: StaticListSchema = [1, n0, _SFL,
+  0, () => SearchFilter$
 ];
 var StringList = 64 | 0;
 var TagKeyList = 64 | 0;
@@ -460,6 +538,9 @@ export var ListFeeds$: StaticOperationSchema = [9, n0, _LF,
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
   { [_ht]: ["GET", "/v1/tags/{resourceArn}", 200] }, () => ListTagsForResourceRequest$, () => ListTagsForResourceResponse$
+];
+export var SearchFixtures$: StaticOperationSchema = [9, n0, _SFe,
+  { [_ht]: ["POST", "/v1/fixtures", 200] }, () => SearchFixturesRequest$, () => SearchFixturesResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_ht]: ["POST", "/v1/tags/{resourceArn}", 204] }, () => TagResourceRequest$, () => __Unit

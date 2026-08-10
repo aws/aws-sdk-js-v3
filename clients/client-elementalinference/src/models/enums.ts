@@ -96,3 +96,28 @@ export const FeedStatus = {
  * @public
  */
 export type FeedStatus = (typeof FeedStatus)[keyof typeof FeedStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceSport = {
+  AMERICAN_FOOTBALL: "american-football",
+  BASKETBALL: "basketball",
+} as const;
+/**
+ * @public
+ */
+export type DataSourceSport = (typeof DataSourceSport)[keyof typeof DataSourceSport];
+
+/**
+ * @public
+ * @enum
+ */
+export const FilterName = {
+  COMPETITOR: "COMPETITOR",
+} as const;
+/**
+ * @public
+ */
+export type FilterName = (typeof FilterName)[keyof typeof FilterName];

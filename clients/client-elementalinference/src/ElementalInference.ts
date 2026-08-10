@@ -60,6 +60,11 @@ import {
   ListTagsForResourceCommand,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  type SearchFixturesCommandInput,
+  type SearchFixturesCommandOutput,
+  SearchFixturesCommand,
+} from "./commands/SearchFixturesCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -84,6 +89,7 @@ import type { ElementalInferenceServiceException } from "./models/ElementalInfer
 import type { ResourceNotFoundException } from "./models/errors";
 import { paginateListDictionaries } from "./pagination/ListDictionariesPaginator";
 import { paginateListFeeds } from "./pagination/ListFeedsPaginator";
+import { paginateSearchFixtures } from "./pagination/SearchFixturesPaginator";
 import { waitUntilFeedDeleted } from "./waiters/waitForFeedDeleted";
 
 const commands = {
@@ -99,6 +105,7 @@ const commands = {
   ListDictionariesCommand,
   ListFeedsCommand,
   ListTagsForResourceCommand,
+  SearchFixturesCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateDictionaryCommand,
@@ -107,6 +114,7 @@ const commands = {
 const paginators = {
   paginateListDictionaries,
   paginateListFeeds,
+  paginateSearchFixtures,
 };
 const waiters = {
   waitUntilFeedDeleted,
@@ -320,6 +328,23 @@ export interface ElementalInference {
   ): void;
 
   /**
+   * @see {@link SearchFixturesCommand}
+   */
+  searchFixtures(
+    args: SearchFixturesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchFixturesCommandOutput>;
+  searchFixtures(
+    args: SearchFixturesCommandInput,
+    cb: (err: any, data?: SearchFixturesCommandOutput) => void
+  ): void;
+  searchFixtures(
+    args: SearchFixturesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchFixturesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -408,6 +433,17 @@ export interface ElementalInference {
     args?: ListFeedsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListFeedsCommandOutput>;
+
+  /**
+   * @see {@link SearchFixturesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchFixturesCommandOutput}.
+   */
+  paginateSearchFixtures(
+    args: SearchFixturesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchFixturesCommandOutput>;
 
   /**
    * @see {@link GetFeedCommand}

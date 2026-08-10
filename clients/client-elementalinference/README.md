@@ -265,6 +265,13 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+SearchFixtures
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/SearchFixturesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/SearchFixturesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/SearchFixturesCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
