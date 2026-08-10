@@ -511,6 +511,22 @@ export class S3TransferManager implements IS3TransferManager {
       request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
 
     const { destination, failIfExists, ...getObjectFields } = request;
+
+    if (this.multipartDownloadType === "RANGE") {
+      try {
+        const result = await this.downloadToFileByRange(
+          request,
+          resolvedDestination,
+          transferOptions
+        );
+        removeLocalEventListeners();
+        return result;
+      } catch (error) {
+        removeLocalEventListeners();
+        throw error;
+      }
+    }
+
     const initialPartRequest: GetObjectCommandInput = {
       ...getObjectFields,
       PartNumber: 1,
@@ -549,35 +565,7 @@ export class S3TransferManager implements IS3TransferManager {
         await fileManager.atomicRename(tempFilePath, resolvedDestination);
         fileManager.unregisterCleanupHandler(tempFilePath);
 
-        // Construct response
-        const metadata: Record<string, any> = {};
-        this.assignMetadata(metadata, initialResponse);
-        metadata.ContentLength = totalSize;
-        metadata.ContentRange = `bytes 0-${totalSize - 1}/${totalSize}`;
-
-        // Handle COMPOSITE checksum type
-        if (initialResponse.ChecksumType === "COMPOSITE") {
-          metadata.ChecksumCRC32 = undefined;
-          metadata.ChecksumCRC32C = undefined;
-          metadata.ChecksumSHA1 = undefined;
-          metadata.ChecksumSHA256 = undefined;
-        }
-
-        const response: DownloadToFileResponse = {
-          ...metadata,
-          bytesWritten: totalSize,
-        } as DownloadToFileResponse;
-
-        this.dispatchEvent(
-          Object.assign(new Event("transferComplete"), {
-            request,
-            response,
-            snapshot: {
-              transferredBytes: totalSize,
-              totalBytes: totalSize,
-            },
-          })
-        );
+        const response = this.buildDownloadToFileResponse(initialResponse, totalSize, request);
         removeLocalEventListeners();
         return response;
       }
@@ -718,31 +706,25 @@ export class S3TransferManager implements IS3TransferManager {
       // Handle abort: if the abort signal was triggered (either user or internal),
       // reject with AbortError regardless of whether tasks have already failed.
       if (abortController.signal.aborted && !failed) {
-        await fileManager.deleteTempFile(tempFilePath);
-        fileManager.unregisterCleanupHandler(tempFilePath);
         const abortError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
-        this.dispatchTransferFailedEvent(request, totalSize, abortError);
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, abortError);
         removeLocalEventListeners();
         throw abortError;
       }
 
       // Handle failure
       if (failed) {
-        await fileManager.deleteTempFile(tempFilePath);
-        fileManager.unregisterCleanupHandler(tempFilePath);
-        this.dispatchTransferFailedEvent(request, totalSize, failureError as Error);
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, failureError);
         removeLocalEventListeners();
         throw failureError;
       }
 
       // Verify request count
       if (partResults.length !== partsCount) {
-        await fileManager.deleteTempFile(tempFilePath);
-        fileManager.unregisterCleanupHandler(tempFilePath);
         const error = new Error(
           `The number of parts downloaded (${partResults.length}) does not match the expected number (${partsCount})`
         );
-        this.dispatchTransferFailedEvent(request, totalSize, error);
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, error);
         removeLocalEventListeners();
         throw error;
       }
@@ -750,12 +732,10 @@ export class S3TransferManager implements IS3TransferManager {
       // Verify total bytes written matches expected object size
       const totalBytesWritten = partResults.reduce((sum, p) => sum + p.bytesWritten, 0);
       if (totalBytesWritten !== totalSize) {
-        await fileManager.deleteTempFile(tempFilePath);
-        fileManager.unregisterCleanupHandler(tempFilePath);
         const error = new Error(
           `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalSize})`
         );
-        this.dispatchTransferFailedEvent(request, totalSize, error);
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, error);
         removeLocalEventListeners();
         throw error;
       }
@@ -764,35 +744,7 @@ export class S3TransferManager implements IS3TransferManager {
       await fileManager.atomicRename(tempFilePath, resolvedDestination);
       fileManager.unregisterCleanupHandler(tempFilePath);
 
-      // Construct response metadata
-      const metadata: Record<string, any> = {};
-      this.assignMetadata(metadata, initialResponse);
-      metadata.ContentLength = totalSize;
-      metadata.ContentRange = `bytes 0-${totalSize - 1}/${totalSize}`;
-
-      // Handle COMPOSITE checksum type
-      if (initialResponse.ChecksumType === "COMPOSITE") {
-        metadata.ChecksumCRC32 = undefined;
-        metadata.ChecksumCRC32C = undefined;
-        metadata.ChecksumSHA1 = undefined;
-        metadata.ChecksumSHA256 = undefined;
-      }
-
-      const response: DownloadToFileResponse = {
-        ...metadata,
-        bytesWritten: totalSize,
-      } as DownloadToFileResponse;
-
-      this.dispatchEvent(
-        Object.assign(new Event("transferComplete"), {
-          request,
-          response,
-          snapshot: {
-            transferredBytes: totalSize,
-            totalBytes: totalSize,
-          },
-        })
-      );
+      const response = this.buildDownloadToFileResponse(initialResponse, totalSize, request);
       removeLocalEventListeners();
       return response;
     } catch (error) {
@@ -802,6 +754,224 @@ export class S3TransferManager implements IS3TransferManager {
         fileManager.unregisterCleanupHandler(tempFilePath);
       }
       removeLocalEventListeners();
+      throw error;
+    }
+  }
+
+  /**
+   * Downloads an S3 object to a local file using Range-based GET requests.
+   * @internal
+   */
+  private async downloadToFileByRange(
+    request: DownloadToFileRequest,
+    resolvedDestination: string,
+    transferOptions?: TransferOptions
+  ): Promise<DownloadToFileResponse> {
+    const { destination, failIfExists, ...getObjectFields } = request;
+    const checksumValidationEnabled =
+      request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
+
+    const fileManager = new FileManager();
+    let tempFilePath: string | undefined;
+
+    try {
+      // Create initial GetObject request with Range bytes=0-{targetPartSizeBytes-1}
+      const rangeSize = this.targetPartSizeBytes;
+      const initialRangeRequest: GetObjectCommandInput = {
+        ...getObjectFields,
+        Range: `bytes=0-${rangeSize - 1}`,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+      };
+
+      const initialResponse = await this.s3.send(new GetObjectCommand(initialRangeRequest), transferOptions);
+
+      // Validate ContentRange matches the requested range (also validates presence and format)
+      this.validateRangeDownload(`bytes=0-${rangeSize - 1}`, initialResponse.ContentRange);
+
+      // Parse total content length from ContentRange: "bytes 0-N/TOTAL"
+      const totalContentLength = Number.parseInt(initialResponse.ContentRange!.split("/")[1]);
+      const responseContentLength = initialResponse.ContentLength ?? 0;
+
+      // Compare parsed total content length with ContentLength
+      if (responseContentLength === totalContentLength) {
+        // Single-part object — this response contains all the data
+        tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
+        fileManager.registerCleanupHandler(tempFilePath);
+
+        await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+
+        await fileManager.atomicRename(tempFilePath, resolvedDestination);
+        fileManager.unregisterCleanupHandler(tempFilePath);
+
+        this.dispatchTransferInitiatedEvent(request, totalContentLength);
+        return this.buildDownloadToFileResponse(initialResponse, totalContentLength, request);
+      }
+
+      // Save ETag and calculate expected number of ranged GET requests
+      const eTag = initialResponse.ETag ?? undefined;
+      const expectedRequestCount = Math.ceil(totalContentLength / rangeSize);
+
+      this.dispatchTransferInitiatedEvent(request, totalContentLength);
+
+      // Create temp file and write initial part
+      tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
+      fileManager.registerCleanupHandler(tempFilePath);
+
+      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+
+      const rangeResults: Array<{ index: number; bytesWritten: number }> = [];
+      rangeResults.push({ index: 0, bytesWritten: responseContentLength });
+
+      this.dispatchEvent(
+        Object.assign(new Event("bytesTransferred"), {
+          request: initialRangeRequest,
+          snapshot: { transferredBytes: responseContentLength, totalBytes: totalContentLength },
+        })
+      );
+
+      // Construct and dispatch remaining range GET requests concurrently
+      const semaphore = new Semaphore(this.maxConcurrentDownloads);
+      const abortController = new AbortController();
+      let failed = false;
+      let failureError: unknown;
+
+      const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+      if (userSignal) {
+        userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+      }
+
+      const rangeTasks: Promise<void>[] = [];
+      let rangeIndex = 1;
+
+      for (let offset = rangeSize; offset < totalContentLength; offset += rangeSize) {
+        if (failed || abortController.signal.aborted) break;
+        this.checkAborted(transferOptions);
+
+        await semaphore.acquire();
+
+        if (failed || abortController.signal.aborted) {
+          semaphore.release();
+          break;
+        }
+
+        const start = offset;
+        const end = Math.min(offset + rangeSize - 1, totalContentLength - 1);
+        const currentIndex = rangeIndex++;
+
+        const rangeGetRequest: GetObjectCommandInput = {
+          ...getObjectFields,
+          Range: `bytes=${start}-${end}`,
+          IfMatch: eTag,
+          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+        };
+
+        const task = (async () => {
+          try {
+            const expectedLength = end - start + 1;
+
+            if (this.workerHttpHandler) {
+              // Worker-thread path: dispatch via WorkerHttpHandler for direct file-offset write
+              const resultToken = `download-range-${currentIndex}-${Date.now()}`;
+              const downloadOptions: DownloadDataToFile = {
+                filePath: tempFilePath!,
+                offset: start,
+                expectedLength,
+                resultToken,
+              };
+
+              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), {
+                ...transferOptions,
+                downloadDataToFile: downloadOptions,
+              } as any);
+
+              // Validate ContentRange matches the requested range
+              this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
+
+              // Retrieve the download result from the WorkerHttpHandler's side-channel.
+              const downloadResult = this.workerHttpHandler.getDownloadResult(resultToken);
+              const bytesWritten = downloadResult?.bytesWritten ?? expectedLength;
+
+              rangeResults.push({
+                index: currentIndex,
+                bytesWritten,
+              });
+            } else {
+              // Main-thread fallback (workerThreadCount === 1)
+              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), transferOptions);
+
+              // Validate ContentRange matches the requested range
+              this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
+
+              await this.writeResponseBodyToFile(rangeResponse.Body, tempFilePath!, rangeResponse.ContentRange, start);
+
+              rangeResults.push({
+                index: currentIndex,
+                bytesWritten: rangeResponse.ContentLength ?? expectedLength,
+              });
+            }
+
+            this.dispatchEvent(
+              Object.assign(new Event("bytesTransferred"), {
+                request: rangeGetRequest,
+                snapshot: { transferredBytes: end - start + 1, totalBytes: totalContentLength },
+              })
+            );
+          } catch (error) {
+            if (!failed) {
+              failed = true;
+              failureError = error;
+              abortController.abort();
+            }
+          } finally {
+            semaphore.release();
+          }
+        })();
+
+        rangeTasks.push(task);
+      }
+
+      await Promise.allSettled(rangeTasks);
+
+      if (abortController.signal.aborted && !failed) {
+        const abortError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, abortError);
+        throw abortError;
+      }
+
+      if (failed) {
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, failureError);
+        throw failureError;
+      }
+
+      // Validate total number of ranged GET requests matches expected count
+      const actualRequestCount = rangeResults.length; // includes initial request
+      if (actualRequestCount !== expectedRequestCount) {
+        const error = new Error(
+          `Expected ${expectedRequestCount} ranged GET requests but sent ${actualRequestCount}`
+        );
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, error);
+        throw error;
+      }
+
+      // Verify total bytes written matches expected object size
+      const totalBytesWritten = rangeResults.reduce((sum, r) => sum + r.bytesWritten, 0);
+      if (totalBytesWritten !== totalContentLength) {
+        const error = new Error(
+          `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalContentLength})`
+        );
+        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, error);
+        throw error;
+      }
+
+      await fileManager.atomicRename(tempFilePath, resolvedDestination);
+      fileManager.unregisterCleanupHandler(tempFilePath);
+
+      return this.buildDownloadToFileResponse(initialResponse, totalContentLength, request);
+    } catch (error) {
+      if (tempFilePath) {
+        await fileManager.deleteTempFile(tempFilePath).catch(() => {});
+        fileManager.unregisterCleanupHandler(tempFilePath);
+      }
       throw error;
     }
   }
@@ -1365,6 +1535,67 @@ export class S3TransferManager implements IS3TransferManager {
       }
       container[key] = response[key];
     }
+  }
+
+  /**
+   * Builds the final DownloadToFileResponse from the initial response metadata.
+   * Copies all metadata fields, overrides ContentLength/ContentRange for the full object,
+   * nulls checksum fields for COMPOSITE types, and dispatches the transferComplete event.
+   *
+   * @internal
+   */
+  private buildDownloadToFileResponse(
+    initialResponse: DownloadResponse,
+    totalSize: number,
+    request: DownloadToFileRequest
+  ): DownloadToFileResponse {
+    const metadata: Record<string, any> = {};
+    this.assignMetadata(metadata, initialResponse);
+    metadata.ContentLength = totalSize;
+    metadata.ContentRange = `bytes 0-${totalSize - 1}/${totalSize}`;
+
+    if (initialResponse.ChecksumType === "COMPOSITE") {
+      metadata.ChecksumCRC32 = undefined;
+      metadata.ChecksumCRC32C = undefined;
+      metadata.ChecksumSHA1 = undefined;
+      metadata.ChecksumSHA256 = undefined;
+    }
+
+    const response: DownloadToFileResponse = {
+      ...metadata,
+      bytesWritten: totalSize,
+    } as DownloadToFileResponse;
+
+    this.dispatchEvent(
+      Object.assign(new Event("transferComplete"), {
+        request,
+        response,
+        snapshot: {
+          transferredBytes: totalSize,
+          totalBytes: totalSize,
+        },
+      })
+    );
+
+    return response;
+  }
+
+  /**
+   * Handles cleanup on download failure: deletes the temp file,
+   * unregisters process handlers, and dispatches transferFailed event.
+   *
+   * @internal
+   */
+  private async handleDownloadCleanup(
+    fileManager: FileManager,
+    tempFilePath: string,
+    request: DownloadToFileRequest,
+    totalSize: number,
+    error: unknown
+  ): Promise<void> {
+    await fileManager.deleteTempFile(tempFilePath);
+    fileManager.unregisterCleanupHandler(tempFilePath);
+    this.dispatchTransferFailedEvent(request, totalSize, error as Error);
   }
 
   /**
