@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
+
+
+### Features
+
+* **client-elementalinference:** Added support for the SearchFixtures API and DataSourceConfiguration, enabling customers to map fixture event data onto clipping outputs for improved feature accuracy. ([8a63a39](https://github.com/aws/aws-sdk-js-v3/commit/8a63a39da7312385da2688ea00d1b6d0bf6574d0))
+
+
+
+
+
 # [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
 
 **Note:** Version bump only for package @aws-sdk/client-elementalinference

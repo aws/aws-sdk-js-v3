@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
+
+
+### Features
+
+* **client-medialive:** Added VirtualSourceAddress to multicast output destinations for MediaLive Anywhere channels. Specifies the source IP address for outbound multicast packets when downstream networks enforce source-IP filtering. ([dc24c64](https://github.com/aws/aws-sdk-js-v3/commit/dc24c644a6c8380230b7f35eaa874dd697af8faa))
+
+
+
+
+
 # [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

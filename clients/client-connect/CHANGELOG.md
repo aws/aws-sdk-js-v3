@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
+
+
+### Features
+
+* **client-connect:** Added Malay language option to use AI to automatically fill evaluation forms in Malay ([6f82fc3](https://github.com/aws/aws-sdk-js-v3/commit/6f82fc3ae38a42ead056406e895cee05cdd1622c))
+
+
+
+
+
 # [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
 
 

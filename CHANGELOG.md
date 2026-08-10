@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
+
+
+### Features
+
+* **client-connect:** Added Malay language option to use AI to automatically fill evaluation forms in Malay ([6f82fc3](https://github.com/aws/aws-sdk-js-v3/commit/6f82fc3ae38a42ead056406e895cee05cdd1622c))
+* **client-elementalinference:** Added support for the SearchFixtures API and DataSourceConfiguration, enabling customers to map fixture event data onto clipping outputs for improved feature accuracy. ([8a63a39](https://github.com/aws/aws-sdk-js-v3/commit/8a63a39da7312385da2688ea00d1b6d0bf6574d0))
+* **client-medialive:** Added VirtualSourceAddress to multicast output destinations for MediaLive Anywhere channels. Specifies the source IP address for outbound multicast packets when downstream networks enforce source-IP filtering. ([dc24c64](https://github.com/aws/aws-sdk-js-v3/commit/dc24c644a6c8380230b7f35eaa874dd697af8faa))
+* **client-sagemaker-runtime:** Added the PrefixAwareId header to InvokeEndpoint and InvokeEndpointWithResponseStream. This optional parameter serves as a routing hint for endpoints configured with prefix-aware routing, differentiating routing decisions for requests that share the same prompt prefix. ([8345d8e](https://github.com/aws/aws-sdk-js-v3/commit/8345d8ef198ac6757a68236eadeb289c03bf6f4b))
+* **client-sagemaker:** Added PREFIX AWARE routing strategy and PrefixAwareRoutingConfig to CreateEndpointConfig. Configure PrefixLength and ConcurrencyThreshold to route requests that share the same prompt prefix to the same instance. ([c0ce67e](https://github.com/aws/aws-sdk-js-v3/commit/c0ce67e2f937791fd90ea056b8ecf6925958abfc))
+
+
+
+
+
 # [3.1106.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1105.0...v3.1106.0) (2026-08-07)
 
 
