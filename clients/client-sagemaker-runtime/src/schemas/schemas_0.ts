@@ -39,6 +39,7 @@ const _NSI = "NewSessionId";
 const _OL = "OutputLocation";
 const _OM = "OriginalMessage";
 const _OSC = "OriginalStatusCode";
+const _PAI = "PrefixAwareId";
 const _PB = "PartBlob";
 const _PP = "PayloadPart";
 const _RS = "ResponseStream";
@@ -63,6 +64,7 @@ const _XASII = "X-Amzn-SageMaker-Inference-Id";
 const _XASI_ = "X-Amzn-SageMaker-InvocationTimeoutSeconds";
 const _XASNSI = "X-Amzn-SageMaker-New-Session-Id";
 const _XASO = "X-Amzn-SageMaker-OutputLocation";
+const _XASPAI = "X-Amzn-SageMaker-Prefix-Aware-Id";
 const _XASR = "X-Amzn-SageMaker-RequestTTLSeconds";
 const _XASS = "X-Amzn-SageMaker-S3OutputPathExtension";
 const _XASSI = "X-Amzn-SageMaker-Session-Id";
@@ -182,8 +184,8 @@ export var InvokeEndpointAsyncOutput$: StaticStructureSchema = [3, n0, _IEAO,
 ];
 export var InvokeEndpointInput$: StaticStructureSchema = [3, n0, _IEI,
   0,
-  [_EN, _B, _CT, _A, _CA, _TM, _TV, _TCH, _II, _EE, _ICN, _SI],
-  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTM }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASEE }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]], 2
+  [_EN, _B, _CT, _A, _CA, _TM, _TV, _TCH, _II, _EE, _ICN, _SI, _PAI],
+  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _A }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTM }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASEE }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }], [0, { [_hH]: _XASPAI }]], 2
 ];
 export var InvokeEndpointOutput$: StaticStructureSchema = [3, n0, _IEO,
   0,
@@ -192,8 +194,8 @@ export var InvokeEndpointOutput$: StaticStructureSchema = [3, n0, _IEO,
 ];
 export var InvokeEndpointWithResponseStreamInput$: StaticStructureSchema = [3, n0, _IEWRSI,
   0,
-  [_EN, _B, _CT, _A, _CA, _TV, _TCH, _II, _ICN, _SI],
-  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }]], 2
+  [_EN, _B, _CT, _A, _CA, _TV, _TCH, _II, _ICN, _SI, _PAI],
+  [[0, 1], [() => BodyBlob, 16], [0, { [_hH]: _CT_ }], [0, { [_hH]: _XASA }], [() => CustomAttributesHeader, { [_hH]: _XASCA }], [0, { [_hH]: _XASTV }], [0, { [_hH]: _XASTCH }], [0, { [_hH]: _XASII }], [0, { [_hH]: _XASIC }], [0, { [_hH]: _XASSI }], [0, { [_hH]: _XASPAI }]], 2
 ];
 export var InvokeEndpointWithResponseStreamOutput$: StaticStructureSchema = [3, n0, _IEWRSO,
   0,

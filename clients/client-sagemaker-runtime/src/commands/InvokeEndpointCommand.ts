@@ -78,6 +78,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  *   EnableExplanations: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
  *   SessionId: "STRING_VALUE",
+ *   PrefixAwareId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);

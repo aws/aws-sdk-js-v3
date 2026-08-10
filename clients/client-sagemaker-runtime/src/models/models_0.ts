@@ -121,6 +121,18 @@ export interface InvokeEndpointInput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>An optional, stable identifier that serves as a routing hint for prefix-aware routing.
+   *         The service routes requests with the same prefix and the same identifier to the same
+   *         instance. If requests from different applications might have the same prompt prefix, set
+   *         a different identifier for each application to differentiate their routing
+   *         decisions.</p>
+   *          <p>Applies only to endpoints configured with a
+   *         <code>RoutingStrategy</code> of <code>PREFIX_AWARE</code>.</p>
+   * @public
+   */
+  PrefixAwareId?: string | undefined;
 }
 
 /**
@@ -406,6 +418,18 @@ export interface InvokeEndpointWithResponseStreamInput {
    * @public
    */
   SessionId?: string | undefined;
+
+  /**
+   * <p>An optional, stable identifier that serves as a routing hint for prefix-aware routing.
+   *         The service routes requests with the same prefix and the same identifier to the same
+   *         instance. If requests from different applications might have the same prompt prefix, set
+   *         a different identifier for each application to differentiate their routing
+   *         decisions.</p>
+   *          <p>Applies only to endpoints configured with a
+   *         <code>RoutingStrategy</code> of <code>PREFIX_AWARE</code>.</p>
+   * @public
+   */
+  PrefixAwareId?: string | undefined;
 }
 
 /**

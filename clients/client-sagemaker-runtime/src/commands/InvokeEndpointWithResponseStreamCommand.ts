@@ -73,6 +73,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput extends InvokeEnd
  *   InferenceId: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
  *   SessionId: "STRING_VALUE",
+ *   PrefixAwareId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointWithResponseStreamCommand(input);
  * const response = await client.send(command);
