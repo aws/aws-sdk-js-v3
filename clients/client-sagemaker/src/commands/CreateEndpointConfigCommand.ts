@@ -74,7 +74,11 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *         },
  *       },
  *       RoutingConfig: { // ProductionVariantRoutingConfig
- *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ *         PrefixAwareRoutingConfig: { // PrefixAwareRoutingConfig
+ *           PrefixLength: Number("int"),
+ *           ConcurrencyThreshold: Number("int"),
+ *         },
  *       },
  *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2" || "al2-ami-sagemaker-inference-gpu-2-1" || "al2-ami-sagemaker-inference-gpu-3-1" || "al2-ami-sagemaker-inference-neuron-2" || "al2023-ami-sagemaker-inference-gpu-4-1",
  *       CapacityReservationConfig: { // ProductionVariantCapacityReservationConfig
@@ -204,7 +208,11 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *         },
  *       },
  *       RoutingConfig: {
- *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ *         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ *         PrefixAwareRoutingConfig: {
+ *           PrefixLength: Number("int"),
+ *           ConcurrencyThreshold: Number("int"),
+ *         },
  *       },
  *       InferenceAmiVersion: "al2-ami-sagemaker-inference-gpu-2" || "al2-ami-sagemaker-inference-gpu-2-1" || "al2-ami-sagemaker-inference-gpu-3-1" || "al2-ami-sagemaker-inference-neuron-2" || "al2023-ami-sagemaker-inference-gpu-4-1",
  *       CapacityReservationConfig: {

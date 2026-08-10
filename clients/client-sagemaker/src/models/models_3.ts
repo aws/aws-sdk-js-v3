@@ -41,6 +41,7 @@ import type {
   HubContentType,
   HubSortBy,
   HubStatus,
+  HyperParameterTuningJobObjectiveType,
   HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobStrategyType,
@@ -255,7 +256,6 @@ import type {
   ExperimentConfig,
   ExperimentSource,
   FeatureParameter,
-  FinalHyperParameterTuningJobObjectiveMetric,
   InfraCheckConfig,
   LastUpdateStatus,
   MemberDefinition,
@@ -293,6 +293,30 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * <p>Shows the latest objective metric emitted by a training job that was launched by a hyperparameter tuning job. You define the objective metric in the <code>HyperParameterTuningJobObjective</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a>.</p>
+ * @public
+ */
+export interface FinalHyperParameterTuningJobObjectiveMetric {
+  /**
+   * <p>Select if you want to minimize or maximize the objective metric during hyperparameter tuning. </p>
+   * @public
+   */
+  Type?: HyperParameterTuningJobObjectiveType | undefined;
+
+  /**
+   * <p>The name of the objective metric. For SageMaker built-in algorithms, metrics are defined per algorithm. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html">metrics for XGBoost</a> as an example. You can also use a custom algorithm for training and define your own metrics. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
+   * @public
+   */
+  MetricName: string | undefined;
+
+  /**
+   * <p>The value of the objective metric.</p>
+   * @public
+   */
+  Value: number | undefined;
+}
 
 /**
  * <p>The container for the summary information about a training job.</p>
@@ -11808,21 +11832,4 @@ export interface ListHyperParameterTuningJobsRequest {
    * @public
    */
   StatusEquals?: HyperParameterTuningJobStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHyperParameterTuningJobsResponse {
-  /**
-   * <p>A list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobSummary.html">HyperParameterTuningJobSummary</a> objects that describe the tuning jobs that the <code>ListHyperParameterTuningJobs</code> request returned.</p>
-   * @public
-   */
-  HyperParameterTuningJobSummaries: HyperParameterTuningJobSummary[] | undefined;
-
-  /**
-   * <p>If the result of this <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
 }

@@ -948,7 +948,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //             },
  * //             RoutingConfig: { // ProductionVariantRoutingConfig
- * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //               PrefixAwareRoutingConfig: { // PrefixAwareRoutingConfig
+ * //                 PrefixLength: Number("int"),
+ * //                 ConcurrencyThreshold: Number("int"),
+ * //               },
  * //             },
  * //             CapacityReservationConfig: { // ProductionVariantCapacityReservationSummary
  * //               MlReservationArn: "STRING_VALUE",
@@ -1154,7 +1158,11 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //             },
  * //             RoutingConfig: {
- * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //               RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //               PrefixAwareRoutingConfig: {
+ * //                 PrefixLength: Number("int"),
+ * //                 ConcurrencyThreshold: Number("int"),
+ * //               },
  * //             },
  * //             CapacityReservationConfig: {
  * //               MlReservationArn: "STRING_VALUE",

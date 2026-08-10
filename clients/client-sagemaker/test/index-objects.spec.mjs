@@ -2178,6 +2178,7 @@ import {
   PlacementSpecification$,
   PredefinedMetricSpecification$,
   PreemptTeamTasks,
+  PrefixAwareRoutingConfig$,
   PresignedUrlAccessConfig$,
   PriorityClass$,
   ProblemType,
@@ -4846,6 +4847,7 @@ assert(typeof PipelineVersion$ === "object");
 assert(typeof PipelineVersionSummary$ === "object");
 assert(typeof PlacementSpecification$ === "object");
 assert(typeof PredefinedMetricSpecification$ === "object");
+assert(typeof PrefixAwareRoutingConfig$ === "object");
 assert(typeof PresignedUrlAccessConfig$ === "object");
 assert(typeof PriorityClass$ === "object");
 assert(typeof ProcessingClusterConfig$ === "object");

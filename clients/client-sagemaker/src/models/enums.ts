@@ -3565,6 +3565,7 @@ export type ManagedInstanceScalingStatus =
  */
 export const RoutingStrategy = {
   LEAST_OUTSTANDING_REQUESTS: "LEAST_OUTSTANDING_REQUESTS",
+  PREFIX_AWARE: "PREFIX_AWARE",
   RANDOM: "RANDOM",
 } as const;
 /**

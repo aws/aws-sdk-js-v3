@@ -2,7 +2,6 @@
 import { AutomaticJsonStringConversion as __AutomaticJsonStringConversion } from "@smithy/core/serde";
 
 import type {
-  _InstanceType,
   AccountDefaultStatus,
   ActionStatus,
   ActivationState,
@@ -24,7 +23,6 @@ import type {
   ContainerMode,
   ContentClassifier,
   DeviceSubsetType,
-  DirectInternetAccess,
   EdgePresetDeploymentType,
   ExecutionRoleIdentityConfig,
   ExecutionRoleSessionNameMode,
@@ -61,7 +59,6 @@ import type {
   ModelRegistrationMode,
   MonitoringProblemType,
   MonitoringType,
-  NotebookInstanceAcceleratorType,
   NotebookOutputOption,
   ParameterType,
   PreemptTeamTasks,
@@ -78,7 +75,6 @@ import type {
   RecommendationJobType,
   RepositoryAccessMode,
   ResourceSharingStrategy,
-  RootAccess,
   RoutingStrategy,
   RStudioServerProAccessStatus,
   RStudioServerProUserGroup,
@@ -3943,15 +3939,39 @@ export interface ProductionVariantManagedInstanceScaling {
 }
 
 /**
+ * <p>The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify <code>PrefixLength</code> and <code>ConcurrencyThreshold</code> to control routing behavior.</p>
+ * @public
+ */
+export interface PrefixAwareRoutingConfig {
+  /**
+   * <p>The maximum length of the prefix used for routing decisions. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>.</p> <ul> <li> <p>For the SageMaker Runtime <code>InvokeEndpoint</code> and <code>InvokeEndpointWithResponseStream</code> APIs, this value specifies the number of bytes from the beginning of the request body.</p> </li> <li> <p>For OpenAI-compatible API, this value specifies the number of characters from the text content of the messages array.</p> </li> </ul> <p>The endpoint routes requests that share the same prefix to the same instance. Set this value to cover shared content (such as system prompts) plus enough unique content to distribute workloads across instances.</p>
+   * @public
+   */
+  PrefixLength?: number | undefined;
+
+  /**
+   * <p>The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when <code>RoutingStrategy</code> is <code>PREFIX_AWARE</code>. When in-flight requests on the prefix-selected instance reach this threshold, the endpoint routes the request to an instance with more available capacity.</p>
+   * @public
+   */
+  ConcurrencyThreshold?: number | undefined;
+}
+
+/**
  * <p>Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.</p>
  * @public
  */
 export interface ProductionVariantRoutingConfig {
   /**
-   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> </ul>
+   * <p>Sets how the endpoint routes incoming traffic:</p> <ul> <li> <p> <code>LEAST_OUTSTANDING_REQUESTS</code>: The endpoint routes requests to the specific instances that have more capacity to process them.</p> </li> <li> <p> <code>RANDOM</code>: The endpoint routes each request to a randomly chosen instance.</p> </li> <li> <p> <code>PREFIX_AWARE</code>: The endpoint routes requests that share the same prompt prefix to the same instance. When the number of in-flight requests on the selected instance reaches the configured threshold, the endpoint routes the request to an instance with more available capacity.</p> </li> </ul>
    * @public
    */
   RoutingStrategy: RoutingStrategy | undefined;
+
+  /**
+   * <p>The configuration for prefix-aware routing. Specify this parameter only when you set <code>RoutingStrategy</code> to <code>PREFIX_AWARE</code>.</p>
+   * @public
+   */
+  PrefixAwareRoutingConfig?: PrefixAwareRoutingConfig | undefined;
 }
 
 /**
@@ -8470,111 +8490,4 @@ export interface InstanceMetadataServiceConfiguration {
    * @public
    */
   MinimumInstanceMetadataServiceVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateNotebookInstanceInput {
-  /**
-   * <p>The name of the new notebook instance.</p>
-   * @public
-   */
-  NotebookInstanceName: string | undefined;
-
-  /**
-   * <p>The type of ML compute instance to launch for the notebook instance.</p>
-   * @public
-   */
-  InstanceType: _InstanceType | undefined;
-
-  /**
-   * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance. </p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet. </p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>The IP address type for the notebook instance. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. When you specify <code>dualstack</code>, the subnet must support IPv6 CIDR blocks. If not specified, defaults to <code>ipv4</code>.</p>
-   * @public
-   */
-  IpAddressType?: IPAddressType | undefined;
-
-  /**
-   * <p> When you send any requests to Amazon Web Services resources from the notebook instance, SageMaker AI assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so SageMaker AI can perform these tasks. The policy must allow the SageMaker AI service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
-   * @public
-   */
-  RoleArn: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling Keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
-   * @public
-   */
-  LifecycleConfigName?: string | undefined;
-
-  /**
-   * <p>Sets whether SageMaker AI provides internet access to the notebook instance. If you set this to <code>Disabled</code> this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker AI training and endpoint services unless you configure a NAT Gateway in your VPC.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</p>
-   * @public
-   */
-  DirectInternetAccess?: DirectInternetAccess | undefined;
-
-  /**
-   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.</p>
-   * @public
-   */
-  VolumeSizeInGB?: number | undefined;
-
-  /**
-   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify a list of EI instance types to associate with this notebook instance.</p>
-   * @public
-   */
-  AcceleratorTypes?: NotebookInstanceAcceleratorType[] | undefined;
-
-  /**
-   * <p>A Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker AI Notebook Instances</a>.</p>
-   * @public
-   */
-  DefaultCodeRepository?: string | undefined;
-
-  /**
-   * <p>An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker AI Notebook Instances</a>.</p>
-   * @public
-   */
-  AdditionalCodeRepositories?: string[] | undefined;
-
-  /**
-   * <p>Whether root access is enabled or disabled for users of the notebook instance. The default value is <code>Enabled</code>.</p> <note> <p>Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.</p> </note>
-   * @public
-   */
-  RootAccess?: RootAccess | undefined;
-
-  /**
-   * <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2023-v1</code>.</p>
-   * @public
-   */
-  PlatformIdentifier?: string | undefined;
-
-  /**
-   * <p>Information on the IMDS configuration of the notebook instance</p>
-   * @public
-   */
-  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration | undefined;
 }

@@ -11,6 +11,7 @@ import type {
   ResourceType,
   RootAccess,
   SearchSortOrder,
+  TrackingServerSize,
   WorkforceIpAddressType,
 } from "./enums";
 import type {
@@ -53,6 +54,53 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateMlflowTrackingServerRequest {
+  /**
+   * <p>The name of the MLflow Tracking Server to update.</p>
+   * @public
+   */
+  TrackingServerName: string | undefined;
+
+  /**
+   * <p>The new S3 URI for the general purpose bucket to use as the artifact store for the MLflow Tracking Server.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string | undefined;
+
+  /**
+   * <p>The new size for the MLflow Tracking Server.</p>
+   * @public
+   */
+  TrackingServerSize?: TrackingServerSize | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>True</code>. To disable automatic model registration, set this value to <code>False</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>False</code> </p>
+   * @public
+   */
+  AutomaticModelRegistration?: boolean | undefined;
+
+  /**
+   * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>The new expected Amazon Web Services account ID that owns the Amazon S3 bucket for artifact storage.</p>
+   * @public
+   */
+  S3BucketOwnerAccountId?: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable Amazon S3 Bucket Owenrship Verifaction whenever the MLflow Tracking Server interacts with Amazon Amazon S3.</p>
+   * @public
+   */
+  S3BucketOwnerVerification?: boolean | undefined;
+}
 
 /**
  * @public

@@ -89,7 +89,11 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         },
  * //       },
  * //       RoutingConfig: { // ProductionVariantRoutingConfig
- * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //         PrefixAwareRoutingConfig: { // PrefixAwareRoutingConfig
+ * //           PrefixLength: Number("int"),
+ * //           ConcurrencyThreshold: Number("int"),
+ * //         },
  * //       },
  * //       CapacityReservationConfig: { // ProductionVariantCapacityReservationSummary
  * //         MlReservationArn: "STRING_VALUE",
@@ -225,7 +229,11 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         },
  * //         RoutingConfig: {
- * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //           PrefixAwareRoutingConfig: {
+ * //             PrefixLength: Number("int"),
+ * //             ConcurrencyThreshold: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //     ],
@@ -276,7 +284,11 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //           },
  * //         },
  * //         RoutingConfig: {
- * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //           RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //           PrefixAwareRoutingConfig: {
+ * //             PrefixLength: Number("int"),
+ * //             ConcurrencyThreshold: Number("int"),
+ * //           },
  * //         },
  * //       },
  * //     ],
@@ -359,7 +371,11 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointOutput, _
  * //         },
  * //       },
  * //       RoutingConfig: {
- * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM", // required
+ * //         RoutingStrategy: "LEAST_OUTSTANDING_REQUESTS" || "RANDOM" || "PREFIX_AWARE", // required
+ * //         PrefixAwareRoutingConfig: {
+ * //           PrefixLength: Number("int"),
+ * //           ConcurrencyThreshold: Number("int"),
+ * //         },
  * //       },
  * //       CapacityReservationConfig: {
  * //         MlReservationArn: "STRING_VALUE",

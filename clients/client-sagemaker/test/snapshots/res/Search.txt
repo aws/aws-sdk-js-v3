@@ -1597,7 +1597,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -1702,7 +1706,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -1807,7 +1815,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -2613,7 +2625,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -2718,7 +2734,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -2823,7 +2843,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -9663,7 +9687,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -9768,7 +9796,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -9873,7 +9905,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -10679,7 +10715,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -10784,7 +10824,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -10889,7 +10933,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -17729,7 +17777,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -17834,7 +17886,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -17939,7 +17995,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -18745,7 +18805,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -18850,7 +18914,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -18955,7 +19023,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             "RoutingConfig": {
-              "RoutingStrategy": "__RoutingStrategy__"
+              "RoutingStrategy": "__RoutingStrategy__",
+              "PrefixAwareRoutingConfig": {
+                "PrefixLength": 0,
+                "ConcurrencyThreshold": 0
+              }
             },
             "CapacityReservationConfig": {
               "MlReservationArn": "__MlReservationArn__",
@@ -25807,7 +25879,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -25912,7 +25988,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -26017,7 +26097,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -26823,7 +26907,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -26928,7 +27016,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -27033,7 +27125,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -33873,7 +33969,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -33978,7 +34078,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -34083,7 +34187,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -34889,7 +34997,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -34994,7 +35106,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -35099,7 +35215,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -41939,7 +42059,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -42044,7 +42168,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -42149,7 +42277,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -42955,7 +43087,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -43060,7 +43196,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",
@@ -43165,7 +43305,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
               }
             },
             RoutingConfig: {
-              RoutingStrategy: "__RoutingStrategy__"
+              RoutingStrategy: "__RoutingStrategy__",
+              PrefixAwareRoutingConfig: {
+                PrefixLength: (number) 0,
+                ConcurrencyThreshold: (number) 0
+              }
             },
             CapacityReservationConfig: {
               MlReservationArn: "__MlReservationArn__",

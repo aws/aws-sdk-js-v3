@@ -49,7 +49,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -94,7 +95,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -139,7 +141,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -211,7 +214,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -256,7 +260,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -301,7 +306,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EnableSSMAccess": false,
       "ManagedInstanceScaling": {},
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {}
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {}
@@ -370,7 +376,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -415,7 +422,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -460,7 +468,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -532,7 +541,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -577,7 +587,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -622,7 +633,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EnableSSMAccess: (boolean) false,
       ManagedInstanceScaling: {},
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {}
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {}
@@ -713,7 +725,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -770,7 +786,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -827,7 +847,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -980,7 +1004,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -1037,7 +1065,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -1094,7 +1126,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       "RoutingConfig": {
-        "RoutingStrategy": "__RoutingStrategy__"
+        "RoutingStrategy": "__RoutingStrategy__",
+        "PrefixAwareRoutingConfig": {
+          "PrefixLength": 0,
+          "ConcurrencyThreshold": 0
+        }
       },
       "InferenceAmiVersion": "__InferenceAmiVersion__",
       "CapacityReservationConfig": {
@@ -1179,7 +1215,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {
@@ -1236,7 +1276,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {
@@ -1293,7 +1337,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {
@@ -1446,7 +1494,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {
@@ -1503,7 +1555,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {
@@ -1560,7 +1616,11 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         }
       },
       RoutingConfig: {
-        RoutingStrategy: "__RoutingStrategy__"
+        RoutingStrategy: "__RoutingStrategy__",
+        PrefixAwareRoutingConfig: {
+          PrefixLength: (number) 0,
+          ConcurrencyThreshold: (number) 0
+        }
       },
       InferenceAmiVersion: "__InferenceAmiVersion__",
       CapacityReservationConfig: {

@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import type {
+  _InstanceType,
   ActionStatus,
   ActivationState,
   AIBenchmarkJobStatus,
@@ -23,6 +24,7 @@ import type {
   CustomizationTechnique,
   DataDistributionType,
   DeepHealthCheckType,
+  DirectInternetAccess,
   DomainStatus,
   EdgePackagingJobStatus,
   EdgePresetDeploymentStatus,
@@ -40,13 +42,14 @@ import type {
   HubContentType,
   HubStatus,
   HumanTaskUiStatus,
-  HyperParameterTuningJobObjectiveType,
   InputMode,
+  IPAddressType,
   JobCategory,
   JoinSource,
   LastUpdateStatusValue,
   ModelSpeculativeDecodingS3DataType,
   ModelSpeculativeDecodingTechnique,
+  NotebookInstanceAcceleratorType,
   OfflineStoreStatusValue,
   OptimizationJobDeploymentInstanceType,
   PartnerAppAuthType,
@@ -65,6 +68,7 @@ import type {
   RedshiftResultCompressionType,
   RedshiftResultFormat,
   RetentionType,
+  RootAccess,
   RuleEvaluationStatus,
   SchedulerConfigComponent,
   SchedulerResourceStatus,
@@ -169,6 +173,7 @@ import type {
   HumanLoopConfig,
   HumanLoopRequestSource,
   InputConfig,
+  InstanceMetadataServiceConfiguration,
   JupyterServerAppSettings,
   KernelGatewayAppSettings,
   MetadataProperties,
@@ -192,6 +197,113 @@ import type {
   TrainingSpecification,
   UserSettings,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface CreateNotebookInstanceInput {
+  /**
+   * <p>The name of the new notebook instance.</p>
+   * @public
+   */
+  NotebookInstanceName: string | undefined;
+
+  /**
+   * <p>The type of ML compute instance to launch for the notebook instance.</p>
+   * @public
+   */
+  InstanceType: _InstanceType | undefined;
+
+  /**
+   * <p>The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance. </p>
+   * @public
+   */
+  SubnetId?: string | undefined;
+
+  /**
+   * <p>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet. </p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>The IP address type for the notebook instance. Specify <code>ipv4</code> for IPv4-only connectivity or <code>dualstack</code> for both IPv4 and IPv6 connectivity. When you specify <code>dualstack</code>, the subnet must support IPv6 CIDR blocks. If not specified, defaults to <code>ipv4</code>.</p>
+   * @public
+   */
+  IpAddressType?: IPAddressType | undefined;
+
+  /**
+   * <p> When you send any requests to Amazon Web Services resources from the notebook instance, SageMaker AI assumes this role to perform tasks on your behalf. You must grant this role necessary permissions so SageMaker AI can perform these tasks. The policy must allow the SageMaker AI service principal (sagemaker.amazonaws.com) permissions to assume this role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker AI Roles</a>. </p> <note> <p>To be able to pass this role to SageMaker AI, the caller of this API must have the <code>iam:PassRole</code> permission.</p> </note>
+   * @public
+   */
+  RoleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and Disabling Keys</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
+   * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services resources in different ways, for example, by purpose, owner, or environment. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The name of a lifecycle configuration to associate with the notebook instance. For information about lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
+   * @public
+   */
+  LifecycleConfigName?: string | undefined;
+
+  /**
+   * <p>Sets whether SageMaker AI provides internet access to the notebook instance. If you set this to <code>Disabled</code> this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker AI training and endpoint services unless you configure a NAT Gateway in your VPC.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value of this parameter to <code>Disabled</code> only if you set a value for the <code>SubnetId</code> parameter.</p>
+   * @public
+   */
+  DirectInternetAccess?: DirectInternetAccess | undefined;
+
+  /**
+   * <p>The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.</p>
+   * @public
+   */
+  VolumeSizeInGB?: number | undefined;
+
+  /**
+   * <p>This parameter is no longer supported. Elastic Inference (EI) is no longer available.</p> <p>This parameter was used to specify a list of EI instance types to associate with this notebook instance.</p>
+   * @public
+   */
+  AcceleratorTypes?: NotebookInstanceAcceleratorType[] | undefined;
+
+  /**
+   * <p>A Git repository to associate with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker AI Notebook Instances</a>.</p>
+   * @public
+   */
+  DefaultCodeRepository?: string | undefined;
+
+  /**
+   * <p>An array of up to three Git repositories to associate with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">Amazon Web Services CodeCommit</a> or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git Repositories with SageMaker AI Notebook Instances</a>.</p>
+   * @public
+   */
+  AdditionalCodeRepositories?: string[] | undefined;
+
+  /**
+   * <p>Whether root access is enabled or disabled for users of the notebook instance. The default value is <code>Enabled</code>.</p> <note> <p>Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.</p> </note>
+   * @public
+   */
+  RootAccess?: RootAccess | undefined;
+
+  /**
+   * <p>The platform identifier of the notebook instance runtime environment. The default value is <code>notebook-al2023-v1</code>.</p>
+   * @public
+   */
+  PlatformIdentifier?: string | undefined;
+
+  /**
+   * <p>Information on the IMDS configuration of the notebook instance</p>
+   * @public
+   */
+  InstanceMetadataServiceConfiguration?: InstanceMetadataServiceConfiguration | undefined;
+}
 
 /**
  * @public
@@ -8191,28 +8303,4 @@ export interface DescribeHyperParameterTuningJobRequest {
    * @public
    */
   HyperParameterTuningJobName: string | undefined;
-}
-
-/**
- * <p>Shows the latest objective metric emitted by a training job that was launched by a hyperparameter tuning job. You define the objective metric in the <code>HyperParameterTuningJobObjective</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a>.</p>
- * @public
- */
-export interface FinalHyperParameterTuningJobObjectiveMetric {
-  /**
-   * <p>Select if you want to minimize or maximize the objective metric during hyperparameter tuning. </p>
-   * @public
-   */
-  Type?: HyperParameterTuningJobObjectiveType | undefined;
-
-  /**
-   * <p>The name of the objective metric. For SageMaker built-in algorithms, metrics are defined per algorithm. See the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost-tuning.html">metrics for XGBoost</a> as an example. You can also use a custom algorithm for training and define your own metrics. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-metrics-variables.html">Define metrics and environment variables</a>.</p>
-   * @public
-   */
-  MetricName: string | undefined;
-
-  /**
-   * <p>The value of the objective metric.</p>
-   * @public
-   */
-  Value: number | undefined;
 }

@@ -796,6 +796,7 @@ const _CTo = "CompressionType";
 const _CTol = "CollectionType";
 const _CTom = "CompletionTime";
 const _CTon = "ContentType";
+const _CTonc = "ConcurrencyThreshold";
 const _CTont = "ContentTemplate";
 const _CTonte = "ContextType";
 const _CTr = "CreateTrial";
@@ -2679,6 +2680,7 @@ const _PAC = "PartnerAppConfig";
 const _PAI = "ProvisioningArtifactId";
 const _PAMC = "PartnerAppMaintenanceConfig";
 const _PAPSU = "PostAnalyticsProcessorSourceUri";
+const _PARC = "PrefixAwareRoutingConfig";
 const _PAS = "PartnerAppSummary";
 const _PASa = "PartnerAppSummaries";
 const _PAa = "ParameterAdditions";
@@ -2746,6 +2748,7 @@ const _PJSro = "ProcessingJobSummary";
 const _PL = "ProgrammingLang";
 const _PLI = "ProductListingIds";
 const _PLa = "ParameterList";
+const _PLr = "PrefixLength";
 const _PMPGP = "PutModelPackageGroupPolicy";
 const _PMPGPI = "PutModelPackageGroupPolicyInput";
 const _PMPGPO = "PutModelPackageGroupPolicyOutput";
@@ -9680,6 +9683,11 @@ export var PredefinedMetricSpecification$: StaticStructureSchema = [3, n0, _PMS,
   [_PMT],
   [0]
 ];
+export var PrefixAwareRoutingConfig$: StaticStructureSchema = [3, n0, _PARC,
+  0,
+  [_PLr, _CTonc],
+  [1, 1]
+];
 export var PresignedUrlAccessConfig$: StaticStructureSchema = [3, n0, _PUAC,
   0,
   [_AEc, _ESU],
@@ -9782,8 +9790,8 @@ export var ProductionVariantManagedInstanceScalingScaleInPolicy$: StaticStructur
 ];
 export var ProductionVariantRoutingConfig$: StaticStructureSchema = [3, n0, _PVRC,
   0,
-  [_RSo],
-  [0], 1
+  [_RSo, _PARC],
+  [0, () => PrefixAwareRoutingConfig$], 1
 ];
 export var ProductionVariantServerlessConfig$: StaticStructureSchema = [3, n0, _PVSC,
   0,

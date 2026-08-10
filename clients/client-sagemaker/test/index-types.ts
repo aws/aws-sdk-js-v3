@@ -2770,6 +2770,7 @@ export type {
   PipelineVersionSummary,
   PlacementSpecification,
   PredefinedMetricSpecification,
+  PrefixAwareRoutingConfig,
   PresignedUrlAccessConfig,
   PriorityClass,
   ProcessingClusterConfig,
