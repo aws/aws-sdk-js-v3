@@ -50,7 +50,7 @@ export interface GetMembershipCommandOutput extends GetMembershipOutput, __Metad
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     status: "STRING_VALUE", // required
  * //     memberAbilities: [ // MemberAbilities // required
- * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
+ * //       "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB" || "CAN_EXPORT_QUERY_ANALYSIS_LOG",
  * //     ],
  * //     mlMemberAbilities: { // MLMemberAbilities
  * //       customMLMemberAbilities: [ // CustomMLMemberAbilities // required

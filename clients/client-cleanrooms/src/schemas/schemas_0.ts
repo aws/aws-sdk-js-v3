@@ -9,6 +9,13 @@ const _ACL = "AggregateColumnList";
 const _ACg = "AggregationConstraint";
 const _ACgg = "AggregationConstraints";
 const _ADE = "AccessDeniedException";
+const _ALE = "AnalysisLogExport";
+const _ALEE = "AnalysisLogExportError";
+const _ALEOC = "AnalysisLogExportOutputConfiguration";
+const _ALERC = "AnalysisLogExportResultConfiguration";
+const _ALES = "AnalysisLogExportSummary";
+const _ALESL = "AnalysisLogExportSummaryList";
+const _ALESOC = "AnalysisLogExportS3OutputConfiguration";
 const _AP = "AnalysisParameter";
 const _APL = "AnalysisParameterList";
 const _AR = "AnalysisRule";
@@ -224,6 +231,9 @@ const _DPTPI = "DifferentialPrivacyTemplateParametersInput";
 const _DPTPO = "DifferentialPrivacyTemplateParametersOutput";
 const _DPTUP = "DifferentialPrivacyTemplateUpdateParameters";
 const _EMC = "ErrorMessageConfiguration";
+const _GALE = "GetAnalysisLogExport";
+const _GALEI = "GetAnalysisLogExportInput";
+const _GALEO = "GetAnalysisLogExportOutput";
 const _GAT = "GetAnalysisTemplate";
 const _GATI = "GetAnalysisTemplateInput";
 const _GATO = "GetAnalysisTemplateOutput";
@@ -339,6 +349,9 @@ const _ITVS = "IntermediateTableVersionSummary";
 const _ITVSL = "IntermediateTableVersionSummaryList";
 const _JCPC = "JobComputePaymentConfig";
 const _JPM = "JobParameterMap";
+const _LALE = "ListAnalysisLogExports";
+const _LALEI = "ListAnalysisLogExportsInput";
+const _LALEO = "ListAnalysisLogExportsOutput";
 const _LAT = "ListAnalysisTemplates";
 const _LATI = "ListAnalysisTemplatesInput";
 const _LATO = "ListAnalysisTemplatesOutput";
@@ -508,6 +521,9 @@ const _RC = "ReceiverConfiguration";
 const _RCL = "ReceiverConfigurationsList";
 const _RNFE = "ResourceNotFoundException";
 const _S = "Schema";
+const _SALE = "StartAnalysisLogExport";
+const _SALEI = "StartAnalysisLogExportInput";
+const _SALEO = "StartAnalysisLogExportOutput";
 const _SARL = "SchemaAnalysisRuleList";
 const _SARR = "SchemaAnalysisRuleRequest";
 const _SARRL = "SchemaAnalysisRuleRequestList";
@@ -613,11 +629,16 @@ const _aCll = "allowCleartext";
 const _aD = "allowDuplicates";
 const _aE = "analyticsEngine";
 const _aEg = "aggregationExpression";
-const _aI = "accountId";
-const _aIc = "accountIdentifier";
-const _aIn = "analysisId";
+const _aI = "analysisId";
+const _aIc = "accountId";
+const _aIcc = "accountIdentifier";
+const _aIn = "analysisIdentifier";
 const _aJO = "allowedJoinOperators";
 const _aJOCWDN = "allowJoinsOnColumnsWithDifferentNames";
+const _aLE = "analysisLogExport";
+const _aLEI = "analysisLogExportId";
+const _aLEIn = "analysisLogExportIdentifier";
+const _aLEn = "analysisLogExports";
 const _aM = "analysisMethod";
 const _aP = "analysisParameters";
 const _aPAI = "analysisPayerAccountId";
@@ -630,13 +651,13 @@ const _aRT = "analysisRuleTypes";
 const _aRTn = "analysisRuleType";
 const _aRn = "analysisRules";
 const _aRna = "analysisRule";
-const _aT = "analysisTemplate";
+const _aT = "analysisType";
 const _aTA = "analysisTemplateArns";
 const _aTAn = "analysisTemplateArn";
 const _aTI = "analysisTemplateIdentifier";
 const _aTS = "analysisTemplateSummaries";
 const _aTg = "aggregationType";
-const _aTn = "analysisType";
+const _aTn = "analysisTemplate";
 const _aUADC = "allowUseAsDimensionColumn";
 const _ab = "abilities";
 const _ac = "action";
@@ -819,8 +840,8 @@ const _na = "names";
 const _nu = "number";
 const _o = "output";
 const _oAI = "ownerAccountId";
-const _oC = "outputConstraints";
-const _oCu = "outputConfiguration";
+const _oC = "outputConfiguration";
+const _oCu = "outputConstraints";
 const _oL = "outputLocation";
 const _p = "policy";
 const _pAC = "populationAnalysisConfiguration";
@@ -857,8 +878,8 @@ const _rA = "resourceArn";
 const _rAI = "receiverAccountIds";
 const _rAo = "roleArn";
 const _rB = "remainingBudget";
-const _rC = "remainingCount";
-const _rCe = "resultConfiguration";
+const _rC = "resultConfiguration";
+const _rCe = "remainingCount";
 const _rCec = "receiverConfigurations";
 const _rF = "resultFormat";
 const _rI = "resourceId";
@@ -1046,6 +1067,36 @@ export var AggregationConstraint$: StaticStructureSchema = [3, n0, _ACg,
   [_cNo, _mi, _t],
   [0, 1, 0], 3
 ];
+export var AnalysisLogExport$: StaticStructureSchema = [3, n0, _ALE,
+  0,
+  [_aLEI, _aI, _aT, _mI, _st, _rC, _cT, _uT, _e],
+  [0, 0, 0, 0, 0, () => AnalysisLogExportResultConfiguration$, 4, 4, () => AnalysisLogExportError$], 8
+];
+export var AnalysisLogExportError$: StaticStructureSchema = [3, n0, _ALEE,
+  0,
+  [_co, _m],
+  [0, 0], 2
+];
+export var AnalysisLogExportOutputConfiguration$: StaticStructureSchema = [3, n0, _ALEOC,
+  0,
+  [_s_],
+  [() => AnalysisLogExportS3OutputConfiguration$], 1
+];
+export var AnalysisLogExportResultConfiguration$: StaticStructureSchema = [3, n0, _ALERC,
+  0,
+  [_oC],
+  [() => AnalysisLogExportOutputConfiguration$], 1
+];
+export var AnalysisLogExportS3OutputConfiguration$: StaticStructureSchema = [3, n0, _ALESOC,
+  0,
+  [_bu, _kP],
+  [0, 0], 1
+];
+export var AnalysisLogExportSummary$: StaticStructureSchema = [3, n0, _ALES,
+  0,
+  [_aLEI, _aI, _aT, _st, _cT],
+  [0, 0, 0, 0, 4], 5
+];
 export var AnalysisParameter$: StaticStructureSchema = [3, n0, _AP,
   8,
   [_n, _t, _dV],
@@ -1058,7 +1109,7 @@ export var AnalysisRule$: StaticStructureSchema = [3, n0, _AR,
 ];
 export var AnalysisRuleAggregation$: StaticStructureSchema = [3, n0, _ARA,
   0,
-  [_aC, _jC, _dC, _sF, _oC, _jR, _aJO, _aA],
+  [_aC, _jC, _dC, _sF, _oCu, _jR, _aJO, _aA],
   [() => AggregateColumnList, 64 | 0, 64 | 0, 64 | 0, () => AggregationConstraints, 0, 64 | 0, 0], 5
 ];
 export var AnalysisRuleCustom$: StaticStructureSchema = [3, n0, _ARC,
@@ -1348,7 +1399,7 @@ export var ConfiguredTableSummary$: StaticStructureSchema = [3, n0, _CTS,
 ];
 export var ConsolidatedPolicyAggregation$: StaticStructureSchema = [3, n0, _CPA,
   0,
-  [_aC, _jC, _dC, _sF, _oC, _jR, _aJO, _aA, _aRR, _aAA],
+  [_aC, _jC, _dC, _sF, _oCu, _jR, _aJO, _aA, _aRR, _aAA],
   [() => AggregateColumnList, 64 | 0, 64 | 0, 64 | 0, () => AggregationConstraints, 0, 64 | 0, 0, 64 | 0, 64 | 0], 5
 ];
 export var ConsolidatedPolicyCustom$: StaticStructureSchema = [3, n0, _CPC,
@@ -1368,7 +1419,7 @@ export var CreateAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _CATI,
 ];
 export var CreateAnalysisTemplateOutput$: StaticStructureSchema = [3, n0, _CATO,
   0,
-  [_aT],
+  [_aTn],
   [[() => AnalysisTemplate$, 0]], 1
 ];
 export var CreateCollaborationChangeRequestInput$: StaticStructureSchema = [3, n0, _CCCRI,
@@ -1618,7 +1669,7 @@ export var DeleteIntermediateTableOutput$: StaticStructureSchema = [3, n0, _DITO
 ];
 export var DeleteMemberInput$: StaticStructureSchema = [3, n0, _DMI,
   0,
-  [_cIo, _aI],
+  [_cIo, _aIc],
   [[0, 1], [0, 1]], 2
 ];
 export var DeleteMemberOutput$: StaticStructureSchema = [3, n0, _DMO,
@@ -1678,7 +1729,7 @@ export var DifferentialPrivacyPrivacyBudget$: StaticStructureSchema = [3, n0, _D
 ];
 export var DifferentialPrivacyPrivacyBudgetAggregation$: StaticStructureSchema = [3, n0, _DPPBA,
   0,
-  [_t, _mC, _rC],
+  [_t, _mC, _rCe],
   [0, 1, 1], 3
 ];
 export var DifferentialPrivacyPrivacyImpact$: StaticStructureSchema = [3, n0, _DPPI,
@@ -1726,6 +1777,16 @@ export var ErrorMessageConfiguration$: StaticStructureSchema = [3, n0, _EMC,
   [_t],
   [0], 1
 ];
+export var GetAnalysisLogExportInput$: StaticStructureSchema = [3, n0, _GALEI,
+  0,
+  [_mIe, _aLEIn],
+  [[0, 1], [0, 1]], 2
+];
+export var GetAnalysisLogExportOutput$: StaticStructureSchema = [3, n0, _GALEO,
+  0,
+  [_aLE],
+  [() => AnalysisLogExport$], 1
+];
 export var GetAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _GATI,
   0,
   [_mIe, _aTI],
@@ -1733,7 +1794,7 @@ export var GetAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _GATI,
 ];
 export var GetAnalysisTemplateOutput$: StaticStructureSchema = [3, n0, _GATO,
   0,
-  [_aT],
+  [_aTn],
   [[() => AnalysisTemplate$, 0]], 1
 ];
 export var GetCollaborationAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _GCATI,
@@ -2058,7 +2119,7 @@ export var IntermediateTable$: StaticStructureSchema = [3, n0, _IT,
 ];
 export var IntermediateTableActiveVersion$: StaticStructureSchema = [3, n0, _ITAV,
   0,
-  [_vI, _aIn, _aTn, _iC, _kKA, _pa, _eTx],
+  [_vI, _aI, _aT, _iC, _kKA, _pa, _eTx],
   [0, 0, 0, () => IntermediateTableInheritedConstraints$, 0, [() => ParameterMap, 0], 4], 4
 ];
 export var IntermediateTableAnalysisRule$: StaticStructureSchema = [3, n0, _ITAR,
@@ -2108,13 +2169,23 @@ export var IntermediateTableSummary$: StaticStructureSchema = [3, n0, _ITSn,
 ];
 export var IntermediateTableVersionSummary$: StaticStructureSchema = [3, n0, _ITVS,
   0,
-  [_vI, _tI, _cT, _aIn, _st, _aTn, _kKA, _eTx],
+  [_vI, _tI, _cT, _aI, _st, _aT, _kKA, _eTx],
   [0, 0, 4, 0, 0, 0, 0, 4], 6
 ];
 export var JobComputePaymentConfig$: StaticStructureSchema = [3, n0, _JCPC,
   0,
   [_iR],
   [2], 1
+];
+export var ListAnalysisLogExportsInput$: StaticStructureSchema = [3, n0, _LALEI,
+  0,
+  [_mIe, _aIn, _st, _nT, _mR],
+  [[0, 1], [0, { [_hQ]: _aIn }], [0, { [_hQ]: _st }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+];
+export var ListAnalysisLogExportsOutput$: StaticStructureSchema = [3, n0, _LALEO,
+  0,
+  [_aLEn, _nT],
+  [() => AnalysisLogExportSummaryList, 0], 1
 ];
 export var ListAnalysisTemplatesInput$: StaticStructureSchema = [3, n0, _LATI,
   0,
@@ -2348,7 +2419,7 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var MemberChangeSpecification$: StaticStructureSchema = [3, n0, _MCS,
   0,
-  [_aI, _mAe, _mMA, _pC, _dNi],
+  [_aIc, _mAe, _mMA, _pC, _dNi],
   [0, 64 | 0, () => MLMemberAbilities$, () => PaymentConfiguration$, 0], 2
 ];
 export var Membership$: StaticStructureSchema = [3, n0, _M,
@@ -2383,12 +2454,12 @@ export var MembershipPaymentConfiguration$: StaticStructureSchema = [3, n0, _MPC
 ];
 export var MembershipProtectedJobResultConfiguration$: StaticStructureSchema = [3, n0, _MPJRC,
   0,
-  [_oCu, _rAo],
+  [_oC, _rAo],
   [() => MembershipProtectedJobOutputConfiguration$, 0], 2
 ];
 export var MembershipProtectedQueryResultConfiguration$: StaticStructureSchema = [3, n0, _MPQRC,
   0,
-  [_oCu, _rAo],
+  [_oC, _rAo],
   [() => MembershipProtectedQueryOutputConfiguration$, 0], 1
 ];
 export var MembershipQueryComputePaymentConfig$: StaticStructureSchema = [3, n0, _MQCPC,
@@ -2408,12 +2479,12 @@ export var MembershipSyntheticDataGenerationPaymentConfig$: StaticStructureSchem
 ];
 export var MemberSpecification$: StaticStructureSchema = [3, n0, _MSe,
   0,
-  [_aI, _mAe, _dNi, _mMA, _pC],
+  [_aIc, _mAe, _dNi, _mMA, _pC],
   [0, 64 | 0, 0, () => MLMemberAbilities$, () => PaymentConfiguration$], 3
 ];
 export var MemberSummary$: StaticStructureSchema = [3, n0, _MSem,
   0,
-  [_aI, _st, _dNi, _ab, _cT, _uT, _pC, _mAl, _mI, _mA],
+  [_aIc, _st, _dNi, _ab, _cT, _uT, _pC, _mAl, _mI, _mA],
   [0, 0, 0, 64 | 0, 4, 4, () => PaymentConfiguration$, () => MLMemberAbilities$, 0, 0], 7
 ];
 export var MLMemberAbilities$: StaticStructureSchema = [3, n0, _MLMA,
@@ -2463,7 +2534,7 @@ export var PopulateIntermediateTableInput$: StaticStructureSchema = [3, n0, _PIT
 ];
 export var PopulateIntermediateTableOutput$: StaticStructureSchema = [3, n0, _PITO,
   0,
-  [_aIn, _aTn, _vI],
+  [_aI, _aT, _vI],
   [0, 0, 0], 3
 ];
 export var PopulationAnalysisSqlParameters$: StaticStructureSchema = [3, n0, _PASP,
@@ -2498,7 +2569,7 @@ export var PrivacyBudgetTemplateSummary$: StaticStructureSchema = [3, n0, _PBTS,
 ];
 export var ProtectedJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_i, _mI, _mA, _cT, _st, _jP, _rCe, _sta, _res, _e, _cCo, _jCPAI],
+  [_i, _mI, _mA, _cT, _st, _jP, _rC, _sta, _res, _e, _cCo, _jCPAI],
   [0, 0, 0, 4, 0, [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$, 0], 5
 ];
 export var ProtectedJobDirectAnalysisConfigurationDetails$: StaticStructureSchema = [3, n0, _PJDACD,
@@ -2513,12 +2584,12 @@ export var ProtectedJobError$: StaticStructureSchema = [3, n0, _PJE,
 ];
 export var ProtectedJobMemberOutputConfigurationInput$: StaticStructureSchema = [3, n0, _PJMOCI,
   0,
-  [_aI],
+  [_aIc],
   [0], 1
 ];
 export var ProtectedJobMemberOutputConfigurationOutput$: StaticStructureSchema = [3, n0, _PJMOCO,
   0,
-  [_aI],
+  [_aIc],
   [0], 1
 ];
 export var ProtectedJobParameters$: StaticStructureSchema = [3, n0, _PJP,
@@ -2528,7 +2599,7 @@ export var ProtectedJobParameters$: StaticStructureSchema = [3, n0, _PJP,
 ];
 export var ProtectedJobReceiverConfiguration$: StaticStructureSchema = [3, n0, _PJRC,
   0,
-  [_aTn, _cD],
+  [_aT, _cD],
   [0, () => ProtectedJobConfigurationDetails$], 1
 ];
 export var ProtectedJobResult$: StaticStructureSchema = [3, n0, _PJR,
@@ -2538,12 +2609,12 @@ export var ProtectedJobResult$: StaticStructureSchema = [3, n0, _PJR,
 ];
 export var ProtectedJobResultConfigurationInput$: StaticStructureSchema = [3, n0, _PJRCI,
   0,
-  [_oCu],
+  [_oC],
   [() => ProtectedJobOutputConfigurationInput$], 1
 ];
 export var ProtectedJobResultConfigurationOutput$: StaticStructureSchema = [3, n0, _PJRCO,
   0,
-  [_oCu],
+  [_oC],
   [() => ProtectedJobOutputConfigurationOutput$], 1
 ];
 export var ProtectedJobS3Output$: StaticStructureSchema = [3, n0, _PJSO,
@@ -2563,7 +2634,7 @@ export var ProtectedJobS3OutputConfigurationOutput$: StaticStructureSchema = [3,
 ];
 export var ProtectedJobSingleMemberOutput$: StaticStructureSchema = [3, n0, _PJSMO,
   0,
-  [_aI],
+  [_aIc],
   [0], 1
 ];
 export var ProtectedJobStatistics$: StaticStructureSchema = [3, n0, _PJS,
@@ -2583,7 +2654,7 @@ export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, 
 ];
 export var ProtectedQuery$: StaticStructureSchema = [3, n0, _PQ,
   0,
-  [_i, _mI, _mA, _cT, _st, _sPq, _rCe, _sta, _res, _e, _dP, _cCo, _qCPAI],
+  [_i, _mI, _mA, _cT, _st, _sPq, _rC, _sta, _res, _e, _dP, _cCo, _qCPAI],
   [0, 0, 0, 4, 0, [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ProtectedQueryStatistics$, () => ProtectedQueryResult$, () => ProtectedQueryError$, () => DifferentialPrivacyParameters$, () => ComputeConfiguration$, 0], 5
 ];
 export var ProtectedQueryDistributeOutput$: StaticStructureSchema = [3, n0, _PQDO,
@@ -2603,7 +2674,7 @@ export var ProtectedQueryError$: StaticStructureSchema = [3, n0, _PQE,
 ];
 export var ProtectedQueryMemberOutputConfiguration$: StaticStructureSchema = [3, n0, _PQMOC,
   0,
-  [_aI],
+  [_aIc],
   [0], 1
 ];
 export var ProtectedQueryResult$: StaticStructureSchema = [3, n0, _PQR,
@@ -2613,7 +2684,7 @@ export var ProtectedQueryResult$: StaticStructureSchema = [3, n0, _PQR,
 ];
 export var ProtectedQueryResultConfiguration$: StaticStructureSchema = [3, n0, _PQRC,
   0,
-  [_oCu],
+  [_oC],
   [() => ProtectedQueryOutputConfiguration$], 1
 ];
 export var ProtectedQueryS3Output$: StaticStructureSchema = [3, n0, _PQSO,
@@ -2628,7 +2699,7 @@ export var ProtectedQueryS3OutputConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var ProtectedQuerySingleMemberOutput$: StaticStructureSchema = [3, n0, _PQSMO,
   0,
-  [_aI],
+  [_aIc],
   [0], 1
 ];
 export var ProtectedQuerySQLParameters$: StaticStructureSchema = [3, n0, _PQSQLP,
@@ -2658,7 +2729,7 @@ export var QueryConstraintRequireOverlap$: StaticStructureSchema = [3, n0, _QCRO
 ];
 export var ReceiverConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
-  [_aTn, _cD],
+  [_aT, _cD],
   [0, () => ConfigurationDetails$], 1
 ];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
@@ -2678,7 +2749,7 @@ export var SchemaAnalysisRuleRequest$: StaticStructureSchema = [3, n0, _SARR,
 ];
 export var SchemaStatusDetail$: StaticStructureSchema = [3, n0, _SSD,
   0,
-  [_st, _aTn, _re, _aRTn, _con],
+  [_st, _aT, _re, _aRTn, _con],
   [0, 0, () => SchemaStatusReasonList, 0, 64 | 0], 2
 ];
 export var SchemaStatusReason$: StaticStructureSchema = [3, n0, _SSR,
@@ -2693,7 +2764,7 @@ export var SchemaSummary$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var SnowflakeTableReference$: StaticStructureSchema = [3, n0, _STR,
   0,
-  [_sA, _aIc, _dN, _tN, _sNc, _tS],
+  [_sA, _aIcc, _dN, _tN, _sNc, _tS],
   [0, 0, 0, 0, 0, () => SnowflakeTableSchema$], 6
 ];
 export var SnowflakeTableSchemaV1$: StaticStructureSchema = [3, n0, _STSV,
@@ -2701,9 +2772,19 @@ export var SnowflakeTableSchemaV1$: StaticStructureSchema = [3, n0, _STSV,
   [_cNo, _cTol],
   [0, 0], 2
 ];
+export var StartAnalysisLogExportInput$: StaticStructureSchema = [3, n0, _SALEI,
+  0,
+  [_mIe, _aI, _aT, _rC],
+  [[0, 1], 0, 0, () => AnalysisLogExportResultConfiguration$], 4
+];
+export var StartAnalysisLogExportOutput$: StaticStructureSchema = [3, n0, _SALEO,
+  0,
+  [_aLE],
+  [() => AnalysisLogExport$], 1
+];
 export var StartProtectedJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
-  [_t, _mIe, _jP, _rCe, _cCo, _jCPAI],
+  [_t, _mIe, _jP, _rC, _cCo, _jCPAI],
   [0, [0, 1], [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$, 0], 3
 ];
 export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
@@ -2713,7 +2794,7 @@ export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
 ];
 export var StartProtectedQueryInput$: StaticStructureSchema = [3, n0, _SPQI,
   0,
-  [_t, _mIe, _sPq, _rCe, _cCo, _qCPAI],
+  [_t, _mIe, _sPq, _rC, _cCo, _qCPAI],
   [0, [0, 1], [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ComputeConfiguration$, 0], 3
 ];
 export var StartProtectedQueryOutput$: StaticStructureSchema = [3, n0, _SPQO,
@@ -2758,7 +2839,7 @@ export var UpdateAnalysisTemplateInput$: StaticStructureSchema = [3, n0, _UATI,
 ];
 export var UpdateAnalysisTemplateOutput$: StaticStructureSchema = [3, n0, _UATO,
   0,
-  [_aT],
+  [_aTn],
   [[() => AnalysisTemplate$, 0]], 1
 ];
 export var UpdateCollaborationChangeRequestInput$: StaticStructureSchema = [3, n0, _UCCRI,
@@ -2942,6 +3023,9 @@ var AllowedAnalysisProviderList = 64 | 0;
 var AllowedColumnList = 64 | 0;
 var AllowedResultReceivers = 64 | 0;
 var AllowedResultRegions = 64 | 0;
+var AnalysisLogExportSummaryList: StaticListSchema = [1, n0, _ALESL,
+  0, () => AnalysisLogExportSummary$
+];
 var AnalysisParameterList: StaticListSchema = [1, n0, _APL,
   0, [() => AnalysisParameter$,
     0]
@@ -3453,6 +3537,9 @@ export var DeletePrivacyBudgetTemplate$: StaticOperationSchema = [9, n0, _DPBT,
 export var DisallowIntermediateTable$: StaticOperationSchema = [9, n0, _DITi,
   { [_h]: ["POST", "/memberships/{membershipIdentifier}/disallowIntermediateTable", 200] }, () => DisallowIntermediateTableInput$, () => DisallowIntermediateTableOutput$
 ];
+export var GetAnalysisLogExport$: StaticOperationSchema = [9, n0, _GALE,
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysislogexports/{analysisLogExportIdentifier}", 200] }, () => GetAnalysisLogExportInput$, () => GetAnalysisLogExportOutput$
+];
 export var GetAnalysisTemplate$: StaticOperationSchema = [9, n0, _GAT,
   { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates/{analysisTemplateIdentifier}", 200] }, () => GetAnalysisTemplateInput$, () => GetAnalysisTemplateOutput$
 ];
@@ -3518,6 +3605,9 @@ export var GetSchema$: StaticOperationSchema = [9, n0, _GS,
 ];
 export var GetSchemaAnalysisRule$: StaticOperationSchema = [9, n0, _GSAR,
   { [_h]: ["GET", "/collaborations/{collaborationIdentifier}/schemas/{name}/analysisRule/{type}", 200] }, () => GetSchemaAnalysisRuleInput$, () => GetSchemaAnalysisRuleOutput$
+];
+export var ListAnalysisLogExports$: StaticOperationSchema = [9, n0, _LALE,
+  { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysislogexports", 200] }, () => ListAnalysisLogExportsInput$, () => ListAnalysisLogExportsOutput$
 ];
 export var ListAnalysisTemplates$: StaticOperationSchema = [9, n0, _LAT,
   { [_h]: ["GET", "/memberships/{membershipIdentifier}/analysistemplates", 200] }, () => ListAnalysisTemplatesInput$, () => ListAnalysisTemplatesOutput$
@@ -3596,6 +3686,9 @@ export var PopulateIntermediateTable$: StaticOperationSchema = [9, n0, _PIT,
 ];
 export var PreviewPrivacyImpact$: StaticOperationSchema = [9, n0, _PPI,
   { [_h]: ["POST", "/memberships/{membershipIdentifier}/previewprivacyimpact", 200] }, () => PreviewPrivacyImpactInput$, () => PreviewPrivacyImpactOutput$
+];
+export var StartAnalysisLogExport$: StaticOperationSchema = [9, n0, _SALE,
+  { [_h]: ["POST", "/memberships/{membershipIdentifier}/analysislogexports", 200] }, () => StartAnalysisLogExportInput$, () => StartAnalysisLogExportOutput$
 ];
 export var StartProtectedJob$: StaticOperationSchema = [9, n0, _SPJ,
   { [_h]: ["POST", "/memberships/{membershipIdentifier}/protectedJobs", 200] }, () => StartProtectedJobInput$, () => StartProtectedJobOutput$

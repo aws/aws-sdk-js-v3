@@ -164,6 +164,11 @@ import {
   DisallowIntermediateTableCommand,
 } from "./commands/DisallowIntermediateTableCommand";
 import {
+  type GetAnalysisLogExportCommandInput,
+  type GetAnalysisLogExportCommandOutput,
+  GetAnalysisLogExportCommand,
+} from "./commands/GetAnalysisLogExportCommand";
+import {
   type GetAnalysisTemplateCommandInput,
   type GetAnalysisTemplateCommandOutput,
   GetAnalysisTemplateCommand,
@@ -269,6 +274,11 @@ import {
   GetSchemaAnalysisRuleCommand,
 } from "./commands/GetSchemaAnalysisRuleCommand";
 import { type GetSchemaCommandInput, type GetSchemaCommandOutput, GetSchemaCommand } from "./commands/GetSchemaCommand";
+import {
+  type ListAnalysisLogExportsCommandInput,
+  type ListAnalysisLogExportsCommandOutput,
+  ListAnalysisLogExportsCommand,
+} from "./commands/ListAnalysisLogExportsCommand";
 import {
   type ListAnalysisTemplatesCommandInput,
   type ListAnalysisTemplatesCommandOutput,
@@ -400,6 +410,11 @@ import {
   PreviewPrivacyImpactCommand,
 } from "./commands/PreviewPrivacyImpactCommand";
 import {
+  type StartAnalysisLogExportCommandInput,
+  type StartAnalysisLogExportCommandOutput,
+  StartAnalysisLogExportCommand,
+} from "./commands/StartAnalysisLogExportCommand";
+import {
   type StartProtectedJobCommandInput,
   type StartProtectedJobCommandOutput,
   StartProtectedJobCommand,
@@ -499,6 +514,7 @@ import {
   type UpdateProtectedQueryCommandOutput,
   UpdateProtectedQueryCommand,
 } from "./commands/UpdateProtectedQueryCommand";
+import { paginateListAnalysisLogExports } from "./pagination/ListAnalysisLogExportsPaginator";
 import { paginateListAnalysisTemplates } from "./pagination/ListAnalysisTemplatesPaginator";
 import { paginateListCollaborationAnalysisTemplates } from "./pagination/ListCollaborationAnalysisTemplatesPaginator";
 import { paginateListCollaborationChangeRequests } from "./pagination/ListCollaborationChangeRequestsPaginator";
@@ -563,6 +579,7 @@ const commands = {
   DeleteMembershipCommand,
   DeletePrivacyBudgetTemplateCommand,
   DisallowIntermediateTableCommand,
+  GetAnalysisLogExportCommand,
   GetAnalysisTemplateCommand,
   GetCollaborationCommand,
   GetCollaborationAnalysisTemplateCommand,
@@ -585,6 +602,7 @@ const commands = {
   GetProtectedQueryCommand,
   GetSchemaCommand,
   GetSchemaAnalysisRuleCommand,
+  ListAnalysisLogExportsCommand,
   ListAnalysisTemplatesCommand,
   ListCollaborationAnalysisTemplatesCommand,
   ListCollaborationChangeRequestsCommand,
@@ -611,6 +629,7 @@ const commands = {
   PopulateIdMappingTableCommand,
   PopulateIntermediateTableCommand,
   PreviewPrivacyImpactCommand,
+  StartAnalysisLogExportCommand,
   StartProtectedJobCommand,
   StartProtectedQueryCommand,
   TagResourceCommand,
@@ -633,6 +652,7 @@ const commands = {
   UpdateProtectedQueryCommand,
 };
 const paginators = {
+  paginateListAnalysisLogExports,
   paginateListAnalysisTemplates,
   paginateListCollaborationAnalysisTemplates,
   paginateListCollaborationChangeRequests,
@@ -1203,6 +1223,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link GetAnalysisLogExportCommand}
+   */
+  getAnalysisLogExport(
+    args: GetAnalysisLogExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalysisLogExportCommandOutput>;
+  getAnalysisLogExport(
+    args: GetAnalysisLogExportCommandInput,
+    cb: (err: any, data?: GetAnalysisLogExportCommandOutput) => void
+  ): void;
+  getAnalysisLogExport(
+    args: GetAnalysisLogExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnalysisLogExportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAnalysisTemplateCommand}
    */
   getAnalysisTemplate(
@@ -1574,6 +1611,23 @@ export interface CleanRooms {
     args: GetSchemaAnalysisRuleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSchemaAnalysisRuleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalysisLogExportsCommand}
+   */
+  listAnalysisLogExports(
+    args: ListAnalysisLogExportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysisLogExportsCommandOutput>;
+  listAnalysisLogExports(
+    args: ListAnalysisLogExportsCommandInput,
+    cb: (err: any, data?: ListAnalysisLogExportsCommandOutput) => void
+  ): void;
+  listAnalysisLogExports(
+    args: ListAnalysisLogExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysisLogExportsCommandOutput) => void
   ): void;
 
   /**
@@ -2022,6 +2076,23 @@ export interface CleanRooms {
   ): void;
 
   /**
+   * @see {@link StartAnalysisLogExportCommand}
+   */
+  startAnalysisLogExport(
+    args: StartAnalysisLogExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAnalysisLogExportCommandOutput>;
+  startAnalysisLogExport(
+    args: StartAnalysisLogExportCommandInput,
+    cb: (err: any, data?: StartAnalysisLogExportCommandOutput) => void
+  ): void;
+  startAnalysisLogExport(
+    args: StartAnalysisLogExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAnalysisLogExportCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartProtectedJobCommand}
    */
   startProtectedJob(
@@ -2360,6 +2431,17 @@ export interface CleanRooms {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateProtectedQueryCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link ListAnalysisLogExportsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAnalysisLogExportsCommandOutput}.
+   */
+  paginateListAnalysisLogExports(
+    args: ListAnalysisLogExportsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAnalysisLogExportsCommandOutput>;
 
   /**
    * @see {@link ListAnalysisTemplatesCommand}

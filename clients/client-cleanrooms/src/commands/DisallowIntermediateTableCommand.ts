@@ -23,7 +23,7 @@ export interface DisallowIntermediateTableCommandInput extends DisallowIntermedi
 export interface DisallowIntermediateTableCommandOutput extends DisallowIntermediateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Invalidates a specific intermediate table that references the caller's base table. The data provider (base table owner) calls this operation, not the intermediate table owner. By default, invalidation cascades to descendant intermediate tables.</p>
+ * <p>Marks an intermediate table as invalid when it references the caller's base table. The data provider (base table owner) calls this operation, not the intermediate table owner. By default, the operation also marks all descendant intermediate tables as invalid.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

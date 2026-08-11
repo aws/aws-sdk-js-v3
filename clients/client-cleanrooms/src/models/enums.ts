@@ -143,6 +143,32 @@ export type AnalysisFormat = (typeof AnalysisFormat)[keyof typeof AnalysisFormat
  * @public
  * @enum
  */
+export const LogExportAnalysisType = {
+  PROTECTED_QUERY: "PROTECTED_QUERY",
+} as const;
+/**
+ * @public
+ */
+export type LogExportAnalysisType = (typeof LogExportAnalysisType)[keyof typeof LogExportAnalysisType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AnalysisLogExportStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type AnalysisLogExportStatus = (typeof AnalysisLogExportStatus)[keyof typeof AnalysisLogExportStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AnalysisMethod = {
   DIRECT_JOB: "DIRECT_JOB",
   DIRECT_QUERY: "DIRECT_QUERY",
@@ -454,7 +480,9 @@ export type CommercialRegion = (typeof CommercialRegion)[keyof typeof Commercial
  */
 export const AutoApprovedChangeType = {
   ADD_MEMBER: "ADD_MEMBER",
+  GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY: "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
   GRANT_RECEIVE_RESULTS_ABILITY: "GRANT_RECEIVE_RESULTS_ABILITY",
+  REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY: "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
   REVOKE_RECEIVE_RESULTS_ABILITY: "REVOKE_RECEIVE_RESULTS_ABILITY",
 } as const;
 /**
@@ -560,6 +588,7 @@ export type SchemaType = (typeof SchemaType)[keyof typeof SchemaType];
  * @enum
  */
 export const MemberAbility = {
+  CAN_EXPORT_QUERY_ANALYSIS_LOG: "CAN_EXPORT_QUERY_ANALYSIS_LOG",
   CAN_QUERY: "CAN_QUERY",
   CAN_RECEIVE_RESULTS: "CAN_RECEIVE_RESULTS",
   CAN_RUN_JOB: "CAN_RUN_JOB",
@@ -647,10 +676,12 @@ export const ChangeType = {
   EDIT_AUTO_APPROVED_CHANGE_TYPES: "EDIT_AUTO_APPROVED_CHANGE_TYPES",
   GRANT_CAN_RECEIVE_INFERENCE_OUTPUT: "GRANT_CAN_RECEIVE_INFERENCE_OUTPUT",
   GRANT_CAN_RECEIVE_MODEL_OUTPUT: "GRANT_CAN_RECEIVE_MODEL_OUTPUT",
+  GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY: "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
   GRANT_RECEIVE_RESULTS_ABILITY: "GRANT_RECEIVE_RESULTS_ABILITY",
   REMOVE_PAYER_CANDIDATE: "REMOVE_PAYER_CANDIDATE",
   REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT: "REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT",
   REVOKE_CAN_RECEIVE_MODEL_OUTPUT: "REVOKE_CAN_RECEIVE_MODEL_OUTPUT",
+  REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY: "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
   REVOKE_RECEIVE_RESULTS_ABILITY: "REVOKE_RECEIVE_RESULTS_ABILITY",
 } as const;
 /**

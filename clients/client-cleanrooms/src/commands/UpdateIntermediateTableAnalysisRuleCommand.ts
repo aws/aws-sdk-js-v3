@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { UpdateIntermediateTableAnalysisRuleInput } from "../models/models_0";
-import type { UpdateIntermediateTableAnalysisRuleOutput } from "../models/models_1";
+import type {
+  UpdateIntermediateTableAnalysisRuleInput,
+  UpdateIntermediateTableAnalysisRuleOutput,
+} from "../models/models_1";
 import { UpdateIntermediateTableAnalysisRule$ } from "../schemas/schemas_0";
 
 /**

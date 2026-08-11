@@ -23,7 +23,7 @@ export interface DeleteIntermediateTableCommandInput extends DeleteIntermediateT
 export interface DeleteIntermediateTableCommandOutput extends DeleteIntermediateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an intermediate table. When you delete the table, the service marks it as DELETED, removes its analysis rule and schema, and triggers storage cleanup. This operation is idempotent. Only the intermediate table owner can call this operation.</p>
+ * <p>Deletes an intermediate table. The delete is idempotent. Only the intermediate table owner can call this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

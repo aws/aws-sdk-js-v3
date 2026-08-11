@@ -171,6 +171,10 @@ import type {
   DisallowIntermediateTableCommandOutput,
 } from "./commands/DisallowIntermediateTableCommand";
 import type {
+  GetAnalysisLogExportCommandInput,
+  GetAnalysisLogExportCommandOutput,
+} from "./commands/GetAnalysisLogExportCommand";
+import type {
   GetAnalysisTemplateCommandInput,
   GetAnalysisTemplateCommandOutput,
 } from "./commands/GetAnalysisTemplateCommand";
@@ -246,6 +250,10 @@ import type {
   GetSchemaAnalysisRuleCommandOutput,
 } from "./commands/GetSchemaAnalysisRuleCommand";
 import type { GetSchemaCommandInput, GetSchemaCommandOutput } from "./commands/GetSchemaCommand";
+import type {
+  ListAnalysisLogExportsCommandInput,
+  ListAnalysisLogExportsCommandOutput,
+} from "./commands/ListAnalysisLogExportsCommand";
 import type {
   ListAnalysisTemplatesCommandInput,
   ListAnalysisTemplatesCommandOutput,
@@ -341,6 +349,10 @@ import type {
   PreviewPrivacyImpactCommandInput,
   PreviewPrivacyImpactCommandOutput,
 } from "./commands/PreviewPrivacyImpactCommand";
+import type {
+  StartAnalysisLogExportCommandInput,
+  StartAnalysisLogExportCommandOutput,
+} from "./commands/StartAnalysisLogExportCommand";
 import type {
   StartProtectedJobCommandInput,
   StartProtectedJobCommandOutput,
@@ -459,6 +471,7 @@ export type ServiceInputTypes =
   | DeleteMembershipCommandInput
   | DeletePrivacyBudgetTemplateCommandInput
   | DisallowIntermediateTableCommandInput
+  | GetAnalysisLogExportCommandInput
   | GetAnalysisTemplateCommandInput
   | GetCollaborationAnalysisTemplateCommandInput
   | GetCollaborationChangeRequestCommandInput
@@ -481,6 +494,7 @@ export type ServiceInputTypes =
   | GetProtectedQueryCommandInput
   | GetSchemaAnalysisRuleCommandInput
   | GetSchemaCommandInput
+  | ListAnalysisLogExportsCommandInput
   | ListAnalysisTemplatesCommandInput
   | ListCollaborationAnalysisTemplatesCommandInput
   | ListCollaborationChangeRequestsCommandInput
@@ -507,6 +521,7 @@ export type ServiceInputTypes =
   | PopulateIdMappingTableCommandInput
   | PopulateIntermediateTableCommandInput
   | PreviewPrivacyImpactCommandInput
+  | StartAnalysisLogExportCommandInput
   | StartProtectedJobCommandInput
   | StartProtectedQueryCommandInput
   | TagResourceCommandInput
@@ -564,6 +579,7 @@ export type ServiceOutputTypes =
   | DeleteMembershipCommandOutput
   | DeletePrivacyBudgetTemplateCommandOutput
   | DisallowIntermediateTableCommandOutput
+  | GetAnalysisLogExportCommandOutput
   | GetAnalysisTemplateCommandOutput
   | GetCollaborationAnalysisTemplateCommandOutput
   | GetCollaborationChangeRequestCommandOutput
@@ -586,6 +602,7 @@ export type ServiceOutputTypes =
   | GetProtectedQueryCommandOutput
   | GetSchemaAnalysisRuleCommandOutput
   | GetSchemaCommandOutput
+  | ListAnalysisLogExportsCommandOutput
   | ListAnalysisTemplatesCommandOutput
   | ListCollaborationAnalysisTemplatesCommandOutput
   | ListCollaborationChangeRequestsCommandOutput
@@ -612,6 +629,7 @@ export type ServiceOutputTypes =
   | PopulateIdMappingTableCommandOutput
   | PopulateIntermediateTableCommandOutput
   | PreviewPrivacyImpactCommandOutput
+  | StartAnalysisLogExportCommandOutput
   | StartProtectedJobCommandOutput
   | StartProtectedQueryCommandOutput
   | TagResourceCommandOutput

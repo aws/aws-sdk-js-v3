@@ -1,11 +1,15 @@
 // smithy-typescript generated code
 import type {
+  AnalysisLogExportStatus,
   AnalysisType,
   DifferentialPrivacyAggregationType,
+  IntermediateTableAnalysisRuleType,
+  LogExportAnalysisType,
   MemberAbility,
   MembershipJobLogStatus,
   MembershipQueryLogStatus,
   MembershipStatus,
+  PopulateIntermediateTableAnalysisType,
   PrivacyBudgetTemplateAutoRefresh,
   PrivacyBudgetType,
   ProtectedJobAnalysisType,
@@ -21,13 +25,170 @@ import type {
 import type {
   AccessBudgetsPrivacyTemplateParametersInput,
   AccessBudgetsPrivacyTemplateUpdateParameters,
+  AnalysisLogExport,
+  AnalysisLogExportResultConfiguration,
+  AnalysisLogExportSummary,
+  IntermediateTable,
   IntermediateTableAnalysisRule,
+  IntermediateTableAnalysisRulePolicy,
+  IntermediateTableComputeConfiguration,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
   WorkerComputeConfiguration,
   WorkerComputeConfigurationProperties,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface PopulateIntermediateTableInput {
+  /**
+   * <p>The unique identifier of the intermediate table to populate.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The runtime parameter values that override the defaults in the stored query.</p>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>The compute configuration for the population query execution.</p>
+   * @public
+   */
+  computeConfiguration?: IntermediateTableComputeConfiguration | undefined;
+
+  /**
+   * <p>The account ID of the member that pays for the analysis compute costs.</p>
+   * @public
+   */
+  analysisPayerAccountId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PopulateIntermediateTableOutput {
+  /**
+   * <p>The identifier for the protected query execution that populated the intermediate table.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis performed to populate the intermediate table.</p>
+   * @public
+   */
+  analysisType: PopulateIntermediateTableAnalysisType | undefined;
+
+  /**
+   * <p>The unique identifier of the version created by this population operation.</p>
+   * @public
+   */
+  versionId: string | undefined;
+}
+
+/**
+ * <p>Contains the name and type of a column in an intermediate table.</p>
+ * @public
+ */
+export interface IntermediateTableColumn {
+  /**
+   * <p>The name of the column.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The data type of the column.</p>
+   * @public
+   */
+  type: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntermediateTableInput {
+  /**
+   * <p>The unique identifier of the intermediate table to update.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>A new description for the intermediate table.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer-managed KMS key to use for encrypting future population data.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
+
+  /**
+   * <p>The list of columns with updated type definitions. Only the type of existing columns can be updated.</p>
+   * @public
+   */
+  columns?: IntermediateTableColumn[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntermediateTableOutput {
+  /**
+   * <p>The updated intermediate table.</p>
+   * @public
+   */
+  intermediateTable: IntermediateTable | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateIntermediateTableAnalysisRuleInput {
+  /**
+   * <p>The unique identifier of the membership that contains the intermediate table.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the intermediate table for which to update the analysis rule.</p>
+   * @public
+   */
+  intermediateTableIdentifier: string | undefined;
+
+  /**
+   * <p>The type of analysis rule to update. Currently, only <code>CUSTOM</code> is supported.</p>
+   * @public
+   */
+  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
+
+  /**
+   * <p>The updated analysis rule policy for the intermediate table.</p>
+   * @public
+   */
+  analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
+}
 
 /**
  * @public
@@ -553,6 +714,34 @@ export interface DisallowIntermediateTableInput {
  * @public
  */
 export interface DisallowIntermediateTableOutput {}
+
+/**
+ * @public
+ */
+export interface GetAnalysisLogExportInput {
+  /**
+   * <p>A unique identifier for the membership that the analysis log export belongs to. Currently accepts the membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the analysis log export to retrieve.</p>
+   * @public
+   */
+  analysisLogExportIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetAnalysisLogExportOutput {
+  /**
+   * <p>The analysis log export processing metadata.</p>
+   * @public
+   */
+  analysisLogExport: AnalysisLogExport | undefined;
+}
 
 /**
  * @public
@@ -1592,6 +1781,58 @@ export interface GetProtectedQueryOutput {
 /**
  * @public
  */
+export interface ListAnalysisLogExportsInput {
+  /**
+   * <p>A unique identifier for the membership to list analysis log exports for. Currently accepts the membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>A filter on the unique identifier of the protected query that the analysis logs were exported for.</p>
+   * @public
+   */
+  analysisIdentifier?: string | undefined;
+
+  /**
+   * <p>A filter on the status of the analysis log export.</p>
+   * @public
+   */
+  status?: AnalysisLogExportStatus | undefined;
+
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned for an API request call. The service chooses a default number if you don't set one. The service might return a <code>nextToken</code> even if the <code>maxResults</code> value has not been met.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAnalysisLogExportsOutput {
+  /**
+   * <p>The pagination token that's used to fetch the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>A list of analysis log exports.</p>
+   * @public
+   */
+  analysisLogExports: AnalysisLogExportSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListMembershipsInput {
   /**
    * <p>The pagination token that's used to fetch the next set of results.</p>
@@ -2321,6 +2562,46 @@ export interface PreviewPrivacyImpactOutput {
    * @public
    */
   privacyImpact: PrivacyImpact | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAnalysisLogExportInput {
+  /**
+   * <p>A unique identifier for the membership to export the analysis logs for. Currently accepts a membership ID.</p>
+   * @public
+   */
+  membershipIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the protected query that you want to export the analysis logs for.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis that the logs are exported for. Currently, only <code>PROTECTED_QUERY</code> is supported.</p>
+   * @public
+   */
+  analysisType: LogExportAnalysisType | undefined;
+
+  /**
+   * <p>The details needed to write the exported analysis logs.</p> <p>You don't need to create an IAM role for log export. Clean Rooms writes the exported logs using your own identity, so Clean Rooms writes the exported logs only where your existing permissions allow.</p>
+   * @public
+   */
+  resultConfiguration: AnalysisLogExportResultConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAnalysisLogExportOutput {
+  /**
+   * <p>The analysis log export that was started. The <code>status</code> is <code>IN_PROGRESS</code>.</p>
+   * @public
+   */
+  analysisLogExport: AnalysisLogExport | undefined;
 }
 
 /**

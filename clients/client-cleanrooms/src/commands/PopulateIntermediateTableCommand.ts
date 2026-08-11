@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { PopulateIntermediateTableInput, PopulateIntermediateTableOutput } from "../models/models_0";
+import type { PopulateIntermediateTableInput, PopulateIntermediateTableOutput } from "../models/models_1";
 import { PopulateIntermediateTable$ } from "../schemas/schemas_0";
 
 /**
@@ -23,7 +23,7 @@ export interface PopulateIntermediateTableCommandInput extends PopulateIntermedi
 export interface PopulateIntermediateTableCommandOutput extends PopulateIntermediateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Executes the stored query of an intermediate table to materialize data into managed storage. With this operation, you can perform initial population and subsequent refreshes. Each call creates a new version. The returned analysis ID can be tracked using <code>GetProtectedQuery</code>. Only the intermediate table owner can call this operation.</p>
+ * <p>Runs the stored query of an intermediate table and makes the results available for querying. Each call creates a new version. Use <code>GetProtectedQuery</code> with the returned analysis ID to track progress. Only the intermediate table owner can call this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -14,6 +14,13 @@ import {
   AggregationConstraint$,
   AggregationType,
   AnalysisFormat,
+  AnalysisLogExport$,
+  AnalysisLogExportError$,
+  AnalysisLogExportOutputConfiguration$,
+  AnalysisLogExportResultConfiguration$,
+  AnalysisLogExportS3OutputConfiguration$,
+  AnalysisLogExportStatus,
+  AnalysisLogExportSummary$,
   AnalysisMethod,
   AnalysisParameter$,
   AnalysisRule$,
@@ -258,6 +265,10 @@ import {
   ErrorMessageConfiguration$,
   ErrorMessageType,
   FilterableMemberStatus,
+  GetAnalysisLogExport$,
+  GetAnalysisLogExportCommand,
+  GetAnalysisLogExportInput$,
+  GetAnalysisLogExportOutput$,
   GetAnalysisTemplate$,
   GetAnalysisTemplateCommand,
   GetAnalysisTemplateInput$,
@@ -392,6 +403,10 @@ import {
   JobType,
   JoinOperator,
   JoinRequiredOption,
+  ListAnalysisLogExports$,
+  ListAnalysisLogExportsCommand,
+  ListAnalysisLogExportsInput$,
+  ListAnalysisLogExportsOutput$,
   ListAnalysisTemplates$,
   ListAnalysisTemplatesCommand,
   ListAnalysisTemplatesInput$,
@@ -484,6 +499,7 @@ import {
   ListTagsForResourceCommand,
   ListTagsForResourceInput$,
   ListTagsForResourceOutput$,
+  LogExportAnalysisType,
   MemberAbility,
   MemberChangeSpecification$,
   Membership$,
@@ -510,6 +526,7 @@ import {
   MLSyntheticDataParameters$,
   ModelInferencePaymentConfig$,
   ModelTrainingPaymentConfig$,
+  paginateListAnalysisLogExports,
   paginateListAnalysisTemplates,
   paginateListCollaborationAnalysisTemplates,
   paginateListCollaborationChangeRequests,
@@ -631,6 +648,10 @@ import {
   SnowflakeTableReference$,
   SnowflakeTableSchema$,
   SnowflakeTableSchemaV1$,
+  StartAnalysisLogExport$,
+  StartAnalysisLogExportCommand,
+  StartAnalysisLogExportInput$,
+  StartAnalysisLogExportOutput$,
   StartProtectedJob$,
   StartProtectedJobCommand,
   StartProtectedJobInput$,
@@ -799,6 +820,8 @@ assert(typeof DeletePrivacyBudgetTemplateCommand === "function");
 assert(typeof DeletePrivacyBudgetTemplate$ === "object");
 assert(typeof DisallowIntermediateTableCommand === "function");
 assert(typeof DisallowIntermediateTable$ === "object");
+assert(typeof GetAnalysisLogExportCommand === "function");
+assert(typeof GetAnalysisLogExport$ === "object");
 assert(typeof GetAnalysisTemplateCommand === "function");
 assert(typeof GetAnalysisTemplate$ === "object");
 assert(typeof GetCollaborationCommand === "function");
@@ -843,6 +866,8 @@ assert(typeof GetSchemaCommand === "function");
 assert(typeof GetSchema$ === "object");
 assert(typeof GetSchemaAnalysisRuleCommand === "function");
 assert(typeof GetSchemaAnalysisRule$ === "object");
+assert(typeof ListAnalysisLogExportsCommand === "function");
+assert(typeof ListAnalysisLogExports$ === "object");
 assert(typeof ListAnalysisTemplatesCommand === "function");
 assert(typeof ListAnalysisTemplates$ === "object");
 assert(typeof ListCollaborationAnalysisTemplatesCommand === "function");
@@ -895,6 +920,8 @@ assert(typeof PopulateIntermediateTableCommand === "function");
 assert(typeof PopulateIntermediateTable$ === "object");
 assert(typeof PreviewPrivacyImpactCommand === "function");
 assert(typeof PreviewPrivacyImpact$ === "object");
+assert(typeof StartAnalysisLogExportCommand === "function");
+assert(typeof StartAnalysisLogExport$ === "object");
 assert(typeof StartProtectedJobCommand === "function");
 assert(typeof StartProtectedJob$ === "object");
 assert(typeof StartProtectedQueryCommand === "function");
@@ -943,6 +970,12 @@ assert(typeof AccessBudgetsPrivacyTemplateParametersOutput$ === "object");
 assert(typeof AccessBudgetsPrivacyTemplateUpdateParameters$ === "object");
 assert(typeof AggregateColumn$ === "object");
 assert(typeof AggregationConstraint$ === "object");
+assert(typeof AnalysisLogExport$ === "object");
+assert(typeof AnalysisLogExportError$ === "object");
+assert(typeof AnalysisLogExportOutputConfiguration$ === "object");
+assert(typeof AnalysisLogExportResultConfiguration$ === "object");
+assert(typeof AnalysisLogExportS3OutputConfiguration$ === "object");
+assert(typeof AnalysisLogExportSummary$ === "object");
 assert(typeof AnalysisParameter$ === "object");
 assert(typeof AnalysisRule$ === "object");
 assert(typeof AnalysisRuleAggregation$ === "object");
@@ -1092,6 +1125,8 @@ assert(typeof DirectAnalysisConfigurationDetails$ === "object");
 assert(typeof DisallowIntermediateTableInput$ === "object");
 assert(typeof DisallowIntermediateTableOutput$ === "object");
 assert(typeof ErrorMessageConfiguration$ === "object");
+assert(typeof GetAnalysisLogExportInput$ === "object");
+assert(typeof GetAnalysisLogExportOutput$ === "object");
 assert(typeof GetAnalysisTemplateInput$ === "object");
 assert(typeof GetAnalysisTemplateOutput$ === "object");
 assert(typeof GetCollaborationAnalysisTemplateInput$ === "object");
@@ -1173,6 +1208,8 @@ assert(typeof IntermediateTableSchemaTypeProperties$ === "object");
 assert(typeof IntermediateTableSummary$ === "object");
 assert(typeof IntermediateTableVersionSummary$ === "object");
 assert(typeof JobComputePaymentConfig$ === "object");
+assert(typeof ListAnalysisLogExportsInput$ === "object");
+assert(typeof ListAnalysisLogExportsOutput$ === "object");
 assert(typeof ListAnalysisTemplatesInput$ === "object");
 assert(typeof ListAnalysisTemplatesOutput$ === "object");
 assert(typeof ListCollaborationAnalysisTemplatesInput$ === "object");
@@ -1310,6 +1347,8 @@ assert(typeof SchemaTypeProperties$ === "object");
 assert(typeof SnowflakeTableReference$ === "object");
 assert(typeof SnowflakeTableSchema$ === "object");
 assert(typeof SnowflakeTableSchemaV1$ === "object");
+assert(typeof StartAnalysisLogExportInput$ === "object");
+assert(typeof StartAnalysisLogExportOutput$ === "object");
 assert(typeof StartProtectedJobInput$ === "object");
 assert(typeof StartProtectedJobOutput$ === "object");
 assert(typeof StartProtectedQueryInput$ === "object");
@@ -1365,6 +1404,7 @@ assert(typeof AdditionalAnalyses === "object");
 assert(typeof AggregateFunctionName === "object");
 assert(typeof AggregationType === "object");
 assert(typeof AnalysisFormat === "object");
+assert(typeof AnalysisLogExportStatus === "object");
 assert(typeof AnalysisMethod === "object");
 assert(typeof AnalysisRuleType === "object");
 assert(typeof AnalysisTemplateValidationStatus === "object");
@@ -1398,6 +1438,7 @@ assert(typeof IntermediateTableVersionStatus === "object");
 assert(typeof JobType === "object");
 assert(typeof JoinOperator === "object");
 assert(typeof JoinRequiredOption === "object");
+assert(typeof LogExportAnalysisType === "object");
 assert(typeof MemberAbility === "object");
 assert(typeof MembershipJobLogStatus === "object");
 assert(typeof MembershipQueryLogStatus === "object");
@@ -1445,6 +1486,7 @@ assert(ValidationException.prototype instanceof CleanRoomsServiceException);
 assert(typeof ValidationException$ === "object");
 assert(CleanRoomsServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateListAnalysisLogExports === "function");
 assert(typeof paginateListAnalysisTemplates === "function");
 assert(typeof paginateListCollaborationAnalysisTemplates === "function");
 assert(typeof paginateListCollaborationChangeRequests === "function");

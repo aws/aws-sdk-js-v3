@@ -7,6 +7,7 @@ import type {
   AggregateFunctionName,
   AggregationType,
   AnalysisFormat,
+  AnalysisLogExportStatus,
   AnalysisMethod,
   AnalysisRuleType,
   AnalysisTemplateValidationStatus,
@@ -39,6 +40,7 @@ import type {
   JobType,
   JoinOperator,
   JoinRequiredOption,
+  LogExportAnalysisType,
   MemberAbility,
   MemberStatus,
   ParameterType,
@@ -235,6 +237,162 @@ export interface AggregationConstraint {
    * @public
    */
   type: AggregationType | undefined;
+}
+
+/**
+ * <p>The analysis log export error.</p>
+ * @public
+ */
+export interface AnalysisLogExportError {
+  /**
+   * <p>The error code for the analysis log export.</p>
+   * @public
+   */
+  code: string | undefined;
+
+  /**
+   * <p>The message for the analysis log export error.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>Contains output information for an analysis log export with an S3 output type.</p> <p>The exported logs are written under the bucket and key prefix that you specify. The path includes the collaboration ID, the protected query ID, and the analysis log export ID. Because the path includes the export ID, exporting the same query more than once doesn't overwrite the logs from an earlier export.</p> <note> <p>The exported logs are encrypted using the default encryption configuration of the destination bucket. Clean Rooms doesn't accept a KMS key for log export. To encrypt the exported logs with a customer managed key, configure the bucket's default encryption to use that key before you export.</p> </note>
+ * @public
+ */
+export interface AnalysisLogExportS3OutputConfiguration {
+  /**
+   * <p>The S3 bucket that the exported analysis logs are written to. The bucket must be in the same Amazon Web Services Region as the collaboration.</p>
+   * @public
+   */
+  bucket: string | undefined;
+
+  /**
+   * <p>The S3 key prefix under which the exported analysis logs are written.</p> <p>Only one export can be in progress at a time for a given query and destination. To export the same query twice at once, use a different key prefix for the second export.</p>
+   * @public
+   */
+  keyPrefix?: string | undefined;
+}
+
+/**
+ * <p>Contains configuration details for analysis log export output.</p>
+ * @public
+ */
+export interface AnalysisLogExportOutputConfiguration {
+  /**
+   * <p>Required configuration for an analysis log export with an <code>s3</code> output type.</p>
+   * @public
+   */
+  s3: AnalysisLogExportS3OutputConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for analysis log export results.</p>
+ * @public
+ */
+export interface AnalysisLogExportResultConfiguration {
+  /**
+   * <p>The configuration for analysis log export results.</p>
+   * @public
+   */
+  outputConfiguration: AnalysisLogExportOutputConfiguration | undefined;
+}
+
+/**
+ * <p>An export of the redacted Apache Spark logs for a protected query.</p>
+ * @public
+ */
+export interface AnalysisLogExport {
+  /**
+   * <p>The unique identifier of the analysis log export.</p>
+   * @public
+   */
+  analysisLogExportId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the protected query that the analysis logs were exported for.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis that the logs were exported for. Currently, only <code>PROTECTED_QUERY</code> is supported.</p>
+   * @public
+   */
+  analysisType: LogExportAnalysisType | undefined;
+
+  /**
+   * <p>The unique identifier of the membership that the analysis log export belongs to.</p>
+   * @public
+   */
+  membershipId: string | undefined;
+
+  /**
+   * <p>The status of the analysis log export. Possible values are:</p> <ul> <li> <p> <code>IN_PROGRESS</code> – The export is currently running.</p> </li> <li> <p> <code>SUCCESS</code> – The export completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The export failed. See the <code>error</code> field for details.</p> </li> </ul>
+   * @public
+   */
+  status: AnalysisLogExportStatus | undefined;
+
+  /**
+   * <p>Contains the details needed to write the exported analysis logs.</p>
+   * @public
+   */
+  resultConfiguration: AnalysisLogExportResultConfiguration | undefined;
+
+  /**
+   * <p>The time the analysis log export was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
+
+  /**
+   * <p>The time the analysis log export was last updated.</p>
+   * @public
+   */
+  updateTime: Date | undefined;
+
+  /**
+   * <p>The analysis log export error. This is present only when the export <code>status</code> is <code>FAILED</code>.</p>
+   * @public
+   */
+  error?: AnalysisLogExportError | undefined;
+}
+
+/**
+ * <p>A summary of an analysis log export, including its identifier, status, analysis type, and creation time. Returned by <code>ListAnalysisLogExports</code>.</p>
+ * @public
+ */
+export interface AnalysisLogExportSummary {
+  /**
+   * <p>The unique identifier of the analysis log export.</p>
+   * @public
+   */
+  analysisLogExportId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the protected query that the analysis logs were exported for.</p>
+   * @public
+   */
+  analysisId: string | undefined;
+
+  /**
+   * <p>The type of analysis that the logs were exported for. Currently, only <code>PROTECTED_QUERY</code> is supported.</p>
+   * @public
+   */
+  analysisType: LogExportAnalysisType | undefined;
+
+  /**
+   * <p>The status of the analysis log export. Possible values are:</p> <ul> <li> <p> <code>IN_PROGRESS</code> – The export is currently running.</p> </li> <li> <p> <code>SUCCESS</code> – The export completed successfully.</p> </li> <li> <p> <code>FAILED</code> – The export failed.</p> </li> </ul>
+   * @public
+   */
+  status: AnalysisLogExportStatus | undefined;
+
+  /**
+   * <p>The time the analysis log export was created.</p>
+   * @public
+   */
+  createTime: Date | undefined;
 }
 
 /**
@@ -2930,7 +3088,7 @@ export interface MemberChangeSpecification {
   accountId: string | undefined;
 
   /**
-   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_RECEIVE_RESULTS]</code> to allow a member to contribute data and receive results.</p> </note>
+   * <p>The abilities granted to the collaboration member. These determine what actions the member can perform within the collaboration.</p> <note> <p>The following values are currently not supported: <code>CAN_QUERY</code> and <code>CAN_RUN_JOB</code>. </p> <p>Set the value of <code>memberAbilities</code> to <code>[]</code> to allow a member to contribute data.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_RECEIVE_RESULTS]</code> to allow a member to contribute data and receive results.</p> <p>Set the value of <code>memberAbilities</code> to <code>[CAN_EXPORT_QUERY_ANALYSIS_LOG]</code> so that the member can export the analysis logs for a protected query. Having this ability isn't sufficient on its own: You can export logs only for queries that you ran or paid for.</p> </note>
    * @public
    */
   memberAbilities: MemberAbility[] | undefined;
@@ -7293,7 +7451,7 @@ export interface UpdateIdNamespaceAssociationOutput {
  */
 export interface PopulationAnalysisSqlParameters {
   /**
-   * <p>The SQL query string used to populate the intermediate table. Maximum length of 500,000 characters.</p>
+   * <p>The SQL query string used to populate the intermediate table.</p>
    * @public
    */
   queryString?: string | undefined;
@@ -7367,7 +7525,7 @@ export interface CreateIntermediateTableInput {
   description?: string | undefined;
 
   /**
-   * <p>The configuration that defines the analysis used to populate the intermediate table. This configuration contains the SQL query or analysis template reference.</p>
+   * <p>The configuration that defines the analysis used to populate the intermediate table.</p>
    * @public
    */
   populationAnalysisConfiguration: PopulationAnalysisConfiguration | undefined;
@@ -7379,7 +7537,7 @@ export interface CreateIntermediateTableInput {
   kmsKeyArn?: string | undefined;
 
   /**
-   * <p>The number of days to retain populated data versions. Minimum value of 1, maximum value of 365.</p>
+   * <p>The number of days to retain populated data versions.</p>
    * @public
    */
   retentionInDays?: number | undefined;
@@ -7727,7 +7885,7 @@ export interface IntermediateTableDependency {
   type: BaseTableDependencyType | undefined;
 
   /**
-   * <p>Whether the dependency is direct or indirect. A direct dependency is a table explicitly referenced in the stored query, while an indirect dependency is referenced through another intermediate table.</p>
+   * <p>The type of dependency, either direct or indirect. A direct dependency is a table explicitly referenced in the stored query. An indirect dependency is a table referenced through another intermediate table.</p>
    * @public
    */
   parentType: BaseTableParentType | undefined;
@@ -8484,7 +8642,7 @@ export interface WorkerComputeConfiguration {
 }
 
 /**
- * <p>The compute configuration for an intermediate table population operation.</p>
+ * <p>Contains the compute configuration for an intermediate table population operation.</p>
  * @public
  */
 export type IntermediateTableComputeConfiguration =
@@ -8520,155 +8678,4 @@ export namespace IntermediateTableComputeConfiguration {
     queryComputeConfiguration: (value: WorkerComputeConfiguration) => T;
     _: (name: string, value: any) => T;
   }
-}
-
-/**
- * @public
- */
-export interface PopulateIntermediateTableInput {
-  /**
-   * <p>The unique identifier of the intermediate table to populate.</p>
-   * @public
-   */
-  intermediateTableIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>The runtime parameter values that override the defaults in the stored query.</p>
-   * @public
-   */
-  parameters?: Record<string, string> | undefined;
-
-  /**
-   * <p>The compute configuration for the population query execution.</p>
-   * @public
-   */
-  computeConfiguration?: IntermediateTableComputeConfiguration | undefined;
-
-  /**
-   * <p>The account ID of the member that pays for the analysis compute costs.</p>
-   * @public
-   */
-  analysisPayerAccountId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface PopulateIntermediateTableOutput {
-  /**
-   * <p>The identifier for the protected query execution. Use this value with <code>GetProtectedQuery</code> to track the population progress.</p>
-   * @public
-   */
-  analysisId: string | undefined;
-
-  /**
-   * <p>The type of analysis performed to populate the intermediate table.</p>
-   * @public
-   */
-  analysisType: PopulateIntermediateTableAnalysisType | undefined;
-
-  /**
-   * <p>The unique identifier of the version created by this population operation.</p>
-   * @public
-   */
-  versionId: string | undefined;
-}
-
-/**
- * <p>Contains the name and type of a column in an intermediate table.</p>
- * @public
- */
-export interface IntermediateTableColumn {
-  /**
-   * <p>The name of the column.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The data type of the column.</p>
-   * @public
-   */
-  type: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntermediateTableInput {
-  /**
-   * <p>The unique identifier of the intermediate table to update.</p>
-   * @public
-   */
-  intermediateTableIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>A new description for the intermediate table.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customer-managed KMS key to use for encrypting future population data.</p>
-   * @public
-   */
-  kmsKeyArn?: string | undefined;
-
-  /**
-   * <p>The list of columns with updated type definitions. Only the type of existing columns can be updated.</p>
-   * @public
-   */
-  columns?: IntermediateTableColumn[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntermediateTableOutput {
-  /**
-   * <p>The updated intermediate table.</p>
-   * @public
-   */
-  intermediateTable: IntermediateTable | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateIntermediateTableAnalysisRuleInput {
-  /**
-   * <p>The unique identifier of the membership that contains the intermediate table.</p>
-   * @public
-   */
-  membershipIdentifier: string | undefined;
-
-  /**
-   * <p>The unique identifier of the intermediate table for which to update the analysis rule.</p>
-   * @public
-   */
-  intermediateTableIdentifier: string | undefined;
-
-  /**
-   * <p>The type of analysis rule to update. Currently, only <code>CUSTOM</code> is supported.</p>
-   * @public
-   */
-  analysisRuleType: IntermediateTableAnalysisRuleType | undefined;
-
-  /**
-   * <p>The updated analysis rule policy for the intermediate table.</p>
-   * @public
-   */
-  analysisRulePolicy: IntermediateTableAnalysisRulePolicy | undefined;
 }

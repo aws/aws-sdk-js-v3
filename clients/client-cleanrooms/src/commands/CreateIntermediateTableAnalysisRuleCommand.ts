@@ -26,7 +26,7 @@ export interface CreateIntermediateTableAnalysisRuleCommandInput extends CreateI
 export interface CreateIntermediateTableAnalysisRuleCommandOutput extends CreateIntermediateTableAnalysisRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an analysis rule for an intermediate table. Only the CUSTOM analysis rule type is supported. The service automatically determines whether the rule is first-party or multi-party restricted based on the intermediate table's inherited constraints. Only the intermediate table owner can call this operation.</p>
+ * <p>Creates an analysis rule for an intermediate table. Only the CUSTOM analysis rule type is supported. Only the intermediate table owner can call this operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

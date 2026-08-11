@@ -54,7 +54,7 @@ export interface UpdateCollaborationChangeRequestCommandOutput extends UpdateCol
  * //           member: { // MemberChangeSpecification
  * //             accountId: "STRING_VALUE", // required
  * //             memberAbilities: [ // MemberAbilities // required
- * //               "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
+ * //               "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB" || "CAN_EXPORT_QUERY_ANALYSIS_LOG",
  * //             ],
  * //             mlMemberAbilities: { // MLMemberAbilities
  * //               customMLMemberAbilities: [ // CustomMLMemberAbilities // required
@@ -84,12 +84,12 @@ export interface UpdateCollaborationChangeRequestCommandOutput extends UpdateCol
  * //           },
  * //           collaboration: { // CollaborationChangeSpecification
  * //             autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
- * //               "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //               "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY" || "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
  * //             ],
  * //           },
  * //         },
  * //         types: [ // ChangeTypeList // required
- * //           "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES" || "ADD_PAYER_CANDIDATE" || "REMOVE_PAYER_CANDIDATE" || "GRANT_CAN_RECEIVE_MODEL_OUTPUT" || "GRANT_CAN_RECEIVE_INFERENCE_OUTPUT" || "REVOKE_CAN_RECEIVE_MODEL_OUTPUT" || "REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT",
+ * //           "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "EDIT_AUTO_APPROVED_CHANGE_TYPES" || "ADD_PAYER_CANDIDATE" || "REMOVE_PAYER_CANDIDATE" || "GRANT_CAN_RECEIVE_MODEL_OUTPUT" || "GRANT_CAN_RECEIVE_INFERENCE_OUTPUT" || "REVOKE_CAN_RECEIVE_MODEL_OUTPUT" || "REVOKE_CAN_RECEIVE_INFERENCE_OUTPUT" || "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY" || "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
  * //         ],
  * //       },
  * //     ],

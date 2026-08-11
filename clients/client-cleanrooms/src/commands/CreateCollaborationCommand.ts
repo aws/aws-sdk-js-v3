@@ -37,7 +37,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     { // MemberSpecification
  *       accountId: "STRING_VALUE", // required
  *       memberAbilities: [ // MemberAbilities // required
- *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
+ *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB" || "CAN_EXPORT_QUERY_ANALYSIS_LOG",
  *       ],
  *       mlMemberAbilities: { // MLMemberAbilities
  *         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
@@ -69,7 +69,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   creatorMemberAbilities: [ // required
- *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
+ *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB" || "CAN_EXPORT_QUERY_ANALYSIS_LOG",
  *   ],
  *   creatorMLMemberAbilities: {
  *     customMLMemberAbilities: [ // required
@@ -109,7 +109,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   },
  *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  *   autoApprovedChangeRequestTypes: [ // AutoApprovedChangeTypeList
- *     "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ *     "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY" || "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
  *   ],
  *   allowedResultRegions: [ // AllowedResultRegions
  *     "us-west-1" || "us-west-2" || "us-east-1" || "us-east-2" || "af-south-1" || "ap-east-1" || "ap-east-2" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-southeast-5" || "ap-southeast-4" || "ap-southeast-7" || "ap-south-1" || "ap-northeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ca-central-1" || "ca-west-1" || "eu-south-1" || "eu-west-3" || "eu-south-2" || "eu-central-2" || "eu-central-1" || "eu-north-1" || "eu-west-1" || "eu-west-2" || "me-south-1" || "me-central-1" || "il-central-1" || "sa-east-1" || "mx-central-1",
@@ -141,7 +141,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * //     jobLogStatus: "ENABLED" || "DISABLED",
  * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //     autoApprovedChangeTypes: [ // AutoApprovedChangeTypeList
- * //       "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY",
+ * //       "ADD_MEMBER" || "GRANT_RECEIVE_RESULTS_ABILITY" || "REVOKE_RECEIVE_RESULTS_ABILITY" || "GRANT_EXPORT_QUERY_ANALYSIS_LOG_ABILITY" || "REVOKE_EXPORT_QUERY_ANALYSIS_LOG_ABILITY",
  * //     ],
  * //     allowedResultRegions: [ // AllowedResultRegions
  * //       "us-west-1" || "us-west-2" || "us-east-1" || "us-east-2" || "af-south-1" || "ap-east-1" || "ap-east-2" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-southeast-5" || "ap-southeast-4" || "ap-southeast-7" || "ap-south-1" || "ap-northeast-3" || "ap-northeast-1" || "ap-northeast-2" || "ca-central-1" || "ca-west-1" || "eu-south-1" || "eu-west-3" || "eu-south-2" || "eu-central-2" || "eu-central-1" || "eu-north-1" || "eu-west-1" || "eu-west-2" || "me-south-1" || "me-central-1" || "il-central-1" || "sa-east-1" || "mx-central-1",

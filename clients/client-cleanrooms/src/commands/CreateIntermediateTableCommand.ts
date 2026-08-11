@@ -23,7 +23,7 @@ export interface CreateIntermediateTableCommandInput extends CreateIntermediateT
 export interface CreateIntermediateTableCommandOutput extends CreateIntermediateTableOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an intermediate table in a membership. An intermediate table stores a query definition that you can execute later using <code>PopulateIntermediateTable</code> to materialize cached results. The intermediate table is owned by the member with the CAN_QUERY ability. This operation does not execute the stored query.</p>
+ * <p>Creates an intermediate table in a membership. The intermediate table is owned by the member with the CAN_QUERY ability. To populate the table with results, use <code>PopulateIntermediateTable</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
