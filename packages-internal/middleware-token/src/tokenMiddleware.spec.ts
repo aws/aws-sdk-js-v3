@@ -52,7 +52,7 @@ describe(tokenMiddleware.name, () => {
       mockOptions.token.mockRejectedValueOnce(mockError);
       try {
         await tokenMiddleware(mockOptions)(mockNext, mockContext)(mockArgs as any);
-        fail(`Expected ${mockError}`);
+        expect.fail(`Expected ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }

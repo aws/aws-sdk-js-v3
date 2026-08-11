@@ -57,7 +57,7 @@ describe(resolveProcessCredentials.name, () => {
 
     try {
       await resolveProcessCredentials(mockOptions, mockProfileName);
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

@@ -75,7 +75,7 @@ describe(remoteProvider.name, () => {
       await (
         await remoteProvider(mockInit)
       )();
-      fail(`expectedError ${expectedError}`);
+      expect.fail(`expectedError ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

@@ -176,7 +176,7 @@ describe(validateChecksumFromResponse.name, () => {
 
     try {
       await validateChecksumFromResponse(responseWithChecksum, mockOptions);
-      fail("should throw checksum mismatch error");
+      expect.fail("should throw checksum mismatch error");
     } catch (error) {
       expect(error.message).toMatch(
         `Checksum mismatch: expected "${mockChecksum}" but received "${incorrectChecksum}"` +

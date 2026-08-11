@@ -582,7 +582,7 @@ describe(Upload.name, () => {
         partSize: 6,
         client: new S3({}),
       });
-      fail();
+      expect.fail();
     } catch (error) {
       expect(error).toBeDefined();
     }
@@ -595,7 +595,7 @@ describe(Upload.name, () => {
         queueSize: -1,
         client: new S3({}),
       });
-      fail();
+      expect.fail();
     } catch (error) {
       expect(error).toBeDefined();
     }

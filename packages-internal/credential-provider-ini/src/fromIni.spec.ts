@@ -29,7 +29,7 @@ describe(fromIni.name, () => {
     vi.mocked(parseKnownFiles).mockRejectedValue(expectedError);
     try {
       await fromIni(mockInit)();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
@@ -43,7 +43,7 @@ describe(fromIni.name, () => {
     vi.mocked(resolveProfileData).mockRejectedValue(expectedError);
     try {
       await fromIni(mockInit)();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

@@ -71,7 +71,7 @@ describe(fromEnv.name, () => {
     const expectedError = new CredentialsProviderError("Unable to find environment variable credentials.");
     try {
       await fromEnv()();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

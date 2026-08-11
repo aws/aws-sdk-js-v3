@@ -264,7 +264,7 @@ describe.skip("bucketHostname", () => {
               clientRegion: region,
               clientSigningRegion: signingRegion,
             });
-            fail("function should have thrown");
+            expect.fail("function should have thrown");
           } catch (e) {
             expect(e).toBeDefined();
           }
@@ -1105,7 +1105,7 @@ describe.skip("bucketHostname", () => {
               fipsEndpoint: clientRegion.startsWith("fips-"),
             });
             // should never get here
-            fail();
+            expect.fail();
           } catch (e) {
             // should throw since these are error cases
             expect(1).toEqual(1);

@@ -18,7 +18,7 @@ test-unit: bundles core-prebuild
 	yarn g:vitest run -c vitest.config.mts
 	yarn g:vitest run -c vitest.config.browser.mts
 	yarn g:vitest run -c vitest.config.clients.unit.mts
-	npx jest -c jest.config.js
+	yarn g:vitest run -c packages/signature-v4-crt/vitest.config.mts
 
 # run public API tests (no network requests).
 test-integration: bundles core-prebuild

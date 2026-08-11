@@ -75,7 +75,7 @@ describe(EventStreamPayloadHandler.name, () => {
         request: mockRequest,
         input: {},
       });
-      fail(`Expected ${mockError} to be thrown.`);
+      expect.fail(`Expected ${mockError} to be thrown.`);
     } catch (error) {
       expect(error).toBe(mockError);
     }

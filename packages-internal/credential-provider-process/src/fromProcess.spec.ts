@@ -28,7 +28,7 @@ describe(fromProcess.name, () => {
     vi.mocked(parseKnownFiles).mockRejectedValue(expectedError);
     try {
       await fromProcess(mockInit)();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
@@ -42,7 +42,7 @@ describe(fromProcess.name, () => {
     vi.mocked(resolveProcessCredentials).mockRejectedValue(expectedError);
     try {
       await fromProcess(mockInit)();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

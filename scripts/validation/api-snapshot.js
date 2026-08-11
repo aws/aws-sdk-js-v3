@@ -9,7 +9,7 @@
 
 const fs = require("node:fs");
 const path = require("node:path");
-const ts = require("typescript");
+const ts = require("typescript-6");
 
 const updateLibDynamodb = process.argv.includes("--update-lib-dynamodb");
 

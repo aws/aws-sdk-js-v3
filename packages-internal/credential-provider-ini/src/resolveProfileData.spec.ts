@@ -74,7 +74,7 @@ describe(resolveProfileData.name, () => {
     );
     try {
       await resolveProfileData(mockProfileName, mockProfiles, mockOptions);
-      fail(`expected ${mockError}`);
+      expect.fail(`expected ${mockError}`);
     } catch (error) {
       expect(error).toStrictEqual(mockError);
     }

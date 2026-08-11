@@ -359,7 +359,7 @@ describe("fromTemporaryCredentials", () => {
       await fromTemporaryCredentialsNode({
         params: { RoleArn, SerialNumber, RoleSessionName },
       })();
-      fail("this test must fail");
+      expect.fail("this test must fail");
     } catch (e) {
       expect(e.message).toEqual(expect.stringContaining("Temporary credential requires multi-factor authentication"));
       expect(e.tryNextLink).toBe(false);

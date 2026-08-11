@@ -36,7 +36,7 @@ describe(resolveProcessCredentials.name, () => {
     );
     try {
       await resolveProcessCredentials(mockProfileName, {});
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
@@ -50,7 +50,7 @@ describe(resolveProcessCredentials.name, () => {
     );
     try {
       await resolveProcessCredentials(mockProfileName, { [mockProfileName]: {} });
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
@@ -65,7 +65,7 @@ describe(resolveProcessCredentials.name, () => {
 
     try {
       await resolveProcessCredentials(mockProfileName, getMockProfiles());
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
@@ -81,7 +81,7 @@ describe(resolveProcessCredentials.name, () => {
 
     try {
       await resolveProcessCredentials(mockProfileName, getMockProfiles());
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
@@ -95,7 +95,7 @@ describe(resolveProcessCredentials.name, () => {
 
     try {
       await resolveProcessCredentials(mockProfileName, getMockProfiles());
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toEqual(expectedError);
     }
