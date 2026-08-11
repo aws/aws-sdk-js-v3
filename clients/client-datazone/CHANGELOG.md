@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
+
+
+### Features
+
+* **client-datazone:** GetSubscriptionGrant now returns materialized asset scope name for mapping Lake Formation data cell filters or Redshift views to subscription grants. ([95ff8a9](https://github.com/aws/aws-sdk-js-v3/commit/95ff8a96ce8c5d619a760b153b22b40c58c69cd9))
+
+
+
+
+
 # [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

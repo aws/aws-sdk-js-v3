@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-appsync",
-  "version": "3.1107.0",
+  "version": "3.1108.0",
   "description": "AWS SDK for JavaScript Appsync Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-appsync",
   "license": "Apache-2.0",
@@ -46,9 +46,9 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.6",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.78",
-    "@aws-sdk/types": "workspace:^3.974.2",
+    "@aws-sdk/core": "workspace:^3.977.7",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.79",
+    "@aws-sdk/types": "workspace:^3.974.3",
     "@smithy/core": "^3.31.1",
     "@smithy/fetch-http-handler": "^5.6.13",
     "@smithy/node-http-handler": "^4.9.13",

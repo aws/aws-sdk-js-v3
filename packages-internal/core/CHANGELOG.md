@@ -73,6 +73,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.977.7 (2026-08-11)
+### Chores
+* upgrade to typescript 6 ([#8257](https://github.com/aws/aws-sdk-js-v3/issues/8257)) ([edabd4a](https://github.com/aws/aws-sdk-js-v3/commit/edabd4a5228e259e9f3352cd47414069db755188))
+
+
+
 # 3.977.6 (2026-08-04)
 ### Bug Fixes
 * **core/protocols:** fix number precision check ([#8252](https://github.com/aws/aws-sdk-js-v3/issues/8252)) ([3ab3c0e](https://github.com/aws/aws-sdk-js-v3/commit/3ab3c0e2eab6fd19ab26d011061095d2a090040f))

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-api-key",
-  "version": "3.972.26",
+  "version": "3.972.27",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/middleware-api-key",
   "license": "Apache-2.0",
   "author": {
@@ -38,7 +38,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.2",
+    "@aws-sdk/types": "workspace:^3.974.3",
     "@smithy/core": "^3.31.1",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

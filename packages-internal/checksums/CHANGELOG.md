@@ -27,6 +27,13 @@
 
 
 
+
+# 3.1000.27 (2026-08-11)
+### Chores
+* upgrade to typescript 6 ([#8257](https://github.com/aws/aws-sdk-js-v3/issues/8257)) ([edabd4a](https://github.com/aws/aws-sdk-js-v3/commit/edabd4a5228e259e9f3352cd47414069db755188))
+
+
+
 # 3.1000.26 (2026-08-04)
 ### Chores
 * **checksums:** update dependencies.

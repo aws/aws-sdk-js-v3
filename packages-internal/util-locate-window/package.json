@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-locate-window",
-  "version": "3.965.8",
+  "version": "3.965.9",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-locate-window",
   "license": "Apache-2.0",
   "author": {

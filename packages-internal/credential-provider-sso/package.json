@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-sso",
-  "version": "3.973.11",
+  "version": "3.973.12",
   "description": "AWS credential provider that exchanges a resolved SSO login token file for temporary AWS credentials",
   "keywords": [
     "aws",
@@ -45,10 +45,10 @@
     "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.mts"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.6",
-    "@aws-sdk/nested-clients": "workspace:^3.997.41",
-    "@aws-sdk/token-providers": "workspace:3.1107.0",
-    "@aws-sdk/types": "workspace:^3.974.2",
+    "@aws-sdk/core": "workspace:^3.977.7",
+    "@aws-sdk/nested-clients": "workspace:^3.997.42",
+    "@aws-sdk/token-providers": "workspace:3.1108.0",
+    "@aws-sdk/types": "workspace:^3.974.3",
     "@smithy/core": "^3.31.1",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

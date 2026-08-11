@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
+
+
+### Bug Fixes
+
+* **lib-transfer-manager:** optimize worker HTTP connections and file I/O ([#8256](https://github.com/aws/aws-sdk-js-v3/issues/8256)) ([3ea6bc4](https://github.com/aws/aws-sdk-js-v3/commit/3ea6bc4b05b3acd358b4755bea1f3c42d99f8de5))
+
+
+### Features
+
+* **client-account-access:** Adds SDK support for AWS IAM account access manager, a feature that enables mapping of IAM roles to the users and groups in AWS IAM Identity Center. ([536036b](https://github.com/aws/aws-sdk-js-v3/commit/536036b252511b2d4c34fc903714b5341b115b1f))
+* **client-bedrock-agentcore:** Adding online eval arn as input for recommendation API ([a0d8503](https://github.com/aws/aws-sdk-js-v3/commit/a0d8503e677822f36adf6357f670cea7b87cf64e))
+* **client-cleanrooms:** Adds support for exporting redacted query execution logs in AWS Clean Rooms ([dc4ece1](https://github.com/aws/aws-sdk-js-v3/commit/dc4ece15ba91749e29fb9961a7cdfca343630996))
+* **client-connect:** Seven new APIs for managing custom metrics, including create, describe, update, and delete. Using Custom Metrics, customers of Amazon Connect Customer can tailor analytics dashboards to their needs by applying custom thresholds, filters, and calculations to one or more out of the box measurements. ([97209f3](https://github.com/aws/aws-sdk-js-v3/commit/97209f36ed978a84c1e4bf1c8fda747def813e71))
+* **client-datazone:** GetSubscriptionGrant now returns materialized asset scope name for mapping Lake Formation data cell filters or Redshift views to subscription grants. ([95ff8a9](https://github.com/aws/aws-sdk-js-v3/commit/95ff8a96ce8c5d619a760b153b22b40c58c69cd9))
+* **client-eks:** This feature would give customers the ability to selectively tune certain configurations of Kubernetes control plane components in an Amazon EKS cluster. ([6d5d141](https://github.com/aws/aws-sdk-js-v3/commit/6d5d1413111d44ff029016c81bdc226c542fd430))
+* **clients:** update client endpoints as of 2026-08-11 ([60a8bce](https://github.com/aws/aws-sdk-js-v3/commit/60a8bce439befd29cbee3e3938b229e654c709e3))
+
+
+
+
+
 # [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
+
+
+### Features
+
+* **client-eks:** This feature would give customers the ability to selectively tune certain configurations of Kubernetes control plane components in an Amazon EKS cluster. ([6d5d141](https://github.com/aws/aws-sdk-js-v3/commit/6d5d1413111d44ff029016c81bdc226c542fd430))
+
+
+
+
+
 # [3.1107.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1106.0...v3.1107.0) (2026-08-10)
 
 **Note:** Version bump only for package @aws-sdk/client-eks
