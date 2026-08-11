@@ -2,6 +2,7 @@ import { fromCognitoIdentityPool } from "@aws-sdk/credential-provider-cognito-id
 import { CognitoIdentityClient } from "@aws-sdk/client-cognito-identity";
 
 import { S3Client } from "@aws-sdk/client-s3";
+import type { Progress } from "@aws-sdk/lib-storage";
 import { Upload } from "@aws-sdk/lib-storage";
 
 import { configuration } from "./config";
@@ -30,7 +31,7 @@ const uploadIndeterminateLengthStreamBrowser = async () => {
   const client = new S3Client({
     region,
     credentials: fromCognitoIdentityPool({
-      client: new CognitoIdentityClient({ region }),
+      client: new CognitoIdentityClient({ region }) as any,
       identityPoolId: idPool,
     }),
   });
@@ -46,7 +47,7 @@ const uploadIndeterminateLengthStreamBrowser = async () => {
     },
   });
 
-  upload.on("httpUploadProgress", (progress: ProgressEvent) => {
+  upload.on("httpUploadProgress", (progress: Progress) => {
     console.log(progress);
   });
 

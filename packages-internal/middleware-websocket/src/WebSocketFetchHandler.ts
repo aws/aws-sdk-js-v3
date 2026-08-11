@@ -266,7 +266,7 @@ export class WebSocketFetchHandler {
           if (socket.readyState >= WebSocket.CLOSING) {
             break;
           } else {
-            socket.send(chunk);
+            socket.send(chunk as Uint8Array<ArrayBuffer>);
           }
         }
       } catch (err) {

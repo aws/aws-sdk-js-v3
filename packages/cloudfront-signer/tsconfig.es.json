@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist-es",
-    "baseUrl": ".",
     "noCheck": true
   },
   "extends": "../../tsconfig.es.json",

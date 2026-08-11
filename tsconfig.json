@@ -1,18 +1,17 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "downlevelIteration": true,
+    "types": ["node"],
     "importHelpers": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",
     "noEmitHelpers": false,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@aws-sdk/*": ["packages/*/"],
-      "@aws-sdk/client-*": ["clients/client-*/"],
-      "@aws-sdk/aws-*": ["private/aws-*/"],
-      "@aws-sdk/lib-*": ["lib/*"]
+      "@aws-sdk/*": ["./packages/*/"],
+      "@aws-sdk/client-*": ["./clients/client-*/"],
+      "@aws-sdk/aws-*": ["./private/aws-*/"],
+      "@aws-sdk/lib-*": ["./lib/*"]
     },
     "preserveConstEnums": true,
     "removeComments": true,

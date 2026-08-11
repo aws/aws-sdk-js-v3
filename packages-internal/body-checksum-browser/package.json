@@ -50,6 +50,6 @@
     "downlevel-dts": "0.10.1",
     "happy-dom": "^15.7.4",
     "premove": "4.0.0",
-    "typescript": "~5.8.3"
+    "typescript": "~6.0.3"
   }
 }

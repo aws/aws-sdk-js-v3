@@ -66,12 +66,18 @@ export class Sha1WebCrypto implements Checksum {
     if (subtle) {
       if (this.secret) {
         this.finished = true;
-        const key = await subtle.importKey("raw", this.secret, { name: "HMAC", hash: "SHA-1" }, false, ["sign"]);
-        const sig = await subtle.sign("HMAC", key, data);
+        const key = await subtle.importKey(
+          "raw",
+          this.secret as Uint8Array<ArrayBuffer>,
+          { name: "HMAC", hash: "SHA-1" },
+          false,
+          ["sign"]
+        );
+        const sig = await subtle.sign("HMAC", key, data as Uint8Array<ArrayBuffer>);
         return new Uint8Array(sig);
       }
 
-      const hash = await subtle.digest("SHA-1", data);
+      const hash = await subtle.digest("SHA-1", data as Uint8Array<ArrayBuffer>);
       return new Uint8Array(hash);
     }
 

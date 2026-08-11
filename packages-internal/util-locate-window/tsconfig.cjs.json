@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "noImplicitAny": true,
     "noImplicitThis": true,
     "outDir": "dist-cjs",

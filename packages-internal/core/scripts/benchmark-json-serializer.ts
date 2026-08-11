@@ -448,7 +448,7 @@ function runVariant(variant: "multipass" | "byte"): BenchResult[] {
   const settings = {
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
-  };
+  } as const;
 
   const serializer = variant === "multipass" ? new JsonShapeSerializer(settings) : new JsonShapeSerializer2(settings);
 
@@ -493,7 +493,7 @@ async function runDeserVariant(variant: DeserVariant): Promise<BenchResult[]> {
   const settings = {
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
-  };
+  } as const;
 
   const serializer = new JsonShapeSerializer(settings);
   serializer.setSerdeContext({
@@ -567,7 +567,7 @@ function runDdbSerVariant(variant: "ddb-multipass" | "ddb-byte" | "ddb-codec-ser
   const settings = {
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
-  };
+  } as const;
 
   let serializer: any;
   if (variant === "ddb-codec-ser") {
@@ -620,7 +620,7 @@ async function runDdbDeserVariant(
   const settings = {
     jsonName: true,
     timestampFormat: { default: 7 satisfies TimestampEpochSecondsSchema, useTrait: true },
-  };
+  } as const;
 
   const refSerializer = new JsonShapeSerializer(settings);
   refSerializer.setSerdeContext({ base64Encoder: (input: Uint8Array) => Buffer.from(input).toString("base64") } as any);
