@@ -328,6 +328,12 @@ export interface AssetScope {
   status: string | undefined;
 
   /**
+   * <p>The name of the materialized asset scope.</p>
+   * @public
+   */
+  scopeName?: string | undefined;
+
+  /**
    * <p>The error message of the asset scope.</p>
    * @public
    */

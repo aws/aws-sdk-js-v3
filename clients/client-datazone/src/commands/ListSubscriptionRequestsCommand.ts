@@ -114,6 +114,7 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 status: "STRING_VALUE", // required
+ * //                 scopeName: "STRING_VALUE",
  * //                 errorMessage: "STRING_VALUE",
  * //               },
  * //               permissions: { // Permissions Union: only one key present

@@ -1671,8 +1671,9 @@ const _sLu = "subscribedListing";
 const _sM = "selectionMode";
 const _sMA = "secretManagerArn";
 const _sMRC = "sageMakerRunConfiguration";
-const _sN = "sessionName";
+const _sN = "scopeName";
 const _sNc = "schemaName";
+const _sNe = "sessionName";
 const _sO = "sortOrder";
 const _sOt = "startOffset";
 const _sP = "subscribedPrincipals";
@@ -2088,8 +2089,8 @@ export var AssetRevision$: StaticStructureSchema = [3, n0, _ARs,
 ];
 export var AssetScope$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_aI, _fI, _st, _eM],
-  [0, 64 | 0, 0, 0], 3
+  [_aI, _fI, _st, _sN, _eM],
+  [0, 64 | 0, 0, 0, 0], 3
 ];
 export var AssetTargetNameMap$: StaticStructureSchema = [3, n0, _ATNM,
   0,
@@ -2613,7 +2614,7 @@ export var CreateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _CST
 ];
 export var CreateUserProfileInput$: StaticStructureSchema = [3, n0, _CUPI,
   0,
-  [_dI, _uI, _uT, _sN, _cT],
+  [_dI, _uI, _uT, _sNe, _cT],
   [[0, 1], 0, 0, 0, [0, 4]], 2
 ];
 export var CreateUserProfileOutput$: StaticStructureSchema = [3, n0, _CUPO,
@@ -3523,8 +3524,8 @@ export var GetTimeSeriesDataPointOutput$: StaticStructureSchema = [3, n0, _GTSDP
 ];
 export var GetUserProfileInput$: StaticStructureSchema = [3, n0, _GUPI,
   0,
-  [_dI, _uI, _ty, _sN],
-  [[0, 1], [0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _sN }]], 2
+  [_dI, _uI, _ty, _sNe],
+  [[0, 1], [0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _sNe }]], 2
 ];
 export var GetUserProfileOutput$: StaticStructureSchema = [3, n0, _GUPO,
   0,
@@ -3673,7 +3674,7 @@ export var IamPropertiesPatch$: StaticStructureSchema = [3, n0, _IPP,
 ];
 export var IamUserProfileDetails$: StaticStructureSchema = [3, n0, _IUPD,
   0,
-  [_ar, _pIri, _sN, _gPI],
+  [_ar, _pIri, _sNe, _gPI],
   [0, 0, 0, 0]
 ];
 export var IdentityMapping$: StaticStructureSchema = [3, n0, _IM,
@@ -5213,7 +5214,7 @@ export var UpdateSubscriptionTargetOutput$: StaticStructureSchema = [3, n0, _UST
 ];
 export var UpdateUserProfileInput$: StaticStructureSchema = [3, n0, _UUPI,
   0,
-  [_dI, _uI, _st, _ty, _sN],
+  [_dI, _uI, _st, _ty, _sNe],
   [[0, 1], [0, 1], 0, 0, 0], 3
 ];
 export var UpdateUserProfileOutput$: StaticStructureSchema = [3, n0, _UUPO,
