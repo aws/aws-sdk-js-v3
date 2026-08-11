@@ -76,6 +76,11 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  *         batchEvaluation: { // BatchEvaluationTraceConfig
  *           batchEvaluationArn: "STRING_VALUE", // required
  *         },
+ *         onlineEvaluation: { // OnlineEvaluationTraceConfig
+ *           onlineEvaluationConfigArn: "STRING_VALUE", // required
+ *           startTime: new Date("TIMESTAMP"), // required
+ *           endTime: new Date("TIMESTAMP"), // required
+ *         },
  *       },
  *       evaluationConfig: { // RecommendationEvaluationConfig
  *         evaluators: [ // RecommendationEvaluatorList // required
@@ -138,6 +143,11 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  *         batchEvaluation: {
  *           batchEvaluationArn: "STRING_VALUE", // required
  *         },
+ *         onlineEvaluation: {
+ *           onlineEvaluationConfigArn: "STRING_VALUE", // required
+ *           startTime: new Date("TIMESTAMP"), // required
+ *           endTime: new Date("TIMESTAMP"), // required
+ *         },
  *       },
  *     },
  *   },
@@ -194,6 +204,11 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  * //         },
  * //         batchEvaluation: { // BatchEvaluationTraceConfig
  * //           batchEvaluationArn: "STRING_VALUE", // required
+ * //         },
+ * //         onlineEvaluation: { // OnlineEvaluationTraceConfig
+ * //           onlineEvaluationConfigArn: "STRING_VALUE", // required
+ * //           startTime: new Date("TIMESTAMP"), // required
+ * //           endTime: new Date("TIMESTAMP"), // required
  * //         },
  * //       },
  * //       evaluationConfig: { // RecommendationEvaluationConfig
@@ -256,6 +271,11 @@ export interface StartRecommendationCommandOutput extends StartRecommendationRes
  * //         },
  * //         batchEvaluation: {
  * //           batchEvaluationArn: "STRING_VALUE", // required
+ * //         },
+ * //         onlineEvaluation: {
+ * //           onlineEvaluationConfigArn: "STRING_VALUE", // required
+ * //           startTime: new Date("TIMESTAMP"), // required
+ * //           endTime: new Date("TIMESTAMP"), // required
  * //         },
  * //       },
  * //     },

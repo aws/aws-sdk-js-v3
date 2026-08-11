@@ -402,6 +402,7 @@ const _OACPV = "OAuthCustomParametersValue";
 const _OACPu = "OAuthCustomParameters";
 const _OC = "OutputConfig";
 const _OECS = "OnlineEvaluationConfigSource";
+const _OETC = "OnlineEvaluationTraceConfig";
 const _P = "Proxies";
 const _PB = "ProxyBypass";
 const _PC = "ProxyConfiguration";
@@ -870,6 +871,7 @@ const _oA = "outboundAuth";
 const _oAMC = "openAiModelConfig";
 const _oAu = "oAuth2";
 const _oC = "outputConfig";
+const _oE = "onlineEvaluation";
 const _oECA = "onlineEvaluationConfigArn";
 const _oECS = "onlineEvaluationConfigSource";
 const _oF = "oauth2Flow";
@@ -2445,6 +2447,11 @@ export var OnlineEvaluationConfigSource$: StaticStructureSchema = [3, n0, _OECS,
   [_oECA, _tR],
   [0, () => SessionFilterConfig$], 1
 ];
+export var OnlineEvaluationTraceConfig$: StaticStructureSchema = [3, n0, _OETC,
+  0,
+  [_oECA, _sT, _eT],
+  [0, 5, 5], 3
+];
 export var PaymentInstrument$: StaticStructureSchema = [3, n0, _PI,
   0,
   [_pII, _pMA, _pCI, _uIs, _pIT, _pID, _cA, _sta, _uA],
@@ -3135,8 +3142,8 @@ export var ABTestEvaluationConfig$: StaticUnionSchema = [4, n0, _ABTEC,
 ];
 export var AgentTracesConfig$: StaticUnionSchema = [4, n0, _ATC,
   0,
-  [_sSess, _cL, _bEa],
-  [[() => Spans, 0], () => CloudWatchLogsTraceConfig$, () => BatchEvaluationTraceConfig$]
+  [_sSess, _cL, _bEa, _oE],
+  [[() => Spans, 0], () => CloudWatchLogsTraceConfig$, () => BatchEvaluationTraceConfig$, () => OnlineEvaluationTraceConfig$]
 ];
 export var BrowserAction$: StaticUnionSchema = [4, n0, _BAr,
   0,

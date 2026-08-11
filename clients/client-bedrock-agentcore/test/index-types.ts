@@ -529,6 +529,7 @@ export type {
   OAuth2Authentication,
   OAuthCredentialProvider,
   OnlineEvaluationConfigSource,
+  OnlineEvaluationTraceConfig,
   OutputConfig,
   PayloadType,
   PaymentInput,

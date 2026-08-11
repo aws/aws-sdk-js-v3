@@ -425,6 +425,7 @@ import {
   OAuthCredentialProvider$,
   OAuthGrantType,
   OnlineEvaluationConfigSource$,
+  OnlineEvaluationTraceConfig$,
   OperatorType,
   OutputConfig$,
   paginateListABTests,
@@ -1022,6 +1023,7 @@ assert(typeof MouseScrollResult$ === "object");
 assert(typeof OAuth2Authentication$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnlineEvaluationConfigSource$ === "object");
+assert(typeof OnlineEvaluationTraceConfig$ === "object");
 assert(typeof OutputConfig$ === "object");
 assert(typeof PayloadType$ === "object");
 assert(typeof PaymentInput$ === "object");

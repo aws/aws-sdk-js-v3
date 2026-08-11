@@ -29,6 +29,23 @@ import type {
 } from "./models_0";
 
 /**
+ * @public
+ */
+export interface GetMemoryRecordInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the memory record to retrieve.</p>
+   * @public
+   */
+  memoryRecordId: string | undefined;
+}
+
+/**
  * <p>Contains information about a memory record in an AgentCore Memory resource.</p>
  * @public
  */

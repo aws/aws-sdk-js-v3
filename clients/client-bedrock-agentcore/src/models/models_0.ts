@@ -1312,12 +1312,37 @@ export interface CloudWatchLogsTraceConfig {
 }
 
 /**
+ * <p>Contains the configuration for reusing agent traces from an online evaluation configuration for recommendation analysis. Because online evaluation is a continuous stream, a time range specifies which evaluated sessions the recommendation includes.</p>
+ * @public
+ */
+export interface OnlineEvaluationTraceConfig {
+  /**
+   * <p>The ARN of the online evaluation configuration to reuse sessions from.</p>
+   * @public
+   */
+  onlineEvaluationConfigArn: string | undefined;
+
+  /**
+   * <p>The start time of the time range. Only sessions evaluated at or after this timestamp are included.</p>
+   * @public
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time of the time range. Only sessions evaluated before this timestamp are included.</p>
+   * @public
+   */
+  endTime: Date | undefined;
+}
+
+/**
  * <p>The configuration specifying where to read agent traces from for recommendation analysis.</p>
  * @public
  */
 export type AgentTracesConfig =
   | AgentTracesConfig.BatchEvaluationMember
   | AgentTracesConfig.CloudwatchLogsMember
+  | AgentTracesConfig.OnlineEvaluationMember
   | AgentTracesConfig.SessionSpansMember
   | AgentTracesConfig.$UnknownMember;
 
@@ -1333,6 +1358,7 @@ export namespace AgentTracesConfig {
     sessionSpans: __DocumentType[];
     cloudwatchLogs?: never;
     batchEvaluation?: never;
+    onlineEvaluation?: never;
     $unknown?: never;
   }
 
@@ -1344,6 +1370,7 @@ export namespace AgentTracesConfig {
     sessionSpans?: never;
     cloudwatchLogs: CloudWatchLogsTraceConfig;
     batchEvaluation?: never;
+    onlineEvaluation?: never;
     $unknown?: never;
   }
 
@@ -1355,6 +1382,19 @@ export namespace AgentTracesConfig {
     sessionSpans?: never;
     cloudwatchLogs?: never;
     batchEvaluation: BatchEvaluationTraceConfig;
+    onlineEvaluation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Agent traces from an online evaluation configuration over a specified time range.</p>
+   * @public
+   */
+  export interface OnlineEvaluationMember {
+    sessionSpans?: never;
+    cloudwatchLogs?: never;
+    batchEvaluation?: never;
+    onlineEvaluation: OnlineEvaluationTraceConfig;
     $unknown?: never;
   }
 
@@ -1365,6 +1405,7 @@ export namespace AgentTracesConfig {
     sessionSpans?: never;
     cloudwatchLogs?: never;
     batchEvaluation?: never;
+    onlineEvaluation?: never;
     $unknown: [string, any];
   }
 
@@ -1376,6 +1417,7 @@ export namespace AgentTracesConfig {
     sessionSpans: (value: __DocumentType[]) => T;
     cloudwatchLogs: (value: CloudWatchLogsTraceConfig) => T;
     batchEvaluation: (value: BatchEvaluationTraceConfig) => T;
+    onlineEvaluation: (value: OnlineEvaluationTraceConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -10027,21 +10069,4 @@ export interface GetEventOutput {
    * @public
    */
   event: Event | undefined;
-}
-
-/**
- * @public
- */
-export interface GetMemoryRecordInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The identifier of the memory record to retrieve.</p>
-   * @public
-   */
-  memoryRecordId: string | undefined;
 }
