@@ -43,7 +43,7 @@
     "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local",
     "generate:client": "node ../../scripts/generate-clients/single-service",
-    "test:index": "tsc --noEmit ./test/index-types.ts && node ./test/index-objects.spec.mjs"
+    "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
     "@aws-sdk/body-checksum-browser": "workspace:^3.972.27",
