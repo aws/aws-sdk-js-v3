@@ -298,6 +298,15 @@ export interface HumanLoopDataAttributes {
 /**
  * <p>Sets up the human review workflow the document will be sent to if one of the conditions
  *          is met. You can also set certain attributes of the image before review. </p>
+ *          <note>
+ *             <p>Amazon Textract uses Amazon Augmented AI (A2I) to run the human review
+ *             workflows that you specify in <code>HumanLoopConfig</code>. A2I entered
+ *             maintenance mode in July 2026 and no longer accepts new customers. If your account is not an
+ *             existing A2I customer, requests fail with an
+ *             <code>InvalidParameterException</code>. For more information, see <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/">AWS
+ *             service availability</a>. If you're an existing A2I customer but receive
+ *             this error, contact AWS Support and request assistance from the A2I team.</p>
+ *          </note>
  * @public
  */
 export interface HumanLoopConfig {
@@ -404,6 +413,15 @@ export interface AnalyzeDocumentRequest {
   /**
    * <p>Sets the configuration for the human in the loop workflow for analyzing
    *          documents.</p>
+   *          <note>
+   *             <p>Amazon Textract uses Amazon Augmented AI (A2I) to run the human review
+   *             workflows that you specify in <code>HumanLoopConfig</code>. A2I entered
+   *             maintenance mode in July 2026 and no longer accepts new customers. If your account is not an
+   *             existing A2I customer, requests fail with an
+   *             <code>InvalidParameterException</code>. For more information, see <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/">AWS
+   *             service availability</a>. If you're an existing A2I customer but receive
+   *             this error, contact AWS Support and request assistance from the A2I team.</p>
+   *          </note>
    * @public
    */
   HumanLoopConfig?: HumanLoopConfig | undefined;
@@ -511,7 +529,8 @@ export interface Geometry {
   Polygon?: Point[] | undefined;
 
   /**
-   * <p>Provides a numerical value corresponding to the rotation of the text.</p>
+   * <p>Provides a numerical value corresponding to the rotation of the WORD block.
+   *          Possible values are 0, 90, 180, and 270.</p>
    * @public
    */
   RotationAngle?: number | undefined;

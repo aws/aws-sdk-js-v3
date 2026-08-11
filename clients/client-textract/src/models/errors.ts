@@ -30,7 +30,7 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a>limits</a>.</p>
+ *          limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits.html">Hard limits</a>.</p>
  * @public
  */
 export class BadDocumentException extends __BaseException {

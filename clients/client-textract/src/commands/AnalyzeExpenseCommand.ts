@@ -247,7 +247,7 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  *
  * @throws {@link BadDocumentException} (client fault)
  *  <p>Amazon Textract isn't able to read the document. For more information on the document
- *          limits in Amazon Textract, see <a>limits</a>.</p>
+ *          limits in Amazon Textract, see <a href="https://docs.aws.amazon.com/textract/latest/dg/limits.html">Hard limits</a>.</p>
  *
  * @throws {@link DocumentTooLargeException} (client fault)
  *  <p>The document can't be processed because it's too large. The maximum document size for
