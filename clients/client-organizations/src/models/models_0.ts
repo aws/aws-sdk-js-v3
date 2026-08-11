@@ -49,6 +49,11 @@ export interface HandshakeParty {
 
   /**
    * <p>The type of ID for the participant.</p>
+   *          <note>
+   *             <p>ORGANIZATION is valid only in the response context (identifying the inviting
+   *                 organization). Valid input values for the Target parameter are ACCOUNT and EMAIL
+   *                 only.</p>
+   *          </note>
    * @public
    */
   Type: HandshakePartyType | undefined;
