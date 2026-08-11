@@ -1037,6 +1037,92 @@ export type SourceType = (typeof SourceType)[keyof typeof SourceType];
  * @public
  * @enum
  */
+export const MetricFilterBooleanConditionComparison = {
+  IS_FALSE: "IS_FALSE",
+  IS_TRUE: "IS_TRUE",
+} as const;
+/**
+ * @public
+ */
+export type MetricFilterBooleanConditionComparison =
+  (typeof MetricFilterBooleanConditionComparison)[keyof typeof MetricFilterBooleanConditionComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricFilterNumberConditionComparison = {
+  GREATER: "GREATER",
+  GREATER_OR_EQUAL: "GREATER_OR_EQUAL",
+  LESSER: "LESSER",
+  LESSER_OR_EQUAL: "LESSER_OR_EQUAL",
+} as const;
+/**
+ * @public
+ */
+export type MetricFilterNumberConditionComparison =
+  (typeof MetricFilterNumberConditionComparison)[keyof typeof MetricFilterNumberConditionComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricFilterStringConditionComparison = {
+  MATCHES_ANY: "MATCHES_ANY",
+  MATCHES_NONE: "MATCHES_NONE",
+} as const;
+/**
+ * @public
+ */
+export type MetricFilterStringConditionComparison =
+  (typeof MetricFilterStringConditionComparison)[keyof typeof MetricFilterStringConditionComparison];
+
+/**
+ * @public
+ * @enum
+ */
+export const TrendIndicator = {
+  NEGATIVE: "NEGATIVE",
+  NEUTRAL: "NEUTRAL",
+  POSITIVE: "POSITIVE",
+} as const;
+/**
+ * @public
+ */
+export type TrendIndicator = (typeof TrendIndicator)[keyof typeof TrendIndicator];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricStatus = {
+  PUBLISHED: "PUBLISHED",
+  SAVED: "SAVED",
+} as const;
+/**
+ * @public
+ */
+export type MetricStatus = (typeof MetricStatus)[keyof typeof MetricStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricUnit = {
+  DOUBLE: "DOUBLE",
+  INTEGER: "INTEGER",
+  PERCENT: "PERCENT",
+  SECONDS: "SECONDS",
+} as const;
+/**
+ * @public
+ */
+export type MetricUnit = (typeof MetricUnit)[keyof typeof MetricUnit];
+
+/**
+ * @public
+ * @enum
+ */
 export const LocaleCode = {
   DeDE: "de_DE",
   EnUS: "en_US",
@@ -1816,6 +1902,45 @@ export const InstanceAttributeType = {
  * @public
  */
 export type InstanceAttributeType = (typeof InstanceAttributeType)[keyof typeof InstanceAttributeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricCreationMethod = {
+  METRIC_BUILDER: "METRIC_BUILDER",
+  SERVICE_LEVEL_BUILDER: "SERVICE_LEVEL_BUILDER",
+} as const;
+/**
+ * @public
+ */
+export type MetricCreationMethod = (typeof MetricCreationMethod)[keyof typeof MetricCreationMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const AvailableFilterType = {
+  METRIC_LEVEL: "METRIC_LEVEL",
+  RESOURCE_LEVEL: "RESOURCE_LEVEL",
+} as const;
+/**
+ * @public
+ */
+export type AvailableFilterType = (typeof AvailableFilterType)[keyof typeof AvailableFilterType];
+
+/**
+ * @public
+ * @enum
+ */
+export const MetricType = {
+  AWS_MANAGED: "AWS_MANAGED",
+  CUSTOMER_MANAGED: "CUSTOMER_MANAGED",
+} as const;
+/**
+ * @public
+ */
+export type MetricType = (typeof MetricType)[keyof typeof MetricType];
 
 /**
  * @public

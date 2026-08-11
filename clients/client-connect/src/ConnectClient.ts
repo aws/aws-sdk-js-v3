@@ -223,6 +223,7 @@ import type {
   CreateIntegrationAssociationCommandInput,
   CreateIntegrationAssociationCommandOutput,
 } from "./commands/CreateIntegrationAssociationCommand";
+import type { CreateMetricCommandInput, CreateMetricCommandOutput } from "./commands/CreateMetricCommand";
 import type {
   CreateNotificationCommandInput,
   CreateNotificationCommandOutput,
@@ -346,6 +347,7 @@ import type {
   DeleteIntegrationAssociationCommandInput,
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
+import type { DeleteMetricCommandInput, DeleteMetricCommandOutput } from "./commands/DeleteMetricCommand";
 import type {
   DeleteNotificationCommandInput,
   DeleteNotificationCommandOutput,
@@ -466,6 +468,7 @@ import type {
   DescribeInstanceStorageConfigCommandInput,
   DescribeInstanceStorageConfigCommandOutput,
 } from "./commands/DescribeInstanceStorageConfigCommand";
+import type { DescribeMetricCommandInput, DescribeMetricCommandOutput } from "./commands/DescribeMetricCommand";
 import type {
   DescribeNotificationCommandInput,
   DescribeNotificationCommandOutput,
@@ -760,6 +763,7 @@ import type {
   ListLambdaFunctionsCommandOutput,
 } from "./commands/ListLambdaFunctionsCommand";
 import type { ListLexBotsCommandInput, ListLexBotsCommandOutput } from "./commands/ListLexBotsCommand";
+import type { ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand";
 import type {
   ListNotificationsCommandInput,
   ListNotificationsCommandOutput,
@@ -925,6 +929,7 @@ import type {
   SearchHoursOfOperationsCommandInput,
   SearchHoursOfOperationsCommandOutput,
 } from "./commands/SearchHoursOfOperationsCommand";
+import type { SearchMetricsCommandInput, SearchMetricsCommandOutput } from "./commands/SearchMetricsCommand";
 import type {
   SearchNotificationsCommandInput,
   SearchNotificationsCommandOutput,
@@ -1162,6 +1167,14 @@ import type {
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import type {
+  UpdateMetricContentCommandInput,
+  UpdateMetricContentCommandOutput,
+} from "./commands/UpdateMetricContentCommand";
+import type {
+  UpdateMetricMetadataCommandInput,
+  UpdateMetricMetadataCommandOutput,
+} from "./commands/UpdateMetricMetadataCommand";
+import type {
   UpdateNotificationContentCommandInput,
   UpdateNotificationContentCommandOutput,
 } from "./commands/UpdateNotificationContentCommand";
@@ -1374,6 +1387,7 @@ export type ServiceInputTypes =
   | CreateHoursOfOperationOverrideCommandInput
   | CreateInstanceCommandInput
   | CreateIntegrationAssociationCommandInput
+  | CreateMetricCommandInput
   | CreateNotificationCommandInput
   | CreateParticipantCommandInput
   | CreatePersistentContactAssociationCommandInput
@@ -1413,6 +1427,7 @@ export type ServiceInputTypes =
   | DeleteHoursOfOperationOverrideCommandInput
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
+  | DeleteMetricCommandInput
   | DeleteNotificationCommandInput
   | DeletePredefinedAttributeCommandInput
   | DeletePromptCommandInput
@@ -1452,6 +1467,7 @@ export type ServiceInputTypes =
   | DescribeInstanceAttributeCommandInput
   | DescribeInstanceCommandInput
   | DescribeInstanceStorageConfigCommandInput
+  | DescribeMetricCommandInput
   | DescribeNotificationCommandInput
   | DescribePhoneNumberCommandInput
   | DescribePredefinedAttributeCommandInput
@@ -1539,6 +1555,7 @@ export type ServiceInputTypes =
   | ListIntegrationAssociationsCommandInput
   | ListLambdaFunctionsCommandInput
   | ListLexBotsCommandInput
+  | ListMetricsCommandInput
   | ListNotificationsCommandInput
   | ListPhoneNumbersCommandInput
   | ListPhoneNumbersV2CommandInput
@@ -1593,6 +1610,7 @@ export type ServiceInputTypes =
   | SearchEvaluationFormsCommandInput
   | SearchHoursOfOperationOverridesCommandInput
   | SearchHoursOfOperationsCommandInput
+  | SearchMetricsCommandInput
   | SearchNotificationsCommandInput
   | SearchPredefinedAttributesCommandInput
   | SearchPromptsCommandInput
@@ -1664,6 +1682,8 @@ export type ServiceInputTypes =
   | UpdateHoursOfOperationOverrideCommandInput
   | UpdateInstanceAttributeCommandInput
   | UpdateInstanceStorageConfigCommandInput
+  | UpdateMetricContentCommandInput
+  | UpdateMetricMetadataCommandInput
   | UpdateNotificationContentCommandInput
   | UpdateParticipantAuthenticationCommandInput
   | UpdateParticipantRoleConfigCommandInput
@@ -1759,6 +1779,7 @@ export type ServiceOutputTypes =
   | CreateHoursOfOperationOverrideCommandOutput
   | CreateInstanceCommandOutput
   | CreateIntegrationAssociationCommandOutput
+  | CreateMetricCommandOutput
   | CreateNotificationCommandOutput
   | CreateParticipantCommandOutput
   | CreatePersistentContactAssociationCommandOutput
@@ -1798,6 +1819,7 @@ export type ServiceOutputTypes =
   | DeleteHoursOfOperationOverrideCommandOutput
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
+  | DeleteMetricCommandOutput
   | DeleteNotificationCommandOutput
   | DeletePredefinedAttributeCommandOutput
   | DeletePromptCommandOutput
@@ -1837,6 +1859,7 @@ export type ServiceOutputTypes =
   | DescribeInstanceAttributeCommandOutput
   | DescribeInstanceCommandOutput
   | DescribeInstanceStorageConfigCommandOutput
+  | DescribeMetricCommandOutput
   | DescribeNotificationCommandOutput
   | DescribePhoneNumberCommandOutput
   | DescribePredefinedAttributeCommandOutput
@@ -1924,6 +1947,7 @@ export type ServiceOutputTypes =
   | ListIntegrationAssociationsCommandOutput
   | ListLambdaFunctionsCommandOutput
   | ListLexBotsCommandOutput
+  | ListMetricsCommandOutput
   | ListNotificationsCommandOutput
   | ListPhoneNumbersCommandOutput
   | ListPhoneNumbersV2CommandOutput
@@ -1978,6 +2002,7 @@ export type ServiceOutputTypes =
   | SearchEvaluationFormsCommandOutput
   | SearchHoursOfOperationOverridesCommandOutput
   | SearchHoursOfOperationsCommandOutput
+  | SearchMetricsCommandOutput
   | SearchNotificationsCommandOutput
   | SearchPredefinedAttributesCommandOutput
   | SearchPromptsCommandOutput
@@ -2049,6 +2074,8 @@ export type ServiceOutputTypes =
   | UpdateHoursOfOperationOverrideCommandOutput
   | UpdateInstanceAttributeCommandOutput
   | UpdateInstanceStorageConfigCommandOutput
+  | UpdateMetricContentCommandOutput
+  | UpdateMetricMetadataCommandOutput
   | UpdateNotificationContentCommandOutput
   | UpdateParticipantAuthenticationCommandOutput
   | UpdateParticipantRoleConfigCommandOutput

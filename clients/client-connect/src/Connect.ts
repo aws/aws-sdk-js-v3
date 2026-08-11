@@ -248,6 +248,11 @@ import {
   CreateIntegrationAssociationCommand,
 } from "./commands/CreateIntegrationAssociationCommand";
 import {
+  type CreateMetricCommandInput,
+  type CreateMetricCommandOutput,
+  CreateMetricCommand,
+} from "./commands/CreateMetricCommand";
+import {
   type CreateNotificationCommandInput,
   type CreateNotificationCommandOutput,
   CreateNotificationCommand,
@@ -443,6 +448,11 @@ import {
   DeleteIntegrationAssociationCommand,
 } from "./commands/DeleteIntegrationAssociationCommand";
 import {
+  type DeleteMetricCommandInput,
+  type DeleteMetricCommandOutput,
+  DeleteMetricCommand,
+} from "./commands/DeleteMetricCommand";
+import {
   type DeleteNotificationCommandInput,
   type DeleteNotificationCommandOutput,
   DeleteNotificationCommand,
@@ -637,6 +647,11 @@ import {
   type DescribeInstanceStorageConfigCommandOutput,
   DescribeInstanceStorageConfigCommand,
 } from "./commands/DescribeInstanceStorageConfigCommand";
+import {
+  type DescribeMetricCommandInput,
+  type DescribeMetricCommandOutput,
+  DescribeMetricCommand,
+} from "./commands/DescribeMetricCommand";
 import {
   type DescribeNotificationCommandInput,
   type DescribeNotificationCommandOutput,
@@ -1069,6 +1084,11 @@ import {
   ListLexBotsCommand,
 } from "./commands/ListLexBotsCommand";
 import {
+  type ListMetricsCommandInput,
+  type ListMetricsCommandOutput,
+  ListMetricsCommand,
+} from "./commands/ListMetricsCommand";
+import {
   type ListNotificationsCommandInput,
   type ListNotificationsCommandOutput,
   ListNotificationsCommand,
@@ -1326,6 +1346,11 @@ import {
   type SearchHoursOfOperationsCommandOutput,
   SearchHoursOfOperationsCommand,
 } from "./commands/SearchHoursOfOperationsCommand";
+import {
+  type SearchMetricsCommandInput,
+  type SearchMetricsCommandOutput,
+  SearchMetricsCommand,
+} from "./commands/SearchMetricsCommand";
 import {
   type SearchNotificationsCommandInput,
   type SearchNotificationsCommandOutput,
@@ -1682,6 +1707,16 @@ import {
   UpdateInstanceStorageConfigCommand,
 } from "./commands/UpdateInstanceStorageConfigCommand";
 import {
+  type UpdateMetricContentCommandInput,
+  type UpdateMetricContentCommandOutput,
+  UpdateMetricContentCommand,
+} from "./commands/UpdateMetricContentCommand";
+import {
+  type UpdateMetricMetadataCommandInput,
+  type UpdateMetricMetadataCommandOutput,
+  UpdateMetricMetadataCommand,
+} from "./commands/UpdateMetricMetadataCommand";
+import {
   type UpdateNotificationContentCommandInput,
   type UpdateNotificationContentCommandOutput,
   UpdateNotificationContentCommand,
@@ -1922,6 +1957,7 @@ import { paginateListInstanceStorageConfigs } from "./pagination/ListInstanceSto
 import { paginateListIntegrationAssociations } from "./pagination/ListIntegrationAssociationsPaginator";
 import { paginateListLambdaFunctions } from "./pagination/ListLambdaFunctionsPaginator";
 import { paginateListLexBots } from "./pagination/ListLexBotsPaginator";
+import { paginateListMetrics } from "./pagination/ListMetricsPaginator";
 import { paginateListPhoneNumbers } from "./pagination/ListPhoneNumbersPaginator";
 import { paginateListPhoneNumbersV2 } from "./pagination/ListPhoneNumbersV2Paginator";
 import { paginateListPredefinedAttributes } from "./pagination/ListPredefinedAttributesPaginator";
@@ -1963,6 +1999,7 @@ import { paginateSearchContacts } from "./pagination/SearchContactsPaginator";
 import { paginateSearchDataTables } from "./pagination/SearchDataTablesPaginator";
 import { paginateSearchHoursOfOperationOverrides } from "./pagination/SearchHoursOfOperationOverridesPaginator";
 import { paginateSearchHoursOfOperations } from "./pagination/SearchHoursOfOperationsPaginator";
+import { paginateSearchMetrics } from "./pagination/SearchMetricsPaginator";
 import { paginateSearchPredefinedAttributes } from "./pagination/SearchPredefinedAttributesPaginator";
 import { paginateSearchPrompts } from "./pagination/SearchPromptsPaginator";
 import { paginateSearchQueues } from "./pagination/SearchQueuesPaginator";
@@ -2029,6 +2066,7 @@ const commands = {
   CreateHoursOfOperationOverrideCommand,
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
+  CreateMetricCommand,
   CreateNotificationCommand,
   CreateParticipantCommand,
   CreatePersistentContactAssociationCommand,
@@ -2068,6 +2106,7 @@ const commands = {
   DeleteHoursOfOperationOverrideCommand,
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
+  DeleteMetricCommand,
   DeleteNotificationCommand,
   DeletePredefinedAttributeCommand,
   DeletePromptCommand,
@@ -2107,6 +2146,7 @@ const commands = {
   DescribeInstanceCommand,
   DescribeInstanceAttributeCommand,
   DescribeInstanceStorageConfigCommand,
+  DescribeMetricCommand,
   DescribeNotificationCommand,
   DescribePhoneNumberCommand,
   DescribePredefinedAttributeCommand,
@@ -2194,6 +2234,7 @@ const commands = {
   ListIntegrationAssociationsCommand,
   ListLambdaFunctionsCommand,
   ListLexBotsCommand,
+  ListMetricsCommand,
   ListNotificationsCommand,
   ListPhoneNumbersCommand,
   ListPhoneNumbersV2Command,
@@ -2248,6 +2289,7 @@ const commands = {
   SearchEvaluationFormsCommand,
   SearchHoursOfOperationOverridesCommand,
   SearchHoursOfOperationsCommand,
+  SearchMetricsCommand,
   SearchNotificationsCommand,
   SearchPredefinedAttributesCommand,
   SearchPromptsCommand,
@@ -2319,6 +2361,8 @@ const commands = {
   UpdateHoursOfOperationOverrideCommand,
   UpdateInstanceAttributeCommand,
   UpdateInstanceStorageConfigCommand,
+  UpdateMetricContentCommand,
+  UpdateMetricMetadataCommand,
   UpdateNotificationContentCommand,
   UpdateParticipantAuthenticationCommand,
   UpdateParticipantRoleConfigCommand,
@@ -2397,6 +2441,7 @@ const paginators = {
   paginateListIntegrationAssociations,
   paginateListLambdaFunctions,
   paginateListLexBots,
+  paginateListMetrics,
   paginateListPhoneNumbers,
   paginateListPhoneNumbersV2,
   paginateListPredefinedAttributes,
@@ -2434,6 +2479,7 @@ const paginators = {
   paginateSearchDataTables,
   paginateSearchHoursOfOperationOverrides,
   paginateSearchHoursOfOperations,
+  paginateSearchMetrics,
   paginateSearchPredefinedAttributes,
   paginateSearchPrompts,
   paginateSearchQueues,
@@ -3286,6 +3332,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateMetricCommand}
+   */
+  createMetric(
+    args: CreateMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMetricCommandOutput>;
+  createMetric(
+    args: CreateMetricCommandInput,
+    cb: (err: any, data?: CreateMetricCommandOutput) => void
+  ): void;
+  createMetric(
+    args: CreateMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMetricCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateNotificationCommand}
    */
   createNotification(
@@ -3949,6 +4012,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteMetricCommand}
+   */
+  deleteMetric(
+    args: DeleteMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMetricCommandOutput>;
+  deleteMetric(
+    args: DeleteMetricCommandInput,
+    cb: (err: any, data?: DeleteMetricCommandOutput) => void
+  ): void;
+  deleteMetric(
+    args: DeleteMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMetricCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteNotificationCommand}
    */
   deleteNotification(
@@ -4609,6 +4689,23 @@ export interface Connect {
     args: DescribeInstanceStorageConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeInstanceStorageConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeMetricCommand}
+   */
+  describeMetric(
+    args: DescribeMetricCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMetricCommandOutput>;
+  describeMetric(
+    args: DescribeMetricCommandInput,
+    cb: (err: any, data?: DescribeMetricCommandOutput) => void
+  ): void;
+  describeMetric(
+    args: DescribeMetricCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMetricCommandOutput) => void
   ): void;
 
   /**
@@ -6092,6 +6189,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListMetricsCommand}
+   */
+  listMetrics(
+    args: ListMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMetricsCommandOutput>;
+  listMetrics(
+    args: ListMetricsCommandInput,
+    cb: (err: any, data?: ListMetricsCommandOutput) => void
+  ): void;
+  listMetrics(
+    args: ListMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMetricsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNotificationsCommand}
    */
   listNotifications(
@@ -7009,6 +7123,23 @@ export interface Connect {
     args: SearchHoursOfOperationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchHoursOfOperationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchMetricsCommand}
+   */
+  searchMetrics(
+    args: SearchMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchMetricsCommandOutput>;
+  searchMetrics(
+    args: SearchMetricsCommandInput,
+    cb: (err: any, data?: SearchMetricsCommandOutput) => void
+  ): void;
+  searchMetrics(
+    args: SearchMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchMetricsCommandOutput) => void
   ): void;
 
   /**
@@ -8221,6 +8352,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateMetricContentCommand}
+   */
+  updateMetricContent(
+    args: UpdateMetricContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMetricContentCommandOutput>;
+  updateMetricContent(
+    args: UpdateMetricContentCommandInput,
+    cb: (err: any, data?: UpdateMetricContentCommandOutput) => void
+  ): void;
+  updateMetricContent(
+    args: UpdateMetricContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMetricContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMetricMetadataCommand}
+   */
+  updateMetricMetadata(
+    args: UpdateMetricMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMetricMetadataCommandOutput>;
+  updateMetricMetadata(
+    args: UpdateMetricMetadataCommandInput,
+    cb: (err: any, data?: UpdateMetricMetadataCommandOutput) => void
+  ): void;
+  updateMetricMetadata(
+    args: UpdateMetricMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMetricMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateNotificationContentCommand}
    */
   updateNotificationContent(
@@ -9303,6 +9468,17 @@ export interface Connect {
   ): Paginator<ListLexBotsCommandOutput>;
 
   /**
+   * @see {@link ListMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListMetricsCommandOutput}.
+   */
+  paginateListMetrics(
+    args: ListMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListMetricsCommandOutput>;
+
+  /**
    * @see {@link ListPhoneNumbersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -9708,6 +9884,17 @@ export interface Connect {
     args: SearchHoursOfOperationsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<SearchHoursOfOperationsCommandOutput>;
+
+  /**
+   * @see {@link SearchMetricsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link SearchMetricsCommandOutput}.
+   */
+  paginateSearchMetrics(
+    args: SearchMetricsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<SearchMetricsCommandOutput>;
 
   /**
    * @see {@link SearchPredefinedAttributesCommand}

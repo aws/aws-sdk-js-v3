@@ -140,6 +140,8 @@ import {
   AutoEvaluationDetails$,
   AutoEvaluationStatus,
   AutomaticFailConfiguration$,
+  AvailableFilter$,
+  AvailableFilterType,
   AvailableNumberSummary$,
   BatchAssociateAnalyticsDataSet$,
   BatchAssociateAnalyticsDataSetCommand,
@@ -189,6 +191,7 @@ import {
   BehaviorType,
   BooleanComparisonType,
   BooleanCondition$,
+  CalculationComponent$,
   Campaign$,
   CaseSlaConfiguration$,
   Channel,
@@ -350,6 +353,10 @@ import {
   CreateIntegrationAssociationCommand,
   CreateIntegrationAssociationRequest$,
   CreateIntegrationAssociationResponse$,
+  CreateMetric$,
+  CreateMetricCommand,
+  CreateMetricRequest$,
+  CreateMetricResponse$,
   CreateNotification$,
   CreateNotificationCommand,
   CreateNotificationRequest$,
@@ -533,6 +540,10 @@ import {
   DeleteIntegrationAssociation$,
   DeleteIntegrationAssociationCommand,
   DeleteIntegrationAssociationRequest$,
+  DeleteMetric$,
+  DeleteMetricCommand,
+  DeleteMetricRequest$,
+  DeleteMetricResponse$,
   DeleteNotification$,
   DeleteNotificationCommand,
   DeleteNotificationRequest$,
@@ -679,6 +690,10 @@ import {
   DescribeInstanceStorageConfigCommand,
   DescribeInstanceStorageConfigRequest$,
   DescribeInstanceStorageConfigResponse$,
+  DescribeMetric$,
+  DescribeMetricCommand,
+  DescribeMetricRequest$,
+  DescribeMetricResponse$,
   DescribeNotification$,
   DescribeNotificationCommand,
   DescribeNotificationRequest$,
@@ -1242,6 +1257,10 @@ import {
   ListLexBotsCommand,
   ListLexBotsRequest$,
   ListLexBotsResponse$,
+  ListMetrics$,
+  ListMetricsCommand,
+  ListMetricsRequest$,
+  ListMetricsResponse$,
   ListNotifications$,
   ListNotificationsCommand,
   ListNotificationsRequest$,
@@ -1400,10 +1419,26 @@ import {
   Meeting$,
   MeetingFeaturesConfiguration$,
   MeetingFeatureStatus,
+  MetricCalculation$,
+  MetricCreationMethod,
   MetricDataV2$,
+  MetricDefinition$,
+  MetricFilter$,
+  MetricFilterBooleanCondition$,
+  MetricFilterBooleanConditionComparison,
+  MetricFilterNumberCondition$,
+  MetricFilterNumberConditionComparison,
+  MetricFilterStringCondition$,
+  MetricFilterStringConditionComparison,
   MetricFilterV2$,
   MetricInterval$,
   MetricResultV2$,
+  MetricSearchCriteria$,
+  MetricSearchFilter$,
+  MetricStatus,
+  MetricSummary$,
+  MetricType,
+  MetricUnit,
   MetricV2$,
   MonitorCapability,
   MonitorContact$,
@@ -1488,6 +1523,7 @@ import {
   paginateListIntegrationAssociations,
   paginateListLambdaFunctions,
   paginateListLexBots,
+  paginateListMetrics,
   paginateListPhoneNumbers,
   paginateListPhoneNumbersV2,
   paginateListPredefinedAttributes,
@@ -1525,6 +1561,7 @@ import {
   paginateSearchDataTables,
   paginateSearchHoursOfOperationOverrides,
   paginateSearchHoursOfOperations,
+  paginateSearchMetrics,
   paginateSearchPredefinedAttributes,
   paginateSearchPrompts,
   paginateSearchQueues,
@@ -1776,6 +1813,10 @@ import {
   SearchHoursOfOperationsCommand,
   SearchHoursOfOperationsRequest$,
   SearchHoursOfOperationsResponse$,
+  SearchMetrics$,
+  SearchMetricsCommand,
+  SearchMetricsRequest$,
+  SearchMetricsResponse$,
   SearchNotifications$,
   SearchNotificationsCommand,
   SearchNotificationsRequest$,
@@ -2033,6 +2074,7 @@ import {
   TransferContactCommand,
   TransferContactRequest$,
   TransferContactResponse$,
+  TrendIndicator,
   Unit,
   UntagContact$,
   UntagContactCommand,
@@ -2132,6 +2174,14 @@ import {
   UpdateInstanceStorageConfig$,
   UpdateInstanceStorageConfigCommand,
   UpdateInstanceStorageConfigRequest$,
+  UpdateMetricContent$,
+  UpdateMetricContentCommand,
+  UpdateMetricContentRequest$,
+  UpdateMetricContentResponse$,
+  UpdateMetricMetadata$,
+  UpdateMetricMetadataCommand,
+  UpdateMetricMetadataRequest$,
+  UpdateMetricMetadataResponse$,
   UpdateNotificationContent$,
   UpdateNotificationContentCommand,
   UpdateNotificationContentRequest$,
@@ -2440,6 +2490,8 @@ assert(typeof CreateInstanceCommand === "function");
 assert(typeof CreateInstance$ === "object");
 assert(typeof CreateIntegrationAssociationCommand === "function");
 assert(typeof CreateIntegrationAssociation$ === "object");
+assert(typeof CreateMetricCommand === "function");
+assert(typeof CreateMetric$ === "object");
 assert(typeof CreateNotificationCommand === "function");
 assert(typeof CreateNotification$ === "object");
 assert(typeof CreateParticipantCommand === "function");
@@ -2518,6 +2570,8 @@ assert(typeof DeleteInstanceCommand === "function");
 assert(typeof DeleteInstance$ === "object");
 assert(typeof DeleteIntegrationAssociationCommand === "function");
 assert(typeof DeleteIntegrationAssociation$ === "object");
+assert(typeof DeleteMetricCommand === "function");
+assert(typeof DeleteMetric$ === "object");
 assert(typeof DeleteNotificationCommand === "function");
 assert(typeof DeleteNotification$ === "object");
 assert(typeof DeletePredefinedAttributeCommand === "function");
@@ -2596,6 +2650,8 @@ assert(typeof DescribeInstanceAttributeCommand === "function");
 assert(typeof DescribeInstanceAttribute$ === "object");
 assert(typeof DescribeInstanceStorageConfigCommand === "function");
 assert(typeof DescribeInstanceStorageConfig$ === "object");
+assert(typeof DescribeMetricCommand === "function");
+assert(typeof DescribeMetric$ === "object");
 assert(typeof DescribeNotificationCommand === "function");
 assert(typeof DescribeNotification$ === "object");
 assert(typeof DescribePhoneNumberCommand === "function");
@@ -2770,6 +2826,8 @@ assert(typeof ListLambdaFunctionsCommand === "function");
 assert(typeof ListLambdaFunctions$ === "object");
 assert(typeof ListLexBotsCommand === "function");
 assert(typeof ListLexBots$ === "object");
+assert(typeof ListMetricsCommand === "function");
+assert(typeof ListMetrics$ === "object");
 assert(typeof ListNotificationsCommand === "function");
 assert(typeof ListNotifications$ === "object");
 assert(typeof ListPhoneNumbersCommand === "function");
@@ -2878,6 +2936,8 @@ assert(typeof SearchHoursOfOperationOverridesCommand === "function");
 assert(typeof SearchHoursOfOperationOverrides$ === "object");
 assert(typeof SearchHoursOfOperationsCommand === "function");
 assert(typeof SearchHoursOfOperations$ === "object");
+assert(typeof SearchMetricsCommand === "function");
+assert(typeof SearchMetrics$ === "object");
 assert(typeof SearchNotificationsCommand === "function");
 assert(typeof SearchNotifications$ === "object");
 assert(typeof SearchPredefinedAttributesCommand === "function");
@@ -3020,6 +3080,10 @@ assert(typeof UpdateInstanceAttributeCommand === "function");
 assert(typeof UpdateInstanceAttribute$ === "object");
 assert(typeof UpdateInstanceStorageConfigCommand === "function");
 assert(typeof UpdateInstanceStorageConfig$ === "object");
+assert(typeof UpdateMetricContentCommand === "function");
+assert(typeof UpdateMetricContent$ === "object");
+assert(typeof UpdateMetricMetadataCommand === "function");
+assert(typeof UpdateMetricMetadata$ === "object");
 assert(typeof UpdateNotificationContentCommand === "function");
 assert(typeof UpdateNotificationContent$ === "object");
 assert(typeof UpdateParticipantAuthenticationCommand === "function");
@@ -3184,6 +3248,7 @@ assert(typeof AutoAcceptConfig$ === "object");
 assert(typeof AutoEvaluationConfiguration$ === "object");
 assert(typeof AutoEvaluationDetails$ === "object");
 assert(typeof AutomaticFailConfiguration$ === "object");
+assert(typeof AvailableFilter$ === "object");
 assert(typeof AvailableNumberSummary$ === "object");
 assert(typeof BatchAssociateAnalyticsDataSetRequest$ === "object");
 assert(typeof BatchAssociateAnalyticsDataSetResponse$ === "object");
@@ -3212,6 +3277,7 @@ assert(typeof BatchUpdateDataTableValueRequest$ === "object");
 assert(typeof BatchUpdateDataTableValueResponse$ === "object");
 assert(typeof BatchUpdateDataTableValueSuccessResult$ === "object");
 assert(typeof BooleanCondition$ === "object");
+assert(typeof CalculationComponent$ === "object");
 assert(typeof Campaign$ === "object");
 assert(typeof CaseSlaConfiguration$ === "object");
 assert(typeof ChatContactMetrics$ === "object");
@@ -3303,6 +3369,8 @@ assert(typeof CreateInstanceRequest$ === "object");
 assert(typeof CreateInstanceResponse$ === "object");
 assert(typeof CreateIntegrationAssociationRequest$ === "object");
 assert(typeof CreateIntegrationAssociationResponse$ === "object");
+assert(typeof CreateMetricRequest$ === "object");
+assert(typeof CreateMetricResponse$ === "object");
 assert(typeof CreateNotificationRequest$ === "object");
 assert(typeof CreateNotificationResponse$ === "object");
 assert(typeof CreateParticipantRequest$ === "object");
@@ -3401,6 +3469,8 @@ assert(typeof DeleteHoursOfOperationOverrideRequest$ === "object");
 assert(typeof DeleteHoursOfOperationRequest$ === "object");
 assert(typeof DeleteInstanceRequest$ === "object");
 assert(typeof DeleteIntegrationAssociationRequest$ === "object");
+assert(typeof DeleteMetricRequest$ === "object");
+assert(typeof DeleteMetricResponse$ === "object");
 assert(typeof DeleteNotificationRequest$ === "object");
 assert(typeof DeleteNotificationResponse$ === "object");
 assert(typeof DeletePredefinedAttributeRequest$ === "object");
@@ -3469,6 +3539,8 @@ assert(typeof DescribeInstanceRequest$ === "object");
 assert(typeof DescribeInstanceResponse$ === "object");
 assert(typeof DescribeInstanceStorageConfigRequest$ === "object");
 assert(typeof DescribeInstanceStorageConfigResponse$ === "object");
+assert(typeof DescribeMetricRequest$ === "object");
+assert(typeof DescribeMetricResponse$ === "object");
 assert(typeof DescribeNotificationRequest$ === "object");
 assert(typeof DescribeNotificationResponse$ === "object");
 assert(typeof DescribePhoneNumberRequest$ === "object");
@@ -3785,6 +3857,8 @@ assert(typeof ListLambdaFunctionsRequest$ === "object");
 assert(typeof ListLambdaFunctionsResponse$ === "object");
 assert(typeof ListLexBotsRequest$ === "object");
 assert(typeof ListLexBotsResponse$ === "object");
+assert(typeof ListMetricsRequest$ === "object");
+assert(typeof ListMetricsResponse$ === "object");
 assert(typeof ListNotificationsRequest$ === "object");
 assert(typeof ListNotificationsResponse$ === "object");
 assert(typeof ListPhoneNumbersRequest$ === "object");
@@ -3864,10 +3938,19 @@ assert(typeof MediaItem$ === "object");
 assert(typeof MediaPlacement$ === "object");
 assert(typeof Meeting$ === "object");
 assert(typeof MeetingFeaturesConfiguration$ === "object");
+assert(typeof MetricCalculation$ === "object");
 assert(typeof MetricDataV2$ === "object");
+assert(typeof MetricDefinition$ === "object");
+assert(typeof MetricFilter$ === "object");
+assert(typeof MetricFilterBooleanCondition$ === "object");
+assert(typeof MetricFilterNumberCondition$ === "object");
+assert(typeof MetricFilterStringCondition$ === "object");
 assert(typeof MetricFilterV2$ === "object");
 assert(typeof MetricInterval$ === "object");
 assert(typeof MetricResultV2$ === "object");
+assert(typeof MetricSearchCriteria$ === "object");
+assert(typeof MetricSearchFilter$ === "object");
+assert(typeof MetricSummary$ === "object");
 assert(typeof MetricV2$ === "object");
 assert(typeof MonitorContactRequest$ === "object");
 assert(typeof MonitorContactResponse$ === "object");
@@ -4049,6 +4132,8 @@ assert(typeof SearchHoursOfOperationOverridesRequest$ === "object");
 assert(typeof SearchHoursOfOperationOverridesResponse$ === "object");
 assert(typeof SearchHoursOfOperationsRequest$ === "object");
 assert(typeof SearchHoursOfOperationsResponse$ === "object");
+assert(typeof SearchMetricsRequest$ === "object");
+assert(typeof SearchMetricsResponse$ === "object");
 assert(typeof SearchNotificationsRequest$ === "object");
 assert(typeof SearchNotificationsResponse$ === "object");
 assert(typeof SearchPredefinedAttributesRequest$ === "object");
@@ -4236,6 +4321,10 @@ assert(typeof UpdateHoursOfOperationOverrideRequest$ === "object");
 assert(typeof UpdateHoursOfOperationRequest$ === "object");
 assert(typeof UpdateInstanceAttributeRequest$ === "object");
 assert(typeof UpdateInstanceStorageConfigRequest$ === "object");
+assert(typeof UpdateMetricContentRequest$ === "object");
+assert(typeof UpdateMetricContentResponse$ === "object");
+assert(typeof UpdateMetricMetadataRequest$ === "object");
+assert(typeof UpdateMetricMetadataResponse$ === "object");
 assert(typeof UpdateNotificationContentRequest$ === "object");
 assert(typeof UpdateNotificationContentResponse$ === "object");
 assert(typeof UpdateParticipantAuthenticationRequest$ === "object");
@@ -4363,6 +4452,7 @@ assert(typeof AttachedFileServiceQuotaExceededExceptionReason === "object");
 assert(typeof AttachmentScope === "object");
 assert(typeof AuthCodeEntityType === "object");
 assert(typeof AutoEvaluationStatus === "object");
+assert(typeof AvailableFilterType === "object");
 assert(typeof Behavior === "object");
 assert(typeof BehaviorType === "object");
 assert(typeof BooleanComparisonType === "object");
@@ -4448,6 +4538,13 @@ assert(typeof MaskMode === "object");
 assert(typeof MediaStreamType === "object");
 assert(typeof MediaType === "object");
 assert(typeof MeetingFeatureStatus === "object");
+assert(typeof MetricCreationMethod === "object");
+assert(typeof MetricFilterBooleanConditionComparison === "object");
+assert(typeof MetricFilterNumberConditionComparison === "object");
+assert(typeof MetricFilterStringConditionComparison === "object");
+assert(typeof MetricStatus === "object");
+assert(typeof MetricType === "object");
+assert(typeof MetricUnit === "object");
 assert(typeof MonitorCapability === "object");
 assert(typeof MultiSelectQuestionRuleCategoryAutomationCondition === "object");
 assert(typeof NextContactType === "object");
@@ -4522,6 +4619,7 @@ assert(typeof TestCaseStatus === "object");
 assert(typeof TimerEligibleParticipantRoles === "object");
 assert(typeof TrafficDistributionGroupStatus === "object");
 assert(typeof TrafficType === "object");
+assert(typeof TrendIndicator === "object");
 assert(typeof Unit === "object");
 assert(typeof UseCaseType === "object");
 assert(typeof VideoCapability === "object");
@@ -4629,6 +4727,7 @@ assert(typeof paginateListInstances === "function");
 assert(typeof paginateListIntegrationAssociations === "function");
 assert(typeof paginateListLambdaFunctions === "function");
 assert(typeof paginateListLexBots === "function");
+assert(typeof paginateListMetrics === "function");
 assert(typeof paginateListPhoneNumbers === "function");
 assert(typeof paginateListPhoneNumbersV2 === "function");
 assert(typeof paginateListPredefinedAttributes === "function");
@@ -4666,6 +4765,7 @@ assert(typeof paginateSearchContacts === "function");
 assert(typeof paginateSearchDataTables === "function");
 assert(typeof paginateSearchHoursOfOperationOverrides === "function");
 assert(typeof paginateSearchHoursOfOperations === "function");
+assert(typeof paginateSearchMetrics === "function");
 assert(typeof paginateSearchPredefinedAttributes === "function");
 assert(typeof paginateSearchPrompts === "function");
 assert(typeof paginateSearchQueues === "function");

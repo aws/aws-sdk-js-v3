@@ -21,6 +21,8 @@ import type {
   DecimalComparisonType,
   DirectoryType,
   EntityType,
+  EvaluationFormValidationFindingSeverity,
+  EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   EvaluationStatus,
   EvaluationType,
@@ -38,11 +40,14 @@ import type {
   ListFlowAssociationResourceType,
   LocaleCode,
   MediaType,
+  MetricStatus,
+  MetricType,
   MonitorCapability,
   NotificationPriority,
   NotificationSource,
   NotificationStatus,
   NumberComparisonType,
+  OperationalStatus,
   ParticipantRole,
   PerformanceCategoryName,
   PhoneNumberCountryCode,
@@ -60,11 +65,6 @@ import type {
   ReferenceType,
   RuleCapabilityTier,
   RulePublishStatus,
-  SearchContactsMatchType,
-  SearchContactsTimeRangeConditionType,
-  SearchContactsTimeRangeType,
-  SortableFieldName,
-  SortOrder,
   SourceType,
   Statistic,
   TaskTemplateStatus,
@@ -80,10 +80,8 @@ import type {
 import type {
   ActionSummary,
   AgentConfig,
-  AgentHierarchyGroups,
   AgentStatus,
   AgentStatusSummary,
-  AiAgentsCriteria,
   AnalyticsDataAssociationResult,
   Application,
   ControlPlaneAttributeFilter,
@@ -94,6 +92,7 @@ import type {
   InstanceStorageConfig,
   LexBot,
   LexV2Bot,
+  OverrideTimeSlice,
   PrimaryValueResponse,
   SecurityProfileItem,
   TagCondition,
@@ -116,7 +115,362 @@ import type {
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
+  UserData,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCurrentUserDataResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of the user data that is returned.</p>
+   * @public
+   */
+  UserDataList?: UserData[] | undefined;
+
+  /**
+   * <p>The total count of the result, regardless of the current page size.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEffectiveHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the hours of operation.</p>
+   * @public
+   */
+  HoursOfOperationId: string | undefined;
+
+  /**
+   * <p>The date from when the hours of operation are listed.</p>
+   * @public
+   */
+  FromDate: string | undefined;
+
+  /**
+   * <p>The date until when the hours of operation are listed.</p>
+   * @public
+   */
+  ToDate: string | undefined;
+}
+
+/**
+ * <p>Information about the hours of operations with the effective override applied.</p>
+ * @public
+ */
+export interface OperationalHour {
+  /**
+   * <p>The start time that your contact center opens.</p>
+   * @public
+   */
+  Start?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The end time that your contact center closes.</p>
+   * @public
+   */
+  End?: OverrideTimeSlice | undefined;
+}
+
+/**
+ * <p>Information about the hours of operations with the effective override applied.</p>
+ * @public
+ */
+export interface EffectiveHoursOfOperations {
+  /**
+   * <p>The date that the hours of operation or overrides applies to.</p>
+   * @public
+   */
+  Date?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operations with the effective override applied.</p>
+   * @public
+   */
+  OperationalHours?: OperationalHour[] | undefined;
+}
+
+/**
+ * <p>Information about hours of operation override</p>
+ * @public
+ */
+export interface OverrideHour {
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  Start?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>The start time or end time for an hours of operation override.</p>
+   * @public
+   */
+  End?: OverrideTimeSlice | undefined;
+
+  /**
+   * <p>Unique identifier name for the override.</p>
+   * @public
+   */
+  OverrideName?: string | undefined;
+
+  /**
+   * <p>Indicates whether the status is open or closed during the override period. This status determines how the override modifies the base hours of operation schedule.</p>
+   * @public
+   */
+  OperationalStatus?: OperationalStatus | undefined;
+}
+
+/**
+ * <p>Information about the hours of operation overrides which contribute to effective hours of operations.</p>
+ * @public
+ */
+export interface EffectiveOverrideHours {
+  /**
+   * <p>The date that the hours of operation override applies to.</p>
+   * @public
+   */
+  Date?: string | undefined;
+
+  /**
+   * <p>Information about the hours of operation overrides that apply to a specific date.</p>
+   * @public
+   */
+  OverrideHours?: OverrideHour[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEffectiveHoursOfOperationsResponse {
+  /**
+   * <p>Information about the effective hours of operations.</p>
+   * @public
+   */
+  EffectiveHoursOfOperationList?: EffectiveHoursOfOperations[] | undefined;
+
+  /**
+   * <p>Information about override configurations applied to the base hours of operation to calculate the effective hours.</p>
+   *          <p>For more information about how override types are applied, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/hours-of-operation-overrides.html">Build your list of overrides</a> in the
+   *      <i> Administrator Guide</i>.</p>
+   * @public
+   */
+  EffectiveOverrideHoursList?: EffectiveOverrideHours[] | undefined;
+
+  /**
+   * <p>The time zone for the hours of operation.</p>
+   * @public
+   */
+  TimeZone?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEvaluationFormValidationRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>The version of the evaluation form to retrieve validation results for.</p>
+   * @public
+   */
+  EvaluationFormVersion?: number | undefined;
+}
+
+/**
+ * <p>Information about an evaluation form item affected by a validation finding.</p>
+ * @public
+ */
+export interface EvaluationFormValidationFindingItem {
+  /**
+   * <p>The identifier of the evaluation form item (question or section) affected by the finding.</p>
+   * @public
+   */
+  RefId?: string | undefined;
+
+  /**
+   * <p>The specific property of the evaluation form item that the finding relates to.</p>
+   * @public
+   */
+  Property?: string | undefined;
+}
+
+/**
+ * <p>Information about a finding from the evaluation form validation process. Each finding identifies a structural
+ *    issue or quality improvement opportunity for the evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormValidationFinding {
+  /**
+   * <p>A code that identifies the type of validation issue found.</p>
+   * @public
+   */
+  IssueCode: string | undefined;
+
+  /**
+   * <p>A list of evaluation form items affected by this finding.</p>
+   * @public
+   */
+  Items?: EvaluationFormValidationFindingItem[] | undefined;
+
+  /**
+   * <p>A description of the validation issue.</p>
+   * @public
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>A suggested fix for the validation issue.</p>
+   * @public
+   */
+  Suggestion?: string | undefined;
+
+  /**
+   * <p>The severity of the finding. Valid values: <code>WARNING</code>, <code>ERROR</code>.</p>
+   * @public
+   */
+  Severity: EvaluationFormValidationFindingSeverity | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEvaluationFormValidationResponse {
+  /**
+   * <p>The current status of the validation process. Valid values: <code>IN_PROGRESS</code>,
+   *    <code>COMPLETED</code>, <code>FAILED</code>.</p>
+   * @public
+   */
+  Status: EvaluationFormValidationStatus | undefined;
+
+  /**
+   * <p>The reason the validation failed. This field is populated only when the status is
+   *    <code>FAILED</code>.</p>
+   * @public
+   */
+  FailureReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>The timestamp when the validation process was started.</p>
+   * @public
+   */
+  StartedTime: Date | undefined;
+
+  /**
+   * <p>A list of findings from the validation process. Each finding identifies a structural issue or quality
+   *    improvement for the evaluation form, and may include a suggested fix. This field is populated when the status is
+   *    <code>COMPLETED</code>.</p>
+   * @public
+   */
+  Findings?: EvaluationFormValidationFinding[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFederationTokenRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+}
+
+/**
+ * <p>Contains credentials to use for federation.</p>
+ * @public
+ */
+export interface Credentials {
+  /**
+   * <p>An access token generated for a federated user to access Connect Customer.</p>
+   * @public
+   */
+  AccessToken?: string | undefined;
+
+  /**
+   * <p>A token generated with an expiration time for the session a user is logged in to Connect Customer.</p>
+   * @public
+   */
+  AccessTokenExpiration?: Date | undefined;
+
+  /**
+   * <p>Renews a token generated for a user to access the Connect Customer instance.</p>
+   * @public
+   */
+  RefreshToken?: string | undefined;
+
+  /**
+   * <p>Renews the expiration timer for a generated token.</p>
+   * @public
+   */
+  RefreshTokenExpiration?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFederationTokenResponse {
+  /**
+   * <p>The identifier for the user. This can be the ID or the ARN of the user.</p>
+   * @public
+   */
+  UserId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   * @public
+   */
+  UserArn?: string | undefined;
+
+  /**
+   * <p>The credentials to use for federation.</p>
+   * @public
+   */
+  Credentials?: Credentials | undefined;
+
+  /**
+   * <p>The URL to sign into the user's instance. </p>
+   * @public
+   */
+  SignInUrl?: string | undefined;
+}
 
 /**
  * @public
@@ -6072,6 +6426,101 @@ export interface ListLexBotsResponse {
 /**
  * @public
  */
+export interface ListMetricsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The type of metrics to list. Valid values: <code>AWS_MANAGED</code> | <code>CUSTOMER_MANAGED</code>.</p>
+   * @public
+   */
+  Type?: MetricType | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a metric.</p>
+ * @public
+ */
+export interface MetricSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the metric.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The identifier of the metric.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The publish status of the metric.</p>
+   * @public
+   */
+  Status: MetricStatus | undefined;
+
+  /**
+   * <p>The type of the metric.</p>
+   * @public
+   */
+  Type: MetricType | undefined;
+
+  /**
+   * <p>The region where the metric was last modified.</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the metric was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMetricsResponse {
+  /**
+   * <p>The list of metric summaries.</p>
+   * @public
+   */
+  MetricSummaryList: MetricSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListNotificationsRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -10455,401 +10904,4 @@ export interface SearchContactFlowsResponse {
    * @public
    */
   ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>A structure of time range that you want to search results.</p>
- * @public
- */
-export interface SearchContactsTimeRange {
-  /**
-   * <p>The type of timestamp to search.</p>
-   * @public
-   */
-  Type: SearchContactsTimeRangeType | undefined;
-
-  /**
-   * <p>The start time of the time range.</p>
-   * @public
-   */
-  StartTime: Date | undefined;
-
-  /**
-   * <p>The end time of the time range.</p>
-   * @public
-   */
-  EndTime: Date | undefined;
-}
-
-/**
- * <p>The timestamp condition indicating which contact timestamp should be used and how it should be filtered. It is
- *    not an actual timestamp value. </p>
- * @public
- */
-export interface SearchContactsTimestampCondition {
-  /**
-   * <p>Type of the timestamps to use for the filter.</p>
-   * @public
-   */
-  Type: SearchContactsTimeRangeType | undefined;
-
-  /**
-   * <p>Condition of the timestamp on the contact.</p>
-   * @public
-   */
-  ConditionType: SearchContactsTimeRangeConditionType | undefined;
-}
-
-/**
- * <p>The criteria of the time range to additionally filter on.</p>
- * @public
- */
-export interface SearchContactsAdditionalTimeRangeCriteria {
-  /**
-   * <p>A structure of time range that you want to search results.</p>
-   * @public
-   */
-  TimeRange?: SearchContactsTimeRange | undefined;
-
-  /**
-   * <p>List of the timestamp conditions.</p>
-   * @public
-   */
-  TimestampCondition?: SearchContactsTimestampCondition | undefined;
-}
-
-/**
- * <p>Time range that you <b>additionally</b> want to filter on.</p>
- *          <note>
- *             <p>This is different from the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchContactsTimeRange.html">SearchContactsTimeRange</a> data
- *     type.</p>
- *          </note>
- * @public
- */
-export interface SearchContactsAdditionalTimeRange {
-  /**
-   * <p>List of criteria of the time range to additionally filter on.</p>
-   * @public
-   */
-  Criteria: SearchContactsAdditionalTimeRangeCriteria[] | undefined;
-
-  /**
-   * <p>The match type combining multiple time range filters.</p>
-   * @public
-   */
-  MatchType: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>A structure that defines search criteria base on words or phrases, participants in the Contact Lens
- *    conversational analytics transcript.</p>
- * @public
- */
-export interface TranscriptCriteria {
-  /**
-   * <p>The participant role in a transcript</p>
-   * @public
-   */
-  ParticipantRole: ParticipantRole | undefined;
-
-  /**
-   * <p>The words or phrases used to search within a transcript.</p>
-   * @public
-   */
-  SearchText: string[] | undefined;
-
-  /**
-   * <p>The match type combining search criteria using multiple search texts in a transcript criteria.</p>
-   * @public
-   */
-  MatchType: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>A structure that defines search criteria and matching logic to search for contacts by matching text with
- *    transcripts analyzed by Connect Customer Contact Lens.</p>
- * @public
- */
-export interface Transcript {
-  /**
-   * <p>The list of search criteria based on Contact Lens conversational analytics transcript.</p>
-   * @public
-   */
-  Criteria: TranscriptCriteria[] | undefined;
-
-  /**
-   * <p>The match type combining search criteria using multiple transcript criteria.</p>
-   * @public
-   */
-  MatchType?: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>A structure that defines search criteria for contacts using analysis outputs from Connect Customer Contact
- *    Lens.</p>
- * @public
- */
-export interface ContactAnalysis {
-  /**
-   * <p>Search criteria based on transcript analyzed by Connect Customer Contact Lens.</p>
-   * @public
-   */
-  Transcript?: Transcript | undefined;
-}
-
-/**
- * <p>The search criteria based on the contact name</p>
- * @public
- */
-export interface NameCriteria {
-  /**
-   * <p>The words or phrases used to match the contact name.</p>
-   * @public
-   */
-  SearchText: string[] | undefined;
-
-  /**
-   * <p>The match type combining name search criteria using multiple search texts in a name criteria.</p>
-   * @public
-   */
-  MatchType: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>The agent criteria to search for preferred agents on the routing criteria.</p>
- * @public
- */
-export interface SearchableAgentCriteriaStep {
-  /**
-   * <p>The identifiers of agents used in preferred agents matching.</p>
-   * @public
-   */
-  AgentIds?: string[] | undefined;
-
-  /**
-   * <p>The match type combining multiple agent criteria steps.</p>
-   * @public
-   */
-  MatchType?: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>Routing criteria of the contact to match on.</p>
- * @public
- */
-export interface SearchableRoutingCriteriaStep {
-  /**
-   * <p>Agent matching the routing step of the routing criteria</p>
-   * @public
-   */
-  AgentCriteria?: SearchableAgentCriteriaStep | undefined;
-}
-
-/**
- * <p>Routing criteria of the contact to match on.</p>
- * @public
- */
-export interface SearchableRoutingCriteria {
-  /**
-   * <p>The list of Routing criteria steps of the contact routing.</p>
-   * @public
-   */
-  Steps?: SearchableRoutingCriteriaStep[] | undefined;
-}
-
-/**
- * <p>The search criteria based on user-defined contact attribute key and values to search on.</p>
- * @public
- */
-export interface SearchableContactAttributesCriteria {
-  /**
-   * <p>The key containing a searchable user-defined contact attribute.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The list of values to search for within a user-defined contact attribute.</p>
-   * @public
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>A structure that defines search criteria based on user-defined contact attributes that are configured for
- *    contact search.</p>
- * @public
- */
-export interface SearchableContactAttributes {
-  /**
-   * <p>The list of criteria based on user-defined contact attributes that are configured for contact search.</p>
-   * @public
-   */
-  Criteria: SearchableContactAttributesCriteria[] | undefined;
-
-  /**
-   * <p>The match type combining search criteria using multiple searchable contact attributes.</p>
-   * @public
-   */
-  MatchType?: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>The search criteria based on searchable segment attribute key and values to search on.</p>
- * @public
- */
-export interface SearchableSegmentAttributesCriteria {
-  /**
-   * <p>The key containing a searchable segment attribute.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The list of values to search for within a searchable segment attribute.</p>
-   * @public
-   */
-  Values: string[] | undefined;
-}
-
-/**
- * <p>The search criteria based on searchable segment attributes of a contact</p>
- * @public
- */
-export interface SearchableSegmentAttributes {
-  /**
-   * <p>The list of criteria based on searchable segment attributes.</p>
-   * @public
-   */
-  Criteria: SearchableSegmentAttributesCriteria[] | undefined;
-
-  /**
-   * <p>The match type combining search criteria using multiple searchable segment attributes.</p>
-   * @public
-   */
-  MatchType?: SearchContactsMatchType | undefined;
-}
-
-/**
- * <p>A structure of search criteria to be used to return contacts.</p>
- * @public
- */
-export interface SearchCriteria {
-  /**
-   * <p>Name of the contact.</p>
-   * @public
-   */
-  Name?: NameCriteria | undefined;
-
-  /**
-   * <p>The identifiers of agents who handled the contacts.</p>
-   * @public
-   */
-  AgentIds?: string[] | undefined;
-
-  /**
-   * <p>The agent hierarchy groups of the agent at the time of handling the contact.</p>
-   * @public
-   */
-  AgentHierarchyGroups?: AgentHierarchyGroups | undefined;
-
-  /**
-   * <p>The list of channels associated with contacts.</p>
-   * @public
-   */
-  Channels?: Channel[] | undefined;
-
-  /**
-   * <p>Search criteria based on analysis outputs from Connect Customer Contact Lens.</p>
-   * @public
-   */
-  ContactAnalysis?: ContactAnalysis | undefined;
-
-  /**
-   * <p>The list of initiation methods associated with contacts.</p>
-   * @public
-   */
-  InitiationMethods?: ContactInitiationMethod[] | undefined;
-
-  /**
-   * <p>The list of queue IDs associated with contacts.</p>
-   * @public
-   */
-  QueueIds?: string[] | undefined;
-
-  /**
-   * <p>Routing criteria for the contact.</p>
-   * @public
-   */
-  RoutingCriteria?: SearchableRoutingCriteria | undefined;
-
-  /**
-   * <p>Additional TimeRange used to filter contacts.</p>
-   * @public
-   */
-  AdditionalTimeRange?: SearchContactsAdditionalTimeRange | undefined;
-
-  /**
-   * <p>The search criteria based on user-defined contact attributes that have been configured for contact search. For
-   *    more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/search-custom-attributes.html">Search by custom contact attributes</a> in the <i>Connect Customer Administrator
-   *    Guide</i>.</p>
-   *          <important>
-   *             <p>To use <code>SearchableContactAttributes</code> in a search request, the <code>GetContactAttributes</code>
-   *     action is required to perform an API request. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions">https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazonconnect.html#amazonconnect-actions-as-permissions</a>Actions
-   *     defined by Connect Customer.</p>
-   *          </important>
-   * @public
-   */
-  SearchableContactAttributes?: SearchableContactAttributes | undefined;
-
-  /**
-   * <p>The search criteria based on searchable segment attributes of a contact.</p>
-   * @public
-   */
-  SearchableSegmentAttributes?: SearchableSegmentAttributes | undefined;
-
-  /**
-   * <p>The list of active regions for contacts in ACGR instances.</p>
-   * @public
-   */
-  ActiveRegions?: string[] | undefined;
-
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ContactTags?: ControlPlaneTagFilter | undefined;
-
-  /**
-   * <p>AI Agent search criteria definitions.</p>
-   * @public
-   */
-  AiAgents?: AiAgentsCriteria | undefined;
-}
-
-/**
- * <p>A structure that defines the field name to sort by and a sort order.</p>
- * @public
- */
-export interface Sort {
-  /**
-   * <p>The name of the field on which to sort.</p>
-   * @public
-   */
-  FieldName: SortableFieldName | undefined;
-
-  /**
-   * <p>An ascending or descending sort.</p>
-   * @public
-   */
-  Order: SortOrder | undefined;
 }

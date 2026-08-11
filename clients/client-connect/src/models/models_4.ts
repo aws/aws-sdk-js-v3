@@ -4,27 +4,37 @@ import type {
   Channel,
   ContactInitiationMethod,
   DisconnectOnCustomerExitParticipantType,
+  EvaluationFormQuestionType,
   EvaluationFormValidationStatus,
   EvaluationFormVersionStatus,
   InitiateAs,
   RoutingCriteriaStepStatus,
+  SearchableQueueType,
+  TestCaseStatus,
+  ViewStatus,
+  ViewType,
 } from "./enums";
 import type {
   AdditionalEmailRecipients,
   AgentInfo,
+  AgentStatusSearchFilter,
   Campaign,
   Endpoint,
   EvaluationFormAutoEvaluationConfiguration,
   EvaluationFormLanguageConfiguration,
+  EvaluationFormQuestionScoringConfiguration,
+  EvaluationFormQuestionTypeProperties,
   EvaluationFormScoreThreshold,
   EvaluationFormScoringStrategy,
   EvaluationFormTargetConfiguration,
   EvaluationReviewConfiguration,
   OutboundStrategy,
   Reference,
+  StringCondition,
   UserInfo,
 } from "./models_0";
 import type {
+  AttributeCondition,
   ChatMetrics,
   ContactDetails,
   ContactEvaluation,
@@ -42,64 +52,831 @@ import type {
   TaskTemplateInfoV2,
   WisdomInfo,
 } from "./models_1";
-import type { ContactFlowSearchFilter } from "./models_2";
 import type {
+  BooleanCondition,
+  ContactFlowModuleSearchFilter,
+  ContactFlowSearchFilter,
+  EvaluationSearchFilter,
+} from "./models_2";
+import type {
+  AgentStatusSearchCriteria,
   ChatMessage,
+  ContactFlowModuleSearchCriteria,
   ContactFlowSearchCriteria,
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryAiAgentInfo,
   ContactSearchSummaryQueueInfo,
   DataTableSearchCriteria,
   DataTableSearchFilter,
+  DateCondition,
   EmailAddressInfo,
   EmailAddressSearchCriteria,
   EmailAddressSearchFilter,
   EmailAttachment,
-  EvaluationFormQuestion,
+  EvaluationFormItemEnablementConfiguration,
   EvaluationFormSearchCriteria,
   EvaluationFormSearchFilter,
-  Expression,
-  HoursOfOperationOverrideSearchCriteria,
-  HoursOfOperationSearchCriteria,
+  EvaluationSearchCriteria,
+  HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
   InboundEmailContent,
-  NotificationSearchCriteria,
+  ListCondition,
+  MetricSearchFilter,
   NotificationSearchFilter,
   ParticipantConfiguration,
   ParticipantDetails,
   PersistentChat,
-  PredefinedAttributeSearchCriteria,
-  PromptSearchCriteria,
   PromptSearchFilter,
   QueueInfoInput,
-  QueueSearchCriteria,
   QueueSearchFilter,
-  QuickConnectSearchCriteria,
   QuickConnectSearchFilter,
-  RoutingCriteriaInputStep,
-  RoutingProfileSearchCriteria,
+  RoutingCriteriaInputStepExpiry,
   RoutingProfileSearchFilter,
-  RulesSearchCriteria,
   RulesSearchFilter,
-  SecurityProfileSearchCriteria,
   SecurityProfilesSearchFilter,
-  SegmentAttributeValue,
   TaskAttachment,
   TemplatedMessageConfig,
-  TestCaseSearchCriteria,
   TestCaseSearchFilter,
-  UserHierarchyGroupSearchCriteria,
   UserHierarchyGroupSearchFilter,
-  UserSearchCriteria,
   UserSearchFilter,
-  ViewSearchCriteria,
   ViewSearchFilter,
-  WorkspaceAssociationSearchCriteria,
   WorkspaceAssociationSearchFilter,
-  WorkspaceSearchCriteria,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * <p>A tagged union to specify expression for a routing step.</p>
+ * @public
+ */
+export interface Expression {
+  /**
+   * <p>An object to specify the predefined attribute condition.</p>
+   * @public
+   */
+  AttributeCondition?: AttributeCondition | undefined;
+
+  /**
+   * <p>List of routing expressions which will be AND-ed together.</p>
+   * @public
+   */
+  AndExpression?: Expression[] | undefined;
+
+  /**
+   * <p>List of routing expressions which will be OR-ed together.</p>
+   * @public
+   */
+  OrExpression?: Expression[] | undefined;
+
+  /**
+   * <p>An object to specify the predefined attribute condition.</p>
+   * @public
+   */
+  NotAttributeCondition?: AttributeCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return hours of operations overrides.</p>
+ * @public
+ */
+export interface HoursOfOperationOverrideSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: HoursOfOperationOverrideSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: HoursOfOperationOverrideSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a date condition.</p>
+   * @public
+   */
+  DateCondition?: DateCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return hours of operations.</p>
+ * @public
+ */
+export interface HoursOfOperationSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: HoursOfOperationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: HoursOfOperationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>,
+   *      <code>timezone</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>Defines the search criteria for filtering metrics.</p>
+ * @public
+ */
+export interface MetricSearchCriteria {
+  /**
+   * <p>A list of conditions to be met, where at least one condition must be satisfied.</p>
+   * @public
+   */
+  OrConditions?: MetricSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions that must all be satisfied.</p>
+   * @public
+   */
+  AndConditions?: MetricSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A boolean search condition for Search APIs.</p>
+   * @public
+   */
+  BooleanCondition?: BooleanCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return notifications.</p>
+ * @public
+ */
+export interface NotificationSearchCriteria {
+  /**
+   * <p>A list of conditions to be met, where at least one condition must be satisfied.</p>
+   * @public
+   */
+  OrConditions?: NotificationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions that must all be satisfied.</p>
+   * @public
+   */
+  AndConditions?: NotificationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return predefined attributes.</p>
+ * @public
+ */
+export interface PredefinedAttributeSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  OrConditions?: PredefinedAttributeSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  AndConditions?: PredefinedAttributeSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return prompts.</p>
+ * @public
+ */
+export interface PromptSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: PromptSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: PromptSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and
+   *      <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return queues.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results. </p>
+ *          </note>
+ * @public
+ */
+export interface QueueSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: QueueSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: QueueSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and
+   *      <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>The type of queue.</p>
+   * @public
+   */
+  QueueTypeCondition?: SearchableQueueType | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return quick connects.</p>
+ * @public
+ */
+export interface QuickConnectSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: QuickConnectSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: QuickConnectSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>, and
+   *      <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return routing profiles.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results. </p>
+ *          </note>
+ * @public
+ */
+export interface RoutingProfileSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: RoutingProfileSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: RoutingProfileSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>associatedQueueIds</code>,
+   *      <code>name</code>, <code>description</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return rules.</p>
+ * @public
+ */
+export interface RulesSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: RulesSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: RulesSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>Name</code>,
+   *      <code>PublishStatus</code>, <code>EventSourceName</code>, <code>RuleId</code>,
+   *      <code>IntegrationAssociationId</code>, <code>ActionSummaries</code>, and
+   *      <code>RuleCapabilityTiers</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return security profiles.</p>
+ *          <note>
+ *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25
+ *     characters. Any queries with character lengths outside of this range will throw invalid
+ *     results.</p>
+ *          </note>
+ * @public
+ */
+export interface SecurityProfileSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: SecurityProfileSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: SecurityProfileSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>A value for a segment attribute. This is structured as a map where the key is <code>valueString</code> and the
+ *    value is a string.</p>
+ * @public
+ */
+export interface SegmentAttributeValue {
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueString?: string | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueMap?: Record<string, SegmentAttributeValue> | undefined;
+
+  /**
+   * <p>The value of a segment attribute.</p>
+   * @public
+   */
+  ValueInteger?: number | undefined;
+
+  /**
+   * <p>The value of a segment attribute. This is only supported for system-defined attributes, not for user-defined
+   *    attributes.</p>
+   * @public
+   */
+  ValueList?: SegmentAttributeValue[] | undefined;
+
+  /**
+   * <p>The value of a segment attribute that has to be a valid ARN. This is only supported for system-defined
+   *    attributes, not for user-defined attributes.</p>
+   * @public
+   */
+  ValueArn?: string | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return test cases.</p>
+ * @public
+ */
+export interface TestCaseSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: TestCaseSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: TestCaseSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>The status of the test case.</p>
+   * @public
+   */
+  StatusCondition?: TestCaseStatus | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return userHierarchyGroup.</p>
+ * @public
+ */
+export interface UserHierarchyGroupSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: UserHierarchyGroupSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: UserHierarchyGroupSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <note>
+   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>parentId</code>,
+   *      <code>levelId</code>, and <code>resourceID</code>.</p>
+   *          </note>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return users.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results.  </p>
+ *          </note>
+ * @public
+ */
+export interface UserSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  OrConditions?: UserSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  AndConditions?: UserSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   *          <p>The currently supported values for <code>FieldName</code> are <code>Username</code>, <code>FirstName</code>,
+   *     <code>LastName</code>, <code>RoutingProfileId</code>, <code>SecurityProfileId</code>,
+   *    <code>resourceId</code>.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a List condition to search users with attributes included in
+   *    Lists like Proficiencies.</p>
+   * @public
+   */
+  ListCondition?: ListCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   * @public
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition | undefined;
+}
+
+/**
+ * <p>Defines the search criteria for filtering views.</p>
+ * @public
+ */
+export interface ViewSearchCriteria {
+  /**
+   * <p>A list of conditions to be met, where at least one condition must be satisfied.</p>
+   * @public
+   */
+  OrConditions?: ViewSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions that must all be satisfied.</p>
+   * @public
+   */
+  AndConditions?: ViewSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A condition that filters views by their type.</p>
+   * @public
+   */
+  ViewTypeCondition?: ViewType | undefined;
+
+  /**
+   * <p>A condition that filters views by their status.</p>
+   * @public
+   */
+  ViewStatusCondition?: ViewStatus | undefined;
+}
+
+/**
+ * <p>Defines the search criteria for filtering workspace associations.</p>
+ * @public
+ */
+export interface WorkspaceAssociationSearchCriteria {
+  /**
+   * <p>A list of conditions to be met, where at least one condition must be satisfied.</p>
+   * @public
+   */
+  OrConditions?: WorkspaceAssociationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions that must all be satisfied.</p>
+   * @public
+   */
+  AndConditions?: WorkspaceAssociationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>Defines the search criteria for filtering workspaces.</p>
+ * @public
+ */
+export interface WorkspaceSearchCriteria {
+  /**
+   * <p>A list of conditions to be met, where at least one condition must be satisfied.</p>
+   * @public
+   */
+  OrConditions?: WorkspaceSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions that must all be satisfied.</p>
+   * @public
+   */
+  AndConditions?: WorkspaceSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+}
+
+/**
+ * <p>Information about a question from an evaluation form.</p>
+ * @public
+ */
+export interface EvaluationFormQuestion {
+  /**
+   * <p>The title of the question.</p>
+   * @public
+   */
+  Title: string | undefined;
+
+  /**
+   * <p>The instructions of the section.</p>
+   * @public
+   */
+  Instructions?: string | undefined;
+
+  /**
+   * <p>The identifier of the question. An identifier must be unique within the evaluation form.</p>
+   * @public
+   */
+  RefId: string | undefined;
+
+  /**
+   * <p>The flag to enable not applicable answers to the question.</p>
+   * @public
+   */
+  NotApplicableEnabled?: boolean | undefined;
+
+  /**
+   * <p>The type of the question.</p>
+   * @public
+   */
+  QuestionType: EvaluationFormQuestionType | undefined;
+
+  /**
+   * <p>The properties of the type of question. Text questions do not have to define question type properties.</p>
+   * @public
+   */
+  QuestionTypeProperties?: EvaluationFormQuestionTypeProperties | undefined;
+
+  /**
+   * <p>A question conditional enablement.</p>
+   * @public
+   */
+  Enablement?: EvaluationFormItemEnablementConfiguration | undefined;
+
+  /**
+   * <p>The scoring weight of the section.</p>
+   * @public
+   */
+  Weight?: number | undefined;
+
+  /**
+   * <p>The scoring configuration of the question.</p>
+   * @public
+   */
+  ScoringConfiguration?: EvaluationFormQuestionScoringConfiguration | undefined;
+}
+
+/**
+ * <p>Step defines the list of agents to be routed or route based on the agent requirements such as ProficiencyLevel,
+ *    Name, or Value.</p>
+ * @public
+ */
+export interface RoutingCriteriaInputStep {
+  /**
+   * <p>An object to specify the expiration of a routing step.</p>
+   * @public
+   */
+  Expiry?: RoutingCriteriaInputStepExpiry | undefined;
+
+  /**
+   * <p>A tagged union to specify expression for a routing step.</p>
+   * @public
+   */
+  Expression?: Expression | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAgentStatusesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: AgentStatusSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return agent statuses.</p>
+   * @public
+   */
+  SearchCriteria?: AgentStatusSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactEvaluationsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The search criteria to be used to return contact evaluations.</p>
+   * @public
+   */
+  SearchCriteria?: EvaluationSearchCriteria | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: EvaluationSearchFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowModulesRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instance ID in the Amazon Resource Name
+   *    (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in the next request to
+   *    retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: ContactFlowModuleSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to be used to return flow modules.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with a minimum of 2
+   *     characters and a maximum of 25 characters. Any queries with character lengths outside of this range will result in
+   *     invalid results.</p>
+   *          </note>
+   * @public
+   */
+  SearchCriteria?: ContactFlowModuleSearchCriteria | undefined;
+}
 
 /**
  * @public
@@ -322,6 +1099,42 @@ export interface SearchHoursOfOperationsRequest {
    * @public
    */
   SearchCriteria?: HoursOfOperationSearchCriteria | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchMetricsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Filters to be applied to search results.</p>
+   * @public
+   */
+  SearchFilter?: MetricSearchFilter | undefined;
+
+  /**
+   * <p>The search criteria to filter the metrics.</p>
+   * @public
+   */
+  SearchCriteria?: MetricSearchCriteria | undefined;
 }
 
 /**

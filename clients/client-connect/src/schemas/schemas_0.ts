@@ -99,6 +99,7 @@ const _AFE = "AttachedFileError";
 const _AFEL = "AttachedFileErrorsList";
 const _AFIRER = "AttachedFileInvalidRequestExceptionReason";
 const _AFL = "AttachedFilesList";
+const _AFLv = "AvailableFilterList";
 const _AFM = "AllowedFlowModules";
 const _AFN = "AgentFirstName";
 const _AFR = "AssociateFlowRequest";
@@ -112,6 +113,7 @@ const _AFt = "AttributeFilter";
 const _AFtt = "AttachedFile";
 const _AFu = "AudioFeatures";
 const _AFut = "AutomaticFail";
+const _AFv = "AvailableFilter";
 const _AHG = "AgentHierarchyGroup";
 const _AHGg = "AgentHierarchyGroups";
 const _AHOO = "AssociateHoursOfOperations";
@@ -232,6 +234,7 @@ const _Acti = "Active";
 const _Ad = "Address";
 const _Ag = "Agent";
 const _Age = "Agents";
+const _Al = "Alias";
 const _An = "Answers";
 const _Ap = "Application";
 const _App = "Applications";
@@ -328,7 +331,7 @@ const _CAu = "CustomAttributes";
 const _CB = "CreatedBy";
 const _CBI = "CreatedByInfo";
 const _CBo = "ContainerBackground";
-const _CC = "ContactConfiguration";
+const _CC = "CalculationComponent";
 const _CCA = "CreateCaseAction";
 const _CCAD = "CreateCaseActionDefinition";
 const _CCB = "CrossChannelBehavior";
@@ -347,11 +350,14 @@ const _CCFRr = "CreateContactFlowResponse";
 const _CCFV = "CreateContactFlowVersion";
 const _CCFVR = "CreateContactFlowVersionRequest";
 const _CCFVRr = "CreateContactFlowVersionResponse";
+const _CCL = "CalculationComponentList";
 const _CCM = "ChatContactMetrics";
 const _CCR = "CreateContactRequest";
 const _CCRr = "CreateContactResponse";
 const _CCTIM = "ConversationCloseTimeInMillis";
+const _CCa = "CalculationComponents";
 const _CCh = "ChannelConfiguration";
+const _CCo = "ContactConfiguration";
 const _CCr = "CreateContact";
 const _CD = "ConnectionData";
 const _CDIM = "ChatDurationInMinutes";
@@ -453,6 +459,8 @@ const _CMDC = "CurrentMetricDataCollections";
 const _CMI = "ContactMetricInfo";
 const _CMR = "ContactMetricResult";
 const _CMRo = "ContactMetricResults";
+const _CMRr = "CreateMetricRequest";
+const _CMRre = "CreateMetricResponse";
 const _CMRu = "CurrentMetricResult";
 const _CMRur = "CurrentMetricResults";
 const _CMSC = "CurrentMetricSortCriteria";
@@ -460,6 +468,8 @@ const _CMSCMO = "CurrentMetricSortCriteriaMaxOne";
 const _CMV = "ContactMetricValue";
 const _CMh = "ChatMetrics";
 const _CMo = "ContactMetrics";
+const _CMr = "CreationMethod";
+const _CMre = "CreateMetric";
 const _CMu = "CustomerMetrics";
 const _CMur = "CurrentMetric";
 const _CMurr = "CurrentMetrics";
@@ -549,7 +559,7 @@ const _CTonta = "ContactTags";
 const _CTr = "CreationTime";
 const _CTre = "CreatedTime";
 const _CTrea = "CreateTimestamp";
-const _CU = "CreateUser";
+const _CU = "CreatedUser";
 const _CUA = "ConnectUserArn";
 const _CUC = "CreateUseCase";
 const _CUCR = "CreateUseCaseRequest";
@@ -559,6 +569,7 @@ const _CUHGR = "CreateUserHierarchyGroupRequest";
 const _CUHGRr = "CreateUserHierarchyGroupResponse";
 const _CUR = "CreateUserRequest";
 const _CURr = "CreateUserResponse";
+const _CUr = "CreateUser";
 const _CV = "CreateView";
 const _CVA = "CustomerVoiceActivity";
 const _CVR = "CreateViewRequest";
@@ -576,6 +587,7 @@ const _CWPRr = "CreateWorkspacePageResponse";
 const _CWR = "CreateWorkspaceRequest";
 const _CWRr = "CreateWorkspaceResponse";
 const _Ca = "Capabilities";
+const _Cal = "Calculation";
 const _Cam = "Campaign";
 const _Can = "Canvas";
 const _Cat = "Category";
@@ -732,6 +744,12 @@ const _DLBR = "DisassociateLexBotRequest";
 const _DLF = "DisassociateLambdaFunction";
 const _DLFR = "DisassociateLambdaFunctionRequest";
 const _DM = "DeliveryMethod";
+const _DMR = "DeleteMetricRequest";
+const _DMRe = "DeleteMetricResponse";
+const _DMRes = "DescribeMetricRequest";
+const _DMResc = "DescribeMetricResponse";
+const _DMe = "DeleteMetric";
+const _DMes = "DescribeMetric";
 const _DN = "DomainName";
 const _DNAE = "DestinationNotAllowedException";
 const _DNR = "DeleteNotificationRequest";
@@ -796,7 +814,7 @@ const _DRa = "DateReference";
 const _DRe = "DeletionReason";
 const _DRel = "DeleteRule";
 const _DRes = "DescribeRule";
-const _DS = "DeleteSession";
+const _DS = "DefaultStat";
 const _DSI = "DataSetId";
 const _DSIa = "DataSetIds";
 const _DSK = "DisassociateSecurityKey";
@@ -812,6 +830,7 @@ const _DSPi = "DisassociateSecurityProfiles";
 const _DSR = "DeleteSessionRequest";
 const _DSRe = "DeleteSessionResponse";
 const _DST = "DataSnapshotTime";
+const _DSe = "DeleteSession";
 const _DT = "DisconnectTimestamp";
 const _DTA = "DataTableAttribute";
 const _DTACC = "DataTableAccessControlConfiguration";
@@ -1100,6 +1119,7 @@ const _ET = "EntityType";
 const _ETPOI = "EvaluationTranscriptPointOfInterest";
 const _ETPOIv = "EvaluationTranscriptPointsOfInterest";
 const _ETf = "EffectiveTill";
+const _ETff = "EffectiveTime";
 const _ETn = "EndTimestamp";
 const _ETnc = "EncryptionType";
 const _ETnd = "EndTime";
@@ -1488,10 +1508,14 @@ const _LLBRi = "ListLexBotsResponse";
 const _LLF = "ListLambdaFunctions";
 const _LLFR = "ListLambdaFunctionsRequest";
 const _LLFRi = "ListLambdaFunctionsResponse";
+const _LM = "ListMetrics";
 const _LMB = "LastModifiedBy";
 const _LMR = "LastModifiedRegion";
+const _LMRi = "ListMetricsRequest";
+const _LMRis = "ListMetricsResponse";
 const _LMT = "LastModifiedTime";
 const _LMTa = "LastMessageTimestamp";
+const _LMU = "LastModifiedUser";
 const _LN = "LastName";
 const _LNR = "ListNotificationsRequest";
 const _LNRi = "ListNotificationsResponse";
@@ -1629,6 +1653,7 @@ const _Li = "Light";
 const _Lo = "Location";
 const _Log = "Logo";
 const _M = "Message";
+const _MA = "MetricArn";
 const _MAQC = "ManualAssignmentQueueConfigs";
 const _MAQR = "ManualAssignmentQueueReferences";
 const _MBP = "MaxBasePoint";
@@ -1636,19 +1661,26 @@ const _MC = "MatchCriteria";
 const _MCR = "MonitorContactRequest";
 const _MCRo = "MonitorContactResponse";
 const _MCa = "MaxContacts";
-const _MCe = "MediaConcurrencies";
-const _MCed = "MediaConcurrency";
+const _MCe = "MetricCalculation";
+const _MCed = "MediaConcurrencies";
+const _MCedi = "MediaConcurrency";
 const _MCo = "MonitorContact";
-const _MD = "MatchedDetails";
+const _MD = "MetricDefinition";
 const _MDCV = "MetricDataCollectionsV2";
 const _MDV = "MetricDataV2";
-const _MF = "MeetingFeatures";
+const _MDa = "MatchedDetails";
+const _MF = "MetricFilters";
+const _MFBC = "MetricFilterBooleanCondition";
 const _MFC = "MeetingFeaturesConfiguration";
 const _MFK = "MetricFilterKey";
+const _MFL = "MetricFilterList";
+const _MFNC = "MetricFilterNumberCondition";
+const _MFSC = "MetricFilterStringCondition";
 const _MFV = "MetricFilterV2";
 const _MFVL = "MetricFiltersV2List";
 const _MFVe = "MetricFilterValues";
-const _MFe = "MetricFilters";
+const _MFe = "MeetingFeatures";
+const _MFet = "MetricFilter";
 const _MI = "MetricId";
 const _MIe = "MediaItem";
 const _MIee = "MeetingId";
@@ -1658,6 +1690,7 @@ const _MLIC = "MessageLengthInChars";
 const _MLa = "MaxLength";
 const _MLe = "MediaList";
 const _MM = "MaskMode";
+const _MN = "MetricName";
 const _MO = "MillisecondOffsets";
 const _MOu = "MultipleOf";
 const _MP = "MultiParty";
@@ -1676,15 +1709,21 @@ const _MRe = "MetricResults";
 const _MRed = "MediaRegion";
 const _MS = "MediaSource";
 const _MSBC = "MaxSlotsByChannel";
+const _MSC = "MetricSearchCriteria";
+const _MSCL = "MetricSearchConditionList";
 const _MSD = "MaxSessionDuration";
 const _MSDM = "MaxSessionDurationMinutes";
+const _MSF = "MetricSearchFilter";
+const _MSL = "MetricSummaryList";
 const _MSLIB = "MaximumSizeLimitInBytes";
 const _MSP = "MinScorePercentage";
 const _MSPa = "MaxScorePercentage";
 const _MSQRCA = "MultiSelectQuestionRuleCategoryAutomation";
+const _MSSL = "MetricSearchSummaryList";
 const _MST = "MessageSourceType";
 const _MSTe = "MediaStreamType";
-const _MSe = "MessagesSent";
+const _MSe = "MetricSummary";
+const _MSes = "MessagesSent";
 const _MSu = "MultiSelect";
 const _MT = "MediaType";
 const _MTI = "MessageTemplateId";
@@ -1831,6 +1870,8 @@ const _PD = "ParticipantDetails";
 const _PDI = "PotentialDisconnectIssue";
 const _PDTA = "ParticipantDetailsToAdd";
 const _PDr = "ProblemDetail";
+const _PES = "PrimaryEventSource";
+const _PESETT = "PrimaryEventSourceEffectiveTimestampType";
 const _PET = "PreviewEndTimestamp";
 const _PGI = "ParentGroupId";
 const _PH = "PaletteHeader";
@@ -1884,6 +1925,7 @@ const _PTC = "ParticipantTimerConfiguration";
 const _PTCL = "ParticipantTimerConfigList";
 const _PTCa = "ParticipantTokenCredentials";
 const _PTDIM = "ParticipantTimerDurationInMinutes";
+const _PTI = "PositiveTrendIndicator";
 const _PTV = "ParticipantTimerValue";
 const _PTa = "ParticipantToken";
 const _PTh = "PhoneType";
@@ -2051,8 +2093,9 @@ const _RPSL = "RoutingProfileSummaryList";
 const _RPV = "RecordPrimaryValue";
 const _RPe = "RecurrencePattern";
 const _RPo = "RoutingProfiles";
-const _RR = "ReplicaRegion";
+const _RR = "RefreshRate";
 const _RRC = "ReviewRequestComments";
+const _RRe = "ReplicaRegion";
 const _RS = "ReplicationStatus";
 const _RSA = "ResourceShareArn";
 const _RSC = "RulesSearchCriteria";
@@ -2158,12 +2201,13 @@ const _SCATRC = "SearchContactsAdditionalTimeRangeCriteria";
 const _SCATRCL = "SearchContactsAdditionalTimeRangeCriteriaList";
 const _SCAV = "SearchableContactAttributeValue";
 const _SCAVL = "SearchableContactAttributeValueList";
-const _SCC = "StartChatContact";
+const _SCC = "SupportsCustomCalculation";
 const _SCCAJ = "StartContactConversationalAnalyticsJob";
 const _SCCAJR = "StartContactConversationalAnalyticsJobRequest";
 const _SCCAJRt = "StartContactConversationalAnalyticsJobResponse";
 const _SCCR = "StartChatContactRequest";
 const _SCCRt = "StartChatContactResponse";
+const _SCCt = "StartChatContact";
 const _SCE = "SearchContactEvaluations";
 const _SCER = "SearchContactEvaluationsRequest";
 const _SCERe = "SearchContactEvaluationsResponse";
@@ -2270,6 +2314,9 @@ const _SL = "SuccessfulList";
 const _SLt = "StringList";
 const _SM = "SummaryModes";
 const _SMCT = "SupportedMessagingContentTypes";
+const _SMR = "SearchMetricsRequest";
+const _SMRe = "SearchMetricsResponse";
+const _SMe = "SearchMetrics";
 const _SN = "StatusName";
 const _SNA = "ScoreNotApplicable";
 const _SNAD = "SendNotificationActionDefinition";
@@ -2298,6 +2345,7 @@ const _SPA = "SecurityProfileArn";
 const _SPAR = "SearchPredefinedAttributesRequest";
 const _SPARe = "SearchPredefinedAttributesResponse";
 const _SPAe = "SearchPredefinedAttributes";
+const _SPC = "SupportsPreaggregateCalculation";
 const _SPI = "SecurityProfileIds";
 const _SPIe = "SecurityProfileId";
 const _SPIec = "SecurityProfileItem";
@@ -2364,6 +2412,7 @@ const _SSTt = "StatusStartTimestamp";
 const _SSV = "SystemSuggestedValue";
 const _SSc = "ScreenShare";
 const _SSi = "SingleSelect";
+const _SSu = "SupportedStats";
 const _ST = "SearchText";
 const _STC = "SearchTestCases";
 const _STCE = "StartTestCaseExecution";
@@ -2558,7 +2607,7 @@ const _Tim = "Timestamp";
 const _Time = "Time";
 const _Tr = "Transcript";
 const _Ty = "Typography";
-const _U = "Username";
+const _U = "Unit";
 const _UA = "UserArn";
 const _UAF = "UserAttributeFilter";
 const _UAFC = "UpdateAttachedFilesConfiguration";
@@ -2655,6 +2704,12 @@ const _UISC = "UpdateInstanceStorageConfig";
 const _UISCR = "UpdateInstanceStorageConfigRequest";
 const _UIs = "UserInfo";
 const _UIse = "UserIds";
+const _UMC = "UpdateMetricContent";
+const _UMCR = "UpdateMetricContentRequest";
+const _UMCRp = "UpdateMetricContentResponse";
+const _UMM = "UpdateMetricMetadata";
+const _UMMR = "UpdateMetricMetadataRequest";
+const _UMMRp = "UpdateMetricMetadataResponse";
 const _UN = "UserNotifications";
 const _UNC = "UpdateNotificationContent";
 const _UNCR = "UpdateNotificationContentRequest";
@@ -2778,10 +2833,10 @@ const _UWTRp = "UpdateWorkspaceThemeResponse";
 const _UWV = "UpdateWorkspaceVisibility";
 const _UWVR = "UpdateWorkspaceVisibilityRequest";
 const _UWVRp = "UpdateWorkspaceVisibilityResponse";
-const _Un = "Unit";
 const _Ur = "Url";
-const _Us = "User";
-const _Use = "Users";
+const _Us = "Username";
+const _Use = "User";
+const _User = "Users";
 const _V = "Value";
 const _VA = "ViewAction";
 const _VAa = "ValueArn";
@@ -2907,7 +2962,7 @@ const _sV = "snapshotVersion";
 const _se = "server";
 const _st = "status";
 const _sta = "state";
-const _t = "tags";
+const _t = "type";
 const _tCI = "testCaseId";
 const _tCN = "testCaseName";
 const _tD = "toDate";
@@ -2916,7 +2971,7 @@ const _tKCT = "tagKeyComparisonType";
 const _tKa = "tagKeys";
 const _tV = "tagValue";
 const _tVCT = "tagValueComparisonType";
-const _ty = "type";
+const _ta = "tags";
 const _uEIS = "urlExpiryInSeconds";
 const _v = "version";
 const _va = "value";
@@ -3591,6 +3646,11 @@ export var AutomaticFailConfiguration$: StaticStructureSchema = [3, n0, _AFCu,
   [_TS],
   [0]
 ];
+export var AvailableFilter$: StaticStructureSchema = [3, n0, _AFv,
+  0,
+  [_I, _T],
+  [0, 0]
+];
 export var AvailableNumberSummary$: StaticStructureSchema = [3, n0, _ANS,
   0,
   [_PN, _PNCC, _PNT],
@@ -3731,6 +3791,11 @@ export var BooleanCondition$: StaticStructureSchema = [3, n0, _BC,
   [_FNi, _CTo],
   [0, 0]
 ];
+export var CalculationComponent$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_Al, _MN, _MI, _MF],
+  [0, 0, 0, () => MetricFilterList], 1
+];
 export var Campaign$: StaticStructureSchema = [3, n0, _Cam,
   0,
   [_CIa],
@@ -3826,7 +3891,7 @@ export var ContactAnalysis$: StaticStructureSchema = [3, n0, _CAo,
   [_Tr],
   [[() => Transcript$, 0]]
 ];
-export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CC,
+export var ContactConfiguration$: StaticStructureSchema = [3, n0, _CCo,
   0,
   [_CI, _PR, _IRM],
   [0, 0, 2], 1
@@ -4176,6 +4241,16 @@ export var CreateIntegrationAssociationResponse$: StaticStructureSchema = [3, n0
   [_IAI, _IAA],
   [0, 0]
 ];
+export var CreateMetricRequest$: StaticStructureSchema = [3, n0, _CMRr,
+  0,
+  [_II, _N, _MCe, _U, _St, _CT, _D, _PTI, _Ta],
+  [[0, 1], 0, () => MetricCalculation$, 0, 0, [0, 4], 0, 0, 128 | 0], 4
+];
+export var CreateMetricResponse$: StaticStructureSchema = [3, n0, _CMRre,
+  0,
+  [_MA, _MI],
+  [0, 0], 2
+];
 export var CreateNotificationRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
   [_II, _Rec, _Co, _EAx, _Prio, _Ta, _PNIr, _CT],
@@ -4223,7 +4298,7 @@ export var CreatePromptResponse$: StaticStructureSchema = [3, n0, _CPRrea,
 ];
 export var CreatePushNotificationRegistrationRequest$: StaticStructureSchema = [3, n0, _CPNRR,
   0,
-  [_II, _PAA, _DTev, _DTevi, _CC, _CT],
+  [_II, _PAA, _DTev, _DTevi, _CCo, _CT],
   [[0, 1], 0, 0, 0, () => ContactConfiguration$, [0, 4]], 5
 ];
 export var CreatePushNotificationRegistrationResponse$: StaticStructureSchema = [3, n0, _CPNRRr,
@@ -4253,7 +4328,7 @@ export var CreateQuickConnectResponse$: StaticStructureSchema = [3, n0, _CQCRr,
 ];
 export var CreateRoutingProfileRequest$: StaticStructureSchema = [3, n0, _CRPR,
   0,
-  [_II, _N, _D, _DOQI, _MCe, _QC, _MAQC, _Ta, _AAT],
+  [_II, _N, _D, _DOQI, _MCed, _QC, _MAQC, _Ta, _AAT],
   [[0, 1], 0, 0, 0, () => MediaConcurrencies, () => RoutingProfileQueueConfigList, () => RoutingProfileManualAssignmentQueueConfigList, 128 | 0, 0], 5
 ];
 export var CreateRoutingProfileResponse$: StaticStructureSchema = [3, n0, _CRPRr,
@@ -4333,7 +4408,7 @@ export var CreateUserHierarchyGroupResponse$: StaticStructureSchema = [3, n0, _C
 ];
 export var CreateUserRequest$: StaticStructureSchema = [3, n0, _CUR,
   0,
-  [_U, _SPI, _RPI, _II, _Pa, _IId, _PCh, _DUI, _HGI, _AACut, _ACWCf, _PNC, _PCC, _VEC, _Ta],
+  [_Us, _SPI, _RPI, _II, _Pa, _IId, _PCh, _DUI, _HGI, _AACut, _ACWCf, _PNC, _PCC, _VEC, _Ta],
   [0, 64 | 0, 0, [0, 1], [() => Password, 0], [() => UserIdentityInfo$, 0], [() => UserPhoneConfig$, 0], 0, 0, () => AutoAcceptConfigs, () => AfterContactWorkConfigs, [() => PhoneNumberConfigs, 0], () => PersistentConnectionConfigs, () => VoiceEnhancementConfigs, 128 | 0], 4
 ];
 export var CreateUserResponse$: StaticStructureSchema = [3, n0, _CURr,
@@ -4403,7 +4478,7 @@ export var CrossChannelBehavior$: StaticStructureSchema = [3, n0, _CCB,
 ];
 export var CurrentMetric$: StaticStructureSchema = [3, n0, _CMur,
   0,
-  [_N, _MI, _Un],
+  [_N, _MI, _U],
   [0, 0, 0]
 ];
 export var CurrentMetricData$: StaticStructureSchema = [3, n0, _CMD,
@@ -4665,6 +4740,16 @@ export var DeleteIntegrationAssociationRequest$: StaticStructureSchema = [3, n0,
   0,
   [_II, _IAI],
   [[0, 1], [0, 1]], 2
+];
+export var DeleteMetricRequest$: StaticStructureSchema = [3, n0, _DMR,
+  0,
+  [_II, _MI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteMetricResponse$: StaticStructureSchema = [3, n0, _DMRe,
+  0,
+  [],
+  []
 ];
 export var DeleteNotificationRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
@@ -5006,6 +5091,16 @@ export var DescribeInstanceStorageConfigResponse$: StaticStructureSchema = [3, n
   [_SCt],
   [() => InstanceStorageConfig$]
 ];
+export var DescribeMetricRequest$: StaticStructureSchema = [3, n0, _DMRes,
+  0,
+  [_II, _MI],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeMetricResponse$: StaticStructureSchema = [3, n0, _DMResc,
+  0,
+  [_Met],
+  [() => MetricDefinition$], 1
+];
 export var DescribeNotificationRequest$: StaticStructureSchema = [3, n0, _DNRes,
   0,
   [_II, _NI],
@@ -5143,7 +5238,7 @@ export var DescribeUserRequest$: StaticStructureSchema = [3, n0, _DURe,
 ];
 export var DescribeUserResponse$: StaticStructureSchema = [3, n0, _DURes,
   0,
-  [_Us],
+  [_Use],
   [[() => User$, 0]]
 ];
 export var DescribeViewRequest$: StaticStructureSchema = [3, n0, _DVRes,
@@ -6023,7 +6118,7 @@ export var HierarchyStructureUpdate$: StaticStructureSchema = [3, n0, _HSU,
 ];
 export var HistoricalMetric$: StaticStructureSchema = [3, n0, _HMi,
   0,
-  [_N, _Thr, _Sta, _Un],
+  [_N, _Thr, _Sta, _U],
   [0, () => Threshold$, 0, 0]
 ];
 export var HistoricalMetricData$: StaticStructureSchema = [3, n0, _HMD,
@@ -6536,6 +6631,16 @@ export var ListLexBotsResponse$: StaticStructureSchema = [3, n0, _LLBRi,
   [_LBe, _NT],
   [() => LexBotsList, 0]
 ];
+export var ListMetricsRequest$: StaticStructureSchema = [3, n0, _LMRi,
+  0,
+  [_II, _T, _MR, _NT],
+  [[0, 1], [0, { [_hQ]: _t }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListMetricsResponse$: StaticStructureSchema = [3, n0, _LMRis,
+  0,
+  [_MSL, _NT],
+  [() => MetricSummaryList, 0], 1
+];
 export var ListNotificationsRequest$: StaticStructureSchema = [3, n0, _LNR,
   0,
   [_II, _NT, _MR],
@@ -6738,7 +6843,7 @@ export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_t],
+  [_ta],
   [128 | 0]
 ];
 export var ListTaskTemplatesRequest$: StaticStructureSchema = [3, n0, _LTTR,
@@ -6854,7 +6959,7 @@ export var ListUsersResponse$: StaticStructureSchema = [3, n0, _LURi,
 export var ListViewsRequest$: StaticStructureSchema = [3, n0, _LVR,
   0,
   [_II, _T, _NT, _MR],
-  [[0, 1], [0, { [_hQ]: _ty }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
+  [[0, 1], [0, { [_hQ]: _t }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 1
 ];
 export var ListViewsResponse$: StaticStructureSchema = [3, n0, _LVRi,
   0,
@@ -6906,7 +7011,7 @@ export var MatchCriteria$: StaticStructureSchema = [3, n0, _MC,
   [_ACge],
   [() => AgentsCriteria$]
 ];
-export var MediaConcurrency$: StaticStructureSchema = [3, n0, _MCed,
+export var MediaConcurrency$: StaticStructureSchema = [3, n0, _MCedi,
   0,
   [_C, _Conc, _CCB],
   [0, 1, () => CrossChannelBehavior$], 2
@@ -6923,7 +7028,7 @@ export var MediaPlacement$: StaticStructureSchema = [3, n0, _MPe,
 ];
 export var Meeting$: StaticStructureSchema = [3, n0, _Me,
   0,
-  [_MRed, _MPe, _MF, _MIee],
+  [_MRed, _MPe, _MFe, _MIee],
   [0, () => MediaPlacement$, () => MeetingFeaturesConfiguration$, 0]
 ];
 export var MeetingFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC,
@@ -6931,10 +7036,40 @@ export var MeetingFeaturesConfiguration$: StaticStructureSchema = [3, n0, _MFC,
   [_Au],
   [() => AudioFeatures$]
 ];
+export var MetricCalculation$: StaticStructureSchema = [3, n0, _MCe,
+  0,
+  [_CCa, _Cal],
+  [() => CalculationComponentList, 0], 2
+];
 export var MetricDataV2$: StaticStructureSchema = [3, n0, _MDV,
   0,
   [_Met, _V],
   [() => MetricV2$, 1]
+];
+export var MetricDefinition$: StaticStructureSchema = [3, n0, _MD,
+  0,
+  [_A, _I, _N, _T, _U, _G, _Fil, _Cat, _SPC, _SCC, _D, _MCe, _CMr, _St, _PTI, _ETff, _RR, _SSu, _DS, _PES, _PESETT, _CTre, _CU, _LMR, _LMT, _LMU, _Ta],
+  [0, 0, 0, 0, 0, 64 | 0, () => AvailableFilterList, 0, 2, 2, 0, () => MetricCalculation$, 0, 0, 0, 4, 1, 64 | 0, 0, 0, 0, 4, () => CreatedByInfo$, 0, 4, () => CreatedByInfo$, 128 | 0], 10
+];
+export var MetricFilter$: StaticStructureSchema = [3, n0, _MFet,
+  0,
+  [_MFK, _Ne, _NC, _SC, _BC],
+  [0, 2, () => MetricFilterNumberCondition$, () => MetricFilterStringCondition$, () => MetricFilterBooleanCondition$], 1
+];
+export var MetricFilterBooleanCondition$: StaticStructureSchema = [3, n0, _MFBC,
+  0,
+  [_Comp],
+  [0], 1
+];
+export var MetricFilterNumberCondition$: StaticStructureSchema = [3, n0, _MFNC,
+  0,
+  [_Comp, _Va],
+  [0, 64 | 1], 2
+];
+export var MetricFilterStringCondition$: StaticStructureSchema = [3, n0, _MFSC,
+  0,
+  [_Comp, _Va],
+  [0, 64 | 0], 2
 ];
 export var MetricFilterV2$: StaticStructureSchema = [3, n0, _MFV,
   0,
@@ -6951,9 +7086,24 @@ export var MetricResultV2$: StaticStructureSchema = [3, n0, _MRV,
   [_Dim, _MIet, _Col],
   [128 | 0, () => MetricInterval$, () => MetricDataCollectionsV2]
 ];
+export var MetricSearchCriteria$: StaticStructureSchema = [3, n0, _MSC,
+  0,
+  [_OC, _ACn, _SC, _BC],
+  [() => MetricSearchConditionList, () => MetricSearchConditionList, () => StringCondition$, () => BooleanCondition$]
+];
+export var MetricSearchFilter$: StaticStructureSchema = [3, n0, _MSF,
+  0,
+  [_TF],
+  [() => ControlPlaneTagFilter$]
+];
+export var MetricSummary$: StaticStructureSchema = [3, n0, _MSe,
+  0,
+  [_A, _I, _N, _St, _T, _LMR, _LMT],
+  [0, 0, 0, 0, 0, 0, 4], 5
+];
 export var MetricV2$: StaticStructureSchema = [3, n0, _MVe,
   0,
-  [_N, _Thr, _MI, _MFe],
+  [_N, _Thr, _MI, _MF],
   [0, () => ThresholdCollections, 0, () => MetricFiltersV2List]
 ];
 export var MonitorContactRequest$: StaticStructureSchema = [3, n0, _MCR,
@@ -7128,7 +7278,7 @@ export var ParticipantDetailsToAdd$: StaticStructureSchema = [3, n0, _PDTA,
 ];
 export var ParticipantMetrics$: StaticStructureSchema = [3, n0, _PM,
   0,
-  [_PI, _PT, _CAonv, _MSe, _NRu, _MLIC, _TRTIM, _MRTIM, _LMTa],
+  [_PI, _PT, _CAonv, _MSes, _NRu, _MLIC, _TRTIM, _MRTIM, _LMTa],
   [0, 0, 2, 1, 1, 1, 1, 1, 4]
 ];
 export var ParticipantTimerConfiguration$: StaticStructureSchema = [3, n0, _PTC,
@@ -7403,7 +7553,7 @@ export var RealTimeContactAnalysisSegmentAttachments$: StaticStructureSchema = [
 ];
 export var RealTimeContactAnalysisSegmentCategories$: StaticStructureSchema = [3, n0, _RTCASC,
   0,
-  [_MD],
+  [_MDa],
   [() => RealTimeContactAnalysisMatchedDetails], 1
 ];
 export var RealTimeContactAnalysisSegmentEvent$: StaticStructureSchema = [3, n0, _RTCASE,
@@ -7483,7 +7633,7 @@ export var ReleasePhoneNumberRequest$: StaticStructureSchema = [3, n0, _RPNR,
 ];
 export var ReplicateInstanceRequest$: StaticStructureSchema = [3, n0, _RIR,
   0,
-  [_II, _RR, _RAep, _CT],
+  [_II, _RRe, _RAep, _CT],
   [[0, 1], 0, [() => DirectoryAlias, 0], [0, 4]], 3
 ];
 export var ReplicateInstanceResponse$: StaticStructureSchema = [3, n0, _RIRe,
@@ -7553,7 +7703,7 @@ export var RoutingCriteriaInputStepExpiry$: StaticStructureSchema = [3, n0, _RCI
 ];
 export var RoutingProfile$: StaticStructureSchema = [3, n0, _RP,
   0,
-  [_II, _N, _RPA, _RPI, _D, _MCe, _DOQI, _Ta, _NOAQ, _NOAMAQ, _NOAU, _AAT, _LMT, _LMR, _ID, _AQI, _AMAQI],
+  [_II, _N, _RPA, _RPI, _D, _MCed, _DOQI, _Ta, _NOAQ, _NOAMAQ, _NOAU, _AAT, _LMT, _LMR, _ID, _AQI, _AMAQI],
   [0, 0, 0, 0, 0, () => MediaConcurrencies, 0, 128 | 0, 1, 1, 1, 0, 4, 0, 2, 64 | 0, 64 | 0]
 ];
 export var RoutingProfileManualAssignmentQueueConfig$: StaticStructureSchema = [3, n0, _RPMAQC,
@@ -7826,6 +7976,16 @@ export var SearchHoursOfOperationsResponse$: StaticStructureSchema = [3, n0, _SH
   [_HOOo, _NT, _ATC],
   [() => HoursOfOperationList, 0, 1]
 ];
+export var SearchMetricsRequest$: StaticStructureSchema = [3, n0, _SMR,
+  0,
+  [_II, _NT, _MR, _SF, _SCea],
+  [0, 0, 1, () => MetricSearchFilter$, () => MetricSearchCriteria$], 1
+];
+export var SearchMetricsResponse$: StaticStructureSchema = [3, n0, _SMRe,
+  0,
+  [_Metr, _NT, _ATC],
+  [() => MetricSearchSummaryList, 0, 1]
+];
 export var SearchNotificationsRequest$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_II, _NT, _MR, _SF, _SCea],
@@ -7943,7 +8103,7 @@ export var SearchUsersRequest$: StaticStructureSchema = [3, n0, _SUR,
 ];
 export var SearchUsersResponse$: StaticStructureSchema = [3, n0, _SURe,
   0,
-  [_Use, _NT, _ATC],
+  [_User, _NT, _ATC],
   [[() => UserSearchSummaryList, 0], 0, 1]
 ];
 export var SearchViewsRequest$: StaticStructureSchema = [3, n0, _SVR,
@@ -8378,7 +8538,7 @@ export var TagContactResponse$: StaticStructureSchema = [3, n0, _TCRa,
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRRa,
   0,
-  [_rA, _t],
+  [_rA, _ta],
   [[0, 1], 128 | 0], 2
 ];
 export var TagSearchCondition$: StaticStructureSchema = [3, n0, _TSC,
@@ -8756,6 +8916,26 @@ export var UpdateInstanceStorageConfigRequest$: StaticStructureSchema = [3, n0, 
   [_II, _AIs, _RT, _SCt, _CT],
   [[0, 1], [0, 1], [0, { [_hQ]: _rT }], () => InstanceStorageConfig$, [0, 4]], 4
 ];
+export var UpdateMetricContentRequest$: StaticStructureSchema = [3, n0, _UMCR,
+  0,
+  [_II, _MI, _MCe, _U, _PTI],
+  [[0, 1], [0, 1], () => MetricCalculation$, 0, 0], 2
+];
+export var UpdateMetricContentResponse$: StaticStructureSchema = [3, n0, _UMCRp,
+  0,
+  [],
+  []
+];
+export var UpdateMetricMetadataRequest$: StaticStructureSchema = [3, n0, _UMMR,
+  0,
+  [_II, _MI, _N, _D],
+  [[0, 1], [0, 1], 0, 0], 2
+];
+export var UpdateMetricMetadataResponse$: StaticStructureSchema = [3, n0, _UMMRp,
+  0,
+  [],
+  []
+];
 export var UpdateNotificationContentRequest$: StaticStructureSchema = [3, n0, _UNCR,
   0,
   [_II, _NI, _Co],
@@ -8863,7 +9043,7 @@ export var UpdateRoutingProfileAgentAvailabilityTimerRequest$: StaticStructureSc
 ];
 export var UpdateRoutingProfileConcurrencyRequest$: StaticStructureSchema = [3, n0, _URPCR,
   0,
-  [_II, _RPI, _MCe],
+  [_II, _RPI, _MCed],
   [[0, 1], [0, 1], () => MediaConcurrencies], 3
 ];
 export var UpdateRoutingProfileDefaultOutboundQueueRequest$: StaticStructureSchema = [3, n0, _URPDOQR,
@@ -9051,14 +9231,14 @@ export var UseCase$: StaticStructureSchema = [3, n0, _UCs,
   [_UCI, _UCA, _UCT],
   [0, 0, 0]
 ];
-export var User$: StaticStructureSchema = [3, n0, _Us,
+export var User$: StaticStructureSchema = [3, n0, _Use,
   0,
-  [_I, _A, _U, _IId, _PCh, _DUI, _SPI, _RPI, _HGI, _Ta, _AACut, _ACWCf, _PNC, _PCC, _VEC, _LMT, _LMR],
+  [_I, _A, _Us, _IId, _PCh, _DUI, _SPI, _RPI, _HGI, _Ta, _AACut, _ACWCf, _PNC, _PCC, _VEC, _LMT, _LMR],
   [0, 0, 0, [() => UserIdentityInfo$, 0], [() => UserPhoneConfig$, 0], 0, 64 | 0, 0, 0, 128 | 0, () => AutoAcceptConfigs, () => AfterContactWorkConfigs, [() => PhoneNumberConfigs, 0], () => PersistentConnectionConfigs, () => VoiceEnhancementConfigs, 4, 0]
 ];
 export var UserData$: StaticStructureSchema = [3, n0, _UD,
   0,
-  [_Us, _RP, _HP, _St, _ASBC, _MSBC, _ASBCc, _Conta, _NS],
+  [_Use, _RP, _HP, _St, _ASBC, _MSBC, _ASBCc, _Conta, _NS],
   [() => UserReference$, () => RoutingProfileReference$, () => HierarchyPathReference$, () => AgentStatusReference$, 128 | 1, 128 | 1, 128 | 1, () => AgentContactReferenceList, 0]
 ];
 export var UserDataFilters$: StaticStructureSchema = [3, n0, _UDF,
@@ -9133,12 +9313,12 @@ export var UserSearchFilter$: StaticStructureSchema = [3, n0, _USF,
 ];
 export var UserSearchSummary$: StaticStructureSchema = [3, n0, _USS,
   0,
-  [_A, _DUI, _HGI, _I, _IId, _PCh, _RPI, _SPI, _Ta, _U, _AACut, _ACWCf, _PNC, _PCC, _VEC],
+  [_A, _DUI, _HGI, _I, _IId, _PCh, _RPI, _SPI, _Ta, _Us, _AACut, _ACWCf, _PNC, _PCC, _VEC],
   [0, 0, 0, 0, [() => UserIdentityInfoLite$, 0], [() => UserPhoneConfig$, 0], 0, 64 | 0, 128 | 0, 0, () => AutoAcceptConfigs, () => AfterContactWorkConfigs, [() => PhoneNumberConfigs, 0], () => PersistentConnectionConfigs, () => VoiceEnhancementConfigs]
 ];
 export var UserSummary$: StaticStructureSchema = [3, n0, _US,
   0,
-  [_I, _A, _U, _LMT, _LMR],
+  [_I, _A, _Us, _LMT, _LMR],
   [0, 0, 0, 4, 0]
 ];
 export var Validation$: StaticStructureSchema = [3, n0, _Val,
@@ -9384,6 +9564,9 @@ var AuthenticationProfileSummaryList: StaticListSchema = [1, n0, _APSL,
 var AutoAcceptConfigs: StaticListSchema = [1, n0, _AACut,
   0, () => AutoAcceptConfig$
 ];
+var AvailableFilterList: StaticListSchema = [1, n0, _AFLv,
+  0, () => AvailableFilter$
+];
 var AvailableNumbersList: StaticListSchema = [1, n0, _ANL,
   0, () => AvailableNumberSummary$
 ];
@@ -9410,6 +9593,9 @@ var BatchUpdateDataTableValueFailureResultList: StaticListSchema = [1, n0, _BUDT
 ];
 var BatchUpdateDataTableValueSuccessResultList: StaticListSchema = [1, n0, _BUDTVSRL,
   0, () => BatchUpdateDataTableValueSuccessResult$
+];
+var CalculationComponentList: StaticListSchema = [1, n0, _CCL,
+  0, () => CalculationComponent$
 ];
 var ChannelList = 64 | 0;
 var Channels = 64 | 0;
@@ -9714,7 +9900,7 @@ var LexBotsList: StaticListSchema = [1, n0, _LBL,
 var ListPhoneNumbersSummaryList: StaticListSchema = [1, n0, _LPNSL,
   0, () => ListPhoneNumbersSummary$
 ];
-var MediaConcurrencies: StaticListSchema = [1, n0, _MCe,
+var MediaConcurrencies: StaticListSchema = [1, n0, _MCed,
   0, () => MediaConcurrency$
 ];
 var MediaList: StaticListSchema = [1, n0, _MLe,
@@ -9723,12 +9909,25 @@ var MediaList: StaticListSchema = [1, n0, _MLe,
 var MetricDataCollectionsV2: StaticListSchema = [1, n0, _MDCV,
   0, () => MetricDataV2$
 ];
+var MetricFilterList: StaticListSchema = [1, n0, _MFL,
+  0, () => MetricFilter$
+];
 var MetricFiltersV2List: StaticListSchema = [1, n0, _MFVL,
   0, () => MetricFilterV2$
 ];
 var MetricFilterValueList = 64 | 0;
+var MetricGroupingList = 64 | 0;
 var MetricResultsV2: StaticListSchema = [1, n0, _MRVe,
   0, () => MetricResultV2$
+];
+var MetricSearchConditionList: StaticListSchema = [1, n0, _MSCL,
+  0, () => MetricSearchCriteria$
+];
+var MetricSearchSummaryList: StaticListSchema = [1, n0, _MSSL,
+  0, () => MetricDefinition$
+];
+var MetricSummaryList: StaticListSchema = [1, n0, _MSL,
+  0, () => MetricSummary$
 ];
 var MetricsV2: StaticListSchema = [1, n0, _MVet,
   0, () => MetricV2$
@@ -9747,6 +9946,7 @@ var NotificationSearchSummaryList: StaticListSchema = [1, n0, _NSSL,
 var NotificationSummaryList: StaticListSchema = [1, n0, _NSL,
   0, () => Notification$
 ];
+var NumberValueList = 64 | 1;
 var OperationalHours: StaticListSchema = [1, n0, _OH,
   0, () => OperationalHour$
 ];
@@ -9992,6 +10192,7 @@ var StateTransitions: StaticListSchema = [1, n0, _STt,
 var Steps: StaticListSchema = [1, n0, _Ste,
   0, () => Step$
 ];
+var StringValueList = 64 | 0;
 var Subtypes = 64 | 0;
 var SuccessfulBatchAssociationSummaryList: StaticListSchema = [1, n0, _SBASL,
   0, () => SuccessfulBatchAssociationSummary$
@@ -10001,6 +10202,7 @@ var SuccessfulRequestList: StaticListSchema = [1, n0, _SRL,
 ];
 var SummaryModes = 64 | 0;
 var SupportedMessagingContentTypes = 64 | 0;
+var SupportedStatsList = 64 | 0;
 var TagAndConditionList: StaticListSchema = [1, n0, _TACL,
   0, () => TagCondition$
 ];
@@ -10418,6 +10620,9 @@ export var CreateInstance$: StaticOperationSchema = [9, n0, _CIr,
 export var CreateIntegrationAssociation$: StaticOperationSchema = [9, n0, _CIA,
   { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations", 200] }, () => CreateIntegrationAssociationRequest$, () => CreateIntegrationAssociationResponse$
 ];
+export var CreateMetric$: StaticOperationSchema = [9, n0, _CMre,
+  { [_h]: ["PUT", "/metrics/definitions/{InstanceId}", 200] }, () => CreateMetricRequest$, () => CreateMetricResponse$
+];
 export var CreateNotification$: StaticOperationSchema = [9, n0, _CN,
   { [_h]: ["PUT", "/notifications/{InstanceId}", 200] }, () => CreateNotificationRequest$, () => CreateNotificationResponse$
 ];
@@ -10463,7 +10668,7 @@ export var CreateTrafficDistributionGroup$: StaticOperationSchema = [9, n0, _CTD
 export var CreateUseCase$: StaticOperationSchema = [9, n0, _CUC,
   { [_h]: ["PUT", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases", 200] }, () => CreateUseCaseRequest$, () => CreateUseCaseResponse$
 ];
-export var CreateUser$: StaticOperationSchema = [9, n0, _CU,
+export var CreateUser$: StaticOperationSchema = [9, n0, _CUr,
   { [_h]: ["PUT", "/users/{InstanceId}", 200] }, () => CreateUserRequest$, () => CreateUserResponse$
 ];
 export var CreateUserHierarchyGroup$: StaticOperationSchema = [9, n0, _CUHG,
@@ -10535,6 +10740,9 @@ export var DeleteInstance$: StaticOperationSchema = [9, n0, _DIel,
 export var DeleteIntegrationAssociation$: StaticOperationSchema = [9, n0, _DIA,
   { [_h]: ["DELETE", "/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}", 200] }, () => DeleteIntegrationAssociationRequest$, () => __Unit
 ];
+export var DeleteMetric$: StaticOperationSchema = [9, n0, _DMe,
+  { [_h]: ["DELETE", "/metrics/definitions/{InstanceId}/{MetricId}", 200] }, () => DeleteMetricRequest$, () => DeleteMetricResponse$
+];
 export var DeleteNotification$: StaticOperationSchema = [9, n0, _DNe,
   { [_h]: ["DELETE", "/notifications/{InstanceId}/{NotificationId}", 200] }, () => DeleteNotificationRequest$, () => DeleteNotificationResponse$
 ];
@@ -10562,7 +10770,7 @@ export var DeleteRule$: StaticOperationSchema = [9, n0, _DRel,
 export var DeleteSecurityProfile$: StaticOperationSchema = [9, n0, _DSP,
   { [_h]: ["DELETE", "/security-profiles/{InstanceId}/{SecurityProfileId}", 200] }, () => DeleteSecurityProfileRequest$, () => __Unit
 ];
-export var DeleteSession$: StaticOperationSchema = [9, n0, _DS,
+export var DeleteSession$: StaticOperationSchema = [9, n0, _DSe,
   { [_h]: ["DELETE", "/auth/sessions/{InstanceId}/{SessionId}", 200] }, () => DeleteSessionRequest$, () => DeleteSessionResponse$
 ];
 export var DeleteTaskTemplate$: StaticOperationSchema = [9, n0, _DTT,
@@ -10651,6 +10859,9 @@ export var DescribeInstanceAttribute$: StaticOperationSchema = [9, n0, _DIAe,
 ];
 export var DescribeInstanceStorageConfig$: StaticOperationSchema = [9, n0, _DISC,
   { [_h]: ["GET", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] }, () => DescribeInstanceStorageConfigRequest$, () => DescribeInstanceStorageConfigResponse$
+];
+export var DescribeMetric$: StaticOperationSchema = [9, n0, _DMes,
+  { [_h]: ["GET", "/metrics/definitions/{InstanceId}/{MetricId}", 200] }, () => DescribeMetricRequest$, () => DescribeMetricResponse$
 ];
 export var DescribeNotification$: StaticOperationSchema = [9, n0, _DNes,
   { [_h]: ["GET", "/notifications/{InstanceId}/{NotificationId}", 200] }, () => DescribeNotificationRequest$, () => DescribeNotificationResponse$
@@ -10913,6 +11124,9 @@ export var ListLambdaFunctions$: StaticOperationSchema = [9, n0, _LLF,
 export var ListLexBots$: StaticOperationSchema = [9, n0, _LLB,
   { [_h]: ["GET", "/instance/{InstanceId}/lex-bots", 200] }, () => ListLexBotsRequest$, () => ListLexBotsResponse$
 ];
+export var ListMetrics$: StaticOperationSchema = [9, n0, _LM,
+  { [_h]: ["GET", "/metrics/definitions/{InstanceId}", 200] }, () => ListMetricsRequest$, () => ListMetricsResponse$
+];
 export var ListNotifications$: StaticOperationSchema = [9, n0, _LNi,
   { [_h]: ["GET", "/notifications/{InstanceId}", 200] }, () => ListNotificationsRequest$, () => ListNotificationsResponse$
 ];
@@ -11075,6 +11289,9 @@ export var SearchHoursOfOperationOverrides$: StaticOperationSchema = [9, n0, _SH
 export var SearchHoursOfOperations$: StaticOperationSchema = [9, n0, _SHOO,
   { [_h]: ["POST", "/search-hours-of-operations", 200] }, () => SearchHoursOfOperationsRequest$, () => SearchHoursOfOperationsResponse$
 ];
+export var SearchMetrics$: StaticOperationSchema = [9, n0, _SMe,
+  { [_h]: ["POST", "/search-metrics", 200] }, () => SearchMetricsRequest$, () => SearchMetricsResponse$
+];
 export var SearchNotifications$: StaticOperationSchema = [9, n0, _SNe,
   { [_h]: ["POST", "/search-notifications", 200] }, () => SearchNotificationsRequest$, () => SearchNotificationsResponse$
 ];
@@ -11135,7 +11352,7 @@ export var SendOutboundWebNotification$: StaticOperationSchema = [9, n0, _SOWN,
 export var StartAttachedFileUpload$: StaticOperationSchema = [9, n0, _SAFU,
   { [_h]: ["PUT", "/attached-files/{InstanceId}", 200] }, () => StartAttachedFileUploadRequest$, () => StartAttachedFileUploadResponse$
 ];
-export var StartChatContact$: StaticOperationSchema = [9, n0, _SCC,
+export var StartChatContact$: StaticOperationSchema = [9, n0, _SCCt,
   { [_h]: ["PUT", "/contact/chat", 200] }, () => StartChatContactRequest$, () => StartChatContactResponse$
 ];
 export var StartContactConversationalAnalyticsJob$: StaticOperationSchema = [9, n0, _SCCAJ,
@@ -11287,6 +11504,12 @@ export var UpdateInstanceAttribute$: StaticOperationSchema = [9, n0, _UIA,
 ];
 export var UpdateInstanceStorageConfig$: StaticOperationSchema = [9, n0, _UISC,
   { [_h]: ["POST", "/instance/{InstanceId}/storage-config/{AssociationId}", 200] }, () => UpdateInstanceStorageConfigRequest$, () => __Unit
+];
+export var UpdateMetricContent$: StaticOperationSchema = [9, n0, _UMC,
+  { [_h]: ["POST", "/metrics/definitions/{InstanceId}/{MetricId}/content", 200] }, () => UpdateMetricContentRequest$, () => UpdateMetricContentResponse$
+];
+export var UpdateMetricMetadata$: StaticOperationSchema = [9, n0, _UMM,
+  { [_h]: ["POST", "/metrics/definitions/{InstanceId}/{MetricId}/metadata", 200] }, () => UpdateMetricMetadataRequest$, () => UpdateMetricMetadataResponse$
 ];
 export var UpdateNotificationContent$: StaticOperationSchema = [9, n0, _UNC,
   { [_h]: ["POST", "/notifications/{InstanceId}/{NotificationId}", 200] }, () => UpdateNotificationContentRequest$, () => UpdateNotificationContentResponse$

@@ -48,6 +48,11 @@ import type {
   IntegrationType,
   ListFlowAssociationResourceType,
   LocaleCode,
+  MetricFilterBooleanConditionComparison,
+  MetricFilterNumberConditionComparison,
+  MetricFilterStringConditionComparison,
+  MetricStatus,
+  MetricUnit,
   MultiSelectQuestionRuleCategoryAutomationCondition,
   NotificationContentType,
   NotificationDeliveryType,
@@ -58,7 +63,6 @@ import type {
   ParticipantRole,
   ParticipantState,
   PerformanceCategoryName,
-  PhoneType,
   PropertyValidationExceptionReason,
   QuickConnectType,
   RecurrenceFrequency,
@@ -77,6 +81,7 @@ import type {
   TaskTemplateStatus,
   TestCaseEntryPointType,
   TestCaseStatus,
+  TrendIndicator,
   UseCaseType,
   VideoCapability,
   VocabularyLanguageCode,
@@ -5626,6 +5631,217 @@ export interface CreateIntegrationAssociationResponse {
 }
 
 /**
+ * <p>A boolean comparison condition for metric filters.</p>
+ * @public
+ */
+export interface MetricFilterBooleanCondition {
+  /**
+   * <p>The comparison operator. Valid values: <code>IS_TRUE</code> (matches when the field is true) | <code>IS_FALSE</code> (matches when the field is false).</p>
+   * @public
+   */
+  Comparison: MetricFilterBooleanConditionComparison | undefined;
+}
+
+/**
+ * <p>A numeric comparison condition for metric filters.</p>
+ * @public
+ */
+export interface MetricFilterNumberCondition {
+  /**
+   * <p>The comparison operator. Valid values: <code>LESSER</code> (less than) | <code>LESSER_OR_EQUAL</code> (less than or equal to) | <code>GREATER</code> (greater than) | <code>GREATER_OR_EQUAL</code> (greater than or equal to).</p>
+   * @public
+   */
+  Comparison: MetricFilterNumberConditionComparison | undefined;
+
+  /**
+   * <p>The numeric values to compare against.</p>
+   * @public
+   */
+  Values: number[] | undefined;
+}
+
+/**
+ * <p>A string comparison condition for metric filters.</p>
+ * @public
+ */
+export interface MetricFilterStringCondition {
+  /**
+   * <p>The comparison operator. Valid values: <code>MATCHES_ANY</code> (matches any of the specified values) | <code>MATCHES_NONE</code> (matches none of the specified values).</p>
+   * @public
+   */
+  Comparison: MetricFilterStringConditionComparison | undefined;
+
+  /**
+   * <p>The string values to compare against.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * <p>A filter condition applied to a metric component in a calculation. Filters restrict the data included in the metric computation.</p>
+ * @public
+ */
+export interface MetricFilter {
+  /**
+   * <p>The key identifying the field to filter on.</p>
+   * @public
+   */
+  MetricFilterKey: string | undefined;
+
+  /**
+   * <p>Specifies whether the filter condition is negated. When set to <code>true</code>, the filter excludes matching data instead of including it.</p>
+   * @public
+   */
+  Negate?: boolean | undefined;
+
+  /**
+   * <p>A numeric comparison condition.</p>
+   * @public
+   */
+  NumberCondition?: MetricFilterNumberCondition | undefined;
+
+  /**
+   * <p>A string comparison condition.</p>
+   * @public
+   */
+  StringCondition?: MetricFilterStringCondition | undefined;
+
+  /**
+   * <p>A boolean comparison condition.</p>
+   * @public
+   */
+  BooleanCondition?: MetricFilterBooleanCondition | undefined;
+}
+
+/**
+ * <p>Represents a component metric referenced in a custom metric calculation formula.</p>
+ * @public
+ */
+export interface CalculationComponent {
+  /**
+   * <p>The alias used to reference this component in the calculation expression.</p>
+   * @public
+   */
+  Alias: string | undefined;
+
+  /**
+   * <p>The name of an AWS-managed metric used in this calculation component (for example, <code>CONTACTS_HANDLED</code>). Mutually exclusive with <code>MetricId</code>.</p>
+   * @public
+   */
+  MetricName?: string | undefined;
+
+  /**
+   * <p>The ARN of an AWS-managed metric used in this calculation component. Mutually exclusive with <code>MetricName</code>.</p>
+   * @public
+   */
+  MetricId?: string | undefined;
+
+  /**
+   * <p>The filters applied to the calculation component.</p>
+   * @public
+   */
+  MetricFilters?: MetricFilter[] | undefined;
+}
+
+/**
+ * <p>Contains the formula and component metrics that define a custom metric calculation.</p>
+ * @public
+ */
+export interface MetricCalculation {
+  /**
+   * <p>The list of component metrics referenced in the calculation formula. Each component has an alias used in the formula expression.</p>
+   * @public
+   */
+  CalculationComponents: CalculationComponent[] | undefined;
+
+  /**
+   * <p>The formula expression that defines how the metric is calculated. Uses component aliases (for example, <code>100 * SUM(M1) / SUM(M2)</code>).</p>
+   * @public
+   */
+  Calculation: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMetricRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the metric.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The calculation definition for the metric, including the formula expression and the component metrics it references.</p>
+   * @public
+   */
+  MetricCalculation: MetricCalculation | undefined;
+
+  /**
+   * <p>The display unit for the metric's data.</p>
+   * @public
+   */
+  Unit: MetricUnit | undefined;
+
+  /**
+   * <p>The publish status of the metric. Set to <code>PUBLISHED</code> to make the metric available for use in dashboards and reports, or <code>SAVED</code> to keep it in draft state.</p>
+   * @public
+   */
+  Status?: MetricStatus | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The description of the metric.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>How an increase in the metric value should be interpreted. Valid values: <code>POSITIVE</code>, <code>NEUTRAL</code>, <code>NEGATIVE</code>.</p>
+   * @public
+   */
+  PositiveTrendIndicator?: TrendIndicator | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateMetricResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the metric.</p>
+   * @public
+   */
+  MetricArn: string | undefined;
+
+  /**
+   * <p>The identifier of the metric.</p>
+   * @public
+   */
+  MetricId: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CreateNotificationRequest {
@@ -7731,326 +7947,4 @@ export interface AutoAcceptConfig {
    * @public
    */
   AgentFirstCallbackAutoAccept?: boolean | undefined;
-}
-
-/**
- * <p>Contains information about the identity of a user.</p>
- *          <note>
- *             <p>For Connect Customer instances that are created with the <code>EXISTING_DIRECTORY</code> identity management
- *     type, <code>FirstName</code>, <code>LastName</code>, and <code>Email</code> cannot be updated from within Connect Customer because they are managed by the directory.</p>
- *          </note>
- *          <important>
- *             <p>The <code>FirstName</code> and <code>LastName</code> length constraints below apply only to instances using
- *     SAML for identity management. If you are using Connect Customer for identity management, the length constraints
- *     are 1-255 for <code>FirstName</code>, and 1-256 for <code>LastName</code>. </p>
- *          </important>
- * @public
- */
-export interface UserIdentityInfo {
-  /**
-   * <p>The first name. This is required if you are using Connect Customer or SAML for identity management. Inputs
-   *    must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed
-   *    characters or combining marks) are not accepted.</p>
-   * @public
-   */
-  FirstName?: string | undefined;
-
-  /**
-   * <p>The last name. This is required if you are using Connect Customer or SAML for identity management. Inputs must
-   *    be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed
-   *    characters or combining marks) are not accepted.</p>
-   * @public
-   */
-  LastName?: string | undefined;
-
-  /**
-   * <p>The email address. If you are using SAML for identity management and include this parameter, an error is
-   *    returned.</p>
-   * @public
-   */
-  Email?: string | undefined;
-
-  /**
-   * <p>The user's secondary email address. If you provide a secondary email, the user receives email notifications -
-   *    other than password reset notifications - to this email address instead of to their primary email address.</p>
-   *          <p>Pattern: <code>(?=^.\{0,265\}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]\{2,63\}</code>
-   *          </p>
-   * @public
-   */
-  SecondaryEmail?: string | undefined;
-
-  /**
-   * <p>The user's mobile number.</p>
-   * @public
-   */
-  Mobile?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for persistent connection for a specific channel.</p>
- * @public
- */
-export interface PersistentConnectionConfig {
-  /**
-   * <p>Configuration settings for persistent connection. <b>Only <code>VOICE</code> is supported for this data type.</b>
-   *          </p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>Indicates whether persistent connection is enabled. When enabled, the agent's connection is maintained after a call ends, enabling subsequent calls to connect faster.</p>
-   * @public
-   */
-  PersistentConnection: boolean | undefined;
-}
-
-/**
- * <p>Contains information about the phone configuration settings for a user.</p>
- * @public
- */
-export interface UserPhoneConfig {
-  /**
-   * <p>The phone type.</p>
-   * @public
-   */
-  PhoneType?: PhoneType | undefined;
-
-  /**
-   * <p>The Auto accept setting.</p>
-   * @public
-   */
-  AutoAccept?: boolean | undefined;
-
-  /**
-   * <p>The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of 0 and a maximum
-   *    value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a specific amount of ACW time. It
-   *    essentially means an indefinite amount of time. When the conversation ends, ACW starts; the agent must choose Close
-   *    contact to end ACW. </p>
-   *          <note>
-   *             <p>When returned by a <code>SearchUsers</code> call, <code>AfterContactWorkTimeLimit</code> is returned in
-   *     milliseconds. </p>
-   *          </note>
-   * @public
-   */
-  AfterContactWorkTimeLimit?: number | undefined;
-
-  /**
-   * <p>The phone number for the user's desk phone.</p>
-   * @public
-   */
-  DeskPhoneNumber?: string | undefined;
-
-  /**
-   * <p>The persistent connection setting for the user.</p>
-   * @public
-   */
-  PersistentConnection?: boolean | undefined;
-}
-
-/**
- * <p>Configuration settings for phone type and phone number.</p>
- * @public
- */
-export interface PhoneNumberConfig {
-  /**
-   * <p>The channel for this phone number configuration. <b>Only <code>VOICE</code> is supported for this data type.</b>
-   *          </p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>The phone type. Valid values: SOFT_PHONE, DESK_PHONE.</p>
-   * @public
-   */
-  PhoneType: PhoneType | undefined;
-
-  /**
-   * <p>The phone number for the user's desk phone.</p>
-   * @public
-   */
-  PhoneNumber?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for voice enhancement.</p>
- * @public
- */
-export interface VoiceEnhancementConfig {
-  /**
-   * <p>The channel for this voice enhancement configuration. <b>Only <code>VOICE</code> is supported for this data type.</b>
-   *          </p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>The voice enhancement mode.</p>
-   * @public
-   */
-  VoiceEnhancementMode: VoiceEnhancementMode | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserRequest {
-  /**
-   * <p>The user name for the account. For instances not using SAML for identity management, the user name can include
-   *    up to 20 characters. If you are using SAML for identity management, the user name can include up to 64 characters
-   *    from [a-zA-Z0-9_-.\@]+.</p>
-   *          <p>Username can include @ only if used in an email format. For example:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Correct: testuser</p>
-   *             </li>
-   *             <li>
-   *                <p>Correct: testuser@example.com</p>
-   *             </li>
-   *             <li>
-   *                <p>Incorrect: testuser@example</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Username: string | undefined;
-
-  /**
-   * <p>The password for the user account. A password is required if you are using Connect Customer for identity
-   *    management. Otherwise, it is an error to include a password.</p>
-   * @public
-   */
-  Password?: string | undefined;
-
-  /**
-   * <p>The information about the identity of the user.</p>
-   * @public
-   */
-  IdentityInfo?: UserIdentityInfo | undefined;
-
-  /**
-   * <p>The phone settings for the user. This parameter is optional. If not provided, the user can be configured using channel-specific parameters such as <code>AutoAcceptConfigs</code>, <code>AfterContactWorkConfigs</code>, <code>PhoneNumberConfigs</code>, <code>PersistentConnectionConfigs</code>, and <code>VoiceEnhancementConfigs</code>.</p>
-   * @public
-   */
-  PhoneConfig?: UserPhoneConfig | undefined;
-
-  /**
-   * <p>The identifier of the user account in the directory used for identity management. If Connect Customer cannot
-   *    access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume
-   *    that Connect Customer cannot access the directory. Otherwise, the identity information is used to authenticate
-   *    users from your directory.</p>
-   *          <p>This parameter is required if you are using an existing directory for identity management in Connect Customer
-   *    when Connect Customer cannot access your directory to authenticate users. If you are using SAML for identity
-   *    management and include this parameter, an error is returned.</p>
-   * @public
-   */
-  DirectoryUserId?: string | undefined;
-
-  /**
-   * <p>The identifier of the security profile for the user.</p>
-   * @public
-   */
-  SecurityProfileIds: string[] | undefined;
-
-  /**
-   * <p>The identifier of the routing profile for the user.</p>
-   * @public
-   */
-  RoutingProfileId: string | undefined;
-
-  /**
-   * <p>The identifier of the hierarchy group for the user.</p>
-   * @public
-   */
-  HierarchyGroupId?: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The list of auto-accept configuration settings for each channel.</p>
-   * @public
-   */
-  AutoAcceptConfigs?: AutoAcceptConfig[] | undefined;
-
-  /**
-   * <p>The list of after contact work (ACW) timeout configuration settings for each channel.</p>
-   * @public
-   */
-  AfterContactWorkConfigs?: AfterContactWorkConfigPerChannel[] | undefined;
-
-  /**
-   * <p>The list of phone number configuration settings for each channel.</p>
-   * @public
-   */
-  PhoneNumberConfigs?: PhoneNumberConfig[] | undefined;
-
-  /**
-   * <p>The list of persistent connection configuration settings for each channel.</p>
-   * @public
-   */
-  PersistentConnectionConfigs?: PersistentConnectionConfig[] | undefined;
-
-  /**
-   * <p>The list of voice enhancement configuration settings for each channel.</p>
-   * @public
-   */
-  VoiceEnhancementConfigs?: VoiceEnhancementConfig[] | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserResponse {
-  /**
-   * <p>The identifier of the user account.</p>
-   * @public
-   */
-  UserId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the user account.</p>
-   * @public
-   */
-  UserArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUserHierarchyGroupRequest {
-  /**
-   * <p>The name of the user hierarchy group. Must not be more than 100 characters.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID
-   *    is null.</p>
-   * @public
-   */
-  ParentGroupId?: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
 }

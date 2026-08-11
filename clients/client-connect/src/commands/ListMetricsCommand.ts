@@ -1,0 +1,107 @@
+// smithy-typescript generated code
+import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
+
+import { _ep0, _mw0, command } from "../commandBuilder";
+import type { ListMetricsRequest, ListMetricsResponse } from "../models/models_2";
+import { ListMetrics$ } from "../schemas/schemas_0";
+
+/**
+ * @public
+ */
+export type { __MetadataBearer };
+/**
+ * @public
+ *
+ * The input for {@link ListMetricsCommand}.
+ */
+export interface ListMetricsCommandInput extends ListMetricsRequest {}
+/**
+ * @public
+ *
+ * The output of {@link ListMetricsCommand}.
+ */
+export interface ListMetricsCommandOutput extends ListMetricsResponse, __MetadataBearer {}
+
+/**
+ * <p>Retrieves a paginated list of metric summaries for the specified Connect Customer instance. Use pagination to ensure that the operation returns quickly and successfully.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { ConnectClient, ListMetricsCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, ListMetricsCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * // import type { ConnectClientConfig } from "@aws-sdk/client-connect";
+ * const config = {}; // type is ConnectClientConfig
+ * const client = new ConnectClient(config);
+ * const input = { // ListMetricsRequest
+ *   InstanceId: "STRING_VALUE", // required
+ *   Type: "AWS_MANAGED" || "CUSTOMER_MANAGED",
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ * };
+ * const command = new ListMetricsCommand(input);
+ * const response = await client.send(command);
+ * // { // ListMetricsResponse
+ * //   MetricSummaryList: [ // MetricSummaryList // required
+ * //     { // MetricSummary
+ * //       Arn: "STRING_VALUE", // required
+ * //       Id: "STRING_VALUE", // required
+ * //       Name: "STRING_VALUE", // required
+ * //       Status: "PUBLISHED" || "SAVED", // required
+ * //       Type: "AWS_MANAGED" || "CUSTOMER_MANAGED", // required
+ * //       LastModifiedRegion: "STRING_VALUE",
+ * //       LastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   ],
+ * //   NextToken: "STRING_VALUE",
+ * // };
+ *
+ * ```
+ *
+ * @param ListMetricsCommandInput - {@link ListMetricsCommandInput}
+ * @returns {@link ListMetricsCommandOutput}
+ * @see {@link ListMetricsCommandInput} for command's `input` shape.
+ * @see {@link ListMetricsCommandOutput} for command's `response` shape.
+ * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
+ *
+ * @throws {@link InternalServiceException} (server fault)
+ *  <p>Request processing failed because of an error or failure with the service.</p>
+ *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the specified parameters are not valid.</p>
+ *
+ * @throws {@link InvalidRequestException} (client fault)
+ *  <p>The request is not valid.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
+ *
+ * @throws {@link ConnectServiceException}
+ * <p>Base exception class for all service exceptions from Connect service.</p>
+ *
+ *
+ * @public
+ */
+export class ListMetricsCommand extends command<ListMetricsCommandInput, ListMetricsCommandOutput>(
+  _ep0,
+  _mw0,
+  "ListMetrics",
+  ListMetrics$
+) {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMetricsRequest;
+      output: ListMetricsResponse;
+    };
+    sdk: {
+      input: ListMetricsCommandInput;
+      output: ListMetricsCommandOutput;
+    };
+  };
+}
