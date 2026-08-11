@@ -121,7 +121,8 @@
     "ts-loader": "9.4.2",
     "tsx": "4.19.2",
     "turbo": "2.9.14",
-    "typescript": "~6.0.3",
+    "typescript": "~7.0.2",
+    "typescript-6": "npm:typescript@~6.0.3",
     "verdaccio": "5.25.0",
     "vite": "^7.1.11",
     "vitest": "^4.1.7",
@@ -130,10 +131,18 @@
     "yargs": "17.5.1"
   },
   "resolutions": {
-    "typescript": "~6.0.3"
+    "@microsoft/api-extractor/typescript": "~6.0.3",
+    "downlevel-dts/typescript": "~6.0.3",
+    "typescript": "~7.0.2"
   },
   "overrides": {
-    "typescript": "~6.0.3"
+    "@microsoft/api-extractor": {
+      "typescript": "~6.0.3"
+    },
+    "downlevel-dts": {
+      "typescript": "~6.0.3"
+    },
+    "typescript": "~7.0.2"
   },
   "husky": {
     "hooks": {
