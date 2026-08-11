@@ -176,6 +176,31 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //     controlPlaneScalingConfig: { // ControlPlaneScalingConfig
  * //       tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl" || "tier-8xl",
  * //     },
+ * //     kubeApiServerConfig: { // KubeApiServerConfigResponse
+ * //       eventTtl: "STRING_VALUE",
+ * //       serviceNodePortRange: { // ServiceNodePortRange
+ * //         minPort: Number("int"),
+ * //         maxPort: Number("int"),
+ * //       },
+ * //     },
+ * //     kubeSchedulerConfig: { // KubeSchedulerConfigResponse
+ * //       nodeResourcesFit: { // NodeResourcesFitConfig
+ * //         scoringStrategy: { // ScoringStrategy
+ * //           type: "LeastAllocated" || "MostAllocated",
+ * //           resources: [ // ResourceWeightList
+ * //             { // ResourceWeight
+ * //               name: "STRING_VALUE",
+ * //               weight: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
+ * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

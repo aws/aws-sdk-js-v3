@@ -18,6 +18,7 @@ import {
   AddonPodIdentityConfiguration$,
   AddonStatus,
   AddonVersionInfo$,
+  AllowedValuesConstraint$,
   AMITypes,
   ArgoCdAwsIdcConfigRequest$,
   ArgoCdAwsIdcConfigResponse$,
@@ -81,10 +82,12 @@ import {
   ConnectorConfigProvider,
   ConnectorConfigRequest$,
   ConnectorConfigResponse$,
+  ControlPlaneConfigInfo$,
   ControlPlaneEgressModeType,
   ControlPlanePlacementRequest$,
   ControlPlanePlacementResponse$,
   ControlPlaneScalingConfig$,
+  ControlPlaneScalingTierInfo$,
   CreateAccessConfigRequest$,
   CreateAccessEntry$,
   CreateAccessEntryCommand,
@@ -223,6 +226,8 @@ import {
   DisassociateIdentityProviderConfigCommand,
   DisassociateIdentityProviderConfigRequest$,
   DisassociateIdentityProviderConfigResponse$,
+  DurationConstraints$,
+  DurationParameterConfig$,
   EKS,
   EksAnywhereSubscription$,
   EksAnywhereSubscriptionLicenseType,
@@ -243,6 +248,9 @@ import {
   FargateProfileIssueCode,
   FargateProfileSelector$,
   FargateProfileStatus,
+  HorizontalPodAutoscalerControllerConfigRequest$,
+  HorizontalPodAutoscalerControllerConfigResponse$,
+  HorizontalPodAutoscalerControllerVersionConfig$,
   Identity$,
   IdentityProviderConfig$,
   IdentityProviderConfigResponse$,
@@ -254,6 +262,7 @@ import {
   InsightStatus$,
   InsightStatusValue,
   InsightSummary$,
+  IntegerRangeConstraint$,
   InvalidParameterException,
   InvalidParameterException$,
   InvalidRequestException,
@@ -262,8 +271,17 @@ import {
   InvalidStateException$,
   IpFamily,
   Issue$,
+  KubeApiServerConfigRequest$,
+  KubeApiServerConfigResponse$,
+  KubeApiServerVersionConfig$,
+  KubeControllerManagerConfigRequest$,
+  KubeControllerManagerConfigResponse$,
+  KubeControllerManagerVersionConfig$,
   KubernetesNetworkConfigRequest$,
   KubernetesNetworkConfigResponse$,
+  KubeSchedulerConfigRequest$,
+  KubeSchedulerConfigResponse$,
+  KubeSchedulerVersionConfig$,
   LaunchTemplateSpecification$,
   License$,
   ListAccessEntries$,
@@ -336,6 +354,8 @@ import {
   NodegroupUpdateStrategies,
   NodeRepairConfig$,
   NodeRepairConfigOverrides$,
+  NodeResourcesFitConfig$,
+  NodeResourcesFitVersionConfig$,
   NotFoundException,
   NotFoundException$,
   OIDC$,
@@ -360,6 +380,8 @@ import {
   paginateListUpdates,
   PodIdentityAssociation$,
   PodIdentityAssociationSummary$,
+  PortRangeConstraints$,
+  PortRangeParameterConfig$,
   Provider$,
   ProvisionedControlPlaneTier,
   RegisterCluster$,
@@ -373,6 +395,7 @@ import {
   RemotePodNetwork$,
   RepairAction,
   ResolveConflicts,
+  ResourceConstraints$,
   ResourceInUseException,
   ResourceInUseException$,
   ResourceLimitExceededException,
@@ -381,9 +404,15 @@ import {
   ResourceNotFoundException$,
   ResourcePropagationDelayException,
   ResourcePropagationDelayException$,
+  ResourceWeight$,
   RollbackConfig$,
+  ScoringStrategy$,
+  ScoringStrategyConfig$,
+  ScoringStrategyConstraints$,
+  ScoringStrategyType,
   ServerException,
   ServerException$,
+  ServiceNodePortRange$,
   ServiceUnavailableException,
   ServiceUnavailableException$,
   SpreadLevel,
@@ -633,6 +662,7 @@ assert(typeof AddonNamespaceConfigResponse$ === "object");
 assert(typeof AddonPodIdentityAssociations$ === "object");
 assert(typeof AddonPodIdentityConfiguration$ === "object");
 assert(typeof AddonVersionInfo$ === "object");
+assert(typeof AllowedValuesConstraint$ === "object");
 assert(typeof ArgoCdAwsIdcConfigRequest$ === "object");
 assert(typeof ArgoCdAwsIdcConfigResponse$ === "object");
 assert(typeof ArgoCdConfigRequest$ === "object");
@@ -669,9 +699,11 @@ assert(typeof ComputeConfigRequest$ === "object");
 assert(typeof ComputeConfigResponse$ === "object");
 assert(typeof ConnectorConfigRequest$ === "object");
 assert(typeof ConnectorConfigResponse$ === "object");
+assert(typeof ControlPlaneConfigInfo$ === "object");
 assert(typeof ControlPlanePlacementRequest$ === "object");
 assert(typeof ControlPlanePlacementResponse$ === "object");
 assert(typeof ControlPlaneScalingConfig$ === "object");
+assert(typeof ControlPlaneScalingTierInfo$ === "object");
 assert(typeof CreateAccessConfigRequest$ === "object");
 assert(typeof CreateAccessEntryRequest$ === "object");
 assert(typeof CreateAccessEntryResponse$ === "object");
@@ -742,6 +774,8 @@ assert(typeof DisassociateAccessPolicyRequest$ === "object");
 assert(typeof DisassociateAccessPolicyResponse$ === "object");
 assert(typeof DisassociateIdentityProviderConfigRequest$ === "object");
 assert(typeof DisassociateIdentityProviderConfigResponse$ === "object");
+assert(typeof DurationConstraints$ === "object");
+assert(typeof DurationParameterConfig$ === "object");
 assert(typeof EksAnywhereSubscription$ === "object");
 assert(typeof EksAnywhereSubscriptionTerm$ === "object");
 assert(typeof ElasticLoadBalancing$ === "object");
@@ -753,6 +787,9 @@ assert(typeof FargateProfile$ === "object");
 assert(typeof FargateProfileHealth$ === "object");
 assert(typeof FargateProfileIssue$ === "object");
 assert(typeof FargateProfileSelector$ === "object");
+assert(typeof HorizontalPodAutoscalerControllerConfigRequest$ === "object");
+assert(typeof HorizontalPodAutoscalerControllerConfigResponse$ === "object");
+assert(typeof HorizontalPodAutoscalerControllerVersionConfig$ === "object");
 assert(typeof Identity$ === "object");
 assert(typeof IdentityProviderConfig$ === "object");
 assert(typeof IdentityProviderConfigResponse$ === "object");
@@ -762,9 +799,19 @@ assert(typeof InsightResourceDetail$ === "object");
 assert(typeof InsightsFilter$ === "object");
 assert(typeof InsightStatus$ === "object");
 assert(typeof InsightSummary$ === "object");
+assert(typeof IntegerRangeConstraint$ === "object");
 assert(typeof Issue$ === "object");
+assert(typeof KubeApiServerConfigRequest$ === "object");
+assert(typeof KubeApiServerConfigResponse$ === "object");
+assert(typeof KubeApiServerVersionConfig$ === "object");
+assert(typeof KubeControllerManagerConfigRequest$ === "object");
+assert(typeof KubeControllerManagerConfigResponse$ === "object");
+assert(typeof KubeControllerManagerVersionConfig$ === "object");
 assert(typeof KubernetesNetworkConfigRequest$ === "object");
 assert(typeof KubernetesNetworkConfigResponse$ === "object");
+assert(typeof KubeSchedulerConfigRequest$ === "object");
+assert(typeof KubeSchedulerConfigResponse$ === "object");
+assert(typeof KubeSchedulerVersionConfig$ === "object");
 assert(typeof LaunchTemplateSpecification$ === "object");
 assert(typeof License$ === "object");
 assert(typeof ListAccessEntriesRequest$ === "object");
@@ -805,6 +852,8 @@ assert(typeof NodegroupScalingConfig$ === "object");
 assert(typeof NodegroupUpdateConfig$ === "object");
 assert(typeof NodeRepairConfig$ === "object");
 assert(typeof NodeRepairConfigOverrides$ === "object");
+assert(typeof NodeResourcesFitConfig$ === "object");
+assert(typeof NodeResourcesFitVersionConfig$ === "object");
 assert(typeof OIDC$ === "object");
 assert(typeof OidcIdentityProviderConfig$ === "object");
 assert(typeof OidcIdentityProviderConfigRequest$ === "object");
@@ -812,6 +861,8 @@ assert(typeof OutpostConfigRequest$ === "object");
 assert(typeof OutpostConfigResponse$ === "object");
 assert(typeof PodIdentityAssociation$ === "object");
 assert(typeof PodIdentityAssociationSummary$ === "object");
+assert(typeof PortRangeConstraints$ === "object");
+assert(typeof PortRangeParameterConfig$ === "object");
 assert(typeof Provider$ === "object");
 assert(typeof RegisterClusterRequest$ === "object");
 assert(typeof RegisterClusterResponse$ === "object");
@@ -820,7 +871,13 @@ assert(typeof RemoteNetworkConfigRequest$ === "object");
 assert(typeof RemoteNetworkConfigResponse$ === "object");
 assert(typeof RemoteNodeNetwork$ === "object");
 assert(typeof RemotePodNetwork$ === "object");
+assert(typeof ResourceConstraints$ === "object");
+assert(typeof ResourceWeight$ === "object");
 assert(typeof RollbackConfig$ === "object");
+assert(typeof ScoringStrategy$ === "object");
+assert(typeof ScoringStrategyConfig$ === "object");
+assert(typeof ScoringStrategyConstraints$ === "object");
+assert(typeof ServiceNodePortRange$ === "object");
 assert(typeof SsoIdentity$ === "object");
 assert(typeof StartInsightsRefreshRequest$ === "object");
 assert(typeof StartInsightsRefreshResponse$ === "object");
@@ -900,6 +957,7 @@ assert(typeof NodegroupUpdateStrategies === "object");
 assert(typeof ProvisionedControlPlaneTier === "object");
 assert(typeof RepairAction === "object");
 assert(typeof ResolveConflicts === "object");
+assert(typeof ScoringStrategyType === "object");
 assert(typeof SpreadLevel === "object");
 assert(typeof SsoIdentityType === "object");
 assert(typeof SupportType === "object");

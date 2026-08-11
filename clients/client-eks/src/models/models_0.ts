@@ -35,6 +35,7 @@ import type {
   ProvisionedControlPlaneTier,
   RepairAction,
   ResolveConflicts,
+  ScoringStrategyType,
   SpreadLevel,
   SsoIdentityType,
   SupportType,
@@ -549,6 +550,18 @@ export interface AddonPodIdentityConfiguration {
    * @public
    */
   recommendedManagedPolicies?: string[] | undefined;
+}
+
+/**
+ * <p>A constraint specifying the allowed values for a parameter.</p>
+ * @public
+ */
+export interface AllowedValuesConstraint {
+  /**
+   * <p>The list of allowed values.</p>
+   * @public
+   */
+  allowedValues?: string[] | undefined;
 }
 
 /**
@@ -1836,6 +1849,66 @@ export interface ControlPlaneScalingConfig {
 }
 
 /**
+ * <p>The port range for Kubernetes NodePort services.</p>
+ * @public
+ */
+export interface ServiceNodePortRange {
+  /**
+   * <p>The minimum port number in the range.</p>
+   * @public
+   */
+  minPort?: number | undefined;
+
+  /**
+   * <p>The maximum port number in the range.</p>
+   * @public
+   */
+  maxPort?: number | undefined;
+}
+
+/**
+ * <p>The configuration for the Kubernetes API server on an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeApiServerConfigRequest {
+  /**
+   * <p>The duration that Kubernetes events are retained. Valid values are single-unit durations such as <code>30m</code> or <code>1h</code>.</p>
+   * @public
+   */
+  eventTtl?: string | undefined;
+
+  /**
+   * <p>The port range for NodePort services.</p>
+   * @public
+   */
+  serviceNodePortRange?: ServiceNodePortRange | undefined;
+}
+
+/**
+ * <p>The horizontal pod autoscaler controller configuration for the Kubernetes controller manager.</p>
+ * @public
+ */
+export interface HorizontalPodAutoscalerControllerConfigRequest {
+  /**
+   * <p>The interval between each sync of the horizontal pod autoscaler. Valid values are single-unit durations such as <code>15s</code> or <code>1m</code>.</p>
+   * @public
+   */
+  horizontalPodAutoscalerSyncPeriod?: string | undefined;
+}
+
+/**
+ * <p>The configuration for the Kubernetes controller manager on an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeControllerManagerConfigRequest {
+  /**
+   * <p>The horizontal pod autoscaler controller configuration.</p>
+   * @public
+   */
+  horizontalPodAutoscalerControllerConfig?: HorizontalPodAutoscalerControllerConfigRequest | undefined;
+}
+
+/**
  * <p>Indicates the current configuration of the load balancing capability on your EKS Auto
  *             Mode cluster. For example, if the capability is enabled or disabled. For more
  *             information, see EKS Auto Mode load balancing capability in the <i>Amazon EKS User Guide</i>.</p>
@@ -1911,6 +1984,66 @@ export interface KubernetesNetworkConfigRequest {
    * @public
    */
   elasticLoadBalancing?: ElasticLoadBalancing | undefined;
+}
+
+/**
+ * <p>A resource weight entry for the scheduler scoring strategy.</p>
+ * @public
+ */
+export interface ResourceWeight {
+  /**
+   * <p>The name of the resource (for example, <code>cpu</code> or <code>memory</code>).</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>The weight assigned to the resource for scoring. Must be between 1 and 100.</p>
+   * @public
+   */
+  weight?: number | undefined;
+}
+
+/**
+ * <p>The scoring strategy configuration for the NodeResourcesFit scheduler plugin.</p>
+ * @public
+ */
+export interface ScoringStrategy {
+  /**
+   * <p>The scoring strategy type. Valid values are <code>LeastAllocated</code> or <code>MostAllocated</code>.</p>
+   * @public
+   */
+  type?: ScoringStrategyType | undefined;
+
+  /**
+   * <p>The resource weights used for scoring nodes.</p>
+   * @public
+   */
+  resources?: ResourceWeight[] | undefined;
+}
+
+/**
+ * <p>The NodeResourcesFit plugin configuration for the Kubernetes scheduler.</p>
+ * @public
+ */
+export interface NodeResourcesFitConfig {
+  /**
+   * <p>The scoring strategy used to rank nodes during scheduling.</p>
+   * @public
+   */
+  scoringStrategy?: ScoringStrategy | undefined;
+}
+
+/**
+ * <p>The configuration for the Kubernetes scheduler on an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeSchedulerConfigRequest {
+  /**
+   * <p>The node resource fit scoring configuration for the scheduler.</p>
+   * @public
+   */
+  nodeResourcesFit?: NodeResourcesFitConfig | undefined;
 }
 
 /**
@@ -2559,6 +2692,24 @@ export interface CreateClusterRequest {
    * @public
    */
   controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
+
+  /**
+   * <p>The Kubernetes API server configuration for the new cluster.</p>
+   * @public
+   */
+  kubeApiServerConfig?: KubeApiServerConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes scheduler configuration for the new cluster.</p>
+   * @public
+   */
+  kubeSchedulerConfig?: KubeSchedulerConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes controller manager configuration for the new cluster.</p>
+   * @public
+   */
+  kubeControllerManagerConfig?: KubeControllerManagerConfigRequest | undefined;
 }
 
 /**
@@ -2706,6 +2857,48 @@ export interface Identity {
 }
 
 /**
+ * <p>The Kubernetes API server configuration for an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeApiServerConfigResponse {
+  /**
+   * <p>The duration that Kubernetes events are retained.</p>
+   * @public
+   */
+  eventTtl?: string | undefined;
+
+  /**
+   * <p>The port range for NodePort services.</p>
+   * @public
+   */
+  serviceNodePortRange?: ServiceNodePortRange | undefined;
+}
+
+/**
+ * <p>The horizontal pod autoscaler controller configuration for the Kubernetes controller manager.</p>
+ * @public
+ */
+export interface HorizontalPodAutoscalerControllerConfigResponse {
+  /**
+   * <p>The interval between each sync of the horizontal pod autoscaler.</p>
+   * @public
+   */
+  horizontalPodAutoscalerSyncPeriod?: string | undefined;
+}
+
+/**
+ * <p>The Kubernetes controller manager configuration for an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeControllerManagerConfigResponse {
+  /**
+   * <p>The horizontal pod autoscaler controller configuration.</p>
+   * @public
+   */
+  horizontalPodAutoscalerControllerConfig?: HorizontalPodAutoscalerControllerConfigResponse | undefined;
+}
+
+/**
  * <p>The Kubernetes network configuration for the cluster. The response contains a value for
  *                 <b>serviceIpv6Cidr</b> or <b>serviceIpv4Cidr</b>, but not both. </p>
  * @public
@@ -2750,6 +2943,18 @@ export interface KubernetesNetworkConfigResponse {
    * @public
    */
   elasticLoadBalancing?: ElasticLoadBalancing | undefined;
+}
+
+/**
+ * <p>The Kubernetes scheduler configuration for an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface KubeSchedulerConfigResponse {
+  /**
+   * <p>The node resource fit scoring configuration for the scheduler.</p>
+   * @public
+   */
+  nodeResourcesFit?: NodeResourcesFitConfig | undefined;
 }
 
 /**
@@ -3185,6 +3390,24 @@ export interface Cluster {
    * @public
    */
   controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
+
+  /**
+   * <p>The Kubernetes API server configuration for the cluster.</p>
+   * @public
+   */
+  kubeApiServerConfig?: KubeApiServerConfigResponse | undefined;
+
+  /**
+   * <p>The Kubernetes scheduler configuration for the cluster.</p>
+   * @public
+   */
+  kubeSchedulerConfig?: KubeSchedulerConfigResponse | undefined;
+
+  /**
+   * <p>The Kubernetes controller manager configuration for the cluster.</p>
+   * @public
+   */
+  kubeControllerManagerConfig?: KubeControllerManagerConfigResponse | undefined;
 }
 
 /**
@@ -5318,6 +5541,276 @@ export interface DescribeClusterVersionsRequest {
 }
 
 /**
+ * <p>Constraints for a duration parameter.</p>
+ * @public
+ */
+export interface DurationConstraints {
+  /**
+   * <p>The minimum allowed duration value.</p>
+   * @public
+   */
+  min?: string | undefined;
+
+  /**
+   * <p>The maximum allowed duration value.</p>
+   * @public
+   */
+  max?: string | undefined;
+}
+
+/**
+ * <p>A duration parameter configuration with default value and constraints.</p>
+ * @public
+ */
+export interface DurationParameterConfig {
+  /**
+   * <p>The default value for the duration parameter.</p>
+   * @public
+   */
+  defaultValue?: string | undefined;
+
+  /**
+   * <p>The constraints for the duration parameter.</p>
+   * @public
+   */
+  constraints?: DurationConstraints | undefined;
+}
+
+/**
+ * <p>An integer range constraint specifying minimum and maximum allowed values.</p>
+ * @public
+ */
+export interface IntegerRangeConstraint {
+  /**
+   * <p>The minimum allowed value.</p>
+   * @public
+   */
+  min?: number | undefined;
+
+  /**
+   * <p>The maximum allowed value.</p>
+   * @public
+   */
+  max?: number | undefined;
+}
+
+/**
+ * <p>Constraints for a port range parameter.</p>
+ * @public
+ */
+export interface PortRangeConstraints {
+  /**
+   * <p>The constraints for the minimum port value.</p>
+   * @public
+   */
+  minPort?: IntegerRangeConstraint | undefined;
+
+  /**
+   * <p>The constraints for the maximum port value.</p>
+   * @public
+   */
+  maxPort?: IntegerRangeConstraint | undefined;
+}
+
+/**
+ * <p>A port range parameter configuration with default value and constraints.</p>
+ * @public
+ */
+export interface PortRangeParameterConfig {
+  /**
+   * <p>The default port range value.</p>
+   * @public
+   */
+  defaultValue?: ServiceNodePortRange | undefined;
+
+  /**
+   * <p>The constraints for the port range parameter.</p>
+   * @public
+   */
+  constraints?: PortRangeConstraints | undefined;
+}
+
+/**
+ * <p>The Kubernetes API server version-specific configuration defaults and constraints.</p>
+ * @public
+ */
+export interface KubeApiServerVersionConfig {
+  /**
+   * <p>The event TTL configuration with default value and constraints.</p>
+   * @public
+   */
+  eventTtl?: DurationParameterConfig | undefined;
+
+  /**
+   * <p>The service node port range configuration with default value and constraints.</p>
+   * @public
+   */
+  serviceNodePortRange?: PortRangeParameterConfig | undefined;
+}
+
+/**
+ * <p>The horizontal pod autoscaler controller version configuration.</p>
+ * @public
+ */
+export interface HorizontalPodAutoscalerControllerVersionConfig {
+  /**
+   * <p>The HPA sync period configuration with default value and constraints.</p>
+   * @public
+   */
+  horizontalPodAutoscalerSyncPeriod?: DurationParameterConfig | undefined;
+}
+
+/**
+ * <p>The Kubernetes controller manager version-specific configuration defaults and constraints.</p>
+ * @public
+ */
+export interface KubeControllerManagerVersionConfig {
+  /**
+   * <p>The horizontal pod autoscaler controller configuration with default value and constraints.</p>
+   * @public
+   */
+  horizontalPodAutoscalerControllerConfig?: HorizontalPodAutoscalerControllerVersionConfig | undefined;
+}
+
+/**
+ * <p>Constraints for resource weight entries.</p>
+ * @public
+ */
+export interface ResourceConstraints {
+  /**
+   * <p>The allowed values for resource names.</p>
+   * @public
+   */
+  name?: AllowedValuesConstraint | undefined;
+
+  /**
+   * <p>The allowed range for resource weight values.</p>
+   * @public
+   */
+  weight?: IntegerRangeConstraint | undefined;
+}
+
+/**
+ * <p>Constraints for the scoring strategy configuration.</p>
+ * @public
+ */
+export interface ScoringStrategyConstraints {
+  /**
+   * <p>The allowed values for the scoring strategy type.</p>
+   * @public
+   */
+  scoringStrategy?: AllowedValuesConstraint | undefined;
+
+  /**
+   * <p>The constraints for resource weights.</p>
+   * @public
+   */
+  resources?: ResourceConstraints | undefined;
+}
+
+/**
+ * <p>The scoring strategy configuration with default value and constraints.</p>
+ * @public
+ */
+export interface ScoringStrategyConfig {
+  /**
+   * <p>The default scoring strategy.</p>
+   * @public
+   */
+  defaultValue?: ScoringStrategy | undefined;
+
+  /**
+   * <p>The constraints for the scoring strategy.</p>
+   * @public
+   */
+  constraints?: ScoringStrategyConstraints | undefined;
+}
+
+/**
+ * <p>The NodeResourcesFit version configuration with default value and constraints.</p>
+ * @public
+ */
+export interface NodeResourcesFitVersionConfig {
+  /**
+   * <p>The scoring strategy configuration with default value and constraints.</p>
+   * @public
+   */
+  scoringStrategy?: ScoringStrategyConfig | undefined;
+}
+
+/**
+ * <p>The Kubernetes scheduler version-specific configuration defaults and constraints.</p>
+ * @public
+ */
+export interface KubeSchedulerVersionConfig {
+  /**
+   * <p>The NodeResourcesFit configuration with default value and constraints.</p>
+   * @public
+   */
+  nodeResourcesFit?: NodeResourcesFitVersionConfig | undefined;
+}
+
+/**
+ * <p>The control plane component configuration defaults and constraints.</p>
+ * @public
+ */
+export interface ControlPlaneConfigInfo {
+  /**
+   * <p>The Kubernetes API server configuration defaults and constraints.</p>
+   * @public
+   */
+  kubeApiServerConfig?: KubeApiServerVersionConfig | undefined;
+
+  /**
+   * <p>The Kubernetes scheduler configuration defaults and constraints.</p>
+   * @public
+   */
+  kubeSchedulerConfig?: KubeSchedulerVersionConfig | undefined;
+
+  /**
+   * <p>The Kubernetes controller manager configuration defaults and constraints.</p>
+   * @public
+   */
+  kubeControllerManagerConfig?: KubeControllerManagerVersionConfig | undefined;
+}
+
+/**
+ * <p>Information about a provisioned control plane scaling tier.</p>
+ * @public
+ */
+export interface ControlPlaneScalingTierInfo {
+  /**
+   * <p>The name of the scaling tier.</p>
+   * @public
+   */
+  tierName?: string | undefined;
+
+  /**
+   * <p>The maximum API request concurrency supported by this tier.</p>
+   * @public
+   */
+  apiRequestConcurrency?: number | undefined;
+
+  /**
+   * <p>The maximum pod scheduling rate per second supported by this tier.</p>
+   * @public
+   */
+  podSchedulingRatePerSecond?: number | undefined;
+
+  /**
+   * <p>The maximum cluster database size in GB supported by this tier.</p>
+   * @public
+   */
+  clusterDatabaseSizeGb?: number | undefined;
+
+  /**
+   * <p>The control plane component configuration overrides specific to this scaling tier.</p>
+   * @public
+   */
+  controlPlaneComponentConfigOverrides?: ControlPlaneConfigInfo | undefined;
+}
+
+/**
  * <p>Contains details about a specific EKS cluster version.</p>
  * @public
  */
@@ -5385,6 +5878,18 @@ export interface ClusterVersionInformation {
    * @public
    */
   kubernetesPatchVersion?: string | undefined;
+
+  /**
+   * <p>The available provisioned control plane scaling tiers and their capabilities for this Kubernetes version.</p>
+   * @public
+   */
+  controlPlaneScalingTiers?: ControlPlaneScalingTierInfo[] | undefined;
+
+  /**
+   * <p>The default control plane component configuration and constraints for this Kubernetes version.</p>
+   * @public
+   */
+  controlPlaneComponentConfig?: ControlPlaneConfigInfo | undefined;
 }
 
 /**
@@ -7640,6 +8145,24 @@ export interface UpdateClusterConfigRequest {
    * @public
    */
   controlPlaneScalingConfig?: ControlPlaneScalingConfig | undefined;
+
+  /**
+   * <p>The Kubernetes API server configuration for the updated cluster.</p>
+   * @public
+   */
+  kubeApiServerConfig?: KubeApiServerConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes scheduler configuration for the updated cluster.</p>
+   * @public
+   */
+  kubeSchedulerConfig?: KubeSchedulerConfigRequest | undefined;
+
+  /**
+   * <p>The Kubernetes controller manager configuration for the updated cluster.</p>
+   * @public
+   */
+  kubeControllerManagerConfig?: KubeControllerManagerConfigRequest | undefined;
 }
 
 /**

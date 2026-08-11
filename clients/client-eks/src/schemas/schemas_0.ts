@@ -38,6 +38,7 @@ const _APL = "AccessPoliciesList";
 const _AS = "AccessScope";
 const _ASG = "AutoScalingGroup";
 const _ASGL = "AutoScalingGroupList";
+const _AVC = "AllowedValuesConstraint";
 const _AVI = "AddonVersionInfo";
 const _AVIL = "AddonVersionInfoList";
 const _Ad = "Addons";
@@ -79,12 +80,15 @@ const _CIl = "ClusterIssue";
 const _CN = "CreateNodegroup";
 const _CNR = "CreateNodegroupRequest";
 const _CNRr = "CreateNodegroupResponse";
+const _CPCI = "ControlPlaneConfigInfo";
 const _CPIA = "CreatePodIdentityAssociation";
 const _CPIAR = "CreatePodIdentityAssociationRequest";
 const _CPIARr = "CreatePodIdentityAssociationResponse";
 const _CPPR = "ControlPlanePlacementRequest";
 const _CPPRo = "ControlPlanePlacementResponse";
 const _CPSC = "ControlPlaneScalingConfig";
+const _CPSTI = "ControlPlaneScalingTierInfo";
+const _CPSTL = "ControlPlaneScalingTierList";
 const _CS = "CapabilitySummary";
 const _CSL = "CapabilitySummaryList";
 const _CSl = "ClientStat";
@@ -120,7 +124,7 @@ const _DAV = "DescribeAddonVersions";
 const _DAVR = "DescribeAddonVersionsRequest";
 const _DAVRe = "DescribeAddonVersionsResponse";
 const _DAe = "DescribeAddon";
-const _DC = "DeleteCapability";
+const _DC = "DurationConstraints";
 const _DCR = "DeleteCapabilityRequest";
 const _DCRe = "DeleteCapabilityResponse";
 const _DCRel = "DeleteClusterRequest";
@@ -134,7 +138,8 @@ const _DCRescri = "DescribeClusterResponse";
 const _DCV = "DescribeClusterVersions";
 const _DCVR = "DescribeClusterVersionsRequest";
 const _DCVRe = "DescribeClusterVersionsResponse";
-const _DCe = "DeleteCluster";
+const _DCe = "DeleteCapability";
+const _DCel = "DeleteCluster";
 const _DCer = "DeregisterCluster";
 const _DCes = "DescribeCapability";
 const _DCesc = "DescribeCluster";
@@ -170,6 +175,7 @@ const _DNRe = "DeleteNodegroupResponse";
 const _DNRes = "DescribeNodegroupRequest";
 const _DNResc = "DescribeNodegroupResponse";
 const _DNe = "DescribeNodegroup";
+const _DPC = "DurationParameterConfig";
 const _DPIA = "DeletePodIdentityAssociation";
 const _DPIAR = "DeletePodIdentityAssociationRequest";
 const _DPIARe = "DeletePodIdentityAssociationResponse";
@@ -195,6 +201,9 @@ const _FPI = "FargateProfileIssue";
 const _FPIL = "FargateProfileIssueList";
 const _FPS = "FargateProfileSelector";
 const _FPSa = "FargateProfileSelectors";
+const _HPACCR = "HorizontalPodAutoscalerControllerConfigRequest";
+const _HPACCRo = "HorizontalPodAutoscalerControllerConfigResponse";
+const _HPACVC = "HorizontalPodAutoscalerControllerVersionConfig";
 const _I = "Identity";
 const _ICSS = "InsightCategorySpecificSummary";
 const _IF = "InsightsFilter";
@@ -203,6 +212,7 @@ const _IPC = "IdentityProviderConfig";
 const _IPCR = "IdentityProviderConfigResponse";
 const _IPCd = "IdentityProviderConfigs";
 const _IPE = "InvalidParameterException";
+const _IRC = "IntegerRangeConstraint";
 const _IRD = "InsightResourceDetail";
 const _IRDn = "InsightResourceDetails";
 const _IRE = "InvalidRequestException";
@@ -212,8 +222,17 @@ const _ISn = "InsightSummary";
 const _ISns = "InsightSummaries";
 const _In = "Insight";
 const _Is = "Issue";
+const _KASCR = "KubeApiServerConfigRequest";
+const _KASCRu = "KubeApiServerConfigResponse";
+const _KASVC = "KubeApiServerVersionConfig";
+const _KCMCR = "KubeControllerManagerConfigRequest";
+const _KCMCRu = "KubeControllerManagerConfigResponse";
+const _KCMVC = "KubeControllerManagerVersionConfig";
 const _KNCR = "KubernetesNetworkConfigRequest";
 const _KNCRu = "KubernetesNetworkConfigResponse";
+const _KSCR = "KubeSchedulerConfigRequest";
+const _KSCRu = "KubeSchedulerConfigResponse";
+const _KSVC = "KubeSchedulerVersionConfig";
 const _L = "License";
 const _LA = "ListAddons";
 const _LAAP = "ListAssociatedAccessPolicies";
@@ -270,6 +289,8 @@ const _NR = "NodegroupResources";
 const _NRC = "NodeRepairConfig";
 const _NRCO = "NodeRepairConfigOverrides";
 const _NRCOL = "NodeRepairConfigOverridesList";
+const _NRFC = "NodeResourcesFitConfig";
+const _NRFVC = "NodeResourcesFitVersionConfig";
 const _NSC = "NodegroupScalingConfig";
 const _NUC = "NodegroupUpdateConfig";
 const _OCR = "OutpostConfigRequest";
@@ -281,11 +302,14 @@ const _P = "Provider";
 const _PIA = "PodIdentityAssociation";
 const _PIAS = "PodIdentityAssociationSummary";
 const _PIASo = "PodIdentityAssociationSummaries";
+const _PRC = "PortRangeConstraints";
+const _PRPC = "PortRangeParameterConfig";
 const _RAC = "RemoteAccessConfig";
-const _RC = "RollbackConfig";
+const _RC = "ResourceConstraints";
 const _RCR = "RegisterClusterRequest";
 const _RCRe = "RegisterClusterResponse";
 const _RCe = "RegisterCluster";
+const _RCo = "RollbackConfig";
 const _RIUE = "ResourceInUseException";
 const _RLEE = "ResourceLimitExceededException";
 const _RNCR = "RemoteNetworkConfigRequest";
@@ -296,6 +320,8 @@ const _RNNL = "RemoteNodeNetworkList";
 const _RPDE = "ResourcePropagationDelayException";
 const _RPN = "RemotePodNetwork";
 const _RPNL = "RemotePodNetworkList";
+const _RW = "ResourceWeight";
+const _RWL = "ResourceWeightList";
 const _SCR = "StorageConfigRequest";
 const _SCRt = "StorageConfigResponse";
 const _SE = "ServerException";
@@ -304,6 +330,10 @@ const _SIL = "SsoIdentityList";
 const _SIR = "StartInsightsRefresh";
 const _SIRR = "StartInsightsRefreshRequest";
 const _SIRRt = "StartInsightsRefreshResponse";
+const _SNPR = "ServiceNodePortRange";
+const _SS = "ScoringStrategy";
+const _SSC = "ScoringStrategyConfig";
+const _SSCc = "ScoringStrategyConstraints";
 const _SUE = "ServiceUnavailableException";
 const _T = "Taint";
 const _TE = "ThrottlingException";
@@ -383,11 +413,13 @@ const _aOUT = "addOrUpdateTaints";
 const _aP = "accessPolicies";
 const _aPA = "associatedPolicyArn";
 const _aR = "autoRenew";
+const _aRC = "apiRequestConcurrency";
 const _aS = "accessScope";
 const _aSG = "autoScalingGroups";
 const _aT = "amiType";
 const _aV = "addonVersion";
 const _aVd = "addonVersions";
+const _aVl = "allowedValues";
 const _ad = "addon";
 const _add = "addons";
 const _ar = "architecture";
@@ -401,14 +433,18 @@ const _cA = "createdAt";
 const _cAe = "certificateAuthority";
 const _cC = "connectorConfig";
 const _cCo = "computeConfig";
+const _cDSG = "clusterDatabaseSizeGb";
 const _cI = "clientId";
 const _cL = "clusterLogging";
 const _cN = "clusterName";
 const _cNa = "capabilityName";
+const _cPCC = "controlPlaneComponentConfig";
+const _cPCCO = "controlPlaneComponentConfigOverrides";
 const _cPEM = "controlPlaneEgressMode";
 const _cPIT = "controlPlaneInstanceType";
 const _cPP = "controlPlanePlacement";
 const _cPSC = "controlPlaneScalingConfig";
+const _cPST = "controlPlaneScalingTiers";
 const _cRT = "clientRequestToken";
 const _cS = "clientStats";
 const _cSGI = "clusterSecurityGroupId";
@@ -432,6 +468,7 @@ const _clu = "clusters";
 const _co = "code";
 const _com = "compatibilities";
 const _con = "configuration";
+const _cons = "constraints";
 const _d = "data";
 const _dD = "deprecationDetails";
 const _dN = "defaultNamespace";
@@ -443,6 +480,7 @@ const _dS = "diskSize";
 const _dST = "disableSessionTags";
 const _dSe = "desiredSize";
 const _dV = "defaultVersion";
+const _dVe = "defaultValue";
 const _de = "description";
 const _du = "duration";
 const _e = "error";
@@ -461,6 +499,7 @@ const _eP = "etcdPlacement";
 const _ePA = "endpointPublicAccess";
 const _ePAn = "endpointPrivateAccess";
 const _eSK = "ec2SshKey";
+const _eT = "eventTtl";
 const _ef = "effect";
 const _en = "enabled";
 const _end = "endpoint";
@@ -476,6 +515,8 @@ const _gN = "groupName";
 const _gP = "groupsPrefix";
 const _h = "health";
 const _hE = "httpError";
+const _hPACC = "horizontalPodAutoscalerControllerConfig";
+const _hPASP = "horizontalPodAutoscalerSyncPeriod";
 const _hQ = "httpQuery";
 const _ht = "http";
 const _i = "issues";
@@ -501,10 +542,13 @@ const _ins = "insights";
 const _is = "issuer";
 const _k = "key";
 const _kA = "keyArn";
+const _kASC = "kubeApiServerConfig";
+const _kCMC = "kubeControllerManagerConfig";
 const _kG = "kubernetesGroups";
 const _kNC = "kubernetesNetworkConfig";
 const _kPV = "kubernetesPatchVersion";
 const _kRU = "kubernetesResourceUri";
+const _kSC = "kubeSchedulerConfig";
 const _kV = "kubernetesVersion";
 const _kVu = "kubernetesVersions";
 const _l = "logging";
@@ -521,8 +565,10 @@ const _m = "message";
 const _mA = "modifiedAt";
 const _mGPC = "maxGroupPreparedCapacity";
 const _mI = "marketplaceInformation";
+const _mP = "minPort";
 const _mPNRC = "maxParallelNodesRepairedCount";
 const _mPNRP = "maxParallelNodesRepairedPercentage";
+const _mPa = "maxPort";
 const _mR = "maxResults";
 const _mRWTM = "minRepairWaitTimeMins";
 const _mS = "minSize";
@@ -531,6 +577,8 @@ const _mU = "maxUnavailable";
 const _mUNTC = "maxUnhealthyNodeThresholdCount";
 const _mUNTP = "maxUnhealthyNodeThresholdPercentage";
 const _mUP = "maxUnavailablePercentage";
+const _ma = "max";
+const _mi = "min";
 const _n = "name";
 const _nA = "networkAccess";
 const _nAo = "nodegroupArn";
@@ -543,6 +591,7 @@ const _nR = "nodeRole";
 const _nRA = "nodeRoleArn";
 const _nRC = "nodeRepairConfig";
 const _nRCO = "nodeRepairConfigOverrides";
+const _nRF = "nodeResourcesFit";
 const _nT = "nextToken";
 const _nUR = "nodeUnhealthyReason";
 const _na = "namespaces";
@@ -564,6 +613,7 @@ const _pI = "productId";
 const _pIA = "podIdentityAssociations";
 const _pIC = "podIdentityConfiguration";
 const _pS = "poolState";
+const _pSRPS = "podSchedulingRatePerSecond";
 const _pU = "productUrl";
 const _pV = "platformVersion";
 const _pVl = "platformVersions";
@@ -612,6 +662,8 @@ const _sIC = "serviceIpv4Cidr";
 const _sICe = "serviceIpv6Cidr";
 const _sIu = "subnetIds";
 const _sL = "spreadLevel";
+const _sNPR = "serviceNodePortRange";
+const _sS = "scoringStrategy";
 const _sSG = "sourceSecurityGroups";
 const _sSRV = "startServingReplacementVersion";
 const _sSV = "stopServingVersion";
@@ -628,6 +680,7 @@ const _t = "tags";
 const _tK = "tagKeys";
 const _tL = "taintsList";
 const _tM = "timeoutMinutes";
+const _tN = "tierName";
 const _tRA = "targetRoleArn";
 const _ta = "taints";
 const _te = "term";
@@ -653,6 +706,7 @@ const _vIp = "vpcId";
 const _vS = "versionStatus";
 const _vZ = "validZones";
 const _va = "value";
+const _w = "weight";
 const _wPC = "warmPoolConfig";
 const _zSC = "zonalShiftConfig";
 const n0 = "com.amazonaws.eks";
@@ -860,6 +914,11 @@ export var AddonVersionInfo$: StaticStructureSchema = [3, n0, _AVI,
   [_aV, _ar, _cT, _com, _rC, _rIP],
   [0, 64 | 0, 64 | 0, () => Compatibilities, 2, 2]
 ];
+export var AllowedValuesConstraint$: StaticStructureSchema = [3, n0, _AVC,
+  0,
+  [_aVl],
+  [64 | 0]
+];
 export var ArgoCdAwsIdcConfigRequest$: StaticStructureSchema = [3, n0, _ACAICR,
   0,
   [_iIA, _iR],
@@ -997,8 +1056,8 @@ export var ClientStat$: StaticStructureSchema = [3, n0, _CSl,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _Cl,
   0,
-  [_n, _a, _cA, _v, _end, _rA, _rVC, _kNC, _l, _ide, _st, _cAe, _cRT, _pV, _t, _eC, _cC, _id_, _h, _oC, _aCc, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC],
-  [0, 0, 4, 0, 0, 0, () => VpcConfigResponse$, () => KubernetesNetworkConfigResponse$, () => Logging$, () => Identity$, 0, () => Certificate$, 0, 0, 128 | 0, () => EncryptionConfigList, () => ConnectorConfigResponse$, 0, () => ClusterHealth$, () => OutpostConfigResponse$, () => AccessConfigResponse$, () => UpgradePolicyResponse$, () => ZonalShiftConfigResponse$, () => RemoteNetworkConfigResponse$, () => ComputeConfigResponse$, () => StorageConfigResponse$, 2, () => ControlPlaneScalingConfig$]
+  [_n, _a, _cA, _v, _end, _rA, _rVC, _kNC, _l, _ide, _st, _cAe, _cRT, _pV, _t, _eC, _cC, _id_, _h, _oC, _aCc, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC, _kASC, _kSC, _kCMC],
+  [0, 0, 4, 0, 0, 0, () => VpcConfigResponse$, () => KubernetesNetworkConfigResponse$, () => Logging$, () => Identity$, 0, () => Certificate$, 0, 0, 128 | 0, () => EncryptionConfigList, () => ConnectorConfigResponse$, 0, () => ClusterHealth$, () => OutpostConfigResponse$, () => AccessConfigResponse$, () => UpgradePolicyResponse$, () => ZonalShiftConfigResponse$, () => RemoteNetworkConfigResponse$, () => ComputeConfigResponse$, () => StorageConfigResponse$, 2, () => ControlPlaneScalingConfig$, () => KubeApiServerConfigResponse$, () => KubeSchedulerConfigResponse$, () => KubeControllerManagerConfigResponse$]
 ];
 export var ClusterHealth$: StaticStructureSchema = [3, n0, _CHl,
   0,
@@ -1012,8 +1071,8 @@ export var ClusterIssue$: StaticStructureSchema = [3, n0, _CIl,
 ];
 export var ClusterVersionInformation$: StaticStructureSchema = [3, n0, _CVI,
   0,
-  [_cVl, _cTl, _dPV, _dV, _rD, _eOSSD, _eOESD, _st, _vS, _kPV],
-  [0, 0, 0, 2, 4, 4, 4, 0, 0, 0]
+  [_cVl, _cTl, _dPV, _dV, _rD, _eOSSD, _eOESD, _st, _vS, _kPV, _cPST, _cPCC],
+  [0, 0, 0, 2, 4, 4, 4, 0, 0, 0, () => ControlPlaneScalingTierList, () => ControlPlaneConfigInfo$]
 ];
 export var Compatibility$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -1040,6 +1099,11 @@ export var ConnectorConfigResponse$: StaticStructureSchema = [3, n0, _CCRonn,
   [_aIc, _aCct, _aE, _pr, _rA],
   [0, 0, 4, 0, 0]
 ];
+export var ControlPlaneConfigInfo$: StaticStructureSchema = [3, n0, _CPCI,
+  0,
+  [_kASC, _kSC, _kCMC],
+  [() => KubeApiServerVersionConfig$, () => KubeSchedulerVersionConfig$, () => KubeControllerManagerVersionConfig$]
+];
 export var ControlPlanePlacementRequest$: StaticStructureSchema = [3, n0, _CPPR,
   0,
   [_gN, _sL],
@@ -1054,6 +1118,11 @@ export var ControlPlaneScalingConfig$: StaticStructureSchema = [3, n0, _CPSC,
   0,
   [_ti],
   [0]
+];
+export var ControlPlaneScalingTierInfo$: StaticStructureSchema = [3, n0, _CPSTI,
+  0,
+  [_tN, _aRC, _pSRPS, _cDSG, _cPCCO],
+  [0, 1, 1, 1, () => ControlPlaneConfigInfo$]
 ];
 export var CreateAccessConfigRequest$: StaticStructureSchema = [3, n0, _CACR,
   0,
@@ -1092,8 +1161,8 @@ export var CreateCapabilityResponse$: StaticStructureSchema = [3, n0, _CCRre,
 ];
 export var CreateClusterRequest$: StaticStructureSchema = [3, n0, _CCRrea,
   0,
-  [_n, _rA, _rVC, _v, _kNC, _l, _cRT, _t, _eC, _oC, _aCc, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC],
-  [0, 0, () => VpcConfigRequest$, 0, () => KubernetesNetworkConfigRequest$, () => Logging$, [0, 4], 128 | 0, () => EncryptionConfigList, () => OutpostConfigRequest$, () => CreateAccessConfigRequest$, 2, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => RemoteNetworkConfigRequest$, () => ComputeConfigRequest$, () => StorageConfigRequest$, 2, () => ControlPlaneScalingConfig$], 3
+  [_n, _rA, _rVC, _v, _kNC, _l, _cRT, _t, _eC, _oC, _aCc, _bSMA, _uP, _zSC, _rNC, _cCo, _sC, _dP, _cPSC, _kASC, _kSC, _kCMC],
+  [0, 0, () => VpcConfigRequest$, 0, () => KubernetesNetworkConfigRequest$, () => Logging$, [0, 4], 128 | 0, () => EncryptionConfigList, () => OutpostConfigRequest$, () => CreateAccessConfigRequest$, 2, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => RemoteNetworkConfigRequest$, () => ComputeConfigRequest$, () => StorageConfigRequest$, 2, () => ControlPlaneScalingConfig$, () => KubeApiServerConfigRequest$, () => KubeSchedulerConfigRequest$, () => KubeControllerManagerConfigRequest$], 3
 ];
 export var CreateClusterResponse$: StaticStructureSchema = [3, n0, _CCRreat,
   0,
@@ -1405,6 +1474,16 @@ export var DisassociateIdentityProviderConfigResponse$: StaticStructureSchema = 
   [_up],
   [() => Update$]
 ];
+export var DurationConstraints$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_mi, _ma],
+  [0, 0]
+];
+export var DurationParameterConfig$: StaticStructureSchema = [3, n0, _DPC,
+  0,
+  [_dVe, _cons],
+  [0, () => DurationConstraints$]
+];
 export var EksAnywhereSubscription$: StaticStructureSchema = [3, n0, _EAS,
   0,
   [_id_, _a, _cA, _eD, _eDx, _lQ, _lT, _te, _st, _aR, _lA, _li, _t],
@@ -1460,6 +1539,21 @@ export var FargateProfileSelector$: StaticStructureSchema = [3, n0, _FPS,
   [_nam, _la],
   [0, 128 | 0]
 ];
+export var HorizontalPodAutoscalerControllerConfigRequest$: StaticStructureSchema = [3, n0, _HPACCR,
+  0,
+  [_hPASP],
+  [0]
+];
+export var HorizontalPodAutoscalerControllerConfigResponse$: StaticStructureSchema = [3, n0, _HPACCRo,
+  0,
+  [_hPASP],
+  [0]
+];
+export var HorizontalPodAutoscalerControllerVersionConfig$: StaticStructureSchema = [3, n0, _HPACVC,
+  0,
+  [_hPASP],
+  [() => DurationParameterConfig$]
+];
 export var Identity$: StaticStructureSchema = [3, n0, _I,
   0,
   [_oi],
@@ -1505,10 +1599,45 @@ export var InsightSummary$: StaticStructureSchema = [3, n0, _ISn,
   [_id_, _n, _cat, _kV, _lRTa, _lTT, _de, _iS],
   [0, 0, 0, 0, 4, 4, 0, () => InsightStatus$]
 ];
+export var IntegerRangeConstraint$: StaticStructureSchema = [3, n0, _IRC,
+  0,
+  [_mi, _ma],
+  [1, 1]
+];
 export var Issue$: StaticStructureSchema = [3, n0, _Is,
   0,
   [_co, _m, _rI],
   [0, 0, 64 | 0]
+];
+export var KubeApiServerConfigRequest$: StaticStructureSchema = [3, n0, _KASCR,
+  0,
+  [_eT, _sNPR],
+  [0, () => ServiceNodePortRange$]
+];
+export var KubeApiServerConfigResponse$: StaticStructureSchema = [3, n0, _KASCRu,
+  0,
+  [_eT, _sNPR],
+  [0, () => ServiceNodePortRange$]
+];
+export var KubeApiServerVersionConfig$: StaticStructureSchema = [3, n0, _KASVC,
+  0,
+  [_eT, _sNPR],
+  [() => DurationParameterConfig$, () => PortRangeParameterConfig$]
+];
+export var KubeControllerManagerConfigRequest$: StaticStructureSchema = [3, n0, _KCMCR,
+  0,
+  [_hPACC],
+  [() => HorizontalPodAutoscalerControllerConfigRequest$]
+];
+export var KubeControllerManagerConfigResponse$: StaticStructureSchema = [3, n0, _KCMCRu,
+  0,
+  [_hPACC],
+  [() => HorizontalPodAutoscalerControllerConfigResponse$]
+];
+export var KubeControllerManagerVersionConfig$: StaticStructureSchema = [3, n0, _KCMVC,
+  0,
+  [_hPACC],
+  [() => HorizontalPodAutoscalerControllerVersionConfig$]
 ];
 export var KubernetesNetworkConfigRequest$: StaticStructureSchema = [3, n0, _KNCR,
   0,
@@ -1519,6 +1648,21 @@ export var KubernetesNetworkConfigResponse$: StaticStructureSchema = [3, n0, _KN
   0,
   [_sIC, _sICe, _iF, _eLB],
   [0, 0, 0, () => ElasticLoadBalancing$]
+];
+export var KubeSchedulerConfigRequest$: StaticStructureSchema = [3, n0, _KSCR,
+  0,
+  [_nRF],
+  [() => NodeResourcesFitConfig$]
+];
+export var KubeSchedulerConfigResponse$: StaticStructureSchema = [3, n0, _KSCRu,
+  0,
+  [_nRF],
+  [() => NodeResourcesFitConfig$]
+];
+export var KubeSchedulerVersionConfig$: StaticStructureSchema = [3, n0, _KSVC,
+  0,
+  [_nRF],
+  [() => NodeResourcesFitVersionConfig$]
 ];
 export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS,
   0,
@@ -1720,6 +1864,16 @@ export var NodeRepairConfigOverrides$: StaticStructureSchema = [3, n0, _NRCO,
   [_nMC, _nUR, _mRWTM, _rAep],
   [0, 0, 1, 0]
 ];
+export var NodeResourcesFitConfig$: StaticStructureSchema = [3, n0, _NRFC,
+  0,
+  [_sS],
+  [() => ScoringStrategy$]
+];
+export var NodeResourcesFitVersionConfig$: StaticStructureSchema = [3, n0, _NRFVC,
+  0,
+  [_sS],
+  [() => ScoringStrategyConfig$]
+];
 export var OIDC$: StaticStructureSchema = [3, n0, _OIDC,
   0,
   [_is],
@@ -1754,6 +1908,16 @@ export var PodIdentityAssociationSummary$: StaticStructureSchema = [3, n0, _PIAS
   0,
   [_cN, _nam, _sA, _aAss, _aIs, _oAw],
   [0, 0, 0, 0, 0, 0]
+];
+export var PortRangeConstraints$: StaticStructureSchema = [3, n0, _PRC,
+  0,
+  [_mP, _mPa],
+  [() => IntegerRangeConstraint$, () => IntegerRangeConstraint$]
+];
+export var PortRangeParameterConfig$: StaticStructureSchema = [3, n0, _PRPC,
+  0,
+  [_dVe, _cons],
+  [() => ServiceNodePortRange$, () => PortRangeConstraints$]
 ];
 export var Provider$: StaticStructureSchema = [3, n0, _P,
   0,
@@ -1795,10 +1959,40 @@ export var RemotePodNetwork$: StaticStructureSchema = [3, n0, _RPN,
   [_ci],
   [64 | 0]
 ];
-export var RollbackConfig$: StaticStructureSchema = [3, n0, _RC,
+export var ResourceConstraints$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_n, _w],
+  [() => AllowedValuesConstraint$, () => IntegerRangeConstraint$]
+];
+export var ResourceWeight$: StaticStructureSchema = [3, n0, _RW,
+  0,
+  [_n, _w],
+  [0, 1]
+];
+export var RollbackConfig$: StaticStructureSchema = [3, n0, _RCo,
   0,
   [_tM],
   [1]
+];
+export var ScoringStrategy$: StaticStructureSchema = [3, n0, _SS,
+  0,
+  [_ty, _res],
+  [0, () => ResourceWeightList]
+];
+export var ScoringStrategyConfig$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_dVe, _cons],
+  [() => ScoringStrategy$, () => ScoringStrategyConstraints$]
+];
+export var ScoringStrategyConstraints$: StaticStructureSchema = [3, n0, _SSCc,
+  0,
+  [_sS, _res],
+  [() => AllowedValuesConstraint$, () => ResourceConstraints$]
+];
+export var ServiceNodePortRange$: StaticStructureSchema = [3, n0, _SNPR,
+  0,
+  [_mP, _mPa],
+  [1, 1]
 ];
 export var SsoIdentity$: StaticStructureSchema = [3, n0, _SI,
   0,
@@ -1902,8 +2096,8 @@ export var UpdateCapabilityResponse$: StaticStructureSchema = [3, n0, _UCRp,
 ];
 export var UpdateClusterConfigRequest$: StaticStructureSchema = [3, n0, _UCCR,
   0,
-  [_n, _rVC, _l, _cRT, _aCc, _uP, _zSC, _cCo, _kNC, _sC, _rNC, _dP, _cPSC],
-  [[0, 1], () => VpcConfigRequest$, () => Logging$, [0, 4], () => UpdateAccessConfigRequest$, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => ComputeConfigRequest$, () => KubernetesNetworkConfigRequest$, () => StorageConfigRequest$, () => RemoteNetworkConfigRequest$, 2, () => ControlPlaneScalingConfig$], 1
+  [_n, _rVC, _l, _cRT, _aCc, _uP, _zSC, _cCo, _kNC, _sC, _rNC, _dP, _cPSC, _kASC, _kSC, _kCMC],
+  [[0, 1], () => VpcConfigRequest$, () => Logging$, [0, 4], () => UpdateAccessConfigRequest$, () => UpgradePolicyRequest$, () => ZonalShiftConfigRequest$, () => ComputeConfigRequest$, () => KubernetesNetworkConfigRequest$, () => StorageConfigRequest$, () => RemoteNetworkConfigRequest$, 2, () => ControlPlaneScalingConfig$, () => KubeApiServerConfigRequest$, () => KubeSchedulerConfigRequest$, () => KubeControllerManagerConfigRequest$], 1
 ];
 export var UpdateClusterConfigResponse$: StaticStructureSchema = [3, n0, _UCCRp,
   0,
@@ -2036,6 +2230,7 @@ var Addons: StaticListSchema = [1, n0, _Ad,
 var AddonVersionInfoList: StaticListSchema = [1, n0, _AVIL,
   0, () => AddonVersionInfo$
 ];
+var AllowedValuesList = 64 | 0;
 var ArgoCdRoleMappingList: StaticListSchema = [1, n0, _ACRML,
   0, () => ArgoCdRoleMapping$
 ];
@@ -2063,6 +2258,9 @@ var ClusterVersionList: StaticListSchema = [1, n0, _CVL,
 ];
 var Compatibilities: StaticListSchema = [1, n0, _Com,
   0, () => Compatibility$
+];
+var ControlPlaneScalingTierList: StaticListSchema = [1, n0, _CPSTL,
+  0, () => ControlPlaneScalingTierInfo$
 ];
 var DeprecationDetails: StaticListSchema = [1, n0, _DDe,
   0, () => DeprecationDetail$
@@ -2116,6 +2314,9 @@ var RemoteNodeNetworkList: StaticListSchema = [1, n0, _RNNL,
 ];
 var RemotePodNetworkList: StaticListSchema = [1, n0, _RPNL,
   0, () => RemotePodNetwork$
+];
+var ResourceWeightList: StaticListSchema = [1, n0, _RWL,
+  0, () => ResourceWeight$
 ];
 var SsoIdentityList: StaticListSchema = [1, n0, _SIL,
   0, () => SsoIdentity$
@@ -2175,10 +2376,10 @@ export var DeleteAccessEntry$: StaticOperationSchema = [9, n0, _DAE,
 export var DeleteAddon$: StaticOperationSchema = [9, n0, _DA,
   { [_ht]: ["DELETE", "/clusters/{clusterName}/addons/{addonName}", 200] }, () => DeleteAddonRequest$, () => DeleteAddonResponse$
 ];
-export var DeleteCapability$: StaticOperationSchema = [9, n0, _DC,
+export var DeleteCapability$: StaticOperationSchema = [9, n0, _DCe,
   { [_ht]: ["DELETE", "/clusters/{clusterName}/capabilities/{capabilityName}", 200] }, () => DeleteCapabilityRequest$, () => DeleteCapabilityResponse$
 ];
-export var DeleteCluster$: StaticOperationSchema = [9, n0, _DCe,
+export var DeleteCluster$: StaticOperationSchema = [9, n0, _DCel,
   { [_ht]: ["DELETE", "/clusters/{name}", 200] }, () => DeleteClusterRequest$, () => DeleteClusterResponse$
 ];
 export var DeleteEksAnywhereSubscription$: StaticOperationSchema = [9, n0, _DEAS,

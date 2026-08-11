@@ -187,6 +187,9 @@ export const UpdateParamType = {
   ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
   IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
   KUBERNETES_NETWORK_CONFIG: "KubernetesNetworkConfig",
+  KUBE_API_SERVER_CONFIG: "KubeApiServerConfig",
+  KUBE_CONTROLLER_MANAGER_CONFIG: "KubeControllerManagerConfig",
+  KUBE_SCHEDULER_CONFIG: "KubeSchedulerConfig",
   LABELS_TO_ADD: "LabelsToAdd",
   LABELS_TO_REMOVE: "LabelsToRemove",
   LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
@@ -258,6 +261,7 @@ export const UpdateType = {
   AUTO_MODE_UPDATE: "AutoModeUpdate",
   CAPABILITY_UPDATE: "CapabilityUpdate",
   CONFIG_UPDATE: "ConfigUpdate",
+  CONTROL_PLANE_COMPONENT_CONFIG_UPDATE: "ControlPlaneComponentConfigUpdate",
   CONTROL_PLANE_EGRESS_UPDATE: "ControlPlaneEgressUpdate",
   CONTROL_PLANE_SCALING_CONFIG_UPDATE: "ControlPlaneScalingConfigUpdate",
   DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
@@ -378,6 +382,19 @@ export const IpFamily = {
  * @public
  */
 export type IpFamily = (typeof IpFamily)[keyof typeof IpFamily];
+
+/**
+ * @public
+ * @enum
+ */
+export const ScoringStrategyType = {
+  LEAST_ALLOCATED: "LeastAllocated",
+  MOST_ALLOCATED: "MostAllocated",
+} as const;
+/**
+ * @public
+ */
+export type ScoringStrategyType = (typeof ScoringStrategyType)[keyof typeof ScoringStrategyType];
 
 /**
  * @public

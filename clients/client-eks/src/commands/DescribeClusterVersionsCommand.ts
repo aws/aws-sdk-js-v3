@@ -60,6 +60,127 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * //       status: "unsupported" || "standard-support" || "extended-support",
  * //       versionStatus: "UNSUPPORTED" || "STANDARD_SUPPORT" || "EXTENDED_SUPPORT",
  * //       kubernetesPatchVersion: "STRING_VALUE",
+ * //       controlPlaneScalingTiers: [ // ControlPlaneScalingTierList
+ * //         { // ControlPlaneScalingTierInfo
+ * //           tierName: "STRING_VALUE",
+ * //           apiRequestConcurrency: Number("int"),
+ * //           podSchedulingRatePerSecond: Number("int"),
+ * //           clusterDatabaseSizeGb: Number("int"),
+ * //           controlPlaneComponentConfigOverrides: { // ControlPlaneConfigInfo
+ * //             kubeApiServerConfig: { // KubeApiServerVersionConfig
+ * //               eventTtl: { // DurationParameterConfig
+ * //                 defaultValue: "STRING_VALUE",
+ * //                 constraints: { // DurationConstraints
+ * //                   min: "STRING_VALUE",
+ * //                   max: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               serviceNodePortRange: { // PortRangeParameterConfig
+ * //                 defaultValue: { // ServiceNodePortRange
+ * //                   minPort: Number("int"),
+ * //                   maxPort: Number("int"),
+ * //                 },
+ * //                 constraints: { // PortRangeConstraints
+ * //                   minPort: { // IntegerRangeConstraint
+ * //                     min: Number("int"),
+ * //                     max: Number("int"),
+ * //                   },
+ * //                   maxPort: {
+ * //                     min: Number("int"),
+ * //                     max: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //             kubeSchedulerConfig: { // KubeSchedulerVersionConfig
+ * //               nodeResourcesFit: { // NodeResourcesFitVersionConfig
+ * //                 scoringStrategy: { // ScoringStrategyConfig
+ * //                   defaultValue: { // ScoringStrategy
+ * //                     type: "LeastAllocated" || "MostAllocated",
+ * //                     resources: [ // ResourceWeightList
+ * //                       { // ResourceWeight
+ * //                         name: "STRING_VALUE",
+ * //                         weight: Number("int"),
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                   constraints: { // ScoringStrategyConstraints
+ * //                     scoringStrategy: { // AllowedValuesConstraint
+ * //                       allowedValues: [ // AllowedValuesList
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                     resources: { // ResourceConstraints
+ * //                       name: {
+ * //                         allowedValues: [
+ * //                           "STRING_VALUE",
+ * //                         ],
+ * //                       },
+ * //                       weight: {
+ * //                         min: Number("int"),
+ * //                         max: Number("int"),
+ * //                       },
+ * //                     },
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //             kubeControllerManagerConfig: { // KubeControllerManagerVersionConfig
+ * //               horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerVersionConfig
+ * //                 horizontalPodAutoscalerSyncPeriod: {
+ * //                   defaultValue: "STRING_VALUE",
+ * //                   constraints: {
+ * //                     min: "STRING_VALUE",
+ * //                     max: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //       ],
+ * //       controlPlaneComponentConfig: {
+ * //         kubeApiServerConfig: {
+ * //           eventTtl: "<DurationParameterConfig>",
+ * //           serviceNodePortRange: {
+ * //             defaultValue: {
+ * //               minPort: Number("int"),
+ * //               maxPort: Number("int"),
+ * //             },
+ * //             constraints: {
+ * //               minPort: "<IntegerRangeConstraint>",
+ * //               maxPort: "<IntegerRangeConstraint>",
+ * //             },
+ * //           },
+ * //         },
+ * //         kubeSchedulerConfig: {
+ * //           nodeResourcesFit: {
+ * //             scoringStrategy: {
+ * //               defaultValue: {
+ * //                 type: "LeastAllocated" || "MostAllocated",
+ * //                 resources: [
+ * //                   {
+ * //                     name: "STRING_VALUE",
+ * //                     weight: Number("int"),
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               constraints: {
+ * //                 scoringStrategy: "<AllowedValuesConstraint>",
+ * //                 resources: {
+ * //                   name: "<AllowedValuesConstraint>",
+ * //                   weight: "<IntegerRangeConstraint>",
+ * //                 },
+ * //               },
+ * //             },
+ * //           },
+ * //         },
+ * //         kubeControllerManagerConfig: {
+ * //           horizontalPodAutoscalerControllerConfig: {
+ * //             horizontalPodAutoscalerSyncPeriod: "<DurationParameterConfig>",
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

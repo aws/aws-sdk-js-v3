@@ -170,6 +170,31 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *   controlPlaneScalingConfig: { // ControlPlaneScalingConfig
  *     tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl" || "tier-8xl",
  *   },
+ *   kubeApiServerConfig: { // KubeApiServerConfigRequest
+ *     eventTtl: "STRING_VALUE",
+ *     serviceNodePortRange: { // ServiceNodePortRange
+ *       minPort: Number("int"),
+ *       maxPort: Number("int"),
+ *     },
+ *   },
+ *   kubeSchedulerConfig: { // KubeSchedulerConfigRequest
+ *     nodeResourcesFit: { // NodeResourcesFitConfig
+ *       scoringStrategy: { // ScoringStrategy
+ *         type: "LeastAllocated" || "MostAllocated",
+ *         resources: [ // ResourceWeightList
+ *           { // ResourceWeight
+ *             name: "STRING_VALUE",
+ *             weight: Number("int"),
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   },
+ *   kubeControllerManagerConfig: { // KubeControllerManagerConfigRequest
+ *     horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigRequest
+ *       horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -303,6 +328,31 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //     deletionProtection: true || false,
  * //     controlPlaneScalingConfig: { // ControlPlaneScalingConfig
  * //       tier: "standard" || "tier-xl" || "tier-2xl" || "tier-4xl" || "tier-8xl",
+ * //     },
+ * //     kubeApiServerConfig: { // KubeApiServerConfigResponse
+ * //       eventTtl: "STRING_VALUE",
+ * //       serviceNodePortRange: { // ServiceNodePortRange
+ * //         minPort: Number("int"),
+ * //         maxPort: Number("int"),
+ * //       },
+ * //     },
+ * //     kubeSchedulerConfig: { // KubeSchedulerConfigResponse
+ * //       nodeResourcesFit: { // NodeResourcesFitConfig
+ * //         scoringStrategy: { // ScoringStrategy
+ * //           type: "LeastAllocated" || "MostAllocated",
+ * //           resources: [ // ResourceWeightList
+ * //             { // ResourceWeight
+ * //               name: "STRING_VALUE",
+ * //               weight: Number("int"),
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
+ * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };
