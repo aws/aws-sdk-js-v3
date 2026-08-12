@@ -23,11 +23,7 @@ export interface DeleteReviewTemplateCommandInput extends DeleteReviewTemplateIn
 export interface DeleteReviewTemplateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete a review template.</p>
- *          <p>Only the owner of a review template can delete it.</p>
- *          <p>After the review template is deleted, Amazon Web Services accounts, users,
- *             organizations, and organizational units (OUs) that you shared the review template with
- *             will no longer be able to apply it to new workloads.</p>
+ * <p>Delete a review template.</p> <p>Only the owner of a review template can delete it.</p> <p>After the review template is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the review template with will no longer be able to apply it to new workloads.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

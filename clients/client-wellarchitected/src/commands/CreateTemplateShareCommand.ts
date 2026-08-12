@@ -23,21 +23,7 @@ export interface CreateTemplateShareCommandInput extends CreateTemplateShareInpu
 export interface CreateTemplateShareCommandOutput extends CreateTemplateShareOutput, __MetadataBearer {}
 
 /**
- * <p>Create a review template share.</p>
- *          <p>The owner of a review template can share it with other Amazon Web Services accounts,
- *             users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. </p>
- *          <p> Shared access to a review template is not removed until the review template share
- *             invitation is deleted.</p>
- *          <p>If you share a review template with an organization or OU, all accounts in the
- *             organization or OU are granted access to the review template.</p>
- *          <note>
- *             <p>
- *                <b>Disclaimer</b>
- *             </p>
- *             <p>By sharing your review template with other Amazon Web Services accounts, you
- *                 acknowledge that Amazon Web Services will make your review template available to
- *                 those other accounts.</p>
- *          </note>
+ * <p>Create a review template share.</p> <p>The owner of a review template can share it with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. </p> <p> Shared access to a review template is not removed until the review template share invitation is deleted.</p> <p>If you share a review template with an organization or OU, all accounts in the organization or OU are granted access to the review template.</p> <note> <p> <b>Disclaimer</b> </p> <p>By sharing your review template with other Amazon Web Services accounts, you acknowledge that Amazon Web Services will make your review template available to those other accounts.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

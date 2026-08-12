@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DeleteTemplateShareInput } from "../models/models_0";
-import { DeleteTemplateShare$ } from "../schemas/schemas_0";
+import type { DeleteAgentProfileRequest, DeleteAgentProfileResponse } from "../models/models_0";
+import { DeleteAgentProfile$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,41 +12,39 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DeleteTemplateShareCommand}.
+ * The input for {@link DeleteAgentProfileCommand}.
  */
-export interface DeleteTemplateShareCommandInput extends DeleteTemplateShareInput {}
+export interface DeleteAgentProfileCommandInput extends DeleteAgentProfileRequest {}
 /**
  * @public
  *
- * The output of {@link DeleteTemplateShareCommand}.
+ * The output of {@link DeleteAgentProfileCommand}.
  */
-export interface DeleteTemplateShareCommandOutput extends __MetadataBearer {}
+export interface DeleteAgentProfileCommandOutput extends DeleteAgentProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Delete a review template share.</p> <p>After the review template share is deleted, Amazon Web Services accounts, users, organizations, and organizational units (OUs) that you shared the review template with will no longer be able to apply it to new workloads.</p>
+ * <p>Deletes an optimization profile and its associated configuration. This action cannot be undone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, DeleteTemplateShareCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, DeleteTemplateShareCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, DeleteAgentProfileCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, DeleteAgentProfileCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * // import type { WellArchitectedClientConfig } from "@aws-sdk/client-wellarchitected";
  * const config = {}; // type is WellArchitectedClientConfig
  * const client = new WellArchitectedClient(config);
- * const input = { // DeleteTemplateShareInput
- *   ShareId: "STRING_VALUE", // required
- *   TemplateArn: "STRING_VALUE", // required
- *   ClientRequestToken: "STRING_VALUE", // required
+ * const input = { // DeleteAgentProfileRequest
+ *   profileArn: "STRING_VALUE", // required
  * };
- * const command = new DeleteTemplateShareCommand(input);
+ * const command = new DeleteAgentProfileCommand(input);
  * const response = await client.send(command);
  * // {};
  *
  * ```
  *
- * @param DeleteTemplateShareCommandInput - {@link DeleteTemplateShareCommandInput}
- * @returns {@link DeleteTemplateShareCommandOutput}
- * @see {@link DeleteTemplateShareCommandInput} for command's `input` shape.
- * @see {@link DeleteTemplateShareCommandOutput} for command's `response` shape.
+ * @param DeleteAgentProfileCommandInput - {@link DeleteAgentProfileCommandInput}
+ * @returns {@link DeleteAgentProfileCommandOutput}
+ * @see {@link DeleteAgentProfileCommandInput} for command's `input` shape.
+ * @see {@link DeleteAgentProfileCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -73,21 +71,21 @@ export interface DeleteTemplateShareCommandOutput extends __MetadataBearer {}
  *
  * @public
  */
-export class DeleteTemplateShareCommand extends command<DeleteTemplateShareCommandInput, DeleteTemplateShareCommandOutput>(
+export class DeleteAgentProfileCommand extends command<DeleteAgentProfileCommandInput, DeleteAgentProfileCommandOutput>(
   _ep0,
   _mw0,
-  "DeleteTemplateShare",
-  DeleteTemplateShare$
+  "DeleteAgentProfile",
+  DeleteAgentProfile$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DeleteTemplateShareInput;
+      input: DeleteAgentProfileRequest;
       output: {};
     };
     sdk: {
-      input: DeleteTemplateShareCommandInput;
-      output: DeleteTemplateShareCommandOutput;
+      input: DeleteAgentProfileCommandInput;
+      output: DeleteAgentProfileCommandOutput;
     };
   };
 }

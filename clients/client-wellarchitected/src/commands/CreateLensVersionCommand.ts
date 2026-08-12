@@ -23,13 +23,7 @@ export interface CreateLensVersionCommandInput extends CreateLensVersionInput {}
 export interface CreateLensVersionCommandOutput extends CreateLensVersionOutput, __MetadataBearer {}
 
 /**
- * <p>Create a new lens version.</p>
- *          <p>A lens can have up to 100 versions.</p>
- *          <p>Use this operation to publish a new lens version after you have imported a lens. The <code>LensAlias</code>
- *             is used to identify the lens to be published.
- *             The owner of a lens can share the lens with other
- *             Amazon Web Services accounts and users in the same Amazon Web Services Region. Only the owner of a lens can delete it.
- *         </p>
+ * <p>Create a new lens version.</p> <p>A lens can have up to 100 versions.</p> <p>Use this operation to publish a new lens version after you have imported a lens. The <code>LensAlias</code> is used to identify the lens to be published. The owner of a lens can share the lens with other Amazon Web Services accounts and users in the same Amazon Web Services Region. Only the owner of a lens can delete it. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -23,11 +23,7 @@ export interface ListShareInvitationsCommandInput extends ListShareInvitationsIn
 export interface ListShareInvitationsCommandOutput extends ListShareInvitationsOutput, __MetadataBearer {}
 
 /**
- * <p>List the share invitations.</p>
- *          <p>
- *             <code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>,
- *                 <code>ProfileNamePrefix</code>, and <code>TemplateNamePrefix</code> are mutually
- *             exclusive. Use the parameter that matches your <code>ShareResourceType</code>.</p>
+ * <p>List the share invitations.</p> <p> <code>WorkloadNamePrefix</code>, <code>LensNamePrefix</code>, <code>ProfileNamePrefix</code>, and <code>TemplateNamePrefix</code> are mutually exclusive. Use the parameter that matches your <code>ShareResourceType</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

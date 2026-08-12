@@ -23,12 +23,7 @@ export interface DisassociateLensesCommandInput extends DisassociateLensesInput 
 export interface DisassociateLensesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociate a lens from a workload.</p>
- *          <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p>
- *          <note>
- *             <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be
- *                 removed from a workload.</p>
- *          </note>
+ * <p>Disassociate a lens from a workload.</p> <p>Up to 10 lenses can be disassociated from a workload in a single API operation.</p> <note> <p>The Amazon Web Services Well-Architected Framework lens (<code>wellarchitected</code>) cannot be removed from a workload.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

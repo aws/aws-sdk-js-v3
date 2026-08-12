@@ -23,42 +23,7 @@ export interface CreateWorkloadCommandInput extends CreateWorkloadInput {}
 export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __MetadataBearer {}
 
 /**
- * <p>Create a new workload.</p>
- *          <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users,
- *             an organization, and organizational units (OUs)
- *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
- *                 <i>Well-Architected Tool User Guide</i>.</p>
- *          <important>
- *             <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when
- *                 creating a workload.</p>
- *             <p>You also must specify <code>ReviewOwner</code>, even though the
- *                 parameter is listed as not being required in the following section.
- *             </p>
- *          </important>
- *          <p>When creating a workload using a review template, you must have the following IAM permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>wellarchitected:GetReviewTemplate</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>wellarchitected:GetReviewTemplateAnswer</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>wellarchitected:ListReviewTemplateAnswers</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>wellarchitected:GetReviewTemplateLensReview</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Create a new workload.</p> <p>The owner of a workload can share the workload with other Amazon Web Services accounts, users, an organization, and organizational units (OUs) in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the <i>Well-Architected Tool User Guide</i>.</p> <important> <p>Either <code>AwsRegions</code>, <code>NonAwsRegions</code>, or both must be specified when creating a workload.</p> <p>You also must specify <code>ReviewOwner</code>, even though the parameter is listed as not being required in the following section. </p> </important> <p>When creating a workload using a review template, you must have the following IAM permissions:</p> <ul> <li> <p> <code>wellarchitected:GetReviewTemplate</code> </p> </li> <li> <p> <code>wellarchitected:GetReviewTemplateAnswer</code> </p> </li> <li> <p> <code>wellarchitected:ListReviewTemplateAnswers</code> </p> </li> <li> <p> <code>wellarchitected:GetReviewTemplateLensReview</code> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

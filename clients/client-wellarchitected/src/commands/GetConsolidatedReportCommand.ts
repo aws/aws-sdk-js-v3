@@ -23,8 +23,7 @@ export interface GetConsolidatedReportCommandInput extends GetConsolidatedReport
 export interface GetConsolidatedReportCommandOutput extends GetConsolidatedReportOutput, __MetadataBearer {}
 
 /**
- * <p>Get a consolidated report of your workloads.</p>
- *          <p>You can optionally choose to include workloads that have been shared with you.</p>
+ * <p>Get a consolidated report of your workloads.</p> <p>You can optionally choose to include workloads that have been shared with you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

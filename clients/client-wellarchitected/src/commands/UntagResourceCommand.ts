@@ -23,14 +23,7 @@ export interface UntagResourceCommandInput extends UntagResourceInput {}
 export interface UntagResourceCommandOutput extends UntagResourceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes specified tags from a resource.</p>
- *          <note>
- *             <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p>
- *          </note>
- *          <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p>
- *          <p>
- *             <code>DELETE /tags/WorkloadArn?tagKeys=key1&tagKeys=key2</code>
- *          </p>
+ * <p>Deletes specified tags from a resource.</p> <note> <p>The WorkloadArn parameter can be a workload ARN, a custom lens ARN, a profile ARN, or review template ARN.</p> </note> <p>To specify multiple tags, use separate <b>tagKeys</b> parameters, for example:</p> <p> <code>DELETE /tags/WorkloadArn?tagKeys=key1&amp;tagKeys=key2</code> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

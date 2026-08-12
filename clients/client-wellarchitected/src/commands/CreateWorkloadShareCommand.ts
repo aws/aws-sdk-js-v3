@@ -23,14 +23,7 @@ export interface CreateWorkloadShareCommandInput extends CreateWorkloadShareInpu
 export interface CreateWorkloadShareCommandOutput extends CreateWorkloadShareOutput, __MetadataBearer {}
 
 /**
- * <p>Create a workload share.</p>
- *          <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same
- *             Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is
- *             deleted.</p>
- *          <p>If you share a workload with an organization or OU, all accounts in the organization or OU
- *             are granted access to the workload.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a workload</a> in the
- *                 <i>Well-Architected Tool User Guide</i>.</p>
+ * <p>Create a workload share.</p> <p>The owner of a workload can share it with other Amazon Web Services accounts and users in the same Amazon Web Services Region. Shared access to a workload is not removed until the workload invitation is deleted.</p> <p>If you share a workload with an organization or OU, all accounts in the organization or OU are granted access to the workload.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/workloads-sharing.html">Sharing a workload</a> in the <i>Well-Architected Tool User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

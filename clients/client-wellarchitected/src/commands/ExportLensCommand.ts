@@ -23,22 +23,7 @@ export interface ExportLensCommandInput extends ExportLensInput {}
 export interface ExportLensCommandOutput extends ExportLensOutput, __MetadataBearer {}
 
 /**
- * <p>Export an existing lens.</p>
- *          <p>Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content)
- *             cannot be exported.</p>
- *          <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a>
- *             in the <i>Well-Architected Tool User Guide</i>.</p>
- *          <note>
- *             <p>
- *                <b>Disclaimer</b>
- *             </p>
- *             <p>Do not include or gather personal identifiable information (PII) of end users or
- *                 other identifiable individuals in or via your custom lenses. If your custom
- *                 lens or those shared with you and used in your account do include or collect
- *                 PII you are responsible for: ensuring that the included PII is processed in accordance
- *                 with applicable law, providing adequate privacy notices, and obtaining necessary
- *                 consents for processing such data.</p>
- *          </note>
+ * <p>Export an existing lens.</p> <p>Only the owner of a lens can export it. Lenses provided by Amazon Web Services (Amazon Web Services Official Content) cannot be exported.</p> <p>Lenses are defined in JSON. For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/lenses-format-specification.html">JSON format specification</a> in the <i>Well-Architected Tool User Guide</i>.</p> <note> <p> <b>Disclaimer</b> </p> <p>Do not include or gather personal identifiable information (PII) of end users or other identifiable individuals in or via your custom lenses. If your custom lens or those shared with you and used in your account do include or collect PII you are responsible for: ensuring that the included PII is processed in accordance with applicable law, providing adequate privacy notices, and obtaining necessary consents for processing such data.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

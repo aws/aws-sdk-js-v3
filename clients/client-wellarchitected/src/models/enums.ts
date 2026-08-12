@@ -84,6 +84,150 @@ export type AdditionalResourceType = (typeof AdditionalResourceType)[keyof typeo
  * @public
  * @enum
  */
+export const Pillar = {
+  COST_OPTIMIZATION: "COST_OPTIMIZATION",
+  OPERATIONAL_EXCELLENCE: "OPERATIONAL_EXCELLENCE",
+  PERFORMANCE: "PERFORMANCE",
+  RESILIENCE: "RESILIENCE",
+  SECURITY: "SECURITY",
+} as const;
+/**
+ * @public
+ */
+export type Pillar = (typeof Pillar)[keyof typeof Pillar];
+
+/**
+ * @public
+ * @enum
+ */
+export const GenerationStatus = {
+  COMPLETED: "COMPLETED",
+  ERROR: "ERROR",
+  IN_PROGRESS: "IN_PROGRESS",
+  QUEUED: "QUEUED",
+} as const;
+/**
+ * @public
+ */
+export type GenerationStatus = (typeof GenerationStatus)[keyof typeof GenerationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationItemType = {
+  AWS_RESOURCE: "AWS_RESOURCE",
+  RECOMMENDATION: "RECOMMENDATION",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationItemType = (typeof RecommendationItemType)[keyof typeof RecommendationItemType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RemediationType = {
+  AUTO_REMEDIATION: "AUTO_REMEDIATION",
+  CLI: "CLI",
+  CONSOLE: "CONSOLE",
+  IAC: "IAC",
+  MCP: "MCP",
+  SDK: "SDK",
+} as const;
+/**
+ * @public
+ */
+export type RemediationType = (typeof RemediationType)[keyof typeof RemediationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Effort = {
+  LARGE: "LARGE",
+  MEDIUM: "MEDIUM",
+  SMALL: "SMALL",
+} as const;
+/**
+ * @public
+ */
+export type Effort = (typeof Effort)[keyof typeof Effort];
+
+/**
+ * @public
+ * @enum
+ */
+export const ImpactCategory = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type ImpactCategory = (typeof ImpactCategory)[keyof typeof ImpactCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const Priority = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type Priority = (typeof Priority)[keyof typeof Priority];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationState = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationState = (typeof RecommendationState)[keyof typeof RecommendationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationStatus = {
+  ACTIVE: "ACTIVE",
+  COMPLETED: "COMPLETED",
+  SUPPRESSED: "SUPPRESSED",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationStatus = (typeof RecommendationStatus)[keyof typeof RecommendationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationType = {
+  APPLICATION: "APPLICATION",
+  ARCHITECTURE: "ARCHITECTURE",
+  RESOURCE: "RESOURCE",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationType = (typeof RecommendationType)[keyof typeof RecommendationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChoiceReason = {
   ARCHITECTURE_CONSTRAINTS: "ARCHITECTURE_CONSTRAINTS",
   BUSINESS_PRIORITIES: "BUSINESS_PRIORITIES",
@@ -159,6 +303,20 @@ export type QuestionType = (typeof QuestionType)[keyof typeof QuestionType];
  * @public
  * @enum
  */
+export const ApplicationType = {
+  DESKTOP_APPLICATION: "DESKTOP_APPLICATION",
+  OTHER: "OTHER",
+  SAS: "SAS",
+} as const;
+/**
+ * @public
+ */
+export type ApplicationType = (typeof ApplicationType)[keyof typeof ApplicationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ValidationExceptionReason = {
   CANNOT_PARSE: "CANNOT_PARSE",
   FIELD_VALIDATION_FAILED: "FIELD_VALIDATION_FAILED",
@@ -208,6 +366,33 @@ export const MetricType = {
  * @public
  */
 export type MetricType = (typeof MetricType)[keyof typeof MetricType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Criticality = {
+  BUSINESS_CRITICAL: "BUSINESS_CRITICAL",
+  MISSION_CRITICAL: "MISSION_CRITICAL",
+  NON_CRITICAL: "NON_CRITICAL",
+  TEST_DEVELOPMENT: "TEST_DEVELOPMENT",
+} as const;
+/**
+ * @public
+ */
+export type Criticality = (typeof Criticality)[keyof typeof Criticality];
+
+/**
+ * @public
+ * @enum
+ */
+export const ContextType = {
+  APPLICATION: "APPLICATION",
+} as const;
+/**
+ * @public
+ */
+export type ContextType = (typeof ContextType)[keyof typeof ContextType];
 
 /**
  * @public
@@ -317,6 +502,53 @@ export const DiscoveryIntegrationStatus = {
  * @public
  */
 export type DiscoveryIntegrationStatus = (typeof DiscoveryIntegrationStatus)[keyof typeof DiscoveryIntegrationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const FeedbackCategory = {
+  OTHER: "OTHER",
+  RECOMMENDATION_INCORRECT: "RECOMMENDATION_INCORRECT",
+  RECOMMENDATION_NOT_RELEVANT: "RECOMMENDATION_NOT_RELEVANT",
+  RESOURCE_NOT_IMPORTANT: "RESOURCE_NOT_IMPORTANT",
+  RESOURCE_TYPE_NOT_IMPORTANT: "RESOURCE_TYPE_NOT_IMPORTANT",
+} as const;
+/**
+ * @public
+ */
+export type FeedbackCategory = (typeof FeedbackCategory)[keyof typeof FeedbackCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationSource = {
+  CLOUDWATCH: "CLOUDWATCH",
+  COST_EXPLORER: "COST_EXPLORER",
+  CUSTOMER_IAC: "CUSTOMER_IAC",
+  TRUSTED_ADVISOR: "TRUSTED_ADVISOR",
+  WELL_ARCHITECTED_AGENT: "WELL_ARCHITECTED_AGENT",
+  WELL_ARCHITECTED_TOOL: "WELL_ARCHITECTED_TOOL",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationSource = (typeof RecommendationSource)[keyof typeof RecommendationSource];
+
+/**
+ * @public
+ * @enum
+ */
+export const RiskRating = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+/**
+ * @public
+ */
+export type RiskRating = (typeof RiskRating)[keyof typeof RiskRating];
 
 /**
  * @public
@@ -540,6 +772,19 @@ export const ShareResourceType = {
  * @public
  */
 export type ShareResourceType = (typeof ShareResourceType)[keyof typeof ShareResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendationFeedbackType = {
+  NOT_USEFUL: "NOT_USEFUL",
+  USEFUL: "USEFUL",
+} as const;
+/**
+ * @public
+ */
+export type RecommendationFeedbackType = (typeof RecommendationFeedbackType)[keyof typeof RecommendationFeedbackType];
 
 /**
  * @public

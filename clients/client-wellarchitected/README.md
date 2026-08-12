@@ -6,12 +6,7 @@
 
 AWS SDK for JavaScript WellArchitected Client for Node.js, Browser and React Native.
 
-<fullname>Well-Architected Tool</fullname>
-<p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
-<a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> in the
-<a href="https://console.aws.amazon.com/wellarchitected">Amazon Web Services Management Console</a>. For information
-about the Well-Architected Tool, see the
-<a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Well-Architected Tool User Guide</a>.</p>
+<fullname>Amazon Web Services Well-Architected</fullname> <p>Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> for conducting reviews and tracking improvements.</p> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.</p> <p>For more information about the service, see the <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Amazon Web Services Well-Architected User Guide</a>.</p>
 
 ## Installing
 
@@ -200,6 +195,27 @@ AssociateProfiles
 </details>
 <details>
 <summary>
+CreateAgentContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateAgentContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentContextCommandOutput/)
+</details>
+<details>
+<summary>
+CreateAgentGoal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateAgentGoalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentGoalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentGoalCommandOutput/)
+</details>
+<details>
+<summary>
+CreateAgentProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateAgentProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateAgentProfileCommandOutput/)
+</details>
+<details>
+<summary>
 CreateLensShare
 </summary>
 
@@ -260,6 +276,27 @@ CreateWorkloadShare
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/CreateWorkloadShareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadShareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/CreateWorkloadShareCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteAgentContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteAgentContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentContextCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteAgentGoal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteAgentGoalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentGoalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentGoalCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteAgentProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/DeleteAgentProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/DeleteAgentProfileCommandOutput/)
 </details>
 <details>
 <summary>
@@ -337,6 +374,41 @@ ExportLens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ExportLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ExportLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ExportLensCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgentContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAgentContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentContextCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgentGoal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAgentGoalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentGoalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentGoalCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgentProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAgentProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentProfileCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgentRecommendation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAgentRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentRecommendationCommandOutput/)
+</details>
+<details>
+<summary>
+GetAgentRecommendationGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/GetAgentRecommendationGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentRecommendationGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/GetAgentRecommendationGenerationCommandOutput/)
 </details>
 <details>
 <summary>
@@ -442,6 +514,48 @@ ImportLens
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ImportLensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ImportLensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ImportLensCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentContexts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentContextsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentContextsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentContextsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentGoals
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentGoalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentGoalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentGoalsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentProfiles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentProfilesCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentRecommendationGenerations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentRecommendationGenerationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationGenerationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationGenerationsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentRecommendationItems
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentRecommendationItemsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationItemsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationItemsCommandOutput/)
+</details>
+<details>
+<summary>
+ListAgentRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/ListAgentRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/ListAgentRecommendationsCommandOutput/)
 </details>
 <details>
 <summary>
@@ -578,6 +692,20 @@ ListWorkloadShares
 </details>
 <details>
 <summary>
+PutAgentRecommendationFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/PutAgentRecommendationFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/PutAgentRecommendationFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/PutAgentRecommendationFeedbackCommandOutput/)
+</details>
+<details>
+<summary>
+StartAgentRecommendationGeneration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/StartAgentRecommendationGenerationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/StartAgentRecommendationGenerationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/StartAgentRecommendationGenerationCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 
@@ -589,6 +717,34 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UntagResourceCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAgentContext
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateAgentContextCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentContextCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentContextCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAgentGoal
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateAgentGoalCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentGoalCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentGoalCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAgentProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateAgentProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentProfileCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateAgentRecommendationStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wellarchitected/command/UpdateAgentRecommendationStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentRecommendationStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wellarchitected/Interface/UpdateAgentRecommendationStatusCommandOutput/)
 </details>
 <details>
 <summary>

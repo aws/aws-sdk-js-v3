@@ -13,6 +13,21 @@ import {
   AssociateProfilesCommand,
 } from "./commands/AssociateProfilesCommand";
 import {
+  type CreateAgentContextCommandInput,
+  type CreateAgentContextCommandOutput,
+  CreateAgentContextCommand,
+} from "./commands/CreateAgentContextCommand";
+import {
+  type CreateAgentGoalCommandInput,
+  type CreateAgentGoalCommandOutput,
+  CreateAgentGoalCommand,
+} from "./commands/CreateAgentGoalCommand";
+import {
+  type CreateAgentProfileCommandInput,
+  type CreateAgentProfileCommandOutput,
+  CreateAgentProfileCommand,
+} from "./commands/CreateAgentProfileCommand";
+import {
   type CreateLensShareCommandInput,
   type CreateLensShareCommandOutput,
   CreateLensShareCommand,
@@ -57,6 +72,21 @@ import {
   type CreateWorkloadShareCommandOutput,
   CreateWorkloadShareCommand,
 } from "./commands/CreateWorkloadShareCommand";
+import {
+  type DeleteAgentContextCommandInput,
+  type DeleteAgentContextCommandOutput,
+  DeleteAgentContextCommand,
+} from "./commands/DeleteAgentContextCommand";
+import {
+  type DeleteAgentGoalCommandInput,
+  type DeleteAgentGoalCommandOutput,
+  DeleteAgentGoalCommand,
+} from "./commands/DeleteAgentGoalCommand";
+import {
+  type DeleteAgentProfileCommandInput,
+  type DeleteAgentProfileCommandOutput,
+  DeleteAgentProfileCommand,
+} from "./commands/DeleteAgentProfileCommand";
 import {
   type DeleteLensCommandInput,
   type DeleteLensCommandOutput,
@@ -112,6 +142,31 @@ import {
   type ExportLensCommandOutput,
   ExportLensCommand,
 } from "./commands/ExportLensCommand";
+import {
+  type GetAgentContextCommandInput,
+  type GetAgentContextCommandOutput,
+  GetAgentContextCommand,
+} from "./commands/GetAgentContextCommand";
+import {
+  type GetAgentGoalCommandInput,
+  type GetAgentGoalCommandOutput,
+  GetAgentGoalCommand,
+} from "./commands/GetAgentGoalCommand";
+import {
+  type GetAgentProfileCommandInput,
+  type GetAgentProfileCommandOutput,
+  GetAgentProfileCommand,
+} from "./commands/GetAgentProfileCommand";
+import {
+  type GetAgentRecommendationCommandInput,
+  type GetAgentRecommendationCommandOutput,
+  GetAgentRecommendationCommand,
+} from "./commands/GetAgentRecommendationCommand";
+import {
+  type GetAgentRecommendationGenerationCommandInput,
+  type GetAgentRecommendationGenerationCommandOutput,
+  GetAgentRecommendationGenerationCommand,
+} from "./commands/GetAgentRecommendationGenerationCommand";
 import { type GetAnswerCommandInput, type GetAnswerCommandOutput, GetAnswerCommand } from "./commands/GetAnswerCommand";
 import {
   type GetConsolidatedReportCommandInput,
@@ -179,6 +234,36 @@ import {
   type ImportLensCommandOutput,
   ImportLensCommand,
 } from "./commands/ImportLensCommand";
+import {
+  type ListAgentContextsCommandInput,
+  type ListAgentContextsCommandOutput,
+  ListAgentContextsCommand,
+} from "./commands/ListAgentContextsCommand";
+import {
+  type ListAgentGoalsCommandInput,
+  type ListAgentGoalsCommandOutput,
+  ListAgentGoalsCommand,
+} from "./commands/ListAgentGoalsCommand";
+import {
+  type ListAgentProfilesCommandInput,
+  type ListAgentProfilesCommandOutput,
+  ListAgentProfilesCommand,
+} from "./commands/ListAgentProfilesCommand";
+import {
+  type ListAgentRecommendationGenerationsCommandInput,
+  type ListAgentRecommendationGenerationsCommandOutput,
+  ListAgentRecommendationGenerationsCommand,
+} from "./commands/ListAgentRecommendationGenerationsCommand";
+import {
+  type ListAgentRecommendationItemsCommandInput,
+  type ListAgentRecommendationItemsCommandOutput,
+  ListAgentRecommendationItemsCommand,
+} from "./commands/ListAgentRecommendationItemsCommand";
+import {
+  type ListAgentRecommendationsCommandInput,
+  type ListAgentRecommendationsCommandOutput,
+  ListAgentRecommendationsCommand,
+} from "./commands/ListAgentRecommendationsCommand";
 import {
   type ListAnswersCommandInput,
   type ListAnswersCommandOutput,
@@ -275,6 +360,16 @@ import {
   ListWorkloadSharesCommand,
 } from "./commands/ListWorkloadSharesCommand";
 import {
+  type PutAgentRecommendationFeedbackCommandInput,
+  type PutAgentRecommendationFeedbackCommandOutput,
+  PutAgentRecommendationFeedbackCommand,
+} from "./commands/PutAgentRecommendationFeedbackCommand";
+import {
+  type StartAgentRecommendationGenerationCommandInput,
+  type StartAgentRecommendationGenerationCommandOutput,
+  StartAgentRecommendationGenerationCommand,
+} from "./commands/StartAgentRecommendationGenerationCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -284,6 +379,26 @@ import {
   type UntagResourceCommandOutput,
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
+import {
+  type UpdateAgentContextCommandInput,
+  type UpdateAgentContextCommandOutput,
+  UpdateAgentContextCommand,
+} from "./commands/UpdateAgentContextCommand";
+import {
+  type UpdateAgentGoalCommandInput,
+  type UpdateAgentGoalCommandOutput,
+  UpdateAgentGoalCommand,
+} from "./commands/UpdateAgentGoalCommand";
+import {
+  type UpdateAgentProfileCommandInput,
+  type UpdateAgentProfileCommandOutput,
+  UpdateAgentProfileCommand,
+} from "./commands/UpdateAgentProfileCommand";
+import {
+  type UpdateAgentRecommendationStatusCommandInput,
+  type UpdateAgentRecommendationStatusCommandOutput,
+  UpdateAgentRecommendationStatusCommand,
+} from "./commands/UpdateAgentRecommendationStatusCommand";
 import {
   type UpdateAnswerCommandInput,
   type UpdateAnswerCommandOutput,
@@ -355,6 +470,12 @@ import {
   UpgradeReviewTemplateLensReviewCommand,
 } from "./commands/UpgradeReviewTemplateLensReviewCommand";
 import { paginateGetConsolidatedReport } from "./pagination/GetConsolidatedReportPaginator";
+import { paginateListAgentContexts } from "./pagination/ListAgentContextsPaginator";
+import { paginateListAgentGoals } from "./pagination/ListAgentGoalsPaginator";
+import { paginateListAgentProfiles } from "./pagination/ListAgentProfilesPaginator";
+import { paginateListAgentRecommendationGenerations } from "./pagination/ListAgentRecommendationGenerationsPaginator";
+import { paginateListAgentRecommendationItems } from "./pagination/ListAgentRecommendationItemsPaginator";
+import { paginateListAgentRecommendations } from "./pagination/ListAgentRecommendationsPaginator";
 import { paginateListAnswers } from "./pagination/ListAnswersPaginator";
 import { paginateListCheckDetails } from "./pagination/ListCheckDetailsPaginator";
 import { paginateListCheckSummaries } from "./pagination/ListCheckSummariesPaginator";
@@ -378,6 +499,9 @@ import { WellArchitectedClient } from "./WellArchitectedClient";
 const commands = {
   AssociateLensesCommand,
   AssociateProfilesCommand,
+  CreateAgentContextCommand,
+  CreateAgentGoalCommand,
+  CreateAgentProfileCommand,
   CreateLensShareCommand,
   CreateLensVersionCommand,
   CreateMilestoneCommand,
@@ -387,6 +511,9 @@ const commands = {
   CreateTemplateShareCommand,
   CreateWorkloadCommand,
   CreateWorkloadShareCommand,
+  DeleteAgentContextCommand,
+  DeleteAgentGoalCommand,
+  DeleteAgentProfileCommand,
   DeleteLensCommand,
   DeleteLensShareCommand,
   DeleteProfileCommand,
@@ -398,6 +525,11 @@ const commands = {
   DisassociateLensesCommand,
   DisassociateProfilesCommand,
   ExportLensCommand,
+  GetAgentContextCommand,
+  GetAgentGoalCommand,
+  GetAgentProfileCommand,
+  GetAgentRecommendationCommand,
+  GetAgentRecommendationGenerationCommand,
   GetAnswerCommand,
   GetConsolidatedReportCommand,
   GetGlobalSettingsCommand,
@@ -413,6 +545,12 @@ const commands = {
   GetReviewTemplateLensReviewCommand,
   GetWorkloadCommand,
   ImportLensCommand,
+  ListAgentContextsCommand,
+  ListAgentGoalsCommand,
+  ListAgentProfilesCommand,
+  ListAgentRecommendationGenerationsCommand,
+  ListAgentRecommendationItemsCommand,
+  ListAgentRecommendationsCommand,
   ListAnswersCommand,
   ListCheckDetailsCommand,
   ListCheckSummariesCommand,
@@ -432,8 +570,14 @@ const commands = {
   ListTemplateSharesCommand,
   ListWorkloadsCommand,
   ListWorkloadSharesCommand,
+  PutAgentRecommendationFeedbackCommand,
+  StartAgentRecommendationGenerationCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAgentContextCommand,
+  UpdateAgentGoalCommand,
+  UpdateAgentProfileCommand,
+  UpdateAgentRecommendationStatusCommand,
   UpdateAnswerCommand,
   UpdateGlobalSettingsCommand,
   UpdateIntegrationCommand,
@@ -451,6 +595,12 @@ const commands = {
 };
 const paginators = {
   paginateGetConsolidatedReport,
+  paginateListAgentContexts,
+  paginateListAgentGoals,
+  paginateListAgentProfiles,
+  paginateListAgentRecommendationGenerations,
+  paginateListAgentRecommendationItems,
+  paginateListAgentRecommendations,
   paginateListAnswers,
   paginateListCheckDetails,
   paginateListCheckSummaries,
@@ -504,6 +654,57 @@ export interface WellArchitected {
     args: AssociateProfilesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentContextCommand}
+   */
+  createAgentContext(
+    args: CreateAgentContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentContextCommandOutput>;
+  createAgentContext(
+    args: CreateAgentContextCommandInput,
+    cb: (err: any, data?: CreateAgentContextCommandOutput) => void
+  ): void;
+  createAgentContext(
+    args: CreateAgentContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentContextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentGoalCommand}
+   */
+  createAgentGoal(
+    args: CreateAgentGoalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentGoalCommandOutput>;
+  createAgentGoal(
+    args: CreateAgentGoalCommandInput,
+    cb: (err: any, data?: CreateAgentGoalCommandOutput) => void
+  ): void;
+  createAgentGoal(
+    args: CreateAgentGoalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAgentProfileCommand}
+   */
+  createAgentProfile(
+    args: CreateAgentProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAgentProfileCommandOutput>;
+  createAgentProfile(
+    args: CreateAgentProfileCommandInput,
+    cb: (err: any, data?: CreateAgentProfileCommandOutput) => void
+  ): void;
+  createAgentProfile(
+    args: CreateAgentProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAgentProfileCommandOutput) => void
   ): void;
 
   /**
@@ -657,6 +858,57 @@ export interface WellArchitected {
     args: CreateWorkloadShareCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkloadShareCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentContextCommand}
+   */
+  deleteAgentContext(
+    args: DeleteAgentContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgentContextCommandOutput>;
+  deleteAgentContext(
+    args: DeleteAgentContextCommandInput,
+    cb: (err: any, data?: DeleteAgentContextCommandOutput) => void
+  ): void;
+  deleteAgentContext(
+    args: DeleteAgentContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgentContextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentGoalCommand}
+   */
+  deleteAgentGoal(
+    args: DeleteAgentGoalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgentGoalCommandOutput>;
+  deleteAgentGoal(
+    args: DeleteAgentGoalCommandInput,
+    cb: (err: any, data?: DeleteAgentGoalCommandOutput) => void
+  ): void;
+  deleteAgentGoal(
+    args: DeleteAgentGoalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAgentProfileCommand}
+   */
+  deleteAgentProfile(
+    args: DeleteAgentProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAgentProfileCommandOutput>;
+  deleteAgentProfile(
+    args: DeleteAgentProfileCommandInput,
+    cb: (err: any, data?: DeleteAgentProfileCommandOutput) => void
+  ): void;
+  deleteAgentProfile(
+    args: DeleteAgentProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAgentProfileCommandOutput) => void
   ): void;
 
   /**
@@ -844,6 +1096,91 @@ export interface WellArchitected {
     args: ExportLensCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentContextCommand}
+   */
+  getAgentContext(
+    args: GetAgentContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentContextCommandOutput>;
+  getAgentContext(
+    args: GetAgentContextCommandInput,
+    cb: (err: any, data?: GetAgentContextCommandOutput) => void
+  ): void;
+  getAgentContext(
+    args: GetAgentContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentContextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentGoalCommand}
+   */
+  getAgentGoal(
+    args: GetAgentGoalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentGoalCommandOutput>;
+  getAgentGoal(
+    args: GetAgentGoalCommandInput,
+    cb: (err: any, data?: GetAgentGoalCommandOutput) => void
+  ): void;
+  getAgentGoal(
+    args: GetAgentGoalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentProfileCommand}
+   */
+  getAgentProfile(
+    args: GetAgentProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentProfileCommandOutput>;
+  getAgentProfile(
+    args: GetAgentProfileCommandInput,
+    cb: (err: any, data?: GetAgentProfileCommandOutput) => void
+  ): void;
+  getAgentProfile(
+    args: GetAgentProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentRecommendationCommand}
+   */
+  getAgentRecommendation(
+    args: GetAgentRecommendationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentRecommendationCommandOutput>;
+  getAgentRecommendation(
+    args: GetAgentRecommendationCommandInput,
+    cb: (err: any, data?: GetAgentRecommendationCommandOutput) => void
+  ): void;
+  getAgentRecommendation(
+    args: GetAgentRecommendationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAgentRecommendationGenerationCommand}
+   */
+  getAgentRecommendationGeneration(
+    args: GetAgentRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAgentRecommendationGenerationCommandOutput>;
+  getAgentRecommendationGeneration(
+    args: GetAgentRecommendationGenerationCommandInput,
+    cb: (err: any, data?: GetAgentRecommendationGenerationCommandOutput) => void
+  ): void;
+  getAgentRecommendationGeneration(
+    args: GetAgentRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAgentRecommendationGenerationCommandOutput) => void
   ): void;
 
   /**
@@ -1101,6 +1438,109 @@ export interface WellArchitected {
     args: ImportLensCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportLensCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentContextsCommand}
+   */
+  listAgentContexts(
+    args: ListAgentContextsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentContextsCommandOutput>;
+  listAgentContexts(
+    args: ListAgentContextsCommandInput,
+    cb: (err: any, data?: ListAgentContextsCommandOutput) => void
+  ): void;
+  listAgentContexts(
+    args: ListAgentContextsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentContextsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentGoalsCommand}
+   */
+  listAgentGoals(
+    args: ListAgentGoalsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentGoalsCommandOutput>;
+  listAgentGoals(
+    args: ListAgentGoalsCommandInput,
+    cb: (err: any, data?: ListAgentGoalsCommandOutput) => void
+  ): void;
+  listAgentGoals(
+    args: ListAgentGoalsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentGoalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentProfilesCommand}
+   */
+  listAgentProfiles(): Promise<ListAgentProfilesCommandOutput>;
+  listAgentProfiles(
+    args: ListAgentProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentProfilesCommandOutput>;
+  listAgentProfiles(
+    args: ListAgentProfilesCommandInput,
+    cb: (err: any, data?: ListAgentProfilesCommandOutput) => void
+  ): void;
+  listAgentProfiles(
+    args: ListAgentProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentProfilesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentRecommendationGenerationsCommand}
+   */
+  listAgentRecommendationGenerations(
+    args: ListAgentRecommendationGenerationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentRecommendationGenerationsCommandOutput>;
+  listAgentRecommendationGenerations(
+    args: ListAgentRecommendationGenerationsCommandInput,
+    cb: (err: any, data?: ListAgentRecommendationGenerationsCommandOutput) => void
+  ): void;
+  listAgentRecommendationGenerations(
+    args: ListAgentRecommendationGenerationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentRecommendationGenerationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentRecommendationItemsCommand}
+   */
+  listAgentRecommendationItems(
+    args: ListAgentRecommendationItemsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentRecommendationItemsCommandOutput>;
+  listAgentRecommendationItems(
+    args: ListAgentRecommendationItemsCommandInput,
+    cb: (err: any, data?: ListAgentRecommendationItemsCommandOutput) => void
+  ): void;
+  listAgentRecommendationItems(
+    args: ListAgentRecommendationItemsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentRecommendationItemsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAgentRecommendationsCommand}
+   */
+  listAgentRecommendations(
+    args: ListAgentRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAgentRecommendationsCommandOutput>;
+  listAgentRecommendations(
+    args: ListAgentRecommendationsCommandInput,
+    cb: (err: any, data?: ListAgentRecommendationsCommandOutput) => void
+  ): void;
+  listAgentRecommendations(
+    args: ListAgentRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAgentRecommendationsCommandOutput) => void
   ): void;
 
   /**
@@ -1434,6 +1874,40 @@ export interface WellArchitected {
   ): void;
 
   /**
+   * @see {@link PutAgentRecommendationFeedbackCommand}
+   */
+  putAgentRecommendationFeedback(
+    args: PutAgentRecommendationFeedbackCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAgentRecommendationFeedbackCommandOutput>;
+  putAgentRecommendationFeedback(
+    args: PutAgentRecommendationFeedbackCommandInput,
+    cb: (err: any, data?: PutAgentRecommendationFeedbackCommandOutput) => void
+  ): void;
+  putAgentRecommendationFeedback(
+    args: PutAgentRecommendationFeedbackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAgentRecommendationFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAgentRecommendationGenerationCommand}
+   */
+  startAgentRecommendationGeneration(
+    args: StartAgentRecommendationGenerationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAgentRecommendationGenerationCommandOutput>;
+  startAgentRecommendationGeneration(
+    args: StartAgentRecommendationGenerationCommandInput,
+    cb: (err: any, data?: StartAgentRecommendationGenerationCommandOutput) => void
+  ): void;
+  startAgentRecommendationGeneration(
+    args: StartAgentRecommendationGenerationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAgentRecommendationGenerationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link TagResourceCommand}
    */
   tagResource(
@@ -1465,6 +1939,74 @@ export interface WellArchitected {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentContextCommand}
+   */
+  updateAgentContext(
+    args: UpdateAgentContextCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentContextCommandOutput>;
+  updateAgentContext(
+    args: UpdateAgentContextCommandInput,
+    cb: (err: any, data?: UpdateAgentContextCommandOutput) => void
+  ): void;
+  updateAgentContext(
+    args: UpdateAgentContextCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentContextCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentGoalCommand}
+   */
+  updateAgentGoal(
+    args: UpdateAgentGoalCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentGoalCommandOutput>;
+  updateAgentGoal(
+    args: UpdateAgentGoalCommandInput,
+    cb: (err: any, data?: UpdateAgentGoalCommandOutput) => void
+  ): void;
+  updateAgentGoal(
+    args: UpdateAgentGoalCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentGoalCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentProfileCommand}
+   */
+  updateAgentProfile(
+    args: UpdateAgentProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentProfileCommandOutput>;
+  updateAgentProfile(
+    args: UpdateAgentProfileCommandInput,
+    cb: (err: any, data?: UpdateAgentProfileCommandOutput) => void
+  ): void;
+  updateAgentProfile(
+    args: UpdateAgentProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAgentRecommendationStatusCommand}
+   */
+  updateAgentRecommendationStatus(
+    args: UpdateAgentRecommendationStatusCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAgentRecommendationStatusCommandOutput>;
+  updateAgentRecommendationStatus(
+    args: UpdateAgentRecommendationStatusCommandInput,
+    cb: (err: any, data?: UpdateAgentRecommendationStatusCommandOutput) => void
+  ): void;
+  updateAgentRecommendationStatus(
+    args: UpdateAgentRecommendationStatusCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAgentRecommendationStatusCommandOutput) => void
   ): void;
 
   /**
@@ -1718,6 +2260,72 @@ export interface WellArchitected {
   ): Paginator<GetConsolidatedReportCommandOutput>;
 
   /**
+   * @see {@link ListAgentContextsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentContextsCommandOutput}.
+   */
+  paginateListAgentContexts(
+    args: ListAgentContextsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentContextsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentGoalsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentGoalsCommandOutput}.
+   */
+  paginateListAgentGoals(
+    args: ListAgentGoalsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentGoalsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentProfilesCommandOutput}.
+   */
+  paginateListAgentProfiles(
+    args?: ListAgentProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentProfilesCommandOutput>;
+
+  /**
+   * @see {@link ListAgentRecommendationGenerationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRecommendationGenerationsCommandOutput}.
+   */
+  paginateListAgentRecommendationGenerations(
+    args: ListAgentRecommendationGenerationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRecommendationGenerationsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentRecommendationItemsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRecommendationItemsCommandOutput}.
+   */
+  paginateListAgentRecommendationItems(
+    args: ListAgentRecommendationItemsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRecommendationItemsCommandOutput>;
+
+  /**
+   * @see {@link ListAgentRecommendationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAgentRecommendationsCommandOutput}.
+   */
+  paginateListAgentRecommendations(
+    args: ListAgentRecommendationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAgentRecommendationsCommandOutput>;
+
+  /**
    * @see {@link ListAnswersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1917,12 +2525,7 @@ export interface WellArchitected {
 }
 
 /**
- * <fullname>Well-Architected Tool</fullname>
- *          <p>This is the <i>Well-Architected Tool API Reference</i>. The WA Tool API provides programmatic access to the
- *             <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> in the
- *            <a href="https://console.aws.amazon.com/wellarchitected">Amazon Web Services Management Console</a>. For information
- *             about the Well-Architected Tool, see the
- *            <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Well-Architected Tool User Guide</a>.</p>
+ * <fullname>Amazon Web Services Well-Architected</fullname> <p>Amazon Web Services Well-Architected helps you evaluate your architectures against Amazon Web Services best practices across operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. The service includes the Amazon Web Services Well-Architected Agent for AI-powered recommendations tailored to your specific environment, and the <a href="http://aws.amazon.com/well-architected-tool">Well-Architected Tool</a> for conducting reviews and tracking improvements.</p> <p>This is the <i>Amazon Web Services Well-Architected API Reference</i>. Through this API, you can programmatically access personalized recommendations and automation scripts from the Amazon Web Services Well-Architected Agent, and create and manage workloads, conduct lens reviews, track milestones, manage custom lenses, share workloads across accounts, and manage profiles with the Well-Architected Tool.</p> <p>For more information about the service, see the <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/intro.html">Amazon Web Services Well-Architected User Guide</a>.</p>
  * @public
  */
 export class WellArchitected extends WellArchitectedClient implements WellArchitected {}

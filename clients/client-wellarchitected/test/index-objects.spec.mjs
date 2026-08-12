@@ -6,9 +6,16 @@ import {
   AccountJiraIssueManagementStatus,
   AdditionalResources$,
   AdditionalResourceType,
+  AgentProfileSummary$,
+  AgentRecommendationGenerationSummary$,
+  AgentRecommendationItemSummary$,
+  AgentRecommendationRemediation$,
+  AgentRecommendationSummary$,
+  AggregationConfiguration$,
   Answer$,
   AnswerReason,
   AnswerSummary$,
+  ApplicationType,
   AssociateLenses$,
   AssociateLensesCommand,
   AssociateLensesInput$,
@@ -32,6 +39,22 @@ import {
   ConflictException,
   ConflictException$,
   ConsolidatedReportMetric$,
+  ContextContent$,
+  ContextResourceTag$,
+  ContextSummary$,
+  ContextType,
+  CreateAgentContext$,
+  CreateAgentContextCommand,
+  CreateAgentContextRequest$,
+  CreateAgentContextResponse$,
+  CreateAgentGoal$,
+  CreateAgentGoalCommand,
+  CreateAgentGoalRequest$,
+  CreateAgentGoalResponse$,
+  CreateAgentProfile$,
+  CreateAgentProfileCommand,
+  CreateAgentProfileRequest$,
+  CreateAgentProfileResponse$,
   CreateLensShare$,
   CreateLensShareCommand,
   CreateLensShareInput$,
@@ -68,7 +91,21 @@ import {
   CreateWorkloadShareCommand,
   CreateWorkloadShareInput$,
   CreateWorkloadShareOutput$,
+  Criticality,
+  CrossPillarBenefit$,
   DefinitionType,
+  DeleteAgentContext$,
+  DeleteAgentContextCommand,
+  DeleteAgentContextRequest$,
+  DeleteAgentContextResponse$,
+  DeleteAgentGoal$,
+  DeleteAgentGoalCommand,
+  DeleteAgentGoalRequest$,
+  DeleteAgentGoalResponse$,
+  DeleteAgentProfile$,
+  DeleteAgentProfileCommand,
+  DeleteAgentProfileRequest$,
+  DeleteAgentProfileResponse$,
   DeleteLens$,
   DeleteLensCommand,
   DeleteLensInput$,
@@ -101,10 +138,34 @@ import {
   DisassociateProfilesCommand,
   DisassociateProfilesInput$,
   DiscoveryIntegrationStatus,
+  Effort,
+  ErrorDetails$,
   ExportLens$,
   ExportLensCommand,
   ExportLensInput$,
   ExportLensOutput$,
+  FeedbackCategory,
+  GenerationStatus,
+  GetAgentContext$,
+  GetAgentContextCommand,
+  GetAgentContextRequest$,
+  GetAgentContextResponse$,
+  GetAgentGoal$,
+  GetAgentGoalCommand,
+  GetAgentGoalRequest$,
+  GetAgentGoalResponse$,
+  GetAgentProfile$,
+  GetAgentProfileCommand,
+  GetAgentProfileRequest$,
+  GetAgentProfileResponse$,
+  GetAgentRecommendation$,
+  GetAgentRecommendationCommand,
+  GetAgentRecommendationGeneration$,
+  GetAgentRecommendationGenerationCommand,
+  GetAgentRecommendationGenerationRequest$,
+  GetAgentRecommendationGenerationResponse$,
+  GetAgentRecommendationRequest$,
+  GetAgentRecommendationResponse$,
   GetAnswer$,
   GetAnswerCommand,
   GetAnswerInput$,
@@ -160,12 +221,15 @@ import {
   GetWorkloadCommand,
   GetWorkloadInput$,
   GetWorkloadOutput$,
+  GoalSummary$,
+  ImpactCategory,
   ImportLens$,
   ImportLensCommand,
   ImportLensInput$,
   ImportLensOutput$,
   ImportLensStatus,
   ImprovementSummary$,
+  Insight$,
   IntegratingService,
   IntegrationStatus,
   IntegrationStatusInput,
@@ -185,6 +249,30 @@ import {
   LensSummary$,
   LensType,
   LensUpgradeSummary$,
+  ListAgentContexts$,
+  ListAgentContextsCommand,
+  ListAgentContextsRequest$,
+  ListAgentContextsResponse$,
+  ListAgentGoals$,
+  ListAgentGoalsCommand,
+  ListAgentGoalsRequest$,
+  ListAgentGoalsResponse$,
+  ListAgentProfiles$,
+  ListAgentProfilesCommand,
+  ListAgentProfilesRequest$,
+  ListAgentProfilesResponse$,
+  ListAgentRecommendationGenerations$,
+  ListAgentRecommendationGenerationsCommand,
+  ListAgentRecommendationGenerationsRequest$,
+  ListAgentRecommendationGenerationsResponse$,
+  ListAgentRecommendationItems$,
+  ListAgentRecommendationItemsCommand,
+  ListAgentRecommendationItemsRequest$,
+  ListAgentRecommendationItemsResponse$,
+  ListAgentRecommendations$,
+  ListAgentRecommendationsCommand,
+  ListAgentRecommendationsRequest$,
+  ListAgentRecommendationsResponse$,
   ListAnswers$,
   ListAnswersCommand,
   ListAnswersInput$,
@@ -268,6 +356,12 @@ import {
   NotificationType,
   OrganizationSharingStatus,
   paginateGetConsolidatedReport,
+  paginateListAgentContexts,
+  paginateListAgentGoals,
+  paginateListAgentProfiles,
+  paginateListAgentRecommendationGenerations,
+  paginateListAgentRecommendationItems,
+  paginateListAgentRecommendations,
   paginateListAnswers,
   paginateListCheckDetails,
   paginateListCheckSummaries,
@@ -287,9 +381,12 @@ import {
   paginateListWorkloads,
   paginateListWorkloadShares,
   PermissionType,
+  Pillar,
   PillarDifference$,
+  PillarItem$,
   PillarMetric$,
   PillarReviewSummary$,
+  Priority,
   Profile$,
   ProfileChoice$,
   ProfileNotificationSummary$,
@@ -302,12 +399,28 @@ import {
   ProfileTemplate$,
   ProfileTemplateChoice$,
   ProfileTemplateQuestion$,
+  Progress$,
+  PutAgentRecommendationFeedback$,
+  PutAgentRecommendationFeedbackCommand,
+  PutAgentRecommendationFeedbackRequest$,
+  PutAgentRecommendationFeedbackResponse$,
   Question,
   QuestionDifference$,
   QuestionMetric$,
   QuestionPriority,
   QuestionType,
+  RecommendationFeedbackType,
+  RecommendationGoal$,
+  RecommendationItemType,
+  RecommendationSource,
+  RecommendationState,
+  RecommendationStatus,
+  RecommendationType,
+  RemediationStep$,
+  RemediationSummary$,
+  RemediationType,
   ReportFormat,
+  ResourceLink$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ReviewTemplate$,
@@ -319,6 +432,9 @@ import {
   ReviewTemplateSummary$,
   ReviewTemplateUpdateStatus,
   Risk,
+  RiskRating,
+  Roi$,
+  Scope$,
   SelectedPillar$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -327,6 +443,11 @@ import {
   ShareInvitationSummary$,
   ShareResourceType,
   ShareStatus,
+  StartAgentRecommendationGeneration$,
+  StartAgentRecommendationGenerationCommand,
+  StartAgentRecommendationGenerationRequest$,
+  StartAgentRecommendationGenerationResponse$,
+  Tag$,
   TagResource$,
   TagResourceCommand,
   TagResourceInput$,
@@ -334,11 +455,28 @@ import {
   TemplateShareSummary$,
   ThrottlingException,
   ThrottlingException$,
+  TradeOff$,
   TrustedAdvisorIntegrationStatus,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceInput$,
   UntagResourceOutput$,
+  UpdateAgentContext$,
+  UpdateAgentContextCommand,
+  UpdateAgentContextRequest$,
+  UpdateAgentContextResponse$,
+  UpdateAgentGoal$,
+  UpdateAgentGoalCommand,
+  UpdateAgentGoalRequest$,
+  UpdateAgentGoalResponse$,
+  UpdateAgentProfile$,
+  UpdateAgentProfileCommand,
+  UpdateAgentProfileRequest$,
+  UpdateAgentProfileResponse$,
+  UpdateAgentRecommendationStatus$,
+  UpdateAgentRecommendationStatusCommand,
+  UpdateAgentRecommendationStatusRequest$,
+  UpdateAgentRecommendationStatusResponse$,
   UpdateAnswer$,
   UpdateAnswerCommand,
   UpdateAnswerInput$,
@@ -419,6 +557,12 @@ assert(typeof AssociateLensesCommand === "function");
 assert(typeof AssociateLenses$ === "object");
 assert(typeof AssociateProfilesCommand === "function");
 assert(typeof AssociateProfiles$ === "object");
+assert(typeof CreateAgentContextCommand === "function");
+assert(typeof CreateAgentContext$ === "object");
+assert(typeof CreateAgentGoalCommand === "function");
+assert(typeof CreateAgentGoal$ === "object");
+assert(typeof CreateAgentProfileCommand === "function");
+assert(typeof CreateAgentProfile$ === "object");
 assert(typeof CreateLensShareCommand === "function");
 assert(typeof CreateLensShare$ === "object");
 assert(typeof CreateLensVersionCommand === "function");
@@ -437,6 +581,12 @@ assert(typeof CreateWorkloadCommand === "function");
 assert(typeof CreateWorkload$ === "object");
 assert(typeof CreateWorkloadShareCommand === "function");
 assert(typeof CreateWorkloadShare$ === "object");
+assert(typeof DeleteAgentContextCommand === "function");
+assert(typeof DeleteAgentContext$ === "object");
+assert(typeof DeleteAgentGoalCommand === "function");
+assert(typeof DeleteAgentGoal$ === "object");
+assert(typeof DeleteAgentProfileCommand === "function");
+assert(typeof DeleteAgentProfile$ === "object");
 assert(typeof DeleteLensCommand === "function");
 assert(typeof DeleteLens$ === "object");
 assert(typeof DeleteLensShareCommand === "function");
@@ -459,6 +609,16 @@ assert(typeof DisassociateProfilesCommand === "function");
 assert(typeof DisassociateProfiles$ === "object");
 assert(typeof ExportLensCommand === "function");
 assert(typeof ExportLens$ === "object");
+assert(typeof GetAgentContextCommand === "function");
+assert(typeof GetAgentContext$ === "object");
+assert(typeof GetAgentGoalCommand === "function");
+assert(typeof GetAgentGoal$ === "object");
+assert(typeof GetAgentProfileCommand === "function");
+assert(typeof GetAgentProfile$ === "object");
+assert(typeof GetAgentRecommendationCommand === "function");
+assert(typeof GetAgentRecommendation$ === "object");
+assert(typeof GetAgentRecommendationGenerationCommand === "function");
+assert(typeof GetAgentRecommendationGeneration$ === "object");
 assert(typeof GetAnswerCommand === "function");
 assert(typeof GetAnswer$ === "object");
 assert(typeof GetConsolidatedReportCommand === "function");
@@ -489,6 +649,18 @@ assert(typeof GetWorkloadCommand === "function");
 assert(typeof GetWorkload$ === "object");
 assert(typeof ImportLensCommand === "function");
 assert(typeof ImportLens$ === "object");
+assert(typeof ListAgentContextsCommand === "function");
+assert(typeof ListAgentContexts$ === "object");
+assert(typeof ListAgentGoalsCommand === "function");
+assert(typeof ListAgentGoals$ === "object");
+assert(typeof ListAgentProfilesCommand === "function");
+assert(typeof ListAgentProfiles$ === "object");
+assert(typeof ListAgentRecommendationGenerationsCommand === "function");
+assert(typeof ListAgentRecommendationGenerations$ === "object");
+assert(typeof ListAgentRecommendationItemsCommand === "function");
+assert(typeof ListAgentRecommendationItems$ === "object");
+assert(typeof ListAgentRecommendationsCommand === "function");
+assert(typeof ListAgentRecommendations$ === "object");
 assert(typeof ListAnswersCommand === "function");
 assert(typeof ListAnswers$ === "object");
 assert(typeof ListCheckDetailsCommand === "function");
@@ -527,10 +699,22 @@ assert(typeof ListWorkloadsCommand === "function");
 assert(typeof ListWorkloads$ === "object");
 assert(typeof ListWorkloadSharesCommand === "function");
 assert(typeof ListWorkloadShares$ === "object");
+assert(typeof PutAgentRecommendationFeedbackCommand === "function");
+assert(typeof PutAgentRecommendationFeedback$ === "object");
+assert(typeof StartAgentRecommendationGenerationCommand === "function");
+assert(typeof StartAgentRecommendationGeneration$ === "object");
 assert(typeof TagResourceCommand === "function");
 assert(typeof TagResource$ === "object");
 assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
+assert(typeof UpdateAgentContextCommand === "function");
+assert(typeof UpdateAgentContext$ === "object");
+assert(typeof UpdateAgentGoalCommand === "function");
+assert(typeof UpdateAgentGoal$ === "object");
+assert(typeof UpdateAgentProfileCommand === "function");
+assert(typeof UpdateAgentProfile$ === "object");
+assert(typeof UpdateAgentRecommendationStatusCommand === "function");
+assert(typeof UpdateAgentRecommendationStatus$ === "object");
 assert(typeof UpdateAnswerCommand === "function");
 assert(typeof UpdateAnswer$ === "object");
 assert(typeof UpdateGlobalSettingsCommand === "function");
@@ -563,6 +747,12 @@ assert(typeof UpgradeReviewTemplateLensReview$ === "object");
 assert(typeof AccountJiraConfigurationInput$ === "object");
 assert(typeof AccountJiraConfigurationOutput$ === "object");
 assert(typeof AdditionalResources$ === "object");
+assert(typeof AgentProfileSummary$ === "object");
+assert(typeof AgentRecommendationGenerationSummary$ === "object");
+assert(typeof AgentRecommendationItemSummary$ === "object");
+assert(typeof AgentRecommendationRemediation$ === "object");
+assert(typeof AgentRecommendationSummary$ === "object");
+assert(typeof AggregationConfiguration$ === "object");
 assert(typeof Answer$ === "object");
 assert(typeof AnswerSummary$ === "object");
 assert(typeof AssociateLensesInput$ === "object");
@@ -577,6 +767,15 @@ assert(typeof ChoiceContent$ === "object");
 assert(typeof ChoiceImprovementPlan$ === "object");
 assert(typeof ChoiceUpdate$ === "object");
 assert(typeof ConsolidatedReportMetric$ === "object");
+assert(typeof ContextContent$ === "object");
+assert(typeof ContextResourceTag$ === "object");
+assert(typeof ContextSummary$ === "object");
+assert(typeof CreateAgentContextRequest$ === "object");
+assert(typeof CreateAgentContextResponse$ === "object");
+assert(typeof CreateAgentGoalRequest$ === "object");
+assert(typeof CreateAgentGoalResponse$ === "object");
+assert(typeof CreateAgentProfileRequest$ === "object");
+assert(typeof CreateAgentProfileResponse$ === "object");
 assert(typeof CreateLensShareInput$ === "object");
 assert(typeof CreateLensShareOutput$ === "object");
 assert(typeof CreateLensVersionInput$ === "object");
@@ -595,6 +794,13 @@ assert(typeof CreateWorkloadInput$ === "object");
 assert(typeof CreateWorkloadOutput$ === "object");
 assert(typeof CreateWorkloadShareInput$ === "object");
 assert(typeof CreateWorkloadShareOutput$ === "object");
+assert(typeof CrossPillarBenefit$ === "object");
+assert(typeof DeleteAgentContextRequest$ === "object");
+assert(typeof DeleteAgentContextResponse$ === "object");
+assert(typeof DeleteAgentGoalRequest$ === "object");
+assert(typeof DeleteAgentGoalResponse$ === "object");
+assert(typeof DeleteAgentProfileRequest$ === "object");
+assert(typeof DeleteAgentProfileResponse$ === "object");
 assert(typeof DeleteLensInput$ === "object");
 assert(typeof DeleteLensShareInput$ === "object");
 assert(typeof DeleteProfileInput$ === "object");
@@ -605,8 +811,19 @@ assert(typeof DeleteWorkloadInput$ === "object");
 assert(typeof DeleteWorkloadShareInput$ === "object");
 assert(typeof DisassociateLensesInput$ === "object");
 assert(typeof DisassociateProfilesInput$ === "object");
+assert(typeof ErrorDetails$ === "object");
 assert(typeof ExportLensInput$ === "object");
 assert(typeof ExportLensOutput$ === "object");
+assert(typeof GetAgentContextRequest$ === "object");
+assert(typeof GetAgentContextResponse$ === "object");
+assert(typeof GetAgentGoalRequest$ === "object");
+assert(typeof GetAgentGoalResponse$ === "object");
+assert(typeof GetAgentProfileRequest$ === "object");
+assert(typeof GetAgentProfileResponse$ === "object");
+assert(typeof GetAgentRecommendationGenerationRequest$ === "object");
+assert(typeof GetAgentRecommendationGenerationResponse$ === "object");
+assert(typeof GetAgentRecommendationRequest$ === "object");
+assert(typeof GetAgentRecommendationResponse$ === "object");
 assert(typeof GetAnswerInput$ === "object");
 assert(typeof GetAnswerOutput$ === "object");
 assert(typeof GetConsolidatedReportInput$ === "object");
@@ -634,9 +851,11 @@ assert(typeof GetReviewTemplateLensReviewOutput$ === "object");
 assert(typeof GetReviewTemplateOutput$ === "object");
 assert(typeof GetWorkloadInput$ === "object");
 assert(typeof GetWorkloadOutput$ === "object");
+assert(typeof GoalSummary$ === "object");
 assert(typeof ImportLensInput$ === "object");
 assert(typeof ImportLensOutput$ === "object");
 assert(typeof ImprovementSummary$ === "object");
+assert(typeof Insight$ === "object");
 assert(typeof JiraConfiguration$ === "object");
 assert(typeof JiraSelectedQuestionConfiguration$ === "object");
 assert(typeof Lens$ === "object");
@@ -647,6 +866,18 @@ assert(typeof LensReviewSummary$ === "object");
 assert(typeof LensShareSummary$ === "object");
 assert(typeof LensSummary$ === "object");
 assert(typeof LensUpgradeSummary$ === "object");
+assert(typeof ListAgentContextsRequest$ === "object");
+assert(typeof ListAgentContextsResponse$ === "object");
+assert(typeof ListAgentGoalsRequest$ === "object");
+assert(typeof ListAgentGoalsResponse$ === "object");
+assert(typeof ListAgentProfilesRequest$ === "object");
+assert(typeof ListAgentProfilesResponse$ === "object");
+assert(typeof ListAgentRecommendationGenerationsRequest$ === "object");
+assert(typeof ListAgentRecommendationGenerationsResponse$ === "object");
+assert(typeof ListAgentRecommendationItemsRequest$ === "object");
+assert(typeof ListAgentRecommendationItemsResponse$ === "object");
+assert(typeof ListAgentRecommendationsRequest$ === "object");
+assert(typeof ListAgentRecommendationsResponse$ === "object");
 assert(typeof ListAnswersInput$ === "object");
 assert(typeof ListAnswersOutput$ === "object");
 assert(typeof ListCheckDetailsInput$ === "object");
@@ -689,6 +920,7 @@ assert(typeof Milestone$ === "object");
 assert(typeof MilestoneSummary$ === "object");
 assert(typeof NotificationSummary$ === "object");
 assert(typeof PillarDifference$ === "object");
+assert(typeof PillarItem$ === "object");
 assert(typeof PillarMetric$ === "object");
 assert(typeof PillarReviewSummary$ === "object");
 assert(typeof Profile$ === "object");
@@ -701,22 +933,43 @@ assert(typeof ProfileSummary$ === "object");
 assert(typeof ProfileTemplate$ === "object");
 assert(typeof ProfileTemplateChoice$ === "object");
 assert(typeof ProfileTemplateQuestion$ === "object");
+assert(typeof Progress$ === "object");
+assert(typeof PutAgentRecommendationFeedbackRequest$ === "object");
+assert(typeof PutAgentRecommendationFeedbackResponse$ === "object");
 assert(typeof QuestionDifference$ === "object");
 assert(typeof QuestionMetric$ === "object");
+assert(typeof RecommendationGoal$ === "object");
+assert(typeof RemediationStep$ === "object");
+assert(typeof RemediationSummary$ === "object");
+assert(typeof ResourceLink$ === "object");
 assert(typeof ReviewTemplate$ === "object");
 assert(typeof ReviewTemplateAnswer$ === "object");
 assert(typeof ReviewTemplateAnswerSummary$ === "object");
 assert(typeof ReviewTemplateLensReview$ === "object");
 assert(typeof ReviewTemplatePillarReviewSummary$ === "object");
 assert(typeof ReviewTemplateSummary$ === "object");
+assert(typeof Roi$ === "object");
+assert(typeof Scope$ === "object");
 assert(typeof SelectedPillar$ === "object");
 assert(typeof ShareInvitation$ === "object");
 assert(typeof ShareInvitationSummary$ === "object");
+assert(typeof StartAgentRecommendationGenerationRequest$ === "object");
+assert(typeof StartAgentRecommendationGenerationResponse$ === "object");
+assert(typeof Tag$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof TemplateShareSummary$ === "object");
+assert(typeof TradeOff$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
+assert(typeof UpdateAgentContextRequest$ === "object");
+assert(typeof UpdateAgentContextResponse$ === "object");
+assert(typeof UpdateAgentGoalRequest$ === "object");
+assert(typeof UpdateAgentGoalResponse$ === "object");
+assert(typeof UpdateAgentProfileRequest$ === "object");
+assert(typeof UpdateAgentProfileResponse$ === "object");
+assert(typeof UpdateAgentRecommendationStatusRequest$ === "object");
+assert(typeof UpdateAgentRecommendationStatusResponse$ === "object");
 assert(typeof UpdateAnswerInput$ === "object");
 assert(typeof UpdateAnswerOutput$ === "object");
 assert(typeof UpdateGlobalSettingsInput$ === "object");
@@ -754,14 +1007,21 @@ assert(typeof WorkloadSummary$ === "object");
 assert(typeof AccountJiraIssueManagementStatus === "object");
 assert(typeof AdditionalResourceType === "object");
 assert(typeof AnswerReason === "object");
+assert(typeof ApplicationType === "object");
 assert(typeof CheckFailureReason === "object");
 assert(typeof CheckProvider === "object");
 assert(typeof CheckStatus === "object");
 assert(typeof ChoiceReason === "object");
 assert(typeof ChoiceStatus === "object");
+assert(typeof ContextType === "object");
+assert(typeof Criticality === "object");
 assert(typeof DefinitionType === "object");
 assert(typeof DifferenceStatus === "object");
 assert(typeof DiscoveryIntegrationStatus === "object");
+assert(typeof Effort === "object");
+assert(typeof FeedbackCategory === "object");
+assert(typeof GenerationStatus === "object");
+assert(typeof ImpactCategory === "object");
 assert(typeof ImportLensStatus === "object");
 assert(typeof IntegratingService === "object");
 assert(typeof IntegrationStatus === "object");
@@ -774,15 +1034,25 @@ assert(typeof MetricType === "object");
 assert(typeof NotificationType === "object");
 assert(typeof OrganizationSharingStatus === "object");
 assert(typeof PermissionType === "object");
+assert(typeof Pillar === "object");
+assert(typeof Priority === "object");
 assert(typeof ProfileNotificationType === "object");
 assert(typeof ProfileOwnerType === "object");
 assert(typeof Question === "object");
 assert(typeof QuestionPriority === "object");
 assert(typeof QuestionType === "object");
+assert(typeof RecommendationFeedbackType === "object");
+assert(typeof RecommendationItemType === "object");
+assert(typeof RecommendationSource === "object");
+assert(typeof RecommendationState === "object");
+assert(typeof RecommendationStatus === "object");
+assert(typeof RecommendationType === "object");
+assert(typeof RemediationType === "object");
 assert(typeof ReportFormat === "object");
 assert(typeof ReviewTemplateAnswerStatus === "object");
 assert(typeof ReviewTemplateUpdateStatus === "object");
 assert(typeof Risk === "object");
+assert(typeof RiskRating === "object");
 assert(typeof ShareInvitationAction === "object");
 assert(typeof ShareResourceType === "object");
 assert(typeof ShareStatus === "object");
@@ -809,6 +1079,12 @@ assert(typeof ValidationException$ === "object");
 assert(WellArchitectedServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateGetConsolidatedReport === "function");
+assert(typeof paginateListAgentContexts === "function");
+assert(typeof paginateListAgentGoals === "function");
+assert(typeof paginateListAgentProfiles === "function");
+assert(typeof paginateListAgentRecommendationGenerations === "function");
+assert(typeof paginateListAgentRecommendationItems === "function");
+assert(typeof paginateListAgentRecommendations === "function");
 assert(typeof paginateListAnswers === "function");
 assert(typeof paginateListCheckDetails === "function");
 assert(typeof paginateListCheckSummaries === "function");

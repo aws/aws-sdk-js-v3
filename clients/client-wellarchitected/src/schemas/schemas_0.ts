@@ -1,4 +1,6 @@
 const _A = "Answer";
+const _AC = "AggregationConfiguration";
+const _ACg = "AggregationConfigurations";
 const _AD = "ArchitecturalDesign";
 const _ADE = "AccessDeniedException";
 const _AI = "AccountId";
@@ -9,8 +11,18 @@ const _AL = "AssociateLenses";
 const _ALI = "AssociateLensesInput";
 const _AP = "AssociateProfiles";
 const _API = "AssociateProfilesInput";
+const _APS = "AgentProfileSummary";
+const _APSg = "AgentProfileSummaries";
 const _AR = "AdditionalResources";
+const _ARGS = "AgentRecommendationGenerationSummary";
+const _ARGSg = "AgentRecommendationGenerationSummaries";
+const _ARIS = "AgentRecommendationItemSummary";
+const _ARISg = "AgentRecommendationItemSummaries";
 const _ARL = "AdditionalResourcesList";
+const _ARR = "AgentRecommendationRemediation";
+const _ARRg = "AgentRecommendationRemediations";
+const _ARS = "AgentRecommendationSummary";
+const _ARSg = "AgentRecommendationSummaries";
 const _ARw = "AwsRegions";
 const _AS = "AnswerSummary";
 const _ASc = "AccountSummary";
@@ -23,11 +35,21 @@ const _BPe = "BestPractices";
 const _BS = "Base64String";
 const _C = "Content";
 const _CA = "ChoiceAnswers";
+const _CAC = "CreateAgentContext";
+const _CACR = "CreateAgentContextRequest";
+const _CACRr = "CreateAgentContextResponse";
+const _CAG = "CreateAgentGoal";
+const _CAGR = "CreateAgentGoalRequest";
+const _CAGRr = "CreateAgentGoalResponse";
+const _CAP = "CreateAgentProfile";
+const _CAPR = "CreateAgentProfileRequest";
+const _CAPRr = "CreateAgentProfileResponse";
 const _CAS = "ChoiceAnswerSummaries";
 const _CASh = "ChoiceAnswerSummary";
 const _CAh = "ChoiceAnswer";
 const _CAr = "CreatedAt";
 const _CC = "ChoiceContent";
+const _CCo = "ContextContent";
 const _CD = "CheckDetail";
 const _CDh = "CheckDetails";
 const _CDho = "ChoiceDescription";
@@ -46,6 +68,8 @@ const _CM = "CreateMilestone";
 const _CMI = "CreateMilestoneInput";
 const _CMO = "CreateMilestoneOutput";
 const _CP = "CreateProfile";
+const _CPB = "CrossPillarBenefit";
+const _CPBr = "CrossPillarBenefits";
 const _CPI = "CreateProfileInput";
 const _CPO = "CreateProfileOutput";
 const _CPS = "CreateProfileShare";
@@ -54,12 +78,16 @@ const _CPSO = "CreateProfileShareOutput";
 const _CPV = "CurrentProfileVersion";
 const _CRM = "ConsolidatedReportMetric";
 const _CRMo = "ConsolidatedReportMetrics";
-const _CRT = "ClientRequestToken";
+const _CRT = "ContextResourceTag";
 const _CRTI = "CreateReviewTemplateInput";
+const _CRTL = "ContextResourceTagList";
 const _CRTO = "CreateReviewTemplateOutput";
+const _CRTl = "ClientRequestToken";
 const _CRTr = "CreateReviewTemplate";
 const _CS = "CheckSummary";
 const _CSh = "CheckSummaries";
+const _CSo = "ContextSummary";
+const _CSon = "ContextSummaries";
 const _CT = "ChoiceTitle";
 const _CTS = "CreateTemplateShare";
 const _CTSI = "CreateTemplateShareInput";
@@ -75,6 +103,15 @@ const _CWSO = "CreateWorkloadShareOutput";
 const _Ch = "Choices";
 const _Cho = "Choice";
 const _D = "Description";
+const _DAC = "DeleteAgentContext";
+const _DACR = "DeleteAgentContextRequest";
+const _DACRe = "DeleteAgentContextResponse";
+const _DAG = "DeleteAgentGoal";
+const _DAGR = "DeleteAgentGoalRequest";
+const _DAGRe = "DeleteAgentGoalResponse";
+const _DAP = "DeleteAgentProfile";
+const _DAPR = "DeleteAgentProfileRequest";
+const _DAPRe = "DeleteAgentProfileResponse";
 const _DC = "DiscoveryConfig";
 const _DIS = "DiscoveryIntegrationStatus";
 const _DL = "DeleteLens";
@@ -100,6 +137,7 @@ const _DWI = "DeleteWorkloadInput";
 const _DWS = "DeleteWorkloadShare";
 const _DWSI = "DeleteWorkloadShareInput";
 const _E = "Environment";
+const _ED = "ErrorDetails";
 const _EL = "ExportLens";
 const _ELI = "ExportLensInput";
 const _ELO = "ExportLensOutput";
@@ -107,8 +145,23 @@ const _F = "Fields";
 const _FR = "FlaggedResources";
 const _Fo = "Format";
 const _GA = "GetAnswer";
+const _GAC = "GetAgentContext";
+const _GACR = "GetAgentContextRequest";
+const _GACRe = "GetAgentContextResponse";
+const _GAG = "GetAgentGoal";
+const _GAGR = "GetAgentGoalRequest";
+const _GAGRe = "GetAgentGoalResponse";
 const _GAI = "GetAnswerInput";
 const _GAO = "GetAnswerOutput";
+const _GAP = "GetAgentProfile";
+const _GAPR = "GetAgentProfileRequest";
+const _GAPRe = "GetAgentProfileResponse";
+const _GAR = "GetAgentRecommendation";
+const _GARG = "GetAgentRecommendationGeneration";
+const _GARGR = "GetAgentRecommendationGenerationRequest";
+const _GARGRe = "GetAgentRecommendationGenerationResponse";
+const _GARR = "GetAgentRecommendationRequest";
+const _GARRe = "GetAgentRecommendationResponse";
 const _GCR = "GetConsolidatedReport";
 const _GCRI = "GetConsolidatedReportInput";
 const _GCRO = "GetConsolidatedReportOutput";
@@ -144,6 +197,8 @@ const _GRTLR = "GetReviewTemplateLensReview";
 const _GRTLRI = "GetReviewTemplateLensReviewInput";
 const _GRTLRO = "GetReviewTemplateLensReviewOutput";
 const _GRTO = "GetReviewTemplateOutput";
+const _GS = "GoalSummary";
+const _GSo = "GoalSummaries";
 const _GW = "GetWorkload";
 const _GWI = "GetWorkloadInput";
 const _GWO = "GetWorkloadOutput";
@@ -152,9 +207,10 @@ const _HRDT = "HelpfulResourceDisplayText";
 const _HRU = "HelpfulResourceUrl";
 const _I = "Id";
 const _IA = "IsApplicable";
-const _IL = "ImportLens";
+const _IL = "InsightList";
 const _ILI = "ImportLensInput";
 const _ILO = "ImportLensOutput";
+const _ILm = "ImportLens";
 const _IMS = "IssueManagementStatus";
 const _IMT = "IssueManagementType";
 const _IMV = "IsMajorVersion";
@@ -171,6 +227,7 @@ const _ISmpr = "ImprovementStatus";
 const _ISn = "IntegratingService";
 const _IT = "IndustryType";
 const _In = "Industry";
+const _Ins = "Insight";
 const _JC = "JiraConfiguration";
 const _JIU = "JiraIssueUrl";
 const _JPK = "JiraProjectKey";
@@ -179,8 +236,26 @@ const _JSQC = "JiraSelectedQuestionConfiguration";
 const _L = "Lenses";
 const _LA = "LensAliases";
 const _LAC = "LensesAppliedCount";
+const _LACR = "ListAgentContextsRequest";
+const _LACRi = "ListAgentContextsResponse";
+const _LACi = "ListAgentContexts";
+const _LAG = "ListAgentGoals";
+const _LAGR = "ListAgentGoalsRequest";
+const _LAGRi = "ListAgentGoalsResponse";
 const _LAI = "ListAnswersInput";
 const _LAO = "ListAnswersOutput";
+const _LAP = "ListAgentProfiles";
+const _LAPR = "ListAgentProfilesRequest";
+const _LAPRi = "ListAgentProfilesResponse";
+const _LAR = "ListAgentRecommendations";
+const _LARG = "ListAgentRecommendationGenerations";
+const _LARGR = "ListAgentRecommendationGenerationsRequest";
+const _LARGRi = "ListAgentRecommendationGenerationsResponse";
+const _LARI = "ListAgentRecommendationItems";
+const _LARIR = "ListAgentRecommendationItemsRequest";
+const _LARIRi = "ListAgentRecommendationItemsResponse";
+const _LARR = "ListAgentRecommendationsRequest";
+const _LARRi = "ListAgentRecommendationsResponse";
 const _LAe = "LensArn";
 const _LAen = "LensAlias";
 const _LAi = "ListAnswers";
@@ -283,12 +358,17 @@ const _O = "Owner";
 const _OSS = "OrganizationSharingStatus";
 const _P = "Provider";
 const _PA = "ProfileArns";
+const _PARF = "PutAgentRecommendationFeedback";
+const _PARFR = "PutAgentRecommendationFeedbackRequest";
+const _PARFRu = "PutAgentRecommendationFeedbackResponse";
 const _PAr = "ProfileArn";
 const _PC = "ProfileChoice";
 const _PD = "ProfileDescription";
 const _PDi = "PillarDifference";
 const _PDil = "PillarDifferences";
 const _PI = "PillarId";
+const _PIi = "PillarItem";
+const _PIil = "PillarItems";
 const _PM = "PillarMetric";
 const _PMi = "PillarMetrics";
 const _PN = "ProfileName";
@@ -320,6 +400,7 @@ const _PV = "ProfileVersion";
 const _Pi = "Pillars";
 const _Pr = "Profile";
 const _Pro = "Profiles";
+const _Prog = "Progress";
 const _Q = "Questions";
 const _QC = "QuotaCode";
 const _QCu = "QuestionChoices";
@@ -337,11 +418,18 @@ const _R = "Reason";
 const _RA = "ResourceArn";
 const _RAe = "RecordedAt";
 const _RC = "RiskCounts";
+const _RG = "RecommendationGoal";
+const _RGe = "RecommendationGoals";
 const _RI = "ResourceId";
+const _RL = "ResourceLink";
+const _RLe = "ResourceLinks";
 const _RN = "ResourceName";
 const _RNFE = "ResourceNotFoundException";
 const _RO = "ReviewOwner";
 const _RRD = "ReviewRestrictionDate";
+const _RS = "RemediationStep";
+const _RSe = "RemediationSummary";
+const _RSem = "RemediationSteps";
 const _RT = "ResourceType";
 const _RTA = "ReviewTemplateArns";
 const _RTAS = "ReviewTemplateAnswerSummary";
@@ -352,9 +440,14 @@ const _RTPRS = "ReviewTemplatePillarReviewSummary";
 const _RTPRSe = "ReviewTemplatePillarReviewSummaries";
 const _RTS = "ReviewTemplateSummary";
 const _RTe = "ReviewTemplate";
+const _RTec = "RecommendationType";
 const _RTev = "ReviewTemplates";
 const _Ri = "Risk";
+const _Ro = "Roi";
 const _S = "Subdomain";
+const _SARG = "StartAgentRecommendationGeneration";
+const _SARGR = "StartAgentRecommendationGenerationRequest";
+const _SARGRt = "StartAgentRecommendationGenerationResponse";
 const _SB = "SharedBy";
 const _SC = "ServiceCode";
 const _SCI = "SelectedChoiceIds";
@@ -371,8 +464,10 @@ const _SPe = "SelectedPillar";
 const _SQEE = "ServiceQuotaExceededException";
 const _SQI = "SelectedQuestionIds";
 const _SRT = "ShareResourceType";
+const _SS = "SensitiveString";
 const _SW = "SharedWith";
 const _SWP = "SharedWithPrefix";
+const _Sc = "Scope";
 const _St = "Status";
 const _T = "Type";
 const _TA = "TemplateArn";
@@ -382,6 +477,8 @@ const _TK = "TagKeys";
 const _TLV = "TargetLensVersion";
 const _TN = "TemplateName";
 const _TNP = "TemplateNamePrefix";
+const _TO = "TradeOff";
+const _TOr = "TradeOffs";
 const _TQ = "TemplateQuestions";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
@@ -389,11 +486,24 @@ const _TRO = "TagResourceOutput";
 const _TSS = "TemplateShareSummaries";
 const _TSSe = "TemplateShareSummary";
 const _Ta = "Tags";
+const _Tag = "Tag";
 const _Ti = "Title";
 const _U = "Url";
 const _UA = "UpdatedAt";
+const _UAC = "UpdateAgentContext";
+const _UACR = "UpdateAgentContextRequest";
+const _UACRp = "UpdateAgentContextResponse";
+const _UAG = "UpdateAgentGoal";
+const _UAGR = "UpdateAgentGoalRequest";
+const _UAGRp = "UpdateAgentGoalResponse";
 const _UAI = "UpdateAnswerInput";
 const _UAO = "UpdateAnswerOutput";
+const _UAP = "UpdateAgentProfile";
+const _UAPR = "UpdateAgentProfileRequest";
+const _UAPRp = "UpdateAgentProfileResponse";
+const _UARS = "UpdateAgentRecommendationStatus";
+const _UARSR = "UpdateAgentRecommendationStatusRequest";
+const _UARSRp = "UpdateAgentRecommendationStatusResponse";
 const _UAp = "UpdateAnswer";
 const _UGS = "UpdateGlobalSettings";
 const _UGSI = "UpdateGlobalSettingsInput";
@@ -454,15 +564,111 @@ const _WSS = "WorkloadShareSummaries";
 const _WSSo = "WorkloadShareSummary";
 const _WSo = "WorkloadSummary";
 const _WSor = "WorkloadShare";
+const _a = "arn";
+const _aC = "aggregationConfiguration";
+const _aCd = "additionalContext";
+const _aI = "accountId";
+const _aIc = "accountIds";
+const _aO = "applicationOverview";
+const _aOr = "architectureOverview";
+const _aRA = "accessRoleArn";
+const _aS = "awsServices";
+const _aT = "applicationType";
+const _ap = "applications";
+const _bO = "businessOverview";
+const _bU = "businessUnits";
 const _c = "client";
+const _cA = "createdAt";
+const _cB = "createdBy";
+const _cP = "completionPercentage";
+const _cPB = "crossPillarBenefits";
+const _cT = "contextType";
+const _cTl = "clientToken";
+const _co = "content";
+const _cod = "code";
+const _com = "comments";
+const _con = "context";
+const _cr = "criticality";
+const _d = "description";
+const _dN = "displayName";
+const _dP = "deletionProtection";
+const _de = "detail";
 const _e = "error";
-const _h = "http";
+const _eA = "endedAt";
+const _eCT = "estimatedCompletionTime";
+const _eD = "errorDetails";
+const _eFAG = "eligibleForArchitectureGeneration";
+const _eFSG = "eligibleForScheduledGeneration";
+const _eRA = "executionRoleArn";
+const _ef = "effort";
+const _es = "estimate";
+const _fC = "feedbackCategory";
+const _fE = "fieldErrors";
+const _g = "goal";
+const _gI = "generationId";
+const _gIo = "goalIds";
+const _go = "goals";
+const _h = "highlights";
 const _hE = "httpError";
 const _hQ = "httpQuery";
+const _ht = "http";
+const _i = "id";
+const _iD = "impactDetails";
 const _iT = "idempotencyToken";
+const _id = "ids";
+const _im = "impact";
+const _in = "industry";
+const _ins = "insights";
+const _it = "items";
+const _k = "key";
+const _lMA = "lastModifiedAt";
+const _lMB = "lastModifiedBy";
+const _m = "metadata";
+const _mR = "maxResults";
+const _me = "message";
+const _mi = "mitigation";
+const _n = "name";
+const _nOR = "numberOfResources";
+const _nT = "nextToken";
+const _p = "pillars";
+const _pA = "profileArn";
+const _pi = "pillar";
+const _pr = "priority";
+const _pro = "progress";
+const _r = "roi";
+const _rA = "recommendationArn";
+const _rE = "riskExplanation";
+const _rL = "resourceLinks";
+const _rS = "remediationSummary";
+const _rT = "resourceTypes";
+const _rTe = "resourceTags";
+const _rTec = "recommendationType";
+const _rTem = "remediationType";
+const _re = "regions";
+const _rec = "recommendation";
+const _rem = "remediations";
+const _ri = "risk";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.wellarchitected";
+const _sA = "startedAt";
+const _sC = "stepsCompleted";
+const _sD = "signalsDetected";
+const _sc = "scope";
 const _se = "server";
+const _so = "sources";
+const _st = "status";
+const _sta = "state";
+const _ste = "steps";
+const _t = "tags";
 const _tK = "tagKeys";
+const _tO = "tradeOffs";
+const _tS = "totalSteps";
+const _ti = "title";
+const _ty = "type";
+const _typ = "types";
+const _u = "url";
+const _uP = "usagePattern";
+const _uR = "updateReason";
+const _v = "value";
 const n0 = "com.amazonaws.wellarchitected";
 
 // smithy-typescript generated code
@@ -472,6 +678,7 @@ import type {
   StaticListSchema,
   StaticMapSchema,
   StaticOperationSchema,
+  StaticSimpleSchema,
   StaticStructureSchema,
 } from "@smithy/types";
 
@@ -542,6 +749,7 @@ export const errorTypeRegistries = [
   _s_registry,
   n0_registry,
 ]
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 export var AccountJiraConfigurationInput$: StaticStructureSchema = [3, n0, _AJCI,
   0,
   [_IMS, _IMT, _JPK, _IS],
@@ -556,6 +764,36 @@ export var AdditionalResources$: StaticStructureSchema = [3, n0, _AR,
   0,
   [_T, _C],
   [0, () => Urls]
+];
+export var AgentProfileSummary$: StaticStructureSchema = [3, n0, _APS,
+  0,
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
+  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+];
+export var AgentRecommendationGenerationSummary$: StaticStructureSchema = [3, n0, _ARGS,
+  0,
+  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA],
+  [0, 0, 0, 0, 5, 0, 5, 0, 5], 5
+];
+export var AgentRecommendationItemSummary$: StaticStructureSchema = [3, n0, _ARIS,
+  0,
+  [_i, _rA, _ty, _m, _cB, _cA, _lMB, _lMA],
+  [0, 0, 0, 15, 0, 5, 0, 5], 6
+];
+export var AgentRecommendationRemediation$: StaticStructureSchema = [3, n0, _ARR,
+  0,
+  [_rA, _ty, _ste, _cB, _cA, _rL, _lMB, _lMA],
+  [0, 0, [() => RemediationSteps, 0], 0, 5, () => ResourceLinks, 0, 5], 5
+];
+export var AgentRecommendationSummary$: StaticStructureSchema = [3, n0, _ARS,
+  0,
+  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _cB, _cA, _uR, _nOR, _aS, _bU, _ap, _lMB, _lMA],
+  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 0, 5, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, 0, 5], 14
+];
+export var AggregationConfiguration$: StaticStructureSchema = [3, n0, _AC,
+  0,
+  [_aI, _re, _aRA],
+  [0, 64 | 0, 0], 3
 ];
 export var Answer$: StaticStructureSchema = [3, n0, _A,
   0,
@@ -627,9 +865,54 @@ export var ConsolidatedReportMetric$: StaticStructureSchema = [3, n0, _CRM,
   [_MT, _RC, _WI, _WN, _WA, _UA, _L, _LAC],
   [0, 128 | 1, 0, 0, 0, 4, () => LensMetrics, 1]
 ];
+export var ContextContent$: StaticStructureSchema = [3, n0, _CCo,
+  0,
+  [_aIc, _re, _aS, _rT, _rTe, _aO, _in, _aT, _cr, _aOr, _aCd],
+  [64 | 0, 64 | 0, 64 | 0, 64 | 0, () => ContextResourceTagList, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0]]
+];
+export var ContextResourceTag$: StaticStructureSchema = [3, n0, _CRT,
+  0,
+  [_k, _v],
+  [0, 0], 2
+];
+export var ContextSummary$: StaticStructureSchema = [3, n0, _CSo,
+  0,
+  [_i, _pA, _ti, _cT, _co, _cB, _cA, _aT, _cr, _lMB, _lMA],
+  [0, 0, [() => SensitiveString, 0], 0, [() => ContextContent$, 0], 0, 5, 0, 0, 0, 5], 7
+];
+export var CreateAgentContextRequest$: StaticStructureSchema = [3, n0, _CACR,
+  0,
+  [_pA, _ti, _cT, _co, _cTl],
+  [[0, 1], [() => SensitiveString, 0], 0, [() => ContextContent$, 0], [0, 4]], 4
+];
+export var CreateAgentContextResponse$: StaticStructureSchema = [3, n0, _CACRr,
+  0,
+  [_con],
+  [[() => ContextSummary$, 0]], 1
+];
+export var CreateAgentGoalRequest$: StaticStructureSchema = [3, n0, _CAGR,
+  0,
+  [_pA, _p, _ti, _cTl, _d],
+  [[0, 1], 64 | 0, [() => SensitiveString, 0], [0, 4], [() => SensitiveString, 0]], 3
+];
+export var CreateAgentGoalResponse$: StaticStructureSchema = [3, n0, _CAGRr,
+  0,
+  [_g],
+  [[() => GoalSummary$, 0]], 1
+];
+export var CreateAgentProfileRequest$: StaticStructureSchema = [3, n0, _CAPR,
+  0,
+  [_n, _p, _eRA, _aC, _dN, _d, _bO, _dP, _cTl, _t],
+  [0, 64 | 0, 0, () => AggregationConfigurations, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, [0, 4], () => Tags], 4
+];
+export var CreateAgentProfileResponse$: StaticStructureSchema = [3, n0, _CAPRr,
+  0,
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
+  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+];
 export var CreateLensShareInput$: StaticStructureSchema = [3, n0, _CLSI,
   0,
-  [_LAen, _SW, _CRT],
+  [_LAen, _SW, _CRTl],
   [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateLensShareOutput$: StaticStructureSchema = [3, n0, _CLSO,
@@ -639,7 +922,7 @@ export var CreateLensShareOutput$: StaticStructureSchema = [3, n0, _CLSO,
 ];
 export var CreateLensVersionInput$: StaticStructureSchema = [3, n0, _CLVI,
   0,
-  [_LAen, _LV, _IMV, _CRT],
+  [_LAen, _LV, _IMV, _CRTl],
   [[0, 1], 0, 2, [0, 4]], 2
 ];
 export var CreateLensVersionOutput$: StaticStructureSchema = [3, n0, _CLVO,
@@ -649,7 +932,7 @@ export var CreateLensVersionOutput$: StaticStructureSchema = [3, n0, _CLVO,
 ];
 export var CreateMilestoneInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_WI, _MN, _CRT],
+  [_WI, _MN, _CRTl],
   [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateMilestoneOutput$: StaticStructureSchema = [3, n0, _CMO,
@@ -659,7 +942,7 @@ export var CreateMilestoneOutput$: StaticStructureSchema = [3, n0, _CMO,
 ];
 export var CreateProfileInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_PN, _PD, _PQ, _CRT, _Ta],
+  [_PN, _PD, _PQ, _CRTl, _Ta],
   [0, 0, () => ProfileQuestionUpdates, [0, 4], 128 | 0], 3
 ];
 export var CreateProfileOutput$: StaticStructureSchema = [3, n0, _CPO,
@@ -669,7 +952,7 @@ export var CreateProfileOutput$: StaticStructureSchema = [3, n0, _CPO,
 ];
 export var CreateProfileShareInput$: StaticStructureSchema = [3, n0, _CPSI,
   0,
-  [_PAr, _SW, _CRT],
+  [_PAr, _SW, _CRTl],
   [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateProfileShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
@@ -679,7 +962,7 @@ export var CreateProfileShareOutput$: StaticStructureSchema = [3, n0, _CPSO,
 ];
 export var CreateReviewTemplateInput$: StaticStructureSchema = [3, n0, _CRTI,
   0,
-  [_TN, _D, _L, _N, _Ta, _CRT],
+  [_TN, _D, _L, _N, _Ta, _CRTl],
   [0, 0, 64 | 0, 0, 128 | 0, [0, 4]], 3
 ];
 export var CreateReviewTemplateOutput$: StaticStructureSchema = [3, n0, _CRTO,
@@ -689,7 +972,7 @@ export var CreateReviewTemplateOutput$: StaticStructureSchema = [3, n0, _CRTO,
 ];
 export var CreateTemplateShareInput$: StaticStructureSchema = [3, n0, _CTSI,
   0,
-  [_TA, _SW, _CRT],
+  [_TA, _SW, _CRTl],
   [[0, 1], 0, [0, 4]], 2
 ];
 export var CreateTemplateShareOutput$: StaticStructureSchema = [3, n0, _CTSO,
@@ -699,7 +982,7 @@ export var CreateTemplateShareOutput$: StaticStructureSchema = [3, n0, _CTSO,
 ];
 export var CreateWorkloadInput$: StaticStructureSchema = [3, n0, _CWI,
   0,
-  [_WN, _D, _E, _L, _AIc, _ARw, _NAR, _PP, _AD, _RO, _IT, _In, _N, _CRT, _Ta, _DC, _Ap, _PA, _RTA, _JC],
+  [_WN, _D, _E, _L, _AIc, _ARw, _NAR, _PP, _AD, _RO, _IT, _In, _N, _CRTl, _Ta, _DC, _Ap, _PA, _RTA, _JC],
   [0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0, [0, 4], 128 | 0, () => WorkloadDiscoveryConfig$, 64 | 0, 64 | 0, 64 | 0, () => WorkloadJiraConfigurationInput$], 4
 ];
 export var CreateWorkloadOutput$: StaticStructureSchema = [3, n0, _CWO,
@@ -709,7 +992,7 @@ export var CreateWorkloadOutput$: StaticStructureSchema = [3, n0, _CWO,
 ];
 export var CreateWorkloadShareInput$: StaticStructureSchema = [3, n0, _CWSI,
   0,
-  [_WI, _SW, _PT, _CRT],
+  [_WI, _SW, _PT, _CRTl],
   [[0, 1], 0, 0, [0, 4]], 3
 ];
 export var CreateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _CWSO,
@@ -717,45 +1000,80 @@ export var CreateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _CWSO,
   [_WI, _SI],
   [0, 0]
 ];
+export var CrossPillarBenefit$: StaticStructureSchema = [3, n0, _CPB,
+  0,
+  [_pi, _ti, _d, _im],
+  [0, 0, 0, 0], 4
+];
+export var DeleteAgentContextRequest$: StaticStructureSchema = [3, n0, _DACR,
+  0,
+  [_pA, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteAgentContextResponse$: StaticStructureSchema = [3, n0, _DACRe,
+  0,
+  [],
+  []
+];
+export var DeleteAgentGoalRequest$: StaticStructureSchema = [3, n0, _DAGR,
+  0,
+  [_pA, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteAgentGoalResponse$: StaticStructureSchema = [3, n0, _DAGRe,
+  0,
+  [],
+  []
+];
+export var DeleteAgentProfileRequest$: StaticStructureSchema = [3, n0, _DAPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
+export var DeleteAgentProfileResponse$: StaticStructureSchema = [3, n0, _DAPRe,
+  0,
+  [],
+  []
+];
 export var DeleteLensInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
-  [_LAen, _LS, _CRT],
-  [[0, 1], [0, { [_hQ]: _LS }], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
+  [_LAen, _LS, _CRTl],
+  [[0, 1], [0, { [_hQ]: _LS }], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 2
 ];
 export var DeleteLensShareInput$: StaticStructureSchema = [3, n0, _DLSI,
   0,
-  [_SI, _LAen, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
+  [_SI, _LAen, _CRTl],
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 2
 ];
 export var DeleteProfileInput$: StaticStructureSchema = [3, n0, _DPI,
   0,
-  [_PAr, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
+  [_PAr, _CRTl],
+  [[0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 1
 ];
 export var DeleteProfileShareInput$: StaticStructureSchema = [3, n0, _DPSI,
   0,
-  [_SI, _PAr, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
+  [_SI, _PAr, _CRTl],
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 2
 ];
 export var DeleteReviewTemplateInput$: StaticStructureSchema = [3, n0, _DRTI,
   0,
-  [_TA, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
+  [_TA, _CRTl],
+  [[0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 1
 ];
 export var DeleteTemplateShareInput$: StaticStructureSchema = [3, n0, _DTSI,
   0,
-  [_SI, _TA, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
+  [_SI, _TA, _CRTl],
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 2
 ];
 export var DeleteWorkloadInput$: StaticStructureSchema = [3, n0, _DWI,
   0,
-  [_WI, _CRT],
-  [[0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 1
+  [_WI, _CRTl],
+  [[0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 1
 ];
 export var DeleteWorkloadShareInput$: StaticStructureSchema = [3, n0, _DWSI,
   0,
-  [_SI, _WI, _CRT],
-  [[0, 1], [0, 1], [0, { [_hQ]: _CRT, [_iT]: 1 }]], 2
+  [_SI, _WI, _CRTl],
+  [[0, 1], [0, 1], [0, { [_hQ]: _CRTl, [_iT]: 1 }]], 2
 ];
 export var DisassociateLensesInput$: StaticStructureSchema = [3, n0, _DLIi,
   0,
@@ -767,6 +1085,11 @@ export var DisassociateProfilesInput$: StaticStructureSchema = [3, n0, _DPIi,
   [_WI, _PA],
   [[0, 1], 64 | 0], 2
 ];
+export var ErrorDetails$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_cod, _me],
+  [0, 0], 2
+];
 export var ExportLensInput$: StaticStructureSchema = [3, n0, _ELI,
   0,
   [_LAen, _LV],
@@ -776,6 +1099,56 @@ export var ExportLensOutput$: StaticStructureSchema = [3, n0, _ELO,
   0,
   [_LJSON],
   [0]
+];
+export var GetAgentContextRequest$: StaticStructureSchema = [3, n0, _GACR,
+  0,
+  [_pA, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var GetAgentContextResponse$: StaticStructureSchema = [3, n0, _GACRe,
+  0,
+  [_con],
+  [[() => ContextSummary$, 0]], 1
+];
+export var GetAgentGoalRequest$: StaticStructureSchema = [3, n0, _GAGR,
+  0,
+  [_pA, _i],
+  [[0, 1], [0, 1]], 2
+];
+export var GetAgentGoalResponse$: StaticStructureSchema = [3, n0, _GAGRe,
+  0,
+  [_g],
+  [[() => GoalSummary$, 0]], 1
+];
+export var GetAgentProfileRequest$: StaticStructureSchema = [3, n0, _GAPR,
+  0,
+  [_pA],
+  [[0, 1]], 1
+];
+export var GetAgentProfileResponse$: StaticStructureSchema = [3, n0, _GAPRe,
+  0,
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
+  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+];
+export var GetAgentRecommendationGenerationRequest$: StaticStructureSchema = [3, n0, _GARGR,
+  0,
+  [_pA, _gI],
+  [[0, 1], [0, 1]], 2
+];
+export var GetAgentRecommendationGenerationResponse$: StaticStructureSchema = [3, n0, _GARGRe,
+  0,
+  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA, _aCd, _sc, _sA, _eA, _pro, _eD],
+  [0, 0, 0, 0, 5, 0, 5, 0, 5, 15, () => Scope$, 5, 5, () => Progress$, () => ErrorDetails$], 5
+];
+export var GetAgentRecommendationRequest$: StaticStructureSchema = [3, n0, _GARR,
+  0,
+  [_rA, _rTem],
+  [[0, 1], [0, { [_hQ]: _rTem }]], 1
+];
+export var GetAgentRecommendationResponse$: StaticStructureSchema = [3, n0, _GARRe,
+  0,
+  [_rA, _pA, _ti, _d, _ty, _pi, _pr, _ef, _st, _sta, _im, _r, _iD, _ins, _h, _rS, _cB, _cA, _uR, _nOR, _aS, _bU, _ap, _cPB, _tO, _so, _go, _t, _lMB, _lMA, _rem],
+  [0, 0, [() => SensitiveString, 0], [() => SensitiveString, 0], 0, 0, 0, 0, 0, 0, 0, () => Roi$, 64 | 0, () => InsightList, 64 | 0, () => RemediationSummary$, 0, 5, [() => SensitiveString, 0], 1, 64 | 0, 64 | 0, 64 | 0, () => CrossPillarBenefits, () => TradeOffs, 64 | 0, () => RecommendationGoals, () => Tags, 0, 5, [() => AgentRecommendationRemediations, 0]], 18
 ];
 export var GetAnswerInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
@@ -912,9 +1285,14 @@ export var GetWorkloadOutput$: StaticStructureSchema = [3, n0, _GWO,
   [_W],
   [() => Workload$]
 ];
+export var GoalSummary$: StaticStructureSchema = [3, n0, _GS,
+  0,
+  [_i, _pA, _p, _ti, _cB, _cA, _d, _lMB, _lMA],
+  [0, 0, 64 | 0, [() => SensitiveString, 0], 0, 5, [() => SensitiveString, 0], 0, 5], 6
+];
 export var ImportLensInput$: StaticStructureSchema = [3, n0, _ILI,
   0,
-  [_JSONS, _LAen, _CRT, _Ta],
+  [_JSONS, _LAen, _CRTl, _Ta],
   [0, 0, [0, 4], 128 | 0], 1
 ];
 export var ImportLensOutput$: StaticStructureSchema = [3, n0, _ILO,
@@ -926,6 +1304,11 @@ export var ImprovementSummary$: StaticStructureSchema = [3, n0, _ISm,
   0,
   [_QI, _PI, _QT, _Ri, _IPU, _IPm, _JC],
   [0, 0, 0, 0, 0, () => ChoiceImprovementPlans, () => JiraConfiguration$]
+];
+export var Insight$: StaticStructureSchema = [3, n0, _Ins,
+  0,
+  [_uP, _sD],
+  [0, 0], 1
 ];
 export var JiraConfiguration$: StaticStructureSchema = [3, n0, _JC,
   0,
@@ -976,6 +1359,66 @@ export var LensUpgradeSummary$: StaticStructureSchema = [3, n0, _LUS,
   0,
   [_WI, _WN, _LAen, _LAe, _CLV, _LLV, _RA, _RN],
   [0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var ListAgentContextsRequest$: StaticStructureSchema = [3, n0, _LACR,
+  0,
+  [_pA, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAgentContextsResponse$: StaticStructureSchema = [3, n0, _LACRi,
+  0,
+  [_it, _nT],
+  [[() => ContextSummaries, 0], 0], 1
+];
+export var ListAgentGoalsRequest$: StaticStructureSchema = [3, n0, _LAGR,
+  0,
+  [_pA, _mR, _nT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAgentGoalsResponse$: StaticStructureSchema = [3, n0, _LAGRi,
+  0,
+  [_it, _nT],
+  [[() => GoalSummaries, 0], 0], 1
+];
+export var ListAgentProfilesRequest$: StaticStructureSchema = [3, n0, _LAPR,
+  0,
+  [_mR, _nT],
+  [[1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]]
+];
+export var ListAgentProfilesResponse$: StaticStructureSchema = [3, n0, _LAPRi,
+  0,
+  [_it, _nT],
+  [[() => AgentProfileSummaries, 0], 0], 1
+];
+export var ListAgentRecommendationGenerationsRequest$: StaticStructureSchema = [3, n0, _LARGR,
+  0,
+  [_pA, _rTec, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _RTec }], [1, { [_hQ]: _MR }], [0, { [_hQ]: _NT }]], 1
+];
+export var ListAgentRecommendationGenerationsResponse$: StaticStructureSchema = [3, n0, _LARGRi,
+  0,
+  [_it, _nT],
+  [() => AgentRecommendationGenerationSummaries, 0], 1
+];
+export var ListAgentRecommendationItemsRequest$: StaticStructureSchema = [3, n0, _LARIR,
+  0,
+  [_rA, _ty, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _ty }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListAgentRecommendationItemsResponse$: StaticStructureSchema = [3, n0, _LARIRi,
+  0,
+  [_it, _nT],
+  [() => AgentRecommendationItemSummaries, 0], 1
+];
+export var ListAgentRecommendationsRequest$: StaticStructureSchema = [3, n0, _LARR,
+  0,
+  [_pA, _mR, _nT, _sta, _pi],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }], [0, { [_hQ]: _sta }], [0, { [_hQ]: _pi }]], 1
+];
+export var ListAgentRecommendationsResponse$: StaticStructureSchema = [3, n0, _LARRi,
+  0,
+  [_it, _nT],
+  [[() => AgentRecommendationSummaries, 0], 0], 1
 ];
 export var ListAnswersInput$: StaticStructureSchema = [3, n0, _LAI,
   0,
@@ -1187,6 +1630,11 @@ export var PillarDifference$: StaticStructureSchema = [3, n0, _PDi,
   [_PI, _PNi, _DS, _QDu],
   [0, 0, 0, () => QuestionDifferences]
 ];
+export var PillarItem$: StaticStructureSchema = [3, n0, _PIi,
+  0,
+  [_pi, _id],
+  [0, 64 | 0], 2
+];
 export var PillarMetric$: StaticStructureSchema = [3, n0, _PM,
   0,
   [_PI, _RC, _Q],
@@ -1247,6 +1695,21 @@ export var ProfileTemplateQuestion$: StaticStructureSchema = [3, n0, _PTQ,
   [_QI, _QT, _QD, _QCu, _MSC, _MSCa],
   [0, 0, 0, () => ProfileTemplateQuestionChoices, 1, 1]
 ];
+export var Progress$: StaticStructureSchema = [3, n0, _Prog,
+  0,
+  [_sC, _tS, _cP],
+  [1, 1, 1], 3
+];
+export var PutAgentRecommendationFeedbackRequest$: StaticStructureSchema = [3, n0, _PARFR,
+  0,
+  [_rA, _ty, _fC, _com],
+  [[0, 1], 0, 0, 0], 2
+];
+export var PutAgentRecommendationFeedbackResponse$: StaticStructureSchema = [3, n0, _PARFRu,
+  0,
+  [],
+  []
+];
 export var QuestionDifference$: StaticStructureSchema = [3, n0, _QDue,
   0,
   [_QI, _QT, _DS],
@@ -1256,6 +1719,26 @@ export var QuestionMetric$: StaticStructureSchema = [3, n0, _QM,
   0,
   [_QI, _Ri, _BPe],
   [0, 0, () => BestPractices]
+];
+export var RecommendationGoal$: StaticStructureSchema = [3, n0, _RG,
+  0,
+  [_ti],
+  [0], 1
+];
+export var RemediationStep$: StaticStructureSchema = [3, n0, _RS,
+  0,
+  [_co, _ti],
+  [[() => SensitiveString, 0], [() => SensitiveString, 0]], 1
+];
+export var RemediationSummary$: StaticStructureSchema = [3, n0, _RSe,
+  0,
+  [_rec, _ste],
+  [0, 64 | 0], 2
+];
+export var ResourceLink$: StaticStructureSchema = [3, n0, _RL,
+  0,
+  [_u, _ti],
+  [0, 0], 1
 ];
 export var ReviewTemplate$: StaticStructureSchema = [3, n0, _RTe,
   0,
@@ -1287,6 +1770,16 @@ export var ReviewTemplateSummary$: StaticStructureSchema = [3, n0, _RTS,
   [_D, _L, _O, _UA, _TA, _TN, _US],
   [0, 64 | 0, 0, 4, 0, 0, 0]
 ];
+export var Roi$: StaticStructureSchema = [3, n0, _Ro,
+  0,
+  [_de, _es],
+  [0, 0], 1
+];
+export var Scope$: StaticStructureSchema = [3, n0, _Sc,
+  0,
+  [_p, _gIo, _it],
+  [64 | 0, 64 | 0, () => PillarItems], 1
+];
 export var SelectedPillar$: StaticStructureSchema = [3, n0, _SPe,
   0,
   [_PI, _SQI],
@@ -1301,6 +1794,21 @@ export var ShareInvitationSummary$: StaticStructureSchema = [3, n0, _SISh,
   0,
   [_SII, _SB, _SW, _PT, _SRT, _WN, _WI, _LN, _LAe, _PN, _PAr, _TN, _TA],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
+export var StartAgentRecommendationGenerationRequest$: StaticStructureSchema = [3, n0, _SARGR,
+  0,
+  [_pA, _typ, _sc, _n, _aCd],
+  [[0, 1], 64 | 0, () => Scope$, 0, 15], 3
+];
+export var StartAgentRecommendationGenerationResponse$: StaticStructureSchema = [3, n0, _SARGRt,
+  0,
+  [_i, _pA, _st, _cB, _cA, _n, _eCT, _lMB, _lMA],
+  [0, 0, 0, 0, 5, 0, 5, 0, 5], 5
+];
+export var Tag$: StaticStructureSchema = [3, n0, _Tag,
+  0,
+  [_k, _v],
+  [0, 0], 2
 ];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
@@ -1317,12 +1825,57 @@ export var TemplateShareSummary$: StaticStructureSchema = [3, n0, _TSSe,
   [_SI, _SW, _St, _SM],
   [0, 0, 0, 0]
 ];
+export var TradeOff$: StaticStructureSchema = [3, n0, _TO,
+  0,
+  [_pi, _ti, _d, _ri, _mi, _rE],
+  [0, 0, 0, 0, 0, 0], 5
+];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
   [_WA, _TK],
   [[0, 1], [64 | 0, { [_hQ]: _tK }]], 2
 ];
 export var UntagResourceOutput$: StaticStructureSchema = [3, n0, _URO,
+  0,
+  [],
+  []
+];
+export var UpdateAgentContextRequest$: StaticStructureSchema = [3, n0, _UACR,
+  0,
+  [_pA, _i, _cTl, _ti, _co],
+  [[0, 1], [0, 1], [0, 4], [() => SensitiveString, 0], [() => ContextContent$, 0]], 2
+];
+export var UpdateAgentContextResponse$: StaticStructureSchema = [3, n0, _UACRp,
+  0,
+  [_con],
+  [[() => ContextSummary$, 0]], 1
+];
+export var UpdateAgentGoalRequest$: StaticStructureSchema = [3, n0, _UAGR,
+  0,
+  [_pA, _i, _cTl, _p, _ti, _d],
+  [[0, 1], [0, 1], [0, 4], 64 | 0, [() => SensitiveString, 0], [() => SensitiveString, 0]], 2
+];
+export var UpdateAgentGoalResponse$: StaticStructureSchema = [3, n0, _UAGRp,
+  0,
+  [_g],
+  [[() => GoalSummary$, 0]], 1
+];
+export var UpdateAgentProfileRequest$: StaticStructureSchema = [3, n0, _UAPR,
+  0,
+  [_pA, _cTl, _dN, _d, _eRA, _aC, _bO, _p, _dP],
+  [[0, 1], [0, 4], [() => SensitiveString, 0], [() => SensitiveString, 0], 0, () => AggregationConfigurations, [() => SensitiveString, 0], 64 | 0, 2], 1
+];
+export var UpdateAgentProfileResponse$: StaticStructureSchema = [3, n0, _UAPRp,
+  0,
+  [_n, _p, _eRA, _aC, _a, _cB, _cA, _dN, _d, _bO, _dP, _eFSG, _eFAG, _fE, _t, _lMB, _lMA],
+  [0, 64 | 0, 0, () => AggregationConfigurations, 0, 0, 5, [() => SensitiveString, 0], [() => SensitiveString, 0], [() => SensitiveString, 0], 2, 2, 2, 128 | 0, () => Tags, 0, 5], 7
+];
+export var UpdateAgentRecommendationStatusRequest$: StaticStructureSchema = [3, n0, _UARSR,
+  0,
+  [_rA, _st, _uR],
+  [[0, 1], 0, [() => SensitiveString, 0]], 2
+];
+export var UpdateAgentRecommendationStatusResponse$: StaticStructureSchema = [3, n0, _UARSRp,
   0,
   [],
   []
@@ -1344,7 +1897,7 @@ export var UpdateGlobalSettingsInput$: StaticStructureSchema = [3, n0, _UGSI,
 ];
 export var UpdateIntegrationInput$: StaticStructureSchema = [3, n0, _UII,
   0,
-  [_WI, _ISn, _CRT],
+  [_WI, _ISn, _CRTl],
   [[0, 1], 0, [0, 4]], 2
 ];
 export var UpdateLensReviewInput$: StaticStructureSchema = [3, n0, _ULRI,
@@ -1429,17 +1982,17 @@ export var UpdateWorkloadShareOutput$: StaticStructureSchema = [3, n0, _UWSO,
 ];
 export var UpgradeLensReviewInput$: StaticStructureSchema = [3, n0, _ULRIp,
   0,
-  [_WI, _LAen, _MN, _CRT],
+  [_WI, _LAen, _MN, _CRTl],
   [[0, 1], [0, 1], 0, 0], 3
 ];
 export var UpgradeProfileVersionInput$: StaticStructureSchema = [3, n0, _UPVI,
   0,
-  [_WI, _PAr, _MN, _CRT],
+  [_WI, _PAr, _MN, _CRTl],
   [[0, 1], [0, 1], 0, [0, 4]], 2
 ];
 export var UpgradeReviewTemplateLensReviewInput$: StaticStructureSchema = [3, n0, _URTLRIp,
   0,
-  [_TA, _LAen, _CRT],
+  [_TA, _LAen, _CRTl],
   [[0, 1], [0, 1], 0], 2
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
@@ -1496,6 +2049,27 @@ var __Unit = "unit" as const;
 var AdditionalResourcesList: StaticListSchema = [1, n0, _ARL,
   0, () => AdditionalResources$
 ];
+var AgentProfileSummaries: StaticListSchema = [1, n0, _APSg,
+  0, [() => AgentProfileSummary$,
+    0]
+];
+var AgentRecommendationGenerationSummaries: StaticListSchema = [1, n0, _ARGSg,
+  0, () => AgentRecommendationGenerationSummary$
+];
+var AgentRecommendationItemSummaries: StaticListSchema = [1, n0, _ARISg,
+  0, () => AgentRecommendationItemSummary$
+];
+var AgentRecommendationRemediations: StaticListSchema = [1, n0, _ARRg,
+  0, [() => AgentRecommendationRemediation$,
+    0]
+];
+var AgentRecommendationSummaries: StaticListSchema = [1, n0, _ARSg,
+  0, [() => AgentRecommendationSummary$,
+    0]
+];
+var AggregationConfigurations: StaticListSchema = [1, n0, _ACg,
+  0, () => AggregationConfiguration$
+];
 var AnswerSummaries: StaticListSchema = [1, n0, _ASn,
   0, () => AnswerSummary$
 ];
@@ -1523,9 +2097,34 @@ var Choices: StaticListSchema = [1, n0, _Ch,
 var ConsolidatedReportMetrics: StaticListSchema = [1, n0, _CRMo,
   0, () => ConsolidatedReportMetric$
 ];
+var ContextAccountIdList = 64 | 0;
+var ContextAwsServiceList = 64 | 0;
+var ContextRegionList = 64 | 0;
+var ContextResourceTagList: StaticListSchema = [1, n0, _CRTL,
+  0, () => ContextResourceTag$
+];
+var ContextResourceTypeList = 64 | 0;
+var ContextSummaries: StaticListSchema = [1, n0, _CSon,
+  0, [() => ContextSummary$,
+    0]
+];
+var CrossPillarBenefits: StaticListSchema = [1, n0, _CPBr,
+  0, () => CrossPillarBenefit$
+];
+var GoalIdList = 64 | 0;
+var GoalSummaries: StaticListSchema = [1, n0, _GSo,
+  0, [() => GoalSummary$,
+    0]
+];
+var Highlights = 64 | 0;
+var ImpactDetails = 64 | 0;
 var ImprovementSummaries: StaticListSchema = [1, n0, _ISmp,
   0, () => ImprovementSummary$
 ];
+var InsightList: StaticListSchema = [1, n0, _IL,
+  0, () => Insight$
+];
+var ItemIds = 64 | 0;
 var LensAliases = 64 | 0;
 var LensMetrics: StaticListSchema = [1, n0, _LMe,
   0, () => LensMetric$
@@ -1548,12 +2147,16 @@ var NotificationSummaries: StaticListSchema = [1, n0, _NS,
 var PillarDifferences: StaticListSchema = [1, n0, _PDil,
   0, () => PillarDifference$
 ];
+var PillarItems: StaticListSchema = [1, n0, _PIil,
+  0, () => PillarItem$
+];
 var PillarMetrics: StaticListSchema = [1, n0, _PMi,
   0, () => PillarMetric$
 ];
 var PillarReviewSummaries: StaticListSchema = [1, n0, _PRS,
   0, () => PillarReviewSummary$
 ];
+var Pillars = 64 | 0;
 var ProfileArns = 64 | 0;
 var ProfileNotificationSummaries: StaticListSchema = [1, n0, _PNSr,
   0, () => ProfileNotificationSummary$
@@ -1582,6 +2185,20 @@ var QuestionDifferences: StaticListSchema = [1, n0, _QDu,
 var QuestionMetrics: StaticListSchema = [1, n0, _QMu,
   0, () => QuestionMetric$
 ];
+var RecommendationGoals: StaticListSchema = [1, n0, _RGe,
+  0, () => RecommendationGoal$
+];
+var RecommendationSourceList = 64 | 0;
+var RecommendationTypes = 64 | 0;
+var RecommendedFixSteps = 64 | 0;
+var Regions = 64 | 0;
+var RemediationSteps: StaticListSchema = [1, n0, _RSem,
+  0, [() => RemediationStep$,
+    0]
+];
+var ResourceLinks: StaticListSchema = [1, n0, _RLe,
+  0, () => ResourceLink$
+];
 var ReviewTemplateAnswerSummaries: StaticListSchema = [1, n0, _RTASe,
   0, () => ReviewTemplateAnswerSummary$
 ];
@@ -1604,12 +2221,19 @@ var SelectedQuestionIds = 64 | 0;
 var ShareInvitationSummaries: StaticListSchema = [1, n0, _SIS,
   0, () => ShareInvitationSummary$
 ];
+var StringList = 64 | 0;
 var TagKeyList = 64 | 0;
+var Tags: StaticListSchema = [1, n0, _Ta,
+  0, () => Tag$
+];
 var TemplateQuestions: StaticListSchema = [1, n0, _TQ,
   0, () => ProfileTemplateQuestion$
 ];
 var TemplateShareSummaries: StaticListSchema = [1, n0, _TSS,
   0, () => TemplateShareSummary$
+];
+var TradeOffs: StaticListSchema = [1, n0, _TOr,
+  0, () => TradeOff$
 ];
 var Urls: StaticListSchema = [1, n0, _Ur,
   0, () => ChoiceContent$
@@ -1638,223 +2262,293 @@ var AccountSummary = 128 | 1;
 var ChoiceUpdates: StaticMapSchema = [2, n0, _CUh,
   0, 0, () => ChoiceUpdate$
 ];
+var FieldErrors = 128 | 0;
 var PillarNotes = 128 | 0;
 var QuestionCounts = 128 | 1;
 var RiskCounts = 128 | 1;
 var TagMap = 128 | 0;
 export var AssociateLenses$: StaticOperationSchema = [9, n0, _AL,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/associateLenses", 200] }, () => AssociateLensesInput$, () => __Unit
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/associateLenses", 200] }, () => AssociateLensesInput$, () => __Unit
 ];
 export var AssociateProfiles$: StaticOperationSchema = [9, n0, _AP,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/associateProfiles", 200] }, () => AssociateProfilesInput$, () => __Unit
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/associateProfiles", 200] }, () => AssociateProfilesInput$, () => __Unit
+];
+export var CreateAgentContext$: StaticOperationSchema = [9, n0, _CAC,
+  { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/contexts", 200] }, () => CreateAgentContextRequest$, () => CreateAgentContextResponse$
+];
+export var CreateAgentGoal$: StaticOperationSchema = [9, n0, _CAG,
+  { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/goals", 200] }, () => CreateAgentGoalRequest$, () => CreateAgentGoalResponse$
+];
+export var CreateAgentProfile$: StaticOperationSchema = [9, n0, _CAP,
+  { [_ht]: ["POST", "/api/v1/agent-profiles", 200] }, () => CreateAgentProfileRequest$, () => CreateAgentProfileResponse$
 ];
 export var CreateLensShare$: StaticOperationSchema = [9, n0, _CLS,
-  { [_h]: ["POST", "/lenses/{LensAlias}/shares", 200] }, () => CreateLensShareInput$, () => CreateLensShareOutput$
+  { [_ht]: ["POST", "/lenses/{LensAlias}/shares", 200] }, () => CreateLensShareInput$, () => CreateLensShareOutput$
 ];
 export var CreateLensVersion$: StaticOperationSchema = [9, n0, _CLVr,
-  { [_h]: ["POST", "/lenses/{LensAlias}/versions", 200] }, () => CreateLensVersionInput$, () => CreateLensVersionOutput$
+  { [_ht]: ["POST", "/lenses/{LensAlias}/versions", 200] }, () => CreateLensVersionInput$, () => CreateLensVersionOutput$
 ];
 export var CreateMilestone$: StaticOperationSchema = [9, n0, _CM,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/milestones", 200] }, () => CreateMilestoneInput$, () => CreateMilestoneOutput$
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/milestones", 200] }, () => CreateMilestoneInput$, () => CreateMilestoneOutput$
 ];
 export var CreateProfile$: StaticOperationSchema = [9, n0, _CP,
-  { [_h]: ["POST", "/profiles", 200] }, () => CreateProfileInput$, () => CreateProfileOutput$
+  { [_ht]: ["POST", "/profiles", 200] }, () => CreateProfileInput$, () => CreateProfileOutput$
 ];
 export var CreateProfileShare$: StaticOperationSchema = [9, n0, _CPS,
-  { [_h]: ["POST", "/profiles/{ProfileArn}/shares", 200] }, () => CreateProfileShareInput$, () => CreateProfileShareOutput$
+  { [_ht]: ["POST", "/profiles/{ProfileArn}/shares", 200] }, () => CreateProfileShareInput$, () => CreateProfileShareOutput$
 ];
 export var CreateReviewTemplate$: StaticOperationSchema = [9, n0, _CRTr,
-  { [_h]: ["POST", "/reviewTemplates", 200] }, () => CreateReviewTemplateInput$, () => CreateReviewTemplateOutput$
+  { [_ht]: ["POST", "/reviewTemplates", 200] }, () => CreateReviewTemplateInput$, () => CreateReviewTemplateOutput$
 ];
 export var CreateTemplateShare$: StaticOperationSchema = [9, n0, _CTS,
-  { [_h]: ["POST", "/templates/shares/{TemplateArn}", 200] }, () => CreateTemplateShareInput$, () => CreateTemplateShareOutput$
+  { [_ht]: ["POST", "/templates/shares/{TemplateArn}", 200] }, () => CreateTemplateShareInput$, () => CreateTemplateShareOutput$
 ];
 export var CreateWorkload$: StaticOperationSchema = [9, n0, _CW,
-  { [_h]: ["POST", "/workloads", 200] }, () => CreateWorkloadInput$, () => CreateWorkloadOutput$
+  { [_ht]: ["POST", "/workloads", 200] }, () => CreateWorkloadInput$, () => CreateWorkloadOutput$
 ];
 export var CreateWorkloadShare$: StaticOperationSchema = [9, n0, _CWS,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/shares", 200] }, () => CreateWorkloadShareInput$, () => CreateWorkloadShareOutput$
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/shares", 200] }, () => CreateWorkloadShareInput$, () => CreateWorkloadShareOutput$
+];
+export var DeleteAgentContext$: StaticOperationSchema = [9, n0, _DAC,
+  { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}/contexts/{id}", 200] }, () => DeleteAgentContextRequest$, () => DeleteAgentContextResponse$
+];
+export var DeleteAgentGoal$: StaticOperationSchema = [9, n0, _DAG,
+  { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => DeleteAgentGoalRequest$, () => DeleteAgentGoalResponse$
+];
+export var DeleteAgentProfile$: StaticOperationSchema = [9, n0, _DAP,
+  { [_ht]: ["DELETE", "/api/v1/agent-profiles/{profileArn}", 200] }, () => DeleteAgentProfileRequest$, () => DeleteAgentProfileResponse$
 ];
 export var DeleteLens$: StaticOperationSchema = [9, n0, _DL,
-  { [_h]: ["DELETE", "/lenses/{LensAlias}", 200] }, () => DeleteLensInput$, () => __Unit
+  { [_ht]: ["DELETE", "/lenses/{LensAlias}", 200] }, () => DeleteLensInput$, () => __Unit
 ];
 export var DeleteLensShare$: StaticOperationSchema = [9, n0, _DLS,
-  { [_h]: ["DELETE", "/lenses/{LensAlias}/shares/{ShareId}", 200] }, () => DeleteLensShareInput$, () => __Unit
+  { [_ht]: ["DELETE", "/lenses/{LensAlias}/shares/{ShareId}", 200] }, () => DeleteLensShareInput$, () => __Unit
 ];
 export var DeleteProfile$: StaticOperationSchema = [9, n0, _DP,
-  { [_h]: ["DELETE", "/profiles/{ProfileArn}", 200] }, () => DeleteProfileInput$, () => __Unit
+  { [_ht]: ["DELETE", "/profiles/{ProfileArn}", 200] }, () => DeleteProfileInput$, () => __Unit
 ];
 export var DeleteProfileShare$: StaticOperationSchema = [9, n0, _DPS,
-  { [_h]: ["DELETE", "/profiles/{ProfileArn}/shares/{ShareId}", 200] }, () => DeleteProfileShareInput$, () => __Unit
+  { [_ht]: ["DELETE", "/profiles/{ProfileArn}/shares/{ShareId}", 200] }, () => DeleteProfileShareInput$, () => __Unit
 ];
 export var DeleteReviewTemplate$: StaticOperationSchema = [9, n0, _DRT,
-  { [_h]: ["DELETE", "/reviewTemplates/{TemplateArn}", 200] }, () => DeleteReviewTemplateInput$, () => __Unit
+  { [_ht]: ["DELETE", "/reviewTemplates/{TemplateArn}", 200] }, () => DeleteReviewTemplateInput$, () => __Unit
 ];
 export var DeleteTemplateShare$: StaticOperationSchema = [9, n0, _DTS,
-  { [_h]: ["DELETE", "/templates/shares/{TemplateArn}/{ShareId}", 200] }, () => DeleteTemplateShareInput$, () => __Unit
+  { [_ht]: ["DELETE", "/templates/shares/{TemplateArn}/{ShareId}", 200] }, () => DeleteTemplateShareInput$, () => __Unit
 ];
 export var DeleteWorkload$: StaticOperationSchema = [9, n0, _DW,
-  { [_h]: ["DELETE", "/workloads/{WorkloadId}", 200] }, () => DeleteWorkloadInput$, () => __Unit
+  { [_ht]: ["DELETE", "/workloads/{WorkloadId}", 200] }, () => DeleteWorkloadInput$, () => __Unit
 ];
 export var DeleteWorkloadShare$: StaticOperationSchema = [9, n0, _DWS,
-  { [_h]: ["DELETE", "/workloads/{WorkloadId}/shares/{ShareId}", 200] }, () => DeleteWorkloadShareInput$, () => __Unit
+  { [_ht]: ["DELETE", "/workloads/{WorkloadId}/shares/{ShareId}", 200] }, () => DeleteWorkloadShareInput$, () => __Unit
 ];
 export var DisassociateLenses$: StaticOperationSchema = [9, n0, _DLi,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateLenses", 200] }, () => DisassociateLensesInput$, () => __Unit
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/disassociateLenses", 200] }, () => DisassociateLensesInput$, () => __Unit
 ];
 export var DisassociateProfiles$: StaticOperationSchema = [9, n0, _DPi,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/disassociateProfiles", 200] }, () => DisassociateProfilesInput$, () => __Unit
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/disassociateProfiles", 200] }, () => DisassociateProfilesInput$, () => __Unit
 ];
 export var ExportLens$: StaticOperationSchema = [9, n0, _EL,
-  { [_h]: ["GET", "/lenses/{LensAlias}/export", 200] }, () => ExportLensInput$, () => ExportLensOutput$
+  { [_ht]: ["GET", "/lenses/{LensAlias}/export", 200] }, () => ExportLensInput$, () => ExportLensOutput$
+];
+export var GetAgentContext$: StaticOperationSchema = [9, n0, _GAC,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/contexts/{id}", 200] }, () => GetAgentContextRequest$, () => GetAgentContextResponse$
+];
+export var GetAgentGoal$: StaticOperationSchema = [9, n0, _GAG,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => GetAgentGoalRequest$, () => GetAgentGoalResponse$
+];
+export var GetAgentProfile$: StaticOperationSchema = [9, n0, _GAP,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}", 200] }, () => GetAgentProfileRequest$, () => GetAgentProfileResponse$
+];
+export var GetAgentRecommendation$: StaticOperationSchema = [9, n0, _GAR,
+  { [_ht]: ["GET", "/api/v1/agent-recommendations/{recommendationArn}", 200] }, () => GetAgentRecommendationRequest$, () => GetAgentRecommendationResponse$
+];
+export var GetAgentRecommendationGeneration$: StaticOperationSchema = [9, n0, _GARG,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/generations/{generationId}", 200] }, () => GetAgentRecommendationGenerationRequest$, () => GetAgentRecommendationGenerationResponse$
 ];
 export var GetAnswer$: StaticOperationSchema = [9, n0, _GA,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => GetAnswerInput$, () => GetAnswerOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => GetAnswerInput$, () => GetAnswerOutput$
 ];
 export var GetConsolidatedReport$: StaticOperationSchema = [9, n0, _GCR,
-  { [_h]: ["GET", "/consolidatedReport", 200] }, () => GetConsolidatedReportInput$, () => GetConsolidatedReportOutput$
+  { [_ht]: ["GET", "/consolidatedReport", 200] }, () => GetConsolidatedReportInput$, () => GetConsolidatedReportOutput$
 ];
 export var GetGlobalSettings$: StaticOperationSchema = [9, n0, _GGS,
-  { [_h]: ["GET", "/global-settings", 200] }, () => __Unit, () => GetGlobalSettingsOutput$
+  { [_ht]: ["GET", "/global-settings", 200] }, () => __Unit, () => GetGlobalSettingsOutput$
 ];
 export var GetLens$: StaticOperationSchema = [9, n0, _GL,
-  { [_h]: ["GET", "/lenses/{LensAlias}", 200] }, () => GetLensInput$, () => GetLensOutput$
+  { [_ht]: ["GET", "/lenses/{LensAlias}", 200] }, () => GetLensInput$, () => GetLensOutput$
 ];
 export var GetLensReview$: StaticOperationSchema = [9, n0, _GLR,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] }, () => GetLensReviewInput$, () => GetLensReviewOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] }, () => GetLensReviewInput$, () => GetLensReviewOutput$
 ];
 export var GetLensReviewReport$: StaticOperationSchema = [9, n0, _GLRR,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report", 200] }, () => GetLensReviewReportInput$, () => GetLensReviewReportOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/report", 200] }, () => GetLensReviewReportInput$, () => GetLensReviewReportOutput$
 ];
 export var GetLensVersionDifference$: StaticOperationSchema = [9, n0, _GLVD,
-  { [_h]: ["GET", "/lenses/{LensAlias}/versionDifference", 200] }, () => GetLensVersionDifferenceInput$, () => GetLensVersionDifferenceOutput$
+  { [_ht]: ["GET", "/lenses/{LensAlias}/versionDifference", 200] }, () => GetLensVersionDifferenceInput$, () => GetLensVersionDifferenceOutput$
 ];
 export var GetMilestone$: StaticOperationSchema = [9, n0, _GM,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/milestones/{MilestoneNumber}", 200] }, () => GetMilestoneInput$, () => GetMilestoneOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/milestones/{MilestoneNumber}", 200] }, () => GetMilestoneInput$, () => GetMilestoneOutput$
 ];
 export var GetProfile$: StaticOperationSchema = [9, n0, _GP,
-  { [_h]: ["GET", "/profiles/{ProfileArn}", 200] }, () => GetProfileInput$, () => GetProfileOutput$
+  { [_ht]: ["GET", "/profiles/{ProfileArn}", 200] }, () => GetProfileInput$, () => GetProfileOutput$
 ];
 export var GetProfileTemplate$: StaticOperationSchema = [9, n0, _GPT,
-  { [_h]: ["GET", "/profileTemplate", 200] }, () => GetProfileTemplateInput$, () => GetProfileTemplateOutput$
+  { [_ht]: ["GET", "/profileTemplate", 200] }, () => GetProfileTemplateInput$, () => GetProfileTemplateOutput$
 ];
 export var GetReviewTemplate$: StaticOperationSchema = [9, n0, _GRT,
-  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}", 200] }, () => GetReviewTemplateInput$, () => GetReviewTemplateOutput$
+  { [_ht]: ["GET", "/reviewTemplates/{TemplateArn}", 200] }, () => GetReviewTemplateInput$, () => GetReviewTemplateOutput$
 ];
 export var GetReviewTemplateAnswer$: StaticOperationSchema = [9, n0, _GRTA,
-  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => GetReviewTemplateAnswerInput$, () => GetReviewTemplateAnswerOutput$
+  { [_ht]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => GetReviewTemplateAnswerInput$, () => GetReviewTemplateAnswerOutput$
 ];
 export var GetReviewTemplateLensReview$: StaticOperationSchema = [9, n0, _GRTLR,
-  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] }, () => GetReviewTemplateLensReviewInput$, () => GetReviewTemplateLensReviewOutput$
+  { [_ht]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] }, () => GetReviewTemplateLensReviewInput$, () => GetReviewTemplateLensReviewOutput$
 ];
 export var GetWorkload$: StaticOperationSchema = [9, n0, _GW,
-  { [_h]: ["GET", "/workloads/{WorkloadId}", 200] }, () => GetWorkloadInput$, () => GetWorkloadOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}", 200] }, () => GetWorkloadInput$, () => GetWorkloadOutput$
 ];
-export var ImportLens$: StaticOperationSchema = [9, n0, _IL,
-  { [_h]: ["PUT", "/importLens", 200] }, () => ImportLensInput$, () => ImportLensOutput$
+export var ImportLens$: StaticOperationSchema = [9, n0, _ILm,
+  { [_ht]: ["PUT", "/importLens", 200] }, () => ImportLensInput$, () => ImportLensOutput$
+];
+export var ListAgentContexts$: StaticOperationSchema = [9, n0, _LACi,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/contexts", 200] }, () => ListAgentContextsRequest$, () => ListAgentContextsResponse$
+];
+export var ListAgentGoals$: StaticOperationSchema = [9, n0, _LAG,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/goals", 200] }, () => ListAgentGoalsRequest$, () => ListAgentGoalsResponse$
+];
+export var ListAgentProfiles$: StaticOperationSchema = [9, n0, _LAP,
+  { [_ht]: ["GET", "/api/v1/agent-profiles", 200] }, () => ListAgentProfilesRequest$, () => ListAgentProfilesResponse$
+];
+export var ListAgentRecommendationGenerations$: StaticOperationSchema = [9, n0, _LARG,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/generations", 200] }, () => ListAgentRecommendationGenerationsRequest$, () => ListAgentRecommendationGenerationsResponse$
+];
+export var ListAgentRecommendationItems$: StaticOperationSchema = [9, n0, _LARI,
+  { [_ht]: ["GET", "/api/v1/agent-recommendations/{recommendationArn}/items", 200] }, () => ListAgentRecommendationItemsRequest$, () => ListAgentRecommendationItemsResponse$
+];
+export var ListAgentRecommendations$: StaticOperationSchema = [9, n0, _LAR,
+  { [_ht]: ["GET", "/api/v1/agent-profiles/{profileArn}/recommendations", 200] }, () => ListAgentRecommendationsRequest$, () => ListAgentRecommendationsResponse$
 ];
 export var ListAnswers$: StaticOperationSchema = [9, n0, _LAi,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers", 200] }, () => ListAnswersInput$, () => ListAnswersOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers", 200] }, () => ListAnswersInput$, () => ListAnswersOutput$
 ];
 export var ListCheckDetails$: StaticOperationSchema = [9, n0, _LCD,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/checks", 200] }, () => ListCheckDetailsInput$, () => ListCheckDetailsOutput$
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/checks", 200] }, () => ListCheckDetailsInput$, () => ListCheckDetailsOutput$
 ];
 export var ListCheckSummaries$: StaticOperationSchema = [9, n0, _LCS,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/checkSummaries", 200] }, () => ListCheckSummariesInput$, () => ListCheckSummariesOutput$
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/checkSummaries", 200] }, () => ListCheckSummariesInput$, () => ListCheckSummariesOutput$
 ];
 export var ListLenses$: StaticOperationSchema = [9, n0, _LL,
-  { [_h]: ["GET", "/lenses", 200] }, () => ListLensesInput$, () => ListLensesOutput$
+  { [_ht]: ["GET", "/lenses", 200] }, () => ListLensesInput$, () => ListLensesOutput$
 ];
 export var ListLensReviewImprovements$: StaticOperationSchema = [9, n0, _LLRIi,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements", 200] }, () => ListLensReviewImprovementsInput$, () => ListLensReviewImprovementsOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/improvements", 200] }, () => ListLensReviewImprovementsInput$, () => ListLensReviewImprovementsOutput$
 ];
 export var ListLensReviews$: StaticOperationSchema = [9, n0, _LLR,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/lensReviews", 200] }, () => ListLensReviewsInput$, () => ListLensReviewsOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/lensReviews", 200] }, () => ListLensReviewsInput$, () => ListLensReviewsOutput$
 ];
 export var ListLensShares$: StaticOperationSchema = [9, n0, _LLS,
-  { [_h]: ["GET", "/lenses/{LensAlias}/shares", 200] }, () => ListLensSharesInput$, () => ListLensSharesOutput$
+  { [_ht]: ["GET", "/lenses/{LensAlias}/shares", 200] }, () => ListLensSharesInput$, () => ListLensSharesOutput$
 ];
 export var ListMilestones$: StaticOperationSchema = [9, n0, _LMi,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/milestonesSummaries", 200] }, () => ListMilestonesInput$, () => ListMilestonesOutput$
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/milestonesSummaries", 200] }, () => ListMilestonesInput$, () => ListMilestonesOutput$
 ];
 export var ListNotifications$: StaticOperationSchema = [9, n0, _LNi,
-  { [_h]: ["POST", "/notifications", 200] }, () => ListNotificationsInput$, () => ListNotificationsOutput$
+  { [_ht]: ["POST", "/notifications", 200] }, () => ListNotificationsInput$, () => ListNotificationsOutput$
 ];
 export var ListProfileNotifications$: StaticOperationSchema = [9, n0, _LPN,
-  { [_h]: ["GET", "/profileNotifications", 200] }, () => ListProfileNotificationsInput$, () => ListProfileNotificationsOutput$
+  { [_ht]: ["GET", "/profileNotifications", 200] }, () => ListProfileNotificationsInput$, () => ListProfileNotificationsOutput$
 ];
 export var ListProfiles$: StaticOperationSchema = [9, n0, _LP,
-  { [_h]: ["GET", "/profileSummaries", 200] }, () => ListProfilesInput$, () => ListProfilesOutput$
+  { [_ht]: ["GET", "/profileSummaries", 200] }, () => ListProfilesInput$, () => ListProfilesOutput$
 ];
 export var ListProfileShares$: StaticOperationSchema = [9, n0, _LPS,
-  { [_h]: ["GET", "/profiles/{ProfileArn}/shares", 200] }, () => ListProfileSharesInput$, () => ListProfileSharesOutput$
+  { [_ht]: ["GET", "/profiles/{ProfileArn}/shares", 200] }, () => ListProfileSharesInput$, () => ListProfileSharesOutput$
 ];
 export var ListReviewTemplateAnswers$: StaticOperationSchema = [9, n0, _LRTA,
-  { [_h]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers", 200] }, () => ListReviewTemplateAnswersInput$, () => ListReviewTemplateAnswersOutput$
+  { [_ht]: ["GET", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers", 200] }, () => ListReviewTemplateAnswersInput$, () => ListReviewTemplateAnswersOutput$
 ];
 export var ListReviewTemplates$: StaticOperationSchema = [9, n0, _LRT,
-  { [_h]: ["GET", "/reviewTemplates", 200] }, () => ListReviewTemplatesInput$, () => ListReviewTemplatesOutput$
+  { [_ht]: ["GET", "/reviewTemplates", 200] }, () => ListReviewTemplatesInput$, () => ListReviewTemplatesOutput$
 ];
 export var ListShareInvitations$: StaticOperationSchema = [9, n0, _LSI,
-  { [_h]: ["GET", "/shareInvitations", 200] }, () => ListShareInvitationsInput$, () => ListShareInvitationsOutput$
+  { [_ht]: ["GET", "/shareInvitations", 200] }, () => ListShareInvitationsInput$, () => ListShareInvitationsOutput$
 ];
 export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
-  { [_h]: ["GET", "/tags/{WorkloadArn}", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
+  { [_ht]: ["GET", "/tags/{WorkloadArn}", 200] }, () => ListTagsForResourceInput$, () => ListTagsForResourceOutput$
 ];
 export var ListTemplateShares$: StaticOperationSchema = [9, n0, _LTS,
-  { [_h]: ["GET", "/templates/shares/{TemplateArn}", 200] }, () => ListTemplateSharesInput$, () => ListTemplateSharesOutput$
+  { [_ht]: ["GET", "/templates/shares/{TemplateArn}", 200] }, () => ListTemplateSharesInput$, () => ListTemplateSharesOutput$
 ];
 export var ListWorkloads$: StaticOperationSchema = [9, n0, _LW,
-  { [_h]: ["POST", "/workloadsSummaries", 200] }, () => ListWorkloadsInput$, () => ListWorkloadsOutput$
+  { [_ht]: ["POST", "/workloadsSummaries", 200] }, () => ListWorkloadsInput$, () => ListWorkloadsOutput$
 ];
 export var ListWorkloadShares$: StaticOperationSchema = [9, n0, _LWS,
-  { [_h]: ["GET", "/workloads/{WorkloadId}/shares", 200] }, () => ListWorkloadSharesInput$, () => ListWorkloadSharesOutput$
+  { [_ht]: ["GET", "/workloads/{WorkloadId}/shares", 200] }, () => ListWorkloadSharesInput$, () => ListWorkloadSharesOutput$
+];
+export var PutAgentRecommendationFeedback$: StaticOperationSchema = [9, n0, _PARF,
+  { [_ht]: ["PUT", "/api/v1/agent-recommendations/{recommendationArn}/feedback", 200] }, () => PutAgentRecommendationFeedbackRequest$, () => PutAgentRecommendationFeedbackResponse$
+];
+export var StartAgentRecommendationGeneration$: StaticOperationSchema = [9, n0, _SARG,
+  { [_ht]: ["POST", "/api/v1/agent-profiles/{profileArn}/generations", 200] }, () => StartAgentRecommendationGenerationRequest$, () => StartAgentRecommendationGenerationResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
-  { [_h]: ["POST", "/tags/{WorkloadArn}", 200] }, () => TagResourceInput$, () => TagResourceOutput$
+  { [_ht]: ["POST", "/tags/{WorkloadArn}", 200] }, () => TagResourceInput$, () => TagResourceOutput$
 ];
 export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
-  { [_h]: ["DELETE", "/tags/{WorkloadArn}", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
+  { [_ht]: ["DELETE", "/tags/{WorkloadArn}", 200] }, () => UntagResourceInput$, () => UntagResourceOutput$
+];
+export var UpdateAgentContext$: StaticOperationSchema = [9, n0, _UAC,
+  { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}/contexts/{id}", 200] }, () => UpdateAgentContextRequest$, () => UpdateAgentContextResponse$
+];
+export var UpdateAgentGoal$: StaticOperationSchema = [9, n0, _UAG,
+  { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}/goals/{id}", 200] }, () => UpdateAgentGoalRequest$, () => UpdateAgentGoalResponse$
+];
+export var UpdateAgentProfile$: StaticOperationSchema = [9, n0, _UAP,
+  { [_ht]: ["PUT", "/api/v1/agent-profiles/{profileArn}", 200] }, () => UpdateAgentProfileRequest$, () => UpdateAgentProfileResponse$
+];
+export var UpdateAgentRecommendationStatus$: StaticOperationSchema = [9, n0, _UARS,
+  { [_ht]: ["PATCH", "/api/v1/agent-recommendations/{recommendationArn}/status", 200] }, () => UpdateAgentRecommendationStatusRequest$, () => UpdateAgentRecommendationStatusResponse$
 ];
 export var UpdateAnswer$: StaticOperationSchema = [9, n0, _UAp,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => UpdateAnswerInput$, () => UpdateAnswerOutput$
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => UpdateAnswerInput$, () => UpdateAnswerOutput$
 ];
 export var UpdateGlobalSettings$: StaticOperationSchema = [9, n0, _UGS,
-  { [_h]: ["PATCH", "/global-settings", 200] }, () => UpdateGlobalSettingsInput$, () => __Unit
+  { [_ht]: ["PATCH", "/global-settings", 200] }, () => UpdateGlobalSettingsInput$, () => __Unit
 ];
 export var UpdateIntegration$: StaticOperationSchema = [9, n0, _UI,
-  { [_h]: ["POST", "/workloads/{WorkloadId}/updateIntegration", 200] }, () => UpdateIntegrationInput$, () => __Unit
+  { [_ht]: ["POST", "/workloads/{WorkloadId}/updateIntegration", 200] }, () => UpdateIntegrationInput$, () => __Unit
 ];
 export var UpdateLensReview$: StaticOperationSchema = [9, n0, _ULR,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] }, () => UpdateLensReviewInput$, () => UpdateLensReviewOutput$
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/lensReviews/{LensAlias}", 200] }, () => UpdateLensReviewInput$, () => UpdateLensReviewOutput$
 ];
 export var UpdateProfile$: StaticOperationSchema = [9, n0, _UP,
-  { [_h]: ["PATCH", "/profiles/{ProfileArn}", 200] }, () => UpdateProfileInput$, () => UpdateProfileOutput$
+  { [_ht]: ["PATCH", "/profiles/{ProfileArn}", 200] }, () => UpdateProfileInput$, () => UpdateProfileOutput$
 ];
 export var UpdateReviewTemplate$: StaticOperationSchema = [9, n0, _URT,
-  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}", 200] }, () => UpdateReviewTemplateInput$, () => UpdateReviewTemplateOutput$
+  { [_ht]: ["PATCH", "/reviewTemplates/{TemplateArn}", 200] }, () => UpdateReviewTemplateInput$, () => UpdateReviewTemplateOutput$
 ];
 export var UpdateReviewTemplateAnswer$: StaticOperationSchema = [9, n0, _URTA,
-  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => UpdateReviewTemplateAnswerInput$, () => UpdateReviewTemplateAnswerOutput$
+  { [_ht]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/answers/{QuestionId}", 200] }, () => UpdateReviewTemplateAnswerInput$, () => UpdateReviewTemplateAnswerOutput$
 ];
 export var UpdateReviewTemplateLensReview$: StaticOperationSchema = [9, n0, _URTLR,
-  { [_h]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] }, () => UpdateReviewTemplateLensReviewInput$, () => UpdateReviewTemplateLensReviewOutput$
+  { [_ht]: ["PATCH", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}", 200] }, () => UpdateReviewTemplateLensReviewInput$, () => UpdateReviewTemplateLensReviewOutput$
 ];
 export var UpdateShareInvitation$: StaticOperationSchema = [9, n0, _USI,
-  { [_h]: ["PATCH", "/shareInvitations/{ShareInvitationId}", 200] }, () => UpdateShareInvitationInput$, () => UpdateShareInvitationOutput$
+  { [_ht]: ["PATCH", "/shareInvitations/{ShareInvitationId}", 200] }, () => UpdateShareInvitationInput$, () => UpdateShareInvitationOutput$
 ];
 export var UpdateWorkload$: StaticOperationSchema = [9, n0, _UW,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}", 200] }, () => UpdateWorkloadInput$, () => UpdateWorkloadOutput$
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}", 200] }, () => UpdateWorkloadInput$, () => UpdateWorkloadOutput$
 ];
 export var UpdateWorkloadShare$: StaticOperationSchema = [9, n0, _UWS,
-  { [_h]: ["PATCH", "/workloads/{WorkloadId}/shares/{ShareId}", 200] }, () => UpdateWorkloadShareInput$, () => UpdateWorkloadShareOutput$
+  { [_ht]: ["PATCH", "/workloads/{WorkloadId}/shares/{ShareId}", 200] }, () => UpdateWorkloadShareInput$, () => UpdateWorkloadShareOutput$
 ];
 export var UpgradeLensReview$: StaticOperationSchema = [9, n0, _ULRp,
-  { [_h]: ["PUT", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade", 200] }, () => UpgradeLensReviewInput$, () => __Unit
+  { [_ht]: ["PUT", "/workloads/{WorkloadId}/lensReviews/{LensAlias}/upgrade", 200] }, () => UpgradeLensReviewInput$, () => __Unit
 ];
 export var UpgradeProfileVersion$: StaticOperationSchema = [9, n0, _UPV,
-  { [_h]: ["PUT", "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade", 200] }, () => UpgradeProfileVersionInput$, () => __Unit
+  { [_ht]: ["PUT", "/workloads/{WorkloadId}/profiles/{ProfileArn}/upgrade", 200] }, () => UpgradeProfileVersionInput$, () => __Unit
 ];
 export var UpgradeReviewTemplateLensReview$: StaticOperationSchema = [9, n0, _URTLRp,
-  { [_h]: ["PUT", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade", 200] }, () => UpgradeReviewTemplateLensReviewInput$, () => __Unit
+  { [_ht]: ["PUT", "/reviewTemplates/{TemplateArn}/lensReviews/{LensAlias}/upgrade", 200] }, () => UpgradeReviewTemplateLensReviewInput$, () => __Unit
 ];
