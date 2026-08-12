@@ -14,6 +14,10 @@ import {
   AssociateIamRoleToResourceCommand,
   AssociateIamRoleToResourceInput$,
   AssociateIamRoleToResourceOutput$,
+  AssociateVirtualMachinesToExadbVmCluster$,
+  AssociateVirtualMachinesToExadbVmClusterCommand,
+  AssociateVirtualMachinesToExadbVmClusterInput$,
+  AssociateVirtualMachinesToExadbVmClusterOutput$,
   AutonomousDatabase$,
   AutonomousDatabaseApex$,
   AutonomousDatabaseBackup$,
@@ -71,6 +75,14 @@ import {
   CreateCloudVmClusterCommand,
   CreateCloudVmClusterInput$,
   CreateCloudVmClusterOutput$,
+  CreateExadbVmCluster$,
+  CreateExadbVmClusterCommand,
+  CreateExadbVmClusterInput$,
+  CreateExadbVmClusterOutput$,
+  CreateExascaleDbStorageVault$,
+  CreateExascaleDbStorageVaultCommand,
+  CreateExascaleDbStorageVaultInput$,
+  CreateExascaleDbStorageVaultOutput$,
   CreateOdbNetwork$,
   CreateOdbNetworkCommand,
   CreateOdbNetworkInput$,
@@ -128,6 +140,14 @@ import {
   DeleteCloudVmClusterCommand,
   DeleteCloudVmClusterInput$,
   DeleteCloudVmClusterOutput$,
+  DeleteExadbVmCluster$,
+  DeleteExadbVmClusterCommand,
+  DeleteExadbVmClusterInput$,
+  DeleteExadbVmClusterOutput$,
+  DeleteExascaleDbStorageVault$,
+  DeleteExascaleDbStorageVaultCommand,
+  DeleteExascaleDbStorageVaultInput$,
+  DeleteExascaleDbStorageVaultOutput$,
   DeleteOdbNetwork$,
   DeleteOdbNetworkCommand,
   DeleteOdbNetworkInput$,
@@ -140,6 +160,10 @@ import {
   DisassociateIamRoleFromResourceCommand,
   DisassociateIamRoleFromResourceInput$,
   DisassociateIamRoleFromResourceOutput$,
+  DisassociateVirtualMachinesFromExadbVmCluster$,
+  DisassociateVirtualMachinesFromExadbVmClusterCommand,
+  DisassociateVirtualMachinesFromExadbVmClusterInput$,
+  DisassociateVirtualMachinesFromExadbVmClusterOutput$,
   DisasterRecoveryConfiguration$,
   DisasterRecoveryType,
   DiskRedundancy,
@@ -149,6 +173,12 @@ import {
   EncryptionKeyProviderInput,
   EncryptionSummary$,
   ExadataIormConfig$,
+  ExadbVmCluster$,
+  ExadbVmClusterStorageDetails$,
+  ExadbVmClusterSummary$,
+  ExascaleDbStorageDetails$,
+  ExascaleDbStorageVault$,
+  ExascaleDbStorageVaultSummary$,
   ExternalIdType,
   FailoverAutonomousDatabase$,
   FailoverAutonomousDatabaseCommand,
@@ -190,6 +220,14 @@ import {
   GetDbServerCommand,
   GetDbServerInput$,
   GetDbServerOutput$,
+  GetExadbVmCluster$,
+  GetExadbVmClusterCommand,
+  GetExadbVmClusterInput$,
+  GetExadbVmClusterOutput$,
+  GetExascaleDbStorageVault$,
+  GetExascaleDbStorageVaultCommand,
+  GetExascaleDbStorageVaultInput$,
+  GetExascaleDbStorageVaultOutput$,
   GetOciOnboardingStatus$,
   GetOciOnboardingStatusCommand,
   GetOciOnboardingStatusInput$,
@@ -202,7 +240,9 @@ import {
   GetOdbPeeringConnectionCommand,
   GetOdbPeeringConnectionInput$,
   GetOdbPeeringConnectionOutput$,
+  GiMinorVersionSummary$,
   GiVersionSummary$,
+  GridImageType,
   IamRole$,
   IamRoleStatus,
   InitializeService$,
@@ -266,6 +306,18 @@ import {
   ListDbSystemShapesCommand,
   ListDbSystemShapesInput$,
   ListDbSystemShapesOutput$,
+  ListExadbVmClusters$,
+  ListExadbVmClustersCommand,
+  ListExadbVmClustersInput$,
+  ListExadbVmClustersOutput$,
+  ListExascaleDbStorageVaults$,
+  ListExascaleDbStorageVaultsCommand,
+  ListExascaleDbStorageVaultsInput$,
+  ListExascaleDbStorageVaultsOutput$,
+  ListGiMinorVersions$,
+  ListGiMinorVersionsCommand,
+  ListGiMinorVersionsInput$,
+  ListGiMinorVersionsOutput$,
   ListGiVersions$,
   ListGiVersionsCommand,
   ListGiVersionsInput$,
@@ -325,6 +377,9 @@ import {
   paginateListDbNodes,
   paginateListDbServers,
   paginateListDbSystemShapes,
+  paginateListExadbVmClusters,
+  paginateListExascaleDbStorageVaults,
+  paginateListGiMinorVersions,
   paginateListGiVersions,
   paginateListOdbNetworks,
   paginateListOdbPeeringConnections,
@@ -358,6 +413,7 @@ import {
   ServiceNetworkEndpoint$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
+  ShapeAttribute,
   ShapeType,
   ShrinkAutonomousDatabase$,
   ShrinkAutonomousDatabaseCommand,
@@ -401,6 +457,7 @@ import {
   UntagResourceCommand,
   UntagResourceRequest$,
   UntagResourceResponse$,
+  UpdateAction,
   UpdateAutonomousDatabase$,
   UpdateAutonomousDatabaseBackup$,
   UpdateAutonomousDatabaseBackupCommand,
@@ -413,6 +470,14 @@ import {
   UpdateCloudExadataInfrastructureCommand,
   UpdateCloudExadataInfrastructureInput$,
   UpdateCloudExadataInfrastructureOutput$,
+  UpdateExadbVmCluster$,
+  UpdateExadbVmClusterCommand,
+  UpdateExadbVmClusterInput$,
+  UpdateExadbVmClusterOutput$,
+  UpdateExascaleDbStorageVault$,
+  UpdateExascaleDbStorageVaultCommand,
+  UpdateExascaleDbStorageVaultInput$,
+  UpdateExascaleDbStorageVaultOutput$,
   UpdateOdbNetwork$,
   UpdateOdbNetworkCommand,
   UpdateOdbNetworkInput$,
@@ -442,6 +507,8 @@ assert(typeof AcceptMarketplaceRegistrationCommand === "function");
 assert(typeof AcceptMarketplaceRegistration$ === "object");
 assert(typeof AssociateIamRoleToResourceCommand === "function");
 assert(typeof AssociateIamRoleToResource$ === "object");
+assert(typeof AssociateVirtualMachinesToExadbVmClusterCommand === "function");
+assert(typeof AssociateVirtualMachinesToExadbVmCluster$ === "object");
 assert(typeof CreateAutonomousDatabaseCommand === "function");
 assert(typeof CreateAutonomousDatabase$ === "object");
 assert(typeof CreateAutonomousDatabaseBackupCommand === "function");
@@ -454,6 +521,10 @@ assert(typeof CreateCloudExadataInfrastructureCommand === "function");
 assert(typeof CreateCloudExadataInfrastructure$ === "object");
 assert(typeof CreateCloudVmClusterCommand === "function");
 assert(typeof CreateCloudVmCluster$ === "object");
+assert(typeof CreateExadbVmClusterCommand === "function");
+assert(typeof CreateExadbVmCluster$ === "object");
+assert(typeof CreateExascaleDbStorageVaultCommand === "function");
+assert(typeof CreateExascaleDbStorageVault$ === "object");
 assert(typeof CreateOdbNetworkCommand === "function");
 assert(typeof CreateOdbNetwork$ === "object");
 assert(typeof CreateOdbPeeringConnectionCommand === "function");
@@ -468,12 +539,18 @@ assert(typeof DeleteCloudExadataInfrastructureCommand === "function");
 assert(typeof DeleteCloudExadataInfrastructure$ === "object");
 assert(typeof DeleteCloudVmClusterCommand === "function");
 assert(typeof DeleteCloudVmCluster$ === "object");
+assert(typeof DeleteExadbVmClusterCommand === "function");
+assert(typeof DeleteExadbVmCluster$ === "object");
+assert(typeof DeleteExascaleDbStorageVaultCommand === "function");
+assert(typeof DeleteExascaleDbStorageVault$ === "object");
 assert(typeof DeleteOdbNetworkCommand === "function");
 assert(typeof DeleteOdbNetwork$ === "object");
 assert(typeof DeleteOdbPeeringConnectionCommand === "function");
 assert(typeof DeleteOdbPeeringConnection$ === "object");
 assert(typeof DisassociateIamRoleFromResourceCommand === "function");
 assert(typeof DisassociateIamRoleFromResource$ === "object");
+assert(typeof DisassociateVirtualMachinesFromExadbVmClusterCommand === "function");
+assert(typeof DisassociateVirtualMachinesFromExadbVmCluster$ === "object");
 assert(typeof FailoverAutonomousDatabaseCommand === "function");
 assert(typeof FailoverAutonomousDatabase$ === "object");
 assert(typeof GetAutonomousDatabaseCommand === "function");
@@ -494,6 +571,10 @@ assert(typeof GetDbNodeCommand === "function");
 assert(typeof GetDbNode$ === "object");
 assert(typeof GetDbServerCommand === "function");
 assert(typeof GetDbServer$ === "object");
+assert(typeof GetExadbVmClusterCommand === "function");
+assert(typeof GetExadbVmCluster$ === "object");
+assert(typeof GetExascaleDbStorageVaultCommand === "function");
+assert(typeof GetExascaleDbStorageVault$ === "object");
 assert(typeof GetOciOnboardingStatusCommand === "function");
 assert(typeof GetOciOnboardingStatus$ === "object");
 assert(typeof GetOdbNetworkCommand === "function");
@@ -528,6 +609,12 @@ assert(typeof ListDbServersCommand === "function");
 assert(typeof ListDbServers$ === "object");
 assert(typeof ListDbSystemShapesCommand === "function");
 assert(typeof ListDbSystemShapes$ === "object");
+assert(typeof ListExadbVmClustersCommand === "function");
+assert(typeof ListExadbVmClusters$ === "object");
+assert(typeof ListExascaleDbStorageVaultsCommand === "function");
+assert(typeof ListExascaleDbStorageVaults$ === "object");
+assert(typeof ListGiMinorVersionsCommand === "function");
+assert(typeof ListGiMinorVersions$ === "object");
 assert(typeof ListGiVersionsCommand === "function");
 assert(typeof ListGiVersions$ === "object");
 assert(typeof ListOdbNetworksCommand === "function");
@@ -566,6 +653,10 @@ assert(typeof UpdateAutonomousDatabaseBackupCommand === "function");
 assert(typeof UpdateAutonomousDatabaseBackup$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureCommand === "function");
 assert(typeof UpdateCloudExadataInfrastructure$ === "object");
+assert(typeof UpdateExadbVmClusterCommand === "function");
+assert(typeof UpdateExadbVmCluster$ === "object");
+assert(typeof UpdateExascaleDbStorageVaultCommand === "function");
+assert(typeof UpdateExascaleDbStorageVault$ === "object");
 assert(typeof UpdateOdbNetworkCommand === "function");
 assert(typeof UpdateOdbNetwork$ === "object");
 assert(typeof UpdateOdbPeeringConnectionCommand === "function");
@@ -578,6 +669,8 @@ assert(typeof AdminPasswordSourceConfigurationInput$ === "object");
 assert(typeof AdminPasswordSourceSummary$ === "object");
 assert(typeof AssociateIamRoleToResourceInput$ === "object");
 assert(typeof AssociateIamRoleToResourceOutput$ === "object");
+assert(typeof AssociateVirtualMachinesToExadbVmClusterInput$ === "object");
+assert(typeof AssociateVirtualMachinesToExadbVmClusterOutput$ === "object");
 assert(typeof AutonomousDatabase$ === "object");
 assert(typeof AutonomousDatabaseApex$ === "object");
 assert(typeof AutonomousDatabaseBackup$ === "object");
@@ -613,6 +706,10 @@ assert(typeof CreateCloudExadataInfrastructureInput$ === "object");
 assert(typeof CreateCloudExadataInfrastructureOutput$ === "object");
 assert(typeof CreateCloudVmClusterInput$ === "object");
 assert(typeof CreateCloudVmClusterOutput$ === "object");
+assert(typeof CreateExadbVmClusterInput$ === "object");
+assert(typeof CreateExadbVmClusterOutput$ === "object");
+assert(typeof CreateExascaleDbStorageVaultInput$ === "object");
+assert(typeof CreateExascaleDbStorageVaultOutput$ === "object");
 assert(typeof CreateOdbNetworkInput$ === "object");
 assert(typeof CreateOdbNetworkOutput$ === "object");
 assert(typeof CreateOdbPeeringConnectionInput$ === "object");
@@ -646,17 +743,29 @@ assert(typeof DeleteCloudExadataInfrastructureInput$ === "object");
 assert(typeof DeleteCloudExadataInfrastructureOutput$ === "object");
 assert(typeof DeleteCloudVmClusterInput$ === "object");
 assert(typeof DeleteCloudVmClusterOutput$ === "object");
+assert(typeof DeleteExadbVmClusterInput$ === "object");
+assert(typeof DeleteExadbVmClusterOutput$ === "object");
+assert(typeof DeleteExascaleDbStorageVaultInput$ === "object");
+assert(typeof DeleteExascaleDbStorageVaultOutput$ === "object");
 assert(typeof DeleteOdbNetworkInput$ === "object");
 assert(typeof DeleteOdbNetworkOutput$ === "object");
 assert(typeof DeleteOdbPeeringConnectionInput$ === "object");
 assert(typeof DeleteOdbPeeringConnectionOutput$ === "object");
 assert(typeof DisassociateIamRoleFromResourceInput$ === "object");
 assert(typeof DisassociateIamRoleFromResourceOutput$ === "object");
+assert(typeof DisassociateVirtualMachinesFromExadbVmClusterInput$ === "object");
+assert(typeof DisassociateVirtualMachinesFromExadbVmClusterOutput$ === "object");
 assert(typeof DisasterRecoveryConfiguration$ === "object");
 assert(typeof EncryptionKeyConfiguration$ === "object");
 assert(typeof EncryptionKeyConfigurationInput$ === "object");
 assert(typeof EncryptionSummary$ === "object");
 assert(typeof ExadataIormConfig$ === "object");
+assert(typeof ExadbVmCluster$ === "object");
+assert(typeof ExadbVmClusterStorageDetails$ === "object");
+assert(typeof ExadbVmClusterSummary$ === "object");
+assert(typeof ExascaleDbStorageDetails$ === "object");
+assert(typeof ExascaleDbStorageVault$ === "object");
+assert(typeof ExascaleDbStorageVaultSummary$ === "object");
 assert(typeof FailoverAutonomousDatabaseInput$ === "object");
 assert(typeof FailoverAutonomousDatabaseOutput$ === "object");
 assert(typeof GetAutonomousDatabaseBackupInput$ === "object");
@@ -677,12 +786,17 @@ assert(typeof GetDbNodeInput$ === "object");
 assert(typeof GetDbNodeOutput$ === "object");
 assert(typeof GetDbServerInput$ === "object");
 assert(typeof GetDbServerOutput$ === "object");
+assert(typeof GetExadbVmClusterInput$ === "object");
+assert(typeof GetExadbVmClusterOutput$ === "object");
+assert(typeof GetExascaleDbStorageVaultInput$ === "object");
+assert(typeof GetExascaleDbStorageVaultOutput$ === "object");
 assert(typeof GetOciOnboardingStatusInput$ === "object");
 assert(typeof GetOciOnboardingStatusOutput$ === "object");
 assert(typeof GetOdbNetworkInput$ === "object");
 assert(typeof GetOdbNetworkOutput$ === "object");
 assert(typeof GetOdbPeeringConnectionInput$ === "object");
 assert(typeof GetOdbPeeringConnectionOutput$ === "object");
+assert(typeof GiMinorVersionSummary$ === "object");
 assert(typeof GiVersionSummary$ === "object");
 assert(typeof IamRole$ === "object");
 assert(typeof InitializeServiceInput$ === "object");
@@ -714,6 +828,12 @@ assert(typeof ListDbServersInput$ === "object");
 assert(typeof ListDbServersOutput$ === "object");
 assert(typeof ListDbSystemShapesInput$ === "object");
 assert(typeof ListDbSystemShapesOutput$ === "object");
+assert(typeof ListExadbVmClustersInput$ === "object");
+assert(typeof ListExadbVmClustersOutput$ === "object");
+assert(typeof ListExascaleDbStorageVaultsInput$ === "object");
+assert(typeof ListExascaleDbStorageVaultsOutput$ === "object");
+assert(typeof ListGiMinorVersionsInput$ === "object");
+assert(typeof ListGiMinorVersionsOutput$ === "object");
 assert(typeof ListGiVersionsInput$ === "object");
 assert(typeof ListGiVersionsOutput$ === "object");
 assert(typeof ListOdbNetworksInput$ === "object");
@@ -777,6 +897,10 @@ assert(typeof UpdateAutonomousDatabaseInput$ === "object");
 assert(typeof UpdateAutonomousDatabaseOutput$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureInput$ === "object");
 assert(typeof UpdateCloudExadataInfrastructureOutput$ === "object");
+assert(typeof UpdateExadbVmClusterInput$ === "object");
+assert(typeof UpdateExadbVmClusterOutput$ === "object");
+assert(typeof UpdateExascaleDbStorageVaultInput$ === "object");
+assert(typeof UpdateExascaleDbStorageVaultOutput$ === "object");
 assert(typeof UpdateOdbNetworkInput$ === "object");
 assert(typeof UpdateOdbNetworkOutput$ === "object");
 assert(typeof UpdateOdbPeeringConnectionInput$ === "object");
@@ -812,6 +936,7 @@ assert(typeof DiskRedundancy === "object");
 assert(typeof EncryptionKeyProvider === "object");
 assert(typeof EncryptionKeyProviderInput === "object");
 assert(typeof ExternalIdType === "object");
+assert(typeof GridImageType === "object");
 assert(typeof IamRoleStatus === "object");
 assert(typeof IormLifecycleState === "object");
 assert(typeof LicenseModel === "object");
@@ -831,10 +956,12 @@ assert(typeof RefreshableMode === "object");
 assert(typeof RefreshableStatus === "object");
 assert(typeof RepeatCadence === "object");
 assert(typeof ResourceStatus === "object");
+assert(typeof ShapeAttribute === "object");
 assert(typeof ShapeType === "object");
 assert(typeof SourceType === "object");
 assert(typeof StandbyAllowlistedIpsSource === "object");
 assert(typeof SupportedAwsIntegration === "object");
+assert(typeof UpdateAction === "object");
 assert(typeof ValidationExceptionReason === "object");
 assert(typeof VpcEndpointType === "object");
 assert(typeof WalletPasswordSource === "object");
@@ -869,6 +996,9 @@ assert(typeof paginateListCloudVmClusters === "function");
 assert(typeof paginateListDbNodes === "function");
 assert(typeof paginateListDbServers === "function");
 assert(typeof paginateListDbSystemShapes === "function");
+assert(typeof paginateListExadbVmClusters === "function");
+assert(typeof paginateListExascaleDbStorageVaults === "function");
+assert(typeof paginateListGiMinorVersions === "function");
 assert(typeof paginateListGiVersions === "function");
 assert(typeof paginateListOdbNetworks === "function");
 assert(typeof paginateListOdbPeeringConnections === "function");

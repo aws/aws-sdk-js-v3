@@ -25,6 +25,7 @@ import type {
   EncryptionKeyProvider,
   EncryptionKeyProviderInput,
   ExternalIdType,
+  GridImageType,
   IamRoleStatus,
   IormLifecycleState,
   LicenseModel,
@@ -44,10 +45,12 @@ import type {
   RefreshableStatus,
   RepeatCadence,
   ResourceStatus,
+  ShapeAttribute,
   ShapeType,
   SourceType,
   StandbyAllowlistedIpsSource,
   SupportedAwsIntegration,
+  UpdateAction,
   VpcEndpointType,
   WalletPasswordSource,
   WalletType,
@@ -258,6 +261,52 @@ export interface AssociateIamRoleToResourceInput {
  * @public
  */
 export interface AssociateIamRoleToResourceOutput {}
+
+/**
+ * @public
+ */
+export interface AssociateVirtualMachinesToExadbVmClusterInput {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster to add virtual machines to.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+
+  /**
+   * <p>The desired number of nodes in the Exascale VM cluster after the association.</p>
+   * @public
+   */
+  desiredNodeCount: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AssociateVirtualMachinesToExadbVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
 
 /**
  * <p>The Oracle Application Express (APEX) details for an Autonomous Database.</p>
@@ -6632,7 +6681,7 @@ export interface CloudVmCluster {
   domain?: string | undefined;
 
   /**
-   * <p>The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.</p>
+   * <p>The fully qualified domain name (FQDN) of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.</p>
    * @public
    */
   scanDnsName?: string | undefined;
@@ -6896,7 +6945,7 @@ export interface CloudVmClusterSummary {
   domain?: string | undefined;
 
   /**
-   * <p>The FQDN of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.</p>
+   * <p>The fully qualified domain name (FQDN) of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the VM cluster.</p>
    * @public
    */
   scanDnsName?: string | undefined;
@@ -7051,7 +7100,7 @@ export interface CreateCloudVmClusterInput {
   dataStorageSizeInTBs?: number | undefined;
 
   /**
-   * <p>The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster.</p>
+   * <p>The amount of local node storage, in gigabytes (GB), to allocate for the VM cluster.</p>
    * @public
    */
   dbNodeStorageSizeInGBs?: number | undefined;
@@ -7087,7 +7136,7 @@ export interface CreateCloudVmClusterInput {
   licenseModel?: LicenseModel | undefined;
 
   /**
-   * <p>The amount of memory, in gigabytes (GBs), to allocate for the VM cluster.</p>
+   * <p>The amount of memory, in gigabytes (GB), to allocate for the VM cluster.</p>
    * @public
    */
   memorySizeInGBs?: number | undefined;
@@ -7222,6 +7271,266 @@ export interface ListCloudVmClustersOutput {
    * @public
    */
   cloudVmClusters: CloudVmClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExadbVmClusterInput {
+  /**
+   * <p>A user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The number of ECPUs to enable for the Exascale VM cluster.</p>
+   * @public
+   */
+  enabledEcpuCount: number | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault for this Exascale VM cluster.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+
+  /**
+   * <p>The Grid Infrastructure software image ID for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageId: string | undefined;
+
+  /**
+   * <p>The host name for the Exascale VM cluster.</p>
+   * @public
+   */
+  hostname: string | undefined;
+
+  /**
+   * <p>The number of nodes in the Exascale VM cluster.</p>
+   * @public
+   */
+  nodeCount: number | undefined;
+
+  /**
+   * <p>The unique identifier of the ODB network for the Exascale VM cluster.</p>
+   * @public
+   */
+  odbNetworkId: string | undefined;
+
+  /**
+   * <p>The shape of the Exascale VM cluster.</p>
+   * @public
+   */
+  shape: string | undefined;
+
+  /**
+   * <p>The public key portion of one or more key pairs used for SSH access to the Exascale VM cluster.</p>
+   * @public
+   */
+  sshPublicKeys: string[] | undefined;
+
+  /**
+   * <p>The total number of ECPUs for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalEcpuCount: number | undefined;
+
+  /**
+   * <p>The total amount of file system storage, in gigabytes (GB), for the Exascale VM cluster.</p>
+   * @public
+   */
+  vmFileSystemStorageTotalSizeInGBs: number | undefined;
+
+  /**
+   * <p>A name for the Grid Infrastructure cluster. The name isn't case sensitive.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The set of preferences for the various diagnostic collection options for the Exascale VM cluster.</p>
+   * @public
+   */
+  dataCollectionOptions?: DataCollectionOptions | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the Exascale VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The port number for TCP connections to the single client access name (SCAN) listener.</p>
+   * @public
+   */
+  scanListenerPortTcp?: number | undefined;
+
+  /**
+   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener.</p>
+   * @public
+   */
+  scanListenerPortTcpSsl?: number | undefined;
+
+  /**
+   * <p>The shape attribute for the Exascale VM cluster.</p>
+   * @public
+   */
+  shapeAttribute?: ShapeAttribute | undefined;
+
+  /**
+   * <p>The version of the operating system of the image for the Exascale VM cluster.</p>
+   * @public
+   */
+  systemVersion?: string | undefined;
+
+  /**
+   * <p>The list of resource tags to apply to the Exascale VM cluster.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time zone for the Exascale VM cluster.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates one and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExadbVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExascaleDbStorageVaultInput {
+  /**
+   * <p>A user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName: string | undefined;
+
+  /**
+   * <p>The total size of the high-capacity database storage, in gigabytes (GB), for the Exascale storage vault.</p>
+   * @public
+   */
+  highCapacityDatabaseStorageTotalSizeInGBs: number | undefined;
+
+  /**
+   * <p>The additional flash cache percentage for the Exascale storage vault.</p>
+   * @public
+   */
+  additionalFlashCacheInPercent?: number | undefined;
+
+  /**
+   * <p>The autoscale limit in gigabytes (GB) for the Exascale storage vault.</p>
+   * @public
+   */
+  autoscaleLimitInGBs?: number | undefined;
+
+  /**
+   * <p>The Availability Zone ID for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The Availability Zone for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>A description of the Exascale storage vault.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Specifies whether autoscaling is enabled for the Exascale storage vault.</p>
+   * @public
+   */
+  isAutoscaleEnabled?: boolean | undefined;
+
+  /**
+   * <p>The list of resource tags to apply to the Exascale storage vault.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time zone for the Exascale storage vault.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, the Amazon Web Services SDK automatically generates one and uses it for the request to ensure idempotency. The client token is valid for up to 24 hours after it's first used.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExascaleDbStorageVaultOutput {
+  /**
+   * <p>The user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale storage vault.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale storage vault.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
 }
 
 /**
@@ -7520,7 +7829,7 @@ export interface DbNode {
   cpuCoreCount?: number | undefined;
 
   /**
-   * <p>The amount of local node storage, in gigabytes (GBs), that's allocated on the DB node.</p>
+   * <p>The amount of local node storage, in gigabytes (GB), that's allocated on the DB node.</p>
    * @public
    */
   dbNodeStorageSizeInGBs?: number | undefined;
@@ -7801,10 +8110,16 @@ export interface DbNodeSummary {
  */
 export interface GetDbNodeInput {
   /**
-   * <p>The unique identifier of the VM cluster that contains the DB node.</p>
+   * <p>The unique identifier of the VM cluster that contains the DB node. You must specify either this parameter or <code>exadbVmClusterId</code>.</p>
    * @public
    */
-  cloudVmClusterId: string | undefined;
+  cloudVmClusterId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster that contains the DB node. You must specify either this parameter or <code>cloudVmClusterId</code>.</p>
+   * @public
+   */
+  exadbVmClusterId?: string | undefined;
 
   /**
    * <p>The unique identifier of the DB node to retrieve information about.</p>
@@ -7841,10 +8156,16 @@ export interface ListDbNodesInput {
   nextToken?: string | undefined;
 
   /**
-   * <p>The unique identifier of the VM cluster.</p>
+   * <p>The unique identifier of the VM cluster. You must specify either this parameter or <code>exadbVmClusterId</code>.</p>
    * @public
    */
-  cloudVmClusterId: string | undefined;
+  cloudVmClusterId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster. You must specify either this parameter or <code>cloudVmClusterId</code>.</p>
+   * @public
+   */
+  exadbVmClusterId?: string | undefined;
 }
 
 /**
@@ -7869,10 +8190,16 @@ export interface ListDbNodesOutput {
  */
 export interface RebootDbNodeInput {
   /**
-   * <p>The unique identifier of the VM cluster that contains the DB node to reboot.</p>
+   * <p>The unique identifier of the VM cluster that contains the DB node to reboot. You must specify either this parameter or <code>exadbVmClusterId</code>.</p>
    * @public
    */
-  cloudVmClusterId: string | undefined;
+  cloudVmClusterId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster that contains the DB node to reboot. You must specify either this parameter or <code>cloudVmClusterId</code>.</p>
+   * @public
+   */
+  exadbVmClusterId?: string | undefined;
 
   /**
    * <p>The unique identifier of the DB node to reboot.</p>
@@ -7909,10 +8236,16 @@ export interface RebootDbNodeOutput {
  */
 export interface StartDbNodeInput {
   /**
-   * <p>The unique identifier of the VM cluster that contains the DB node to start.</p>
+   * <p>The unique identifier of the VM cluster that contains the DB node to start. You must specify either this parameter or <code>exadbVmClusterId</code>.</p>
    * @public
    */
-  cloudVmClusterId: string | undefined;
+  cloudVmClusterId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster that contains the DB node to start. You must specify either this parameter or <code>cloudVmClusterId</code>.</p>
+   * @public
+   */
+  exadbVmClusterId?: string | undefined;
 
   /**
    * <p>The unique identifier of the DB node to start.</p>
@@ -7949,10 +8282,16 @@ export interface StartDbNodeOutput {
  */
 export interface StopDbNodeInput {
   /**
-   * <p>The unique identifier of the VM cluster that contains the DB node to stop.</p>
+   * <p>The unique identifier of the VM cluster that contains the DB node to stop. You must specify either this parameter or <code>exadbVmClusterId</code>.</p>
    * @public
    */
-  cloudVmClusterId: string | undefined;
+  cloudVmClusterId?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster that contains the DB node to stop. You must specify either this parameter or <code>cloudVmClusterId</code>.</p>
+   * @public
+   */
+  exadbVmClusterId?: string | undefined;
 
   /**
    * <p>The unique identifier of the DB node to stop.</p>
@@ -8116,6 +8455,12 @@ export interface DbSystemShapeSummary {
   shapeType?: ShapeType | undefined;
 
   /**
+   * <p>If provided and applicable, return DB System shape parameters based on the shape attribute provided.</p>
+   * @public
+   */
+  shapeAttributes?: ShapeAttribute[] | undefined;
+
+  /**
    * <p>The name of the shape.</p>
    * @public
    */
@@ -8133,6 +8478,38 @@ export interface DbSystemShapeSummary {
    */
   areServerTypesSupported?: boolean | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteExadbVmClusterInput {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster to delete.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExadbVmClusterOutput {}
+
+/**
+ * @public
+ */
+export interface DeleteExascaleDbStorageVaultInput {
+  /**
+   * <p>The unique identifier of the Exascale storage vault to delete.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExascaleDbStorageVaultOutput {}
 
 /**
  * @public
@@ -8199,6 +8576,1192 @@ export interface DisassociateIamRoleFromResourceInput {
  * @public
  */
 export interface DisassociateIamRoleFromResourceOutput {}
+
+/**
+ * @public
+ */
+export interface DisassociateVirtualMachinesFromExadbVmClusterInput {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster to remove virtual machines from.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+
+  /**
+   * <p>The list of DB node IDs to remove from the Exascale VM cluster.</p>
+   * @public
+   */
+  dbNodeIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisassociateVirtualMachinesFromExadbVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
+
+/**
+ * <p>Storage details for an Exascale VM cluster.</p>
+ * @public
+ */
+export interface ExadbVmClusterStorageDetails {
+  /**
+   * <p>The total storage size, in gigabytes (GB).</p>
+   * @public
+   */
+  totalSizeInGBs?: number | undefined;
+}
+
+/**
+ * <p>Information about an Exascale VM cluster.</p>
+ * @public
+ */
+export interface ExadbVmCluster {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+
+  /**
+   * <p>The name of the Grid Infrastructure (GI) cluster.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The date and time when the Exascale VM cluster was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The set of diagnostic collection options enabled for the Exascale VM cluster.</p>
+   * @public
+   */
+  dataCollectionOptions?: DataCollectionOptions | undefined;
+
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The domain of the Exascale VM cluster.</p>
+   * @public
+   */
+  domain?: string | undefined;
+
+  /**
+   * <p>The number of elastic compute processing units (ECPUs) enabled on the Exascale VM cluster.</p>
+   * @public
+   */
+  enabledEcpuCount?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The software version of the Oracle Grid Infrastructure (GI) for the Exascale VM cluster.</p>
+   * @public
+   */
+  giVersion?: string | undefined;
+
+  /**
+   * <p>The Grid Infrastructure software image ID for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageId?: string | undefined;
+
+  /**
+   * <p>The type of Grid Infrastructure image for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageType?: GridImageType | undefined;
+
+  /**
+   * <p>The host name for the Exascale VM cluster.</p>
+   * @public
+   */
+  hostname?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
+
+  /**
+   * <p>The I/O Resource Management (IORM) configuration cache details for the Exascale VM cluster.</p>
+   * @public
+   */
+  iormConfigCache?: ExadataIormConfig | undefined;
+
+  /**
+   * <p>The Oracle Cloud ID (OCID) of the last maintenance update history entry.</p>
+   * @public
+   */
+  lastUpdateHistoryEntryId?: string | undefined;
+
+  /**
+   * <p>The Oracle license model applied to the Exascale VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The port number configured for the listener on the Exascale VM cluster.</p>
+   * @public
+   */
+  listenerPort?: number | undefined;
+
+  /**
+   * <p>The amount of memory, in gigabytes (GB), that's allocated for the Exascale VM cluster.</p>
+   * @public
+   */
+  memorySizeInGBs?: number | undefined;
+
+  /**
+   * <p>The number of nodes in the Exascale VM cluster.</p>
+   * @public
+   */
+  nodeCount?: number | undefined;
+
+  /**
+   * <p>The OCID of the Exascale VM cluster.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The name of the OCI resource anchor for the Exascale VM cluster.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The HTTPS link to the Exascale VM cluster in Oracle Cloud Infrastructure (OCI).</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ODB network for the Exascale VM cluster.</p>
+   * @public
+   */
+  odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The amount of progress made on the current operation on the Exascale VM cluster, expressed as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanDnsName?: string | undefined;
+
+  /**
+   * <p>The OCID of the DNS record for the SCAN IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanDnsRecordId?: string | undefined;
+
+  /**
+   * <p>The OCID of the SCAN IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanIpIds?: string[] | undefined;
+
+  /**
+   * <p>The port number for TCP connections to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * @public
+   */
+  scanListenerPortTcp?: number | undefined;
+
+  /**
+   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * @public
+   */
+  scanListenerPortTcpSsl?: number | undefined;
+
+  /**
+   * <p>The hardware model name of the Exadata infrastructure that's running the Exascale VM cluster.</p>
+   * @public
+   */
+  shape?: string | undefined;
+
+  /**
+   * <p>The shape attribute for the Exascale VM cluster.</p>
+   * @public
+   */
+  shapeAttribute?: ShapeAttribute | undefined;
+
+  /**
+   * <p>The snapshot file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  snapshotFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+
+  /**
+   * <p>The public key portion of one or more key pairs used for SSH access to the Exascale VM cluster.</p>
+   * @public
+   */
+  sshPublicKeys?: string[] | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The operating system version of the image chosen for the Exascale VM cluster.</p>
+   * @public
+   */
+  systemVersion?: string | undefined;
+
+  /**
+   * <p>The time zone of the Exascale VM cluster.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+
+  /**
+   * <p>The total number of ECPUs for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalEcpuCount?: number | undefined;
+
+  /**
+   * <p>The total file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+
+  /**
+   * <p>The virtual IP (VIP) addresses associated with the Exascale VM cluster. One VIP address is assigned per node to support failover. If a node fails, its VIP is reassigned to another active node in the cluster.</p>
+   * @public
+   */
+  vipIds?: string[] | undefined;
+
+  /**
+   * <p>The VM file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  vmFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+}
+
+/**
+ * <p>Summary information about an Exascale VM cluster.</p>
+ * @public
+ */
+export interface ExadbVmClusterSummary {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+
+  /**
+   * <p>The name of the Grid Infrastructure (GI) cluster.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The date and time when the Exascale VM cluster was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The set of diagnostic collection options enabled for the Exascale VM cluster.</p>
+   * @public
+   */
+  dataCollectionOptions?: DataCollectionOptions | undefined;
+
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The domain of the Exascale VM cluster.</p>
+   * @public
+   */
+  domain?: string | undefined;
+
+  /**
+   * <p>The number of elastic compute processing units (ECPUs) enabled on the Exascale VM cluster.</p>
+   * @public
+   */
+  enabledEcpuCount?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The software version of the Oracle Grid Infrastructure (GI) for the Exascale VM cluster.</p>
+   * @public
+   */
+  giVersion?: string | undefined;
+
+  /**
+   * <p>The Grid Infrastructure software image ID for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageId?: string | undefined;
+
+  /**
+   * <p>The type of Grid Infrastructure image for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageType?: GridImageType | undefined;
+
+  /**
+   * <p>The host name for the Exascale VM cluster.</p>
+   * @public
+   */
+  hostname?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Identity and Access Management (IAM) service roles associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  iamRoles?: IamRole[] | undefined;
+
+  /**
+   * <p>The I/O Resource Management (IORM) configuration cache details for the Exascale VM cluster.</p>
+   * @public
+   */
+  iormConfigCache?: ExadataIormConfig | undefined;
+
+  /**
+   * <p>The Oracle Cloud ID (OCID) of the last maintenance update history entry.</p>
+   * @public
+   */
+  lastUpdateHistoryEntryId?: string | undefined;
+
+  /**
+   * <p>The Oracle license model applied to the Exascale VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The port number configured for the listener on the Exascale VM cluster.</p>
+   * @public
+   */
+  listenerPort?: number | undefined;
+
+  /**
+   * <p>The amount of memory, in gigabytes (GB), that's allocated for the Exascale VM cluster.</p>
+   * @public
+   */
+  memorySizeInGBs?: number | undefined;
+
+  /**
+   * <p>The number of nodes in the Exascale VM cluster.</p>
+   * @public
+   */
+  nodeCount?: number | undefined;
+
+  /**
+   * <p>The OCID of the Exascale VM cluster.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The name of the OCI resource anchor for the Exascale VM cluster.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The HTTPS link to the Exascale VM cluster in Oracle Cloud Infrastructure (OCI).</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the ODB network associated with this Exascale VM cluster.</p>
+   * @public
+   */
+  odbNetworkArn?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the ODB network for the Exascale VM cluster.</p>
+   * @public
+   */
+  odbNetworkId?: string | undefined;
+
+  /**
+   * <p>The amount of progress made on the current operation on the Exascale VM cluster, expressed as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The fully qualified domain name (FQDN) of the DNS record for the Single Client Access Name (SCAN) IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanDnsName?: string | undefined;
+
+  /**
+   * <p>The OCID of the DNS record for the SCAN IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanDnsRecordId?: string | undefined;
+
+  /**
+   * <p>The OCID of the SCAN IP addresses that are associated with the Exascale VM cluster.</p>
+   * @public
+   */
+  scanIpIds?: string[] | undefined;
+
+  /**
+   * <p>The port number for TCP connections to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * @public
+   */
+  scanListenerPortTcp?: number | undefined;
+
+  /**
+   * <p>The port number for TCP connections with SSL to the single client access name (SCAN) listener for the Exascale VM cluster.</p>
+   * @public
+   */
+  scanListenerPortTcpSsl?: number | undefined;
+
+  /**
+   * <p>The hardware model name of the Exadata infrastructure that's running the Exascale VM cluster.</p>
+   * @public
+   */
+  shape?: string | undefined;
+
+  /**
+   * <p>The shape attribute for the Exascale VM cluster.</p>
+   * @public
+   */
+  shapeAttribute?: ShapeAttribute | undefined;
+
+  /**
+   * <p>The snapshot file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  snapshotFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+
+  /**
+   * <p>The public key portion of one or more key pairs used for SSH access to the Exascale VM cluster.</p>
+   * @public
+   */
+  sshPublicKeys?: string[] | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The operating system version of the image chosen for the Exascale VM cluster.</p>
+   * @public
+   */
+  systemVersion?: string | undefined;
+
+  /**
+   * <p>The time zone of the Exascale VM cluster.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+
+  /**
+   * <p>The total number of ECPUs for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalEcpuCount?: number | undefined;
+
+  /**
+   * <p>The total file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+
+  /**
+   * <p>The virtual IP (VIP) addresses associated with the Exascale VM cluster. One VIP address is assigned per node to support failover. If a node fails, its VIP is reassigned to another active node in the cluster.</p>
+   * @public
+   */
+  vipIds?: string[] | undefined;
+
+  /**
+   * <p>The VM file system storage details for the Exascale VM cluster.</p>
+   * @public
+   */
+  vmFileSystemStorage?: ExadbVmClusterStorageDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExadbVmClusterInput {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExadbVmClusterOutput {
+  /**
+   * <p>The Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmCluster: ExadbVmCluster | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExadbVmClustersInput {
+  /**
+   * <p>The unique identifier of the Exascale storage vault to list the associated Exascale VM clusters.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId?: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExadbVmClustersOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of Exascale VM clusters.</p>
+   * @public
+   */
+  exadbVmClusters: ExadbVmClusterSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExadbVmClusterInput {
+  /**
+   * <p>The unique identifier of the Exascale VM cluster to update.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+
+  /**
+   * <p>The set of preferences for the various diagnostic collection options for the Exascale VM cluster.</p>
+   * @public
+   */
+  dataCollectionOptions?: DataCollectionOptions | undefined;
+
+  /**
+   * <p>A new user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The number of ECPUs to enable for the Exascale VM cluster.</p>
+   * @public
+   */
+  enabledEcpuCount?: number | undefined;
+
+  /**
+   * <p>The Grid Infrastructure software image ID for the Exascale VM cluster.</p>
+   * @public
+   */
+  gridImageId?: string | undefined;
+
+  /**
+   * <p>The Oracle license model to apply to the Exascale VM cluster.</p>
+   * @public
+   */
+  licenseModel?: LicenseModel | undefined;
+
+  /**
+   * <p>The public key portion of one or more key pairs used for SSH access to the Exascale VM cluster.</p>
+   * @public
+   */
+  sshPublicKeys?: string[] | undefined;
+
+  /**
+   * <p>The version of the operating system of the image for the Exascale VM cluster.</p>
+   * @public
+   */
+  systemVersion?: string | undefined;
+
+  /**
+   * <p>The total number of ECPUs for the Exascale VM cluster.</p>
+   * @public
+   */
+  totalEcpuCount?: number | undefined;
+
+  /**
+   * <p>The update action to perform on the Exascale VM cluster.</p>
+   * @public
+   */
+  updateAction?: UpdateAction | undefined;
+
+  /**
+   * <p>The total amount of file system storage, in gigabytes (GB), for the Exascale VM cluster.</p>
+   * @public
+   */
+  vmFileSystemStorageTotalSizeInGBs?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExadbVmClusterOutput {
+  /**
+   * <p>The user-friendly name for the Exascale VM cluster.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale VM cluster.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale VM cluster.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale VM cluster.</p>
+   * @public
+   */
+  exadbVmClusterId: string | undefined;
+}
+
+/**
+ * <p>The storage details for an Exascale storage vault.</p>
+ * @public
+ */
+export interface ExascaleDbStorageDetails {
+  /**
+   * <p>The available storage size, in gigabytes (GB).</p>
+   * @public
+   */
+  availableSizeInGBs?: number | undefined;
+
+  /**
+   * <p>The total storage size, in gigabytes (GB).</p>
+   * @public
+   */
+  totalSizeInGBs?: number | undefined;
+}
+
+/**
+ * <p>Information about an Exascale storage vault.</p>
+ * @public
+ */
+export interface ExascaleDbStorageVault {
+  /**
+   * <p>The unique identifier of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+
+  /**
+   * <p>The additional flash cache percentage for the Exascale storage vault.</p>
+   * @public
+   */
+  additionalFlashCacheInPercent?: number | undefined;
+
+  /**
+   * <p>The list of shape attributes attached to the Exascale storage vault.</p>
+   * @public
+   */
+  attachedShapeAttributes?: ShapeAttribute[] | undefined;
+
+  /**
+   * <p>The autoscale limit in gigabytes (GB) for the Exascale storage vault.</p>
+   * @public
+   */
+  autoscaleLimitInGBs?: number | undefined;
+
+  /**
+   * <p>The Availability Zone for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The date and time when the Exascale storage vault was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The description of the Exascale storage vault.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The list of Amazon Resource Names (ARNs) of the VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterArns?: string[] | undefined;
+
+  /**
+   * <p>The number of VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterCount?: number | undefined;
+
+  /**
+   * <p>The list of unique identifiers of the VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The high-capacity database storage details for the Exascale storage vault.</p>
+   * @public
+   */
+  highCapacityDatabaseStorage?: ExascaleDbStorageDetails | undefined;
+
+  /**
+   * <p>Specifies whether autoscaling is enabled for the Exascale storage vault.</p>
+   * @public
+   */
+  isAutoscaleEnabled?: boolean | undefined;
+
+  /**
+   * <p>The OCID of the Exascale storage vault.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The name of the OCI resource anchor for the Exascale storage vault.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The HTTPS link to the Exascale storage vault in Oracle Cloud Infrastructure (OCI).</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The amount of progress made on the current operation on the Exascale storage vault, expressed as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The current status of the Exascale storage vault.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale storage vault.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The time zone of the Exascale storage vault.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an Exascale storage vault.</p>
+ * @public
+ */
+export interface ExascaleDbStorageVaultSummary {
+  /**
+   * <p>The unique identifier of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+
+  /**
+   * <p>The additional flash cache percentage for the Exascale storage vault.</p>
+   * @public
+   */
+  additionalFlashCacheInPercent?: number | undefined;
+
+  /**
+   * <p>The list of shape attributes attached to the Exascale storage vault.</p>
+   * @public
+   */
+  attachedShapeAttributes?: ShapeAttribute[] | undefined;
+
+  /**
+   * <p>The autoscale limit in gigabytes (GB) for the Exascale storage vault.</p>
+   * @public
+   */
+  autoscaleLimitInGBs?: number | undefined;
+
+  /**
+   * <p>The Availability Zone for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID for the Exascale storage vault.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The date and time when the Exascale storage vault was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The description of the Exascale storage vault.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The list of Amazon Resource Names (ARNs) of the VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterArns?: string[] | undefined;
+
+  /**
+   * <p>The number of VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterCount?: number | undefined;
+
+  /**
+   * <p>The list of unique identifiers of the VM clusters associated with this Exascale storage vault.</p>
+   * @public
+   */
+  vmClusterIds?: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultArn?: string | undefined;
+
+  /**
+   * <p>The high-capacity database storage details for the Exascale storage vault.</p>
+   * @public
+   */
+  highCapacityDatabaseStorage?: ExascaleDbStorageDetails | undefined;
+
+  /**
+   * <p>Specifies whether autoscaling is enabled for the Exascale storage vault.</p>
+   * @public
+   */
+  isAutoscaleEnabled?: boolean | undefined;
+
+  /**
+   * <p>The OCID of the Exascale storage vault.</p>
+   * @public
+   */
+  ocid?: string | undefined;
+
+  /**
+   * <p>The name of the OCI resource anchor for the Exascale storage vault.</p>
+   * @public
+   */
+  ociResourceAnchorName?: string | undefined;
+
+  /**
+   * <p>The HTTPS link to the Exascale storage vault in Oracle Cloud Infrastructure (OCI).</p>
+   * @public
+   */
+  ociUrl?: string | undefined;
+
+  /**
+   * <p>The amount of progress made on the current operation on the Exascale storage vault, expressed as a percentage.</p>
+   * @public
+   */
+  percentProgress?: number | undefined;
+
+  /**
+   * <p>The current status of the Exascale storage vault.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale storage vault.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The time zone of the Exascale storage vault.</p>
+   * @public
+   */
+  timeZone?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExascaleDbStorageVaultInput {
+  /**
+   * <p>The unique identifier of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetExascaleDbStorageVaultOutput {
+  /**
+   * <p>The Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVault: ExascaleDbStorageVault | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExascaleDbStorageVaultsInput {
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExascaleDbStorageVaultsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of Exascale storage vaults.</p>
+   * @public
+   */
+  exascaleDbStorageVaults: ExascaleDbStorageVaultSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExascaleDbStorageVaultInput {
+  /**
+   * <p>The unique identifier of the Exascale storage vault to update.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+
+  /**
+   * <p>The additional flash cache percentage for the Exascale storage vault.</p>
+   * @public
+   */
+  additionalFlashCacheInPercent?: number | undefined;
+
+  /**
+   * <p>The autoscale limit in gigabytes (GB) for the Exascale storage vault.</p>
+   * @public
+   */
+  autoscaleLimitInGBs?: number | undefined;
+
+  /**
+   * <p>A new description for the Exascale storage vault.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A new user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The total size of the high-capacity database storage, in gigabytes (GB), for the Exascale storage vault.</p>
+   * @public
+   */
+  highCapacityDatabaseStorageTotalSizeInGBs?: number | undefined;
+
+  /**
+   * <p>Specifies whether autoscaling is enabled for the Exascale storage vault.</p>
+   * @public
+   */
+  isAutoscaleEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExascaleDbStorageVaultOutput {
+  /**
+   * <p>The user-friendly name for the Exascale storage vault.</p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The current status of the Exascale storage vault.</p>
+   * @public
+   */
+  status?: ResourceStatus | undefined;
+
+  /**
+   * <p>Additional information about the status of the Exascale storage vault.</p>
+   * @public
+   */
+  statusReason?: string | undefined;
+
+  /**
+   * <p>The unique identifier of the Exascale storage vault.</p>
+   * @public
+   */
+  exascaleDbStorageVaultId: string | undefined;
+}
 
 /**
  * @public
@@ -8825,6 +10388,24 @@ export interface GetOdbPeeringConnectionOutput {
 }
 
 /**
+ * <p>Summary information about an Oracle Grid Infrastructure (GI) minor version.</p>
+ * @public
+ */
+export interface GiMinorVersionSummary {
+  /**
+   * <p>The GI minor version.</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The Grid Infrastructure software image ID for this minor version.</p>
+   * @public
+   */
+  gridImageId?: string | undefined;
+}
+
+/**
  * <p>Information about a specific version of Oracle Grid Infrastructure (GI) software that can be installed on a VM cluster.</p>
  * @public
  */
@@ -8965,6 +10546,12 @@ export interface ListDbSystemShapesInput {
    * @public
    */
   availabilityZoneId?: string | undefined;
+
+  /**
+   * <p>The shape family to filter results by.</p>
+   * @public
+   */
+  shapeFamily?: string | undefined;
 }
 
 /**
@@ -8982,6 +10569,64 @@ export interface ListDbSystemShapesOutput {
    * @public
    */
   dbSystemShapes: DbSystemShapeSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGiMinorVersionsInput {
+  /**
+   * <p>The Oracle Grid Infrastructure (GI) major version.</p>
+   * @public
+   */
+  giVersion: string | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request. To get the next page of items, make another request with the token returned in the output.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The shape family for the GI minor version.</p>
+   * @public
+   */
+  shapeFamily?: string | undefined;
+
+  /**
+   * <p>The Availability Zone to filter GI minor versions.</p>
+   * @public
+   */
+  availabilityZone?: string | undefined;
+
+  /**
+   * <p>The Availability Zone ID to filter GI minor versions.</p>
+   * @public
+   */
+  availabilityZoneId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGiMinorVersionsOutput {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there are no more items to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of GI minor versions.</p>
+   * @public
+   */
+  giMinorVersions: GiMinorVersionSummary[] | undefined;
 }
 
 /**

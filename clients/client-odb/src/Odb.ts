@@ -13,6 +13,11 @@ import {
   AssociateIamRoleToResourceCommand,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import {
+  type AssociateVirtualMachinesToExadbVmClusterCommandInput,
+  type AssociateVirtualMachinesToExadbVmClusterCommandOutput,
+  AssociateVirtualMachinesToExadbVmClusterCommand,
+} from "./commands/AssociateVirtualMachinesToExadbVmClusterCommand";
+import {
   type CreateAutonomousDatabaseBackupCommandInput,
   type CreateAutonomousDatabaseBackupCommandOutput,
   CreateAutonomousDatabaseBackupCommand,
@@ -42,6 +47,16 @@ import {
   type CreateCloudVmClusterCommandOutput,
   CreateCloudVmClusterCommand,
 } from "./commands/CreateCloudVmClusterCommand";
+import {
+  type CreateExadbVmClusterCommandInput,
+  type CreateExadbVmClusterCommandOutput,
+  CreateExadbVmClusterCommand,
+} from "./commands/CreateExadbVmClusterCommand";
+import {
+  type CreateExascaleDbStorageVaultCommandInput,
+  type CreateExascaleDbStorageVaultCommandOutput,
+  CreateExascaleDbStorageVaultCommand,
+} from "./commands/CreateExascaleDbStorageVaultCommand";
 import {
   type CreateOdbNetworkCommandInput,
   type CreateOdbNetworkCommandOutput,
@@ -78,6 +93,16 @@ import {
   DeleteCloudVmClusterCommand,
 } from "./commands/DeleteCloudVmClusterCommand";
 import {
+  type DeleteExadbVmClusterCommandInput,
+  type DeleteExadbVmClusterCommandOutput,
+  DeleteExadbVmClusterCommand,
+} from "./commands/DeleteExadbVmClusterCommand";
+import {
+  type DeleteExascaleDbStorageVaultCommandInput,
+  type DeleteExascaleDbStorageVaultCommandOutput,
+  DeleteExascaleDbStorageVaultCommand,
+} from "./commands/DeleteExascaleDbStorageVaultCommand";
+import {
   type DeleteOdbNetworkCommandInput,
   type DeleteOdbNetworkCommandOutput,
   DeleteOdbNetworkCommand,
@@ -92,6 +117,11 @@ import {
   type DisassociateIamRoleFromResourceCommandOutput,
   DisassociateIamRoleFromResourceCommand,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import {
+  type DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
+  type DisassociateVirtualMachinesFromExadbVmClusterCommandOutput,
+  DisassociateVirtualMachinesFromExadbVmClusterCommand,
+} from "./commands/DisassociateVirtualMachinesFromExadbVmClusterCommand";
 import {
   type FailoverAutonomousDatabaseCommandInput,
   type FailoverAutonomousDatabaseCommandOutput,
@@ -138,6 +168,16 @@ import {
   type GetDbServerCommandOutput,
   GetDbServerCommand,
 } from "./commands/GetDbServerCommand";
+import {
+  type GetExadbVmClusterCommandInput,
+  type GetExadbVmClusterCommandOutput,
+  GetExadbVmClusterCommand,
+} from "./commands/GetExadbVmClusterCommand";
+import {
+  type GetExascaleDbStorageVaultCommandInput,
+  type GetExascaleDbStorageVaultCommandOutput,
+  GetExascaleDbStorageVaultCommand,
+} from "./commands/GetExascaleDbStorageVaultCommand";
 import {
   type GetOciOnboardingStatusCommandInput,
   type GetOciOnboardingStatusCommandOutput,
@@ -223,6 +263,21 @@ import {
   type ListDbSystemShapesCommandOutput,
   ListDbSystemShapesCommand,
 } from "./commands/ListDbSystemShapesCommand";
+import {
+  type ListExadbVmClustersCommandInput,
+  type ListExadbVmClustersCommandOutput,
+  ListExadbVmClustersCommand,
+} from "./commands/ListExadbVmClustersCommand";
+import {
+  type ListExascaleDbStorageVaultsCommandInput,
+  type ListExascaleDbStorageVaultsCommandOutput,
+  ListExascaleDbStorageVaultsCommand,
+} from "./commands/ListExascaleDbStorageVaultsCommand";
+import {
+  type ListGiMinorVersionsCommandInput,
+  type ListGiMinorVersionsCommandOutput,
+  ListGiMinorVersionsCommand,
+} from "./commands/ListGiMinorVersionsCommand";
 import {
   type ListGiVersionsCommandInput,
   type ListGiVersionsCommandOutput,
@@ -319,6 +374,16 @@ import {
   UpdateCloudExadataInfrastructureCommand,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
 import {
+  type UpdateExadbVmClusterCommandInput,
+  type UpdateExadbVmClusterCommandOutput,
+  UpdateExadbVmClusterCommand,
+} from "./commands/UpdateExadbVmClusterCommand";
+import {
+  type UpdateExascaleDbStorageVaultCommandInput,
+  type UpdateExascaleDbStorageVaultCommandOutput,
+  UpdateExascaleDbStorageVaultCommand,
+} from "./commands/UpdateExascaleDbStorageVaultCommand";
+import {
   type UpdateOdbNetworkCommandInput,
   type UpdateOdbNetworkCommandOutput,
   UpdateOdbNetworkCommand,
@@ -342,6 +407,9 @@ import { paginateListCloudVmClusters } from "./pagination/ListCloudVmClustersPag
 import { paginateListDbNodes } from "./pagination/ListDbNodesPaginator";
 import { paginateListDbServers } from "./pagination/ListDbServersPaginator";
 import { paginateListDbSystemShapes } from "./pagination/ListDbSystemShapesPaginator";
+import { paginateListExadbVmClusters } from "./pagination/ListExadbVmClustersPaginator";
+import { paginateListExascaleDbStorageVaults } from "./pagination/ListExascaleDbStorageVaultsPaginator";
+import { paginateListGiMinorVersions } from "./pagination/ListGiMinorVersionsPaginator";
 import { paginateListGiVersions } from "./pagination/ListGiVersionsPaginator";
 import { paginateListOdbNetworks } from "./pagination/ListOdbNetworksPaginator";
 import { paginateListOdbPeeringConnections } from "./pagination/ListOdbPeeringConnectionsPaginator";
@@ -350,12 +418,15 @@ import { paginateListSystemVersions } from "./pagination/ListSystemVersionsPagin
 const commands = {
   AcceptMarketplaceRegistrationCommand,
   AssociateIamRoleToResourceCommand,
+  AssociateVirtualMachinesToExadbVmClusterCommand,
   CreateAutonomousDatabaseCommand,
   CreateAutonomousDatabaseBackupCommand,
   CreateAutonomousDatabaseWalletCommand,
   CreateCloudAutonomousVmClusterCommand,
   CreateCloudExadataInfrastructureCommand,
   CreateCloudVmClusterCommand,
+  CreateExadbVmClusterCommand,
+  CreateExascaleDbStorageVaultCommand,
   CreateOdbNetworkCommand,
   CreateOdbPeeringConnectionCommand,
   DeleteAutonomousDatabaseCommand,
@@ -363,9 +434,12 @@ const commands = {
   DeleteCloudAutonomousVmClusterCommand,
   DeleteCloudExadataInfrastructureCommand,
   DeleteCloudVmClusterCommand,
+  DeleteExadbVmClusterCommand,
+  DeleteExascaleDbStorageVaultCommand,
   DeleteOdbNetworkCommand,
   DeleteOdbPeeringConnectionCommand,
   DisassociateIamRoleFromResourceCommand,
+  DisassociateVirtualMachinesFromExadbVmClusterCommand,
   FailoverAutonomousDatabaseCommand,
   GetAutonomousDatabaseCommand,
   GetAutonomousDatabaseBackupCommand,
@@ -376,6 +450,8 @@ const commands = {
   GetCloudVmClusterCommand,
   GetDbNodeCommand,
   GetDbServerCommand,
+  GetExadbVmClusterCommand,
+  GetExascaleDbStorageVaultCommand,
   GetOciOnboardingStatusCommand,
   GetOdbNetworkCommand,
   GetOdbPeeringConnectionCommand,
@@ -393,6 +469,9 @@ const commands = {
   ListDbNodesCommand,
   ListDbServersCommand,
   ListDbSystemShapesCommand,
+  ListExadbVmClustersCommand,
+  ListExascaleDbStorageVaultsCommand,
+  ListGiMinorVersionsCommand,
   ListGiVersionsCommand,
   ListOdbNetworksCommand,
   ListOdbPeeringConnectionsCommand,
@@ -412,6 +491,8 @@ const commands = {
   UpdateAutonomousDatabaseCommand,
   UpdateAutonomousDatabaseBackupCommand,
   UpdateCloudExadataInfrastructureCommand,
+  UpdateExadbVmClusterCommand,
+  UpdateExascaleDbStorageVaultCommand,
   UpdateOdbNetworkCommand,
   UpdateOdbPeeringConnectionCommand,
 };
@@ -429,6 +510,9 @@ const paginators = {
   paginateListDbNodes,
   paginateListDbServers,
   paginateListDbSystemShapes,
+  paginateListExadbVmClusters,
+  paginateListExascaleDbStorageVaults,
+  paginateListGiMinorVersions,
   paginateListGiVersions,
   paginateListOdbNetworks,
   paginateListOdbPeeringConnections,
@@ -468,6 +552,23 @@ export interface Odb {
     args: AssociateIamRoleToResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateIamRoleToResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateVirtualMachinesToExadbVmClusterCommand}
+   */
+  associateVirtualMachinesToExadbVmCluster(
+    args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateVirtualMachinesToExadbVmClusterCommandOutput>;
+  associateVirtualMachinesToExadbVmCluster(
+    args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
+    cb: (err: any, data?: AssociateVirtualMachinesToExadbVmClusterCommandOutput) => void
+  ): void;
+  associateVirtualMachinesToExadbVmCluster(
+    args: AssociateVirtualMachinesToExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateVirtualMachinesToExadbVmClusterCommandOutput) => void
   ): void;
 
   /**
@@ -571,6 +672,40 @@ export interface Odb {
     args: CreateCloudVmClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCloudVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExadbVmClusterCommand}
+   */
+  createExadbVmCluster(
+    args: CreateExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExadbVmClusterCommandOutput>;
+  createExadbVmCluster(
+    args: CreateExadbVmClusterCommandInput,
+    cb: (err: any, data?: CreateExadbVmClusterCommandOutput) => void
+  ): void;
+  createExadbVmCluster(
+    args: CreateExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExadbVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateExascaleDbStorageVaultCommand}
+   */
+  createExascaleDbStorageVault(
+    args: CreateExascaleDbStorageVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExascaleDbStorageVaultCommandOutput>;
+  createExascaleDbStorageVault(
+    args: CreateExascaleDbStorageVaultCommandInput,
+    cb: (err: any, data?: CreateExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+  createExascaleDbStorageVault(
+    args: CreateExascaleDbStorageVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
   /**
@@ -693,6 +828,40 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link DeleteExadbVmClusterCommand}
+   */
+  deleteExadbVmCluster(
+    args: DeleteExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExadbVmClusterCommandOutput>;
+  deleteExadbVmCluster(
+    args: DeleteExadbVmClusterCommandInput,
+    cb: (err: any, data?: DeleteExadbVmClusterCommandOutput) => void
+  ): void;
+  deleteExadbVmCluster(
+    args: DeleteExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExadbVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteExascaleDbStorageVaultCommand}
+   */
+  deleteExascaleDbStorageVault(
+    args: DeleteExascaleDbStorageVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExascaleDbStorageVaultCommandOutput>;
+  deleteExascaleDbStorageVault(
+    args: DeleteExascaleDbStorageVaultCommandInput,
+    cb: (err: any, data?: DeleteExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+  deleteExascaleDbStorageVault(
+    args: DeleteExascaleDbStorageVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteOdbNetworkCommand}
    */
   deleteOdbNetwork(
@@ -741,6 +910,23 @@ export interface Odb {
     args: DisassociateIamRoleFromResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateIamRoleFromResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateVirtualMachinesFromExadbVmClusterCommand}
+   */
+  disassociateVirtualMachinesFromExadbVmCluster(
+    args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateVirtualMachinesFromExadbVmClusterCommandOutput>;
+  disassociateVirtualMachinesFromExadbVmCluster(
+    args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
+    cb: (err: any, data?: DisassociateVirtualMachinesFromExadbVmClusterCommandOutput) => void
+  ): void;
+  disassociateVirtualMachinesFromExadbVmCluster(
+    args: DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateVirtualMachinesFromExadbVmClusterCommandOutput) => void
   ): void;
 
   /**
@@ -911,6 +1097,40 @@ export interface Odb {
     args: GetDbServerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDbServerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetExadbVmClusterCommand}
+   */
+  getExadbVmCluster(
+    args: GetExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExadbVmClusterCommandOutput>;
+  getExadbVmCluster(
+    args: GetExadbVmClusterCommandInput,
+    cb: (err: any, data?: GetExadbVmClusterCommandOutput) => void
+  ): void;
+  getExadbVmCluster(
+    args: GetExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExadbVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetExascaleDbStorageVaultCommand}
+   */
+  getExascaleDbStorageVault(
+    args: GetExascaleDbStorageVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetExascaleDbStorageVaultCommandOutput>;
+  getExascaleDbStorageVault(
+    args: GetExascaleDbStorageVaultCommandInput,
+    cb: (err: any, data?: GetExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+  getExascaleDbStorageVault(
+    args: GetExascaleDbStorageVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetExascaleDbStorageVaultCommandOutput) => void
   ): void;
 
   /**
@@ -1162,6 +1382,7 @@ export interface Odb {
   /**
    * @see {@link ListDbNodesCommand}
    */
+  listDbNodes(): Promise<ListDbNodesCommandOutput>;
   listDbNodes(
     args: ListDbNodesCommandInput,
     options?: __HttpHandlerOptions
@@ -1209,6 +1430,59 @@ export interface Odb {
     args: ListDbSystemShapesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDbSystemShapesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExadbVmClustersCommand}
+   */
+  listExadbVmClusters(): Promise<ListExadbVmClustersCommandOutput>;
+  listExadbVmClusters(
+    args: ListExadbVmClustersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExadbVmClustersCommandOutput>;
+  listExadbVmClusters(
+    args: ListExadbVmClustersCommandInput,
+    cb: (err: any, data?: ListExadbVmClustersCommandOutput) => void
+  ): void;
+  listExadbVmClusters(
+    args: ListExadbVmClustersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExadbVmClustersCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExascaleDbStorageVaultsCommand}
+   */
+  listExascaleDbStorageVaults(): Promise<ListExascaleDbStorageVaultsCommandOutput>;
+  listExascaleDbStorageVaults(
+    args: ListExascaleDbStorageVaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExascaleDbStorageVaultsCommandOutput>;
+  listExascaleDbStorageVaults(
+    args: ListExascaleDbStorageVaultsCommandInput,
+    cb: (err: any, data?: ListExascaleDbStorageVaultsCommandOutput) => void
+  ): void;
+  listExascaleDbStorageVaults(
+    args: ListExascaleDbStorageVaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExascaleDbStorageVaultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListGiMinorVersionsCommand}
+   */
+  listGiMinorVersions(
+    args: ListGiMinorVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListGiMinorVersionsCommandOutput>;
+  listGiMinorVersions(
+    args: ListGiMinorVersionsCommandInput,
+    cb: (err: any, data?: ListGiMinorVersionsCommandOutput) => void
+  ): void;
+  listGiMinorVersions(
+    args: ListGiMinorVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListGiMinorVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -1538,6 +1812,40 @@ export interface Odb {
   ): void;
 
   /**
+   * @see {@link UpdateExadbVmClusterCommand}
+   */
+  updateExadbVmCluster(
+    args: UpdateExadbVmClusterCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExadbVmClusterCommandOutput>;
+  updateExadbVmCluster(
+    args: UpdateExadbVmClusterCommandInput,
+    cb: (err: any, data?: UpdateExadbVmClusterCommandOutput) => void
+  ): void;
+  updateExadbVmCluster(
+    args: UpdateExadbVmClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExadbVmClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateExascaleDbStorageVaultCommand}
+   */
+  updateExascaleDbStorageVault(
+    args: UpdateExascaleDbStorageVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExascaleDbStorageVaultCommandOutput>;
+  updateExascaleDbStorageVault(
+    args: UpdateExascaleDbStorageVaultCommandInput,
+    cb: (err: any, data?: UpdateExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+  updateExascaleDbStorageVault(
+    args: UpdateExascaleDbStorageVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExascaleDbStorageVaultCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateOdbNetworkCommand}
    */
   updateOdbNetwork(
@@ -1688,7 +1996,7 @@ export interface Odb {
    * @returns AsyncIterable of {@link ListDbNodesCommandOutput}.
    */
   paginateListDbNodes(
-    args: ListDbNodesCommandInput,
+    args?: ListDbNodesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDbNodesCommandOutput>;
 
@@ -1713,6 +2021,39 @@ export interface Odb {
     args?: ListDbSystemShapesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDbSystemShapesCommandOutput>;
+
+  /**
+   * @see {@link ListExadbVmClustersCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExadbVmClustersCommandOutput}.
+   */
+  paginateListExadbVmClusters(
+    args?: ListExadbVmClustersCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExadbVmClustersCommandOutput>;
+
+  /**
+   * @see {@link ListExascaleDbStorageVaultsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExascaleDbStorageVaultsCommandOutput}.
+   */
+  paginateListExascaleDbStorageVaults(
+    args?: ListExascaleDbStorageVaultsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExascaleDbStorageVaultsCommandOutput>;
+
+  /**
+   * @see {@link ListGiMinorVersionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListGiMinorVersionsCommandOutput}.
+   */
+  paginateListGiMinorVersions(
+    args: ListGiMinorVersionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListGiMinorVersionsCommandOutput>;
 
   /**
    * @see {@link ListGiVersionsCommand}

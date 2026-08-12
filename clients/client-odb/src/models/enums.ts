@@ -70,6 +70,24 @@ export type SupportedAwsIntegration = (typeof SupportedAwsIntegration)[keyof typ
  * @public
  * @enum
  */
+export const ResourceStatus = {
+  AVAILABLE: "AVAILABLE",
+  FAILED: "FAILED",
+  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
+  PROVISIONING: "PROVISIONING",
+  TERMINATED: "TERMINATED",
+  TERMINATING: "TERMINATING",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const AutonomousMaintenanceScheduleType = {
   EARLY: "EARLY",
   REGULAR: "REGULAR",
@@ -427,24 +445,6 @@ export type AutonomousDatabaseBackupType =
  * @public
  * @enum
  */
-export const ResourceStatus = {
-  AVAILABLE: "AVAILABLE",
-  FAILED: "FAILED",
-  MAINTENANCE_IN_PROGRESS: "MAINTENANCE_IN_PROGRESS",
-  PROVISIONING: "PROVISIONING",
-  TERMINATED: "TERMINATED",
-  TERMINATING: "TERMINATING",
-  UPDATING: "UPDATING",
-} as const;
-/**
- * @public
- */
-export type ResourceStatus = (typeof ResourceStatus)[keyof typeof ResourceStatus];
-
-/**
- * @public
- * @enum
- */
 export const EncryptionKeyProviderInput = {
   AWS_KMS: "AWS_KMS",
   ORACLE_MANAGED: "ORACLE_MANAGED",
@@ -670,6 +670,25 @@ export type Objective = (typeof Objective)[keyof typeof Objective];
  * @public
  * @enum
  */
+export const ShapeAttribute = {
+  /**
+   * <p>Block storage shape attribute.</p>
+   */
+  BLOCK_STORAGE: "BLOCK_STORAGE",
+  /**
+   * <p>Smart storage shape attribute.</p>
+   */
+  SMART_STORAGE: "SMART_STORAGE",
+} as const;
+/**
+ * @public
+ */
+export type ShapeAttribute = (typeof ShapeAttribute)[keyof typeof ShapeAttribute];
+
+/**
+ * @public
+ * @enum
+ */
 export const ManagedResourceStatus = {
   DISABLED: "DISABLED",
   DISABLING: "DISABLING",
@@ -727,6 +746,40 @@ export const ShapeType = {
  * @public
  */
 export type ShapeType = (typeof ShapeType)[keyof typeof ShapeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GridImageType = {
+  /**
+   * <p>A custom grid image.</p>
+   */
+  CUSTOM_IMAGE: "CUSTOM_IMAGE",
+  /**
+   * <p>A release update grid image.</p>
+   */
+  RELEASE_UPDATE: "RELEASE_UPDATE",
+} as const;
+/**
+ * @public
+ */
+export type GridImageType = (typeof GridImageType)[keyof typeof GridImageType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateAction = {
+  NON_ROLLING_APPLY: "NON_ROLLING_APPLY",
+  PRECHECK: "PRECHECK",
+  ROLLBACK: "ROLLBACK",
+  ROLLING_APPLY: "ROLLING_APPLY",
+} as const;
+/**
+ * @public
+ */
+export type UpdateAction = (typeof UpdateAction)[keyof typeof UpdateAction];
 
 /**
  * @public

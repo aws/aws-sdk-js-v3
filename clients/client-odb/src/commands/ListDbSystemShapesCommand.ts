@@ -37,6 +37,7 @@ export interface ListDbSystemShapesCommandOutput extends ListDbSystemShapesOutpu
  *   nextToken: "STRING_VALUE",
  *   availabilityZone: "STRING_VALUE",
  *   availabilityZoneId: "STRING_VALUE",
+ *   shapeFamily: "STRING_VALUE",
  * };
  * const command = new ListDbSystemShapesCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,9 @@ export interface ListDbSystemShapesCommandOutput extends ListDbSystemShapesOutpu
  * //       runtimeMinimumCoreCount: Number("int"),
  * //       shapeFamily: "STRING_VALUE",
  * //       shapeType: "AMD" || "INTEL" || "INTEL_FLEX_X9" || "AMPERE_FLEX_A1",
+ * //       shapeAttributes: [ // ShapeAttributeList
+ * //         "SMART_STORAGE" || "BLOCK_STORAGE",
+ * //       ],
  * //       name: "STRING_VALUE",
  * //       computeModel: "ECPU" || "OCPU",
  * //       areServerTypesSupported: true || false,

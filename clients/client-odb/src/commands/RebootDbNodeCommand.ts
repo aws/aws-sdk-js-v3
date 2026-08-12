@@ -33,7 +33,8 @@ export interface RebootDbNodeCommandOutput extends RebootDbNodeOutput, __Metadat
  * const config = {}; // type is OdbClientConfig
  * const client = new OdbClient(config);
  * const input = { // RebootDbNodeInput
- *   cloudVmClusterId: "STRING_VALUE", // required
+ *   cloudVmClusterId: "STRING_VALUE",
+ *   exadbVmClusterId: "STRING_VALUE",
  *   dbNodeId: "STRING_VALUE", // required
  * };
  * const command = new RebootDbNodeCommand(input);

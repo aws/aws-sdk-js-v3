@@ -63,6 +63,10 @@ import type {
   AssociateIamRoleToResourceCommandOutput,
 } from "./commands/AssociateIamRoleToResourceCommand";
 import type {
+  AssociateVirtualMachinesToExadbVmClusterCommandInput,
+  AssociateVirtualMachinesToExadbVmClusterCommandOutput,
+} from "./commands/AssociateVirtualMachinesToExadbVmClusterCommand";
+import type {
   CreateAutonomousDatabaseBackupCommandInput,
   CreateAutonomousDatabaseBackupCommandOutput,
 } from "./commands/CreateAutonomousDatabaseBackupCommand";
@@ -86,6 +90,14 @@ import type {
   CreateCloudVmClusterCommandInput,
   CreateCloudVmClusterCommandOutput,
 } from "./commands/CreateCloudVmClusterCommand";
+import type {
+  CreateExadbVmClusterCommandInput,
+  CreateExadbVmClusterCommandOutput,
+} from "./commands/CreateExadbVmClusterCommand";
+import type {
+  CreateExascaleDbStorageVaultCommandInput,
+  CreateExascaleDbStorageVaultCommandOutput,
+} from "./commands/CreateExascaleDbStorageVaultCommand";
 import type { CreateOdbNetworkCommandInput, CreateOdbNetworkCommandOutput } from "./commands/CreateOdbNetworkCommand";
 import type {
   CreateOdbPeeringConnectionCommandInput,
@@ -111,6 +123,14 @@ import type {
   DeleteCloudVmClusterCommandInput,
   DeleteCloudVmClusterCommandOutput,
 } from "./commands/DeleteCloudVmClusterCommand";
+import type {
+  DeleteExadbVmClusterCommandInput,
+  DeleteExadbVmClusterCommandOutput,
+} from "./commands/DeleteExadbVmClusterCommand";
+import type {
+  DeleteExascaleDbStorageVaultCommandInput,
+  DeleteExascaleDbStorageVaultCommandOutput,
+} from "./commands/DeleteExascaleDbStorageVaultCommand";
 import type { DeleteOdbNetworkCommandInput, DeleteOdbNetworkCommandOutput } from "./commands/DeleteOdbNetworkCommand";
 import type {
   DeleteOdbPeeringConnectionCommandInput,
@@ -120,6 +140,10 @@ import type {
   DisassociateIamRoleFromResourceCommandInput,
   DisassociateIamRoleFromResourceCommandOutput,
 } from "./commands/DisassociateIamRoleFromResourceCommand";
+import type {
+  DisassociateVirtualMachinesFromExadbVmClusterCommandInput,
+  DisassociateVirtualMachinesFromExadbVmClusterCommandOutput,
+} from "./commands/DisassociateVirtualMachinesFromExadbVmClusterCommand";
 import type {
   FailoverAutonomousDatabaseCommandInput,
   FailoverAutonomousDatabaseCommandOutput,
@@ -154,6 +178,14 @@ import type {
 } from "./commands/GetCloudVmClusterCommand";
 import type { GetDbNodeCommandInput, GetDbNodeCommandOutput } from "./commands/GetDbNodeCommand";
 import type { GetDbServerCommandInput, GetDbServerCommandOutput } from "./commands/GetDbServerCommand";
+import type {
+  GetExadbVmClusterCommandInput,
+  GetExadbVmClusterCommandOutput,
+} from "./commands/GetExadbVmClusterCommand";
+import type {
+  GetExascaleDbStorageVaultCommandInput,
+  GetExascaleDbStorageVaultCommandOutput,
+} from "./commands/GetExascaleDbStorageVaultCommand";
 import type {
   GetOciOnboardingStatusCommandInput,
   GetOciOnboardingStatusCommandOutput,
@@ -213,6 +245,18 @@ import type {
   ListDbSystemShapesCommandInput,
   ListDbSystemShapesCommandOutput,
 } from "./commands/ListDbSystemShapesCommand";
+import type {
+  ListExadbVmClustersCommandInput,
+  ListExadbVmClustersCommandOutput,
+} from "./commands/ListExadbVmClustersCommand";
+import type {
+  ListExascaleDbStorageVaultsCommandInput,
+  ListExascaleDbStorageVaultsCommandOutput,
+} from "./commands/ListExascaleDbStorageVaultsCommand";
+import type {
+  ListGiMinorVersionsCommandInput,
+  ListGiMinorVersionsCommandOutput,
+} from "./commands/ListGiMinorVersionsCommand";
 import type { ListGiVersionsCommandInput, ListGiVersionsCommandOutput } from "./commands/ListGiVersionsCommand";
 import type { ListOdbNetworksCommandInput, ListOdbNetworksCommandOutput } from "./commands/ListOdbNetworksCommand";
 import type {
@@ -268,6 +312,14 @@ import type {
   UpdateCloudExadataInfrastructureCommandInput,
   UpdateCloudExadataInfrastructureCommandOutput,
 } from "./commands/UpdateCloudExadataInfrastructureCommand";
+import type {
+  UpdateExadbVmClusterCommandInput,
+  UpdateExadbVmClusterCommandOutput,
+} from "./commands/UpdateExadbVmClusterCommand";
+import type {
+  UpdateExascaleDbStorageVaultCommandInput,
+  UpdateExascaleDbStorageVaultCommandOutput,
+} from "./commands/UpdateExascaleDbStorageVaultCommand";
 import type { UpdateOdbNetworkCommandInput, UpdateOdbNetworkCommandOutput } from "./commands/UpdateOdbNetworkCommand";
 import type {
   UpdateOdbPeeringConnectionCommandInput,
@@ -290,12 +342,15 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptMarketplaceRegistrationCommandInput
   | AssociateIamRoleToResourceCommandInput
+  | AssociateVirtualMachinesToExadbVmClusterCommandInput
   | CreateAutonomousDatabaseBackupCommandInput
   | CreateAutonomousDatabaseCommandInput
   | CreateAutonomousDatabaseWalletCommandInput
   | CreateCloudAutonomousVmClusterCommandInput
   | CreateCloudExadataInfrastructureCommandInput
   | CreateCloudVmClusterCommandInput
+  | CreateExadbVmClusterCommandInput
+  | CreateExascaleDbStorageVaultCommandInput
   | CreateOdbNetworkCommandInput
   | CreateOdbPeeringConnectionCommandInput
   | DeleteAutonomousDatabaseBackupCommandInput
@@ -303,9 +358,12 @@ export type ServiceInputTypes =
   | DeleteCloudAutonomousVmClusterCommandInput
   | DeleteCloudExadataInfrastructureCommandInput
   | DeleteCloudVmClusterCommandInput
+  | DeleteExadbVmClusterCommandInput
+  | DeleteExascaleDbStorageVaultCommandInput
   | DeleteOdbNetworkCommandInput
   | DeleteOdbPeeringConnectionCommandInput
   | DisassociateIamRoleFromResourceCommandInput
+  | DisassociateVirtualMachinesFromExadbVmClusterCommandInput
   | FailoverAutonomousDatabaseCommandInput
   | GetAutonomousDatabaseBackupCommandInput
   | GetAutonomousDatabaseCommandInput
@@ -316,6 +374,8 @@ export type ServiceInputTypes =
   | GetCloudVmClusterCommandInput
   | GetDbNodeCommandInput
   | GetDbServerCommandInput
+  | GetExadbVmClusterCommandInput
+  | GetExascaleDbStorageVaultCommandInput
   | GetOciOnboardingStatusCommandInput
   | GetOdbNetworkCommandInput
   | GetOdbPeeringConnectionCommandInput
@@ -333,6 +393,9 @@ export type ServiceInputTypes =
   | ListDbNodesCommandInput
   | ListDbServersCommandInput
   | ListDbSystemShapesCommandInput
+  | ListExadbVmClustersCommandInput
+  | ListExascaleDbStorageVaultsCommandInput
+  | ListGiMinorVersionsCommandInput
   | ListGiVersionsCommandInput
   | ListOdbNetworksCommandInput
   | ListOdbPeeringConnectionsCommandInput
@@ -352,6 +415,8 @@ export type ServiceInputTypes =
   | UpdateAutonomousDatabaseBackupCommandInput
   | UpdateAutonomousDatabaseCommandInput
   | UpdateCloudExadataInfrastructureCommandInput
+  | UpdateExadbVmClusterCommandInput
+  | UpdateExascaleDbStorageVaultCommandInput
   | UpdateOdbNetworkCommandInput
   | UpdateOdbPeeringConnectionCommandInput;
 
@@ -361,12 +426,15 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptMarketplaceRegistrationCommandOutput
   | AssociateIamRoleToResourceCommandOutput
+  | AssociateVirtualMachinesToExadbVmClusterCommandOutput
   | CreateAutonomousDatabaseBackupCommandOutput
   | CreateAutonomousDatabaseCommandOutput
   | CreateAutonomousDatabaseWalletCommandOutput
   | CreateCloudAutonomousVmClusterCommandOutput
   | CreateCloudExadataInfrastructureCommandOutput
   | CreateCloudVmClusterCommandOutput
+  | CreateExadbVmClusterCommandOutput
+  | CreateExascaleDbStorageVaultCommandOutput
   | CreateOdbNetworkCommandOutput
   | CreateOdbPeeringConnectionCommandOutput
   | DeleteAutonomousDatabaseBackupCommandOutput
@@ -374,9 +442,12 @@ export type ServiceOutputTypes =
   | DeleteCloudAutonomousVmClusterCommandOutput
   | DeleteCloudExadataInfrastructureCommandOutput
   | DeleteCloudVmClusterCommandOutput
+  | DeleteExadbVmClusterCommandOutput
+  | DeleteExascaleDbStorageVaultCommandOutput
   | DeleteOdbNetworkCommandOutput
   | DeleteOdbPeeringConnectionCommandOutput
   | DisassociateIamRoleFromResourceCommandOutput
+  | DisassociateVirtualMachinesFromExadbVmClusterCommandOutput
   | FailoverAutonomousDatabaseCommandOutput
   | GetAutonomousDatabaseBackupCommandOutput
   | GetAutonomousDatabaseCommandOutput
@@ -387,6 +458,8 @@ export type ServiceOutputTypes =
   | GetCloudVmClusterCommandOutput
   | GetDbNodeCommandOutput
   | GetDbServerCommandOutput
+  | GetExadbVmClusterCommandOutput
+  | GetExascaleDbStorageVaultCommandOutput
   | GetOciOnboardingStatusCommandOutput
   | GetOdbNetworkCommandOutput
   | GetOdbPeeringConnectionCommandOutput
@@ -404,6 +477,9 @@ export type ServiceOutputTypes =
   | ListDbNodesCommandOutput
   | ListDbServersCommandOutput
   | ListDbSystemShapesCommandOutput
+  | ListExadbVmClustersCommandOutput
+  | ListExascaleDbStorageVaultsCommandOutput
+  | ListGiMinorVersionsCommandOutput
   | ListGiVersionsCommandOutput
   | ListOdbNetworksCommandOutput
   | ListOdbPeeringConnectionsCommandOutput
@@ -423,6 +499,8 @@ export type ServiceOutputTypes =
   | UpdateAutonomousDatabaseBackupCommandOutput
   | UpdateAutonomousDatabaseCommandOutput
   | UpdateCloudExadataInfrastructureCommandOutput
+  | UpdateExadbVmClusterCommandOutput
+  | UpdateExascaleDbStorageVaultCommandOutput
   | UpdateOdbNetworkCommandOutput
   | UpdateOdbPeeringConnectionCommandOutput;
 

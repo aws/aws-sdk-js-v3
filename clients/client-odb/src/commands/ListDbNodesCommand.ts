@@ -35,7 +35,8 @@ export interface ListDbNodesCommandOutput extends ListDbNodesOutput, __MetadataB
  * const input = { // ListDbNodesInput
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   cloudVmClusterId: "STRING_VALUE", // required
+ *   cloudVmClusterId: "STRING_VALUE",
+ *   exadbVmClusterId: "STRING_VALUE",
  * };
  * const command = new ListDbNodesCommand(input);
  * const response = await client.send(command);
