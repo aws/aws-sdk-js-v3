@@ -243,6 +243,13 @@ AcceptDelegationRequest
 </details>
 <details>
 <summary>
+AcquireRole
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/AcquireRoleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AcquireRoleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/AcquireRoleCommandOutput/)
+</details>
+<details>
+<summary>
 AddClientIDToOpenIDConnectProvider
 </summary>
 
@@ -684,6 +691,13 @@ GetAccountPasswordPolicy
 </details>
 <details>
 <summary>
+GetAccountProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetAccountPropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetAccountPropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetAccountPropertiesCommandOutput/)
+</details>
+<details>
+<summary>
 GetAccountSummary
 </summary>
 
@@ -807,6 +821,13 @@ GetRolePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetRolePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetRolePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetRolePolicyCommandOutput/)
+</details>
+<details>
+<summary>
+GetRoleTemplateVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/GetRoleTemplateVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetRoleTemplateVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/GetRoleTemplateVersionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -1115,6 +1136,13 @@ ListVirtualMFADevices
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/ListVirtualMFADevicesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListVirtualMFADevicesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/ListVirtualMFADevicesCommandOutput/)
+</details>
+<details>
+<summary>
+PutAccountProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iam/command/PutAccountPropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/PutAccountPropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iam/Interface/PutAccountPropertiesCommandOutput/)
 </details>
 <details>
 <summary>

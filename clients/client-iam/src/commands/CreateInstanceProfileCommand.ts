@@ -79,6 +79,10 @@ export interface CreateInstanceProfileCommandOutput extends CreateInstanceProfil
  * //           LastUsedDate: new Date("TIMESTAMP"),
  * //           Region: "STRING_VALUE",
  * //         },
+ * //         SourceRoleTemplate: { // SourceRoleTemplate
+ * //           TemplateArn: "STRING_VALUE", // required
+ * //           TemplateMinorVersion: Number("int"), // required
+ * //         },
  * //       },
  * //     ],
  * //     Tags: [

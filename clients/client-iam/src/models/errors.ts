@@ -91,6 +91,27 @@ export class AccountNotManagementOrDelegatedAdministratorException extends __Bas
 }
 
 /**
+ * <p>The request was rejected because it attempted to create a resource that already
+ *       exists.</p>
+ * @public
+ */
+export class EntityAlreadyExistsException extends __BaseException {
+  readonly name = "EntityAlreadyExistsException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
+    super({
+      name: "EntityAlreadyExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
+  }
+}
+
+/**
  * <p>The request was rejected because an invalid or out-of-range value was supplied for an
  *       input parameter.</p>
  * @public
@@ -133,23 +154,87 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
- * <p>The request was rejected because it attempted to create a resource that already
- *       exists.</p>
+ * <p>The request was rejected because the policy document was malformed. The error message
+ *       describes the specific error.</p>
  * @public
  */
-export class EntityAlreadyExistsException extends __BaseException {
-  readonly name = "EntityAlreadyExistsException" as const;
+export class MalformedPolicyDocumentException extends __BaseException {
+  readonly name = "MalformedPolicyDocumentException" as const;
   readonly $fault = "client" as const;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<EntityAlreadyExistsException, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
     super({
-      name: "EntityAlreadyExistsException",
+      name: "MalformedPolicyDocumentException",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, EntityAlreadyExistsException.prototype);
+    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because the resulting role name conflicts with an existing role
+ *       in the account.</p>
+ * @public
+ */
+export class NameConflictException extends __BaseException {
+  readonly name = "NameConflictException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NameConflictException, __BaseException>) {
+    super({
+      name: "NameConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NameConflictException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because someone modified the role template while the service was
+ *       creating the role. Wait a few minutes and try the request again.</p>
+ * @public
+ */
+export class RoleModifiedException extends __BaseException {
+  readonly name = "RoleModifiedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RoleModifiedException, __BaseException>) {
+    super({
+      name: "RoleModifiedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RoleModifiedException.prototype);
+  }
+}
+
+/**
+ * <p>The request was rejected because the specified role template is disabled. A disabled
+ *       role template cannot be used to create new roles. Contact your administrator to enable the
+ *       role template, or use a different role template.</p>
+ * @public
+ */
+export class RoleTemplateDisabledException extends __BaseException {
+  readonly name = "RoleTemplateDisabledException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<RoleTemplateDisabledException, __BaseException>) {
+    super({
+      name: "RoleTemplateDisabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, RoleTemplateDisabledException.prototype);
   }
 }
 
@@ -280,27 +365,6 @@ export class OpenIdIdpCommunicationErrorException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, OpenIdIdpCommunicationErrorException.prototype);
-  }
-}
-
-/**
- * <p>The request was rejected because the policy document was malformed. The error message
- *       describes the specific error.</p>
- * @public
- */
-export class MalformedPolicyDocumentException extends __BaseException {
-  readonly name = "MalformedPolicyDocumentException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MalformedPolicyDocumentException, __BaseException>) {
-    super({
-      name: "MalformedPolicyDocumentException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MalformedPolicyDocumentException.prototype);
   }
 }
 

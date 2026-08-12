@@ -5,6 +5,400 @@ import type { Role, ServerCertificateMetadata, SigningCertificate, SSHPublicKey,
 /**
  * @public
  */
+export interface TagSAMLProviderRequest {
+  /**
+   * <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SAMLProviderArn: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the SAML identity provider in IAM.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagServerCertificateRequest {
+  /**
+   * <p>The name of the IAM server certificate to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  ServerCertificateName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM server certificate.
+   *       Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagUserRequest {
+  /**
+   * <p>The name of the IAM user to which you want to add tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagInstanceProfileRequest {
+  /**
+   * <p>The name of the IAM instance profile from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  InstanceProfileName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified instance profile.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagMFADeviceRequest {
+  /**
+   * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
+   *       tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SerialNumber: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified instance profile.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagOpenIDConnectProviderRequest {
+  /**
+   * <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  OpenIDConnectProviderArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified OIDC provider.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagPolicyRequest {
+  /**
+   * <p>The ARN of the IAM customer managed policy from which you want to remove
+   *       tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified policy.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagRoleRequest {
+  /**
+   * <p>The name of the IAM role from which you want to remove tags.</p>
+   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified role.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagSAMLProviderRequest {
+  /**
+   * <p>The ARN of the SAML identity provider in IAM from which you want to remove
+   *       tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  SAMLProviderArn: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified SAML identity provider.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagServerCertificateRequest {
+  /**
+   * <p>The name of the IAM server certificate from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  ServerCertificateName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified IAM server certificate.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagUserRequest {
+  /**
+   * <p>The name of the IAM user from which you want to remove tags.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>A list of key names as a simple array of strings. The tags with matching keys are
+   *       removed from the specified user.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccessKeyRequest {
+  /**
+   * <p>The name of the user whose key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>The access key ID of the secret access key you want to update.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
+   *     consist of any upper or lowercased letter or digit.</p>
+   * @public
+   */
+  AccessKeyId: string | undefined;
+
+  /**
+   * <p> The status you want to assign to the secret access key. <code>Active</code> means
+   *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
+   *             means that the key cannot be used.</p>
+   * @public
+   */
+  Status: StatusType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAccountPasswordPolicyRequest {
+  /**
+   * <p>The minimum number of characters allowed in an IAM user password.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>6</code>.</p>
+   * @public
+   */
+  MinimumPasswordLength?: number | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one of the following
+   *             non-alphanumeric characters:</p>
+   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             symbol character.</p>
+   * @public
+   */
+  RequireSymbols?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one numeric character (0
+   *             to 9).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             numeric character.</p>
+   * @public
+   */
+  RequireNumbers?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one uppercase character
+   *             from the ISO basic Latin alphabet (A to Z).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             uppercase character.</p>
+   * @public
+   */
+  RequireUppercaseCharacters?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether IAM user passwords must contain at least one lowercase character
+   *             from the ISO basic Latin alphabet (a to z).</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that passwords do not require at least one
+   *             lowercase character.</p>
+   * @public
+   */
+  RequireLowercaseCharacters?: boolean | undefined;
+
+  /**
+   * <p> Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own
+   *             passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting
+   *                 IAM users to change their own passwords</a> in the
+   *                 <i>IAM User Guide</i>.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that IAM users in the account do not
+   *             automatically have permissions to change their own password.</p>
+   * @public
+   */
+  AllowUsersToChangePassword?: boolean | undefined;
+
+  /**
+   * <p>The number of days that an IAM user password is valid.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>0</code>. The result is that IAM user passwords never expire.</p>
+   * @public
+   */
+  MaxPasswordAge?: number | undefined;
+
+  /**
+   * <p>Specifies the number of previous passwords that IAM users are prevented from
+   *             reusing.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>0</code>. The result is that IAM users are not prevented from reusing
+   *             previous passwords.</p>
+   * @public
+   */
+  PasswordReusePrevention?: number | undefined;
+
+  /**
+   * <p> Prevents IAM users who are accessing the account via the Amazon Web Services Management Console from setting a
+   *             new console password after their password has expired. The IAM user cannot access the
+   *             console until an administrator resets the password.</p>
+   *          <p>If you do not specify a value for this parameter, then the operation uses the default
+   *             value of <code>false</code>. The result is that IAM users can change their passwords
+   *             after they expire and continue to sign in as the user.</p>
+   *          <note>
+   *             <p> In the Amazon Web Services Management Console, the custom password policy option <b>Allow
+   *                     users to change their own password</b> gives IAM users permissions to
+   *                     <code>iam:ChangePassword</code> for only their user and to the
+   *                     <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a
+   *                 permissions policy to each user, rather the permissions are applied at the
+   *                 account-level for all users by IAM. IAM users with
+   *                     <code>iam:ChangePassword</code> permission and active access keys can reset
+   *                 their own expired console password using the CLI or API.</p>
+   *          </note>
+   * @public
+   */
+  HardExpiry?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateAssumeRolePolicyRequest {
+  /**
+   * <p>The name of the role to update with the new policy.</p>
+   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
+   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p>The policy that grants an entity permission to assume the role.</p>
+   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
+   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
+   *             IAM.</p>
+   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
+   *     used to validate this parameter is a string of characters consisting of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Any printable ASCII
+   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
+   *             </li>
+   *             <li>
+   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
+   *     (through <code>\u00FF</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
+   *     carriage return (<code>\u000D</code>)</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateDelegationRequestRequest {
   /**
    * <p>The unique identifier of the delegation request to update.</p>

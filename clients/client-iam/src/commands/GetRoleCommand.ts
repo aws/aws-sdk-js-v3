@@ -72,6 +72,10 @@ export interface GetRoleCommandOutput extends GetRoleResponse, __MetadataBearer 
  * //       LastUsedDate: new Date("TIMESTAMP"),
  * //       Region: "STRING_VALUE",
  * //     },
+ * //     SourceRoleTemplate: { // SourceRoleTemplate
+ * //       TemplateArn: "STRING_VALUE", // required
+ * //       TemplateMinorVersion: Number("int"), // required
+ * //     },
  * //   },
  * // };
  *

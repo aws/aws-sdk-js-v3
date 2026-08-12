@@ -9,6 +9,10 @@ import {
   AccessKeyMetadata$,
   AccountNotManagementOrDelegatedAdministratorException,
   AccountNotManagementOrDelegatedAdministratorException$,
+  AcquireRole$,
+  AcquireRoleCommand,
+  AcquireRoleRequest$,
+  AcquireRoleResponse$,
   AddClientIDToOpenIDConnectProvider$,
   AddClientIDToOpenIDConnectProviderCommand,
   AddClientIDToOpenIDConnectProviderRequest$,
@@ -261,6 +265,10 @@ import {
   GetAccountPasswordPolicy$,
   GetAccountPasswordPolicyCommand,
   GetAccountPasswordPolicyResponse$,
+  GetAccountProperties$,
+  GetAccountPropertiesCommand,
+  GetAccountPropertiesRequest$,
+  GetAccountPropertiesResponse$,
   GetAccountSummary$,
   GetAccountSummaryCommand,
   GetAccountSummaryResponse$,
@@ -329,6 +337,10 @@ import {
   GetRolePolicyResponse$,
   GetRoleRequest$,
   GetRoleResponse$,
+  GetRoleTemplateVersion$,
+  GetRoleTemplateVersionCommand,
+  GetRoleTemplateVersionRequest$,
+  GetRoleTemplateVersionResponse$,
   GetSAMLProvider$,
   GetSAMLProviderCommand,
   GetSAMLProviderRequest$,
@@ -367,6 +379,7 @@ import {
   IAM,
   IAMClient,
   IAMServiceException,
+  InlinePolicy$,
   InlinePolicyIdentifierType$,
   InstanceProfile$,
   InvalidAuthenticationCodeException,
@@ -534,8 +547,11 @@ import {
   MalformedCertificateException$,
   MalformedPolicyDocumentException,
   MalformedPolicyDocumentException$,
+  ManagedByTypeType,
   ManagedPolicyDetail$,
   MFADevice$,
+  NameConflictException,
+  NameConflictException$,
   NoSuchEntityException,
   NoSuchEntityException$,
   OpenIDConnectProviderListEntry$,
@@ -581,6 +597,8 @@ import {
   paginateListVirtualMFADevices,
   paginateSimulateCustomPolicy,
   paginateSimulatePrincipalPolicy,
+  ParameterDefinition$,
+  ParameterTypeType,
   PasswordPolicy$,
   PasswordPolicyViolationException,
   PasswordPolicyViolationException$,
@@ -610,6 +628,10 @@ import {
   PolicyUser$,
   PolicyVersion$,
   Position$,
+  PutAccountProperties$,
+  PutAccountPropertiesCommand,
+  PutAccountPropertiesRequest$,
+  PutAccountPropertiesResponse$,
   PutGroupPolicy$,
   PutGroupPolicyCommand,
   PutGroupPolicyRequest$,
@@ -637,6 +659,7 @@ import {
   RemoveUserFromGroup$,
   RemoveUserFromGroupCommand,
   RemoveUserFromGroupRequest$,
+  ReplacementValueEntry$,
   ReportFormatType,
   ReportGenerationLimitExceededException,
   ReportGenerationLimitExceededException$,
@@ -652,6 +675,11 @@ import {
   Role$,
   RoleDetail$,
   RoleLastUsed$,
+  RoleModifiedException,
+  RoleModifiedException$,
+  RoleTemplateDisabledException,
+  RoleTemplateDisabledException$,
+  RoleTemplateVersion$,
   RoleUsageType$,
   SAMLPrivateKey$,
   SAMLProviderListEntry$,
@@ -684,6 +712,7 @@ import {
   SimulatePrincipalPolicyCommand,
   SimulatePrincipalPolicyRequest$,
   SortKeyType,
+  SourceRoleTemplate$,
   SSHPublicKey$,
   SSHPublicKeyMetadata$,
   Statement$,
@@ -713,6 +742,7 @@ import {
   TagServerCertificate$,
   TagServerCertificateCommand,
   TagServerCertificateRequest$,
+  TagTemplate$,
   TagUser$,
   TagUserCommand,
   TagUserRequest$,
@@ -824,6 +854,8 @@ assert(typeof IAM === "function");
 // commands
 assert(typeof AcceptDelegationRequestCommand === "function");
 assert(typeof AcceptDelegationRequest$ === "object");
+assert(typeof AcquireRoleCommand === "function");
+assert(typeof AcquireRole$ === "object");
 assert(typeof AddClientIDToOpenIDConnectProviderCommand === "function");
 assert(typeof AddClientIDToOpenIDConnectProvider$ === "object");
 assert(typeof AddRoleToInstanceProfileCommand === "function");
@@ -950,6 +982,8 @@ assert(typeof GetAccountAuthorizationDetailsCommand === "function");
 assert(typeof GetAccountAuthorizationDetails$ === "object");
 assert(typeof GetAccountPasswordPolicyCommand === "function");
 assert(typeof GetAccountPasswordPolicy$ === "object");
+assert(typeof GetAccountPropertiesCommand === "function");
+assert(typeof GetAccountProperties$ === "object");
 assert(typeof GetAccountSummaryCommand === "function");
 assert(typeof GetAccountSummary$ === "object");
 assert(typeof GetContextKeysForCustomPolicyCommand === "function");
@@ -986,6 +1020,8 @@ assert(typeof GetRoleCommand === "function");
 assert(typeof GetRole$ === "object");
 assert(typeof GetRolePolicyCommand === "function");
 assert(typeof GetRolePolicy$ === "object");
+assert(typeof GetRoleTemplateVersionCommand === "function");
+assert(typeof GetRoleTemplateVersion$ === "object");
 assert(typeof GetSAMLProviderCommand === "function");
 assert(typeof GetSAMLProvider$ === "object");
 assert(typeof GetServerCertificateCommand === "function");
@@ -1074,6 +1110,8 @@ assert(typeof ListUserTagsCommand === "function");
 assert(typeof ListUserTags$ === "object");
 assert(typeof ListVirtualMFADevicesCommand === "function");
 assert(typeof ListVirtualMFADevices$ === "object");
+assert(typeof PutAccountPropertiesCommand === "function");
+assert(typeof PutAccountProperties$ === "object");
 assert(typeof PutGroupPolicyCommand === "function");
 assert(typeof PutGroupPolicy$ === "object");
 assert(typeof PutRolePermissionsBoundaryCommand === "function");
@@ -1180,6 +1218,8 @@ assert(typeof AccessDetail$ === "object");
 assert(typeof AccessKey$ === "object");
 assert(typeof AccessKeyLastUsed$ === "object");
 assert(typeof AccessKeyMetadata$ === "object");
+assert(typeof AcquireRoleRequest$ === "object");
+assert(typeof AcquireRoleResponse$ === "object");
 assert(typeof AddClientIDToOpenIDConnectProviderRequest$ === "object");
 assert(typeof AddRoleToInstanceProfileRequest$ === "object");
 assert(typeof AddUserToGroupRequest$ === "object");
@@ -1274,6 +1314,8 @@ assert(typeof GetAccessKeyLastUsedResponse$ === "object");
 assert(typeof GetAccountAuthorizationDetailsRequest$ === "object");
 assert(typeof GetAccountAuthorizationDetailsResponse$ === "object");
 assert(typeof GetAccountPasswordPolicyResponse$ === "object");
+assert(typeof GetAccountPropertiesRequest$ === "object");
+assert(typeof GetAccountPropertiesResponse$ === "object");
 assert(typeof GetAccountSummaryResponse$ === "object");
 assert(typeof GetContextKeysForCustomPolicyRequest$ === "object");
 assert(typeof GetContextKeysForPolicyResponse$ === "object");
@@ -1306,6 +1348,8 @@ assert(typeof GetRolePolicyRequest$ === "object");
 assert(typeof GetRolePolicyResponse$ === "object");
 assert(typeof GetRoleRequest$ === "object");
 assert(typeof GetRoleResponse$ === "object");
+assert(typeof GetRoleTemplateVersionRequest$ === "object");
+assert(typeof GetRoleTemplateVersionResponse$ === "object");
 assert(typeof GetSAMLProviderRequest$ === "object");
 assert(typeof GetSAMLProviderResponse$ === "object");
 assert(typeof GetServerCertificateRequest$ === "object");
@@ -1324,6 +1368,7 @@ assert(typeof GetUserRequest$ === "object");
 assert(typeof GetUserResponse$ === "object");
 assert(typeof Group$ === "object");
 assert(typeof GroupDetail$ === "object");
+assert(typeof InlinePolicy$ === "object");
 assert(typeof InlinePolicyIdentifierType$ === "object");
 assert(typeof InstanceProfile$ === "object");
 assert(typeof ListAccessKeysRequest$ === "object");
@@ -1405,6 +1450,7 @@ assert(typeof MFADevice$ === "object");
 assert(typeof OpenIDConnectProviderListEntry$ === "object");
 assert(typeof OrderedOrganizationPolicyType$ === "object");
 assert(typeof OrganizationsDecisionDetail$ === "object");
+assert(typeof ParameterDefinition$ === "object");
 assert(typeof PasswordPolicy$ === "object");
 assert(typeof PermissionsBoundaryDecisionDetail$ === "object");
 assert(typeof Policy$ === "object");
@@ -1417,6 +1463,8 @@ assert(typeof PolicyRole$ === "object");
 assert(typeof PolicyUser$ === "object");
 assert(typeof PolicyVersion$ === "object");
 assert(typeof Position$ === "object");
+assert(typeof PutAccountPropertiesRequest$ === "object");
+assert(typeof PutAccountPropertiesResponse$ === "object");
 assert(typeof PutGroupPolicyRequest$ === "object");
 assert(typeof PutRolePermissionsBoundaryRequest$ === "object");
 assert(typeof PutRolePolicyRequest$ === "object");
@@ -1426,6 +1474,7 @@ assert(typeof RejectDelegationRequestRequest$ === "object");
 assert(typeof RemoveClientIDFromOpenIDConnectProviderRequest$ === "object");
 assert(typeof RemoveRoleFromInstanceProfileRequest$ === "object");
 assert(typeof RemoveUserFromGroupRequest$ === "object");
+assert(typeof ReplacementValueEntry$ === "object");
 assert(typeof ResetServiceSpecificCredentialRequest$ === "object");
 assert(typeof ResetServiceSpecificCredentialResponse$ === "object");
 assert(typeof ResourceSpecificResult$ === "object");
@@ -1433,6 +1482,7 @@ assert(typeof ResyncMFADeviceRequest$ === "object");
 assert(typeof Role$ === "object");
 assert(typeof RoleDetail$ === "object");
 assert(typeof RoleLastUsed$ === "object");
+assert(typeof RoleTemplateVersion$ === "object");
 assert(typeof RoleUsageType$ === "object");
 assert(typeof SAMLPrivateKey$ === "object");
 assert(typeof SAMLProviderListEntry$ === "object");
@@ -1448,6 +1498,7 @@ assert(typeof SigningCertificate$ === "object");
 assert(typeof SimulateCustomPolicyRequest$ === "object");
 assert(typeof SimulatePolicyResponse$ === "object");
 assert(typeof SimulatePrincipalPolicyRequest$ === "object");
+assert(typeof SourceRoleTemplate$ === "object");
 assert(typeof SSHPublicKey$ === "object");
 assert(typeof SSHPublicKeyMetadata$ === "object");
 assert(typeof Statement$ === "object");
@@ -1459,6 +1510,7 @@ assert(typeof TagPolicyRequest$ === "object");
 assert(typeof TagRoleRequest$ === "object");
 assert(typeof TagSAMLProviderRequest$ === "object");
 assert(typeof TagServerCertificateRequest$ === "object");
+assert(typeof TagTemplate$ === "object");
 assert(typeof TagUserRequest$ === "object");
 assert(typeof TrackedActionLastAccessed$ === "object");
 assert(typeof UntagInstanceProfileRequest$ === "object");
@@ -1508,6 +1560,8 @@ assert(typeof EntityType === "object");
 assert(typeof FeatureType === "object");
 assert(typeof GlobalEndpointTokenVersion === "object");
 assert(typeof JobStatusType === "object");
+assert(typeof ManagedByTypeType === "object");
+assert(typeof ParameterTypeType === "object");
 assert(typeof PermissionCheckResultType === "object");
 assert(typeof PermissionCheckStatusType === "object");
 assert(typeof PermissionsBoundaryAttachmentType === "object");
@@ -1571,6 +1625,8 @@ assert(MalformedCertificateException.prototype instanceof IAMServiceException);
 assert(typeof MalformedCertificateException$ === "object");
 assert(MalformedPolicyDocumentException.prototype instanceof IAMServiceException);
 assert(typeof MalformedPolicyDocumentException$ === "object");
+assert(NameConflictException.prototype instanceof IAMServiceException);
+assert(typeof NameConflictException$ === "object");
 assert(NoSuchEntityException.prototype instanceof IAMServiceException);
 assert(typeof NoSuchEntityException$ === "object");
 assert(OpenIdIdpCommunicationErrorException.prototype instanceof IAMServiceException);
@@ -1587,6 +1643,10 @@ assert(PolicyNotAttachableException.prototype instanceof IAMServiceException);
 assert(typeof PolicyNotAttachableException$ === "object");
 assert(ReportGenerationLimitExceededException.prototype instanceof IAMServiceException);
 assert(typeof ReportGenerationLimitExceededException$ === "object");
+assert(RoleModifiedException.prototype instanceof IAMServiceException);
+assert(typeof RoleModifiedException$ === "object");
+assert(RoleTemplateDisabledException.prototype instanceof IAMServiceException);
+assert(typeof RoleTemplateDisabledException$ === "object");
 assert(ServiceAccessNotEnabledException.prototype instanceof IAMServiceException);
 assert(typeof ServiceAccessNotEnabledException$ === "object");
 assert(ServiceFailureException.prototype instanceof IAMServiceException);

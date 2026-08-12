@@ -59,6 +59,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             </member>
         </Tags>
         <RoleLastUsed/>
+<SourceRoleTemplate>
+            <TemplateArn>
+                __TemplateArn__
+            </TemplateArn>
+            <TemplateMinorVersion>
+                0
+            </TemplateMinorVersion>
+        </SourceRoleTemplate>
     </Role>
 </CreateRoleResponse>
 
@@ -150,6 +158,14 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 __Region__
             </Region>
         </RoleLastUsed>
+        <SourceRoleTemplate>
+            <TemplateArn>
+                __TemplateArn__
+            </TemplateArn>
+            <TemplateMinorVersion>
+                0
+            </TemplateMinorVersion>
+        </SourceRoleTemplate>
     </Role>
 </CreateRoleResponse>
 

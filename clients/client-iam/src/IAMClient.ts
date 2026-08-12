@@ -58,6 +58,7 @@ import type {
   AcceptDelegationRequestCommandInput,
   AcceptDelegationRequestCommandOutput,
 } from "./commands/AcceptDelegationRequestCommand";
+import type { AcquireRoleCommandInput, AcquireRoleCommandOutput } from "./commands/AcquireRoleCommand";
 import type {
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
@@ -254,6 +255,10 @@ import type {
   GetAccountPasswordPolicyCommandOutput,
 } from "./commands/GetAccountPasswordPolicyCommand";
 import type {
+  GetAccountPropertiesCommandInput,
+  GetAccountPropertiesCommandOutput,
+} from "./commands/GetAccountPropertiesCommand";
+import type {
   GetAccountSummaryCommandInput,
   GetAccountSummaryCommandOutput,
 } from "./commands/GetAccountSummaryCommand";
@@ -301,6 +306,10 @@ import type { GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/G
 import type { GetPolicyVersionCommandInput, GetPolicyVersionCommandOutput } from "./commands/GetPolicyVersionCommand";
 import type { GetRoleCommandInput, GetRoleCommandOutput } from "./commands/GetRoleCommand";
 import type { GetRolePolicyCommandInput, GetRolePolicyCommandOutput } from "./commands/GetRolePolicyCommand";
+import type {
+  GetRoleTemplateVersionCommandInput,
+  GetRoleTemplateVersionCommandOutput,
+} from "./commands/GetRoleTemplateVersionCommand";
 import type { GetSAMLProviderCommandInput, GetSAMLProviderCommandOutput } from "./commands/GetSAMLProviderCommand";
 import type {
   GetServerCertificateCommandInput,
@@ -432,6 +441,10 @@ import type {
   ListVirtualMFADevicesCommandInput,
   ListVirtualMFADevicesCommandOutput,
 } from "./commands/ListVirtualMFADevicesCommand";
+import type {
+  PutAccountPropertiesCommandInput,
+  PutAccountPropertiesCommandOutput,
+} from "./commands/PutAccountPropertiesCommand";
 import type { PutGroupPolicyCommandInput, PutGroupPolicyCommandOutput } from "./commands/PutGroupPolicyCommand";
 import type {
   PutRolePermissionsBoundaryCommandInput,
@@ -597,6 +610,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AcceptDelegationRequestCommandInput
+  | AcquireRoleCommandInput
   | AddClientIDToOpenIDConnectProviderCommandInput
   | AddRoleToInstanceProfileCommandInput
   | AddUserToGroupCommandInput
@@ -660,6 +674,7 @@ export type ServiceInputTypes =
   | GetAccessKeyLastUsedCommandInput
   | GetAccountAuthorizationDetailsCommandInput
   | GetAccountPasswordPolicyCommandInput
+  | GetAccountPropertiesCommandInput
   | GetAccountSummaryCommandInput
   | GetContextKeysForCustomPolicyCommandInput
   | GetContextKeysForPrincipalPolicyCommandInput
@@ -678,6 +693,7 @@ export type ServiceInputTypes =
   | GetPolicyVersionCommandInput
   | GetRoleCommandInput
   | GetRolePolicyCommandInput
+  | GetRoleTemplateVersionCommandInput
   | GetSAMLProviderCommandInput
   | GetSSHPublicKeyCommandInput
   | GetServerCertificateCommandInput
@@ -722,6 +738,7 @@ export type ServiceInputTypes =
   | ListUserTagsCommandInput
   | ListUsersCommandInput
   | ListVirtualMFADevicesCommandInput
+  | PutAccountPropertiesCommandInput
   | PutGroupPolicyCommandInput
   | PutRolePermissionsBoundaryCommandInput
   | PutRolePolicyCommandInput
@@ -778,6 +795,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AcceptDelegationRequestCommandOutput
+  | AcquireRoleCommandOutput
   | AddClientIDToOpenIDConnectProviderCommandOutput
   | AddRoleToInstanceProfileCommandOutput
   | AddUserToGroupCommandOutput
@@ -841,6 +859,7 @@ export type ServiceOutputTypes =
   | GetAccessKeyLastUsedCommandOutput
   | GetAccountAuthorizationDetailsCommandOutput
   | GetAccountPasswordPolicyCommandOutput
+  | GetAccountPropertiesCommandOutput
   | GetAccountSummaryCommandOutput
   | GetContextKeysForCustomPolicyCommandOutput
   | GetContextKeysForPrincipalPolicyCommandOutput
@@ -859,6 +878,7 @@ export type ServiceOutputTypes =
   | GetPolicyVersionCommandOutput
   | GetRoleCommandOutput
   | GetRolePolicyCommandOutput
+  | GetRoleTemplateVersionCommandOutput
   | GetSAMLProviderCommandOutput
   | GetSSHPublicKeyCommandOutput
   | GetServerCertificateCommandOutput
@@ -903,6 +923,7 @@ export type ServiceOutputTypes =
   | ListUserTagsCommandOutput
   | ListUsersCommandOutput
   | ListVirtualMFADevicesCommandOutput
+  | PutAccountPropertiesCommandOutput
   | PutGroupPolicyCommandOutput
   | PutRolePermissionsBoundaryCommandOutput
   | PutRolePolicyCommandOutput

@@ -31,9 +31,13 @@ const _AP = "AttachedPolicy";
 const _APB = "AttachedPermissionsBoundary";
 const _APK = "AddPrivateKey";
 const _APt = "AttachedPolicies";
+const _AR = "AcquireRole";
 const _ARP = "AttachRolePolicy";
 const _ARPD = "AssumeRolePolicyDocument";
+const _ARPDT = "AssumeRolePolicyDocumentTemplate";
 const _ARPR = "AttachRolePolicyRequest";
+const _ARR = "AcquireRoleRequest";
+const _ARRc = "AcquireRoleResponse";
 const _ARTIP = "AddRoleToInstanceProfile";
 const _ARTIPR = "AddRoleToInstanceProfileRequest";
 const _AS = "AssignmentStatus";
@@ -110,6 +114,7 @@ const _CSLRRr = "CreateServiceLinkedRoleResponse";
 const _CSSC = "CreateServiceSpecificCredential";
 const _CSSCR = "CreateServiceSpecificCredentialRequest";
 const _CSSCRr = "CreateServiceSpecificCredentialResponse";
+const _CT = "CreateTimestamp";
 const _CU = "CreateUser";
 const _CUR = "CreateUserRequest";
 const _CURr = "CreateUserResponse";
@@ -141,6 +146,7 @@ const _DLP = "DeleteLoginProfile";
 const _DLPR = "DeleteLoginProfileRequest";
 const _DMFAD = "DeactivateMFADevice";
 const _DMFADR = "DeactivateMFADeviceRequest";
+const _DMV = "DefaultMinorVersion";
 const _DOIDCP = "DeleteOpenIDConnectProvider";
 const _DOIDCPR = "DeleteOpenIDConnectProviderRequest";
 const _DORCM = "DisableOrganizationsRootCredentialsManagement";
@@ -191,6 +197,7 @@ const _DUPR = "DeleteUserPolicyRequest";
 const _DUPRe = "DetachUserPolicyRequest";
 const _DUPe = "DetachUserPolicy";
 const _DUR = "DeleteUserRequest";
+const _DV = "DefaultValue";
 const _DVI = "DefaultVersionId";
 const _DVMFAD = "DeleteVirtualMFADevice";
 const _DVMFADR = "DeleteVirtualMFADeviceRequest";
@@ -232,6 +239,7 @@ const _ET = "ExpirationTime";
 const _ETUE = "EntityTemporarilyUnmodifiableException";
 const _ETn = "EntityType";
 const _En = "Encoding";
+const _Ena = "Enabled";
 const _Ex = "Expiration";
 const _F = "Filter";
 const _FDE = "FeatureDisabledException";
@@ -244,8 +252,11 @@ const _GAADRe = "GetAccountAuthorizationDetailsResponse";
 const _GAKLU = "GetAccessKeyLastUsed";
 const _GAKLUR = "GetAccessKeyLastUsedRequest";
 const _GAKLURe = "GetAccessKeyLastUsedResponse";
+const _GAP = "GetAccountProperties";
 const _GAPP = "GetAccountPasswordPolicy";
 const _GAPPR = "GetAccountPasswordPolicyResponse";
+const _GAPR = "GetAccountPropertiesRequest";
+const _GAPRe = "GetAccountPropertiesResponse";
 const _GAS = "GetAccountSummary";
 const _GASR = "GetAccountSummaryResponse";
 const _GCKFCP = "GetContextKeysForCustomPolicy";
@@ -308,6 +319,9 @@ const _GRPR = "GetRolePolicyRequest";
 const _GRPRe = "GetRolePolicyResponse";
 const _GRR = "GetRoleRequest";
 const _GRRe = "GetRoleResponse";
+const _GRTV = "GetRoleTemplateVersion";
+const _GRTVR = "GetRoleTemplateVersionRequest";
+const _GRTVRe = "GetRoleTemplateVersionResponse";
 const _GSAMLP = "GetSAMLProvider";
 const _GSAMLPR = "GetSAMLProviderRequest";
 const _GSAMLPRe = "GetSAMLProviderResponse";
@@ -353,9 +367,13 @@ const _IPIn = "InlinePolicyIdentifier";
 const _IPKE = "InvalidPublicKeyException";
 const _IPL = "InstanceProfileList";
 const _IPN = "InstanceProfileName";
-const _IPn = "InstanceProfiles";
+const _IPT = "InlinePolicyTemplates";
+const _IPn = "InlinePolicy";
+const _IPns = "InstanceProfiles";
+const _IR = "IsRequired";
 const _IT = "IsTruncated";
 const _IUTE = "InvalidUserTypeException";
+const _Im = "Immutable";
 const _JCD = "JobCreationDate";
 const _JCDo = "JobCompletionDate";
 const _JI = "JobId";
@@ -487,21 +505,27 @@ const _LVMFADR = "ListVirtualMFADevicesRequest";
 const _LVMFADRi = "ListVirtualMFADevicesResponse";
 const _Li = "Line";
 const _M = "Message";
+const _MBT = "ManagedByType";
+const _MBV = "ManagedByValue";
 const _MCE = "MalformedCertificateException";
 const _MCV = "MissingContextValues";
 const _MFAD = "MFADevices";
 const _MFADe = "MFADevice";
 const _MI = "MaxItems";
 const _MPA = "MaxPasswordAge";
+const _MPAa = "ManagedPolicyArns";
 const _MPD = "ManagedPolicyDetail";
 const _MPDE = "MalformedPolicyDocumentException";
 const _MPDLT = "ManagedPolicyDetailListType";
 const _MPL = "MinimumPasswordLength";
 const _MS = "MatchedStatements";
 const _MSD = "MaxSessionDuration";
+const _MV = "MinorVersion";
+const _MVa = "MajorVersion";
 const _Ma = "Marker";
 const _N = "Name";
 const _NC = "NotificationChannel";
+const _NCE = "NameConflictException";
 const _NGN = "NewGroupName";
 const _NOSA = "NumberOfServicesAccessible";
 const _NOSNA = "NumberOfServicesNotAccessed";
@@ -531,8 +555,12 @@ const _OPLT = "OrganizationPolicyListType";
 const _OSBO = "OnlySendByOwner";
 const _P = "Permissions";
 const _PA = "PolicyArn";
+const _PAP = "PutAccountProperties";
+const _PAPR = "PutAccountPropertiesRequest";
+const _PAPRu = "PutAccountPropertiesResponse";
 const _PB = "PermissionsBoundary";
 const _PBA = "PermissionsBoundaryArn";
+const _PBAe = "PermissionBoundaryArn";
 const _PBDD = "PermissionsBoundaryDecisionDetail";
 const _PBPIL = "PermissionsBoundaryPolicyInputList";
 const _PBT = "PermissionsBoundaryType";
@@ -540,6 +568,8 @@ const _PBUC = "PermissionsBoundaryUsageCount";
 const _PCR = "PermissionCheckResult";
 const _PCS = "PermissionCheckStatus";
 const _PD = "PolicyDocument";
+const _PDa = "ParameterDefinition";
+const _PDar = "ParametersDefinition";
 const _PDo = "PolicyDetail";
 const _PEE = "PolicyEvaluationException";
 const _PEL = "PolicyExclusionList";
@@ -593,6 +623,7 @@ const _Pas = "Password";
 const _Po = "Policy";
 const _Pol = "Policies";
 const _Pos = "Position";
+const _Pr = "Properties";
 const _QRCPNG = "QRCodePNG";
 const _R = "Region";
 const _RA = "ResourceArns";
@@ -600,6 +631,7 @@ const _RCIDFOIDCP = "RemoveClientIDFromOpenIDConnectProvider";
 const _RCIDFOIDCPR = "RemoveClientIDFromOpenIDConnectProviderRequest";
 const _RD = "RoleDetail";
 const _RDL = "RoleDetailList";
+const _RDP = "RoleDescriptionPattern";
 const _RDR = "RejectDelegationRequest";
 const _RDRR = "RejectDelegationRequestRequest";
 const _RF = "ReportFormat";
@@ -610,15 +642,18 @@ const _RIo = "RoleId";
 const _RLC = "RequireLowercaseCharacters";
 const _RLU = "RoleLastUsed";
 const _RM = "RequestMessage";
+const _RME = "RoleModifiedException";
 const _RMFAD = "ResyncMFADevice";
 const _RMFADR = "ResyncMFADeviceRequest";
 const _RN = "RoleName";
+const _RNP = "RoleNamePattern";
 const _RNe = "RequestorName";
 const _RNeq = "RequireNumbers";
 const _RO = "ResourceOwner";
 const _RP = "ResourcePolicy";
 const _RPK = "RemovePrivateKey";
 const _RPL = "RolePolicyList";
+const _RPP = "RolePathPattern";
 const _RPRA = "RolePermissionRestrictionArns";
 const _RR = "RejectionReason";
 const _RRFIP = "RemoveRoleFromInstanceProfile";
@@ -630,6 +665,9 @@ const _RSRe = "ResourceSpecificResult";
 const _RSSC = "ResetServiceSpecificCredential";
 const _RSSCR = "ResetServiceSpecificCredentialRequest";
 const _RSSCRe = "ResetServiceSpecificCredentialResponse";
+const _RTDE = "RoleTemplateDisabledException";
+const _RTT = "RoleTagsTemplate";
+const _RTV = "RoleTemplateVersion";
 const _RU = "RedirectUrl";
 const _RUC = "RequireUppercaseCharacters";
 const _RUFG = "RemoveUserFromGroup";
@@ -637,6 +675,8 @@ const _RUFGR = "RemoveUserFromGroupRequest";
 const _RUL = "RoleUsageList";
 const _RULT = "RoleUsageListType";
 const _RUT = "RoleUsageType";
+const _RV = "ReplacementValues";
+const _RVE = "ReplacementValueEntry";
 const _RWI = "RequestorWorkflowId";
 const _Re = "Reason";
 const _Res = "Resources";
@@ -688,6 +728,7 @@ const _SPPR = "SimulatePrincipalPolicyRequest";
 const _SPR = "SimulatePolicyResponse";
 const _SPT = "SourcePolicyType";
 const _SPt = "StartPosition";
+const _SRT = "SourceRoleTemplate";
 const _SS = "SummaryState";
 const _SSC = "ServiceSpecificCredential";
 const _SSCI = "ServiceSpecificCredentialId";
@@ -702,11 +743,13 @@ const _SSHPKM = "SSHPublicKeyMetadata";
 const _SSHPKu = "SSHPublicKeys";
 const _SSTSP = "SetSecurityTokenServicePreferences";
 const _SSTSPR = "SetSecurityTokenServicePreferencesRequest";
+const _ST = "SubType";
 const _SUN = "ServiceUserName";
 const _Sc = "Scope";
 const _St = "State";
 const _Sta = "Statement";
 const _T = "Tags";
+const _TA = "TemplateArn";
 const _TAE = "TotalAuthenticatedEntities";
 const _TALA = "TrackedActionsLastAccessed";
 const _TALAr = "TrackedActionLastAccessed";
@@ -716,6 +759,8 @@ const _TK = "TagKeys";
 const _TL = "ThumbprintList";
 const _TMFAD = "TagMFADevice";
 const _TMFADR = "TagMFADeviceRequest";
+const _TMV = "TemplateMinorVersion";
+const _TN = "TemplateName";
 const _TOIDCP = "TagOpenIDConnectProvider";
 const _TOIDCPR = "TagOpenIDConnectProviderRequest";
 const _TP = "TagPolicy";
@@ -726,8 +771,10 @@ const _TSAMLP = "TagSAMLProvider";
 const _TSAMLPR = "TagSAMLProviderRequest";
 const _TSC = "TagServerCertificate";
 const _TSCR = "TagServerCertificateRequest";
+const _TT = "TagTemplate";
 const _TU = "TagUser";
 const _TUR = "TagUserRequest";
+const _TVI = "TemplateVersionId";
 const _Ta = "Tag";
 const _Ti = "Timestamp";
 const _Ty = "Type";
@@ -796,6 +843,7 @@ const _USSHPKRp = "UploadSSHPublicKeyRequest";
 const _USSHPKRpl = "UploadSSHPublicKeyResponse";
 const _USSHPKp = "UploadSSHPublicKey";
 const _UT = "UpdatedTime";
+const _UTp = "UpdateTimestamp";
 const _UU = "UntagUser";
 const _UUR = "UntagUserRequest";
 const _UURp = "UpdateUserRequest";
@@ -803,6 +851,7 @@ const _UUp = "UpdateUser";
 const _Us = "User";
 const _Use = "Users";
 const _V = "Versions";
+const _VE = "VersionEnabled";
 const _VI = "VersionId";
 const _VMFAD = "VirtualMFADevice";
 const _VMFADN = "VirtualMFADeviceName";
@@ -823,11 +872,14 @@ const _gDLT = "groupDetailListType";
 const _gLT = "groupListType";
 const _hE = "httpError";
 const _iPLT = "instanceProfileListType";
+const _iPTLT = "inlinePolicyTemplateListType";
 const _iT = "isTruncated";
 const _lPGSARLT = "listPolicyGrantingServiceAccessResponseListType";
 const _m = "message";
 const _mDLT = "mfaDeviceListType";
-const _pDLT = "policyDetailListType";
+const _mSRVE = "mapStringReplacementValueEntry";
+const _pDLT = "parametersDefinitionListType";
+const _pDLTo = "policyDetailListType";
 const _pDVLT = "policyDocumentVersionListType";
 const _pGSALT = "policyGrantingServiceAccessListType";
 const _pKL = "privateKeyList";
@@ -843,6 +895,7 @@ const _sCS = "serviceCredentialSecret";
 const _sP = "servicePassword";
 const _se = "server";
 const _tLT = "tagListType";
+const _tTLT = "tagTemplateListType";
 const _uDLT = "userDetailListType";
 const _uLT = "userListType";
 const _vMFADLT = "virtualMFADeviceListType";
@@ -883,6 +936,7 @@ import {
   LimitExceededException,
   MalformedCertificateException,
   MalformedPolicyDocumentException,
+  NameConflictException,
   NoSuchEntityException,
   OpenIdIdpCommunicationErrorException,
   OrganizationNotFoundException,
@@ -891,6 +945,8 @@ import {
   PolicyEvaluationException,
   PolicyNotAttachableException,
   ReportGenerationLimitExceededException,
+  RoleModifiedException,
+  RoleTemplateDisabledException,
   ServiceAccessNotEnabledException,
   ServiceFailureException,
   ServiceNotSupportedException,
@@ -1036,6 +1092,12 @@ export var MalformedPolicyDocumentException$: StaticErrorSchema = [-3, n0, _MPDE
   [0]
 ];
 n0_registry.registerError(MalformedPolicyDocumentException$, MalformedPolicyDocumentException);
+export var NameConflictException$: StaticErrorSchema = [-3, n0, _NCE,
+  { [_aQE]: [`NameConflict`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(NameConflictException$, NameConflictException);
 export var NoSuchEntityException$: StaticErrorSchema = [-3, n0, _NSEE,
   { [_aQE]: [`NoSuchEntity`, 404], [_e]: _c, [_hE]: 404 },
   [_m],
@@ -1084,6 +1146,18 @@ export var ReportGenerationLimitExceededException$: StaticErrorSchema = [-3, n0,
   [0]
 ];
 n0_registry.registerError(ReportGenerationLimitExceededException$, ReportGenerationLimitExceededException);
+export var RoleModifiedException$: StaticErrorSchema = [-3, n0, _RME,
+  { [_aQE]: [`RoleModified`, 409], [_e]: _c, [_hE]: 409 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RoleModifiedException$, RoleModifiedException);
+export var RoleTemplateDisabledException$: StaticErrorSchema = [-3, n0, _RTDE,
+  { [_aQE]: [`RoleTemplateDisabled`, 400], [_e]: _c, [_hE]: 400 },
+  [_m],
+  [0]
+];
+n0_registry.registerError(RoleTemplateDisabledException$, RoleTemplateDisabledException);
 export var ServiceAccessNotEnabledException$: StaticErrorSchema = [-3, n0, _SANEE,
   { [_e]: _c, [_hE]: 400 },
   [_M],
@@ -1153,6 +1227,16 @@ export var AccessKeyMetadata$: StaticStructureSchema = [3, n0, _AKM,
   0,
   [_UN, _AKI, _S, _CD],
   [0, 0, 0, 4]
+];
+export var AcquireRoleRequest$: StaticStructureSchema = [3, n0, _ARR,
+  0,
+  [_TA, _TMV, _RV],
+  [0, 1, () => mapStringReplacementValueEntry], 1
+];
+export var AcquireRoleResponse$: StaticStructureSchema = [3, n0, _ARRc,
+  0,
+  [_Ro],
+  [() => Role$], 1
 ];
 export var AddClientIDToOpenIDConnectProviderRequest$: StaticStructureSchema = [3, n0, _ACIDTOIDCPR,
   0,
@@ -1624,6 +1708,16 @@ export var GetAccountPasswordPolicyResponse$: StaticStructureSchema = [3, n0, _G
   [_PPa],
   [() => PasswordPolicy$], 1
 ];
+export var GetAccountPropertiesRequest$: StaticStructureSchema = [3, n0, _GAPR,
+  0,
+  [],
+  []
+];
+export var GetAccountPropertiesResponse$: StaticStructureSchema = [3, n0, _GAPRe,
+  0,
+  [_Pr],
+  [128 | 0]
+];
 export var GetAccountSummaryResponse$: StaticStructureSchema = [3, n0, _GASR,
   0,
   [_SM],
@@ -1784,6 +1878,16 @@ export var GetRoleResponse$: StaticStructureSchema = [3, n0, _GRRe,
   [_Ro],
   [() => Role$], 1
 ];
+export var GetRoleTemplateVersionRequest$: StaticStructureSchema = [3, n0, _GRTVR,
+  0,
+  [_TA, _MV],
+  [0, 1], 1
+];
+export var GetRoleTemplateVersionResponse$: StaticStructureSchema = [3, n0, _GRTVRe,
+  0,
+  [_RTV],
+  [() => RoleTemplateVersion$], 1
+];
 export var GetSAMLProviderRequest$: StaticStructureSchema = [3, n0, _GSAMLPR,
   0,
   [_SAMLPA],
@@ -1873,6 +1977,11 @@ export var GroupDetail$: StaticStructureSchema = [3, n0, _GD,
   0,
   [_Pa, _GN, _GI, _A, _CD, _GPL, _AMP],
   [0, 0, 0, 0, 4, () => policyDetailListType, () => attachedPoliciesListType]
+];
+export var InlinePolicy$: StaticStructureSchema = [3, n0, _IPn,
+  0,
+  [_PN, _PD],
+  [0, 0], 2
 ];
 export var InlinePolicyIdentifierType$: StaticStructureSchema = [3, n0, _IPIT,
   0,
@@ -1991,7 +2100,7 @@ export var ListInstanceProfilesForRoleRequest$: StaticStructureSchema = [3, n0, 
 ];
 export var ListInstanceProfilesForRoleResponse$: StaticStructureSchema = [3, n0, _LIPFRRi,
   0,
-  [_IPn, _IT, _Ma],
+  [_IPns, _IT, _Ma],
   [() => instanceProfileListType, 2, 0], 1
 ];
 export var ListInstanceProfilesRequest$: StaticStructureSchema = [3, n0, _LIPR,
@@ -2001,7 +2110,7 @@ export var ListInstanceProfilesRequest$: StaticStructureSchema = [3, n0, _LIPR,
 ];
 export var ListInstanceProfilesResponse$: StaticStructureSchema = [3, n0, _LIPRi,
   0,
-  [_IPn, _IT, _Ma],
+  [_IPns, _IT, _Ma],
   [() => instanceProfileListType, 2, 0], 1
 ];
 export var ListInstanceProfileTagsRequest$: StaticStructureSchema = [3, n0, _LIPTR,
@@ -2279,6 +2388,11 @@ export var OrganizationsDecisionDetail$: StaticStructureSchema = [3, n0, _ODD,
   [_ABO],
   [2]
 ];
+export var ParameterDefinition$: StaticStructureSchema = [3, n0, _PDa,
+  0,
+  [_N, _Ty, _ST, _D, _IR, _DV, _Im],
+  [0, 0, 0, 0, 2, 0, 2], 2
+];
 export var PasswordPolicy$: StaticStructureSchema = [3, n0, _PPa,
   0,
   [_MPL, _RS, _RNeq, _RUC, _RLC, _AUTCP, _EPx, _MPA, _PRP, _HE],
@@ -2334,6 +2448,16 @@ export var Position$: StaticStructureSchema = [3, n0, _Pos,
   [_Li, _Col],
   [1, 1]
 ];
+export var PutAccountPropertiesRequest$: StaticStructureSchema = [3, n0, _PAPR,
+  0,
+  [_Pr],
+  [128 | 0], 1
+];
+export var PutAccountPropertiesResponse$: StaticStructureSchema = [3, n0, _PAPRu,
+  0,
+  [],
+  []
+];
 export var PutGroupPolicyRequest$: StaticStructureSchema = [3, n0, _PGPR,
   0,
   [_GN, _PN, _PD],
@@ -2379,6 +2503,11 @@ export var RemoveUserFromGroupRequest$: StaticStructureSchema = [3, n0, _RUFGR,
   [_GN, _UN],
   [0, 0], 2
 ];
+export var ReplacementValueEntry$: StaticStructureSchema = [3, n0, _RVE,
+  0,
+  [_Va],
+  [64 | 0], 1
+];
 export var ResetServiceSpecificCredentialRequest$: StaticStructureSchema = [3, n0, _RSSCR,
   0,
   [_SSCI, _UN],
@@ -2401,8 +2530,8 @@ export var ResyncMFADeviceRequest$: StaticStructureSchema = [3, n0, _RMFADR,
 ];
 export var Role$: StaticStructureSchema = [3, n0, _Ro,
   0,
-  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU],
-  [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$], 5
+  [_Pa, _RN, _RIo, _A, _CD, _ARPD, _D, _MSD, _PB, _T, _RLU, _SRT],
+  [0, 0, 0, 0, 4, 0, 0, 1, () => AttachedPermissionsBoundary$, () => tagListType, () => RoleLastUsed$, () => SourceRoleTemplate$], 5
 ];
 export var RoleDetail$: StaticStructureSchema = [3, n0, _RD,
   0,
@@ -2413,6 +2542,11 @@ export var RoleLastUsed$: StaticStructureSchema = [3, n0, _RLU,
   0,
   [_LUD, _R],
   [4, 0]
+];
+export var RoleTemplateVersion$: StaticStructureSchema = [3, n0, _RTV,
+  0,
+  [_TA, _TN, _TVI, _D, _MVa, _DMV, _MBT, _MBV, _Ena, _MV, _RNP, _RPP, _RDP, _ARPDT, _IPT, _MPAa, _PBAe, _PDar, _RTT, _MSD, _VE, _CT, _UTp],
+  [0, 0, 0, 0, 1, 1, 0, 0, 2, 1, 0, 0, 0, 0, () => inlinePolicyTemplateListType, 64 | 0, 0, () => parametersDefinitionListType, () => tagTemplateListType, 1, 2, 4, 4]
 ];
 export var RoleUsageType$: StaticStructureSchema = [3, n0, _RUT,
   0,
@@ -2489,6 +2623,11 @@ export var SimulatePrincipalPolicyRequest$: StaticStructureSchema = [3, n0, _SPP
   [_PSA, _ANc, _PIL, _PBPIL, _PEL, _RA, _RP, _RO, _CA, _CEo, _RHO, _MI, _Ma],
   [0, 64 | 0, 64 | 0, 64 | 0, () => PolicyExclusionsListType, 64 | 0, 0, 0, 0, () => ContextEntryListType, 0, 1, 0], 2
 ];
+export var SourceRoleTemplate$: StaticStructureSchema = [3, n0, _SRT,
+  0,
+  [_TA, _TMV],
+  [0, 1], 2
+];
 export var SSHPublicKey$: StaticStructureSchema = [3, n0, _SSHPK,
   0,
   [_UN, _SSHPKI, _Fi, _SSHPKB, _S, _UDp],
@@ -2543,6 +2682,11 @@ export var TagServerCertificateRequest$: StaticStructureSchema = [3, n0, _TSCR,
   0,
   [_SCN, _T],
   [0, () => tagListType], 2
+];
+export var TagTemplate$: StaticStructureSchema = [3, n0, _TT,
+  0,
+  [_K, _Val],
+  [0, 0], 2
 ];
 export var TagUserRequest$: StaticStructureSchema = [3, n0, _TUR,
   0,
@@ -2769,12 +2913,16 @@ var groupListType: StaticListSchema = [1, n0, _gLT,
   0, () => Group$
 ];
 var groupNameListType = 64 | 0;
+var inlinePolicyTemplateListType: StaticListSchema = [1, n0, _iPTLT,
+  0, () => InlinePolicy$
+];
 var instanceProfileListType: StaticListSchema = [1, n0, _iPLT,
   0, () => InstanceProfile$
 ];
 var listPolicyGrantingServiceAccessResponseListType: StaticListSchema = [1, n0, _lPGSARLT,
   0, () => ListPoliciesGrantingServiceAccessEntry$
 ];
+var managedPolicyArnListType = 64 | 0;
 var ManagedPolicyDetailListType: StaticListSchema = [1, n0, _MPDLT,
   0, () => ManagedPolicyDetail$
 ];
@@ -2787,7 +2935,10 @@ var OpenIDConnectProviderListType: StaticListSchema = [1, n0, _OIDCPLT,
 var OrganizationPolicyListType: StaticListSchema = [1, n0, _OPLT,
   0, () => OrderedOrganizationPolicyType$
 ];
-var policyDetailListType: StaticListSchema = [1, n0, _pDLT,
+var parametersDefinitionListType: StaticListSchema = [1, n0, _pDLT,
+  0, () => ParameterDefinition$
+];
+var policyDetailListType: StaticListSchema = [1, n0, _pDLTo,
   0, () => PolicyDetail$
 ];
 var policyDocumentVersionListType: StaticListSchema = [1, n0, _pDVLT,
@@ -2819,6 +2970,7 @@ var PolicyUserListType: StaticListSchema = [1, n0, _PULT,
 var privateKeyList: StaticListSchema = [1, n0, _pKL,
   0, () => SAMLPrivateKey$
 ];
+var replacementValueListType = 64 | 0;
 var ResourceNameListType = 64 | 0;
 var ResourceSpecificResultListType: StaticListSchema = [1, n0, _RSRLT,
   0, () => ResourceSpecificResult$
@@ -2857,6 +3009,9 @@ var tagKeyListType = 64 | 0;
 var tagListType: StaticListSchema = [1, n0, _tLT,
   0, () => Tag$
 ];
+var tagTemplateListType: StaticListSchema = [1, n0, _tTLT,
+  0, () => TagTemplate$
+];
 var thumbprintListType = 64 | 0;
 var TrackedActionsLastAccessed: StaticListSchema = [1, n0, _TALA,
   0, () => TrackedActionLastAccessed$
@@ -2871,8 +3026,12 @@ var virtualMFADeviceListType: StaticListSchema = [1, n0, _vMFADLT,
   0, [() => VirtualMFADevice$,
     0]
 ];
+var accountPropertiesMapType = 128 | 0;
 var CertificationMapType = 128 | 0;
 var EvalDecisionDetailsType = 128 | 0;
+var mapStringReplacementValueEntry: StaticMapSchema = [2, n0, _mSRVE,
+  0, 0, () => ReplacementValueEntry$
+];
 var summaryMapType = 128 | 1;
 export var PolicyIdentifier$: StaticUnionSchema = [4, n0, _PIo,
   0,
@@ -2881,6 +3040,9 @@ export var PolicyIdentifier$: StaticUnionSchema = [4, n0, _PIo,
 ];
 export var AcceptDelegationRequest$: StaticOperationSchema = [9, n0, _ADR,
   0, () => AcceptDelegationRequestRequest$, () => __Unit
+];
+export var AcquireRole$: StaticOperationSchema = [9, n0, _AR,
+  0, () => AcquireRoleRequest$, () => AcquireRoleResponse$
 ];
 export var AddClientIDToOpenIDConnectProvider$: StaticOperationSchema = [9, n0, _ACIDTOIDCP,
   0, () => AddClientIDToOpenIDConnectProviderRequest$, () => __Unit
@@ -3071,6 +3233,9 @@ export var GetAccountAuthorizationDetails$: StaticOperationSchema = [9, n0, _GAA
 export var GetAccountPasswordPolicy$: StaticOperationSchema = [9, n0, _GAPP,
   0, () => __Unit, () => GetAccountPasswordPolicyResponse$
 ];
+export var GetAccountProperties$: StaticOperationSchema = [9, n0, _GAP,
+  0, () => GetAccountPropertiesRequest$, () => GetAccountPropertiesResponse$
+];
 export var GetAccountSummary$: StaticOperationSchema = [9, n0, _GAS,
   0, () => __Unit, () => GetAccountSummaryResponse$
 ];
@@ -3124,6 +3289,9 @@ export var GetRole$: StaticOperationSchema = [9, n0, _GR,
 ];
 export var GetRolePolicy$: StaticOperationSchema = [9, n0, _GRP,
   0, () => GetRolePolicyRequest$, () => GetRolePolicyResponse$
+];
+export var GetRoleTemplateVersion$: StaticOperationSchema = [9, n0, _GRTV,
+  0, () => GetRoleTemplateVersionRequest$, () => GetRoleTemplateVersionResponse$
 ];
 export var GetSAMLProvider$: StaticOperationSchema = [9, n0, _GSAMLP,
   0, () => GetSAMLProviderRequest$, () => GetSAMLProviderResponse$
@@ -3256,6 +3424,9 @@ export var ListUserTags$: StaticOperationSchema = [9, n0, _LUT,
 ];
 export var ListVirtualMFADevices$: StaticOperationSchema = [9, n0, _LVMFAD,
   0, () => ListVirtualMFADevicesRequest$, () => ListVirtualMFADevicesResponse$
+];
+export var PutAccountProperties$: StaticOperationSchema = [9, n0, _PAP,
+  0, () => PutAccountPropertiesRequest$, () => PutAccountPropertiesResponse$
 ];
 export var PutGroupPolicy$: StaticOperationSchema = [9, n0, _PGP,
   0, () => PutGroupPolicyRequest$, () => __Unit

@@ -1,0 +1,240 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetRoleTemplateVersionResponse xmlns="https://placeholder.amazonaws.com">
+    <RoleTemplateVersion/>
+</GetRoleTemplateVersionResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/xml
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (xml)]
+<GetRoleTemplateVersionResponse xmlns="https://placeholder.amazonaws.com">
+    <RoleTemplateVersion>
+        <TemplateArn>
+            __TemplateArn__
+        </TemplateArn>
+        <TemplateName>
+            __TemplateName__
+        </TemplateName>
+        <TemplateVersionId>
+            __TemplateVersionId__
+        </TemplateVersionId>
+        <Description>
+            __Description__
+        </Description>
+        <MajorVersion>
+            0
+        </MajorVersion>
+        <DefaultMinorVersion>
+            0
+        </DefaultMinorVersion>
+        <ManagedByType>
+            __ManagedByType__
+        </ManagedByType>
+        <ManagedByValue>
+            __ManagedByValue__
+        </ManagedByValue>
+        <Enabled>
+            false
+        </Enabled>
+        <MinorVersion>
+            0
+        </MinorVersion>
+        <RoleNamePattern>
+            __RoleNamePattern__
+        </RoleNamePattern>
+        <RolePathPattern>
+            __RolePathPattern__
+        </RolePathPattern>
+        <RoleDescriptionPattern>
+            __RoleDescriptionPattern__
+        </RoleDescriptionPattern>
+        <AssumeRolePolicyDocumentTemplate>
+            __AssumeRolePolicyDocumentTemplate__
+        </AssumeRolePolicyDocumentTemplate>
+        <InlinePolicyTemplates>
+            <member>
+                <PolicyName>
+                    __PolicyName__
+                </PolicyName>
+                <PolicyDocument>
+                    __PolicyDocument__
+                </PolicyDocument>
+            </member>
+            <member>
+                <PolicyName>
+                    __PolicyName__
+                </PolicyName>
+                <PolicyDocument>
+                    __PolicyDocument__
+                </PolicyDocument>
+            </member>
+            <member>
+                <PolicyName>
+                    __PolicyName__
+                </PolicyName>
+                <PolicyDocument>
+                    __PolicyDocument__
+                </PolicyDocument>
+            </member>
+        </InlinePolicyTemplates>
+        <ManagedPolicyArns>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+            <member>
+                __member__
+            </member>
+        </ManagedPolicyArns>
+        <PermissionBoundaryArn>
+            __PermissionBoundaryArn__
+        </PermissionBoundaryArn>
+        <ParametersDefinition>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Type>
+                    __Type__
+                </Type>
+                <SubType>
+                    __SubType__
+                </SubType>
+                <Description>
+                    __Description__
+                </Description>
+                <IsRequired>
+                    false
+                </IsRequired>
+                <DefaultValue>
+                    __DefaultValue__
+                </DefaultValue>
+                <Immutable>
+                    false
+                </Immutable>
+            </member>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Type>
+                    __Type__
+                </Type>
+                <SubType>
+                    __SubType__
+                </SubType>
+                <Description>
+                    __Description__
+                </Description>
+                <IsRequired>
+                    false
+                </IsRequired>
+                <DefaultValue>
+                    __DefaultValue__
+                </DefaultValue>
+                <Immutable>
+                    false
+                </Immutable>
+            </member>
+            <member>
+                <Name>
+                    __Name__
+                </Name>
+                <Type>
+                    __Type__
+                </Type>
+                <SubType>
+                    __SubType__
+                </SubType>
+                <Description>
+                    __Description__
+                </Description>
+                <IsRequired>
+                    false
+                </IsRequired>
+                <DefaultValue>
+                    __DefaultValue__
+                </DefaultValue>
+                <Immutable>
+                    false
+                </Immutable>
+            </member>
+        </ParametersDefinition>
+        <RoleTagsTemplate>
+            <member>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </member>
+            <member>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </member>
+            <member>
+                <Key>
+                    __Key__
+                </Key>
+                <Value>
+                    __Value__
+                </Value>
+            </member>
+        </RoleTagsTemplate>
+        <MaxSessionDuration>
+            0
+        </MaxSessionDuration>
+        <VersionEnabled>
+            false
+        </VersionEnabled>
+        <CreateTimestamp>
+            2000-01-01T04:59:59.999Z
+        </CreateTimestamp>
+        <UpdateTimestamp>
+            2000-01-01T04:59:59.999Z
+        </UpdateTimestamp>
+    </RoleTemplateVersion>
+</GetRoleTemplateVersionResponse>
+
+
+--- [output object] ---
+{
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -13,6 +13,11 @@ import {
   AcceptDelegationRequestCommand,
 } from "./commands/AcceptDelegationRequestCommand";
 import {
+  type AcquireRoleCommandInput,
+  type AcquireRoleCommandOutput,
+  AcquireRoleCommand,
+} from "./commands/AcquireRoleCommand";
+import {
   type AddClientIDToOpenIDConnectProviderCommandInput,
   type AddClientIDToOpenIDConnectProviderCommandOutput,
   AddClientIDToOpenIDConnectProviderCommand,
@@ -328,6 +333,11 @@ import {
   GetAccountPasswordPolicyCommand,
 } from "./commands/GetAccountPasswordPolicyCommand";
 import {
+  type GetAccountPropertiesCommandInput,
+  type GetAccountPropertiesCommandOutput,
+  GetAccountPropertiesCommand,
+} from "./commands/GetAccountPropertiesCommand";
+import {
   type GetAccountSummaryCommandInput,
   type GetAccountSummaryCommandOutput,
   GetAccountSummaryCommand,
@@ -405,6 +415,11 @@ import {
   type GetRolePolicyCommandOutput,
   GetRolePolicyCommand,
 } from "./commands/GetRolePolicyCommand";
+import {
+  type GetRoleTemplateVersionCommandInput,
+  type GetRoleTemplateVersionCommandOutput,
+  GetRoleTemplateVersionCommand,
+} from "./commands/GetRoleTemplateVersionCommand";
 import {
   type GetSAMLProviderCommandInput,
   type GetSAMLProviderCommandOutput,
@@ -613,6 +628,11 @@ import {
   type ListVirtualMFADevicesCommandOutput,
   ListVirtualMFADevicesCommand,
 } from "./commands/ListVirtualMFADevicesCommand";
+import {
+  type PutAccountPropertiesCommandInput,
+  type PutAccountPropertiesCommandOutput,
+  PutAccountPropertiesCommand,
+} from "./commands/PutAccountPropertiesCommand";
 import {
   type PutGroupPolicyCommandInput,
   type PutGroupPolicyCommandOutput,
@@ -886,6 +906,7 @@ import { waitUntilUserExists } from "./waiters/waitForUserExists";
 
 const commands = {
   AcceptDelegationRequestCommand,
+  AcquireRoleCommand,
   AddClientIDToOpenIDConnectProviderCommand,
   AddRoleToInstanceProfileCommand,
   AddUserToGroupCommand,
@@ -949,6 +970,7 @@ const commands = {
   GetAccessKeyLastUsedCommand,
   GetAccountAuthorizationDetailsCommand,
   GetAccountPasswordPolicyCommand,
+  GetAccountPropertiesCommand,
   GetAccountSummaryCommand,
   GetContextKeysForCustomPolicyCommand,
   GetContextKeysForPrincipalPolicyCommand,
@@ -967,6 +989,7 @@ const commands = {
   GetPolicyVersionCommand,
   GetRoleCommand,
   GetRolePolicyCommand,
+  GetRoleTemplateVersionCommand,
   GetSAMLProviderCommand,
   GetServerCertificateCommand,
   GetServiceLastAccessedDetailsCommand,
@@ -1011,6 +1034,7 @@ const commands = {
   ListUsersCommand,
   ListUserTagsCommand,
   ListVirtualMFADevicesCommand,
+  PutAccountPropertiesCommand,
   PutGroupPolicyCommand,
   PutRolePermissionsBoundaryCommand,
   PutRolePolicyCommand,
@@ -1121,6 +1145,23 @@ export interface IAM {
     args: AcceptDelegationRequestCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AcceptDelegationRequestCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AcquireRoleCommand}
+   */
+  acquireRole(
+    args: AcquireRoleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcquireRoleCommandOutput>;
+  acquireRole(
+    args: AcquireRoleCommandInput,
+    cb: (err: any, data?: AcquireRoleCommandOutput) => void
+  ): void;
+  acquireRole(
+    args: AcquireRoleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcquireRoleCommandOutput) => void
   ): void;
 
   /**
@@ -2208,6 +2249,24 @@ export interface IAM {
   ): void;
 
   /**
+   * @see {@link GetAccountPropertiesCommand}
+   */
+  getAccountProperties(): Promise<GetAccountPropertiesCommandOutput>;
+  getAccountProperties(
+    args: GetAccountPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountPropertiesCommandOutput>;
+  getAccountProperties(
+    args: GetAccountPropertiesCommandInput,
+    cb: (err: any, data?: GetAccountPropertiesCommandOutput) => void
+  ): void;
+  getAccountProperties(
+    args: GetAccountPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountPropertiesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccountSummaryCommand}
    */
   getAccountSummary(): Promise<GetAccountSummaryCommandOutput>;
@@ -2515,6 +2574,23 @@ export interface IAM {
     args: GetRolePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetRolePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRoleTemplateVersionCommand}
+   */
+  getRoleTemplateVersion(
+    args: GetRoleTemplateVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRoleTemplateVersionCommandOutput>;
+  getRoleTemplateVersion(
+    args: GetRoleTemplateVersionCommandInput,
+    cb: (err: any, data?: GetRoleTemplateVersionCommandOutput) => void
+  ): void;
+  getRoleTemplateVersion(
+    args: GetRoleTemplateVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRoleTemplateVersionCommandOutput) => void
   ): void;
 
   /**
@@ -3281,6 +3357,23 @@ export interface IAM {
     args: ListVirtualMFADevicesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListVirtualMFADevicesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountPropertiesCommand}
+   */
+  putAccountProperties(
+    args: PutAccountPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountPropertiesCommandOutput>;
+  putAccountProperties(
+    args: PutAccountPropertiesCommandInput,
+    cb: (err: any, data?: PutAccountPropertiesCommandOutput) => void
+  ): void;
+  putAccountProperties(
+    args: PutAccountPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountPropertiesCommandOutput) => void
   ): void;
 
   /**

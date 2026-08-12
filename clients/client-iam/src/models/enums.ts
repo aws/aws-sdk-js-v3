@@ -31,6 +31,19 @@ export type StatusType = (typeof StatusType)[keyof typeof StatusType];
  * @public
  * @enum
  */
+export const PermissionsBoundaryAttachmentType = {
+  Policy: "PermissionsBoundaryPolicy",
+} as const;
+/**
+ * @public
+ */
+export type PermissionsBoundaryAttachmentType =
+  (typeof PermissionsBoundaryAttachmentType)[keyof typeof PermissionsBoundaryAttachmentType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssertionEncryptionModeType = {
   Allowed: "Allowed",
   Required: "Required",
@@ -54,19 +67,6 @@ export const AssignmentStatusType = {
  * @public
  */
 export type AssignmentStatusType = (typeof AssignmentStatusType)[keyof typeof AssignmentStatusType];
-
-/**
- * @public
- * @enum
- */
-export const PermissionsBoundaryAttachmentType = {
-  Policy: "PermissionsBoundaryPolicy",
-} as const;
-/**
- * @public
- */
-export type PermissionsBoundaryAttachmentType =
-  (typeof PermissionsBoundaryAttachmentType)[keyof typeof PermissionsBoundaryAttachmentType];
 
 /**
  * @public
@@ -284,6 +284,35 @@ export const JobStatusType = {
  * @public
  */
 export type JobStatusType = (typeof JobStatusType)[keyof typeof JobStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedByTypeType = {
+  Service: "Service",
+} as const;
+/**
+ * @public
+ */
+export type ManagedByTypeType = (typeof ManagedByTypeType)[keyof typeof ManagedByTypeType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ParameterTypeType = {
+  Arn: "Arn",
+  ArnList: "ArnList",
+  Number: "Number",
+  NumberList: "NumberList",
+  String: "String",
+  StringList: "StringList",
+} as const;
+/**
+ * @public
+ */
+export type ParameterTypeType = (typeof ParameterTypeType)[keyof typeof ParameterTypeType];
 
 /**
  * @public

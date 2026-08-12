@@ -11,6 +11,8 @@ import type {
   FeatureType,
   GlobalEndpointTokenVersion,
   JobStatusType,
+  ManagedByTypeType,
+  ParameterTypeType,
   PermissionCheckResultType,
   PermissionCheckStatusType,
   PermissionsBoundaryAttachmentType,
@@ -251,6 +253,251 @@ export interface AccessKeyMetadata {
 }
 
 /**
+ * <p>Contains the list of replacement values for a single template parameter used when
+ *          creating a role from a role template.</p>
+ * @public
+ */
+export interface ReplacementValueEntry {
+  /**
+   * <p>The list of replacement values for the template parameter.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcquireRoleRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  TemplateArn: string | undefined;
+
+  /**
+   * <p>The minor version of the role template to use. If you do not specify a minor version,
+   *             the service uses the template's default minor version.</p>
+   * @public
+   */
+  TemplateMinorVersion?: number | undefined;
+
+  /**
+   * <p>A map of values to substitute for the parameters that are defined in the role template
+   *             version. Each key is a parameter name from the template, and each value is a structure
+   *             that contains the replacement values for that parameter.</p>
+   * @public
+   */
+  ReplacementValues?: Record<string, ReplacementValueEntry> | undefined;
+}
+
+/**
+ * <p>Contains information about an attached permissions boundary.</p>
+ *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
+ *          role to set the permissions boundary.</p>
+ *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+ *             identities </a> in the <i>IAM User Guide</i>.</p>
+ * @public
+ */
+export interface AttachedPermissionsBoundary {
+  /**
+   * <p> The permissions boundary usage type that indicates what type of IAM resource is used
+   *          as the permissions boundary for an entity. This data type can only have a value of
+   *             <code>Policy</code>.</p>
+   * @public
+   */
+  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | undefined;
+
+  /**
+   * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
+   * @public
+   */
+  PermissionsBoundaryArn?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the last time that an IAM role was used. This includes the
+ *          date and time and the Region in which the role was last used. Activity is only reported for
+ *          the trailing 400 days. This period can be shorter if your Region began supporting these
+ *          features within the last year. The role might have been used more than 400 days ago. For
+ *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
+ *          Guide</i>.</p>
+ *          <p>This data type is returned as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations.</p>
+ * @public
+ */
+export interface RoleLastUsed {
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a> that the role was last used.</p>
+   *          <p>This field is null if the role has not been used within the IAM tracking period. For
+   *          more information about the tracking period, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.
+   *       </p>
+   * @public
+   */
+  LastUsedDate?: Date | undefined;
+
+  /**
+   * <p>The name of the Amazon Web Services Region in which the role was last used.</p>
+   * @public
+   */
+  Region?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the role template that a role was created from.</p>
+ * @public
+ */
+export interface SourceRoleTemplate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role template that the role was created
+   *          from.</p>
+   * @public
+   */
+  TemplateArn: string | undefined;
+
+  /**
+   * <p>The minor version of the role template that was used to create the role.</p>
+   * @public
+   */
+  TemplateMinorVersion: number | undefined;
+}
+
+/**
+ * <p>A structure that represents user-provided metadata that can be associated with an IAM
+ *       resource. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
+ *       <i>IAM User Guide</i>.</p>
+ * @public
+ */
+export interface Tag {
+  /**
+   * <p>The key name that can be used to look up or retrieve the associated value. For example,
+   *         <code>Department</code> or <code>Cost Center</code> are common choices.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value associated with this tag. For example, tags with a key name of
+   *         <code>Department</code> could have values such as <code>Human Resources</code>,
+   *         <code>Accounting</code>, and <code>Support</code>. Tags with a key name of <code>Cost
+   *         Center</code> might have values that consist of the number associated with the different
+   *       cost centers in your company. Typically, many resources have tags with the same key name but
+   *       with different values.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Contains information about an IAM role. This structure is returned as a response
+ *          element in several API operations that interact with roles.</p>
+ * @public
+ */
+export interface Role {
+  /**
+   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
+   *             <i>IAM User Guide</i>. </p>
+   * @public
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>The friendly name that identifies the role.</p>
+   * @public
+   */
+  RoleName: string | undefined;
+
+  /**
+   * <p> The stable and unique string identifying the role. For more information about IDs, see
+   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
+   *             identifiers</a> in the <i>IAM User Guide</i>. </p>
+   * @public
+   */
+  RoleId: string | undefined;
+
+  /**
+   * <p> The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and
+   *          how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
+   *             <i>IAM User Guide</i> guide. </p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the role was created.</p>
+   * @public
+   */
+  CreateDate: Date | undefined;
+
+  /**
+   * <p>The policy that grants an entity permission to assume the role.</p>
+   * @public
+   */
+  AssumeRolePolicyDocument?: string | undefined;
+
+  /**
+   * <p>A description of the role that you provide.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the
+   *          CLI, or API to assume the role can specify the duration using the optional
+   *             <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI
+   *          parameter.</p>
+   * @public
+   */
+  MaxSessionDuration?: number | undefined;
+
+  /**
+   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
+   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
+   *             identities </a> in the <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  PermissionsBoundary?: AttachedPermissionsBoundary | undefined;
+
+  /**
+   * <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
+   *       <i>IAM User Guide</i>.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>Contains information about the last time that an IAM role was used. This includes the
+   *          date and time and the Region in which the role was last used. Activity is only reported for
+   *          the trailing 400 days. This period can be shorter if your Region began supporting these
+   *          features within the last year. The role might have been used more than 400 days ago. For
+   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
+   *          Guide</i>.</p>
+   * @public
+   */
+  RoleLastUsed?: RoleLastUsed | undefined;
+
+  /**
+   * <p>Contains information about the role template that this role was created from. This
+   *          member is present only for roles created with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
+   * @public
+   */
+  SourceRoleTemplate?: SourceRoleTemplate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AcquireRoleResponse {
+  /**
+   * <p>A structure that contains details about the IAM role that was created.</p>
+   * @public
+   */
+  Role: Role | undefined;
+}
+
+/**
  * @public
  */
 export interface AddClientIDToOpenIDConnectProviderRequest {
@@ -320,30 +567,6 @@ export interface AssociateDelegationRequestRequest {
    * @public
    */
   DelegationRequestId: string | undefined;
-}
-
-/**
- * <p>Contains information about an attached permissions boundary.</p>
- *          <p>An attached permissions boundary is a managed policy that has been attached to a user or
- *          role to set the permissions boundary.</p>
- *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
- *             identities </a> in the <i>IAM User Guide</i>.</p>
- * @public
- */
-export interface AttachedPermissionsBoundary {
-  /**
-   * <p> The permissions boundary usage type that indicates what type of IAM resource is used
-   *          as the permissions boundary for an entity. This data type can only have a value of
-   *             <code>Policy</code>.</p>
-   * @public
-   */
-  PermissionsBoundaryType?: PermissionsBoundaryAttachmentType | undefined;
-
-  /**
-   * <p> The ARN of the policy used to set the permissions boundary for the user or role.</p>
-   * @public
-   */
-  PermissionsBoundaryArn?: string | undefined;
 }
 
 /**
@@ -737,32 +960,6 @@ export interface CreateGroupResponse {
 }
 
 /**
- * <p>A structure that represents user-provided metadata that can be associated with an IAM
- *       resource. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
- *       <i>IAM User Guide</i>.</p>
- * @public
- */
-export interface Tag {
-  /**
-   * <p>The key name that can be used to look up or retrieve the associated value. For example,
-   *         <code>Department</code> or <code>Cost Center</code> are common choices.</p>
-   * @public
-   */
-  Key: string | undefined;
-
-  /**
-   * <p>The value associated with this tag. For example, tags with a key name of
-   *         <code>Department</code> could have values such as <code>Human Resources</code>,
-   *         <code>Accounting</code>, and <code>Support</code>. Tags with a key name of <code>Cost
-   *         Center</code> might have values that consist of the number associated with the different
-   *       cost centers in your company. Typically, many resources have tags with the same key name but
-   *       with different values.</p>
-   * @public
-   */
-  Value: string | undefined;
-}
-
-/**
  * @public
  */
 export interface CreateInstanceProfileRequest {
@@ -797,124 +994,6 @@ export interface CreateInstanceProfileRequest {
    * @public
    */
   Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>Contains information about the last time that an IAM role was used. This includes the
- *          date and time and the Region in which the role was last used. Activity is only reported for
- *          the trailing 400 days. This period can be shorter if your Region began supporting these
- *          features within the last year. The role might have been used more than 400 days ago. For
- *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
- *          Guide</i>.</p>
- *          <p>This data type is returned as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRole.html">GetRole</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations.</p>
- * @public
- */
-export interface RoleLastUsed {
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a> that the role was last used.</p>
-   *          <p>This field is null if the role has not been used within the IAM tracking period. For
-   *          more information about the tracking period, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.
-   *       </p>
-   * @public
-   */
-  LastUsedDate?: Date | undefined;
-
-  /**
-   * <p>The name of the Amazon Web Services Region in which the role was last used.</p>
-   * @public
-   */
-  Region?: string | undefined;
-}
-
-/**
- * <p>Contains information about an IAM role. This structure is returned as a response
- *          element in several API operations that interact with roles.</p>
- * @public
- */
-export interface Role {
-  /**
-   * <p> The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
-   *             <i>IAM User Guide</i>. </p>
-   * @public
-   */
-  Path: string | undefined;
-
-  /**
-   * <p>The friendly name that identifies the role.</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p> The stable and unique string identifying the role. For more information about IDs, see
-   *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM
-   *             identifiers</a> in the <i>IAM User Guide</i>. </p>
-   * @public
-   */
-  RoleId: string | undefined;
-
-  /**
-   * <p> The Amazon Resource Name (ARN) specifying the role. For more information about ARNs and
-   *          how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the
-   *             <i>IAM User Guide</i> guide. </p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
-   *             format</a>, when the role was created.</p>
-   * @public
-   */
-  CreateDate: Date | undefined;
-
-  /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
-   * @public
-   */
-  AssumeRolePolicyDocument?: string | undefined;
-
-  /**
-   * <p>A description of the role that you provide.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the
-   *          CLI, or API to assume the role can specify the duration using the optional
-   *             <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI
-   *          parameter.</p>
-   * @public
-   */
-  MaxSessionDuration?: number | undefined;
-
-  /**
-   * <p>The ARN of the policy used to set the permissions boundary for the role.</p>
-   *          <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM
-   *             identities </a> in the <i>IAM User Guide</i>.</p>
-   * @public
-   */
-  PermissionsBoundary?: AttachedPermissionsBoundary | undefined;
-
-  /**
-   * <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the
-   *       <i>IAM User Guide</i>.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-
-  /**
-   * <p>Contains information about the last time that an IAM role was used. This includes the
-   *          date and time and the Region in which the role was last used. Activity is only reported for
-   *          the trailing 400 days. This period can be shorter if your Region began supporting these
-   *          features within the last year. The role might have been used more than 400 days ago. For
-   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM user
-   *          Guide</i>.</p>
-   * @public
-   */
-  RoleLastUsed?: RoleLastUsed | undefined;
 }
 
 /**
@@ -3379,6 +3458,23 @@ export interface GetAccountPasswordPolicyResponse {
 }
 
 /**
+ * @public
+ */
+export interface GetAccountPropertiesRequest {}
+
+/**
+ * @public
+ */
+export interface GetAccountPropertiesResponse {
+  /**
+   * <p>A map of account property key-value pairs. Keys are in the format
+   *                 <code>Namespace/PropertyName</code>.</p>
+   * @public
+   */
+  Properties?: Record<string, string> | undefined;
+}
+
+/**
  * <p>Contains the response to a successful <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountSummary.html">GetAccountSummary</a> request.
  *     </p>
  * @public
@@ -4336,6 +4432,292 @@ export interface GetRolePolicyResponse {
    * @public
    */
   PolicyDocument: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRoleTemplateVersionRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the role template whose version you want to
+   *             retrieve.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  TemplateArn: string | undefined;
+
+  /**
+   * <p>The minor version of the role template to retrieve. If you do not specify a minor
+   *             version, the service returns the template's default minor version.</p>
+   * @public
+   */
+  MinorVersion?: number | undefined;
+}
+
+/**
+ * <p>Contains an inline policy template that the service embeds in roles that you create from a
+ *          role template.</p>
+ * @public
+ */
+export interface InlinePolicy {
+  /**
+   * <p>The name of the inline policy.</p>
+   * @public
+   */
+  PolicyName: string | undefined;
+
+  /**
+   * <p>The inline policy document.</p>
+   * @public
+   */
+  PolicyDocument: string | undefined;
+}
+
+/**
+ * <p>Defines a parameter that a role template accepts. You supply values for these parameters
+ *          when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
+ * @public
+ */
+export interface ParameterDefinition {
+  /**
+   * <p>The name of the parameter.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The data type of the parameter. Valid values are <code>String</code>,
+   *             <code>StringList</code>, <code>Number</code>, <code>NumberList</code>,
+   *             <code>Arn</code>, and <code>ArnList</code>.</p>
+   * @public
+   */
+  Type: ParameterTypeType | undefined;
+
+  /**
+   * <p>An optional subtype that further constrains the values that are allowed for the
+   *          parameter.</p>
+   * @public
+   */
+  SubType?: string | undefined;
+
+  /**
+   * <p>A description of the parameter.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Specifies whether you must supply a value for the parameter when you create a role from
+   *          the template.</p>
+   * @public
+   */
+  IsRequired?: boolean | undefined;
+
+  /**
+   * <p>The value that the service uses for the parameter when you do not supply one.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+
+  /**
+   * <p>Specifies whether you can change the parameter value after you create the role.</p>
+   * @public
+   */
+  Immutable?: boolean | undefined;
+}
+
+/**
+ * <p>Represents a tag that is applied to roles that are created from a role template. The key
+ *          and value can include <code>@\{parameter\}</code> placeholders that are replaced with
+ *          template parameter values when the role is created.</p>
+ * @public
+ */
+export interface TagTemplate {
+  /**
+   * <p>The key name of the tag.</p>
+   * @public
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>The value associated with the tag key.</p>
+   * @public
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Contains information about a version of an IAM role template, including the
+ *          configuration that is used to create roles with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>. This structure
+ *          is returned as a response element by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetRoleTemplateVersion.html">GetRoleTemplateVersion</a> operation.</p>
+ * @public
+ */
+export interface RoleTemplateVersion {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the role template.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  TemplateArn?: string | undefined;
+
+  /**
+   * <p>The friendly name that identifies the role template.</p>
+   * @public
+   */
+  TemplateName?: string | undefined;
+
+  /**
+   * <p>The identifier of the role template version.</p>
+   * @public
+   */
+  TemplateVersionId?: string | undefined;
+
+  /**
+   * <p>The description of the role template.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The major version number of the role template.</p>
+   * @public
+   */
+  MajorVersion?: number | undefined;
+
+  /**
+   * <p>The minor version that the service uses by default when you create a role from this template
+   *          without specifying a minor version.</p>
+   * @public
+   */
+  DefaultMinorVersion?: number | undefined;
+
+  /**
+   * <p>Indicates that the role template is managed by an Amazon Web Services service.</p>
+   * @public
+   */
+  ManagedByType?: ManagedByTypeType | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Web Services service that manages the role template.</p>
+   * @public
+   */
+  ManagedByValue?: string | undefined;
+
+  /**
+   * <p>Specifies whether the role template is enabled. When a template is disabled, you cannot
+   *          create roles from it.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+
+  /**
+   * <p>The minor version number of this role template version.</p>
+   * @public
+   */
+  MinorVersion?: number | undefined;
+
+  /**
+   * <p>The pattern that is used to generate the name of a role that is created from this
+   *          template. The pattern can include <code>@\{parameter\}</code> placeholders that are replaced
+   *          with the values you supply in the <code>ReplacementValues</code> parameter of <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
+   * @public
+   */
+  RoleNamePattern?: string | undefined;
+
+  /**
+   * <p>The pattern that is used to generate the path of a role that is created from this
+   *          template.</p>
+   * @public
+   */
+  RolePathPattern?: string | undefined;
+
+  /**
+   * <p>The pattern that is used to generate the description of a role that is created from this
+   *          template.</p>
+   * @public
+   */
+  RoleDescriptionPattern?: string | undefined;
+
+  /**
+   * <p>The trust policy template that grants an entity permission to assume roles that you
+   *          create from this template.</p>
+   * @public
+   */
+  AssumeRolePolicyDocumentTemplate?: string | undefined;
+
+  /**
+   * <p>A list of inline policy templates that the service embeds in roles that you create from
+   *          this template.</p>
+   * @public
+   */
+  InlinePolicyTemplates?: InlinePolicy[] | undefined;
+
+  /**
+   * <p>A list of the ARNs of the managed policies that the service attaches to roles that you
+   *          create from this template.</p>
+   * @public
+   */
+  ManagedPolicyArns?: string[] | undefined;
+
+  /**
+   * <p>The ARN of the policy that sets the permissions boundary for roles that you create from
+   *          this template.</p>
+   *          <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
+   * @public
+   */
+  PermissionBoundaryArn?: string | undefined;
+
+  /**
+   * <p>A list of the parameters that are defined for this role template version. You supply
+   *          values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
+   * @public
+   */
+  ParametersDefinition?: ParameterDefinition[] | undefined;
+
+  /**
+   * <p>A list of tag templates that are applied to roles that are created from this
+   *          template.</p>
+   * @public
+   */
+  RoleTagsTemplate?: TagTemplate[] | undefined;
+
+  /**
+   * <p>The maximum session duration (in seconds) for roles that are created from this
+   *          template.</p>
+   * @public
+   */
+  MaxSessionDuration?: number | undefined;
+
+  /**
+   * <p>Specifies whether this specific minor version of the role template is enabled.</p>
+   * @public
+   */
+  VersionEnabled?: boolean | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the role template version was created.</p>
+   * @public
+   */
+  CreateTimestamp?: Date | undefined;
+
+  /**
+   * <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time
+   *             format</a>, when the role template version was last updated.</p>
+   * @public
+   */
+  UpdateTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRoleTemplateVersionResponse {
+  /**
+   * <p>A structure that contains details about the requested role template version.</p>
+   * @public
+   */
+  RoleTemplateVersion: RoleTemplateVersion | undefined;
 }
 
 /**
@@ -7904,6 +8286,28 @@ export interface ListVirtualMFADevicesResponse {
 /**
  * @public
  */
+export interface PutAccountPropertiesRequest {
+  /**
+   * <p>A map of property key-value pairs to set. All keys must belong to the same
+   *             namespace.</p>
+   *          <p>Each key uses the format <code>Namespace/PropertyName</code>. The key must contain
+   *             exactly one <code>/</code> separating the namespace from the property name, and cannot
+   *             start or end with <code>/</code>.</p>
+   *          <p>The service validates each value based on the property key's expected type. For
+   *             example, boolean properties expect <code>true</code> or <code>false</code>.</p>
+   * @public
+   */
+  Properties: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutAccountPropertiesResponse {}
+
+/**
+ * @public
+ */
 export interface PutGroupPolicyRequest {
   /**
    * <p>The name of the group to associate the policy with.</p>
@@ -9355,398 +9759,4 @@ export interface TagRoleRequest {
    * @public
    */
   Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagSAMLProviderRequest {
-  /**
-   * <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  SAMLProviderArn: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the SAML identity provider in IAM.
-   *       Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagServerCertificateRequest {
-  /**
-   * <p>The name of the IAM server certificate to which you want to add tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  ServerCertificateName: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the IAM server certificate.
-   *       Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface TagUserRequest {
-  /**
-   * <p>The name of the IAM user to which you want to add tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
-   * @public
-   */
-  Tags: Tag[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagInstanceProfileRequest {
-  /**
-   * <p>The name of the IAM instance profile from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  InstanceProfileName: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified instance profile.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagMFADeviceRequest {
-  /**
-   * <p>The unique identifier for the IAM virtual MFA device from which you want to remove
-   *       tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  SerialNumber: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified instance profile.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagOpenIDConnectProviderRequest {
-  /**
-   * <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  OpenIDConnectProviderArn: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified OIDC provider.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagPolicyRequest {
-  /**
-   * <p>The ARN of the IAM customer managed policy from which you want to remove
-   *       tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  PolicyArn: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified policy.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagRoleRequest {
-  /**
-   * <p>The name of the IAM role from which you want to remove tags.</p>
-   *          <p>This parameter accepts (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that consist of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified role.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagSAMLProviderRequest {
-  /**
-   * <p>The ARN of the SAML identity provider in IAM from which you want to remove
-   *       tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  SAMLProviderArn: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified SAML identity provider.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagServerCertificateRequest {
-  /**
-   * <p>The name of the IAM server certificate from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  ServerCertificateName: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified IAM server certificate.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagUserRequest {
-  /**
-   * <p>The name of the IAM user from which you want to remove tags.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName: string | undefined;
-
-  /**
-   * <p>A list of key names as a simple array of strings. The tags with matching keys are
-   *       removed from the specified user.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAccessKeyRequest {
-  /**
-   * <p>The name of the user whose key you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  UserName?: string | undefined;
-
-  /**
-   * <p>The access key ID of the secret access key you want to update.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can
-   *     consist of any upper or lowercased letter or digit.</p>
-   * @public
-   */
-  AccessKeyId: string | undefined;
-
-  /**
-   * <p> The status you want to assign to the secret access key. <code>Active</code> means
-   *             that the key can be used for programmatic calls to Amazon Web Services, while <code>Inactive</code>
-   *             means that the key cannot be used.</p>
-   * @public
-   */
-  Status: StatusType | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAccountPasswordPolicyRequest {
-  /**
-   * <p>The minimum number of characters allowed in an IAM user password.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>6</code>.</p>
-   * @public
-   */
-  MinimumPasswordLength?: number | undefined;
-
-  /**
-   * <p>Specifies whether IAM user passwords must contain at least one of the following
-   *             non-alphanumeric characters:</p>
-   *          <p>! @ # $ % ^ & * ( ) _ + - = [ ] \{ \} | '</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that passwords do not require at least one
-   *             symbol character.</p>
-   * @public
-   */
-  RequireSymbols?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether IAM user passwords must contain at least one numeric character (0
-   *             to 9).</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that passwords do not require at least one
-   *             numeric character.</p>
-   * @public
-   */
-  RequireNumbers?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether IAM user passwords must contain at least one uppercase character
-   *             from the ISO basic Latin alphabet (A to Z).</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that passwords do not require at least one
-   *             uppercase character.</p>
-   * @public
-   */
-  RequireUppercaseCharacters?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether IAM user passwords must contain at least one lowercase character
-   *             from the ISO basic Latin alphabet (a to z).</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that passwords do not require at least one
-   *             lowercase character.</p>
-   * @public
-   */
-  RequireLowercaseCharacters?: boolean | undefined;
-
-  /**
-   * <p> Allows all IAM users in your account to use the Amazon Web Services Management Console to change their own
-   *             passwords. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_passwords_enable-user-change.html">Permitting
-   *                 IAM users to change their own passwords</a> in the
-   *                 <i>IAM User Guide</i>.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that IAM users in the account do not
-   *             automatically have permissions to change their own password.</p>
-   * @public
-   */
-  AllowUsersToChangePassword?: boolean | undefined;
-
-  /**
-   * <p>The number of days that an IAM user password is valid.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>0</code>. The result is that IAM user passwords never expire.</p>
-   * @public
-   */
-  MaxPasswordAge?: number | undefined;
-
-  /**
-   * <p>Specifies the number of previous passwords that IAM users are prevented from
-   *             reusing.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>0</code>. The result is that IAM users are not prevented from reusing
-   *             previous passwords.</p>
-   * @public
-   */
-  PasswordReusePrevention?: number | undefined;
-
-  /**
-   * <p> Prevents IAM users who are accessing the account via the Amazon Web Services Management Console from setting a
-   *             new console password after their password has expired. The IAM user cannot access the
-   *             console until an administrator resets the password.</p>
-   *          <p>If you do not specify a value for this parameter, then the operation uses the default
-   *             value of <code>false</code>. The result is that IAM users can change their passwords
-   *             after they expire and continue to sign in as the user.</p>
-   *          <note>
-   *             <p> In the Amazon Web Services Management Console, the custom password policy option <b>Allow
-   *                     users to change their own password</b> gives IAM users permissions to
-   *                     <code>iam:ChangePassword</code> for only their user and to the
-   *                     <code>iam:GetAccountPasswordPolicy</code> action. This option does not attach a
-   *                 permissions policy to each user, rather the permissions are applied at the
-   *                 account-level for all users by IAM. IAM users with
-   *                     <code>iam:ChangePassword</code> permission and active access keys can reset
-   *                 their own expired console password using the CLI or API.</p>
-   *          </note>
-   * @public
-   */
-  HardExpiry?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateAssumeRolePolicyRequest {
-  /**
-   * <p>The name of the role to update with the new policy.</p>
-   *          <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric
-   *     characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-   * @public
-   */
-  RoleName: string | undefined;
-
-  /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
-   *          <p>You must provide policies in JSON format in IAM. However, for CloudFormation
-   *             templates formatted in YAML, you can provide the policy in JSON or YAML format. CloudFormation always converts a YAML policy to JSON format before submitting it to
-   *             IAM.</p>
-   *          <p>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a>
-   *     used to validate this parameter is a string of characters consisting of the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Any printable ASCII
-   *     character ranging from the space character (<code>\u0020</code>) through the end of the ASCII character range</p>
-   *             </li>
-   *             <li>
-   *                <p>The printable characters in the Basic Latin and  Latin-1 Supplement character set
-   *     (through <code>\u00FF</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and
-   *     carriage return (<code>\u000D</code>)</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  PolicyDocument: string | undefined;
 }
