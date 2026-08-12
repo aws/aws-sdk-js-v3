@@ -112,6 +112,9 @@ export interface UpdateRouterOutputCommandOutput extends UpdateRouterOutputRespo
  *     },
  *     Default: {},
  *   },
+ *   FabricConfiguration: { // FabricConfiguration
+ *     RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
+ *   },
  * };
  * const command = new UpdateRouterOutputCommand(input);
  * const response = await client.send(command);
@@ -230,6 +233,9 @@ export interface UpdateRouterOutputCommandOutput extends UpdateRouterOutputRespo
  * //         End: new Date("TIMESTAMP"), // required
  * //         ScheduledTime: new Date("TIMESTAMP"), // required
  * //       },
+ * //     },
+ * //     FabricConfiguration: { // FabricConfiguration
+ * //       RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
  * //     },
  * //   },
  * // };

@@ -156,6 +156,9 @@ export interface BatchGetRouterOutputCommandOutput extends BatchGetRouterOutputR
  * //           ScheduledTime: new Date("TIMESTAMP"), // required
  * //         },
  * //       },
+ * //       FabricConfiguration: { // FabricConfiguration
+ * //         RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
+ * //       },
  * //     },
  * //   ],
  * //   Errors: [ // BatchGetRouterOutputErrorList // required

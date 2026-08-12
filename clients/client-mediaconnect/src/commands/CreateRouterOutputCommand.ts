@@ -116,6 +116,9 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  *   Tags: { // __mapOfString
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   FabricConfiguration: { // FabricConfiguration
+ *     RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
+ *   },
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new CreateRouterOutputCommand(input);
@@ -235,6 +238,9 @@ export interface CreateRouterOutputCommandOutput extends CreateRouterOutputRespo
  * //         End: new Date("TIMESTAMP"), // required
  * //         ScheduledTime: new Date("TIMESTAMP"), // required
  * //       },
+ * //     },
+ * //     FabricConfiguration: { // FabricConfiguration
+ * //       RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
  * //     },
  * //   },
  * // };

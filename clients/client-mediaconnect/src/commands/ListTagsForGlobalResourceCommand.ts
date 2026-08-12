@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListTagsForGlobalResourceRequest } from "../models/models_0";
-import type { ListTagsForGlobalResourceResponse } from "../models/models_1";
+import type { ListTagsForGlobalResourceRequest, ListTagsForGlobalResourceResponse } from "../models/models_1";
 import { ListTagsForGlobalResource$ } from "../schemas/schemas_0";
 
 /**

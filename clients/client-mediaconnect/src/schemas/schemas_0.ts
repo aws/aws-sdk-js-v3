@@ -211,7 +211,8 @@ const _Er = "Errors";
 const _F = "Flow";
 const _FA = "FlowArn";
 const _FAi = "FilterArn";
-const _FC = "FailoverConfig";
+const _FC = "FabricConfiguration";
+const _FCa = "FailoverConfig";
 const _FE = "ForbiddenException";
 const _FEC = "ForwardErrorCorrection";
 const _FF = "FrozenFrames";
@@ -525,7 +526,8 @@ const _RITEo = "RouterInputTransitEncryption";
 const _RIe = "ResourceId";
 const _RIo = "RouterInputs";
 const _RIou = "RouterInput";
-const _RLM = "RecoveryLatencyMilliseconds";
+const _RLM = "RecoveryLatencyMode";
+const _RLMe = "RecoveryLatencyMilliseconds";
 const _RN = "RegionName";
 const _RNI = "RouterNetworkInterfaces";
 const _RNIC = "RouterNetworkInterfaceConfiguration";
@@ -836,6 +838,7 @@ const _er = "errors";
 const _f = "flow";
 const _fA = "flowArn";
 const _fAi = "filterArn";
+const _fC = "fabricConfiguration";
 const _fEC = "forwardErrorCorrection";
 const _fF = "frozenFrames";
 const _fH = "frameHeight";
@@ -1038,7 +1041,8 @@ const _rITE = "routerIntegrationTransitEncryption";
 const _rIe = "resourceId";
 const _rIo = "routerInputs";
 const _rIou = "routerInput";
-const _rLM = "recoveryLatencyMilliseconds";
+const _rLM = "recoveryLatencyMode";
+const _rLMe = "recoveryLatencyMilliseconds";
 const _rN = "regionName";
 const _rNI = "routerNetworkInterfaces";
 const _rNIo = "routerNetworkInterface";
@@ -1541,8 +1545,8 @@ export var CreateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreateRouterOutputRequest$: StaticStructureSchema = [3, n0, _CROR,
   0,
-  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _MC, _Ta, _CT],
-  [[0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [0, { [_iT]: 1, [_jN]: _cT }]], 5
+  [_N, _Co, _MBa, _RS, _Ti, _RN, _AZ, _MC, _Ta, _FC, _CT],
+  [[0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [128 | 0, { [_jN]: _ta }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_iT]: 1, [_jN]: _cT }]], 5
 ];
 export var CreateRouterOutputResponse$: StaticStructureSchema = [3, n0, _CRORr,
   0,
@@ -1744,7 +1748,12 @@ export var Entitlement$: StaticStructureSchema = [3, n0, _Ent,
   [_EA, _N, _Su, _DTSFP, _D, _E, _ES],
   [[0, { [_jN]: _eA }], [0, { [_jN]: _n }], [64 | 0, { [_jN]: _su }], [1, { [_jN]: _dTSFP }], [0, { [_jN]: _d }], [() => Encryption$, { [_jN]: _en }], [0, { [_jN]: _eS }]], 3
 ];
-export var FailoverConfig$: StaticStructureSchema = [3, n0, _FC,
+export var FabricConfiguration$: StaticStructureSchema = [3, n0, _FC,
+  0,
+  [_RLM],
+  [[0, { [_jN]: _rLM }]], 1
+];
+export var FailoverConfig$: StaticStructureSchema = [3, n0, _FCa,
   0,
   [_FM, _RW, _SP, _St],
   [[0, { [_jN]: _fM }], [1, { [_jN]: _rW }], [() => SourcePriority$, { [_jN]: _sP }], [0, { [_jN]: _st }]]
@@ -2361,8 +2370,8 @@ export var RevokeFlowEntitlementResponse$: StaticStructureSchema = [3, n0, _RFER
 ];
 export var RistRouterInputConfiguration$: StaticStructureSchema = [3, n0, _RRIC,
   0,
-  [_P, _RLM],
-  [[1, { [_jN]: _p }], [1, { [_jN]: _rLM }]], 2
+  [_P, _RLMe],
+  [[1, { [_jN]: _p }], [1, { [_jN]: _rLMe }]], 2
 ];
 export var RistRouterOutputConfiguration$: StaticStructureSchema = [3, n0, _RROC,
   0,
@@ -2401,8 +2410,8 @@ export var RouterNetworkInterface$: StaticStructureSchema = [3, n0, _RNIo,
 ];
 export var RouterOutput$: StaticStructureSchema = [3, n0, _ROo,
   0,
-  [_N, _Ar, _Id, _St, _OTu, _Co, _RSo, _RN, _AZ, _MBa, _RS, _Ti, _CA, _UA, _Me, _Ta, _SD, _MT, _MC, _IA, _RIA, _MSTa, _MSa],
-  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _oTu }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [0, { [_jN]: _rSo }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterOutputMessages, { [_jN]: _me }], [128 | 0, { [_jN]: _ta }], [() => RouterOutputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [0, { [_jN]: _iA }], [0, { [_jN]: _rIA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 19
+  [_N, _Ar, _Id, _St, _OTu, _Co, _RSo, _RN, _AZ, _MBa, _RS, _Ti, _CA, _UA, _Me, _Ta, _SD, _MT, _MC, _FC, _IA, _RIA, _MSTa, _MSa],
+  [[0, { [_jN]: _n }], [0, { [_jN]: _ar }], [0, { [_jN]: _id }], [0, { [_jN]: _st }], [0, { [_jN]: _oTu }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [0, { [_jN]: _rSo }], [0, { [_jN]: _rN }], [0, { [_jN]: _aZ }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [5, { [_jN]: _cA }], [5, { [_jN]: _uA }], [() => RouterOutputMessages, { [_jN]: _me }], [128 | 0, { [_jN]: _ta }], [() => RouterOutputStreamDetails$, { [_jN]: _sD }], [0, { [_jN]: _mT }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => FabricConfiguration$, { [_jN]: _fC }], [0, { [_jN]: _iA }], [0, { [_jN]: _rIA }], [0, { [_jN]: _mSTa }], [() => MaintenanceSchedule$, { [_jN]: _mSa }]], 20
 ];
 export var RouterOutputMessage$: StaticStructureSchema = [3, n0, _ROM,
   0,
@@ -2786,8 +2795,8 @@ export var UpdateRouterNetworkInterfaceResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateRouterOutputRequest$: StaticStructureSchema = [3, n0, _UROR,
   0,
-  [_Ar, _N, _Co, _MBa, _RS, _Ti, _MC],
-  [[0, 1], [0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => MaintenanceConfiguration$, { [_jN]: _mC }]], 1
+  [_Ar, _N, _Co, _MBa, _RS, _Ti, _MC, _FC],
+  [[0, 1], [0, { [_jN]: _n }], [() => RouterOutputConfiguration$, { [_jN]: _con }], [1, { [_jN]: _mBa }], [0, { [_jN]: _rS }], [0, { [_jN]: _ti }], [() => MaintenanceConfiguration$, { [_jN]: _mC }], [() => FabricConfiguration$, { [_jN]: _fC }]], 1
 ];
 export var UpdateRouterOutputResponse$: StaticStructureSchema = [3, n0, _URORp,
   0,

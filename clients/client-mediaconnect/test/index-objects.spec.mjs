@@ -178,6 +178,8 @@ import {
   Encryption$,
   Entitlement$,
   EntitlementStatus,
+  FabricConfiguration$,
+  FabricLatencyMode,
   FailoverConfig$,
   FailoverInputSourcePriorityMode,
   FailoverMode,
@@ -879,6 +881,7 @@ assert(typeof EncodingParameters$ === "object");
 assert(typeof EncodingParametersRequest$ === "object");
 assert(typeof Encryption$ === "object");
 assert(typeof Entitlement$ === "object");
+assert(typeof FabricConfiguration$ === "object");
 assert(typeof FailoverConfig$ === "object");
 assert(typeof FailoverRouterInputConfiguration$ === "object");
 assert(typeof FailoverRouterInputIndexedStreamDetails$ === "object");
@@ -1128,6 +1131,7 @@ assert(typeof EncoderProfile === "object");
 assert(typeof EncodingName === "object");
 assert(typeof EncodingProfile === "object");
 assert(typeof EntitlementStatus === "object");
+assert(typeof FabricLatencyMode === "object");
 assert(typeof FailoverInputSourcePriorityMode === "object");
 assert(typeof FailoverMode === "object");
 assert(typeof FlowSize === "object");

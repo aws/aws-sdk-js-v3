@@ -153,6 +153,9 @@ export interface GetRouterOutputCommandOutput extends GetRouterOutputResponse, _
  * //         ScheduledTime: new Date("TIMESTAMP"), // required
  * //       },
  * //     },
+ * //     FabricConfiguration: { // FabricConfiguration
+ * //       RecoveryLatencyMode: "BALANCED" || "LOW_LATENCY", // required
+ * //     },
  * //   },
  * // };
  *

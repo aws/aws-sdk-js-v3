@@ -9,6 +9,7 @@ import type {
   RoutingScope,
 } from "./enums";
 import type {
+  FabricConfiguration,
   MaintenanceConfiguration,
   MaintenanceSchedule,
   Reservation,
@@ -21,6 +22,17 @@ import type {
   RouterOutput,
   RouterOutputConfiguration,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface ListTagsForGlobalResourceRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the global resource whose tags you want to list.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
 
 /**
  * @public
@@ -518,6 +530,12 @@ export interface UpdateRouterOutputRequest {
    * @public
    */
   MaintenanceConfiguration?: MaintenanceConfiguration | undefined;
+
+  /**
+   * <p>The updated fabric configuration settings for the router output. You cannot update the fabric configuration while the output has an active route. You must unroute the output before updating the fabric configuration.</p>
+   * @public
+   */
+  FabricConfiguration?: FabricConfiguration | undefined;
 }
 
 /**

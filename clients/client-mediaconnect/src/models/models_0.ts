@@ -13,6 +13,7 @@ import type {
   EncodingName,
   EncodingProfile,
   EntitlementStatus,
+  FabricLatencyMode,
   FailoverInputSourcePriorityMode,
   FailoverMode,
   FlowSize,
@@ -4853,6 +4854,18 @@ export namespace RouterOutputConfiguration {
 }
 
 /**
+ * <p>The fabric configuration settings for the router output.</p>
+ * @public
+ */
+export interface FabricConfiguration {
+  /**
+   * <p>The recovery latency mode for the router fabric connection. Valid values include the following:</p> <ul> <li> <p> <code>BALANCED</code> (default) – Optimizes for stream quality.</p> </li> <li> <p> <code>LOW_LATENCY</code> – Reduces latency at the potential cost of stream quality under adverse network conditions.</p> </li> </ul>
+   * @public
+   */
+  RecoveryLatencyMode: FabricLatencyMode | undefined;
+}
+
+/**
  * <p>A message associated with a router output.</p>
  * @public
  */
@@ -5105,6 +5118,12 @@ export interface RouterOutput {
    * @public
    */
   MaintenanceSchedule?: MaintenanceSchedule | undefined;
+
+  /**
+   * <p>The fabric configuration settings for the router output.</p>
+   * @public
+   */
+  FabricConfiguration: FabricConfiguration | undefined;
 }
 
 /**
@@ -6353,6 +6372,12 @@ export interface CreateRouterOutputRequest {
    * @public
    */
   Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The fabric configuration settings for the router output.</p>
+   * @public
+   */
+  FabricConfiguration?: FabricConfiguration | undefined;
 
   /**
    * <p>A unique identifier for the request to ensure idempotency.</p>
@@ -8936,15 +8961,4 @@ export interface ListRouterOutputsResponse {
    * @public
    */
   NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForGlobalResourceRequest {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the global resource whose tags you want to list.</p>
-   * @public
-   */
-  ResourceArn: string | undefined;
 }

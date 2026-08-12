@@ -675,6 +675,19 @@ export type RouterOutputProtocol = (typeof RouterOutputProtocol)[keyof typeof Ro
  * @public
  * @enum
  */
+export const FabricLatencyMode = {
+  BALANCED: "BALANCED",
+  LOW_LATENCY: "LOW_LATENCY",
+} as const;
+/**
+ * @public
+ */
+export type FabricLatencyMode = (typeof FabricLatencyMode)[keyof typeof FabricLatencyMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const RouterOutputType = {
   MEDIACONNECT_FLOW: "MEDIACONNECT_FLOW",
   MEDIALIVE_INPUT: "MEDIALIVE_INPUT",
