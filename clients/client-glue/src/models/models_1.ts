@@ -6022,6 +6022,7 @@ export interface IterableFormEntry {
 }
 
 /**
+ * <p>The asset metadata returned by the <code>GetAsset</code> operation.</p>
  * @public
  */
 export interface GetAssetOutput {

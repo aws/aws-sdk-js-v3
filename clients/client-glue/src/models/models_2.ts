@@ -164,6 +164,7 @@ export interface ExportEncryptionConfiguration {
 }
 
 /**
+ * <p>The export configuration returned by the <code>GetDataCatalogExportConfiguration</code> operation.</p>
  * @public
  */
 export interface GetDataCatalogExportConfigurationOutput {
@@ -1470,7 +1471,7 @@ export interface MaterializedViewRefreshTaskRun {
   DatabaseName?: string | undefined;
 
   /**
-   * <p>The name of the table for which statistics is generated.</p>
+   * <p>The name of the materialized view.</p>
    * @public
    */
   TableName?: string | undefined;
@@ -1482,7 +1483,7 @@ export interface MaterializedViewRefreshTaskRun {
   CatalogId?: string | undefined;
 
   /**
-   * <p>The IAM role that the service assumes to generate statistics.</p>
+   * <p>The IAM role that the service assumes to run the materialized view refresh task.</p>
    * @public
    */
   Role?: string | undefined;
@@ -6865,7 +6866,7 @@ export interface ListMaterializedViewRefreshTaskRunsRequest {
   DatabaseName?: string | undefined;
 
   /**
-   * <p>The name of the table for which statistics is generated.</p>
+   * <p>The name of the materialized view.</p>
    * @public
    */
   TableName?: string | undefined;
@@ -7909,6 +7910,7 @@ export interface PutDataCatalogExportConfigurationInput {
 }
 
 /**
+ * <p>The export configuration returned by the <code>PutDataCatalogExportConfiguration</code> operation.</p>
  * @public
  */
 export interface PutDataCatalogExportConfigurationOutput {

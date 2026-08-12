@@ -383,6 +383,7 @@ export interface SearchResultItem {
 }
 
 /**
+ * <p>The search results returned by the <code>SearchAssets</code> operation.</p>
  * @public
  */
 export interface SearchAssetsOutput {
@@ -1026,7 +1027,7 @@ export interface StartMaterializedViewRefreshTaskRunRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the table to generate run the materialized view refresh task.</p>
+   * <p>The name of the materialized view to run the refresh task for.</p>
    * @public
    */
   TableName: string | undefined;
@@ -1244,7 +1245,7 @@ export interface StopMaterializedViewRefreshTaskRunRequest {
   DatabaseName: string | undefined;
 
   /**
-   * <p>The name of the table to generate statistics.</p>
+   * <p>The name of the materialized view.</p>
    * @public
    */
   TableName: string | undefined;

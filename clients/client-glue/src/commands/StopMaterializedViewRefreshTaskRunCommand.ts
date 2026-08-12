@@ -26,7 +26,7 @@ export interface StopMaterializedViewRefreshTaskRunCommandInput extends StopMate
 export interface StopMaterializedViewRefreshTaskRunCommandOutput extends StopMaterializedViewRefreshTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Stops a materialized view refresh task run, for a specified table and columns.</p>
+ * <p>Stops a materialized view refresh task run for a specified materialized view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

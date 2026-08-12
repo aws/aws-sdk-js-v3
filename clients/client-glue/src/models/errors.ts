@@ -1054,6 +1054,10 @@ export class SchedulerRunningException extends __BaseException {
 export class MaterializedViewRefreshTaskRunningException extends __BaseException {
   readonly name = "MaterializedViewRefreshTaskRunningException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -1232,6 +1236,10 @@ export class SchedulerNotRunningException extends __BaseException {
 export class MaterializedViewRefreshTaskNotRunningException extends __BaseException {
   readonly name = "MaterializedViewRefreshTaskNotRunningException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal
@@ -1254,6 +1262,10 @@ export class MaterializedViewRefreshTaskNotRunningException extends __BaseExcept
 export class MaterializedViewRefreshTaskStoppingException extends __BaseException {
   readonly name = "MaterializedViewRefreshTaskStoppingException" as const;
   readonly $fault = "client" as const;
+  /**
+   * <p>A message describing the problem.</p>
+   * @public
+   */
   Message?: string | undefined;
   /**
    * @internal

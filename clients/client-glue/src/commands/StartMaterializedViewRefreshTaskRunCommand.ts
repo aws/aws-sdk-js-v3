@@ -26,7 +26,7 @@ export interface StartMaterializedViewRefreshTaskRunCommandInput extends StartMa
 export interface StartMaterializedViewRefreshTaskRunCommandOutput extends StartMaterializedViewRefreshTaskRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a materialized view refresh task run, for a specified table and columns.</p>
+ * <p>Starts a materialized view refresh task run for a specified materialized view.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
