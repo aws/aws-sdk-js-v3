@@ -59,9 +59,7 @@ export class FileManager {
           await rename(tempFilePath, destination);
         } catch (fallbackError: any) {
           await this.deleteTempFile(tempFilePath);
-          throw new Error(
-            `Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`
-          );
+          throw new Error(`Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`);
         }
       } else {
         await this.deleteTempFile(tempFilePath);

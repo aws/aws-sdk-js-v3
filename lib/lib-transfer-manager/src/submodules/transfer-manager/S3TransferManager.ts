@@ -24,6 +24,7 @@ import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { createReadStream, existsSync } from "node:fs";
 import { open, opendir, realpath, stat } from "node:fs/promises";
 import { join, relative, resolve, sep } from "node:path";
+import { Readable } from "node:stream";
 
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
 import { handleFailure, Semaphore, validateDirectory } from "./directory-transfer-utils";
@@ -54,10 +55,12 @@ import type {
 import {
   type DataSource,
   type DownloadDataToFile,
+  type DownloadStreamOptions,
   createEmptyReadable,
   defaultWorkerCount,
   WorkerHttpHandler,
 } from "./worker-http-handler";
+import { OrderedPartQueue } from "./ordered-part-queue";
 
 /**
  * Client for efficient transfer of objects to and from Amazon S3.
@@ -393,27 +396,51 @@ export class S3TransferManager implements IS3TransferManager {
 
     try {
       if (this.multipartDownloadType === "PART") {
-        const responseMetadata = await this.downloadByPart(
-          request,
-          transferOptions ?? {},
-          streams,
-          requests,
-          metadata,
-          checksumValidationEnabled
-        );
-        totalSize = responseMetadata.totalSize;
-        onStreamConsumed = responseMetadata.onStreamConsumed;
+        if (this.workerHttpHandler) {
+          const responseMetadata = await this.downloadByPartWithWorkers(
+            request,
+            transferOptions ?? {},
+            streams,
+            requests,
+            metadata,
+            checksumValidationEnabled
+          );
+          totalSize = responseMetadata.totalSize;
+        } else {
+          const responseMetadata = await this.downloadByPart(
+            request,
+            transferOptions ?? {},
+            streams,
+            requests,
+            metadata,
+            checksumValidationEnabled
+          );
+          totalSize = responseMetadata.totalSize;
+          onStreamConsumed = responseMetadata.onStreamConsumed;
+        }
       } else if (this.multipartDownloadType === "RANGE") {
-        const responseMetadata = await this.downloadByRange(
-          request,
-          transferOptions ?? {},
-          streams,
-          requests,
-          metadata,
-          checksumValidationEnabled
-        );
-        totalSize = responseMetadata.totalSize;
-        onStreamConsumed = responseMetadata.onStreamConsumed;
+        if (this.workerHttpHandler && !request.Range) {
+          const responseMetadata = await this.downloadByRangeWithWorkers(
+            request,
+            transferOptions ?? {},
+            streams,
+            requests,
+            metadata,
+            checksumValidationEnabled
+          );
+          totalSize = responseMetadata.totalSize;
+        } else {
+          const responseMetadata = await this.downloadByRange(
+            request,
+            transferOptions ?? {},
+            streams,
+            requests,
+            metadata,
+            checksumValidationEnabled
+          );
+          totalSize = responseMetadata.totalSize;
+          onStreamConsumed = responseMetadata.onStreamConsumed;
+        }
       }
     } catch (error) {
       // On failure or abort, response bodies that were already received but not
@@ -485,7 +512,6 @@ export class S3TransferManager implements IS3TransferManager {
     request: DownloadToFileRequest,
     transferOptions?: TransferOptions
   ): Promise<DownloadToFileResponse> {
-
     if (!request.destination || request.destination === "") {
       throw new Error("destination must be a non-empty string");
     }
@@ -514,11 +540,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (this.multipartDownloadType === "RANGE") {
       try {
-        const result = await this.downloadToFileByRange(
-          request,
-          resolvedDestination,
-          transferOptions
-        );
+        const result = await this.downloadToFileByRange(request, resolvedDestination, transferOptions);
         removeLocalEventListeners();
         return result;
       } catch (error) {
@@ -543,7 +565,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     const totalSize = initialResponse.ContentRange
       ? Number.parseInt(initialResponse.ContentRange.split("/")[1])
-      : initialResponse.ContentLength ?? 0;
+      : (initialResponse.ContentLength ?? 0);
     const partsCount = initialResponse.PartsCount ?? 1;
     const eTag = initialResponse.ETag ?? undefined;
 
@@ -554,7 +576,6 @@ export class S3TransferManager implements IS3TransferManager {
 
     try {
       if (partsCount === 1) {
-      
         tempFilePath = await fileManager.createTempFile(resolvedDestination, totalSize);
         fileManager.registerCleanupHandler(tempFilePath);
 
@@ -651,7 +672,9 @@ export class S3TransferManager implements IS3TransferManager {
               } as any);
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = this.workerHttpHandler.getDownloadResult(resultToken);
+              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
+                resultToken
+              );
               const bytesWritten = downloadResult?.bytesWritten ?? expectedLength;
 
               partResults.push({
@@ -660,10 +683,7 @@ export class S3TransferManager implements IS3TransferManager {
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
-              const partResponse = await this.s3.send(
-                new GetObjectCommand(partGetRequest),
-                transferOptions
-              );
+              const partResponse = await this.s3.send(new GetObjectCommand(partGetRequest), transferOptions);
               await this.writeResponseBodyToFile(
                 partResponse.Body,
                 tempFilePath!,
@@ -888,7 +908,9 @@ export class S3TransferManager implements IS3TransferManager {
               this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = this.workerHttpHandler.getDownloadResult(resultToken);
+              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
+                resultToken
+              );
               const bytesWritten = downloadResult?.bytesWritten ?? expectedLength;
 
               rangeResults.push({
@@ -946,9 +968,7 @@ export class S3TransferManager implements IS3TransferManager {
       // Validate total number of ranged GET requests matches expected count
       const actualRequestCount = rangeResults.length; // includes initial request
       if (actualRequestCount !== expectedRequestCount) {
-        const error = new Error(
-          `Expected ${expectedRequestCount} ranged GET requests but sent ${actualRequestCount}`
-        );
+        const error = new Error(`Expected ${expectedRequestCount} ranged GET requests but sent ${actualRequestCount}`);
         await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, error);
         throw error;
       }
@@ -1495,6 +1515,415 @@ export class S3TransferManager implements IS3TransferManager {
       totalSize,
       onStreamConsumed: streamConsumedCallback,
     };
+  }
+
+  /**
+   * Downloads object using part-based strategy with worker threads and ArrayBuffer transfer.
+   *
+   * Fetches PartNumber=1 on the main thread to discover object metadata (PartsCount,
+   * part size, ETag, total size); its body is returned directly as the first stream.
+   * Remaining parts are sent through the SDK pipeline where WorkerHttpHandler routes
+   * them to worker threads, which assemble response bytes into dedicated ArrayBuffers
+   * and transfer ownership back to main (zero-copy). The OrderedPartQueue delivers
+   * parts sequentially to the consumer stream regardless of arrival order.
+   *
+   * @internal
+   */
+  private async downloadByPartWithWorkers(
+    request: DownloadRequest,
+    transferOptions: TransferOptions,
+    streams: Promise<StreamingBlobPayloadOutputTypes>[],
+    requests: GetObjectCommandInput[],
+    metadata: Omit<DownloadResponse, "Body">,
+    checksumValidationEnabled: boolean
+  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    this.checkAborted(transferOptions);
+
+    // Fetch Part 1 to discover metadata: PartsCount, part size, ETag, total object size.
+    // Strip Range — S3 doesn't allow both Range and PartNumber in the same request.
+    const { Range: _range, ...requestWithoutRange } = request;
+    const initialPartRequest: GetObjectCommandInput = {
+      ...requestWithoutRange,
+      PartNumber: 1,
+      ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+    };
+
+    const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+    await internalEventHandler.afterInitialGetObject();
+
+    const partSize = initialPart.ContentLength!;
+    const initialETag = initialPart.ETag ?? undefined;
+    const totalSize = initialPart.ContentRange
+      ? Number.parseInt(initialPart.ContentRange.split("/")[1])
+      : (initialPart.ContentLength ?? 0);
+    const partsCount = initialPart.PartsCount ?? 1;
+
+    this.dispatchTransferInitiatedEvent(request, totalSize);
+
+    // Stream part 1 body directly (no buffer copy needed for the first part).
+    if (initialPart.Body) {
+      if (typeof (initialPart.Body as any).getReader === "function") {
+        const reader = (initialPart.Body as any).getReader();
+        (initialPart.Body as any).getReader = function () {
+          return reader;
+        };
+      }
+      streams.push(Promise.resolve(initialPart.Body));
+      requests.push(initialPartRequest);
+    }
+
+    this.processResponseMetadata(initialPart, metadata, totalSize);
+
+    // Single-part object: nothing more to do.
+    if (partsCount <= 1) {
+      return { totalSize };
+    }
+
+    // Check abort after events have fired (listeners may trigger abort).
+    this.checkAborted(transferOptions);
+
+    // Multipart: dispatch remaining parts (2..N) via ArrayBuffer transfer + worker threads.
+    // Workers assemble each part into a dedicated ArrayBuffer and transfer ownership to main
+    // (zero-copy). The OrderedPartQueue delivers parts sequentially to the consumer stream.
+    const remainingParts = partsCount - 1;
+    const queue = new OrderedPartQueue(remainingParts);
+
+    const abortController = new AbortController();
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    if (userSignal) {
+      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+    }
+
+    // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
+    // This provides backpressure — waitForSlot blocks when all slots are in use.
+    let inFlight = 0;
+    let nextDispatchResolve: (() => void) | null = null;
+
+    const waitForSlot = (): Promise<void> => {
+      if (inFlight < this.maxConcurrentDownloads) {
+        return Promise.resolve();
+      }
+      return new Promise<void>((resolve) => {
+        nextDispatchResolve = resolve;
+      });
+    };
+
+    const releaseSlot = (): void => {
+      inFlight--;
+      if (nextDispatchResolve && inFlight < this.maxConcurrentDownloads) {
+        const resolve = nextDispatchResolve;
+        nextDispatchResolve = null;
+        resolve();
+      }
+    };
+
+    // Dispatch part GET requests via the SDK pipeline (WorkerHttpHandler intercepts them).
+    // Concurrency limiter provides backpressure — waitForSlot blocks when all slots are in use.
+    const dispatchPromise = (async () => {
+      for (let partNumber = 2; partNumber <= partsCount; partNumber++) {
+        if (abortController.signal.aborted || queue.hasError()) break;
+        this.checkAborted(transferOptions);
+
+        // Wait for a slot — blocks if all slots are in use (backpressure)
+        await waitForSlot();
+        if (abortController.signal.aborted || queue.hasError()) break;
+
+        inFlight++;
+        const rangeIndex = partNumber - 2;
+        const partGetRequest: GetObjectCommandInput = {
+          ...requestWithoutRange,
+          PartNumber: partNumber,
+          IfMatch: initialETag,
+          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+        };
+
+        requests.push(partGetRequest);
+
+        const resultToken = `download-transfer-part-${rangeIndex}-${Date.now()}`;
+        const transferOptions_: DownloadStreamOptions = {
+          expectedSize: partSize,
+          rangeIndex,
+          checksumAlgorithm: checksumValidationEnabled ? "CRC32" : undefined,
+          resultToken,
+        };
+
+        // Send through SDK pipeline — WorkerHttpHandler.handle() intercepts downloadStream
+        // and dispatches to a worker. The worker assembles data into an ArrayBuffer and transfers
+        // ownership back to main (zero-copy). Fire-and-forget; completion tracked via queue.
+        this.s3
+          .send(new GetObjectCommand(partGetRequest), {
+            ...transferOptions,
+            downloadStream: transferOptions_,
+          } as any)
+          .then(() => {
+            const transferResult = (
+              this.s3.config.requestHandler as unknown as WorkerHttpHandler
+            ).getStreamDownloadResult(resultToken);
+            if (transferResult) {
+              queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+
+              this.dispatchEvent(
+                Object.assign(new Event("bytesTransferred"), {
+                  request: partGetRequest,
+                  snapshot: { transferredBytes: transferResult.byteLength, totalBytes: totalSize },
+                })
+              );
+            }
+            releaseSlot();
+          })
+          .catch((error) => {
+            queue.setError(error);
+            abortController.abort();
+            releaseSlot();
+          });
+      }
+    })().catch((err) => {
+      // Dispatch loop threw (e.g. abort signal triggered checkAborted).
+      // Signal the queue so the consumer stream surfaces the error.
+      if (!queue.hasError()) {
+        queue.setError(err);
+      }
+    });
+
+    // Create a Readable stream that pulls parts sequentially from the ordered queue.
+    // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
+    const transferStream = new Readable({
+      read() {
+        queue
+          .dequeue()
+          .then((item) => {
+            if (item === null) {
+              // null means either all parts delivered OR an error was set.
+              // If an error was set, destroy the stream with that error so
+              // joinStreams calls onFailure instead of onCompletion.
+              if (queue.hasError()) {
+                this.destroy(queue.getError() as Error);
+                return;
+              }
+              this.push(null); // EOF — all parts delivered
+              return;
+            }
+
+            // Buffer.from(ArrayBuffer, offset, length) creates a VIEW — no copy.
+            // The consumer reads directly from the transferred memory.
+            const buf = Buffer.from(item.buffer, 0, item.byteLength);
+            this.push(buf);
+          })
+          .catch((err) => {
+            this.destroy(err as Error);
+          });
+      },
+      destroy(err, callback) {
+        // On stream destruction (abort/error), signal the queue to stop
+        if (err) {
+          queue.setError(err);
+          abortController.abort();
+        }
+        callback(err);
+      },
+    });
+
+    streams.push(Promise.resolve(transferStream as unknown as StreamingBlobPayloadOutputTypes));
+
+    return { totalSize };
+  }
+
+  /**
+   * Downloads an S3 object using Range GETs dispatched to worker threads.
+   * Workers download each range into a dedicated ArrayBuffer and transfer
+   * ownership to main (zero-copy). The OrderedPartQueue delivers ranges
+   * sequentially to the consumer Readable stream regardless of arrival order.
+   *
+   * Memory is bounded by maxConcurrentDownloads in-flight buffers plus the
+   * reorder window in the queue. Backpressure is applied via a concurrency
+   * limiter — dispatch blocks when all slots are in use.
+   *
+   * @internal
+   */
+  private async downloadByRangeWithWorkers(
+    request: DownloadRequest,
+    transferOptions: TransferOptions,
+    streams: Promise<StreamingBlobPayloadOutputTypes>[],
+    requests: GetObjectCommandInput[],
+    metadata: Omit<DownloadResponse, "Body">,
+    checksumValidationEnabled: boolean
+  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    this.checkAborted(transferOptions);
+
+    const headResponse = await this.s3.send(
+      new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
+      transferOptions
+    );
+    await internalEventHandler.afterInitialGetObject();
+
+    if (headResponse.ContentLength === 0) {
+      const getObjectRequest = { ...request, ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }) };
+      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+
+      this.dispatchTransferInitiatedEvent(request, 0);
+      if (response.Body) streams.push(Promise.resolve(response.Body));
+      requests.push(getObjectRequest);
+
+      this.processResponseMetadata(response, metadata, 0);
+      return { totalSize: 0 };
+    }
+
+    const totalSize = headResponse.ContentLength!;
+    const partSize = this.targetPartSizeBytes;
+    const totalParts = Math.ceil(totalSize / partSize);
+
+    // Use the initial HeadObject to extract metadata (ETag, etc.)
+    const eTag = headResponse.ETag ?? undefined;
+    this.dispatchTransferInitiatedEvent(request, totalSize);
+
+    // Assign metadata from HeadObject response
+    Object.assign(metadata, {
+      ContentLength: totalSize,
+      ContentRange: `bytes 0-${totalSize - 1}/${totalSize}`,
+      ContentType: headResponse.ContentType,
+      ETag: headResponse.ETag,
+      LastModified: headResponse.LastModified,
+      $metadata: headResponse.$metadata,
+    });
+
+    // OrderedPartQueue delivers parts sequentially regardless of arrival order.
+    const queue = new OrderedPartQueue(totalParts);
+
+    const abortController = new AbortController();
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    if (userSignal) {
+      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+    }
+
+    // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
+    let inFlight = 0;
+    let nextDispatchResolve: (() => void) | null = null;
+
+    const waitForSlot = (): Promise<void> => {
+      if (inFlight < this.maxConcurrentDownloads) {
+        return Promise.resolve();
+      }
+      return new Promise<void>((resolve) => {
+        nextDispatchResolve = resolve;
+      });
+    };
+
+    const releaseSlot = (): void => {
+      inFlight--;
+      if (nextDispatchResolve && inFlight < this.maxConcurrentDownloads) {
+        const resolve = nextDispatchResolve;
+        nextDispatchResolve = null;
+        resolve();
+      }
+    };
+
+    // Dispatch all range requests via the SDK pipeline (WorkerHttpHandler intercepts them).
+    // Concurrency limiter provides backpressure — waitForSlot blocks when all slots are in use.
+    const dispatchPromise = (async () => {
+      for (let rangeIndex = 0; rangeIndex < totalParts; rangeIndex++) {
+        if (abortController.signal.aborted || queue.hasError()) break;
+        this.checkAborted(transferOptions);
+
+        // Wait for a slot — blocks if all slots are in use (backpressure)
+        await waitForSlot();
+        if (abortController.signal.aborted || queue.hasError()) break;
+
+        inFlight++;
+        const start = rangeIndex * partSize;
+        const end = Math.min(start + partSize - 1, totalSize - 1);
+        const expectedLength = end - start + 1;
+
+        const rangeGetRequest: GetObjectCommandInput = {
+          ...request,
+          Range: `bytes=${start}-${end}`,
+          IfMatch: eTag,
+          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+        };
+
+        requests.push(rangeGetRequest);
+
+        const resultToken = `download-transfer-range-${rangeIndex}-${Date.now()}`;
+        const transferOpts: DownloadStreamOptions = {
+          expectedSize: expectedLength,
+          rangeIndex,
+          checksumAlgorithm: checksumValidationEnabled ? "CRC32" : undefined,
+          resultToken,
+        };
+
+        // Send through SDK pipeline — WorkerHttpHandler.handle() intercepts downloadStream
+        // and dispatches to a worker. The worker assembles data into an ArrayBuffer and transfers
+        // ownership back to main (zero-copy). Fire-and-forget; completion tracked via queue.
+        this.s3
+          .send(new GetObjectCommand(rangeGetRequest), {
+            ...transferOptions,
+            downloadStream: transferOpts,
+          } as any)
+          .then(() => {
+            const transferResult = (
+              this.s3.config.requestHandler as unknown as WorkerHttpHandler
+            ).getStreamDownloadResult(resultToken);
+            if (transferResult) {
+              queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+
+              this.dispatchEvent(
+                Object.assign(new Event("bytesTransferred"), {
+                  request: rangeGetRequest,
+                  snapshot: { transferredBytes: transferResult.byteLength, totalBytes: totalSize },
+                })
+              );
+            }
+            releaseSlot();
+          })
+          .catch((error) => {
+            queue.setError(error);
+            abortController.abort();
+            releaseSlot();
+          });
+      }
+    })().catch((err) => {
+      if (!queue.hasError()) {
+        queue.setError(err);
+      }
+    });
+
+    // Create a Readable stream that pulls ranges sequentially from the ordered queue.
+    // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
+    const transferStream = new Readable({
+      read() {
+        queue
+          .dequeue()
+          .then((item) => {
+            if (item === null) {
+              if (queue.hasError()) {
+                this.destroy(queue.getError() as Error);
+                return;
+              }
+              this.push(null); // EOF — all ranges delivered
+              return;
+            }
+
+            // Buffer.from(ArrayBuffer, offset, length) creates a VIEW — no copy.
+            // The consumer reads directly from the transferred memory.
+            const buf = Buffer.from(item.buffer, 0, item.byteLength);
+            this.push(buf);
+          })
+          .catch((err) => {
+            this.destroy(err as Error);
+          });
+      },
+      destroy(err, callback) {
+        // On stream destruction (abort/error), signal the queue to stop
+        if (err) {
+          queue.setError(err);
+          abortController.abort();
+        }
+        callback(err);
+      },
+    });
+
+    streams.push(Promise.resolve(transferStream as unknown as StreamingBlobPayloadOutputTypes));
+
+    return { totalSize };
   }
 
   /**

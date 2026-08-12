@@ -189,14 +189,18 @@ describe("S3TransferManager Unit Tests", () => {
         const controller = new AbortController();
         const callback = vi.fn();
         controller.abort();
-        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+        tm.addEventListener("transferInitiated", callback, {
+          signal: controller.signal,
+        });
         expect((tm as any).eventListeners.transferInitiated).toEqual([]);
       });
 
       it("Should remove listener after included AbortSignal was aborted", () => {
         const controller = new AbortController();
         const callback = vi.fn();
-        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+        tm.addEventListener("transferInitiated", callback, {
+          signal: controller.signal,
+        });
 
         const event = Object.assign(new Event("transferInitiated"), {
           request: {},
@@ -215,7 +219,9 @@ describe("S3TransferManager Unit Tests", () => {
         const controller = new AbortController();
         const callback = vi.fn();
 
-        tm.addEventListener("transferInitiated", callback, { signal: controller.signal });
+        tm.addEventListener("transferInitiated", callback, {
+          signal: controller.signal,
+        });
 
         expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
         expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(true);
@@ -485,9 +491,18 @@ describe("S3TransferManager Unit Tests", () => {
       const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(3);
-      expect(results[0][0]).toEqual({ eventType: "transferInitiated", callback: callback1 });
-      expect(results[1][0]).toEqual({ eventType: "bytesTransferred", callback: callback2 });
-      expect(results[2][0]).toEqual({ eventType: "bytesTransferred", callback: callback3 });
+      expect(results[0][0]).toEqual({
+        eventType: "transferInitiated",
+        callback: callback1,
+      });
+      expect(results[1][0]).toEqual({
+        eventType: "bytesTransferred",
+        callback: callback2,
+      });
+      expect(results[2][0]).toEqual({
+        eventType: "bytesTransferred",
+        callback: callback3,
+      });
     });
 
     it("Should handle empty event listeners object", () => {
@@ -520,9 +535,18 @@ describe("S3TransferManager Unit Tests", () => {
       const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(3);
-      expect(results[0][0]).toEqual({ eventType: "transferInitiated", callback: callback1 });
-      expect(results[1][0]).toEqual({ eventType: "transferFailed", callback: callback2 });
-      expect(results[2][0]).toEqual({ eventType: "transferFailed", callback: objectCallback });
+      expect(results[0][0]).toEqual({
+        eventType: "transferInitiated",
+        callback: callback1,
+      });
+      expect(results[1][0]).toEqual({
+        eventType: "transferFailed",
+        callback: callback2,
+      });
+      expect(results[2][0]).toEqual({
+        eventType: "transferFailed",
+        callback: objectCallback,
+      });
     });
 
     it("Should handle event listeners with duplicate callbacks in the same event type", () => {
@@ -539,7 +563,10 @@ describe("S3TransferManager Unit Tests", () => {
 
       expect(results).toHaveLength(4);
       for (let i = 0; i < results.length; i++) {
-        expect(results[i][0]).toEqual({ eventType: results[i][0].eventType, callback });
+        expect(results[i][0]).toEqual({
+          eventType: results[i][0].eventType,
+          callback,
+        });
       }
     });
 
@@ -908,9 +935,21 @@ describe("S3TransferManager Unit Tests", () => {
       const clientLevelCallback = vi.fn();
       tm.addEventListener("transferComplete", clientLevelCallback);
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content1" });
-      await tm.upload({ Bucket: "test-bucket", Key: "file2.txt", Body: "content2" });
-      await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "content3" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file1.txt",
+        Body: "content1",
+      });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file2.txt",
+        Body: "content2",
+      });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file3.txt",
+        Body: "content3",
+      });
 
       expect(clientLevelCallback).toHaveBeenCalledTimes(3);
     });
@@ -918,14 +957,22 @@ describe("S3TransferManager Unit Tests", () => {
     it("Should fire request-level listener only for that specific request", async () => {
       const requestLevelCallback = vi.fn();
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content1" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file1.txt",
+        Body: "content1",
+      });
 
       await tm.upload(
         { Bucket: "test-bucket", Key: "file2.txt", Body: "content2" },
         { eventListeners: { transferComplete: [requestLevelCallback] } }
       );
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "content3" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file3.txt",
+        Body: "content3",
+      });
 
       expect(requestLevelCallback).toHaveBeenCalledTimes(1);
     });
@@ -951,7 +998,11 @@ describe("S3TransferManager Unit Tests", () => {
       const initiatedCallback = vi.fn();
       tm.addEventListener("transferInitiated", initiatedCallback);
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file1.txt",
+        Body: "content",
+      });
 
       expect(initiatedCallback).toHaveBeenCalledTimes(1);
     });
@@ -960,7 +1011,11 @@ describe("S3TransferManager Unit Tests", () => {
       const completeCallback = vi.fn();
       tm.addEventListener("transferComplete", completeCallback);
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file1.txt",
+        Body: "content",
+      });
 
       expect(completeCallback).toHaveBeenCalledTimes(1);
     });
@@ -982,7 +1037,11 @@ describe("S3TransferManager Unit Tests", () => {
       const bytesCallback = vi.fn();
       tm.addEventListener("bytesTransferred", bytesCallback);
 
-      await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "file1.txt",
+        Body: "content",
+      });
 
       expect(bytesCallback.mock.calls.length).toBeGreaterThanOrEqual(1);
     });
@@ -1044,7 +1103,11 @@ describe("S3TransferManager Unit Tests", () => {
       // 20MB buffer - above threshold, triggers multipart
       const body = Buffer.alloc(20 * 1024 * 1024, "x");
 
-      await tm.upload({ Bucket: "test-bucket", Key: "buffer-upload.bin", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "buffer-upload.bin",
+        Body: body,
+      });
 
       // Should have called CreateMPU, UploadPart (x3), CompleteMPU
       const commandNames = sendCalls.map((c: any) => c.constructor?.name);
@@ -1065,7 +1128,11 @@ describe("S3TransferManager Unit Tests", () => {
 
       const body = "x".repeat(20 * 1024 * 1024);
 
-      await tm.upload({ Bucket: "test-bucket", Key: "string-upload.txt", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "string-upload.txt",
+        Body: body,
+      });
 
       const commandNames = sendCalls.map((c: any) => c.constructor?.name);
       expect(commandNames).toContain("CreateMultipartUploadCommand");
@@ -1113,7 +1180,10 @@ describe("S3TransferManager Unit Tests", () => {
         send: vi.fn().mockImplementation((command: any) => {
           const commandName = command.constructor?.name ?? "";
           if (commandName === "CreateMultipartUploadCommand") {
-            return Promise.resolve({ UploadId: "abort-test-id", $metadata: {} });
+            return Promise.resolve({
+              UploadId: "abort-test-id",
+              $metadata: {},
+            });
           }
           if (commandName === "UploadPartCommand") {
             uploadPartCallCount++;
@@ -1121,7 +1191,11 @@ describe("S3TransferManager Unit Tests", () => {
             if (uploadPartCallCount === 1) {
               controller.abort();
             }
-            return Promise.resolve({ ETag: `"etag-${uploadPartCallCount}"`, ChecksumCRC32: "abc==", $metadata: {} });
+            return Promise.resolve({
+              ETag: `"etag-${uploadPartCallCount}"`,
+              ChecksumCRC32: "abc==",
+              $metadata: {},
+            });
           }
           if (commandName === "AbortMultipartUploadCommand") {
             return Promise.resolve({ $metadata: {} });
@@ -1207,7 +1281,11 @@ describe("S3TransferManager Unit Tests", () => {
       const contentLength = 24 * 1024 * 1024; // 3 parts of 8MB
       const body = Buffer.alloc(contentLength, "c");
 
-      await tm.upload({ Bucket: "test-bucket", Key: "progress-test.bin", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "progress-test.bin",
+        Body: body,
+      });
 
       // Should have 3 bytesTransferred events (one per part)
       expect(bytesEvents.length).toBe(3);
@@ -1220,7 +1298,10 @@ describe("S3TransferManager Unit Tests", () => {
         send: vi.fn().mockImplementation((command: any) => {
           const commandName = command.constructor?.name ?? "";
           if (commandName === "CreateMultipartUploadCommand") {
-            return Promise.resolve({ UploadId: "event-fail-id", $metadata: {} });
+            return Promise.resolve({
+              UploadId: "event-fail-id",
+              $metadata: {},
+            });
           }
           if (commandName === "UploadPartCommand") {
             return Promise.reject(new Error("Part failed"));
@@ -1264,7 +1345,11 @@ describe("S3TransferManager Unit Tests", () => {
       expect(tm.workerHttpHandler).toBeUndefined();
 
       const body = Buffer.alloc(20 * 1024 * 1024, "e");
-      await tm.upload({ Bucket: "test-bucket", Key: "no-thread.bin", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "no-thread.bin",
+        Body: body,
+      });
 
       // Still completes multipart upload successfully via non-threaded path
       const commandNames = sendCalls.map((c: any) => c.constructor?.name);
@@ -1294,7 +1379,11 @@ describe("S3TransferManager Unit Tests", () => {
       });
 
       const body = Buffer.alloc(24 * 1024 * 1024, "f"); // 3 parts
-      await tm.upload({ Bucket: "test-bucket", Key: "sort-test.bin", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "sort-test.bin",
+        Body: body,
+      });
 
       const completeCalls = sendCalls.filter((c: any) => c.constructor?.name === "CompleteMultipartUploadCommand");
       expect(completeCalls.length).toBe(1);
@@ -1316,7 +1405,11 @@ describe("S3TransferManager Unit Tests", () => {
       });
 
       const body = Buffer.alloc(20 * 1024 * 1024, "g");
-      await tm.upload({ Bucket: "test-bucket", Key: "checksum-test.bin", Body: body });
+      await tm.upload({
+        Bucket: "test-bucket",
+        Key: "checksum-test.bin",
+        Body: body,
+      });
 
       const createCalls = sendCalls.filter((c: any) => c.constructor?.name === "CreateMultipartUploadCommand");
       expect(createCalls[0].input.ChecksumAlgorithm).toBe("CRC32");

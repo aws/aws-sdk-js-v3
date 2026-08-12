@@ -71,6 +71,11 @@ function spreadLookup(
  * Types duplicated from worker-http-handler to avoid cross-submodule imports.
  * @internal
  */
+
+/**
+ * Serializable subset of HttpRequest sent from main thread to worker.
+ * Contains the signed request data without the body (body is sourced separately).
+ */
 interface WorkerHttpRequest {
   method: string;
   protocol: string;
@@ -109,16 +114,53 @@ type HttpWorkerRequestMessage =
   | HttpWorkerFileRequestMessage
   | HttpWorkerRAMRequestMessage;
 
-interface HttpWorkerDownloadToFileMessage {
+/**
+ * Main thread → Worker: download a part and write the response body directly
+ * to a file at the specified offset. Used for downloadToFile operations.
+ */
+interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMessage {
   type: "httpDownloadToFile";
-  id: number;
-  request: WorkerHttpRequest;
   filePath: string;
   offset: number;
   expectedLength: number;
   checksumAlgorithm?: string;
 }
 
+/**
+ * Main thread → Worker: download a part and stream the response back.
+ */
+interface HttpWorkerDownloadStreamMessage extends BaseHttpWorkerRequestMessage {
+  type: "httpDownloadStream";
+  /**
+   * Expected response body size in bytes; used to pre-allocate the ArrayBuffer.
+   */
+  expectedSize: number;
+  /**
+   * Sequential part/range index for ordered delivery on the main thread.
+   */
+  rangeIndex: number;
+  /**
+   * Optional CRC algorithm for inline checksum validation against S3 response headers.
+   */
+  checksumAlgorithm?: string;
+}
+
+/**
+ * Main thread → Worker: return a consumed ArrayBuffer for reuse.
+ * Sent after the main-thread consumer has finished reading a transferred buffer.
+ */
+interface HttpWorkerReturnBufferMessage {
+  type: "returnBuffer";
+  /**
+   * A consumed ArrayBuffer transferred back to the worker for reuse (zero-copy recycling).
+   */
+  buffer: ArrayBuffer;
+}
+
+/**
+ * Worker → Main thread: download-to-file completed successfully.
+ * Reports status, headers, bytes written, and optional checksum.
+ */
 interface HttpWorkerDownloadResultMessage {
   type: "httpDownloadResult";
   id: number;
@@ -128,6 +170,24 @@ interface HttpWorkerDownloadResultMessage {
   checksum?: string;
 }
 
+/**
+ * Worker → Main thread: stream-mode download completed.
+ * The ArrayBuffer is transferred (zero-copy) via the postMessage transfer list.
+ */
+interface HttpWorkerDownloadStreamResultMessage {
+  type: "httpDownloadStreamResult";
+  id: number;
+  rangeIndex: number;
+  buffer: ArrayBuffer;
+  byteLength: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  checksum?: string;
+}
+
+/**
+ * Worker → Main thread: a download request (file or transfer) failed.
+ */
 interface HttpWorkerDownloadErrorMessage {
   type: "httpDownloadError";
   id: number;
@@ -136,11 +196,18 @@ interface HttpWorkerDownloadErrorMessage {
   name?: string;
 }
 
+/**
+ * Main thread → Worker: configure the worker's HTTP agent (e.g., max sockets).
+ * Sent once after the worker signals "ready".
+ */
 interface HttpWorkerConfigMessage {
   type: "config";
   maxSockets: number;
 }
 
+/**
+ * Main thread → Worker: shut down gracefully. Worker destroys its HTTP handler and exits.
+ */
 interface HttpWorkerDoneMessage {
   type: "done";
 }
@@ -148,9 +215,15 @@ interface HttpWorkerDoneMessage {
 type HttpWorkerInboundMessage =
   | HttpWorkerRequestMessage
   | HttpWorkerDownloadToFileMessage
+  | HttpWorkerDownloadStreamMessage
+  | HttpWorkerReturnBufferMessage
   | HttpWorkerConfigMessage
   | HttpWorkerDoneMessage;
 
+/**
+ * Worker → Main thread: upload request completed successfully.
+ * Contains the HTTP response (status, headers, body).
+ */
 interface HttpWorkerResponseMessage {
   type: "httpResponse";
   id: number;
@@ -161,6 +234,9 @@ interface HttpWorkerResponseMessage {
   };
 }
 
+/**
+ * Worker → Main thread: an upload request failed.
+ */
 interface HttpWorkerErrorMessage {
   type: "httpError";
   id: number;
@@ -169,6 +245,9 @@ interface HttpWorkerErrorMessage {
   name?: string;
 }
 
+/**
+ * Worker → Main thread: worker has initialized and is ready to accept requests.
+ */
 interface HttpWorkerReadyMessage {
   type: "ready";
 }
@@ -405,7 +484,7 @@ if (parentPort) {
     } = msg;
 
     try {
-      // 1. Send the signed HTTP request
+      // Send the signed HTTP request
       const request = new HttpRequest({
         method: serialized.method,
         protocol: serialized.protocol,
@@ -418,28 +497,26 @@ if (parentPort) {
 
       const { response } = await handler!.handle(request);
 
-      // 2. Resolve where and how much to write from the response's ContentRange.
+      // Resolve where and how much to write from the response's ContentRange.
       //
-      // The header is authoritative: S3 permits multipart objects whose parts
-      // differ in size, so the offset and length supplied by the caller are
-      // derived from part 1 and are only a fallback for when the header is
-      // missing. Trusting the header lets non-uniform objects download
-      // correctly instead of being rejected as a mismatch.
+      // ContentRange is the source of truth since S3 multipart objects can
+      // have parts of different sizes. The caller's offset/length are based on
+      // part 1 and only used as a fallback when the header is missing.
       const contentRange = response.headers["content-range"];
       const range = parseContentRange(contentRange);
       const writeOffset = range ? range.start : offset;
       const targetLength = range ? range.end - range.start + 1 : expectedLength;
 
-      // 3. Open the file with r+ flag (file is pre-allocated)
+      // open the file (file is pre-allocated)
       const fh = await open(filePath, "r+");
       try {
-        // 4. Initialize inline CRC computation if requested
+        // Initialize inline CRC computation if requested
         let crcChecksum: Checksum | undefined;
         if (checksumAlgorithm) {
           crcChecksum = createCrcChecksum(checksumAlgorithm);
         }
 
-        // 5. Stream response body chunks to file at positioned offsets
+        // Stream response body chunks to file at positioned offsets
         let bytesWritten = 0;
 
         if (response.body) {
@@ -478,7 +555,7 @@ if (parentPort) {
 
         await fh.close();
 
-        // 6. Validate bytesWritten matches the range's length
+        // Validate bytesWritten matches the range's length
         if (bytesWritten !== targetLength) {
           port.postMessage({
             type: "httpDownloadError",
@@ -490,7 +567,7 @@ if (parentPort) {
           return;
         }
 
-        // 7. Finalize checksum and validate against S3 header if present
+        // Finalize checksum and validate against S3 header if present
         let checksumBase64: string | undefined;
         if (crcChecksum && checksumAlgorithm) {
           checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
@@ -512,7 +589,7 @@ if (parentPort) {
           }
         }
 
-        // 8. Post success result
+        // Post success result
         port.postMessage({
           type: "httpDownloadResult",
           id,
@@ -525,6 +602,144 @@ if (parentPort) {
         await fh.close().catch(() => {});
         throw err;
       }
+    } catch (err) {
+      port.postMessage({
+        type: "httpDownloadError",
+        id,
+        error: (err as Error).message ?? String(err),
+        code: (err as any).code,
+        name: (err as Error).name,
+      } satisfies HttpWorkerDownloadErrorMessage);
+    }
+  };
+
+  // Pool of reusable ArrayBuffers for stream-mode downloads.
+  // Buffers are allocated once and transferred between worker and main thread.
+  const reusableBufferPool: ArrayBuffer[] = [];
+
+  /**
+   * Acquire a reusable ArrayBuffer of at least `size` bytes.
+   * Uses Buffer.allocUnsafeSlow to get a dedicated (non-pooled) ArrayBuffer
+   * that is safe to transfer without detaching unrelated Buffers.
+   * @internal
+   */
+  function acquireTransferBuffer(size: number): ArrayBuffer {
+    for (let i = 0; i < reusableBufferPool.length; i++) {
+      if (reusableBufferPool[i].byteLength >= size) {
+        return reusableBufferPool.splice(i, 1)[0];
+      }
+    }
+    return Buffer.allocUnsafeSlow(size).buffer;
+  }
+
+  /**
+   * Downloads a part into a worker-owned ArrayBuffer and transfers ownership
+   * to the main thread via postMessage transfer list (zero-copy).
+   * @internal
+   */
+  const processDownloadToTransfer = async (
+    msg: HttpWorkerDownloadStreamMessage,
+  ): Promise<void> => {
+    const {
+      id,
+      request: serialized,
+      expectedSize,
+      rangeIndex,
+      checksumAlgorithm,
+    } = msg;
+
+    try {
+      // 1. Send the signed HTTP request
+      const request = new HttpRequest({
+        method: serialized.method,
+        protocol: serialized.protocol,
+        hostname: serialized.hostname,
+        port: serialized.port,
+        path: serialized.path,
+        query: serialized.query,
+        headers: serialized.headers,
+      });
+
+      const { response } = await handler!.handle(request);
+
+      // 2. Acquire a buffer for assembling the response body
+      const ab = acquireTransferBuffer(expectedSize);
+      const view = new Uint8Array(ab, 0, expectedSize);
+
+      // 3. Initialize inline CRC computation if requested
+      let crcChecksum: Checksum | undefined;
+      if (checksumAlgorithm) {
+        crcChecksum = createCrcChecksum(checksumAlgorithm);
+      }
+
+      // 4. Stream response body chunks into the ArrayBuffer
+      let bytesWritten = 0;
+
+      if (response.body) {
+        for await (const chunk of response.body) {
+          const buf: Uint8Array =
+            typeof chunk === "string" ? Buffer.from(chunk) : chunk;
+
+          // Guard against writing beyond buffer boundary
+          if (bytesWritten + buf.length > expectedSize) {
+            port.postMessage({
+              type: "httpDownloadError",
+              id,
+              error: `Bytes received (${bytesWritten + buf.length}) exceeds expected size (${expectedSize}) for range index ${rangeIndex}`,
+              code: "BYTES_EXCEEDED",
+              name: "DownloadValidationError",
+            } satisfies HttpWorkerDownloadErrorMessage);
+            return;
+          }
+
+          // Copy chunk into the ArrayBuffer (this copy happens on the WORKER thread)
+          view.set(buf, bytesWritten);
+
+          // Update CRC inline
+          if (crcChecksum) {
+            crcChecksum.update(buf);
+          }
+
+          bytesWritten += buf.length;
+        }
+      }
+
+      // 5. Finalize checksum and validate against S3 header if present
+      let checksumBase64: string | undefined;
+      if (crcChecksum && checksumAlgorithm) {
+        checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
+
+        const s3ChecksumValue = getChecksumHeaderValue(
+          response.headers,
+          checksumAlgorithm,
+        );
+        if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
+          port.postMessage({
+            type: "httpDownloadError",
+            id,
+            error: `Checksum mismatch: computed ${checksumBase64}, S3 returned ${s3ChecksumValue}`,
+            code: "CHECKSUM_MISMATCH",
+            name: "ChecksumValidationError",
+          } satisfies HttpWorkerDownloadErrorMessage);
+          return;
+        }
+      }
+
+      // 6. Send the buffer to main thread (zero-copy). The buffer becomes
+      // detached on this worker.
+      port.postMessage(
+        {
+          type: "httpDownloadStreamResult",
+          id,
+          rangeIndex,
+          buffer: ab,
+          byteLength: bytesWritten,
+          statusCode: response.statusCode,
+          headers: response.headers,
+          checksum: checksumBase64,
+        } satisfies HttpWorkerDownloadStreamResultMessage,
+        [ab],
+      );
     } catch (err) {
       port.postMessage({
         type: "httpDownloadError",
@@ -574,6 +789,15 @@ if (parentPort) {
 
     if (msg.type === "httpDownloadToFile") {
       processDownloadToFile(msg);
+    }
+
+    if (msg.type === "httpDownloadStream") {
+      processDownloadToTransfer(msg);
+    }
+
+    if (msg.type === "returnBuffer") {
+      // Main thread returned a consumed ArrayBuffer for reuse
+      reusableBufferPool.push(msg.buffer);
     }
   });
 
