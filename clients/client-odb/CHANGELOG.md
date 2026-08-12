@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
+
+
+### Features
+
+* **client-odb:** Adds support for Oracle Exadata on Exascale Infrastructure (ExaDB-XS) resources including storage vaults and VM clusters. ([9fa1607](https://github.com/aws/aws-sdk-js-v3/commit/9fa1607083b5c712aa9299332684da5d6428d1ba))
+
+
+
+
+
 # [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
 
 **Note:** Version bump only for package @aws-sdk/client-odb

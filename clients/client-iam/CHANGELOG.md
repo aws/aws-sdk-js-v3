@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
+
+
+### Features
+
+* **client-iam:** Introduced role manager, an IAM capability that automatically sets up the IAM roles your AWS services need. When you set up a supported service in the console, role manager creates a role for you or reuses an existing one from an AWS-managed template. ([1f81145](https://github.com/aws/aws-sdk-js-v3/commit/1f81145e047a2ddb9b7d4facb144fa6b6254d865))
+
+
+
+
+
 # [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
 
 **Note:** Version bump only for package @aws-sdk/client-iam

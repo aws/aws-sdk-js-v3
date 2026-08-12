@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
+
+
+### Features
+
+* **client-wellarchitected:** This change releases the Well-Architected Agent, a generative AI service that analyzes a customer's AWS environment and delivers personalized, prioritized recommendations across cost, security, performance, and resilience. ([72d3422](https://github.com/aws/aws-sdk-js-v3/commit/72d3422bb3c0049573dc1b88b98af7045ae08261))
+
+
+
+
+
 # [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
 
 **Note:** Version bump only for package @aws-sdk/client-wellarchitected

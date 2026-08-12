@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
+
+
+### Features
+
+* **client-dsql:** Improved validation of Kinesis stream ARN format to ensure only valid ARN characters are accepted ([f571a2a](https://github.com/aws/aws-sdk-js-v3/commit/f571a2af01532cc3216fa1a60c1515bd32dd2d8f))
+* **client-iam:** Introduced role manager, an IAM capability that automatically sets up the IAM roles your AWS services need. When you set up a supported service in the console, role manager creates a role for you or reuses an existing one from an AWS-managed template. ([1f81145](https://github.com/aws/aws-sdk-js-v3/commit/1f81145e047a2ddb9b7d4facb144fa6b6254d865))
+* **client-mediaconnect:** AWS MediaConnect now supports tuning the internal recovery latency between Router Inputs and Outputs to prioritize stream quality versus end-to-end latency. ([1ecada3](https://github.com/aws/aws-sdk-js-v3/commit/1ecada3cb026b728ec2e7efe5b855cbe746c4267))
+* **client-odb:** Adds support for Oracle Exadata on Exascale Infrastructure (ExaDB-XS) resources including storage vaults and VM clusters. ([9fa1607](https://github.com/aws/aws-sdk-js-v3/commit/9fa1607083b5c712aa9299332684da5d6428d1ba))
+* **client-quicksight:** Added APIs for DLP with Microsoft Purview (manage configs with label enforcement across Spaces, Chat, Knowledge Bases), Approval Workflows (CRUD for policies on asset sharing for Agents, Knowledge Bases, Spaces), and Limits Management (limit profiles for index storage and agent hours per user). ([b8913fb](https://github.com/aws/aws-sdk-js-v3/commit/b8913fb592fddb4ea99e1075e18932c03589827a))
+* **client-wellarchitected:** This change releases the Well-Architected Agent, a generative AI service that analyzes a customer's AWS environment and delivers personalized, prioritized recommendations across cost, security, performance, and resilience. ([72d3422](https://github.com/aws/aws-sdk-js-v3/commit/72d3422bb3c0049573dc1b88b98af7045ae08261))
+
+
+
+
+
 # [3.1108.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1107.0...v3.1108.0) (2026-08-11)
 
 
