@@ -36,6 +36,8 @@ const _ABEJS = "AssetBundleExportJobSummary";
 const _ABEJSL = "AssetBundleExportJobSummaryList";
 const _ABEJTOP = "AssetBundleExportJobThemeOverrideProperties";
 const _ABEJTOPL = "AssetBundleExportJobThemeOverridePropertiesList";
+const _ABEJTVOP = "AssetBundleExportJobTopicV2OverrideProperties";
+const _ABEJTVOPL = "AssetBundleExportJobTopicV2OverridePropertiesList";
 const _ABEJVPCCOP = "AssetBundleExportJobVPCConnectionOverrideProperties";
 const _ABEJVPCCOPL = "AssetBundleExportJobVPCConnectionOverridePropertiesList";
 const _ABEJVS = "AssetBundleExportJobValidationStrategy";
@@ -93,6 +95,12 @@ const _ABIJTOPLs = "AssetBundleImportJobThemeOverridePermissionsList";
 const _ABIJTOPs = "AssetBundleImportJobThemeOverridePermissions";
 const _ABIJTOT = "AssetBundleImportJobThemeOverrideTags";
 const _ABIJTOTL = "AssetBundleImportJobThemeOverrideTagsList";
+const _ABIJTVOP = "AssetBundleImportJobTopicV2OverrideParameters";
+const _ABIJTVOPL = "AssetBundleImportJobTopicV2OverrideParametersList";
+const _ABIJTVOPLs = "AssetBundleImportJobTopicV2OverridePermissionsList";
+const _ABIJTVOPs = "AssetBundleImportJobTopicV2OverridePermissions";
+const _ABIJTVOT = "AssetBundleImportJobTopicV2OverrideTags";
+const _ABIJTVOTL = "AssetBundleImportJobTopicV2OverrideTagsList";
 const _ABIJVPCCOP = "AssetBundleImportJobVPCConnectionOverrideParameters";
 const _ABIJVPCCOPL = "AssetBundleImportJobVPCConnectionOverrideParametersList";
 const _ABIJVPCCOT = "AssetBundleImportJobVPCConnectionOverrideTags";
@@ -156,8 +164,9 @@ const _AFSR = "ApproveFlowShareRequests";
 const _AFc = "AccentForeground";
 const _AFd = "AdditionalFields";
 const _AFg = "AggregationFunction";
-const _AG = "AdminGroup";
+const _AG = "ApprovalGroups";
 const _AGI = "AutomationGroupId";
+const _AGd = "AdminGroup";
 const _AGu = "AuthorGroup";
 const _AHFO = "AdHocFilteringOption";
 const _AI = "AccountInfo";
@@ -210,8 +219,10 @@ const _APG = "AdminProGroup";
 const _APGu = "AuthorProGroup";
 const _APIK = "APIKey";
 const _APIKCM = "APIKeyConnectionMetadata";
+const _APL = "ApprovalPolicyList";
 const _APM = "AllPointsMarker";
 const _APSP = "AuroraPostgreSqlParameters";
+const _APp = "ApprovalPolicy";
 const _APt = "AthenaParameters";
 const _APu = "AuroraParameters";
 const _AQIQS = "AmazonQInQuickSight";
@@ -256,9 +267,11 @@ const _ATFC = "AxisTitleFontConfiguration";
 const _ATLO = "AxisTickLabelOptions";
 const _ATl = "AltText";
 const _ATn = "AnchorType";
-const _ATp = "ApplicationTheme";
-const _ATpp = "ApplyTo";
+const _ATp = "ApplicableTo";
+const _ATpp = "ApplicationTheme";
+const _ATppl = "ApplyTo";
 const _ATr = "ArcThickness";
+const _ATs = "AssetTypes";
 const _ATu = "AuthorizedTargets";
 const _ATut = "AuthType";
 const _AU = "AnonymousUsers";
@@ -331,6 +344,12 @@ const _BDL = "BarDataLabels";
 const _BDTRA = "BatchDeleteTopicReviewedAnswer";
 const _BDTRAR = "BatchDeleteTopicReviewedAnswerRequest";
 const _BDTRARa = "BatchDeleteTopicReviewedAnswerResponse";
+const _BDUL = "BatchDescribeUserLimits";
+const _BDULE = "BatchDescribeUserLimitsError";
+const _BDULEL = "BatchDescribeUserLimitsErrorList";
+const _BDULR = "BatchDescribeUserLimitsRequest";
+const _BDULRUL = "BatchDescribeUserLimitsRequestUsersList";
+const _BDULRa = "BatchDescribeUserLimitsResponse";
 const _BDr = "BrandDetail";
 const _BE = "BaseEndpoint";
 const _BES = "BrandElementStyle";
@@ -421,6 +440,9 @@ const _CALO = "ChartAxisLabelOptions";
 const _CALOa = "CategoryAxisLabelOptions";
 const _CANO = "CustomActionNavigationOperation";
 const _CAP = "ContextualAccentPalette";
+const _CAPR = "CreateApprovalPolicyRequest";
+const _CAPRr = "CreateApprovalPolicyResponse";
+const _CAPr = "CreateApprovalPolicy";
 const _CAR = "CreateAgentRequest";
 const _CARA = "ConsumerAccountRoleArn";
 const _CARr = "CreateAgentResponse";
@@ -569,8 +591,11 @@ const _CDSR = "CreateDataSetRequest";
 const _CDSRr = "CreateDataSetResponse";
 const _CDSRre = "CreateDataSourceRequest";
 const _CDSRrea = "CreateDataSourceResponse";
+const _CDSRreat = "CreateDlpSettingRequest";
+const _CDSRreate = "CreateDlpSettingResponse";
 const _CDSr = "CreateDataSet";
 const _CDSre = "CreateDataSource";
+const _CDSrea = "CreateDlpSetting";
 const _CDT = "ColumnDescriptiveText";
 const _CDo = "ContributorDimensions";
 const _CDr = "CrossDataset";
@@ -672,10 +697,14 @@ const _CLC = "CustomLabelConfiguration";
 const _CLO = "CategoryLabelOptions";
 const _CLOo = "ColorLabelOptions";
 const _CLOol = "ColumnLabelOptions";
+const _CLP = "CreateLimitsProfile";
 const _CLPR = "ColumnLevelPermissionRule";
 const _CLPRA = "ColumnLevelPermissionRulesApplied";
 const _CLPRL = "ColumnLevelPermissionRuleList";
+const _CLPRRLM = "CreateLimitsProfileRequestResourceLimitsMap";
 const _CLPRo = "ColumnLevelPermissionRules";
+const _CLPRr = "CreateLimitsProfileRequest";
+const _CLPRre = "CreateLimitsProfileResponse";
 const _CLV = "CategoryLabelVisibility";
 const _CLl = "CloudLayout";
 const _CLo = "ComputationList";
@@ -887,12 +916,18 @@ const _DAJ = "DescribeAutomationJob";
 const _DAJR = "DescribeAutomationJobRequest";
 const _DAJRe = "DescribeAutomationJobResponse";
 const _DAO = "DateAxisOptions";
-const _DAP = "DescribeAgentPermissions";
-const _DAPR = "DescribeAgentPermissionsRequest";
-const _DAPRe = "DescribeAgentPermissionsResponse";
-const _DAPRes = "DescribeAnalysisPermissionsRequest";
-const _DAPResc = "DescribeAnalysisPermissionsResponse";
-const _DAPe = "DescribeAnalysisPermissions";
+const _DAP = "DeleteApprovalPolicy";
+const _DAPR = "DeleteApprovalPolicyRequest";
+const _DAPRe = "DeleteApprovalPolicyResponse";
+const _DAPRes = "DescribeAgentPermissionsRequest";
+const _DAPResc = "DescribeAgentPermissionsResponse";
+const _DAPRescr = "DescribeAnalysisPermissionsRequest";
+const _DAPRescri = "DescribeAnalysisPermissionsResponse";
+const _DAPRescrib = "DescribeApprovalPolicyRequest";
+const _DAPRescribe = "DescribeApprovalPolicyResponse";
+const _DAPe = "DescribeAgentPermissions";
+const _DAPes = "DescribeAnalysisPermissions";
+const _DAPesc = "DescribeApprovalPolicy";
 const _DAR = "DeleteAgentRequest";
 const _DARe = "DeleteAgentResponse";
 const _DARel = "DeleteAnalysisRequest";
@@ -1007,13 +1042,19 @@ const _DDSRPe = "DescribeDataSetRefreshProperties";
 const _DDSRe = "DeleteDataSetResponse";
 const _DDSRel = "DeleteDataSourceRequest";
 const _DDSRele = "DeleteDataSourceResponse";
+const _DDSRelet = "DeleteDlpSettingRequest";
+const _DDSRelete = "DeleteDlpSettingResponse";
 const _DDSRes = "DescribeDataSetRequest";
 const _DDSResc = "DescribeDataSetResponse";
 const _DDSRescr = "DescribeDataSourceRequest";
 const _DDSRescri = "DescribeDataSourceResponse";
+const _DDSRescrib = "DescribeDlpSettingRequest";
+const _DDSRescribe = "DescribeDlpSettingResponse";
 const _DDSe = "DeleteDataSource";
+const _DDSel = "DeleteDlpSetting";
 const _DDSes = "DescribeDataSet";
 const _DDSesc = "DescribeDataSource";
+const _DDSescr = "DescribeDlpSetting";
 const _DDTPCO = "DefaultDateTimePickerControlOptions";
 const _DDTPO = "DefaultDateTimePickerOptions";
 const _DDV = "DecimalDefaultValues";
@@ -1121,6 +1162,12 @@ const _DL = "DataLabels";
 const _DLFC = "DataLabelFontConfiguration";
 const _DLO = "DataLabelOptions";
 const _DLOe = "DefaultListOptions";
+const _DLP = "DeleteLimitsProfile";
+const _DLPR = "DeleteLimitsProfileRequest";
+const _DLPRe = "DeleteLimitsProfileResponse";
+const _DLPRes = "DescribeLimitsProfileRequest";
+const _DLPResc = "DescribeLimitsProfileResponse";
+const _DLPe = "DescribeLimitsProfile";
 const _DLT = "DataLabelTypes";
 const _DLTa = "DataLabelType";
 const _DM = "DatasetMetadata";
@@ -1227,6 +1274,7 @@ const _DSCa = "DataSetConfiguration";
 const _DSCat = "DataSourceCredentials";
 const _DSCata = "DataStoriesConfigurations";
 const _DSCatae = "DataSetConfigurations";
+const _DSD = "DlpSettingDetails";
 const _DSDCFC = "DataSetDateComparisonFilterCondition";
 const _DSDFC = "DataSetDateFilterCondition";
 const _DSDFV = "DataSetDateFilterValue";
@@ -1244,6 +1292,7 @@ const _DSIa = "DataSetIds";
 const _DSIat = "DataSourceId";
 const _DSIata = "DataSourceIds";
 const _DSIatae = "DataSetIdentifier";
+const _DSIl = "DlpSettingId";
 const _DSL = "DashboardSummaryList";
 const _DSLa = "DataSourceList";
 const _DSLe = "DecalSettingsList";
@@ -1285,6 +1334,7 @@ const _DSSL = "DataSetSummaryList";
 const _DSSLFC = "DataSetStringListFilterCondition";
 const _DSSLFV = "DataSetStringListFilterValue";
 const _DSSLa = "DataSourceSummaryList";
+const _DSSLl = "DlpSettingSummaryList";
 const _DSSM = "DataSetSemanticMetadata";
 const _DSSML = "DataSetSemanticMetadataList";
 const _DSSO = "DataStoriesSharingOption";
@@ -1294,6 +1344,8 @@ const _DSSata = "DataSourceSummary";
 const _DSSatae = "DataSetSummaries";
 const _DSSatao = "DataSourceSummaries";
 const _DSSe = "DefaultSeriesSettings";
+const _DSSl = "DlpSettingSummary";
+const _DSSlp = "DlpSettingSummaries";
 const _DST = "DataSourceType";
 const _DSTa = "DashboardSourceTemplate";
 const _DSTe = "DecalStyleType";
@@ -1313,6 +1365,7 @@ const _DSel = "DeletionStatus";
 const _DSele = "DeleteSpace";
 const _DSes = "DescribeSpace";
 const _DSi = "DisableSsl";
+const _DSl = "DlpSetting";
 const _DT = "DefaultTheme";
 const _DTA = "DeleteTemplateAlias";
 const _DTACO = "DefaultTextAreaControlOptions";
@@ -1475,10 +1528,12 @@ const _EHFO = "ExportHiddenFieldsOption";
 const _EI = "ErrorInfo";
 const _EIP = "EnableIdentityPropagation";
 const _EIl = "ElementId";
-const _EL = "EntityList";
+const _EL = "EffectiveLimit";
 const _ELFPT = "ExternalLoginFederationProviderType";
 const _ELFPU = "ExternalLoginFederationProviderUrl";
 const _ELI = "ExternalLoginId";
+const _ELL = "EffectiveLimitList";
+const _ELn = "EntityList";
 const _EM = "ErrorMessage";
 const _EN = "EntityName";
 const _EP = "ExasolParameters";
@@ -1691,6 +1746,7 @@ const _GAR = "GeneratedAnswerResult";
 const _GAe = "GenerateAnalyses";
 const _GAen = "GeneratedAnswer";
 const _GAi = "GithubAction";
+const _GAr = "GroupArns";
 const _GB = "GroupBy";
 const _GBCN = "GroupByColumnNames";
 const _GBL = "GroupByList";
@@ -2049,6 +2105,12 @@ const _LABIJRi = "ListAssetBundleImportJobsResponse";
 const _LAC = "ListActionConnectors";
 const _LACR = "ListActionConnectorsRequest";
 const _LACRi = "ListActionConnectorsResponse";
+const _LAM = "LabelActionMapping";
+const _LAML = "LabelActionMappingList";
+const _LAMa = "LabelActionMappings";
+const _LAP = "ListApprovalPolicies";
+const _LAPR = "ListApprovalPoliciesRequest";
+const _LAPRi = "ListApprovalPoliciesResponse";
 const _LAR = "ListAgentsRequest";
 const _LARi = "ListAgentsResponse";
 const _LARis = "ListAnalysesRequest";
@@ -2099,7 +2161,10 @@ const _LDSR = "ListDataSetsRequest";
 const _LDSRi = "ListDataSetsResponse";
 const _LDSRis = "ListDataSourcesRequest";
 const _LDSRist = "ListDataSourcesResponse";
+const _LDSRistl = "ListDlpSettingsRequest";
+const _LDSRistlp = "ListDlpSettingsResponse";
 const _LDSi = "ListDataSources";
+const _LDSis = "ListDlpSettings";
 const _LDV = "ListDashboardVersions";
 const _LDVR = "ListDashboardVersionsRequest";
 const _LDVRi = "ListDashboardVersionsResponse";
@@ -2140,6 +2205,7 @@ const _LIPCRi = "ListIdentityPropagationConfigsResponse";
 const _LIR = "ListIngestionsRequest";
 const _LIRi = "ListIngestionsResponse";
 const _LIS = "LatestIngestionSummary";
+const _LIa = "LabelId";
 const _LIi = "LineInterpolation";
 const _LIis = "ListIngestions";
 const _LJKP = "LeftJoinKeyProperties";
@@ -2147,6 +2213,9 @@ const _LKB = "ListKnowledgeBases";
 const _LKBR = "ListKnowledgeBasesRequest";
 const _LKBRi = "ListKnowledgeBasesResponse";
 const _LL = "LineLayer";
+const _LLP = "ListLimitsProfiles";
+const _LLPR = "ListLimitsProfilesRequest";
+const _LLPRi = "ListLimitsProfilesResponse";
 const _LLa = "LayoutList";
 const _LMV = "LayerMapVisual";
 const _LN = "LastName";
@@ -2163,8 +2232,10 @@ const _LOACARi = "ListOAuthClientApplicationsResponse";
 const _LOP = "LeftOperandProperties";
 const _LOe = "LeftOperand";
 const _LOeg = "LegendOptions";
+const _LP = "LimitsProfile";
 const _LPA = "LastPublishedAt";
 const _LPB = "LastPublishedBy";
+const _LPL = "LimitsProfileList";
 const _LPT = "LastPublishedTime";
 const _LPU = "LoginPageUrl";
 const _LRM = "ListRoleMemberships";
@@ -2308,7 +2379,10 @@ const _MNa = "MapNavigation";
 const _MO = "MatchOperator";
 const _MOe = "MetricOperand";
 const _MP = "MetricPlacement";
+const _MPC = "MicrosoftPurviewCredentials";
 const _MPI = "ModelProfileId";
+const _MPPC = "MicrosoftPurviewProviderConfig";
+const _MPi = "MicrosoftPurview";
 const _MR = "MaxResults";
 const _MRa = "MaxRows";
 const _MS = "MapState";
@@ -2492,7 +2566,8 @@ const _PCe = "PerformanceConfiguration";
 const _PCi = "PivotConfiguration";
 const _PCo = "PositiveColor";
 const _PCos = "PostCode";
-const _PCr = "ProjectedColumns";
+const _PCr = "ProviderConfig";
+const _PCro = "ProjectedColumns";
 const _PD = "ParameterDeclarations";
 const _PDA = "PagerDutyAction";
 const _PDDC = "ParameterDropDownControl";
@@ -2516,9 +2591,10 @@ const _PFe = "PeriodsForward";
 const _PFr = "PrimaryForeground";
 const _PH = "PredefinedHierarchy";
 const _PHCL = "PredefinedHierarchyColumnList";
-const _PI = "ProjectId";
-const _PIr = "PrincipalId";
+const _PI = "PolicyId";
+const _PIr = "ProjectId";
 const _PIre = "PredictionInterval";
+const _PIri = "PrincipalId";
 const _PK = "PrivateKey";
 const _PKP = "PrivateKeyPassphrase";
 const _PL = "PointLayer";
@@ -2526,6 +2602,7 @@ const _PLC = "PaginatedLayoutConfiguration";
 const _PLCa = "ParameterListControl";
 const _PLF = "PinnedLeftFields";
 const _PLL = "PivotedLabelList";
+const _PLV = "ProfileLimitValue";
 const _PLe = "PermissionsList";
 const _PLi = "PivotedLabels";
 const _PLiv = "PivotedLabel";
@@ -2539,7 +2616,8 @@ const _PNME = "PreconditionNotMetException";
 const _PNa = "PageNumber";
 const _PNr = "PropertyName";
 const _PO = "PresentationOrder";
-const _POA = "PrimaryOwnerArn";
+const _POA = "ProviderOutageAction";
+const _POAr = "PrimaryOwnerArn";
 const _POP = "PeriodOverPeriod";
 const _POPC = "PeriodOverPeriodComputation";
 const _POU = "PrimaryOwnerUsername";
@@ -2609,7 +2687,8 @@ const _PTSC = "PivotTableSortConfiguration";
 const _PTTO = "PivotTableTotalOptions";
 const _PTV = "PivotTableVisual";
 const _PTh = "PhysicalTable";
-const _PTr = "ProductType";
+const _PTr = "ProviderType";
+const _PTro = "ProductType";
 const _PU = "PropertyUsage";
 const _PUu = "PublicUrl";
 const _PV = "PrimaryVisual";
@@ -2647,6 +2726,8 @@ const _Perm = "Permission";
 const _Pl = "Placeholder";
 const _Pla = "Placement";
 const _Po = "Port";
+const _Pol = "Policy";
+const _Poli = "Policies";
 const _Pos = "Position";
 const _Pr = "Properties";
 const _Pre = "Preference";
@@ -2764,6 +2845,7 @@ const _RLDC = "ReferenceLineDataConfiguration";
 const _RLDDC = "ReferenceLineDynamicDataConfiguration";
 const _RLL = "ReferenceLineList";
 const _RLLC = "ReferenceLineLabelConfiguration";
+const _RLM = "ResourceLimitsMap";
 const _RLO = "RowLabelOptions";
 const _RLOo = "RowsLabelOptions";
 const _RLP = "RevokeLinkPermissions";
@@ -3489,7 +3571,8 @@ const _TIen = "TenantId";
 const _TIh = "ThemeIds";
 const _TIo = "TopicId";
 const _TIoo = "TooltipItem";
-const _TIop = "TopicIdentifier";
+const _TIop = "TopicIds";
+const _TIopi = "TopicIdentifier";
 const _TK = "TagKey";
 const _TKa = "TagKeys";
 const _TL = "TileLayout";
@@ -3605,7 +3688,7 @@ const _TTop = "TopicTemplate";
 const _TUFL = "TableUnaggregatedFieldList";
 const _TUFW = "TableUnaggregatedFieldWells";
 const _TUSV = "TreatUndefinedSpecifiedValues";
-const _TV = "TotalsVisibility";
+const _TV = "TopicsV2";
 const _TVC = "TargetVisualsConfiguration";
 const _TVD = "TemplateVersionDefinition";
 const _TVDSR = "TopicV2DataSetReference";
@@ -3630,7 +3713,8 @@ const _TVarg = "TargetVisuals";
 const _TVe = "TemplateVersion";
 const _TVh = "ThemeVersion";
 const _TVi = "TitleVisibility";
-const _TVo = "TooltipVisibility";
+const _TVo = "TotalsVisibility";
+const _TVoo = "TooltipVisibility";
 const _TVop = "TopicVisual";
 const _TVopi = "TopicVisuals";
 const _TW = "TextWrap";
@@ -3678,7 +3762,10 @@ const _UAPRRPL = "UpdateAgentPermissionsRequestRevokePermissionsList";
 const _UAPRp = "UpdateAgentPermissionsResponse";
 const _UAPRpd = "UpdateAnalysisPermissionsRequest";
 const _UAPRpda = "UpdateAnalysisPermissionsResponse";
+const _UAPRpdat = "UpdateApprovalPolicyRequest";
+const _UAPRpdate = "UpdateApprovalPolicyResponse";
 const _UAPp = "UpdateAnalysisPermissions";
+const _UAPpd = "UpdateApprovalPolicy";
 const _UAR = "UpdateAgentRequest";
 const _UARp = "UpdateAgentResponse";
 const _UARpd = "UpdateAnalysisRequest";
@@ -3691,6 +3778,7 @@ const _UAWS = "UseAgentWebSearch";
 const _UAWTEG = "UpdateApplicationWithTokenExchangeGrant";
 const _UAWTEGR = "UpdateApplicationWithTokenExchangeGrantRequest";
 const _UAWTEGRp = "UpdateApplicationWithTokenExchangeGrantResponse";
+const _UAn = "UnmappedAction";
 const _UAp = "UpdateAgent";
 const _UApd = "UpdateAnalysis";
 const _UAs = "UseAs";
@@ -3756,7 +3844,10 @@ const _UDSR = "UpdateDataSetRequest";
 const _UDSRp = "UpdateDataSetResponse";
 const _UDSRpd = "UpdateDataSourceRequest";
 const _UDSRpda = "UpdateDataSourceResponse";
+const _UDSRpdat = "UpdateDlpSettingRequest";
+const _UDSRpdate = "UpdateDlpSettingResponse";
 const _UDSp = "UpdateDataSource";
+const _UDSpd = "UpdateDlpSetting";
 const _UEAIE = "UseExcelAddInExtension";
 const _UEV = "UserExperienceVersion";
 const _UF = "UnaggregatedField";
@@ -3823,7 +3914,13 @@ const _UL = "UserList";
 const _ULA = "UseLinearAction";
 const _ULCI = "UnpivotedLabelColumnId";
 const _ULCN = "UnpivotedLabelColumnName";
+const _ULE = "UserLimitsEntry";
+const _ULL = "UserLimitsList";
+const _ULP = "UpdateLimitsProfile";
 const _ULPL = "UpdateLinkPermissionList";
+const _ULPR = "UpdateLimitsProfileRequest";
+const _ULPRp = "UpdateLimitsProfileResponse";
+const _ULs = "UserLimits";
 const _UMA = "UseMondayAction";
 const _UMCPA = "UseMCPAction";
 const _UMSEA = "UseMSExchangeAction";
@@ -4095,9 +4192,11 @@ const _YAL = "YAxisLocation";
 const _YALO = "YAxisLabelOptions";
 const _YAO = "YAxisOptions";
 const _ZA = "ZendeskAction";
+const _a = "arn";
 const _aAI = "awsAccountId";
 const _aEC = "audioExtractionConfiguration";
 const _aES = "audioExtractionStatus";
+const _aI = "accountId";
 const _aN = "accountName";
 const _adi = "additional-dashboard-ids";
 const _an = "alias-name";
@@ -4108,14 +4207,18 @@ const _cB = "createdBy";
 const _cBA = "createdByArn";
 const _cSDC = "consumedSourceDocCount";
 const _cSS = "consumedSourceSize";
+const _cT = "clientToken";
 const _co = "columns";
 const _ct = "creds-type";
 const _d = "description";
 const _dT = "directoryType";
 const _dko = "default-key-only";
 const _e = "error";
+const _eC = "errorCode";
+const _eL = "effectiveLimits";
 const _em = "email";
 const _ep = "entry-point";
+const _er = "errors";
 const _f = "filters";
 const _fdwr = "force-delete-without-recovery";
 const _h = "http";
@@ -4129,12 +4232,16 @@ const _iIP = "includeInputPayload";
 const _iOP = "includeOutputPayload";
 const _k = "keys";
 const _kC = "kbCount";
+const _lU = "limitUnit";
 const _lUAT = "lastUpdateAttemptTime";
 const _lUFR = "lastUpdateFailureReason";
+const _lV = "limitValue";
+const _m = "message";
 const _mB = "minBytes";
 const _mBa = "maxBytes";
 const _mC = "maxContributors";
 const _mR = "maxResults";
+const _mV = "maxValue";
 const _mr = "max-results";
 const _mr_ = "max-result";
 const _n = "namespace";
@@ -4142,10 +4249,14 @@ const _nT = "nextToken";
 const _na = "name";
 const _nt = "next-token";
 const _o = "operator";
-const _p = "percentage";
+const _p = "profile";
+const _pI = "profileId";
+const _pN = "profileName";
 const _pS = "promptSummary";
-const _pe = "permissions";
-const _pr = "prefix";
+const _pe = "percentage";
+const _per = "permissions";
+const _pr = "profiles";
+const _pre = "prefix";
 const _ps = "publish-state";
 const _r = "resolved";
 const _rA = "resourceArn";
@@ -4153,7 +4264,9 @@ const _rC = "resourcesCount";
 const _rD = "resourceDetails";
 const _rFSB = "rawFileSizeBytes";
 const _rI = "requestId";
-const _rT = "resourceType";
+const _rL = "resourceLimits";
+const _rT = "resourceTypes";
+const _rTe = "resourceType";
 const _rd = "reset-disabled";
 const _re = "resources";
 const _ro = "role";
@@ -4168,6 +4281,7 @@ const _sI = "spaceId";
 const _sO = "sortOrder";
 const _se = "server";
 const _sl = "session-lifetime";
+const _so = "source";
 const _spe = "state-persistence-enabled";
 const _t = "template";
 const _tC = "templateConfiguration";
@@ -4176,12 +4290,14 @@ const _tKBCB = "totalKBCapacityBytes";
 const _tSCB = "totalSpaceCapacityBytes";
 const _ty = "type";
 const _u = "users";
-const _uA = "updatedAt";
-const _uAs = "userArn";
+const _uA = "userArn";
+const _uAp = "updatedAt";
+const _uL = "userLimits";
 const _uLN = "userLoginName";
 const _uN = "userName";
 const _uNOE = "userNameOrEmail";
 const _ua = "user-arn";
+const _un = "unit";
 const _urd = "undo-redo-disabled";
 const _v = "value";
 const _vEC = "videoExtractionConfiguration";
@@ -4657,10 +4773,20 @@ export var AppendOperation$: StaticStructureSchema = [3, n0, _AOp,
   [_Al, _ACpp, _FS, _SSe],
   [0, () => AppendedColumnList, () => TransformOperationSource$, () => TransformOperationSource$], 2
 ];
-export var ApplicationTheme$: StaticStructureSchema = [3, n0, _ATp,
+export var ApplicableTo$: StaticStructureSchema = [3, n0, _ATp,
+  0,
+  [_T, _GAr],
+  [0, 64 | 0], 1
+];
+export var ApplicationTheme$: StaticStructureSchema = [3, n0, _ATpp,
   0,
   [_BCP, _CAP, _BES],
   [() => BrandColorPalette$, () => ContextualAccentPalette$, () => BrandElementStyle$]
+];
+export var ApprovalPolicy$: StaticStructureSchema = [3, n0, _APp,
+  0,
+  [_PI, _PA, _N, _Ac, _ATs, _ATp, _AG, _CA, _UA, _D],
+  [0, 0, 0, 64 | 0, 64 | 0, () => ApplicableTo$, 64 | 0, 4, 4, 0], 9
 ];
 export var ArcAxisConfiguration$: StaticStructureSchema = [3, n0, _AAC,
   0,
@@ -4684,8 +4810,8 @@ export var ArcOptions$: StaticStructureSchema = [3, n0, _AOr,
 ];
 export var AssetBundleCloudFormationOverridePropertyConfiguration$: StaticStructureSchema = [3, n0, _ABCFOPC,
   0,
-  [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F],
-  [() => AssetBundleExportJobResourceIdOverrideConfiguration$, () => AssetBundleExportJobVPCConnectionOverridePropertiesList, () => AssetBundleExportJobRefreshScheduleOverridePropertiesList, () => AssetBundleExportJobDataSourceOverridePropertiesList, () => AssetBundleExportJobDataSetOverridePropertiesList, () => AssetBundleExportJobThemeOverridePropertiesList, () => AssetBundleExportJobAnalysisOverridePropertiesList, () => AssetBundleExportJobDashboardOverridePropertiesList, () => AssetBundleExportJobFolderOverridePropertiesList]
+  [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F, _TV],
+  [() => AssetBundleExportJobResourceIdOverrideConfiguration$, () => AssetBundleExportJobVPCConnectionOverridePropertiesList, () => AssetBundleExportJobRefreshScheduleOverridePropertiesList, () => AssetBundleExportJobDataSourceOverridePropertiesList, () => AssetBundleExportJobDataSetOverridePropertiesList, () => AssetBundleExportJobThemeOverridePropertiesList, () => AssetBundleExportJobAnalysisOverridePropertiesList, () => AssetBundleExportJobDashboardOverridePropertiesList, () => AssetBundleExportJobFolderOverridePropertiesList, () => AssetBundleExportJobTopicV2OverridePropertiesList]
 ];
 export var AssetBundleExportJobAnalysisOverrideProperties$: StaticStructureSchema = [3, n0, _ABEJAOP,
   0,
@@ -4733,6 +4859,11 @@ export var AssetBundleExportJobSummary$: StaticStructureSchema = [3, n0, _ABEJS,
   [0, 0, 4, 0, 2, 0, 2, 2]
 ];
 export var AssetBundleExportJobThemeOverrideProperties$: StaticStructureSchema = [3, n0, _ABEJTOP,
+  0,
+  [_A, _Pr],
+  [0, 64 | 0], 2
+];
+export var AssetBundleExportJobTopicV2OverrideProperties$: StaticStructureSchema = [3, n0, _ABEJTVOP,
   0,
   [_A, _Pr],
   [0, 64 | 0], 2
@@ -4844,18 +4975,18 @@ export var AssetBundleImportJobFolderOverrideTags$: StaticStructureSchema = [3, 
 ];
 export var AssetBundleImportJobOverrideParameters$: StaticStructureSchema = [3, n0, _ABIJOP,
   0,
-  [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F],
-  [() => AssetBundleImportJobResourceIdOverrideConfiguration$, () => AssetBundleImportJobVPCConnectionOverrideParametersList, () => AssetBundleImportJobRefreshScheduleOverrideParametersList, [() => AssetBundleImportJobDataSourceOverrideParametersList, 0], () => AssetBundleImportJobDataSetOverrideParametersList, () => AssetBundleImportJobThemeOverrideParametersList, () => AssetBundleImportJobAnalysisOverrideParametersList, () => AssetBundleImportJobDashboardOverrideParametersList, () => AssetBundleImportJobFolderOverrideParametersList]
+  [_RIOC, _VPCC, _RS, _DSa, _DSat, _Th, _Ana, _Das, _F, _TV],
+  [() => AssetBundleImportJobResourceIdOverrideConfiguration$, () => AssetBundleImportJobVPCConnectionOverrideParametersList, () => AssetBundleImportJobRefreshScheduleOverrideParametersList, [() => AssetBundleImportJobDataSourceOverrideParametersList, 0], () => AssetBundleImportJobDataSetOverrideParametersList, () => AssetBundleImportJobThemeOverrideParametersList, () => AssetBundleImportJobAnalysisOverrideParametersList, () => AssetBundleImportJobDashboardOverrideParametersList, () => AssetBundleImportJobFolderOverrideParametersList, () => AssetBundleImportJobTopicV2OverrideParametersList]
 ];
 export var AssetBundleImportJobOverridePermissions$: StaticStructureSchema = [3, n0, _ABIJOPs,
   0,
-  [_DSa, _DSat, _Th, _Ana, _Das, _F],
-  [() => AssetBundleImportJobDataSourceOverridePermissionsList, () => AssetBundleImportJobDataSetOverridePermissionsList, () => AssetBundleImportJobThemeOverridePermissionsList, () => AssetBundleImportJobAnalysisOverridePermissionsList, () => AssetBundleImportJobDashboardOverridePermissionsList, () => AssetBundleImportJobFolderOverridePermissionsList]
+  [_DSa, _DSat, _Th, _Ana, _Das, _F, _TV],
+  [() => AssetBundleImportJobDataSourceOverridePermissionsList, () => AssetBundleImportJobDataSetOverridePermissionsList, () => AssetBundleImportJobThemeOverridePermissionsList, () => AssetBundleImportJobAnalysisOverridePermissionsList, () => AssetBundleImportJobDashboardOverridePermissionsList, () => AssetBundleImportJobFolderOverridePermissionsList, () => AssetBundleImportJobTopicV2OverridePermissionsList]
 ];
 export var AssetBundleImportJobOverrideTags$: StaticStructureSchema = [3, n0, _ABIJOT,
   0,
-  [_VPCC, _DSa, _DSat, _Th, _Ana, _Das, _F],
-  [() => AssetBundleImportJobVPCConnectionOverrideTagsList, () => AssetBundleImportJobDataSourceOverrideTagsList, () => AssetBundleImportJobDataSetOverrideTagsList, () => AssetBundleImportJobThemeOverrideTagsList, () => AssetBundleImportJobAnalysisOverrideTagsList, () => AssetBundleImportJobDashboardOverrideTagsList, () => AssetBundleImportJobFolderOverrideTagsList]
+  [_VPCC, _DSa, _DSat, _Th, _Ana, _Das, _F, _TV],
+  [() => AssetBundleImportJobVPCConnectionOverrideTagsList, () => AssetBundleImportJobDataSourceOverrideTagsList, () => AssetBundleImportJobDataSetOverrideTagsList, () => AssetBundleImportJobThemeOverrideTagsList, () => AssetBundleImportJobAnalysisOverrideTagsList, () => AssetBundleImportJobDashboardOverrideTagsList, () => AssetBundleImportJobFolderOverrideTagsList, () => AssetBundleImportJobTopicV2OverrideTagsList]
 ];
 export var AssetBundleImportJobOverrideValidationStrategy$: StaticStructureSchema = [3, n0, _ABIJOVS,
   0,
@@ -4890,6 +5021,21 @@ export var AssetBundleImportJobThemeOverridePermissions$: StaticStructureSchema 
 export var AssetBundleImportJobThemeOverrideTags$: StaticStructureSchema = [3, n0, _ABIJTOT,
   0,
   [_TIh, _Ta],
+  [64 | 0, () => TagList], 2
+];
+export var AssetBundleImportJobTopicV2OverrideParameters$: StaticStructureSchema = [3, n0, _ABIJTVOP,
+  0,
+  [_TIo, _N, _D],
+  [0, 0, 0], 1
+];
+export var AssetBundleImportJobTopicV2OverridePermissions$: StaticStructureSchema = [3, n0, _ABIJTVOPs,
+  0,
+  [_TIop, _Per],
+  [64 | 0, () => AssetBundleResourcePermissions$], 2
+];
+export var AssetBundleImportJobTopicV2OverrideTags$: StaticStructureSchema = [3, n0, _ABIJTVOT,
+  0,
+  [_TIop, _Ta],
   [64 | 0, () => TagList], 2
 ];
 export var AssetBundleImportJobVPCConnectionOverrideParameters$: StaticStructureSchema = [3, n0, _ABIJVPCCOP,
@@ -5009,7 +5155,7 @@ export var AxisDisplayRange$: StaticStructureSchema = [3, n0, _ADR,
 ];
 export var AxisLabelOptions$: StaticStructureSchema = [3, n0, _ALO,
   0,
-  [_FCo, _CL, _ATpp],
+  [_FCo, _CL, _ATppl],
   [() => FontConfiguration$, 0, () => AxisLabelReferenceOptions$]
 ];
 export var AxisLabelReferenceOptions$: StaticStructureSchema = [3, n0, _ALRO,
@@ -5122,9 +5268,24 @@ export var BatchDeleteTopicReviewedAnswerResponse$: StaticStructureSchema = [3, 
   [_TIo, _TAo, _SAu, _IA, _RI, _St],
   [0, 0, () => SucceededTopicReviewedAnswers, () => InvalidTopicReviewedAnswers, 0, [1, 32]]
 ];
+export var BatchDescribeUserLimitsError$: StaticStructureSchema = [3, n0, _BDULE,
+  0,
+  [_eC, _m, _uN, _n, _uA],
+  [0, 0, 0, 0, 0], 2
+];
+export var BatchDescribeUserLimitsRequest$: StaticStructureSchema = [3, n0, _BDULR,
+  0,
+  [_aI, _u, _rT],
+  [[0, 1], () => BatchDescribeUserLimitsRequestUsersList, 64 | 0], 1
+];
+export var BatchDescribeUserLimitsResponse$: StaticStructureSchema = [3, n0, _BDULRa,
+  0,
+  [_uL, _er],
+  [() => UserLimitsList, () => BatchDescribeUserLimitsErrorList], 2
+];
 export var BigQueryParameters$: StaticStructureSchema = [3, n0, _BQP,
   0,
-  [_PI, _DSRa],
+  [_PIr, _DSRa],
   [0, 0], 1
 ];
 export var BinCountOptions$: StaticStructureSchema = [3, n0, _BCO,
@@ -5229,7 +5390,7 @@ export var BrandColorPalette$: StaticStructureSchema = [3, n0, _BCP,
 ];
 export var BrandDefinition$: StaticStructureSchema = [3, n0, _BD,
   0,
-  [_BN, _D, _ATp, _LC],
+  [_BN, _D, _ATpp, _LC],
   [0, 0, () => ApplicationTheme$, () => LogoConfiguration$], 1
 ];
 export var BrandDetail$: StaticStructureSchema = [3, n0, _BDr,
@@ -5254,7 +5415,7 @@ export var CalculatedColumn$: StaticStructureSchema = [3, n0, _CCa,
 ];
 export var CalculatedField$: StaticStructureSchema = [3, n0, _CFa,
   0,
-  [_N, _Ex, _DSIatae, _TIop],
+  [_N, _Ex, _DSIatae, _TIopi],
   [0, [() => CalculatedFieldExpression, 0], 0, 0], 2
 ];
 export var CalculatedMeasureField$: StaticStructureSchema = [3, n0, _CMF,
@@ -5414,7 +5575,7 @@ export var ColumnHierarchy$: StaticStructureSchema = [3, n0, _CHo,
 ];
 export var ColumnIdentifier$: StaticStructureSchema = [3, n0, _CIol,
   0,
-  [_CN, _DSIatae, _TIop],
+  [_CN, _DSIatae, _TIopi],
   [0, 0, 0], 1
 ];
 export var ColumnLevelPermissionRule$: StaticStructureSchema = [3, n0, _CLPR,
@@ -5619,7 +5780,7 @@ export var CreateAccountCustomizationResponse$: StaticStructureSchema = [3, n0, 
 ];
 export var CreateAccountSubscriptionRequest$: StaticStructureSchema = [3, n0, _CASR,
   0,
-  [_AMu, _AAI, _AN, _NE, _Ed, _ADN, _Rea, _DIi, _AG, _AGu, _RG, _APG, _APGu, _RPG, _FNi, _LN, _EAm, _CNon, _IAMICIA],
+  [_AMu, _AAI, _AN, _NE, _Ed, _ADN, _Rea, _DIi, _AGd, _AGu, _RG, _APG, _APGu, _RPG, _FNi, _LN, _EAm, _CNon, _IAMICIA],
   [0, [0, 1], 0, 0, 0, 0, 0, 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, 0], 4
 ];
 export var CreateAccountSubscriptionResponse$: StaticStructureSchema = [3, n0, _CASRr,
@@ -5656,6 +5817,16 @@ export var CreateAnalysisResponse$: StaticStructureSchema = [3, n0, _CARrea,
   0,
   [_A, _AIn, _CSre, _St, _RI],
   [0, 0, 0, [1, 32], 0]
+];
+export var CreateApprovalPolicyRequest$: StaticStructureSchema = [3, n0, _CAPR,
+  0,
+  [_PI, _N, _Ac, _ATs, _ATp, _AG, _D],
+  [0, 0, 64 | 0, 64 | 0, () => ApplicableTo$, 64 | 0, 0], 6
+];
+export var CreateApprovalPolicyResponse$: StaticStructureSchema = [3, n0, _CAPRr,
+  0,
+  [_Pol],
+  [() => ApprovalPolicy$], 1
 ];
 export var CreateBrandRequest$: StaticStructureSchema = [3, n0, _CBR,
   0,
@@ -5711,6 +5882,16 @@ export var CreateDataSourceResponse$: StaticStructureSchema = [3, n0, _CDSRrea,
   0,
   [_A, _DSIat, _CSre, _RI, _St],
   [0, 0, 0, 0, [1, 32]]
+];
+export var CreateDlpSettingRequest$: StaticStructureSchema = [3, n0, _CDSRreat,
+  0,
+  [_AAI, _DSIl, _N, _PTr, _PCr, _POA, _En, _Ta],
+  [[0, 1], [0, 1], 0, 0, () => ProviderConfig$, 0, 2, () => TagList], 7
+];
+export var CreateDlpSettingResponse$: StaticStructureSchema = [3, n0, _CDSRreate,
+  0,
+  [_A, _DSIl, _RI],
+  [0, 0, 0], 2
 ];
 export var CreateFlowRequest$: StaticStructureSchema = [3, n0, _CFR,
   0,
@@ -5784,13 +5965,23 @@ export var CreateIngestionResponse$: StaticStructureSchema = [3, n0, _CIRre,
 ];
 export var CreateKnowledgeBaseRequest$: StaticStructureSchema = [3, n0, _CKBR,
   0,
-  [_AAI, _KBI, _N, _DSAa, _KBC, _D, _Per, _MEC, _ACC, _POA, _Ta],
+  [_AAI, _KBI, _N, _DSAa, _KBC, _D, _Per, _MEC, _ACC, _POAr, _Ta],
   [[0, 1], 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], 0, () => ResourcePermissionList, () => MediaExtractionConfiguration$, () => AccessControlConfiguration$, 0, () => TagList], 5
 ];
 export var CreateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _CKBRr,
   0,
   [_KBA, _KBI, _CSre, _RI, _St],
   [0, 0, 0, 0, [1, 32]], 3
+];
+export var CreateLimitsProfileRequest$: StaticStructureSchema = [3, n0, _CLPRr,
+  0,
+  [_aI, _pN, _rL, _cT, _d],
+  [[0, 1], 0, () => CreateLimitsProfileRequestResourceLimitsMap, 0, 0], 4
+];
+export var CreateLimitsProfileResponse$: StaticStructureSchema = [3, n0, _CLPRre,
+  0,
+  [_a, _pI],
+  [0, 0], 2
 ];
 export var CreateNamespaceRequest$: StaticStructureSchema = [3, n0, _CNR,
   0,
@@ -5974,7 +6165,7 @@ export var CustomContentConfiguration$: StaticStructureSchema = [3, n0, _CCCu,
 ];
 export var CustomContentVisual$: StaticStructureSchema = [3, n0, _CCVu,
   0,
-  [_VI, _Tit, _Su, _CCh, _Ac, _DSIatae, _TIop, _VCAT],
+  [_VI, _Tit, _Su, _CCh, _Ac, _DSIatae, _TIopi, _VCAT],
   [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, () => CustomContentConfiguration$, () => VisualCustomActionList, 0, 0, 0], 1
 ];
 export var CustomFilterConfiguration$: StaticStructureSchema = [3, n0, _CFCu,
@@ -6154,7 +6345,7 @@ export var DataFieldSeriesItem$: StaticStructureSchema = [3, n0, _DFSI,
 ];
 export var DataLabelOptions$: StaticStructureSchema = [3, n0, _DLO,
   0,
-  [_Vi, _CLV, _MLV, _DLT, _Pos, _LCa, _LFC, _LCab, _Ov, _TV],
+  [_Vi, _CLV, _MLV, _DLT, _Pos, _LCa, _LFC, _LCab, _Ov, _TVo],
   [0, 0, 0, [() => DataLabelTypes, 0], 0, 0, () => FontConfiguration$, 0, 0, 0]
 ];
 export var DataLabelType$: StaticStructureSchema = [3, n0, _DLTa,
@@ -6647,6 +6838,16 @@ export var DeleteAnalysisResponse$: StaticStructureSchema = [3, n0, _DARele,
   [_St, _A, _AIn, _DTe, _RI],
   [[1, 32], 0, 0, 4, 0]
 ];
+export var DeleteApprovalPolicyRequest$: StaticStructureSchema = [3, n0, _DAPR,
+  0,
+  [_PI],
+  [[0, 1]], 1
+];
+export var DeleteApprovalPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRe,
+  0,
+  [],
+  []
+];
 export var DeleteBrandAssignmentRequest$: StaticStructureSchema = [3, n0, _DBAR,
   0,
   [_AAI],
@@ -6727,6 +6928,16 @@ export var DeleteDefaultQBusinessApplicationResponse$: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]]
 ];
+export var DeleteDlpSettingRequest$: StaticStructureSchema = [3, n0, _DDSRelet,
+  0,
+  [_AAI, _DSIl],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteDlpSettingResponse$: StaticStructureSchema = [3, n0, _DDSRelete,
+  0,
+  [_A, _DSIl, _RI],
+  [0, 0, 0], 2
+];
 export var DeleteFlowRequest$: StaticStructureSchema = [3, n0, _DFR,
   0,
   [_AAI, _FIl],
@@ -6806,6 +7017,16 @@ export var DeleteKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _DKBRe,
   0,
   [_KBA, _KBI, _RI, _St],
   [0, 0, 0, [1, 32]], 2
+];
+export var DeleteLimitsProfileRequest$: StaticStructureSchema = [3, n0, _DLPR,
+  0,
+  [_pI, _aI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteLimitsProfileResponse$: StaticStructureSchema = [3, n0, _DLPRe,
+  0,
+  [_a],
+  [0], 1
 ];
 export var DeleteNamespaceRequest$: StaticStructureSchema = [3, n0, _DNR,
   0,
@@ -6939,7 +7160,7 @@ export var DeleteTopicV2Response$: StaticStructureSchema = [3, n0, _DTVRe,
 ];
 export var DeleteUserByPrincipalIdRequest$: StaticStructureSchema = [3, n0, _DUBPIR,
   0,
-  [_PIr, _AAI, _Na],
+  [_PIri, _AAI, _Na],
   [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteUserByPrincipalIdResponse$: StaticStructureSchema = [3, n0, _DUBPIRe,
@@ -7037,12 +7258,12 @@ export var DescribeActionConnectorResponse$: StaticStructureSchema = [3, n0, _DA
   [_ACc, _RI, _St],
   [[() => ActionConnector$, 0], 0, [1, 32]]
 ];
-export var DescribeAgentPermissionsRequest$: StaticStructureSchema = [3, n0, _DAPR,
+export var DescribeAgentPermissionsRequest$: StaticStructureSchema = [3, n0, _DAPRes,
   0,
   [_AIg, _AAI],
   [[0, 1], [0, 1]], 2
 ];
-export var DescribeAgentPermissionsResponse$: StaticStructureSchema = [3, n0, _DAPRe,
+export var DescribeAgentPermissionsResponse$: StaticStructureSchema = [3, n0, _DAPResc,
   0,
   [_A, _AIg, _Per, _RI],
   [0, 0, () => ResourcePermissionList, 0], 4
@@ -7067,12 +7288,12 @@ export var DescribeAnalysisDefinitionResponse$: StaticStructureSchema = [3, n0, 
   [_AIn, _N, _Err, _RSes, _TAh, _Def, _St, _RI],
   [0, 0, () => AnalysisErrorList, 0, 0, [() => AnalysisDefinition$, 0], [1, 32], 0]
 ];
-export var DescribeAnalysisPermissionsRequest$: StaticStructureSchema = [3, n0, _DAPRes,
+export var DescribeAnalysisPermissionsRequest$: StaticStructureSchema = [3, n0, _DAPRescr,
   0,
   [_AAI, _AIn],
   [[0, 1], [0, 1]], 2
 ];
-export var DescribeAnalysisPermissionsResponse$: StaticStructureSchema = [3, n0, _DAPResc,
+export var DescribeAnalysisPermissionsResponse$: StaticStructureSchema = [3, n0, _DAPRescri,
   0,
   [_AIn, _AAn, _Per, _St, _RI],
   [0, 0, () => UpdateResourcePermissionList, [1, 32], 0]
@@ -7086,6 +7307,16 @@ export var DescribeAnalysisResponse$: StaticStructureSchema = [3, n0, _DARescri,
   0,
   [_An, _St, _RI],
   [[() => Analysis$, 0], [1, 32], 0]
+];
+export var DescribeApprovalPolicyRequest$: StaticStructureSchema = [3, n0, _DAPRescrib,
+  0,
+  [_PI],
+  [[0, 1]], 1
+];
+export var DescribeApprovalPolicyResponse$: StaticStructureSchema = [3, n0, _DAPRescribe,
+  0,
+  [_Pol],
+  [() => ApprovalPolicy$], 1
 ];
 export var DescribeAssetBundleExportJobRequest$: StaticStructureSchema = [3, n0, _DABEJR,
   0,
@@ -7277,6 +7508,16 @@ export var DescribeDefaultQBusinessApplicationResponse$: StaticStructureSchema =
   [_RI, _St, _AIp],
   [0, [1, 32], 0]
 ];
+export var DescribeDlpSettingRequest$: StaticStructureSchema = [3, n0, _DDSRescrib,
+  0,
+  [_AAI, _DSIl],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeDlpSettingResponse$: StaticStructureSchema = [3, n0, _DDSRescribe,
+  0,
+  [_DSl, _RI],
+  [() => DlpSettingDetails$, 0], 1
+];
 export var DescribeFlowRequest$: StaticStructureSchema = [3, n0, _DFRes,
   0,
   [_AAI, _FIl, _PS],
@@ -7396,6 +7637,16 @@ export var DescribeKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _DKBR
   0,
   [_KB, _RI, _St],
   [[() => KnowledgeBase$, 0], 0, [1, 32]], 1
+];
+export var DescribeLimitsProfileRequest$: StaticStructureSchema = [3, n0, _DLPRes,
+  0,
+  [_pI, _aI],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeLimitsProfileResponse$: StaticStructureSchema = [3, n0, _DLPResc,
+  0,
+  [_p],
+  [() => LimitsProfile$], 1
 ];
 export var DescribeNamespaceRequest$: StaticStructureSchema = [3, n0, _DNRes,
   0,
@@ -7662,6 +7913,16 @@ export var DisplayFormatOptions$: StaticStructureSchema = [3, n0, _DFO,
   [_UBCF, _BCF, _DFa, _DSec, _GS, _UG, _FDr, _P, _S, _US, _NF, _CSur],
   [2, 0, 0, 0, 0, 2, 1, 0, 0, 0, () => NegativeFormat$, 0]
 ];
+export var DlpSettingDetails$: StaticStructureSchema = [3, n0, _DSD,
+  0,
+  [_DSIl, _N, _A, _St, _PTr, _PCr, _POA, _CA, _UA],
+  [0, 0, 0, 0, 0, () => ProviderConfig$, 0, 4, 4], 9
+];
+export var DlpSettingSummary$: StaticStructureSchema = [3, n0, _DSSl,
+  0,
+  [_DSIl, _N, _A, _St, _PTr, _CA, _UA],
+  [0, 0, 0, 0, 0, 4, 4], 7
+];
 export var DonutCenterOptions$: StaticStructureSchema = [3, n0, _DCO,
   0,
   [_LVa],
@@ -7687,9 +7948,14 @@ export var DynamicDefaultValue$: StaticStructureSchema = [3, n0, _DDVy,
   [_DVC, _UNC, _GNC],
   [() => ColumnIdentifier$, () => ColumnIdentifier$, () => ColumnIdentifier$], 1
 ];
+export var EffectiveLimit$: StaticStructureSchema = [3, n0, _EL,
+  0,
+  [_rTe, _lV, _lU, _so, _pI],
+  [0, 1, 0, 0, 0], 5
+];
 export var EmptyVisual$: StaticStructureSchema = [3, n0, _EVm,
   0,
-  [_VI, _DSIatae, _TIop, _Ac],
+  [_VI, _DSIatae, _TIopi, _Ac],
   [0, 0, 0, () => VisualCustomActionList], 1
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _Ent,
@@ -8484,7 +8750,7 @@ export var GridLayoutScreenCanvasSizeOptions$: StaticStructureSchema = [3, n0, _
 ];
 export var Group$: StaticStructureSchema = [3, n0, _Gr,
   0,
-  [_A, _GN, _D, _PIr],
+  [_A, _GN, _D, _PIri],
   [0, 0, 0, 0]
 ];
 export var GroupMember$: StaticStructureSchema = [3, n0, _GM,
@@ -8684,7 +8950,7 @@ export var InsightConfiguration$: StaticStructureSchema = [3, n0, _ICns,
 ];
 export var InsightVisual$: StaticStructureSchema = [3, n0, _IVn,
   0,
-  [_VI, _Tit, _Su, _ICns, _Ac, _DSIatae, _TIop, _VCAT],
+  [_VI, _Tit, _Su, _ICns, _Ac, _DSIatae, _TIopi, _VCAT],
   [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, [() => InsightConfiguration$, 0], () => VisualCustomActionList, 0, 0, 0], 1
 ];
 export var IntegerDatasetParameter$: StaticStructureSchema = [3, n0, _IDP,
@@ -8764,7 +9030,7 @@ export var KeyPairCredentials$: StaticStructureSchema = [3, n0, _KPC,
 ];
 export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
   0,
-  [_KBA, _KBI, _N, _St, _DSAa, _KBC, _MEC, _ACC, _T, _CA, _UA, _D, _IENOFIF, _FCIS, _FIIS, _LIS, _KBSB, _DCo, _POA, _POU],
+  [_KBA, _KBI, _N, _St, _DSAa, _KBC, _MEC, _ACC, _T, _CA, _UA, _D, _IENOFIF, _FCIS, _FIIS, _LIS, _KBSB, _DCo, _POAr, _POU],
   [0, 0, 0, 0, 0, [() => KnowledgeBaseConfiguration$, 0], () => MediaExtractionConfiguration$, () => AccessControlConfiguration$, 0, 4, 4, 0, 2, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, () => KnowledgeBaseIngestionSummary$, 1, 1, 0, [() => SensitiveString, 0]], 6
 ];
 export var KnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _KBC,
@@ -8789,7 +9055,7 @@ export var KnowledgeBaseSortBy$: StaticStructureSchema = [3, n0, _KBSBn,
 ];
 export var KnowledgeBaseSummary$: StaticStructureSchema = [3, n0, _KBS,
   0,
-  [_KBA, _KBI, _N, _St, _DSAa, _T, _CA, _UA, _KBSB, _DCo, _POA, _POU],
+  [_KBA, _KBI, _N, _St, _DSAa, _T, _CA, _UA, _KBSB, _DCo, _POAr, _POU],
   [0, 0, 0, 0, 0, 0, 4, 4, 1, 1, 0, [() => SensitiveString, 0]], 5
 ];
 export var KPIActualValueConditionalFormatting$: StaticStructureSchema = [3, n0, _KPIAVCF,
@@ -8844,7 +9110,7 @@ export var KPISortConfiguration$: StaticStructureSchema = [3, n0, _KPISC,
 ];
 export var KPISparklineOptions$: StaticStructureSchema = [3, n0, _KPISO,
   0,
-  [_T, _Vi, _Colo, _TVo],
+  [_T, _Vi, _Colo, _TVoo],
   [0, 0, 0, 0], 1
 ];
 export var KPIVisual$: StaticStructureSchema = [3, n0, _KPIV,
@@ -8861,6 +9127,11 @@ export var KPIVisualStandardLayout$: StaticStructureSchema = [3, n0, _KPIVSL,
   0,
   [_T],
   [0], 1
+];
+export var LabelActionMapping$: StaticStructureSchema = [3, n0, _LAM,
+  0,
+  [_LIa, _LNa, _Act],
+  [0, 0, 0], 3
 ];
 export var LabelOptions$: StaticStructureSchema = [3, n0, _LO,
   0,
@@ -8879,7 +9150,7 @@ export var LayerCustomActionOperation$: StaticStructureSchema = [3, n0, _LCAO,
 ];
 export var LayerMapVisual$: StaticStructureSchema = [3, n0, _LMV,
   0,
-  [_VI, _Tit, _Su, _CCh, _DSIatae, _TIop, _VCAT],
+  [_VI, _Tit, _Su, _CCh, _DSIatae, _TIopi, _VCAT],
   [0, () => VisualTitleLabelOptions$, () => VisualSubtitleLabelOptions$, [() => GeospatialLayerMapConfiguration$, 0], 0, 0, 0], 1
 ];
 export var Layout$: StaticStructureSchema = [3, n0, _La,
@@ -8896,6 +9167,11 @@ export var LegendOptions$: StaticStructureSchema = [3, n0, _LOeg,
   0,
   [_Vi, _Tit, _Pos, _W, _He, _VFC],
   [0, () => LabelOptions$, 0, 0, 0, () => FontConfiguration$]
+];
+export var LimitsProfile$: StaticStructureSchema = [3, n0, _LP,
+  0,
+  [_pI, _a, _aI, _pN, _rL, _cA, _uAp, _d],
+  [0, 0, 0, 0, () => ResourceLimitsMap, 4, 4, 0], 7
 ];
 export var LineChartAggregatedFieldWells$: StaticStructureSchema = [3, n0, _LCAFW,
   0,
@@ -8981,6 +9257,16 @@ export var ListAnalysesResponse$: StaticStructureSchema = [3, n0, _LARist,
   0,
   [_ASL, _NT, _St, _RI],
   [() => AnalysisSummaryList, 0, [1, 32], 0]
+];
+export var ListApprovalPoliciesRequest$: StaticStructureSchema = [3, n0, _LAPR,
+  0,
+  [_NT, _MR],
+  [[0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]]
+];
+export var ListApprovalPoliciesResponse$: StaticStructureSchema = [3, n0, _LAPRi,
+  0,
+  [_Poli, _NT],
+  [() => ApprovalPolicyList, 0], 1
 ];
 export var ListAssetBundleExportJobsRequest$: StaticStructureSchema = [3, n0, _LABEJR,
   0,
@@ -9076,6 +9362,16 @@ export var ListDataSourcesResponse$: StaticStructureSchema = [3, n0, _LDSRist,
   0,
   [_DSa, _NT, _RI, _St],
   [() => DataSourceList, 0, 0, [1, 32]]
+];
+export var ListDlpSettingsRequest$: StaticStructureSchema = [3, n0, _LDSRistl,
+  0,
+  [_AAI, _NT, _MR],
+  [[0, 1], [0, { [_hQ]: _nt }], [1, { [_hQ]: _mr }]], 1
+];
+export var ListDlpSettingsResponse$: StaticStructureSchema = [3, n0, _LDSRistlp,
+  0,
+  [_DSSlp, _NT, _RI],
+  [() => DlpSettingSummaryList, 0, 0], 1
 ];
 export var ListFlowsInput$: StaticStructureSchema = [3, n0, _LFI,
   0,
@@ -9186,6 +9482,16 @@ export var ListKnowledgeBasesResponse$: StaticStructureSchema = [3, n0, _LKBRi,
   0,
   [_KBSn, _NT, _RI, _St],
   [[() => KnowledgeBaseSummaries, 0], 0, 0, [1, 32]], 1
+];
+export var ListLimitsProfilesRequest$: StaticStructureSchema = [3, n0, _LLPR,
+  0,
+  [_aI, _rTe, _mR, _nT],
+  [[0, 1], [0, { [_hQ]: _rTe }], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListLimitsProfilesResponse$: StaticStructureSchema = [3, n0, _LLPRi,
+  0,
+  [_pr, _nT],
+  [() => LimitsProfileList, 0], 1
 ];
 export var ListNamespacesRequest$: StaticStructureSchema = [3, n0, _LNR,
   0,
@@ -9506,6 +9812,16 @@ export var MetricComparisonComputation$: StaticStructureSchema = [3, n0, _MCC,
   0,
   [_CIom, _N, _Tim, _FVr, _TVar],
   [0, 0, [() => DimensionField$, 0], [() => MeasureField$, 0], [() => MeasureField$, 0]], 1
+];
+export var MicrosoftPurviewCredentials$: StaticStructureSchema = [3, n0, _MPC,
+  0,
+  [_SA],
+  [0], 1
+];
+export var MicrosoftPurviewProviderConfig$: StaticStructureSchema = [3, n0, _MPPC,
+  0,
+  [_Cr, _LAMa, _UAn],
+  [() => MicrosoftPurviewCredentials$, () => LabelActionMappingList, 0], 3
 ];
 export var MinimumLabelType$: StaticStructureSchema = [3, n0, _MLT,
   0,
@@ -9954,7 +10270,7 @@ export var PivotTableVisual$: StaticStructureSchema = [3, n0, _PTV,
 ];
 export var PivotTotalOptions$: StaticStructureSchema = [3, n0, _PTOiv,
   0,
-  [_TV, _Pla, _SSc, _CL, _TCS, _VCS, _MHCS, _TAO],
+  [_TVo, _Pla, _SSc, _CL, _TCS, _VCS, _MHCS, _TAO],
   [0, 0, 0, 0, () => TableCellStyle$, () => TableCellStyle$, () => TableCellStyle$, () => TotalAggregationOptionList]
 ];
 export var PluginVisual$: StaticStructureSchema = [3, n0, _PVl,
@@ -10022,6 +10338,11 @@ export var PrestoParameters$: StaticStructureSchema = [3, n0, _PP,
   [_H, _Po, _Cata],
   [0, 1, 0], 3
 ];
+export var ProfileLimitValue$: StaticStructureSchema = [3, n0, _PLV,
+  0,
+  [_mV, _un],
+  [1, 0], 2
+];
 export var ProgressBarOptions$: StaticStructureSchema = [3, n0, _PBO,
   0,
   [_Vi],
@@ -10029,7 +10350,7 @@ export var ProgressBarOptions$: StaticStructureSchema = [3, n0, _PBO,
 ];
 export var ProjectOperation$: StaticStructureSchema = [3, n0, _POr,
   0,
-  [_PCr, _Al, _So],
+  [_PCro, _Al, _So],
   [64 | 0, 0, () => TransformOperationSource$], 1
 ];
 export var PutDataSetRefreshPropertiesRequest$: StaticStructureSchema = [3, n0, _PDSRPR,
@@ -10984,17 +11305,17 @@ export var SourceTable$: StaticStructureSchema = [3, n0, _STou,
 ];
 export var SpaceContributor$: StaticStructureSchema = [3, n0, _SCp,
   0,
-  [_rFSB, _uN, _p],
+  [_rFSB, _uN, _pe],
   [1, 0, 1], 1
 ];
 export var SpaceDetails$: StaticStructureSchema = [3, n0, _SDpa,
   0,
-  [_na, _d, _re, _cA, _uA, _cSS, _cSDC, _cB, _cBA],
+  [_na, _d, _re, _cA, _uAp, _cSS, _cSDC, _cB, _cBA],
   [0, [() => SpaceDescription, 0], () => SpaceQuickSightResources, 4, 4, 1, 1, 0, 0]
 ];
 export var SpaceQuickSightResource$: StaticStructureSchema = [3, n0, _SQSR,
   0,
-  [_rT, _rD],
+  [_rTe, _rD],
   [0, () => SpaceQuickSightResourceDetails$], 2
 ];
 export var SpaceQuicksightSearchFilter$: StaticStructureSchema = [3, n0, _SQSF,
@@ -11014,7 +11335,7 @@ export var SpaceResourceSummary$: StaticStructureSchema = [3, n0, _SRS,
 ];
 export var SpaceSummary$: StaticStructureSchema = [3, n0, _SSpa,
   0,
-  [_sI, _sA, _na, _d, _uA, _cSS, _cSDC, _cA, _cB, _cBA, _rC],
+  [_sI, _sA, _na, _d, _uAp, _cSS, _cSDC, _cA, _cB, _cBA, _rC],
   [0, 0, 0, [() => SpaceDescription, 0], 4, 1, 1, 4, 0, 0, 1], 1
 ];
 export var Spacing$: StaticStructureSchema = [3, n0, _Spac,
@@ -11049,7 +11370,7 @@ export var SslProperties$: StaticStructureSchema = [3, n0, _SPs,
 ];
 export var StarburstParameters$: StaticStructureSchema = [3, n0, _SPtar,
   0,
-  [_H, _Po, _Cata, _PTr, _DACRa, _AT, _OAP],
+  [_H, _Po, _Cata, _PTro, _DACRa, _AT, _OAP],
   [0, 1, 0, 0, 0, 0, () => OAuthParameters$], 3
 ];
 export var StartAssetBundleExportJobRequest$: StaticStructureSchema = [3, n0, _SABEJR,
@@ -11169,7 +11490,7 @@ export var StringValueWhenUnsetConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var SubtotalOptions$: StaticStructureSchema = [3, n0, _SOu,
   0,
-  [_TV, _CL, _FL, _FLO, _TCS, _VCS, _MHCS, _STty],
+  [_TVo, _CL, _FL, _FLO, _TCS, _VCS, _MHCS, _STty],
   [0, 0, 0, () => PivotTableFieldSubtotalOptionsList, () => TableCellStyle$, () => TableCellStyle$, () => TableCellStyle$, () => TableStyleTargetList]
 ];
 export var SucceededTopicReviewedAnswer$: StaticStructureSchema = [3, n0, _STRA,
@@ -11519,7 +11840,7 @@ export var TooltipItem$: StaticStructureSchema = [3, n0, _TIoo,
 ];
 export var TooltipOptions$: StaticStructureSchema = [3, n0, _TOo,
   0,
-  [_TVo, _STT, _FBT, _STh],
+  [_TVoo, _STT, _FBT, _STh],
   [0, 0, () => FieldBasedTooltip$, () => SheetTooltip$]
 ];
 export var TooltipSheetDefinition$: StaticStructureSchema = [3, n0, _TSD,
@@ -11754,7 +12075,7 @@ export var TotalAggregationOption$: StaticStructureSchema = [3, n0, _TAOo,
 ];
 export var TotalOptions$: StaticStructureSchema = [3, n0, _TOot,
   0,
-  [_TV, _Pla, _SSc, _CL, _TCS, _TAO],
+  [_TVo, _Pla, _SSc, _CL, _TCS, _TAO],
   [0, 0, 0, 0, () => TableCellStyle$, () => TotalAggregationOptionList]
 ];
 export var TransformOperationSource$: StaticStructureSchema = [3, n0, _TOS,
@@ -11957,6 +12278,16 @@ export var UpdateApplicationWithTokenExchangeGrantResponse$: StaticStructureSche
   [_St, _RI],
   [[1, 32], 0]
 ];
+export var UpdateApprovalPolicyRequest$: StaticStructureSchema = [3, n0, _UAPRpdat,
+  0,
+  [_PI, _N, _D, _Ac, _ATs, _ATp, _AG],
+  [[0, 1], 0, 0, 64 | 0, 64 | 0, () => ApplicableTo$, 64 | 0], 1
+];
+export var UpdateApprovalPolicyResponse$: StaticStructureSchema = [3, n0, _UAPRpdate,
+  0,
+  [_Pol],
+  [() => ApprovalPolicy$], 1
+];
 export var UpdateBrandAssignmentRequest$: StaticStructureSchema = [3, n0, _UBAR,
   0,
   [_AAI, _BAr],
@@ -12097,6 +12428,16 @@ export var UpdateDefaultQBusinessApplicationResponse$: StaticStructureSchema = [
   [_RI, _St],
   [0, [1, 32]]
 ];
+export var UpdateDlpSettingRequest$: StaticStructureSchema = [3, n0, _UDSRpdat,
+  0,
+  [_AAI, _DSIl, _N, _PTr, _PCr, _POA, _En],
+  [[0, 1], [0, 1], 0, 0, () => ProviderConfig$, 0, 2], 2
+];
+export var UpdateDlpSettingResponse$: StaticStructureSchema = [3, n0, _UDSRpdate,
+  0,
+  [_A, _DSIl, _RI],
+  [0, 0, 0], 2
+];
 export var UpdateFlowPermissionsInput$: StaticStructureSchema = [3, n0, _UFPI,
   0,
   [_AAI, _FIl, _GPr, _RPev],
@@ -12207,6 +12548,16 @@ export var UpdateKnowledgeBaseResponse$: StaticStructureSchema = [3, n0, _UKBRp,
   [_KBA, _KBI, _RI, _St],
   [0, 0, 0, [1, 32]], 2
 ];
+export var UpdateLimitsProfileRequest$: StaticStructureSchema = [3, n0, _ULPR,
+  0,
+  [_pI, _aI, _pN, _d, _rL],
+  [[0, 1], [0, 1], 0, 0, () => ResourceLimitsMap], 2
+];
+export var UpdateLimitsProfileResponse$: StaticStructureSchema = [3, n0, _ULPRp,
+  0,
+  [_a],
+  [0], 1
+];
 export var UpdateOAuthClientApplicationRequest$: StaticStructureSchema = [3, n0, _UOACAR,
   0,
   [_AAI, _OACAI, _N, _CI, _CS, _OATEU, _OAAEU, _OAS, _DST, _IPVCP],
@@ -12294,7 +12645,7 @@ export var UpdateSpacePermissionsRequest$: StaticStructureSchema = [3, n0, _USPR
 ];
 export var UpdateSpacePermissionsResponse$: StaticStructureSchema = [3, n0, _USPRp,
   0,
-  [_sI, _sA, _pe, _rI],
+  [_sI, _sA, _per, _rI],
   [0, 0, () => ResourcePermissionList, 0], 1
 ];
 export var UpdateSpaceRequest$: StaticStructureSchema = [3, n0, _USR,
@@ -12479,17 +12830,27 @@ export var UploadSettings$: StaticStructureSchema = [3, n0, _USp,
 ];
 export var User$: StaticStructureSchema = [3, n0, _Us,
   0,
-  [_A, _UN, _E, _Ro, _ITd, _Acti, _PIr, _CPN, _ELFPT, _ELFPU, _ELI],
+  [_A, _UN, _E, _Ro, _ITd, _Acti, _PIri, _CPN, _ELFPT, _ELFPU, _ELI],
   [0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0]
 ];
 export var UserIndexCapacity$: StaticStructureSchema = [3, n0, _UIC,
   0,
-  [_uAs, _uN, _em, _ro, _tCB, _tKBCB, _tSCB, _kC, _sC],
+  [_uA, _uN, _em, _ro, _tCB, _tKBCB, _tSCB, _kC, _sC],
   [0, 0, 0, 0, 1, 1, 1, 1, 1]
+];
+export var UserLimits$: StaticStructureSchema = [3, n0, _ULs,
+  0,
+  [_uN, _n, _eL],
+  [0, 0, () => EffectiveLimitList], 3
+];
+export var UserLimitsEntry$: StaticStructureSchema = [3, n0, _ULE,
+  0,
+  [_uN, _n],
+  [0, 0], 2
 ];
 export var UserNameOrEmailFilter$: StaticStructureSchema = [3, n0, _UNOEF,
   0,
-  [_pr],
+  [_pre],
   [0], 1
 ];
 export var ValidationStrategy$: StaticStructureSchema = [3, n0, _VSa,
@@ -12760,6 +13121,10 @@ var AnswerIds = 64 | 0;
 var AppendedColumnList: StaticListSchema = [1, n0, _ACL,
   0, () => AppendedColumn$
 ];
+var ApprovalGroupList = 64 | 0;
+var ApprovalPolicyList: StaticListSchema = [1, n0, _APL,
+  0, () => ApprovalPolicy$
+];
 var ArnList = 64 | 0;
 var AssetBundleExportJobAnalysisOverridePropertiesList: StaticListSchema = [1, n0, _ABEJAOPL,
   0, () => AssetBundleExportJobAnalysisOverrideProperties$
@@ -12795,6 +13160,10 @@ var AssetBundleExportJobThemeOverridePropertiesList: StaticListSchema = [1, n0, 
   0, () => AssetBundleExportJobThemeOverrideProperties$
 ];
 var AssetBundleExportJobThemePropertyToOverrideList = 64 | 0;
+var AssetBundleExportJobTopicV2OverridePropertiesList: StaticListSchema = [1, n0, _ABEJTVOPL,
+  0, () => AssetBundleExportJobTopicV2OverrideProperties$
+];
+var AssetBundleExportJobTopicV2PropertyToOverrideList = 64 | 0;
 var AssetBundleExportJobVPCConnectionOverridePropertiesList: StaticListSchema = [1, n0, _ABEJVPCCOPL,
   0, () => AssetBundleExportJobVPCConnectionOverrideProperties$
 ];
@@ -12866,6 +13235,15 @@ var AssetBundleImportJobThemeOverridePermissionsList: StaticListSchema = [1, n0,
 var AssetBundleImportJobThemeOverrideTagsList: StaticListSchema = [1, n0, _ABIJTOTL,
   0, () => AssetBundleImportJobThemeOverrideTags$
 ];
+var AssetBundleImportJobTopicV2OverrideParametersList: StaticListSchema = [1, n0, _ABIJTVOPL,
+  0, () => AssetBundleImportJobTopicV2OverrideParameters$
+];
+var AssetBundleImportJobTopicV2OverridePermissionsList: StaticListSchema = [1, n0, _ABIJTVOPLs,
+  0, () => AssetBundleImportJobTopicV2OverridePermissions$
+];
+var AssetBundleImportJobTopicV2OverrideTagsList: StaticListSchema = [1, n0, _ABIJTVOTL,
+  0, () => AssetBundleImportJobTopicV2OverrideTags$
+];
 var AssetBundleImportJobVPCConnectionOverrideParametersList: StaticListSchema = [1, n0, _ABIJVPCCOPL,
   0, () => AssetBundleImportJobVPCConnectionOverrideParameters$
 ];
@@ -12878,6 +13256,7 @@ var AssetBundleImportJobWarningList: StaticListSchema = [1, n0, _ABIJWL,
 var AssetBundlePrincipalList = 64 | 0;
 var AssetBundleResourceArns = 64 | 0;
 var AssetBundleRestrictiveResourceIdList = 64 | 0;
+var AssetTypeList = 64 | 0;
 var AuthorizedTargetsByServices: StaticListSchema = [1, n0, _ATBSu,
   0, () => AuthorizedTargetsByService$
 ];
@@ -12896,6 +13275,12 @@ var BatchDeleteKnowledgeBaseFailureList: StaticListSchema = [1, n0, _BDKBFL,
 var BatchDeleteKnowledgeBaseRequestKnowledgeBaseIdsList = 64 | 0;
 var BatchDeleteKnowledgeBaseSuccessList: StaticListSchema = [1, n0, _BDKBSL,
   0, () => BatchDeleteKnowledgeBaseSuccess$
+];
+var BatchDescribeUserLimitsErrorList: StaticListSchema = [1, n0, _BDULEL,
+  0, () => BatchDescribeUserLimitsError$
+];
+var BatchDescribeUserLimitsRequestUsersList: StaticListSchema = [1, n0, _BDULRUL,
+  0, () => UserLimitsEntry$
 ];
 var BodySectionConfigurationList: StaticListSchema = [1, n0, _BSCL,
   0, [() => BodySectionConfiguration$,
@@ -13118,11 +13503,17 @@ var DecimalParameterList: StaticListSchema = [1, n0, _DPLe,
 var DimensionFieldList: StaticListSchema = [1, n0, _DFL,
   0, () => DimensionField$
 ];
+var DlpSettingSummaryList: StaticListSchema = [1, n0, _DSSLl,
+  0, () => DlpSettingSummary$
+];
 var DnsResolverList = 64 | 0;
 var DrillDownFilterList: StaticListSchema = [1, n0, _DDFL,
   0, () => DrillDownFilter$
 ];
-var EntityList: StaticListSchema = [1, n0, _EL,
+var EffectiveLimitList: StaticListSchema = [1, n0, _ELL,
+  0, () => EffectiveLimit$
+];
+var EntityList: StaticListSchema = [1, n0, _ELn,
   0, () => Entity$
 ];
 var ErrorList = 64 | 0;
@@ -13234,12 +13625,14 @@ var GeospatialMapLayerList: StaticListSchema = [1, n0, _GMLL,
   0, [() => GeospatialLayerItem$,
     0]
 ];
+var GovernedActionList = 64 | 0;
 var GradientStopList: StaticListSchema = [1, n0, _GSL,
   0, () => GradientStop$
 ];
 var GridLayoutElementList: StaticListSchema = [1, n0, _GLEL,
   0, () => GridLayoutElement$
 ];
+var GroupArnList = 64 | 0;
 var GroupByColumnNameList = 64 | 0;
 var GroupList: StaticListSchema = [1, n0, _GLr,
   0, () => Group$
@@ -13311,6 +13704,9 @@ var KPIConditionalFormattingOptionList: StaticListSchema = [1, n0, _KPICFOL,
   0, [() => KPIConditionalFormattingOption$,
     0]
 ];
+var LabelActionMappingList: StaticListSchema = [1, n0, _LAML,
+  0, () => LabelActionMapping$
+];
 var LayerCustomActionList: StaticListSchema = [1, n0, _LCAL,
   0, [() => LayerCustomAction$,
     0]
@@ -13322,6 +13718,9 @@ var LayerCustomActionOperationList: StaticListSchema = [1, n0, _LCAOL,
 var LayoutList: StaticListSchema = [1, n0, _LLa,
   0, [() => Layout$,
     0]
+];
+var LimitsProfileList: StaticListSchema = [1, n0, _LPL,
+  0, () => LimitsProfile$
 ];
 var LinkedDataSourceIds = 64 | 0;
 var LinkEntityArnList = 64 | 0;
@@ -13448,6 +13847,7 @@ var RenameColumnOperationList: StaticListSchema = [1, n0, _RCOL,
 var ResourcePermissionList: StaticListSchema = [1, n0, _RPL,
   0, () => ResourcePermission$
 ];
+var ResourceTypeList = 64 | 0;
 var RowAlternateColorList = 64 | 0;
 var RowLevelPermissionTagRuleConfiguration = 64 | 0;
 var RowLevelPermissionTagRuleConfigurationList: StaticListSchema = [1, n0, _RLPTRCL,
@@ -13805,6 +14205,9 @@ var UserIndexCapacityFilters: StaticListSchema = [1, n0, _UICF,
 var UserIndexCapacityList: StaticListSchema = [1, n0, _UICL,
   0, () => UserIndexCapacity$
 ];
+var UserLimitsList: StaticListSchema = [1, n0, _ULL,
+  0, () => UserLimits$
+];
 var UserList: StaticListSchema = [1, n0, _UL,
   0, () => User$
 ];
@@ -13834,6 +14237,9 @@ var WordCloudMeasureFieldList: StaticListSchema = [1, n0, _WCMFL,
 ];
 var AggFunctionParamMap = 128 | 0;
 var AggregationFunctionParameters = 128 | 0;
+var CreateLimitsProfileRequestResourceLimitsMap: StaticMapSchema = [2, n0, _CLPRRLM,
+  0, 0, () => ProfileLimitValue$
+];
 var DefaultCategoryEffectsMap = 128 | 0;
 var DestinationTableMap: StaticMapSchema = [2, n0, _DTM,
   0, 0, () => DestinationTable$
@@ -13856,6 +14262,9 @@ var PhysicalTableMap: StaticMapSchema = [2, n0, _PTM,
     0]
   , [() => PhysicalTable$,
     0]
+];
+var ResourceLimitsMap: StaticMapSchema = [2, n0, _RLM,
+  0, 0, () => ProfileLimitValue$
 ];
 var RowLevelPermissionDataSetMap: StaticMapSchema = [2, n0, _RLPDSM,
   0, 0, () => RowLevelPermissionDataSet$
@@ -13918,6 +14327,11 @@ export var PhysicalTable$: StaticUnionSchema = [4, n0, _PTh,
   [_RTel, _CSu, _SSo, _SST, _FSil],
   [() => RelationalTable$, [() => CustomSql$, 0], () => S3Source$, () => SaaSTable$, () => FileSource$]
 ];
+export var ProviderConfig$: StaticUnionSchema = [4, n0, _PCr,
+  0,
+  [_MPi],
+  [() => MicrosoftPurviewProviderConfig$]
+];
 export var ReadAuthenticationMetadata$: StaticUnionSchema = [4, n0, _RAM,
   0,
   [_ACGM, _CCGM, _BACM, _AKCM, _NCM, _ICM],
@@ -13962,6 +14376,9 @@ export var BatchDeleteKnowledgeBase$: StaticOperationSchema = [9, n0, _BDKB,
 export var BatchDeleteTopicReviewedAnswer$: StaticOperationSchema = [9, n0, _BDTRA,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/topics/{TopicId}/batch-delete-reviewed-answers", 200] }, () => BatchDeleteTopicReviewedAnswerRequest$, () => BatchDeleteTopicReviewedAnswerResponse$
 ];
+export var BatchDescribeUserLimits$: StaticOperationSchema = [9, n0, _BDUL,
+  { [_h]: ["POST", "/governance/limits/accounts/{accountId}/user-limits", 200] }, () => BatchDescribeUserLimitsRequest$, () => BatchDescribeUserLimitsResponse$
+];
 export var CancelIngestion$: StaticOperationSchema = [9, n0, _CIa,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-sets/{DataSetId}/ingestions/{IngestionId}", 200] }, () => CancelIngestionRequest$, () => CancelIngestionResponse$
 ];
@@ -13980,6 +14397,9 @@ export var CreateAgent$: StaticOperationSchema = [9, n0, _CAr,
 export var CreateAnalysis$: StaticOperationSchema = [9, n0, _CAre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] }, () => CreateAnalysisRequest$, () => CreateAnalysisResponse$
 ];
+export var CreateApprovalPolicy$: StaticOperationSchema = [9, n0, _CAPr,
+  { [_h]: ["POST", "/governance/approvalworkflows/policies", 200] }, () => CreateApprovalPolicyRequest$, () => CreateApprovalPolicyResponse$
+];
 export var CreateBrand$: StaticOperationSchema = [9, n0, _CBr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] }, () => CreateBrandRequest$, () => CreateBrandResponse$
 ];
@@ -13994,6 +14414,9 @@ export var CreateDataSet$: StaticOperationSchema = [9, n0, _CDSr,
 ];
 export var CreateDataSource$: StaticOperationSchema = [9, n0, _CDSre,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/data-sources", 200] }, () => CreateDataSourceRequest$, () => CreateDataSourceResponse$
+];
+export var CreateDlpSetting$: StaticOperationSchema = [9, n0, _CDSrea,
+  { [_h]: ["POST", "/accounts/{AwsAccountId}/data-loss-prevention/settings/{DlpSettingId}", 200] }, () => CreateDlpSettingRequest$, () => CreateDlpSettingResponse$
 ];
 export var CreateFlow$: StaticOperationSchema = [9, n0, _CFr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}/flows", 200] }, () => CreateFlowRequest$, () => CreateFlowResponse$
@@ -14018,6 +14441,9 @@ export var CreateIngestion$: StaticOperationSchema = [9, n0, _CIr,
 ];
 export var CreateKnowledgeBase$: StaticOperationSchema = [9, n0, _CKBr,
   { [_h]: ["POST", "/v1/accounts/{AwsAccountId}/knowledge-bases", 202] }, () => CreateKnowledgeBaseRequest$, () => CreateKnowledgeBaseResponse$
+];
+export var CreateLimitsProfile$: StaticOperationSchema = [9, n0, _CLP,
+  { [_h]: ["POST", "/governance/limits/accounts/{accountId}/profiles", 200] }, () => CreateLimitsProfileRequest$, () => CreateLimitsProfileResponse$
 ];
 export var CreateNamespace$: StaticOperationSchema = [9, n0, _CNr,
   { [_h]: ["POST", "/accounts/{AwsAccountId}", 200] }, () => CreateNamespaceRequest$, () => CreateNamespaceResponse$
@@ -14076,6 +14502,9 @@ export var DeleteAgent$: StaticOperationSchema = [9, n0, _DAe,
 export var DeleteAnalysis$: StaticOperationSchema = [9, n0, _DAel,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/analyses/{AnalysisId}", 200] }, () => DeleteAnalysisRequest$, () => DeleteAnalysisResponse$
 ];
+export var DeleteApprovalPolicy$: StaticOperationSchema = [9, n0, _DAP,
+  { [_h]: ["DELETE", "/governance/approvalworkflows/policies/{PolicyId}", 200] }, () => DeleteApprovalPolicyRequest$, () => DeleteApprovalPolicyResponse$
+];
 export var DeleteBrand$: StaticOperationSchema = [9, n0, _DBe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] }, () => DeleteBrandRequest$, () => DeleteBrandResponse$
 ];
@@ -14100,6 +14529,9 @@ export var DeleteDataSource$: StaticOperationSchema = [9, n0, _DDSe,
 export var DeleteDefaultQBusinessApplication$: StaticOperationSchema = [9, n0, _DDQBA,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] }, () => DeleteDefaultQBusinessApplicationRequest$, () => DeleteDefaultQBusinessApplicationResponse$
 ];
+export var DeleteDlpSetting$: StaticOperationSchema = [9, n0, _DDSel,
+  { [_h]: ["DELETE", "/accounts/{AwsAccountId}/data-loss-prevention/settings/{DlpSettingId}", 200] }, () => DeleteDlpSettingRequest$, () => DeleteDlpSettingResponse$
+];
 export var DeleteFlow$: StaticOperationSchema = [9, n0, _DFel,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/flows/{FlowId}", 200] }, () => DeleteFlowRequest$, () => DeleteFlowResponse$
 ];
@@ -14123,6 +14555,9 @@ export var DeleteIdentityPropagationConfig$: StaticOperationSchema = [9, n0, _DI
 ];
 export var DeleteKnowledgeBase$: StaticOperationSchema = [9, n0, _DKB,
   { [_h]: ["DELETE", "/v1/accounts/{AwsAccountId}/knowledge-bases/{KnowledgeBaseId}", 202] }, () => DeleteKnowledgeBaseRequest$, () => DeleteKnowledgeBaseResponse$
+];
+export var DeleteLimitsProfile$: StaticOperationSchema = [9, n0, _DLP,
+  { [_h]: ["DELETE", "/governance/limits/accounts/{accountId}/profiles/{profileId}", 200] }, () => DeleteLimitsProfileRequest$, () => DeleteLimitsProfileResponse$
 ];
 export var DeleteNamespace$: StaticOperationSchema = [9, n0, _DNe,
   { [_h]: ["DELETE", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] }, () => DeleteNamespaceRequest$, () => DeleteNamespaceResponse$
@@ -14196,7 +14631,7 @@ export var DescribeActionConnectorPermissions$: StaticOperationSchema = [9, n0, 
 export var DescribeAgent$: StaticOperationSchema = [9, n0, _DAes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/agents/{AgentId}", 200] }, () => DescribeAgentRequest$, () => DescribeAgentResponse$
 ];
-export var DescribeAgentPermissions$: StaticOperationSchema = [9, n0, _DAP,
+export var DescribeAgentPermissions$: StaticOperationSchema = [9, n0, _DAPe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/agents/{AgentId}/permissions", 200] }, () => DescribeAgentPermissionsRequest$, () => DescribeAgentPermissionsResponse$
 ];
 export var DescribeAnalysis$: StaticOperationSchema = [9, n0, _DAesc,
@@ -14205,8 +14640,11 @@ export var DescribeAnalysis$: StaticOperationSchema = [9, n0, _DAesc,
 export var DescribeAnalysisDefinition$: StaticOperationSchema = [9, n0, _DAD,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/definition", 200] }, () => DescribeAnalysisDefinitionRequest$, () => DescribeAnalysisDefinitionResponse$
 ];
-export var DescribeAnalysisPermissions$: StaticOperationSchema = [9, n0, _DAPe,
+export var DescribeAnalysisPermissions$: StaticOperationSchema = [9, n0, _DAPes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses/{AnalysisId}/permissions", 200] }, () => DescribeAnalysisPermissionsRequest$, () => DescribeAnalysisPermissionsResponse$
+];
+export var DescribeApprovalPolicy$: StaticOperationSchema = [9, n0, _DAPesc,
+  { [_h]: ["GET", "/governance/approvalworkflows/policies/{PolicyId}", 200] }, () => DescribeApprovalPolicyRequest$, () => DescribeApprovalPolicyResponse$
 ];
 export var DescribeAssetBundleExportJob$: StaticOperationSchema = [9, n0, _DABEJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs/{AssetBundleExportJobId}", 200] }, () => DescribeAssetBundleExportJobRequest$, () => DescribeAssetBundleExportJobResponse$
@@ -14265,6 +14703,9 @@ export var DescribeDataSourcePermissions$: StaticOperationSchema = [9, n0, _DDSP
 export var DescribeDefaultQBusinessApplication$: StaticOperationSchema = [9, n0, _DDQBAe,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] }, () => DescribeDefaultQBusinessApplicationRequest$, () => DescribeDefaultQBusinessApplicationResponse$
 ];
+export var DescribeDlpSetting$: StaticOperationSchema = [9, n0, _DDSescr,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-loss-prevention/settings/{DlpSettingId}", 200] }, () => DescribeDlpSettingRequest$, () => DescribeDlpSettingResponse$
+];
 export var DescribeFlow$: StaticOperationSchema = [9, n0, _DFes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/flows/{FlowId}", 200] }, () => DescribeFlowRequest$, () => DescribeFlowResponse$
 ];
@@ -14300,6 +14741,9 @@ export var DescribeKnowledgeBase$: StaticOperationSchema = [9, n0, _DKBe,
 ];
 export var DescribeKnowledgeBasePermissions$: StaticOperationSchema = [9, n0, _DKBP,
   { [_h]: ["GET", "/v1/accounts/{AwsAccountId}/knowledge-bases/{KnowledgeBaseId}/permissions", 200] }, () => DescribeKnowledgeBasePermissionsRequest$, () => DescribeKnowledgeBasePermissionsResponse$
+];
+export var DescribeLimitsProfile$: StaticOperationSchema = [9, n0, _DLPe,
+  { [_h]: ["GET", "/governance/limits/accounts/{accountId}/profiles/{profileId}", 200] }, () => DescribeLimitsProfileRequest$, () => DescribeLimitsProfileResponse$
 ];
 export var DescribeNamespace$: StaticOperationSchema = [9, n0, _DNes,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces/{Namespace}", 200] }, () => DescribeNamespaceRequest$, () => DescribeNamespaceResponse$
@@ -14406,6 +14850,9 @@ export var ListAgents$: StaticOperationSchema = [9, n0, _LAis,
 export var ListAnalyses$: StaticOperationSchema = [9, n0, _LAist,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/analyses", 200] }, () => ListAnalysesRequest$, () => ListAnalysesResponse$
 ];
+export var ListApprovalPolicies$: StaticOperationSchema = [9, n0, _LAP,
+  { [_h]: ["GET", "/governance/approvalworkflows/policies", 200] }, () => ListApprovalPoliciesRequest$, () => ListApprovalPoliciesResponse$
+];
 export var ListAssetBundleExportJobs$: StaticOperationSchema = [9, n0, _LABEJ,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/asset-bundle-export-jobs", 200] }, () => ListAssetBundleExportJobsRequest$, () => ListAssetBundleExportJobsResponse$
 ];
@@ -14429,6 +14876,9 @@ export var ListDataSets$: StaticOperationSchema = [9, n0, _LDS,
 ];
 export var ListDataSources$: StaticOperationSchema = [9, n0, _LDSi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/data-sources", 200] }, () => ListDataSourcesRequest$, () => ListDataSourcesResponse$
+];
+export var ListDlpSettings$: StaticOperationSchema = [9, n0, _LDSis,
+  { [_h]: ["GET", "/accounts/{AwsAccountId}/data-loss-prevention/settings", 200] }, () => ListDlpSettingsRequest$, () => ListDlpSettingsResponse$
 ];
 export var ListFlows$: StaticOperationSchema = [9, n0, _LF,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/flows", 200] }, () => ListFlowsInput$, () => ListFlowsOutput$
@@ -14462,6 +14912,9 @@ export var ListIngestions$: StaticOperationSchema = [9, n0, _LIis,
 ];
 export var ListKnowledgeBases$: StaticOperationSchema = [9, n0, _LKB,
   { [_h]: ["GET", "/v1/accounts/{AwsAccountId}/knowledge-bases", 200] }, () => ListKnowledgeBasesRequest$, () => ListKnowledgeBasesResponse$
+];
+export var ListLimitsProfiles$: StaticOperationSchema = [9, n0, _LLP,
+  { [_h]: ["GET", "/governance/limits/accounts/{accountId}/profiles", 200] }, () => ListLimitsProfilesRequest$, () => ListLimitsProfilesResponse$
 ];
 export var ListNamespaces$: StaticOperationSchema = [9, n0, _LNi,
   { [_h]: ["GET", "/accounts/{AwsAccountId}/namespaces", 200] }, () => ListNamespacesRequest$, () => ListNamespacesResponse$
@@ -14631,6 +15084,9 @@ export var UpdateAnalysisPermissions$: StaticOperationSchema = [9, n0, _UAPp,
 export var UpdateApplicationWithTokenExchangeGrant$: StaticOperationSchema = [9, n0, _UAWTEG,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/application-with-token-exchange-grant", 200] }, () => UpdateApplicationWithTokenExchangeGrantRequest$, () => UpdateApplicationWithTokenExchangeGrantResponse$
 ];
+export var UpdateApprovalPolicy$: StaticOperationSchema = [9, n0, _UAPpd,
+  { [_h]: ["PATCH", "/governance/approvalworkflows/policies/{PolicyId}", 200] }, () => UpdateApprovalPolicyRequest$, () => UpdateApprovalPolicyResponse$
+];
 export var UpdateBrand$: StaticOperationSchema = [9, n0, _UBp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/brands/{BrandId}", 200] }, () => UpdateBrandRequest$, () => UpdateBrandResponse$
 ];
@@ -14673,6 +15129,9 @@ export var UpdateDataSourcePermissions$: StaticOperationSchema = [9, n0, _UDSPp,
 export var UpdateDefaultQBusinessApplication$: StaticOperationSchema = [9, n0, _UDQBA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/default-qbusiness-application", 200] }, () => UpdateDefaultQBusinessApplicationRequest$, () => UpdateDefaultQBusinessApplicationResponse$
 ];
+export var UpdateDlpSetting$: StaticOperationSchema = [9, n0, _UDSpd,
+  { [_h]: ["PUT", "/accounts/{AwsAccountId}/data-loss-prevention/settings/{DlpSettingId}", 200] }, () => UpdateDlpSettingRequest$, () => UpdateDlpSettingResponse$
+];
 export var UpdateFlow$: StaticOperationSchema = [9, n0, _UFp,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/flows/{FlowId}", 200] }, () => UpdateFlowRequest$, () => UpdateFlowResponse$
 ];
@@ -14705,6 +15164,9 @@ export var UpdateKnowledgeBase$: StaticOperationSchema = [9, n0, _UKB,
 ];
 export var UpdateKnowledgeBasePermissions$: StaticOperationSchema = [9, n0, _UKBP,
   { [_h]: ["POST", "/v1/accounts/{AwsAccountId}/knowledge-bases/{KnowledgeBaseId}/permissions", 200] }, () => UpdateKnowledgeBasePermissionsRequest$, () => UpdateKnowledgeBasePermissionsResponse$
+];
+export var UpdateLimitsProfile$: StaticOperationSchema = [9, n0, _ULP,
+  { [_h]: ["PUT", "/governance/limits/accounts/{accountId}/profiles/{profileId}", 200] }, () => UpdateLimitsProfileRequest$, () => UpdateLimitsProfileResponse$
 ];
 export var UpdateOAuthClientApplication$: StaticOperationSchema = [9, n0, _UOACA,
   { [_h]: ["PUT", "/accounts/{AwsAccountId}/oauth-client-applications/{OAuthClientApplicationId}", 200] }, () => UpdateOAuthClientApplicationRequest$, () => UpdateOAuthClientApplicationResponse$

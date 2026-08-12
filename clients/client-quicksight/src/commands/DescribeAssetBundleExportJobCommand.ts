@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_3";
+import type { DescribeAssetBundleExportJobRequest, DescribeAssetBundleExportJobResponse } from "../models/models_4";
 import { DescribeAssetBundleExportJob$ } from "../schemas/schemas_0";
 
 /**
@@ -127,6 +127,14 @@ export interface DescribeAssetBundleExportJobCommandOutput extends DescribeAsset
  * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobFolderPropertyToOverrideList // required
  * //           "Name" || "ParentFolderArn",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     TopicsV2: [ // AssetBundleExportJobTopicV2OverridePropertiesList
+ * //       { // AssetBundleExportJobTopicV2OverrideProperties
+ * //         Arn: "STRING_VALUE", // required
+ * //         Properties: [ // AssetBundleExportJobTopicV2PropertyToOverrideList // required
+ * //           "Name" || "Description",
  * //         ],
  * //       },
  * //     ],

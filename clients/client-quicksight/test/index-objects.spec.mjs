@@ -60,7 +60,10 @@ import {
   APIKeyConnectionMetadata$,
   AppendedColumn$,
   AppendOperation$,
+  ApplicableTo$,
+  ApplicableToType,
   ApplicationTheme$,
+  ApprovalPolicy$,
   ArcAxisConfiguration$,
   ArcAxisDisplayRange$,
   ArcConfiguration$,
@@ -87,6 +90,8 @@ import {
   AssetBundleExportJobSummary$,
   AssetBundleExportJobThemeOverrideProperties$,
   AssetBundleExportJobThemePropertyToOverride,
+  AssetBundleExportJobTopicV2OverrideProperties$,
+  AssetBundleExportJobTopicV2PropertyToOverride,
   AssetBundleExportJobValidationStrategy$,
   AssetBundleExportJobVPCConnectionOverrideProperties$,
   AssetBundleExportJobVPCConnectionPropertyToOverride,
@@ -121,6 +126,9 @@ import {
   AssetBundleImportJobThemeOverrideParameters$,
   AssetBundleImportJobThemeOverridePermissions$,
   AssetBundleImportJobThemeOverrideTags$,
+  AssetBundleImportJobTopicV2OverrideParameters$,
+  AssetBundleImportJobTopicV2OverridePermissions$,
+  AssetBundleImportJobTopicV2OverrideTags$,
   AssetBundleImportJobVPCConnectionOverrideParameters$,
   AssetBundleImportJobVPCConnectionOverrideTags$,
   AssetBundleImportJobWarning$,
@@ -129,6 +137,7 @@ import {
   AssetBundleResourceLinkSharingConfiguration$,
   AssetBundleResourcePermissions$,
   AssetOptions$,
+  AssetType,
   AssignmentStatus,
   AthenaParameters$,
   AttributeAggregationFunction$,
@@ -187,6 +196,11 @@ import {
   BatchDeleteTopicReviewedAnswerCommand,
   BatchDeleteTopicReviewedAnswerRequest$,
   BatchDeleteTopicReviewedAnswerResponse$,
+  BatchDescribeUserLimits$,
+  BatchDescribeUserLimitsCommand,
+  BatchDescribeUserLimitsError$,
+  BatchDescribeUserLimitsRequest$,
+  BatchDescribeUserLimitsResponse$,
   BigQueryParameters$,
   BinCountOptions$,
   BinWidthOptions$,
@@ -339,6 +353,10 @@ import {
   CreateAnalysisCommand,
   CreateAnalysisRequest$,
   CreateAnalysisResponse$,
+  CreateApprovalPolicy$,
+  CreateApprovalPolicyCommand,
+  CreateApprovalPolicyRequest$,
+  CreateApprovalPolicyResponse$,
   CreateBrand$,
   CreateBrandCommand,
   CreateBrandRequest$,
@@ -360,6 +378,10 @@ import {
   CreateDataSourceCommand,
   CreateDataSourceRequest$,
   CreateDataSourceResponse$,
+  CreateDlpSetting$,
+  CreateDlpSettingCommand,
+  CreateDlpSettingRequest$,
+  CreateDlpSettingResponse$,
   CreateFlow$,
   CreateFlowCommand,
   CreateFlowRequest$,
@@ -392,6 +414,10 @@ import {
   CreateKnowledgeBaseCommand,
   CreateKnowledgeBaseRequest$,
   CreateKnowledgeBaseResponse$,
+  CreateLimitsProfile$,
+  CreateLimitsProfileCommand,
+  CreateLimitsProfileRequest$,
+  CreateLimitsProfileResponse$,
   CreateNamespace$,
   CreateNamespaceCommand,
   CreateNamespaceRequest$,
@@ -638,6 +664,10 @@ import {
   DeleteAnalysisCommand,
   DeleteAnalysisRequest$,
   DeleteAnalysisResponse$,
+  DeleteApprovalPolicy$,
+  DeleteApprovalPolicyCommand,
+  DeleteApprovalPolicyRequest$,
+  DeleteApprovalPolicyResponse$,
   DeleteBrand$,
   DeleteBrandAssignment$,
   DeleteBrandAssignmentCommand,
@@ -670,6 +700,10 @@ import {
   DeleteDefaultQBusinessApplicationCommand,
   DeleteDefaultQBusinessApplicationRequest$,
   DeleteDefaultQBusinessApplicationResponse$,
+  DeleteDlpSetting$,
+  DeleteDlpSettingCommand,
+  DeleteDlpSettingRequest$,
+  DeleteDlpSettingResponse$,
   DeleteFlow$,
   DeleteFlowCommand,
   DeleteFlowRequest$,
@@ -702,6 +736,10 @@ import {
   DeleteKnowledgeBaseCommand,
   DeleteKnowledgeBaseRequest$,
   DeleteKnowledgeBaseResponse$,
+  DeleteLimitsProfile$,
+  DeleteLimitsProfileCommand,
+  DeleteLimitsProfileRequest$,
+  DeleteLimitsProfileResponse$,
   DeleteNamespace$,
   DeleteNamespaceCommand,
   DeleteNamespaceRequest$,
@@ -814,6 +852,10 @@ import {
   DescribeAnalysisPermissionsResponse$,
   DescribeAnalysisRequest$,
   DescribeAnalysisResponse$,
+  DescribeApprovalPolicy$,
+  DescribeApprovalPolicyCommand,
+  DescribeApprovalPolicyRequest$,
+  DescribeApprovalPolicyResponse$,
   DescribeAssetBundleExportJob$,
   DescribeAssetBundleExportJobCommand,
   DescribeAssetBundleExportJobRequest$,
@@ -890,6 +932,10 @@ import {
   DescribeDefaultQBusinessApplicationCommand,
   DescribeDefaultQBusinessApplicationRequest$,
   DescribeDefaultQBusinessApplicationResponse$,
+  DescribeDlpSetting$,
+  DescribeDlpSettingCommand,
+  DescribeDlpSettingRequest$,
+  DescribeDlpSettingResponse$,
   DescribeFlow$,
   DescribeFlowCommand,
   DescribeFlowRequest$,
@@ -938,6 +984,10 @@ import {
   DescribeKnowledgeBasePermissionsResponse$,
   DescribeKnowledgeBaseRequest$,
   DescribeKnowledgeBaseResponse$,
+  DescribeLimitsProfile$,
+  DescribeLimitsProfileCommand,
+  DescribeLimitsProfileRequest$,
+  DescribeLimitsProfileResponse$,
   DescribeNamespace$,
   DescribeNamespaceCommand,
   DescribeNamespaceRequest$,
@@ -1041,6 +1091,11 @@ import {
   DimensionField$,
   DisplayFormat,
   DisplayFormatOptions$,
+  DlpAction,
+  DlpProviderType,
+  DlpSettingDetails$,
+  DlpSettingStatus,
+  DlpSettingSummary$,
   DomainNotWhitelistedException,
   DomainNotWhitelistedException$,
   DonutCenterOptions$,
@@ -1049,6 +1104,7 @@ import {
   DropDownControlDisplayOptions$,
   DynamicDefaultValue$,
   Edition,
+  EffectiveLimit$,
   EmbeddingIdentityType,
   EmptyVisual$,
   Entity$,
@@ -1240,6 +1296,7 @@ import {
   GlobalTableBorderOptions$,
   GoogleDriveParameters$,
   Governance$,
+  GovernedAction,
   GradientColor$,
   GradientStop$,
   GridLayoutCanvasSizeOptions$,
@@ -1367,6 +1424,7 @@ import {
   KPIVisualLayoutOptions$,
   KPIVisualStandardLayout$,
   KPIVisualStandardLayoutType,
+  LabelActionMapping$,
   LabelOptions$,
   LayerCustomAction$,
   LayerCustomActionOperation$,
@@ -1379,6 +1437,9 @@ import {
   LegendPosition,
   LimitExceededException,
   LimitExceededException$,
+  LimitSource,
+  LimitsProfile$,
+  LimitUnit,
   LineChartAggregatedFieldWells$,
   LineChartConfiguration$,
   LineChartDefaultSeriesSettings$,
@@ -1406,6 +1467,10 @@ import {
   ListAnalysesCommand,
   ListAnalysesRequest$,
   ListAnalysesResponse$,
+  ListApprovalPolicies$,
+  ListApprovalPoliciesCommand,
+  ListApprovalPoliciesRequest$,
+  ListApprovalPoliciesResponse$,
   ListAssetBundleExportJobs$,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleExportJobsRequest$,
@@ -1441,6 +1506,10 @@ import {
   ListDataSourcesCommand,
   ListDataSourcesRequest$,
   ListDataSourcesResponse$,
+  ListDlpSettings$,
+  ListDlpSettingsCommand,
+  ListDlpSettingsRequest$,
+  ListDlpSettingsResponse$,
   ListFlows$,
   ListFlowsCommand,
   ListFlowsInput$,
@@ -1485,6 +1554,10 @@ import {
   ListKnowledgeBasesCommand,
   ListKnowledgeBasesRequest$,
   ListKnowledgeBasesResponse$,
+  ListLimitsProfiles$,
+  ListLimitsProfilesCommand,
+  ListLimitsProfilesRequest$,
+  ListLimitsProfilesResponse$,
   ListNamespaces$,
   ListNamespacesCommand,
   ListNamespacesRequest$,
@@ -1597,6 +1670,8 @@ import {
   MemberIdArnPair$,
   MemberType,
   MetricComparisonComputation$,
+  MicrosoftPurviewCredentials$,
+  MicrosoftPurviewProviderConfig$,
   MinimumLabelType$,
   MissingDataConfiguration$,
   MissingDataTreatmentOption,
@@ -1655,6 +1730,7 @@ import {
   paginateDescribeFolderResolvedPermissions,
   paginateListActionConnectors,
   paginateListAnalyses,
+  paginateListApprovalPolicies,
   paginateListAssetBundleExportJobs,
   paginateListAssetBundleImportJobs,
   paginateListBrands,
@@ -1663,6 +1739,7 @@ import {
   paginateListDashboardVersions,
   paginateListDataSets,
   paginateListDataSources,
+  paginateListDlpSettings,
   paginateListFlows,
   paginateListFolderMembers,
   paginateListFolders,
@@ -1673,6 +1750,7 @@ import {
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
   paginateListKnowledgeBases,
+  paginateListLimitsProfiles,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
   paginateListRoleMemberships,
@@ -1779,10 +1857,12 @@ import {
   PredictQAResultsResponse$,
   PrestoParameters$,
   PrimaryValueDisplayType,
+  ProfileLimitValue$,
   ProgressBarOptions$,
   ProjectOperation$,
   PropertyRole,
   PropertyUsage,
+  ProviderConfig$,
   PurchaseMode,
   PutDataSetRefreshProperties$,
   PutDataSetRefreshPropertiesCommand,
@@ -1880,6 +1960,7 @@ import {
   ResourceNotFoundException$,
   ResourcePermission$,
   ResourceStatus,
+  ResourceType,
   ResourceUnavailableException,
   ResourceUnavailableException$,
   RestoreAnalysis$,
@@ -2349,6 +2430,10 @@ import {
   UpdateApplicationWithTokenExchangeGrantCommand,
   UpdateApplicationWithTokenExchangeGrantRequest$,
   UpdateApplicationWithTokenExchangeGrantResponse$,
+  UpdateApprovalPolicy$,
+  UpdateApprovalPolicyCommand,
+  UpdateApprovalPolicyRequest$,
+  UpdateApprovalPolicyResponse$,
   UpdateBrand$,
   UpdateBrandAssignment$,
   UpdateBrandAssignmentCommand,
@@ -2405,6 +2490,10 @@ import {
   UpdateDefaultQBusinessApplicationCommand,
   UpdateDefaultQBusinessApplicationRequest$,
   UpdateDefaultQBusinessApplicationResponse$,
+  UpdateDlpSetting$,
+  UpdateDlpSettingCommand,
+  UpdateDlpSettingRequest$,
+  UpdateDlpSettingResponse$,
   UpdateFlow$,
   UpdateFlowCommand,
   UpdateFlowPermissions$,
@@ -2449,6 +2538,10 @@ import {
   UpdateKnowledgeBasePermissionsResponse$,
   UpdateKnowledgeBaseRequest$,
   UpdateKnowledgeBaseResponse$,
+  UpdateLimitsProfile$,
+  UpdateLimitsProfileCommand,
+  UpdateLimitsProfileRequest$,
+  UpdateLimitsProfileResponse$,
   UpdateOAuthClientApplication$,
   UpdateOAuthClientApplicationCommand,
   UpdateOAuthClientApplicationRequest$,
@@ -2562,6 +2655,8 @@ import {
   UserIndexCapacityFilter$,
   UserIndexCapacitySortBy,
   UserIndexCapacitySortOrder,
+  UserLimits$,
+  UserLimitsEntry$,
   UserNameOrEmailFilter$,
   UserRole,
   ValidationStrategy$,
@@ -2637,6 +2732,8 @@ assert(typeof BatchDeleteKnowledgeBaseCommand === "function");
 assert(typeof BatchDeleteKnowledgeBase$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerCommand === "function");
 assert(typeof BatchDeleteTopicReviewedAnswer$ === "object");
+assert(typeof BatchDescribeUserLimitsCommand === "function");
+assert(typeof BatchDescribeUserLimits$ === "object");
 assert(typeof CancelIngestionCommand === "function");
 assert(typeof CancelIngestion$ === "object");
 assert(typeof CreateAccountCustomizationCommand === "function");
@@ -2649,6 +2746,8 @@ assert(typeof CreateAgentCommand === "function");
 assert(typeof CreateAgent$ === "object");
 assert(typeof CreateAnalysisCommand === "function");
 assert(typeof CreateAnalysis$ === "object");
+assert(typeof CreateApprovalPolicyCommand === "function");
+assert(typeof CreateApprovalPolicy$ === "object");
 assert(typeof CreateBrandCommand === "function");
 assert(typeof CreateBrand$ === "object");
 assert(typeof CreateCustomPermissionsCommand === "function");
@@ -2659,6 +2758,8 @@ assert(typeof CreateDataSetCommand === "function");
 assert(typeof CreateDataSet$ === "object");
 assert(typeof CreateDataSourceCommand === "function");
 assert(typeof CreateDataSource$ === "object");
+assert(typeof CreateDlpSettingCommand === "function");
+assert(typeof CreateDlpSetting$ === "object");
 assert(typeof CreateFlowCommand === "function");
 assert(typeof CreateFlow$ === "object");
 assert(typeof CreateFolderCommand === "function");
@@ -2675,6 +2776,8 @@ assert(typeof CreateIngestionCommand === "function");
 assert(typeof CreateIngestion$ === "object");
 assert(typeof CreateKnowledgeBaseCommand === "function");
 assert(typeof CreateKnowledgeBase$ === "object");
+assert(typeof CreateLimitsProfileCommand === "function");
+assert(typeof CreateLimitsProfile$ === "object");
 assert(typeof CreateNamespaceCommand === "function");
 assert(typeof CreateNamespace$ === "object");
 assert(typeof CreateOAuthClientApplicationCommand === "function");
@@ -2713,6 +2816,8 @@ assert(typeof DeleteAgentCommand === "function");
 assert(typeof DeleteAgent$ === "object");
 assert(typeof DeleteAnalysisCommand === "function");
 assert(typeof DeleteAnalysis$ === "object");
+assert(typeof DeleteApprovalPolicyCommand === "function");
+assert(typeof DeleteApprovalPolicy$ === "object");
 assert(typeof DeleteBrandCommand === "function");
 assert(typeof DeleteBrand$ === "object");
 assert(typeof DeleteBrandAssignmentCommand === "function");
@@ -2729,6 +2834,8 @@ assert(typeof DeleteDataSourceCommand === "function");
 assert(typeof DeleteDataSource$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationCommand === "function");
 assert(typeof DeleteDefaultQBusinessApplication$ === "object");
+assert(typeof DeleteDlpSettingCommand === "function");
+assert(typeof DeleteDlpSetting$ === "object");
 assert(typeof DeleteFlowCommand === "function");
 assert(typeof DeleteFlow$ === "object");
 assert(typeof DeleteFolderCommand === "function");
@@ -2745,6 +2852,8 @@ assert(typeof DeleteIdentityPropagationConfigCommand === "function");
 assert(typeof DeleteIdentityPropagationConfig$ === "object");
 assert(typeof DeleteKnowledgeBaseCommand === "function");
 assert(typeof DeleteKnowledgeBase$ === "object");
+assert(typeof DeleteLimitsProfileCommand === "function");
+assert(typeof DeleteLimitsProfile$ === "object");
 assert(typeof DeleteNamespaceCommand === "function");
 assert(typeof DeleteNamespace$ === "object");
 assert(typeof DeleteOAuthClientApplicationCommand === "function");
@@ -2801,6 +2910,8 @@ assert(typeof DescribeAnalysisDefinitionCommand === "function");
 assert(typeof DescribeAnalysisDefinition$ === "object");
 assert(typeof DescribeAnalysisPermissionsCommand === "function");
 assert(typeof DescribeAnalysisPermissions$ === "object");
+assert(typeof DescribeApprovalPolicyCommand === "function");
+assert(typeof DescribeApprovalPolicy$ === "object");
 assert(typeof DescribeAssetBundleExportJobCommand === "function");
 assert(typeof DescribeAssetBundleExportJob$ === "object");
 assert(typeof DescribeAssetBundleImportJobCommand === "function");
@@ -2839,6 +2950,8 @@ assert(typeof DescribeDataSourcePermissionsCommand === "function");
 assert(typeof DescribeDataSourcePermissions$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationCommand === "function");
 assert(typeof DescribeDefaultQBusinessApplication$ === "object");
+assert(typeof DescribeDlpSettingCommand === "function");
+assert(typeof DescribeDlpSetting$ === "object");
 assert(typeof DescribeFlowCommand === "function");
 assert(typeof DescribeFlow$ === "object");
 assert(typeof DescribeFolderCommand === "function");
@@ -2863,6 +2976,8 @@ assert(typeof DescribeKnowledgeBaseCommand === "function");
 assert(typeof DescribeKnowledgeBase$ === "object");
 assert(typeof DescribeKnowledgeBasePermissionsCommand === "function");
 assert(typeof DescribeKnowledgeBasePermissions$ === "object");
+assert(typeof DescribeLimitsProfileCommand === "function");
+assert(typeof DescribeLimitsProfile$ === "object");
 assert(typeof DescribeNamespaceCommand === "function");
 assert(typeof DescribeNamespace$ === "object");
 assert(typeof DescribeOAuthClientApplicationCommand === "function");
@@ -2933,6 +3048,8 @@ assert(typeof ListAgentsCommand === "function");
 assert(typeof ListAgents$ === "object");
 assert(typeof ListAnalysesCommand === "function");
 assert(typeof ListAnalyses$ === "object");
+assert(typeof ListApprovalPoliciesCommand === "function");
+assert(typeof ListApprovalPolicies$ === "object");
 assert(typeof ListAssetBundleExportJobsCommand === "function");
 assert(typeof ListAssetBundleExportJobs$ === "object");
 assert(typeof ListAssetBundleImportJobsCommand === "function");
@@ -2949,6 +3066,8 @@ assert(typeof ListDataSetsCommand === "function");
 assert(typeof ListDataSets$ === "object");
 assert(typeof ListDataSourcesCommand === "function");
 assert(typeof ListDataSources$ === "object");
+assert(typeof ListDlpSettingsCommand === "function");
+assert(typeof ListDlpSettings$ === "object");
 assert(typeof ListFlowsCommand === "function");
 assert(typeof ListFlows$ === "object");
 assert(typeof ListFolderMembersCommand === "function");
@@ -2971,6 +3090,8 @@ assert(typeof ListIngestionsCommand === "function");
 assert(typeof ListIngestions$ === "object");
 assert(typeof ListKnowledgeBasesCommand === "function");
 assert(typeof ListKnowledgeBases$ === "object");
+assert(typeof ListLimitsProfilesCommand === "function");
+assert(typeof ListLimitsProfiles$ === "object");
 assert(typeof ListNamespacesCommand === "function");
 assert(typeof ListNamespaces$ === "object");
 assert(typeof ListOAuthClientApplicationsCommand === "function");
@@ -3083,6 +3204,8 @@ assert(typeof UpdateAnalysisPermissionsCommand === "function");
 assert(typeof UpdateAnalysisPermissions$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantCommand === "function");
 assert(typeof UpdateApplicationWithTokenExchangeGrant$ === "object");
+assert(typeof UpdateApprovalPolicyCommand === "function");
+assert(typeof UpdateApprovalPolicy$ === "object");
 assert(typeof UpdateBrandCommand === "function");
 assert(typeof UpdateBrand$ === "object");
 assert(typeof UpdateBrandAssignmentCommand === "function");
@@ -3111,6 +3234,8 @@ assert(typeof UpdateDataSourcePermissionsCommand === "function");
 assert(typeof UpdateDataSourcePermissions$ === "object");
 assert(typeof UpdateDefaultQBusinessApplicationCommand === "function");
 assert(typeof UpdateDefaultQBusinessApplication$ === "object");
+assert(typeof UpdateDlpSettingCommand === "function");
+assert(typeof UpdateDlpSetting$ === "object");
 assert(typeof UpdateFlowCommand === "function");
 assert(typeof UpdateFlow$ === "object");
 assert(typeof UpdateFlowPermissionsCommand === "function");
@@ -3133,6 +3258,8 @@ assert(typeof UpdateKnowledgeBaseCommand === "function");
 assert(typeof UpdateKnowledgeBase$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsCommand === "function");
 assert(typeof UpdateKnowledgeBasePermissions$ === "object");
+assert(typeof UpdateLimitsProfileCommand === "function");
+assert(typeof UpdateLimitsProfile$ === "object");
 assert(typeof UpdateOAuthClientApplicationCommand === "function");
 assert(typeof UpdateOAuthClientApplication$ === "object");
 assert(typeof UpdatePublicSharingSettingsCommand === "function");
@@ -3231,7 +3358,9 @@ assert(typeof AnonymousUserSnapshotJobResult$ === "object");
 assert(typeof APIKeyConnectionMetadata$ === "object");
 assert(typeof AppendedColumn$ === "object");
 assert(typeof AppendOperation$ === "object");
+assert(typeof ApplicableTo$ === "object");
 assert(typeof ApplicationTheme$ === "object");
+assert(typeof ApprovalPolicy$ === "object");
 assert(typeof ArcAxisConfiguration$ === "object");
 assert(typeof ArcAxisDisplayRange$ === "object");
 assert(typeof ArcConfiguration$ === "object");
@@ -3247,6 +3376,7 @@ assert(typeof AssetBundleExportJobRefreshScheduleOverrideProperties$ === "object
 assert(typeof AssetBundleExportJobResourceIdOverrideConfiguration$ === "object");
 assert(typeof AssetBundleExportJobSummary$ === "object");
 assert(typeof AssetBundleExportJobThemeOverrideProperties$ === "object");
+assert(typeof AssetBundleExportJobTopicV2OverrideProperties$ === "object");
 assert(typeof AssetBundleExportJobValidationStrategy$ === "object");
 assert(typeof AssetBundleExportJobVPCConnectionOverrideProperties$ === "object");
 assert(typeof AssetBundleExportJobWarning$ === "object");
@@ -3278,6 +3408,9 @@ assert(typeof AssetBundleImportJobSummary$ === "object");
 assert(typeof AssetBundleImportJobThemeOverrideParameters$ === "object");
 assert(typeof AssetBundleImportJobThemeOverridePermissions$ === "object");
 assert(typeof AssetBundleImportJobThemeOverrideTags$ === "object");
+assert(typeof AssetBundleImportJobTopicV2OverrideParameters$ === "object");
+assert(typeof AssetBundleImportJobTopicV2OverridePermissions$ === "object");
+assert(typeof AssetBundleImportJobTopicV2OverrideTags$ === "object");
 assert(typeof AssetBundleImportJobVPCConnectionOverrideParameters$ === "object");
 assert(typeof AssetBundleImportJobVPCConnectionOverrideTags$ === "object");
 assert(typeof AssetBundleImportJobWarning$ === "object");
@@ -3326,6 +3459,9 @@ assert(typeof BatchDeleteKnowledgeBaseResponse$ === "object");
 assert(typeof BatchDeleteKnowledgeBaseSuccess$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerRequest$ === "object");
 assert(typeof BatchDeleteTopicReviewedAnswerResponse$ === "object");
+assert(typeof BatchDescribeUserLimitsError$ === "object");
+assert(typeof BatchDescribeUserLimitsRequest$ === "object");
+assert(typeof BatchDescribeUserLimitsResponse$ === "object");
 assert(typeof BigQueryParameters$ === "object");
 assert(typeof BinCountOptions$ === "object");
 assert(typeof BinWidthOptions$ === "object");
@@ -3434,6 +3570,8 @@ assert(typeof CreateAgentRequest$ === "object");
 assert(typeof CreateAgentResponse$ === "object");
 assert(typeof CreateAnalysisRequest$ === "object");
 assert(typeof CreateAnalysisResponse$ === "object");
+assert(typeof CreateApprovalPolicyRequest$ === "object");
+assert(typeof CreateApprovalPolicyResponse$ === "object");
 assert(typeof CreateBrandRequest$ === "object");
 assert(typeof CreateBrandResponse$ === "object");
 assert(typeof CreateColumnsOperation$ === "object");
@@ -3445,6 +3583,8 @@ assert(typeof CreateDataSetRequest$ === "object");
 assert(typeof CreateDataSetResponse$ === "object");
 assert(typeof CreateDataSourceRequest$ === "object");
 assert(typeof CreateDataSourceResponse$ === "object");
+assert(typeof CreateDlpSettingRequest$ === "object");
+assert(typeof CreateDlpSettingResponse$ === "object");
 assert(typeof CreateFlowRequest$ === "object");
 assert(typeof CreateFlowResponse$ === "object");
 assert(typeof CreateFolderMembershipRequest$ === "object");
@@ -3461,6 +3601,8 @@ assert(typeof CreateIngestionRequest$ === "object");
 assert(typeof CreateIngestionResponse$ === "object");
 assert(typeof CreateKnowledgeBaseRequest$ === "object");
 assert(typeof CreateKnowledgeBaseResponse$ === "object");
+assert(typeof CreateLimitsProfileRequest$ === "object");
+assert(typeof CreateLimitsProfileResponse$ === "object");
 assert(typeof CreateNamespaceRequest$ === "object");
 assert(typeof CreateNamespaceResponse$ === "object");
 assert(typeof CreateOAuthClientApplicationRequest$ === "object");
@@ -3634,6 +3776,8 @@ assert(typeof DeleteAgentRequest$ === "object");
 assert(typeof DeleteAgentResponse$ === "object");
 assert(typeof DeleteAnalysisRequest$ === "object");
 assert(typeof DeleteAnalysisResponse$ === "object");
+assert(typeof DeleteApprovalPolicyRequest$ === "object");
+assert(typeof DeleteApprovalPolicyResponse$ === "object");
 assert(typeof DeleteBrandAssignmentRequest$ === "object");
 assert(typeof DeleteBrandAssignmentResponse$ === "object");
 assert(typeof DeleteBrandRequest$ === "object");
@@ -3650,6 +3794,8 @@ assert(typeof DeleteDataSourceRequest$ === "object");
 assert(typeof DeleteDataSourceResponse$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof DeleteDefaultQBusinessApplicationResponse$ === "object");
+assert(typeof DeleteDlpSettingRequest$ === "object");
+assert(typeof DeleteDlpSettingResponse$ === "object");
 assert(typeof DeleteFlowRequest$ === "object");
 assert(typeof DeleteFlowResponse$ === "object");
 assert(typeof DeleteFolderMembershipRequest$ === "object");
@@ -3666,6 +3812,8 @@ assert(typeof DeleteIdentityPropagationConfigRequest$ === "object");
 assert(typeof DeleteIdentityPropagationConfigResponse$ === "object");
 assert(typeof DeleteKnowledgeBaseRequest$ === "object");
 assert(typeof DeleteKnowledgeBaseResponse$ === "object");
+assert(typeof DeleteLimitsProfileRequest$ === "object");
+assert(typeof DeleteLimitsProfileResponse$ === "object");
 assert(typeof DeleteNamespaceRequest$ === "object");
 assert(typeof DeleteNamespaceResponse$ === "object");
 assert(typeof DeleteOAuthClientApplicationRequest$ === "object");
@@ -3722,6 +3870,8 @@ assert(typeof DescribeAnalysisPermissionsRequest$ === "object");
 assert(typeof DescribeAnalysisPermissionsResponse$ === "object");
 assert(typeof DescribeAnalysisRequest$ === "object");
 assert(typeof DescribeAnalysisResponse$ === "object");
+assert(typeof DescribeApprovalPolicyRequest$ === "object");
+assert(typeof DescribeApprovalPolicyResponse$ === "object");
 assert(typeof DescribeAssetBundleExportJobRequest$ === "object");
 assert(typeof DescribeAssetBundleExportJobResponse$ === "object");
 assert(typeof DescribeAssetBundleImportJobRequest$ === "object");
@@ -3760,6 +3910,8 @@ assert(typeof DescribeDataSourceRequest$ === "object");
 assert(typeof DescribeDataSourceResponse$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof DescribeDefaultQBusinessApplicationResponse$ === "object");
+assert(typeof DescribeDlpSettingRequest$ === "object");
+assert(typeof DescribeDlpSettingResponse$ === "object");
 assert(typeof DescribeFlowRequest$ === "object");
 assert(typeof DescribeFlowResponse$ === "object");
 assert(typeof DescribeFolderPermissionsRequest$ === "object");
@@ -3784,6 +3936,8 @@ assert(typeof DescribeKnowledgeBasePermissionsRequest$ === "object");
 assert(typeof DescribeKnowledgeBasePermissionsResponse$ === "object");
 assert(typeof DescribeKnowledgeBaseRequest$ === "object");
 assert(typeof DescribeKnowledgeBaseResponse$ === "object");
+assert(typeof DescribeLimitsProfileRequest$ === "object");
+assert(typeof DescribeLimitsProfileResponse$ === "object");
 assert(typeof DescribeNamespaceRequest$ === "object");
 assert(typeof DescribeNamespaceResponse$ === "object");
 assert(typeof DescribeOAuthClientApplicationRequest$ === "object");
@@ -3837,11 +3991,14 @@ assert(typeof DestinationTable$ === "object");
 assert(typeof DestinationTableSource$ === "object");
 assert(typeof DimensionField$ === "object");
 assert(typeof DisplayFormatOptions$ === "object");
+assert(typeof DlpSettingDetails$ === "object");
+assert(typeof DlpSettingSummary$ === "object");
 assert(typeof DonutCenterOptions$ === "object");
 assert(typeof DonutOptions$ === "object");
 assert(typeof DrillDownFilter$ === "object");
 assert(typeof DropDownControlDisplayOptions$ === "object");
 assert(typeof DynamicDefaultValue$ === "object");
+assert(typeof EffectiveLimit$ === "object");
 assert(typeof EmptyVisual$ === "object");
 assert(typeof Entity$ === "object");
 assert(typeof ErrorInfo$ === "object");
@@ -4079,6 +4236,7 @@ assert(typeof KPISparklineOptions$ === "object");
 assert(typeof KPIVisual$ === "object");
 assert(typeof KPIVisualLayoutOptions$ === "object");
 assert(typeof KPIVisualStandardLayout$ === "object");
+assert(typeof LabelActionMapping$ === "object");
 assert(typeof LabelOptions$ === "object");
 assert(typeof LayerCustomAction$ === "object");
 assert(typeof LayerCustomActionOperation$ === "object");
@@ -4086,6 +4244,7 @@ assert(typeof LayerMapVisual$ === "object");
 assert(typeof Layout$ === "object");
 assert(typeof LayoutConfiguration$ === "object");
 assert(typeof LegendOptions$ === "object");
+assert(typeof LimitsProfile$ === "object");
 assert(typeof LineChartAggregatedFieldWells$ === "object");
 assert(typeof LineChartConfiguration$ === "object");
 assert(typeof LineChartDefaultSeriesSettings$ === "object");
@@ -4103,6 +4262,8 @@ assert(typeof ListAgentsRequest$ === "object");
 assert(typeof ListAgentsResponse$ === "object");
 assert(typeof ListAnalysesRequest$ === "object");
 assert(typeof ListAnalysesResponse$ === "object");
+assert(typeof ListApprovalPoliciesRequest$ === "object");
+assert(typeof ListApprovalPoliciesResponse$ === "object");
 assert(typeof ListAssetBundleExportJobsRequest$ === "object");
 assert(typeof ListAssetBundleExportJobsResponse$ === "object");
 assert(typeof ListAssetBundleImportJobsRequest$ === "object");
@@ -4122,6 +4283,8 @@ assert(typeof ListDataSetsRequest$ === "object");
 assert(typeof ListDataSetsResponse$ === "object");
 assert(typeof ListDataSourcesRequest$ === "object");
 assert(typeof ListDataSourcesResponse$ === "object");
+assert(typeof ListDlpSettingsRequest$ === "object");
+assert(typeof ListDlpSettingsResponse$ === "object");
 assert(typeof ListFlowsInput$ === "object");
 assert(typeof ListFlowsOutput$ === "object");
 assert(typeof ListFolderMembersRequest$ === "object");
@@ -4144,6 +4307,8 @@ assert(typeof ListIngestionsRequest$ === "object");
 assert(typeof ListIngestionsResponse$ === "object");
 assert(typeof ListKnowledgeBasesRequest$ === "object");
 assert(typeof ListKnowledgeBasesResponse$ === "object");
+assert(typeof ListLimitsProfilesRequest$ === "object");
+assert(typeof ListLimitsProfilesResponse$ === "object");
 assert(typeof ListNamespacesRequest$ === "object");
 assert(typeof ListNamespacesResponse$ === "object");
 assert(typeof ListOAuthClientApplicationsRequest$ === "object");
@@ -4208,6 +4373,8 @@ assert(typeof MeasureField$ === "object");
 assert(typeof MediaExtractionConfiguration$ === "object");
 assert(typeof MemberIdArnPair$ === "object");
 assert(typeof MetricComparisonComputation$ === "object");
+assert(typeof MicrosoftPurviewCredentials$ === "object");
+assert(typeof MicrosoftPurviewProviderConfig$ === "object");
 assert(typeof MinimumLabelType$ === "object");
 assert(typeof MissingDataConfiguration$ === "object");
 assert(typeof MySqlParameters$ === "object");
@@ -4312,8 +4479,10 @@ assert(typeof PredefinedHierarchy$ === "object");
 assert(typeof PredictQAResultsRequest$ === "object");
 assert(typeof PredictQAResultsResponse$ === "object");
 assert(typeof PrestoParameters$ === "object");
+assert(typeof ProfileLimitValue$ === "object");
 assert(typeof ProgressBarOptions$ === "object");
 assert(typeof ProjectOperation$ === "object");
+assert(typeof ProviderConfig$ === "object");
 assert(typeof PutDataSetRefreshPropertiesRequest$ === "object");
 assert(typeof PutDataSetRefreshPropertiesResponse$ === "object");
 assert(typeof QAResult$ === "object");
@@ -4704,6 +4873,8 @@ assert(typeof UpdateAnalysisRequest$ === "object");
 assert(typeof UpdateAnalysisResponse$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantRequest$ === "object");
 assert(typeof UpdateApplicationWithTokenExchangeGrantResponse$ === "object");
+assert(typeof UpdateApprovalPolicyRequest$ === "object");
+assert(typeof UpdateApprovalPolicyResponse$ === "object");
 assert(typeof UpdateBrandAssignmentRequest$ === "object");
 assert(typeof UpdateBrandAssignmentResponse$ === "object");
 assert(typeof UpdateBrandPublishedVersionRequest$ === "object");
@@ -4732,6 +4903,8 @@ assert(typeof UpdateDataSourceRequest$ === "object");
 assert(typeof UpdateDataSourceResponse$ === "object");
 assert(typeof UpdateDefaultQBusinessApplicationRequest$ === "object");
 assert(typeof UpdateDefaultQBusinessApplicationResponse$ === "object");
+assert(typeof UpdateDlpSettingRequest$ === "object");
+assert(typeof UpdateDlpSettingResponse$ === "object");
 assert(typeof UpdateFlowPermissionsInput$ === "object");
 assert(typeof UpdateFlowPermissionsOutput$ === "object");
 assert(typeof UpdateFlowRequest$ === "object");
@@ -4754,6 +4927,8 @@ assert(typeof UpdateKnowledgeBasePermissionsRequest$ === "object");
 assert(typeof UpdateKnowledgeBasePermissionsResponse$ === "object");
 assert(typeof UpdateKnowledgeBaseRequest$ === "object");
 assert(typeof UpdateKnowledgeBaseResponse$ === "object");
+assert(typeof UpdateLimitsProfileRequest$ === "object");
+assert(typeof UpdateLimitsProfileResponse$ === "object");
 assert(typeof UpdateOAuthClientApplicationRequest$ === "object");
 assert(typeof UpdateOAuthClientApplicationResponse$ === "object");
 assert(typeof UpdatePublicSharingSettingsRequest$ === "object");
@@ -4812,6 +4987,8 @@ assert(typeof User$ === "object");
 assert(typeof UserIdentifier$ === "object");
 assert(typeof UserIndexCapacity$ === "object");
 assert(typeof UserIndexCapacityFilter$ === "object");
+assert(typeof UserLimits$ === "object");
+assert(typeof UserLimitsEntry$ === "object");
 assert(typeof UserNameOrEmailFilter$ === "object");
 assert(typeof ValidationStrategy$ === "object");
 assert(typeof ValueColumnConfiguration$ === "object");
@@ -4870,6 +5047,7 @@ assert(typeof AnchorOption === "object");
 assert(typeof AnchorType === "object");
 assert(typeof AnonymousUserDashboardEmbeddingConfigurationDisabledFeature === "object");
 assert(typeof AnonymousUserDashboardEmbeddingConfigurationEnabledFeature === "object");
+assert(typeof ApplicableToType === "object");
 assert(typeof ArcThickness === "object");
 assert(typeof ArcThicknessOptions === "object");
 assert(typeof AssetBundleExportFormat === "object");
@@ -4881,9 +5059,11 @@ assert(typeof AssetBundleExportJobFolderPropertyToOverride === "object");
 assert(typeof AssetBundleExportJobRefreshSchedulePropertyToOverride === "object");
 assert(typeof AssetBundleExportJobStatus === "object");
 assert(typeof AssetBundleExportJobThemePropertyToOverride === "object");
+assert(typeof AssetBundleExportJobTopicV2PropertyToOverride === "object");
 assert(typeof AssetBundleExportJobVPCConnectionPropertyToOverride === "object");
 assert(typeof AssetBundleImportFailureAction === "object");
 assert(typeof AssetBundleImportJobStatus === "object");
+assert(typeof AssetType === "object");
 assert(typeof AssignmentStatus === "object");
 assert(typeof AudioExtractionStatus === "object");
 assert(typeof AuthenticationMethodOption === "object");
@@ -4959,6 +5139,9 @@ assert(typeof DefaultAggregation === "object");
 assert(typeof DefaultCategoryEffect === "object");
 assert(typeof DigitGroupingStyle === "object");
 assert(typeof DisplayFormat === "object");
+assert(typeof DlpAction === "object");
+assert(typeof DlpProviderType === "object");
+assert(typeof DlpSettingStatus === "object");
 assert(typeof Edition === "object");
 assert(typeof EmbeddingIdentityType === "object");
 assert(typeof ExceptionResourceType === "object");
@@ -4983,6 +5166,7 @@ assert(typeof GeoSpatialDataRole === "object");
 assert(typeof GeospatialLayerType === "object");
 assert(typeof GeospatialMapNavigation === "object");
 assert(typeof GeospatialSelectedPointStyle === "object");
+assert(typeof GovernedAction === "object");
 assert(typeof GroupFilterAttribute === "object");
 assert(typeof GroupFilterOperator === "object");
 assert(typeof HistogramBinType === "object");
@@ -5012,6 +5196,8 @@ assert(typeof KPIVisualStandardLayoutType === "object");
 assert(typeof LayerCustomActionTrigger === "object");
 assert(typeof LayoutElementType === "object");
 assert(typeof LegendPosition === "object");
+assert(typeof LimitSource === "object");
+assert(typeof LimitUnit === "object");
 assert(typeof LineChartLineStyle === "object");
 assert(typeof LineChartMarkerShape === "object");
 assert(typeof LineChartType === "object");
@@ -5070,6 +5256,7 @@ assert(typeof RelativeDateType === "object");
 assert(typeof RelativeFontSize === "object");
 assert(typeof ResizeOption === "object");
 assert(typeof ResourceStatus === "object");
+assert(typeof ResourceType === "object");
 assert(typeof ReviewedAnswerErrorCode === "object");
 assert(typeof Role === "object");
 assert(typeof RowLevelPermissionFormatVersion === "object");
@@ -5217,6 +5404,7 @@ assert(typeof paginateDescribeFolderPermissions === "function");
 assert(typeof paginateDescribeFolderResolvedPermissions === "function");
 assert(typeof paginateListActionConnectors === "function");
 assert(typeof paginateListAnalyses === "function");
+assert(typeof paginateListApprovalPolicies === "function");
 assert(typeof paginateListAssetBundleExportJobs === "function");
 assert(typeof paginateListAssetBundleImportJobs === "function");
 assert(typeof paginateListBrands === "function");
@@ -5225,6 +5413,7 @@ assert(typeof paginateListDashboardVersions === "function");
 assert(typeof paginateListDashboards === "function");
 assert(typeof paginateListDataSets === "function");
 assert(typeof paginateListDataSources === "function");
+assert(typeof paginateListDlpSettings === "function");
 assert(typeof paginateListFlows === "function");
 assert(typeof paginateListFolderMembers === "function");
 assert(typeof paginateListFolders === "function");
@@ -5235,6 +5424,7 @@ assert(typeof paginateListIAMPolicyAssignments === "function");
 assert(typeof paginateListIAMPolicyAssignmentsForUser === "function");
 assert(typeof paginateListIngestions === "function");
 assert(typeof paginateListKnowledgeBases === "function");
+assert(typeof paginateListLimitsProfiles === "function");
 assert(typeof paginateListNamespaces === "function");
 assert(typeof paginateListOAuthClientApplications === "function");
 assert(typeof paginateListRoleMemberships === "function");

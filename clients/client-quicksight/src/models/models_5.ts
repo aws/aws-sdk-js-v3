@@ -5,16 +5,25 @@ import type {
   AgentStatus,
   AssetBundleExportFormat,
   AssetBundleImportFailureAction,
+  AssetType,
   AssignmentStatus,
   DashboardsQAStatus,
   DataSetImportMode,
   DataSourceType,
+  DlpAction,
+  DlpProviderType,
   FieldName,
+  GovernedAction,
+  IdentityType,
   IncludeFolderMembers,
+  IncludeGeneratedAnswer,
+  IncludeQuickSightQIndex,
   PersonalizationMode,
   PurchaseMode,
+  QAResultType,
   QSearchStatus,
   ResourceStatus,
+  ResourceType,
   Role,
   SearchFilterOperator,
   SelfUpgradeAdminAction,
@@ -23,21 +32,34 @@ import type {
   SpaceQuickSightResourceType,
   SpaceQuickSightSearchFilterName,
   SpaceSearchOperator,
+  ThemeType,
   TopicFilterAttribute,
   TopicFilterOperator,
+  TopicUserExperienceVersion,
   TopicV2PublishOption,
+  UserIndexCapacitySortBy,
+  UserIndexCapacitySortOrder,
   UserRole,
   VisualRole,
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./enums";
-import type { AccessControlConfiguration, AccountCustomization } from "./models_0";
+import type {
+  AccessControlConfiguration,
+  AccountCustomization,
+  ActionConnectorSearchFilter,
+  ActionConnectorSummary,
+  AgentSearchFilter,
+  AgentSummary,
+} from "./models_0";
 import type {
   _Parameters,
   AnalysisDefinition,
   AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
+  ApplicableTo,
+  ApprovalPolicy,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportJobValidationStrategy,
   AssetBundleImportJobOverrideParameters,
@@ -49,12 +71,14 @@ import type {
   BrandDefinition,
   BrandDetail,
   Capabilities,
+  CapacityBytesRangeFilter,
   ColumnGroup,
   ColumnLevelPermissionRule,
   CustomPromptInput,
   DashboardPublishOptions,
   DashboardSourceEntity,
   DashboardVersionDefinition,
+  DataSetRefreshProperties,
   DataSourceParameters,
   Governance,
   LinkSharingConfiguration,
@@ -70,6 +94,7 @@ import type {
   CustomInstructions,
   DashboardSearchFilter,
   DashboardSummary,
+  DashboardVisualResult,
   DataPrepConfiguration,
   DatasetParameter,
   DataSetSearchFilter,
@@ -86,6 +111,8 @@ import type {
   PerformanceConfiguration,
   Permission,
   PhysicalTable,
+  ProfileLimitValue,
+  ProviderConfig,
   RefreshSchedule,
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
@@ -106,20 +133,1529 @@ import type {
   FlowSummary,
   FolderSearchFilter,
   FolderSummary,
+  GeneratedAnswerResult,
   GroupSearchFilter,
   KnowledgeBaseSearchFilter,
   KnowledgeBaseSortBy,
   KnowledgeBaseSummary,
+  NetworkInterface,
   RegisteredCustomerManagedKey,
   SelfUpgradeRequestDetail,
   SessionTag,
   SnapshotConfiguration,
   SpaceQuickSightResourceDetails,
   SpaceSummary,
-  TopicSummary,
-  TopicV2Summary,
+  TemplateVersionSummary,
   User,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface ListTemplateVersionsResponse {
+  /**
+   * <p>A structure containing a list of all the versions of the specified template.</p>
+   * @public
+   */
+  TemplateVersionSummaryList?: TemplateVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeAliasesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme aliases that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeAliasesResponse {
+  /**
+   * <p>A structure containing the list of the theme's aliases.</p>
+   * @public
+   */
+  ThemeAliasList?: ThemeAlias[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The type of themes that you want to list. Valid options include the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALL (default)</code>- Display all existing themes.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM</code> - Display only the themes created by people using Amazon Quick Sight.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT</code> - Display only the starting themes defined by Quick Sight.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type?: ThemeType | undefined;
+}
+
+/**
+ * <p>The theme summary.</p>
+ * @public
+ */
+export interface ThemeSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>the display name for the theme.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The ID of the theme. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  ThemeId?: string | undefined;
+
+  /**
+   * <p>The latest version number for the theme. </p>
+   * @public
+   */
+  LatestVersionNumber?: number | undefined;
+
+  /**
+   * <p>The date and time that this theme was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The last date and time that this theme was updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemesResponse {
+  /**
+   * <p>Information about the themes in the list.</p>
+   * @public
+   */
+  ThemeSummaryList?: ThemeSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeVersionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the themes that you're listing.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   * @public
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The theme version.</p>
+ * @public
+ */
+export interface ThemeVersionSummary {
+  /**
+   * <p>The version number of the theme version.</p>
+   * @public
+   */
+  VersionNumber?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the theme version.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The description of the theme version.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The date and time that this theme version was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The status of the theme version.</p>
+   * @public
+   */
+  Status?: ResourceStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListThemeVersionsResponse {
+  /**
+   * <p>A structure containing a list of all the versions of the specified theme.</p>
+   * @public
+   */
+  ThemeVersionSummaryList?: ThemeVersionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicRefreshSchedulesRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topic whose refresh schedule
+   *          you want described.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * <p>A summary of the refresh schedule details for a dataset.</p>
+ * @public
+ */
+export interface TopicRefreshScheduleSummary {
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DatasetId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dataset.</p>
+   * @public
+   */
+  DatasetArn?: string | undefined;
+
+  /**
+   * <p>The name of the dataset.</p>
+   * @public
+   */
+  DatasetName?: string | undefined;
+
+  /**
+   * <p>The definition of a refresh schedule.</p>
+   * @public
+   */
+  RefreshSchedule?: TopicRefreshSchedule | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicRefreshSchedulesResponse {
+  /**
+   * <p>The ID for the topic that you want to describe. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  TopicArn?: string | undefined;
+
+  /**
+   * <p>The list of topic refresh schedules.</p>
+   * @public
+   */
+  RefreshSchedules?: TopicRefreshScheduleSummary[] | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicReviewedAnswersRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that containd the reviewed answers that you want listed.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the topic that contains the reviewed answer that you want to list. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topics that you want to
+   *          list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A topic summary.</p>
+ * @public
+ */
+export interface TopicSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID for the topic. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The user experience version of the topic.</p>
+   * @public
+   */
+  UserExperienceVersion?: TopicUserExperienceVersion | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsResponse {
+  /**
+   * <p>A list of topic summaries.</p>
+   * @public
+   */
+  TopicsSummaries?: TopicSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsV2Request {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the topics that you want to
+   *          list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>A summary of the topic.</p>
+ * @public
+ */
+export interface TopicV2Summary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the topic.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the topic. This ID is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   * @public
+   */
+  TopicId?: string | undefined;
+
+  /**
+   * <p>The name of the topic.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTopicsV2Response {
+  /**
+   * <p>A list of topic summaries.</p>
+   * @public
+   */
+  TopicSummaryList?: TopicV2Summary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserGroupsRequest {
+  /**
+   * <p>The Amazon Quick Sight user name that you want to list group memberships for.</p>
+   * @public
+   */
+  UserName: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID that the user is in. Currently, you use the ID for the Amazon Web Services account
+   * 			that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUserGroupsResponse {
+  /**
+   * <p>The list of groups the user is a member of.</p>
+   * @public
+   */
+  GroupList?: Group[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsersRequest {
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return from this request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsersResponse {
+  /**
+   * <p>The list of users.</p>
+   * @public
+   */
+  UserList?: User[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * <p>A filter that matches users by username or email prefix.</p>
+ * @public
+ */
+export interface UserNameOrEmailFilter {
+  /**
+   * <p>The prefix to match against username or email (starts-with match).</p>
+   * @public
+   */
+  prefix: string | undefined;
+}
+
+/**
+ * <p>A filter for user index capacity queries. Only one filter type can be specified per request.</p>
+ * @public
+ */
+export type UserIndexCapacityFilter =
+  | UserIndexCapacityFilter.TotalCapacityBytesMember
+  | UserIndexCapacityFilter.UserNameOrEmailMember
+  | UserIndexCapacityFilter.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace UserIndexCapacityFilter {
+  /**
+   * <p>Filter users by username or email prefix.</p>
+   * @public
+   */
+  export interface UserNameOrEmailMember {
+    userNameOrEmail: UserNameOrEmailFilter;
+    totalCapacityBytes?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filter users by total capacity range in bytes.</p>
+   * @public
+   */
+  export interface TotalCapacityBytesMember {
+    userNameOrEmail?: never;
+    totalCapacityBytes: CapacityBytesRangeFilter;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    userNameOrEmail?: never;
+    totalCapacityBytes?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    userNameOrEmail: (value: UserNameOrEmailFilter) => T;
+    totalCapacityBytes: (value: CapacityBytesRangeFilter) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListUsersIndexCapacityRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the index capacity data.</p>
+   * @public
+   */
+  awsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace to scope the user search to. Required when the userNameOrEmail filter is present.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>Filters to apply. Only one filter is supported per request. The userNameOrEmail and totalCapacityBytes filters are mutually exclusive.</p>
+   * @public
+   */
+  filters?: UserIndexCapacityFilter[] | undefined;
+
+  /**
+   * <p>The field to sort results by.</p>
+   * @public
+   */
+  sortBy?: UserIndexCapacitySortBy | undefined;
+
+  /**
+   * <p>The sort order for results. Defaults to DESC if not specified.</p>
+   * @public
+   */
+  sortOrder?: UserIndexCapacitySortOrder | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, received from a previous call.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>A summary of a user's index capacity consumption.</p>
+ * @public
+ */
+export interface UserIndexCapacity {
+  /**
+   * <p>The ARN of the user.</p>
+   * @public
+   */
+  userArn?: string | undefined;
+
+  /**
+   * <p>The username of the user.</p>
+   * @public
+   */
+  userName?: string | undefined;
+
+  /**
+   * <p>The email address of the user.</p>
+   * @public
+   */
+  email?: string | undefined;
+
+  /**
+   * <p>The role of the user.</p>
+   * @public
+   */
+  role?: string | undefined;
+
+  /**
+   * <p>The total index capacity consumed by the user in bytes.</p>
+   * @public
+   */
+  totalCapacityBytes?: number | undefined;
+
+  /**
+   * <p>The total index capacity consumed by the user's knowledge bases in bytes.</p>
+   * @public
+   */
+  totalKBCapacityBytes?: number | undefined;
+
+  /**
+   * <p>The total index capacity consumed by the user's spaces in bytes.</p>
+   * @public
+   */
+  totalSpaceCapacityBytes?: number | undefined;
+
+  /**
+   * <p>The number of knowledge bases owned by the user.</p>
+   * @public
+   */
+  kbCount?: number | undefined;
+
+  /**
+   * <p>The number of spaces owned by the user.</p>
+   * @public
+   */
+  spaceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListUsersIndexCapacityResponse {
+  /**
+   * <p>The list of users with their index capacity metrics.</p>
+   * @public
+   */
+  users?: UserIndexCapacity[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  requestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVPCConnectionsRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that contains the VPC connections
+   * 			that you want to list.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>The summary metadata that describes a VPC connection.</p>
+ * @public
+ */
+export interface VPCConnectionSummary {
+  /**
+   * <p>The ID of the VPC connection that
+   *             you're
+   *             creating. This ID is a unique identifier for each Amazon Web Services Region in an
+   *                 Amazon Web Services account.</p>
+   * @public
+   */
+  VPCConnectionId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the VPC connection.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The display name for the VPC connection.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 VPC ID associated with the VPC connection.</p>
+   * @public
+   */
+  VPCId?: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 security group IDs associated with the VPC connection.</p>
+   * @public
+   */
+  SecurityGroupIds?: string[] | undefined;
+
+  /**
+   * <p>A list of IP addresses of DNS resolver endpoints for the VPC connection.</p>
+   * @public
+   */
+  DnsResolvers?: string[] | undefined;
+
+  /**
+   * <p>The status of the VPC connection.</p>
+   * @public
+   */
+  Status?: VPCConnectionResourceStatus | undefined;
+
+  /**
+   * <p>The availability status of the VPC connection.</p>
+   * @public
+   */
+  AvailabilityStatus?: VPCConnectionAvailabilityStatus | undefined;
+
+  /**
+   * <p>A list of network interfaces.</p>
+   * @public
+   */
+  NetworkInterfaces?: NetworkInterface[] | undefined;
+
+  /**
+   * <p>The ARN of the IAM role associated
+   *             with the VPC connection.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The time that the VPC connection was created.</p>
+   * @public
+   */
+  CreatedTime?: Date | undefined;
+
+  /**
+   * <p>The time that the VPC connection was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListVPCConnectionsResponse {
+  /**
+   * <p>A <code>VPCConnectionSummaries</code> object that returns a summary of VPC connection
+   * 			objects.</p>
+   * @public
+   */
+  VPCConnectionSummaries?: VPCConnectionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more
+   * 			results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PredictQAResultsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that the user wants to execute Predict QA results in.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The query text to be used to predict QA results.</p>
+   * @public
+   */
+  QueryText: string | undefined;
+
+  /**
+   * <p>Indicates whether Q indicies are included or excluded.</p>
+   * @public
+   */
+  IncludeQuickSightQIndex?: IncludeQuickSightQIndex | undefined;
+
+  /**
+   * <p>Indicates whether generated answers are included or excluded.</p>
+   * @public
+   */
+  IncludeGeneratedAnswer?: IncludeGeneratedAnswer | undefined;
+
+  /**
+   * <p>The number of maximum topics to be considered to predict QA results.</p>
+   * @public
+   */
+  MaxTopicsToConsider?: number | undefined;
+}
+
+/**
+ * <p>The QA result that is made from the <code>DashboardVisual</code> or <code>GeneratedAnswer</code>.</p>
+ * @public
+ */
+export interface QAResult {
+  /**
+   * <p>The type of QA result.</p>
+   * @public
+   */
+  ResultType?: QAResultType | undefined;
+
+  /**
+   * <p>The representation of a dashboard visual result.</p>
+   * @public
+   */
+  DashboardVisual?: DashboardVisualResult | undefined;
+
+  /**
+   * <p>The representation of a generated answer result.</p>
+   * @public
+   */
+  GeneratedAnswer?: GeneratedAnswerResult | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PredictQAResultsResponse {
+  /**
+   * <p>The primary visual response.</p>
+   * @public
+   */
+  PrimaryResult?: QAResult | undefined;
+
+  /**
+   * <p>Additional visual responses.</p>
+   * @public
+   */
+  AdditionalResults?: QAResult[] | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataSetRefreshPropertiesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the dataset.</p>
+   * @public
+   */
+  DataSetId: string | undefined;
+
+  /**
+   * <p>The dataset refresh properties.</p>
+   * @public
+   */
+  DataSetRefreshProperties: DataSetRefreshProperties | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutDataSetRefreshPropertiesResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterUserRequest {
+  /**
+   * <p>The identity type that your Quick Sight account uses to manage the identity of users.</p>
+   * @public
+   */
+  IdentityType: IdentityType | undefined;
+
+  /**
+   * <p>The email address of the user that you want to register.</p>
+   * @public
+   */
+  Email: string | undefined;
+
+  /**
+   * <p>The Amazon Quick Sight role for the user. The user role can be one of the
+   * 			following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>READER</code>: A user who has read-only access to dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR</code>: A user who can create data sources, datasets, analyses, and
+   * 					dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN</code>: A user who is an author, who can also manage Amazon Quick Sight
+   * 					settings.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>READER_PRO</code>: Reader Pro adds Generative BI capabilities to the Reader role. Reader Pros have access to Amazon Q in Quick Sight, can build stories with Amazon Q, and can generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AUTHOR_PRO</code>: Author Pro adds Generative BI capabilities to the Author role. Author Pros can author dashboards with natural language with Amazon Q, build stories with Amazon Q, create Topics for Q&A, and generate executive summaries from dashboards.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADMIN_PRO</code>: Admin Pros are Author Pros who can also manage Amazon Quick Sight administrative settings. Admin Pro users are billed at Author Pro pricing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTRICTED_READER</code>: This role isn't currently available for
+   * 					use.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESTRICTED_AUTHOR</code>: This role isn't currently available for
+   * 					use.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  UserRole: UserRole | undefined;
+
+  /**
+   * <p>The ARN of the IAM user or role that you are registering with Amazon Quick Sight. </p>
+   * @public
+   */
+  IamArn?: string | undefined;
+
+  /**
+   * <p>You need to use this parameter only when you register one or more users using an assumed
+   * 			IAM role. You don't need to provide the session name for other scenarios, for example when
+   * 			you are registering an IAM user or an Amazon Quick Sight user. You can register multiple
+   * 			users using the same IAM role if each user has a different session name. For more
+   * 			information on assuming IAM roles, see <a href="https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html">
+   *                <code>assume-role</code>
+   *             </a> in the <i>CLI Reference.</i>
+   *          </p>
+   * @public
+   */
+  SessionName?: string | undefined;
+
+  /**
+   * <p>The ID for the Amazon Web Services account that the user is in. Currently, you use the ID for the
+   * 			Amazon Web Services account that contains your Amazon Quick Sight account.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The namespace. Currently, you should set this to <code>default</code>.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The Amazon Quick Sight user name that you want to create for the user you are
+   * 			registering.</p>
+   * @public
+   */
+  UserName?: string | undefined;
+
+  /**
+   * <p>(Enterprise edition only) The name of the custom permissions profile that you want to
+   *             assign to this user. Customized permissions allows you to control a user's access by
+   *             restricting access the following operations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Create and update data sources</p>
+   *             </li>
+   *             <li>
+   *                <p>Create and update datasets</p>
+   *             </li>
+   *             <li>
+   *                <p>Create and update email reports</p>
+   *             </li>
+   *             <li>
+   *                <p>Subscribe to email reports</p>
+   *             </li>
+   *          </ul>
+   *          <p>To add custom permissions to an existing user, use <code>
+   *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateUser.html">UpdateUser</a>
+   *             </code> instead.</p>
+   *          <p>A set of custom permissions includes any combination of these restrictions. Currently,
+   *             you need to create the profile names for custom permission sets by using the Quick Sight
+   *             console. Then, you use the <code>RegisterUser</code> API operation to assign the named set of
+   *             permissions to a Quick Sight user. </p>
+   *          <p>Quick Sight custom permissions are applied through IAM policies. Therefore, they
+   *             override the permissions typically granted by assigning Quick Sight users to one of the
+   *             default security cohorts in Quick Sight (admin, author, reader, admin pro, author pro, reader pro).</p>
+   *          <p>This feature is available only to Quick Sight Enterprise edition subscriptions.</p>
+   * @public
+   */
+  CustomPermissionsName?: string | undefined;
+
+  /**
+   * <p>The type of supported external login provider that provides identity to let a user federate into Amazon Quick Sight with an associated Identity and Access Management(IAM) role. The type of supported external login provider can be one of the following.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COGNITO</code>: Amazon Cognito. The provider URL is cognito-identity.amazonaws.com. When choosing the <code>COGNITO</code> provider type, don’t use the "CustomFederationProviderUrl" parameter which is only needed when the external provider is custom.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CUSTOM_OIDC</code>: Custom OpenID Connect (OIDC) provider. When choosing <code>CUSTOM_OIDC</code> type, use the <code>CustomFederationProviderUrl</code> parameter to provide the custom OIDC provider URL.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ExternalLoginFederationProviderType?: string | undefined;
+
+  /**
+   * <p>The URL of the custom OpenID Connect (OIDC) provider that provides identity to let a user federate
+   *          into Quick Sight with an associated Identity and Access Management(IAM) role. This parameter should
+   *          only be used when <code>ExternalLoginFederationProviderType</code> parameter is set to <code>CUSTOM_OIDC</code>.</p>
+   * @public
+   */
+  CustomFederationProviderUrl?: string | undefined;
+
+  /**
+   * <p>The identity ID for a user in the external login provider.</p>
+   * @public
+   */
+  ExternalLoginId?: string | undefined;
+
+  /**
+   * <p>The tags to associate with the user.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterUserResponse {
+  /**
+   * <p>The user's user name.</p>
+   * @public
+   */
+  User?: User | undefined;
+
+  /**
+   * <p>The URL the user visits to complete registration and provide a password. This is
+   * 			returned only for users with an identity type of <code>QUICKSIGHT</code>.</p>
+   * @public
+   */
+  UserInvitationUrl?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAnalysisRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the analysis.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're restoring.</p>
+   * @public
+   */
+  AnalysisId: string | undefined;
+
+  /**
+   * <p>A boolean value that determines if the analysis will be restored to folders that it previously resided in. A <code>True</code> value restores analysis back to all folders that it previously resided in. A <code>False</code> value restores the analysis but does not restore the analysis back to all previously resided folders. Restoring a restricted analysis requires this parameter to be set to <code>True</code>.</p>
+   * @public
+   */
+  RestoreToFolders?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreAnalysisResponse {
+  /**
+   * <p>The HTTP status of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the analysis that you're restoring.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+
+  /**
+   * <p>The ID of the analysis that you're restoring.
+   *         </p>
+   * @public
+   */
+  AnalysisId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>A list of folder arns thatthe analysis failed to be restored to.</p>
+   * @public
+   */
+  RestorationFailedFolderArns?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchActionConnectorsRequest {
+  /**
+   * <p>The Amazon Web Services account ID in which to search for action connectors.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The maximum number of action connectors to return in a single response. Valid range is 1 to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>A pagination token to retrieve the next set of results. Use the token returned from a previous call to continue searching.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The search filters to apply. You can filter by connector name, type, or user permissions. Maximum of one filter is supported.</p>
+   * @public
+   */
+  Filters: ActionConnectorSearchFilter[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchActionConnectorsResponse {
+  /**
+   * <p>A pagination token to retrieve the next set of results. If null, there are no more results to retrieve.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>The HTTP status code of the request.</p>
+   * @public
+   */
+  Status?: number | undefined;
+
+  /**
+   * <p>A list of action connector summaries that match the search criteria.</p>
+   * @public
+   */
+  ActionConnectorSummaries?: ActionConnectorSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAgentsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the agents.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply when searching agents.</p>
+   * @public
+   */
+  Filters: AgentSearchFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchAgentsResponse {
+  /**
+   * <p>A list of agent summaries.</p>
+   * @public
+   */
+  AgentSummaries?: AgentSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
 
 /**
  * @public
@@ -2089,6 +3625,64 @@ export interface UpdateApplicationWithTokenExchangeGrantResponse {
 /**
  * @public
  */
+export interface UpdateApprovalPolicyRequest {
+  /**
+   * <p>The unique identifier of the approval policy to update.</p>
+   * @public
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>The name of the approval policy.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A description of the approval policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The list of governed actions that trigger the approval workflow.</p>
+   * @public
+   */
+  Actions?: GovernedAction[] | undefined;
+
+  /**
+   * <p>The list of asset types that the approval policy applies to.</p>
+   * @public
+   */
+  AssetTypes?: AssetType[] | undefined;
+
+  /**
+   * <p>The scoping configuration that determines who the approval policy applies to.</p>
+   * @public
+   */
+  ApplicableTo?: ApplicableTo | undefined;
+
+  /**
+   * <p>The list of group ARNs whose members can approve requests.</p>
+   * @public
+   */
+  ApprovalGroups?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateApprovalPolicyResponse {
+  /**
+   * <p>The updated approval policy.</p>
+   * @public
+   */
+  Policy: ApprovalPolicy | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateBrandRequest {
   /**
    * <p>The ID of the Amazon Web Services account that owns the brand.</p>
@@ -3076,6 +4670,76 @@ export interface UpdateDefaultQBusinessApplicationResponse {
 /**
  * @public
  */
+export interface UpdateDlpSettingRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the DLP setting that you want to update.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the DLP setting that you want to update.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>An updated display name for the DLP setting.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>An updated DLP provider type. Currently, the only supported value is <code>MICROSOFT_PURVIEW</code>.</p>
+   * @public
+   */
+  ProviderType?: DlpProviderType | undefined;
+
+  /**
+   * <p>An updated provider-specific configuration for the DLP integration. This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  ProviderConfig?: ProviderConfig | undefined;
+
+  /**
+   * <p>An updated behavior to apply when the DLP provider is unreachable. Valid values are <code>ALLOW</code>, <code>WARN</code>, and <code>BLOCK</code>.</p>
+   * @public
+   */
+  ProviderOutageAction?: DlpAction | undefined;
+
+  /**
+   * <p>Specifies whether DLP enforcement is active for this setting. Set to <code>true</code> to enable enforcement, or <code>false</code> to disable it.</p>
+   * @public
+   */
+  Enabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDlpSettingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated DLP setting.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the updated DLP setting.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateFlowRequest {
   /**
    * <p>The ID of the Amazon Web Services account that contains the flow that you are updating.</p>
@@ -3809,6 +5473,52 @@ export interface UpdateKnowledgeBasePermissionsResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLimitsProfileRequest {
+  /**
+   * <p>The unique identifier for the limits profile to update.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the limits profile.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>A new display name for the limits profile.</p>
+   * @public
+   */
+  profileName?: string | undefined;
+
+  /**
+   * <p>A new description for the limits profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of resource types to their updated limit values.</p>
+   * @public
+   */
+  resourceLimits?: Partial<Record<ResourceType, ProfileLimitValue>> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateLimitsProfileResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated limits profile.</p>
+   * @public
+   */
+  arn: string | undefined;
 }
 
 /**

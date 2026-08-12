@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeAssetBundleImportJobRequest, DescribeAssetBundleImportJobResponse } from "../models/models_3";
+import type { DescribeAssetBundleImportJobRequest, DescribeAssetBundleImportJobResponse } from "../models/models_4";
 import { DescribeAssetBundleImportJob$ } from "../schemas/schemas_0";
 
 /**
@@ -368,6 +368,13 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //         ParentFolderArn: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     TopicsV2: [ // AssetBundleImportJobTopicV2OverrideParametersList
+ * //       { // AssetBundleImportJobTopicV2OverrideParameters
+ * //         TopicId: "STRING_VALUE", // required
+ * //         Name: "STRING_VALUE",
+ * //         Description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * //   FailureAction: "DO_NOTHING" || "ROLLBACK",
  * //   RequestId: "STRING_VALUE",
@@ -457,6 +464,12 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //         Permissions: "<AssetBundleResourcePermissions>",
  * //       },
  * //     ],
+ * //     TopicsV2: [ // AssetBundleImportJobTopicV2OverridePermissionsList
+ * //       { // AssetBundleImportJobTopicV2OverridePermissions
+ * //         TopicIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Permissions: "<AssetBundleResourcePermissions>", // required
+ * //       },
+ * //     ],
  * //   },
  * //   OverrideTags: { // AssetBundleImportJobOverrideTags
  * //     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
@@ -523,6 +536,12 @@ export interface DescribeAssetBundleImportJobCommandOutput extends DescribeAsset
  * //     Folders: [ // AssetBundleImportJobFolderOverrideTagsList
  * //       { // AssetBundleImportJobFolderOverrideTags
  * //         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ * //         Tags: "<TagList>", // required
+ * //       },
+ * //     ],
+ * //     TopicsV2: [ // AssetBundleImportJobTopicV2OverrideTagsList
+ * //       { // AssetBundleImportJobTopicV2OverrideTags
+ * //         TopicIds: "<AssetBundleRestrictiveResourceIdList>", // required
  * //         Tags: "<TagList>", // required
  * //       },
  * //     ],

@@ -2,13 +2,8 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
-  AssetBundleExportFormat,
-  AssetBundleExportJobStatus,
-  AssetBundleImportFailureAction,
-  AssetBundleImportJobStatus,
   AssignmentStatus,
   AuthorSpecifiedAggregation,
-  AutomationJobStatus,
   CategoryFilterFunction,
   CategoryFilterType,
   ColumnDataRole,
@@ -19,10 +14,14 @@ import type {
   CredentialStatus,
   DashboardErrorType,
   DashboardFilterAttribute,
+  DataSetDateComparisonFilterOperator,
   DataSetFilterAttribute,
   DataSetImportMode,
+  DataSetNumericComparisonFilterOperator,
   DatasetParameterValueType,
   DataSetStatus,
+  DataSetStringComparisonFilterOperator,
+  DataSetStringListFilterOperator,
   DataSetUseAs,
   DataSourceErrorInfoType,
   DataSourceFilterAttribute,
@@ -30,6 +29,8 @@ import type {
   DayOfWeek,
   DefaultAggregation,
   DisplayFormat,
+  DlpAction,
+  DlpProviderType,
   FileFormat,
   FilterClass,
   FilterOperator,
@@ -37,11 +38,11 @@ import type {
   HorizontalTextAlignment,
   IdentityStore,
   ImageExtractionStatus,
-  IncludeFolderMembers,
   IngestionStatus,
   IngestionType,
   JoinOperationType,
   JoinType,
+  LimitUnit,
   MemberType,
   NamedEntityAggType,
   NamedFilterAggType,
@@ -53,6 +54,7 @@ import type {
   PropertyUsage,
   RefreshInterval,
   ResourceStatus,
+  ResourceType,
   Role,
   RowLevelPermissionFormatVersion,
   RowLevelPermissionPolicy,
@@ -74,15 +76,8 @@ import type {
 } from "./enums";
 import type {
   AccessControlConfiguration,
-  AccountCustomization,
-  AccountInfo,
-  AccountSettings,
-  ActionConnector,
-  Agent,
   AggregateOperation,
-  Analysis,
   AnalysisDefaults,
-  AnalysisError,
   AssetOptions,
   CalculatedField,
   ColumnConfiguration,
@@ -97,19 +92,7 @@ import type {
   TransformOperationSource,
 } from "./models_0";
 import type {
-  AnalysisDefinition,
   AppendOperation,
-  AssetBundleCloudFormationOverridePropertyConfiguration,
-  AssetBundleExportJobError,
-  AssetBundleExportJobValidationStrategy,
-  AssetBundleExportJobWarning,
-  AssetBundleImportJobError,
-  AssetBundleImportJobOverrideParameters,
-  AssetBundleImportJobOverridePermissions,
-  AssetBundleImportJobOverrideTags,
-  AssetBundleImportJobOverrideValidationStrategy,
-  AssetBundleImportJobWarning,
-  AssetBundleImportSourceDescription,
   AudioExtractionConfiguration,
   BorderStyle,
   Capabilities,
@@ -127,11 +110,7 @@ import type {
   ComparativeOrder,
   ControlTitleFontConfiguration,
   CreateColumnsOperation,
-  DataSetDateFilterCondition,
-  DataSetNumericFilterCondition,
   DataSetReference,
-  DataSetStringComparisonFilterCondition,
-  DataSetStringListFilterCondition,
   DataSourceParameters,
   DestinationTable,
   DisplayFormatOptions,
@@ -139,7 +118,6 @@ import type {
   InputColumn,
   ResourcePermission,
   SheetDefinition,
-  SourceTable,
   SslProperties,
   StaticFile,
   Tag,
@@ -148,6 +126,277 @@ import type {
   ValidationStrategy,
   VpcConnectionProperties,
 } from "./models_2";
+
+/**
+ * <p>References a parent dataset that serves as a data source, including its columns and metadata.</p>
+ * @public
+ */
+export interface ParentDataSet {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the parent dataset.</p>
+   * @public
+   */
+  DataSetArn: string | undefined;
+
+  /**
+   * <p>The list of input columns available from the parent dataset.</p>
+   * @public
+   */
+  InputColumns: InputColumn[] | undefined;
+}
+
+/**
+ * <p>A source table that provides initial data from either a physical table or parent dataset.</p>
+ * @public
+ */
+export interface SourceTable {
+  /**
+   * <p>The identifier of the physical table that serves as the data source.</p>
+   * @public
+   */
+  PhysicalTableId?: string | undefined;
+
+  /**
+   * <p>A parent dataset that serves as the data source instead of a physical table.</p>
+   * @public
+   */
+  DataSet?: ParentDataSet | undefined;
+}
+
+/**
+ * <p>Represents a date value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetDateFilterValue {
+  /**
+   * <p>A static date value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: Date | undefined;
+}
+
+/**
+ * <p>A filter condition that compares date values using operators like <code>BEFORE</code>, <code>AFTER</code>, or
+ *            their inclusive variants.</p>
+ * @public
+ */
+export interface DataSetDateComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>BEFORE</code>, <code>BEFORE_OR_EQUALS_TO</code>, <code>AFTER</code>,
+   *            or <code>AFTER_OR_EQUALS_TO</code>.</p>
+   * @public
+   */
+  Operator: DataSetDateComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The date value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetDateFilterValue | undefined;
+}
+
+/**
+ * <p>A filter condition that filters date values within a specified range.</p>
+ * @public
+ */
+export interface DataSetDateRangeFilterCondition {
+  /**
+   * <p>The minimum date value for the range filter.</p>
+   * @public
+   */
+  RangeMinimum?: DataSetDateFilterValue | undefined;
+
+  /**
+   * <p>The maximum date value for the range filter.</p>
+   * @public
+   */
+  RangeMaximum?: DataSetDateFilterValue | undefined;
+
+  /**
+   * <p>Whether to include the minimum value in the filter range.</p>
+   * @public
+   */
+  IncludeMinimum?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the maximum value in the filter range.</p>
+   * @public
+   */
+  IncludeMaximum?: boolean | undefined;
+}
+
+/**
+ * <p>A filter condition for date columns, supporting both comparison and range-based filtering.</p>
+ * @public
+ */
+export interface DataSetDateFilterCondition {
+  /**
+   * <p>The name of the date column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the date column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetDateComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A range-based filter condition for the date column, filtering values between minimum and maximum dates.</p>
+   * @public
+   */
+  RangeFilterCondition?: DataSetDateRangeFilterCondition | undefined;
+}
+
+/**
+ * <p>Represents a numeric value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetNumericFilterValue {
+  /**
+   * <p>A static numeric value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: number | undefined;
+}
+
+/**
+ * <p>A filter condition that compares numeric values using operators like <code>EQUALS</code>, <code>GREATER_THAN</code>,
+ *            or <code>LESS_THAN</code>.</p>
+ * @public
+ */
+export interface DataSetNumericComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>LESS_THAN</code>,
+   *            or their variants.</p>
+   * @public
+   */
+  Operator: DataSetNumericComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The numeric value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetNumericFilterValue | undefined;
+}
+
+/**
+ * <p>A filter condition that filters numeric values within a specified range.</p>
+ * @public
+ */
+export interface DataSetNumericRangeFilterCondition {
+  /**
+   * <p>The minimum numeric value for the range filter.</p>
+   * @public
+   */
+  RangeMinimum?: DataSetNumericFilterValue | undefined;
+
+  /**
+   * <p>The maximum numeric value for the range filter.</p>
+   * @public
+   */
+  RangeMaximum?: DataSetNumericFilterValue | undefined;
+
+  /**
+   * <p>Whether to include the minimum value in the filter range.</p>
+   * @public
+   */
+  IncludeMinimum?: boolean | undefined;
+
+  /**
+   * <p>Whether to include the maximum value in the filter range.</p>
+   * @public
+   */
+  IncludeMaximum?: boolean | undefined;
+}
+
+/**
+ * <p>A filter condition for numeric columns, supporting both comparison and range-based filtering.</p>
+ * @public
+ */
+export interface DataSetNumericFilterCondition {
+  /**
+   * <p>The name of the numeric column to filter.</p>
+   * @public
+   */
+  ColumnName?: string | undefined;
+
+  /**
+   * <p>A comparison-based filter condition for the numeric column.</p>
+   * @public
+   */
+  ComparisonFilterCondition?: DataSetNumericComparisonFilterCondition | undefined;
+
+  /**
+   * <p>A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.</p>
+   * @public
+   */
+  RangeFilterCondition?: DataSetNumericRangeFilterCondition | undefined;
+}
+
+/**
+ * <p>Represents a string value used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetStringFilterValue {
+  /**
+   * <p>A static string value used for filtering.</p>
+   * @public
+   */
+  StaticValue?: string | undefined;
+}
+
+/**
+ * <p>A filter condition that compares string values using operators like <code>EQUALS</code>, <code>CONTAINS</code>,
+ *            or <code>STARTS_WITH</code>.</p>
+ * @public
+ */
+export interface DataSetStringComparisonFilterCondition {
+  /**
+   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>,
+   *            <code>ENDS_WITH</code>, or their negations.</p>
+   * @public
+   */
+  Operator: DataSetStringComparisonFilterOperator | undefined;
+
+  /**
+   * <p>The string value to compare against.</p>
+   * @public
+   */
+  Value?: DataSetStringFilterValue | undefined;
+}
+
+/**
+ * <p>Represents a list of string values used in filter conditions.</p>
+ * @public
+ */
+export interface DataSetStringListFilterValue {
+  /**
+   * <p>A list of static string values used for filtering.</p>
+   * @public
+   */
+  StaticValues?: string[] | undefined;
+}
+
+/**
+ * <p>A filter condition that includes or excludes string values from a specified list.</p>
+ * @public
+ */
+export interface DataSetStringListFilterCondition {
+  /**
+   * <p>The list operator to use, either <code>INCLUDE</code> to match values in the list or <code>EXCLUDE</code> to
+   *            filter out values in the list.</p>
+   * @public
+   */
+  Operator: DataSetStringListFilterOperator | undefined;
+
+  /**
+   * <p>The list of string values to include or exclude in the filter.</p>
+   * @public
+   */
+  Values?: DataSetStringListFilterValue | undefined;
+}
 
 /**
  * <p>A filter condition for string columns, supporting both comparison and list-based filtering.</p>
@@ -2346,6 +2595,181 @@ export interface CreateDataSourceResponse {
 }
 
 /**
+ * <p>The credentials for Microsoft Purview DLP integration. The credentials are stored in Amazon Web Services Secrets Manager and referenced by ARN.</p>
+ * @public
+ */
+export interface MicrosoftPurviewCredentials {
+  /**
+   * <p>The ARN of the Amazon Web Services Secrets Manager secret that contains the Microsoft Purview OAuth credentials. The secret includes the Azure tenant ID, client ID, and client secret or certificate.</p>
+   * @public
+   */
+  SecretArn: string | undefined;
+}
+
+/**
+ * <p>Maps a sensitivity label from Microsoft Purview to an enforcement action.</p>
+ * @public
+ */
+export interface LabelActionMapping {
+  /**
+   * <p>The identifier of the sensitivity label from the DLP provider.</p>
+   * @public
+   */
+  LabelId: string | undefined;
+
+  /**
+   * <p>The display name of the sensitivity label from the DLP provider.</p>
+   * @public
+   */
+  LabelName: string | undefined;
+
+  /**
+   * <p>The enforcement action to apply when content with this sensitivity label is detected. Valid values are <code>ALLOW</code>, <code>BLOCK</code>, and <code>WARN</code>.</p>
+   * @public
+   */
+  Action: DlpAction | undefined;
+}
+
+/**
+ * <p>The full configuration for Microsoft Purview DLP integration, including the provider credentials and the label-action mappings that define the enforcement policy.</p>
+ * @public
+ */
+export interface MicrosoftPurviewProviderConfig {
+  /**
+   * <p>The credentials used to authenticate with Microsoft Purview.</p>
+   * @public
+   */
+  Credentials: MicrosoftPurviewCredentials | undefined;
+
+  /**
+   * <p>The mappings from Microsoft Purview sensitivity labels to enforcement actions.</p>
+   * @public
+   */
+  LabelActionMappings: LabelActionMapping[] | undefined;
+
+  /**
+   * <p>The default action to apply to content that has no sensitivity label or whose label is not mapped. Valid values are <code>ALLOW</code>, <code>BLOCK</code>, and <code>WARN</code>.</p>
+   * @public
+   */
+  UnmappedAction: DlpAction | undefined;
+}
+
+/**
+ * <p>The provider-specific configuration for a DLP integration. This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ * @public
+ */
+export type ProviderConfig =
+  | ProviderConfig.MicrosoftPurviewMember
+  | ProviderConfig.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ProviderConfig {
+  /**
+   * <p>The configuration for a Microsoft Purview DLP integration.</p>
+   * @public
+   */
+  export interface MicrosoftPurviewMember {
+    MicrosoftPurview: MicrosoftPurviewProviderConfig;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    MicrosoftPurview?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    MicrosoftPurview: (value: MicrosoftPurviewProviderConfig) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateDlpSettingRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account in which to create the DLP setting.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>A unique identifier for the DLP setting.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>A human-readable display name for the DLP setting.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of external DLP provider to use for sensitivity label classification. Currently, the only supported value is <code>MICROSOFT_PURVIEW</code>.</p>
+   * @public
+   */
+  ProviderType: DlpProviderType | undefined;
+
+  /**
+   * <p>The provider-specific configuration for the DLP integration. This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+   * @public
+   */
+  ProviderConfig: ProviderConfig | undefined;
+
+  /**
+   * <p>The behavior to apply when the DLP provider is unreachable. Valid values are <code>ALLOW</code>, <code>WARN</code>, and <code>BLOCK</code>.</p>
+   * @public
+   */
+  ProviderOutageAction: DlpAction | undefined;
+
+  /**
+   * <p>Specifies whether DLP enforcement is active for this setting. Set to <code>true</code> to enable enforcement, or <code>false</code> to disable it at time of setting creation.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>A list of resource tags to apply to the DLP setting. You can use tags to manage access to your Amazon Web Services resources.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDlpSettingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created DLP setting.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the created DLP setting.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
  * <p>A structure that contains the permission information for one principal against one flow.</p>
  * @public
  */
@@ -3014,12 +3438,36 @@ export interface CreateIngestionResponse {
 }
 
 /**
- * <p>The template configuration for a knowledge base.</p>
+ * <p>The template configuration for a knowledge base. This object contains connector-specific configuration that defines how data is crawled and indexed.</p>
  * @public
  */
 export interface KbTemplateConfiguration {
   /**
-   * <p>The template document that defines the knowledge base behavior.</p>
+   * <p>The connector configuration for the knowledge base data source. The structure depends on the connector type of the data source referenced by <code>DataSourceArn</code>.</p>
+   *          <p>The template must be a JSON object. The required fields vary by connector type:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>Amazon S3</b> (<code>S3V2</code>) – Requires <code>connectionConfiguration</code> with <code>bucketName</code>. Supports <code>filterConfiguration</code> for inclusion and exclusion prefixes and patterns. Supports <code>accessControlConfiguration</code> and <code>deletionProtectionConfiguration</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Google Drive</b> (<code>GOOGLEDRIVEV3</code>) – Requires <code>connectionConfiguration</code> with <code>authType</code> set to <code>SERVICE_ACCOUNT</code>. Supports <code>dataEntityConfiguration</code> with <code>crawlMyDrive</code>, <code>crawlSharedWithMe</code>, and <code>crawlSharedDrives</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OneDrive</b> (<code>ONEDRIVEV3</code>) – Requires <code>authType</code> at the template root level set to <code>TWO_LEGGED_OAUTH</code>. Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>crawlPersonalDrives</code> and <code>crawlSharedWithMe</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SharePoint</b> (<code>SHAREPOINTV3</code>) – Requires <code>connectionConfiguration</code> with <code>tenantId</code> in UUID format. Supports <code>dataEntityConfiguration</code> with <code>siteUrls</code>, <code>crawlFiles</code>, and <code>crawlPages</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>Web Crawler</b> (<code>WEBCRAWLERV3</code>) – Requires <code>connectionConfiguration</code> with <code>seedUrls</code> or <code>siteMapUrls</code> (mutually exclusive) and <code>authType</code>. Supports <code>crawlConfiguration</code> for crawl depth, rate limits, and scope. Supports <code>filterConfiguration</code> for file size limits and URL patterns. Valid values for <code>authType</code>: <code>NO_AUTH</code>, <code>BASIC_AUTH</code>, <code>FORM</code>, <code>SAML</code>.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The optional <code>deletionProtectionConfiguration</code> object is supported by all connector types. It contains <code>enableDeletionProtection</code> and <code>deletionProtectionThreshold</code>.</p>
    * @public
    */
   template?: __DocumentType | undefined;
@@ -3031,7 +3479,7 @@ export interface KbTemplateConfiguration {
  */
 export interface KnowledgeBaseConfiguration {
   /**
-   * <p>The template configuration for the knowledge base.</p>
+   * <p>The template configuration that defines how the data source connector crawls and indexes data for the knowledge base. The template structure varies by connector type. See <code>KbTemplateConfiguration</code> for connector-specific details.</p>
    * @public
    */
   templateConfiguration?: KbTemplateConfiguration | undefined;
@@ -3195,6 +3643,76 @@ export interface CreateKnowledgeBaseResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * <p>A value that defines a resource usage limit, consisting of a maximum value and a unit of measurement.</p>
+ * @public
+ */
+export interface ProfileLimitValue {
+  /**
+   * <p>The maximum allowed value for the resource.</p>
+   * @public
+   */
+  maxValue: number | undefined;
+
+  /**
+   * <p>The unit of measurement for the limit value.</p>
+   * @public
+   */
+  unit: LimitUnit | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLimitsProfileRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the limits profile.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>A display name for the limits profile.</p>
+   * @public
+   */
+  profileName: string | undefined;
+
+  /**
+   * <p>A description for the limits profile.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A map of resource types to their limit values for this profile.</p>
+   * @public
+   */
+  resourceLimits: Partial<Record<ResourceType, ProfileLimitValue>> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, the service ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateLimitsProfileResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created limits profile.</p>
+   * @public
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the created limits profile.</p>
+   * @public
+   */
+  profileId: string | undefined;
 }
 
 /**
@@ -7250,6 +7768,22 @@ export interface DeleteAnalysisResponse {
 /**
  * @public
  */
+export interface DeleteApprovalPolicyRequest {
+  /**
+   * <p>The unique identifier of the approval policy to delete.</p>
+   * @public
+   */
+  PolicyId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteApprovalPolicyResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteBrandRequest {
   /**
    * <p>The ID of the Amazon Web Services account that owns the brand.</p>
@@ -7551,6 +8085,46 @@ export interface DeleteDefaultQBusinessApplicationResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDlpSettingRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the DLP setting that you want to delete.</p>
+   * @public
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID of the DLP setting that you want to delete.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDlpSettingResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted DLP setting.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The ID of the deleted DLP setting.</p>
+   * @public
+   */
+  DlpSettingId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -7892,6 +8466,34 @@ export interface DeleteKnowledgeBaseResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLimitsProfileRequest {
+  /**
+   * <p>The unique identifier for the limits profile to delete.</p>
+   * @public
+   */
+  profileId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the limits profile.</p>
+   * @public
+   */
+  accountId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLimitsProfileResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the deleted limits profile.</p>
+   * @public
+   */
+  arn: string | undefined;
 }
 
 /**
@@ -8716,1010 +9318,4 @@ export interface DeleteVPCConnectionResponse {
    * @public
    */
   Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that you want to describe Quick Sight customizations
-   *             for.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The Quick Sight namespace that you want to describe Quick Sight customizations
-   *             for.</p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The <code>Resolved</code> flag works with the other parameters to determine which view
-   *             of Quick Sight customizations is returned. You can add this flag to your command to use
-   *             the same view that Quick Sight uses to identify which customizations to apply to the
-   *             console. Omit this flag, or set it to <code>no-resolved</code>, to reveal customizations
-   *             that are configured at different levels. </p>
-   * @public
-   */
-  Resolved?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomizationResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the customization that's associated with this Amazon Web Services account.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The ID for the Amazon Web Services account that you're describing.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Quick Sight namespace that you're describing. </p>
-   * @public
-   */
-  Namespace?: string | undefined;
-
-  /**
-   * <p>The Quick Sight customizations that exist. </p>
-   * @public
-   */
-  AccountCustomization?: AccountCustomization | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomPermissionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account for which you want to describe the applied custom permissions profile.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountCustomPermissionResponse {
-  /**
-   * <p>The name of the custom permissions profile.</p>
-   * @public
-   */
-  CustomPermissionsName?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsRequest {
-  /**
-   * <p>The ID for the Amazon Web Services account that contains the settings that you want to list.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSettingsResponse {
-  /**
-   * <p>The Amazon Quick Sight settings for this Amazon Web Services account. This information
-   *             includes the edition of Amazon Quick Sight that you subscribed to (Standard or
-   *             Enterprise) and the notification email for the Amazon Quick Sight subscription. </p>
-   *          <p>In the Quick Sight console, the Amazon Quick Sight subscription is sometimes referred to
-   *             as a Quick Sight "account" even though it's technically not an account by
-   *             itself. Instead, it's a subscription to the Amazon Quick Sight service for your
-   *                 Amazon Web Services account. The edition that you subscribe to applies to Quick in every Amazon Web Services Region where you use it.</p>
-   * @public
-   */
-  AccountSettings?: AccountSettings | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionRequest {
-  /**
-   * <p>The Amazon Web Services account ID associated with your Quick Sight account.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAccountSubscriptionResponse {
-  /**
-   * <p>A structure that contains the following elements:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Your Quick Sight account name.</p>
-   *             </li>
-   *             <li>
-   *                <p>The edition of Quick Sight that your account is using.</p>
-   *             </li>
-   *             <li>
-   *                <p>The notification email address that is associated with the Amazon Quick Sight
-   *                     account.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>The authentication type of the Quick Sight account.</p>
-   *             </li>
-   *             <li>
-   *                <p>The status of the Quick Sight account's subscription.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  AccountInfo?: AccountInfo | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeActionConnectorRequest {
-  /**
-   * <p>The Amazon Web Services account ID that contains the action connector.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the action connector to describe.</p>
-   * @public
-   */
-  ActionConnectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeActionConnectorResponse {
-  /**
-   * <p>The detailed information about the action connector, including its configuration and current state.</p>
-   * @public
-   */
-  ActionConnector?: ActionConnector | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status code of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeActionConnectorPermissionsRequest {
-  /**
-   * <p>The Amazon Web Services account ID that contains the action connector.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The unique identifier of the action connector whose permissions you want to describe.</p>
-   * @public
-   */
-  ActionConnectorId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeActionConnectorPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the action connector.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The unique identifier of the action connector.</p>
-   * @public
-   */
-  ActionConnectorId?: string | undefined;
-
-  /**
-   * <p>The list of permissions associated with the action connector, including the principals and their allowed actions.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status code of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentRequest {
-  /**
-   * <p>The unique identifier for the agent.</p>
-   * @public
-   */
-  AgentId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentResponse {
-  /**
-   * <p>The full details of the agent, including its configuration, status, and associations.</p>
-   * @public
-   */
-  Agent: Agent | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentPermissionsRequest {
-  /**
-   * <p>The unique identifier for the agent.</p>
-   * @public
-   */
-  AgentId: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the agent.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAgentPermissionsResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the agent.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the agent.</p>
-   * @public
-   */
-  AgentId: string | undefined;
-
-  /**
-   * <p>The resource permissions for the agent.</p>
-   * @public
-   */
-  Permissions: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisResponse {
-  /**
-   * <p>A metadata structure that contains summary information for the analysis that you're
-   *             describing.</p>
-   * @public
-   */
-  Analysis?: Analysis | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis. You must be using the
-   *             Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis that you're describing. The ID is part of the URL of the
-   *             analysis.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisDefinitionResponse {
-  /**
-   * <p>The ID of the analysis described.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The descriptive name of the analysis.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>Errors associated with the analysis.</p>
-   * @public
-   */
-  Errors?: AnalysisError[] | undefined;
-
-  /**
-   * <p>Status associated with the analysis.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CREATION_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_IN_PROGRESS</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATE_FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceStatus?: ResourceStatus | undefined;
-
-  /**
-   * <p>The ARN of the theme of the analysis.</p>
-   * @public
-   */
-  ThemeArn?: string | undefined;
-
-  /**
-   * <p>The definition of an analysis.</p>
-   *          <p>A definition is the data model of all features in a Dashboard, Template, or Analysis.</p>
-   * @public
-   */
-  Definition?: AnalysisDefinition | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the analysis whose permissions you're
-   *             describing. You must be using the Amazon Web Services account that the analysis is in.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the analysis whose permissions you're describing. The ID is part of the
-   *             analysis URL.</p>
-   * @public
-   */
-  AnalysisId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAnalysisPermissionsResponse {
-  /**
-   * <p>The ID of the analysis whose permissions you're describing.</p>
-   * @public
-   */
-  AnalysisId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the analysis whose permissions you're
-   *             describing.</p>
-   * @public
-   */
-  AnalysisArn?: string | undefined;
-
-  /**
-   * <p>A structure that describes the principals and the resource-level permissions on an
-   *             analysis.</p>
-   * @public
-   */
-  Permissions?: ResourcePermission[] | undefined;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAssetBundleExportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account the export job is executed in. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job that you want described. The job ID is set when you start a new job
-   *          with a <code>StartAssetBundleExportJob</code> API call.</p>
-   * @public
-   */
-  AssetBundleExportJobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAssetBundleExportJobResponse {
-  /**
-   * <p>Indicates the status of a job through its queuing and execution.</p>
-   *          <p>Poll this <code>DescribeAssetBundleExportApi</code> until <code>JobStatus</code> is
-   *          either <code>SUCCESSFUL</code> or <code>FAILED</code>.</p>
-   * @public
-   */
-  JobStatus?: AssetBundleExportJobStatus | undefined;
-
-  /**
-   * <p>The URL to download the exported asset bundle data from.</p>
-   *          <p>This URL is available only after the job has succeeded. This URL is valid for 5 minutes
-   *          after issuance. Call <code>DescribeAssetBundleExportJob</code> again for a fresh URL if
-   *          needed.</p>
-   *          <p>The downloaded asset bundle is a zip file named <code>assetbundle-\{jobId\}.qs</code>. The
-   *          file has a <code>.qs</code> extension.</p>
-   *          <p>This URL can't be used in a <code>StartAssetBundleImportJob</code> API call and
-   *          should only be used for download purposes.</p>
-   * @public
-   */
-  DownloadUrl?: string | undefined;
-
-  /**
-   * <p>An array of error records that describes any failures that occurred during the export
-   *          job processing.</p>
-   *          <p>Error records accumulate while the job runs. The complete set of error records is
-   *          available after the job has completed and failed.</p>
-   * @public
-   */
-  Errors?: AssetBundleExportJobError[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the export job.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The time that the export job was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a
-   *             <code>StartAssetBundleExportJob</code> API call.</p>
-   * @public
-   */
-  AssetBundleExportJobId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account that the export job was executed in. </p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>A list of resource ARNs that exported with the job.</p>
-   * @public
-   */
-  ResourceArns?: string[] | undefined;
-
-  /**
-   * <p>The include dependencies flag.</p>
-   * @public
-   */
-  IncludeAllDependencies?: boolean | undefined;
-
-  /**
-   * <p>The format of the exported asset bundle. A <code>QUICKSIGHT_JSON</code> formatted file
-   *          can be used to make a <code>StartAssetBundleImportJob</code> API call. A
-   *             <code>CLOUDFORMATION_JSON</code> formatted file can be used in the CloudFormation
-   *          console and with the CloudFormation APIs.</p>
-   * @public
-   */
-  ExportFormat?: AssetBundleExportFormat | undefined;
-
-  /**
-   * <p>The CloudFormation override property configuration for the export job.</p>
-   * @public
-   */
-  CloudFormationOverridePropertyConfiguration?: AssetBundleCloudFormationOverridePropertyConfiguration | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>The include permissions flag.</p>
-   * @public
-   */
-  IncludePermissions?: boolean | undefined;
-
-  /**
-   * <p>The include tags flag.</p>
-   * @public
-   */
-  IncludeTags?: boolean | undefined;
-
-  /**
-   * <p>The validation strategy that is used to export the analysis or dashboard.</p>
-   * @public
-   */
-  ValidationStrategy?: AssetBundleExportJobValidationStrategy | undefined;
-
-  /**
-   * <p>An array of warning records that describe the analysis or dashboard that is exported.
-   *          This array includes UI errors that can be skipped during the validation process.</p>
-   *          <p>This property only appears if <code>StrictModeForAllResources</code> in
-   *             <code>ValidationStrategy</code> is set to <code>FALSE</code>.</p>
-   * @public
-   */
-  Warnings?: AssetBundleExportJobWarning[] | undefined;
-
-  /**
-   * <p>The include folder memberships flag.</p>
-   * @public
-   */
-  IncludeFolderMemberships?: boolean | undefined;
-
-  /**
-   * <p>A setting that determines whether folder members are included.</p>
-   * @public
-   */
-  IncludeFolderMembers?: IncludeFolderMembers | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAssetBundleImportJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account the import job was executed in. </p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a
-   *             <code>StartAssetBundleImportJob</code> API call.</p>
-   * @public
-   */
-  AssetBundleImportJobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAssetBundleImportJobResponse {
-  /**
-   * <p>Indicates the status of a job through its queuing and execution.</p>
-   *          <p>Poll the <code>DescribeAssetBundleImport</code> API until <code>JobStatus</code> returns
-   *          one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCESSFUL</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED_ROLLBACK_COMPLETED</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED_ROLLBACK_ERROR</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  JobStatus?: AssetBundleImportJobStatus | undefined;
-
-  /**
-   * <p>An array of error records that describes any failures that occurred during the export
-   *          job processing.</p>
-   *          <p>Error records accumulate while the job is still running. The complete set of error
-   *          records is available after the job has completed and failed.</p>
-   * @public
-   */
-  Errors?: AssetBundleImportJobError[] | undefined;
-
-  /**
-   * <p>An array of error records that describes any failures that occurred while an import job
-   *          was attempting a rollback.</p>
-   *          <p>Error records accumulate while the job is still running. The complete set of error
-   *          records is available after the job has completed and failed.</p>
-   * @public
-   */
-  RollbackErrors?: AssetBundleImportJobError[] | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the import job.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-
-  /**
-   * <p>The time that the import job was created.</p>
-   * @public
-   */
-  CreatedTime?: Date | undefined;
-
-  /**
-   * <p>The ID of the job. The job ID is set when you start a new job with a
-   *             <code>StartAssetBundleImportJob</code> API call.</p>
-   * @public
-   */
-  AssetBundleImportJobId?: string | undefined;
-
-  /**
-   * <p>The ID of the Amazon Web Services account the import job was executed in. </p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The source of the asset bundle zip file that contains the data that is imported by the
-   *          job.</p>
-   * @public
-   */
-  AssetBundleImportSource?: AssetBundleImportSourceDescription | undefined;
-
-  /**
-   * <p>Optional overrides that are applied to the resource configuration before import.</p>
-   * @public
-   */
-  OverrideParameters?: AssetBundleImportJobOverrideParameters | undefined;
-
-  /**
-   * <p>The failure action for the import job.</p>
-   * @public
-   */
-  FailureAction?: AssetBundleImportFailureAction | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-
-  /**
-   * <p>The HTTP status of the response.</p>
-   * @public
-   */
-  Status?: number | undefined;
-
-  /**
-   * <p>Optional permission overrides that are applied to the resource configuration before
-   *          import.</p>
-   * @public
-   */
-  OverridePermissions?: AssetBundleImportJobOverridePermissions | undefined;
-
-  /**
-   * <p>Optional tag overrides that are applied to the resource configuration before
-   *          import.</p>
-   * @public
-   */
-  OverrideTags?: AssetBundleImportJobOverrideTags | undefined;
-
-  /**
-   * <p>An optional validation strategy override for all analyses and dashboards to be applied
-   *          to the resource configuration before import.</p>
-   * @public
-   */
-  OverrideValidationStrategy?: AssetBundleImportJobOverrideValidationStrategy | undefined;
-
-  /**
-   * <p>An array of warning records that describe all permitted errors that are encountered
-   *          during the import job.</p>
-   * @public
-   */
-  Warnings?: AssetBundleImportJobWarning[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAutomationJobRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the automation job.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the automation group that contains the automation.</p>
-   * @public
-   */
-  AutomationGroupId: string | undefined;
-
-  /**
-   * <p>The ID of the automation that the job belongs to.</p>
-   * @public
-   */
-  AutomationId: string | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether to include the input payload in the response. If set to <code>true</code>, the input payload will be included. If set to <code>false</code>, the input payload will be returned as <code>null</code>.</p>
-   * @public
-   */
-  IncludeInputPayload?: boolean | undefined;
-
-  /**
-   * <p>A Boolean value that indicates whether to include the output payload in the response. If set to <code>true</code>, the output payload will be included. If set to <code>false</code>, the output payload will be returned as <code>null</code>.</p>
-   * @public
-   */
-  IncludeOutputPayload?: boolean | undefined;
-
-  /**
-   * <p>The ID of the automation job to describe.</p>
-   * @public
-   */
-  JobId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeAutomationJobResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the automation job.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The time that the automation job was created.</p>
-   * @public
-   */
-  CreatedAt?: Date | undefined;
-
-  /**
-   * <p>The time that the automation job started running.</p>
-   * @public
-   */
-  StartedAt?: Date | undefined;
-
-  /**
-   * <p>The time that the automation job finished running.</p>
-   * @public
-   */
-  EndedAt?: Date | undefined;
-
-  /**
-   * <p>The current status of the automation job.</p>
-   * @public
-   */
-  JobStatus: AutomationJobStatus | undefined;
-
-  /**
-   * <p>The input payload that was provided when the automation job was started. This field is only included when <code>IncludeInputPayload</code> is set to <code>true</code> in the request.</p>
-   * @public
-   */
-  InputPayload?: string | undefined;
-
-  /**
-   * <p>The output payload that was generated by the automation job. This field is only included when <code>IncludeOutputPayload</code> is set to <code>true</code> in the request.</p>
-   * @public
-   */
-  OutputPayload?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   * @public
-   */
-  RequestId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBrandRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that owns the brand.</p>
-   * @public
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID of the Quick brand.</p>
-   * @public
-   */
-  BrandId: string | undefined;
-
-  /**
-   * <p>The ID of the specific version. The default value is the latest version.</p>
-   * @public
-   */
-  VersionId?: string | undefined;
 }

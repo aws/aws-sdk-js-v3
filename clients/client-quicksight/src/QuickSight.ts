@@ -18,6 +18,11 @@ import {
   BatchDeleteTopicReviewedAnswerCommand,
 } from "./commands/BatchDeleteTopicReviewedAnswerCommand";
 import {
+  type BatchDescribeUserLimitsCommandInput,
+  type BatchDescribeUserLimitsCommandOutput,
+  BatchDescribeUserLimitsCommand,
+} from "./commands/BatchDescribeUserLimitsCommand";
+import {
   type CancelIngestionCommandInput,
   type CancelIngestionCommandOutput,
   CancelIngestionCommand,
@@ -48,6 +53,11 @@ import {
   CreateAnalysisCommand,
 } from "./commands/CreateAnalysisCommand";
 import {
+  type CreateApprovalPolicyCommandInput,
+  type CreateApprovalPolicyCommandOutput,
+  CreateApprovalPolicyCommand,
+} from "./commands/CreateApprovalPolicyCommand";
+import {
   type CreateBrandCommandInput,
   type CreateBrandCommandOutput,
   CreateBrandCommand,
@@ -72,6 +82,11 @@ import {
   type CreateDataSourceCommandOutput,
   CreateDataSourceCommand,
 } from "./commands/CreateDataSourceCommand";
+import {
+  type CreateDlpSettingCommandInput,
+  type CreateDlpSettingCommandOutput,
+  CreateDlpSettingCommand,
+} from "./commands/CreateDlpSettingCommand";
 import {
   type CreateFlowCommandInput,
   type CreateFlowCommandOutput,
@@ -112,6 +127,11 @@ import {
   type CreateKnowledgeBaseCommandOutput,
   CreateKnowledgeBaseCommand,
 } from "./commands/CreateKnowledgeBaseCommand";
+import {
+  type CreateLimitsProfileCommandInput,
+  type CreateLimitsProfileCommandOutput,
+  CreateLimitsProfileCommand,
+} from "./commands/CreateLimitsProfileCommand";
 import {
   type CreateNamespaceCommandInput,
   type CreateNamespaceCommandOutput,
@@ -208,6 +228,11 @@ import {
   DeleteAnalysisCommand,
 } from "./commands/DeleteAnalysisCommand";
 import {
+  type DeleteApprovalPolicyCommandInput,
+  type DeleteApprovalPolicyCommandOutput,
+  DeleteApprovalPolicyCommand,
+} from "./commands/DeleteApprovalPolicyCommand";
+import {
   type DeleteBrandAssignmentCommandInput,
   type DeleteBrandAssignmentCommandOutput,
   DeleteBrandAssignmentCommand,
@@ -248,6 +273,11 @@ import {
   DeleteDefaultQBusinessApplicationCommand,
 } from "./commands/DeleteDefaultQBusinessApplicationCommand";
 import {
+  type DeleteDlpSettingCommandInput,
+  type DeleteDlpSettingCommandOutput,
+  DeleteDlpSettingCommand,
+} from "./commands/DeleteDlpSettingCommand";
+import {
   type DeleteFlowCommandInput,
   type DeleteFlowCommandOutput,
   DeleteFlowCommand,
@@ -287,6 +317,11 @@ import {
   type DeleteKnowledgeBaseCommandOutput,
   DeleteKnowledgeBaseCommand,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import {
+  type DeleteLimitsProfileCommandInput,
+  type DeleteLimitsProfileCommandOutput,
+  DeleteLimitsProfileCommand,
+} from "./commands/DeleteLimitsProfileCommand";
 import {
   type DeleteNamespaceCommandInput,
   type DeleteNamespaceCommandOutput,
@@ -428,6 +463,11 @@ import {
   DescribeAnalysisPermissionsCommand,
 } from "./commands/DescribeAnalysisPermissionsCommand";
 import {
+  type DescribeApprovalPolicyCommandInput,
+  type DescribeApprovalPolicyCommandOutput,
+  DescribeApprovalPolicyCommand,
+} from "./commands/DescribeApprovalPolicyCommand";
+import {
   type DescribeAssetBundleExportJobCommandInput,
   type DescribeAssetBundleExportJobCommandOutput,
   DescribeAssetBundleExportJobCommand,
@@ -523,6 +563,11 @@ import {
   DescribeDefaultQBusinessApplicationCommand,
 } from "./commands/DescribeDefaultQBusinessApplicationCommand";
 import {
+  type DescribeDlpSettingCommandInput,
+  type DescribeDlpSettingCommandOutput,
+  DescribeDlpSettingCommand,
+} from "./commands/DescribeDlpSettingCommand";
+import {
   type DescribeFlowCommandInput,
   type DescribeFlowCommandOutput,
   DescribeFlowCommand,
@@ -582,6 +627,11 @@ import {
   type DescribeKnowledgeBasePermissionsCommandOutput,
   DescribeKnowledgeBasePermissionsCommand,
 } from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import {
+  type DescribeLimitsProfileCommandInput,
+  type DescribeLimitsProfileCommandOutput,
+  DescribeLimitsProfileCommand,
+} from "./commands/DescribeLimitsProfileCommand";
 import {
   type DescribeNamespaceCommandInput,
   type DescribeNamespaceCommandOutput,
@@ -758,6 +808,11 @@ import {
   ListAnalysesCommand,
 } from "./commands/ListAnalysesCommand";
 import {
+  type ListApprovalPoliciesCommandInput,
+  type ListApprovalPoliciesCommandOutput,
+  ListApprovalPoliciesCommand,
+} from "./commands/ListApprovalPoliciesCommand";
+import {
   type ListAssetBundleExportJobsCommandInput,
   type ListAssetBundleExportJobsCommandOutput,
   ListAssetBundleExportJobsCommand,
@@ -797,6 +852,11 @@ import {
   type ListDataSourcesCommandOutput,
   ListDataSourcesCommand,
 } from "./commands/ListDataSourcesCommand";
+import {
+  type ListDlpSettingsCommandInput,
+  type ListDlpSettingsCommandOutput,
+  ListDlpSettingsCommand,
+} from "./commands/ListDlpSettingsCommand";
 import { type ListFlowsCommandInput, type ListFlowsCommandOutput, ListFlowsCommand } from "./commands/ListFlowsCommand";
 import {
   type ListFolderMembersCommandInput,
@@ -848,6 +908,11 @@ import {
   type ListKnowledgeBasesCommandOutput,
   ListKnowledgeBasesCommand,
 } from "./commands/ListKnowledgeBasesCommand";
+import {
+  type ListLimitsProfilesCommandInput,
+  type ListLimitsProfilesCommandOutput,
+  ListLimitsProfilesCommand,
+} from "./commands/ListLimitsProfilesCommand";
 import {
   type ListNamespacesCommandInput,
   type ListNamespacesCommandOutput,
@@ -1125,6 +1190,11 @@ import {
   UpdateApplicationWithTokenExchangeGrantCommand,
 } from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
 import {
+  type UpdateApprovalPolicyCommandInput,
+  type UpdateApprovalPolicyCommandOutput,
+  UpdateApprovalPolicyCommand,
+} from "./commands/UpdateApprovalPolicyCommand";
+import {
   type UpdateBrandAssignmentCommandInput,
   type UpdateBrandAssignmentCommandOutput,
   UpdateBrandAssignmentCommand,
@@ -1195,6 +1265,11 @@ import {
   UpdateDefaultQBusinessApplicationCommand,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
 import {
+  type UpdateDlpSettingCommandInput,
+  type UpdateDlpSettingCommandOutput,
+  UpdateDlpSettingCommand,
+} from "./commands/UpdateDlpSettingCommand";
+import {
   type UpdateFlowCommandInput,
   type UpdateFlowCommandOutput,
   UpdateFlowCommand,
@@ -1249,6 +1324,11 @@ import {
   type UpdateKnowledgeBasePermissionsCommandOutput,
   UpdateKnowledgeBasePermissionsCommand,
 } from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import {
+  type UpdateLimitsProfileCommandInput,
+  type UpdateLimitsProfileCommandOutput,
+  UpdateLimitsProfileCommand,
+} from "./commands/UpdateLimitsProfileCommand";
 import {
   type UpdateOAuthClientApplicationCommandInput,
   type UpdateOAuthClientApplicationCommandOutput,
@@ -1383,6 +1463,7 @@ import { paginateDescribeFolderPermissions } from "./pagination/DescribeFolderPe
 import { paginateDescribeFolderResolvedPermissions } from "./pagination/DescribeFolderResolvedPermissionsPaginator";
 import { paginateListActionConnectors } from "./pagination/ListActionConnectorsPaginator";
 import { paginateListAnalyses } from "./pagination/ListAnalysesPaginator";
+import { paginateListApprovalPolicies } from "./pagination/ListApprovalPoliciesPaginator";
 import { paginateListAssetBundleExportJobs } from "./pagination/ListAssetBundleExportJobsPaginator";
 import { paginateListAssetBundleImportJobs } from "./pagination/ListAssetBundleImportJobsPaginator";
 import { paginateListBrands } from "./pagination/ListBrandsPaginator";
@@ -1391,6 +1472,7 @@ import { paginateListDashboards } from "./pagination/ListDashboardsPaginator";
 import { paginateListDashboardVersions } from "./pagination/ListDashboardVersionsPaginator";
 import { paginateListDataSets } from "./pagination/ListDataSetsPaginator";
 import { paginateListDataSources } from "./pagination/ListDataSourcesPaginator";
+import { paginateListDlpSettings } from "./pagination/ListDlpSettingsPaginator";
 import { paginateListFlows } from "./pagination/ListFlowsPaginator";
 import { paginateListFolderMembers } from "./pagination/ListFolderMembersPaginator";
 import { paginateListFoldersForResource } from "./pagination/ListFoldersForResourcePaginator";
@@ -1401,6 +1483,7 @@ import { paginateListIAMPolicyAssignmentsForUser } from "./pagination/ListIAMPol
 import { paginateListIAMPolicyAssignments } from "./pagination/ListIAMPolicyAssignmentsPaginator";
 import { paginateListIngestions } from "./pagination/ListIngestionsPaginator";
 import { paginateListKnowledgeBases } from "./pagination/ListKnowledgeBasesPaginator";
+import { paginateListLimitsProfiles } from "./pagination/ListLimitsProfilesPaginator";
 import { paginateListNamespaces } from "./pagination/ListNamespacesPaginator";
 import { paginateListOAuthClientApplications } from "./pagination/ListOAuthClientApplicationsPaginator";
 import { paginateListRoleMemberships } from "./pagination/ListRoleMembershipsPaginator";
@@ -1431,17 +1514,20 @@ const commands = {
   BatchCreateTopicReviewedAnswerCommand,
   BatchDeleteKnowledgeBaseCommand,
   BatchDeleteTopicReviewedAnswerCommand,
+  BatchDescribeUserLimitsCommand,
   CancelIngestionCommand,
   CreateAccountCustomizationCommand,
   CreateAccountSubscriptionCommand,
   CreateActionConnectorCommand,
   CreateAgentCommand,
   CreateAnalysisCommand,
+  CreateApprovalPolicyCommand,
   CreateBrandCommand,
   CreateCustomPermissionsCommand,
   CreateDashboardCommand,
   CreateDataSetCommand,
   CreateDataSourceCommand,
+  CreateDlpSettingCommand,
   CreateFlowCommand,
   CreateFolderCommand,
   CreateFolderMembershipCommand,
@@ -1450,6 +1536,7 @@ const commands = {
   CreateIAMPolicyAssignmentCommand,
   CreateIngestionCommand,
   CreateKnowledgeBaseCommand,
+  CreateLimitsProfileCommand,
   CreateNamespaceCommand,
   CreateOAuthClientApplicationCommand,
   CreateRefreshScheduleCommand,
@@ -1469,6 +1556,7 @@ const commands = {
   DeleteActionConnectorCommand,
   DeleteAgentCommand,
   DeleteAnalysisCommand,
+  DeleteApprovalPolicyCommand,
   DeleteBrandCommand,
   DeleteBrandAssignmentCommand,
   DeleteCustomPermissionsCommand,
@@ -1477,6 +1565,7 @@ const commands = {
   DeleteDataSetRefreshPropertiesCommand,
   DeleteDataSourceCommand,
   DeleteDefaultQBusinessApplicationCommand,
+  DeleteDlpSettingCommand,
   DeleteFlowCommand,
   DeleteFolderCommand,
   DeleteFolderMembershipCommand,
@@ -1485,6 +1574,7 @@ const commands = {
   DeleteIAMPolicyAssignmentCommand,
   DeleteIdentityPropagationConfigCommand,
   DeleteKnowledgeBaseCommand,
+  DeleteLimitsProfileCommand,
   DeleteNamespaceCommand,
   DeleteOAuthClientApplicationCommand,
   DeleteRefreshScheduleCommand,
@@ -1513,6 +1603,7 @@ const commands = {
   DescribeAnalysisCommand,
   DescribeAnalysisDefinitionCommand,
   DescribeAnalysisPermissionsCommand,
+  DescribeApprovalPolicyCommand,
   DescribeAssetBundleExportJobCommand,
   DescribeAssetBundleImportJobCommand,
   DescribeAutomationJobCommand,
@@ -1532,6 +1623,7 @@ const commands = {
   DescribeDataSourceCommand,
   DescribeDataSourcePermissionsCommand,
   DescribeDefaultQBusinessApplicationCommand,
+  DescribeDlpSettingCommand,
   DescribeFlowCommand,
   DescribeFolderCommand,
   DescribeFolderPermissionsCommand,
@@ -1544,6 +1636,7 @@ const commands = {
   DescribeKeyRegistrationCommand,
   DescribeKnowledgeBaseCommand,
   DescribeKnowledgeBasePermissionsCommand,
+  DescribeLimitsProfileCommand,
   DescribeNamespaceCommand,
   DescribeOAuthClientApplicationCommand,
   DescribeQPersonalizationConfigurationCommand,
@@ -1579,6 +1672,7 @@ const commands = {
   ListActionConnectorsCommand,
   ListAgentsCommand,
   ListAnalysesCommand,
+  ListApprovalPoliciesCommand,
   ListAssetBundleExportJobsCommand,
   ListAssetBundleImportJobsCommand,
   ListBrandsCommand,
@@ -1587,6 +1681,7 @@ const commands = {
   ListDashboardVersionsCommand,
   ListDataSetsCommand,
   ListDataSourcesCommand,
+  ListDlpSettingsCommand,
   ListFlowsCommand,
   ListFolderMembersCommand,
   ListFoldersCommand,
@@ -1598,6 +1693,7 @@ const commands = {
   ListIdentityPropagationConfigsCommand,
   ListIngestionsCommand,
   ListKnowledgeBasesCommand,
+  ListLimitsProfilesCommand,
   ListNamespacesCommand,
   ListOAuthClientApplicationsCommand,
   ListRefreshSchedulesCommand,
@@ -1654,6 +1750,7 @@ const commands = {
   UpdateAnalysisCommand,
   UpdateAnalysisPermissionsCommand,
   UpdateApplicationWithTokenExchangeGrantCommand,
+  UpdateApprovalPolicyCommand,
   UpdateBrandCommand,
   UpdateBrandAssignmentCommand,
   UpdateBrandPublishedVersionCommand,
@@ -1668,6 +1765,7 @@ const commands = {
   UpdateDataSourceCommand,
   UpdateDataSourcePermissionsCommand,
   UpdateDefaultQBusinessApplicationCommand,
+  UpdateDlpSettingCommand,
   UpdateFlowCommand,
   UpdateFlowPermissionsCommand,
   UpdateFolderCommand,
@@ -1679,6 +1777,7 @@ const commands = {
   UpdateKeyRegistrationCommand,
   UpdateKnowledgeBaseCommand,
   UpdateKnowledgeBasePermissionsCommand,
+  UpdateLimitsProfileCommand,
   UpdateOAuthClientApplicationCommand,
   UpdatePublicSharingSettingsCommand,
   UpdateQPersonalizationConfigurationCommand,
@@ -1711,6 +1810,7 @@ const paginators = {
   paginateDescribeFolderResolvedPermissions,
   paginateListActionConnectors,
   paginateListAnalyses,
+  paginateListApprovalPolicies,
   paginateListAssetBundleExportJobs,
   paginateListAssetBundleImportJobs,
   paginateListBrands,
@@ -1719,6 +1819,7 @@ const paginators = {
   paginateListDashboardVersions,
   paginateListDataSets,
   paginateListDataSources,
+  paginateListDlpSettings,
   paginateListFlows,
   paginateListFolderMembers,
   paginateListFolders,
@@ -1729,6 +1830,7 @@ const paginators = {
   paginateListIAMPolicyAssignmentsForUser,
   paginateListIngestions,
   paginateListKnowledgeBases,
+  paginateListLimitsProfiles,
   paginateListNamespaces,
   paginateListOAuthClientApplications,
   paginateListRoleMemberships,
@@ -1805,6 +1907,23 @@ export interface QuickSight {
     args: BatchDeleteTopicReviewedAnswerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchDeleteTopicReviewedAnswerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDescribeUserLimitsCommand}
+   */
+  batchDescribeUserLimits(
+    args: BatchDescribeUserLimitsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDescribeUserLimitsCommandOutput>;
+  batchDescribeUserLimits(
+    args: BatchDescribeUserLimitsCommandInput,
+    cb: (err: any, data?: BatchDescribeUserLimitsCommandOutput) => void
+  ): void;
+  batchDescribeUserLimits(
+    args: BatchDescribeUserLimitsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDescribeUserLimitsCommandOutput) => void
   ): void;
 
   /**
@@ -1910,6 +2029,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link CreateApprovalPolicyCommand}
+   */
+  createApprovalPolicy(
+    args: CreateApprovalPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateApprovalPolicyCommandOutput>;
+  createApprovalPolicy(
+    args: CreateApprovalPolicyCommandInput,
+    cb: (err: any, data?: CreateApprovalPolicyCommandOutput) => void
+  ): void;
+  createApprovalPolicy(
+    args: CreateApprovalPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateApprovalPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateBrandCommand}
    */
   createBrand(
@@ -1992,6 +2128,23 @@ export interface QuickSight {
     args: CreateDataSourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDataSourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDlpSettingCommand}
+   */
+  createDlpSetting(
+    args: CreateDlpSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDlpSettingCommandOutput>;
+  createDlpSetting(
+    args: CreateDlpSettingCommandInput,
+    cb: (err: any, data?: CreateDlpSettingCommandOutput) => void
+  ): void;
+  createDlpSetting(
+    args: CreateDlpSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDlpSettingCommandOutput) => void
   ): void;
 
   /**
@@ -2128,6 +2281,23 @@ export interface QuickSight {
     args: CreateKnowledgeBaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateLimitsProfileCommand}
+   */
+  createLimitsProfile(
+    args: CreateLimitsProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateLimitsProfileCommandOutput>;
+  createLimitsProfile(
+    args: CreateLimitsProfileCommandInput,
+    cb: (err: any, data?: CreateLimitsProfileCommandOutput) => void
+  ): void;
+  createLimitsProfile(
+    args: CreateLimitsProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateLimitsProfileCommandOutput) => void
   ): void;
 
   /**
@@ -2454,6 +2624,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteApprovalPolicyCommand}
+   */
+  deleteApprovalPolicy(
+    args: DeleteApprovalPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteApprovalPolicyCommandOutput>;
+  deleteApprovalPolicy(
+    args: DeleteApprovalPolicyCommandInput,
+    cb: (err: any, data?: DeleteApprovalPolicyCommandOutput) => void
+  ): void;
+  deleteApprovalPolicy(
+    args: DeleteApprovalPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteApprovalPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteBrandCommand}
    */
   deleteBrand(
@@ -2590,6 +2777,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DeleteDlpSettingCommand}
+   */
+  deleteDlpSetting(
+    args: DeleteDlpSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDlpSettingCommandOutput>;
+  deleteDlpSetting(
+    args: DeleteDlpSettingCommandInput,
+    cb: (err: any, data?: DeleteDlpSettingCommandOutput) => void
+  ): void;
+  deleteDlpSetting(
+    args: DeleteDlpSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDlpSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteFlowCommand}
    */
   deleteFlow(
@@ -2723,6 +2927,23 @@ export interface QuickSight {
     args: DeleteKnowledgeBaseCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteKnowledgeBaseCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteLimitsProfileCommand}
+   */
+  deleteLimitsProfile(
+    args: DeleteLimitsProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteLimitsProfileCommandOutput>;
+  deleteLimitsProfile(
+    args: DeleteLimitsProfileCommandInput,
+    cb: (err: any, data?: DeleteLimitsProfileCommandOutput) => void
+  ): void;
+  deleteLimitsProfile(
+    args: DeleteLimitsProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteLimitsProfileCommandOutput) => void
   ): void;
 
   /**
@@ -3202,6 +3423,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeApprovalPolicyCommand}
+   */
+  describeApprovalPolicy(
+    args: DescribeApprovalPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApprovalPolicyCommandOutput>;
+  describeApprovalPolicy(
+    args: DescribeApprovalPolicyCommandInput,
+    cb: (err: any, data?: DescribeApprovalPolicyCommandOutput) => void
+  ): void;
+  describeApprovalPolicy(
+    args: DescribeApprovalPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApprovalPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeAssetBundleExportJobCommand}
    */
   describeAssetBundleExportJob(
@@ -3525,6 +3763,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link DescribeDlpSettingCommand}
+   */
+  describeDlpSetting(
+    args: DescribeDlpSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeDlpSettingCommandOutput>;
+  describeDlpSetting(
+    args: DescribeDlpSettingCommandInput,
+    cb: (err: any, data?: DescribeDlpSettingCommandOutput) => void
+  ): void;
+  describeDlpSetting(
+    args: DescribeDlpSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeDlpSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFlowCommand}
    */
   describeFlow(
@@ -3726,6 +3981,23 @@ export interface QuickSight {
     args: DescribeKnowledgeBasePermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeLimitsProfileCommand}
+   */
+  describeLimitsProfile(
+    args: DescribeLimitsProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeLimitsProfileCommandOutput>;
+  describeLimitsProfile(
+    args: DescribeLimitsProfileCommandInput,
+    cb: (err: any, data?: DescribeLimitsProfileCommandOutput) => void
+  ): void;
+  describeLimitsProfile(
+    args: DescribeLimitsProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeLimitsProfileCommandOutput) => void
   ): void;
 
   /**
@@ -4324,6 +4596,24 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link ListApprovalPoliciesCommand}
+   */
+  listApprovalPolicies(): Promise<ListApprovalPoliciesCommandOutput>;
+  listApprovalPolicies(
+    args: ListApprovalPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApprovalPoliciesCommandOutput>;
+  listApprovalPolicies(
+    args: ListApprovalPoliciesCommandInput,
+    cb: (err: any, data?: ListApprovalPoliciesCommandOutput) => void
+  ): void;
+  listApprovalPolicies(
+    args: ListApprovalPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApprovalPoliciesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAssetBundleExportJobsCommand}
    */
   listAssetBundleExportJobs(
@@ -4457,6 +4747,23 @@ export interface QuickSight {
     args: ListDataSourcesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDataSourcesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDlpSettingsCommand}
+   */
+  listDlpSettings(
+    args: ListDlpSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDlpSettingsCommandOutput>;
+  listDlpSettings(
+    args: ListDlpSettingsCommandInput,
+    cb: (err: any, data?: ListDlpSettingsCommandOutput) => void
+  ): void;
+  listDlpSettings(
+    args: ListDlpSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDlpSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -4644,6 +4951,23 @@ export interface QuickSight {
     args: ListKnowledgeBasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListKnowledgeBasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListLimitsProfilesCommand}
+   */
+  listLimitsProfiles(
+    args: ListLimitsProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListLimitsProfilesCommandOutput>;
+  listLimitsProfiles(
+    args: ListLimitsProfilesCommandInput,
+    cb: (err: any, data?: ListLimitsProfilesCommandOutput) => void
+  ): void;
+  listLimitsProfiles(
+    args: ListLimitsProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListLimitsProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -5599,6 +5923,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateApprovalPolicyCommand}
+   */
+  updateApprovalPolicy(
+    args: UpdateApprovalPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApprovalPolicyCommandOutput>;
+  updateApprovalPolicy(
+    args: UpdateApprovalPolicyCommandInput,
+    cb: (err: any, data?: UpdateApprovalPolicyCommandOutput) => void
+  ): void;
+  updateApprovalPolicy(
+    args: UpdateApprovalPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApprovalPolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateBrandCommand}
    */
   updateBrand(
@@ -5837,6 +6178,23 @@ export interface QuickSight {
   ): void;
 
   /**
+   * @see {@link UpdateDlpSettingCommand}
+   */
+  updateDlpSetting(
+    args: UpdateDlpSettingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDlpSettingCommandOutput>;
+  updateDlpSetting(
+    args: UpdateDlpSettingCommandInput,
+    cb: (err: any, data?: UpdateDlpSettingCommandOutput) => void
+  ): void;
+  updateDlpSetting(
+    args: UpdateDlpSettingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDlpSettingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateFlowCommand}
    */
   updateFlow(
@@ -6021,6 +6379,23 @@ export interface QuickSight {
     args: UpdateKnowledgeBasePermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateKnowledgeBasePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLimitsProfileCommand}
+   */
+  updateLimitsProfile(
+    args: UpdateLimitsProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLimitsProfileCommandOutput>;
+  updateLimitsProfile(
+    args: UpdateLimitsProfileCommandInput,
+    cb: (err: any, data?: UpdateLimitsProfileCommandOutput) => void
+  ): void;
+  updateLimitsProfile(
+    args: UpdateLimitsProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLimitsProfileCommandOutput) => void
   ): void;
 
   /**
@@ -6510,6 +6885,17 @@ export interface QuickSight {
   ): Paginator<ListAnalysesCommandOutput>;
 
   /**
+   * @see {@link ListApprovalPoliciesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListApprovalPoliciesCommandOutput}.
+   */
+  paginateListApprovalPolicies(
+    args?: ListApprovalPoliciesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListApprovalPoliciesCommandOutput>;
+
+  /**
    * @see {@link ListAssetBundleExportJobsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -6596,6 +6982,17 @@ export interface QuickSight {
     args: ListDataSourcesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListDataSourcesCommandOutput>;
+
+  /**
+   * @see {@link ListDlpSettingsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListDlpSettingsCommandOutput}.
+   */
+  paginateListDlpSettings(
+    args: ListDlpSettingsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListDlpSettingsCommandOutput>;
 
   /**
    * @see {@link ListFlowsCommand}
@@ -6706,6 +7103,17 @@ export interface QuickSight {
     args: ListKnowledgeBasesCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListKnowledgeBasesCommandOutput>;
+
+  /**
+   * @see {@link ListLimitsProfilesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListLimitsProfilesCommandOutput}.
+   */
+  paginateListLimitsProfiles(
+    args: ListLimitsProfilesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListLimitsProfilesCommandOutput>;
 
   /**
    * @see {@link ListNamespacesCommand}

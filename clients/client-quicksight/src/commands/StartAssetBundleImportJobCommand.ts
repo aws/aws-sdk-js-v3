@@ -352,6 +352,13 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *         ParentFolderArn: "STRING_VALUE",
  *       },
  *     ],
+ *     TopicsV2: [ // AssetBundleImportJobTopicV2OverrideParametersList
+ *       { // AssetBundleImportJobTopicV2OverrideParameters
+ *         TopicId: "STRING_VALUE", // required
+ *         Name: "STRING_VALUE",
+ *         Description: "STRING_VALUE",
+ *       },
+ *     ],
  *   },
  *   FailureAction: "DO_NOTHING" || "ROLLBACK",
  *   OverridePermissions: { // AssetBundleImportJobOverridePermissions
@@ -439,6 +446,12 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *         Permissions: "<AssetBundleResourcePermissions>",
  *       },
  *     ],
+ *     TopicsV2: [ // AssetBundleImportJobTopicV2OverridePermissionsList
+ *       { // AssetBundleImportJobTopicV2OverridePermissions
+ *         TopicIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Permissions: "<AssetBundleResourcePermissions>", // required
+ *       },
+ *     ],
  *   },
  *   OverrideTags: { // AssetBundleImportJobOverrideTags
  *     VPCConnections: [ // AssetBundleImportJobVPCConnectionOverrideTagsList
@@ -505,6 +518,12 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *     Folders: [ // AssetBundleImportJobFolderOverrideTagsList
  *       { // AssetBundleImportJobFolderOverrideTags
  *         FolderIds: "<AssetBundleRestrictiveResourceIdList>", // required
+ *         Tags: "<TagList>", // required
+ *       },
+ *     ],
+ *     TopicsV2: [ // AssetBundleImportJobTopicV2OverrideTagsList
+ *       { // AssetBundleImportJobTopicV2OverrideTags
+ *         TopicIds: "<AssetBundleRestrictiveResourceIdList>", // required
  *         Tags: "<TagList>", // required
  *       },
  *     ],

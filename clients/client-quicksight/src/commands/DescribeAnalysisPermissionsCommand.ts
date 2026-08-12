@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_3";
+import type { DescribeAnalysisPermissionsRequest, DescribeAnalysisPermissionsResponse } from "../models/models_4";
 import { DescribeAnalysisPermissions$ } from "../schemas/schemas_0";
 
 /**

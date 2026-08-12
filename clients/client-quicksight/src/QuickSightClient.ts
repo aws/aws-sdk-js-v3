@@ -66,6 +66,10 @@ import type {
   BatchDeleteTopicReviewedAnswerCommandInput,
   BatchDeleteTopicReviewedAnswerCommandOutput,
 } from "./commands/BatchDeleteTopicReviewedAnswerCommand";
+import type {
+  BatchDescribeUserLimitsCommandInput,
+  BatchDescribeUserLimitsCommandOutput,
+} from "./commands/BatchDescribeUserLimitsCommand";
 import type { CancelIngestionCommandInput, CancelIngestionCommandOutput } from "./commands/CancelIngestionCommand";
 import type {
   CreateAccountCustomizationCommandInput,
@@ -81,6 +85,10 @@ import type {
 } from "./commands/CreateActionConnectorCommand";
 import type { CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand";
 import type { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand";
+import type {
+  CreateApprovalPolicyCommandInput,
+  CreateApprovalPolicyCommandOutput,
+} from "./commands/CreateApprovalPolicyCommand";
 import type { CreateBrandCommandInput, CreateBrandCommandOutput } from "./commands/CreateBrandCommand";
 import type {
   CreateCustomPermissionsCommandInput,
@@ -89,6 +97,7 @@ import type {
 import type { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand";
 import type { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand";
 import type { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand";
+import type { CreateDlpSettingCommandInput, CreateDlpSettingCommandOutput } from "./commands/CreateDlpSettingCommand";
 import type { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand";
 import type { CreateFolderCommandInput, CreateFolderCommandOutput } from "./commands/CreateFolderCommand";
 import type {
@@ -109,6 +118,10 @@ import type {
   CreateKnowledgeBaseCommandInput,
   CreateKnowledgeBaseCommandOutput,
 } from "./commands/CreateKnowledgeBaseCommand";
+import type {
+  CreateLimitsProfileCommandInput,
+  CreateLimitsProfileCommandOutput,
+} from "./commands/CreateLimitsProfileCommand";
 import type { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
 import type {
   CreateOAuthClientApplicationCommandInput,
@@ -159,6 +172,10 @@ import type {
 import type { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand";
 import type { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import type {
+  DeleteApprovalPolicyCommandInput,
+  DeleteApprovalPolicyCommandOutput,
+} from "./commands/DeleteApprovalPolicyCommand";
+import type {
   DeleteBrandAssignmentCommandInput,
   DeleteBrandAssignmentCommandOutput,
 } from "./commands/DeleteBrandAssignmentCommand";
@@ -178,6 +195,7 @@ import type {
   DeleteDefaultQBusinessApplicationCommandInput,
   DeleteDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DeleteDefaultQBusinessApplicationCommand";
+import type { DeleteDlpSettingCommandInput, DeleteDlpSettingCommandOutput } from "./commands/DeleteDlpSettingCommand";
 import type { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand";
 import type { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import type {
@@ -201,6 +219,10 @@ import type {
   DeleteKnowledgeBaseCommandInput,
   DeleteKnowledgeBaseCommandOutput,
 } from "./commands/DeleteKnowledgeBaseCommand";
+import type {
+  DeleteLimitsProfileCommandInput,
+  DeleteLimitsProfileCommandOutput,
+} from "./commands/DeleteLimitsProfileCommand";
 import type { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "./commands/DeleteNamespaceCommand";
 import type {
   DeleteOAuthClientApplicationCommandInput,
@@ -284,6 +306,10 @@ import type {
   DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
 import type {
+  DescribeApprovalPolicyCommandInput,
+  DescribeApprovalPolicyCommandOutput,
+} from "./commands/DescribeApprovalPolicyCommand";
+import type {
   DescribeAssetBundleExportJobCommandInput,
   DescribeAssetBundleExportJobCommandOutput,
 } from "./commands/DescribeAssetBundleExportJobCommand";
@@ -353,6 +379,10 @@ import type {
   DescribeDefaultQBusinessApplicationCommandInput,
   DescribeDefaultQBusinessApplicationCommandOutput,
 } from "./commands/DescribeDefaultQBusinessApplicationCommand";
+import type {
+  DescribeDlpSettingCommandInput,
+  DescribeDlpSettingCommandOutput,
+} from "./commands/DescribeDlpSettingCommand";
 import type { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand";
 import type { DescribeFolderCommandInput, DescribeFolderCommandOutput } from "./commands/DescribeFolderCommand";
 import type {
@@ -392,6 +422,10 @@ import type {
   DescribeKnowledgeBasePermissionsCommandInput,
   DescribeKnowledgeBasePermissionsCommandOutput,
 } from "./commands/DescribeKnowledgeBasePermissionsCommand";
+import type {
+  DescribeLimitsProfileCommandInput,
+  DescribeLimitsProfileCommandOutput,
+} from "./commands/DescribeLimitsProfileCommand";
 import type {
   DescribeNamespaceCommandInput,
   DescribeNamespaceCommandOutput,
@@ -506,6 +540,10 @@ import type {
 import type { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
 import type { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "./commands/ListAnalysesCommand";
 import type {
+  ListApprovalPoliciesCommandInput,
+  ListApprovalPoliciesCommandOutput,
+} from "./commands/ListApprovalPoliciesCommand";
+import type {
   ListAssetBundleExportJobsCommandInput,
   ListAssetBundleExportJobsCommandOutput,
 } from "./commands/ListAssetBundleExportJobsCommand";
@@ -525,6 +563,7 @@ import type {
 } from "./commands/ListDashboardVersionsCommand";
 import type { ListDataSetsCommandInput, ListDataSetsCommandOutput } from "./commands/ListDataSetsCommand";
 import type { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import type { ListDlpSettingsCommandInput, ListDlpSettingsCommandOutput } from "./commands/ListDlpSettingsCommand";
 import type { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand";
 import type {
   ListFolderMembersCommandInput,
@@ -557,6 +596,10 @@ import type {
   ListKnowledgeBasesCommandInput,
   ListKnowledgeBasesCommandOutput,
 } from "./commands/ListKnowledgeBasesCommand";
+import type {
+  ListLimitsProfilesCommandInput,
+  ListLimitsProfilesCommandOutput,
+} from "./commands/ListLimitsProfilesCommand";
 import type { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import type {
   ListOAuthClientApplicationsCommandInput,
@@ -701,6 +744,10 @@ import type {
   UpdateApplicationWithTokenExchangeGrantCommandOutput,
 } from "./commands/UpdateApplicationWithTokenExchangeGrantCommand";
 import type {
+  UpdateApprovalPolicyCommandInput,
+  UpdateApprovalPolicyCommandOutput,
+} from "./commands/UpdateApprovalPolicyCommand";
+import type {
   UpdateBrandAssignmentCommandInput,
   UpdateBrandAssignmentCommandOutput,
 } from "./commands/UpdateBrandAssignmentCommand";
@@ -744,6 +791,7 @@ import type {
   UpdateDefaultQBusinessApplicationCommandInput,
   UpdateDefaultQBusinessApplicationCommandOutput,
 } from "./commands/UpdateDefaultQBusinessApplicationCommand";
+import type { UpdateDlpSettingCommandInput, UpdateDlpSettingCommandOutput } from "./commands/UpdateDlpSettingCommand";
 import type { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 import type {
   UpdateFlowPermissionsCommandInput,
@@ -779,6 +827,10 @@ import type {
   UpdateKnowledgeBasePermissionsCommandInput,
   UpdateKnowledgeBasePermissionsCommandOutput,
 } from "./commands/UpdateKnowledgeBasePermissionsCommand";
+import type {
+  UpdateLimitsProfileCommandInput,
+  UpdateLimitsProfileCommandOutput,
+} from "./commands/UpdateLimitsProfileCommand";
 import type {
   UpdateOAuthClientApplicationCommandInput,
   UpdateOAuthClientApplicationCommandOutput,
@@ -880,17 +932,20 @@ export type ServiceInputTypes =
   | BatchCreateTopicReviewedAnswerCommandInput
   | BatchDeleteKnowledgeBaseCommandInput
   | BatchDeleteTopicReviewedAnswerCommandInput
+  | BatchDescribeUserLimitsCommandInput
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
   | CreateAccountSubscriptionCommandInput
   | CreateActionConnectorCommandInput
   | CreateAgentCommandInput
   | CreateAnalysisCommandInput
+  | CreateApprovalPolicyCommandInput
   | CreateBrandCommandInput
   | CreateCustomPermissionsCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
+  | CreateDlpSettingCommandInput
   | CreateFlowCommandInput
   | CreateFolderCommandInput
   | CreateFolderMembershipCommandInput
@@ -899,6 +954,7 @@ export type ServiceInputTypes =
   | CreateIAMPolicyAssignmentCommandInput
   | CreateIngestionCommandInput
   | CreateKnowledgeBaseCommandInput
+  | CreateLimitsProfileCommandInput
   | CreateNamespaceCommandInput
   | CreateOAuthClientApplicationCommandInput
   | CreateRefreshScheduleCommandInput
@@ -918,6 +974,7 @@ export type ServiceInputTypes =
   | DeleteActionConnectorCommandInput
   | DeleteAgentCommandInput
   | DeleteAnalysisCommandInput
+  | DeleteApprovalPolicyCommandInput
   | DeleteBrandAssignmentCommandInput
   | DeleteBrandCommandInput
   | DeleteCustomPermissionsCommandInput
@@ -926,6 +983,7 @@ export type ServiceInputTypes =
   | DeleteDataSetRefreshPropertiesCommandInput
   | DeleteDataSourceCommandInput
   | DeleteDefaultQBusinessApplicationCommandInput
+  | DeleteDlpSettingCommandInput
   | DeleteFlowCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderMembershipCommandInput
@@ -934,6 +992,7 @@ export type ServiceInputTypes =
   | DeleteIAMPolicyAssignmentCommandInput
   | DeleteIdentityPropagationConfigCommandInput
   | DeleteKnowledgeBaseCommandInput
+  | DeleteLimitsProfileCommandInput
   | DeleteNamespaceCommandInput
   | DeleteOAuthClientApplicationCommandInput
   | DeleteRefreshScheduleCommandInput
@@ -962,6 +1021,7 @@ export type ServiceInputTypes =
   | DescribeAnalysisCommandInput
   | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
+  | DescribeApprovalPolicyCommandInput
   | DescribeAssetBundleExportJobCommandInput
   | DescribeAssetBundleImportJobCommandInput
   | DescribeAutomationJobCommandInput
@@ -981,6 +1041,7 @@ export type ServiceInputTypes =
   | DescribeDataSourceCommandInput
   | DescribeDataSourcePermissionsCommandInput
   | DescribeDefaultQBusinessApplicationCommandInput
+  | DescribeDlpSettingCommandInput
   | DescribeFlowCommandInput
   | DescribeFolderCommandInput
   | DescribeFolderPermissionsCommandInput
@@ -993,6 +1054,7 @@ export type ServiceInputTypes =
   | DescribeKeyRegistrationCommandInput
   | DescribeKnowledgeBaseCommandInput
   | DescribeKnowledgeBasePermissionsCommandInput
+  | DescribeLimitsProfileCommandInput
   | DescribeNamespaceCommandInput
   | DescribeOAuthClientApplicationCommandInput
   | DescribeQPersonalizationConfigurationCommandInput
@@ -1028,6 +1090,7 @@ export type ServiceInputTypes =
   | ListActionConnectorsCommandInput
   | ListAgentsCommandInput
   | ListAnalysesCommandInput
+  | ListApprovalPoliciesCommandInput
   | ListAssetBundleExportJobsCommandInput
   | ListAssetBundleImportJobsCommandInput
   | ListBrandsCommandInput
@@ -1036,6 +1099,7 @@ export type ServiceInputTypes =
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
   | ListDataSourcesCommandInput
+  | ListDlpSettingsCommandInput
   | ListFlowsCommandInput
   | ListFolderMembersCommandInput
   | ListFoldersCommandInput
@@ -1047,6 +1111,7 @@ export type ServiceInputTypes =
   | ListIdentityPropagationConfigsCommandInput
   | ListIngestionsCommandInput
   | ListKnowledgeBasesCommandInput
+  | ListLimitsProfilesCommandInput
   | ListNamespacesCommandInput
   | ListOAuthClientApplicationsCommandInput
   | ListRefreshSchedulesCommandInput
@@ -1103,6 +1168,7 @@ export type ServiceInputTypes =
   | UpdateAnalysisCommandInput
   | UpdateAnalysisPermissionsCommandInput
   | UpdateApplicationWithTokenExchangeGrantCommandInput
+  | UpdateApprovalPolicyCommandInput
   | UpdateBrandAssignmentCommandInput
   | UpdateBrandCommandInput
   | UpdateBrandPublishedVersionCommandInput
@@ -1117,6 +1183,7 @@ export type ServiceInputTypes =
   | UpdateDataSourceCommandInput
   | UpdateDataSourcePermissionsCommandInput
   | UpdateDefaultQBusinessApplicationCommandInput
+  | UpdateDlpSettingCommandInput
   | UpdateFlowCommandInput
   | UpdateFlowPermissionsCommandInput
   | UpdateFolderCommandInput
@@ -1128,6 +1195,7 @@ export type ServiceInputTypes =
   | UpdateKeyRegistrationCommandInput
   | UpdateKnowledgeBaseCommandInput
   | UpdateKnowledgeBasePermissionsCommandInput
+  | UpdateLimitsProfileCommandInput
   | UpdateOAuthClientApplicationCommandInput
   | UpdatePublicSharingSettingsCommandInput
   | UpdateQPersonalizationConfigurationCommandInput
@@ -1162,17 +1230,20 @@ export type ServiceOutputTypes =
   | BatchCreateTopicReviewedAnswerCommandOutput
   | BatchDeleteKnowledgeBaseCommandOutput
   | BatchDeleteTopicReviewedAnswerCommandOutput
+  | BatchDescribeUserLimitsCommandOutput
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
   | CreateAccountSubscriptionCommandOutput
   | CreateActionConnectorCommandOutput
   | CreateAgentCommandOutput
   | CreateAnalysisCommandOutput
+  | CreateApprovalPolicyCommandOutput
   | CreateBrandCommandOutput
   | CreateCustomPermissionsCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
+  | CreateDlpSettingCommandOutput
   | CreateFlowCommandOutput
   | CreateFolderCommandOutput
   | CreateFolderMembershipCommandOutput
@@ -1181,6 +1252,7 @@ export type ServiceOutputTypes =
   | CreateIAMPolicyAssignmentCommandOutput
   | CreateIngestionCommandOutput
   | CreateKnowledgeBaseCommandOutput
+  | CreateLimitsProfileCommandOutput
   | CreateNamespaceCommandOutput
   | CreateOAuthClientApplicationCommandOutput
   | CreateRefreshScheduleCommandOutput
@@ -1200,6 +1272,7 @@ export type ServiceOutputTypes =
   | DeleteActionConnectorCommandOutput
   | DeleteAgentCommandOutput
   | DeleteAnalysisCommandOutput
+  | DeleteApprovalPolicyCommandOutput
   | DeleteBrandAssignmentCommandOutput
   | DeleteBrandCommandOutput
   | DeleteCustomPermissionsCommandOutput
@@ -1208,6 +1281,7 @@ export type ServiceOutputTypes =
   | DeleteDataSetRefreshPropertiesCommandOutput
   | DeleteDataSourceCommandOutput
   | DeleteDefaultQBusinessApplicationCommandOutput
+  | DeleteDlpSettingCommandOutput
   | DeleteFlowCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderMembershipCommandOutput
@@ -1216,6 +1290,7 @@ export type ServiceOutputTypes =
   | DeleteIAMPolicyAssignmentCommandOutput
   | DeleteIdentityPropagationConfigCommandOutput
   | DeleteKnowledgeBaseCommandOutput
+  | DeleteLimitsProfileCommandOutput
   | DeleteNamespaceCommandOutput
   | DeleteOAuthClientApplicationCommandOutput
   | DeleteRefreshScheduleCommandOutput
@@ -1244,6 +1319,7 @@ export type ServiceOutputTypes =
   | DescribeAnalysisCommandOutput
   | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
+  | DescribeApprovalPolicyCommandOutput
   | DescribeAssetBundleExportJobCommandOutput
   | DescribeAssetBundleImportJobCommandOutput
   | DescribeAutomationJobCommandOutput
@@ -1263,6 +1339,7 @@ export type ServiceOutputTypes =
   | DescribeDataSourceCommandOutput
   | DescribeDataSourcePermissionsCommandOutput
   | DescribeDefaultQBusinessApplicationCommandOutput
+  | DescribeDlpSettingCommandOutput
   | DescribeFlowCommandOutput
   | DescribeFolderCommandOutput
   | DescribeFolderPermissionsCommandOutput
@@ -1275,6 +1352,7 @@ export type ServiceOutputTypes =
   | DescribeKeyRegistrationCommandOutput
   | DescribeKnowledgeBaseCommandOutput
   | DescribeKnowledgeBasePermissionsCommandOutput
+  | DescribeLimitsProfileCommandOutput
   | DescribeNamespaceCommandOutput
   | DescribeOAuthClientApplicationCommandOutput
   | DescribeQPersonalizationConfigurationCommandOutput
@@ -1310,6 +1388,7 @@ export type ServiceOutputTypes =
   | ListActionConnectorsCommandOutput
   | ListAgentsCommandOutput
   | ListAnalysesCommandOutput
+  | ListApprovalPoliciesCommandOutput
   | ListAssetBundleExportJobsCommandOutput
   | ListAssetBundleImportJobsCommandOutput
   | ListBrandsCommandOutput
@@ -1318,6 +1397,7 @@ export type ServiceOutputTypes =
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListDlpSettingsCommandOutput
   | ListFlowsCommandOutput
   | ListFolderMembersCommandOutput
   | ListFoldersCommandOutput
@@ -1329,6 +1409,7 @@ export type ServiceOutputTypes =
   | ListIdentityPropagationConfigsCommandOutput
   | ListIngestionsCommandOutput
   | ListKnowledgeBasesCommandOutput
+  | ListLimitsProfilesCommandOutput
   | ListNamespacesCommandOutput
   | ListOAuthClientApplicationsCommandOutput
   | ListRefreshSchedulesCommandOutput
@@ -1385,6 +1466,7 @@ export type ServiceOutputTypes =
   | UpdateAnalysisCommandOutput
   | UpdateAnalysisPermissionsCommandOutput
   | UpdateApplicationWithTokenExchangeGrantCommandOutput
+  | UpdateApprovalPolicyCommandOutput
   | UpdateBrandAssignmentCommandOutput
   | UpdateBrandCommandOutput
   | UpdateBrandPublishedVersionCommandOutput
@@ -1399,6 +1481,7 @@ export type ServiceOutputTypes =
   | UpdateDataSourceCommandOutput
   | UpdateDataSourcePermissionsCommandOutput
   | UpdateDefaultQBusinessApplicationCommandOutput
+  | UpdateDlpSettingCommandOutput
   | UpdateFlowCommandOutput
   | UpdateFlowPermissionsCommandOutput
   | UpdateFolderCommandOutput
@@ -1410,6 +1493,7 @@ export type ServiceOutputTypes =
   | UpdateKeyRegistrationCommandOutput
   | UpdateKnowledgeBaseCommandOutput
   | UpdateKnowledgeBasePermissionsCommandOutput
+  | UpdateLimitsProfileCommandOutput
   | UpdateOAuthClientApplicationCommandOutput
   | UpdatePublicSharingSettingsCommandOutput
   | UpdateQPersonalizationConfigurationCommandOutput

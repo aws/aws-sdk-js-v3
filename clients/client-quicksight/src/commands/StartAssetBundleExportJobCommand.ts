@@ -117,6 +117,14 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *         ],
  *       },
  *     ],
+ *     TopicsV2: [ // AssetBundleExportJobTopicV2OverridePropertiesList
+ *       { // AssetBundleExportJobTopicV2OverrideProperties
+ *         Arn: "STRING_VALUE", // required
+ *         Properties: [ // AssetBundleExportJobTopicV2PropertyToOverrideList // required
+ *           "Name" || "Description",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   IncludePermissions: true || false,
  *   IncludeTags: true || false,

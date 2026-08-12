@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListTopicRefreshSchedulesRequest, ListTopicRefreshSchedulesResponse } from "../models/models_4";
+import type { ListTopicRefreshSchedulesRequest, ListTopicRefreshSchedulesResponse } from "../models/models_5";
 import { ListTopicRefreshSchedules$ } from "../schemas/schemas_0";
 
 /**

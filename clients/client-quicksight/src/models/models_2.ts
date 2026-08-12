@@ -8,6 +8,7 @@ import type {
   AnchorType,
   AnonymousUserDashboardEmbeddingConfigurationDisabledFeature,
   AnonymousUserDashboardEmbeddingConfigurationEnabledFeature,
+  ApplicableToType,
   AssetBundleExportFormat,
   AssetBundleExportJobAnalysisPropertyToOverride,
   AssetBundleExportJobDashboardPropertyToOverride,
@@ -17,9 +18,11 @@ import type {
   AssetBundleExportJobRefreshSchedulePropertyToOverride,
   AssetBundleExportJobStatus,
   AssetBundleExportJobThemePropertyToOverride,
+  AssetBundleExportJobTopicV2PropertyToOverride,
   AssetBundleExportJobVPCConnectionPropertyToOverride,
   AssetBundleImportFailureAction,
   AssetBundleImportJobStatus,
+  AssetType,
   AudioExtractionStatus,
   AuthenticationMethodOption,
   AuthenticationType,
@@ -39,10 +42,6 @@ import type {
   ContributionAnalysisSortType,
   DashboardBehavior,
   DashboardUIState,
-  DataSetDateComparisonFilterOperator,
-  DataSetNumericComparisonFilterOperator,
-  DataSetStringComparisonFilterOperator,
-  DataSetStringListFilterOperator,
   DefaultCategoryEffect,
   DisplayFormat,
   Edition,
@@ -50,13 +49,17 @@ import type {
   FilterOperator,
   GeoSpatialCountryCode,
   GeoSpatialDataRole,
+  GovernedAction,
   HorizontalTextAlignment,
   InputColumnDataType,
+  LimitSource,
+  LimitUnit,
   LookbackWindowSizeUnit,
   NullFilterOption,
   NumberScale,
   RefreshFailureAlertStatus,
   ResourceStatus,
+  ResourceType,
   ReviewedAnswerErrorCode,
   ServiceType,
   SheetContentType,
@@ -1835,6 +1838,33 @@ export interface AppendOperation {
 }
 
 /**
+ * <p>The scoping configuration that determines which principals an approval policy applies to.</p>
+ * @public
+ */
+export interface ApplicableTo {
+  /**
+   * <p>The type of scoping that determines which principals the approval policy applies to. Valid values
+   *          are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GROUP</code>: The policy applies only to principals in the groups specified by
+   *                <code>GroupArns</code>. When you use <code>GROUP</code>, you must also provide a value for
+   *                <code>GroupArns</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Type: ApplicableToType | undefined;
+
+  /**
+   * <p>The list of group ARNs that the policy applies to. Required when type is GROUP.</p>
+   * @public
+   */
+  GroupArns?: string[] | undefined;
+}
+
+/**
  * <p>The color palette.</p>
  * @public
  */
@@ -1994,6 +2024,73 @@ export interface ApplicationTheme {
    * @public
    */
   BrandElementStyle?: BrandElementStyle | undefined;
+}
+
+/**
+ * <p>A governance approval policy that specifies which principals and governed actions require
+ *          approval, and which assets the policy applies to.</p>
+ * @public
+ */
+export interface ApprovalPolicy {
+  /**
+   * <p>The unique identifier of the approval policy.</p>
+   * @public
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the approval policy.</p>
+   * @public
+   */
+  PolicyArn: string | undefined;
+
+  /**
+   * <p>The name of the approval policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the approval policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The list of governed actions that trigger the approval workflow.</p>
+   * @public
+   */
+  Actions: GovernedAction[] | undefined;
+
+  /**
+   * <p>The list of asset types that the approval policy applies to.</p>
+   * @public
+   */
+  AssetTypes: AssetType[] | undefined;
+
+  /**
+   * <p>The scoping configuration that determines who the approval policy applies to.</p>
+   * @public
+   */
+  ApplicableTo: ApplicableTo | undefined;
+
+  /**
+   * <p>The list of group ARNs whose members can approve requests.</p>
+   * @public
+   */
+  ApprovalGroups: string[] | undefined;
+
+  /**
+   * <p>The date and time that the approval policy was created.</p>
+   * @public
+   */
+  CreatedAt: Date | undefined;
+
+  /**
+   * <p>The date and time that the approval policy was last updated.</p>
+   * @public
+   */
+  UpdatedAt: Date | undefined;
 }
 
 /**
@@ -2158,6 +2255,27 @@ export interface AssetBundleExportJobThemeOverrideProperties {
 }
 
 /**
+ * <p>Controls how a specific <code>Topic</code> resource is parameterized in the returned
+ *             CloudFormation template.</p>
+ * @public
+ */
+export interface AssetBundleExportJobTopicV2OverrideProperties {
+  /**
+   * <p>The ARN of the specific <code>Topic</code> resource whose override properties are
+   *          configured in this structure.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>A list of <code>Topic</code> resource properties to generate variables for in the
+   *          returned CloudFormation template.</p>
+   * @public
+   */
+  Properties: AssetBundleExportJobTopicV2PropertyToOverride[] | undefined;
+}
+
+/**
  * <p>Controls how a specific <code>VPCConnection</code> resource is parameterized in the
  *          outputted CloudFormation template.</p>
  * @public
@@ -2246,6 +2364,13 @@ export interface AssetBundleCloudFormationOverridePropertyConfiguration {
    * @public
    */
   Folders?: AssetBundleExportJobFolderOverrideProperties[] | undefined;
+
+  /**
+   * <p>An optional list of structures that controls how <code>Topic</code> resources are
+   *          parameterized in the returned CloudFormation template.</p>
+   * @public
+   */
+  TopicsV2?: AssetBundleExportJobTopicV2OverrideProperties[] | undefined;
 }
 
 /**
@@ -5763,6 +5888,30 @@ export interface AssetBundleImportJobThemeOverrideParameters {
 }
 
 /**
+ * <p>The override parameters for a single topic that is being imported.</p>
+ * @public
+ */
+export interface AssetBundleImportJobTopicV2OverrideParameters {
+  /**
+   * <p>The ID of the topic that you want to apply overrides to.</p>
+   * @public
+   */
+  TopicId: string | undefined;
+
+  /**
+   * <p>A new name for the topic.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>A new description for the topic.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
+
+/**
  * <p>The override parameters for a single VPC connection that is imported.</p>
  * @public
  */
@@ -5876,6 +6025,13 @@ export interface AssetBundleImportJobOverrideParameters {
    * @public
    */
   Folders?: AssetBundleImportJobFolderOverrideParameters[] | undefined;
+
+  /**
+   * <p>A list of overrides for any <code>Topic</code> resources that are present in the asset
+   *          bundle that is imported.</p>
+   * @public
+   */
+  TopicsV2?: AssetBundleImportJobTopicV2OverrideParameters[] | undefined;
 }
 
 /**
@@ -5893,6 +6049,26 @@ export interface AssetBundleImportJobThemeOverridePermissions {
 
   /**
    * <p>A list of permissions for the themes that you want to apply overrides to.</p>
+   * @public
+   */
+  Permissions: AssetBundleResourcePermissions | undefined;
+}
+
+/**
+ * <p>An object that contains a list of permissions to be applied to a list of topic
+ *          IDs.</p>
+ * @public
+ */
+export interface AssetBundleImportJobTopicV2OverridePermissions {
+  /**
+   * <p>A list of topic IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all topics in this asset bundle.</p>
+   * @public
+   */
+  TopicIds: string[] | undefined;
+
+  /**
+   * <p>A list of permissions for the topics that you want to apply overrides to.</p>
    * @public
    */
   Permissions: AssetBundleResourcePermissions | undefined;
@@ -5944,6 +6120,12 @@ export interface AssetBundleImportJobOverridePermissions {
    * @public
    */
   Folders?: AssetBundleImportJobFolderOverridePermissions[] | undefined;
+
+  /**
+   * <p>A list of permissions for the topics that you want to apply overrides to.</p>
+   * @public
+   */
+  TopicsV2?: AssetBundleImportJobTopicV2OverridePermissions[] | undefined;
 }
 
 /**
@@ -5960,6 +6142,25 @@ export interface AssetBundleImportJobThemeOverrideTags {
 
   /**
    * <p>A list of tags for the themes that you want to apply overrides to.</p>
+   * @public
+   */
+  Tags: Tag[] | undefined;
+}
+
+/**
+ * <p>An object that contains a list of tags to be assigned to a list of topic IDs.</p>
+ * @public
+ */
+export interface AssetBundleImportJobTopicV2OverrideTags {
+  /**
+   * <p>A list of topic IDs that you want to apply overrides to. You can use <code>*</code> to
+   *          override all topics in this asset bundle.</p>
+   * @public
+   */
+  TopicIds: string[] | undefined;
+
+  /**
+   * <p>A list of tags for the topics that you want to apply overrides to.</p>
    * @public
    */
   Tags: Tag[] | undefined;
@@ -6039,6 +6240,13 @@ export interface AssetBundleImportJobOverrideTags {
    * @public
    */
   Folders?: AssetBundleImportJobFolderOverrideTags[] | undefined;
+
+  /**
+   * <p>A list of tag overrides for any <code>Topic</code> resources that are present in the
+   *          asset bundle that is imported.</p>
+   * @public
+   */
+  TopicsV2?: AssetBundleImportJobTopicV2OverrideTags[] | undefined;
 }
 
 /**
@@ -7403,6 +7611,182 @@ export interface BatchDeleteTopicReviewedAnswerResponse {
    * @public
    */
   Status?: number | undefined;
+}
+
+/**
+ * <p>Identifies a user for the <code>BatchDescribeUserLimits</code> operation.</p>
+ * @public
+ */
+export interface UserLimitsEntry {
+  /**
+   * <p>The name of the user.</p>
+   * @public
+   */
+  userName: string | undefined;
+
+  /**
+   * <p>The namespace of the user.</p>
+   * @public
+   */
+  namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDescribeUserLimitsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the users.</p>
+   * @public
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>A list of users to describe limits for. Each entry contains a user name and namespace.</p>
+   * @public
+   */
+  users?: UserLimitsEntry[] | undefined;
+
+  /**
+   * <p>An optional filter that limits the results to specific resource types. If you don't specify a value, the operation returns limits for all resource types.</p>
+   * @public
+   */
+  resourceTypes?: ResourceType[] | undefined;
+}
+
+/**
+ * <p>Information about a user whose limits could not be described in a batch operation.</p>
+ * @public
+ */
+export interface BatchDescribeUserLimitsError {
+  /**
+   * <p>The name of the user that failed.</p>
+   * @public
+   */
+  userName?: string | undefined;
+
+  /**
+   * <p>The namespace of the user that failed.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The ARN of the user that failed.</p>
+   * @public
+   */
+  userArn?: string | undefined;
+
+  /**
+   * <p>The error code for the failure.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>The error message for the failure.</p>
+   * @public
+   */
+  message: string | undefined;
+}
+
+/**
+ * <p>The effective limit for a resource type that applies to a user, considering all applicable profile assignments and inheritance rules.</p>
+ * @public
+ */
+export interface EffectiveLimit {
+  /**
+   * <p>The type of resource that the limit applies to.</p>
+   * @public
+   */
+  resourceType: ResourceType | undefined;
+
+  /**
+   * <p>The maximum allowed value for the resource.</p>
+   * @public
+   */
+  limitValue: number | undefined;
+
+  /**
+   * <p>The unit of measurement for the limit.</p>
+   * @public
+   */
+  limitUnit: LimitUnit | undefined;
+
+  /**
+   * <p>The source from which this limit was inherited. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_USER</code> – The limit comes from a profile directly assigned to the user.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GROUP</code> – The limit comes from a profile assigned to a group the user belongs to.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ROLE</code> – The limit comes from a profile assigned to a role the user has.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACCOUNT</code> – The limit comes from the account-level default profile.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SYSTEM_DEFAULT</code> – The limit comes from the built-in system default.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  source: LimitSource | undefined;
+
+  /**
+   * <p>The identifier of the limits profile that defines this limit.</p>
+   * @public
+   */
+  profileId: string | undefined;
+}
+
+/**
+ * <p>The effective limits for an Amazon Quick Sight user.</p>
+ * @public
+ */
+export interface UserLimits {
+  /**
+   * <p>The name of the user.</p>
+   * @public
+   */
+  userName: string | undefined;
+
+  /**
+   * <p>The namespace of the user.</p>
+   * @public
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>A list of effective limits for the user.</p>
+   * @public
+   */
+  effectiveLimits: EffectiveLimit[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchDescribeUserLimitsResponse {
+  /**
+   * <p>A list of user limits results. Each entry contains the effective limits for a user.</p>
+   * @public
+   */
+  userLimits: UserLimits[] | undefined;
+
+  /**
+   * <p>A list of errors for users whose limits could not be described.</p>
+   * @public
+   */
+  errors: BatchDescribeUserLimitsError[] | undefined;
 }
 
 /**
@@ -11184,6 +11568,64 @@ export interface CreateAnalysisResponse {
 /**
  * @public
  */
+export interface CreateApprovalPolicyRequest {
+  /**
+   * <p>The unique identifier to assign to the approval policy. You cannot change this value after you create the policy.</p>
+   * @public
+   */
+  PolicyId: string | undefined;
+
+  /**
+   * <p>The name of the approval policy.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the approval policy.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The list of governed actions that trigger the approval workflow.</p>
+   * @public
+   */
+  Actions: GovernedAction[] | undefined;
+
+  /**
+   * <p>The list of asset types that the approval policy applies to.</p>
+   * @public
+   */
+  AssetTypes: AssetType[] | undefined;
+
+  /**
+   * <p>The scoping configuration that determines who the approval policy applies to.</p>
+   * @public
+   */
+  ApplicableTo: ApplicableTo | undefined;
+
+  /**
+   * <p>The list of group ARNs whose members can approve requests.</p>
+   * @public
+   */
+  ApprovalGroups: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateApprovalPolicyResponse {
+  /**
+   * <p>The approval policy that was created.</p>
+   * @public
+   */
+  Policy: ApprovalPolicy | undefined;
+}
+
+/**
+ * @public
+ */
 export interface CreateBrandRequest {
   /**
    * <p>The ID of the Amazon Web Services account that owns the brand.</p>
@@ -11998,275 +12440,4 @@ export interface InputColumn {
    * @public
    */
   SubType?: ColumnDataSubType | undefined;
-}
-
-/**
- * <p>References a parent dataset that serves as a data source, including its columns and metadata.</p>
- * @public
- */
-export interface ParentDataSet {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the parent dataset.</p>
-   * @public
-   */
-  DataSetArn: string | undefined;
-
-  /**
-   * <p>The list of input columns available from the parent dataset.</p>
-   * @public
-   */
-  InputColumns: InputColumn[] | undefined;
-}
-
-/**
- * <p>A source table that provides initial data from either a physical table or parent dataset.</p>
- * @public
- */
-export interface SourceTable {
-  /**
-   * <p>The identifier of the physical table that serves as the data source.</p>
-   * @public
-   */
-  PhysicalTableId?: string | undefined;
-
-  /**
-   * <p>A parent dataset that serves as the data source instead of a physical table.</p>
-   * @public
-   */
-  DataSet?: ParentDataSet | undefined;
-}
-
-/**
- * <p>Represents a date value used in filter conditions.</p>
- * @public
- */
-export interface DataSetDateFilterValue {
-  /**
-   * <p>A static date value used for filtering.</p>
-   * @public
-   */
-  StaticValue?: Date | undefined;
-}
-
-/**
- * <p>A filter condition that compares date values using operators like <code>BEFORE</code>, <code>AFTER</code>, or
- *            their inclusive variants.</p>
- * @public
- */
-export interface DataSetDateComparisonFilterCondition {
-  /**
-   * <p>The comparison operator to use, such as <code>BEFORE</code>, <code>BEFORE_OR_EQUALS_TO</code>, <code>AFTER</code>,
-   *            or <code>AFTER_OR_EQUALS_TO</code>.</p>
-   * @public
-   */
-  Operator: DataSetDateComparisonFilterOperator | undefined;
-
-  /**
-   * <p>The date value to compare against.</p>
-   * @public
-   */
-  Value?: DataSetDateFilterValue | undefined;
-}
-
-/**
- * <p>A filter condition that filters date values within a specified range.</p>
- * @public
- */
-export interface DataSetDateRangeFilterCondition {
-  /**
-   * <p>The minimum date value for the range filter.</p>
-   * @public
-   */
-  RangeMinimum?: DataSetDateFilterValue | undefined;
-
-  /**
-   * <p>The maximum date value for the range filter.</p>
-   * @public
-   */
-  RangeMaximum?: DataSetDateFilterValue | undefined;
-
-  /**
-   * <p>Whether to include the minimum value in the filter range.</p>
-   * @public
-   */
-  IncludeMinimum?: boolean | undefined;
-
-  /**
-   * <p>Whether to include the maximum value in the filter range.</p>
-   * @public
-   */
-  IncludeMaximum?: boolean | undefined;
-}
-
-/**
- * <p>A filter condition for date columns, supporting both comparison and range-based filtering.</p>
- * @public
- */
-export interface DataSetDateFilterCondition {
-  /**
-   * <p>The name of the date column to filter.</p>
-   * @public
-   */
-  ColumnName?: string | undefined;
-
-  /**
-   * <p>A comparison-based filter condition for the date column.</p>
-   * @public
-   */
-  ComparisonFilterCondition?: DataSetDateComparisonFilterCondition | undefined;
-
-  /**
-   * <p>A range-based filter condition for the date column, filtering values between minimum and maximum dates.</p>
-   * @public
-   */
-  RangeFilterCondition?: DataSetDateRangeFilterCondition | undefined;
-}
-
-/**
- * <p>Represents a numeric value used in filter conditions.</p>
- * @public
- */
-export interface DataSetNumericFilterValue {
-  /**
-   * <p>A static numeric value used for filtering.</p>
-   * @public
-   */
-  StaticValue?: number | undefined;
-}
-
-/**
- * <p>A filter condition that compares numeric values using operators like <code>EQUALS</code>, <code>GREATER_THAN</code>,
- *            or <code>LESS_THAN</code>.</p>
- * @public
- */
-export interface DataSetNumericComparisonFilterCondition {
-  /**
-   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>GREATER_THAN</code>, <code>LESS_THAN</code>,
-   *            or their variants.</p>
-   * @public
-   */
-  Operator: DataSetNumericComparisonFilterOperator | undefined;
-
-  /**
-   * <p>The numeric value to compare against.</p>
-   * @public
-   */
-  Value?: DataSetNumericFilterValue | undefined;
-}
-
-/**
- * <p>A filter condition that filters numeric values within a specified range.</p>
- * @public
- */
-export interface DataSetNumericRangeFilterCondition {
-  /**
-   * <p>The minimum numeric value for the range filter.</p>
-   * @public
-   */
-  RangeMinimum?: DataSetNumericFilterValue | undefined;
-
-  /**
-   * <p>The maximum numeric value for the range filter.</p>
-   * @public
-   */
-  RangeMaximum?: DataSetNumericFilterValue | undefined;
-
-  /**
-   * <p>Whether to include the minimum value in the filter range.</p>
-   * @public
-   */
-  IncludeMinimum?: boolean | undefined;
-
-  /**
-   * <p>Whether to include the maximum value in the filter range.</p>
-   * @public
-   */
-  IncludeMaximum?: boolean | undefined;
-}
-
-/**
- * <p>A filter condition for numeric columns, supporting both comparison and range-based filtering.</p>
- * @public
- */
-export interface DataSetNumericFilterCondition {
-  /**
-   * <p>The name of the numeric column to filter.</p>
-   * @public
-   */
-  ColumnName?: string | undefined;
-
-  /**
-   * <p>A comparison-based filter condition for the numeric column.</p>
-   * @public
-   */
-  ComparisonFilterCondition?: DataSetNumericComparisonFilterCondition | undefined;
-
-  /**
-   * <p>A range-based filter condition for the numeric column, filtering values between minimum and maximum numbers.</p>
-   * @public
-   */
-  RangeFilterCondition?: DataSetNumericRangeFilterCondition | undefined;
-}
-
-/**
- * <p>Represents a string value used in filter conditions.</p>
- * @public
- */
-export interface DataSetStringFilterValue {
-  /**
-   * <p>A static string value used for filtering.</p>
-   * @public
-   */
-  StaticValue?: string | undefined;
-}
-
-/**
- * <p>A filter condition that compares string values using operators like <code>EQUALS</code>, <code>CONTAINS</code>,
- *            or <code>STARTS_WITH</code>.</p>
- * @public
- */
-export interface DataSetStringComparisonFilterCondition {
-  /**
-   * <p>The comparison operator to use, such as <code>EQUALS</code>, <code>CONTAINS</code>, <code>STARTS_WITH</code>,
-   *            <code>ENDS_WITH</code>, or their negations.</p>
-   * @public
-   */
-  Operator: DataSetStringComparisonFilterOperator | undefined;
-
-  /**
-   * <p>The string value to compare against.</p>
-   * @public
-   */
-  Value?: DataSetStringFilterValue | undefined;
-}
-
-/**
- * <p>Represents a list of string values used in filter conditions.</p>
- * @public
- */
-export interface DataSetStringListFilterValue {
-  /**
-   * <p>A list of static string values used for filtering.</p>
-   * @public
-   */
-  StaticValues?: string[] | undefined;
-}
-
-/**
- * <p>A filter condition that includes or excludes string values from a specified list.</p>
- * @public
- */
-export interface DataSetStringListFilterCondition {
-  /**
-   * <p>The list operator to use, either <code>INCLUDE</code> to match values in the list or <code>EXCLUDE</code> to
-   *            filter out values in the list.</p>
-   * @public
-   */
-  Operator: DataSetStringListFilterOperator | undefined;
-
-  /**
-   * <p>The list of string values to include or exclude in the filter.</p>
-   * @public
-   */
-  Values?: DataSetStringListFilterValue | undefined;
 }

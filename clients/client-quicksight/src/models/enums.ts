@@ -2323,6 +2323,44 @@ export type SnapshotFileSheetSelectionScope =
  * @public
  * @enum
  */
+export const ApplicableToType = {
+  GROUP: "GROUP",
+} as const;
+/**
+ * @public
+ */
+export type ApplicableToType = (typeof ApplicableToType)[keyof typeof ApplicableToType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GovernedAction = {
+  SHARE: "SHARE",
+} as const;
+/**
+ * @public
+ */
+export type GovernedAction = (typeof GovernedAction)[keyof typeof GovernedAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetType = {
+  AGENT: "AGENT",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+  SPACE: "SPACE",
+} as const;
+/**
+ * @public
+ */
+export type AssetType = (typeof AssetType)[keyof typeof AssetType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AssetBundleExportJobAnalysisPropertyToOverride = {
   NAME: "Name",
 } as const;
@@ -2428,6 +2466,20 @@ export const AssetBundleExportJobThemePropertyToOverride = {
  */
 export type AssetBundleExportJobThemePropertyToOverride =
   (typeof AssetBundleExportJobThemePropertyToOverride)[keyof typeof AssetBundleExportJobThemePropertyToOverride];
+
+/**
+ * @public
+ * @enum
+ */
+export const AssetBundleExportJobTopicV2PropertyToOverride = {
+  DESCRIPTION: "Description",
+  NAME: "Name",
+} as const;
+/**
+ * @public
+ */
+export type AssetBundleExportJobTopicV2PropertyToOverride =
+  (typeof AssetBundleExportJobTopicV2PropertyToOverride)[keyof typeof AssetBundleExportJobTopicV2PropertyToOverride];
 
 /**
  * @public
@@ -2922,6 +2974,50 @@ export type ExceptionResourceType = (typeof ExceptionResourceType)[keyof typeof 
  * @public
  * @enum
  */
+export const ResourceType = {
+  AGENT_HOURS: "AGENT_HOURS",
+  INDEX_STORAGE: "INDEX_STORAGE",
+} as const;
+/**
+ * @public
+ */
+export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const LimitUnit = {
+  DAYS: "DAYS",
+  GB: "GB",
+  HOURS: "HOURS",
+  MB: "MB",
+} as const;
+/**
+ * @public
+ */
+export type LimitUnit = (typeof LimitUnit)[keyof typeof LimitUnit];
+
+/**
+ * @public
+ * @enum
+ */
+export const LimitSource = {
+  ACCOUNT: "ACCOUNT",
+  DIRECT_USER: "DIRECT_USER",
+  GROUP: "GROUP",
+  ROLE: "ROLE",
+  SYSTEM_DEFAULT: "SYSTEM_DEFAULT",
+} as const;
+/**
+ * @public
+ */
+export type LimitSource = (typeof LimitSource)[keyof typeof LimitSource];
+
+/**
+ * @public
+ * @enum
+ */
 export const BrandStatus = {
   CREATE_FAILED: "CREATE_FAILED",
   CREATE_IN_PROGRESS: "CREATE_IN_PROGRESS",
@@ -3409,6 +3505,32 @@ export const DataSourceType = {
  * @public
  */
 export type DataSourceType = (typeof DataSourceType)[keyof typeof DataSourceType];
+
+/**
+ * @public
+ * @enum
+ */
+export const DlpAction = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+  WARN: "WARN",
+} as const;
+/**
+ * @public
+ */
+export type DlpAction = (typeof DlpAction)[keyof typeof DlpAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const DlpProviderType = {
+  MICROSOFT_PURVIEW: "MICROSOFT_PURVIEW",
+} as const;
+/**
+ * @public
+ */
+export type DlpProviderType = (typeof DlpProviderType)[keyof typeof DlpProviderType];
 
 /**
  * @public
@@ -3995,6 +4117,19 @@ export const SnapshotJobStatus = {
  * @public
  */
 export type SnapshotJobStatus = (typeof SnapshotJobStatus)[keyof typeof SnapshotJobStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const DlpSettingStatus = {
+  ACTIVE: "ACTIVE",
+  INACTIVE: "INACTIVE",
+} as const;
+/**
+ * @public
+ */
+export type DlpSettingStatus = (typeof DlpSettingStatus)[keyof typeof DlpSettingStatus];
 
 /**
  * @public
