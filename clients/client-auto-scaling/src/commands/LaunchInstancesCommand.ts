@@ -86,6 +86,13 @@ export interface LaunchInstancesCommandOutput extends LaunchInstancesResult, __M
  * @see {@link LaunchInstancesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
+ * @throws {@link IdempotentCallInProgressFault} (server fault)
+ *  <p>
+ *             The service is currently processing another request with the same client token. Retry
+ *             the request with the same client token—the in-flight operation will complete and return
+ *             its result.
+ *         </p>
+ *
  * @throws {@link IdempotentParameterMismatchError} (client fault)
  *  <p>
  *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.

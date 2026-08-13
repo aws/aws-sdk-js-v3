@@ -192,6 +192,32 @@ export class InvalidNextToken extends __BaseException {
 
 /**
  * <p>
+ *             The service is currently processing another request with the same client token. Retry
+ *             the request with the same client token—the in-flight operation will complete and return
+ *             its result.
+ *         </p>
+ * @public
+ */
+export class IdempotentCallInProgressFault extends __BaseException {
+  readonly name = "IdempotentCallInProgressFault" as const;
+  readonly $fault = "server" as const;
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentCallInProgressFault, __BaseException>) {
+    super({
+      name: "IdempotentCallInProgressFault",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentCallInProgressFault.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
  *             Indicates that the parameters in the current request do not match the parameters from a previous request with the same client token within the idempotency window.
  *         </p>
  * @public

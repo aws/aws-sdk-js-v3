@@ -182,6 +182,12 @@ export interface ActivityType {
    * @public
    */
   Activity?: Activity | undefined;
+
+  /**
+   * <p>The scaling activities related to terminating the instances from the Auto Scaling group.</p>
+   * @public
+   */
+  Activities?: Activity[] | undefined;
 }
 
 /**
@@ -4081,6 +4087,17 @@ export interface RefreshPreferences {
    *             same time.</p>
    *          <p>If you do not specify this property, the default is 100 percent, or the percentage set
    *             in the instance maintenance policy for the Auto Scaling group, if defined.</p>
+   *          <important>
+   *             <p>Explicitly setting <code>MaxHealthyPercentage</code> to 100 is not equivalent to
+   *             omitting it. When <code>MaxHealthyPercentage</code> is explicitly set and it is
+   *             mathematically impossible to replace instances while honoring both
+   *             <code>MinHealthyPercentage</code> and <code>MaxHealthyPercentage</code> bounds
+   *             simultaneously, Auto Scaling launches a new instance before terminating an old one
+   *             (temporarily exceeding the desired capacity). When <code>MaxHealthyPercentage</code>
+   *             is omitted, Auto Scaling terminates an instance and launches its replacement
+   *             simultaneously. This behavioral difference can affect workflows that depend on
+   *             instance replacement ordering.</p>
+   *          </important>
    * @public
    */
   MaxHealthyPercentage?: number | undefined;
@@ -8340,7 +8357,20 @@ export interface TerminateInstanceInAutoScalingGroupType {
    * <p>The ID of the instance.</p>
    * @public
    */
-  InstanceId: string | undefined;
+  InstanceId?: string | undefined;
+
+  /**
+   * <p>The IDs of the instances. You can specify up to 100 instances.</p>
+   *          <p>This parameter requires that you also specify <code>AutoScalingGroupName</code>.</p>
+   * @public
+   */
+  InstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The name of the Auto Scaling group. Required when using <code>InstanceIds</code>.</p>
+   * @public
+   */
+  AutoScalingGroupName?: string | undefined;
 
   /**
    * <p>Indicates whether terminating the instance also decrements the size of the Auto Scaling

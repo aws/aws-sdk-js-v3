@@ -240,6 +240,7 @@ const _HT = "HttpTokens";
 const _HTe = "HeartbeatTimeout";
 const _I = "Instances";
 const _IC = "InstanceCollection";
+const _ICIPF = "IdempotentCallInProgressFault";
 const _ICn = "InstanceCollections";
 const _ID = "InstancesDistribution";
 const _IDG = "IncludeDeletedGroups";
@@ -597,6 +598,7 @@ import { AutoScalingServiceException } from "../models/AutoScalingServiceExcepti
 import {
   ActiveInstanceRefreshNotFoundFault,
   AlreadyExistsFault,
+  IdempotentCallInProgressFault,
   IdempotentParameterMismatchError,
   InstanceRefreshInProgressFault,
   InvalidNextToken,
@@ -625,6 +627,12 @@ export var AlreadyExistsFault$: StaticErrorSchema = [-3, n0, _AEF,
   [0]
 ];
 n0_registry.registerError(AlreadyExistsFault$, AlreadyExistsFault);
+export var IdempotentCallInProgressFault$: StaticErrorSchema = [-3, n0, _ICIPF,
+  { [_aQE]: [`IdempotentCallInProgress`, 500], [_e]: _se, [_hE]: 500 },
+  [_M],
+  [0]
+];
+n0_registry.registerError(IdempotentCallInProgressFault$, IdempotentCallInProgressFault);
 export var IdempotentParameterMismatchError$: StaticErrorSchema = [-3, n0, _IPME,
   { [_aQE]: [`IdempotentParameterMismatch`, 400], [_e]: _c, [_hE]: 400 },
   [_M],
@@ -710,8 +718,8 @@ export var Activity$: StaticStructureSchema = [3, n0, _Ac,
 ];
 export var ActivityType$: StaticStructureSchema = [3, n0, _ATc,
   0,
-  [_Ac],
-  [() => Activity$]
+  [_Ac, _A],
+  [() => Activity$, () => Activities]
 ];
 export var AdjustmentType$: StaticStructureSchema = [3, n0, _ATd,
   0,
@@ -1615,8 +1623,8 @@ export var TargetTrackingMetricStat$: StaticStructureSchema = [3, n0, _TTMS,
 ];
 export var TerminateInstanceInAutoScalingGroupType$: StaticStructureSchema = [3, n0, _TIIASGT,
   0,
-  [_IIns, _SDDC],
-  [0, 2], 2
+  [_SDDC, _IIns, _II, _ASGN],
+  [2, 0, 64 | 0, 0], 1
 ];
 export var TotalLocalStorageGBRequest$: StaticStructureSchema = [3, n0, _TLSGBR,
   0,
@@ -1796,6 +1804,7 @@ var TargetGroupARNs = 64 | 0;
 var TargetTrackingMetricDataQueries: StaticListSchema = [1, n0, _TTMDQa,
   0, () => TargetTrackingMetricDataQuery$
 ];
+var TerminationInstanceIds = 64 | 0;
 var TerminationPolicies = 64 | 0;
 var TrafficSources: StaticListSchema = [1, n0, _TS,
   0, () => TrafficSourceIdentifier$

@@ -212,6 +212,8 @@ import {
   GetPredictiveScalingForecastAnswer$,
   GetPredictiveScalingForecastCommand,
   GetPredictiveScalingForecastType$,
+  IdempotentCallInProgressFault,
+  IdempotentCallInProgressFault$,
   IdempotentParameterMismatchError,
   IdempotentParameterMismatchError$,
   ImpairedZoneHealthCheckBehavior,
@@ -768,6 +770,8 @@ assert(ActiveInstanceRefreshNotFoundFault.prototype instanceof AutoScalingServic
 assert(typeof ActiveInstanceRefreshNotFoundFault$ === "object");
 assert(AlreadyExistsFault.prototype instanceof AutoScalingServiceException);
 assert(typeof AlreadyExistsFault$ === "object");
+assert(IdempotentCallInProgressFault.prototype instanceof AutoScalingServiceException);
+assert(typeof IdempotentCallInProgressFault$ === "object");
 assert(IdempotentParameterMismatchError.prototype instanceof AutoScalingServiceException);
 assert(typeof IdempotentParameterMismatchError$ === "object");
 assert(InstanceRefreshInProgressFault.prototype instanceof AutoScalingServiceException);

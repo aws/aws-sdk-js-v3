@@ -426,6 +426,7 @@ export type {
   WarmPoolConfiguration,
   ActiveInstanceRefreshNotFoundFault,
   AlreadyExistsFault,
+  IdempotentCallInProgressFault,
   IdempotentParameterMismatchError,
   InstanceRefreshInProgressFault,
   InvalidNextToken,

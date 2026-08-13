@@ -25,12 +25,16 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
 /**
  * <p>Terminates the specified instance and optionally adjusts the desired group size. This
  *             operation cannot be called on instances in a warm pool.</p>
- *          <p>This call simply makes a termination request. The instance is not terminated
+ *          <p>This call simply makes a termination request. The instances are not terminated
  *             immediately. When an instance is terminated, the instance status changes to
  *                 <code>terminated</code>. You can't connect to or start an instance after you've
  *             terminated it.</p>
  *          <p>If you do not specify the option to decrement the desired capacity, Amazon EC2 Auto Scaling launches
  *             instances to replace the ones that are terminated. </p>
+ *          <p>To terminate multiple instances in a single call, use the <code>InstanceIds</code>
+ *             and <code>AutoScalingGroupName</code> parameters instead of <code>InstanceId</code>.
+ *             When terminating multiple instances, the response populates
+ *             <code>Activities</code> instead of <code>Activity</code>.</p>
  *          <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you
  *             decrement the desired capacity, your Auto Scaling group can become unbalanced between
  *             Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
@@ -45,7 +49,11 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * const config = {}; // type is AutoScalingClientConfig
  * const client = new AutoScalingClient(config);
  * const input = { // TerminateInstanceInAutoScalingGroupType
- *   InstanceId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE",
+ *   InstanceIds: [ // TerminationInstanceIds
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoScalingGroupName: "STRING_VALUE",
  *   ShouldDecrementDesiredCapacity: true || false, // required
  * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
@@ -65,6 +73,22 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * //     AutoScalingGroupState: "STRING_VALUE",
  * //     AutoScalingGroupARN: "STRING_VALUE",
  * //   },
+ * //   Activities: [ // Activities
+ * //     {
+ * //       ActivityId: "STRING_VALUE", // required
+ * //       AutoScalingGroupName: "STRING_VALUE", // required
+ * //       Description: "STRING_VALUE",
+ * //       Cause: "STRING_VALUE", // required
+ * //       StartTime: new Date("TIMESTAMP"), // required
+ * //       EndTime: new Date("TIMESTAMP"),
+ * //       StatusCode: "PendingSpotBidPlacement" || "WaitingForSpotInstanceRequestId" || "WaitingForSpotInstanceId" || "WaitingForInstanceId" || "PreInService" || "InProgress" || "WaitingForELBConnectionDraining" || "MidLifecycleAction" || "WaitingForInstanceWarmup" || "Successful" || "Failed" || "Cancelled" || "WaitingForConnectionDraining" || "WaitingForInPlaceUpdateToStart" || "WaitingForInPlaceUpdateToFinalize" || "InPlaceUpdateInProgress", // required
+ * //       StatusMessage: "STRING_VALUE",
+ * //       Progress: Number("int"),
+ * //       Details: "STRING_VALUE",
+ * //       AutoScalingGroupState: "STRING_VALUE",
+ * //       AutoScalingGroupARN: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -98,6 +122,45 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * const response = await client.send(command);
  * /* response is
  * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @example To terminate multiple instances in an Auto Scaling group
+ * ```javascript
+ * // This example terminates multiple instances from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches replacement instances after the specified instances terminate.
+ * const input = {
+ *   AutoScalingGroupName: "my-asg",
+ *   InstanceIds: [
+ *     "i-93633f9b",
+ *     "i-ab4d5e6f7"
+ *   ],
+ *   ShouldDecrementDesiredCapacity: false
+ * };
+ * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Activities: [
+ *     {
+ *       ActivityId: "12345678-1234-1234-1234-123456789012",
+ *       AutoScalingGroupName: "my-asg",
+ *       Cause: "At 2024-03-14T00:07:30Z instance i-93633f9b was taken out of service in response to a user request.",
+ *       Description: "Terminating EC2 instance: i-93633f9b",
+ *       Progress: 0,
+ *       StartTime: "2024-03-14T00:07:30.280Z",
+ *       StatusCode: "InProgress"
+ *     },
+ *     {
+ *       ActivityId: "12345678-1234-1234-1234-123456789013",
+ *       AutoScalingGroupName: "my-asg",
+ *       Cause: "At 2024-03-14T00:07:30Z instance i-ab4d5e6f7 was taken out of service in response to a user request.",
+ *       Description: "Terminating EC2 instance: i-ab4d5e6f7",
+ *       Progress: 0,
+ *       StartTime: "2024-03-14T00:07:30.280Z",
+ *       StatusCode: "InProgress"
+ *     }
+ *   ]
+ * }
  * *\/
  * ```
  *
