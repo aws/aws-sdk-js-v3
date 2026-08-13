@@ -81,6 +81,12 @@
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>GetBlobDifferences</a>, which returns a structured, line-level
+ *                     diff between two blob versions in a repository, with optional surrounding
+ *                     context lines.</p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>GetFile</a>, which returns the base-64 encoded content of a specified file.</p>
  *             </li>
  *             <li>

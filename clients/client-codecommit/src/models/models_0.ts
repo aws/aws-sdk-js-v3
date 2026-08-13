@@ -5,6 +5,7 @@ import type {
   ChangeTypeEnum,
   ConflictDetailLevelTypeEnum,
   ConflictResolutionStrategyTypeEnum,
+  DiffChangeType,
   FileModeTypeEnum,
   MergeOptionTypeEnum,
   ObjectTypeEnum,
@@ -2697,6 +2698,202 @@ export interface GetBlobOutput {
    * @public
    */
   content: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBlobDifferencesInput {
+  /**
+   * <p>The name of the repository that contains the blobs to compare.</p>
+   * @public
+   */
+  repositoryName: string | undefined;
+
+  /**
+   * <p>The ID of the "after" (destination) blob in the diff. Typically the value of
+   *                 <code>afterBlob.blobId</code> from a <code>Difference</code> object returned by
+   *                 <a>GetDifferences</a>.</p>
+   * @public
+   */
+  afterBlobId: string | undefined;
+
+  /**
+   * <p>The ID of the "before" (source) blob in the diff. Typically the value of
+   *                 <code>beforeBlob.blobId</code> from a <code>Difference</code> object returned by
+   *                 <a>GetDifferences</a>.</p>
+   *          <p>If you do not specify a value, the operation returns a diff against an empty
+   *             before-state. This is equivalent to treating the file as newly added.</p>
+   * @public
+   */
+  beforeBlobId?: string | undefined;
+
+  /**
+   * <p>The number of unchanged lines of context to include before and after each block of
+   *             changes in a hunk. Valid values are 0 through 20. Defaults to <code>3</code>.</p>
+   * @public
+   */
+  contextLines?: number | undefined;
+
+  /**
+   * <p>Specifies whether to ignore whitespace-only changes when computing the diff. When
+   *                 <code>true</code>, the operation treats lines that differ only in whitespace as
+   *             unchanged. Defaults to <code>false</code>.</p>
+   * @public
+   */
+  ignoreWhitespace?: boolean | undefined;
+
+  /**
+   * <p>The maximum number of <code>DiffHunk</code> entries to return in a single response
+   *             page. Defaults to <code>100</code>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>An enumeration token that returns the next batch of results when present in a
+   *             request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A single line-level entry in a diff hunk. Each <code>DiffChange</code> describes one
+ *             line and its change type: unchanged context, an addition in the after blob, or a
+ *             deletion from the before blob.</p>
+ * @public
+ */
+export interface DiffChange {
+  /**
+   * <p>The type of change for this line. Possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CONTEXT</code> – Unchanged line included for surrounding
+   *                     context.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ADD</code> – Line added in the after blob.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETE</code> – Line removed from the before blob.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  type?: DiffChangeType | undefined;
+
+  /**
+   * <p>The 1-based line number in the before blob. This field is omitted for
+   *             <code>ADD</code> lines.</p>
+   * @public
+   */
+  beforeLineNumber?: number | undefined;
+
+  /**
+   * <p>The 1-based line number in the after blob. This field is omitted for
+   *             <code>DELETE</code> lines.</p>
+   * @public
+   */
+  afterLineNumber?: number | undefined;
+
+  /**
+   * <p>The text content of the line, without the trailing newline.</p>
+   * @public
+   */
+  content?: string | undefined;
+}
+
+/**
+ * <p>A contiguous run of changed lines from a blob diff, together with any surrounding
+ *             unchanged context lines. Hunks are returned in order from the start of the file to the
+ *             end. Adjacent or overlapping hunks are merged into a single hunk in the response.</p>
+ * @public
+ */
+export interface DiffHunk {
+  /**
+   * <p>The 1-based line number in the before blob where this hunk begins. When the hunk
+   *             consists entirely of additions, <code>beforeLineCount</code> is
+   *             <code>0</code>.</p>
+   * @public
+   */
+  beforeStartLine?: number | undefined;
+
+  /**
+   * <p>The number of lines from the before blob covered by this hunk, including any
+   *             context lines.</p>
+   * @public
+   */
+  beforeLineCount?: number | undefined;
+
+  /**
+   * <p>The 1-based line number in the after blob where this hunk begins. When the hunk
+   *             consists entirely of deletions, <code>afterLineCount</code> is
+   *             <code>0</code>.</p>
+   * @public
+   */
+  afterStartLine?: number | undefined;
+
+  /**
+   * <p>The number of lines from the after blob covered by this hunk, including any context
+   *             lines.</p>
+   * @public
+   */
+  afterLineCount?: number | undefined;
+
+  /**
+   * <p>An ordered list of line-level changes that make up this hunk. Each entry indicates
+   *             whether the line is unchanged context, an addition, or a deletion.</p>
+   * @public
+   */
+  changes?: DiffChange[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBlobDifferencesOutput {
+  /**
+   * <p>An ordered list of diff hunks. Each hunk represents a contiguous run of changed and
+   *             adjacent context lines. The list is empty when the blobs are identical or when the
+   *             content is binary. The list is also empty when a paginated request has already returned
+   *             all hunks in earlier pages, in which case <code>NextToken</code> is also
+   *                 <code>null</code>.</p>
+   * @public
+   */
+  hunks: DiffHunk[] | undefined;
+
+  /**
+   * <p>Specifies whether the operation treated the diff content as binary. When
+   *                 <code>true</code>, the operation does not compute a line-level diff and
+   *                 <code>hunks</code> is empty.</p>
+   * @public
+   */
+  isBinary: boolean | undefined;
+
+  /**
+   * <p>The size, in bytes, of the blob identified by <code>beforeBlobId</code>. Returns
+   *             <code>0</code> when you do not specify <code>beforeBlobId</code>.</p>
+   * @public
+   */
+  beforeBlobSize?: number | undefined;
+
+  /**
+   * <p>The size, in bytes, of the blob identified by <code>afterBlobId</code>.</p>
+   * @public
+   */
+  afterBlobSize: number | undefined;
+
+  /**
+   * <p>An enumeration token that can be used in a request to return the next batch of
+   *             <code>DiffHunk</code> entries. <code>null</code> when the response contains the final
+   *             page of the diff.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

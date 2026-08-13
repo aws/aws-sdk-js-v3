@@ -130,6 +130,10 @@ import type {
   GetApprovalRuleTemplateCommandOutput,
 } from "./commands/GetApprovalRuleTemplateCommand";
 import type { GetBlobCommandInput, GetBlobCommandOutput } from "./commands/GetBlobCommand";
+import type {
+  GetBlobDifferencesCommandInput,
+  GetBlobDifferencesCommandOutput,
+} from "./commands/GetBlobDifferencesCommand";
 import type { GetBranchCommandInput, GetBranchCommandOutput } from "./commands/GetBranchCommand";
 import type { GetCommentCommandInput, GetCommentCommandOutput } from "./commands/GetCommentCommand";
 import type {
@@ -332,6 +336,7 @@ export type ServiceInputTypes =
   | EvaluatePullRequestApprovalRulesCommandInput
   | GetApprovalRuleTemplateCommandInput
   | GetBlobCommandInput
+  | GetBlobDifferencesCommandInput
   | GetBranchCommandInput
   | GetCommentCommandInput
   | GetCommentReactionsCommandInput
@@ -416,6 +421,7 @@ export type ServiceOutputTypes =
   | EvaluatePullRequestApprovalRulesCommandOutput
   | GetApprovalRuleTemplateCommandOutput
   | GetBlobCommandOutput
+  | GetBlobDifferencesCommandOutput
   | GetBranchCommandOutput
   | GetCommentCommandOutput
   | GetCommentReactionsCommandOutput
@@ -739,6 +745,12 @@ export interface CodeCommitClientResolvedConfig extends CodeCommitClientResolved
  *                <p>
  *                   <a>GetBlob</a>, which returns the base-64 encoded content of an
  *                     individual Git blob object in a repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetBlobDifferences</a>, which returns a structured, line-level
+ *                     diff between two blob versions in a repository, with optional surrounding
+ *                     context lines.</p>
  *             </li>
  *             <li>
  *                <p>

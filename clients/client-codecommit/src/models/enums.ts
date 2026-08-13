@@ -182,6 +182,20 @@ export type PullRequestEventType = (typeof PullRequestEventType)[keyof typeof Pu
  * @public
  * @enum
  */
+export const DiffChangeType = {
+  ADD: "ADD",
+  CONTEXT: "CONTEXT",
+  DELETE: "DELETE",
+} as const;
+/**
+ * @public
+ */
+export type DiffChangeType = (typeof DiffChangeType)[keyof typeof DiffChangeType];
+
+/**
+ * @public
+ * @enum
+ */
 export const RelativeFileVersionEnum = {
   AFTER: "AFTER",
   BEFORE: "BEFORE",

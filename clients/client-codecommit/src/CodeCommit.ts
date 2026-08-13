@@ -124,6 +124,11 @@ import {
   GetApprovalRuleTemplateCommand,
 } from "./commands/GetApprovalRuleTemplateCommand";
 import { type GetBlobCommandInput, type GetBlobCommandOutput, GetBlobCommand } from "./commands/GetBlobCommand";
+import {
+  type GetBlobDifferencesCommandInput,
+  type GetBlobDifferencesCommandOutput,
+  GetBlobDifferencesCommand,
+} from "./commands/GetBlobDifferencesCommand";
 import { type GetBranchCommandInput, type GetBranchCommandOutput, GetBranchCommand } from "./commands/GetBranchCommand";
 import {
   type GetCommentCommandInput,
@@ -376,6 +381,7 @@ import {
 } from "./commands/UpdateRepositoryNameCommand";
 import { paginateDescribeMergeConflicts } from "./pagination/DescribeMergeConflictsPaginator";
 import { paginateDescribePullRequestEvents } from "./pagination/DescribePullRequestEventsPaginator";
+import { paginateGetBlobDifferences } from "./pagination/GetBlobDifferencesPaginator";
 import { paginateGetCommentReactions } from "./pagination/GetCommentReactionsPaginator";
 import { paginateGetCommentsForComparedCommit } from "./pagination/GetCommentsForComparedCommitPaginator";
 import { paginateGetCommentsForPullRequest } from "./pagination/GetCommentsForPullRequestPaginator";
@@ -419,6 +425,7 @@ const commands = {
   EvaluatePullRequestApprovalRulesCommand,
   GetApprovalRuleTemplateCommand,
   GetBlobCommand,
+  GetBlobDifferencesCommand,
   GetBranchCommand,
   GetCommentCommand,
   GetCommentReactionsCommand,
@@ -477,6 +484,7 @@ const commands = {
 const paginators = {
   paginateDescribeMergeConflicts,
   paginateDescribePullRequestEvents,
+  paginateGetBlobDifferences,
   paginateGetCommentReactions,
   paginateGetCommentsForComparedCommit,
   paginateGetCommentsForPullRequest,
@@ -915,6 +923,23 @@ export interface CodeCommit {
     args: GetBlobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBlobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBlobDifferencesCommand}
+   */
+  getBlobDifferences(
+    args: GetBlobDifferencesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBlobDifferencesCommandOutput>;
+  getBlobDifferences(
+    args: GetBlobDifferencesCommandInput,
+    cb: (err: any, data?: GetBlobDifferencesCommandOutput) => void
+  ): void;
+  getBlobDifferences(
+    args: GetBlobDifferencesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBlobDifferencesCommandOutput) => void
   ): void;
 
   /**
@@ -1861,6 +1886,17 @@ export interface CodeCommit {
   ): Paginator<DescribePullRequestEventsCommandOutput>;
 
   /**
+   * @see {@link GetBlobDifferencesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link GetBlobDifferencesCommandOutput}.
+   */
+  paginateGetBlobDifferences(
+    args: GetBlobDifferencesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<GetBlobDifferencesCommandOutput>;
+
+  /**
    * @see {@link GetCommentReactionsCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -2071,6 +2107,12 @@ export interface CodeCommit {
  *                <p>
  *                   <a>GetBlob</a>, which returns the base-64 encoded content of an
  *                     individual Git blob object in a repository.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a>GetBlobDifferences</a>, which returns a structured, line-level
+ *                     diff between two blob versions in a repository, with optional surrounding
+ *                     context lines.</p>
  *             </li>
  *             <li>
  *                <p>

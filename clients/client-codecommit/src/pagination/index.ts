@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./DescribeMergeConflictsPaginator";
 export * from "./DescribePullRequestEventsPaginator";
+export * from "./GetBlobDifferencesPaginator";
 export * from "./GetCommentReactionsPaginator";
 export * from "./GetCommentsForComparedCommitPaginator";
 export * from "./GetCommentsForPullRequestPaginator";

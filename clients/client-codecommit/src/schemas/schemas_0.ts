@@ -115,14 +115,18 @@ const _DB = "DeleteBranch";
 const _DBCBDE = "DefaultBranchCannotBeDeletedException";
 const _DBI = "DeleteBranchInput";
 const _DBO = "DeleteBranchOutput";
+const _DC = "DiffChange";
 const _DCC = "DeleteCommentContent";
 const _DCCI = "DeleteCommentContentInput";
 const _DCCO = "DeleteCommentContentOutput";
+const _DCL = "DiffChangeList";
 const _DF = "DeleteFile";
 const _DFE = "DeleteFileEntry";
 const _DFEe = "DeleteFileEntries";
 const _DFI = "DeleteFileInput";
 const _DFO = "DeleteFileOutput";
+const _DH = "DiffHunk";
+const _DHL = "DiffHunkList";
 const _DL = "DifferenceList";
 const _DMC = "DescribeMergeConflicts";
 const _DMCI = "DescribeMergeConflictsInput";
@@ -173,6 +177,9 @@ const _GART = "GetApprovalRuleTemplate";
 const _GARTI = "GetApprovalRuleTemplateInput";
 const _GARTO = "GetApprovalRuleTemplateOutput";
 const _GB = "GetBlob";
+const _GBD = "GetBlobDifferences";
+const _GBDI = "GetBlobDifferencesInput";
+const _GBDO = "GetBlobDifferencesOutput";
 const _GBI = "GetBlobInput";
 const _GBIe = "GetBranchInput";
 const _GBO = "GetBlobOutput";
@@ -507,15 +514,19 @@ const _UREKO = "UpdateRepositoryEncryptionKeyOutput";
 const _URI = "UntagResourceInput";
 const _URN = "UpdateRepositoryName";
 const _URNI = "UpdateRepositoryNameInput";
+const _VE = "ValidationException";
 const _a = "author";
 const _aA = "authorArn";
 const _aAc = "actorArn";
 const _aB = "afterBlob";
 const _aBI = "afterBlobId";
+const _aBS = "afterBlobSize";
 const _aCI = "afterCommitId";
 const _aCS = "afterCommitSpecifier";
 const _aD = "additionalData";
 const _aI = "accountId";
+const _aLC = "afterLineCount";
+const _aLN = "afterLineNumber";
 const _aN = "authorName";
 const _aP = "absolutePath";
 const _aPf = "afterPath";
@@ -537,18 +548,23 @@ const _aRTNp = "approvalRuleTemplateNames";
 const _aRp = "approvalRules";
 const _aS = "approvalState";
 const _aSCEM = "approvalStateChangedEventMetadata";
+const _aSL = "afterStartLine";
 const _aSp = "approvalStatus";
 const _ap = "approved";
 const _app = "approvals";
 const _b = "base";
 const _bB = "beforeBlob";
 const _bBI = "beforeBlobId";
+const _bBS = "beforeBlobSize";
 const _bCI = "baseCommitId";
 const _bCIe = "beforeCommitId";
 const _bCS = "beforeCommitSpecifier";
 const _bI = "blobId";
+const _bLC = "beforeLineCount";
+const _bLN = "beforeLineNumber";
 const _bN = "branchName";
 const _bP = "beforePath";
+const _bSL = "beforeStartLine";
 const _br = "branch";
 const _bra = "branches";
 const _c = "client";
@@ -562,6 +578,7 @@ const _cI = "commitId";
 const _cIo = "commitIds";
 const _cIom = "commentId";
 const _cIon = "configurationId";
+const _cL = "contextLines";
 const _cM = "conflictMetadata";
 const _cML = "conflictMetadataList";
 const _cMo = "commitMessage";
@@ -573,6 +590,7 @@ const _cS = "commitSpecifier";
 const _cT = "changeType";
 const _cUH = "cloneUrlHttp";
 const _cUS = "cloneUrlSsh";
+const _ch = "changes";
 const _co = "conflicts";
 const _com = "commits";
 const _comm = "comments";
@@ -623,12 +641,15 @@ const _fPo = "folderPath";
 const _fS = "fileSizes";
 const _fSi = "fileSize";
 const _fU = "filesUpdated";
+const _h = "hunks";
 const _hC = "hunkContent";
+const _iB = "isBinary";
 const _iBF = "isBinaryFile";
 const _iC = "isConflict";
 const _iM = "isMerged";
 const _iMs = "isMove";
 const _iRT = "inReplyTo";
+const _iW = "ignoreWhitespace";
 const _kEF = "keepEmptyFolders";
 const _kKI = "kmsKeyId";
 const _l = "location";
@@ -728,6 +749,7 @@ const _ta = "targets";
 const _tag = "tags";
 const _tr = "triggers";
 const _tri = "trigger";
+const _ty = "type";
 const _u = "unicode";
 const _uA = "userArn";
 const n0 = "com.amazonaws.codecommit";
@@ -933,6 +955,7 @@ import {
   TipsDivergenceExceededException,
   TitleRequiredException,
   TooManyTagsException,
+  ValidationException,
 } from "../models/errors";
 
 /* eslint no-var: 0 */
@@ -2074,6 +2097,12 @@ export var TooManyTagsException$: StaticErrorSchema = [-3, n0, _TMTE,
   [0]
 ];
 n0_registry.registerError(TooManyTagsException$, TooManyTagsException);
+export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
+  { [_e]: _c },
+  [_m],
+  [0]
+];
+n0_registry.registerError(ValidationException$, ValidationException);
 /**
  * TypeRegistry instances containing modeled errors.
  * @internal
@@ -2388,10 +2417,20 @@ export var DescribePullRequestEventsOutput$: StaticStructureSchema = [3, n0, _DP
   [_pRE, _nT],
   [() => PullRequestEventList, 0], 1
 ];
+export var DiffChange$: StaticStructureSchema = [3, n0, _DC,
+  0,
+  [_ty, _bLN, _aLN, _con],
+  [0, 1, 1, 0]
+];
 export var Difference$: StaticStructureSchema = [3, n0, _D,
   0,
   [_bB, _aB, _cT],
   [() => BlobMetadata$, () => BlobMetadata$, 0]
+];
+export var DiffHunk$: StaticStructureSchema = [3, n0, _DH,
+  0,
+  [_bSL, _bLC, _aSL, _aLC, _ch],
+  [1, 1, 1, 1, () => DiffChangeList]
 ];
 export var DisassociateApprovalRuleTemplateFromRepositoryInput$: StaticStructureSchema = [3, n0, _DARTFRI,
   0,
@@ -2452,6 +2491,16 @@ export var GetApprovalRuleTemplateOutput$: StaticStructureSchema = [3, n0, _GART
   0,
   [_aRT],
   [() => ApprovalRuleTemplate$], 1
+];
+export var GetBlobDifferencesInput$: StaticStructureSchema = [3, n0, _GBDI,
+  0,
+  [_rN, _aBI, _bBI, _cL, _iW, _MR, _NT],
+  [0, 0, 0, 1, 2, 1, 0], 2
+];
+export var GetBlobDifferencesOutput$: StaticStructureSchema = [3, n0, _GBDO,
+  0,
+  [_h, _iB, _aBS, _bBS, _NT],
+  [() => DiffHunkList, 2, 1, 1, 0], 3
 ];
 export var GetBlobInput$: StaticStructureSchema = [3, n0, _GBI,
   0,
@@ -3157,8 +3206,14 @@ var Conflicts: StaticListSchema = [1, n0, _Conf,
 var DeleteFileEntries: StaticListSchema = [1, n0, _DFEe,
   0, () => DeleteFileEntry$
 ];
+var DiffChangeList: StaticListSchema = [1, n0, _DCL,
+  0, () => DiffChange$
+];
 var DifferenceList: StaticListSchema = [1, n0, _DL,
   0, () => Difference$
+];
+var DiffHunkList: StaticListSchema = [1, n0, _DHL,
+  0, () => DiffHunk$
 ];
 var FileList: StaticListSchema = [1, n0, _FL,
   0, () => File$
@@ -3301,6 +3356,9 @@ export var GetApprovalRuleTemplate$: StaticOperationSchema = [9, n0, _GART,
 ];
 export var GetBlob$: StaticOperationSchema = [9, n0, _GB,
   0, () => GetBlobInput$, () => GetBlobOutput$
+];
+export var GetBlobDifferences$: StaticOperationSchema = [9, n0, _GBD,
+  0, () => GetBlobDifferencesInput$, () => GetBlobDifferencesOutput$
 ];
 export var GetBranch$: StaticOperationSchema = [9, n0, _GBe,
   0, () => GetBranchInput$, () => GetBranchOutput$

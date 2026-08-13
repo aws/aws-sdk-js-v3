@@ -184,7 +184,10 @@ import {
   DescribePullRequestEventsCommand,
   DescribePullRequestEventsInput$,
   DescribePullRequestEventsOutput$,
+  DiffChange$,
+  DiffChangeType,
   Difference$,
+  DiffHunk$,
   DirectoryNameConflictsWithFileNameException,
   DirectoryNameConflictsWithFileNameException$,
   DisassociateApprovalRuleTemplateFromRepository$,
@@ -246,6 +249,10 @@ import {
   GetApprovalRuleTemplateOutput$,
   GetBlob$,
   GetBlobCommand,
+  GetBlobDifferences$,
+  GetBlobDifferencesCommand,
+  GetBlobDifferencesInput$,
+  GetBlobDifferencesOutput$,
   GetBlobInput$,
   GetBlobOutput$,
   GetBranch$,
@@ -559,6 +566,7 @@ import {
   OverrideStatusRequiredException$,
   paginateDescribeMergeConflicts,
   paginateDescribePullRequestEvents,
+  paginateGetBlobDifferences,
   paginateGetCommentReactions,
   paginateGetCommentsForComparedCommit,
   paginateGetCommentsForPullRequest,
@@ -773,6 +781,8 @@ import {
   UpdateRepositoryNameCommand,
   UpdateRepositoryNameInput$,
   UserInfo$,
+  ValidationException,
+  ValidationException$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -829,6 +839,8 @@ assert(typeof GetApprovalRuleTemplateCommand === "function");
 assert(typeof GetApprovalRuleTemplate$ === "object");
 assert(typeof GetBlobCommand === "function");
 assert(typeof GetBlob$ === "object");
+assert(typeof GetBlobDifferencesCommand === "function");
+assert(typeof GetBlobDifferences$ === "object");
 assert(typeof GetBranchCommand === "function");
 assert(typeof GetBranch$ === "object");
 assert(typeof GetCommentCommand === "function");
@@ -999,7 +1011,9 @@ assert(typeof DescribeMergeConflictsInput$ === "object");
 assert(typeof DescribeMergeConflictsOutput$ === "object");
 assert(typeof DescribePullRequestEventsInput$ === "object");
 assert(typeof DescribePullRequestEventsOutput$ === "object");
+assert(typeof DiffChange$ === "object");
 assert(typeof Difference$ === "object");
+assert(typeof DiffHunk$ === "object");
 assert(typeof DisassociateApprovalRuleTemplateFromRepositoryInput$ === "object");
 assert(typeof EvaluatePullRequestApprovalRulesInput$ === "object");
 assert(typeof EvaluatePullRequestApprovalRulesOutput$ === "object");
@@ -1012,6 +1026,8 @@ assert(typeof FileVersion$ === "object");
 assert(typeof Folder$ === "object");
 assert(typeof GetApprovalRuleTemplateInput$ === "object");
 assert(typeof GetApprovalRuleTemplateOutput$ === "object");
+assert(typeof GetBlobDifferencesInput$ === "object");
+assert(typeof GetBlobDifferencesOutput$ === "object");
 assert(typeof GetBlobInput$ === "object");
 assert(typeof GetBlobOutput$ === "object");
 assert(typeof GetBranchInput$ === "object");
@@ -1149,6 +1165,7 @@ assert(typeof BatchGetRepositoriesErrorCodeEnum === "object");
 assert(typeof ChangeTypeEnum === "object");
 assert(typeof ConflictDetailLevelTypeEnum === "object");
 assert(typeof ConflictResolutionStrategyTypeEnum === "object");
+assert(typeof DiffChangeType === "object");
 assert(typeof FileModeTypeEnum === "object");
 assert(typeof MergeOptionTypeEnum === "object");
 assert(typeof ObjectTypeEnum === "object");
@@ -1539,10 +1556,13 @@ assert(TitleRequiredException.prototype instanceof CodeCommitServiceException);
 assert(typeof TitleRequiredException$ === "object");
 assert(TooManyTagsException.prototype instanceof CodeCommitServiceException);
 assert(typeof TooManyTagsException$ === "object");
+assert(ValidationException.prototype instanceof CodeCommitServiceException);
+assert(typeof ValidationException$ === "object");
 assert(CodeCommitServiceException.prototype instanceof Error);
 // paginators
 assert(typeof paginateDescribeMergeConflicts === "function");
 assert(typeof paginateDescribePullRequestEvents === "function");
+assert(typeof paginateGetBlobDifferences === "function");
 assert(typeof paginateGetCommentReactions === "function");
 assert(typeof paginateGetCommentsForComparedCommit === "function");
 assert(typeof paginateGetCommentsForPullRequest === "function");

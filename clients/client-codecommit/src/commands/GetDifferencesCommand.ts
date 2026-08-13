@@ -26,6 +26,8 @@ export interface GetDifferencesCommandOutput extends GetDifferencesOutput, __Met
  * <p>Returns information about the differences in a valid commit specifier (such as a
  *             branch, tag, HEAD, commit ID, or other fully qualified reference). Results can be
  *             limited to a specified path.</p>
+ *          <p>For line-level diff details, pass the <code>beforeBlob.blobId</code> and
+ *                 <code>afterBlob.blobId</code> values from a <code>Difference</code> object to <a>GetBlobDifferences</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

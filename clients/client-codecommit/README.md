@@ -86,6 +86,12 @@ individual Git blob object in a repository.</p>
 </li>
 <li>
 <p>
+<a>GetBlobDifferences</a>, which returns a structured, line-level
+diff between two blob versions in a repository, with optional surrounding
+context lines.</p>
+</li>
+<li>
+<p>
 <a>GetFile</a>, which returns the base-64 encoded content of a specified file.</p>
 </li>
 <li>
@@ -738,6 +744,13 @@ GetBlob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetBlobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobCommandOutput/)
+</details>
+<details>
+<summary>
+GetBlobDifferences
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codecommit/command/GetBlobDifferencesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobDifferencesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codecommit/Interface/GetBlobDifferencesCommandOutput/)
 </details>
 <details>
 <summary>

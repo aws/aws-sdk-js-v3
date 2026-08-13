@@ -2778,6 +2778,26 @@ export class InvalidBlobIdException extends __BaseException {
 }
 
 /**
+ * <p>The specified input is either not valid, or it could not be validated.</p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
  * <p>The Amazon Resource Name (ARN) of the user or identity is not valid.</p>
  * @public
  */

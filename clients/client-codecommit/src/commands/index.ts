@@ -24,6 +24,7 @@ export * from "./DisassociateApprovalRuleTemplateFromRepositoryCommand";
 export * from "./EvaluatePullRequestApprovalRulesCommand";
 export * from "./GetApprovalRuleTemplateCommand";
 export * from "./GetBlobCommand";
+export * from "./GetBlobDifferencesCommand";
 export * from "./GetBranchCommand";
 export * from "./GetCommentCommand";
 export * from "./GetCommentReactionsCommand";
