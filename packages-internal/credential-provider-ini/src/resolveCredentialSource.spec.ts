@@ -70,7 +70,7 @@ describe(resolveCredentialSource.name, () => {
       await (
         await resolveCredentialSource(mockCredentialSource, mockProfileName)()
       )();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

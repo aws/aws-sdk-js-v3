@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { Sha256 } from "@smithy/core/checksum";
 import { HttpRequest } from "@smithy/core/protocols";
 

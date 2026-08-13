@@ -43,7 +43,7 @@ describe(nodeProvider.name, () => {
     const expectedError = new TokenProviderError("Could not load token from any providers", false);
     try {
       await errorFn();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error.toString()).toStrictEqual(expectedError.toString());
     }

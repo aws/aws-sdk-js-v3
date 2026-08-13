@@ -66,7 +66,7 @@ describe(resolveSSOCredentials.name, () => {
 
     try {
       await resolveSSOCredentials(mockOptions);
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
@@ -136,7 +136,7 @@ describe(resolveSSOCredentials.name, () => {
 
       try {
         await resolveSSOCredentials(mockOptions);
-        fail(`expected ${expectedError}`);
+        expect.fail(`expected ${expectedError}`);
       } catch (error) {
         expect(error).toStrictEqual(expectedError);
       }
@@ -164,7 +164,7 @@ describe(resolveSSOCredentials.name, () => {
 
       try {
         await resolveSSOCredentials(mockOptions);
-        fail(`expected ${expectedError}`);
+        expect.fail(`expected ${expectedError}`);
       } catch (error) {
         expect(error).toStrictEqual(
           new CredentialsProviderError(expectedError.toString(), SHOULD_FAIL_CREDENTIAL_CHAIN)
@@ -183,7 +183,7 @@ describe(resolveSSOCredentials.name, () => {
         );
         try {
           await resolveSSOCredentials(mockOptions);
-          fail(`expected ${expectedError}`);
+          expect.fail(`expected ${expectedError}`);
         } catch (error) {
           expect(error).toStrictEqual(expectedError);
         }

@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { auth as crtAuth } from "@aws-sdk/crt-loader";
 import { Sha256 } from "@smithy/core/checksum";
 

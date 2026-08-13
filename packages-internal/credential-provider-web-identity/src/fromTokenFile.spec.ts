@@ -92,7 +92,7 @@ describe(fromTokenFile.name, () => {
       });
       try {
         await fromTokenFile({ roleAssumerWithWebIdentity: vi.fn() })();
-        fail(`Expected error to be thrown`);
+        expect.fail(`Expected error to be thrown`);
       } catch (error) {
         expect(error).toEqual(readFileSyncError);
       }
@@ -111,7 +111,7 @@ describe(fromTokenFile.name, () => {
           roleSessionName: mockRoleSessionName,
           roleAssumerWithWebIdentity: vi.fn(),
         })();
-        fail(`Expected error to be thrown`);
+        expect.fail(`Expected error to be thrown`);
       } catch (error) {
         expect(error).toEqual(readFileSyncError);
       }
@@ -122,7 +122,7 @@ describe(fromTokenFile.name, () => {
       try {
         delete process.env[ENV_TOKEN_FILE];
         await fromTokenFile()();
-        fail(`Expected error to be thrown`);
+        expect.fail(`Expected error to be thrown`);
       } catch (error) {
         expect(error).toBeInstanceOf(CredentialsProviderError);
         expect(error.tryNextLink).toBe(true);
@@ -133,7 +133,7 @@ describe(fromTokenFile.name, () => {
       try {
         delete process.env[ENV_ROLE_ARN];
         await fromTokenFile()();
-        fail(`Expected error to be thrown`);
+        expect.fail(`Expected error to be thrown`);
       } catch (error) {
         expect(error).toBeInstanceOf(CredentialsProviderError);
         expect(error.tryNextLink).toBe(true);

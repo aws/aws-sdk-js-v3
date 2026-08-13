@@ -5,6 +5,7 @@ import { execSync } from "child_process";
 import { readFileSync } from "fs";
 import JSON from "json5";
 import { join } from "path";
+import { expect, test } from "vitest";
 
 type PackageInfo = {
   name: string;
@@ -24,9 +25,10 @@ test("tslib and tsc version should be consistent within workspace.", () => {
     for (const [expectedName, expectedVersion] of Object.entries(expectedVersions)) {
       if (expectedName === name) {
         const actualVersion = dependencies[expectedName] || devDependencies[expectedName];
-        if (actualVersion !== expectedVersion) {
-          fail(`Expected version ${expectedVersion} for ${name} in ${location}, but got ${actualVersion}`);
-        }
+        expect(
+          actualVersion,
+          `Expected version ${expectedVersion} for ${name} in ${location}, but got ${actualVersion}`
+        ).toBe(expectedVersion);
       }
     }
   }

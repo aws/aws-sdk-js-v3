@@ -106,7 +106,7 @@ describe(awsAuthMiddleware.name, () => {
 
       try {
         await signingHandler(mockSigningHandlerArgs);
-        fail(`should throw ${mockError}`);
+        expect.fail(`should throw ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
@@ -127,7 +127,7 @@ describe(awsAuthMiddleware.name, () => {
 
     try {
       await signingHandler(mockSigningHandlerArgs);
-      fail(`should throw ${mockError}`);
+      expect.fail(`should throw ${mockError}`);
     } catch (error) {
       expect(error).toStrictEqual(mockError);
     }

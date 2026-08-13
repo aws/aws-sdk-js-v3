@@ -65,7 +65,7 @@ describe(resolveWebIdentityCredentials.name, () => {
 
     try {
       await resolveWebIdentityCredentials(mockProfile, mockOptions);
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
