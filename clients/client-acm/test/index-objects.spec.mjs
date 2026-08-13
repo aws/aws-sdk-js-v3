@@ -90,11 +90,15 @@ import {
   DnsNameFilter$,
   DnsPrevalidationDetails$,
   DnsPrevalidationOptions$,
+  DnsValidationChallenge$,
   DomainScope$,
   DomainScopeOption,
   DomainStatus,
   DomainValidation$,
+  DomainValidationMethodUpdateSummary$,
   DomainValidationOption$,
+  DomainValidationSummary$,
+  EmailValidationChallenge$,
   Expiration$,
   ExpiryEventsConfiguration$,
   ExportCertificate$,
@@ -158,6 +162,10 @@ import {
   ListAcmeExternalAccountBindingsCommand,
   ListAcmeExternalAccountBindingsRequest$,
   ListAcmeExternalAccountBindingsResponse$,
+  ListCertificateDomainValidations$,
+  ListCertificateDomainValidationsCommand,
+  ListCertificateDomainValidationsRequest$,
+  ListCertificateDomainValidationsResponse$,
   ListCertificates$,
   ListCertificatesCommand,
   ListCertificatesRequest$,
@@ -175,6 +183,7 @@ import {
   paginateListAcmeDomainValidations,
   paginateListAcmeEndpoints,
   paginateListAcmeExternalAccountBindings,
+  paginateListCertificateDomainValidations,
   paginateListCertificates,
   paginateSearchCertificates,
   PrevalidationDetails$,
@@ -257,6 +266,11 @@ import {
   UpdateCertificateOptions$,
   UpdateCertificateOptionsCommand,
   UpdateCertificateOptionsRequest$,
+  UpdateStatus,
+  UpdateSummary$,
+  UpdateType,
+  ValidationChallenge$,
+  ValidationConfiguration$,
   ValidationException,
   ValidationException$,
   ValidationMethod,
@@ -322,6 +336,8 @@ assert(typeof ListAcmeEndpointsCommand === "function");
 assert(typeof ListAcmeEndpoints$ === "object");
 assert(typeof ListAcmeExternalAccountBindingsCommand === "function");
 assert(typeof ListAcmeExternalAccountBindings$ === "object");
+assert(typeof ListCertificateDomainValidationsCommand === "function");
+assert(typeof ListCertificateDomainValidations$ === "object");
 assert(typeof ListCertificatesCommand === "function");
 assert(typeof ListCertificates$ === "object");
 assert(typeof ListTagsForCertificateCommand === "function");
@@ -402,9 +418,13 @@ assert(typeof DistinguishedName$ === "object");
 assert(typeof DnsNameFilter$ === "object");
 assert(typeof DnsPrevalidationDetails$ === "object");
 assert(typeof DnsPrevalidationOptions$ === "object");
+assert(typeof DnsValidationChallenge$ === "object");
 assert(typeof DomainScope$ === "object");
 assert(typeof DomainValidation$ === "object");
+assert(typeof DomainValidationMethodUpdateSummary$ === "object");
 assert(typeof DomainValidationOption$ === "object");
+assert(typeof DomainValidationSummary$ === "object");
+assert(typeof EmailValidationChallenge$ === "object");
 assert(typeof Expiration$ === "object");
 assert(typeof ExpiryEventsConfiguration$ === "object");
 assert(typeof ExportCertificateRequest$ === "object");
@@ -430,6 +450,8 @@ assert(typeof ListAcmeEndpointsRequest$ === "object");
 assert(typeof ListAcmeEndpointsResponse$ === "object");
 assert(typeof ListAcmeExternalAccountBindingsRequest$ === "object");
 assert(typeof ListAcmeExternalAccountBindingsResponse$ === "object");
+assert(typeof ListCertificateDomainValidationsRequest$ === "object");
+assert(typeof ListCertificateDomainValidationsResponse$ === "object");
 assert(typeof ListCertificatesRequest$ === "object");
 assert(typeof ListCertificatesResponse$ === "object");
 assert(typeof ListTagsForCertificateRequest$ === "object");
@@ -464,6 +486,9 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UpdateAcmeDomainValidationRequest$ === "object");
 assert(typeof UpdateAcmeEndpointRequest$ === "object");
 assert(typeof UpdateCertificateOptionsRequest$ === "object");
+assert(typeof UpdateSummary$ === "object");
+assert(typeof ValidationChallenge$ === "object");
+assert(typeof ValidationConfiguration$ === "object");
 assert(typeof X509AttributeFilter$ === "object");
 assert(typeof X509Attributes$ === "object");
 // enums
@@ -497,6 +522,8 @@ assert(typeof SearchCertificatesSortOrder === "object");
 assert(typeof SortBy === "object");
 assert(typeof SortOrder === "object");
 assert(typeof TimeType === "object");
+assert(typeof UpdateStatus === "object");
+assert(typeof UpdateType === "object");
 assert(typeof ValidationMethod === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof ACMServiceException);
@@ -552,6 +579,7 @@ assert(typeof paginateListAcmeAccounts === "function");
 assert(typeof paginateListAcmeDomainValidations === "function");
 assert(typeof paginateListAcmeEndpoints === "function");
 assert(typeof paginateListAcmeExternalAccountBindings === "function");
+assert(typeof paginateListCertificateDomainValidations === "function");
 assert(typeof paginateListCertificates === "function");
 assert(typeof paginateSearchCertificates === "function");
 console.log(`ACM index test passed.`);

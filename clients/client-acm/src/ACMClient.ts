@@ -136,6 +136,10 @@ import type {
   ListAcmeExternalAccountBindingsCommandInput,
   ListAcmeExternalAccountBindingsCommandOutput,
 } from "./commands/ListAcmeExternalAccountBindingsCommand";
+import type {
+  ListCertificateDomainValidationsCommandInput,
+  ListCertificateDomainValidationsCommandOutput,
+} from "./commands/ListCertificateDomainValidationsCommand";
 import type { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
 import type {
   ListTagsForCertificateCommandInput,
@@ -229,6 +233,7 @@ export type ServiceInputTypes =
   | ListAcmeDomainValidationsCommandInput
   | ListAcmeEndpointsCommandInput
   | ListAcmeExternalAccountBindingsCommandInput
+  | ListCertificateDomainValidationsCommandInput
   | ListCertificatesCommandInput
   | ListTagsForCertificateCommandInput
   | ListTagsForResourceCommandInput
@@ -273,6 +278,7 @@ export type ServiceOutputTypes =
   | ListAcmeDomainValidationsCommandOutput
   | ListAcmeEndpointsCommandOutput
   | ListAcmeExternalAccountBindingsCommandOutput
+  | ListCertificateDomainValidationsCommandOutput
   | ListCertificatesCommandOutput
   | ListTagsForCertificateCommandOutput
   | ListTagsForResourceCommandOutput

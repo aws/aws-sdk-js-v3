@@ -21,6 +21,7 @@ export * from "./ListAcmeAccountsCommand";
 export * from "./ListAcmeDomainValidationsCommand";
 export * from "./ListAcmeEndpointsCommand";
 export * from "./ListAcmeExternalAccountBindingsCommand";
+export * from "./ListCertificateDomainValidationsCommand";
 export * from "./ListCertificatesCommand";
 export * from "./ListTagsForCertificateCommand";
 export * from "./ListTagsForResourceCommand";

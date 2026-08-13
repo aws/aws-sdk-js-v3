@@ -119,6 +119,11 @@ import {
   ListAcmeExternalAccountBindingsCommand,
 } from "./commands/ListAcmeExternalAccountBindingsCommand";
 import {
+  type ListCertificateDomainValidationsCommandInput,
+  type ListCertificateDomainValidationsCommandOutput,
+  ListCertificateDomainValidationsCommand,
+} from "./commands/ListCertificateDomainValidationsCommand";
+import {
   type ListCertificatesCommandInput,
   type ListCertificatesCommandOutput,
   ListCertificatesCommand,
@@ -209,6 +214,7 @@ import { paginateListAcmeAccounts } from "./pagination/ListAcmeAccountsPaginator
 import { paginateListAcmeDomainValidations } from "./pagination/ListAcmeDomainValidationsPaginator";
 import { paginateListAcmeEndpoints } from "./pagination/ListAcmeEndpointsPaginator";
 import { paginateListAcmeExternalAccountBindings } from "./pagination/ListAcmeExternalAccountBindingsPaginator";
+import { paginateListCertificateDomainValidations } from "./pagination/ListCertificateDomainValidationsPaginator";
 import { paginateListCertificates } from "./pagination/ListCertificatesPaginator";
 import { paginateSearchCertificates } from "./pagination/SearchCertificatesPaginator";
 import { waitUntilAcmeDomainValidationDeleted } from "./waiters/waitForAcmeDomainValidationDeleted";
@@ -240,6 +246,7 @@ const commands = {
   ListAcmeDomainValidationsCommand,
   ListAcmeEndpointsCommand,
   ListAcmeExternalAccountBindingsCommand,
+  ListCertificateDomainValidationsCommand,
   ListCertificatesCommand,
   ListTagsForCertificateCommand,
   ListTagsForResourceCommand,
@@ -263,6 +270,7 @@ const paginators = {
   paginateListAcmeDomainValidations,
   paginateListAcmeEndpoints,
   paginateListAcmeExternalAccountBindings,
+  paginateListCertificateDomainValidations,
   paginateListCertificates,
   paginateSearchCertificates,
 };
@@ -652,6 +660,23 @@ export interface ACM {
   ): void;
 
   /**
+   * @see {@link ListCertificateDomainValidationsCommand}
+   */
+  listCertificateDomainValidations(
+    args: ListCertificateDomainValidationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCertificateDomainValidationsCommandOutput>;
+  listCertificateDomainValidations(
+    args: ListCertificateDomainValidationsCommandInput,
+    cb: (err: any, data?: ListCertificateDomainValidationsCommandOutput) => void
+  ): void;
+  listCertificateDomainValidations(
+    args: ListCertificateDomainValidationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCertificateDomainValidationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCertificatesCommand}
    */
   listCertificates(): Promise<ListCertificatesCommandOutput>;
@@ -985,6 +1010,17 @@ export interface ACM {
     args: ListAcmeExternalAccountBindingsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListAcmeExternalAccountBindingsCommandOutput>;
+
+  /**
+   * @see {@link ListCertificateDomainValidationsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificateDomainValidationsCommandOutput}.
+   */
+  paginateListCertificateDomainValidations(
+    args: ListCertificateDomainValidationsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificateDomainValidationsCommandOutput>;
 
   /**
    * @see {@link ListCertificatesCommand}

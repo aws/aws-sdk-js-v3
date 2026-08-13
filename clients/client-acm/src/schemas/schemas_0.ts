@@ -26,6 +26,7 @@ const _AKA = "AllowedKeyAlgorithms";
 const _ATTC = "AddTagsToCertificate";
 const _ATTCR = "AddTagsToCertificateRequest";
 const _AU = "AccountUrl";
+const _AVC = "ActiveValidationConfiguration";
 const _C = "Contacts";
 const _CA = "CreatedAt";
 const _CAA = "CertificateAuthorityArn";
@@ -104,10 +105,14 @@ const _DPD = "DnsPrevalidationDetails";
 const _DPO = "DnsPrevalidationOptions";
 const _DS = "DomainScope";
 const _DV = "DomainValidation";
+const _DVC = "DnsValidationChallenge";
 const _DVL = "DomainValidationList";
+const _DVMUS = "DomainValidationMethodUpdateSummary";
 const _DVO = "DomainValidationOptions";
 const _DVOL = "DomainValidationOptionList";
 const _DVOo = "DomainValidationOption";
+const _DVS = "DomainValidationSummary";
+const _DVSL = "DomainValidationSummaryList";
 const _E = "Exported";
 const _EA = "ExpiresAt";
 const _EAB = "ExternalAccountBinding";
@@ -123,14 +128,16 @@ const _EKUL = "ExtendedKeyUsageList";
 const _EKUx = "ExtendedKeyUsage";
 const _EO = "ExportOption";
 const _EU = "EndpointUrl";
+const _EVC = "EmailValidationChallenge";
 const _En = "End";
 const _Ex = "Export";
 const _Exp = "Expiration";
-const _F = "Filters";
+const _F = "From";
 const _FD = "FailureDetails";
 const _FR = "FailureReason";
 const _FS = "FilterStatement";
-const _Fi = "Filter";
+const _Fi = "Filters";
+const _Fil = "Filter";
 const _GAC = "GetAccountConfiguration";
 const _GACR = "GetAccountConfigurationResponse";
 const _GAEABC = "GetAcmeExternalAccountBindingCredentials";
@@ -185,6 +192,9 @@ const _LAEABRi = "ListAcmeExternalAccountBindingsResponse";
 const _LAER = "ListAcmeEndpointsRequest";
 const _LAERi = "ListAcmeEndpointsResponse";
 const _LC = "ListCertificates";
+const _LCDV = "ListCertificateDomainValidations";
+const _LCDVR = "ListCertificateDomainValidationsRequest";
+const _LCDVRi = "ListCertificateDomainValidationsResponse";
 const _LCR = "ListCertificatesRequest";
 const _LCRi = "ListCertificatesResponse";
 const _LEE = "LimitExceededException";
@@ -231,6 +241,7 @@ const _RAAR = "RevokeAcmeAccountRequest";
 const _RAEAB = "RevokeAcmeExternalAccountBinding";
 const _RAEABR = "RevokeAcmeExternalAccountBindingRequest";
 const _RAe = "ResourceArn";
+const _RAeq = "RequestedAt";
 const _RAo = "RoleArn";
 const _RC = "RenewCertificate";
 const _RCR = "RenewCertificateRequest";
@@ -255,6 +266,7 @@ const _RSe = "RenewalSummary";
 const _RT = "RedirectTo";
 const _RTFC = "RemoveTagsFromCertificate";
 const _RTFCR = "RemoveTagsFromCertificateRequest";
+const _RVC = "RequestedValidationConfiguration";
 const _RVE = "ResendValidationEmail";
 const _RVER = "ResendValidationEmailRequest";
 const _Re = "Results";
@@ -292,6 +304,7 @@ const _TRi = "TimestampRange";
 const _Ta = "Tags";
 const _Tag = "Tag";
 const _Ti = "Title";
+const _To = "To";
 const _UA = "UpdatedAt";
 const _UADV = "UpdateAcmeDomainValidation";
 const _UADVR = "UpdateAcmeDomainValidationRequest";
@@ -302,7 +315,10 @@ const _UCOR = "UpdateCertificateOptionsRequest";
 const _UR = "UntagResource";
 const _URI = "UniformResourceIdentifier";
 const _URR = "UntagResourceRequest";
+const _US = "UpdateSummary";
 const _V = "Value";
+const _VC = "ValidationConfiguration";
+const _VCa = "ValidationChallenge";
 const _VD = "ValidationDomain";
 const _VE = "ValidationException";
 const _VEa = "ValidationEmails";
@@ -539,13 +555,13 @@ export var AddTagsToCertificateRequest$: StaticStructureSchema = [3, n0, _ATTCR,
 ];
 export var CertificateDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_CAer, _DN, _SAN, _MB, _DVO, _Se, _Su, _I, _CA, _IAs, _IA, _S, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _T, _RSe, _KU, _EKU, _CAA, _RE, _O, _CKPO, _AEA, _AAI],
-  [0, 0, 64 | 0, 0, () => DomainValidationList, 0, 0, 0, 4, 4, 4, 0, 4, 0, 4, 4, 0, 0, 64 | 0, 0, 0, () => RenewalSummary$, () => KeyUsageList, () => ExtendedKeyUsageList, 0, 0, () => CertificateOptions$, 0, 0, 0]
+  [_CAer, _DN, _SAN, _MB, _DVO, _Se, _Su, _I, _CA, _IAs, _IA, _S, _RA, _RR, _NB, _NA, _KA, _SA, _IUB, _FR, _T, _RSe, _KU, _EKU, _CAA, _RE, _O, _US, _CKPO, _AEA, _AAI],
+  [0, 0, 64 | 0, 0, () => DomainValidationList, 0, 0, 0, 4, 4, 4, 0, 4, 0, 4, 4, 0, 0, 64 | 0, 0, 0, () => RenewalSummary$, () => KeyUsageList, () => ExtendedKeyUsageList, 0, 0, () => CertificateOptions$, () => UpdateSummary$, 0, 0, 0]
 ];
 export var CertificateOptions$: StaticStructureSchema = [3, n0, _CO,
   0,
-  [_CTLP, _Ex],
-  [0, 0]
+  [_CTLP, _Ex, _VM],
+  [0, 0, 0]
 ];
 export var CertificateSearchResult$: StaticStructureSchema = [3, n0, _CSR,
   0,
@@ -687,6 +703,11 @@ export var DnsPrevalidationOptions$: StaticStructureSchema = [3, n0, _DPO,
   [_DS, _HZI],
   [() => DomainScope$, 0]
 ];
+export var DnsValidationChallenge$: StaticStructureSchema = [3, n0, _DVC,
+  0,
+  [_RRe],
+  [() => ResourceRecord$]
+];
 export var DomainScope$: StaticStructureSchema = [3, n0, _DS,
   0,
   [_ED, _Sub, _W],
@@ -697,10 +718,25 @@ export var DomainValidation$: StaticStructureSchema = [3, n0, _DV,
   [_DN, _VEa, _VD, _VS, _RRe, _HR, _VM],
   [0, 64 | 0, 0, 0, () => ResourceRecord$, () => HttpRedirect$, 0], 1
 ];
+export var DomainValidationMethodUpdateSummary$: StaticStructureSchema = [3, n0, _DVMUS,
+  0,
+  [_F, _To],
+  [0, 0]
+];
 export var DomainValidationOption$: StaticStructureSchema = [3, n0, _DVOo,
   0,
   [_DN, _VD],
   [0, 0], 2
+];
+export var DomainValidationSummary$: StaticStructureSchema = [3, n0, _DVS,
+  0,
+  [_DN, _AVC, _RVC],
+  [0, () => ValidationConfiguration$, () => ValidationConfiguration$], 1
+];
+export var EmailValidationChallenge$: StaticStructureSchema = [3, n0, _EVC,
+  0,
+  [_VEa, _VD],
+  [64 | 0, 0]
 ];
 export var Expiration$: StaticStructureSchema = [3, n0, _Exp,
   0,
@@ -732,7 +768,7 @@ export var FailureDetails$: StaticStructureSchema = [3, n0, _FD,
   [_R, _M],
   [0, 0]
 ];
-export var Filters$: StaticStructureSchema = [3, n0, _F,
+export var Filters$: StaticStructureSchema = [3, n0, _Fi,
   0,
   [_eKU, _kU, _kT, _eO, _mB],
   [64 | 0, 64 | 0, 64 | 0, 0, 0]
@@ -821,6 +857,16 @@ export var ListAcmeExternalAccountBindingsResponse$: StaticStructureSchema = [3,
   0,
   [_EABx, _NT],
   [() => AcmeExternalAccountBindingList, 0]
+];
+export var ListCertificateDomainValidationsRequest$: StaticStructureSchema = [3, n0, _LCDVR,
+  0,
+  [_CAer, _NT, _MI],
+  [0, 0, 1], 1
+];
+export var ListCertificateDomainValidationsResponse$: StaticStructureSchema = [3, n0, _LCDVRi,
+  0,
+  [_DVSL, _NT],
+  [() => DomainValidationSummaryList, 0]
 ];
 export var ListCertificatesRequest$: StaticStructureSchema = [3, n0, _LCR,
   0,
@@ -972,6 +1018,16 @@ export var UpdateCertificateOptionsRequest$: StaticStructureSchema = [3, n0, _UC
   [_CAer, _O],
   [0, () => CertificateOptions$], 2
 ];
+export var UpdateSummary$: StaticStructureSchema = [3, n0, _US,
+  0,
+  [_S, _T, _DVMUS, _RAeq, _UA],
+  [0, 0, () => DomainValidationMethodUpdateSummary$, 4, 4]
+];
+export var ValidationConfiguration$: StaticStructureSchema = [3, n0, _VC,
+  0,
+  [_VM, _VCa, _VS],
+  [0, () => ValidationChallenge$, 0]
+];
 export var X509Attributes$: StaticStructureSchema = [3, n0, _XA,
   0,
   [_I, _Su, _SAN, _EKU, _KA, _KU, _SN, _NA, _NB],
@@ -1016,6 +1072,9 @@ var DomainValidationList: StaticListSchema = [1, n0, _DVL,
 var DomainValidationOptionList: StaticListSchema = [1, n0, _DVOL,
   0, () => DomainValidationOption$
 ];
+var DomainValidationSummaryList: StaticListSchema = [1, n0, _DVSL,
+  0, () => DomainValidationSummary$
+];
 var ExtendedKeyUsageFilterList = 64 | 0;
 var ExtendedKeyUsageList: StaticListSchema = [1, n0, _EKUL,
   0, () => ExtendedKeyUsage$
@@ -1057,7 +1116,7 @@ export var CertificateFilter$: StaticUnionSchema = [4, n0, _CF,
 ];
 export var CertificateFilterStatement$: StaticUnionSchema = [4, n0, _CFS,
   0,
-  [_A, _Or_, _No, _Fi],
+  [_A, _Or_, _No, _Fil],
   [() => CertificateFilterStatementList, () => CertificateFilterStatementList, () => CertificateFilterStatement$, () => CertificateFilter$]
 ];
 export var CertificateMetadata$: StaticUnionSchema = [4, n0, _CM,
@@ -1089,6 +1148,11 @@ export var SubjectFilter$: StaticUnionSchema = [4, n0, _SF,
   0,
   [_CN],
   [() => CommonNameFilter$]
+];
+export var ValidationChallenge$: StaticUnionSchema = [4, n0, _VCa,
+  0,
+  [_EVC, _DVC],
+  [() => EmailValidationChallenge$, () => DnsValidationChallenge$]
 ];
 export var X509AttributeFilter$: StaticUnionSchema = [4, n0, _XAF,
   0,
@@ -1160,6 +1224,9 @@ export var ListAcmeEndpoints$: StaticOperationSchema = [9, n0, _LAE,
 ];
 export var ListAcmeExternalAccountBindings$: StaticOperationSchema = [9, n0, _LAEAB,
   0, () => ListAcmeExternalAccountBindingsRequest$, () => ListAcmeExternalAccountBindingsResponse$
+];
+export var ListCertificateDomainValidations$: StaticOperationSchema = [9, n0, _LCDV,
+  0, () => ListCertificateDomainValidationsRequest$, () => ListCertificateDomainValidationsResponse$
 ];
 export var ListCertificates$: StaticOperationSchema = [9, n0, _LC,
   0, () => ListCertificatesRequest$, () => ListCertificatesResponse$

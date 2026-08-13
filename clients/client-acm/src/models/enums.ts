@@ -398,6 +398,32 @@ export type RevocationReason = (typeof RevocationReason)[keyof typeof Revocation
  * @public
  * @enum
  */
+export const UpdateStatus = {
+  FAILED: "FAILED",
+  PENDING_DOMAIN_VALIDATION: "PENDING_DOMAIN_VALIDATION",
+  SUCCESS: "SUCCESS",
+} as const;
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateType = {
+  DOMAIN_VALIDATION_METHOD: "DOMAIN_VALIDATION_METHOD",
+} as const;
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ComparisonOperator = {
   CONTAINS: "CONTAINS",
   EQUALS: "EQUALS",

@@ -335,6 +335,13 @@ ListAcmeExternalAccountBindings
 </details>
 <details>
 <summary>
+ListCertificateDomainValidations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ListCertificateDomainValidationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListCertificateDomainValidationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ListCertificateDomainValidationsCommandOutput/)
+</details>
+<details>
+<summary>
 ListCertificates
 </summary>
 

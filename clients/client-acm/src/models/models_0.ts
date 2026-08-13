@@ -30,6 +30,8 @@ import type {
   SortBy,
   SortOrder,
   TimeType,
+  UpdateStatus,
+  UpdateType,
   ValidationMethod,
 } from "./enums";
 
@@ -1178,7 +1180,7 @@ export interface KeyUsage {
 }
 
 /**
- * <p>Structure that contains options for your certificate. You can use this structure to specify whether to export your certificate.</p> <p>Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log. For general information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>.</p> <p>You can export public ACM certificates to use with Amazon Web Services services as well as outside Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager exportable public certificate</a>.</p>
+ * <p>Structure that contains options for your certificate. You can use this structure to change the domain validation method or specify whether to export your certificate.</p> <p>All public certificates are recorded in a certificate transparency log. For general information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>.</p> <p>You can export public ACM certificates to use with Amazon Web Services services as well as outside Amazon Web Services Cloud. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager exportable public certificate</a>.</p>
  * @public
  */
 export interface CertificateOptions {
@@ -1195,6 +1197,12 @@ export interface CertificateOptions {
    * @public
    */
   Export?: CertificateExport | undefined;
+
+  /**
+   * <p>The domain validation method for the certificate. To migrate from email to DNS validation, specify <code>DNS</code>.</p>
+   * @public
+   */
+  ValidationMethod?: ValidationMethod | undefined;
 }
 
 /**
@@ -1225,6 +1233,60 @@ export interface RenewalSummary {
    * @public
    */
   UpdatedAt: Date | undefined;
+}
+
+/**
+ * <p>Contains information about a domain validation method migration, including the previous validation method and the target validation method.</p>
+ * @public
+ */
+export interface DomainValidationMethodUpdateSummary {
+  /**
+   * <p>The validation method that the certificate was using before the update.</p>
+   * @public
+   */
+  From?: ValidationMethod | undefined;
+
+  /**
+   * <p>The target validation method for the update.</p>
+   * @public
+   */
+  To?: ValidationMethod | undefined;
+}
+
+/**
+ * <p>Contains information about the most recent certificate update, such as a domain validation method migration. This structure is returned as part of the <a>CertificateDetail</a> response from <a>DescribeCertificate</a>.</p>
+ * @public
+ */
+export interface UpdateSummary {
+  /**
+   * <p>The status of the certificate update. The following are valid values:</p> <ul> <li> <p> <code>PENDING_DOMAIN_VALIDATION</code> – The certificate update is waiting for domain ownership validation to complete.</p> </li> <li> <p> <code>SUCCESS</code> – The certificate was updated successfully.</p> </li> <li> <p> <code>FAILED</code> – The certificate update failed.</p> </li> </ul>
+   * @public
+   */
+  Status?: UpdateStatus | undefined;
+
+  /**
+   * <p>The type of update that was requested for the certificate. The following are valid values:</p> <ul> <li> <p> <code>DOMAIN_VALIDATION_METHOD</code> – The update changes the domain validation method for the certificate.</p> </li> </ul>
+   * @public
+   */
+  Type?: UpdateType | undefined;
+
+  /**
+   * <p>Contains information about a domain validation method migration, including the previous and target validation methods.</p>
+   * @public
+   */
+  DomainValidationMethodUpdateSummary?: DomainValidationMethodUpdateSummary | undefined;
+
+  /**
+   * <p>The time at which the certificate update was requested.</p>
+   * @public
+   */
+  RequestedAt?: Date | undefined;
+
+  /**
+   * <p>The time at which the certificate update status was last changed.</p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -1393,6 +1455,12 @@ export interface CertificateDetail {
    * @public
    */
   Options?: CertificateOptions | undefined;
+
+  /**
+   * <p>Contains information about the most recent update to the certificate. This field exists only when the certificate type is <code>AMAZON_ISSUED</code> and a certificate update has been requested.</p>
+   * @public
+   */
+  UpdateSummary?: UpdateSummary | undefined;
 
   /**
    * <p>The origin of the certificate's key pair.</p>
@@ -2492,6 +2560,177 @@ export interface ListAcmeExternalAccountBindingsResponse {
 }
 
 /**
+ * @public
+ */
+export interface ListCertificateDomainValidationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the certificate for which to list domain validation summaries.</p>
+   * @public
+   */
+  CertificateArn: string | undefined;
+
+  /**
+   * <p>A token returned by a previous call to <code>ListCertificateDomainValidations</code>. If the number of results exceeds <code>MaxItems</code>, use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of domain validation summaries to return. If you don't specify a value, the default is 1000.</p>
+   * @public
+   */
+  MaxItems?: number | undefined;
+}
+
+/**
+ * <p>Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.</p>
+ * @public
+ */
+export interface DnsValidationChallenge {
+  /**
+   * <p>The CNAME record that ACM creates for DNS validation. Add this record to your DNS configuration to prove that you own or control the domain.</p>
+   * @public
+   */
+  ResourceRecord?: ResourceRecord | undefined;
+}
+
+/**
+ * <p>Contains the email addresses used for email-based domain validation.</p>
+ * @public
+ */
+export interface EmailValidationChallenge {
+  /**
+   * <p>A list of email addresses that ACM uses to send domain validation emails.</p>
+   * @public
+   */
+  ValidationEmails?: string[] | undefined;
+
+  /**
+   * <p>The domain name that ACM uses to send validation emails.</p>
+   * @public
+   */
+  ValidationDomain?: string | undefined;
+}
+
+/**
+ * <p>Contains the challenge details that you use to prove domain ownership. Only one member is set, depending on the validation method.</p>
+ * @public
+ */
+export type ValidationChallenge =
+  | ValidationChallenge.DnsValidationChallengeMember
+  | ValidationChallenge.EmailValidationChallengeMember
+  | ValidationChallenge.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ValidationChallenge {
+  /**
+   * <p>Contains the email addresses used for email-based domain validation.</p>
+   * @public
+   */
+  export interface EmailValidationChallengeMember {
+    EmailValidationChallenge: EmailValidationChallenge;
+    DnsValidationChallenge?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the CNAME record that you must add to your DNS configuration to validate domain ownership using DNS validation.</p>
+   * @public
+   */
+  export interface DnsValidationChallengeMember {
+    EmailValidationChallenge?: never;
+    DnsValidationChallenge: DnsValidationChallenge;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    EmailValidationChallenge?: never;
+    DnsValidationChallenge?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    EmailValidationChallenge: (value: EmailValidationChallenge) => T;
+    DnsValidationChallenge: (value: DnsValidationChallenge) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Contains the validation method, validation status, and validation challenge details for a domain. This structure appears in <a>DomainValidationSummary</a> as both the active and requested validation configuration.</p>
+ * @public
+ */
+export interface ValidationConfiguration {
+  /**
+   * <p>The validation method for this configuration. Valid values:</p> <ul> <li> <p> <code>DNS</code> – Validation using a CNAME record added to your DNS configuration.</p> </li> <li> <p> <code>EMAIL</code> – Validation using an approval email sent to domain contacts.</p> </li> <li> <p> <code>HTTP</code> – Validation using an HTTP resource placed on your web server.</p> </li> </ul>
+   * @public
+   */
+  ValidationMethod?: ValidationMethod | undefined;
+
+  /**
+   * <p>The validation challenge details for this configuration. The structure varies by validation method: for DNS validation, contains a <code>DnsValidationChallenge</code> with the CNAME record to add; for email validation, contains an <code>EmailValidationChallenge</code> with the validation email addresses.</p>
+   * @public
+   */
+  ValidationChallenge?: ValidationChallenge | undefined;
+
+  /**
+   * <p>The validation status for this domain. Valid values:</p> <ul> <li> <p> <code>PENDING_VALIDATION</code> – The domain is waiting for validation to complete.</p> </li> <li> <p> <code>SUCCESS</code> – Validation completed successfully.</p> </li> <li> <p> <code>FAILED</code> – Validation failed.</p> </li> </ul>
+   * @public
+   */
+  ValidationStatus?: DomainStatus | undefined;
+}
+
+/**
+ * <p>Contains per-domain validation information for a certificate. This structure is returned as a member of the <a>ListCertificateDomainValidations</a> response.</p>
+ * @public
+ */
+export interface DomainValidationSummary {
+  /**
+   * <p>The fully qualified domain name (FQDN) in the certificate for which this validation summary applies.</p>
+   * @public
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The validation configuration currently in effect for this domain. This reflects the validation method that ACM is currently using to validate domain ownership (for example, email or DNS).</p>
+   * @public
+   */
+  ActiveValidationConfiguration?: ValidationConfiguration | undefined;
+
+  /**
+   * <p>The validation configuration for a pending validation method migration. This field is present only when a migration is in progress (for example, from email to DNS validation). It contains the target validation method, the current validation status, and the validation challenge details (such as the CNAME record to add to your DNS configuration).</p>
+   * @public
+   */
+  RequestedValidationConfiguration?: ValidationConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateDomainValidationsResponse {
+  /**
+   * <p>A list of <a>DomainValidationSummary</a> objects, one for each domain on the certificate. Each object contains the domain name and its active and requested validation configurations.</p>
+   * @public
+   */
+  DomainValidationSummaryList?: DomainValidationSummary[] | undefined;
+
+  /**
+   * <p>If the number of results exceeds <code>MaxItems</code>, this token is included in the response. Use this token in a subsequent <code>ListCertificateDomainValidations</code> request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * <p>This structure can be used in the <a>ListCertificates</a> action to filter the output of the certificate list. </p>
  * @public
  */
@@ -3507,7 +3746,7 @@ export interface UpdateCertificateOptionsRequest {
   CertificateArn: string | undefined;
 
   /**
-   * <p>Use to update the options for your certificate. Currently, you can specify whether to export your certificate. Certificate transparency logging opt-out is no longer available. All public certificates are recorded in a certificate transparency log. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a>.</p>
+   * <p>Use to update the options for your certificate. Currently, you can change the domain validation method or specify whether to export your certificate. For more information about migrating from email to DNS validation, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html">Migrate from email to DNS validation</a>.</p>
    * @public
    */
   Options: CertificateOptions | undefined;

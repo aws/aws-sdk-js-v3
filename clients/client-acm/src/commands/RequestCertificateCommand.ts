@@ -48,6 +48,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *   Options: { // CertificateOptions
  *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
  *     Export: "ENABLED" || "DISABLED",
+ *     ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  *   },
  *   CertificateAuthorityArn: "STRING_VALUE",
  *   Tags: [ // TagList

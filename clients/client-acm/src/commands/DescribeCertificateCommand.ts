@@ -124,6 +124,17 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  * //     Options: { // CertificateOptions
  * //       CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
  * //       Export: "ENABLED" || "DISABLED",
+ * //       ValidationMethod: "EMAIL" || "DNS" || "HTTP",
+ * //     },
+ * //     UpdateSummary: { // UpdateSummary
+ * //       Status: "PENDING_DOMAIN_VALIDATION" || "SUCCESS" || "FAILED",
+ * //       Type: "DOMAIN_VALIDATION_METHOD",
+ * //       DomainValidationMethodUpdateSummary: { // DomainValidationMethodUpdateSummary
+ * //         From: "EMAIL" || "DNS" || "HTTP",
+ * //         To: "EMAIL" || "DNS" || "HTTP",
+ * //       },
+ * //       RequestedAt: new Date("TIMESTAMP"),
+ * //       UpdatedAt: new Date("TIMESTAMP"),
  * //     },
  * //     CertificateKeyPairOrigin: "AWS_MANAGED" || "ACME" || "CUSTOMER_PROVIDED",
  * //     AcmeEndpointArn: "STRING_VALUE",

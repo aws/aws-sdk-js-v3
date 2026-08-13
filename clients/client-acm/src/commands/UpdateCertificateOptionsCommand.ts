@@ -23,7 +23,7 @@ export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateO
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a certificate. You can use this function to specify whether to export your certificate. Certificate transparency logging opt-out is no longer available. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency">Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
+ * <p>Updates certificate options. You can use this operation to change the domain validation method or specify whether to export your certificate. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/email-to-dns-migration.html">Migrate from email to DNS validation</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,7 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *   Options: { // CertificateOptions
  *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
  *     Export: "ENABLED" || "DISABLED",
+ *     ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  *   },
  * };
  * const command = new UpdateCertificateOptionsCommand(input);
@@ -50,6 +51,9 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  * @see {@link UpdateCertificateOptionsCommandInput} for command's `input` shape.
  * @see {@link UpdateCertificateOptionsCommandOutput} for command's `response` shape.
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You are trying to update a resource or configuration that is already being created or updated. Wait for the previous operation to finish and try again.</p>
  *
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
