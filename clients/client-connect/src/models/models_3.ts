@@ -75,11 +75,10 @@ import type {
   AfterContactWorkConfigPerChannel,
   AgentConfig,
   AgentHierarchyGroups,
+  AiAgentInput,
   AiAgentsCriteria,
   AliasConfiguration,
-  AllowedCapabilities,
   Application,
-  AutoAcceptConfig,
   ControlPlaneAttributeFilter,
   CreatedByInfo,
   DataTableLockVersion,
@@ -113,6 +112,8 @@ import type {
   Validation,
 } from "./models_0";
 import type {
+  AutoAcceptConfig,
+  ContactFlow,
   DataTable,
   EvaluationAnswerData,
   EvaluationNote,
@@ -136,15 +137,30 @@ import type {
   VoiceEnhancementConfig,
   WorkspaceTheme,
 } from "./models_1";
-import type {
-  BooleanCondition,
-  ControlPlaneTagFilter,
-  DateTimeCondition,
-  DecimalCondition,
-  NumberCondition,
-  SignInConfig,
-  TelephonyConfig,
-} from "./models_2";
+import type { ControlPlaneTagFilter, NumberCondition, SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * @public
+ */
+export interface SearchContactFlowsResponse {
+  /**
+   * <p>Information about the flows.</p>
+   * @public
+   */
+  ContactFlows?: ContactFlow[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of flows which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
 
 /**
  * <p>A structure of time range that you want to search results.</p>
@@ -2544,7 +2560,7 @@ export interface ChatEvent {
 }
 
 /**
- * <p>The customer's details.</p>
+ * <p>The details of the participant, including their display name.</p>
  * @public
  */
 export interface ParticipantDetails {
@@ -2587,7 +2603,7 @@ export interface NewSessionDetails {
   SupportedMessagingContentTypes?: string[] | undefined;
 
   /**
-   * <p>The customer's details.</p>
+   * <p>The details of the participant, including their display name.</p>
    * @public
    */
   ParticipantDetails?: ParticipantDetails | undefined;
@@ -3040,6 +3056,161 @@ export interface SendOutboundWebNotificationRequest {
 export interface SendOutboundWebNotificationResponse {}
 
 /**
+ * <p>A chat message.</p>
+ * @public
+ */
+export interface ChatMessage {
+  /**
+   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
+   *     <code>application/json</code>, and
+   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
+   * @public
+   */
+  ContentType: string | undefined;
+
+  /**
+   * <p>The content of the chat message. Maximum of 16,384 bytes for all content types
+   *    (<code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and
+   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>).</p>
+   *          <p>Some messaging channels enforce lower limits. For channel-specific message size limits, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html#chat-message-size-limits">Chat message size limits
+   *    by channel</a> in the <i>Amazon Connect Customer Administrator Guide</i>.</p>
+   * @public
+   */
+  Content: string | undefined;
+}
+
+/**
+ * <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how
+ *    to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
+ *     persistent chat</a>.</p>
+ * @public
+ */
+export interface PersistentChat {
+  /**
+   * <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for
+   *    persistent chat. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the
+   *      specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended
+   *      chat session in the <code>sourceContactId</code> field. In this type, Connect Customer determines the most recent
+   *      chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the
+   *       <code>sourceContactId</code> field. </p>
+   *             </li>
+   *          </ul>
+   *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
+   * @public
+   */
+  RehydrationType?: RehydrationType | undefined;
+
+  /**
+   * <p>The contactId from which a persistent chat session must be started.</p>
+   * @public
+   */
+  SourceContactId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAssistantContactRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The AI agent that participates in the contact.</p>
+   * @public
+   */
+  AiAgent: AiAgentInput | undefined;
+
+  /**
+   * <p>The display name and other details that identify the chat participant.</p>
+   * @public
+   */
+  ParticipantDetails: ParticipantDetails | undefined;
+
+  /**
+   * <p>The initial message to send to the newly created chat.</p>
+   * @public
+   */
+  InitialMessage?: ChatMessage | undefined;
+
+  /**
+   * <p>A map of key-value pairs to associate with the contact. Amazon Connect makes these attributes available to
+   *    flows as standard contact attributes.</p>
+   *          <p>You can provide up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can contain only
+   *    alphanumeric characters, dashes, and underscores.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The configuration that enables persistent chat. For more information about persistent chat and its use cases,
+   *    see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable persistent
+   *     chat</a>.</p>
+   * @public
+   */
+  PersistentChat?: PersistentChat | undefined;
+
+  /**
+   * <p>The identifier of an Connect Customer contact related to the new assistant contact.</p>
+   *          <note>
+   *             <p>You cannot provide both <code>RelatedContactId</code> and <code>PersistentChat</code>.</p>
+   *          </note>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartAssistantContactResponse {
+  /**
+   * <p>The identifier of the contact within the Connect Customer instance.</p>
+   * @public
+   */
+  ContactId?: string | undefined;
+
+  /**
+   * <p>The identifier of the chat participant. The participant identifier remains the same throughout the chat
+   *    lifecycle.</p>
+   * @public
+   */
+  ParticipantId?: string | undefined;
+
+  /**
+   * <p>The token that the chat participant uses to call the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API. The token remains valid for the lifetime of the chat participant.</p>
+   * @public
+   */
+  ParticipantToken?: string | undefined;
+
+  /**
+   * <p>For a persistent chat, the identifier of the contact from which the chat continues. Amazon Connect returns this
+   *    field only for persistent chats.</p>
+   * @public
+   */
+  ContinuedFromContactId?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface StartAttachedFileUploadRequest {
@@ -3177,30 +3348,6 @@ export interface StartAttachedFileUploadResponse {
 }
 
 /**
- * <p>A chat message.</p>
- * @public
- */
-export interface ChatMessage {
-  /**
-   * <p>The type of the content. Supported types are <code>text/plain</code>, <code>text/markdown</code>,
-   *     <code>application/json</code>, and
-   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
-   * @public
-   */
-  ContentType: string | undefined;
-
-  /**
-   * <p>The content of the chat message. Maximum of 16,384 bytes for all content types
-   *    (<code>text/plain</code>, <code>text/markdown</code>, <code>application/json</code>, and
-   *    <code>application/vnd.amazonaws.connect.message.interactive.response</code>).</p>
-   *          <p>Some messaging channels enforce lower limits. For channel-specific message size limits, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/feature-limits.html#chat-message-size-limits">Chat message size limits
-   *    by channel</a> in the <i>Amazon Connect Customer Administrator Guide</i>.</p>
-   * @public
-   */
-  Content: string | undefined;
-}
-
-/**
  * <p> The configuration of the participant. </p>
  * @public
  */
@@ -3210,42 +3357,6 @@ export interface ParticipantConfiguration {
    * @public
    */
   ResponseMode?: ResponseMode | undefined;
-}
-
-/**
- * <p>Enable persistent chats. For more information about enabling persistent chat, and for example use cases and how
- *    to configure for them, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat-persistence.html">Enable
- *     persistent chat</a>.</p>
- * @public
- */
-export interface PersistentChat {
-  /**
-   * <p>The contactId that is used for rehydration depends on the rehydration type. RehydrationType is required for
-   *    persistent chat. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ENTIRE_PAST_SESSION</code>: Rehydrates a chat from the most recently terminated past chat contact of the
-   *      specified past ended chat session. To use this type, provide the <code>initialContactId</code> of the past ended
-   *      chat session in the <code>sourceContactId</code> field. In this type, Connect Customer determines the most recent
-   *      chat contact on the specified chat session that has ended, and uses it to start a persistent chat. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FROM_SEGMENT</code>: Rehydrates a chat from the past chat contact that is specified in the
-   *       <code>sourceContactId</code> field. </p>
-   *             </li>
-   *          </ul>
-   *          <p>The actual contactId used for rehydration is provided in the response of this API. </p>
-   * @public
-   */
-  RehydrationType?: RehydrationType | undefined;
-
-  /**
-   * <p>The contactId from which a persistent chat session must be started.</p>
-   * @public
-   */
-  SourceContactId?: string | undefined;
 }
 
 /**
@@ -4150,82 +4261,6 @@ export interface StartTestCaseExecutionResponse {
    * @public
    */
   Status?: TestCaseExecutionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface StartWebRTCContactRequest {
-  /**
-   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
-   *    can be accessed in flows just like any other contact attributes.</p>
-   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
-   *    alphanumeric, -, and _ characters.</p>
-   * @public
-   */
-  Attributes?: Record<string, string> | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   *          <p>The token is valid for 7 days after creation. If a contact is already started, the contact ID is
-   *    returned.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to
-   *     <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page,
-   *    under the name of the flow, choose <b>Show additional flow information</b>. The
-   *    ContactFlowId is the last part of the ARN, shown here in bold: </p>
-   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
-   *          </p>
-   * @public
-   */
-  ContactFlowId: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Information about the video sharing capabilities of the participants (customer, agent).</p>
-   * @public
-   */
-  AllowedCapabilities?: AllowedCapabilities | undefined;
-
-  /**
-   * <p>The customer's details.</p>
-   * @public
-   */
-  ParticipantDetails: ParticipantDetails | undefined;
-
-  /**
-   * <p>The unique identifier for an Connect Customer contact. This identifier is related to the contact
-   *    starting.</p>
-   * @public
-   */
-  RelatedContactId?: string | undefined;
-
-  /**
-   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following
-   *    reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> |
-   *     <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during task
-   *    creation.</p>
-   * @public
-   */
-  References?: Record<string, Reference> | undefined;
-
-  /**
-   * <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
-   * @public
-   */
-  Description?: string | undefined;
 }
 
 /**
@@ -7876,100 +7911,4 @@ export interface EvaluationFormItemEnablementConfiguration {
    * @public
    */
   DefaultAction?: EvaluationFormItemEnablementAction | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return evaluation forms.</p>
- * @public
- */
-export interface EvaluationFormSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   * @public
-   */
-  OrConditions?: EvaluationFormSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   * @public
-   */
-  AndConditions?: EvaluationFormSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a numeric condition.</p>
-   *          <note>
-   *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
-   *          </note>
-   * @public
-   */
-  NumberCondition?: NumberCondition | undefined;
-
-  /**
-   * <p>Boolean search condition.</p>
-   * @public
-   */
-  BooleanCondition?: BooleanCondition | undefined;
-
-  /**
-   * <p>Datetime search condition.</p>
-   * @public
-   */
-  DateTimeCondition?: DateTimeCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return evaluations.</p>
- * @public
- */
-export interface EvaluationSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   * @public
-   */
-  OrConditions?: EvaluationSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   * @public
-   */
-  AndConditions?: EvaluationSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a numeric condition.</p>
-   *          <note>
-   *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
-   *          </note>
-   * @public
-   */
-  NumberCondition?: NumberCondition | undefined;
-
-  /**
-   * <p>The boolean condition search criteria for searching evaluations.</p>
-   * @public
-   */
-  BooleanCondition?: BooleanCondition | undefined;
-
-  /**
-   * <p>The datetime condition search criteria for searching evaluations.</p>
-   * @public
-   */
-  DateTimeCondition?: DateTimeCondition | undefined;
-
-  /**
-   * <p>The decimal condition search criteria for searching evaluations.</p>
-   * @public
-   */
-  DecimalCondition?: DecimalCondition | undefined;
 }

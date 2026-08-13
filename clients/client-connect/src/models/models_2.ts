@@ -80,7 +80,9 @@ import type {
 import type {
   ActionSummary,
   AgentConfig,
+  AgentContactReference,
   AgentStatus,
+  AgentStatusReference,
   AgentStatusSummary,
   AnalyticsDataAssociationResult,
   Application,
@@ -103,7 +105,6 @@ import type {
 } from "./models_0";
 import type {
   Attribute,
-  ContactFlow,
   ContactFlowModule,
   DataTableAttribute,
   Dimensions,
@@ -112,11 +113,79 @@ import type {
   ExtensionConfiguration,
   Filters,
   HierarchyGroupSummary,
+  HierarchyPathReference,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
-  UserData,
+  RoutingProfileReference,
+  UserReference,
 } from "./models_1";
+
+/**
+ * <p>Data for a user.</p>
+ * @public
+ */
+export interface UserData {
+  /**
+   * <p>Information about the user for the data that is returned. It contains the <code>resourceId</code> and ARN of the
+   *    user. </p>
+   * @public
+   */
+  User?: UserReference | undefined;
+
+  /**
+   * <p>Information about the routing profile that is assigned to the user.</p>
+   * @public
+   */
+  RoutingProfile?: RoutingProfileReference | undefined;
+
+  /**
+   * <p>Contains information about the levels of a hierarchy group assigned to a user.</p>
+   * @public
+   */
+  HierarchyPath?: HierarchyPathReference | undefined;
+
+  /**
+   * <p>The status of the agent that they manually set in their Contact Control Panel (CCP), or that the supervisor
+   *    manually changes in the real-time metrics report.</p>
+   * @public
+   */
+  Status?: AgentStatusReference | undefined;
+
+  /**
+   * <p>A map of available slots by channel. The key is a channel name. The value is an integer: the available number of
+   *    slots. </p>
+   * @public
+   */
+  AvailableSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
+
+  /**
+   * <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the maximum number of
+   *    slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
+   *     <code>RoutingProfile</code> assigned to the agent. </p>
+   * @public
+   */
+  MaxSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
+
+  /**
+   * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the number of active
+   *    slots. </p>
+   * @public
+   */
+  ActiveSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
+
+  /**
+   * <p>A list of contact reference information.</p>
+   * @public
+   */
+  Contacts?: AgentContactReference[] | undefined;
+
+  /**
+   * <p>The Next status of the agent.</p>
+   * @public
+   */
+  NextStatus?: string | undefined;
+}
 
 /**
  * @public
@@ -10881,27 +10950,4 @@ export interface ContactFlowSearchFilter {
    * @public
    */
   FlowAttributeFilter?: ContactFlowAttributeFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactFlowsResponse {
-  /**
-   * <p>Information about the flows.</p>
-   * @public
-   */
-  ContactFlows?: ContactFlow[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of flows which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
 }

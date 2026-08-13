@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { StartWebRTCContactRequest, StartWebRTCContactResponse } from "../models/models_3";
+import type { StartWebRTCContactResponse } from "../models/models_3";
+import type { StartWebRTCContactRequest } from "../models/models_4";
 import { StartWebRTCContact$ } from "../schemas/schemas_0";
 
 /**
@@ -65,6 +66,29 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  *     },
  *   },
  *   Description: "STRING_VALUE",
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *           ValueList: [ // SegmentAttributeValueList
+ *             "<SegmentAttributeValue>",
+ *           ],
+ *           ValueArn: "STRING_VALUE",
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
+ *       ValueList: [
+ *         "<SegmentAttributeValue>",
+ *       ],
+ *       ValueArn: "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new StartWebRTCContactCommand(input);
  * const response = await client.send(command);
@@ -103,6 +127,9 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  * @see {@link StartWebRTCContactCommandInput} for command's `input` shape.
  * @see {@link StartWebRTCContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient permissions to perform this action.</p>
  *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>

@@ -11,6 +11,8 @@ const _AADSR = "AssociateAnalyticsDataSetRequest";
 const _AADSRs = "AssociateAnalyticsDataSetResponse";
 const _AAE = "AiAgentEscalated";
 const _AAI = "AiAgentInfo";
+const _AAIi = "AiAgentInput";
+const _AAIig = "AiAgentId";
 const _AAMP = "AwaitAnswerMachinePrompt";
 const _AAO = "AssociateApprovedOrigin";
 const _AAOR = "AssociateApprovedOriginRequest";
@@ -19,6 +21,7 @@ const _AASCL = "AiAgentSearchCriteriaList";
 const _AAT = "AgentAvailabilityTimer";
 const _AAVI = "AiAgentVersionId";
 const _AAi = "AiAgents";
+const _AAig = "AiAgent";
 const _AAl = "AliasArn";
 const _AB = "AcknowledgedBy";
 const _ABAT = "AcceptedByAgentTimestamp";
@@ -2163,6 +2166,9 @@ const _Ru = "Rule";
 const _Rul = "Rules";
 const _S = "State";
 const _SA = "StatusArn";
+const _SAC = "StartAssistantContact";
+const _SACR = "StartAssistantContactRequest";
+const _SACRt = "StartAssistantContactResponse";
 const _SACS = "SearchableAgentCriteriaStep";
 const _SAEA = "SubmitAutoEvaluationAction";
 const _SAEAD = "SubmitAutoEvaluationActionDefinition";
@@ -3345,6 +3351,11 @@ export var AiAgentInfo$: StaticStructureSchema = [3, n0, _AAI,
   0,
   [_AUC, _AAVI, _AAE],
   [0, 0, 2]
+];
+export var AiAgentInput$: StaticStructureSchema = [3, n0, _AAIi,
+  0,
+  [_AAIig],
+  [0], 1
 ];
 export var AiAgentsCriteria$: StaticStructureSchema = [3, n0, _AAC,
   0,
@@ -8251,6 +8262,16 @@ export var SourceCampaign$: StaticStructureSchema = [3, n0, _SCou,
   [_CIa, _ORIu],
   [0, 0]
 ];
+export var StartAssistantContactRequest$: StaticStructureSchema = [3, n0, _SACR,
+  0,
+  [_II, _AAig, _PD, _IMni, _Attr, _CT, _PCer, _RCI],
+  [0, () => AiAgentInput$, () => ParticipantDetails$, () => ChatMessage$, 128 | 0, [0, 4], () => PersistentChat$, 0], 3
+];
+export var StartAssistantContactResponse$: StaticStructureSchema = [3, n0, _SACRt,
+  0,
+  [_CI, _PI, _PTa, _CFCI],
+  [0, 0, 0, 0]
+];
 export var StartAttachedFileUploadRequest$: StaticStructureSchema = [3, n0, _SAFUR,
   0,
   [_II, _FN, _FSIB, _FUCT, _ARA, _CT, _UEIS, _CB, _Ta],
@@ -8403,8 +8424,8 @@ export var StartTestCaseExecutionResponse$: StaticStructureSchema = [3, n0, _STC
 ];
 export var StartWebRTCContactRequest$: StaticStructureSchema = [3, n0, _SWRTCCR,
   0,
-  [_CFI, _II, _PD, _Attr, _CT, _ACll, _RCI, _Ref, _D],
-  [0, 0, () => ParticipantDetails$, 128 | 0, [0, 4], () => AllowedCapabilities$, 0, () => ContactReferences, [() => Description, 0]], 3
+  [_CFI, _II, _PD, _Attr, _CT, _ACll, _RCI, _Ref, _D, _SAe],
+  [0, 0, () => ParticipantDetails$, 128 | 0, [0, 4], () => AllowedCapabilities$, 0, () => ContactReferences, [() => Description, 0], () => SegmentAttributes], 3
 ];
 export var StartWebRTCContactResponse$: StaticStructureSchema = [3, n0, _SWRTCCRt,
   0,
@@ -11348,6 +11369,9 @@ export var SendOutboundEmail$: StaticOperationSchema = [9, n0, _SOE,
 ];
 export var SendOutboundWebNotification$: StaticOperationSchema = [9, n0, _SOWN,
   { [_h]: ["POST", "/instance/{InstanceId}/outbound-web-notification", 200] }, () => SendOutboundWebNotificationRequest$, () => SendOutboundWebNotificationResponse$
+];
+export var StartAssistantContact$: StaticOperationSchema = [9, n0, _SAC,
+  { [_h]: ["PUT", "/contact/assistant", 200] }, () => StartAssistantContactRequest$, () => StartAssistantContactResponse$
 ];
 export var StartAttachedFileUpload$: StaticOperationSchema = [9, n0, _SAFU,
   { [_h]: ["PUT", "/attached-files/{InstanceId}", 200] }, () => StartAttachedFileUploadRequest$, () => StartAttachedFileUploadResponse$

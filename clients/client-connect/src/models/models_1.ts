@@ -73,17 +73,14 @@ import type {
 } from "./enums";
 import type {
   AfterContactWorkConfigPerChannel,
-  AgentContactReference,
   AgentQualityMetrics,
   AgentsCriteria,
   AgentStatus,
   AgentStatusIdentifier,
-  AgentStatusReference,
   AiAgentInfo,
   AliasConfiguration,
   AllowedExtension,
   AudioQualityMetricsInfo,
-  AutoAcceptConfig,
   CreatedByInfo,
   DataTableLockVersion,
   DeviceInfo,
@@ -113,6 +110,30 @@ import type {
   TestCaseEntryPoint,
   Validation,
 } from "./models_0";
+
+/**
+ * <p>Configuration settings for auto-accept for a specific channel.</p>
+ * @public
+ */
+export interface AutoAcceptConfig {
+  /**
+   * <p>The channel for this auto-accept configuration. Valid values: VOICE, CHAT, TASK, EMAIL.</p>
+   * @public
+   */
+  Channel: Channel | undefined;
+
+  /**
+   * <p>Indicates whether auto-accept is enabled for this channel. When enabled, available agents are automatically connected to contacts from this channel.</p>
+   * @public
+   */
+  AutoAccept: boolean | undefined;
+
+  /**
+   * <p>Indicates whether auto-accept is enabled for agent-first callbacks. This setting only applies to the VOICE channel.</p>
+   * @public
+   */
+  AgentFirstCallbackAutoAccept?: boolean | undefined;
+}
 
 /**
  * <p>Contains information about the identity of a user.</p>
@@ -8450,70 +8471,4 @@ export interface UserReference {
    * @public
    */
   Arn?: string | undefined;
-}
-
-/**
- * <p>Data for a user.</p>
- * @public
- */
-export interface UserData {
-  /**
-   * <p>Information about the user for the data that is returned. It contains the <code>resourceId</code> and ARN of the
-   *    user. </p>
-   * @public
-   */
-  User?: UserReference | undefined;
-
-  /**
-   * <p>Information about the routing profile that is assigned to the user.</p>
-   * @public
-   */
-  RoutingProfile?: RoutingProfileReference | undefined;
-
-  /**
-   * <p>Contains information about the levels of a hierarchy group assigned to a user.</p>
-   * @public
-   */
-  HierarchyPath?: HierarchyPathReference | undefined;
-
-  /**
-   * <p>The status of the agent that they manually set in their Contact Control Panel (CCP), or that the supervisor
-   *    manually changes in the real-time metrics report.</p>
-   * @public
-   */
-  Status?: AgentStatusReference | undefined;
-
-  /**
-   * <p>A map of available slots by channel. The key is a channel name. The value is an integer: the available number of
-   *    slots. </p>
-   * @public
-   */
-  AvailableSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
-
-  /**
-   * <p>A map of maximum slots by channel. The key is a channel name. The value is an integer: the maximum number of
-   *    slots. This is calculated from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_MediaConcurrency.html">MediaConcurrency</a> of the
-   *     <code>RoutingProfile</code> assigned to the agent. </p>
-   * @public
-   */
-  MaxSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
-
-  /**
-   * <p> A map of active slots by channel. The key is a channel name. The value is an integer: the number of active
-   *    slots. </p>
-   * @public
-   */
-  ActiveSlotsByChannel?: Partial<Record<Channel, number>> | undefined;
-
-  /**
-   * <p>A list of contact reference information.</p>
-   * @public
-   */
-  Contacts?: AgentContactReference[] | undefined;
-
-  /**
-   * <p>The Next status of the agent.</p>
-   * @public
-   */
-  NextStatus?: string | undefined;
 }

@@ -18,6 +18,7 @@ import type {
   AdditionalEmailRecipients,
   AgentInfo,
   AgentStatusSearchFilter,
+  AllowedCapabilities,
   Campaign,
   Endpoint,
   EvaluationFormAutoEvaluationConfiguration,
@@ -56,7 +57,10 @@ import type {
   BooleanCondition,
   ContactFlowModuleSearchFilter,
   ContactFlowSearchFilter,
+  DateTimeCondition,
+  DecimalCondition,
   EvaluationSearchFilter,
+  NumberCondition,
 } from "./models_2";
 import type {
   AgentStatusSearchCriteria,
@@ -74,9 +78,7 @@ import type {
   EmailAddressSearchFilter,
   EmailAttachment,
   EvaluationFormItemEnablementConfiguration,
-  EvaluationFormSearchCriteria,
   EvaluationFormSearchFilter,
-  EvaluationSearchCriteria,
   HierarchyGroupCondition,
   HoursOfOperationSearchFilter,
   InboundAdditionalRecipients,
@@ -104,6 +106,102 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * <p>The search criteria to be used to return evaluation forms.</p>
+ * @public
+ */
+export interface EvaluationFormSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: EvaluationFormSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: EvaluationFormSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+   *          <note>
+   *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
+   *          </note>
+   * @public
+   */
+  NumberCondition?: NumberCondition | undefined;
+
+  /**
+   * <p>Boolean search condition.</p>
+   * @public
+   */
+  BooleanCondition?: BooleanCondition | undefined;
+
+  /**
+   * <p>Datetime search condition.</p>
+   * @public
+   */
+  DateTimeCondition?: DateTimeCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return evaluations.</p>
+ * @public
+ */
+export interface EvaluationSearchCriteria {
+  /**
+   * <p>A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: EvaluationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an AND condition.</p>
+   * @public
+   */
+  AndConditions?: EvaluationSearchCriteria[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a string condition.</p>
+   * @public
+   */
+  StringCondition?: StringCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+   *          <note>
+   *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
+   *          </note>
+   * @public
+   */
+  NumberCondition?: NumberCondition | undefined;
+
+  /**
+   * <p>The boolean condition search criteria for searching evaluations.</p>
+   * @public
+   */
+  BooleanCondition?: BooleanCondition | undefined;
+
+  /**
+   * <p>The datetime condition search criteria for searching evaluations.</p>
+   * @public
+   */
+  DateTimeCondition?: DateTimeCondition | undefined;
+
+  /**
+   * <p>The decimal condition search criteria for searching evaluations.</p>
+   * @public
+   */
+  DecimalCondition?: DecimalCondition | undefined;
+}
 
 /**
  * <p>A tagged union to specify expression for a routing step.</p>
@@ -2148,7 +2246,7 @@ export interface StartOutboundChatContactRequest {
   ChatDurationInMinutes?: number | undefined;
 
   /**
-   * <p>The customer's details.</p>
+   * <p>The details of the participant, including their display name.</p>
    * @public
    */
   ParticipantDetails?: ParticipantDetails | undefined;
@@ -2351,6 +2449,90 @@ export interface StartTaskContactRequest {
    * @public
    */
   Attachments?: TaskAttachment[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartWebRTCContactRequest {
+  /**
+   * <p>A custom key-value pair using an attribute map. The attributes are standard Connect Customer attributes, and
+   *    can be accessed in flows just like any other contact attributes.</p>
+   *          <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only
+   *    alphanumeric, -, and _ characters.</p>
+   * @public
+   */
+  Attributes?: Record<string, string> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *          <p>The token is valid for 7 days after creation. If a contact is already started, the contact ID is
+   *    returned.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the flow for the call. To see the ContactFlowId in the Connect Customer admin website, on the navigation menu go to
+   *     <b>Routing</b>, <b>Flows</b>. Choose the flow. On the flow page,
+   *    under the name of the flow, choose <b>Show additional flow information</b>. The
+   *    ContactFlowId is the last part of the ARN, shown here in bold: </p>
+   *          <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b>
+   *          </p>
+   * @public
+   */
+  ContactFlowId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>Information about the video sharing capabilities of the participants (customer, agent).</p>
+   * @public
+   */
+  AllowedCapabilities?: AllowedCapabilities | undefined;
+
+  /**
+   * <p>The details of the participant, including their display name.</p>
+   * @public
+   */
+  ParticipantDetails: ParticipantDetails | undefined;
+
+  /**
+   * <p>The unique identifier for an Connect Customer contact. This identifier is related to the contact
+   *    starting.</p>
+   * @public
+   */
+  RelatedContactId?: string | undefined;
+
+  /**
+   * <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP). Tasks can have the following
+   *    reference types at the time of creation: <code>URL</code> | <code>NUMBER</code> | <code>STRING</code> |
+   *     <code>DATE</code> | <code>EMAIL</code>. <code>ATTACHMENT</code> is not a supported reference type during task
+   *    creation.</p>
+   * @public
+   */
+  References?: Record<string, Reference> | undefined;
+
+  /**
+   * <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>Use this map to specify system-defined attributes for the WebRTC contact segment. Use the
+   *    <code>connect:Subtype</code> attribute to specify the channel subtype, such as <code>connect:WebRTC</code>.</p>
+   *          <p>Attribute keys can contain only alphanumeric characters, hyphens, and underscores.</p>
+   * @public
+   */
+  SegmentAttributes?: Record<string, SegmentAttributeValue> | undefined;
 }
 
 /**

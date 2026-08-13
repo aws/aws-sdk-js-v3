@@ -29,6 +29,7 @@ import {
   AgentStatusSummary$,
   AgentStatusType,
   AiAgentInfo$,
+  AiAgentInput$,
   AiAgentsCriteria$,
   AiAgentSearchCriteria$,
   AiUseCase,
@@ -1917,6 +1918,10 @@ import {
   SortOrder,
   SourceCampaign$,
   SourceType,
+  StartAssistantContact$,
+  StartAssistantContactCommand,
+  StartAssistantContactRequest$,
+  StartAssistantContactResponse$,
   StartAttachedFileUpload$,
   StartAttachedFileUploadCommand,
   StartAttachedFileUploadRequest$,
@@ -2976,6 +2981,8 @@ assert(typeof SendOutboundEmailCommand === "function");
 assert(typeof SendOutboundEmail$ === "object");
 assert(typeof SendOutboundWebNotificationCommand === "function");
 assert(typeof SendOutboundWebNotification$ === "object");
+assert(typeof StartAssistantContactCommand === "function");
+assert(typeof StartAssistantContact$ === "object");
 assert(typeof StartAttachedFileUploadCommand === "function");
 assert(typeof StartAttachedFileUpload$ === "object");
 assert(typeof StartChatContactCommand === "function");
@@ -3188,6 +3195,7 @@ assert(typeof AgentStatusSearchCriteria$ === "object");
 assert(typeof AgentStatusSearchFilter$ === "object");
 assert(typeof AgentStatusSummary$ === "object");
 assert(typeof AiAgentInfo$ === "object");
+assert(typeof AiAgentInput$ === "object");
 assert(typeof AiAgentsCriteria$ === "object");
 assert(typeof AiAgentSearchCriteria$ === "object");
 assert(typeof AliasConfiguration$ === "object");
@@ -4188,6 +4196,8 @@ assert(typeof SignInDistribution$ === "object");
 assert(typeof SingleSelectQuestionRuleCategoryAutomation$ === "object");
 assert(typeof Sort$ === "object");
 assert(typeof SourceCampaign$ === "object");
+assert(typeof StartAssistantContactRequest$ === "object");
+assert(typeof StartAssistantContactResponse$ === "object");
 assert(typeof StartAttachedFileUploadRequest$ === "object");
 assert(typeof StartAttachedFileUploadResponse$ === "object");
 assert(typeof StartChatContactRequest$ === "object");

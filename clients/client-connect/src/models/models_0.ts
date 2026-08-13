@@ -952,6 +952,18 @@ export interface AiAgentInfo {
 }
 
 /**
+ * <p>The AI agent that participates in the contact, including its identifier.</p>
+ * @public
+ */
+export interface AiAgentInput {
+  /**
+   * <p>The identifier of the AI agent that participates in the contact.</p>
+   * @public
+   */
+  AiAgentId: string | undefined;
+}
+
+/**
  * <p>The search criteria based on AI Agents metadata.</p>
  * @public
  */
@@ -7923,28 +7935,4 @@ export interface CreateUseCaseResponse {
    * @public
    */
   UseCaseArn?: string | undefined;
-}
-
-/**
- * <p>Configuration settings for auto-accept for a specific channel.</p>
- * @public
- */
-export interface AutoAcceptConfig {
-  /**
-   * <p>The channel for this auto-accept configuration. Valid values: VOICE, CHAT, TASK, EMAIL.</p>
-   * @public
-   */
-  Channel: Channel | undefined;
-
-  /**
-   * <p>Indicates whether auto-accept is enabled for this channel. When enabled, available agents are automatically connected to contacts from this channel.</p>
-   * @public
-   */
-  AutoAccept: boolean | undefined;
-
-  /**
-   * <p>Indicates whether auto-accept is enabled for agent-first callbacks. This setting only applies to the VOICE channel.</p>
-   * @public
-   */
-  AgentFirstCallbackAutoAccept?: boolean | undefined;
 }

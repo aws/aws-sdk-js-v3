@@ -1447,6 +1447,11 @@ import {
   SendOutboundWebNotificationCommand,
 } from "./commands/SendOutboundWebNotificationCommand";
 import {
+  type StartAssistantContactCommandInput,
+  type StartAssistantContactCommandOutput,
+  StartAssistantContactCommand,
+} from "./commands/StartAssistantContactCommand";
+import {
   type StartAttachedFileUploadCommandInput,
   type StartAttachedFileUploadCommandOutput,
   StartAttachedFileUploadCommand,
@@ -2309,6 +2314,7 @@ const commands = {
   SendChatIntegrationEventCommand,
   SendOutboundEmailCommand,
   SendOutboundWebNotificationCommand,
+  StartAssistantContactCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactConversationalAnalyticsJobCommand,
@@ -7463,6 +7469,23 @@ export interface Connect {
     args: SendOutboundWebNotificationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendOutboundWebNotificationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAssistantContactCommand}
+   */
+  startAssistantContact(
+    args: StartAssistantContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAssistantContactCommandOutput>;
+  startAssistantContact(
+    args: StartAssistantContactCommandInput,
+    cb: (err: any, data?: StartAssistantContactCommandOutput) => void
+  ): void;
+  startAssistantContact(
+    args: StartAssistantContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAssistantContactCommandOutput) => void
   ): void;
 
   /**
