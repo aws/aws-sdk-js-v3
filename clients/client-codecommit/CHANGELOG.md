@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+
+### Features
+
+* **client-codecommit:** Added the GetBlobDifferences API operation, which returns line-level diffs between two blob versions without requiring a local clone. Returns structured hunks with context, additions, and deletions. Supports pagination for large diffs. ([f1165c6](https://github.com/aws/aws-sdk-js-v3/commit/f1165c620804c3e7e1b035ecb9e083c723b8fba3))
+
+
+
+
+
 # [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-codecommit

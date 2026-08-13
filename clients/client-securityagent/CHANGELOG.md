@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+
+### Features
+
+* **client-securityagent:** Add support for setting a maximum task-hour budget cap on penetration tests and code reviews, and for revalidating previously reported findings via a new REVALIDATION job type. ([aba75d7](https://github.com/aws/aws-sdk-js-v3/commit/aba75d728bf5a19eebc7afa1c78df8f18d9ae8d0))
+
+
+
+
+
 # [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-securityagent

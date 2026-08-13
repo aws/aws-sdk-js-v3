@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+
+### Features
+
+* **client-cleanrooms:** This release adds support for minimum aggregation thresholds and comparison controls to the Custom analysis rule type. ([1f84f2a](https://github.com/aws/aws-sdk-js-v3/commit/1f84f2ae77a1cf4aed0b61dafba5da358894d61f))
+
+
+
+
+
 # [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cleanrooms

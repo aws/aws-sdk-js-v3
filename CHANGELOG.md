@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+
+### Features
+
+* **client-acm:** This change allows customers to update their existing email-validated certificates to use the DNS validation method. ([71c194a](https://github.com/aws/aws-sdk-js-v3/commit/71c194a4678abd7a368925a38c5b63f411fbd483))
+* **client-auto-scaling:** Amazon EC2 Auto Scaling now supports terminating multiple instances in a single TerminateInstanceInAutoScalingGroup call via the new InstanceIds parameter, returning an Activities list. LaunchInstances now returns IdempotentCallInProgressFault for duplicate client tokens. ([ee70798](https://github.com/aws/aws-sdk-js-v3/commit/ee707980d238c2b5028e03084914a3398ce92709))
+* **client-cleanrooms:** This release adds support for minimum aggregation thresholds and comparison controls to the Custom analysis rule type. ([1f84f2a](https://github.com/aws/aws-sdk-js-v3/commit/1f84f2ae77a1cf4aed0b61dafba5da358894d61f))
+* **client-codecommit:** Added the GetBlobDifferences API operation, which returns line-level diffs between two blob versions without requiring a local clone. Returns structured hunks with context, additions, and deletions. Supports pagination for large diffs. ([f1165c6](https://github.com/aws/aws-sdk-js-v3/commit/f1165c620804c3e7e1b035ecb9e083c723b8fba3))
+* **client-connect:** Adds the StartAssistantContact API to start chat contacts handled by an AI agent. Adds SegmentAttributes to StartWebRTCContact, and corrects its error response to now receive AccessDeniedException (previously returned as an internal server error due to a missing error declaration). ([67f9b7b](https://github.com/aws/aws-sdk-js-v3/commit/67f9b7bb9bed253cc03580527faf7a94a2ebb2bf))
+* **client-securityagent:** Add support for setting a maximum task-hour budget cap on penetration tests and code reviews, and for revalidating previously reported findings via a new REVALIDATION job type. ([aba75d7](https://github.com/aws/aws-sdk-js-v3/commit/aba75d728bf5a19eebc7afa1c78df8f18d9ae8d0))
+
+
+
+
+
 # [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
+
+
+### Features
+
+* **client-connect:** Adds the StartAssistantContact API to start chat contacts handled by an AI agent. Adds SegmentAttributes to StartWebRTCContact, and corrects its error response to now receive AccessDeniedException (previously returned as an internal server error due to a missing error declaration). ([67f9b7b](https://github.com/aws/aws-sdk-js-v3/commit/67f9b7bb9bed253cc03580527faf7a94a2ebb2bf))
+
+
+
+
+
 # [3.1109.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1108.0...v3.1109.0) (2026-08-12)
 
 **Note:** Version bump only for package @aws-sdk/client-connect
