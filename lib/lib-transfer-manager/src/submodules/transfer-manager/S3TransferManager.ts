@@ -27,8 +27,16 @@ import { join, relative, resolve, sep } from "node:path";
 import { Readable } from "node:stream";
 
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
-import { handleFailure, Semaphore, validateDirectory } from "./directory-transfer-utils";
-import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
+import {
+  handleFailure,
+  Semaphore,
+  validateDirectory,
+} from "./directory-transfer-utils";
+import type {
+  AddEventListenerOptions,
+  EventListener,
+  RemoveEventListenerOptions,
+} from "./event-listener-types";
 import { FileManager } from "./file-manager";
 import { destroyStreams, joinStreams } from "./join-streams";
 import { LogLevel } from "./log-level";
@@ -79,11 +87,18 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly s3: S3Client;
   private readonly targetPartSizeBytes: number;
   private readonly multipartUploadThresholdBytes: number;
-  private readonly requestChecksumCalculation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
-  private readonly responseChecksumValidation: "WHEN_SUPPORTED" | "WHEN_REQUIRED";
+  private readonly requestChecksumCalculation:
+    | "WHEN_SUPPORTED"
+    | "WHEN_REQUIRED";
+  private readonly responseChecksumValidation:
+    | "WHEN_SUPPORTED"
+    | "WHEN_REQUIRED";
   private readonly multipartDownloadType: "PART" | "RANGE";
   private readonly eventListeners: TransferEventListeners;
-  private readonly abortCleanupFunctions = new WeakMap<AbortSignal, () => void>();
+  private readonly abortCleanupFunctions = new WeakMap<
+    AbortSignal,
+    () => void
+  >();
   private readonly maxConcurrentDownloads: number;
   private readonly maxConcurrentUploads: number;
   private readonly workerThreadCount: number;
@@ -91,8 +106,10 @@ export class S3TransferManager implements IS3TransferManager {
   private readonly logger: Logger;
 
   public constructor(config: S3TransferManagerConfig = {}) {
-    this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
-    this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
+    this.requestChecksumCalculation =
+      config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
+    this.responseChecksumValidation =
+      config.responseChecksumValidation ?? "WHEN_SUPPORTED";
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
     this.workerThreadCount = config.workerThreadCount ?? defaultWorkerCount();
 
@@ -114,7 +131,8 @@ export class S3TransferManager implements IS3TransferManager {
     }
 
     this.targetPartSizeBytes = config.targetPartSizeBytes ?? 8 * 1024 * 1024; // 8 MB
-    this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
+    this.multipartUploadThresholdBytes =
+      config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
     this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 8;
@@ -142,25 +160,33 @@ export class S3TransferManager implements IS3TransferManager {
   public addEventListener(
     type: "transferInitiated",
     callback: EventListener<TransferEvent>,
-    options?: AddEventListenerOptions | boolean
+    options?: AddEventListenerOptions | boolean,
   ): void;
   public addEventListener(
     type: "bytesTransferred",
     callback: EventListener<TransferEvent>,
-    options?: AddEventListenerOptions | boolean
+    options?: AddEventListenerOptions | boolean,
   ): void;
   public addEventListener(
     type: "transferComplete",
     callback: EventListener<TransferCompleteEvent>,
-    options?: AddEventListenerOptions | boolean
+    options?: AddEventListenerOptions | boolean,
   ): void;
   public addEventListener(
     type: "transferFailed",
     callback: EventListener<TransferEvent>,
-    options?: AddEventListenerOptions | boolean
+    options?: AddEventListenerOptions | boolean,
   ): void;
-  public addEventListener(type: string, callback: EventListener, options?: AddEventListenerOptions | boolean): void;
-  public addEventListener(type: string, callback: EventListener, options?: AddEventListenerOptions | boolean): void {
+  public addEventListener(
+    type: string,
+    callback: EventListener,
+    options?: AddEventListenerOptions | boolean,
+  ): void;
+  public addEventListener(
+    type: string,
+    callback: EventListener,
+    options?: AddEventListenerOptions | boolean,
+  ): void {
     const eventType = type as keyof TransferEventListeners;
     const listeners = this.eventListeners[eventType];
 
@@ -182,8 +208,12 @@ export class S3TransferManager implements IS3TransferManager {
         this.abortCleanupFunctions.delete(signal);
       };
 
-      this.abortCleanupFunctions.set(signal, () => signal.removeEventListener("abort", removeListenerAfterAbort));
-      signal.addEventListener("abort", removeListenerAfterAbort, { once: true });
+      this.abortCleanupFunctions.set(signal, () =>
+        signal.removeEventListener("abort", removeListenerAfterAbort),
+      );
+      signal.addEventListener("abort", removeListenerAfterAbort, {
+        once: true,
+      });
     }
 
     if (once) {
@@ -213,7 +243,9 @@ export class S3TransferManager implements IS3TransferManager {
   public dispatchEvent(event: Event): boolean;
   public dispatchEvent(event: Event): boolean {
     const eventType = event.type;
-    const listeners = this.eventListeners[eventType as keyof TransferEventListeners] as EventListener[];
+    const listeners = this.eventListeners[
+      eventType as keyof TransferEventListeners
+    ] as EventListener[];
 
     if (listeners) {
       for (const listener of listeners) {
@@ -240,32 +272,32 @@ export class S3TransferManager implements IS3TransferManager {
   public removeEventListener(
     type: "transferInitiated",
     callback: EventListener<TransferEvent>,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void;
   public removeEventListener(
     type: "bytesTransferred",
     callback: EventListener<TransferEvent>,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void;
   public removeEventListener(
     type: "transferComplete",
     callback: EventListener<TransferCompleteEvent>,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void;
   public removeEventListener(
     type: "transferFailed",
     callback: EventListener<TransferEvent>,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void;
   public removeEventListener(
     type: string,
     callback: EventListener,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void;
   public removeEventListener(
     type: string,
     callback: EventListener,
-    options?: RemoveEventListenerOptions | boolean
+    options?: RemoveEventListenerOptions | boolean,
   ): void {
     const eventType = type as keyof TransferEventListeners;
     const listeners = this.eventListeners[eventType];
@@ -299,8 +331,12 @@ export class S3TransferManager implements IS3TransferManager {
    * @returns S3 PutObject or CompleteMultipartUpload response with transfer event dispatching.
    *
    */
-  public async upload(request: UploadRequest, transferOptions?: TransferOptions): Promise<UploadResponse> {
-    const totalContentLength = request.ContentLength ?? byteLength(request.Body);
+  public async upload(
+    request: UploadRequest,
+    transferOptions?: TransferOptions,
+  ): Promise<UploadResponse> {
+    const totalContentLength =
+      request.ContentLength ?? byteLength(request.Body);
 
     if (totalContentLength === undefined) {
       throw new Error("Unable to determine content length for upload");
@@ -313,8 +349,12 @@ export class S3TransferManager implements IS3TransferManager {
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
       if (transferOptions?.abortSignal) {
-        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
-        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+        this.abortCleanupFunctions.get(
+          transferOptions.abortSignal as AbortSignal,
+        )?.();
+        this.abortCleanupFunctions.delete(
+          transferOptions.abortSignal as AbortSignal,
+        );
       }
     };
 
@@ -322,16 +362,38 @@ export class S3TransferManager implements IS3TransferManager {
       let response: UploadResponse;
 
       if (totalContentLength < this.multipartUploadThresholdBytes) {
-        response = await this.uploadSinglePart(request, totalContentLength, transferOptions);
+        response = await this.uploadSinglePart(
+          request,
+          totalContentLength,
+          transferOptions,
+        );
       } else if (this.workerThreadCount > 1 && this.isFileBody(request.Body)) {
-        response = await this.threadedUploadInPartsFromFile(request, totalContentLength, transferOptions);
-      } else if (this.workerThreadCount > 1 && this.isInMemoryBody(request.Body)) {
+        response = await this.threadedUploadInPartsFromFile(
+          request,
+          totalContentLength,
+          transferOptions,
+        );
+      } else if (
+        this.workerThreadCount > 1 &&
+        this.isInMemoryBody(request.Body)
+      ) {
         if (typeof request.Body === "string") {
-          request = { ...request, Body: new TextEncoder().encode(request.Body) };
+          request = {
+            ...request,
+            Body: new TextEncoder().encode(request.Body),
+          };
         }
-        response = await this.threadedUploadInParts(request, totalContentLength, transferOptions);
+        response = await this.threadedUploadInParts(
+          request,
+          totalContentLength,
+          transferOptions,
+        );
       } else {
-        response = await this.uploadInParts(request, totalContentLength, transferOptions);
+        response = await this.uploadInParts(
+          request,
+          totalContentLength,
+          transferOptions,
+        );
       }
 
       this.dispatchEvent(
@@ -342,12 +404,16 @@ export class S3TransferManager implements IS3TransferManager {
             transferredBytes: totalContentLength,
             totalBytes: totalContentLength,
           },
-        })
+        }),
       );
       removeLocalEventListeners();
       return response;
     } catch (error) {
-      this.dispatchTransferFailedEvent(request, totalContentLength, error as Error);
+      this.dispatchTransferFailedEvent(
+        request,
+        totalContentLength,
+        error as Error,
+      );
       removeLocalEventListeners();
       throw error;
     }
@@ -364,11 +430,14 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public async download(request: DownloadRequest, transferOptions?: TransferOptions): Promise<DownloadResponse> {
+  public async download(
+    request: DownloadRequest,
+    transferOptions?: TransferOptions,
+  ): Promise<DownloadResponse> {
     const partNumber = request.PartNumber;
     if (typeof partNumber === "number") {
       throw new Error(
-        "partNumber included: S3 Transfer Manager does not support downloads for specific parts. Use GetObjectCommand instead"
+        "partNumber included: S3 Transfer Manager does not support downloads for specific parts. Use GetObjectCommand instead",
       );
     }
 
@@ -382,15 +451,20 @@ export class S3TransferManager implements IS3TransferManager {
     this.addEventListeners(transferOptions?.eventListeners);
 
     const checksumValidationEnabled =
-      request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
+      request.ChecksumMode === "ENABLED" ||
+      this.responseChecksumValidation === "WHEN_SUPPORTED";
 
     let onStreamConsumed: ((index: number) => void) | undefined;
 
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
       if (transferOptions?.abortSignal) {
-        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
-        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+        this.abortCleanupFunctions.get(
+          transferOptions.abortSignal as AbortSignal,
+        )?.();
+        this.abortCleanupFunctions.delete(
+          transferOptions.abortSignal as AbortSignal,
+        );
       }
     };
 
@@ -403,7 +477,7 @@ export class S3TransferManager implements IS3TransferManager {
             streams,
             requests,
             metadata,
-            checksumValidationEnabled
+            checksumValidationEnabled,
           );
           totalSize = responseMetadata.totalSize;
         } else {
@@ -413,7 +487,7 @@ export class S3TransferManager implements IS3TransferManager {
             streams,
             requests,
             metadata,
-            checksumValidationEnabled
+            checksumValidationEnabled,
           );
           totalSize = responseMetadata.totalSize;
           onStreamConsumed = responseMetadata.onStreamConsumed;
@@ -426,7 +500,7 @@ export class S3TransferManager implements IS3TransferManager {
             streams,
             requests,
             metadata,
-            checksumValidationEnabled
+            checksumValidationEnabled,
           );
           totalSize = responseMetadata.totalSize;
         } else {
@@ -436,7 +510,7 @@ export class S3TransferManager implements IS3TransferManager {
             streams,
             requests,
             metadata,
-            checksumValidationEnabled
+            checksumValidationEnabled,
           );
           totalSize = responseMetadata.totalSize;
           onStreamConsumed = responseMetadata.onStreamConsumed;
@@ -463,7 +537,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredBytes: byteLength,
                 totalBytes: totalSize,
               },
-            })
+            }),
           );
         },
         onCompletion: (byteLength: number, index) => {
@@ -475,7 +549,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredBytes: byteLength,
                 totalBytes: totalSize,
               },
-            })
+            }),
           );
           removeLocalEventListeners();
         },
@@ -487,7 +561,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredBytes: error,
                 totalBytes: totalSize,
               },
-            })
+            }),
           );
           removeLocalEventListeners();
         },
@@ -510,7 +584,7 @@ export class S3TransferManager implements IS3TransferManager {
    */
   public async downloadToFile(
     request: DownloadToFileRequest,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<DownloadToFileResponse> {
     if (!request.destination || request.destination === "") {
       throw new Error("destination must be a non-empty string");
@@ -519,7 +593,9 @@ export class S3TransferManager implements IS3TransferManager {
     const resolvedDestination = resolve(request.destination);
 
     if (request.failIfExists && existsSync(resolvedDestination)) {
-      throw new Error(`File already exists at destination: ${resolvedDestination}`);
+      throw new Error(
+        `File already exists at destination: ${resolvedDestination}`,
+      );
     }
 
     this.checkAborted(transferOptions);
@@ -528,19 +604,28 @@ export class S3TransferManager implements IS3TransferManager {
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
       if (transferOptions?.abortSignal) {
-        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
-        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+        this.abortCleanupFunctions.get(
+          transferOptions.abortSignal as AbortSignal,
+        )?.();
+        this.abortCleanupFunctions.delete(
+          transferOptions.abortSignal as AbortSignal,
+        );
       }
     };
 
     const checksumValidationEnabled =
-      request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
+      request.ChecksumMode === "ENABLED" ||
+      this.responseChecksumValidation === "WHEN_SUPPORTED";
 
     const { destination, failIfExists, ...getObjectFields } = request;
 
     if (this.multipartDownloadType === "RANGE") {
       try {
-        const result = await this.downloadToFileByRange(request, resolvedDestination, transferOptions);
+        const result = await this.downloadToFileByRange(
+          request,
+          resolvedDestination,
+          transferOptions,
+        );
         removeLocalEventListeners();
         return result;
       } catch (error) {
@@ -557,10 +642,19 @@ export class S3TransferManager implements IS3TransferManager {
 
     let initialResponse: DownloadResponse;
     try {
-      initialResponse = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+      initialResponse = await this.s3.send(
+        new GetObjectCommand(initialPartRequest),
+        transferOptions,
+      );
     } catch (error) {
       removeLocalEventListeners();
       throw error;
+    }
+
+    // Attach a no-op error handler to the initial response body to prevent
+    // uncaught socket teardown errors if abort fires before the body is consumed.
+    if (initialResponse.Body && initialResponse.Body instanceof Readable) {
+      initialResponse.Body.on("error", () => {});
     }
 
     const totalSize = initialResponse.ContentRange
@@ -576,28 +670,48 @@ export class S3TransferManager implements IS3TransferManager {
 
     try {
       if (partsCount === 1) {
-        tempFilePath = await fileManager.createTempFile(resolvedDestination, totalSize);
+        tempFilePath = await fileManager.createTempFile(
+          resolvedDestination,
+          totalSize,
+        );
         fileManager.registerCleanupHandler(tempFilePath);
 
         // Write the whole object body, which starts at byte 0.
-        await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+        await this.writeResponseBodyToFile(
+          initialResponse.Body,
+          tempFilePath,
+          initialResponse.ContentRange,
+          0,
+        );
 
         // Atomic rename
         await fileManager.atomicRename(tempFilePath, resolvedDestination);
         fileManager.unregisterCleanupHandler(tempFilePath);
 
-        const response = this.buildDownloadToFileResponse(initialResponse, totalSize, request);
+        const response = this.buildDownloadToFileResponse(
+          initialResponse,
+          totalSize,
+          request,
+        );
         removeLocalEventListeners();
         return response;
       }
 
       // Multipart download path when PartsCount > 1.
-      tempFilePath = await fileManager.createTempFile(resolvedDestination, totalSize);
+      tempFilePath = await fileManager.createTempFile(
+        resolvedDestination,
+        totalSize,
+      );
       fileManager.registerCleanupHandler(tempFilePath);
 
       // Write Part 1 body, which starts at byte 0.
       const partSize = initialResponse.ContentLength ?? 0;
-      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+      await this.writeResponseBodyToFile(
+        initialResponse.Body,
+        tempFilePath,
+        initialResponse.ContentRange,
+        0,
+      );
 
       // TODO: Full-object CRC validation via CRC combination.
       // S3 currently only returns full-object checksums in part GET responses for objects
@@ -606,7 +720,8 @@ export class S3TransferManager implements IS3TransferManager {
       // objects (tracking: P320750170), implement CRC combination here to validate the
       // combined per-part CRCs against the full-object checksum.
 
-      const partResults: Array<{ partNumber: number; bytesWritten: number }> = [];
+      const partResults: Array<{ partNumber: number; bytesWritten: number }> =
+        [];
       partResults.push({ partNumber: 1, bytesWritten: partSize });
 
       // Dispatch remaining Part GET requests with concurrency bounding
@@ -616,7 +731,9 @@ export class S3TransferManager implements IS3TransferManager {
       let failureError: unknown;
 
       // Listen to user abort
-      const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+      const userSignal = transferOptions?.abortSignal as
+        | AbortSignal
+        | undefined;
       if (userSignal) {
         const onUserAbort = () => abortController.abort();
         userSignal.addEventListener("abort", onUserAbort, { once: true });
@@ -645,7 +762,9 @@ export class S3TransferManager implements IS3TransferManager {
           ...getObjectFields,
           PartNumber: partNumber,
           IfMatch: eTag,
-          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+          ...(checksumValidationEnabled && {
+            ChecksumMode: "ENABLED" as const,
+          }),
         };
 
         const task = (async () => {
@@ -672,10 +791,11 @@ export class S3TransferManager implements IS3TransferManager {
               } as any);
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
-                resultToken
-              );
-              const bytesWritten = downloadResult?.bytesWritten ?? expectedLength;
+              const downloadResult = (
+                this.s3.config.requestHandler as unknown as WorkerHttpHandler
+              ).getDownloadResult(resultToken);
+              const bytesWritten =
+                downloadResult?.bytesWritten ?? expectedLength;
 
               partResults.push({
                 partNumber,
@@ -683,12 +803,18 @@ export class S3TransferManager implements IS3TransferManager {
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
-              const partResponse = await this.s3.send(new GetObjectCommand(partGetRequest), transferOptions);
+              const partResponse = await this.s3.send(
+                new GetObjectCommand(partGetRequest),
+                transferOptions,
+              );
+              if (partResponse.Body && partResponse.Body instanceof Readable) {
+                partResponse.Body.on("error", () => {});
+              }
               await this.writeResponseBodyToFile(
                 partResponse.Body,
                 tempFilePath!,
                 partResponse.ContentRange,
-                partOffset
+                partOffset,
               );
 
               partResults.push({
@@ -705,7 +831,7 @@ export class S3TransferManager implements IS3TransferManager {
                   transferredBytes: expectedLength,
                   totalBytes: totalSize,
                 },
-              })
+              }),
             );
           } catch (error) {
             if (!failed) {
@@ -726,15 +852,29 @@ export class S3TransferManager implements IS3TransferManager {
       // Handle abort: if the abort signal was triggered (either user or internal),
       // reject with AbortError regardless of whether tasks have already failed.
       if (abortController.signal.aborted && !failed) {
-        const abortError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, abortError);
+        const abortError = Object.assign(new Error("Transfer aborted."), {
+          name: "AbortError",
+        });
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalSize,
+          abortError,
+        );
         removeLocalEventListeners();
         throw abortError;
       }
 
       // Handle failure
       if (failed) {
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, failureError);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalSize,
+          failureError,
+        );
         removeLocalEventListeners();
         throw failureError;
       }
@@ -742,20 +882,35 @@ export class S3TransferManager implements IS3TransferManager {
       // Verify request count
       if (partResults.length !== partsCount) {
         const error = new Error(
-          `The number of parts downloaded (${partResults.length}) does not match the expected number (${partsCount})`
+          `The number of parts downloaded (${partResults.length}) does not match the expected number (${partsCount})`,
         );
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, error);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalSize,
+          error,
+        );
         removeLocalEventListeners();
         throw error;
       }
 
       // Verify total bytes written matches expected object size
-      const totalBytesWritten = partResults.reduce((sum, p) => sum + p.bytesWritten, 0);
+      const totalBytesWritten = partResults.reduce(
+        (sum, p) => sum + p.bytesWritten,
+        0,
+      );
       if (totalBytesWritten !== totalSize) {
         const error = new Error(
-          `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalSize})`
+          `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalSize})`,
         );
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalSize, error);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalSize,
+          error,
+        );
         removeLocalEventListeners();
         throw error;
       }
@@ -764,7 +919,11 @@ export class S3TransferManager implements IS3TransferManager {
       await fileManager.atomicRename(tempFilePath, resolvedDestination);
       fileManager.unregisterCleanupHandler(tempFilePath);
 
-      const response = this.buildDownloadToFileResponse(initialResponse, totalSize, request);
+      const response = this.buildDownloadToFileResponse(
+        initialResponse,
+        totalSize,
+        request,
+      );
       removeLocalEventListeners();
       return response;
     } catch (error) {
@@ -785,11 +944,12 @@ export class S3TransferManager implements IS3TransferManager {
   private async downloadToFileByRange(
     request: DownloadToFileRequest,
     resolvedDestination: string,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<DownloadToFileResponse> {
     const { destination, failIfExists, ...getObjectFields } = request;
     const checksumValidationEnabled =
-      request.ChecksumMode === "ENABLED" || this.responseChecksumValidation === "WHEN_SUPPORTED";
+      request.ChecksumMode === "ENABLED" ||
+      this.responseChecksumValidation === "WHEN_SUPPORTED";
 
     const fileManager = new FileManager();
     let tempFilePath: string | undefined;
@@ -803,28 +963,54 @@ export class S3TransferManager implements IS3TransferManager {
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
 
-      const initialResponse = await this.s3.send(new GetObjectCommand(initialRangeRequest), transferOptions);
+      const initialResponse = await this.s3.send(
+        new GetObjectCommand(initialRangeRequest),
+        transferOptions,
+      );
+
+      // Attach a no-op error handler to the initial response body to prevent
+      // uncaught socket teardown errors if abort fires before the body is consumed.
+      if (initialResponse.Body && initialResponse.Body instanceof Readable) {
+        initialResponse.Body.on("error", () => {});
+      }
 
       // Validate ContentRange matches the requested range (also validates presence and format)
-      this.validateRangeDownload(`bytes=0-${rangeSize - 1}`, initialResponse.ContentRange);
+      this.validateRangeDownload(
+        `bytes=0-${rangeSize - 1}`,
+        initialResponse.ContentRange,
+      );
 
       // Parse total content length from ContentRange: "bytes 0-N/TOTAL"
-      const totalContentLength = Number.parseInt(initialResponse.ContentRange!.split("/")[1]);
+      const totalContentLength = Number.parseInt(
+        initialResponse.ContentRange!.split("/")[1],
+      );
       const responseContentLength = initialResponse.ContentLength ?? 0;
 
       // Compare parsed total content length with ContentLength
       if (responseContentLength === totalContentLength) {
         // Single-part object — this response contains all the data
-        tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
+        tempFilePath = await fileManager.createTempFile(
+          resolvedDestination,
+          totalContentLength,
+        );
         fileManager.registerCleanupHandler(tempFilePath);
 
-        await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+        await this.writeResponseBodyToFile(
+          initialResponse.Body,
+          tempFilePath,
+          initialResponse.ContentRange,
+          0,
+        );
 
         await fileManager.atomicRename(tempFilePath, resolvedDestination);
         fileManager.unregisterCleanupHandler(tempFilePath);
 
         this.dispatchTransferInitiatedEvent(request, totalContentLength);
-        return this.buildDownloadToFileResponse(initialResponse, totalContentLength, request);
+        return this.buildDownloadToFileResponse(
+          initialResponse,
+          totalContentLength,
+          request,
+        );
       }
 
       // Save ETag and calculate expected number of ranged GET requests
@@ -834,10 +1020,18 @@ export class S3TransferManager implements IS3TransferManager {
       this.dispatchTransferInitiatedEvent(request, totalContentLength);
 
       // Create temp file and write initial part
-      tempFilePath = await fileManager.createTempFile(resolvedDestination, totalContentLength);
+      tempFilePath = await fileManager.createTempFile(
+        resolvedDestination,
+        totalContentLength,
+      );
       fileManager.registerCleanupHandler(tempFilePath);
 
-      await this.writeResponseBodyToFile(initialResponse.Body, tempFilePath, initialResponse.ContentRange, 0);
+      await this.writeResponseBodyToFile(
+        initialResponse.Body,
+        tempFilePath,
+        initialResponse.ContentRange,
+        0,
+      );
 
       const rangeResults: Array<{ index: number; bytesWritten: number }> = [];
       rangeResults.push({ index: 0, bytesWritten: responseContentLength });
@@ -845,8 +1039,11 @@ export class S3TransferManager implements IS3TransferManager {
       this.dispatchEvent(
         Object.assign(new Event("bytesTransferred"), {
           request: initialRangeRequest,
-          snapshot: { transferredBytes: responseContentLength, totalBytes: totalContentLength },
-        })
+          snapshot: {
+            transferredBytes: responseContentLength,
+            totalBytes: totalContentLength,
+          },
+        }),
       );
 
       // Construct and dispatch remaining range GET requests concurrently
@@ -855,15 +1052,23 @@ export class S3TransferManager implements IS3TransferManager {
       let failed = false;
       let failureError: unknown;
 
-      const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+      const userSignal = transferOptions?.abortSignal as
+        | AbortSignal
+        | undefined;
       if (userSignal) {
-        userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+        userSignal.addEventListener("abort", () => abortController.abort(), {
+          once: true,
+        });
       }
 
       const rangeTasks: Promise<void>[] = [];
       let rangeIndex = 1;
 
-      for (let offset = rangeSize; offset < totalContentLength; offset += rangeSize) {
+      for (
+        let offset = rangeSize;
+        offset < totalContentLength;
+        offset += rangeSize
+      ) {
         if (failed || abortController.signal.aborted) break;
         this.checkAborted(transferOptions);
 
@@ -882,7 +1087,9 @@ export class S3TransferManager implements IS3TransferManager {
           ...getObjectFields,
           Range: `bytes=${start}-${end}`,
           IfMatch: eTag,
-          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+          ...(checksumValidationEnabled && {
+            ChecksumMode: "ENABLED" as const,
+          }),
         };
 
         const task = (async () => {
@@ -899,19 +1106,26 @@ export class S3TransferManager implements IS3TransferManager {
                 resultToken,
               };
 
-              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), {
-                ...transferOptions,
-                downloadDataToFile: downloadOptions,
-              } as any);
+              const rangeResponse = await this.s3.send(
+                new GetObjectCommand(rangeGetRequest),
+                {
+                  ...transferOptions,
+                  downloadDataToFile: downloadOptions,
+                } as any,
+              );
 
               // Validate ContentRange matches the requested range
-              this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
+              this.validateRangeDownload(
+                `bytes=${start}-${end}`,
+                rangeResponse.ContentRange,
+              );
 
               // Retrieve the download result from the WorkerHttpHandler's side-channel.
-              const downloadResult = (this.s3.config.requestHandler as unknown as WorkerHttpHandler).getDownloadResult(
-                resultToken
-              );
-              const bytesWritten = downloadResult?.bytesWritten ?? expectedLength;
+              const downloadResult = (
+                this.s3.config.requestHandler as unknown as WorkerHttpHandler
+              ).getDownloadResult(resultToken);
+              const bytesWritten =
+                downloadResult?.bytesWritten ?? expectedLength;
 
               rangeResults.push({
                 index: currentIndex,
@@ -919,12 +1133,29 @@ export class S3TransferManager implements IS3TransferManager {
               });
             } else {
               // Main-thread fallback (workerThreadCount === 1)
-              const rangeResponse = await this.s3.send(new GetObjectCommand(rangeGetRequest), transferOptions);
+              const rangeResponse = await this.s3.send(
+                new GetObjectCommand(rangeGetRequest),
+                transferOptions,
+              );
 
               // Validate ContentRange matches the requested range
-              this.validateRangeDownload(`bytes=${start}-${end}`, rangeResponse.ContentRange);
+              this.validateRangeDownload(
+                `bytes=${start}-${end}`,
+                rangeResponse.ContentRange,
+              );
 
-              await this.writeResponseBodyToFile(rangeResponse.Body, tempFilePath!, rangeResponse.ContentRange, start);
+              if (
+                rangeResponse.Body &&
+                rangeResponse.Body instanceof Readable
+              ) {
+                rangeResponse.Body.on("error", () => {});
+              }
+              await this.writeResponseBodyToFile(
+                rangeResponse.Body,
+                tempFilePath!,
+                rangeResponse.ContentRange,
+                start,
+              );
 
               rangeResults.push({
                 index: currentIndex,
@@ -935,8 +1166,11 @@ export class S3TransferManager implements IS3TransferManager {
             this.dispatchEvent(
               Object.assign(new Event("bytesTransferred"), {
                 request: rangeGetRequest,
-                snapshot: { transferredBytes: end - start + 1, totalBytes: totalContentLength },
-              })
+                snapshot: {
+                  transferredBytes: end - start + 1,
+                  totalBytes: totalContentLength,
+                },
+              }),
             );
           } catch (error) {
             if (!failed) {
@@ -955,38 +1189,73 @@ export class S3TransferManager implements IS3TransferManager {
       await Promise.allSettled(rangeTasks);
 
       if (abortController.signal.aborted && !failed) {
-        const abortError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, abortError);
+        const abortError = Object.assign(new Error("Transfer aborted."), {
+          name: "AbortError",
+        });
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          abortError,
+        );
         throw abortError;
       }
 
       if (failed) {
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, failureError);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          failureError,
+        );
         throw failureError;
       }
 
       // Validate total number of ranged GET requests matches expected count
       const actualRequestCount = rangeResults.length; // includes initial request
       if (actualRequestCount !== expectedRequestCount) {
-        const error = new Error(`Expected ${expectedRequestCount} ranged GET requests but sent ${actualRequestCount}`);
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, error);
+        const error = new Error(
+          `Expected ${expectedRequestCount} ranged GET requests but sent ${actualRequestCount}`,
+        );
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          error,
+        );
         throw error;
       }
 
       // Verify total bytes written matches expected object size
-      const totalBytesWritten = rangeResults.reduce((sum, r) => sum + r.bytesWritten, 0);
+      const totalBytesWritten = rangeResults.reduce(
+        (sum, r) => sum + r.bytesWritten,
+        0,
+      );
       if (totalBytesWritten !== totalContentLength) {
         const error = new Error(
-          `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalContentLength})`
+          `Total bytes written (${totalBytesWritten}) does not match expected object size (${totalContentLength})`,
         );
-        await this.handleDownloadCleanup(fileManager, tempFilePath, request, totalContentLength, error);
+        await this.handleDownloadCleanup(
+          fileManager,
+          tempFilePath,
+          request,
+          totalContentLength,
+          error,
+        );
         throw error;
       }
 
       await fileManager.atomicRename(tempFilePath, resolvedDestination);
       fileManager.unregisterCleanupHandler(tempFilePath);
 
-      return this.buildDownloadToFileResponse(initialResponse, totalContentLength, request);
+      return this.buildDownloadToFileResponse(
+        initialResponse,
+        totalContentLength,
+        request,
+      );
     } catch (error) {
       if (tempFilePath) {
         await fileManager.deleteTempFile(tempFilePath).catch(() => {});
@@ -1017,7 +1286,7 @@ export class S3TransferManager implements IS3TransferManager {
     body: DownloadResponse["Body"],
     filePath: string,
     contentRange: string | undefined,
-    fallbackOffset: number
+    fallbackOffset: number,
   ): Promise<number> {
     const start = parseContentRangeStart(contentRange) ?? fallbackOffset;
     const fd = await open(filePath, "r+");
@@ -1052,11 +1321,12 @@ export class S3TransferManager implements IS3TransferManager {
    */
   public async uploadDirectory(
     request: UploadDirectoryRequest,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<UploadDirectoryResponse> {
     const absoluteSource = await validateDirectory(request.source);
     const maxConcurrency = request.maxConcurrency ?? 100;
-    const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
+    const failurePolicy =
+      request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
     const semaphore = new Semaphore(maxConcurrency);
     const abortController = new AbortController();
     const inFlight = new Set<Promise<void>>();
@@ -1082,13 +1352,20 @@ export class S3TransferManager implements IS3TransferManager {
     this.dispatchEvent(
       Object.assign(new Event("transferInitiated"), {
         request,
-        snapshot: { transferredBytes: 0, totalBytes: undefined, transferredFiles: 0, totalFiles: undefined },
-      })
+        snapshot: {
+          transferredBytes: 0,
+          totalBytes: undefined,
+          transferredFiles: 0,
+          totalFiles: undefined,
+        },
+      }),
     );
 
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
     if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+      userSignal.addEventListener("abort", () => abortController.abort(), {
+        once: true,
+      });
     }
 
     let discoveredFiles = 0;
@@ -1102,7 +1379,10 @@ export class S3TransferManager implements IS3TransferManager {
       this.checkAborted(transferOptions);
 
       if (request.filter) {
-        const include = request.filter instanceof RegExp ? request.filter.test(filePath) : request.filter(filePath);
+        const include =
+          request.filter instanceof RegExp
+            ? request.filter.test(filePath)
+            : request.filter(filePath);
         if (!include) continue;
       }
 
@@ -1112,7 +1392,10 @@ export class S3TransferManager implements IS3TransferManager {
 
       const count =
         fileStat.size >= this.multipartUploadThresholdBytes
-          ? Math.min(Math.ceil(fileStat.size / this.targetPartSizeBytes), this.maxConcurrentUploads)
+          ? Math.min(
+              Math.ceil(fileStat.size / this.targetPartSizeBytes),
+              this.maxConcurrentUploads,
+            )
           : 1;
 
       await semaphore.acquire(count);
@@ -1124,7 +1407,11 @@ export class S3TransferManager implements IS3TransferManager {
 
       const task = (async () => {
         try {
-          const key = this.deriveS3Key(absoluteSource, filePath, request.s3Prefix);
+          const key = this.deriveS3Key(
+            absoluteSource,
+            filePath,
+            request.s3Prefix,
+          );
 
           let putRequest: PutObjectCommandInput = {
             Bucket: request.bucket,
@@ -1137,7 +1424,9 @@ export class S3TransferManager implements IS3TransferManager {
             putRequest = request.uploadObjectRequestModifier(putRequest);
           }
 
-          await this.upload(putRequest, { abortSignal: abortController.signal });
+          await this.upload(putRequest, {
+            abortSignal: abortController.signal,
+          });
           objectsUploaded++;
           transferredFiles++;
           transferredBytes += fileStat.size;
@@ -1151,7 +1440,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredFiles,
                 totalFiles: traversalComplete ? totalFiles : undefined,
               },
-            })
+            }),
           );
         } catch (error) {
           if (terminated || abortController.signal.aborted) {
@@ -1166,7 +1455,11 @@ export class S3TransferManager implements IS3TransferManager {
             },
             error,
           };
-          const result = await handleFailure(failurePolicy, context, abortController);
+          const result = await handleFailure(
+            failurePolicy,
+            context,
+            abortController,
+          );
           if (result === "terminate") {
             terminated = true;
             if (!terminationError) {
@@ -1193,8 +1486,13 @@ export class S3TransferManager implements IS3TransferManager {
       this.dispatchEvent(
         Object.assign(new Event("transferFailed"), {
           request,
-          snapshot: { transferredBytes, totalBytes, transferredFiles, totalFiles },
-        })
+          snapshot: {
+            transferredBytes,
+            totalBytes,
+            transferredFiles,
+            totalFiles,
+          },
+        }),
       );
       removeLocalEventListeners();
       throw terminationError;
@@ -1204,8 +1502,13 @@ export class S3TransferManager implements IS3TransferManager {
       Object.assign(new Event("transferComplete"), {
         request,
         response: { objectsUploaded, objectsFailed },
-        snapshot: { transferredBytes, totalBytes, transferredFiles, totalFiles },
-      })
+        snapshot: {
+          transferredBytes,
+          totalBytes,
+          transferredFiles,
+          totalFiles,
+        },
+      }),
     );
     removeLocalEventListeners();
     return { objectsUploaded, objectsFailed };
@@ -1223,7 +1526,7 @@ export class S3TransferManager implements IS3TransferManager {
    */
   public downloadDirectory(
     request: DownloadDirectoryRequest,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<DownloadDirectoryResponse> {
     throw new Error("Method not implemented.");
   }
@@ -1241,8 +1544,11 @@ export class S3TransferManager implements IS3TransferManager {
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
-    checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    checksumValidationEnabled: boolean,
+  ): Promise<{
+    totalSize: number | undefined;
+    onStreamConsumed?: (index: number) => void;
+  }> {
     let totalSize: number | undefined;
     let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
@@ -1254,14 +1560,22 @@ export class S3TransferManager implements IS3TransferManager {
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
       try {
-        const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+        const initialPart = await this.s3.send(
+          new GetObjectCommand(initialPartRequest),
+          transferOptions,
+        );
         await internalEventHandler.afterInitialGetObject();
         const partSize = initialPart.ContentLength;
         const initialETag = initialPart.ETag ?? undefined;
-        totalSize = initialPart.ContentRange ? Number.parseInt(initialPart.ContentRange.split("/")[1]) : 0;
+        totalSize = initialPart.ContentRange
+          ? Number.parseInt(initialPart.ContentRange.split("/")[1])
+          : 0;
         this.dispatchTransferInitiatedEvent(request, totalSize);
         if (initialPart.Body) {
-          if (initialPart.Body && typeof (initialPart.Body as any).getReader === "function") {
+          if (
+            initialPart.Body &&
+            typeof (initialPart.Body as any).getReader === "function"
+          ) {
             const reader = (initialPart.Body as any).getReader();
             (initialPart.Body as any).getReader = function () {
               return reader;
@@ -1275,7 +1589,8 @@ export class S3TransferManager implements IS3TransferManager {
 
         let partCount = 1;
         if (initialPart.PartsCount! > 1) {
-          const partTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] = [];
+          const partTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] =
+            [];
           const partRequests: GetObjectCommandInput[] = [];
 
           for (let part = 2; part <= initialPart.PartsCount!; part++) {
@@ -1283,7 +1598,9 @@ export class S3TransferManager implements IS3TransferManager {
               ...request,
               PartNumber: part,
               IfMatch: initialETag,
-              ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+              ...(checksumValidationEnabled && {
+                ChecksumMode: "ENABLED" as const,
+              }),
             };
             partRequests.push(getObjectRequest);
 
@@ -1292,8 +1609,15 @@ export class S3TransferManager implements IS3TransferManager {
               return this.s3
                 .send(new GetObjectCommand(getObjectRequest), transferOptions)
                 .then((response) => {
-                  this.validatePartDownload(response.ContentRange, part, partSize ?? 0);
-                  if (response.Body && typeof (response.Body as any).getReader === "function") {
+                  this.validatePartDownload(
+                    response.ContentRange,
+                    part,
+                    partSize ?? 0,
+                  );
+                  if (
+                    response.Body &&
+                    typeof (response.Body as any).getReader === "function"
+                  ) {
                     const reader = (response.Body as any).getReader();
                     (response.Body as any).getReader = function () {
                       return reader;
@@ -1302,7 +1626,11 @@ export class S3TransferManager implements IS3TransferManager {
                   return response.Body!;
                 })
                 .catch((error) => {
-                  this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error as Error);
+                  this.dispatchTransferFailedEvent(
+                    getObjectRequest,
+                    totalSize,
+                    error as Error,
+                  );
                   throw error;
                 });
             });
@@ -1311,10 +1639,11 @@ export class S3TransferManager implements IS3TransferManager {
           // Lazily prefetch streams — only maxConcurrentDownloads requests in-flight.
           // New requests fire as previous ones complete, and joinStreams can start
           // consuming immediately without waiting for all parts to be fetched.
-          const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
-            partTasks,
-            this.maxConcurrentDownloads
-          );
+          const { promises: pendingStreams, onStreamConsumed } =
+            this.createConcurrentTaskPool(
+              partTasks,
+              this.maxConcurrentDownloads,
+            );
           streams.push(...pendingStreams);
           requests.push(...partRequests);
           streamConsumedCallback = onStreamConsumed;
@@ -1322,7 +1651,7 @@ export class S3TransferManager implements IS3TransferManager {
 
           if (partCount !== initialPart.PartsCount) {
             throw new Error(
-              `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`
+              `The number of parts downloaded (${partCount}) does not match the expected number (${initialPart.PartsCount})`,
             );
           }
         }
@@ -1336,11 +1665,18 @@ export class S3TransferManager implements IS3TransferManager {
       try {
         const getObjectRequest = {
           ...request,
-          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+          ...(checksumValidationEnabled && {
+            ChecksumMode: "ENABLED" as const,
+          }),
         };
 
-        const getObject = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
-        totalSize = getObject.ContentRange ? Number.parseInt(getObject.ContentRange.split("/")[1]) : 0;
+        const getObject = await this.s3.send(
+          new GetObjectCommand(getObjectRequest),
+          transferOptions,
+        );
+        totalSize = getObject.ContentRange
+          ? Number.parseInt(getObject.ContentRange.split("/")[1])
+          : 0;
 
         this.dispatchTransferInitiatedEvent(request, totalSize);
         if (getObject.Body) {
@@ -1373,19 +1709,28 @@ export class S3TransferManager implements IS3TransferManager {
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
-    checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    checksumValidationEnabled: boolean,
+  ): Promise<{
+    totalSize: number | undefined;
+    onStreamConsumed?: (index: number) => void;
+  }> {
     let streamConsumedCallback: ((index: number) => void) | undefined;
     this.checkAborted(transferOptions);
 
     const headResponse = await this.s3.send(
       new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
-      transferOptions
+      transferOptions,
     );
 
     if (headResponse.ContentLength === 0) {
-      const getObjectRequest = { ...request, ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }) };
-      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const getObjectRequest = {
+        ...request,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+      };
+      const response = await this.s3.send(
+        new GetObjectCommand(getObjectRequest),
+        transferOptions,
+      );
 
       this.dispatchTransferInitiatedEvent(request, 0);
       if (response.Body) streams.push(Promise.resolve(response.Body));
@@ -1403,10 +1748,18 @@ export class S3TransferManager implements IS3TransferManager {
     let initialETag: string | undefined;
 
     if (request.Range != null) {
-      const [userRangeLeft, userRangeRight] = request.Range.replace("bytes=", "").split("-").map(Number);
+      const [userRangeLeft, userRangeRight] = request.Range.replace(
+        "bytes=",
+        "",
+      )
+        .split("-")
+        .map(Number);
       maxRange = userRangeRight;
       left = userRangeLeft;
-      right = Math.min(userRangeRight, left + S3TransferManager.MIN_PART_SIZE - 1);
+      right = Math.min(
+        userRangeRight,
+        left + S3TransferManager.MIN_PART_SIZE - 1,
+      );
       totalSize = userRangeRight + 1;
     }
 
@@ -1416,9 +1769,15 @@ export class S3TransferManager implements IS3TransferManager {
         Range: `bytes=${left}-${right}`,
         ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
       };
-      const initialRangeGet = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const initialRangeGet = await this.s3.send(
+        new GetObjectCommand(getObjectRequest),
+        transferOptions,
+      );
       await internalEventHandler.afterInitialGetObject();
-      this.validateRangeDownload(`bytes=${left}-${right}`, initialRangeGet.ContentRange);
+      this.validateRangeDownload(
+        `bytes=${left}-${right}`,
+        initialRangeGet.ContentRange,
+      );
       initialETag = initialRangeGet.ETag ?? undefined;
       if (!totalSize) {
         totalSize = initialRangeGet.ContentRange
@@ -1426,7 +1785,10 @@ export class S3TransferManager implements IS3TransferManager {
           : undefined;
       }
 
-      if (initialRangeGet.Body && typeof (initialRangeGet.Body as any).getReader === "function") {
+      if (
+        initialRangeGet.Body &&
+        typeof (initialRangeGet.Body as any).getReader === "function"
+      ) {
         const reader = (initialRangeGet.Body as any).getReader();
         (initialRangeGet.Body as any).getReader = function () {
           return reader;
@@ -1446,13 +1808,17 @@ export class S3TransferManager implements IS3TransferManager {
     if (totalSize) {
       const contentLength = totalSize;
       const remainingBytes = Math.max(0, contentLength - (right - left + 1));
-      const additionalRequests = Math.ceil(remainingBytes / S3TransferManager.MIN_PART_SIZE);
+      const additionalRequests = Math.ceil(
+        remainingBytes / S3TransferManager.MIN_PART_SIZE,
+      );
       expectedRequestCount += additionalRequests;
     }
 
     left = right + 1;
     right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
-    remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
+    remainingLength = totalSize
+      ? Math.min(right - left + 1, Math.max(0, totalSize - left))
+      : 0;
     const rangeTasks: (() => Promise<StreamingBlobPayloadOutputTypes>)[] = [];
     const rangeRequests: GetObjectCommandInput[] = [];
 
@@ -1472,7 +1838,10 @@ export class S3TransferManager implements IS3TransferManager {
           .send(new GetObjectCommand(getObjectRequest), transferOptions)
           .then((response) => {
             this.validateRangeDownload(range, response.ContentRange);
-            if (response.Body && typeof (response.Body as any).getReader === "function") {
+            if (
+              response.Body &&
+              typeof (response.Body as any).getReader === "function"
+            ) {
               const reader = (response.Body as any).getReader();
               (response.Body as any).getReader = function () {
                 return reader;
@@ -1481,24 +1850,28 @@ export class S3TransferManager implements IS3TransferManager {
             return response.Body!;
           })
           .catch((error) => {
-            this.dispatchTransferFailedEvent(getObjectRequest, totalSize, error);
+            this.dispatchTransferFailedEvent(
+              getObjectRequest,
+              totalSize,
+              error,
+            );
             throw error;
           });
       });
 
       left = right + 1;
       right = Math.min(left + S3TransferManager.MIN_PART_SIZE - 1, maxRange);
-      remainingLength = totalSize ? Math.min(right - left + 1, Math.max(0, totalSize - left)) : 0;
+      remainingLength = totalSize
+        ? Math.min(right - left + 1, Math.max(0, totalSize - left))
+        : 0;
     }
 
     if (rangeTasks.length > 0) {
       // Lazily prefetch streams — only maxConcurrentDownloads requests in-flight.
       // New requests fire as previous ones complete, and joinStreams can start
       // consuming immediately without waiting for all ranges to be fetched.
-      const { promises: pendingStreams, onStreamConsumed } = this.createConcurrentTaskPool(
-        rangeTasks,
-        this.maxConcurrentDownloads
-      );
+      const { promises: pendingStreams, onStreamConsumed } =
+        this.createConcurrentTaskPool(rangeTasks, this.maxConcurrentDownloads);
       streams.push(...pendingStreams);
       requests.push(...rangeRequests);
       streamConsumedCallback = onStreamConsumed;
@@ -1507,7 +1880,7 @@ export class S3TransferManager implements IS3TransferManager {
     const actualRequestCount = 1 + rangeTasks.length;
     if (expectedRequestCount !== actualRequestCount) {
       throw new Error(
-        `The number of ranged GET requests sent (${actualRequestCount}) does not match the expected number (${expectedRequestCount})`
+        `The number of ranged GET requests sent (${actualRequestCount}) does not match the expected number (${expectedRequestCount})`,
       );
     }
 
@@ -1535,8 +1908,11 @@ export class S3TransferManager implements IS3TransferManager {
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
-    checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    checksumValidationEnabled: boolean,
+  ): Promise<{
+    totalSize: number | undefined;
+    onStreamConsumed?: (index: number) => void;
+  }> {
     this.checkAborted(transferOptions);
 
     // Fetch Part 1 to discover metadata: PartsCount, part size, ETag, total object size.
@@ -1548,7 +1924,10 @@ export class S3TransferManager implements IS3TransferManager {
       ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
     };
 
-    const initialPart = await this.s3.send(new GetObjectCommand(initialPartRequest), transferOptions);
+    const initialPart = await this.s3.send(
+      new GetObjectCommand(initialPartRequest),
+      transferOptions,
+    );
     await internalEventHandler.afterInitialGetObject();
 
     const partSize = initialPart.ContentLength!;
@@ -1591,7 +1970,9 @@ export class S3TransferManager implements IS3TransferManager {
     const abortController = new AbortController();
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
     if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+      userSignal.addEventListener("abort", () => abortController.abort(), {
+        once: true,
+      });
     }
 
     // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
@@ -1634,7 +2015,9 @@ export class S3TransferManager implements IS3TransferManager {
           ...requestWithoutRange,
           PartNumber: partNumber,
           IfMatch: initialETag,
-          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+          ...(checksumValidationEnabled && {
+            ChecksumMode: "ENABLED" as const,
+          }),
         };
 
         requests.push(partGetRequest);
@@ -1660,13 +2043,20 @@ export class S3TransferManager implements IS3TransferManager {
               this.s3.config.requestHandler as unknown as WorkerHttpHandler
             ).getStreamDownloadResult(resultToken);
             if (transferResult) {
-              queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+              queue.enqueue(
+                rangeIndex,
+                transferResult.buffer,
+                transferResult.byteLength,
+              );
 
               this.dispatchEvent(
                 Object.assign(new Event("bytesTransferred"), {
                   request: partGetRequest,
-                  snapshot: { transferredBytes: transferResult.byteLength, totalBytes: totalSize },
-                })
+                  snapshot: {
+                    transferredBytes: transferResult.byteLength,
+                    totalBytes: totalSize,
+                  },
+                }),
               );
             }
             releaseSlot();
@@ -1723,7 +2113,11 @@ export class S3TransferManager implements IS3TransferManager {
       },
     });
 
-    streams.push(Promise.resolve(transferStream as unknown as StreamingBlobPayloadOutputTypes));
+    streams.push(
+      Promise.resolve(
+        transferStream as unknown as StreamingBlobPayloadOutputTypes,
+      ),
+    );
 
     return { totalSize };
   }
@@ -1746,19 +2140,28 @@ export class S3TransferManager implements IS3TransferManager {
     streams: Promise<StreamingBlobPayloadOutputTypes>[],
     requests: GetObjectCommandInput[],
     metadata: Omit<DownloadResponse, "Body">,
-    checksumValidationEnabled: boolean
-  ): Promise<{ totalSize: number | undefined; onStreamConsumed?: (index: number) => void }> {
+    checksumValidationEnabled: boolean,
+  ): Promise<{
+    totalSize: number | undefined;
+    onStreamConsumed?: (index: number) => void;
+  }> {
     this.checkAborted(transferOptions);
 
     const headResponse = await this.s3.send(
       new HeadObjectCommand({ Bucket: request.Bucket, Key: request.Key }),
-      transferOptions
+      transferOptions,
     );
     await internalEventHandler.afterInitialGetObject();
 
     if (headResponse.ContentLength === 0) {
-      const getObjectRequest = { ...request, ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }) };
-      const response = await this.s3.send(new GetObjectCommand(getObjectRequest), transferOptions);
+      const getObjectRequest = {
+        ...request,
+        ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+      };
+      const response = await this.s3.send(
+        new GetObjectCommand(getObjectRequest),
+        transferOptions,
+      );
 
       this.dispatchTransferInitiatedEvent(request, 0);
       if (response.Body) streams.push(Promise.resolve(response.Body));
@@ -1792,7 +2195,9 @@ export class S3TransferManager implements IS3TransferManager {
     const abortController = new AbortController();
     const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
     if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), { once: true });
+      userSignal.addEventListener("abort", () => abortController.abort(), {
+        once: true,
+      });
     }
 
     // Concurrency limiter: bound in-flight requests to maxConcurrentDownloads.
@@ -1837,7 +2242,9 @@ export class S3TransferManager implements IS3TransferManager {
           ...request,
           Range: `bytes=${start}-${end}`,
           IfMatch: eTag,
-          ...(checksumValidationEnabled && { ChecksumMode: "ENABLED" as const }),
+          ...(checksumValidationEnabled && {
+            ChecksumMode: "ENABLED" as const,
+          }),
         };
 
         requests.push(rangeGetRequest);
@@ -1863,13 +2270,20 @@ export class S3TransferManager implements IS3TransferManager {
               this.s3.config.requestHandler as unknown as WorkerHttpHandler
             ).getStreamDownloadResult(resultToken);
             if (transferResult) {
-              queue.enqueue(rangeIndex, transferResult.buffer, transferResult.byteLength);
+              queue.enqueue(
+                rangeIndex,
+                transferResult.buffer,
+                transferResult.byteLength,
+              );
 
               this.dispatchEvent(
                 Object.assign(new Event("bytesTransferred"), {
                   request: rangeGetRequest,
-                  snapshot: { transferredBytes: transferResult.byteLength, totalBytes: totalSize },
-                })
+                  snapshot: {
+                    transferredBytes: transferResult.byteLength,
+                    totalBytes: totalSize,
+                  },
+                }),
               );
             }
             releaseSlot();
@@ -1921,7 +2335,11 @@ export class S3TransferManager implements IS3TransferManager {
       },
     });
 
-    streams.push(Promise.resolve(transferStream as unknown as StreamingBlobPayloadOutputTypes));
+    streams.push(
+      Promise.resolve(
+        transferStream as unknown as StreamingBlobPayloadOutputTypes,
+      ),
+    );
 
     return { totalSize };
   }
@@ -1934,7 +2352,10 @@ export class S3TransferManager implements IS3TransferManager {
   private addEventListeners(eventListeners?: TransferEventListeners): void {
     for (const listeners of this.iterateListeners(eventListeners)) {
       for (const listener of listeners) {
-        this.addEventListener(listener.eventType, listener.callback as EventListener);
+        this.addEventListener(
+          listener.eventType,
+          listener.callback as EventListener,
+        );
       }
     }
   }
@@ -1947,7 +2368,10 @@ export class S3TransferManager implements IS3TransferManager {
   private removeEventListeners(eventListeners?: TransferEventListeners): void {
     for (const listeners of this.iterateListeners(eventListeners)) {
       for (const listener of listeners) {
-        this.removeEventListener(listener.eventType, listener.callback as EventListener);
+        this.removeEventListener(
+          listener.eventType,
+          listener.callback as EventListener,
+        );
       }
     }
   }
@@ -1976,7 +2400,7 @@ export class S3TransferManager implements IS3TransferManager {
   private buildDownloadToFileResponse(
     initialResponse: DownloadResponse,
     totalSize: number,
-    request: DownloadToFileRequest
+    request: DownloadToFileRequest,
   ): DownloadToFileResponse {
     const metadata: Record<string, any> = {};
     this.assignMetadata(metadata, initialResponse);
@@ -2003,7 +2427,7 @@ export class S3TransferManager implements IS3TransferManager {
           transferredBytes: totalSize,
           totalBytes: totalSize,
         },
-      })
+      }),
     );
 
     return response;
@@ -2020,7 +2444,7 @@ export class S3TransferManager implements IS3TransferManager {
     tempFilePath: string,
     request: DownloadToFileRequest,
     totalSize: number,
-    error: unknown
+    error: unknown,
   ): Promise<void> {
     await fileManager.deleteTempFile(tempFilePath);
     fileManager.unregisterCleanupHandler(tempFilePath);
@@ -2032,7 +2456,10 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private updateResponseLengthAndRange(response: DownloadResponse, totalSize: number | undefined): void {
+  private updateResponseLengthAndRange(
+    response: DownloadResponse,
+    totalSize: number | undefined,
+  ): void {
     if (totalSize !== undefined) {
       response.ContentLength = totalSize;
       response.ContentRange = `bytes 0-${totalSize - 1}/${totalSize}`;
@@ -2044,7 +2471,10 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private updateChecksumValues(initialPart: DownloadResponse, metadata: Omit<DownloadResponse, "Body">) {
+  private updateChecksumValues(
+    initialPart: DownloadResponse,
+    metadata: Omit<DownloadResponse, "Body">,
+  ) {
     if (initialPart.ChecksumType === "COMPOSITE") {
       metadata.ChecksumCRC32 = undefined;
       metadata.ChecksumCRC32C = undefined;
@@ -2061,7 +2491,7 @@ export class S3TransferManager implements IS3TransferManager {
   private processResponseMetadata(
     response: DownloadResponse,
     metadata: Omit<DownloadResponse, "Body">,
-    totalSize: number | undefined
+    totalSize: number | undefined,
   ): void {
     this.updateResponseLengthAndRange(response, totalSize);
     this.assignMetadata(metadata, response);
@@ -2075,7 +2505,9 @@ export class S3TransferManager implements IS3TransferManager {
    */
   private checkAborted(transferOptions?: TransferOptions): void {
     if (transferOptions?.abortSignal?.aborted) {
-      throw Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
+      throw Object.assign(new Error("Transfer aborted."), {
+        name: "AbortError",
+      });
     }
   }
 
@@ -2086,7 +2518,9 @@ export class S3TransferManager implements IS3TransferManager {
    */
   private validateConfig(): void {
     if (this.targetPartSizeBytes < S3TransferManager.MIN_PART_SIZE) {
-      throw new Error(`targetPartSizeBytes must be at least ${S3TransferManager.MIN_PART_SIZE} bytes`);
+      throw new Error(
+        `targetPartSizeBytes must be at least ${S3TransferManager.MIN_PART_SIZE} bytes`,
+      );
     }
   }
 
@@ -2095,7 +2529,10 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private dispatchTransferInitiatedEvent(request: DownloadRequest | UploadRequest, totalSize?: number): boolean {
+  private dispatchTransferInitiatedEvent(
+    request: DownloadRequest | UploadRequest,
+    totalSize?: number,
+  ): boolean {
     this.dispatchEvent(
       Object.assign(new Event("transferInitiated"), {
         request,
@@ -2103,7 +2540,7 @@ export class S3TransferManager implements IS3TransferManager {
           transferredBytes: 0,
           totalBytes: totalSize,
         },
-      })
+      }),
     );
     return true;
   }
@@ -2116,7 +2553,7 @@ export class S3TransferManager implements IS3TransferManager {
   private dispatchTransferFailedEvent(
     request: DownloadRequest | UploadRequest,
     totalSize?: number,
-    error?: Error
+    error?: Error,
   ): boolean {
     this.dispatchEvent(
       Object.assign(new Event("transferFailed"), {
@@ -2126,7 +2563,7 @@ export class S3TransferManager implements IS3TransferManager {
           transferredBytes: 0,
           totalBytes: totalSize,
         },
-      })
+      }),
     );
     return true;
   }
@@ -2139,7 +2576,8 @@ export class S3TransferManager implements IS3TransferManager {
   private *iterateListeners(eventListeners: TransferEventListeners = {}) {
     for (const key in eventListeners) {
       const eventType = key as keyof TransferEventListeners;
-      const listeners = eventListeners[eventType as keyof TransferEventListeners];
+      const listeners =
+        eventListeners[eventType as keyof TransferEventListeners];
       if (Array.isArray(listeners)) {
         for (const callback of listeners) {
           yield [
@@ -2169,14 +2607,17 @@ export class S3TransferManager implements IS3TransferManager {
    */
   private createConcurrentTaskPool<T>(
     tasks: (() => Promise<T>)[],
-    maxConcurrent: number
+    maxConcurrent: number,
   ): {
     promises: Promise<T>[];
     onStreamConsumed: (index: number) => void;
   } {
     if (tasks.length === 0) return { promises: [], onStreamConsumed: () => {} };
 
-    const resolvers: Array<{ resolve: (value: T) => void; reject: (error: unknown) => void }> = [];
+    const resolvers: Array<{
+      resolve: (value: T) => void;
+      reject: (error: unknown) => void;
+    }> = [];
     const promises: Promise<T>[] = tasks.map(() => {
       let resolve!: (value: T) => void;
       let reject!: (error: unknown) => void;
@@ -2199,7 +2640,7 @@ export class S3TransferManager implements IS3TransferManager {
         (error) => {
           failed = true;
           resolvers[index].reject(error);
-        }
+        },
       );
     };
 
@@ -2222,7 +2663,11 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private validatePartDownload(contentRange: string | undefined, partNumber: number, partSize: number) {
+  private validatePartDownload(
+    contentRange: string | undefined,
+    partNumber: number,
+    partSize: number,
+  ) {
     if (!contentRange) {
       throw new Error(`Missing ContentRange for part ${partNumber}.`);
     }
@@ -2238,11 +2683,15 @@ export class S3TransferManager implements IS3TransferManager {
     const expectedEnd = Math.min(expectedStart + partSize - 1, total);
 
     if (start !== expectedStart) {
-      throw new Error(`Expected part ${partNumber} to start at ${expectedStart} but got ${start}`);
+      throw new Error(
+        `Expected part ${partNumber} to start at ${expectedStart} but got ${start}`,
+      );
     }
 
     if (end !== expectedEnd) {
-      throw new Error(`Expected part ${partNumber} to end at ${expectedEnd} but got ${end}`);
+      throw new Error(
+        `Expected part ${partNumber} to end at ${expectedEnd} but got ${end}`,
+      );
     }
   }
 
@@ -2251,13 +2700,17 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private validateRangeDownload(requestRange: string, responseRange: string | undefined) {
+  private validateRangeDownload(
+    requestRange: string,
+    responseRange: string | undefined,
+  ) {
     if (!responseRange) {
       throw new Error(`Missing ContentRange for range ${requestRange}.`);
     }
 
     const match = responseRange.match(/bytes (\d+)-(\d+)\/(\d+)/);
-    if (!match) throw new Error(`Invalid ContentRange format: ${responseRange}`);
+    if (!match)
+      throw new Error(`Invalid ContentRange format: ${responseRange}`);
 
     const start = Number.parseInt(match[1]);
     const end = Number.parseInt(match[2]);
@@ -2270,7 +2723,9 @@ export class S3TransferManager implements IS3TransferManager {
     const expectedEnd = Number.parseInt(rangeMatch[2]);
 
     if (start !== expectedStart) {
-      throw new Error(`Expected range to start at ${expectedStart} but got ${start}`);
+      throw new Error(
+        `Expected range to start at ${expectedStart} but got ${start}`,
+      );
     }
 
     if (end === expectedEnd) {
@@ -2293,12 +2748,15 @@ export class S3TransferManager implements IS3TransferManager {
   private async uploadSinglePart(
     request: UploadRequest,
     contentLength: number,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<PutObjectCommandOutput> {
     const putObjectRequest: PutObjectCommandInput = { ...request };
 
     this.checkAborted(transferOptions);
-    const response = await this.s3.send(new PutObjectCommand(putObjectRequest), transferOptions);
+    const response = await this.s3.send(
+      new PutObjectCommand(putObjectRequest),
+      transferOptions,
+    );
 
     this.dispatchEvent(
       Object.assign(new Event("bytesTransferred"), {
@@ -2307,7 +2765,7 @@ export class S3TransferManager implements IS3TransferManager {
           transferredBytes: contentLength,
           totalBytes: contentLength,
         },
-      })
+      }),
     );
 
     return response;
@@ -2318,8 +2776,14 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private calculatePartSize(contentLength: number): { partSize: number; expectedPartsCount: number } {
-    const partSize = Math.max(this.targetPartSizeBytes, Math.ceil(contentLength / 10_000));
+  private calculatePartSize(contentLength: number): {
+    partSize: number;
+    expectedPartsCount: number;
+  } {
+    const partSize = Math.max(
+      this.targetPartSizeBytes,
+      Math.ceil(contentLength / 10_000),
+    );
     const expectedPartsCount = Math.ceil(contentLength / partSize);
     return { partSize, expectedPartsCount };
   }
@@ -2329,7 +2793,9 @@ export class S3TransferManager implements IS3TransferManager {
    * @internal
    */
   private isFileBody(body: any): boolean {
-    return typeof body?.pipe === "function" && typeof (body as any).path === "string";
+    return (
+      typeof body?.pipe === "function" && typeof (body as any).path === "string"
+    );
   }
 
   /**
@@ -2350,12 +2816,15 @@ export class S3TransferManager implements IS3TransferManager {
   private async threadedUploadInPartsFromFile(
     request: UploadRequest,
     contentLength: number,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
     const filePath = (request.Body as any).path as string;
 
-    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+    const buildDataSource = (
+      checksumAlgorithm?: string,
+      checksumHeader?: string,
+    ): DataSource => ({
       type: "file",
       filePath,
       partSize,
@@ -2364,7 +2833,12 @@ export class S3TransferManager implements IS3TransferManager {
       checksumHeader,
     });
 
-    return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions);
+    return this.threadedMultipartUpload(
+      request,
+      contentLength,
+      buildDataSource,
+      transferOptions,
+    );
   }
 
   /**
@@ -2377,7 +2851,7 @@ export class S3TransferManager implements IS3TransferManager {
   private async threadedUploadInParts(
     request: UploadRequest,
     contentLength: number,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize } = this.calculatePartSize(contentLength);
     const body = request.Body as Uint8Array;
@@ -2386,7 +2860,10 @@ export class S3TransferManager implements IS3TransferManager {
     const sharedBuffer = new SharedArrayBuffer(body.byteLength);
     new Uint8Array(sharedBuffer).set(body);
 
-    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+    const buildDataSource = (
+      checksumAlgorithm?: string,
+      checksumHeader?: string,
+    ): DataSource => ({
       type: "sharedBuffer",
       sharedBuffer,
       partSize,
@@ -2395,7 +2872,12 @@ export class S3TransferManager implements IS3TransferManager {
       checksumHeader,
     });
 
-    return this.threadedMultipartUpload(request, contentLength, buildDataSource, transferOptions);
+    return this.threadedMultipartUpload(
+      request,
+      contentLength,
+      buildDataSource,
+      transferOptions,
+    );
   }
 
   /**
@@ -2409,10 +2891,14 @@ export class S3TransferManager implements IS3TransferManager {
   private async threadedMultipartUpload(
     request: UploadRequest,
     contentLength: number,
-    buildDataSource: (checksumAlgorithm?: string, checksumHeader?: string) => DataSource,
-    transferOptions?: TransferOptions
+    buildDataSource: (
+      checksumAlgorithm?: string,
+      checksumHeader?: string,
+    ) => DataSource,
+    transferOptions?: TransferOptions,
   ): Promise<CompleteMultipartUploadCommandOutput> {
-    const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
+    const { partSize, expectedPartsCount } =
+      this.calculatePartSize(contentLength);
 
     this.checkAborted(transferOptions);
 
@@ -2428,15 +2914,23 @@ export class S3TransferManager implements IS3TransferManager {
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
     }
-    if (!createMpuRequest.ChecksumAlgorithm && this.requestChecksumCalculation === "WHEN_SUPPORTED") {
+    if (
+      !createMpuRequest.ChecksumAlgorithm &&
+      this.requestChecksumCalculation === "WHEN_SUPPORTED"
+    ) {
       createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
     }
 
-    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
+    const createMpuResponse = await this.s3.send(
+      new CreateMultipartUploadCommand(createMpuRequest),
+      transferOptions,
+    );
     const uploadId = createMpuResponse.UploadId!;
 
     const checksumAlgorithm = createMpuRequest.ChecksumAlgorithm;
-    const checksumHeader = checksumAlgorithm ? `x-amz-checksum-${checksumAlgorithm.toLowerCase()}` : undefined;
+    const checksumHeader = checksumAlgorithm
+      ? `x-amz-checksum-${checksumAlgorithm.toLowerCase()}`
+      : undefined;
     const dataSource = buildDataSource(checksumAlgorithm, checksumHeader);
 
     const abortController = new AbortController();
@@ -2453,7 +2947,10 @@ export class S3TransferManager implements IS3TransferManager {
           if (partNumber > expectedPartsCount) return;
 
           if (uploadAbortSignal.aborted) {
-            throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+            throw Object.assign(
+              new Error("Upload aborted due to part failure."),
+              { name: "AbortError" },
+            );
           }
           this.checkAborted(transferOptions);
 
@@ -2471,23 +2968,33 @@ export class S3TransferManager implements IS3TransferManager {
             UploadId: uploadId,
             PartNumber: partNumber,
             ContentLength: length,
-            ...(checksumAlgorithm && { ChecksumAlgorithm: checksumAlgorithm as any }),
+            ...(checksumAlgorithm && {
+              ChecksumAlgorithm: checksumAlgorithm as any,
+            }),
           };
 
-          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), {
-            ...transferOptions,
-            dataSource,
-          } as any);
+          const partResponse = await this.s3.send(
+            new UploadPartCommand(partRequest),
+            {
+              ...transferOptions,
+              dataSource,
+            } as any,
+          );
 
           const completedPart: CompletedPart = {
             PartNumber: partNumber,
             ETag: partResponse.ETag,
           };
-          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
-          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
-          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
-          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
-          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          if (partResponse.ChecksumCRC32)
+            completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          if (partResponse.ChecksumCRC32C)
+            completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          if (partResponse.ChecksumCRC64NVME)
+            completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
+          if (partResponse.ChecksumSHA1)
+            completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          if (partResponse.ChecksumSHA256)
+            completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
 
           completedParts.push(completedPart);
           bytesUploaded += length;
@@ -2499,7 +3006,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredBytes: bytesUploaded,
                 totalBytes: contentLength,
               },
-            })
+            }),
           );
         }
       };
@@ -2510,14 +3017,16 @@ export class S3TransferManager implements IS3TransferManager {
           uploadPart().catch((error) => {
             abortController.abort();
             throw error;
-          })
+          }),
         );
       }
 
       await Promise.all(partUploads);
 
       if (completedParts.length !== expectedPartsCount) {
-        throw new Error(`Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`);
+        throw new Error(
+          `Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`,
+        );
       }
 
       completedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
@@ -2533,16 +3042,22 @@ export class S3TransferManager implements IS3TransferManager {
 
       if (hasFullObjectChecksum) {
         completeRequest.ChecksumType = "FULL_OBJECT";
-        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
-        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
-        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        if (request.ChecksumCRC32)
+          completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        if (request.ChecksumCRC32C)
+          completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        if (request.ChecksumCRC64NVME)
+          completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
       }
 
       try {
-        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+        return await this.s3.send(
+          new CompleteMultipartUploadCommand(completeRequest),
+          transferOptions,
+        );
       } catch (completeMpuError) {
         this.logger.warn(
-          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
+          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`,
         );
         throw completeMpuError;
       }
@@ -2554,9 +3069,15 @@ export class S3TransferManager implements IS3TransferManager {
       };
 
       try {
-        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+        await this.s3.send(
+          new AbortMultipartUploadCommand(abortRequest),
+          transferOptions,
+        );
       } catch (abortError) {
-        this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
+        this.logger.warn(
+          `Failed to abort multipart upload ${uploadId}:`,
+          abortError,
+        );
       }
       throw error;
     }
@@ -2573,9 +3094,10 @@ export class S3TransferManager implements IS3TransferManager {
   private async uploadInParts(
     request: UploadRequest,
     contentLength: number,
-    transferOptions?: TransferOptions
+    transferOptions?: TransferOptions,
   ): Promise<CompleteMultipartUploadCommandOutput> {
-    const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);
+    const { partSize, expectedPartsCount } =
+      this.calculatePartSize(contentLength);
 
     this.checkAborted(transferOptions);
 
@@ -2592,10 +3114,16 @@ export class S3TransferManager implements IS3TransferManager {
     if (hasFullObjectChecksum) {
       createMpuRequest.ChecksumType = "FULL_OBJECT";
     }
-    if (!createMpuRequest.ChecksumAlgorithm && this.requestChecksumCalculation === "WHEN_SUPPORTED") {
+    if (
+      !createMpuRequest.ChecksumAlgorithm &&
+      this.requestChecksumCalculation === "WHEN_SUPPORTED"
+    ) {
       createMpuRequest.ChecksumAlgorithm = request.ChecksumAlgorithm ?? "CRC32";
     }
-    const createMpuResponse = await this.s3.send(new CreateMultipartUploadCommand(createMpuRequest), transferOptions);
+    const createMpuResponse = await this.s3.send(
+      new CreateMultipartUploadCommand(createMpuRequest),
+      transferOptions,
+    );
     const uploadId = createMpuResponse.UploadId!;
 
     const abortController = new AbortController();
@@ -2606,10 +3134,15 @@ export class S3TransferManager implements IS3TransferManager {
       const dataFeeder = getChunk(request.Body, partSize);
       let bytesUploaded = 0;
 
-      const uploadPart = async (dataFeeder: AsyncGenerator<RawDataPart, void, undefined>) => {
+      const uploadPart = async (
+        dataFeeder: AsyncGenerator<RawDataPart, void, undefined>,
+      ) => {
         for await (const dataPart of dataFeeder) {
           if (uploadAbortSignal.aborted) {
-            throw Object.assign(new Error("Upload aborted due to part failure."), { name: "AbortError" });
+            throw Object.assign(
+              new Error("Upload aborted due to part failure."),
+              { name: "AbortError" },
+            );
           }
           this.checkAborted(transferOptions);
 
@@ -2626,7 +3159,10 @@ export class S3TransferManager implements IS3TransferManager {
             }),
           };
 
-          const partResponse = await this.s3.send(new UploadPartCommand(partRequest), transferOptions);
+          const partResponse = await this.s3.send(
+            new UploadPartCommand(partRequest),
+            transferOptions,
+          );
 
           const checksumAlgorithm = partRequest.ChecksumAlgorithm;
           if (
@@ -2639,7 +3175,7 @@ export class S3TransferManager implements IS3TransferManager {
           ) {
             throw new Error(
               `Checksum was requested for part ${dataPart.partNumber} using ${checksumAlgorithm}, but no checksum was returned in the response. ` +
-                `If running in a browser, ensure your S3 bucket CORS configuration is enabled. `
+                `If running in a browser, ensure your S3 bucket CORS configuration is enabled. `,
             );
           }
 
@@ -2647,11 +3183,16 @@ export class S3TransferManager implements IS3TransferManager {
             PartNumber: dataPart.partNumber,
             ETag: partResponse.ETag,
           };
-          if (partResponse.ChecksumCRC32) completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
-          if (partResponse.ChecksumCRC32C) completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
-          if (partResponse.ChecksumCRC64NVME) completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
-          if (partResponse.ChecksumSHA1) completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
-          if (partResponse.ChecksumSHA256) completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
+          if (partResponse.ChecksumCRC32)
+            completedPart.ChecksumCRC32 = partResponse.ChecksumCRC32;
+          if (partResponse.ChecksumCRC32C)
+            completedPart.ChecksumCRC32C = partResponse.ChecksumCRC32C;
+          if (partResponse.ChecksumCRC64NVME)
+            completedPart.ChecksumCRC64NVME = partResponse.ChecksumCRC64NVME;
+          if (partResponse.ChecksumSHA1)
+            completedPart.ChecksumSHA1 = partResponse.ChecksumSHA1;
+          if (partResponse.ChecksumSHA256)
+            completedPart.ChecksumSHA256 = partResponse.ChecksumSHA256;
 
           completedParts.push(completedPart);
 
@@ -2665,7 +3206,7 @@ export class S3TransferManager implements IS3TransferManager {
                 transferredBytes: bytesUploaded,
                 totalBytes: contentLength,
               },
-            })
+            }),
           );
         }
       };
@@ -2676,14 +3217,16 @@ export class S3TransferManager implements IS3TransferManager {
           uploadPart(dataFeeder).catch((error) => {
             abortController.abort();
             throw error;
-          })
+          }),
         );
       }
 
       await Promise.all(partUploads);
 
       if (completedParts.length !== expectedPartsCount) {
-        throw new Error(`Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`);
+        throw new Error(
+          `Expected ${expectedPartsCount} parts but uploaded ${completedParts.length} parts`,
+        );
       }
 
       completedParts.sort((a, b) => a.PartNumber! - b.PartNumber!);
@@ -2699,16 +3242,22 @@ export class S3TransferManager implements IS3TransferManager {
 
       if (hasFullObjectChecksum) {
         completeRequest.ChecksumType = "FULL_OBJECT";
-        if (request.ChecksumCRC32) completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
-        if (request.ChecksumCRC32C) completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
-        if (request.ChecksumCRC64NVME) completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
+        if (request.ChecksumCRC32)
+          completeRequest.ChecksumCRC32 = request.ChecksumCRC32;
+        if (request.ChecksumCRC32C)
+          completeRequest.ChecksumCRC32C = request.ChecksumCRC32C;
+        if (request.ChecksumCRC64NVME)
+          completeRequest.ChecksumCRC64NVME = request.ChecksumCRC64NVME;
       }
 
       try {
-        return await this.s3.send(new CompleteMultipartUploadCommand(completeRequest), transferOptions);
+        return await this.s3.send(
+          new CompleteMultipartUploadCommand(completeRequest),
+          transferOptions,
+        );
       } catch (completeMpuError) {
         this.logger.warn(
-          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`
+          `CompleteMultipartUpload failed for upload ID ${uploadId}: ${(completeMpuError as Error).message}`,
         );
         throw completeMpuError;
       }
@@ -2720,9 +3269,15 @@ export class S3TransferManager implements IS3TransferManager {
       };
 
       try {
-        await this.s3.send(new AbortMultipartUploadCommand(abortRequest), transferOptions);
+        await this.s3.send(
+          new AbortMultipartUploadCommand(abortRequest),
+          transferOptions,
+        );
       } catch (abortError) {
-        this.logger.warn(`Failed to abort multipart upload ${uploadId}:`, abortError);
+        this.logger.warn(
+          `Failed to abort multipart upload ${uploadId}:`,
+          abortError,
+        );
       }
       throw error;
     }
@@ -2737,12 +3292,15 @@ export class S3TransferManager implements IS3TransferManager {
    */
   private async *traverseDirectory(
     source: string,
-    options: { recursive: boolean; followSymbolicLinks: boolean }
+    options: { recursive: boolean; followSymbolicLinks: boolean },
   ): AsyncGenerator<string> {
     const visited = new Set<string>();
     const dir = await opendir(source, { recursive: options.recursive });
     for await (const entry of dir) {
-      const fullPath = join((entry as any).parentPath ?? (entry as any).path ?? source, entry.name);
+      const fullPath = join(
+        (entry as any).parentPath ?? (entry as any).path ?? source,
+        entry.name,
+      );
 
       if (entry.isSymbolicLink()) {
         if (!options.followSymbolicLinks) continue;
@@ -2750,7 +3308,9 @@ export class S3TransferManager implements IS3TransferManager {
         const linkStat = await stat(realPath);
         if (linkStat.isDirectory()) {
           if (visited.has(realPath)) {
-            throw new Error(`Circular symbolic link detected: ${fullPath} -> ${realPath}`);
+            throw new Error(
+              `Circular symbolic link detected: ${fullPath} -> ${realPath}`,
+            );
           }
           visited.add(realPath);
           yield* this.traverseDirectory(realPath, options);
@@ -2772,7 +3332,11 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @internal
    */
-  private deriveS3Key(source: string, filePath: string, s3Prefix?: string): string {
+  private deriveS3Key(
+    source: string,
+    filePath: string,
+    s3Prefix?: string,
+  ): string {
     let relativePath = relative(source, filePath);
     if (sep !== "/") {
       relativePath = relativePath.split(sep).join("/");
@@ -2792,7 +3356,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (actualPartSize === undefined) {
       throw new Error(
-        `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`
+        `A dataPart was generated without a measurable data chunk size for part number ${dataPart.partNumber}`,
       );
     }
 
@@ -2802,7 +3366,7 @@ export class S3TransferManager implements IS3TransferManager {
 
     if (!dataPart.lastPart && actualPartSize !== partSize) {
       throw new Error(
-        `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${partSize}`
+        `The byte size for part number ${dataPart.partNumber}, size ${actualPartSize} does not match expected size ${partSize}`,
       );
     }
   }
@@ -2817,7 +3381,9 @@ export class S3TransferManager implements IS3TransferManager {
  *
  * @internal
  */
-function parseContentRangeStart(contentRange: string | undefined): number | undefined {
+function parseContentRangeStart(
+  contentRange: string | undefined,
+): number | undefined {
   if (!contentRange) return undefined;
   const match = contentRange.match(/^bytes\s+(\d+)-/);
   return match ? Number(match[1]) : undefined;

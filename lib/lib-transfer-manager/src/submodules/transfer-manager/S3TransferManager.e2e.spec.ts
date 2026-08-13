@@ -2,7 +2,7 @@ import { getE2eTestResources } from "@aws-sdk/aws-util-test/src";
 import type { GetObjectCommandOutput } from "@aws-sdk/client-s3";
 import { S3 } from "@aws-sdk/client-s3";
 import { Upload } from "@aws-sdk/lib-storage";
-import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, beforeAll, describe, expect, test as it } from "vitest";
@@ -883,5 +883,126 @@ describe(S3TransferManager.name, () => {
         await cleanupS3Objects(s3Prefix);
       }
     });
+  });
+
+  describe("downloadToFile", () => {
+    it("should download a multipart object to file with correct content and no leftover temp files", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-downloadToFile-"));
+
+      try {
+        const destination = join(tmpDir, "downloaded-multipart.bin");
+        const expectedData = data(SIZE_11MB);
+
+        const response = await tmPart.downloadToFile({
+          Bucket,
+          Key: FIXTURES.multipart_11mb,
+          destination,
+        });
+
+        // Verify response metadata
+        expect(response.bytesWritten).toBe(SIZE_11MB);
+
+        // Verify file content matches the original
+        const fileContent = await readFile(destination);
+        expect(fileContent.length).toBe(SIZE_11MB);
+        expect(Buffer.from(fileContent).equals(Buffer.from(expectedData))).toBe(true);
+
+        // Verify no temp files remain
+        const files = await readdir(tmpDir);
+        expect(files.filter((f) => f.includes(".s3tmp."))).toHaveLength(0);
+        expect(files).toEqual(["downloaded-multipart.bin"]);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    }, 60_000);
+
+    it("should download a multipart object to file using RANGE mode", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-downloadToFile-"));
+
+      try {
+        const destination = join(tmpDir, "downloaded-range.bin");
+        const expectedData = data(SIZE_11MB);
+
+        const response = await tmRange.downloadToFile({
+          Bucket,
+          Key: FIXTURES.multipart_11mb,
+          destination,
+        });
+
+        expect(response.bytesWritten).toBe(SIZE_11MB);
+
+        const fileContent = await readFile(destination);
+        expect(fileContent.length).toBe(SIZE_11MB);
+        expect(Buffer.from(fileContent).equals(Buffer.from(expectedData))).toBe(true);
+
+        // Verify no temp files remain
+        const files = await readdir(tmpDir);
+        expect(files.filter((f) => f.includes(".s3tmp."))).toHaveLength(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    }, 60_000);
+
+    it("should download a single-part object to file", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-downloadToFile-"));
+
+      try {
+        const destination = join(tmpDir, "downloaded-single.bin");
+        const expectedData = data(SIZE_6MB);
+
+        const response = await tmPart.downloadToFile({
+          Bucket,
+          Key: FIXTURES.single_6mb,
+          destination,
+        });
+
+        expect(response.bytesWritten).toBe(SIZE_6MB);
+
+        const fileContent = await readFile(destination);
+        expect(fileContent.length).toBe(SIZE_6MB);
+        expect(Buffer.from(fileContent).equals(Buffer.from(expectedData))).toBe(true);
+
+        const files = await readdir(tmpDir);
+        expect(files.filter((f) => f.includes(".s3tmp."))).toHaveLength(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    }, 60_000);
+
+    it("should clean up temp file on abort and leave no destination file", async () => {
+      const tmpDir = await mkdtemp(join(tmpdir(), "tm-e2e-downloadToFile-"));
+
+      try {
+        const destination = join(tmpDir, "aborted.bin");
+        const controller = new AbortController();
+
+        await expect(
+          tmPart.downloadToFile(
+            {
+              Bucket,
+              Key: FIXTURES.multipart_11mb,
+              destination,
+            },
+            {
+              abortSignal: controller.signal,
+              eventListeners: {
+                transferInitiated: [
+                  () => {
+                    controller.abort();
+                  },
+                ],
+              },
+            },
+          ),
+        ).rejects.toThrow(/abort/i);
+
+        // Verify no temp files and no destination file remain
+        const files = await readdir(tmpDir);
+        expect(files.filter((f) => f.includes(".s3tmp."))).toHaveLength(0);
+        expect(files).toHaveLength(0);
+      } finally {
+        await rm(tmpDir, { recursive: true });
+      }
+    }, 60_000);
   });
 });
