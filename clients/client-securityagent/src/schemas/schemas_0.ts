@@ -603,6 +603,7 @@ const _id = "id";
 const _in = "input";
 const _ins = "instructions";
 const _it = "items";
+const _jT = "jobType";
 const _k = "kind";
 const _kKI = "kmsKeyId";
 const _l = "label";
@@ -623,6 +624,7 @@ const _mI = "membershipId";
 const _mR = "maxResults";
 const _mS = "membershipSummaries";
 const _mT = "memberType";
+const _mTH = "maxTaskHours";
 const _mTa = "managementType";
 const _me = "metadata";
 const _met = "method";
@@ -634,6 +636,7 @@ const _nTC = "networkTrafficConfig";
 const _nTRT = "networkTrafficRuleType";
 const _na = "namespace";
 const _o = "overview";
+const _oFI = "originalFindingId";
 const _oN = "organizationName";
 const _op = "operation";
 const _ow = "owner";
@@ -669,6 +672,7 @@ const _rCI = "resourceConfigurationId";
 const _rD = "reportDestination";
 const _rGI = "resourceGatewayId";
 const _rI = "resourceId";
+const _rJI = "revalidationJobIds";
 const _rL = "riskLevel";
 const _rN = "repoName";
 const _rP = "routePath";
@@ -689,6 +693,7 @@ const _sB = "s3Buckets";
 const _sC = "serviceCode";
 const _sCo = "sourceCode";
 const _sD = "scopeDocs";
+const _sFI = "selectedFindingIds";
 const _sGA = "securityGroupArns";
 const _sGI = "securityGroupIds";
 const _sI = "subnetIds";
@@ -1195,13 +1200,13 @@ export var CodeRemediationTaskDetails$: StaticStructureSchema = [3, n0, _CRTD,
 ];
 export var CodeReview$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 5, 5], 4
+  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1, 5, 5], 4
 ];
 export var CodeReviewJob$: StaticStructureSchema = [3, n0, _CRJ,
   0,
-  [_cRJIo, _cRIo, _ti, _o, _sta, _doc, _sCo, _ste, _eC, _sRe, _lCo, _eI, _iR, _cRSo, _cA, _uA],
-  [0, 0, 0, 0, 0, () => DocumentList, () => SourceCodeRepositoryList, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 5, 5]
+  [_cRJIo, _cRIo, _ti, _o, _sta, _doc, _sCo, _ste, _eC, _sRe, _lCo, _eI, _iR, _cRSo, _mTH, _cA, _uA],
+  [0, 0, 0, 0, 0, () => DocumentList, () => SourceCodeRepositoryList, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 1, 5, 5]
 ];
 export var CodeReviewJobSummary$: StaticStructureSchema = [3, n0, _CRJS,
   0,
@@ -1270,13 +1275,13 @@ export var CreateApplicationResponse$: StaticStructureSchema = [3, n0, _CARr,
 ];
 export var CreateCodeReviewInput$: StaticStructureSchema = [3, n0, _CCRI,
   0,
-  [_ti, _aSI, _as, _sRe, _lCo, _cRSo, _vM],
-  [0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0], 3
+  [_ti, _aSI, _as, _sRe, _lCo, _cRSo, _vM, _mTH],
+  [0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1], 3
 ];
 export var CreateCodeReviewOutput$: StaticStructureSchema = [3, n0, _CCRO,
   0,
-  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM],
-  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0], 1
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH],
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1], 1
 ];
 export var CreateIntegrationInput$: StaticStructureSchema = [3, n0, _CIIr,
   0,
@@ -1300,8 +1305,8 @@ export var CreateMembershipResponse$: StaticStructureSchema = [3, n0, _CMRr,
 ];
 export var CreatePentestInput$: StaticStructureSchema = [3, n0, _CPI,
   0,
-  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS],
-  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
+  [_ti, _aSI, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH],
+  [0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1], 2
 ];
 export var CreatePentestOutput$: StaticStructureSchema = [3, n0, _CPO,
   0,
@@ -1500,8 +1505,8 @@ export var ExecutionContext$: StaticStructureSchema = [3, n0, _EC,
 ];
 export var Finding$: StaticStructureSchema = [3, n0, _F,
   0,
-  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _cA, _uA],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 5, 5], 2
+  [_fIi, _aSI, _pIen, _pJIe, _cRIo, _cRJIo, _tIa, _n, _d, _sta, _rT, _rL, _rS, _reas, _conf, _vSa, _aSt, _cRT, _lUB, _cN, _cL, _vSe, _aRl, _rJI, _oFI, _cA, _uA],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, () => CodeRemediationTask$, 0, 0, () => CodeLocationList, () => VerificationScript$, 0, 64 | 0, 0, 5, 5], 2
 ];
 export var FindingSummary$: StaticStructureSchema = [3, n0, _FS,
   0,
@@ -1900,13 +1905,13 @@ export var NetworkTrafficRule$: StaticStructureSchema = [3, n0, _NTR,
 ];
 export var Pentest$: StaticStructureSchema = [3, n0, _P,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _cA, _uA],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 5, 5], 4
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _cUS, _dMS, _mTH, _cA, _uA],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 0, 64 | 0, 1, 5, 5], 4
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _cRSo, _cUS, _dMS, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 0, 64 | 0, 5, 5]
+  [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 0, 64 | 0, 1, 0, 64 | 0, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
@@ -1980,8 +1985,8 @@ export var StartCodeReviewJobOutput$: StaticStructureSchema = [3, n0, _SCRJO,
 ];
 export var StartPentestJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
-  [_aSI, _pIen],
-  [0, 0], 2
+  [_aSI, _pIen, _jT, _sFI],
+  [0, 0, 0, 64 | 0], 2
 ];
 export var StartPentestJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
   0,
@@ -2145,13 +2150,13 @@ export var UpdateApplicationResponse$: StaticStructureSchema = [3, n0, _UARp,
 ];
 export var UpdateCodeReviewInput$: StaticStructureSchema = [3, n0, _UCRI,
   0,
-  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM],
-  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0], 2
+  [_cRIo, _aSI, _ti, _as, _sRe, _lCo, _cRSo, _vM, _mTH],
+  [0, 0, 0, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 1], 2
 ];
 export var UpdateCodeReviewOutput$: StaticStructureSchema = [3, n0, _UCRO,
   0,
-  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM],
-  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0], 1
+  [_cRIo, _ti, _cA, _uA, _as, _sRe, _lCo, _aSI, _cRSo, _vM, _mTH],
+  [0, 0, 5, 5, [() => Assets$, 0], 0, () => CloudWatchLog$, 0, 0, 0, 1], 1
 ];
 export var UpdateFindingInput$: StaticStructureSchema = [3, n0, _UFI,
   0,
@@ -2175,8 +2180,8 @@ export var UpdateIntegratedResourcesOutput$: StaticStructureSchema = [3, n0, _UI
 ];
 export var UpdatePentestInput$: StaticStructureSchema = [3, n0, _UPI,
   0,
-  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS],
-  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0], 2
+  [_pIen, _aSI, _ti, _as, _eRT, _sRe, _lCo, _vC, _nTC, _cRSo, _dMS, _mTH],
+  [0, 0, 0, [() => Assets$, 0], 64 | 0, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, 0, 64 | 0, 1], 2
 ];
 export var UpdatePentestOutput$: StaticStructureSchema = [3, n0, _UPO,
   0,

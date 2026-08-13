@@ -86,6 +86,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  *   },
  *   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  *   validationMode: "DISABLED" || "SIMULATED",
+ *   maxTaskHours: Number("double"),
  * };
  * const command = new CreateCodeReviewCommand(input);
  * const response = await client.send(command);
@@ -146,6 +147,7 @@ export interface CreateCodeReviewCommandOutput extends CreateCodeReviewOutput, _
  * //   agentSpaceId: "STRING_VALUE",
  * //   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  * //   validationMode: "DISABLED" || "SIMULATED",
+ * //   maxTaskHours: Number("double"),
  * // };
  *
  * ```

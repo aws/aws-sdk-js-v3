@@ -93,6 +93,10 @@ export interface BatchGetFindingsCommandOutput extends BatchGetFindingsOutput, _
  * //         ],
  * //       },
  * //       alignmentRationale: "STRING_VALUE",
+ * //       revalidationJobIds: [ // StringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       originalFindingId: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

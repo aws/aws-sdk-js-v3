@@ -563,6 +563,25 @@ export type ValidationStatus = (typeof ValidationStatus)[keyof typeof Validation
  * @public
  * @enum
  */
+export const JobType = {
+  /**
+   * <p>A full pentest job that executes all phases including scanning, managed execution, and guided exploration.</p>
+   */
+  FULL: "FULL",
+  /**
+   * <p>A targeted revalidation job that retests specific findings to determine whether they are still exploitable.</p>
+   */
+  REVALIDATION: "REVALIDATION",
+} as const;
+/**
+ * @public
+ */
+export type JobType = (typeof JobType)[keyof typeof JobType];
+
+/**
+ * @public
+ * @enum
+ */
 export const DNSRecordType = {
   /**
    * <p>DNS TXT record.</p>

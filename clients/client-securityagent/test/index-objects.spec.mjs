@@ -277,6 +277,7 @@ import {
   InternalServerException$,
   IpAddressType,
   JobStatus,
+  JobType,
   ListAgentSpaces$,
   ListAgentSpacesCommand,
   ListAgentSpacesInput$,
@@ -1061,6 +1062,7 @@ assert(typeof FindingStatus === "object");
 assert(typeof GitLabTokenType === "object");
 assert(typeof IpAddressType === "object");
 assert(typeof JobStatus === "object");
+assert(typeof JobType === "object");
 assert(typeof LogType === "object");
 assert(typeof ManagementType === "object");
 assert(typeof MembershipType === "object");

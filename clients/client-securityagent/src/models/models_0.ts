@@ -15,6 +15,7 @@ import type {
   GitLabTokenType,
   IpAddressType,
   JobStatus,
+  JobType,
   LogType,
   ManagementType,
   MembershipType,
@@ -1425,6 +1426,12 @@ export interface Pentest {
   disableManagedSkills?: SkillType[] | undefined;
 
   /**
+   * <p>The maximum number of billable task hours allowed for jobs started from this pentest. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
+
+  /**
    * <p>The date and time the pentest was created, in UTC format.</p>
    * @public
    */
@@ -1769,6 +1776,12 @@ export interface CodeReviewJob {
   codeRemediationStrategy?: CodeRemediationStrategy | undefined;
 
   /**
+   * <p>The maximum number of billable task hours allowed for this code review job. If the cumulative task hours reach this limit, the job is gracefully stopped.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
+
+  /**
    * <p>The date and time the code review job was created, in UTC format.</p>
    * @public
    */
@@ -2019,6 +2032,12 @@ export interface CodeReview {
    * @public
    */
   validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours allowed for jobs started from this code review. If a job reaches the configured limit, it is gracefully stopped. If not set, jobs run to completion with no budget cap.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 
   /**
    * <p>The date and time the code review was created, in UTC format.</p>
@@ -2339,6 +2358,18 @@ export interface Finding {
   alignmentRationale?: string | undefined;
 
   /**
+   * <p>The list of pentest job identifiers for revalidation jobs that retested this finding.</p>
+   * @public
+   */
+  revalidationJobIds?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the original finding that this revalidation finding was produced from.</p>
+   * @public
+   */
+  originalFindingId?: string | undefined;
+
+  /**
    * <p>The date and time the finding was created, in UTC format.</p>
    * @public
    */
@@ -2529,6 +2560,24 @@ export interface PentestJob {
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours allowed for this pentest job. If the cumulative task hours reach this limit, the job is gracefully stopped.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
+
+  /**
+   * <p>The type of the pentest job. Valid values are FULL and REVALIDATION.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
+
+  /**
+   * <p>The list of finding identifiers selected for revalidation. Present only when jobType is REVALIDATION.</p>
+   * @public
+   */
+  selectedFindingIds?: string[] | undefined;
 
   /**
    * <p>The date and time the pentest job was created, in UTC format.</p>
@@ -3983,6 +4032,12 @@ export interface CreateCodeReviewInput {
    * @public
    */
   validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours allowed for jobs started from this code review. Must be a positive number. If not set, jobs run to completion with no budget cap.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**
@@ -4049,6 +4104,12 @@ export interface CreateCodeReviewOutput {
    * @public
    */
   validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**
@@ -4413,6 +4474,12 @@ export interface CreatePentestInput {
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours allowed for jobs started from this pentest. Must be a positive number. If not set, jobs run to completion with no budget cap.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**
@@ -8457,6 +8524,18 @@ export interface StartPentestJobInput {
    * @public
    */
   pentestId: string | undefined;
+
+  /**
+   * <p>The type of pentest job to start. Valid values are FULL and REVALIDATION. When set to REVALIDATION, the selectedFindingIds parameter is required.</p>
+   * @public
+   */
+  jobType?: JobType | undefined;
+
+  /**
+   * <p>The list of finding identifiers to revalidate. Required when jobType is REVALIDATION. Each finding must belong to the same agent space and pentest.</p>
+   * @public
+   */
+  selectedFindingIds?: string[] | undefined;
 }
 
 /**
@@ -8811,6 +8890,12 @@ export interface UpdateCodeReviewInput {
    * @public
    */
   validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The updated maximum number of billable task hours allowed for jobs started from this code review.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**
@@ -8877,6 +8962,12 @@ export interface UpdateCodeReviewOutput {
    * @public
    */
   validationMode?: ValidationMode | undefined;
+
+  /**
+   * <p>The maximum number of billable task hours configured for jobs started from this code review. Null if no budget cap is set.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**
@@ -9055,6 +9146,12 @@ export interface UpdatePentestInput {
    * @public
    */
   disableManagedSkills?: SkillType[] | undefined;
+
+  /**
+   * <p>The updated maximum number of billable task hours allowed for jobs started from this pentest.</p>
+   * @public
+   */
+  maxTaskHours?: number | undefined;
 }
 
 /**

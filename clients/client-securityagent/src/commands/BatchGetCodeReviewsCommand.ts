@@ -97,6 +97,7 @@ export interface BatchGetCodeReviewsCommandOutput extends BatchGetCodeReviewsOut
  * //       },
  * //       codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  * //       validationMode: "DISABLED" || "SIMULATED",
+ * //       maxTaskHours: Number("double"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       updatedAt: new Date("TIMESTAMP"),
  * //     },

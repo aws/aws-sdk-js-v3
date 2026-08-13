@@ -293,6 +293,7 @@ export type {
   GitLabTokenType,
   IpAddressType,
   JobStatus,
+  JobType,
   LogType,
   ManagementType,
   MembershipType,

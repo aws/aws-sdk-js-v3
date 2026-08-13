@@ -87,6 +87,7 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *   },
  *   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  *   validationMode: "DISABLED" || "SIMULATED",
+ *   maxTaskHours: Number("double"),
  * };
  * const command = new UpdateCodeReviewCommand(input);
  * const response = await client.send(command);
@@ -147,6 +148,7 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //   agentSpaceId: "STRING_VALUE",
  * //   codeRemediationStrategy: "AUTOMATIC" || "DISABLED",
  * //   validationMode: "DISABLED" || "SIMULATED",
+ * //   maxTaskHours: Number("double"),
  * // };
  *
  * ```
