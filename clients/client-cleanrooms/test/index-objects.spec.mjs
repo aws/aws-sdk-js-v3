@@ -12,7 +12,10 @@ import {
   AggregateColumn$,
   AggregateFunctionName,
   AggregationConstraint$,
+  AggregationThreshold$,
+  AggregationThresholdType,
   AggregationType,
+  AllowedAggregateExpressionType,
   AnalysisFormat,
   AnalysisLogExport$,
   AnalysisLogExportError$,
@@ -102,6 +105,7 @@ import {
   ColumnClassificationDetails$,
   ColumnLineageEntry$,
   CommercialRegion,
+  ComparisonControls$,
   ComputeConfiguration$,
   ConfigurationDetails$,
   ConfiguredAudienceModelAssociation$,
@@ -526,6 +530,7 @@ import {
   MLSyntheticDataParameters$,
   ModelInferencePaymentConfig$,
   ModelTrainingPaymentConfig$,
+  OutputColumnThreshold$,
   paginateListAnalysisLogExports,
   paginateListAnalysisTemplates,
   paginateListCollaborationAnalysisTemplates,
@@ -970,6 +975,7 @@ assert(typeof AccessBudgetsPrivacyTemplateParametersOutput$ === "object");
 assert(typeof AccessBudgetsPrivacyTemplateUpdateParameters$ === "object");
 assert(typeof AggregateColumn$ === "object");
 assert(typeof AggregationConstraint$ === "object");
+assert(typeof AggregationThreshold$ === "object");
 assert(typeof AnalysisLogExport$ === "object");
 assert(typeof AnalysisLogExportError$ === "object");
 assert(typeof AnalysisLogExportOutputConfiguration$ === "object");
@@ -1029,6 +1035,7 @@ assert(typeof CollaborationSummary$ === "object");
 assert(typeof Column$ === "object");
 assert(typeof ColumnClassificationDetails$ === "object");
 assert(typeof ColumnLineageEntry$ === "object");
+assert(typeof ComparisonControls$ === "object");
 assert(typeof ComputeConfiguration$ === "object");
 assert(typeof ConfigurationDetails$ === "object");
 assert(typeof ConfiguredAudienceModelAssociation$ === "object");
@@ -1277,6 +1284,7 @@ assert(typeof MLPaymentConfig$ === "object");
 assert(typeof MLSyntheticDataParameters$ === "object");
 assert(typeof ModelInferencePaymentConfig$ === "object");
 assert(typeof ModelTrainingPaymentConfig$ === "object");
+assert(typeof OutputColumnThreshold$ === "object");
 assert(typeof PaymentConfiguration$ === "object");
 assert(typeof PopulateIdMappingTableInput$ === "object");
 assert(typeof PopulateIdMappingTableOutput$ === "object");
@@ -1402,7 +1410,9 @@ assert(typeof AccessBudgetType === "object");
 assert(typeof AccessDeniedExceptionReason === "object");
 assert(typeof AdditionalAnalyses === "object");
 assert(typeof AggregateFunctionName === "object");
+assert(typeof AggregationThresholdType === "object");
 assert(typeof AggregationType === "object");
+assert(typeof AllowedAggregateExpressionType === "object");
 assert(typeof AnalysisFormat === "object");
 assert(typeof AnalysisLogExportStatus === "object");
 assert(typeof AnalysisMethod === "object");

@@ -5,7 +5,9 @@ import type {
   AccessBudgetType,
   AdditionalAnalyses,
   AggregateFunctionName,
+  AggregationThresholdType,
   AggregationType,
+  AllowedAggregateExpressionType,
   AnalysisFormat,
   AnalysisLogExportStatus,
   AnalysisMethod,
@@ -56,7 +58,6 @@ import type {
   SelectedAnalysisMethod,
   SupportedS3Region,
   SyntheticDataColumnType,
-  WorkerComputeType,
 } from "./enums";
 
 /**
@@ -237,6 +238,60 @@ export interface AggregationConstraint {
    * @public
    */
   type: AggregationType | undefined;
+}
+
+/**
+ * <p>Specifies the minimum number of distinct identities for an individual output column. This value overrides the table-wide <code>minimumIdentityCount</code> that you set in <code>AggregationThreshold</code>.</p>
+ * @public
+ */
+export interface OutputColumnThreshold {
+  /**
+   * <p>The name of the output column that the override applies to. You can specify each column only once.</p>
+   * @public
+   */
+  outputColumnName: string | undefined;
+
+  /**
+   * <p>The minimum number of distinct identities that each query output group must represent for this column. Specify 0 to exempt the column from the threshold, or a value of 2 or greater to enforce a threshold.</p>
+   * @public
+   */
+  minimumIdentityCount: number | undefined;
+}
+
+/**
+ * <p>Specifies the minimum number of distinct identities that each query output group must represent.</p>
+ * @public
+ */
+export interface AggregationThreshold {
+  /**
+   * <p>The identity column, such as <code>user_id</code>, whose distinct values Clean Rooms counts to enforce minimum aggregation thresholds. Currently, you can specify only one column, and its data type must be string, varchar, or char.</p>
+   * @public
+   */
+  identityColumns: string[] | undefined;
+
+  /**
+   * <p>The minimum number of distinct identities that each query output group must represent. This threshold applies to all output columns in the table. To override this threshold for a specific column, use <code>outputColumnThresholds</code>.</p>
+   * @public
+   */
+  minimumIdentityCount: number | undefined;
+
+  /**
+   * <p>The type of aggregation that the threshold enforces. Currently, the only supported value is <code>COUNT_DISTINCT</code>, which counts the distinct values in the identity column.</p>
+   * @public
+   */
+  type: AggregationThresholdType | undefined;
+
+  /**
+   * <p>The per-column overrides of <code>minimumIdentityCount</code>. An output column without an override uses <code>minimumIdentityCount</code>.</p>
+   * @public
+   */
+  outputColumnThresholds?: OutputColumnThreshold[] | undefined;
+
+  /**
+   * <p>Specifies whether a query can aggregate a transformed column. This applies to the arguments of both aggregate and window functions. Valid values are:</p> <p> <code>COLUMNS_ONLY</code> – A query can aggregate only a direct column reference, such as <code>SUM(amount)</code>, or a constant. Clean Rooms rejects a query that transforms a column and then aggregates it, such as <code>SUM(amount * 2)</code> or <code>SUM(ROUND(amount))</code>.</p> <p> <code>ANY_EXPRESSION</code> – A query can aggregate any expression. This includes arithmetic, such as <code>SUM(price * quantity)</code>; a cast, such as <code>SUM(CAST(amount AS DECIMAL))</code>; a nested function call, such as <code>SUM(COALESCE(amount, 0))</code>; and a conditional, such as <code>SUM(CASE WHEN region = 'EU' THEN amount ELSE 0 END)</code>.</p>
+   * @public
+   */
+  allowedAggregateExpressionType: AllowedAggregateExpressionType | undefined;
 }
 
 /**
@@ -648,6 +703,24 @@ export interface ConsolidatedPolicyAggregation {
 }
 
 /**
+ * <p>Specifies how a query can compare the columns in a table, including literal comparisons and column-to-column comparisons.</p>
+ * @public
+ */
+export interface ComparisonControls {
+  /**
+   * <p>The columns that a query can compare to literal values, for example, in a WHERE clause. Clean Rooms rejects a query that compares any other column to a literal value. Specify an empty list to block literal comparison on every column. You can't specify a column that you also use as an identity column in an aggregation threshold.</p>
+   * @public
+   */
+  allowedLiteralComparisonColumns: string[] | undefined;
+
+  /**
+   * <p>The columns that a query can compare to another column, for example, in a join, a WHERE clause, a GROUP BY clause, or a window function. Clean Rooms rejects a query that uses any other column in a column-to-column comparison. Specify an empty list to block column-to-column comparison on every column.</p>
+   * @public
+   */
+  allowedColumnComparisonColumns: string[] | undefined;
+}
+
+/**
  * <p>Specifies the name of the column that contains the unique identifier of your users, whose privacy you want to protect.</p>
  * @public
  */
@@ -705,6 +778,18 @@ export interface ConsolidatedPolicyCustom {
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
+
+  /**
+   * <p> The aggregation thresholds for the consolidated policy.</p>
+   * @public
+   */
+  aggregationThresholds?: AggregationThreshold[] | undefined;
+
+  /**
+   * <p> The comparison controls for the consolidated policy.</p>
+   * @public
+   */
+  comparisonControls?: ComparisonControls | undefined;
 
   /**
    * <p> The allowed result receivers.</p>
@@ -924,7 +1009,7 @@ export interface AnalysisRuleAggregation {
 }
 
 /**
- * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy.</p>
+ * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.</p>
  * @public
  */
 export interface AnalysisRuleCustom {
@@ -957,6 +1042,18 @@ export interface AnalysisRuleCustom {
    * @public
    */
   differentialPrivacy?: DifferentialPrivacyConfiguration | undefined;
+
+  /**
+   * <p>The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * @public
+   */
+  aggregationThresholds?: AggregationThreshold[] | undefined;
+
+  /**
+   * <p>The controls that restrict how a query can compare the columns in the configured table. You can't use comparison controls with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * @public
+   */
+  comparisonControls?: ComparisonControls | undefined;
 
   /**
    * <p>The list of Amazon Web Services account IDs that are allowed to receive results from queries run on the configured table.</p>
@@ -6270,7 +6367,7 @@ export namespace ConfiguredTableAnalysisRulePolicyV1 {
   }
 
   /**
-   * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy.</p>
+   * <p>A type of analysis rule that enables the table owner to approve custom SQL queries on their configured tables. It supports differential privacy, minimum aggregation thresholds, and comparison controls.</p>
    * @public
    */
   export interface CustomMember {
@@ -8080,6 +8177,18 @@ export interface IntermediateTableAnalysisRuleCustom {
    * @public
    */
   disallowedOutputColumns?: string[] | undefined;
+
+  /**
+   * <p>The aggregation thresholds that each query output group must satisfy. Clean Rooms filters out any group that represents fewer than the specified number of distinct identities. You can specify at most one threshold. You can't use aggregation thresholds with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * @public
+   */
+  aggregationThresholds?: AggregationThreshold[] | undefined;
+
+  /**
+   * <p>The controls that restrict how a query can compare the columns in the intermediate table. You can't use comparison controls with differential privacy, or when <code>allowedAnalyses</code> allows only jobs.</p>
+   * @public
+   */
+  comparisonControls?: ComparisonControls | undefined;
 }
 
 /**
@@ -8576,106 +8685,4 @@ export interface ListIntermediateTableVersionsOutput {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
- * @public
- */
-export type WorkerComputeConfigurationProperties =
-  | WorkerComputeConfigurationProperties.SparkMember
-  | WorkerComputeConfigurationProperties.$UnknownMember;
-
-/**
- * @public
- */
-export namespace WorkerComputeConfigurationProperties {
-  /**
-   * <p>The Spark configuration properties for SQL and PySpark workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
-   * @public
-   */
-  export interface SparkMember {
-    spark: Record<string, string>;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    spark?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    spark: (value: Record<string, string>) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
- * @public
- */
-export interface WorkerComputeConfiguration {
-  /**
-   * <p> The worker compute configuration type.</p>
-   * @public
-   */
-  type?: WorkerComputeType | undefined;
-
-  /**
-   * <p> The number of workers.</p> <p>SQL queries support a minimum value of 2 and a maximum value of 400. </p> <p>PySpark jobs support a minimum value of 4 and a maximum value of 128.</p>
-   * @public
-   */
-  number?: number | undefined;
-
-  /**
-   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
-   * @public
-   */
-  properties?: WorkerComputeConfigurationProperties | undefined;
-}
-
-/**
- * <p>Contains the compute configuration for an intermediate table population operation.</p>
- * @public
- */
-export type IntermediateTableComputeConfiguration =
-  | IntermediateTableComputeConfiguration.QueryComputeConfigurationMember
-  | IntermediateTableComputeConfiguration.$UnknownMember;
-
-/**
- * @public
- */
-export namespace IntermediateTableComputeConfiguration {
-  /**
-   * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
-   * @public
-   */
-  export interface QueryComputeConfigurationMember {
-    queryComputeConfiguration: WorkerComputeConfiguration;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    queryComputeConfiguration?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    queryComputeConfiguration: (value: WorkerComputeConfiguration) => T;
-    _: (name: string, value: any) => T;
-  }
 }

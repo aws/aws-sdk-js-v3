@@ -69,6 +69,26 @@ export interface GetIntermediateTableAnalysisRuleCommandOutput extends GetInterm
  * //           disallowedOutputColumns: [ // AnalysisRuleColumnList
  * //             "STRING_VALUE",
  * //           ],
+ * //           aggregationThresholds: [ // AggregationThresholdList
+ * //             { // AggregationThreshold
+ * //               identityColumns: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               minimumIdentityCount: Number("int"), // required
+ * //               type: "COUNT_DISTINCT", // required
+ * //               outputColumnThresholds: [ // OutputColumnThresholdList
+ * //                 { // OutputColumnThreshold
+ * //                   outputColumnName: "STRING_VALUE", // required
+ * //                   minimumIdentityCount: Number("int"), // required
+ * //                 },
+ * //               ],
+ * //               allowedAggregateExpressionType: "COLUMNS_ONLY" || "ANY_EXPRESSION", // required
+ * //             },
+ * //           ],
+ * //           comparisonControls: { // ComparisonControls
+ * //             allowedLiteralComparisonColumns: "<AnalysisRuleColumnList>", // required
+ * //             allowedColumnComparisonColumns: "<AnalysisRuleColumnList>", // required
+ * //           },
  * //         },
  * //       },
  * //     },

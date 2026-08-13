@@ -30,11 +30,12 @@ const _ASD = "ApprovalStatusDetails";
 const _ASM = "AnalysisSourceMetadata";
 const _ASn = "AnalysisSource";
 const _ASp = "ApprovalStatuses";
-const _AT = "AnalysisTemplate";
+const _AT = "AggregationThreshold";
 const _ATA = "AnalysisTemplateArtifact";
 const _ATAL = "AnalysisTemplateArtifactList";
 const _ATAM = "AnalysisTemplateArtifactMetadata";
 const _ATAn = "AnalysisTemplateArtifacts";
+const _ATL = "AggregationThresholdList";
 const _ATR = "AthenaTableReference";
 const _ATS = "AnalysisTemplateSummary";
 const _ATSL = "AnalysisTemplateSummaryList";
@@ -43,6 +44,7 @@ const _ATVSD = "AnalysisTemplateValidationStatusDetail";
 const _ATVSDL = "AnalysisTemplateValidationStatusDetailList";
 const _ATVSR = "AnalysisTemplateValidationStatusReason";
 const _ATVSRL = "AnalysisTemplateValidationStatusReasonList";
+const _ATn = "AnalysisTemplate";
 const _BGCAT = "BatchGetCollaborationAnalysisTemplate";
 const _BGCATE = "BatchGetCollaborationAnalysisTemplateError";
 const _BGCATEL = "BatchGetCollaborationAnalysisTemplateErrorList";
@@ -73,7 +75,7 @@ const _CATO = "CreateAnalysisTemplateOutput";
 const _CATS = "CollaborationAnalysisTemplateSummary";
 const _CATSL = "CollaborationAnalysisTemplateSummaryList";
 const _CATr = "CreateAnalysisTemplate";
-const _CC = "ComputeConfiguration";
+const _CC = "ComparisonControls";
 const _CCAMA = "CollaborationConfiguredAudienceModelAssociation";
 const _CCAMAI = "CreateConfiguredAudienceModelAssociationInput";
 const _CCAMAO = "CreateConfiguredAudienceModelAssociationOutput";
@@ -102,6 +104,7 @@ const _CCTARI = "CreateConfiguredTableAnalysisRuleInput";
 const _CCTARO = "CreateConfiguredTableAnalysisRuleOutput";
 const _CCTI = "CreateConfiguredTableInput";
 const _CCTO = "CreateConfiguredTableOutput";
+const _CCo = "ComputeConfiguration";
 const _CCr = "CreateCollaboration";
 const _CD = "ConfigurationDetails";
 const _CE = "ConflictException";
@@ -445,6 +448,8 @@ const _MSLe = "MemberSummaryList";
 const _MSe = "MemberSpecification";
 const _MSem = "MemberSummary";
 const _MTPC = "ModelTrainingPaymentConfig";
+const _OCT = "OutputColumnThreshold";
+const _OCTL = "OutputColumnThresholdList";
 const _PAC = "PopulationAnalysisConfiguration";
 const _PASP = "PopulationAnalysisSqlParameters";
 const _PB = "PrivacyBudget";
@@ -617,6 +622,7 @@ const _aA = "additionalAnalyses";
 const _aAA = "allowedAdditionalAnalyses";
 const _aACRT = "autoApprovedChangeRequestTypes";
 const _aACT = "autoApprovedChangeTypes";
+const _aAET = "allowedAggregateExpressionType";
 const _aAH = "additionalArtifactHashes";
 const _aAP = "allowedAnalysisProviders";
 const _aAd = "additionalArtifacts";
@@ -624,6 +630,7 @@ const _aAl = "allowedAnalyses";
 const _aB = "accessBudget";
 const _aBRA = "accessBudgetResourceArn";
 const _aC = "aggregateColumns";
+const _aCCC = "allowedColumnComparisonColumns";
 const _aCl = "allowedColumns";
 const _aCll = "allowCleartext";
 const _aD = "allowDuplicates";
@@ -635,6 +642,7 @@ const _aIcc = "accountIdentifier";
 const _aIn = "analysisIdentifier";
 const _aJO = "allowedJoinOperators";
 const _aJOCWDN = "allowJoinsOnColumnsWithDifferentNames";
+const _aLCC = "allowedLiteralComparisonColumns";
 const _aLE = "analysisLogExport";
 const _aLEI = "analysisLogExportId";
 const _aLEIn = "analysisLogExportIdentifier";
@@ -656,7 +664,8 @@ const _aTA = "analysisTemplateArns";
 const _aTAn = "analysisTemplateArn";
 const _aTI = "analysisTemplateIdentifier";
 const _aTS = "analysisTemplateSummaries";
-const _aTg = "aggregationType";
+const _aTg = "aggregationThresholds";
+const _aTgg = "aggregationType";
 const _aTn = "analysisTemplate";
 const _aUADC = "allowUseAsDimensionColumn";
 const _ab = "abilities";
@@ -682,14 +691,15 @@ const _cAMAo = "configuredAudienceModelAssociation";
 const _cAT = "collaborationAnalysisTemplates";
 const _cATS = "collaborationAnalysisTemplateSummaries";
 const _cATo = "collaborationAnalysisTemplate";
-const _cC = "columnClassification";
+const _cC = "comparisonControls";
 const _cCAI = "collaborationCreatorAccountId";
 const _cCAMA = "collaborationConfiguredAudienceModelAssociation";
 const _cCAMAS = "collaborationConfiguredAudienceModelAssociationSummaries";
 const _cCDN = "collaborationCreatorDisplayName";
 const _cCR = "collaborationChangeRequest";
 const _cCRS = "collaborationChangeRequestSummaries";
-const _cCo = "computeConfiguration";
+const _cCo = "columnClassification";
+const _cCom = "computeConfiguration";
 const _cD = "configurationDetails";
 const _cDN = "creatorDisplayName";
 const _cI = "collaborationId";
@@ -763,7 +773,8 @@ const _hE = "httpError";
 const _hQ = "httpQuery";
 const _i = "id";
 const _iAA = "isAutoApproved";
-const _iC = "inheritedConstraints";
+const _iC = "identityColumns";
+const _iCn = "inheritedConstraints";
 const _iD = "includeDescendants";
 const _iMC = "idMappingConfig";
 const _iME = "isMetricsEnabled";
@@ -816,6 +827,7 @@ const _mC = "maxCount";
 const _mCV = "minColumnValue";
 const _mCVa = "maxColumnValue";
 const _mI = "membershipId";
+const _mIC = "minimumIdentityCount";
 const _mIe = "membershipIdentifier";
 const _mIo = "modelInference";
 const _mL = "machineLearning";
@@ -841,6 +853,8 @@ const _nu = "number";
 const _o = "output";
 const _oAI = "ownerAccountId";
 const _oC = "outputConfiguration";
+const _oCN = "outputColumnName";
+const _oCT = "outputColumnThresholds";
 const _oCu = "outputConstraints";
 const _oL = "outputLocation";
 const _p = "policy";
@@ -1067,6 +1081,11 @@ export var AggregationConstraint$: StaticStructureSchema = [3, n0, _ACg,
   [_cNo, _mi, _t],
   [0, 1, 0], 3
 ];
+export var AggregationThreshold$: StaticStructureSchema = [3, n0, _AT,
+  0,
+  [_iC, _mIC, _t, _aAET, _oCT],
+  [64 | 0, 1, 0, 0, () => OutputColumnThresholdList], 4
+];
 export var AnalysisLogExport$: StaticStructureSchema = [3, n0, _ALE,
   0,
   [_aLEI, _aI, _aT, _mI, _st, _rC, _cT, _uT, _e],
@@ -1114,8 +1133,8 @@ export var AnalysisRuleAggregation$: StaticStructureSchema = [3, n0, _ARA,
 ];
 export var AnalysisRuleCustom$: StaticStructureSchema = [3, n0, _ARC,
   0,
-  [_aAl, _aAP, _aA, _dOC, _dP, _aRR, _aAA],
-  [64 | 0, 64 | 0, 0, 64 | 0, () => DifferentialPrivacyConfiguration$, 64 | 0, 64 | 0], 1
+  [_aAl, _aAP, _aA, _dOC, _dP, _aTg, _cC, _aRR, _aAA],
+  [64 | 0, 64 | 0, 0, 64 | 0, () => DifferentialPrivacyConfiguration$, () => AggregationThresholdList, () => ComparisonControls$, 64 | 0, 64 | 0], 1
 ];
 export var AnalysisRuleIdMappingTable$: StaticStructureSchema = [3, n0, _ARIMT,
   0,
@@ -1132,7 +1151,7 @@ export var AnalysisSchema$: StaticStructureSchema = [3, n0, _AS,
   [_rTe],
   [64 | 0]
 ];
-export var AnalysisTemplate$: StaticStructureSchema = [3, n0, _AT,
+export var AnalysisTemplate$: StaticStructureSchema = [3, n0, _ATn,
   0,
   [_i, _a, _cI, _cA, _mI, _mA, _n, _cT, _uT, _sc, _fo, _so, _de, _sM, _aP, _v, _eMC, _sDP],
   [0, 0, 0, 0, 0, 0, 0, 4, 4, () => AnalysisSchema$, 0, [() => AnalysisSource$, 0], 0, () => AnalysisSourceMetadata$, [() => AnalysisParameterList, 0], () => AnalysisTemplateValidationStatusDetailList, () => ErrorMessageConfiguration$, () => SyntheticDataParameters$], 12
@@ -1337,6 +1356,11 @@ export var ColumnLineageEntry$: StaticStructureSchema = [3, n0, _CLE,
   [_col, _sC, _sN, _sI, _sTo, _sAI],
   [0, 0, 0, 0, 0, 0], 6
 ];
+export var ComparisonControls$: StaticStructureSchema = [3, n0, _CC,
+  0,
+  [_aLCC, _aCCC],
+  [64 | 0, 64 | 0], 2
+];
 export var ConfiguredAudienceModelAssociation$: StaticStructureSchema = [3, n0, _CAMA,
   0,
   [_i, _a, _cAMA, _mI, _mA, _cI, _cA, _n, _mRP, _cT, _uT, _de],
@@ -1404,8 +1428,8 @@ export var ConsolidatedPolicyAggregation$: StaticStructureSchema = [3, n0, _CPA,
 ];
 export var ConsolidatedPolicyCustom$: StaticStructureSchema = [3, n0, _CPC,
   0,
-  [_aAl, _aAP, _aA, _dOC, _dP, _aRR, _aAA],
-  [64 | 0, 64 | 0, 0, 64 | 0, () => DifferentialPrivacyConfiguration$, 64 | 0, 64 | 0], 1
+  [_aAl, _aAP, _aA, _dOC, _dP, _aTg, _cC, _aRR, _aAA],
+  [64 | 0, 64 | 0, 0, 64 | 0, () => DifferentialPrivacyConfiguration$, () => AggregationThresholdList, () => ComparisonControls$, 64 | 0, 64 | 0], 1
 ];
 export var ConsolidatedPolicyList$: StaticStructureSchema = [3, n0, _CPL,
   0,
@@ -1739,7 +1763,7 @@ export var DifferentialPrivacyPrivacyImpact$: StaticStructureSchema = [3, n0, _D
 ];
 export var DifferentialPrivacySensitivityParameters$: StaticStructureSchema = [3, n0, _DPSP,
   0,
-  [_aTg, _aEg, _uCL, _mCV, _mCVa],
+  [_aTgg, _aEg, _uCL, _mCV, _mCVa],
   [0, 0, 1, 1, 1], 3
 ];
 export var DifferentialPrivacyTemplateParametersInput$: StaticStructureSchema = [3, n0, _DPTPI,
@@ -2119,7 +2143,7 @@ export var IntermediateTable$: StaticStructureSchema = [3, n0, _IT,
 ];
 export var IntermediateTableActiveVersion$: StaticStructureSchema = [3, n0, _ITAV,
   0,
-  [_vI, _aI, _aT, _iC, _kKA, _pa, _eTx],
+  [_vI, _aI, _aT, _iCn, _kKA, _pa, _eTx],
   [0, 0, 0, () => IntermediateTableInheritedConstraints$, 0, [() => ParameterMap, 0], 4], 4
 ];
 export var IntermediateTableAnalysisRule$: StaticStructureSchema = [3, n0, _ITAR,
@@ -2129,8 +2153,8 @@ export var IntermediateTableAnalysisRule$: StaticStructureSchema = [3, n0, _ITAR
 ];
 export var IntermediateTableAnalysisRuleCustom$: StaticStructureSchema = [3, n0, _ITARC,
   0,
-  [_aAl, _aA, _aAA, _aAP, _aRR, _dP, _dOC],
-  [64 | 0, 0, 64 | 0, 64 | 0, 64 | 0, () => DifferentialPrivacyConfiguration$, 64 | 0]
+  [_aAl, _aA, _aAA, _aAP, _aRR, _dP, _dOC, _aTg, _cC],
+  [64 | 0, 0, 64 | 0, 64 | 0, 64 | 0, () => DifferentialPrivacyConfiguration$, 64 | 0, () => AggregationThresholdList, () => ComparisonControls$]
 ];
 export var IntermediateTableColumn$: StaticStructureSchema = [3, n0, _ITC,
   0,
@@ -2499,7 +2523,7 @@ export var MLPaymentConfig$: StaticStructureSchema = [3, n0, _MLPC,
 ];
 export var MLSyntheticDataParameters$: StaticStructureSchema = [3, n0, _MLSDP,
   0,
-  [_ep, _mMIAS, _cC],
+  [_ep, _mMIAS, _cCo],
   [1, 1, () => ColumnClassificationDetails$], 3
 ];
 export var ModelInferencePaymentConfig$: StaticStructureSchema = [3, n0, _MIPC,
@@ -2511,6 +2535,11 @@ export var ModelTrainingPaymentConfig$: StaticStructureSchema = [3, n0, _MTPC,
   0,
   [_iR],
   [2], 1
+];
+export var OutputColumnThreshold$: StaticStructureSchema = [3, n0, _OCT,
+  0,
+  [_oCN, _mIC],
+  [0, 1], 2
 ];
 export var PaymentConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -2529,7 +2558,7 @@ export var PopulateIdMappingTableOutput$: StaticStructureSchema = [3, n0, _PIMTO
 ];
 export var PopulateIntermediateTableInput$: StaticStructureSchema = [3, n0, _PITI,
   0,
-  [_iTI, _mIe, _pa, _cCo, _aPAI],
+  [_iTI, _mIe, _pa, _cCom, _aPAI],
   [[0, 1], [0, 1], [() => ParameterMap, 0], () => IntermediateTableComputeConfiguration$, 0], 2
 ];
 export var PopulateIntermediateTableOutput$: StaticStructureSchema = [3, n0, _PITO,
@@ -2569,7 +2598,7 @@ export var PrivacyBudgetTemplateSummary$: StaticStructureSchema = [3, n0, _PBTS,
 ];
 export var ProtectedJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_i, _mI, _mA, _cT, _st, _jP, _rC, _sta, _res, _e, _cCo, _jCPAI],
+  [_i, _mI, _mA, _cT, _st, _jP, _rC, _sta, _res, _e, _cCom, _jCPAI],
   [0, 0, 0, 4, 0, [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationOutput$, () => ProtectedJobStatistics$, () => ProtectedJobResult$, () => ProtectedJobError$, () => ProtectedJobComputeConfiguration$, 0], 5
 ];
 export var ProtectedJobDirectAnalysisConfigurationDetails$: StaticStructureSchema = [3, n0, _PJDACD,
@@ -2654,7 +2683,7 @@ export var ProtectedJobWorkerComputeConfiguration$: StaticStructureSchema = [3, 
 ];
 export var ProtectedQuery$: StaticStructureSchema = [3, n0, _PQ,
   0,
-  [_i, _mI, _mA, _cT, _st, _sPq, _rC, _sta, _res, _e, _dP, _cCo, _qCPAI],
+  [_i, _mI, _mA, _cT, _st, _sPq, _rC, _sta, _res, _e, _dP, _cCom, _qCPAI],
   [0, 0, 0, 4, 0, [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ProtectedQueryStatistics$, () => ProtectedQueryResult$, () => ProtectedQueryError$, () => DifferentialPrivacyParameters$, () => ComputeConfiguration$, 0], 5
 ];
 export var ProtectedQueryDistributeOutput$: StaticStructureSchema = [3, n0, _PQDO,
@@ -2784,7 +2813,7 @@ export var StartAnalysisLogExportOutput$: StaticStructureSchema = [3, n0, _SALEO
 ];
 export var StartProtectedJobInput$: StaticStructureSchema = [3, n0, _SPJI,
   0,
-  [_t, _mIe, _jP, _rC, _cCo, _jCPAI],
+  [_t, _mIe, _jP, _rC, _cCom, _jCPAI],
   [0, [0, 1], [() => ProtectedJobParameters$, 0], () => ProtectedJobResultConfigurationInput$, () => ProtectedJobComputeConfiguration$, 0], 3
 ];
 export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
@@ -2794,7 +2823,7 @@ export var StartProtectedJobOutput$: StaticStructureSchema = [3, n0, _SPJO,
 ];
 export var StartProtectedQueryInput$: StaticStructureSchema = [3, n0, _SPQI,
   0,
-  [_t, _mIe, _sPq, _rC, _cCo, _qCPAI],
+  [_t, _mIe, _sPq, _rC, _cCom, _qCPAI],
   [0, [0, 1], [() => ProtectedQuerySQLParameters$, 0], () => ProtectedQueryResultConfiguration$, () => ComputeConfiguration$, 0], 3
 ];
 export var StartProtectedQueryOutput$: StaticStructureSchema = [3, n0, _SPQO,
@@ -3017,6 +3046,9 @@ var AggregateColumnList: StaticListSchema = [1, n0, _ACL,
 var AggregationConstraints: StaticListSchema = [1, n0, _ACgg,
   0, () => AggregationConstraint$
 ];
+var AggregationThresholdList: StaticListSchema = [1, n0, _ATL,
+  0, () => AggregationThreshold$
+];
 var AllowedAdditionalAnalyses = 64 | 0;
 var AllowedAnalysesList = 64 | 0;
 var AllowedAnalysisProviderList = 64 | 0;
@@ -3173,6 +3205,9 @@ var MembershipSummaryList: StaticListSchema = [1, n0, _MSL,
 var MemberSummaryList: StaticListSchema = [1, n0, _MSLe,
   0, () => MemberSummary$
 ];
+var OutputColumnThresholdList: StaticListSchema = [1, n0, _OCTL,
+  0, () => OutputColumnThreshold$
+];
 var PrivacyBudgetSummaryList: StaticListSchema = [1, n0, _PBSL,
   0, () => PrivacyBudgetSummary$
 ];
@@ -3271,7 +3306,7 @@ export var ChangeSpecification$: StaticUnionSchema = [4, n0, _CSh,
   [_memb, _coll],
   [() => MemberChangeSpecification$, () => CollaborationChangeSpecification$]
 ];
-export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CC,
+export var ComputeConfiguration$: StaticUnionSchema = [4, n0, _CCo,
   0,
   [_w],
   [() => WorkerComputeConfiguration$]

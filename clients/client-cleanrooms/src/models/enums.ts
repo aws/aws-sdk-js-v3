@@ -86,6 +86,32 @@ export type AggregationType = (typeof AggregationType)[keyof typeof AggregationT
  * @public
  * @enum
  */
+export const AllowedAggregateExpressionType = {
+  ANY_EXPRESSION: "ANY_EXPRESSION",
+  COLUMNS_ONLY: "COLUMNS_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type AllowedAggregateExpressionType =
+  (typeof AllowedAggregateExpressionType)[keyof typeof AllowedAggregateExpressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const AggregationThresholdType = {
+  COUNT_DISTINCT: "COUNT_DISTINCT",
+} as const;
+/**
+ * @public
+ */
+export type AggregationThresholdType = (typeof AggregationThresholdType)[keyof typeof AggregationThresholdType];
+
+/**
+ * @public
+ * @enum
+ */
 export const SupportedS3Region = {
   AF_SOUTH_1: "af-south-1",
   AP_EAST_1: "ap-east-1",

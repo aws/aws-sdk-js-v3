@@ -114,6 +114,24 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //                 },
  * //               ],
  * //             },
+ * //             aggregationThresholds: [ // AggregationThresholdList
+ * //               { // AggregationThreshold
+ * //                 identityColumns: "<AnalysisRuleColumnList>", // required
+ * //                 minimumIdentityCount: Number("int"), // required
+ * //                 type: "COUNT_DISTINCT", // required
+ * //                 outputColumnThresholds: [ // OutputColumnThresholdList
+ * //                   { // OutputColumnThreshold
+ * //                     outputColumnName: "STRING_VALUE", // required
+ * //                     minimumIdentityCount: Number("int"), // required
+ * //                   },
+ * //                 ],
+ * //                 allowedAggregateExpressionType: "COLUMNS_ONLY" || "ANY_EXPRESSION", // required
+ * //               },
+ * //             ],
+ * //             comparisonControls: { // ComparisonControls
+ * //               allowedLiteralComparisonColumns: "<AnalysisRuleColumnList>", // required
+ * //               allowedColumnComparisonColumns: "<AnalysisRuleColumnList>", // required
+ * //             },
  * //             allowedResultReceivers: [ // AllowedResultReceivers
  * //               "STRING_VALUE",
  * //             ],
@@ -222,6 +240,24 @@ export interface BatchGetSchemaAnalysisRuleCommandOutput extends BatchGetSchemaA
  * //                   name: "STRING_VALUE", // required
  * //                 },
  * //               ],
+ * //             },
+ * //             aggregationThresholds: [
+ * //               {
+ * //                 identityColumns: "<AnalysisRuleColumnList>", // required
+ * //                 minimumIdentityCount: Number("int"), // required
+ * //                 type: "COUNT_DISTINCT", // required
+ * //                 outputColumnThresholds: [
+ * //                   {
+ * //                     outputColumnName: "STRING_VALUE", // required
+ * //                     minimumIdentityCount: Number("int"), // required
+ * //                   },
+ * //                 ],
+ * //                 allowedAggregateExpressionType: "COLUMNS_ONLY" || "ANY_EXPRESSION", // required
+ * //               },
+ * //             ],
+ * //             comparisonControls: {
+ * //               allowedLiteralComparisonColumns: "<AnalysisRuleColumnList>", // required
+ * //               allowedColumnComparisonColumns: "<AnalysisRuleColumnList>", // required
  * //             },
  * //             allowedResultReceivers: "<AllowedResultReceivers>",
  * //             allowedAdditionalAnalyses: "<AllowedAdditionalAnalyses>",

@@ -21,6 +21,7 @@ import type {
   ResultFormat,
   TargetProtectedJobStatus,
   TargetProtectedQueryStatus,
+  WorkerComputeType,
 } from "./enums";
 import type {
   AccessBudgetsPrivacyTemplateParametersInput,
@@ -31,13 +32,112 @@ import type {
   IntermediateTable,
   IntermediateTableAnalysisRule,
   IntermediateTableAnalysisRulePolicy,
-  IntermediateTableComputeConfiguration,
   MLMemberAbilities,
   PrivacyBudget,
   PrivacyBudgetTemplateParametersOutput,
-  WorkerComputeConfiguration,
-  WorkerComputeConfigurationProperties,
 } from "./models_0";
+
+/**
+ * <p>The configuration properties that define the compute environment settings for workers in Clean Rooms. These properties enable customization of the underlying compute environment to optimize performance for your specific workloads.</p>
+ * @public
+ */
+export type WorkerComputeConfigurationProperties =
+  | WorkerComputeConfigurationProperties.SparkMember
+  | WorkerComputeConfigurationProperties.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace WorkerComputeConfigurationProperties {
+  /**
+   * <p>The Spark configuration properties for SQL and PySpark workloads. This map contains key-value pairs that configure Apache Spark settings to optimize performance for your data processing jobs. You can specify up to 50 Spark properties, with each key being 1-200 characters and each value being 0-500 characters. These properties allow you to adjust compute capacity for large datasets and complex workloads.</p>
+   * @public
+   */
+  export interface SparkMember {
+    spark: Record<string, string>;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    spark?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    spark: (value: Record<string, string>) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
+ * @public
+ */
+export interface WorkerComputeConfiguration {
+  /**
+   * <p> The worker compute configuration type.</p>
+   * @public
+   */
+  type?: WorkerComputeType | undefined;
+
+  /**
+   * <p> The number of workers.</p> <p>SQL queries support a minimum value of 2 and a maximum value of 400. </p> <p>PySpark jobs support a minimum value of 4 and a maximum value of 128.</p>
+   * @public
+   */
+  number?: number | undefined;
+
+  /**
+   * <p>The configuration properties for the worker compute environment. These properties allow you to customize the compute settings for your Clean Rooms workloads.</p>
+   * @public
+   */
+  properties?: WorkerComputeConfigurationProperties | undefined;
+}
+
+/**
+ * <p>Contains the compute configuration for an intermediate table population operation.</p>
+ * @public
+ */
+export type IntermediateTableComputeConfiguration =
+  | IntermediateTableComputeConfiguration.QueryComputeConfigurationMember
+  | IntermediateTableComputeConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IntermediateTableComputeConfiguration {
+  /**
+   * <p> The configuration of the compute resources for workers running an analysis with the Clean Rooms SQL analytics engine.</p>
+   * @public
+   */
+  export interface QueryComputeConfigurationMember {
+    queryComputeConfiguration: WorkerComputeConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    queryComputeConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    queryComputeConfiguration: (value: WorkerComputeConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * @public
