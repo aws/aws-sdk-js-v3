@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-browser",
-  "version": "3.972.28",
+  "version": "3.972.29",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/body-checksum-browser",
   "license": "Apache-2.0",
   "author": {
@@ -38,8 +38,8 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.24",
-    "@aws-sdk/types": "workspace:^3.974.3",
+    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.25",
+    "@aws-sdk/types": "workspace:^3.974.4",
     "@smithy/core": "^3.31.1",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"

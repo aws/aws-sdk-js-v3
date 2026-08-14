@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-observabilityadmin:** CloudWatch Logs centralization rules now support tag propagation. You can configure a TagPropagationConfiguration on your centralization rule to automatically sync resource tags from source to destination log groups, with configurable conflict resolution strategies. ([c57d7a4](https://github.com/aws/aws-sdk-js-v3/commit/c57d7a4cd3b279d750cc035e8861f1b2c8857da7))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 **Note:** Version bump only for package @aws-sdk/client-observabilityadmin

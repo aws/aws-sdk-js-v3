@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-interconnect",
-  "version": "3.1110.0",
+  "version": "3.1111.0",
   "description": "AWS SDK for JavaScript Interconnect Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-interconnect",
   "license": "Apache-2.0",
@@ -46,9 +46,9 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.7",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.79",
-    "@aws-sdk/types": "workspace:^3.974.3",
+    "@aws-sdk/core": "workspace:^3.977.8",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.80",
+    "@aws-sdk/types": "workspace:^3.974.4",
     "@smithy/core": "^3.31.1",
     "@smithy/fetch-http-handler": "^5.6.13",
     "@smithy/node-http-handler": "^4.9.13",

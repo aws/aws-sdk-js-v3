@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/types",
-  "version": "3.974.3",
+  "version": "3.974.4",
   "description": "Types for the AWS SDK",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/types",
   "license": "Apache-2.0",

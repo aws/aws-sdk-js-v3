@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds CheckIngestedDocumentAcl and GetIngestedDocumentAcl APIs to Amazon Bedrock Knowledge Bases. Customers can verify user access to documents based on ingested ACLs and retrieve full ACL details including allow and deny entries, enabling validation of ACL ingestion without test retrievals. ([e86c420](https://github.com/aws/aws-sdk-js-v3/commit/e86c42049cc69793f80c332bd9829ba6871153ad))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

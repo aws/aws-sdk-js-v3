@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-bedrock-agentcore:** Add support for the Machine Payments Protocol (MPP) and x402 upto scheme payments protocol in Amazon Bedrock AgentCore Payments. Customers can now pay for MPP-gated resources and also pay services which requires upto scheme in x402 ([7fdf457](https://github.com/aws/aws-sdk-js-v3/commit/7fdf457a8a7ff25eb019ef61c074158a3630816a))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

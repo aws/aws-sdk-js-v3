@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/endpoint-cache",
-  "version": "3.972.10",
+  "version": "3.972.11",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/endpoint-cache",
   "license": "Apache-2.0",
   "author": {

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** Adds CheckIngestedDocumentAcl and GetIngestedDocumentAcl APIs to Amazon Bedrock Knowledge Bases. Customers can verify user access to documents based on ingested ACLs and retrieve full ACL details including allow and deny entries, enabling validation of ACL ingestion without test retrievals. ([e86c420](https://github.com/aws/aws-sdk-js-v3/commit/e86c42049cc69793f80c332bd9829ba6871153ad))
+* **client-bedrock-agentcore-control:** Adds AgentCore Payments support for CMK, Marketplace Subscriptions and QuickCreate ([39108eb](https://github.com/aws/aws-sdk-js-v3/commit/39108eb0d601bb5916971f56dc8573ec17842cf8))
+* **client-bedrock-agentcore:** Add support for the Machine Payments Protocol (MPP) and x402 upto scheme payments protocol in Amazon Bedrock AgentCore Payments. Customers can now pay for MPP-gated resources and also pay services which requires upto scheme in x402 ([7fdf457](https://github.com/aws/aws-sdk-js-v3/commit/7fdf457a8a7ff25eb019ef61c074158a3630816a))
+* **client-glue:** Added support for associating glossary terms with iterable form items, such as table columns. ([4c2e27d](https://github.com/aws/aws-sdk-js-v3/commit/4c2e27d138f73f804774572c7772bcfd6a44006c))
+* **client-mwaa-serverless:** Adds support for Consuming code for MWAA Serverless ([e3edae2](https://github.com/aws/aws-sdk-js-v3/commit/e3edae27ddc8bcaf3e30f5ec93abdae0e013fae2))
+* **client-observabilityadmin:** CloudWatch Logs centralization rules now support tag propagation. You can configure a TagPropagationConfiguration on your centralization rule to automatically sync resource tags from source to destination log groups, with configurable conflict resolution strategies. ([c57d7a4](https://github.com/aws/aws-sdk-js-v3/commit/c57d7a4cd3b279d750cc035e8861f1b2c8857da7))
+* **client-sagemaker:** Release support for g7.2xlarge, g7.4xlarge, g7.8xlarge, g7.12xlarge, g7.24xlarge, and g7.48xlarge instance types for SageMaker HyperPod ([7198c19](https://github.com/aws/aws-sdk-js-v3/commit/7198c1938d7897dc4f3839b04d8a55dba0f75c4b))
+* **clients:** update client endpoints as of 2026-08-14 ([1e7a280](https://github.com/aws/aws-sdk-js-v3/commit/1e7a28061dde539727980cb25689db3c50d1507e))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 

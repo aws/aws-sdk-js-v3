@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-glue:** Added support for associating glossary terms with iterable form items, such as table columns. ([4c2e27d](https://github.com/aws/aws-sdk-js-v3/commit/4c2e27d138f73f804774572c7772bcfd6a44006c))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

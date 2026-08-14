@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Adds AgentCore Payments support for CMK, Marketplace Subscriptions and QuickCreate ([39108eb](https://github.com/aws/aws-sdk-js-v3/commit/39108eb0d601bb5916971f56dc8573ec17842cf8))
+
+
+
+
+
 # [3.1110.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1109.0...v3.1110.0) (2026-08-13)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

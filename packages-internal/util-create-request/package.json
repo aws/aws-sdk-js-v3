@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-create-request",
-  "version": "3.972.39",
+  "version": "3.972.40",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/util-create-request",
   "license": "Apache-2.0",
   "author": {
@@ -39,7 +39,7 @@
     "test:watch": "yarn g:vitest watch"
   },
   "dependencies": {
-    "@aws-sdk/types": "workspace:^3.974.3",
+    "@aws-sdk/types": "workspace:^3.974.4",
     "@smithy/core": "^3.31.1",
     "@smithy/types": "^4.16.1",
     "tslib": "^2.6.2"
