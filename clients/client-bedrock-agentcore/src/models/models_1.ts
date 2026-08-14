@@ -2064,6 +2064,36 @@ export interface CryptoX402PaymentInput {
    * @public
    */
   payload: __DocumentType | undefined;
+
+  /**
+   * <p>The maximum on-chain Permit2 allowance to grant before signing the payment authorization, in the asset's smallest denomination. This field is valid only for the <code>upto</code> (metered) scheme; supplying it for the <code>exact</code> scheme returns a validation error.</p> <p>When set, the service approves an ERC-20 allowance for this amount before processing the payment. The approval sets, rather than adds to, the wallet's allowance. Set this field only when the wallet needs approving, for example on its first <code>upto</code> payment, to avoid a redundant on-chain transaction. Omit the field to skip allowance handling. This is the default, and the only behavior for the <code>exact</code> scheme.</p>
+   * @public
+   */
+  permit2AllowanceLimit?: string | undefined;
+}
+
+/**
+ * <p>Contains the payment challenge from a 402 Payment Required response. Forward the raw <code>WWW-Authenticate: Payment</code> header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.</p>
+ * @public
+ */
+export interface MppPaymentInput {
+  /**
+   * <p>The MPP protocol version, for example "1" or "2".</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The raw <code>WWW-Authenticate: Payment</code> header value from the 402 response, passed verbatim. Provide exactly one entry. The service uses this value to generate the payment credential.</p>
+   * @public
+   */
+  wwwAuthenticateHeaders: string[] | undefined;
+
+  /**
+   * <p>Authorizes the service to sign a payment whose blockchain network (gas) fees are charged to your wallet, on top of the payment amount.</p> <p>The challenge indicates who sponsors the network fees. When the challenge does not sponsor them, the service signs the payment only if this field is <code>true</code>. Otherwise it returns a validation error, so you can decide whether to pay the fees or obtain a challenge that sponsors them.</p> <p>Optional. When omitted or <code>false</code>, you decline to pay network fees. This field has no effect on challenges that already sponsor the fees.</p>
+   * @public
+   */
+  buyerPaysGasFees?: boolean | undefined;
 }
 
 /**
@@ -2072,6 +2102,7 @@ export interface CryptoX402PaymentInput {
  */
 export type PaymentInput =
   | PaymentInput.CryptoX402Member
+  | PaymentInput.MppMember
   | PaymentInput.$UnknownMember;
 
 /**
@@ -2084,6 +2115,17 @@ export namespace PaymentInput {
    */
   export interface CryptoX402Member {
     cryptoX402: CryptoX402PaymentInput;
+    mpp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the payment challenge from a 402 Payment Required response. Forward the raw <code>WWW-Authenticate: Payment</code> header value verbatim. In response, you receive a payment credential that satisfies the challenge. Provide exactly one challenge per request.</p>
+   * @public
+   */
+  export interface MppMember {
+    cryptoX402?: never;
+    mpp: MppPaymentInput;
     $unknown?: never;
   }
 
@@ -2092,6 +2134,7 @@ export namespace PaymentInput {
    */
   export interface $UnknownMember {
     cryptoX402?: never;
+    mpp?: never;
     $unknown: [string, any];
   }
 
@@ -2101,6 +2144,7 @@ export namespace PaymentInput {
    */
   export interface Visitor<T> {
     cryptoX402: (value: CryptoX402PaymentInput) => T;
+    mpp: (value: MppPaymentInput) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -2178,11 +2222,36 @@ export interface CryptoX402PaymentOutput {
 }
 
 /**
+ * <p>Contains the payment credential, ready to retry the request.</p>
+ * @public
+ */
+export interface MppPaymentOutput {
+  /**
+   * <p>The MPP protocol version, for example "1" or "2".</p>
+   * @public
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The id of the challenge that was paid, echoed from the input challenge so you can correlate the result without decoding the credential.</p>
+   * @public
+   */
+  selectedPaymentId: string | undefined;
+
+  /**
+   * <p>Ready-to-send value for the <code>Authorization</code> header, in the form "Payment &lt;base64url-token&gt;". Attach this header and retry the original request. To inspect the full credential, base64url-decode the token.</p>
+   * @public
+   */
+  paymentCredential: string | undefined;
+}
+
+/**
  * <p>The payment output details, which vary by payment type.</p>
  * @public
  */
 export type PaymentOutput =
   | PaymentOutput.CryptoX402Member
+  | PaymentOutput.MppMember
   | PaymentOutput.$UnknownMember;
 
 /**
@@ -2195,6 +2264,17 @@ export namespace PaymentOutput {
    */
   export interface CryptoX402Member {
     cryptoX402: CryptoX402PaymentOutput;
+    mpp?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Contains the payment credential, ready to retry the request.</p>
+   * @public
+   */
+  export interface MppMember {
+    cryptoX402?: never;
+    mpp: MppPaymentOutput;
     $unknown?: never;
   }
 
@@ -2203,6 +2283,7 @@ export namespace PaymentOutput {
    */
   export interface $UnknownMember {
     cryptoX402?: never;
+    mpp?: never;
     $unknown: [string, any];
   }
 
@@ -2212,6 +2293,7 @@ export namespace PaymentOutput {
    */
   export interface Visitor<T> {
     cryptoX402: (value: CryptoX402PaymentOutput) => T;
+    mpp: (value: MppPaymentOutput) => T;
     _: (name: string, value: any) => T;
   }
 }

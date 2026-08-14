@@ -688,6 +688,7 @@ export type PaymentInstrumentType = (typeof PaymentInstrumentType)[keyof typeof 
  */
 export const PaymentInstrumentStatus = {
   ACTIVE: "ACTIVE",
+  BLOCKED: "BLOCKED",
   DELETED: "DELETED",
   FAILED: "FAILED",
   INITIATED: "INITIATED",
@@ -772,6 +773,7 @@ export type PaymentSessionStatus = (typeof PaymentSessionStatus)[keyof typeof Pa
  */
 export const PaymentType = {
   CRYPTO_X402: "CRYPTO_X402",
+  MPP: "MPP",
 } as const;
 /**
  * @public

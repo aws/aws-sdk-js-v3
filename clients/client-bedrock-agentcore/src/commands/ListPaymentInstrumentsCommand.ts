@@ -50,7 +50,7 @@ export interface ListPaymentInstrumentsCommandOutput extends ListPaymentInstrume
  * //       paymentConnectorId: "STRING_VALUE", // required
  * //       userId: "STRING_VALUE", // required
  * //       paymentInstrumentType: "EMBEDDED_CRYPTO_WALLET", // required
- * //       status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED", // required
+ * //       status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED" || "BLOCKED", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },

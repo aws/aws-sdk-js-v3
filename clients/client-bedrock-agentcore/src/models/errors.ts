@@ -289,3 +289,37 @@ export class InvalidInputException extends __BaseException {
     Object.setPrototypeOf(this, InvalidInputException.prototype);
   }
 }
+
+/**
+ * <p>Returned when you attempt a wallet operation against a Coinbase Marketplace connector whose account does not hold an active Marketplace subscription and is not within the legacy exception period. Subscribe to the Marketplace listing before you retry the operation.</p>
+ * @public
+ */
+export class SubscriptionRequiredException extends __BaseException {
+  readonly name = "SubscriptionRequiredException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The URL to the Marketplace listing where you can subscribe.</p>
+   * @public
+   */
+  subscriptionUrl?: string | undefined;
+
+  /**
+   * <p>The name of the product that requires a Marketplace subscription.</p>
+   * @public
+   */
+  productName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionRequiredException, __BaseException>) {
+    super({
+      name: "SubscriptionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionRequiredException.prototype);
+    this.subscriptionUrl = opts.subscriptionUrl;
+    this.productName = opts.productName;
+  }
+}

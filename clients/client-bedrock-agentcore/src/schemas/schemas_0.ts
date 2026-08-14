@@ -376,6 +376,9 @@ const _MMR = "MouseMoveResult";
 const _MMe = "MessageMetadata";
 const _MMet = "MetadataMap";
 const _MN = "Mcp-Name";
+const _MPC = "MppPaymentCredential";
+const _MPI = "MppPaymentInput";
+const _MPO = "MppPaymentOutput";
 const _MPV = "Mcp-Protocol-Version";
 const _MR = "MemoryRecord";
 const _MRCI = "MemoryRecordCreateInput";
@@ -504,6 +507,7 @@ const _SPTRI = "StripePrivyTokenRequestInput";
 const _SPTRO = "StripePrivyTokenResponseOutput";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "ScreenshotResult";
+const _SRE = "SubscriptionRequiredException";
 const _SRR = "StartRecommendationRequest";
 const _SRRR = "SearchRegistryRecordsRequest";
 const _SRRRe = "SearchRegistryRecordsResponse";
@@ -628,6 +632,7 @@ const _bEN = "batchEvaluationName";
 const _bEa = "batchEvaluation";
 const _bI = "browserIdentifier";
 const _bMC = "bedrockModelConfig";
+const _bPGF = "buyerPaysGasFees";
 const _bT = "bearerToken";
 const _bV = "bundleVersion";
 const _bVo = "booleanValue";
@@ -854,6 +859,7 @@ const _mes = "messages";
 const _met = "metadata";
 const _metr = "metrics";
 const _mo = "model";
+const _mp = "mpp";
 const _n = "name";
 const _nOSC = "numberOfSessionsCompleted";
 const _nOSF = "numberOfSessionsFailed";
@@ -879,8 +885,10 @@ const _oT = "outputTokens";
 const _oa = "oauth";
 const _p = "payload";
 const _pA = "providerArn";
+const _pAL = "permit2AllowanceLimit";
 const _pC = "profileConfiguration";
 const _pCI = "paymentConnectorId";
+const _pCa = "paymentCredential";
 const _pCe = "percentChange";
 const _pCr = "proxyConfiguration";
 const _pI = "profileIdentifier";
@@ -891,7 +899,8 @@ const _pIa = "paymentInstrument";
 const _pIay = "paymentInstruments";
 const _pIaym = "paymentInput";
 const _pMA = "paymentManagerArn";
-const _pN = "phoneNumber";
+const _pN = "productName";
+const _pNh = "phoneNumber";
 const _pO = "paymentOutput";
 const _pPI = "processPaymentId";
 const _pS = "paymentSession";
@@ -981,6 +990,7 @@ const _sMes = "sessionMetadata";
 const _sN = "serviceNames";
 const _sNe = "serverName";
 const _sP = "systemPrompt";
+const _sPI = "selectedPaymentId";
 const _sPJP = "systemPromptJsonPath";
 const _sPRC = "systemPromptRecommendationConfig";
 const _sPRR = "systemPromptRecommendationResult";
@@ -998,7 +1008,8 @@ const _sSes = "sessionSummaries";
 const _sSess = "sessionSpans";
 const _sT = "startTime";
 const _sTS = "sessionTimeoutSeconds";
-const _sU = "sessionUri";
+const _sU = "subscriptionUrl";
+const _sUe = "sessionUri";
 const _sUt = "streamUpdate";
 const _sV = "schemaVersion";
 const _sVt = "stringValue";
@@ -1090,6 +1101,7 @@ const _va = "variants";
 const _ve = "version";
 const _w = "weight";
 const _wA = "walletAddress";
+const _wAH = "wwwAuthenticateHeaders";
 const _wAT = "walletAuthToken";
 const _wATo = "workloadAccessToken";
 const _wIT = "workloadIdentityToken";
@@ -1125,6 +1137,7 @@ import {
   RuntimeClientError,
   ServiceException,
   ServiceQuotaExceededException,
+  SubscriptionRequiredException,
   ThrottledException,
   ThrottlingException,
   UnauthorizedException,
@@ -1196,6 +1209,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0]
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SubscriptionRequiredException$: StaticErrorSchema = [-3, n0, _SRE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _sU, _pN],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(SubscriptionRequiredException$, SubscriptionRequiredException);
 export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
@@ -1242,6 +1261,7 @@ var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var MemoryDocument: StaticSimpleSchema = [0, n0, _MD, 8, 15];
+var MppPaymentCredential: StaticSimpleSchema = [0, n0, _MPC, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var PaymentDocument: StaticSimpleSchema = [0, n0, _PD, 8, 15];
 var PhoneNumber: StaticSimpleSchema = [0, n0, _PN, 8, 0];
@@ -1449,7 +1469,7 @@ export var CoinbaseCdpTokenResponseOutput$: StaticStructureSchema = [3, n0, _CCT
 ];
 export var CompleteResourceTokenAuthRequest$: StaticStructureSchema = [3, n0, _CRTAR,
   0,
-  [_uI, _sU],
+  [_uI, _sUe],
   [[() => UserIdentifier$, 0], 0], 2
 ];
 export var CompleteResourceTokenAuthResponse$: StaticStructureSchema = [3, n0, _CRTARo,
@@ -1544,8 +1564,8 @@ export var CreatePaymentSessionResponse$: StaticStructureSchema = [3, n0, _CPSRr
 ];
 export var CryptoX402PaymentInput$: StaticStructureSchema = [3, n0, _CXPI,
   0,
-  [_ve, _p],
-  [0, [() => PaymentDocument, 0]], 2
+  [_ve, _p, _pAL],
+  [0, [() => PaymentDocument, 0], 0], 2
 ];
 export var CryptoX402PaymentOutput$: StaticStructureSchema = [3, n0, _CXPO,
   0,
@@ -1899,12 +1919,12 @@ export var GetResourceApiKeyResponse$: StaticStructureSchema = [3, n0, _GRAKRe,
 ];
 export var GetResourceOauth2TokenRequest$: StaticStructureSchema = [3, n0, _GROTR,
   0,
-  [_wIT, _rCPN, _sc, _oF, _sU, _rORU, _fA, _cP, _cSu, _reso, _au],
+  [_wIT, _rCPN, _sc, _oF, _sUe, _rORU, _fA, _cP, _cSu, _reso, _au],
   [[() => WorkloadIdentityTokenType, 0], 0, 64 | 0, 0, 0, 0, 2, [() => CustomRequestParametersType, 0], [() => State, 0], 64 | 0, 64 | 0], 4
 ];
 export var GetResourceOauth2TokenResponse$: StaticStructureSchema = [3, n0, _GROTRe,
   0,
-  [_aU, _aTc, _sU, _sSe],
+  [_aU, _aTc, _sUe, _sSe],
   [[() => AuthorizationUrlType, 0], [() => AccessTokenType, 0], 0, 0]
 ];
 export var GetResourcePaymentTokenRequest$: StaticStructureSchema = [3, n0, _GRPTR,
@@ -2219,7 +2239,7 @@ export var LinkedAccountEmail$: StaticStructureSchema = [3, n0, _LAE,
 ];
 export var LinkedAccountSms$: StaticStructureSchema = [3, n0, _LAS,
   8,
-  [_pN],
+  [_pNh],
   [[() => PhoneNumber, 0]], 1
 ];
 export var ListABTestsRequest$: StaticStructureSchema = [3, n0, _LABTR,
@@ -2431,6 +2451,16 @@ export var MouseScrollResult$: StaticStructureSchema = [3, n0, _MSR,
   0,
   [_sta, _e],
   [0, 0], 1
+];
+export var MppPaymentInput$: StaticStructureSchema = [3, n0, _MPI,
+  0,
+  [_ve, _wAH, _bPGF],
+  [0, 64 | 0, 2], 2
+];
+export var MppPaymentOutput$: StaticStructureSchema = [3, n0, _MPO,
+  0,
+  [_ve, _sPI, _pCa],
+  [0, 0, [() => MppPaymentCredential, 0]], 3
 ];
 export var OAuth2Authentication$: StaticStructureSchema = [3, n0, _OAA,
   8,
@@ -3112,6 +3142,7 @@ var VariantList: StaticListSchema = [1, n0, _VL,
 var VariantResultList: StaticListSchema = [1, n0, _VRL,
   0, () => VariantResult$
 ];
+var WwwAuthenticateHeaderList = 64 | 0;
 var CustomRequestParametersType: StaticMapSchema = [2, n0, _CRPT,
   0, [0,
     0]
@@ -3342,8 +3373,8 @@ export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
 ];
 export var PaymentInput$: StaticUnionSchema = [4, n0, _PIa,
   0,
-  [_cX],
-  [[() => CryptoX402PaymentInput$, 0]]
+  [_cX, _mp],
+  [[() => CryptoX402PaymentInput$, 0], () => MppPaymentInput$]
 ];
 export var PaymentInstrumentDetails$: StaticUnionSchema = [4, n0, _PID,
   0,
@@ -3352,8 +3383,8 @@ export var PaymentInstrumentDetails$: StaticUnionSchema = [4, n0, _PID,
 ];
 export var PaymentOutput$: StaticUnionSchema = [4, n0, _PO,
   0,
-  [_cX],
-  [[() => CryptoX402PaymentOutput$, 0]]
+  [_cX, _mp],
+  [[() => CryptoX402PaymentOutput$, 0], [() => MppPaymentOutput$, 0]]
 ];
 export var PaymentTokenRequestInput$: StaticUnionSchema = [4, n0, _PTRI,
   0,

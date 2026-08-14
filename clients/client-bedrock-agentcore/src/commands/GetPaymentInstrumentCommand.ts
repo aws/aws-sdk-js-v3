@@ -102,7 +102,7 @@ export interface GetPaymentInstrumentCommandOutput extends GetPaymentInstrumentR
  * //       },
  * //     },
  * //     createdAt: new Date("TIMESTAMP"), // required
- * //     status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED", // required
+ * //     status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED" || "BLOCKED", // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //   },
  * // };

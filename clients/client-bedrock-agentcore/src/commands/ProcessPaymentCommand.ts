@@ -38,11 +38,19 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  *   paymentManagerArn: "STRING_VALUE", // required
  *   paymentSessionId: "STRING_VALUE", // required
  *   paymentInstrumentId: "STRING_VALUE", // required
- *   paymentType: "CRYPTO_X402", // required
+ *   paymentType: "CRYPTO_X402" || "MPP", // required
  *   paymentInput: { // PaymentInput Union: only one key present
  *     cryptoX402: { // CryptoX402PaymentInput
  *       version: "STRING_VALUE", // required
  *       payload: "DOCUMENT_VALUE", // required
+ *       permit2AllowanceLimit: "STRING_VALUE",
+ *     },
+ *     mpp: { // MppPaymentInput
+ *       version: "STRING_VALUE", // required
+ *       wwwAuthenticateHeaders: [ // WwwAuthenticateHeaderList // required
+ *         "STRING_VALUE",
+ *       ],
+ *       buyerPaysGasFees: true || false,
  *     },
  *   },
  *   clientToken: "STRING_VALUE",
@@ -54,12 +62,17 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  * //   paymentManagerArn: "STRING_VALUE", // required
  * //   paymentSessionId: "STRING_VALUE", // required
  * //   paymentInstrumentId: "STRING_VALUE", // required
- * //   paymentType: "CRYPTO_X402", // required
+ * //   paymentType: "CRYPTO_X402" || "MPP", // required
  * //   status: "PROOF_GENERATED", // required
  * //   paymentOutput: { // PaymentOutput Union: only one key present
  * //     cryptoX402: { // CryptoX402PaymentOutput
  * //       version: "STRING_VALUE", // required
  * //       payload: "DOCUMENT_VALUE", // required
+ * //     },
+ * //     mpp: { // MppPaymentOutput
+ * //       version: "STRING_VALUE", // required
+ * //       selectedPaymentId: "STRING_VALUE", // required
+ * //       paymentCredential: "STRING_VALUE", // required
  * //     },
  * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
@@ -83,8 +96,14 @@ export interface ProcessPaymentCommandOutput extends ProcessPaymentResponse, __M
  * @throws {@link InternalServerException} (server fault)
  *  <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ *
+ * @throws {@link SubscriptionRequiredException} (client fault)
+ *  <p>Returned when you attempt a wallet operation against a Coinbase Marketplace connector whose account does not hold an active Marketplace subscription and is not within the legacy exception period. Subscribe to the Marketplace listing before you retry the operation.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>

@@ -156,7 +156,7 @@ export interface CreatePaymentInstrumentCommandOutput extends CreatePaymentInstr
  * //       },
  * //     },
  * //     createdAt: new Date("TIMESTAMP"), // required
- * //     status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED", // required
+ * //     status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED" || "BLOCKED", // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //   },
  * // };
@@ -178,8 +178,14 @@ export interface CreatePaymentInstrumentCommandOutput extends CreatePaymentInstr
  * @throws {@link InternalServerException} (server fault)
  *  <p>The exception that occurs when the service encounters an unexpected internal error. This is a temporary condition that will resolve itself with retries. We recommend implementing exponential backoff retry logic in your application.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The exception that occurs when the specified resource does not exist. This can happen when using an invalid identifier or when trying to access a resource that has been deleted.</p>
+ *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>The exception that occurs when the request would cause a service quota to be exceeded. Review your service quotas and either reduce your request rate or request a quota increase.</p>
+ *
+ * @throws {@link SubscriptionRequiredException} (client fault)
+ *  <p>Returned when you attempt a wallet operation against a Coinbase Marketplace connector whose account does not hold an active Marketplace subscription and is not within the legacy exception period. Subscribe to the Marketplace listing before you retry the operation.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The exception that occurs when the request was denied due to request throttling. This happens when you exceed the allowed request rate for an operation. Reduce the frequency of requests or implement exponential backoff retry logic in your application.</p>

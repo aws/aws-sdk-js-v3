@@ -41,7 +41,7 @@ export interface DeletePaymentInstrumentCommandOutput extends DeletePaymentInstr
  * const command = new DeletePaymentInstrumentCommand(input);
  * const response = await client.send(command);
  * // { // DeletePaymentInstrumentResponse
- * //   status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED", // required
+ * //   status: "INITIATED" || "ACTIVE" || "FAILED" || "DELETED" || "BLOCKED", // required
  * // };
  *
  * ```

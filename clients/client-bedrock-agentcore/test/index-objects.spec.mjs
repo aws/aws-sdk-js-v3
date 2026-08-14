@@ -420,6 +420,8 @@ import {
   MouseMoveResult$,
   MouseScrollArguments$,
   MouseScrollResult$,
+  MppPaymentInput$,
+  MppPaymentOutput$,
   OAuth2Authentication$,
   Oauth2FlowType,
   OAuthCredentialProvider$,
@@ -560,6 +562,8 @@ import {
   StreamUpdate$,
   StripePrivyTokenRequestInput$,
   StripePrivyTokenResponseOutput$,
+  SubscriptionRequiredException,
+  SubscriptionRequiredException$,
   SystemPromptConfig$,
   SystemPromptConfigurationBundle$,
   SystemPromptRecommendationConfig$,
@@ -1020,6 +1024,8 @@ assert(typeof MouseMoveArguments$ === "object");
 assert(typeof MouseMoveResult$ === "object");
 assert(typeof MouseScrollArguments$ === "object");
 assert(typeof MouseScrollResult$ === "object");
+assert(typeof MppPaymentInput$ === "object");
+assert(typeof MppPaymentOutput$ === "object");
 assert(typeof OAuth2Authentication$ === "object");
 assert(typeof OAuthCredentialProvider$ === "object");
 assert(typeof OnlineEvaluationConfigSource$ === "object");
@@ -1202,6 +1208,8 @@ assert(ServiceException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ServiceException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(SubscriptionRequiredException.prototype instanceof BedrockAgentCoreServiceException);
+assert(typeof SubscriptionRequiredException$ === "object");
 assert(ThrottledException.prototype instanceof BedrockAgentCoreServiceException);
 assert(typeof ThrottledException$ === "object");
 assert(ThrottlingException.prototype instanceof BedrockAgentCoreServiceException);
