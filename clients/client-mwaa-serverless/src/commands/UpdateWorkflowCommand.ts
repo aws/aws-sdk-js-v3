@@ -39,6 +39,13 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  *     ObjectKey: "STRING_VALUE", // required
  *     VersionId: "STRING_VALUE",
  *   },
+ *   Code: { // Code Union: only one key present
+ *     S3Location: { // S3Location
+ *       Bucket: "STRING_VALUE", // required
+ *       ObjectKey: "STRING_VALUE", // required
+ *       VersionId: "STRING_VALUE",
+ *     },
+ *   },
  *   RoleArn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   LoggingConfiguration: { // LoggingConfiguration

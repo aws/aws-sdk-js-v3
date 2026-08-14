@@ -1,11 +1,13 @@
 const _ADE = "AccessDeniedException";
 const _AN = "AttemptNumber";
 const _B = "Bucket";
+const _C = "Code";
 const _CA = "CreatedAt";
 const _CE = "ConflictException";
 const _CEr = "CronExpression";
 const _CO = "CreatedOn";
 const _COo = "CompletedOn";
+const _CSA = "CodeSnapshottedAt";
 const _CT = "ClientToken";
 const _CW = "CreateWorkflow";
 const _CWR = "CreateWorkflowRequest";
@@ -84,6 +86,7 @@ const _SC = "ServiceCode";
 const _SCc = "ScheduleConfiguration";
 const _SGI = "SecurityGroupIds";
 const _SI = "SubnetIds";
+const _SL = "S3Location";
 const _SO = "StartedOn";
 const _SQEE = "ServiceQuotaExceededException";
 const _SWR = "StartWorkflowRun";
@@ -153,6 +156,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -231,8 +235,8 @@ export const errorTypeRegistries = [
 ]
 export var CreateWorkflowRequest$: StaticStructureSchema = [3, n0, _CWR,
   0,
-  [_N, _DSL, _RAo, _CT, _D, _EC, _LC, _EV, _NC, _T, _TM],
-  [0, () => DefinitionS3Location$, 0, [0, 4], 0, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 128 | 0, 0], 3
+  [_N, _DSL, _RAo, _CT, _C, _D, _EC, _LC, _EV, _NC, _T, _TM],
+  [0, () => DefinitionS3Location$, 0, [0, 4], () => Code$, 0, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 128 | 0, 0], 3
 ];
 export var CreateWorkflowResponse$: StaticStructureSchema = [3, n0, _CWRr,
   0,
@@ -276,8 +280,8 @@ export var GetWorkflowRequest$: StaticStructureSchema = [3, n0, _GWR,
 ];
 export var GetWorkflowResponse$: StaticStructureSchema = [3, n0, _GWRe,
   0,
-  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _SCc, _RAo, _NC, _TM, _WD],
-  [0, 0, 0, 0, 5, 5, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, 0, () => DefinitionS3Location$, () => ScheduleConfiguration$, 0, () => NetworkConfiguration$, 0, 0], 1
+  [_WA, _WV, _N, _D, _CA, _MA, _EC, _LC, _EV, _WS, _DSL, _C, _CSA, _SCc, _RAo, _NC, _TM, _WD],
+  [0, 0, 0, 0, 5, 5, () => EncryptionConfiguration$, () => LoggingConfiguration$, 1, 0, () => DefinitionS3Location$, () => Code$, 5, () => ScheduleConfiguration$, 0, () => NetworkConfiguration$, 0, 0], 1
 ];
 export var GetWorkflowRunRequest$: StaticStructureSchema = [3, n0, _GWRR,
   0,
@@ -354,6 +358,11 @@ export var RunDetailSummary$: StaticStructureSchema = [3, n0, _RDS,
   [_S, _CO, _SA, _EA],
   [0, 5, 5, 5]
 ];
+export var S3Location$: StaticStructureSchema = [3, n0, _SL,
+  0,
+  [_B, _OK, _VI],
+  [0, 0, 0], 2
+];
 export var ScheduleConfiguration$: StaticStructureSchema = [3, n0, _SCc,
   0,
   [_CEr],
@@ -406,8 +415,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateWorkflowRequest$: StaticStructureSchema = [3, n0, _UWR,
   0,
-  [_WA, _DSL, _RAo, _D, _LC, _EV, _NC, _TM],
-  [[0, 1], () => DefinitionS3Location$, 0, 0, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 0], 3
+  [_WA, _DSL, _RAo, _C, _D, _LC, _EV, _NC, _TM],
+  [[0, 1], () => DefinitionS3Location$, 0, () => Code$, 0, () => LoggingConfiguration$, 1, () => NetworkConfiguration$, 0], 3
 ];
 export var UpdateWorkflowResponse$: StaticStructureSchema = [3, n0, _UWRp,
   0,
@@ -464,6 +473,11 @@ var ObjectMap: StaticMapSchema = [2, n0, _OM,
   8, 0, 15
 ];
 var Tags = 128 | 0;
+export var Code$: StaticUnionSchema = [4, n0, _C,
+  0,
+  [_SL],
+  [() => S3Location$]
+];
 export var CreateWorkflow$: StaticOperationSchema = [9, n0, _CW,
   { [_h]: ["POST", "/workflows", 200] }, () => CreateWorkflowRequest$, () => CreateWorkflowResponse$
 ];

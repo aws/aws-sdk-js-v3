@@ -1,6 +1,7 @@
 import {
   AccessDeniedException,
   AccessDeniedException$,
+  Code$,
   ConflictException,
   ConflictException$,
   CreateWorkflow$,
@@ -64,6 +65,7 @@ import {
   ResourceNotFoundException$,
   RunDetailSummary$,
   RunType,
+  S3Location$,
   ScheduleConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
@@ -138,6 +140,7 @@ assert(typeof UntagResource$ === "object");
 assert(typeof UpdateWorkflowCommand === "function");
 assert(typeof UpdateWorkflow$ === "object");
 // structural schemas
+assert(typeof Code$ === "object");
 assert(typeof CreateWorkflowRequest$ === "object");
 assert(typeof CreateWorkflowResponse$ === "object");
 assert(typeof DefinitionS3Location$ === "object");
@@ -163,6 +166,7 @@ assert(typeof ListWorkflowVersionsResponse$ === "object");
 assert(typeof LoggingConfiguration$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
 assert(typeof RunDetailSummary$ === "object");
+assert(typeof S3Location$ === "object");
 assert(typeof ScheduleConfiguration$ === "object");
 assert(typeof StartWorkflowRunRequest$ === "object");
 assert(typeof StartWorkflowRunResponse$ === "object");

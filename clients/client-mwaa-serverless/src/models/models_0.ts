@@ -307,6 +307,69 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>Specifies the Amazon S3 location of code artifacts that workflows use during execution.</p>
+ * @public
+ */
+export interface S3Location {
+  /**
+   * <p>The name of the Amazon S3 bucket.</p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The key of the code artifact within the Amazon S3 bucket.</p>
+   * @public
+   */
+  ObjectKey: string | undefined;
+
+  /**
+   * <p>The version ID of the object in Amazon S3. If not specified, the latest version is used.</p>
+   * @public
+   */
+  VersionId?: string | undefined;
+}
+
+/**
+ * <p>Specifies the Amazon S3 location of code artifacts that workflows use during execution.</p>
+ * @public
+ */
+export type Code =
+  | Code.S3LocationMember
+  | Code.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace Code {
+  /**
+   * <p>The Amazon S3 location of the code artifacts that your workflow tasks use during execution.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    S3Location: S3Location;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    S3Location?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    S3Location: (value: S3Location) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Specifies the Amazon S3 location of a workflow definition file. This structure contains the bucket name, object key, and optional version ID for the workflow definition. Amazon Managed Workflows for Apache Airflow Serverless takes a snapshot of the definition file at the time of workflow creation or update, ensuring that the workflow behavior remains consistent even if the source file is modified. The definition must be a valid YAML file that uses supported Amazon Web Services operators and Amazon Managed Workflows for Apache Airflow Serverless syntax.</p>
  * @public
  */
@@ -399,6 +462,12 @@ export interface CreateWorkflowRequest {
    * @public
    */
   DefinitionS3Location: DefinitionS3Location | undefined;
+
+  /**
+   * <p>The location of code artifacts in Amazon S3 for the workflow. The service copies the code from this location at the time of the request.</p>
+   * @public
+   */
+  Code?: Code | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when executing the workflow. This role must have the necessary permissions to access the required Amazon Web Services services and resources that your workflow tasks will interact with. The role is used for task execution in the isolated, multi-tenant environment and should follow the principle of least privilege. Amazon Managed Workflows for Apache Airflow Serverless validates role access during workflow creation but runtime permission checks are performed by the target services.</p>
@@ -630,6 +699,18 @@ export interface GetWorkflowResponse {
   DefinitionS3Location?: DefinitionS3Location | undefined;
 
   /**
+   * <p>The Amazon S3 location of the code artifacts provided during workflow creation or update.</p>
+   * @public
+   */
+  Code?: Code | undefined;
+
+  /**
+   * <p>The time at which the code artifacts were copied for this workflow, in ISO 8601 date-time format.</p>
+   * @public
+   */
+  CodeSnapshottedAt?: Date | undefined;
+
+  /**
    * <p>The schedule configuration for the workflow, including cron expressions for automated execution. Amazon Managed Workflows for Apache Airflow Serverless uses EventBridge Scheduler for cost-effective, timezone-aware scheduling. When a workflow includes schedule information in its YAML definition, the service automatically configures the appropriate triggers for automated execution. Only one version of a workflow can have an active schedule at any given time.</p>
    * @public
    */
@@ -763,6 +844,12 @@ export interface UpdateWorkflowRequest {
    * @public
    */
   DefinitionS3Location: DefinitionS3Location | undefined;
+
+  /**
+   * <p>The location of code artifacts in Amazon S3 for the updated workflow. The service copies the code from this location at the time of the request.</p>
+   * @public
+   */
+  Code?: Code | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Managed Workflows for Apache Airflow Serverless assumes when it executes the updated workflow.</p>

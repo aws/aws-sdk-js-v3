@@ -59,6 +59,14 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //     ObjectKey: "STRING_VALUE", // required
  * //     VersionId: "STRING_VALUE",
  * //   },
+ * //   Code: { // Code Union: only one key present
+ * //     S3Location: { // S3Location
+ * //       Bucket: "STRING_VALUE", // required
+ * //       ObjectKey: "STRING_VALUE", // required
+ * //       VersionId: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   CodeSnapshottedAt: new Date("TIMESTAMP"),
  * //   ScheduleConfiguration: { // ScheduleConfiguration
  * //     CronExpression: "STRING_VALUE",
  * //   },
