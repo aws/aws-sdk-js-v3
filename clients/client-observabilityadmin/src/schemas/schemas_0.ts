@@ -53,6 +53,7 @@ const _DLC = "DestinationLogsConfiguration";
 const _DMC = "DestinationMetricsConfiguration";
 const _DP = "DestinationPattern";
 const _DR = "DestinationRegion";
+const _DRA = "DestinationRoleArn";
 const _DS = "DataSources";
 const _DSSC = "DataSourceSelectionCriteria";
 const _DSTI = "DeleteS3TableIntegration";
@@ -232,16 +233,20 @@ const _So = "Sources";
 const _St = "Status";
 const _T = "Tags";
 const _TC = "TelemetryConfigurations";
+const _TCRS = "TagConflictResolutionStrategy";
 const _TCS = "TelemetryConfigurationState";
 const _TCe = "TelemetryConfiguration";
 const _TDC = "TelemetryDestinationConfiguration";
 const _TK = "TagKeys";
 const _TMRE = "TooManyRequestsException";
 const _TP = "TelemetryPipeline";
-const _TPC = "TelemetryPipelineConfiguration";
-const _TPS = "TelemetryPipelineSummary";
+const _TPC = "TagPropagationConfiguration";
+const _TPCe = "TelemetryPipelineConfiguration";
+const _TPFR = "TagPropagationFailureReason";
+const _TPS = "TagPropagationStatus";
 const _TPSR = "TelemetryPipelineStatusReason";
-const _TPSe = "TelemetryPipelineSummaries";
+const _TPSe = "TelemetryPipelineSummary";
+const _TPSel = "TelemetryPipelineSummaries";
 const _TR = "TelemetryRule";
 const _TRI = "TagResourceInput";
 const _TRS = "TelemetryRuleSummaries";
@@ -406,8 +411,8 @@ export var CentralizationRuleSource$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var CentralizationRuleSummary$: StaticStructureSchema = [3, n0, _CRSe,
   0,
-  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _DAI, _DR],
-  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0]
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _DAI, _DR],
+  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0]
 ];
 export var CloudtrailParameters$: StaticStructureSchema = [3, n0, _CP,
   0,
@@ -511,8 +516,8 @@ export var DeleteTelemetryRuleInput$: StaticStructureSchema = [3, n0, _DTRI,
 ];
 export var DestinationLogsConfiguration$: StaticStructureSchema = [3, n0, _DLC,
   0,
-  [_LEC, _BC, _LGNC],
-  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$]
+  [_LEC, _BC, _LGNC, _TPC],
+  [() => LogsEncryptionConfiguration$, () => LogsBackupConfiguration$, () => LogGroupNameConfiguration$, () => TagPropagationConfiguration$]
 ];
 export var DestinationMetricsConfiguration$: StaticStructureSchema = [3, n0, _DMC,
   0,
@@ -546,8 +551,8 @@ export var GetCentralizationRuleForOrganizationInput$: StaticStructureSchema = [
 ];
 export var GetCentralizationRuleForOrganizationOutput$: StaticStructureSchema = [3, n0, _GCRFOO,
   0,
-  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _CR],
-  [0, 0, 0, 1, 0, 1, 0, 0, () => CentralizationRule$]
+  [_RN, _RAu, _CAI, _CTS, _CRr, _LUTS, _RH, _FR, _TPS, _TPFR, _CR],
+  [0, 0, 0, 1, 0, 1, 0, 0, 0, 0, () => CentralizationRule$]
 ];
 export var GetS3TableIntegrationInput$: StaticStructureSchema = [3, n0, _GSTII,
   0,
@@ -789,6 +794,11 @@ export var StopTelemetryEnrichmentOutput$: StaticStructureSchema = [3, n0, _STEO
   [_St],
   [0]
 ];
+export var TagPropagationConfiguration$: StaticStructureSchema = [3, n0, _TPC,
+  0,
+  [_DRA, _TCRS],
+  [0, 0], 1
+];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_RARN, _T],
@@ -809,7 +819,7 @@ export var TelemetryPipeline$: StaticStructureSchema = [3, n0, _TP,
   [_CTS, _LUTS, _Ar, _N, _Co, _St, _SR, _T],
   [1, 1, 0, 0, () => TelemetryPipelineConfiguration$, 0, () => TelemetryPipelineStatusReason$, 128 | 0]
 ];
-export var TelemetryPipelineConfiguration$: StaticStructureSchema = [3, n0, _TPC,
+export var TelemetryPipelineConfiguration$: StaticStructureSchema = [3, n0, _TPCe,
   0,
   [_Bo],
   [0], 1
@@ -819,7 +829,7 @@ export var TelemetryPipelineStatusReason$: StaticStructureSchema = [3, n0, _TPSR
   [_De],
   [0]
 ];
-export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPS,
+export var TelemetryPipelineSummary$: StaticStructureSchema = [3, n0, _TPSe,
   0,
   [_CTS, _LUTS, _Ar, _N, _St, _T, _CS],
   [1, 1, 0, 0, 0, 128 | 0, () => ConfigurationSummary$]
@@ -963,7 +973,7 @@ var TagKeyList = 64 | 0;
 var TelemetryConfigurations: StaticListSchema = [1, n0, _TC,
   0, () => TelemetryConfiguration$
 ];
-var TelemetryPipelineSummaries: StaticListSchema = [1, n0, _TPSe,
+var TelemetryPipelineSummaries: StaticListSchema = [1, n0, _TPSel,
   0, () => TelemetryPipelineSummary$
 ];
 var TelemetryRuleSummaries: StaticListSchema = [1, n0, _TRS,

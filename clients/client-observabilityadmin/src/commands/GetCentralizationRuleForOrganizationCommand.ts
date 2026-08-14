@@ -49,6 +49,8 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //   LastUpdateTimeStamp: Number("long"),
  * //   RuleHealth: "Healthy" || "Unhealthy" || "Provisioning",
  * //   FailureReason: "TRUSTED_ACCESS_NOT_ENABLED" || "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION" || "INTERNAL_SERVER_ERROR",
+ * //   TagPropagationStatus: "Healthy" || "Unhealthy",
+ * //   TagPropagationFailureReason: "RoleNotAssumable" || "RoleLacksPermissions",
  * //   CentralizationRule: { // CentralizationRule
  * //     Source: { // CentralizationRuleSource
  * //       Regions: [ // Regions // required
@@ -80,6 +82,10 @@ export interface GetCentralizationRuleForOrganizationCommandOutput extends GetCe
  * //         },
  * //         LogGroupNameConfiguration: { // LogGroupNameConfiguration
  * //           LogGroupNamePattern: "STRING_VALUE", // required
+ * //         },
+ * //         TagPropagationConfiguration: { // TagPropagationConfiguration
+ * //           DestinationRoleArn: "STRING_VALUE", // required
+ * //           TagConflictResolutionStrategy: "IN_SYNC" || "ADD_ONLY" || "UPDATE_SYNC",
  * //         },
  * //       },
  * //       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration

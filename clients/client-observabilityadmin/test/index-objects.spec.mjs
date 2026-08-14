@@ -187,6 +187,10 @@ import {
   StopTelemetryEvaluationCommand,
   StopTelemetryEvaluationForOrganization$,
   StopTelemetryEvaluationForOrganizationCommand,
+  TagConflictResolutionStrategy,
+  TagPropagationConfiguration$,
+  TagPropagationFailureReason,
+  TagPropagationStatus,
   TagResource$,
   TagResourceCommand,
   TagResourceInput$,
@@ -408,6 +412,7 @@ assert(typeof StartTelemetryEnrichmentOutput$ === "object");
 assert(typeof StartTelemetryEvaluationForOrganizationInput$ === "object");
 assert(typeof StartTelemetryEvaluationInput$ === "object");
 assert(typeof StopTelemetryEnrichmentOutput$ === "object");
+assert(typeof TagPropagationConfiguration$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TelemetryConfiguration$ === "object");
 assert(typeof TelemetryDestinationConfiguration$ === "object");
@@ -453,6 +458,9 @@ assert(typeof RuleHealth === "object");
 assert(typeof SignalType === "object");
 assert(typeof SSEAlgorithm === "object");
 assert(typeof Status === "object");
+assert(typeof TagConflictResolutionStrategy === "object");
+assert(typeof TagPropagationFailureReason === "object");
+assert(typeof TagPropagationStatus === "object");
 assert(typeof TelemetryEnrichmentStatus === "object");
 assert(typeof TelemetryPipelineStatus === "object");
 assert(typeof TelemetrySourceType === "object");

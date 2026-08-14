@@ -19,6 +19,9 @@ import type {
   SignalType,
   SSEAlgorithm,
   Status,
+  TagConflictResolutionStrategy,
+  TagPropagationFailureReason,
+  TagPropagationStatus,
   TelemetryEnrichmentStatus,
   TelemetryPipelineStatus,
   TelemetrySourceType,
@@ -166,6 +169,24 @@ export interface LogsEncryptionConfiguration {
 }
 
 /**
+ * <p>Specifies configuration for propagating resource tags from source log groups to centralized destination log groups. The service uses a customer-managed IAM role in the destination account to add, update, and remove tags on destination log groups.</p>
+ * @public
+ */
+export interface TagPropagationConfiguration {
+  /**
+   * <p>The ARN of a customer-managed IAM role in the destination account. The service assumes this role to propagate tags to destination log groups. You must have <code>iam:PassRole</code> permission on this role.</p>
+   * @public
+   */
+  DestinationRoleArn: string | undefined;
+
+  /**
+   * <p>The strategy for resolving conflicts when a tag key exists on both the source and destination log groups. If not specified, defaults to <code>UPDATE_SYNC</code>.</p> <ul> <li> <p> <code>ADD_ONLY</code> – Only adds new tags from the source without modifying existing destination tags.</p> </li> <li> <p> <code>UPDATE_SYNC</code> – Adds new tags and updates existing tags from the source. Does not remove destination tags that are absent from the source.</p> </li> <li> <p> <code>IN_SYNC</code> – Keeps destination tags fully synchronized with source tags, including removing destination tags that do not exist on the source.</p> </li> </ul>
+   * @public
+   */
+  TagConflictResolutionStrategy?: TagConflictResolutionStrategy | undefined;
+}
+
+/**
  * <p>Configuration for centralization destination log groups, including encryption and backup settings.</p>
  * @public
  */
@@ -187,6 +208,12 @@ export interface DestinationLogsConfiguration {
    * @public
    */
   LogGroupNameConfiguration?: LogGroupNameConfiguration | undefined;
+
+  /**
+   * <p>Specifies the tag propagation configuration for this centralization rule. When present, <code>LogGroupNameConfiguration</code> must use a <code>LogGroupNamePattern</code> that contains <code>$\{source.logGroup\}</code>, <code>$\{source.accountId\}</code>, and <code>$\{source.region\}</code>.</p>
+   * @public
+   */
+  TagPropagationConfiguration?: TagPropagationConfiguration | undefined;
 }
 
 /**
@@ -379,6 +406,18 @@ export interface CentralizationRuleSummary {
    * @public
    */
   FailureReason?: CentralizationFailureReason | undefined;
+
+  /**
+   * <p>The health status of tag propagation for this rule. This status is independent of the overall <code>RuleHealth</code> for log delivery. Returns <code>Healthy</code> when the most recent tag-propagation attempt succeeded, or <code>Unhealthy</code> when the most recent attempt failed.</p>
+   * @public
+   */
+  TagPropagationStatus?: TagPropagationStatus | undefined;
+
+  /**
+   * <p>The reason tag propagation is unhealthy for this rule. Only present when <code>TagPropagationStatus</code> is <code>Unhealthy</code>.</p>
+   * @public
+   */
+  TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
 
   /**
    * <p>The primary destination account of the organization centralization rule.</p>
@@ -1147,6 +1186,18 @@ export interface GetCentralizationRuleForOrganizationOutput {
    * @public
    */
   FailureReason?: CentralizationFailureReason | undefined;
+
+  /**
+   * <p>The health status of tag propagation for this rule. This status is independent of the overall <code>RuleHealth</code> for log delivery. Returns <code>Healthy</code> when the most recent tag-propagation attempt succeeded, or <code>Unhealthy</code> when the most recent attempt failed.</p>
+   * @public
+   */
+  TagPropagationStatus?: TagPropagationStatus | undefined;
+
+  /**
+   * <p>The reason tag propagation is unhealthy for this rule. Only present when <code>TagPropagationStatus</code> is <code>Unhealthy</code>.</p>
+   * @public
+   */
+  TagPropagationFailureReason?: TagPropagationFailureReason | undefined;
 
   /**
    * <p>The configuration details for the organization centralization rule.</p>

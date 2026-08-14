@@ -54,6 +54,8 @@ export interface ListCentralizationRulesForOrganizationCommandOutput extends Lis
  * //       LastUpdateTimeStamp: Number("long"),
  * //       RuleHealth: "Healthy" || "Unhealthy" || "Provisioning",
  * //       FailureReason: "TRUSTED_ACCESS_NOT_ENABLED" || "DESTINATION_ACCOUNT_NOT_IN_ORGANIZATION" || "INTERNAL_SERVER_ERROR",
+ * //       TagPropagationStatus: "Healthy" || "Unhealthy",
+ * //       TagPropagationFailureReason: "RoleNotAssumable" || "RoleLacksPermissions",
  * //       DestinationAccountId: "STRING_VALUE",
  * //       DestinationRegion: "STRING_VALUE",
  * //     },

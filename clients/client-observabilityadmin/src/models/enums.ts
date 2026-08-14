@@ -81,6 +81,21 @@ export type EncryptionStrategy = (typeof EncryptionStrategy)[keyof typeof Encryp
  * @public
  * @enum
  */
+export const TagConflictResolutionStrategy = {
+  ADD_ONLY: "ADD_ONLY",
+  IN_SYNC: "IN_SYNC",
+  UPDATE_SYNC: "UPDATE_SYNC",
+} as const;
+/**
+ * @public
+ */
+export type TagConflictResolutionStrategy =
+  (typeof TagConflictResolutionStrategy)[keyof typeof TagConflictResolutionStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const EncryptedLogGroupStrategy = {
   ALLOW: "ALLOW",
   SKIP: "SKIP",
@@ -103,6 +118,33 @@ export const RuleHealth = {
  * @public
  */
 export type RuleHealth = (typeof RuleHealth)[keyof typeof RuleHealth];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagPropagationFailureReason = {
+  ROLE_LACKS_PERMISSIONS: "RoleLacksPermissions",
+  ROLE_NOT_ASSUMABLE: "RoleNotAssumable",
+} as const;
+/**
+ * @public
+ */
+export type TagPropagationFailureReason =
+  (typeof TagPropagationFailureReason)[keyof typeof TagPropagationFailureReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const TagPropagationStatus = {
+  HEALTHY: "Healthy",
+  UNHEALTHY: "Unhealthy",
+} as const;
+/**
+ * @public
+ */
+export type TagPropagationStatus = (typeof TagPropagationStatus)[keyof typeof TagPropagationStatus];
 
 /**
  * @public

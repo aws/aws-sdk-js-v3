@@ -69,6 +69,10 @@ export interface UpdateCentralizationRuleForOrganizationCommandOutput extends Up
  *         LogGroupNameConfiguration: { // LogGroupNameConfiguration
  *           LogGroupNamePattern: "STRING_VALUE", // required
  *         },
+ *         TagPropagationConfiguration: { // TagPropagationConfiguration
+ *           DestinationRoleArn: "STRING_VALUE", // required
+ *           TagConflictResolutionStrategy: "IN_SYNC" || "ADD_ONLY" || "UPDATE_SYNC",
+ *         },
  *       },
  *       DestinationMetricsConfiguration: { // DestinationMetricsConfiguration
  *         BackupConfiguration: { // MetricsBackupConfiguration
