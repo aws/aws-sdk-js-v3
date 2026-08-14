@@ -37,6 +37,6 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "premove": "4.0.0",
-    "typescript": "~6.0.3"
+    "typescript": "~7.0.2"
   }
 }
