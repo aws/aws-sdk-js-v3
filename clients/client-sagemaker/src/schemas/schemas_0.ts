@@ -9700,8 +9700,8 @@ export var PriorityClass$: StaticStructureSchema = [3, n0, _PCri,
 ];
 export var ProcessingClusterConfig$: StaticStructureSchema = [3, n0, _PCC,
   0,
-  [_ICn, _ITn, _VSIGB, _VKKI],
-  [1, 0, 1, 0], 3
+  [_VSIGB, _ICn, _ITn, _VKKI],
+  [1, 1, 0, 0], 1
 ];
 export var ProcessingFeatureStoreOutput$: StaticStructureSchema = [3, n0, _PFSO,
   0,

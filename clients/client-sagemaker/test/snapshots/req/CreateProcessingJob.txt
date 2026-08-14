@@ -10,7 +10,7 @@ host: api.sagemaker.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 4958b084b1913d60f069f8223295d7e357ca25a1e5dd71fdf4fad95cc1582aad
+x-amz-content-sha256: 331967db335fe109d43699a50767ee39abbf81d4d184f899e496cd376e81068a
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
 
 [Uint8Array (json)]
@@ -18,9 +18,9 @@ authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/sagemaker/aws4
   "ProcessingJobName": "__ProcessingJobName__",
   "ProcessingResources": {
     "ClusterConfig": {
+      "VolumeSizeInGB": 0,
       "InstanceCount": 0,
       "InstanceType": "__InstanceType__",
-      "VolumeSizeInGB": 0,
       "VolumeKmsKeyId": "__VolumeKmsKeyId__"
     }
   },

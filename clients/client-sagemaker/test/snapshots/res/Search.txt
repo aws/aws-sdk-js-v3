@@ -1329,9 +1329,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ProcessingJobName": "__ProcessingJobName__",
             "ProcessingResources": {
               "ClusterConfig": {
+                "VolumeSizeInGB": 0,
                 "InstanceCount": 0,
                 "InstanceType": "__InstanceType__",
-                "VolumeSizeInGB": 0,
                 "VolumeKmsKeyId": "__VolumeKmsKeyId__"
               }
             },
@@ -9419,9 +9419,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ProcessingJobName": "__ProcessingJobName__",
             "ProcessingResources": {
               "ClusterConfig": {
+                "VolumeSizeInGB": 0,
                 "InstanceCount": 0,
                 "InstanceType": "__InstanceType__",
-                "VolumeSizeInGB": 0,
                 "VolumeKmsKeyId": "__VolumeKmsKeyId__"
               }
             },
@@ -17509,9 +17509,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             "ProcessingJobName": "__ProcessingJobName__",
             "ProcessingResources": {
               "ClusterConfig": {
+                "VolumeSizeInGB": 0,
                 "InstanceCount": 0,
                 "InstanceType": "__InstanceType__",
-                "VolumeSizeInGB": 0,
                 "VolumeKmsKeyId": "__VolumeKmsKeyId__"
               }
             },
@@ -25611,9 +25611,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ProcessingJobName: "__ProcessingJobName__",
             ProcessingResources: {
               ClusterConfig: {
+                VolumeSizeInGB: (number) 0,
                 InstanceCount: (number) 0,
                 InstanceType: "__InstanceType__",
-                VolumeSizeInGB: (number) 0,
                 VolumeKmsKeyId: "__VolumeKmsKeyId__"
               }
             },
@@ -33701,9 +33701,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ProcessingJobName: "__ProcessingJobName__",
             ProcessingResources: {
               ClusterConfig: {
+                VolumeSizeInGB: (number) 0,
                 InstanceCount: (number) 0,
                 InstanceType: "__InstanceType__",
-                VolumeSizeInGB: (number) 0,
                 VolumeKmsKeyId: "__VolumeKmsKeyId__"
               }
             },
@@ -41791,9 +41791,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
             ProcessingJobName: "__ProcessingJobName__",
             ProcessingResources: {
               ClusterConfig: {
+                VolumeSizeInGB: (number) 0,
                 InstanceCount: (number) 0,
                 InstanceType: "__InstanceType__",
-                VolumeSizeInGB: (number) 0,
                 VolumeKmsKeyId: "__VolumeKmsKeyId__"
               }
             },
