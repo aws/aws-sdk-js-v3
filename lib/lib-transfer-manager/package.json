@@ -83,7 +83,7 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/checksums": "workspace:^3.1000.27",
+    "@aws-sdk/checksums": "workspace:^3.1000.28",
     "@smithy/core": "^3.31.1",
     "@smithy/node-http-handler": "^4.9.13",
     "@smithy/types": "^4.16.1",

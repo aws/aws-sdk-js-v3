@@ -1,25 +1,10 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
-import {
-  mkdir,
-  mkdtemp,
-  readdir,
-  readFile,
-  rm,
-  writeFile,
-} from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  test as it,
-  vi,
-} from "vitest";
+import { afterEach, beforeAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { S3TransferManager } from "./S3TransferManager";
 import type { TransferCompleteEvent, TransferEvent } from "./types";
@@ -88,9 +73,7 @@ describe("S3TransferManager Unit Tests", () => {
         new S3TransferManager({
           targetPartSizeBytes: 2 * 1024 * 1024,
         });
-      }).toThrow(
-        `targetPartSizeBytes must be at least ${5 * 1024 * 1024} bytes`,
-      );
+      }).toThrow(`targetPartSizeBytes must be at least ${5 * 1024 * 1024} bytes`);
     });
   });
 
@@ -149,10 +132,7 @@ describe("S3TransferManager Unit Tests", () => {
         tm.addEventListener("transferInitiated", callback1);
         tm.addEventListener("transferInitiated", callback1);
 
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          callback1,
-          callback1,
-        ]);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback1, callback1]);
       });
 
       it("Should handle different callbacks for the same event type", () => {
@@ -162,10 +142,7 @@ describe("S3TransferManager Unit Tests", () => {
         tm.addEventListener("bytesTransferred", callback1);
         tm.addEventListener("bytesTransferred", callback2);
 
-        expect((tm as any).eventListeners.bytesTransferred).toEqual([
-          callback1,
-          callback2,
-        ]);
+        expect((tm as any).eventListeners.bytesTransferred).toEqual([callback1, callback2]);
       });
 
       it("Should handle object-style callbacks", () => {
@@ -174,9 +151,7 @@ describe("S3TransferManager Unit Tests", () => {
         };
         tm.addEventListener("transferInitiated", objectCallback as any);
 
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          objectCallback,
-        ]);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([objectCallback]);
       });
 
       it("Should handle a mix of object-style callbacks and function for the same event", () => {
@@ -187,10 +162,7 @@ describe("S3TransferManager Unit Tests", () => {
         tm.addEventListener("transferInitiated", objectCallback as any);
         tm.addEventListener("transferInitiated", callback);
 
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          objectCallback,
-          callback,
-        ]);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([objectCallback, callback]);
       });
 
       it("Should throw an error for an invalid event type", () => {
@@ -238,9 +210,7 @@ describe("S3TransferManager Unit Tests", () => {
         tm.dispatchEvent(event);
 
         expect(callback).toHaveBeenCalledTimes(1);
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          callback,
-        ]);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
 
         controller.abort();
         expect((tm as any).eventListeners.transferInitiated).toEqual([]);
@@ -254,33 +224,21 @@ describe("S3TransferManager Unit Tests", () => {
           signal: controller.signal,
         });
 
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          callback,
-        ]);
-        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(
-          true,
-        );
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
+        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(true);
 
-        const cleanupFn = (tm as any).abortCleanupFunctions.get(
-          controller.signal,
-        );
+        const cleanupFn = (tm as any).abortCleanupFunctions.get(controller.signal);
         cleanupFn();
         (tm as any).abortCleanupFunctions.delete(controller.signal);
 
-        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(
-          false,
-        );
+        expect((tm as any).abortCleanupFunctions.has(controller.signal)).toBe(false);
         controller.abort();
-        expect((tm as any).eventListeners.transferInitiated).toEqual([
-          callback,
-        ]);
+        expect((tm as any).eventListeners.transferInitiated).toEqual([callback]);
       });
 
       it("Should handle boolean options parameter", () => {
         tm.addEventListener("transferInitiated", initiated, true);
-        expect((tm as any).eventListeners.transferInitiated).toContain(
-          initiated,
-        );
+        expect((tm as any).eventListeners.transferInitiated).toContain(initiated);
       });
 
       it("Should handle null callback", () => {
@@ -292,9 +250,7 @@ describe("S3TransferManager Unit Tests", () => {
       it("Should handle object-style callback with handleEvent", () => {
         const objectCallback = { handleEvent: vi.fn() };
         tm.addEventListener("transferInitiated", objectCallback as any);
-        expect((tm as any).eventListeners.transferInitiated).toContain(
-          objectCallback,
-        );
+        expect((tm as any).eventListeners.transferInitiated).toContain(objectCallback);
       });
     });
 
@@ -533,9 +489,7 @@ describe("S3TransferManager Unit Tests", () => {
         transferFailed: [],
       };
 
-      const results = Array.from(
-        (tm as any).iterateListeners(eventListeners),
-      ) as any[];
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(3);
       expect(results[0][0]).toEqual({
@@ -560,9 +514,7 @@ describe("S3TransferManager Unit Tests", () => {
         transferFailed: [],
       };
 
-      const results = Array.from(
-        (tm as any).iterateListeners(eventListeners),
-      ) as any[];
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(0);
     });
@@ -581,9 +533,7 @@ describe("S3TransferManager Unit Tests", () => {
         transferFailed: [callback2, objectCallback],
       };
 
-      const results = Array.from(
-        (tm as any).iterateListeners(eventListeners),
-      ) as any[];
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(3);
       expect(results[0][0]).toEqual({
@@ -610,9 +560,7 @@ describe("S3TransferManager Unit Tests", () => {
         transferFailed: [],
       };
 
-      const results = Array.from(
-        (tm as any).iterateListeners(eventListeners),
-      ) as any[];
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(4);
       for (let i = 0; i < results.length; i++) {
@@ -626,9 +574,7 @@ describe("S3TransferManager Unit Tests", () => {
     it("Should return empty iterator when no callbacks are present", () => {
       const eventListeners = {};
 
-      const results = Array.from(
-        (tm as any).iterateListeners(eventListeners),
-      ) as any[];
+      const results = Array.from((tm as any).iterateListeners(eventListeners)) as any[];
 
       expect(results).toHaveLength(0);
     });
@@ -679,11 +625,7 @@ describe("S3TransferManager Unit Tests", () => {
       }).toThrow("Expected part 2 to end at 10485759 but got 10485760");
 
       expect(() => {
-        tm.validatePartDownload(
-          "bytes 10485760-13631480/13631488",
-          3,
-          partSize,
-        );
+        tm.validatePartDownload("bytes 10485760-13631480/13631488", 3, partSize);
       }).toThrow("Expected part 3 to end at 13631487 but got 13631480");
     });
 
@@ -691,11 +633,7 @@ describe("S3TransferManager Unit Tests", () => {
       const partSize = 5242880;
 
       expect(() => {
-        tm.validatePartDownload(
-          "bytes 10485760-13631487/13631488",
-          3,
-          partSize,
-        );
+        tm.validatePartDownload("bytes 10485760-13631487/13631488", 3, partSize);
       }).not.toThrow();
     });
 
@@ -730,10 +668,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("Should pass when response range ends at total size", () => {
       expect(() => {
-        tm.validateRangeDownload(
-          "bytes=10485760-13631500",
-          "bytes 10485760-13631487/13631488",
-        );
+        tm.validateRangeDownload("bytes=10485760-13631500", "bytes 10485760-13631487/13631488");
       }).not.toThrow();
     });
 
@@ -823,9 +758,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       expect(() => {
         tm.validateUploadPart(dataPart, partSize);
-      }).toThrow(
-        `The byte size for part number 2, size ${7 * 1024 * 1024} does not match expected size ${partSize}`,
-      );
+      }).toThrow(`The byte size for part number 2, size ${7 * 1024 * 1024} does not match expected size ${partSize}`);
     });
 
     it("should throw error when part has zero content length", () => {
@@ -838,9 +771,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       expect(() => {
         tm.validateUploadPart(dataPart, partSize);
-      }).toThrow(
-        `The byte size for part number 2, size 0 does not match expected size ${partSize}`,
-      );
+      }).toThrow(`The byte size for part number 2, size 0 does not match expected size ${partSize}`);
     });
   });
 
@@ -852,8 +783,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("should use targetPartSizeBytes for small files", () => {
       const contentLength = 50 * 1024 * 1024; // 50MB
-      const { partSize, expectedPartsCount } =
-        tm.calculatePartSize(contentLength);
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBe(8 * 1024 * 1024); // Default 8MB
       expect(expectedPartsCount).toBe(7); // ceil(50/8) = 7
@@ -861,8 +791,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("should calculate larger part size for files approaching 10,000 parts limit", () => {
       const contentLength = 100 * 1024 * 1024 * 1024; // 100GB
-      const { partSize, expectedPartsCount } =
-        tm.calculatePartSize(contentLength);
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBeGreaterThan(8 * 1024 * 1024);
       expect(partSize).toBe(Math.ceil(contentLength / 10_000));
@@ -873,8 +802,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("should handle very large files correctly", () => {
       const contentLength = 5 * 1024 * 1024 * 1024 * 1024; // 5TB
-      const { partSize, expectedPartsCount } =
-        tm.calculatePartSize(contentLength);
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBe(Math.ceil(contentLength / 10_000));
       expect(expectedPartsCount).toBe(Math.ceil(contentLength / partSize));
@@ -885,8 +813,7 @@ describe("S3TransferManager Unit Tests", () => {
 
     it("should return correct values for minimum size file", () => {
       const contentLength = 8 * 1024 * 1024; // 8MB (one part)
-      const { partSize, expectedPartsCount } =
-        tm.calculatePartSize(contentLength);
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBe(8 * 1024 * 1024);
       expect(expectedPartsCount).toBe(1);
@@ -899,8 +826,7 @@ describe("S3TransferManager Unit Tests", () => {
         targetPartSizeBytes: customPartSize,
       }) as any;
 
-      const { partSize, expectedPartsCount } =
-        tm.calculatePartSize(contentLength);
+      const { partSize, expectedPartsCount } = tm.calculatePartSize(contentLength);
 
       expect(partSize).toBe(customPartSize);
       expect(expectedPartsCount).toBe(3); // 15MB / 5MB = 3 parts
@@ -941,10 +867,7 @@ describe("S3TransferManager Unit Tests", () => {
         });
       });
 
-      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(
-        tasks,
-        2,
-      );
+      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(tasks, 2);
       expect(launched).toBe(2);
 
       // Resolve first task and signal stream consumed
@@ -978,10 +901,7 @@ describe("S3TransferManager Unit Tests", () => {
         },
       ];
 
-      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(
-        tasks,
-        2,
-      );
+      const { promises, onStreamConsumed } = tm.createConcurrentTaskPool(tasks, 2);
       expect(launched).toBe(2);
 
       // Wait for the rejection to propagate
@@ -1046,7 +966,7 @@ describe("S3TransferManager Unit Tests", () => {
 
       await tm.upload(
         { Bucket: "test-bucket", Key: "file2.txt", Body: "content2" },
-        { eventListeners: { transferComplete: [requestLevelCallback] } },
+        { eventListeners: { transferComplete: [requestLevelCallback] } }
       );
 
       await tm.upload({
@@ -1067,7 +987,7 @@ describe("S3TransferManager Unit Tests", () => {
       await tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "a" });
       await tm.upload(
         { Bucket: "test-bucket", Key: "file2.txt", Body: "b" },
-        { eventListeners: { transferComplete: [requestCallback] } },
+        { eventListeners: { transferComplete: [requestCallback] } }
       );
       await tm.upload({ Bucket: "test-bucket", Key: "file3.txt", Body: "c" });
 
@@ -1107,9 +1027,9 @@ describe("S3TransferManager Unit Tests", () => {
 
       mockSend.mockRejectedValueOnce(new Error("Upload failed"));
 
-      await expect(
-        tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" }),
-      ).rejects.toThrow("Upload failed");
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "file1.txt", Body: "content" })).rejects.toThrow(
+        "Upload failed"
+      );
 
       expect(failedCallback).toHaveBeenCalledTimes(1);
     });
@@ -1195,9 +1115,7 @@ describe("S3TransferManager Unit Tests", () => {
       expect(commandNames).toContain("CreateMultipartUploadCommand");
       expect(commandNames).toContain("UploadPartCommand");
       expect(commandNames).toContain("CompleteMultipartUploadCommand");
-      expect(
-        commandNames.filter((n: string) => n === "UploadPartCommand").length,
-      ).toBe(3);
+      expect(commandNames.filter((n: string) => n === "UploadPartCommand").length).toBe(3);
     });
 
     it("should route string body to threadedUploadInParts when workerThreadCount > 1", async () => {
@@ -1298,15 +1216,12 @@ describe("S3TransferManager Unit Tests", () => {
       const body = Buffer.alloc(24 * 1024 * 1024, "a");
 
       await expect(
-        tm.upload(
-          { Bucket: "test-bucket", Key: "abort-test.bin", Body: body },
-          { abortSignal: controller.signal },
-        ),
+        tm.upload({ Bucket: "test-bucket", Key: "abort-test.bin", Body: body }, { abortSignal: controller.signal })
       ).rejects.toThrow("Transfer aborted.");
 
       // Verify AbortMultipartUpload was called
       const abortCalls = mockClient.send.mock.calls.filter(
-        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand",
+        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand"
       );
       expect(abortCalls.length).toBe(1);
       expect(abortCalls[0][0].input.UploadId).toBe("abort-test-id");
@@ -1339,12 +1254,12 @@ describe("S3TransferManager Unit Tests", () => {
 
       const body = Buffer.alloc(20 * 1024 * 1024, "b");
 
-      await expect(
-        tm.upload({ Bucket: "test-bucket", Key: "fail-test.bin", Body: body }),
-      ).rejects.toThrow("Network error on part upload");
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "fail-test.bin", Body: body })).rejects.toThrow(
+        "Network error on part upload"
+      );
 
       const abortCalls = mockClient.send.mock.calls.filter(
-        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand",
+        (c: any) => c[0].constructor?.name === "AbortMultipartUploadCommand"
       );
       expect(abortCalls.length).toBe(1);
       expect(abortCalls[0][0].input.UploadId).toBe("fail-test-id");
@@ -1412,9 +1327,9 @@ describe("S3TransferManager Unit Tests", () => {
 
       const body = Buffer.alloc(20 * 1024 * 1024, "d");
 
-      await expect(
-        tm.upload({ Bucket: "test-bucket", Key: "event-fail.bin", Body: body }),
-      ).rejects.toThrow("Part failed");
+      await expect(tm.upload({ Bucket: "test-bucket", Key: "event-fail.bin", Body: body })).rejects.toThrow(
+        "Part failed"
+      );
 
       expect(failedCallback).toHaveBeenCalledTimes(1);
     });
@@ -1471,9 +1386,7 @@ describe("S3TransferManager Unit Tests", () => {
         Body: body,
       });
 
-      const completeCalls = sendCalls.filter(
-        (c: any) => c.constructor?.name === "CompleteMultipartUploadCommand",
-      );
+      const completeCalls = sendCalls.filter((c: any) => c.constructor?.name === "CompleteMultipartUploadCommand");
       expect(completeCalls.length).toBe(1);
 
       const parts = completeCalls[0].input.MultipartUpload.Parts;
@@ -1499,9 +1412,7 @@ describe("S3TransferManager Unit Tests", () => {
         Body: body,
       });
 
-      const createCalls = sendCalls.filter(
-        (c: any) => c.constructor?.name === "CreateMultipartUploadCommand",
-      );
+      const createCalls = sendCalls.filter((c: any) => c.constructor?.name === "CreateMultipartUploadCommand");
       expect(createCalls[0].input.ChecksumAlgorithm).toBe("CRC32");
     });
   });
@@ -1655,7 +1566,7 @@ describe("S3TransferManager Unit Tests", () => {
             bucket: "test-bucket",
             source: tmpDir,
             failurePolicy: "terminate" as CannedFailurePolicy,
-          }),
+          })
         ).rejects.toThrow("S3 error");
 
         expect(mockClient.send.mock.calls.length).toBeLessThanOrEqual(1);
@@ -1799,7 +1710,7 @@ describe("S3TransferManager Unit Tests", () => {
             source: tmpDir,
             failurePolicy: customPolicy,
             maxConcurrency: 1,
-          }),
+          })
         ).rejects.toThrow("Access Denied");
 
         // file1 and file2 succeeded, file3 failed with AccessDenied → terminate
@@ -1851,7 +1762,7 @@ describe("S3TransferManager Unit Tests", () => {
             uploadObjectRequestModifier: () => {
               throw new Error("uploadObjectRequestModifier failed");
             },
-          }),
+          })
         ).rejects.toThrow("uploadObjectRequestModifier failed");
 
         expect(mockClient.send).not.toHaveBeenCalled();
@@ -1868,7 +1779,7 @@ describe("S3TransferManager Unit Tests", () => {
         tm.uploadDirectory({
           bucket: "test-bucket",
           source: "/nonexistent/path/abc123",
-        }),
+        })
       ).rejects.toThrow("Cannot access directory at");
     });
 
@@ -1889,8 +1800,8 @@ describe("S3TransferManager Unit Tests", () => {
               bucket: "test-bucket",
               source: tmpDir,
             },
-            { abortSignal: ac.signal },
-          ),
+            { abortSignal: ac.signal }
+          )
         ).rejects.toThrow("Transfer aborted");
       } finally {
         await rm(tmpDir, { recursive: true });
@@ -1947,7 +1858,7 @@ describe("S3TransferManager Unit Tests", () => {
           Bucket: "test-bucket",
           Key: "test-key",
           destination: "",
-        }),
+        })
       ).rejects.toThrow("destination must be a non-empty string");
     });
 
@@ -1966,7 +1877,7 @@ describe("S3TransferManager Unit Tests", () => {
           Key: "test-key",
           destination,
           failIfExists: true,
-        }),
+        })
       ).rejects.toThrow(/File already exists at destination/);
     });
 
@@ -2031,9 +1942,7 @@ describe("S3TransferManager Unit Tests", () => {
         // Part 2: observe temp file exists and cleanup handler is registered, then fail
         mockSend.mockImplementationOnce(async () => {
           const files = await readdir(tmpDir);
-          tempFileExistedDuringDownload = files.some((f) =>
-            f.includes(".s3tmp."),
-          );
+          tempFileExistedDuringDownload = files.some((f) => f.includes(".s3tmp."));
           exitListenersDuringDownload = process.listenerCount("exit");
           throw new Error("S3 service error");
         });
@@ -2043,14 +1952,12 @@ describe("S3TransferManager Unit Tests", () => {
             Bucket: "test-bucket",
             Key: "fail-key",
             destination,
-          }),
+          })
         ).rejects.toThrow("S3 service error");
 
         // Verify temp file DID exist before failure
         expect(tempFileExistedDuringDownload).toBe(true);
-        expect(exitListenersDuringDownload).toBeGreaterThan(
-          exitListenersBefore,
-        );
+        expect(exitListenersDuringDownload).toBeGreaterThan(exitListenersBefore);
 
         // Verify temp file was cleaned up after failure
         const files = await readdir(tmpDir);

@@ -12,6 +12,7 @@
 import { HttpResponse } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape } from "@smithy/types";
+import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
 import { cpus } from "node:os";
 import * as path from "node:path";
@@ -57,7 +58,7 @@ export interface HttpWorkerFileRequestMessage extends BaseHttpWorkerRequestMessa
   filePath: string;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -66,7 +67,7 @@ export interface HttpWorkerRAMRequestMessage extends BaseHttpWorkerRequestMessag
   sharedBuffer: SharedArrayBuffer;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -81,7 +82,7 @@ export interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMe
   filePath: string;
   offset: number;
   expectedLength: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -101,7 +102,7 @@ export interface HttpWorkerDownloadStreamMessage extends BaseHttpWorkerRequestMe
   /**
    * Optional CRC algorithm for inline checksum validation against S3 response headers.
    */
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -215,7 +216,7 @@ export interface FileSource {
   filePath: string;
   partSize: number;
   totalFileSize: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -225,7 +226,7 @@ export interface SharedBufferSource {
   sharedBuffer: SharedArrayBuffer;
   partSize: number;
   totalSize: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -267,9 +268,9 @@ export interface DownloadDataToFile {
    */
   expectedLength: number;
   /**
-   * Optional CRC algorithm for inline checksum computation.
+   * Optional algorithm for inline checksum validation against S3 response headers.
    */
-  checksumAlgorithm?: string; // "CRC32" | "CRC32C" | "CRC64NVME"
+  checksumAlgorithm?: ChecksumAlgorithm;
   /**
    * Unique token for correlating the download result with the caller.
    */
@@ -291,9 +292,9 @@ export interface DownloadStreamOptions {
    */
   rangeIndex: number;
   /**
-   * Optional CRC algorithm for inline checksum computation.
+   * Optional algorithm for inline checksum validation against S3 response headers.
    */
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   /**
    * Unique token for correlating the download result with the caller.
    */

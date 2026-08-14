@@ -1,12 +1,4 @@
-/**
- * Ordered delivery queue for stream downloads using ArrayBuffer ownership transfer.
- *
- * Workers download parts in parallel and transfer ArrayBuffers (zero copy) to main in
- * arbitrary order. This queue holds out-of-order arrivals and delivers them
- * sequentially to the Readable stream consumer.
- *
- * @internal
- */
+// This module provides an ordered delivery queue for parallel stream downloads.
 
 export interface QueuedPart {
   /**
@@ -19,6 +11,12 @@ export interface QueuedPart {
   byteLength: number;
 }
 
+/**
+ * Reorder buffer that accepts out-of-order part arrivals from parallel download
+ * workers and delivers them sequentially to a Readable stream consumer.
+ *
+ * @internal
+ */
 export class OrderedPartQueue {
   /**
    * Out-of-order parts waiting for their turn. Keyed by rangeIndex.
@@ -98,7 +96,9 @@ export class OrderedPartQueue {
   }
 
   /**
-   * Signals an error, waking up any waiting consumer.
+   * Called when a worker part fails, when the dispatch loop throws
+   * or when the stream is destroyed. Unblocks the consumer
+   * if it's waiting so the stream can surface the error instead of hanging.
    */
   public setError(error: unknown): void {
     this.error = error;
@@ -111,14 +111,17 @@ export class OrderedPartQueue {
   }
 
   /**
-   * Returns whether an error has been set.
+   * The dispatch loop
+   * checks this to stop launching new part requests,
+   * and the Readable stream checks it to distinguish completion from failure
+   * when dequeue() returns null.
    */
   public hasError(): boolean {
     return this.error !== undefined;
   }
 
   /**
-   * Returns the stored error, if any.
+   * Called by the Readable stream's read() to pass the error to stream.destroy(err).
    */
   public getError(): unknown {
     return this.error;

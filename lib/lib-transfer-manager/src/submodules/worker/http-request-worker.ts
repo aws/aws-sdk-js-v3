@@ -1,12 +1,12 @@
 /**
  * Worker thread that receives signed HTTP requests and sends them.
- * For file-based requests, reads the file slice, computes CRC32,
+ * For file-based requests, reads the file slice, computes a checksum,
  * and sends the body in aws-chunked format with a trailing checksum.
  *
  * For download-to-file requests, sends the signed HTTP request,
  * validates the ContentRange offset, streams the response body
  * directly to a file at the specified offset, and optionally
- * computes an inline CRC checksum.
+ * computes an inline checksum.
  *
  * @internal
  */
@@ -16,11 +16,13 @@ import dns from "node:dns";
 import { openSync, readSync, closeSync } from "node:fs";
 import type { LookupOptions } from "node:dns";
 import type { Checksum } from "@smithy/types";
-import { Crc32cJs, Crc64NvmeJs } from "@aws-sdk/checksums/crc";
+import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
+import { Crc32, Crc32c, Crc64Nvme } from "@aws-sdk/checksums/crc";
+import { Sha1, Sha256 } from "@aws-sdk/checksums/sha";
+import { Md5 } from "@aws-sdk/checksums/md5";
 import { open } from "node:fs/promises";
 import { Agent as httpsAgent } from "node:https";
 import { parentPort } from "node:worker_threads";
-import { crc32 } from "node:zlib";
 
 const DNS_TTL_MS = 1000;
 const dnsCache = new Map<string, { ips: string[]; ts: number }>();
@@ -93,7 +95,7 @@ interface HttpWorkerFileRequestMessage extends BaseHttpWorkerRequestMessage {
   filePath: string;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -102,7 +104,7 @@ interface HttpWorkerRAMRequestMessage extends BaseHttpWorkerRequestMessage {
   sharedBuffer: SharedArrayBuffer;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -117,7 +119,7 @@ interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMessage {
   filePath: string;
   offset: number;
   expectedLength: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -134,9 +136,9 @@ interface HttpWorkerDownloadStreamMessage extends BaseHttpWorkerRequestMessage {
    */
   rangeIndex: number;
   /**
-   * Optional CRC algorithm for inline checksum validation against S3 response headers.
+   * Optional algorithm for inline checksum validation against S3 response headers.
    */
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
 }
 
 /**
@@ -246,47 +248,25 @@ interface HttpWorkerReadyMessage {
   type: "ready";
 }
 
-function toBase64(n: number): string {
-  const buf = Buffer.allocUnsafe(4);
-  buf.writeUInt32BE(n >>> 0, 0);
-  return buf.toString("base64");
-}
+// Checksum Helpers for Download.
 
-// CRC Computation Helpers for Download.
-
-function createCrcChecksum(algorithm: string): Checksum {
-  if (algorithm === "CRC64NVME") {
-    return new Crc64NvmeJs();
-  }
-  if (algorithm === "CRC32C") {
-    return new Crc32cJs();
-  }
-  // CRC32 — use node:zlib wrapper that conforms to Checksum interface
-  return new NodeCrc32();
-}
-
-/**
- * Thin wrapper around node:zlib crc32 to conform to the Checksum interface.
- */
-class NodeCrc32 implements Checksum {
-  private value = 0;
-
-  update(data: Uint8Array): void {
-    this.value = crc32(data, this.value);
-  }
-
-  async digest(): Promise<Uint8Array> {
-    const buf = new Uint8Array(4);
-    const v = this.value >>> 0;
-    buf[0] = v >>> 24;
-    buf[1] = (v >>> 16) & 0xff;
-    buf[2] = (v >>> 8) & 0xff;
-    buf[3] = v & 0xff;
-    return buf;
-  }
-
-  reset(): void {
-    this.value = 0;
+function createChecksum(algorithm: ChecksumAlgorithm): Checksum | undefined {
+  switch (algorithm) {
+    case "CRC64NVME":
+      return new Crc64Nvme();
+    case "CRC32C":
+      return new Crc32c();
+    case "CRC32":
+      return new Crc32();
+    case "SHA1":
+      return new Sha1();
+    case "SHA256":
+      return new Sha256();
+    case "MD5":
+      return new Md5();
+    default:
+      // Algorithms without a local implementation (e.g. XXHASH64, SHA512) skip inline validation.
+      return undefined;
   }
 }
 
@@ -367,8 +347,9 @@ if (parentPort) {
         const fileData = Buffer.from(msg.sharedBuffer, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crcValue = crc32(fileData);
-          const checksumValue = toBase64(crcValue);
+          const crc = new Crc32();
+          crc.update(fileData);
+          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -377,8 +358,9 @@ if (parentPort) {
         const fileData = readFileSlice(msg.filePath, msg.offset, msg.length);
 
         if (msg.checksumAlgorithm && msg.checksumHeader) {
-          const crcValue = crc32(fileData);
-          const checksumValue = toBase64(crcValue);
+          const crc = new Crc32();
+          crc.update(fileData);
+          const checksumValue = Buffer.from(await crc.digest()).toString("base64");
           body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
@@ -468,10 +450,10 @@ if (parentPort) {
       // open the file (file is pre-allocated)
       const fh = await open(filePath, "r+");
       try {
-        // Initialize inline CRC computation if requested
-        let crcChecksum: Checksum | undefined;
+        // Initialize inline checksum computation if requested
+        let checksum: Checksum | undefined;
         if (checksumAlgorithm) {
-          crcChecksum = createCrcChecksum(checksumAlgorithm);
+          checksum = createChecksum(checksumAlgorithm);
         }
 
         // Stream response body chunks to file at positioned offsets
@@ -498,9 +480,9 @@ if (parentPort) {
             // Write chunk to file at the correct position
             await fh.write(buf, 0, buf.length, writeOffset + bytesWritten);
 
-            // Update CRC inline
-            if (crcChecksum) {
-              crcChecksum.update(buf);
+            // Update checksum inline
+            if (checksum) {
+              checksum.update(buf);
             }
 
             bytesWritten += buf.length;
@@ -523,8 +505,8 @@ if (parentPort) {
 
         // Finalize checksum and validate against S3 header if present
         let checksumBase64: string | undefined;
-        if (crcChecksum && checksumAlgorithm) {
-          checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
+        if (checksum && checksumAlgorithm) {
+          checksumBase64 = await finalizeChecksumToBase64(checksum);
 
           // Check if S3 returned a per-part checksum header
           const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
@@ -609,10 +591,10 @@ if (parentPort) {
       const ab = acquireTransferBuffer(expectedSize);
       const view = new Uint8Array(ab, 0, expectedSize);
 
-      // 3. Initialize inline CRC computation if requested
-      let crcChecksum: Checksum | undefined;
+      // 3. Initialize inline checksum computation if requested
+      let checksum: Checksum | undefined;
       if (checksumAlgorithm) {
-        crcChecksum = createCrcChecksum(checksumAlgorithm);
+        checksum = createChecksum(checksumAlgorithm);
       }
 
       // 4. Stream response body chunks into the ArrayBuffer
@@ -637,9 +619,9 @@ if (parentPort) {
           // Copy chunk into the ArrayBuffer (this copy happens on the WORKER thread)
           view.set(buf, bytesWritten);
 
-          // Update CRC inline
-          if (crcChecksum) {
-            crcChecksum.update(buf);
+          // Update checksum inline
+          if (checksum) {
+            checksum.update(buf);
           }
 
           bytesWritten += buf.length;
@@ -648,8 +630,8 @@ if (parentPort) {
 
       // 5. Finalize checksum and validate against S3 header if present
       let checksumBase64: string | undefined;
-      if (crcChecksum && checksumAlgorithm) {
-        checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
+      if (checksum && checksumAlgorithm) {
+        checksumBase64 = await finalizeChecksumToBase64(checksum);
 
         const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
         if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {

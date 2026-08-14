@@ -1,5 +1,6 @@
 import type {
   AbortMultipartUploadCommandInput,
+  ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommandInput,
   CompleteMultipartUploadCommandOutput,
@@ -399,54 +400,35 @@ export class S3TransferManager implements IS3TransferManager {
       }
     };
 
+    const resolvedTransferOptions = transferOptions ?? {};
+    const downloadArgs = [
+      request,
+      resolvedTransferOptions,
+      streams,
+      requests,
+      metadata,
+      checksumValidationEnabled,
+    ] as const;
+
     try {
+      let responseMetadata: { totalSize: number | undefined; onStreamConsumed?: (index: number) => void };
+
       if (this.multipartDownloadType === "PART") {
         if (this.workerHttpHandler) {
-          const responseMetadata = await this.downloadByPartWithWorkers(
-            request,
-            transferOptions ?? {},
-            streams,
-            requests,
-            metadata,
-            checksumValidationEnabled
-          );
-          totalSize = responseMetadata.totalSize;
+          responseMetadata = await this.downloadByPartWithWorkers(...downloadArgs);
         } else {
-          const responseMetadata = await this.downloadByPart(
-            request,
-            transferOptions ?? {},
-            streams,
-            requests,
-            metadata,
-            checksumValidationEnabled
-          );
-          totalSize = responseMetadata.totalSize;
-          onStreamConsumed = responseMetadata.onStreamConsumed;
+          responseMetadata = await this.downloadByPart(...downloadArgs);
         }
       } else if (this.multipartDownloadType === "RANGE") {
         if (this.workerHttpHandler && !request.Range) {
-          const responseMetadata = await this.downloadByRangeWithWorkers(
-            request,
-            transferOptions ?? {},
-            streams,
-            requests,
-            metadata,
-            checksumValidationEnabled
-          );
-          totalSize = responseMetadata.totalSize;
+          responseMetadata = await this.downloadByRangeWithWorkers(...downloadArgs);
         } else {
-          const responseMetadata = await this.downloadByRange(
-            request,
-            transferOptions ?? {},
-            streams,
-            requests,
-            metadata,
-            checksumValidationEnabled
-          );
-          totalSize = responseMetadata.totalSize;
-          onStreamConsumed = responseMetadata.onStreamConsumed;
+          responseMetadata = await this.downloadByRange(...downloadArgs);
         }
       }
+
+      totalSize = responseMetadata!.totalSize;
+      onStreamConsumed = responseMetadata!.onStreamConsumed;
     } catch (error) {
       // On failure or abort, response bodies that were already received but not
       // yet handed to joinStreams are orphaned. Destroy them (attaching a no-op
@@ -1717,6 +1699,9 @@ export class S3TransferManager implements IS3TransferManager {
     };
 
     const releaseSlot = (): void => {
+      if (inFlight <= 0) {
+        throw new Error("releaseSlot called with no in-flight requests");
+      }
       inFlight--;
       if (nextDispatchResolve && inFlight < this.maxConcurrentDownloads) {
         const resolve = nextDispatchResolve;
@@ -1724,9 +1709,6 @@ export class S3TransferManager implements IS3TransferManager {
         resolve();
       }
     };
-
-    // Dispatch part GET requests via the SDK pipeline (WorkerHttpHandler intercepts them).
-    // Concurrency limiter provides backpressure — waitForSlot blocks when all slots are in use.
     const dispatchPromise = (async () => {
       for (let partNumber = 2; partNumber <= partsCount; partNumber++) {
         if (abortController.signal.aborted || queue.hasError()) break;
@@ -1772,7 +1754,6 @@ export class S3TransferManager implements IS3TransferManager {
             if (!transferResult) {
               queue.setError(new Error(`Missing download result for part ${partNumber}`));
               abortController.abort();
-              releaseSlot();
               return;
             }
 
@@ -1790,11 +1771,12 @@ export class S3TransferManager implements IS3TransferManager {
                 },
               })
             );
-            releaseSlot();
           })
           .catch((error) => {
             queue.setError(error);
             abortController.abort();
+          })
+          .finally(() => {
             releaseSlot();
           });
       }
@@ -1808,11 +1790,15 @@ export class S3TransferManager implements IS3TransferManager {
 
     // Create a Readable stream that pulls parts sequentially from the ordered queue.
     // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
+    let reading = false;
     const transferStream = new Readable({
       read() {
+        if (reading) return;
+        reading = true;
         queue
           .dequeue()
           .then((item) => {
+            reading = false;
             if (item === null) {
               // null means either all parts delivered OR an error was set.
               // If an error was set, destroy the stream with that error so
@@ -1831,6 +1817,7 @@ export class S3TransferManager implements IS3TransferManager {
             this.push(buf);
           })
           .catch((err) => {
+            reading = false;
             this.destroy(err as Error);
           });
       },
@@ -1936,6 +1923,9 @@ export class S3TransferManager implements IS3TransferManager {
     };
 
     const releaseSlot = (): void => {
+      if (inFlight <= 0) {
+        throw new Error("releaseSlot called with no in-flight requests");
+      }
       inFlight--;
       if (nextDispatchResolve && inFlight < this.maxConcurrentDownloads) {
         const resolve = nextDispatchResolve;
@@ -1994,7 +1984,6 @@ export class S3TransferManager implements IS3TransferManager {
             if (!transferResult) {
               queue.setError(new Error(`Missing download result for range ${start}-${end}`));
               abortController.abort();
-              releaseSlot();
               return;
             }
 
@@ -2012,11 +2001,12 @@ export class S3TransferManager implements IS3TransferManager {
                 },
               })
             );
-            releaseSlot();
           })
           .catch((error) => {
             queue.setError(error);
             abortController.abort();
+          })
+          .finally(() => {
             releaseSlot();
           });
       }
@@ -2028,11 +2018,15 @@ export class S3TransferManager implements IS3TransferManager {
 
     // Create a Readable stream that pulls ranges sequentially from the ordered queue.
     // Each chunk is a zero-copy Buffer view into the transferred ArrayBuffer.
+    let reading = false;
     const transferStream = new Readable({
       read() {
+        if (reading) return;
+        reading = true;
         queue
           .dequeue()
           .then((item) => {
+            reading = false;
             if (item === null) {
               if (queue.hasError()) {
                 this.destroy(queue.getError() as Error);
@@ -2048,6 +2042,7 @@ export class S3TransferManager implements IS3TransferManager {
             this.push(buf);
           })
           .catch((err) => {
+            reading = false;
             this.destroy(err as Error);
           });
       },
@@ -2472,7 +2467,7 @@ export class S3TransferManager implements IS3TransferManager {
     const { partSize } = this.calculatePartSize(contentLength);
     const filePath = (request.Body as any).path as string;
 
-    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+    const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "file",
       filePath,
       partSize,
@@ -2501,7 +2496,7 @@ export class S3TransferManager implements IS3TransferManager {
     const sharedBuffer = new SharedArrayBuffer(body.byteLength);
     new Uint8Array(sharedBuffer).set(body);
 
-    const buildDataSource = (checksumAlgorithm?: string, checksumHeader?: string): DataSource => ({
+    const buildDataSource = (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string): DataSource => ({
       type: "sharedBuffer",
       sharedBuffer,
       partSize,
@@ -2522,7 +2517,7 @@ export class S3TransferManager implements IS3TransferManager {
   private async threadedMultipartUpload(
     request: UploadRequest,
     contentLength: number,
-    buildDataSource: (checksumAlgorithm?: string, checksumHeader?: string) => DataSource,
+    buildDataSource: (checksumAlgorithm?: ChecksumAlgorithm, checksumHeader?: string) => DataSource,
     transferOptions?: TransferOptions
   ): Promise<CompleteMultipartUploadCommandOutput> {
     const { partSize, expectedPartsCount } = this.calculatePartSize(contentLength);

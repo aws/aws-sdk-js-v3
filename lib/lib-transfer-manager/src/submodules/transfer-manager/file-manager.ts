@@ -20,10 +20,7 @@ export class FileManager {
    * @param totalSize - Total byte size to set as the file length.
    * @returns The path to the created temp file.
    */
-  public async createTempFile(
-    destination: string,
-    totalSize: number,
-  ): Promise<string> {
+  public async createTempFile(destination: string, totalSize: number): Promise<string> {
     const tempFilePath = `${destination}.s3tmp.${this.generateUniqueId()}`;
 
     // "wx" creates the file exclusively, so a name collision with a concurrent
@@ -47,10 +44,7 @@ export class FileManager {
    * @param tempFilePath - Path to the temp file.
    * @param destination - Final destination path.
    */
-  public async atomicRename(
-    tempFilePath: string,
-    destination: string,
-  ): Promise<void> {
+  public async atomicRename(tempFilePath: string, destination: string): Promise<void> {
     try {
       await rename(tempFilePath, destination);
     } catch (renameError: any) {
@@ -61,15 +55,11 @@ export class FileManager {
           await rename(tempFilePath, destination);
         } catch (fallbackError: any) {
           await this.deleteTempFile(tempFilePath);
-          throw new Error(
-            `Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`,
-          );
+          throw new Error(`Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`);
         }
       } else {
         await this.deleteTempFile(tempFilePath);
-        throw new Error(
-          `Failed to rename temp file to destination: ${renameError.message || renameError.code}`,
-        );
+        throw new Error(`Failed to rename temp file to destination: ${renameError.message || renameError.code}`);
       }
     }
   }
