@@ -34,11 +34,7 @@ const dnsCache = new Map<string, { ips: string[]; ts: number }>();
 function spreadLookup(
   hostname: string,
   options: LookupOptions,
-  callback: (
-    err: NodeJS.ErrnoException | null,
-    address: string | dns.LookupAddress[],
-    family?: number,
-  ) => void,
+  callback: (err: NodeJS.ErrnoException | null, address: string | dns.LookupAddress[], family?: number) => void
 ): void {
   if (options && options.family === 6) {
     return dns.lookup(hostname, options, callback);
@@ -110,9 +106,7 @@ interface HttpWorkerRAMRequestMessage extends BaseHttpWorkerRequestMessage {
   checksumHeader?: string;
 }
 
-type HttpWorkerRequestMessage =
-  | HttpWorkerFileRequestMessage
-  | HttpWorkerRAMRequestMessage;
+type HttpWorkerRequestMessage = HttpWorkerFileRequestMessage | HttpWorkerRAMRequestMessage;
 
 /**
  * Main thread → Worker: download a part and write the response body directly
@@ -307,9 +301,7 @@ async function finalizeChecksumToBase64(checksum: Checksum): Promise<string> {
  *
  * @returns The START and END values, or undefined if absent or unparseable.
  */
-function parseContentRange(
-  contentRange: string | undefined,
-): { start: number; end: number } | undefined {
+function parseContentRange(contentRange: string | undefined): { start: number; end: number } | undefined {
   if (!contentRange) return undefined;
   const match = contentRange.match(/^bytes\s+(\d+)-(\d+)\//);
   if (!match) return undefined;
@@ -323,10 +315,7 @@ function parseContentRange(
  * Finds the checksum header value in the response headers for the given algorithm.
  * S3 returns per-part checksums in headers like `x-amz-checksum-crc32`.
  */
-function getChecksumHeaderValue(
-  headers: Record<string, string>,
-  algorithm: string,
-): string | undefined {
+function getChecksumHeaderValue(headers: Record<string, string>, algorithm: string): string | undefined {
   const headerName = `x-amz-checksum-${algorithm.toLowerCase()}`;
   return headers[headerName];
 }
@@ -346,11 +335,7 @@ if (parentPort) {
     return fd;
   }
 
-  const readFileSlice = (
-    filePath: string,
-    offset: number,
-    length: number,
-  ): Buffer => {
+  const readFileSlice = (filePath: string, offset: number, length: number): Buffer => {
     const fd = getFd(filePath);
     const buffer = Buffer.allocUnsafe(length);
     let read = 0;
@@ -362,17 +347,9 @@ if (parentPort) {
     return buffer;
   };
 
-  const buildAwsChunkedBody = (
-    data: Buffer,
-    checksumHeader?: string,
-    checksumValue?: string,
-  ): Buffer => {
+  const buildAwsChunkedBody = (data: Buffer, checksumHeader?: string, checksumValue?: string): Buffer => {
     const hexLen = data.byteLength.toString(16);
-    const parts: Buffer[] = [
-      Buffer.from(`${hexLen}\r\n`),
-      data,
-      Buffer.from("\r\n0\r\n"),
-    ];
+    const parts: Buffer[] = [Buffer.from(`${hexLen}\r\n`), data, Buffer.from("\r\n0\r\n")];
     if (checksumHeader && checksumValue) {
       parts.push(Buffer.from(`${checksumHeader}:${checksumValue}\r\n`));
     }
@@ -380,9 +357,7 @@ if (parentPort) {
     return Buffer.concat(parts);
   };
 
-  const processRequest = async (
-    msg: HttpWorkerRequestMessage,
-  ): Promise<void> => {
+  const processRequest = async (msg: HttpWorkerRequestMessage): Promise<void> => {
     const { id, request: serialized } = msg;
 
     try {
@@ -394,11 +369,7 @@ if (parentPort) {
         if (msg.checksumAlgorithm && msg.checksumHeader) {
           const crcValue = crc32(fileData);
           const checksumValue = toBase64(crcValue);
-          body = buildAwsChunkedBody(
-            fileData,
-            msg.checksumHeader,
-            checksumValue,
-          );
+          body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
         }
@@ -408,11 +379,7 @@ if (parentPort) {
         if (msg.checksumAlgorithm && msg.checksumHeader) {
           const crcValue = crc32(fileData);
           const checksumValue = toBase64(crcValue);
-          body = buildAwsChunkedBody(
-            fileData,
-            msg.checksumHeader,
-            checksumValue,
-          );
+          body = buildAwsChunkedBody(fileData, msg.checksumHeader, checksumValue);
         } else {
           body = fileData;
         }
@@ -458,7 +425,7 @@ if (parentPort) {
             body: responseBody,
           },
         } satisfies HttpWorkerResponseMessage,
-        transferList,
+        transferList
       );
     } catch (err) {
       port.postMessage({
@@ -471,17 +438,8 @@ if (parentPort) {
     }
   };
 
-  const processDownloadToFile = async (
-    msg: HttpWorkerDownloadToFileMessage,
-  ): Promise<void> => {
-    const {
-      id,
-      request: serialized,
-      filePath,
-      offset,
-      expectedLength,
-      checksumAlgorithm,
-    } = msg;
+  const processDownloadToFile = async (msg: HttpWorkerDownloadToFileMessage): Promise<void> => {
+    const { id, request: serialized, filePath, offset, expectedLength, checksumAlgorithm } = msg;
 
     try {
       // Send the signed HTTP request
@@ -522,11 +480,7 @@ if (parentPort) {
         if (response.body) {
           for await (const chunk of response.body) {
             const buf =
-              typeof chunk === "string"
-                ? Buffer.from(chunk)
-                : Buffer.isBuffer(chunk)
-                  ? chunk
-                  : Buffer.from(chunk);
+              typeof chunk === "string" ? Buffer.from(chunk) : Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
 
             // Verify cumulative bytes do not exceed the range's length
             if (bytesWritten + buf.length > targetLength) {
@@ -573,10 +527,7 @@ if (parentPort) {
           checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
 
           // Check if S3 returned a per-part checksum header
-          const s3ChecksumValue = getChecksumHeaderValue(
-            response.headers,
-            checksumAlgorithm,
-          );
+          const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
           if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
             port.postMessage({
               type: "httpDownloadError",
@@ -637,16 +588,8 @@ if (parentPort) {
    * to the main thread via postMessage transfer list (zero-copy).
    * @internal
    */
-  const processDownloadToTransfer = async (
-    msg: HttpWorkerDownloadStreamMessage,
-  ): Promise<void> => {
-    const {
-      id,
-      request: serialized,
-      expectedSize,
-      rangeIndex,
-      checksumAlgorithm,
-    } = msg;
+  const processDownloadToTransfer = async (msg: HttpWorkerDownloadStreamMessage): Promise<void> => {
+    const { id, request: serialized, expectedSize, rangeIndex, checksumAlgorithm } = msg;
 
     try {
       // 1. Send the signed HTTP request
@@ -677,8 +620,7 @@ if (parentPort) {
 
       if (response.body) {
         for await (const chunk of response.body) {
-          const buf: Uint8Array =
-            typeof chunk === "string" ? Buffer.from(chunk) : chunk;
+          const buf: Uint8Array = typeof chunk === "string" ? Buffer.from(chunk) : chunk;
 
           // Guard against writing beyond buffer boundary
           if (bytesWritten + buf.length > expectedSize) {
@@ -709,10 +651,7 @@ if (parentPort) {
       if (crcChecksum && checksumAlgorithm) {
         checksumBase64 = await finalizeChecksumToBase64(crcChecksum);
 
-        const s3ChecksumValue = getChecksumHeaderValue(
-          response.headers,
-          checksumAlgorithm,
-        );
+        const s3ChecksumValue = getChecksumHeaderValue(response.headers, checksumAlgorithm);
         if (s3ChecksumValue && s3ChecksumValue !== checksumBase64) {
           port.postMessage({
             type: "httpDownloadError",
@@ -738,7 +677,7 @@ if (parentPort) {
           headers: response.headers,
           checksum: checksumBase64,
         } satisfies HttpWorkerDownloadStreamResultMessage,
-        [ab],
+        [ab]
       );
     } catch (err) {
       port.postMessage({
@@ -780,10 +719,7 @@ if (parentPort) {
       return;
     }
 
-    if (
-      msg.type === "httpRequestFromFile" ||
-      msg.type === "httpRequestFromRAM"
-    ) {
+    if (msg.type === "httpRequestFromFile" || msg.type === "httpRequestFromRAM") {
       processRequest(msg);
     }
 

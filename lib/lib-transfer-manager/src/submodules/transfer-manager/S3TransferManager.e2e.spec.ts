@@ -992,8 +992,8 @@ describe(S3TransferManager.name, () => {
                   },
                 ],
               },
-            },
-          ),
+            }
+          )
         ).rejects.toThrow(/abort/i);
 
         // Verify no temp files and no destination file remain

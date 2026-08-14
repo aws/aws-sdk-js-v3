@@ -3,28 +3,27 @@ import { unlinkSync } from "node:fs";
 import { open, rename, unlink } from "node:fs/promises";
 
 /**
- * Utility class responsible for temp-file lifecycle management during downloads.
+ * Utility class responsible for temp-file lifecycle management during downloadToFile.
  * Handles creation, pre-allocation, atomic rename, and cleanup of temp files.
  *
  * @internal
  */
 export class FileManager {
-  private cleanupHandlers = new Map<string, { exitHandler: () => void; sigintHandler: () => void }>();
+  private cleanupHandlers = new Map<string, { exitHandler: () => void }>();
 
   /**
    * Creates a temporary file for the download with a unique identifier.
-   *
-   * The file is sized to `totalSize` up front so its final length is fixed
-   * regardless of the order in which parts complete. This is a sparse file:
-   * it records the length without allocating disk blocks, so it does not
-   * reserve space, and it is not required for concurrent writes to succeed
-   * (writes at an explicit offset extend a file on their own).
+   * Sets the file length to `totalSize` up front via truncate so concurrent
+   * part writes can target their offsets without coordination.
    *
    * @param destination - The final destination file path.
    * @param totalSize - Total byte size to set as the file length.
    * @returns The path to the created temp file.
    */
-  public async createTempFile(destination: string, totalSize: number): Promise<string> {
+  public async createTempFile(
+    destination: string,
+    totalSize: number,
+  ): Promise<string> {
     const tempFilePath = `${destination}.s3tmp.${this.generateUniqueId()}`;
 
     // "wx" creates the file exclusively, so a name collision with a concurrent
@@ -48,7 +47,10 @@ export class FileManager {
    * @param tempFilePath - Path to the temp file.
    * @param destination - Final destination path.
    */
-  public async atomicRename(tempFilePath: string, destination: string): Promise<void> {
+  public async atomicRename(
+    tempFilePath: string,
+    destination: string,
+  ): Promise<void> {
     try {
       await rename(tempFilePath, destination);
     } catch (renameError: any) {
@@ -59,21 +61,26 @@ export class FileManager {
           await rename(tempFilePath, destination);
         } catch (fallbackError: any) {
           await this.deleteTempFile(tempFilePath);
-          throw new Error(`Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`);
+          throw new Error(
+            `Failed to rename temp file to destination: ${fallbackError.message || fallbackError.code}`,
+          );
         }
       } else {
         await this.deleteTempFile(tempFilePath);
-        throw new Error(`Failed to rename temp file to destination: ${renameError.message || renameError.code}`);
+        throw new Error(
+          `Failed to rename temp file to destination: ${renameError.message || renameError.code}`,
+        );
       }
     }
   }
 
   /**
-   * Deletes the temp file. Idempotent — no-op if the file doesn't exist.
+   * Deletes the temp file and unregisters any associated cleanup handlers.
    *
    * @param tempFilePath - Path to the temp file to delete.
    */
   public async deleteTempFile(tempFilePath: string): Promise<void> {
+    this.unregisterCleanupHandler(tempFilePath);
     try {
       await unlink(tempFilePath);
     } catch (error: any) {
@@ -94,23 +101,17 @@ export class FileManager {
       try {
         unlinkSync(tempFilePath);
       } catch {
-        // Ignore errors during cleanup (file may already be removed).
+        /* File may already be deleted by normal cleanup, and errors are
+         * unrecoverable since the process is exiting, so ignore the error.
+         */
       }
     };
 
-    const sigintHandler = () => {
-      try {
-        unlinkSync(tempFilePath);
-      } catch {
-        // Ignore errors during cleanup.
-      }
-      process.exit(1);
-    };
-
+    // The `exit` event covers SIGINT and SIGTERM — both trigger process
+    // termination by default, which fires `exit` before the process ends.
     process.on("exit", exitHandler);
-    process.on("SIGINT", sigintHandler);
 
-    this.cleanupHandlers.set(tempFilePath, { exitHandler, sigintHandler });
+    this.cleanupHandlers.set(tempFilePath, { exitHandler });
   }
 
   /**
@@ -122,7 +123,6 @@ export class FileManager {
     const handlers = this.cleanupHandlers.get(tempFilePath);
     if (handlers) {
       process.removeListener("exit", handlers.exitHandler);
-      process.removeListener("SIGINT", handlers.sigintHandler);
       this.cleanupHandlers.delete(tempFilePath);
     }
   }

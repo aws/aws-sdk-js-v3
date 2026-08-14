@@ -53,7 +53,6 @@ export class OrderedPartQueue {
    * Called when a worker delivers a part (may arrive out of order).
    * If the consumer is waiting for this exact part, delivers immediately.
    * Otherwise stores it until its turn.
-   * @internal
    */
   public enqueue(rangeIndex: number, buffer: ArrayBuffer, byteLength: number): void {
     if (this.error) return;
@@ -74,7 +73,6 @@ export class OrderedPartQueue {
    * Called by the Readable stream's read() to get the next sequential part.
    * Returns null when all parts have been consumed.
    * Waits asynchronously if the next part hasn't arrived yet.
-   * @internal
    */
   public async dequeue(): Promise<QueuedPart | null> {
     if (this.error) {
@@ -101,7 +99,6 @@ export class OrderedPartQueue {
 
   /**
    * Signals an error, waking up any waiting consumer.
-   * @internal
    */
   public setError(error: unknown): void {
     this.error = error;
@@ -115,7 +112,6 @@ export class OrderedPartQueue {
 
   /**
    * Returns whether an error has been set.
-   * @internal
    */
   public hasError(): boolean {
     return this.error !== undefined;
@@ -123,7 +119,6 @@ export class OrderedPartQueue {
 
   /**
    * Returns the stored error, if any.
-   * @internal
    */
   public getError(): unknown {
     return this.error;
@@ -132,7 +127,6 @@ export class OrderedPartQueue {
   /**
    * Returns the number of parts currently held (arrived but not yet delivered).
    * Useful for monitoring reorder buffer depth.
-   * @internal
    */
   public get pendingCount(): number {
     return this.pending.size;

@@ -908,9 +908,9 @@ describe("S3TransferManager Unit Tests", () => {
   });
 
   describe("createConcurrentTaskPool() concurrency", () => {
-    it("should default maxConcurrentDownloads to 8 when not provided", () => {
+    it("should default maxConcurrentDownloads to 32 when not provided", () => {
       const tm = new S3TransferManager() as any;
-      expect(tm.maxConcurrentDownloads).toBe(8);
+      expect(tm.maxConcurrentDownloads).toBe(32);
     });
 
     it("should use user-provided maxConcurrentDownloads", () => {
@@ -2019,7 +2019,7 @@ describe("S3TransferManager Unit Tests", () => {
         let tempFileExistedDuringDownload = false;
         let exitListenersDuringDownload = 0;
 
-        // Part 1 succeeds
+        // Part 1: succeeds
         mockSend.mockResolvedValueOnce({
           Body: Readable.from(Buffer.alloc(partSize, "A")),
           ContentLength: partSize,
