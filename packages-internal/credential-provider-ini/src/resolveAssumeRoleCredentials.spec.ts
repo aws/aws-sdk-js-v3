@@ -171,7 +171,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
         },
         resolveProfileData
       );
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
@@ -289,7 +289,7 @@ describe(resolveAssumeRoleCredentials.name, () => {
         {},
         resolveProfileData
       );
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

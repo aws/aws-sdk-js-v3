@@ -76,7 +76,7 @@ describe(resolveLoginCredentials.name, () => {
 
     try {
       await resolveLoginCredentials(mockProfileName, {});
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

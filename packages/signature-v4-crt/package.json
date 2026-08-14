@@ -29,7 +29,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "premove dist-cjs dist-es dist-types",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
   "dependencies": {
     "@aws-sdk/crt-loader": "workspace:^3.972.72",
@@ -44,7 +45,6 @@
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "jest": "^30.2.0",
     "premove": "4.0.0",
     "typescript": "~6.0.3"
   },

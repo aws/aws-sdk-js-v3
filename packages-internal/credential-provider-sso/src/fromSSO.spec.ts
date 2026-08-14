@@ -54,7 +54,7 @@ describe(fromSSO.name, () => {
 
     try {
       await fromSSO(mockInit)();
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
@@ -85,7 +85,7 @@ describe(fromSSO.name, () => {
 
       try {
         await fromSSO(mockInit)();
-        fail(`expected ${expectedError}`);
+        expect.fail(`expected ${expectedError}`);
       } catch (error) {
         expect(error).toStrictEqual(expectedError);
       }
@@ -99,7 +99,7 @@ describe(fromSSO.name, () => {
 
       try {
         await fromSSO(mockInit)();
-        fail(`expected ${expectedError}`);
+        expect.fail(`expected ${expectedError}`);
       } catch (error) {
         expect(error).toStrictEqual(expectedError);
       }
@@ -139,7 +139,7 @@ describe(fromSSO.name, () => {
       );
       try {
         await fromSSO({ ...mockSsoProfile, [key]: undefined })();
-        fail(`expected ${expectedError}`);
+        expect.fail(`expected ${expectedError}`);
       } catch (error) {
         expect(error).toStrictEqual(expectedError);
       }

@@ -32,7 +32,7 @@ describe(resolveSsoCredentials.name, () => {
 
     try {
       await resolveSsoCredentials(mockProfileName, {});
-      fail(`expected ${expectedError}`);
+      expect.fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }

@@ -111,7 +111,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
         try {
           // @ts-ignore
           await updateDiscoveredEndpointInCache(config, { ...options, isDiscoveredEndpointRequired: true });
-          fail("updateDiscoveredEndpointInCache should throw");
+          expect.fail("updateDiscoveredEndpointInCache should throw");
         } catch (error) {
           expect(error).toEqual(
             Object.assign(

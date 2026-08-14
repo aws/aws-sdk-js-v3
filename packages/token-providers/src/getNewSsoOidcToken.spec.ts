@@ -47,7 +47,7 @@ describe(getNewSsoOidcToken.name, () => {
       });
       try {
         await getNewSsoOidcToken(mockSsoToken, mockSsoRegion);
-        fail(`expected ${mockError}`);
+        expect.fail(`expected ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
@@ -61,7 +61,7 @@ describe(getNewSsoOidcToken.name, () => {
       vi.mocked(getSsoOidcClient as any).mockReturnValueOnce({ send: mockSendWithError });
       try {
         await getNewSsoOidcToken(mockSsoToken, mockSsoRegion);
-        fail(`expected ${mockError}`);
+        expect.fail(`expected ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }
@@ -76,7 +76,7 @@ describe(getNewSsoOidcToken.name, () => {
       });
       try {
         await getNewSsoOidcToken(mockSsoToken, mockSsoRegion);
-        fail(`expected ${mockError}`);
+        expect.fail(`expected ${mockError}`);
       } catch (error) {
         expect(error).toStrictEqual(mockError);
       }

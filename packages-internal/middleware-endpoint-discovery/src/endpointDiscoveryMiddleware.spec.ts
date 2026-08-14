@@ -60,7 +60,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
           mockNext,
           mockContext
         )(mockArgs as BuildHandlerArguments<any>);
-        fail("should throw error when isCustomEndpoint=true and isClientEndpointDiscoveryEnabled=true");
+        expect.fail("should throw error when isCustomEndpoint=true and isClientEndpointDiscoveryEnabled=true");
       } catch (error) {
         expect(error).toStrictEqual(
           new Error(`Custom endpoint is supplied; endpointDiscoveryEnabled must not be true.`)
@@ -88,7 +88,7 @@ describe(endpointDiscoveryMiddleware.name, () => {
           mockNext,
           mockContext
         )(mockArgs as BuildHandlerArguments<any>);
-        fail("should throw error when isDiscoveredEndpointRequired=true and isEndpointDiscoveryEnabled=false");
+        expect.fail("should throw error when isDiscoveredEndpointRequired=true and isEndpointDiscoveryEnabled=false");
       } catch (error) {
         expect(error).toStrictEqual(
           new Error(

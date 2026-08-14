@@ -6,7 +6,7 @@ describe(tokenDefaultProvider.name, () => {
   it("should throw error", async () => {
     try {
       await tokenDefaultProvider({})();
-      fail("Expected error");
+      expect.fail("Expected error");
     } catch (error) {
       expect(error.message).toEqual("Token is missing");
     }
