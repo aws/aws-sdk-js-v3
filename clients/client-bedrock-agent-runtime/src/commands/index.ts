@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AgenticRetrieveStreamCommand";
+export * from "./CheckIngestedDocumentAclCommand";
 export * from "./CreateInvocationCommand";
 export * from "./CreateSessionCommand";
 export * from "./DeleteAgentMemoryCommand";
@@ -10,6 +11,7 @@ export * from "./GetAgentMemoryCommand";
 export * from "./GetDocumentContentCommand";
 export * from "./GetExecutionFlowSnapshotCommand";
 export * from "./GetFlowExecutionCommand";
+export * from "./GetIngestedDocumentAclCommand";
 export * from "./GetInvocationStepCommand";
 export * from "./GetSessionCommand";
 export * from "./InvokeAgentCommand";

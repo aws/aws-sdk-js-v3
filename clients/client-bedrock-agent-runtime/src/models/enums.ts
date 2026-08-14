@@ -800,6 +800,32 @@ export type DocumentOutputFormat = (typeof DocumentOutputFormat)[keyof typeof Do
  * @public
  * @enum
  */
+export const DocumentAclMemberRelation = {
+  AND: "AND",
+  OR: "OR",
+} as const;
+/**
+ * @public
+ */
+export type DocumentAclMemberRelation = (typeof DocumentAclMemberRelation)[keyof typeof DocumentAclMemberRelation];
+
+/**
+ * @public
+ * @enum
+ */
+export const DocumentAclMembershipType = {
+  DATA_SOURCE: "DATA_SOURCE",
+  KNOWLEDGE_BASE: "KNOWLEDGE_BASE",
+} as const;
+/**
+ * @public
+ */
+export type DocumentAclMembershipType = (typeof DocumentAclMembershipType)[keyof typeof DocumentAclMembershipType];
+
+/**
+ * @public
+ * @enum
+ */
 export const FileSourceType = {
   BYTE_CONTENT: "BYTE_CONTENT",
   S3: "S3",

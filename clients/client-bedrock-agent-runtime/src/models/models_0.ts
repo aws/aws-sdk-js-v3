@@ -14,6 +14,8 @@ import type {
   ConversationRole,
   CreationMode,
   CustomControlMethod,
+  DocumentAclMemberRelation,
+  DocumentAclMembershipType,
   DocumentOutputFormat,
   ExecutionType,
   ExternalSourceType,
@@ -68,7 +70,6 @@ import type {
   RetrievalResultContentColumnType,
   RetrievalResultContentType,
   RetrievalResultLocationType,
-  SessionStatus,
   Source,
   TextToSqlConfigurationType,
   Type,
@@ -3825,6 +3826,46 @@ export interface TracePart {
 /**
  * @public
  */
+export interface CheckIngestedDocumentAclRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that contains the document.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the document.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the document to check access for.</p>
+   * @public
+   */
+  documentId: string | undefined;
+
+  /**
+   * <p>The context object containing identity information for access control filtering, including user ID and optional group memberships used to evaluate the document access control list (ACL).</p>
+   * @public
+   */
+  userContext: UserContext | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CheckIngestedDocumentAclResponse {
+  /**
+   * <p>Specifies whether the user has access to the document based on the ingested access control list (ACL). Returns <code>true</code> if the user is allowed access, and <code>false</code> otherwise.</p>
+   * @public
+   */
+  hasAccess: boolean | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetExecutionFlowSnapshotRequest {
   /**
    * <p>The unique identifier of the flow.</p>
@@ -6279,7 +6320,7 @@ export interface GetDocumentContentRequest {
   outputFormat?: DocumentOutputFormat | undefined;
 
   /**
-   * <p>Contains information about the user making the request. Use this to pass user identity information for access control filtering, so that retrieval results only include documents the user is authorized to access.</p>
+   * <p>Contains information about the user making the request. This is used for access control filtering to ensure that results only include documents the user is authorized to access.</p>
    * @public
    */
   userContext?: UserContext | undefined;
@@ -6306,6 +6347,136 @@ export interface GetDocumentContentResponse {
    * @public
    */
   documentContentLength?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestedDocumentAclRequest {
+  /**
+   * <p>The unique identifier of the knowledge base that contains the document.</p>
+   * @public
+   */
+  knowledgeBaseId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the data source that contains the document.</p>
+   * @public
+   */
+  dataSourceId: string | undefined;
+
+  /**
+   * <p>The unique identifier of the document to retrieve the ingested access control list (ACL) for.</p>
+   * @public
+   */
+  documentId: string | undefined;
+}
+
+/**
+ * <p>A group entry within a document access control list (ACL) condition.</p>
+ * @public
+ */
+export interface DocumentAclGroup {
+  /**
+   * <p>The identifier of the group.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The membership type indicating the scope of the group entry.</p>
+   * @public
+   */
+  type: DocumentAclMembershipType | undefined;
+}
+
+/**
+ * <p>A user entry within a document access control list (ACL) condition.</p>
+ * @public
+ */
+export interface DocumentAclUser {
+  /**
+   * <p>The identifier of the user.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>The membership type indicating the scope of the user entry.</p>
+   * @public
+   */
+  type: DocumentAclMembershipType | undefined;
+}
+
+/**
+ * <p>A condition within a document access control list (ACL) membership, specifying users and groups that are evaluated together.</p>
+ * @public
+ */
+export interface DocumentAclCondition {
+  /**
+   * <p>The logical operator for combining users and groups within this condition. Valid values: <code>AND</code> – Both a user match and a group match are required. <code>OR</code> – Either a user match or a group match is sufficient.</p>
+   * @public
+   */
+  conditionOperator?: DocumentAclMemberRelation | undefined;
+
+  /**
+   * <p>The list of user entries in this condition.</p>
+   * @public
+   */
+  users?: DocumentAclUser[] | undefined;
+
+  /**
+   * <p>The list of group entries in this condition.</p>
+   * @public
+   */
+  groups?: DocumentAclGroup[] | undefined;
+}
+
+/**
+ * <p>The membership entry for a document access control list (ACL), containing conditions and their logical relation.</p>
+ * @public
+ */
+export interface DocumentAclMembership {
+  /**
+   * <p>The logical relation between conditions. Valid values: <code>AND</code> – All conditions must match. <code>OR</code> – At least one condition must match.</p>
+   * @public
+   */
+  memberRelation?: DocumentAclMemberRelation | undefined;
+
+  /**
+   * <p>The list of conditions that determine membership.</p>
+   * @public
+   */
+  conditions?: DocumentAclCondition[] | undefined;
+}
+
+/**
+ * <p>The access control list for a document, containing allow and deny membership lists. Each list specifies conditions that determine which users and groups are granted or denied access.</p>
+ * @public
+ */
+export interface DocumentAcl {
+  /**
+   * <p>The list of principals allowed access to the document.</p>
+   * @public
+   */
+  allowList?: DocumentAclMembership | undefined;
+
+  /**
+   * <p>The list of principals denied access to the document.</p>
+   * @public
+   */
+  denyList?: DocumentAclMembership | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetIngestedDocumentAclResponse {
+  /**
+   * <p>The ingested document access control list (ACL) containing allow and deny membership information.</p>
+   * @public
+   */
+  documentAcl: DocumentAcl | undefined;
 }
 
 /**
@@ -9474,187 +9645,4 @@ export interface CreateSessionRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSessionResponse {
-  /**
-   * <p>The unique identifier for the session.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the created session.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-
-  /**
-   * <p>The timestamp for when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSessionRequest {
-  /**
-   * <p>The unique identifier for the session to be deleted. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteSessionResponse {}
-
-/**
- * @public
- */
-export interface EndSessionRequest {
-  /**
-   * <p>The unique identifier for the session to end. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface EndSessionResponse {
-  /**
-   * <p>The unique identifier of the session you ended.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the session you ended.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session you ended.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionRequest {
-  /**
-   * <p>A unique identifier for the session to retrieve. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetSessionResponse {
-  /**
-   * <p>The unique identifier for the session in UUID format.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the session.</p>
-   * @public
-   */
-  sessionArn: string | undefined;
-
-  /**
-   * <p>The current status of the session.</p>
-   * @public
-   */
-  sessionStatus: SessionStatus | undefined;
-
-  /**
-   * <p>The timestamp for when the session was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp for when the session was last modified.</p>
-   * @public
-   */
-  lastUpdatedAt: Date | undefined;
-
-  /**
-   * <p>A map of key-value pairs containing attributes persisted across the session.</p>
-   * @public
-   */
-  sessionMetadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInvocationRequest {
-  /**
-   * <p>A unique identifier for the invocation in UUID format.</p>
-   * @public
-   */
-  invocationId?: string | undefined;
-
-  /**
-   * <p>A description for the interactions in the invocation. For example, "User asking about weather in Seattle".</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>The unique identifier for the associated session for the invocation. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN). </p>
-   * @public
-   */
-  sessionIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateInvocationResponse {
-  /**
-   * <p>The unique identifier for the session associated with the invocation.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The unique identifier for the invocation.</p>
-   * @public
-   */
-  invocationId: string | undefined;
-
-  /**
-   * <p>The timestamp for when the invocation was created.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
 }

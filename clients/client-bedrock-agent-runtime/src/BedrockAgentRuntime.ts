@@ -9,6 +9,11 @@ import {
   AgenticRetrieveStreamCommand,
 } from "./commands/AgenticRetrieveStreamCommand";
 import {
+  type CheckIngestedDocumentAclCommandInput,
+  type CheckIngestedDocumentAclCommandOutput,
+  CheckIngestedDocumentAclCommand,
+} from "./commands/CheckIngestedDocumentAclCommand";
+import {
   type CreateInvocationCommandInput,
   type CreateInvocationCommandOutput,
   CreateInvocationCommand,
@@ -58,6 +63,11 @@ import {
   type GetFlowExecutionCommandOutput,
   GetFlowExecutionCommand,
 } from "./commands/GetFlowExecutionCommand";
+import {
+  type GetIngestedDocumentAclCommandInput,
+  type GetIngestedDocumentAclCommandOutput,
+  GetIngestedDocumentAclCommand,
+} from "./commands/GetIngestedDocumentAclCommand";
 import {
   type GetInvocationStepCommandInput,
   type GetInvocationStepCommandOutput,
@@ -171,6 +181,7 @@ import { paginateRetrieve } from "./pagination/RetrievePaginator";
 
 const commands = {
   AgenticRetrieveStreamCommand,
+  CheckIngestedDocumentAclCommand,
   CreateInvocationCommand,
   CreateSessionCommand,
   DeleteAgentMemoryCommand,
@@ -181,6 +192,7 @@ const commands = {
   GetDocumentContentCommand,
   GetExecutionFlowSnapshotCommand,
   GetFlowExecutionCommand,
+  GetIngestedDocumentAclCommand,
   GetInvocationStepCommand,
   GetSessionCommand,
   InvokeAgentCommand,
@@ -231,6 +243,23 @@ export interface BedrockAgentRuntime {
     args: AgenticRetrieveStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AgenticRetrieveStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CheckIngestedDocumentAclCommand}
+   */
+  checkIngestedDocumentAcl(
+    args: CheckIngestedDocumentAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckIngestedDocumentAclCommandOutput>;
+  checkIngestedDocumentAcl(
+    args: CheckIngestedDocumentAclCommandInput,
+    cb: (err: any, data?: CheckIngestedDocumentAclCommandOutput) => void
+  ): void;
+  checkIngestedDocumentAcl(
+    args: CheckIngestedDocumentAclCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckIngestedDocumentAclCommandOutput) => void
   ): void;
 
   /**
@@ -402,6 +431,23 @@ export interface BedrockAgentRuntime {
     args: GetFlowExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFlowExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetIngestedDocumentAclCommand}
+   */
+  getIngestedDocumentAcl(
+    args: GetIngestedDocumentAclCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIngestedDocumentAclCommandOutput>;
+  getIngestedDocumentAcl(
+    args: GetIngestedDocumentAclCommandInput,
+    cb: (err: any, data?: GetIngestedDocumentAclCommandOutput) => void
+  ): void;
+  getIngestedDocumentAcl(
+    args: GetIngestedDocumentAclCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIngestedDocumentAclCommandOutput) => void
   ): void;
 
   /**
@@ -869,7 +915,7 @@ export interface BedrockAgentRuntime {
 }
 
 /**
- * <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
+ * <note> <p>Amazon Bedrock Agents (now Amazon Bedrock Agents Classic) is no longer open to new customers. For capabilities similar to Bedrock Agents Classic, explore Amazon Bedrock AgentCore. Existing customers can continue to use the service as normal. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-classic-maintenance-mode.html">Amazon Bedrock Agents Classic availability change</a>.</p> </note> <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
  * @public
  */
 export class BedrockAgentRuntime extends BedrockAgentRuntimeClient implements BedrockAgentRuntime {}

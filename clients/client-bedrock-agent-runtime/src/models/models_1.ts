@@ -42,6 +42,189 @@ import type {
 /**
  * @public
  */
+export interface CreateSessionResponse {
+  /**
+   * <p>The unique identifier for the session.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the created session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionRequest {
+  /**
+   * <p>The unique identifier for the session to be deleted. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSessionResponse {}
+
+/**
+ * @public
+ */
+export interface EndSessionRequest {
+  /**
+   * <p>The unique identifier for the session to end. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EndSessionResponse {
+  /**
+   * <p>The unique identifier of the session you ended.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session you ended.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session you ended.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionRequest {
+  /**
+   * <p>A unique identifier for the session to retrieve. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN).</p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetSessionResponse {
+  /**
+   * <p>The unique identifier for the session in UUID format.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the session.</p>
+   * @public
+   */
+  sessionArn: string | undefined;
+
+  /**
+   * <p>The current status of the session.</p>
+   * @public
+   */
+  sessionStatus: SessionStatus | undefined;
+
+  /**
+   * <p>The timestamp for when the session was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the session was last modified.</p>
+   * @public
+   */
+  lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>A map of key-value pairs containing attributes persisted across the session.</p>
+   * @public
+   */
+  sessionMetadata?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Key Management Service key used to encrypt the session data. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInvocationRequest {
+  /**
+   * <p>A unique identifier for the invocation in UUID format.</p>
+   * @public
+   */
+  invocationId?: string | undefined;
+
+  /**
+   * <p>A description for the interactions in the invocation. For example, "User asking about weather in Seattle".</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the associated session for the invocation. You can specify either the session's <code>sessionId</code> or its Amazon Resource Name (ARN). </p>
+   * @public
+   */
+  sessionIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateInvocationResponse {
+  /**
+   * <p>The unique identifier for the session associated with the invocation.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The unique identifier for the invocation.</p>
+   * @public
+   */
+  invocationId: string | undefined;
+
+  /**
+   * <p>The timestamp for when the invocation was created.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListInvocationsRequest {
   /**
    * <p>If the total number of results is greater than the <code>maxResults</code> value provided in the request, enter the token returned in the <code>nextToken</code> field in the response in this field to return the next batch of results. </p>
@@ -1045,7 +1228,7 @@ export interface ManagedSearchConfiguration {
   numberOfResults?: number | undefined;
 
   /**
-   * <p>Specifies the filters to use on the metadata attributes in the knowledge base data sources before returning results. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-test-config.html">Query configurations</a>. See the examples below to see how to use these filters.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>filter</code> field</p> </li> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html#API_agent-runtime_RetrieveAndGenerate_RequestSyntax">RetrieveAndGenerate request</a> – in the <code>filter</code> field</p> </li> </ul>
+   * <p>Filters the metadata of the retrieved results so that Amazon Bedrock returns only results that match the filter.</p>
    * @public
    */
   filter?: RetrievalFilter | undefined;
@@ -1335,7 +1518,7 @@ export interface RetrieveRequest {
   nextToken?: string | undefined;
 
   /**
-   * <p>Contains information about the user making the request. Use this to pass user identity information for access control filtering, so that retrieval results only include documents the user is authorized to access.</p>
+   * <p>Contains information about the user making the request. This is used for access control filtering to ensure that retrieval results only include documents the user is authorized to access.</p>
    * @public
    */
   userContext?: UserContext | undefined;
@@ -1466,7 +1649,7 @@ export interface RetrieveAndGenerateRequest {
   sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
 
   /**
-   * <p>Contains information about the user making the request. Use this to pass user identity information for access control filtering, so that retrieval results only include documents the user is authorized to access.</p>
+   * <p>Contains information about the user making the request. This is used for access control filtering to ensure that retrieval results only include documents the user is authorized to access.</p>
    * @public
    */
   userContext?: UserContext | undefined;
@@ -1501,7 +1684,7 @@ export interface RetrieveAndGenerateStreamRequest {
   sessionConfiguration?: RetrieveAndGenerateSessionConfiguration | undefined;
 
   /**
-   * <p>Contains information about the user making the request. Use this to pass user identity information for access control filtering, so that retrieval results only include documents the user is authorized to access.</p>
+   * <p>Contains information about the user making the request. This is used for access control filtering to ensure that retrieval results only include documents the user is authorized to access.</p>
    * @public
    */
   userContext?: UserContext | undefined;

@@ -72,6 +72,10 @@ import {
   ByteContentDoc$,
   ByteContentFile$,
   Caller$,
+  CheckIngestedDocumentAcl$,
+  CheckIngestedDocumentAclCommand,
+  CheckIngestedDocumentAclRequest$,
+  CheckIngestedDocumentAclResponse$,
   Citation$,
   CitationEvent$,
   CodeInterpreterInvocationInput$,
@@ -109,6 +113,13 @@ import {
   DeleteSessionResponse$,
   DependencyFailedException,
   DependencyFailedException$,
+  DocumentAcl$,
+  DocumentAclCondition$,
+  DocumentAclGroup$,
+  DocumentAclMemberRelation,
+  DocumentAclMembership$,
+  DocumentAclMembershipType,
+  DocumentAclUser$,
   DocumentOutputFormat,
   EndSession$,
   EndSessionCommand,
@@ -199,6 +210,10 @@ import {
   GetFlowExecutionCommand,
   GetFlowExecutionRequest$,
   GetFlowExecutionResponse$,
+  GetIngestedDocumentAcl$,
+  GetIngestedDocumentAclCommand,
+  GetIngestedDocumentAclRequest$,
+  GetIngestedDocumentAclResponse$,
   GetInvocationStep$,
   GetInvocationStepCommand,
   GetInvocationStepRequest$,
@@ -528,6 +543,8 @@ assert(typeof BedrockAgentRuntime === "function");
 // commands
 assert(typeof AgenticRetrieveStreamCommand === "function");
 assert(typeof AgenticRetrieveStream$ === "object");
+assert(typeof CheckIngestedDocumentAclCommand === "function");
+assert(typeof CheckIngestedDocumentAcl$ === "object");
 assert(typeof CreateInvocationCommand === "function");
 assert(typeof CreateInvocation$ === "object");
 assert(typeof CreateSessionCommand === "function");
@@ -548,6 +565,8 @@ assert(typeof GetExecutionFlowSnapshotCommand === "function");
 assert(typeof GetExecutionFlowSnapshot$ === "object");
 assert(typeof GetFlowExecutionCommand === "function");
 assert(typeof GetFlowExecution$ === "object");
+assert(typeof GetIngestedDocumentAclCommand === "function");
+assert(typeof GetIngestedDocumentAcl$ === "object");
 assert(typeof GetInvocationStepCommand === "function");
 assert(typeof GetInvocationStep$ === "object");
 assert(typeof GetSessionCommand === "function");
@@ -648,6 +667,8 @@ assert(typeof BedrockSessionContentBlock$ === "object");
 assert(typeof ByteContentDoc$ === "object");
 assert(typeof ByteContentFile$ === "object");
 assert(typeof Caller$ === "object");
+assert(typeof CheckIngestedDocumentAclRequest$ === "object");
+assert(typeof CheckIngestedDocumentAclResponse$ === "object");
 assert(typeof Citation$ === "object");
 assert(typeof CitationEvent$ === "object");
 assert(typeof CodeInterpreterInvocationInput$ === "object");
@@ -669,6 +690,11 @@ assert(typeof DeleteAgentMemoryRequest$ === "object");
 assert(typeof DeleteAgentMemoryResponse$ === "object");
 assert(typeof DeleteSessionRequest$ === "object");
 assert(typeof DeleteSessionResponse$ === "object");
+assert(typeof DocumentAcl$ === "object");
+assert(typeof DocumentAclCondition$ === "object");
+assert(typeof DocumentAclGroup$ === "object");
+assert(typeof DocumentAclMembership$ === "object");
+assert(typeof DocumentAclUser$ === "object");
 assert(typeof EndSessionRequest$ === "object");
 assert(typeof EndSessionResponse$ === "object");
 assert(typeof ExternalSource$ === "object");
@@ -731,6 +757,8 @@ assert(typeof GetExecutionFlowSnapshotRequest$ === "object");
 assert(typeof GetExecutionFlowSnapshotResponse$ === "object");
 assert(typeof GetFlowExecutionRequest$ === "object");
 assert(typeof GetFlowExecutionResponse$ === "object");
+assert(typeof GetIngestedDocumentAclRequest$ === "object");
+assert(typeof GetIngestedDocumentAclResponse$ === "object");
 assert(typeof GetInvocationStepRequest$ === "object");
 assert(typeof GetInvocationStepResponse$ === "object");
 assert(typeof GetSessionRequest$ === "object");
@@ -954,6 +982,8 @@ assert(typeof ConfirmationState === "object");
 assert(typeof ConversationRole === "object");
 assert(typeof CreationMode === "object");
 assert(typeof CustomControlMethod === "object");
+assert(typeof DocumentAclMemberRelation === "object");
+assert(typeof DocumentAclMembershipType === "object");
 assert(typeof DocumentOutputFormat === "object");
 assert(typeof ExecutionType === "object");
 assert(typeof ExternalSourceType === "object");

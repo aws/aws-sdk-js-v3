@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateSessionRequest, CreateSessionResponse } from "../models/models_0";
+import type { CreateSessionRequest } from "../models/models_0";
+import type { CreateSessionResponse } from "../models/models_1";
 import { CreateSession$ } from "../schemas/schemas_0";
 
 /**
