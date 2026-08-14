@@ -582,6 +582,18 @@ export interface AssociateGlossaryTermsRequest {
   AssetIdentifier: string | undefined;
 
   /**
+   * <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the glossary terms are associated with an item within the iterable form rather than the asset itself.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
+
+  /**
    * <p>The list of glossary term identifiers to associate with the asset.</p>
    * @public
    */
@@ -603,6 +615,18 @@ export interface AssociateGlossaryTermsResponse {
    * @public
    */
   AssetIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the iterable form, if the association targets an item.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form, if applicable.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
 
   /**
    * <p>The glossary terms now associated with the asset.</p>

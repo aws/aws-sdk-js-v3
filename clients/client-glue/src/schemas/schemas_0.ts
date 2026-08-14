@@ -1282,7 +1282,7 @@ const _IFnp = "InputFormat";
 const _IFt = "IterableForms";
 const _IG = "IncludeGraph";
 const _IH = "IncludeHeaders";
-const _II = "ItemIdentifiers";
+const _II = "ItemIdentifier";
 const _IIE = "InvalidInputException";
 const _IIL = "InboundIntegrationsList";
 const _IISF = "InvalidIntegrationStateFault";
@@ -1290,7 +1290,7 @@ const _IIc = "IcebergInput";
 const _IIn = "IntegrationIdentifier";
 const _IInb = "InboundIntegrations";
 const _IInbo = "InboundIntegration";
-const _IIt = "ItemIdentifier";
+const _IIt = "ItemIdentifiers";
 const _IIte = "ItemId";
 const _IL = "IntegrationsList";
 const _ILTRP = "ImportLabelsTaskRunProperties";
@@ -3120,13 +3120,13 @@ export var AssetTypeItem$: StaticStructureSchema = [3, n0, _ATI,
 ];
 export var AssociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _AGTR,
   0,
-  [_AI, _GTI, _CTl],
-  [[0, 1], 64 | 0, [0, 4]], 2
+  [_AI, _GTI, _IFN, _II, _CTl],
+  [[0, 1], 64 | 0, 0, 0, [0, 4]], 2
 ];
 export var AssociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _AGTRs,
   0,
-  [_AI, _GT],
-  [0, 64 | 0]
+  [_AI, _IFN, _II, _GT],
+  [0, 0, 0, 64 | 0]
 ];
 export var AthenaConnectorSource$: StaticStructureSchema = [3, n0, _ACS,
   0,
@@ -3295,7 +3295,7 @@ export var BatchGetDevEndpointsResponse$: StaticStructureSchema = [3, n0, _BGDER
 ];
 export var BatchGetIterableFormsRequest$: StaticStructureSchema = [3, n0, _BGIFR,
   0,
-  [_AI, _IFN, _II],
+  [_AI, _IFN, _IIt],
   [[0, 1], [0, 1], 64 | 0], 3
 ];
 export var BatchGetIterableFormsResponse$: StaticStructureSchema = [3, n0, _BGIFRa,
@@ -4355,13 +4355,13 @@ export var DeleteAssetTypeResponse$: StaticStructureSchema = [3, n0, _DATRe,
 ];
 export var DeleteAttachmentRequest$: StaticStructureSchema = [3, n0, _DARel,
   0,
-  [_AI, _AN, _IFN, _IIt],
+  [_AI, _AN, _IFN, _II],
   [[0, 1], [0, 1], [0, { [_hQ]: _iFN }], [0, { [_hQ]: _iI }]], 2
 ];
 export var DeleteAttachmentResponse$: StaticStructureSchema = [3, n0, _DARele,
   0,
-  [_AI],
-  [0]
+  [_AI, _IFN, _II],
+  [0, 0, 0]
 ];
 export var DeleteBlueprintRequest$: StaticStructureSchema = [3, n0, _DBR,
   0,
@@ -4810,13 +4810,13 @@ export var DirectSchemaChangePolicy$: StaticStructureSchema = [3, n0, _DSCP,
 ];
 export var DisassociateGlossaryTermsRequest$: StaticStructureSchema = [3, n0, _DGTRi,
   0,
-  [_AI, _GTI, _CTl],
-  [[0, 1], 64 | 0, [0, 4]], 2
+  [_AI, _GTI, _IFN, _II, _CTl],
+  [[0, 1], 64 | 0, 0, 0, [0, 4]], 2
 ];
 export var DisassociateGlossaryTermsResponse$: StaticStructureSchema = [3, n0, _DGTRis,
   0,
-  [_AI, _GT],
-  [0, 64 | 0]
+  [_AI, _IFN, _II, _GT],
+  [0, 0, 0, 64 | 0]
 ];
 export var DistributionData$: StaticStructureSchema = [3, n0, _DDi,
   0,
@@ -6120,7 +6120,7 @@ export var IntegrationResourcePropertyFilter$: StaticStructureSchema = [3, n0, _
 ];
 export var ItemError$: StaticStructureSchema = [3, n0, _IEt,
   0,
-  [_IIt, _Cod, _M],
+  [_II, _Cod, _M],
   [0, 0, 0]
 ];
 export var IterableFormEntry$: StaticStructureSchema = [3, n0, _IFE,
@@ -6865,12 +6865,12 @@ export var PutAssetTypeResponse$: StaticStructureSchema = [3, n0, _PATRu,
 ];
 export var PutAttachmentRequest$: StaticStructureSchema = [3, n0, _PARut,
   0,
-  [_AI, _AN, _Con, _FTI, _IFN, _IIt, _CTl],
+  [_AI, _AN, _Con, _FTI, _IFN, _II, _CTl],
   [[0, 1], 0, 0, 0, 0, 0, [0, 4]], 4
 ];
 export var PutAttachmentResponse$: StaticStructureSchema = [3, n0, _PARutt,
   0,
-  [_AI, _IFN, _IIt, _AN, _FTI],
+  [_AI, _IFN, _II, _AN, _FTI],
   [0, 0, 0, 0, 0]
 ];
 export var PutDataCatalogEncryptionSettingsRequest$: StaticStructureSchema = [3, n0, _PDCESR,

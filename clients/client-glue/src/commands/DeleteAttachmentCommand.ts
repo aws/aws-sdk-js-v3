@@ -42,6 +42,8 @@ export interface DeleteAttachmentCommandOutput extends DeleteAttachmentResponse,
  * const response = await client.send(command);
  * // { // DeleteAttachmentResponse
  * //   AssetIdentifier: "STRING_VALUE",
+ * //   IterableFormName: "STRING_VALUE",
+ * //   ItemIdentifier: "STRING_VALUE",
  * // };
  *
  * ```

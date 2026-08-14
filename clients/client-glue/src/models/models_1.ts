@@ -3886,6 +3886,18 @@ export interface DeleteAttachmentResponse {
    * @public
    */
   AssetIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the iterable form, if the deletion targets an item.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form, if applicable.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
 }
 
 /**
@@ -5969,6 +5981,18 @@ export interface DisassociateGlossaryTermsRequest {
   AssetIdentifier: string | undefined;
 
   /**
+   * <p>The name of the iterable form. When specified along with <code>itemIdentifier</code>, the glossary terms are disassociated from an item within the iterable form rather than the asset itself.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form. Required when <code>iterableFormName</code> is specified.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
+
+  /**
    * <p>The list of glossary term identifiers to disassociate from the asset.</p>
    * @public
    */
@@ -5990,6 +6014,18 @@ export interface DisassociateGlossaryTermsResponse {
    * @public
    */
   AssetIdentifier?: string | undefined;
+
+  /**
+   * <p>The name of the iterable form, if the disassociation targets an item.</p>
+   * @public
+   */
+  IterableFormName?: string | undefined;
+
+  /**
+   * <p>The identifier of the item within the iterable form, if applicable.</p>
+   * @public
+   */
+  ItemIdentifier?: string | undefined;
 
   /**
    * <p>The remaining glossary terms associated with the asset.</p>

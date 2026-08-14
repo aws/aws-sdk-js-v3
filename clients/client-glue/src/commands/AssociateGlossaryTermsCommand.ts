@@ -34,6 +34,8 @@ export interface AssociateGlossaryTermsCommandOutput extends AssociateGlossaryTe
  * const client = new GlueClient(config);
  * const input = { // AssociateGlossaryTermsRequest
  *   AssetIdentifier: "STRING_VALUE", // required
+ *   IterableFormName: "STRING_VALUE",
+ *   ItemIdentifier: "STRING_VALUE",
  *   GlossaryTermIdentifiers: [ // GlossaryTermIdList // required
  *     "STRING_VALUE",
  *   ],
@@ -43,6 +45,8 @@ export interface AssociateGlossaryTermsCommandOutput extends AssociateGlossaryTe
  * const response = await client.send(command);
  * // { // AssociateGlossaryTermsResponse
  * //   AssetIdentifier: "STRING_VALUE",
+ * //   IterableFormName: "STRING_VALUE",
+ * //   ItemIdentifier: "STRING_VALUE",
  * //   GlossaryTerms: [ // GlossaryTermIdList
  * //     "STRING_VALUE",
  * //   ],
