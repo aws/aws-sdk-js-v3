@@ -1490,7 +1490,7 @@ export interface CapacityProviderConfiguration {
    * <p>The Amazon Resource Name (ARN) of the capacity provider to use for the AgentCore Runtime.</p>
    * @public
    */
-  capacityProviderArn?: string | undefined;
+  capacityProviderArn: string | undefined;
 }
 
 /**
@@ -2024,7 +2024,7 @@ export interface GetAgentRuntimeResponse {
    * <p>The network configuration for the AgentCore Runtime.</p>
    * @public
    */
-  networkConfiguration: NetworkConfiguration | undefined;
+  networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>The current status of the AgentCore Runtime.</p>

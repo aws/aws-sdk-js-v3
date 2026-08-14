@@ -55,7 +55,8 @@ export interface GetPaymentConnectorCommandOutput extends GetPaymentConnectorRes
  * //   ],
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED" || "PENDING_AUTHENTICATION" || "PROVISIONING" || "AUTHENTICATION_EXPIRED" || "AUTHENTICATION_FAILED", // required
+ * //   authorizationUrl: "STRING_VALUE",
  * // };
  *
  * ```

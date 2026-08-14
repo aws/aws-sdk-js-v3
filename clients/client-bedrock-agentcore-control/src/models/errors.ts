@@ -293,6 +293,40 @@ export class ThrottledException extends __BaseException {
 }
 
 /**
+ * <p>The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.</p>
+ * @public
+ */
+export class SubscriptionRequiredException extends __BaseException {
+  readonly name = "SubscriptionRequiredException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * URL to the Marketplace listing for subscription
+   * @public
+   */
+  subscriptionUrl?: string | undefined;
+
+  /**
+   * The product requiring subscription
+   * @public
+   */
+  productName?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SubscriptionRequiredException, __BaseException>) {
+    super({
+      name: "SubscriptionRequiredException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SubscriptionRequiredException.prototype);
+    this.subscriptionUrl = opts.subscriptionUrl;
+    this.productName = opts.productName;
+  }
+}
+
+/**
  * <p>Exception thrown when a resource is modified concurrently by multiple requests.</p>
  * @public
  */

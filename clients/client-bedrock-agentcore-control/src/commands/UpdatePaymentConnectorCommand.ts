@@ -67,7 +67,8 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  * //     },
  * //   ],
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED" || "PENDING_AUTHENTICATION" || "PROVISIONING" || "AUTHENTICATION_EXPIRED" || "AUTHENTICATION_FAILED", // required
+ * //   authorizationUrl: "STRING_VALUE",
  * // };
  *
  * ```
@@ -92,6 +93,9 @@ export interface UpdatePaymentConnectorCommandOutput extends UpdatePaymentConnec
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>This exception is thrown when a request is made beyond the service quota</p>
+ *
+ * @throws {@link SubscriptionRequiredException} (client fault)
+ *  <p>The request failed because it requires an active Amazon Web Services Marketplace subscription that is not present. Subscribe to the required product in Amazon Web Services Marketplace and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>This exception is thrown when the number of requests exceeds the limit</p>

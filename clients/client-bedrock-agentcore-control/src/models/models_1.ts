@@ -28,6 +28,7 @@ import type {
   OnlineEvaluationConfigStatus,
   OnlineEvaluationExecutionStatus,
   OverrideType,
+  PaymentConnectorProvisionMode,
   PaymentConnectorStatus,
   PaymentConnectorType,
   PaymentCredentialProviderVendorType,
@@ -8621,6 +8622,12 @@ export interface CreatePaymentManagerRequest {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the customer managed KMS key to use for encrypting sensitive payment manager data at rest. If you don't specify a key, the data is encrypted with an Amazon Web Services owned key.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -8686,6 +8693,12 @@ export interface CreatePaymentManagerResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -8808,6 +8821,12 @@ export interface GetPaymentManagerResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -8885,6 +8904,12 @@ export interface PaymentManagerSummary {
    * @public
    */
   lastUpdatedAt: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -9004,6 +9029,12 @@ export interface CreatePaymentConnectorRequest {
   credentialProviderConfigurations: CredentialsProviderConfiguration[] | undefined;
 
   /**
+   * <p>The provision mode for creating the payment connector. If you don't specify a value, the default is <code>MANUAL</code>.</p> <ul> <li> <p> <code>MANUAL</code> - You provide the credential provider configurations directly.</p> </li> <li> <p> <code>QUICK_CREATE</code> - The service orchestrates OAuth consent and provisions the credential provider for you.</p> </li> </ul>
+   * @public
+   */
+  provisionMode?: PaymentConnectorProvisionMode | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier to ensure that the API request completes no more than one time. If you don't specify this field, a value is randomly generated for you. If this token matches a previous request, the service ignores the request, but doesn't return an error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>.</p>
    * @public
    */
@@ -9055,6 +9086,12 @@ export interface CreatePaymentConnectorResponse {
    * @public
    */
   status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
 }
 
 /**
@@ -9165,6 +9202,12 @@ export interface GetPaymentConnectorResponse {
    * @public
    */
   status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
 }
 
 /**
@@ -9329,6 +9372,12 @@ export interface UpdatePaymentConnectorResponse {
    * @public
    */
   status: PaymentConnectorStatus | undefined;
+
+  /**
+   * <p>The URL that the user must open to complete OAuth consent. This field is only present when the payment connector status is <code>PENDING_AUTHENTICATION</code>.</p>
+   * @public
+   */
+  authorizationUrl?: string | undefined;
 }
 
 /**
@@ -9370,6 +9419,12 @@ export interface UpdatePaymentManagerRequest {
    * @public
    */
   clientToken?: string | undefined;
+
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the customer managed KMS key used to encrypt sensitive payment manager data at rest.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -9423,6 +9478,12 @@ export interface UpdatePaymentManagerResponse {
    * @public
    */
   status: PaymentManagerStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt sensitive payment manager data at rest, if configured.</p>
+   * @public
+   */
+  kmsKeyArn?: string | undefined;
 }
 
 /**

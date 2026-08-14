@@ -900,6 +900,7 @@ import {
   paginateListWorkloadIdentities,
   PassthroughProtocolType,
   PassthroughTargetConfiguration$,
+  PaymentConnectorProvisionMode,
   PaymentConnectorStatus,
   PaymentConnectorSummary$,
   PaymentConnectorType,
@@ -1032,6 +1033,8 @@ import {
   SubmitRegistryRecordForApprovalCommand,
   SubmitRegistryRecordForApprovalRequest$,
   SubmitRegistryRecordForApprovalResponse$,
+  SubscriptionRequiredException,
+  SubscriptionRequiredException$,
   SummaryConsolidationOverride$,
   SummaryMemoryStrategyInput$,
   SummaryOverrideConfigurationInput$,
@@ -2362,6 +2365,7 @@ assert(typeof OnlineEvaluationExecutionStatus === "object");
 assert(typeof OperatingSystem === "object");
 assert(typeof OverrideType === "object");
 assert(typeof PassthroughProtocolType === "object");
+assert(typeof PaymentConnectorProvisionMode === "object");
 assert(typeof PaymentConnectorStatus === "object");
 assert(typeof PaymentConnectorType === "object");
 assert(typeof PaymentCredentialProviderVendorType === "object");
@@ -2415,6 +2419,8 @@ assert(ServiceException.prototype instanceof BedrockAgentCoreControlServiceExcep
 assert(typeof ServiceException$ === "object");
 assert(ServiceQuotaExceededException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(typeof ServiceQuotaExceededException$ === "object");
+assert(SubscriptionRequiredException.prototype instanceof BedrockAgentCoreControlServiceException);
+assert(typeof SubscriptionRequiredException$ === "object");
 assert(ThrottledException.prototype instanceof BedrockAgentCoreControlServiceException);
 assert(typeof ThrottledException$ === "object");
 assert(ThrottlingException.prototype instanceof BedrockAgentCoreControlServiceException);

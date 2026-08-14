@@ -1338,6 +1338,20 @@ export type PaymentManagerStatus = (typeof PaymentManagerStatus)[keyof typeof Pa
  * @public
  * @enum
  */
+export const PaymentConnectorProvisionMode = {
+  MANUAL: "MANUAL",
+  QUICK_CREATE: "QUICK_CREATE",
+} as const;
+/**
+ * @public
+ */
+export type PaymentConnectorProvisionMode =
+  (typeof PaymentConnectorProvisionMode)[keyof typeof PaymentConnectorProvisionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const PaymentConnectorType = {
   COINBASE_CDP: "CoinbaseCDP",
   STRIPE_PRIVY: "StripePrivy",
@@ -1352,10 +1366,15 @@ export type PaymentConnectorType = (typeof PaymentConnectorType)[keyof typeof Pa
  * @enum
  */
 export const PaymentConnectorStatus = {
+  AUTHENTICATION_EXPIRED: "AUTHENTICATION_EXPIRED",
+  AUTHENTICATION_FAILED: "AUTHENTICATION_FAILED",
+  AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED: "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED",
   CREATE_FAILED: "CREATE_FAILED",
   CREATING: "CREATING",
   DELETE_FAILED: "DELETE_FAILED",
   DELETING: "DELETING",
+  PENDING_AUTHENTICATION: "PENDING_AUTHENTICATION",
+  PROVISIONING: "PROVISIONING",
   READY: "READY",
   UPDATE_FAILED: "UPDATE_FAILED",
   UPDATING: "UPDATING",

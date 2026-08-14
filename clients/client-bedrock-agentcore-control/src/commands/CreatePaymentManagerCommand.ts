@@ -124,6 +124,7 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  *   roleArn: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   tags: "<TagsMap>",
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new CreatePaymentManagerCommand(input);
  * const response = await client.send(command);
@@ -224,6 +225,7 @@ export interface CreatePaymentManagerCommandOutput extends CreatePaymentManagerR
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   tags: "<TagsMap>",
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

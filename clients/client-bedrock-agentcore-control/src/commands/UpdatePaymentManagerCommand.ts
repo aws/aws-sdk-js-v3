@@ -123,6 +123,7 @@ export interface UpdatePaymentManagerCommandOutput extends UpdatePaymentManagerR
  *   },
  *   roleArn: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
+ *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdatePaymentManagerCommand(input);
  * const response = await client.send(command);
@@ -137,6 +138,7 @@ export interface UpdatePaymentManagerCommandOutput extends UpdatePaymentManagerR
  * //   },
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

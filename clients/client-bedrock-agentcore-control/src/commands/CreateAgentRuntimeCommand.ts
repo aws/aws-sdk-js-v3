@@ -187,7 +187,7 @@ export interface CreateAgentRuntimeCommandOutput extends CreateAgentRuntimeRespo
  *     },
  *   ],
  *   capacityProviderConfiguration: { // CapacityProviderConfiguration
- *     capacityProviderArn: "STRING_VALUE",
+ *     capacityProviderArn: "STRING_VALUE", // required
  *   },
  *   tags: "<TagsMap>",
  * };

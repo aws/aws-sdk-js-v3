@@ -860,6 +860,7 @@ const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "SecretReference";
+const _SRE = "SubscriptionRequiredException";
 const _SRRFA = "SubmitRegistryRecordForApproval";
 const _SRRFAR = "SubmitRegistryRecordForApprovalRequest";
 const _SRRFARu = "SubmitRegistryRecordForApprovalResponse";
@@ -1482,9 +1483,11 @@ const _pI = "profileId";
 const _pIo = "policyId";
 const _pKJC = "privateKeyJwtConfig";
 const _pKS = "privateKeySource";
-const _pM = "paymentManagers";
+const _pM = "provisionMode";
 const _pMA = "paymentManagerArn";
 const _pMI = "paymentManagerId";
+const _pMa = "paymentManagers";
+const _pN = "productName";
 const _pO = "parameterOverrides";
 const _pP = "providerPath";
 const _pPr = "providerPrefix";
@@ -1611,7 +1614,8 @@ const _sTIS = "sessionTimeoutInSeconds";
 const _sTM = "sessionTimeoutMinutes";
 const _sTe = "searchType";
 const _sTy = "synchronizationType";
-const _sU = "s3Uri";
+const _sU = "subscriptionUrl";
+const _sUr = "s3Uri";
 const _sV = "schemaVersion";
 const _sVt = "stringValue";
 const _sVtr = "stringValidation";
@@ -1738,6 +1742,7 @@ import {
   RetryableConflictException,
   ServiceException,
   ServiceQuotaExceededException,
+  SubscriptionRequiredException,
   ThrottledException,
   ThrottlingException,
   UnauthorizedException,
@@ -1815,6 +1820,12 @@ export var ServiceQuotaExceededException$: StaticErrorSchema = [-3, n0, _SQEE,
   [0]
 ];
 n0_registry.registerError(ServiceQuotaExceededException$, ServiceQuotaExceededException);
+export var SubscriptionRequiredException$: StaticErrorSchema = [-3, n0, _SRE,
+  { [_e]: _c, [_hE]: 403 },
+  [_m, _sU, _pN],
+  [0, 0, 0], 1
+];
+n0_registry.registerError(SubscriptionRequiredException$, SubscriptionRequiredException);
 export var ThrottledException$: StaticErrorSchema = [-3, n0, _TE,
   { [_e]: _c, [_hE]: 429 },
   [_m],
@@ -2019,7 +2030,7 @@ export var BrowserSummary$: StaticStructureSchema = [3, n0, _BS,
 export var CapacityProviderConfiguration$: StaticStructureSchema = [3, n0, _CPC,
   0,
   [_cPAa],
-  [0]
+  [0], 1
 ];
 export var CapacityProviderSummary$: StaticStructureSchema = [3, n0, _CPS,
   0,
@@ -2348,13 +2359,13 @@ export var CreateOnlineEvaluationConfigResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _CPCR,
   0,
-  [_pMI, _n, _t, _cPCr, _d, _cT],
-  [[0, 1], 0, 0, () => CredentialsProviderConfigurations, 0, [0, 4]], 4
+  [_pMI, _n, _t, _cPCr, _d, _pM, _cT],
+  [[0, 1], 0, 0, () => CredentialsProviderConfigurations, 0, 0, [0, 4]], 4
 ];
 export var CreatePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _CPCRr,
   0,
-  [_pCI, _pMI, _n, _t, _cPCr, _cA, _st],
-  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0], 7
+  [_pCI, _pMI, _n, _t, _cPCr, _cA, _st, _aU],
+  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0, 0], 7
 ];
 export var CreatePaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _CPCPR,
   0,
@@ -2368,13 +2379,13 @@ export var CreatePaymentCredentialProviderResponse$: StaticStructureSchema = [3,
 ];
 export var CreatePaymentManagerRequest$: StaticStructureSchema = [3, n0, _CPMR,
   0,
-  [_n, _aT, _rA, _d, _aCu, _cT, _ta],
-  [0, 0, 0, 0, () => AuthorizerConfiguration$, [0, 4], 128 | 0], 3
+  [_n, _aT, _rA, _d, _aCu, _cT, _ta, _kKA],
+  [0, 0, 0, 0, () => AuthorizerConfiguration$, [0, 4], 128 | 0, 0], 3
 ];
 export var CreatePaymentManagerResponse$: StaticStructureSchema = [3, n0, _CPMRr,
   0,
-  [_pMA, _pMI, _n, _aT, _rA, _cA, _st, _aCu, _wID, _ta],
-  [0, 0, 0, 0, 0, 5, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0], 7
+  [_pMA, _pMI, _n, _aT, _rA, _cA, _st, _aCu, _wID, _ta, _kKA],
+  [0, 0, 0, 0, 0, 5, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0, 0], 7
 ];
 export var CreatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _CPER,
   0,
@@ -2928,8 +2939,8 @@ export var GetAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _GARR,
 ];
 export var GetAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _GARRe,
   0,
-  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _nC, _st, _lC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC],
-  [0, 0, 0, 0, 5, 5, 0, () => NetworkConfiguration$, 0, () => LifecycleConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$], 10
+  [_aRA, _aRN, _aRI, _aRV, _cA, _lUA, _rA, _st, _lC, _nC, _fR, _d, _wID, _aRAg, _pC, _eV, _aCu, _rHC, _mC, _fC, _cPC],
+  [0, 0, 0, 0, 5, 5, 0, 0, () => LifecycleConfiguration$, () => NetworkConfiguration$, 0, [() => Description, 0], () => WorkloadIdentityDetails$, () => AgentRuntimeArtifact$, () => ProtocolConfiguration$, [() => EnvironmentVariablesMap, 0], () => AuthorizerConfiguration$, () => RequestHeaderConfiguration$, () => RuntimeMetadataConfiguration$, () => FilesystemConfigurations, () => CapacityProviderConfiguration$], 9
 ];
 export var GetApiKeyCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GAKCPR,
   0,
@@ -3118,8 +3129,8 @@ export var GetPaymentConnectorRequest$: StaticStructureSchema = [3, n0, _GPCR,
 ];
 export var GetPaymentConnectorResponse$: StaticStructureSchema = [3, n0, _GPCRe,
   0,
-  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d],
-  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0], 7
+  [_pCI, _n, _t, _cPCr, _cA, _lUA, _st, _d, _aU],
+  [0, 0, 0, () => CredentialsProviderConfigurations, 5, 5, 0, 0, 0], 7
 ];
 export var GetPaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _GPCPR,
   0,
@@ -3138,8 +3149,8 @@ export var GetPaymentManagerRequest$: StaticStructureSchema = [3, n0, _GPMR,
 ];
 export var GetPaymentManagerResponse$: StaticStructureSchema = [3, n0, _GPMRe,
   0,
-  [_pMA, _pMI, _n, _aT, _rA, _cA, _lUA, _st, _d, _aCu, _wID, _ta],
-  [0, 0, 0, 0, 0, 5, 5, 0, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0], 8
+  [_pMA, _pMI, _n, _aT, _rA, _cA, _lUA, _st, _d, _aCu, _wID, _ta, _kKA],
+  [0, 0, 0, 0, 0, 5, 5, 0, 0, () => AuthorizerConfiguration$, () => WorkloadIdentityDetails$, 128 | 0, 0], 8
 ];
 export var GetPolicyEngineRequest$: StaticStructureSchema = [3, n0, _GPER,
   0,
@@ -3853,7 +3864,7 @@ export var ListPaymentManagersRequest$: StaticStructureSchema = [3, n0, _LPMR,
 ];
 export var ListPaymentManagersResponse$: StaticStructureSchema = [3, n0, _LPMRi,
   0,
-  [_pM, _nTe],
+  [_pMa, _nTe],
   [() => PaymentManagerSummaries, 0], 1
 ];
 export var ListPoliciesRequest$: StaticStructureSchema = [3, n0, _LPR,
@@ -4178,8 +4189,8 @@ export var PaymentCredentialProviderItem$: StaticStructureSchema = [3, n0, _PCPI
 ];
 export var PaymentManagerSummary$: StaticStructureSchema = [3, n0, _PMS,
   0,
-  [_pMA, _pMI, _n, _aT, _rA, _st, _lUA, _d, _cA],
-  [0, 0, 0, 0, 0, 0, 5, 0, 5], 7
+  [_pMA, _pMI, _n, _aT, _rA, _st, _lUA, _d, _cA, _kKA],
+  [0, 0, 0, 0, 0, 0, 5, 0, 5, 0], 7
 ];
 export var PermissionsConfiguration$: StaticStructureSchema = [3, n0, _PC,
   0,
@@ -4343,7 +4354,7 @@ export var S3Location$: StaticStructureSchema = [3, n0, _SL,
 ];
 export var S3Source$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sU],
+  [_sUr],
   [0], 1
 ];
 export var SalesforceOauth2ProviderConfigInput$: StaticStructureSchema = [3, n0, _SOPCI,
@@ -4923,8 +4934,8 @@ export var UpdatePaymentConnectorRequest$: StaticStructureSchema = [3, n0, _UPCR
 ];
 export var UpdatePaymentConnectorResponse$: StaticStructureSchema = [3, n0, _UPCRp,
   0,
-  [_pCI, _pMI, _n, _t, _cPCr, _lUA, _st],
-  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0], 7
+  [_pCI, _pMI, _n, _t, _cPCr, _lUA, _st, _aU],
+  [0, 0, 0, 0, () => CredentialsProviderConfigurations, 5, 0, 0], 7
 ];
 export var UpdatePaymentCredentialProviderRequest$: StaticStructureSchema = [3, n0, _UPCPR,
   0,
@@ -4938,13 +4949,13 @@ export var UpdatePaymentCredentialProviderResponse$: StaticStructureSchema = [3,
 ];
 export var UpdatePaymentManagerRequest$: StaticStructureSchema = [3, n0, _UPMR,
   0,
-  [_pMI, _d, _aT, _aCu, _rA, _cT],
-  [[0, 1], 0, 0, () => AuthorizerConfiguration$, 0, [0, 4]], 1
+  [_pMI, _d, _aT, _aCu, _rA, _cT, _kKA],
+  [[0, 1], 0, 0, () => AuthorizerConfiguration$, 0, [0, 4], 0], 1
 ];
 export var UpdatePaymentManagerResponse$: StaticStructureSchema = [3, n0, _UPMRp,
   0,
-  [_pMA, _pMI, _n, _aT, _rA, _lUA, _st, _wID],
-  [0, 0, 0, 0, 0, 5, 0, () => WorkloadIdentityDetails$], 7
+  [_pMA, _pMI, _n, _aT, _rA, _lUA, _st, _wID, _kKA],
+  [0, 0, 0, 0, 0, 5, 0, () => WorkloadIdentityDetails$, 0], 7
 ];
 export var UpdatePolicyEngineRequest$: StaticStructureSchema = [3, n0, _UPER,
   0,

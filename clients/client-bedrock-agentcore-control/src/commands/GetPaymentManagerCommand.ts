@@ -136,6 +136,7 @@ export interface GetPaymentManagerCommandOutput extends GetPaymentManagerRespons
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   tags: "<TagsMap>",
+ * //   kmsKeyArn: "STRING_VALUE",
  * // };
  *
  * ```

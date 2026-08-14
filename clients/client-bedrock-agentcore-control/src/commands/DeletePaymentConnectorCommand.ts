@@ -40,7 +40,7 @@ export interface DeletePaymentConnectorCommandOutput extends DeletePaymentConnec
  * const command = new DeletePaymentConnectorCommand(input);
  * const response = await client.send(command);
  * // { // DeletePaymentConnectorResponse
- * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
+ * //   status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED" || "PENDING_AUTHENTICATION" || "PROVISIONING" || "AUTHENTICATION_EXPIRED" || "AUTHENTICATION_FAILED", // required
  * //   paymentConnectorId: "STRING_VALUE",
  * // };
  *

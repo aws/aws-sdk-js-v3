@@ -50,6 +50,7 @@ export interface ListPaymentManagersCommandOutput extends ListPaymentManagersRes
  * //       status: "CREATING" || "UPDATING" || "DELETING" || "READY" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //       createdAt: new Date("TIMESTAMP"),
  * //       lastUpdatedAt: new Date("TIMESTAMP"), // required
+ * //       kmsKeyArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

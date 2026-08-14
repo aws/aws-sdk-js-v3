@@ -189,7 +189,7 @@ export interface UpdateAgentRuntimeCommandOutput extends UpdateAgentRuntimeRespo
  *     },
  *   ],
  *   capacityProviderConfiguration: { // CapacityProviderConfiguration
- *     capacityProviderArn: "STRING_VALUE",
+ *     capacityProviderArn: "STRING_VALUE", // required
  *   },
  *   clientToken: "STRING_VALUE",
  * };
