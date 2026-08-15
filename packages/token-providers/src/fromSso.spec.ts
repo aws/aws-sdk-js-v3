@@ -206,6 +206,60 @@ describe(fromSso.name, () => {
     });
   });
 
+  it("does not skip refresh for a different profile/sso_session within the same 30 seconds", async () => {
+    const { fromSso } = await import("./fromSso");
+
+    // First profile: refresh happens normally.
+    await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+    expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+
+    // A second, unrelated profile pointing at a different sso_session, whose token is also
+    // independently expired. This must still be allowed to refresh even though it's within
+    // 30 seconds of the first profile's refresh -- the 30 second throttle is meant to protect
+    // a single sso_session from being hammered, not to block unrelated sessions from ever
+    // refreshing in the same window.
+    const otherSsoSessionName = "other_mock_sso_session_name";
+    const otherProfileName = "otherMockProfileName";
+    const otherInit = { profile: otherProfileName };
+    const otherSsoProfile = { sso_session: otherSsoSessionName };
+    const otherSsoSession = {
+      sso_start_url: "other_mock_sso_start_url",
+      sso_region: "other_mock_sso_region",
+    };
+    const otherSsoToken = {
+      accessToken: "otherMockAccessToken",
+      expiresAt: new Date(mockDateNow - 1000).toISOString(),
+      clientId: "otherClientId",
+      clientSecret: "otherClientSecret",
+      refreshToken: "otherRefreshToken",
+    };
+    const otherNewTokenFromService = {
+      accessToken: "otherMockNewAccessToken",
+      expiresIn: 3600,
+      refreshToken: "otherMockNewRefreshToken",
+      $metadata: {},
+    };
+
+    vi.mocked(getProfileName).mockReturnValueOnce(otherProfileName);
+    vi.mocked(parseKnownFiles).mockResolvedValueOnce({ [otherProfileName]: otherSsoProfile });
+    vi.mocked(loadSsoSessionData).mockResolvedValueOnce({ [otherSsoSessionName]: otherSsoSession });
+    vi.mocked(getSSOTokenFromFile).mockResolvedValueOnce(otherSsoToken);
+    vi.mocked(getNewSsoOidcToken).mockResolvedValueOnce(otherNewTokenFromService);
+
+    await expect(fromSso(otherInit)()).resolves.toStrictEqual({
+      token: otherNewTokenFromService.accessToken,
+      expiration: new Date(mockDateNow + otherNewTokenFromService.expiresIn * 1000),
+    });
+    // The other profile's refresh must actually have happened, not been silently skipped.
+    expect(getNewSsoOidcToken).toHaveBeenCalledTimes(2);
+    expect(getNewSsoOidcToken).toHaveBeenLastCalledWith(
+      otherSsoToken,
+      otherSsoSession.sso_region,
+      otherInit,
+      undefined
+    );
+  });
+
   it.each(["clientId", "clientSecret", "refreshToken"])(
     "throws error if %s is missing in SSO Token from file",
     async (key) => {
