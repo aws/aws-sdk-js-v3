@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { RetrieveAndGenerateStreamResponse } from "../models/models_0";
-import type { RetrieveAndGenerateStreamRequest } from "../models/models_1";
+import type { RetrieveAndGenerateStreamRequest, RetrieveAndGenerateStreamResponse } from "../models/models_1";
 import { RetrieveAndGenerateStream$ } from "../schemas/schemas_0";
 
 /**

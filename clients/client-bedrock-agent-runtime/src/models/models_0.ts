@@ -4,6 +4,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   ActionGroupSignature,
   ActionInvocationType,
+  AgenticRetrieveMemoryMetadataFilterOperator,
+  AgenticRetrieveMemoryPersistenceMode,
   AgenticRetrieveRerankingConfigurationType,
   AgenticRetrieveRerankingModelType,
   AgenticRetrieveStatus,
@@ -44,10 +46,8 @@ import type {
   GuardrailTopicType,
   GuardrailWordPolicyAction,
   ImageInputFormat,
-  InputImageFormat,
   InputQueryType,
   InvocationType,
-  KnowledgeBaseQueryType,
   ManagedSearchRerankingConfigurationType,
   MemoryType,
   NodeErrorCode,
@@ -1147,6 +1147,42 @@ export interface AgenticRetrieveMessageContent {
 }
 
 /**
+ * <p>A long-term memory retrieval that the agent chose to perform. The record reports the query and the namespace. The corresponding Retrieval step reports the results.</p>
+ * @public
+ */
+export interface AgenticRetrieveMemoryRetrieveDetails {
+  /**
+   * <p>The query that the agent composed.</p>
+   * @public
+   */
+  inputQuery: AgenticRetrieveMessageContent | undefined;
+
+  /**
+   * <p>The identifier of the AgentCore Memory resource retrieved from.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The namespace prefix retrieved from, as supplied in the request. This field is present when the request specified namespace.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The parent namespace retrieved from hierarchically, as supplied in the request. This field is present when the request specified namespacePath.</p>
+   * @public
+   */
+  namespacePath?: string | undefined;
+
+  /**
+   * <p>The extraction strategy that restricted retrieval, if the request specified one.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+}
+
+/**
  * <p>Details of a retrieve action including the query and target retrievers.</p>
  * @public
  */
@@ -1180,6 +1216,12 @@ export interface AgenticRetrieveAction {
    * @public
    */
   fullDocumentExpansion?: AgenticRetrieveFullDocExpansionDetails | undefined;
+
+  /**
+   * <p>The details of a long-term memory retrieval that the agent chose to perform.</p>
+   * @public
+   */
+  memoryRetrieve?: AgenticRetrieveMemoryRetrieveDetails | undefined;
 }
 
 /**
@@ -1414,6 +1456,273 @@ export interface AgenticRetrieveGuardrailWarning {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * <p>The left operand of a metadata filter expression. Set exactly one member.</p>
+ * @public
+ */
+export type AgenticRetrieveMemoryMetadataFilterLeft =
+  | AgenticRetrieveMemoryMetadataFilterLeft.MetadataKeyMember
+  | AgenticRetrieveMemoryMetadataFilterLeft.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgenticRetrieveMemoryMetadataFilterLeft {
+  /**
+   * <p>The metadata key to filter on.</p>
+   * @public
+   */
+  export interface MetadataKeyMember {
+    metadataKey: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataKey?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataKey: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A metadata value that a filter expression compares against. Set exactly one member.</p>
+ * @public
+ */
+export type AgenticRetrieveMemoryMetadataValue =
+  | AgenticRetrieveMemoryMetadataValue.DateTimeValueMember
+  | AgenticRetrieveMemoryMetadataValue.NumberValueMember
+  | AgenticRetrieveMemoryMetadataValue.StringListValueMember
+  | AgenticRetrieveMemoryMetadataValue.StringValueMember
+  | AgenticRetrieveMemoryMetadataValue.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgenticRetrieveMemoryMetadataValue {
+  /**
+   * <p>A string value.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    numberValue?: never;
+    stringListValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A numeric value.</p>
+   * @public
+   */
+  export interface NumberValueMember {
+    stringValue?: never;
+    numberValue: number;
+    stringListValue?: never;
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A list of string values.</p>
+   * @public
+   */
+  export interface StringListValueMember {
+    stringValue?: never;
+    numberValue?: never;
+    stringListValue: string[];
+    dateTimeValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A timestamp value in ISO 8601 UTC format.</p>
+   * @public
+   */
+  export interface DateTimeValueMember {
+    stringValue?: never;
+    numberValue?: never;
+    stringListValue?: never;
+    dateTimeValue: Date;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    numberValue?: never;
+    stringListValue?: never;
+    dateTimeValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    numberValue: (value: number) => T;
+    stringListValue: (value: string[]) => T;
+    dateTimeValue: (value: Date) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The right operand of a metadata filter expression. Set exactly one member.</p>
+ * @public
+ */
+export type AgenticRetrieveMemoryMetadataFilterRight =
+  | AgenticRetrieveMemoryMetadataFilterRight.MetadataValueMember
+  | AgenticRetrieveMemoryMetadataFilterRight.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AgenticRetrieveMemoryMetadataFilterRight {
+  /**
+   * <p>The value to compare the metadata key against.</p>
+   * @public
+   */
+  export interface MetadataValueMember {
+    metadataValue: AgenticRetrieveMemoryMetadataValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    metadataValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    metadataValue: (value: AgenticRetrieveMemoryMetadataValue) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A metadata filter expression, in the form accepted by the AgentCore Memory RetrieveMemoryRecords operation. The expression has a left operand that names the metadata key, an operator, and a right operand. For the EXISTS and NOT_EXISTS operators, omit the right operand.</p>
+ * @public
+ */
+export interface AgenticRetrieveMemoryMetadataFilter {
+  /**
+   * <p>The metadata key that the expression evaluates.</p>
+   * @public
+   */
+  left: AgenticRetrieveMemoryMetadataFilterLeft | undefined;
+
+  /**
+   * <p>The relationship that the metadata key and value must have for a memory record to match.</p>
+   * @public
+   */
+  operator: AgenticRetrieveMemoryMetadataFilterOperator | undefined;
+
+  /**
+   * <p>The value that the expression compares the metadata key against. Supply this value for every operator except EXISTS and NOT_EXISTS.</p>
+   * @public
+   */
+  right?: AgenticRetrieveMemoryMetadataFilterRight | undefined;
+}
+
+/**
+ * <p>The long-term memory namespace that the agent might retrieve memory records from, and the filters applied to that retrieval. You must specify either namespace or namespacePath.</p>
+ * @public
+ */
+export interface AgenticRetrieveMemoryRetrievalConfig {
+  /**
+   * <p>The namespace prefix to filter memory records by. The agent retrieves memory records in namespaces that start with the provided prefix. You must specify either namespace or namespacePath.</p>
+   * @public
+   */
+  namespace?: string | undefined;
+
+  /**
+   * <p>The parent namespace to use for hierarchical retrievals. The agent retrieves all memory records whose namespace falls under the same parent hierarchy. You must specify either namespace or namespacePath.</p>
+   * @public
+   */
+  namespacePath?: string | undefined;
+
+  /**
+   * <p>The extraction strategy ID that restricts retrieval to memory records produced by a single strategy. Omit this parameter to retrieve records from every strategy on the memory resource.</p>
+   * @public
+   */
+  strategyId?: string | undefined;
+
+  /**
+   * <p>The metadata filter expressions that restrict retrieval to matching memory records. You can specify a maximum of 5 expressions.</p>
+   * @public
+   */
+  metadataFilters?: AgenticRetrieveMemoryMetadataFilter[] | undefined;
+}
+
+/**
+ * <p>The short-term memory session that this retrieval reads from and writes to.</p>
+ * @public
+ */
+export interface AgenticRetrieveMemorySessionBinding {
+  /**
+   * <p>The identifier of the end user or agent that the session belongs to. This identifier scopes session history so that one actor's history is never returned for another. You are responsible for sending the correct actor value.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The identifier of the session to restore and continue. You are responsible for sending the correct session value.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+}
+
+/**
+ * <p>Specifies an AgentCore Memory resource and how this retrieval uses it. Set sessionBinding to restore and continue a session. Set retrievalConfigs to let the agent retrieve from long-term memory. You must specify at least one of the two.</p>
+ * @public
+ */
+export interface AgenticRetrieveMemoryConfiguration {
+  /**
+   * <p>The identifier of the AgentCore Memory resource to use. The resource must exist in your account and be in the ACTIVE state.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The short-term memory session whose history is restored for this retrieval. To persist the agent-generated answer to the session, omit persistenceMode or set it to DEFAULT. To leave the session unchanged, set persistenceMode to NONE. Supply session history through the existing messages parameter or through short-term memory, but not both.</p>
+   * @public
+   */
+  sessionBinding?: AgenticRetrieveMemorySessionBinding | undefined;
+
+  /**
+   * <p>Specifies the long-term memory configuration the agent can retrieve from. The agent decides whether to retrieve and composes its own query. This field currently accepts at most one entry.</p>
+   * @public
+   */
+  retrievalConfigs?: AgenticRetrieveMemoryRetrievalConfig[] | undefined;
+
+  /**
+   * <p>Specifies whether the agent-generated answer is written back to the given short-term memory session, and applies only when sessionBinding is set. Valid values:</p> <ul> <li> <p> <code>DEFAULT</code> (default) – Specifies that the question and the agent-generated answer are persisted to the session as a single event. This value requires generateResponse to be true.</p> </li> <li> <p> <code>NONE</code> – Specifies that the session is left unchanged.</p> </li> </ul>
+   * @public
+   */
+  persistenceMode?: AgenticRetrieveMemoryPersistenceMode | undefined;
 }
 
 /**
@@ -9189,460 +9498,4 @@ export interface GuardrailEvent {
    * @public
    */
   action?: GuadrailAction | undefined;
-}
-
-/**
- * <p>A retrieve and generate output event.</p>
- * @public
- */
-export interface RetrieveAndGenerateOutputEvent {
-  /**
-   * <p>A text response.</p>
-   * @public
-   */
-  text: string | undefined;
-}
-
-/**
- * <p>A retrieve and generate stream response output.</p>
- * @public
- */
-export type RetrieveAndGenerateStreamResponseOutput =
-  | RetrieveAndGenerateStreamResponseOutput.AccessDeniedExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.BadGatewayExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.CitationMember
-  | RetrieveAndGenerateStreamResponseOutput.ConflictExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.DependencyFailedExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.GuardrailMember
-  | RetrieveAndGenerateStreamResponseOutput.InternalServerExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.OutputMember
-  | RetrieveAndGenerateStreamResponseOutput.ResourceNotFoundExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ServiceQuotaExceededExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ThrottlingExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.ValidationExceptionMember
-  | RetrieveAndGenerateStreamResponseOutput.$UnknownMember;
-
-/**
- * @public
- */
-export namespace RetrieveAndGenerateStreamResponseOutput {
-  /**
-   * <p>An output event.</p>
-   * @public
-   */
-  export interface OutputMember {
-    output: RetrieveAndGenerateOutputEvent;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A citation event.</p>
-   * @public
-   */
-  export interface CitationMember {
-    output?: never;
-    citation: CitationEvent;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A guardrail event.</p>
-   * @public
-   */
-  export interface GuardrailMember {
-    output?: never;
-    citation?: never;
-    guardrail: GuardrailEvent;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>An internal server error occurred. Retry your request.</p>
-   * @public
-   */
-  export interface InternalServerExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException: InternalServerException;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The input fails to satisfy the constraints specified by <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-validation-error">ValidationError</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ValidationExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException: ValidationException;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The specified resource ARN was not found. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-resource-not-found">ResourceNotFound</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ResourceNotFoundExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException: ResourceNotFoundException;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request exceeds the service quota for your account. You can view your quotas at <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/gs-request-quota.html">Viewing service quotas</a>. You can resubmit your request later.</p>
-   * @public
-   */
-  export interface ServiceQuotaExceededExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException: ServiceQuotaExceededException;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Your request was denied due to exceeding the account quotas for <i>Amazon Bedrock</i>. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-throttling-exception">ThrottlingException</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface ThrottlingExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException: ThrottlingException;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request is denied because you do not have sufficient permissions to perform the requested action. For troubleshooting this error, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/troubleshooting-api-error-codes.html#ts-access-denied">AccessDeniedException</a> in the Amazon Bedrock User Guide.</p>
-   * @public
-   */
-  export interface AccessDeniedExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException: AccessDeniedException;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>Error occurred because of a conflict while performing an operation.</p>
-   * @public
-   */
-  export interface ConflictExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException: ConflictException;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request failed due to a dependency error.</p>
-   * @public
-   */
-  export interface DependencyFailedExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException: DependencyFailedException;
-    badGatewayException?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>The request failed due to a bad gateway error.</p>
-   * @public
-   */
-  export interface BadGatewayExceptionMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException: BadGatewayException;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    output?: never;
-    citation?: never;
-    guardrail?: never;
-    internalServerException?: never;
-    validationException?: never;
-    resourceNotFoundException?: never;
-    serviceQuotaExceededException?: never;
-    throttlingException?: never;
-    accessDeniedException?: never;
-    conflictException?: never;
-    dependencyFailedException?: never;
-    badGatewayException?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    output: (value: RetrieveAndGenerateOutputEvent) => T;
-    citation: (value: CitationEvent) => T;
-    guardrail: (value: GuardrailEvent) => T;
-    internalServerException: (value: InternalServerException) => T;
-    validationException: (value: ValidationException) => T;
-    resourceNotFoundException: (value: ResourceNotFoundException) => T;
-    serviceQuotaExceededException: (value: ServiceQuotaExceededException) => T;
-    throttlingException: (value: ThrottlingException) => T;
-    accessDeniedException: (value: AccessDeniedException) => T;
-    conflictException: (value: ConflictException) => T;
-    dependencyFailedException: (value: DependencyFailedException) => T;
-    badGatewayException: (value: BadGatewayException) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * @public
- */
-export interface RetrieveAndGenerateStreamResponse {
-  /**
-   * <p>A stream of events from the model.</p>
-   * @public
-   */
-  stream: AsyncIterable<RetrieveAndGenerateStreamResponseOutput> | undefined;
-
-  /**
-   * <p>The session ID.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-}
-
-/**
- * <p>Contains the image data for multimodal knowledge base queries, including format and content.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>image</code> field</p> </li> </ul>
- * @public
- */
-export interface InputImage {
-  /**
-   * <p>The format of the input image. Supported formats include png, gif, jpeg, and webp.</p>
-   * @public
-   */
-  format: InputImageFormat | undefined;
-
-  /**
-   * <p>The base64-encoded image data for inline image content. Maximum size is 5MB.</p>
-   * @public
-   */
-  inlineContent: Uint8Array | undefined;
-}
-
-/**
- * <p>Contains the query made to the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_RequestSyntax">Retrieve request</a> – in the <code>retrievalQuery</code> field</p> </li> </ul>
- * @public
- */
-export interface KnowledgeBaseQuery {
-  /**
-   * <p>The type of query being performed.</p>
-   * @public
-   */
-  type?: KnowledgeBaseQueryType | undefined;
-
-  /**
-   * <p>The text of the query made to the knowledge base.</p>
-   * @public
-   */
-  text?: string | undefined;
-
-  /**
-   * <p>An image to include in the knowledge base query for multimodal retrieval.</p>
-   * @public
-   */
-  image?: InputImage | undefined;
-}
-
-/**
- * <p>Details about a result from querying the knowledge base.</p> <p>This data type is used in the following API operations:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html#API_agent-runtime_Retrieve_ResponseSyntax">Retrieve response</a> – in the <code>retrievalResults</code> field</p> </li> </ul>
- * @public
- */
-export interface KnowledgeBaseRetrievalResult {
-  /**
-   * <p>Contains information about the content of the chunk.</p>
-   * @public
-   */
-  content: RetrievalResultContent | undefined;
-
-  /**
-   * <p>Contains information about the location of the data source.</p>
-   * @public
-   */
-  location?: RetrievalResultLocation | undefined;
-
-  /**
-   * <p>The level of relevance of the result to the query.</p>
-   * @public
-   */
-  score?: number | undefined;
-
-  /**
-   * <p>Contains metadata attributes and their values for the file in the data source. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-ds.html#kb-ds-metadata">Metadata and filtering</a>.</p>
-   * @public
-   */
-  metadata?: Record<string, __DocumentType> | undefined;
-
-  /**
-   * <p>The unique identifier of the document. Use with <code>GetDocumentContent</code> to retrieve the full document.</p>
-   * @public
-   */
-  documentId?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RetrieveResponse {
-  /**
-   * <p>A list of results from querying the knowledge base.</p>
-   * @public
-   */
-  retrievalResults: KnowledgeBaseRetrievalResult[] | undefined;
-
-  /**
-   * <p>Specifies if there is a guardrail intervention in the response.</p>
-   * @public
-   */
-  guardrailAction?: GuadrailAction | undefined;
-
-  /**
-   * <p>If there are more results than can fit in the response, the response returns a <code>nextToken</code>. Use this token in the <code>nextToken</code> field of another request to retrieve the next batch of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateSessionRequest {
-  /**
-   * <p>A map of key-value pairs containing attributes to be persisted across the session. For example, the user's ID, their language preference, and the type of device they are using.</p>
-   * @public
-   */
-  sessionMetadata?: Record<string, string> | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key to use to encrypt the session data. The user or role creating the session must have permission to use the key. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/session-encryption.html">Amazon Bedrock session encryption</a>. </p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>Specify the key-value pairs for the tags that you want to attach to the session.</p>
-   * @public
-   */
-  tags?: Record<string, string> | undefined;
 }

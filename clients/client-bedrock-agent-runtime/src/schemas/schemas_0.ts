@@ -38,7 +38,17 @@ const _ARFg = "AgenticRetrieveFailures";
 const _ARGR = "AgenticRetrieveGeneratedResponse";
 const _ARGW = "AgenticRetrieveGuardrailWarning";
 const _ARM = "AgenticRetrieveMessage";
-const _ARMC = "AgenticRetrieveMessageContent";
+const _ARMC = "AgenticRetrieveMemoryConfiguration";
+const _ARMCg = "AgenticRetrieveMessageContent";
+const _ARMMF = "AgenticRetrieveMemoryMetadataFilter";
+const _ARMMFL = "AgenticRetrieveMemoryMetadataFilterList";
+const _ARMMFLg = "AgenticRetrieveMemoryMetadataFilterLeft";
+const _ARMMFR = "AgenticRetrieveMemoryMetadataFilterRight";
+const _ARMMV = "AgenticRetrieveMemoryMetadataValue";
+const _ARMRC = "AgenticRetrieveMemoryRetrievalConfig";
+const _ARMRCL = "AgenticRetrieveMemoryRetrievalConfigList";
+const _ARMRD = "AgenticRetrieveMemoryRetrieveDetails";
+const _ARMSB = "AgenticRetrieveMemorySessionBinding";
 const _ARMg = "AgenticRetrieveMessages";
 const _ARPC = "AgenticRetrievePolicyConfiguration";
 const _ARR = "AgenticRetrieveResults";
@@ -524,9 +534,10 @@ const _aGII = "actionGroupInvocationInput";
 const _aGIO = "actionGroupInvocationOutput";
 const _aGN = "actionGroupName";
 const _aGc = "actionGroups";
-const _aI = "agentId";
+const _aI = "actorId";
 const _aII = "apiInvocationInput";
 const _aIT = "actionInvocationType";
+const _aIg = "agentId";
 const _aL = "allowList";
 const _aMRF = "additionalModelRequestFields";
 const _aN = "agentName";
@@ -598,6 +609,7 @@ const _dFE = "dependencyFailedException";
 const _dI = "documentId";
 const _dL = "denyList";
 const _dSI = "dataSourceId";
+const _dTV = "dateTimeValue";
 const _da = "data";
 const _de = "definition";
 const _do = "document";
@@ -730,41 +742,47 @@ const _kBLO = "knowledgeBaseLookupOutput";
 const _kBn = "knowledgeBase";
 const _kDL = "kendraDocumentLocation";
 const _kKA = "kmsKeyArn";
-const _l = "location";
+const _l = "left";
 const _lC = "listContains";
 const _lT = "lessThan";
 const _lTOE = "lessThanOrEquals";
 const _lUA = "lastUpdatedAt";
 const _la = "latency";
 const _lam = "lambda";
+const _lo = "location";
 const _m = "message";
 const _mA = "modelArn";
 const _mAI = "maxAgentIteration";
 const _mAe = "metadataAttributes";
 const _mC = "modelConfiguration";
-const _mCe = "memoryContents";
+const _mCe = "memoryConfiguration";
+const _mCem = "memoryContents";
 const _mCet = "metadataConfiguration";
+const _mF = "metadataFilters";
 const _mI = "memoryId";
 const _mII = "modelInvocationInput";
 const _mIO = "modelInvocationOutput";
 const _mIa = "maxItems";
+const _mK = "metadataKey";
 const _mL = "maximumLength";
 const _mNOR = "maxNumberOfResults";
 const _mNRE = "modelNotReadyException";
 const _mPC = "modelPerformanceConfiguration";
-const _mR = "memberRelation";
+const _mR = "memoryRetrieve";
 const _mRa = "maxResults";
+const _mRe = "memberRelation";
 const _mSC = "managedSearchConfiguration";
 const _mT = "mediaType";
 const _mTa = "maxTokens";
 const _mTe = "memoryType";
 const _mTi = "mimeType";
+const _mV = "metadataValue";
 const _mWL = "managedWordLists";
 const _ma = "match";
 const _me = "metadata";
 const _mes = "messages";
 const _mo = "mode";
-const _n = "name";
+const _n = "namespace";
 const _nAE = "nodeActionEvent";
 const _nAT = "nodeActionTrace";
 const _nDE = "nodeDependencyEvent";
@@ -781,8 +799,11 @@ const _nON = "nodeOutputName";
 const _nOR = "numberOfResults";
 const _nORR = "numberOfRerankedResults";
 const _nOT = "nodeOutputTrace";
+const _nP = "namespacePath";
 const _nT = "nextToken";
 const _nTo = "nodeType";
+const _nV = "numberValue";
+const _na = "name";
 const _ne = "next";
 const _o = "output";
 const _oA = "outputAssessments";
@@ -803,6 +824,7 @@ const _oTTM = "operationTotalTimeMs";
 const _oTr = "orchestrationTrace";
 const _oTu = "outputTokens";
 const _ob = "observation";
+const _op = "operator";
 const _p = "parameters";
 const _pAGS = "parentActionGroupSignature";
 const _pAGSP = "parentActionGroupSignatureParams";
@@ -813,7 +835,8 @@ const _pCTTI = "previousConversationTurnsToInclude";
 const _pCe = "performanceConfig";
 const _pCr = "promptConfigurations";
 const _pE = "piiEntities";
-const _pM = "parserMode";
+const _pM = "persistenceMode";
+const _pMa = "parserMode";
 const _pOC = "promptOverrideConfiguration";
 const _pPT = "preProcessingTrace";
 const _pPTo = "postProcessingTrace";
@@ -840,9 +863,10 @@ const _rCIR = "returnControlInvocationResults";
 const _rCP = "returnControlPayload";
 const _rCR = "returnControlResults";
 const _rCT = "routingClassifierTrace";
-const _rCe = "requireConfirmation";
+const _rCe = "retrievalConfigs";
 const _rCea = "reasoningContent";
 const _rCed = "redactedContent";
+const _rCeq = "requireConfirmation";
 const _rCet = "retrievalConfiguration";
 const _rCetu = "returnControl";
 const _rE = "responseEvent";
@@ -873,6 +897,7 @@ const _req = "required";
 const _res = "results";
 const _resu = "result";
 const _ret = "retrievers";
+const _ri = "right";
 const _ro = "role";
 const _row = "row";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.bedrockagentruntime";
@@ -880,6 +905,7 @@ const _sA = "sessionArn";
 const _sAe = "sessionAttributes";
 const _sAo = "sourceArn";
 const _sAt = "startedAt";
+const _sB = "sessionBinding";
 const _sBN = "s3BucketName";
 const _sC = "satisfiedConditions";
 const _sCe = "sessionConfiguration";
@@ -889,9 +915,11 @@ const _sET = "sessionExpiryTime";
 const _sFR = "streamFinalResponse";
 const _sI = "startIndex";
 const _sIP = "sensitiveInformationPolicy";
-const _sIe = "sessionIdentifier";
-const _sIes = "sessionId";
+const _sIe = "sessionId";
+const _sIes = "sessionIdentifier";
+const _sIt = "strategyId";
 const _sL = "s3Location";
+const _sLV = "stringListValue";
 const _sLa = "salesforceLocation";
 const _sLq = "sqlLocation";
 const _sM = "sessionMetadata";
@@ -913,6 +941,7 @@ const _sT = "sourceType";
 const _sTt = "startTime";
 const _sTu = "summaryText";
 const _sU = "s3Uri";
+const _sV = "stringValue";
 const _sW = "startsWith";
 const _s_ = "s3";
 const _sc = "score";
@@ -1144,8 +1173,8 @@ export var AgentCollaboratorOutputPayload$: StaticStructureSchema = [3, n0, _ACO
 ];
 export var AgenticRetrieveAction$: StaticStructureSchema = [3, n0, _ARA,
   0,
-  [_re, _fDE],
-  [[() => AgenticRetrieveActionDetails$, 0], () => AgenticRetrieveFullDocExpansionDetails$]
+  [_re, _fDE, _mR],
+  [[() => AgenticRetrieveActionDetails$, 0], () => AgenticRetrieveFullDocExpansionDetails$, [() => AgenticRetrieveMemoryRetrieveDetails$, 0]]
 ];
 export var AgenticRetrieveActionDetails$: StaticStructureSchema = [3, n0, _ARAD,
   0,
@@ -1202,12 +1231,37 @@ export var AgenticRetrieveGuardrailWarning$: StaticStructureSchema = [3, n0, _AR
   [_id, _ve, _ac, _m],
   [0, 0, 0, 0], 3
 ];
+export var AgenticRetrieveMemoryConfiguration$: StaticStructureSchema = [3, n0, _ARMC,
+  0,
+  [_mI, _sB, _rCe, _pM],
+  [0, () => AgenticRetrieveMemorySessionBinding$, () => AgenticRetrieveMemoryRetrievalConfigList, 0], 1
+];
+export var AgenticRetrieveMemoryMetadataFilter$: StaticStructureSchema = [3, n0, _ARMMF,
+  0,
+  [_l, _op, _ri],
+  [() => AgenticRetrieveMemoryMetadataFilterLeft$, 0, () => AgenticRetrieveMemoryMetadataFilterRight$], 2
+];
+export var AgenticRetrieveMemoryRetrievalConfig$: StaticStructureSchema = [3, n0, _ARMRC,
+  0,
+  [_n, _nP, _sIt, _mF],
+  [0, 0, 0, () => AgenticRetrieveMemoryMetadataFilterList]
+];
+export var AgenticRetrieveMemoryRetrieveDetails$: StaticStructureSchema = [3, n0, _ARMRD,
+  0,
+  [_iQ, _mI, _n, _nP, _sIt],
+  [[() => AgenticRetrieveMessageContent$, 0], 0, 0, 0, 0], 2
+];
+export var AgenticRetrieveMemorySessionBinding$: StaticStructureSchema = [3, n0, _ARMSB,
+  0,
+  [_aI, _sIe],
+  [0, 0], 2
+];
 export var AgenticRetrieveMessage$: StaticStructureSchema = [3, n0, _ARM,
   0,
   [_co, _ro],
   [[() => AgenticRetrieveMessageContent$, 0], 0], 2
 ];
-export var AgenticRetrieveMessageContent$: StaticStructureSchema = [3, n0, _ARMC,
+export var AgenticRetrieveMessageContent$: StaticStructureSchema = [3, n0, _ARMCg,
   8,
   [_t],
   [0]
@@ -1254,8 +1308,8 @@ export var AgenticRetrieveSourceRetriever$: StaticStructureSchema = [3, n0, _ARS
 ];
 export var AgenticRetrieveStreamRequest$: StaticStructureSchema = [3, n0, _ARSRg,
   0,
-  [_mes, _ret, _aRC, _pC, _nT, _uC, _gRe],
-  [[() => AgenticRetrieveMessages, 0], [() => AgenticRetrievers, 0], () => AgenticRetrieveConfiguration$, () => AgenticRetrievePolicyConfiguration$, 0, [() => UserContext$, 0], 2], 3
+  [_mes, _ret, _aRC, _pC, _nT, _uC, _mCe, _gRe],
+  [[() => AgenticRetrieveMessages, 0], [() => AgenticRetrievers, 0], () => AgenticRetrieveConfiguration$, () => AgenticRetrievePolicyConfiguration$, 0, [() => UserContext$, 0], () => AgenticRetrieveMemoryConfiguration$, 2], 3
 ];
 export var AgenticRetrieveStreamResponse$: StaticStructureSchema = [3, n0, _ARSRge,
   0,
@@ -1289,12 +1343,12 @@ export var AnalyzePromptEvent$: StaticStructureSchema = [3, n0, _APE,
 ];
 export var ApiInvocationInput$: StaticStructureSchema = [3, n0, _AII,
   0,
-  [_aG, _hM, _aP, _p, _rB, _aIT, _aI, _cN],
+  [_aG, _hM, _aP, _p, _rB, _aIT, _aIg, _cN],
   [0, 0, [() => ApiPath, 0], () => ApiParameters, () => ApiRequestBody$, 0, 0, [() => Name, 0]], 1
 ];
 export var ApiParameter$: StaticStructureSchema = [3, n0, _APp,
   0,
-  [_n, _ty, _va],
+  [_na, _ty, _va],
   [0, 0, 0]
 ];
 export var ApiRequestBody$: StaticStructureSchema = [3, n0, _ARB,
@@ -1304,7 +1358,7 @@ export var ApiRequestBody$: StaticStructureSchema = [3, n0, _ARB,
 ];
 export var ApiResult$: StaticStructureSchema = [3, n0, _ARp,
   0,
-  [_aG, _hM, _aP, _cS, _rS, _hSC, _rBe, _aI],
+  [_aG, _hM, _aP, _cS, _rS, _hSC, _rBe, _aIg],
   [0, 0, [() => ApiPath, 0], 0, 0, 1, () => ResponseBody, 0], 1
 ];
 export var Attribution$: StaticStructureSchema = [3, n0, _A,
@@ -1409,12 +1463,12 @@ export var ConversationHistory$: StaticStructureSchema = [3, n0, _CH,
 ];
 export var CreateInvocationRequest$: StaticStructureSchema = [3, n0, _CIR,
   0,
-  [_sIe, _iI, _d],
+  [_sIes, _iI, _d],
   [[0, 1], 0, 0], 1
 ];
 export var CreateInvocationResponse$: StaticStructureSchema = [3, n0, _CIRr,
   0,
-  [_sIes, _iI, _cA],
+  [_sIe, _iI, _cA],
   [0, 0, 5], 3
 ];
 export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
@@ -1424,7 +1478,7 @@ export var CreateSessionRequest$: StaticStructureSchema = [3, n0, _CSR,
 ];
 export var CreateSessionResponse$: StaticStructureSchema = [3, n0, _CSRr,
   0,
-  [_sIes, _sA, _sS, _cA],
+  [_sIe, _sA, _sS, _cA],
   [0, 0, 0, 5], 4
 ];
 export var CustomOrchestration$: StaticStructureSchema = [3, n0, _CO,
@@ -1444,8 +1498,8 @@ export var CustomOrchestrationTraceEvent$: StaticStructureSchema = [3, n0, _COTE
 ];
 export var DeleteAgentMemoryRequest$: StaticStructureSchema = [3, n0, _DAMR,
   0,
-  [_aI, _aAI, _mI, _sIes],
-  [[0, 1], [0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _sIes }]], 2
+  [_aIg, _aAI, _mI, _sIe],
+  [[0, 1], [0, 1], [0, { [_hQ]: _mI }], [0, { [_hQ]: _sIe }]], 2
 ];
 export var DeleteAgentMemoryResponse$: StaticStructureSchema = [3, n0, _DAMRe,
   0,
@@ -1454,7 +1508,7 @@ export var DeleteAgentMemoryResponse$: StaticStructureSchema = [3, n0, _DAMRe,
 ];
 export var DeleteSessionRequest$: StaticStructureSchema = [3, n0, _DSR,
   0,
-  [_sIe],
+  [_sIes],
   [[0, 1]], 1
 ];
 export var DeleteSessionResponse$: StaticStructureSchema = [3, n0, _DSRe,
@@ -1479,7 +1533,7 @@ export var DocumentAclGroup$: StaticStructureSchema = [3, n0, _DAG,
 ];
 export var DocumentAclMembership$: StaticStructureSchema = [3, n0, _DAM,
   0,
-  [_mR, _cond],
+  [_mRe, _cond],
   [0, () => DocumentAclConditionList]
 ];
 export var DocumentAclUser$: StaticStructureSchema = [3, n0, _DAU,
@@ -1489,12 +1543,12 @@ export var DocumentAclUser$: StaticStructureSchema = [3, n0, _DAU,
 ];
 export var EndSessionRequest$: StaticStructureSchema = [3, n0, _ESR,
   0,
-  [_sIe],
+  [_sIes],
   [[0, 1]], 1
 ];
 export var EndSessionResponse$: StaticStructureSchema = [3, n0, _ESRn,
   0,
-  [_sIes, _sA, _sS],
+  [_sIe, _sA, _sS],
   [0, 0, 0], 3
 ];
 export var ExternalSource$: StaticStructureSchema = [3, n0, _ES,
@@ -1579,7 +1633,7 @@ export var FlowInput$: StaticStructureSchema = [3, n0, _FI,
 ];
 export var FlowInputField$: StaticStructureSchema = [3, n0, _FIF,
   8,
-  [_n, _co],
+  [_na, _co],
   [0, [() => FlowExecutionContent$, 0]], 2
 ];
 export var FlowMultiTurnInputRequestEvent$: StaticStructureSchema = [3, n0, _FMTIRE,
@@ -1594,7 +1648,7 @@ export var FlowOutputEvent$: StaticStructureSchema = [3, n0, _FOE,
 ];
 export var FlowOutputField$: StaticStructureSchema = [3, n0, _FOF,
   8,
-  [_n, _co],
+  [_na, _co],
   [0, [() => FlowExecutionContent$, 0]], 2
 ];
 export var FlowTraceCondition$: StaticStructureSchema = [3, n0, _FTC,
@@ -1664,22 +1718,22 @@ export var FoundationModelConfiguration$: StaticStructureSchema = [3, n0, _FMC,
 ];
 export var FunctionDefinition$: StaticStructureSchema = [3, n0, _FD,
   0,
-  [_n, _d, _p, _rCe],
+  [_na, _d, _p, _rCeq],
   [[() => ResourceName, 0], 0, () => ParameterMap, 0], 1
 ];
 export var FunctionInvocationInput$: StaticStructureSchema = [3, n0, _FII,
   0,
-  [_aG, _p, _f, _aIT, _aI, _cN],
+  [_aG, _p, _f, _aIT, _aIg, _cN],
   [0, () => FunctionParameters, 0, 0, 0, [() => Name, 0]], 1
 ];
 export var FunctionParameter$: StaticStructureSchema = [3, n0, _FPu,
   0,
-  [_n, _ty, _va],
+  [_na, _ty, _va],
   [0, 0, 0]
 ];
 export var FunctionResult$: StaticStructureSchema = [3, n0, _FRu,
   0,
-  [_aG, _cS, _f, _rBe, _rS, _aI],
+  [_aG, _cS, _f, _rBe, _rS, _aIg],
   [0, 0, 0, () => ResponseBody, 0, 0], 1
 ];
 export var GeneratedQuery$: StaticStructureSchema = [3, n0, _GQ,
@@ -1709,12 +1763,12 @@ export var GenerationConfiguration$: StaticStructureSchema = [3, n0, _GC,
 ];
 export var GetAgentMemoryRequest$: StaticStructureSchema = [3, n0, _GAMR,
   0,
-  [_aI, _aAI, _mTe, _mI, _nT, _mIa],
+  [_aIg, _aAI, _mTe, _mI, _nT, _mIa],
   [[0, 1], [0, 1], [0, { [_hQ]: _mTe }], [0, { [_hQ]: _mI }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mIa }]], 4
 ];
 export var GetAgentMemoryResponse$: StaticStructureSchema = [3, n0, _GAMRe,
   0,
-  [_nT, _mCe],
+  [_nT, _mCem],
   [0, () => Memories]
 ];
 export var GetDocumentContentRequest$: StaticStructureSchema = [3, n0, _GDCR,
@@ -1759,7 +1813,7 @@ export var GetIngestedDocumentAclResponse$: StaticStructureSchema = [3, n0, _GID
 ];
 export var GetInvocationStepRequest$: StaticStructureSchema = [3, n0, _GISR,
   0,
-  [_iIn, _iSI, _sIe],
+  [_iIn, _iSI, _sIes],
   [0, [0, 1], [0, 1]], 3
 ];
 export var GetInvocationStepResponse$: StaticStructureSchema = [3, n0, _GISRe,
@@ -1769,12 +1823,12 @@ export var GetInvocationStepResponse$: StaticStructureSchema = [3, n0, _GISRe,
 ];
 export var GetSessionRequest$: StaticStructureSchema = [3, n0, _GSR,
   0,
-  [_sIe],
+  [_sIes],
   [[0, 1]], 1
 ];
 export var GetSessionResponse$: StaticStructureSchema = [3, n0, _GSRe,
   0,
-  [_sIes, _sA, _sS, _cA, _lUA, _sM, _eKA],
+  [_sIe, _sA, _sS, _cA, _lUA, _sM, _eKA],
   [0, 0, 0, 5, 5, 128 | 0, 0], 5
 ];
 export var GuardrailAssessment$: StaticStructureSchema = [3, n0, _GA,
@@ -1824,7 +1878,7 @@ export var GuardrailPiiEntityFilter$: StaticStructureSchema = [3, n0, _GPEF,
 ];
 export var GuardrailRegexFilter$: StaticStructureSchema = [3, n0, _GRF,
   8,
-  [_n, _reg, _ma, _ac],
+  [_na, _reg, _ma, _ac],
   [0, 0, 0, 0]
 ];
 export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema = [3, n0, _GSIPA,
@@ -1834,7 +1888,7 @@ export var GuardrailSensitiveInformationPolicyAssessment$: StaticStructureSchema
 ];
 export var GuardrailTopic$: StaticStructureSchema = [3, n0, _GT,
   8,
-  [_n, _ty, _ac],
+  [_na, _ty, _ac],
   [0, 0, 0]
 ];
 export var GuardrailTopicPolicyAssessment$: StaticStructureSchema = [3, n0, _GTPA,
@@ -1894,7 +1948,7 @@ export var InlineAgentReturnControlPayload$: StaticStructureSchema = [3, n0, _IA
 ];
 export var InlineAgentTracePart$: StaticStructureSchema = [3, n0, _IATP,
   8,
-  [_sIes, _tra, _cCa, _eTv, _cN],
+  [_sIe, _tra, _cCa, _eTv, _cN],
   [0, [() => Trace$, 0], () => CallerChain, 5, [() => Name, 0]]
 ];
 export var InlineBedrockModelConfigurations$: StaticStructureSchema = [3, n0, _IBMC,
@@ -1909,7 +1963,7 @@ export var InlineSessionState$: StaticStructureSchema = [3, n0, _ISS,
 ];
 export var InputFile$: StaticStructureSchema = [3, n0, _IF,
   0,
-  [_n, _sou, _uCs],
+  [_na, _sou, _uCs],
   [0, [() => FileSource$, 0], 0], 3
 ];
 export var InputImage$: StaticStructureSchema = [3, n0, _IIn,
@@ -1924,27 +1978,27 @@ export var InvocationInput$: StaticStructureSchema = [3, n0, _IInv,
 ];
 export var InvocationStep$: StaticStructureSchema = [3, n0, _IS,
   0,
-  [_sIes, _iI, _iSI, _iST, _pa],
+  [_sIe, _iI, _iSI, _iST, _pa],
   [0, 0, 0, 5, [() => InvocationStepPayload$, 0]], 5
 ];
 export var InvocationStepSummary$: StaticStructureSchema = [3, n0, _ISSn,
   0,
-  [_sIes, _iI, _iSI, _iST],
+  [_sIe, _iI, _iSI, _iST],
   [0, 0, 0, 5], 4
 ];
 export var InvocationSummary$: StaticStructureSchema = [3, n0, _ISn,
   0,
-  [_sIes, _iI, _cA],
+  [_sIe, _iI, _cA],
   [0, 0, 5], 3
 ];
 export var InvokeAgentRequest$: StaticStructureSchema = [3, n0, _IAR,
   0,
-  [_aI, _aAI, _sIes, _sSe, _eS, _eTn, _iTn, _mI, _bMC, _sCt, _pCC, _sAo],
+  [_aIg, _aAI, _sIe, _sSe, _eS, _eTn, _iTn, _mI, _bMC, _sCt, _pCC, _sAo],
   [[0, 1], [0, 1], [0, 1], [() => SessionState$, 0], 2, 2, [() => InputText, 0], 0, () => BedrockModelConfigurations$, () => StreamingConfigurations$, () => PromptCreationConfigurations$, [0, { [_hH]: _xasa }]], 3
 ];
 export var InvokeAgentResponse$: StaticStructureSchema = [3, n0, _IARn,
   0,
-  [_com, _cT, _sIes, _mI],
+  [_com, _cT, _sIe, _mI],
   [[() => ResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }], [0, { [_hH]: _xabami }]], 3
 ];
 export var InvokeFlowRequest$: StaticStructureSchema = [3, n0, _IFR,
@@ -1959,12 +2013,12 @@ export var InvokeFlowResponse$: StaticStructureSchema = [3, n0, _IFRn,
 ];
 export var InvokeInlineAgentRequest$: StaticStructureSchema = [3, n0, _IIAR,
   0,
-  [_fM, _in, _sIes, _cEKA, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN, _eS, _eTn, _iTn, _sCt, _pCC, _iSS, _col, _bMC, _oT, _cOu],
+  [_fM, _in, _sIe, _cEKA, _iSTTLIS, _aGc, _kB, _gC, _pOC, _aC, _cC, _aN, _eS, _eTn, _iTn, _sCt, _pCC, _iSS, _col, _bMC, _oT, _cOu],
   [0, [() => Instruction, 0], [0, 1], 0, 1, [() => AgentActionGroups, 0], [() => KnowledgeBases, 0], () => GuardrailConfigurationWithArn$, [() => PromptOverrideConfiguration$, 0], 0, [() => CollaboratorConfigurations, 0], [() => Name, 0], 2, 2, [() => InputText, 0], () => StreamingConfigurations$, () => PromptCreationConfigurations$, [() => InlineSessionState$, 0], [() => Collaborators, 0], () => InlineBedrockModelConfigurations$, 0, () => CustomOrchestration$], 3
 ];
 export var InvokeInlineAgentResponse$: StaticStructureSchema = [3, n0, _IIARn,
   0,
-  [_com, _cT, _sIes],
+  [_com, _cT, _sIe],
   [[() => InlineAgentResponseStream$, 16], [0, { [_hH]: _xabact }], [0, { [_hH]: _xabasi }]], 3
 ];
 export var KnowledgeBase$: StaticStructureSchema = [3, n0, _KB,
@@ -1999,7 +2053,7 @@ export var KnowledgeBaseRetrievalConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var KnowledgeBaseRetrievalResult$: StaticStructureSchema = [3, n0, _KBRR,
   0,
-  [_co, _l, _sc, _me, _dI],
+  [_co, _lo, _sc, _me, _dI],
   [[() => RetrievalResultContent$, 0], [() => RetrievalResultLocation$, 0], 1, [() => RetrievalResultMetadata, 0], 0], 1
 ];
 export var KnowledgeBaseRetrieveAndGenerateConfiguration$: StaticStructureSchema = [3, n0, _KBRAGC,
@@ -2039,7 +2093,7 @@ export var ListFlowExecutionsResponse$: StaticStructureSchema = [3, n0, _LFERi,
 ];
 export var ListInvocationsRequest$: StaticStructureSchema = [3, n0, _LIR,
   0,
-  [_sIe, _nT, _mRa],
+  [_sIes, _nT, _mRa],
   [[0, 1], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListInvocationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
@@ -2049,7 +2103,7 @@ export var ListInvocationsResponse$: StaticStructureSchema = [3, n0, _LIRi,
 ];
 export var ListInvocationStepsRequest$: StaticStructureSchema = [3, n0, _LISR,
   0,
-  [_sIe, _iIn, _nT, _mRa],
+  [_sIes, _iIn, _nT, _mRa],
   [[0, 1], 0, [0, { [_hQ]: _nT }], [1, { [_hQ]: _mRa }]], 1
 ];
 export var ListInvocationStepsResponse$: StaticStructureSchema = [3, n0, _LISRi,
@@ -2099,7 +2153,7 @@ export var ManagedSearchRerankingConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var MemorySessionSummary$: StaticStructureSchema = [3, n0, _MSS,
   0,
-  [_mI, _sIes, _sST, _sET, _sTu],
+  [_mI, _sIe, _sST, _sET, _sTu],
   [0, 0, 5, 5, 0]
 ];
 export var Message$: StaticStructureSchema = [3, n0, _M,
@@ -2124,7 +2178,7 @@ export var MetadataConfigurationForReranking$: StaticStructureSchema = [3, n0, _
 ];
 export var ModelInvocationInput$: StaticStructureSchema = [3, n0, _MII,
   8,
-  [_tI, _t, _ty, _oL, _pCM, _iCnf, _pM, _fM],
+  [_tI, _t, _ty, _oL, _pCM, _iCnf, _pMa, _fM],
   [0, [() => PromptText, 0], 0, 0, 0, () => InferenceConfiguration$, 0, 0]
 ];
 export var ModelPerformanceConfiguration$: StaticStructureSchema = [3, n0, _MPC,
@@ -2159,7 +2213,7 @@ export var NodeInputExecutionChainItem$: StaticStructureSchema = [3, n0, _NIECI,
 ];
 export var NodeInputField$: StaticStructureSchema = [3, n0, _NIF,
   8,
-  [_n, _co, _sou, _ty, _ca, _eCx],
+  [_na, _co, _sou, _ty, _ca, _eCx],
   [0, [() => NodeExecutionContent$, 0], [() => NodeInputSource$, 0], 0, 0, () => NodeInputExecutionChain], 2
 ];
 export var NodeInputSource$: StaticStructureSchema = [3, n0, _NIS,
@@ -2174,7 +2228,7 @@ export var NodeOutputEvent$: StaticStructureSchema = [3, n0, _NOE,
 ];
 export var NodeOutputField$: StaticStructureSchema = [3, n0, _NOF,
   8,
-  [_n, _co, _ne, _ty],
+  [_na, _co, _ne, _ty],
   [0, [() => NodeExecutionContent$, 0], [() => NodeOutputNextList, 0], 0], 2
 ];
 export var NodeOutputNext$: StaticStructureSchema = [3, n0, _NON,
@@ -2214,12 +2268,12 @@ export var OrchestrationModelInvocationOutput$: StaticStructureSchema = [3, n0, 
 ];
 export var OutputFile$: StaticStructureSchema = [3, n0, _OF,
   8,
-  [_n, _ty, _by],
+  [_na, _ty, _by],
   [0, 0, [() => FileBody, 0]]
 ];
 export var Parameter$: StaticStructureSchema = [3, n0, _Pa,
   0,
-  [_n, _ty, _va],
+  [_na, _ty, _va],
   [0, 0, 0]
 ];
 export var ParameterDetail$: StaticStructureSchema = [3, n0, _PD,
@@ -2259,7 +2313,7 @@ export var PreProcessingParsedResponse$: StaticStructureSchema = [3, n0, _PPPRr,
 ];
 export var PromptConfiguration$: StaticStructureSchema = [3, n0, _PCr,
   0,
-  [_pTr, _pCM, _pS, _bPT, _iCnf, _pM, _fM, _aMRF],
+  [_pTr, _pCM, _pS, _bPT, _iCnf, _pMa, _fM, _aMRF],
   [0, 0, 0, [() => BasePromptTemplate, 0], () => InferenceConfiguration$, 0, 0, 15]
 ];
 export var PromptCreationConfigurations$: StaticStructureSchema = [3, n0, _PCC,
@@ -2284,7 +2338,7 @@ export var PropertyParameters$: StaticStructureSchema = [3, n0, _PPr,
 ];
 export var PutInvocationStepRequest$: StaticStructureSchema = [3, n0, _PISR,
   0,
-  [_sIe, _iIn, _iST, _pa, _iSI],
+  [_sIes, _iIn, _iST, _pa, _iSI],
   [[0, 1], 0, 5, [() => InvocationStepPayload$, 0], 0], 4
 ];
 export var PutInvocationStepResponse$: StaticStructureSchema = [3, n0, _PISRu,
@@ -2464,12 +2518,12 @@ export var RetrieveAndGenerateOutputEvent$: StaticStructureSchema = [3, n0, _RAG
 ];
 export var RetrieveAndGenerateRequest$: StaticStructureSchema = [3, n0, _RAGR,
   0,
-  [_i, _sIes, _rAGC, _sCe, _uC],
+  [_i, _sIe, _rAGC, _sCe, _uC],
   [[() => RetrieveAndGenerateInput$, 0], 0, [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$, [() => UserContext$, 0]], 1
 ];
 export var RetrieveAndGenerateResponse$: StaticStructureSchema = [3, n0, _RAGRe,
   0,
-  [_sIes, _o, _ci, _gA],
+  [_sIe, _o, _ci, _gA],
   [0, [() => RetrieveAndGenerateOutput$, 0], [() => Citations, 0], 0], 2
 ];
 export var RetrieveAndGenerateSessionConfiguration$: StaticStructureSchema = [3, n0, _RAGSC,
@@ -2479,17 +2533,17 @@ export var RetrieveAndGenerateSessionConfiguration$: StaticStructureSchema = [3,
 ];
 export var RetrieveAndGenerateStreamRequest$: StaticStructureSchema = [3, n0, _RAGSR,
   0,
-  [_i, _sIes, _rAGC, _sCe, _uC],
+  [_i, _sIe, _rAGC, _sCe, _uC],
   [[() => RetrieveAndGenerateInput$, 0], 0, [() => RetrieveAndGenerateConfiguration$, 0], () => RetrieveAndGenerateSessionConfiguration$, [() => UserContext$, 0]], 1
 ];
 export var RetrieveAndGenerateStreamResponse$: StaticStructureSchema = [3, n0, _RAGSRe,
   0,
-  [_st, _sIes],
+  [_st, _sIe],
   [[() => RetrieveAndGenerateStreamResponseOutput$, 16], [0, { [_hH]: _xabkbsi }]], 2
 ];
 export var RetrievedReference$: StaticStructureSchema = [3, n0, _RRet,
   0,
-  [_co, _l, _me],
+  [_co, _lo, _me],
   [[() => RetrievalResultContent$, 0], [() => RetrievalResultLocation$, 0], [() => RetrievalResultMetadata, 0]]
 ];
 export var RetrieveRequest$: StaticStructureSchema = [3, n0, _RRetr,
@@ -2549,7 +2603,7 @@ export var SessionState$: StaticStructureSchema = [3, n0, _SS,
 ];
 export var SessionSummary$: StaticStructureSchema = [3, n0, _SSe,
   0,
-  [_sIes, _sA, _sS, _cA, _lUA],
+  [_sIe, _sA, _sS, _cA, _lUA],
   [0, 0, 0, 5, 5], 5
 ];
 export var Span$: StaticStructureSchema = [3, n0, _Sp,
@@ -2619,7 +2673,7 @@ export var TextToSqlKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0,
 ];
 export var TracePart$: StaticStructureSchema = [3, n0, _TPr,
   8,
-  [_sIes, _tra, _cCa, _eTv, _cN, _aI, _aAI, _aV],
+  [_sIe, _tra, _cCa, _eTv, _cN, _aIg, _aAI, _aV],
   [0, [() => Trace$, 0], () => CallerChain, 5, [() => Name, 0], 0, 0, 0]
 ];
 export var TransformationConfiguration$: StaticStructureSchema = [3, n0, _TC,
@@ -2639,12 +2693,12 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateSessionRequest$: StaticStructureSchema = [3, n0, _USR,
   0,
-  [_sIe, _sM],
+  [_sIes, _sM],
   [[0, 1], 128 | 0], 1
 ];
 export var UpdateSessionResponse$: StaticStructureSchema = [3, n0, _USRp,
   0,
-  [_sIes, _sA, _sS, _cA, _lUA],
+  [_sIe, _sA, _sS, _cA, _lUA],
   [0, 0, 0, 5, 5], 5
 ];
 export var Usage$: StaticStructureSchema = [3, n0, _U,
@@ -2693,6 +2747,13 @@ var AgenticRetrieveCitationReferenceList: StaticListSchema = [1, n0, _ARCRL,
 ];
 var AgenticRetrieveFailures: StaticListSchema = [1, n0, _ARFg,
   0, () => AgenticRetrieveFailure$
+];
+var AgenticRetrieveMemoryMetadataFilterList: StaticListSchema = [1, n0, _ARMMFL,
+  0, () => AgenticRetrieveMemoryMetadataFilter$
+];
+var AgenticRetrieveMemoryMetadataStringList = 64 | 0;
+var AgenticRetrieveMemoryRetrievalConfigList: StaticListSchema = [1, n0, _ARMRCL,
+  0, () => AgenticRetrieveMemoryRetrievalConfig$
 ];
 var AgenticRetrieveMessages: StaticListSchema = [1, n0, _ARMg,
   0, [() => AgenticRetrieveMessage$,
@@ -2978,6 +3039,21 @@ export var ActionGroupExecutor$: StaticUnionSchema = [4, n0, _AGE,
   0,
   [_lam, _cCu],
   [0, 0]
+];
+export var AgenticRetrieveMemoryMetadataFilterLeft$: StaticUnionSchema = [4, n0, _ARMMFLg,
+  0,
+  [_mK],
+  [0]
+];
+export var AgenticRetrieveMemoryMetadataFilterRight$: StaticUnionSchema = [4, n0, _ARMMFR,
+  0,
+  [_mV],
+  [() => AgenticRetrieveMemoryMetadataValue$]
+];
+export var AgenticRetrieveMemoryMetadataValue$: StaticUnionSchema = [4, n0, _ARMMV,
+  0,
+  [_sV, _nV, _sLV, _dTV],
+  [0, 1, 64 | 0, 4]
 ];
 export var AgenticRetrieveStreamResponseOutput$: StaticUnionSchema = [4, n0, _ARSRO,
   { [_str]: 1 },

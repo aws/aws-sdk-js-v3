@@ -138,6 +138,39 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  *   userContext: { // UserContext
  *     userId: "STRING_VALUE", // required
  *   },
+ *   memoryConfiguration: { // AgenticRetrieveMemoryConfiguration
+ *     memoryId: "STRING_VALUE", // required
+ *     sessionBinding: { // AgenticRetrieveMemorySessionBinding
+ *       actorId: "STRING_VALUE", // required
+ *       sessionId: "STRING_VALUE", // required
+ *     },
+ *     retrievalConfigs: [ // AgenticRetrieveMemoryRetrievalConfigList
+ *       { // AgenticRetrieveMemoryRetrievalConfig
+ *         namespace: "STRING_VALUE",
+ *         namespacePath: "STRING_VALUE",
+ *         strategyId: "STRING_VALUE",
+ *         metadataFilters: [ // AgenticRetrieveMemoryMetadataFilterList
+ *           { // AgenticRetrieveMemoryMetadataFilter
+ *             left: { // AgenticRetrieveMemoryMetadataFilterLeft Union: only one key present
+ *               metadataKey: "STRING_VALUE",
+ *             },
+ *             operator: "EQUALS_TO" || "EXISTS" || "NOT_EXISTS" || "BEFORE" || "AFTER" || "CONTAINS" || "GREATER_THAN" || "GREATER_THAN_OR_EQUALS" || "LESS_THAN" || "LESS_THAN_OR_EQUALS", // required
+ *             right: { // AgenticRetrieveMemoryMetadataFilterRight Union: only one key present
+ *               metadataValue: { // AgenticRetrieveMemoryMetadataValue Union: only one key present
+ *                 stringValue: "STRING_VALUE",
+ *                 numberValue: Number("double"),
+ *                 stringListValue: [ // AgenticRetrieveMemoryMetadataStringList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 dateTimeValue: new Date("TIMESTAMP"),
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *     persistenceMode: "DEFAULT" || "NONE",
+ *   },
  *   generateResponse: true || false,
  * };
  * const command = new AgenticRetrieveStreamCommand(input);
@@ -180,7 +213,7 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //       id: "STRING_VALUE", // required
  * //       timestamp: Number("long"), // required
  * //       attributes: { // AgenticRetrieveTraceEventAttributes
- * //         step: "Planning" || "Retrieval" || "SpeculativeRetrieval" || "FullDocumentExpansion", // required
+ * //         step: "Planning" || "Retrieval" || "SpeculativeRetrieval" || "FullDocumentExpansion" || "SessionHistoryLoad", // required
  * //         status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED", // required
  * //         message: "STRING_VALUE", // required
  * //         actions: [ // AgenticRetrieveActions
@@ -198,6 +231,15 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //             fullDocumentExpansion: { // AgenticRetrieveFullDocExpansionDetails
  * //               documentId: "STRING_VALUE",
  * //               sourceRetriever: "<AgenticRetrieveSourceRetriever>",
+ * //             },
+ * //             memoryRetrieve: { // AgenticRetrieveMemoryRetrieveDetails
+ * //               inputQuery: {
+ * //                 text: "STRING_VALUE",
+ * //               },
+ * //               memoryId: "STRING_VALUE", // required
+ * //               namespace: "STRING_VALUE",
+ * //               namespacePath: "STRING_VALUE",
+ * //               strategyId: "STRING_VALUE",
  * //             },
  * //           },
  * //         ],
@@ -222,7 +264,7 @@ export interface AgenticRetrieveStreamCommandOutput extends AgenticRetrieveStrea
  * //         retrievalMetadata: [ // AgenticRetrieveSourceMetadataList
  * //           { // AgenticRetrieveSourceMetadata
  * //             identifier: "STRING_VALUE",
- * //             retrievalType: "BedrockKnowledgeBase",
+ * //             retrievalType: "BedrockKnowledgeBase" || "BedrockAgentCoreMemory",
  * //           },
  * //         ],
  * //         retrievalResponse: [ // AgenticRetrieveTraceResults

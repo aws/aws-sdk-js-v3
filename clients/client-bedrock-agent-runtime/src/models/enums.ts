@@ -222,6 +222,78 @@ export type GuardrailAction = (typeof GuardrailAction)[keyof typeof GuardrailAct
  * @public
  * @enum
  */
+export const AgenticRetrieveMemoryPersistenceMode = {
+  /**
+   * <p>Specifies that the question and the agent-generated answer are persisted to the session. This is the default when persistenceMode is omitted.</p>
+   */
+  DEFAULT: "DEFAULT",
+  /**
+   * <p>Specifies that the session is left unchanged.</p>
+   */
+  NONE: "NONE",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveMemoryPersistenceMode =
+  (typeof AgenticRetrieveMemoryPersistenceMode)[keyof typeof AgenticRetrieveMemoryPersistenceMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const AgenticRetrieveMemoryMetadataFilterOperator = {
+  /**
+   * <p>The AFTER operator matches memory records whose timestamp metadata value falls after the supplied value.</p>
+   */
+  AFTER: "AFTER",
+  /**
+   * <p>The BEFORE operator matches memory records whose timestamp metadata value falls before the supplied value.</p>
+   */
+  BEFORE: "BEFORE",
+  /**
+   * <p>The CONTAINS operator matches memory records whose metadata value contains the supplied value.</p>
+   */
+  CONTAINS: "CONTAINS",
+  /**
+   * <p>The EQUALS_TO operator matches memory records whose metadata value equals the supplied value.</p>
+   */
+  EQUALS_TO: "EQUALS_TO",
+  /**
+   * <p>The EXISTS operator matches memory records that carry the metadata key, whatever its value. This operator takes no right operand.</p>
+   */
+  EXISTS: "EXISTS",
+  /**
+   * <p>The GREATER_THAN operator matches memory records whose numeric metadata value is greater than the supplied value.</p>
+   */
+  GREATER_THAN: "GREATER_THAN",
+  /**
+   * <p>The GREATER_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is greater than or equal to the supplied value.</p>
+   */
+  GREATER_THAN_OR_EQUALS: "GREATER_THAN_OR_EQUALS",
+  /**
+   * <p>The LESS_THAN operator matches memory records whose numeric metadata value is less than the supplied value.</p>
+   */
+  LESS_THAN: "LESS_THAN",
+  /**
+   * <p>The LESS_THAN_OR_EQUALS operator matches memory records whose numeric metadata value is less than or equal to the supplied value.</p>
+   */
+  LESS_THAN_OR_EQUALS: "LESS_THAN_OR_EQUALS",
+  /**
+   * <p>The NOT_EXISTS operator matches memory records that do not carry the metadata key. This operator takes no right operand.</p>
+   */
+  NOT_EXISTS: "NOT_EXISTS",
+} as const;
+/**
+ * @public
+ */
+export type AgenticRetrieveMemoryMetadataFilterOperator =
+  (typeof AgenticRetrieveMemoryMetadataFilterOperator)[keyof typeof AgenticRetrieveMemoryMetadataFilterOperator];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConversationRole = {
   ASSISTANT: "assistant",
   USER: "user",
@@ -236,6 +308,10 @@ export type ConversationRole = (typeof ConversationRole)[keyof typeof Conversati
  * @enum
  */
 export const AgenticRetrieveType = {
+  /**
+   * <p>An AgentCore Memory resource. Long-term memory retrievals report under the Retrieval step with this source type.</p>
+   */
+  BEDROCK_AGENT_CORE_MEMORY: "BedrockAgentCoreMemory",
   /**
    * <p>A Bedrock knowledge base retrieval source.</p>
    */
@@ -286,6 +362,10 @@ export const AgenticRetrieveStep = {
    * <p>The retrieval phase where data is fetched.</p>
    */
   RETRIEVAL: "Retrieval",
+  /**
+   * <p>The phase that restores prior session history from AgentCore Memory short-term memory, before the agent begins work.</p>
+   */
+  SESSION_HISTORY_LOAD: "SessionHistoryLoad",
   /**
    * <p>A speculative retrieval phase for optimization.</p>
    */

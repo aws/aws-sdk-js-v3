@@ -24,6 +24,16 @@ import {
   AgenticRetrieveFullDocExpansionDetails$,
   AgenticRetrieveGeneratedResponse$,
   AgenticRetrieveGuardrailWarning$,
+  AgenticRetrieveMemoryConfiguration$,
+  AgenticRetrieveMemoryMetadataFilter$,
+  AgenticRetrieveMemoryMetadataFilterLeft$,
+  AgenticRetrieveMemoryMetadataFilterOperator,
+  AgenticRetrieveMemoryMetadataFilterRight$,
+  AgenticRetrieveMemoryMetadataValue$,
+  AgenticRetrieveMemoryPersistenceMode,
+  AgenticRetrieveMemoryRetrievalConfig$,
+  AgenticRetrieveMemoryRetrieveDetails$,
+  AgenticRetrieveMemorySessionBinding$,
   AgenticRetrieveMessage$,
   AgenticRetrieveMessageContent$,
   AgenticRetrievePolicyConfiguration$,
@@ -632,6 +642,14 @@ assert(typeof AgenticRetrieveFailure$ === "object");
 assert(typeof AgenticRetrieveFullDocExpansionDetails$ === "object");
 assert(typeof AgenticRetrieveGeneratedResponse$ === "object");
 assert(typeof AgenticRetrieveGuardrailWarning$ === "object");
+assert(typeof AgenticRetrieveMemoryConfiguration$ === "object");
+assert(typeof AgenticRetrieveMemoryMetadataFilter$ === "object");
+assert(typeof AgenticRetrieveMemoryMetadataFilterLeft$ === "object");
+assert(typeof AgenticRetrieveMemoryMetadataFilterRight$ === "object");
+assert(typeof AgenticRetrieveMemoryMetadataValue$ === "object");
+assert(typeof AgenticRetrieveMemoryRetrievalConfig$ === "object");
+assert(typeof AgenticRetrieveMemoryRetrieveDetails$ === "object");
+assert(typeof AgenticRetrieveMemorySessionBinding$ === "object");
 assert(typeof AgenticRetrieveMessage$ === "object");
 assert(typeof AgenticRetrieveMessageContent$ === "object");
 assert(typeof AgenticRetrievePolicyConfiguration$ === "object");
@@ -972,6 +990,8 @@ assert(typeof VideoSegment$ === "object");
 assert(typeof ActionGroupSignature === "object");
 assert(typeof ActionInvocationType === "object");
 assert(typeof AgentCollaboration === "object");
+assert(typeof AgenticRetrieveMemoryMetadataFilterOperator === "object");
+assert(typeof AgenticRetrieveMemoryPersistenceMode === "object");
 assert(typeof AgenticRetrieveRerankingConfigurationType === "object");
 assert(typeof AgenticRetrieveRerankingModelType === "object");
 assert(typeof AgenticRetrieveStatus === "object");
