@@ -206,6 +206,46 @@ describe(fromSso.name, () => {
     });
   });
 
+  it("should not skip refresh for a different SSO session refreshed within 30 seconds", async () => {
+    const { fromSso } = await import("./fromSso");
+
+    // Profile A: its expired token is refreshed, recording a throttle timestamp for session A.
+    await expect(fromSso(mockInit)()).resolves.toStrictEqual(mockNewToken);
+    expect(getNewSsoOidcToken).toHaveBeenCalledTimes(1);
+
+    // Profile B: an other profile pointing at a different sso_session, whose cached token
+    // (the default expired mockSsoToken) is also expired, resolved within 30 seconds.
+    const mockProfileNameB = "mockProfileNameB";
+    const mockSsoSessionNameB = "mock_sso_session_name_b";
+    const mockInitB = { profile: mockProfileNameB };
+    const mockSsoProfileB = { sso_session: mockSsoSessionNameB };
+    const mockSsoSessionB = {
+      sso_start_url: "mock_sso_start_url_b",
+      sso_region: "mock_sso_region_b",
+    };
+
+    vi.mocked(parseKnownFiles).mockResolvedValue({
+      [mockProfileNameB]: mockSsoProfileB,
+    });
+    vi.mocked(getProfileName).mockReturnValue(mockProfileNameB);
+    vi.mocked(loadSsoSessionData).mockResolvedValue({
+      [mockSsoSessionNameB]: mockSsoSessionB,
+    });
+
+    // Profile B's refresh must NOT be throttled by profile A's refresh, and hence returns a new token.
+    await expect(fromSso(mockInitB)()).resolves.toStrictEqual(mockNewToken);
+    // Refresh endpoint is hit second time.
+    expect(getNewSsoOidcToken).toHaveBeenCalledTimes(2);
+    // The second call used B's own session config (region and init).
+    expect(getNewSsoOidcToken).toHaveBeenNthCalledWith(
+      2,
+      mockSsoToken,
+      mockSsoSessionB.sso_region,
+      mockInitB,
+      undefined
+    );
+  });
+
   it.each(["clientId", "clientSecret", "refreshToken"])(
     "throws error if %s is missing in SSO Token from file",
     async (key) => {
