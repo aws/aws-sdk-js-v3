@@ -38,13 +38,13 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   TriggerEventSource: { // RuleTriggerEventSource
- *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnAfterCallWorkAvailable" || "OnAfterChatWorkAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
  *     IntegrationAssociationId: "STRING_VALUE",
  *   },
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION" || "EXTRACT_INFORMATION", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
@@ -132,6 +132,13 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *       EndAssociatedTasksAction: {},
  *       SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition
  *         EvaluationFormId: "STRING_VALUE", // required
+ *       },
+ *       ExtractInformationAction: { // ExtractInformationActionDefinition
+ *         RulesExtractionDefinitions: [ // RulesExtractionDefinitionIdentifierList // required
+ *           { // RulesExtractionDefinitionIdentifier
+ *             Identifier: "STRING_VALUE", // required
+ *           },
+ *         ],
  *       },
  *     },
  *   ],

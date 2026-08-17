@@ -228,6 +228,11 @@ import {
   CreateEvaluationFormCommand,
 } from "./commands/CreateEvaluationFormCommand";
 import {
+  type CreateExtractionDefinitionCommandInput,
+  type CreateExtractionDefinitionCommandOutput,
+  CreateExtractionDefinitionCommand,
+} from "./commands/CreateExtractionDefinitionCommand";
+import {
   type CreateHoursOfOperationCommandInput,
   type CreateHoursOfOperationCommandOutput,
   CreateHoursOfOperationCommand,
@@ -428,6 +433,11 @@ import {
   DeleteEvaluationFormCommand,
 } from "./commands/DeleteEvaluationFormCommand";
 import {
+  type DeleteExtractionDefinitionCommandInput,
+  type DeleteExtractionDefinitionCommandOutput,
+  DeleteExtractionDefinitionCommand,
+} from "./commands/DeleteExtractionDefinitionCommand";
+import {
   type DeleteHoursOfOperationCommandInput,
   type DeleteHoursOfOperationCommandOutput,
   DeleteHoursOfOperationCommand,
@@ -622,6 +632,11 @@ import {
   type DescribeEvaluationFormCommandOutput,
   DescribeEvaluationFormCommand,
 } from "./commands/DescribeEvaluationFormCommand";
+import {
+  type DescribeExtractionDefinitionCommandInput,
+  type DescribeExtractionDefinitionCommandOutput,
+  DescribeExtractionDefinitionCommand,
+} from "./commands/DescribeExtractionDefinitionCommand";
 import {
   type DescribeHoursOfOperationCommandInput,
   type DescribeHoursOfOperationCommandOutput,
@@ -1038,6 +1053,11 @@ import {
   type ListEvaluationFormVersionsCommandOutput,
   ListEvaluationFormVersionsCommand,
 } from "./commands/ListEvaluationFormVersionsCommand";
+import {
+  type ListExtractionDefinitionsCommandInput,
+  type ListExtractionDefinitionsCommandOutput,
+  ListExtractionDefinitionsCommand,
+} from "./commands/ListExtractionDefinitionsCommand";
 import {
   type ListFlowAssociationsCommandInput,
   type ListFlowAssociationsCommandOutput,
@@ -1692,6 +1712,11 @@ import {
   UpdateEvaluationFormCommand,
 } from "./commands/UpdateEvaluationFormCommand";
 import {
+  type UpdateExtractionDefinitionCommandInput,
+  type UpdateExtractionDefinitionCommandOutput,
+  UpdateExtractionDefinitionCommand,
+} from "./commands/UpdateExtractionDefinitionCommand";
+import {
   type UpdateHoursOfOperationCommandInput,
   type UpdateHoursOfOperationCommandOutput,
   UpdateHoursOfOperationCommand,
@@ -1953,6 +1978,7 @@ import { paginateListDefaultVocabularies } from "./pagination/ListDefaultVocabul
 import { paginateListEntitySecurityProfiles } from "./pagination/ListEntitySecurityProfilesPaginator";
 import { paginateListEvaluationForms } from "./pagination/ListEvaluationFormsPaginator";
 import { paginateListEvaluationFormVersions } from "./pagination/ListEvaluationFormVersionsPaginator";
+import { paginateListExtractionDefinitions } from "./pagination/ListExtractionDefinitionsPaginator";
 import { paginateListFlowAssociations } from "./pagination/ListFlowAssociationsPaginator";
 import { paginateListHoursOfOperationOverrides } from "./pagination/ListHoursOfOperationOverridesPaginator";
 import { paginateListHoursOfOperations } from "./pagination/ListHoursOfOperationsPaginator";
@@ -2067,6 +2093,7 @@ const commands = {
   CreateDataTableAttributeCommand,
   CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
+  CreateExtractionDefinitionCommand,
   CreateHoursOfOperationCommand,
   CreateHoursOfOperationOverrideCommand,
   CreateInstanceCommand,
@@ -2107,6 +2134,7 @@ const commands = {
   DeleteDataTableAttributeCommand,
   DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
+  DeleteExtractionDefinitionCommand,
   DeleteHoursOfOperationCommand,
   DeleteHoursOfOperationOverrideCommand,
   DeleteInstanceCommand,
@@ -2146,6 +2174,7 @@ const commands = {
   DescribeDataTableAttributeCommand,
   DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
+  DescribeExtractionDefinitionCommand,
   DescribeHoursOfOperationCommand,
   DescribeHoursOfOperationOverrideCommand,
   DescribeInstanceCommand,
@@ -2230,6 +2259,7 @@ const commands = {
   ListEntitySecurityProfilesCommand,
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
+  ListExtractionDefinitionsCommand,
   ListFlowAssociationsCommand,
   ListHoursOfOperationOverridesCommand,
   ListHoursOfOperationsCommand,
@@ -2363,6 +2393,7 @@ const commands = {
   UpdateDataTablePrimaryValuesCommand,
   UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
+  UpdateExtractionDefinitionCommand,
   UpdateHoursOfOperationCommand,
   UpdateHoursOfOperationOverrideCommand,
   UpdateInstanceAttributeCommand,
@@ -2438,6 +2469,7 @@ const paginators = {
   paginateListEntitySecurityProfiles,
   paginateListEvaluationForms,
   paginateListEvaluationFormVersions,
+  paginateListExtractionDefinitions,
   paginateListFlowAssociations,
   paginateListHoursOfOperationOverrides,
   paginateListHoursOfOperations,
@@ -3270,6 +3302,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateExtractionDefinitionCommand}
+   */
+  createExtractionDefinition(
+    args: CreateExtractionDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateExtractionDefinitionCommandOutput>;
+  createExtractionDefinition(
+    args: CreateExtractionDefinitionCommandInput,
+    cb: (err: any, data?: CreateExtractionDefinitionCommandOutput) => void
+  ): void;
+  createExtractionDefinition(
+    args: CreateExtractionDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateExtractionDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateHoursOfOperationCommand}
    */
   createHoursOfOperation(
@@ -3950,6 +3999,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteExtractionDefinitionCommand}
+   */
+  deleteExtractionDefinition(
+    args: DeleteExtractionDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteExtractionDefinitionCommandOutput>;
+  deleteExtractionDefinition(
+    args: DeleteExtractionDefinitionCommandInput,
+    cb: (err: any, data?: DeleteExtractionDefinitionCommandOutput) => void
+  ): void;
+  deleteExtractionDefinition(
+    args: DeleteExtractionDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteExtractionDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteHoursOfOperationCommand}
    */
   deleteHoursOfOperation(
@@ -4610,6 +4676,23 @@ export interface Connect {
     args: DescribeEvaluationFormCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeEvaluationFormCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeExtractionDefinitionCommand}
+   */
+  describeExtractionDefinition(
+    args: DescribeExtractionDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExtractionDefinitionCommandOutput>;
+  describeExtractionDefinition(
+    args: DescribeExtractionDefinitionCommandInput,
+    cb: (err: any, data?: DescribeExtractionDefinitionCommandOutput) => void
+  ): void;
+  describeExtractionDefinition(
+    args: DescribeExtractionDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExtractionDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -6038,6 +6121,23 @@ export interface Connect {
     args: ListEvaluationFormVersionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEvaluationFormVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListExtractionDefinitionsCommand}
+   */
+  listExtractionDefinitions(
+    args: ListExtractionDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListExtractionDefinitionsCommandOutput>;
+  listExtractionDefinitions(
+    args: ListExtractionDefinitionsCommandInput,
+    cb: (err: any, data?: ListExtractionDefinitionsCommandOutput) => void
+  ): void;
+  listExtractionDefinitions(
+    args: ListExtractionDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExtractionDefinitionsCommandOutput) => void
   ): void;
 
   /**
@@ -8307,6 +8407,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateExtractionDefinitionCommand}
+   */
+  updateExtractionDefinition(
+    args: UpdateExtractionDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateExtractionDefinitionCommandOutput>;
+  updateExtractionDefinition(
+    args: UpdateExtractionDefinitionCommandInput,
+    cb: (err: any, data?: UpdateExtractionDefinitionCommandOutput) => void
+  ): void;
+  updateExtractionDefinition(
+    args: UpdateExtractionDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateExtractionDefinitionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateHoursOfOperationCommand}
    */
   updateHoursOfOperation(
@@ -9390,6 +9507,17 @@ export interface Connect {
     args: ListEvaluationFormVersionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListEvaluationFormVersionsCommandOutput>;
+
+  /**
+   * @see {@link ListExtractionDefinitionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListExtractionDefinitionsCommandOutput}.
+   */
+  paginateListExtractionDefinitions(
+    args: ListExtractionDefinitionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListExtractionDefinitionsCommandOutput>;
 
   /**
    * @see {@link ListFlowAssociationsCommand}

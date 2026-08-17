@@ -95,12 +95,12 @@ export interface SearchRulesCommandOutput extends SearchRulesResponse, __Metadat
  * //       RuleId: "STRING_VALUE", // required
  * //       RuleArn: "STRING_VALUE", // required
  * //       TriggerEventSource: { // RuleTriggerEventSource
- * //         EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
+ * //         EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnAfterCallWorkAvailable" || "OnAfterChatWorkAvailable" || "OnEmailAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach" || "OnAlertUpdate" || "OnSchedulePublish" || "OnScheduleUpdate" || "OnScheduleTimeOffRequestActivity", // required
  * //         IntegrationAssociationId: "STRING_VALUE",
  * //       },
  * //       ActionSummaries: [ // ActionSummaries // required
  * //         { // ActionSummary
- * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ * //           ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION" || "EXTRACT_INFORMATION", // required
  * //         },
  * //       ],
  * //       RuleCapabilityTiers: [ // RuleCapabilityTiers

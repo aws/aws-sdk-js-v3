@@ -41,7 +41,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION" || "EXTRACT_INFORMATION", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
@@ -129,6 +129,13 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *       EndAssociatedTasksAction: {},
  *       SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition
  *         EvaluationFormId: "STRING_VALUE", // required
+ *       },
+ *       ExtractInformationAction: { // ExtractInformationActionDefinition
+ *         RulesExtractionDefinitions: [ // RulesExtractionDefinitionIdentifierList // required
+ *           { // RulesExtractionDefinitionIdentifier
+ *             Identifier: "STRING_VALUE", // required
+ *           },
+ *         ],
  *       },
  *     },
  *   ],

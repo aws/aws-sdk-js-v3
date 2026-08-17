@@ -21,6 +21,7 @@ export const ActionType = {
   CREATE_CASE: "CREATE_CASE",
   CREATE_TASK: "CREATE_TASK",
   END_ASSOCIATED_TASKS: "END_ASSOCIATED_TASKS",
+  EXTRACT_INFORMATION: "EXTRACT_INFORMATION",
   GENERATE_EVENTBRIDGE_EVENT: "GENERATE_EVENTBRIDGE_EVENT",
   SEND_NOTIFICATION: "SEND_NOTIFICATION",
   SUBMIT_AUTO_EVALUATION: "SUBMIT_AUTO_EVALUATION",
@@ -919,6 +920,19 @@ export type ContactInteractionType = (typeof ContactInteractionType)[keyof typeo
  * @public
  * @enum
  */
+export const NotFoundBehaviorType = {
+  OMIT: "OMIT",
+  USE_DEFAULT_VALUE: "USE_DEFAULT_VALUE",
+} as const;
+/**
+ * @public
+ */
+export type NotFoundBehaviorType = (typeof NotFoundBehaviorType)[keyof typeof NotFoundBehaviorType];
+
+/**
+ * @public
+ * @enum
+ */
 export const HoursOfOperationDays = {
   FRIDAY: "FRIDAY",
   MONDAY: "MONDAY",
@@ -1292,6 +1306,8 @@ export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePubl
  * @enum
  */
 export const EventSourceName = {
+  OnAfterCallWorkAvailable: "OnAfterCallWorkAvailable",
+  OnAfterChatWorkAvailable: "OnAfterChatWorkAvailable",
   OnAlertUpdate: "OnAlertUpdate",
   OnCaseCreate: "OnCaseCreate",
   OnCaseUpdate: "OnCaseUpdate",

@@ -338,6 +338,10 @@ import {
   CreateEvaluationFormCommand,
   CreateEvaluationFormRequest$,
   CreateEvaluationFormResponse$,
+  CreateExtractionDefinition$,
+  CreateExtractionDefinitionCommand,
+  CreateExtractionDefinitionRequest$,
+  CreateExtractionDefinitionResponse$,
   CreateHoursOfOperation$,
   CreateHoursOfOperationCommand,
   CreateHoursOfOperationOverride$,
@@ -529,6 +533,10 @@ import {
   DeleteEvaluationForm$,
   DeleteEvaluationFormCommand,
   DeleteEvaluationFormRequest$,
+  DeleteExtractionDefinition$,
+  DeleteExtractionDefinitionCommand,
+  DeleteExtractionDefinitionRequest$,
+  DeleteExtractionDefinitionResponse$,
   DeleteHoursOfOperation$,
   DeleteHoursOfOperationCommand,
   DeleteHoursOfOperationOverride$,
@@ -671,6 +679,10 @@ import {
   DescribeEvaluationFormCommand,
   DescribeEvaluationFormRequest$,
   DescribeEvaluationFormResponse$,
+  DescribeExtractionDefinition$,
+  DescribeExtractionDefinitionCommand,
+  DescribeExtractionDefinitionRequest$,
+  DescribeExtractionDefinitionResponse$,
   DescribeHoursOfOperation$,
   DescribeHoursOfOperationCommand,
   DescribeHoursOfOperationOverride$,
@@ -961,6 +973,12 @@ import {
   Expression$,
   ExtensionConfiguration$,
   ExternalInvocationConfiguration$,
+  ExtractInformationActionDefinition$,
+  ExtractionConfiguration$,
+  ExtractionDefinition$,
+  ExtractionDefinitionDisplay$,
+  ExtractionDefinitionNotFoundBehavior$,
+  ExtractionDefinitionSummary$,
   FailedBatchAssociationSummary$,
   FailedRequest$,
   FailureReasonCode,
@@ -1221,6 +1239,10 @@ import {
   ListEvaluationFormVersionsCommand,
   ListEvaluationFormVersionsRequest$,
   ListEvaluationFormVersionsResponse$,
+  ListExtractionDefinitions$,
+  ListExtractionDefinitionsCommand,
+  ListExtractionDefinitionsRequest$,
+  ListExtractionDefinitionsResponse$,
   ListFlowAssociationResourceType,
   ListFlowAssociations$,
   ListFlowAssociationsCommand,
@@ -1453,6 +1475,7 @@ import {
   NextContactEntry$,
   NextContactMetadata$,
   NextContactType,
+  NotFoundBehaviorType,
   Notification$,
   NotificationContentType,
   NotificationDeliveryType,
@@ -1515,6 +1538,7 @@ import {
   paginateListEntitySecurityProfiles,
   paginateListEvaluationForms,
   paginateListEvaluationFormVersions,
+  paginateListExtractionDefinitions,
   paginateListFlowAssociations,
   paginateListHoursOfOperationOverrides,
   paginateListHoursOfOperations,
@@ -1748,6 +1772,7 @@ import {
   RulePublishStatus,
   RulesConfiguration$,
   RuleSearchSummary$,
+  RulesExtractionDefinitionIdentifier$,
   RulesSearchCriteria$,
   RulesSearchFilter$,
   RuleSummary$,
@@ -2167,6 +2192,10 @@ import {
   UpdateEvaluationFormCommand,
   UpdateEvaluationFormRequest$,
   UpdateEvaluationFormResponse$,
+  UpdateExtractionDefinition$,
+  UpdateExtractionDefinitionCommand,
+  UpdateExtractionDefinitionRequest$,
+  UpdateExtractionDefinitionResponse$,
   UpdateHoursOfOperation$,
   UpdateHoursOfOperationCommand,
   UpdateHoursOfOperationOverride$,
@@ -2487,6 +2516,8 @@ assert(typeof CreateEmailAddressCommand === "function");
 assert(typeof CreateEmailAddress$ === "object");
 assert(typeof CreateEvaluationFormCommand === "function");
 assert(typeof CreateEvaluationForm$ === "object");
+assert(typeof CreateExtractionDefinitionCommand === "function");
+assert(typeof CreateExtractionDefinition$ === "object");
 assert(typeof CreateHoursOfOperationCommand === "function");
 assert(typeof CreateHoursOfOperation$ === "object");
 assert(typeof CreateHoursOfOperationOverrideCommand === "function");
@@ -2567,6 +2598,8 @@ assert(typeof DeleteEmailAddressCommand === "function");
 assert(typeof DeleteEmailAddress$ === "object");
 assert(typeof DeleteEvaluationFormCommand === "function");
 assert(typeof DeleteEvaluationForm$ === "object");
+assert(typeof DeleteExtractionDefinitionCommand === "function");
+assert(typeof DeleteExtractionDefinition$ === "object");
 assert(typeof DeleteHoursOfOperationCommand === "function");
 assert(typeof DeleteHoursOfOperation$ === "object");
 assert(typeof DeleteHoursOfOperationOverrideCommand === "function");
@@ -2645,6 +2678,8 @@ assert(typeof DescribeEmailAddressCommand === "function");
 assert(typeof DescribeEmailAddress$ === "object");
 assert(typeof DescribeEvaluationFormCommand === "function");
 assert(typeof DescribeEvaluationForm$ === "object");
+assert(typeof DescribeExtractionDefinitionCommand === "function");
+assert(typeof DescribeExtractionDefinition$ === "object");
 assert(typeof DescribeHoursOfOperationCommand === "function");
 assert(typeof DescribeHoursOfOperation$ === "object");
 assert(typeof DescribeHoursOfOperationOverrideCommand === "function");
@@ -2813,6 +2848,8 @@ assert(typeof ListEvaluationFormsCommand === "function");
 assert(typeof ListEvaluationForms$ === "object");
 assert(typeof ListEvaluationFormVersionsCommand === "function");
 assert(typeof ListEvaluationFormVersions$ === "object");
+assert(typeof ListExtractionDefinitionsCommand === "function");
+assert(typeof ListExtractionDefinitions$ === "object");
 assert(typeof ListFlowAssociationsCommand === "function");
 assert(typeof ListFlowAssociations$ === "object");
 assert(typeof ListHoursOfOperationOverridesCommand === "function");
@@ -3079,6 +3116,8 @@ assert(typeof UpdateEmailAddressMetadataCommand === "function");
 assert(typeof UpdateEmailAddressMetadata$ === "object");
 assert(typeof UpdateEvaluationFormCommand === "function");
 assert(typeof UpdateEvaluationForm$ === "object");
+assert(typeof UpdateExtractionDefinitionCommand === "function");
+assert(typeof UpdateExtractionDefinition$ === "object");
 assert(typeof UpdateHoursOfOperationCommand === "function");
 assert(typeof UpdateHoursOfOperation$ === "object");
 assert(typeof UpdateHoursOfOperationOverrideCommand === "function");
@@ -3369,6 +3408,8 @@ assert(typeof CreateEmailAddressRequest$ === "object");
 assert(typeof CreateEmailAddressResponse$ === "object");
 assert(typeof CreateEvaluationFormRequest$ === "object");
 assert(typeof CreateEvaluationFormResponse$ === "object");
+assert(typeof CreateExtractionDefinitionRequest$ === "object");
+assert(typeof CreateExtractionDefinitionResponse$ === "object");
 assert(typeof CreateHoursOfOperationOverrideRequest$ === "object");
 assert(typeof CreateHoursOfOperationOverrideResponse$ === "object");
 assert(typeof CreateHoursOfOperationRequest$ === "object");
@@ -3473,6 +3514,8 @@ assert(typeof DeleteDataTableResponse$ === "object");
 assert(typeof DeleteEmailAddressRequest$ === "object");
 assert(typeof DeleteEmailAddressResponse$ === "object");
 assert(typeof DeleteEvaluationFormRequest$ === "object");
+assert(typeof DeleteExtractionDefinitionRequest$ === "object");
+assert(typeof DeleteExtractionDefinitionResponse$ === "object");
 assert(typeof DeleteHoursOfOperationOverrideRequest$ === "object");
 assert(typeof DeleteHoursOfOperationRequest$ === "object");
 assert(typeof DeleteInstanceRequest$ === "object");
@@ -3537,6 +3580,8 @@ assert(typeof DescribeEmailAddressRequest$ === "object");
 assert(typeof DescribeEmailAddressResponse$ === "object");
 assert(typeof DescribeEvaluationFormRequest$ === "object");
 assert(typeof DescribeEvaluationFormResponse$ === "object");
+assert(typeof DescribeExtractionDefinitionRequest$ === "object");
+assert(typeof DescribeExtractionDefinitionResponse$ === "object");
 assert(typeof DescribeHoursOfOperationOverrideRequest$ === "object");
 assert(typeof DescribeHoursOfOperationOverrideResponse$ === "object");
 assert(typeof DescribeHoursOfOperationRequest$ === "object");
@@ -3707,6 +3752,12 @@ assert(typeof Expiry$ === "object");
 assert(typeof Expression$ === "object");
 assert(typeof ExtensionConfiguration$ === "object");
 assert(typeof ExternalInvocationConfiguration$ === "object");
+assert(typeof ExtractInformationActionDefinition$ === "object");
+assert(typeof ExtractionConfiguration$ === "object");
+assert(typeof ExtractionDefinition$ === "object");
+assert(typeof ExtractionDefinitionDisplay$ === "object");
+assert(typeof ExtractionDefinitionNotFoundBehavior$ === "object");
+assert(typeof ExtractionDefinitionSummary$ === "object");
 assert(typeof FailedBatchAssociationSummary$ === "object");
 assert(typeof FailedRequest$ === "object");
 assert(typeof FieldValue$ === "object");
@@ -3847,6 +3898,8 @@ assert(typeof ListEvaluationFormsRequest$ === "object");
 assert(typeof ListEvaluationFormsResponse$ === "object");
 assert(typeof ListEvaluationFormVersionsRequest$ === "object");
 assert(typeof ListEvaluationFormVersionsResponse$ === "object");
+assert(typeof ListExtractionDefinitionsRequest$ === "object");
+assert(typeof ListExtractionDefinitionsResponse$ === "object");
 assert(typeof ListFlowAssociationsRequest$ === "object");
 assert(typeof ListFlowAssociationsResponse$ === "object");
 assert(typeof ListHoursOfOperationOverridesRequest$ === "object");
@@ -4101,6 +4154,7 @@ assert(typeof RuleAttributeAndCondition$ === "object");
 assert(typeof RuleAttributeFilter$ === "object");
 assert(typeof RulesConfiguration$ === "object");
 assert(typeof RuleSearchSummary$ === "object");
+assert(typeof RulesExtractionDefinitionIdentifier$ === "object");
 assert(typeof RulesSearchCriteria$ === "object");
 assert(typeof RulesSearchFilter$ === "object");
 assert(typeof RuleSummary$ === "object");
@@ -4327,6 +4381,8 @@ assert(typeof UpdateEmailAddressMetadataRequest$ === "object");
 assert(typeof UpdateEmailAddressMetadataResponse$ === "object");
 assert(typeof UpdateEvaluationFormRequest$ === "object");
 assert(typeof UpdateEvaluationFormResponse$ === "object");
+assert(typeof UpdateExtractionDefinitionRequest$ === "object");
+assert(typeof UpdateExtractionDefinitionResponse$ === "object");
 assert(typeof UpdateHoursOfOperationOverrideRequest$ === "object");
 assert(typeof UpdateHoursOfOperationRequest$ === "object");
 assert(typeof UpdateInstanceAttributeRequest$ === "object");
@@ -4558,6 +4614,7 @@ assert(typeof MetricUnit === "object");
 assert(typeof MonitorCapability === "object");
 assert(typeof MultiSelectQuestionRuleCategoryAutomationCondition === "object");
 assert(typeof NextContactType === "object");
+assert(typeof NotFoundBehaviorType === "object");
 assert(typeof NotificationContentType === "object");
 assert(typeof NotificationDeliveryType === "object");
 assert(typeof NotificationPriority === "object");
@@ -4728,6 +4785,7 @@ assert(typeof paginateListDefaultVocabularies === "function");
 assert(typeof paginateListEntitySecurityProfiles === "function");
 assert(typeof paginateListEvaluationFormVersions === "function");
 assert(typeof paginateListEvaluationForms === "function");
+assert(typeof paginateListExtractionDefinitions === "function");
 assert(typeof paginateListFlowAssociations === "function");
 assert(typeof paginateListHoursOfOperationOverrides === "function");
 assert(typeof paginateListHoursOfOperations === "function");

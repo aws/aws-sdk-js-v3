@@ -54,6 +54,7 @@ import type {
   MetricStatus,
   MetricUnit,
   MultiSelectQuestionRuleCategoryAutomationCondition,
+  NotFoundBehaviorType,
   NotificationContentType,
   NotificationDeliveryType,
   NumericQuestionPropertyAutomationLabel,
@@ -79,10 +80,7 @@ import type {
   StringComparisonType,
   TaskTemplateFieldType,
   TaskTemplateStatus,
-  TestCaseEntryPointType,
-  TestCaseStatus,
   TrendIndicator,
-  UseCaseType,
   VideoCapability,
   VocabularyLanguageCode,
   VoiceEnhancementMode,
@@ -5232,6 +5230,118 @@ export interface CreateEvaluationFormResponse {
 }
 
 /**
+ * <p>The display configuration for an extraction definition.</p>
+ * @public
+ */
+export interface ExtractionDefinitionDisplay {
+  /**
+   * <p>The label displayed in the agent workspace for this extraction definition.</p>
+   * @public
+   */
+  Label?: string | undefined;
+}
+
+/**
+ * <p>The behavior configuration when an extraction definition cannot find the target value.</p>
+ * @public
+ */
+export interface ExtractionDefinitionNotFoundBehavior {
+  /**
+   * <p>The behavior type. <code>USE_DEFAULT_VALUE</code> returns the specified default value.
+   *    <code>OMIT</code> excludes the field from the output.</p>
+   * @public
+   */
+  Behavior: NotFoundBehaviorType | undefined;
+
+  /**
+   * <p>The default value to use when the behavior is <code>USE_DEFAULT_VALUE</code>.</p>
+   * @public
+   */
+  DefaultValue?: string | undefined;
+}
+
+/**
+ * <p>The extraction configuration that defines how data is extracted from customer
+ *    interactions.</p>
+ * @public
+ */
+export interface ExtractionConfiguration {
+  /**
+   * <p>The prompt hint that guides the extraction. This text tells the generative AI model what
+   *    data to look for in the customer interaction.</p>
+   * @public
+   */
+  PromptHint: string | undefined;
+
+  /**
+   * <p>The behavior when the extraction cannot find the specified data in the interaction.</p>
+   * @public
+   */
+  NotFoundBehavior?: ExtractionDefinitionNotFoundBehavior | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExtractionDefinitionRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request. If not provided, the Amazon Web Services SDK populates this field.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique name of the extraction definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration that defines how data is extracted, including the prompt hint and
+   *    not-found behavior.</p>
+   * @public
+   */
+  ExtractionConfiguration: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The display settings for the extraction definition, including the label shown in the
+   *    agent workspace.</p>
+   * @public
+   */
+  Display?: ExtractionDefinitionDisplay | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateExtractionDefinitionResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionArn: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+}
+
+/**
  * <p>The start time or end time for an hours of operation.</p>
  * @public
  */
@@ -6956,6 +7066,31 @@ export interface EventBridgeActionDefinition {
 }
 
 /**
+ * <p>An identifier that references an extraction definition resource.</p>
+ * @public
+ */
+export interface RulesExtractionDefinitionIdentifier {
+  /**
+   * <p>The identifier of the extraction definition.</p>
+   * @public
+   */
+  Identifier: string | undefined;
+}
+
+/**
+ * <p>Information about the extract information action, which references extraction definitions
+ *    to use when extracting structured data from customer interactions.</p>
+ * @public
+ */
+export interface ExtractInformationActionDefinition {
+  /**
+   * <p>The list of extraction definition identifiers that specify what data to extract.</p>
+   * @public
+   */
+  RulesExtractionDefinitions: RulesExtractionDefinitionIdentifier[] | undefined;
+}
+
+/**
  * <p>The type of notification recipient.</p>
  * @public
  */
@@ -7166,6 +7301,12 @@ export interface RuleAction {
    * @public
    */
   SubmitAutoEvaluationAction?: SubmitAutoEvaluationActionDefinition | undefined;
+
+  /**
+   * <p>Information about the extract information action.</p>
+   * @public
+   */
+  ExtractInformationAction?: ExtractInformationActionDefinition | undefined;
 }
 
 /**
@@ -7719,220 +7860,4 @@ export interface VoiceCallEntryPointParameters {
    * @public
    */
   FlowId?: string | undefined;
-}
-
-/**
- * <p>Defines the starting point for a test case.</p>
- * @public
- */
-export interface TestCaseEntryPoint {
-  /**
-   * <p>The type of entry point.</p>
-   * @public
-   */
-  Type?: TestCaseEntryPointType | undefined;
-
-  /**
-   * <p>Parameters for voice call entry point.</p>
-   * @public
-   */
-  VoiceCallEntryPointParameters?: VoiceCallEntryPointParameters | undefined;
-
-  /**
-   * <p>Parameters for chat entry point.</p>
-   * @public
-   */
-  ChatEntryPointParameters?: ChatEntryPointParameters | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTestCaseRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The name of the test.</p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The description of the test.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The JSON string that represents the content of the test.</p>
-   * @public
-   */
-  Content: string | undefined;
-
-  /**
-   * <p>Defines the starting point for your test.</p>
-   * @public
-   */
-  EntryPoint?: TestCaseEntryPoint | undefined;
-
-  /**
-   * <p>Defines the initial custom attributes for your test.</p>
-   * @public
-   */
-  InitializationData?: string | undefined;
-
-  /**
-   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
-   * @public
-   */
-  Status?: TestCaseStatus | undefined;
-
-  /**
-   * <p>Id of the test case if you want to create it in a replica region using Amazon Connect Global Resiliency</p>
-   * @public
-   */
-  TestCaseId?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-
-  /**
-   * <p>The time at which the resource was last modified.</p>
-   * @public
-   */
-  LastModifiedTime?: Date | undefined;
-
-  /**
-   * <p>The region in which the resource was last modified</p>
-   * @public
-   */
-  LastModifiedRegion?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTestCaseResponse {
-  /**
-   * <p>The identifier of the test.</p>
-   * @public
-   */
-  TestCaseId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the test.</p>
-   * @public
-   */
-  TestCaseArn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrafficDistributionGroupRequest {
-  /**
-   * <p>The name for the traffic distribution group. </p>
-   * @public
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description for the traffic distribution group.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The identifier of the Connect Customer instance that has been replicated. You can find the
-   *     <code>instanceId</code> in the ARN of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If not provided, the Amazon Web Services
-   *             SDK populates this field. For more information about idempotency, see
-   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateTrafficDistributionGroupResponse {
-  /**
-   * <p>The identifier of the traffic distribution group.
-   * This can be the ID or the ARN of the traffic distribution group.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUseCaseRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier for the integration association.</p>
-   * @public
-   */
-  IntegrationAssociationId: string | undefined;
-
-  /**
-   * <p>The type of use case to associate to the integration association. Each integration association can have only one
-   *    of each use case type.</p>
-   * @public
-   */
-  UseCaseType: UseCaseType | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface CreateUseCaseResponse {
-  /**
-   * <p>The identifier of the use case.</p>
-   * @public
-   */
-  UseCaseId?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the use case.</p>
-   * @public
-   */
-  UseCaseArn?: string | undefined;
 }

@@ -211,6 +211,10 @@ import type {
   CreateEvaluationFormCommandOutput,
 } from "./commands/CreateEvaluationFormCommand";
 import type {
+  CreateExtractionDefinitionCommandInput,
+  CreateExtractionDefinitionCommandOutput,
+} from "./commands/CreateExtractionDefinitionCommand";
+import type {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
@@ -335,6 +339,10 @@ import type {
   DeleteEvaluationFormCommandOutput,
 } from "./commands/DeleteEvaluationFormCommand";
 import type {
+  DeleteExtractionDefinitionCommandInput,
+  DeleteExtractionDefinitionCommandOutput,
+} from "./commands/DeleteExtractionDefinitionCommand";
+import type {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
 } from "./commands/DeleteHoursOfOperationCommand";
@@ -451,6 +459,10 @@ import type {
   DescribeEvaluationFormCommandInput,
   DescribeEvaluationFormCommandOutput,
 } from "./commands/DescribeEvaluationFormCommand";
+import type {
+  DescribeExtractionDefinitionCommandInput,
+  DescribeExtractionDefinitionCommandOutput,
+} from "./commands/DescribeExtractionDefinitionCommand";
 import type {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
@@ -733,6 +745,10 @@ import type {
   ListEvaluationFormVersionsCommandInput,
   ListEvaluationFormVersionsCommandOutput,
 } from "./commands/ListEvaluationFormVersionsCommand";
+import type {
+  ListExtractionDefinitionsCommandInput,
+  ListExtractionDefinitionsCommandOutput,
+} from "./commands/ListExtractionDefinitionsCommand";
 import type {
   ListFlowAssociationsCommandInput,
   ListFlowAssociationsCommandOutput,
@@ -1155,6 +1171,10 @@ import type {
   UpdateEvaluationFormCommandOutput,
 } from "./commands/UpdateEvaluationFormCommand";
 import type {
+  UpdateExtractionDefinitionCommandInput,
+  UpdateExtractionDefinitionCommandOutput,
+} from "./commands/UpdateExtractionDefinitionCommand";
+import type {
   UpdateHoursOfOperationCommandInput,
   UpdateHoursOfOperationCommandOutput,
 } from "./commands/UpdateHoursOfOperationCommand";
@@ -1387,6 +1407,7 @@ export type ServiceInputTypes =
   | CreateDataTableCommandInput
   | CreateEmailAddressCommandInput
   | CreateEvaluationFormCommandInput
+  | CreateExtractionDefinitionCommandInput
   | CreateHoursOfOperationCommandInput
   | CreateHoursOfOperationOverrideCommandInput
   | CreateInstanceCommandInput
@@ -1427,6 +1448,7 @@ export type ServiceInputTypes =
   | DeleteDataTableCommandInput
   | DeleteEmailAddressCommandInput
   | DeleteEvaluationFormCommandInput
+  | DeleteExtractionDefinitionCommandInput
   | DeleteHoursOfOperationCommandInput
   | DeleteHoursOfOperationOverrideCommandInput
   | DeleteInstanceCommandInput
@@ -1466,6 +1488,7 @@ export type ServiceInputTypes =
   | DescribeDataTableCommandInput
   | DescribeEmailAddressCommandInput
   | DescribeEvaluationFormCommandInput
+  | DescribeExtractionDefinitionCommandInput
   | DescribeHoursOfOperationCommandInput
   | DescribeHoursOfOperationOverrideCommandInput
   | DescribeInstanceAttributeCommandInput
@@ -1550,6 +1573,7 @@ export type ServiceInputTypes =
   | ListEntitySecurityProfilesCommandInput
   | ListEvaluationFormVersionsCommandInput
   | ListEvaluationFormsCommandInput
+  | ListExtractionDefinitionsCommandInput
   | ListFlowAssociationsCommandInput
   | ListHoursOfOperationOverridesCommandInput
   | ListHoursOfOperationsCommandInput
@@ -1683,6 +1707,7 @@ export type ServiceInputTypes =
   | UpdateDataTablePrimaryValuesCommandInput
   | UpdateEmailAddressMetadataCommandInput
   | UpdateEvaluationFormCommandInput
+  | UpdateExtractionDefinitionCommandInput
   | UpdateHoursOfOperationCommandInput
   | UpdateHoursOfOperationOverrideCommandInput
   | UpdateInstanceAttributeCommandInput
@@ -1780,6 +1805,7 @@ export type ServiceOutputTypes =
   | CreateDataTableCommandOutput
   | CreateEmailAddressCommandOutput
   | CreateEvaluationFormCommandOutput
+  | CreateExtractionDefinitionCommandOutput
   | CreateHoursOfOperationCommandOutput
   | CreateHoursOfOperationOverrideCommandOutput
   | CreateInstanceCommandOutput
@@ -1820,6 +1846,7 @@ export type ServiceOutputTypes =
   | DeleteDataTableCommandOutput
   | DeleteEmailAddressCommandOutput
   | DeleteEvaluationFormCommandOutput
+  | DeleteExtractionDefinitionCommandOutput
   | DeleteHoursOfOperationCommandOutput
   | DeleteHoursOfOperationOverrideCommandOutput
   | DeleteInstanceCommandOutput
@@ -1859,6 +1886,7 @@ export type ServiceOutputTypes =
   | DescribeDataTableCommandOutput
   | DescribeEmailAddressCommandOutput
   | DescribeEvaluationFormCommandOutput
+  | DescribeExtractionDefinitionCommandOutput
   | DescribeHoursOfOperationCommandOutput
   | DescribeHoursOfOperationOverrideCommandOutput
   | DescribeInstanceAttributeCommandOutput
@@ -1943,6 +1971,7 @@ export type ServiceOutputTypes =
   | ListEntitySecurityProfilesCommandOutput
   | ListEvaluationFormVersionsCommandOutput
   | ListEvaluationFormsCommandOutput
+  | ListExtractionDefinitionsCommandOutput
   | ListFlowAssociationsCommandOutput
   | ListHoursOfOperationOverridesCommandOutput
   | ListHoursOfOperationsCommandOutput
@@ -2076,6 +2105,7 @@ export type ServiceOutputTypes =
   | UpdateDataTablePrimaryValuesCommandOutput
   | UpdateEmailAddressMetadataCommandOutput
   | UpdateEvaluationFormCommandOutput
+  | UpdateExtractionDefinitionCommandOutput
   | UpdateHoursOfOperationCommandOutput
   | UpdateHoursOfOperationOverrideCommandOutput
   | UpdateInstanceAttributeCommandOutput

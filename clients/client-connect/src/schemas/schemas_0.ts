@@ -384,6 +384,9 @@ const _CEAR = "CreateEmailAddressRequest";
 const _CEARr = "CreateEmailAddressResponse";
 const _CEAV = "ContactEvaluationAttributeValue";
 const _CEAr = "CreateEmailAddress";
+const _CED = "CreateExtractionDefinition";
+const _CEDR = "CreateExtractionDefinitionRequest";
+const _CEDRr = "CreateExtractionDefinitionResponse";
 const _CEF = "CreateEvaluationForm";
 const _CEFR = "CreateEvaluationFormRequest";
 const _CEFRr = "CreateEvaluationFormResponse";
@@ -698,6 +701,12 @@ const _DEARes = "DescribeEmailAddressRequest";
 const _DEAResc = "DescribeEmailAddressResponse";
 const _DEAe = "DeleteEmailAddress";
 const _DEAes = "DescribeEmailAddress";
+const _DED = "DeleteExtractionDefinition";
+const _DEDR = "DeleteExtractionDefinitionRequest";
+const _DEDRe = "DeleteExtractionDefinitionResponse";
+const _DEDRes = "DescribeExtractionDefinitionRequest";
+const _DEDResc = "DescribeExtractionDefinitionResponse";
+const _DEDe = "DescribeExtractionDefinition";
 const _DEF = "DeactivateEvaluationForm";
 const _DEFR = "DeactivateEvaluationFormRequest";
 const _DEFRe = "DeactivateEvaluationFormResponse";
@@ -949,7 +958,8 @@ const _Del = "Delay";
 const _Des = "Destination";
 const _Di = "Distributions";
 const _Dim = "Dimensions";
-const _Dis = "Distribution";
+const _Dis = "Display";
+const _Dist = "Distribution";
 const _E = "Email";
 const _EA = "EmailAddress";
 const _EAA = "EmailAddressArn";
@@ -994,11 +1004,19 @@ const _ECLAAD = "EvaluationContactLensAnswerAnalysisDetails";
 const _ECP = "EvaluationContactParticipant";
 const _ECn = "EncryptionConfig";
 const _ECx = "ExtensionConfiguration";
-const _ED = "EligibilityDays";
+const _ECxt = "ExtractionConfiguration";
+const _ED = "ExtractionDefinition";
+const _EDA = "ExtractionDefinitionArn";
+const _EDD = "ExtractionDefinitionDisplay";
+const _EDI = "ExtractionDefinitionId";
 const _EDIM = "ExpiryDurationInMinutes";
+const _EDNFB = "ExtractionDefinitionNotFoundBehavior";
+const _EDS = "ExtractionDefinitionSummary";
+const _EDSL = "ExtractionDefinitionSummaryList";
 const _EDTV = "EvaluateDataTableValues";
 const _EDTVR = "EvaluateDataTableValuesRequest";
 const _EDTVRv = "EvaluateDataTableValuesResponse";
+const _EDl = "EligibilityDays";
 const _EDr = "ErrorDescription";
 const _EF = "EffectiveFrom";
 const _EFA = "EvaluationFormArn";
@@ -1065,6 +1083,8 @@ const _EGAIAAD = "EvaluationGenAIAnswerAnalysisDetails";
 const _EHOO = "EffectiveHoursOfOperations";
 const _EHOOL = "EffectiveHoursOfOperationList";
 const _EI = "EntityId";
+const _EIA = "ExtractInformationAction";
+const _EIAD = "ExtractInformationActionDefinition";
 const _EIC = "ExternalInvocationConfiguration";
 const _EIU = "EventIngestionUrl";
 const _EIn = "EndpointInfo";
@@ -1374,6 +1394,7 @@ const _ITn = "IntegrationType";
 const _IWM = "ImportWorkspaceMedia";
 const _IWMR = "ImportWorkspaceMediaRequest";
 const _IWMRm = "ImportWorkspaceMediaResponse";
+const _Id = "Identifier";
 const _Im = "Images";
 const _In = "Instance";
 const _Ind = "Index";
@@ -1464,6 +1485,9 @@ const _LDTVRi = "ListDataTableValuesResponse";
 const _LDV = "ListDefaultVocabularies";
 const _LDVR = "ListDefaultVocabulariesRequest";
 const _LDVRi = "ListDefaultVocabulariesResponse";
+const _LED = "ListExtractionDefinitions";
+const _LEDR = "ListExtractionDefinitionsRequest";
+const _LEDRi = "ListExtractionDefinitionsResponse";
 const _LEE = "LimitExceededException";
 const _LEF = "ListEvaluationForms";
 const _LEFR = "ListEvaluationFormsRequest";
@@ -1759,6 +1783,7 @@ const _NCE = "NextContactEntry";
 const _NCM = "NextContactMetadata";
 const _NCa = "NameCriteria";
 const _NCe = "NextContacts";
+const _NFB = "NotFoundBehavior";
 const _NI = "NotificationId";
 const _NOAMAQ = "NumberOfAssociatedManualAssignmentQueues";
 const _NOAQ = "NumberOfAssociatedQueues";
@@ -1877,13 +1902,14 @@ const _PES = "PrimaryEventSource";
 const _PESETT = "PrimaryEventSourceEffectiveTimestampType";
 const _PET = "PreviewEndTimestamp";
 const _PGI = "ParentGroupId";
-const _PH = "PaletteHeader";
+const _PH = "PromptHint";
 const _PHOO = "ParentHoursOfOperations";
 const _PHOOC = "ParentHoursOfOperationConfigs";
 const _PHOOCL = "ParentHoursOfOperationConfigList";
 const _PHOOCa = "ParentHoursOfOperationConfig";
 const _PHOOI = "ParentHoursOfOperationIds";
 const _PHOOL = "ParentHoursOfOperationsList";
+const _PHa = "PaletteHeader";
 const _PI = "ParticipantId";
 const _PIr = "PromptId";
 const _PIro = "ProfileId";
@@ -2042,6 +2068,9 @@ const _RCev = "ReviewConfiguration";
 const _RCo = "RoutingCriteria";
 const _RCu = "RulesConfiguration";
 const _RCul = "RuleCategory";
+const _RED = "RulesExtractionDefinitions";
+const _REDI = "RulesExtractionDefinitionIdentifier";
+const _REDIL = "RulesExtractionDefinitionIdentifierList";
 const _RF = "RequiredFields";
 const _RFI = "RequiredFieldInfo";
 const _RI = "ResourceId";
@@ -2687,6 +2716,9 @@ const _UE = "UrlExpiry";
 const _UEAM = "UpdateEmailAddressMetadata";
 const _UEAMR = "UpdateEmailAddressMetadataRequest";
 const _UEAMRp = "UpdateEmailAddressMetadataResponse";
+const _UED = "UpdateExtractionDefinition";
+const _UEDR = "UpdateExtractionDefinitionRequest";
+const _UEDRp = "UpdateExtractionDefinitionResponse";
 const _UEF = "UpdateEvaluationForm";
 const _UEFR = "UpdateEvaluationFormRequest";
 const _UEFRp = "UpdateEvaluationFormResponse";
@@ -4212,6 +4244,16 @@ export var CreateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _CEFRr
   [_EFI, _EFA],
   [0, 0], 2
 ];
+export var CreateExtractionDefinitionRequest$: StaticStructureSchema = [3, n0, _CEDR,
+  0,
+  [_II, _N, _ECxt, _CT, _Dis, _Ta],
+  [[0, 1], 0, () => ExtractionConfiguration$, [0, 4], () => ExtractionDefinitionDisplay$, 128 | 0], 3
+];
+export var CreateExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, _CEDRr,
+  0,
+  [_EDA, _EDI],
+  [0, 0], 2
+];
 export var CreateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _CHOOOR,
   0,
   [_II, _HOOI, _N, _Conf, _EF, _ETf, _D, _RCec, _OT],
@@ -4732,6 +4774,16 @@ export var DeleteEvaluationFormRequest$: StaticStructureSchema = [3, n0, _DEFRel
   [_II, _EFI, _EFV],
   [[0, 1], [0, 1], [1, { [_hQ]: _v }]], 2
 ];
+export var DeleteExtractionDefinitionRequest$: StaticStructureSchema = [3, n0, _DEDR,
+  0,
+  [_II, _EDI],
+  [[0, 1], [0, 1]], 2
+];
+export var DeleteExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, _DEDRe,
+  0,
+  [],
+  []
+];
 export var DeleteHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _DHOOOR,
   0,
   [_II, _HOOI, _HOOOI],
@@ -5051,6 +5103,16 @@ export var DescribeEvaluationFormResponse$: StaticStructureSchema = [3, n0, _DEF
   0,
   [_EFv],
   [() => EvaluationForm$], 1
+];
+export var DescribeExtractionDefinitionRequest$: StaticStructureSchema = [3, n0, _DEDRes,
+  0,
+  [_II, _EDI],
+  [[0, 1], [0, 1]], 2
+];
+export var DescribeExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, _DEDResc,
+  0,
+  [_ED],
+  [() => ExtractionDefinition$], 1
 ];
 export var DescribeHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _DHOOORe,
   0,
@@ -5422,7 +5484,7 @@ export var DismissUserContactResponse$: StaticStructureSchema = [3, n0, _DUCRis,
   [],
   []
 ];
-export var Distribution$: StaticStructureSchema = [3, n0, _Dis,
+export var Distribution$: StaticStructureSchema = [3, n0, _Dist,
   0,
   [_Reg, _Per],
   [0, 1], 2
@@ -5759,7 +5821,7 @@ export var EvaluationQuestionInputDetails$: StaticStructureSchema = [3, n0, _EQI
 ];
 export var EvaluationReviewConfiguration$: StaticStructureSchema = [3, n0, _ERC,
   0,
-  [_RNR, _ED],
+  [_RNR, _EDl],
   [() => EvaluationReviewNotificationRecipientList, 1], 1
 ];
 export var EvaluationReviewMetadata$: StaticStructureSchema = [3, n0, _ERM,
@@ -5856,6 +5918,36 @@ export var ExternalInvocationConfiguration$: StaticStructureSchema = [3, n0, _EI
   0,
   [_En],
   [2]
+];
+export var ExtractInformationActionDefinition$: StaticStructureSchema = [3, n0, _EIAD,
+  0,
+  [_RED],
+  [() => RulesExtractionDefinitionIdentifierList], 1
+];
+export var ExtractionConfiguration$: StaticStructureSchema = [3, n0, _ECxt,
+  0,
+  [_PH, _NFB],
+  [0, () => ExtractionDefinitionNotFoundBehavior$], 1
+];
+export var ExtractionDefinition$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_N, _EDI, _EDA, _ECxt, _CTre, _LUTa, _LUB, _Dis, _Ta],
+  [0, 0, 0, () => ExtractionConfiguration$, 4, 4, 0, () => ExtractionDefinitionDisplay$, 128 | 0], 7
+];
+export var ExtractionDefinitionDisplay$: StaticStructureSchema = [3, n0, _EDD,
+  0,
+  [_La],
+  [0]
+];
+export var ExtractionDefinitionNotFoundBehavior$: StaticStructureSchema = [3, n0, _EDNFB,
+  0,
+  [_Be, _DVe],
+  [0, 0], 1
+];
+export var ExtractionDefinitionSummary$: StaticStructureSchema = [3, n0, _EDS,
+  0,
+  [_N, _EDI, _EDA, _CTre, _LUTa, _LUB],
+  [0, 0, 0, 4, 4, 0], 6
 ];
 export var FailedBatchAssociationSummary$: StaticStructureSchema = [3, n0, _FBAS,
   0,
@@ -6552,6 +6644,16 @@ export var ListEvaluationFormVersionsResponse$: StaticStructureSchema = [3, n0, 
   [_EFVSL, _NT],
   [() => EvaluationFormVersionSummaryList, 0], 1
 ];
+export var ListExtractionDefinitionsRequest$: StaticStructureSchema = [3, n0, _LEDR,
+  0,
+  [_II, _MR, _NT],
+  [[0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 1
+];
+export var ListExtractionDefinitionsResponse$: StaticStructureSchema = [3, n0, _LEDRi,
+  0,
+  [_EDSL, _NT],
+  [() => ExtractionDefinitionSummaryList, 0], 1
+];
 export var ListFlowAssociationsRequest$: StaticStructureSchema = [3, n0, _LFAR,
   0,
   [_II, _RT, _NT, _MR],
@@ -7247,7 +7349,7 @@ export var PaletteCanvas$: StaticStructureSchema = [3, n0, _PCa,
   [_CBo, _PB, _ABc],
   [0, 0, 0]
 ];
-export var PaletteHeader$: StaticStructureSchema = [3, n0, _PH,
+export var PaletteHeader$: StaticStructureSchema = [3, n0, _PHa,
   0,
   [_Ba, _Te, _TH, _IAC],
   [0, 0, 0, 2]
@@ -7769,8 +7871,8 @@ export var Rule$: StaticStructureSchema = [3, n0, _Ru,
 ];
 export var RuleAction$: StaticStructureSchema = [3, n0, _RAul,
   0,
-  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA],
-  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$], 1
+  [_AT, _TAa, _EBA, _ACCA, _SNAe, _CCA, _UCAp, _ASA, _EATA, _SAEA, _EIA],
+  [0, () => TaskActionDefinition$, () => EventBridgeActionDefinition$, () => AssignContactCategoryActionDefinition$, () => SendNotificationActionDefinition$, () => CreateCaseActionDefinition$, () => UpdateCaseActionDefinition$, () => AssignSlaActionDefinition$, () => EndAssociatedTasksActionDefinition$, () => SubmitAutoEvaluationActionDefinition$, () => ExtractInformationActionDefinition$], 1
 ];
 export var RuleAttributeAndCondition$: StaticStructureSchema = [3, n0, _RAAC,
   0,
@@ -7791,6 +7893,11 @@ export var RuleSearchSummary$: StaticStructureSchema = [3, n0, _RSSu,
   0,
   [_N, _RIu, _RAu, _TES, _ASc, _PS, _CTre, _LUTa, _LUB, _RCT, _Ta],
   [0, 0, 0, () => RuleTriggerEventSource$, () => ActionSummaries, 0, 4, 4, 0, 64 | 0, 128 | 0], 9
+];
+export var RulesExtractionDefinitionIdentifier$: StaticStructureSchema = [3, n0, _REDI,
+  0,
+  [_Id],
+  [0], 1
 ];
 export var RulesSearchCriteria$: StaticStructureSchema = [3, n0, _RSC,
   0,
@@ -8917,6 +9024,16 @@ export var UpdateEvaluationFormResponse$: StaticStructureSchema = [3, n0, _UEFRp
   [_EFI, _EFA, _EFV],
   [0, 0, 1], 3
 ];
+export var UpdateExtractionDefinitionRequest$: StaticStructureSchema = [3, n0, _UEDR,
+  0,
+  [_EDI, _II, _N, _ECxt, _CT, _Dis],
+  [[0, 1], [0, 1], 0, () => ExtractionConfiguration$, [0, 4], () => ExtractionDefinitionDisplay$], 4
+];
+export var UpdateExtractionDefinitionResponse$: StaticStructureSchema = [3, n0, _UEDRp,
+  0,
+  [],
+  []
+];
 export var UpdateHoursOfOperationOverrideRequest$: StaticStructureSchema = [3, n0, _UHOOOR,
   0,
   [_II, _HOOI, _HOOOI, _N, _D, _Conf, _EF, _ETf, _RCec, _OT],
@@ -9842,6 +9959,9 @@ var ExecutionRecordList: StaticListSchema = [1, n0, _ERLx,
 var Expressions: StaticListSchema = [1, n0, _Expre,
   0, () => Expression$
 ];
+var ExtractionDefinitionSummaryList: StaticListSchema = [1, n0, _EDSL,
+  0, () => ExtractionDefinitionSummary$
+];
 var FailedBatchAssociationSummaryList: StaticListSchema = [1, n0, _FBASL,
   0, () => FailedBatchAssociationSummary$
 ];
@@ -10145,6 +10265,9 @@ var RuleAttributeOrConditionList: StaticListSchema = [1, n0, _RAOCL,
 var RuleCapabilityTiers = 64 | 0;
 var RuleSearchSummaryList: StaticListSchema = [1, n0, _RSSLu,
   0, () => RuleSearchSummary$
+];
+var RulesExtractionDefinitionIdentifierList: StaticListSchema = [1, n0, _REDIL,
+  0, () => RulesExtractionDefinitionIdentifier$
 ];
 var RulesSearchConditionList: StaticListSchema = [1, n0, _RSCL,
   0, () => RulesSearchCriteria$
@@ -10629,6 +10752,9 @@ export var CreateEmailAddress$: StaticOperationSchema = [9, n0, _CEAr,
 export var CreateEvaluationForm$: StaticOperationSchema = [9, n0, _CEF,
   { [_h]: ["PUT", "/evaluation-forms/{InstanceId}", 200] }, () => CreateEvaluationFormRequest$, () => CreateEvaluationFormResponse$
 ];
+export var CreateExtractionDefinition$: StaticOperationSchema = [9, n0, _CED,
+  { [_h]: ["POST", "/extraction-definitions/{InstanceId}", 200] }, () => CreateExtractionDefinitionRequest$, () => CreateExtractionDefinitionResponse$
+];
 export var CreateHoursOfOperation$: StaticOperationSchema = [9, n0, _CHOO,
   { [_h]: ["PUT", "/hours-of-operations/{InstanceId}", 200] }, () => CreateHoursOfOperationRequest$, () => CreateHoursOfOperationResponse$
 ];
@@ -10749,6 +10875,9 @@ export var DeleteEmailAddress$: StaticOperationSchema = [9, n0, _DEAe,
 export var DeleteEvaluationForm$: StaticOperationSchema = [9, n0, _DEFe,
   { [_h]: ["DELETE", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] }, () => DeleteEvaluationFormRequest$, () => __Unit
 ];
+export var DeleteExtractionDefinition$: StaticOperationSchema = [9, n0, _DED,
+  { [_h]: ["DELETE", "/extraction-definitions/{InstanceId}/{ExtractionDefinitionId}", 200] }, () => DeleteExtractionDefinitionRequest$, () => DeleteExtractionDefinitionResponse$
+];
 export var DeleteHoursOfOperation$: StaticOperationSchema = [9, n0, _DHOO,
   { [_h]: ["DELETE", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] }, () => DeleteHoursOfOperationRequest$, () => __Unit
 ];
@@ -10865,6 +10994,9 @@ export var DescribeEmailAddress$: StaticOperationSchema = [9, n0, _DEAes,
 ];
 export var DescribeEvaluationForm$: StaticOperationSchema = [9, n0, _DEFes,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] }, () => DescribeEvaluationFormRequest$, () => DescribeEvaluationFormResponse$
+];
+export var DescribeExtractionDefinition$: StaticOperationSchema = [9, n0, _DEDe,
+  { [_h]: ["GET", "/extraction-definitions/{InstanceId}/{ExtractionDefinitionId}", 200] }, () => DescribeExtractionDefinitionRequest$, () => DescribeExtractionDefinitionResponse$
 ];
 export var DescribeHoursOfOperation$: StaticOperationSchema = [9, n0, _DHOOe,
   { [_h]: ["GET", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] }, () => DescribeHoursOfOperationRequest$, () => DescribeHoursOfOperationResponse$
@@ -11117,6 +11249,9 @@ export var ListEvaluationForms$: StaticOperationSchema = [9, n0, _LEF,
 ];
 export var ListEvaluationFormVersions$: StaticOperationSchema = [9, n0, _LEFV,
   { [_h]: ["GET", "/evaluation-forms/{InstanceId}/{EvaluationFormId}/versions", 200] }, () => ListEvaluationFormVersionsRequest$, () => ListEvaluationFormVersionsResponse$
+];
+export var ListExtractionDefinitions$: StaticOperationSchema = [9, n0, _LED,
+  { [_h]: ["GET", "/extraction-definitions/{InstanceId}", 200] }, () => ListExtractionDefinitionsRequest$, () => ListExtractionDefinitionsResponse$
 ];
 export var ListFlowAssociations$: StaticOperationSchema = [9, n0, _LFA,
   { [_h]: ["GET", "/flow-associations-summary/{InstanceId}", 200] }, () => ListFlowAssociationsRequest$, () => ListFlowAssociationsResponse$
@@ -11516,6 +11651,9 @@ export var UpdateEmailAddressMetadata$: StaticOperationSchema = [9, n0, _UEAM,
 ];
 export var UpdateEvaluationForm$: StaticOperationSchema = [9, n0, _UEF,
   { [_h]: ["PUT", "/evaluation-forms/{InstanceId}/{EvaluationFormId}", 200] }, () => UpdateEvaluationFormRequest$, () => UpdateEvaluationFormResponse$
+];
+export var UpdateExtractionDefinition$: StaticOperationSchema = [9, n0, _UED,
+  { [_h]: ["PUT", "/extraction-definitions/{InstanceId}/{ExtractionDefinitionId}", 200] }, () => UpdateExtractionDefinitionRequest$, () => UpdateExtractionDefinitionResponse$
 ];
 export var UpdateHoursOfOperation$: StaticOperationSchema = [9, n0, _UHOO,
   { [_h]: ["POST", "/hours-of-operations/{InstanceId}/{HoursOfOperationId}", 200] }, () => UpdateHoursOfOperationRequest$, () => __Unit

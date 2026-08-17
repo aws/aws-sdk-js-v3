@@ -5,26 +5,28 @@ import type {
   AiUseCase,
   AnalyticsMode,
   AttachmentScope,
+  AutoEvaluationStatus,
   Behavior,
   Channel,
   ChatEventType,
+  ContactEvaluationAttributeComparisonType,
+  ContactEvaluationAttributeKey,
   ContactFlowModuleState,
-  ContactFlowModuleStatus,
   ContactFlowState,
-  ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
   ContactInteractionType,
   ContactMediaProcessingFailureMode,
+  ContactParticipantRole,
   ContactRecordingType,
   DataTableAttributeValueType,
   DataTableLockLevel,
   DateComparisonType,
   EmailHeaderType,
-  EvaluationFormItemEnablementAction,
-  EvaluationFormItemEnablementOperator,
   EvaluationFormLanguageCode,
   EvaluationFormVersionStatus,
+  EvaluationStatus,
+  EvaluationType,
   FileStatusType,
   FileUseCaseType,
   HierarchyGroupMatchType,
@@ -44,6 +46,7 @@ import type {
   ParticipantRole,
   ParticipantTimerAction,
   ParticipantTimerType,
+  PerformanceCategoryName,
   Policy,
   QueueStatus,
   RehydrationType,
@@ -82,7 +85,8 @@ import type {
   ControlPlaneAttributeFilter,
   CreatedByInfo,
   DataTableLockVersion,
-  EvaluationFormItemEnablementExpression,
+  ExtractionConfiguration,
+  ExtractionDefinitionDisplay,
   FlowModule,
   GranularAccessControlConfiguration,
   HoursOfOperationConfig,
@@ -107,13 +111,13 @@ import type {
   TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
-  TestCaseEntryPoint,
   UserProficiency,
   Validation,
 } from "./models_0";
 import type {
   AutoAcceptConfig,
   ContactFlow,
+  ContactFlowModule,
   DataTable,
   EvaluationAnswerData,
   EvaluationNote,
@@ -130,14 +134,507 @@ import type {
   QuickConnect,
   RoutingProfile,
   TestCase,
+  TestCaseEntryPoint,
   UserIdentityInfo,
   UserPhoneConfig,
   View,
   ViewInputContent,
   VoiceEnhancementConfig,
-  WorkspaceTheme,
 } from "./models_1";
-import type { ControlPlaneTagFilter, NumberCondition, SignInConfig, TelephonyConfig } from "./models_2";
+import type { NumberCondition, SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * <p>The value of a contact evaluation attribute condition.</p>
+ * @public
+ */
+export interface ContactEvaluationAttributeValue {
+  /**
+   * <p>A string value for the attribute.</p>
+   * @public
+   */
+  StringValue?: string | undefined;
+}
+
+/**
+ * <p>An attribute condition for contact evaluation filtering.</p>
+ * @public
+ */
+export interface ContactEvaluationAttributeCondition {
+  /**
+   * <p>The key of the attribute.</p>
+   * @public
+   */
+  AttributeKey?: ContactEvaluationAttributeKey | undefined;
+
+  /**
+   * <p>The value of the attribute.</p>
+   * @public
+   */
+  AttributeValue?: ContactEvaluationAttributeValue | undefined;
+
+  /**
+   * <p>The comparison type for the condition.</p>
+   * @public
+   */
+  ComparisonType?: ContactEvaluationAttributeComparisonType | undefined;
+}
+
+/**
+ * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+ * @public
+ */
+export interface ContactEvaluationAttributeAndCondition {
+  /**
+   * <p>A list of tag conditions to apply.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[] | undefined;
+
+  /**
+   * <p>A list of attribute conditions to apply.</p>
+   * @public
+   */
+  AttributeConditions?: ContactEvaluationAttributeCondition[] | undefined;
+}
+
+/**
+ * <p>An object that can be used to specify tag conditions and attribute conditions inside the
+ *     <code>SearchFilter</code> for contact evaluations. This accepts an <code>OR</code> or <code>AND</code>
+ *    (List of List) input where:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
+ *             </li>
+ *             <li>
+ *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ContactEvaluationAttributeFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  OrConditions?: ContactEvaluationAttributeAndCondition[] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  AndCondition?: ContactEvaluationAttributeAndCondition | undefined;
+
+  /**
+   * <p>A tag condition to apply.</p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+
+  /**
+   * <p>An attribute condition to apply.</p>
+   * @public
+   */
+  ContactEvaluationAttributeCondition?: ContactEvaluationAttributeCondition | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface EvaluationSearchFilter {
+  /**
+   * <p>An object that can be used to specify tag conditions.</p>
+   * @public
+   */
+  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
+
+  /**
+   * <p>An object that can be used to specify tag conditions and attribute conditions for contact evaluations.</p>
+   * @public
+   */
+  ContactEvaluationAttributeFilter?: ContactEvaluationAttributeFilter | undefined;
+}
+
+/**
+ * <p>Metadata information about an evaluation search.</p>
+ * @public
+ */
+export interface EvaluationSearchMetadata {
+  /**
+   * <p>The identifier of the contact in this instance of Connect Customer. </p>
+   * @public
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the person who evaluated the contact.</p>
+   * @public
+   */
+  EvaluatorArn: string | undefined;
+
+  /**
+   * <p>The unique ID of the agent who handled the contact.</p>
+   * @public
+   */
+  ContactAgentId?: string | undefined;
+
+  /**
+   * <p>The calibration session ID that this evaluation belongs to.</p>
+   * @public
+   */
+  CalibrationSessionId?: string | undefined;
+
+  /**
+   * <p>The total evaluation score expressed as a percentage.</p>
+   * @public
+   */
+  ScorePercentage?: number | undefined;
+
+  /**
+   * <p>The flag that marks the item as automatic fail. If the item or a child item gets an automatic fail answer, this
+   *    flag is true.</p>
+   * @public
+   */
+  ScoreAutomaticFail?: boolean | undefined;
+
+  /**
+   * <p>The flag to mark the item as not applicable for scoring.</p>
+   * @public
+   */
+  ScoreNotApplicable?: boolean | undefined;
+
+  /**
+   * <p>Whether auto-evaluation is enabled.</p>
+   * @public
+   */
+  AutoEvaluationEnabled?: boolean | undefined;
+
+  /**
+   * <p>The status of the contact auto evaluation. </p>
+   * @public
+   */
+  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
+
+  /**
+   * <p>When the evaluation was acknowledged by the agent.</p>
+   * @public
+   */
+  AcknowledgedTime?: Date | undefined;
+
+  /**
+   * <p>The agent who acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgedBy?: string | undefined;
+
+  /**
+   * <p>The comment from the agent when they acknowledged the evaluation.</p>
+   * @public
+   */
+  AcknowledgerComment?: string | undefined;
+
+  /**
+   * <p>Identifier of the sampling job.</p>
+   * @public
+   */
+  SamplingJobId?: string | undefined;
+
+  /**
+   * <p>Identifier for the review.</p>
+   * @public
+   */
+  ReviewId?: string | undefined;
+
+  /**
+   * <p>Role of a contact participant in the evaluation.</p>
+   * @public
+   */
+  ContactParticipantRole?: ContactParticipantRole | undefined;
+
+  /**
+   * <p>Identifier for a contact participant in the evaluation.</p>
+   * @public
+   */
+  ContactParticipantId?: string | undefined;
+
+  /**
+   * <p>The points earned for the evaluation.</p>
+   * @public
+   */
+  EarnedPoints?: number | undefined;
+
+  /**
+   * <p>The maximum base points possible for the evaluation.</p>
+   * @public
+   */
+  MaxBasePoint?: number | undefined;
+
+  /**
+   * <p>The performance category for the evaluation score.</p>
+   * @public
+   */
+  PerformanceCategory?: PerformanceCategoryName | undefined;
+}
+
+/**
+ * <p>Summary of evaluation obtained from the search operation.</p>
+ * @public
+ */
+export interface EvaluationSearchSummary {
+  /**
+   * <p>A unique identifier for the contact evaluation.</p>
+   * @public
+   */
+  EvaluationId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
+   * @public
+   */
+  EvaluationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormId?: string | undefined;
+
+  /**
+   * <p>A version of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormVersion: number | undefined;
+
+  /**
+   * <p>Title of the evaluation form.</p>
+   * @public
+   */
+  EvaluationFormTitle?: string | undefined;
+
+  /**
+   * <p>Summary information about the evaluation search.</p>
+   * @public
+   */
+  Metadata: EvaluationSearchMetadata | undefined;
+
+  /**
+   * <p>The status of the evaluation. </p>
+   * @public
+   */
+  Status: EvaluationStatus | undefined;
+
+  /**
+   * <p>Type of the evaluation. </p>
+   * @public
+   */
+  EvaluationType?: EvaluationType | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was created, in UTC time.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The date and time when the evaluation was modified last time, in UTC time.</p>
+   * @public
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactEvaluationsResponse {
+  /**
+   * <p>Contains information about contact evaluations.</p>
+   * @public
+   */
+  EvaluationSearchSummaryList?: EvaluationSearchSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of contact evaluations that matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+ *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+ *             </li>
+ *             <li>
+ *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface ControlPlaneTagFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
+   * @public
+   */
+  OrConditions?: TagCondition[][] | undefined;
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
+   * @public
+   */
+  AndConditions?: TagCondition[] | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+}
+
+/**
+ * <p>The search criteria to be used to return flow modules.</p>
+ * @public
+ */
+export interface ContactFlowModuleSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchContactFlowModulesResponse {
+  /**
+   * <p>The search criteria to be used to return flow modules.</p>
+   * @public
+   */
+  ContactFlowModules?: ContactFlowModule[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The total number of flows which matched your search query.</p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p> The contact flow type condition.</p>
+ * @public
+ */
+export interface ContactFlowTypeCondition {
+  /**
+   * <p> Contact flow type of the contact flow type condition.</p>
+   * @public
+   */
+  ContactFlowType?: ContactFlowType | undefined;
+}
+
+/**
+ * <p> A list of conditions which would be applied together with an AND condition.</p>
+ * @public
+ */
+export interface ContactFlowAttributeAndCondition {
+  /**
+   * <p> Tag-based conditions for contact flow filtering.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[] | undefined;
+
+  /**
+   * <p> Contact flow type condition.</p>
+   * @public
+   */
+  ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
+}
+
+/**
+ * <p> Filter for contact flow attributes with multiple condition types.</p>
+ * @public
+ */
+export interface ContactFlowAttributeFilter {
+  /**
+   * <p> A list of conditions which would be applied together with an OR condition.</p>
+   * @public
+   */
+  OrConditions?: ContactFlowAttributeAndCondition[] | undefined;
+
+  /**
+   * <p> A list of conditions which would be applied together with a AND condition.</p>
+   * @public
+   */
+  AndCondition?: ContactFlowAttributeAndCondition | undefined;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>.
+   *   </p>
+   * @public
+   */
+  TagCondition?: TagCondition | undefined;
+
+  /**
+   * <p> Contact flow type condition within attribute filter.</p>
+   * @public
+   */
+  ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
+}
+
+/**
+ * <p>Filters to be applied to search results.</p>
+ * @public
+ */
+export interface ContactFlowSearchFilter {
+  /**
+   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
+   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
+   *             </li>
+   *             <li>
+   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  TagFilter?: ControlPlaneTagFilter | undefined;
+
+  /**
+   * <p> Flow attribute filter for contact flow search operations. </p>
+   * @public
+   */
+  FlowAttributeFilter?: ContactFlowAttributeFilter | undefined;
+}
 
 /**
  * @public
@@ -3126,7 +3623,7 @@ export interface StartAssistantContactRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The AI agent that participates in the contact.</p>
+   * <p>The AI agent configuration for this contact.</p>
    * @public
    */
   AiAgent: AiAgentInput | undefined;
@@ -3144,10 +3641,9 @@ export interface StartAssistantContactRequest {
   InitialMessage?: ChatMessage | undefined;
 
   /**
-   * <p>A map of key-value pairs to associate with the contact. Amazon Connect makes these attributes available to
+   * <p>A map of key-value pairs to associate with the contact. We make these attributes available to
    *    flows as standard contact attributes.</p>
-   *          <p>You can provide up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can contain only
-   *    alphanumeric characters, dashes, and underscores.</p>
+   *          <p>You can provide up to 32,768 UTF-8 bytes across all key-value pairs for each contact.</p>
    * @public
    */
   Attributes?: Record<string, string> | undefined;
@@ -3197,14 +3693,13 @@ export interface StartAssistantContactResponse {
   ParticipantId?: string | undefined;
 
   /**
-   * <p>The token that the chat participant uses to call the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API. The token remains valid for the lifetime of the chat participant.</p>
+   * <p>The token that the chat participant uses with the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> operation. The token remains valid for the lifetime of the chat participant.</p>
    * @public
    */
   ParticipantToken?: string | undefined;
 
   /**
-   * <p>For a persistent chat, the identifier of the contact from which the chat continues. Amazon Connect returns this
-   *    field only for persistent chats.</p>
+   * <p>The identifier of the contact from which the chat continues, returned only for persistent chats.</p>
    * @public
    */
   ContinuedFromContactId?: string | undefined;
@@ -5739,6 +6234,54 @@ export interface UpdateEvaluationFormResponse {
 /**
  * @public
  */
+export interface UpdateExtractionDefinitionRequest {
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *    request. If not provided, the Amazon Web Services SDK populates this field.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition to update.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the extraction definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The configuration that defines how data is extracted, including the prompt hint and
+   *    not-found behavior.</p>
+   * @public
+   */
+  ExtractionConfiguration: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The display settings for the extraction definition.</p>
+   * @public
+   */
+  Display?: ExtractionDefinitionDisplay | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateExtractionDefinitionResponse {}
+
+/**
+ * @public
+ */
 export interface UpdateHoursOfOperationRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -7499,416 +8042,4 @@ export interface UpdateViewMetadataRequest {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewMetadataResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceMetadataRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The name of the workspace.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the workspace.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The title displayed for the workspace.</p>
-   * @public
-   */
-  Title?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceMetadataResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkspacePageRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The current page identifier.</p>
-   * @public
-   */
-  Page: string | undefined;
-
-  /**
-   * <p>The new page identifier, if changing the page name.</p>
-   * @public
-   */
-  NewPage?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the view to associate with the page.</p>
-   * @public
-   */
-  ResourceArn?: string | undefined;
-
-  /**
-   * <p>The URL-friendly identifier for the page.</p>
-   * @public
-   */
-  Slug?: string | undefined;
-
-  /**
-   * <p>A JSON string containing input parameters for the view.</p>
-   * @public
-   */
-  InputData?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspacePageResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceThemeRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The theme configuration, including color schemes and visual styles.</p>
-   * @public
-   */
-  Theme?: WorkspaceTheme | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceThemeResponse {}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceVisibilityRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in
-   *    the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the workspace.</p>
-   * @public
-   */
-  WorkspaceId: string | undefined;
-
-  /**
-   * <p>The visibility setting for the workspace. Valid values are: <code>ALL</code> (available to all users),
-   *     <code>ASSIGNED</code> (available only to assigned users and routing profiles), and <code>NONE</code> (not visible to
-   *    any users).</p>
-   * @public
-   */
-  Visibility: Visibility | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateWorkspaceVisibilityResponse {}
-
-/**
- * <p>A condition for item enablement.</p>
- * @public
- */
-export interface EvaluationFormItemEnablementCondition {
-  /**
-   * <p>Operands of the enablement condition.</p>
-   * @public
-   */
-  Operands: EvaluationFormItemEnablementConditionOperand[] | undefined;
-
-  /**
-   * <p>The operator to be used to be applied to operands if more than one provided. </p>
-   * @public
-   */
-  Operator?: EvaluationFormItemEnablementOperator | undefined;
-}
-
-/**
- * <p>An operand of the enablement condition.</p>
- * @public
- */
-export type EvaluationFormItemEnablementConditionOperand =
-  | EvaluationFormItemEnablementConditionOperand.ConditionMember
-  | EvaluationFormItemEnablementConditionOperand.ExpressionMember
-  | EvaluationFormItemEnablementConditionOperand.$UnknownMember;
-
-/**
- * @public
- */
-export namespace EvaluationFormItemEnablementConditionOperand {
-  /**
-   * <p>An expression of the enablement condition.</p>
-   * @public
-   */
-  export interface ExpressionMember {
-    Expression: EvaluationFormItemEnablementExpression;
-    Condition?: never;
-    $unknown?: never;
-  }
-
-  /**
-   * <p>A condition for item enablement.</p>
-   * @public
-   */
-  export interface ConditionMember {
-    Expression?: never;
-    Condition: EvaluationFormItemEnablementCondition;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    Expression?: never;
-    Condition?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    Expression: (value: EvaluationFormItemEnablementExpression) => T;
-    Condition: (value: EvaluationFormItemEnablementCondition) => T;
-    _: (name: string, value: any) => T;
-  }
-}
-
-/**
- * <p>The search criteria to be used to return agent statuses.</p>
- * @public
- */
-export interface AgentStatusSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
-   * @public
-   */
-  OrConditions?: AgentStatusSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>,
-   *      <code>state</code>, <code>type</code>, <code>displayOrder</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   * @public
-   */
-  AndConditions?: AgentStatusSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <note>
-   *             <p>The currently supported values for <code>FieldName</code> are <code>name</code>, <code>description</code>,
-   *      <code>state</code>, <code>type</code>, <code>displayOrder</code>, and <code>resourceID</code>.</p>
-   *          </note>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return flow modules.</p>
- * @public
- */
-export interface ContactFlowModuleSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
-   * @public
-   */
-  OrConditions?: ContactFlowModuleSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
-   * @public
-   */
-  AndConditions?: ContactFlowModuleSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>The state of the flow.</p>
-   * @public
-   */
-  StateCondition?: ContactFlowModuleState | undefined;
-
-  /**
-   * <p>The status of the flow.</p>
-   * @public
-   */
-  StatusCondition?: ContactFlowModuleStatus | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return flows.</p>
- * @public
- */
-export interface ContactFlowSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
-   * @public
-   */
-  OrConditions?: ContactFlowSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
-   * @public
-   */
-  AndConditions?: ContactFlowSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-
-  /**
-   * <p>The type of flow.</p>
-   * @public
-   */
-  TypeCondition?: ContactFlowType | undefined;
-
-  /**
-   * <p>The state of the flow.</p>
-   * @public
-   */
-  StateCondition?: ContactFlowState | undefined;
-
-  /**
-   * <p>The status of the flow.</p>
-   * @public
-   */
-  StatusCondition?: ContactFlowStatus | undefined;
-}
-
-/**
- * <p>A data table search criteria.</p>
- * @public
- */
-export interface DataTableSearchCriteria {
-  /**
-   * <p>The criteria's or conditions.</p>
-   * @public
-   */
-  OrConditions?: DataTableSearchCriteria[] | undefined;
-
-  /**
-   * <p>The criteria's and conditions.</p>
-   * @public
-   */
-  AndConditions?: DataTableSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return email addresses.</p>
- * @public
- */
-export interface EmailAddressSearchCriteria {
-  /**
-   * <p>A list of conditions which would be applied together with an OR condition.</p>
-   * @public
-   */
-  OrConditions?: EmailAddressSearchCriteria[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an AND condition.</p>
-   * @public
-   */
-  AndConditions?: EmailAddressSearchCriteria[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a string condition.</p>
-   * @public
-   */
-  StringCondition?: StringCondition | undefined;
-}
-
-/**
- * <p>An item enablement configuration.</p>
- * @public
- */
-export interface EvaluationFormItemEnablementConfiguration {
-  /**
-   * <p>A condition for item enablement configuration.</p>
-   * @public
-   */
-  Condition: EvaluationFormItemEnablementCondition | undefined;
-
-  /**
-   * <p>An enablement action that if condition is satisfied. </p>
-   * @public
-   */
-  Action: EvaluationFormItemEnablementAction | undefined;
-
-  /**
-   * <p>An enablement action that if condition is not satisfied. </p>
-   * @public
-   */
-  DefaultAction?: EvaluationFormItemEnablementAction | undefined;
 }

@@ -24,7 +24,7 @@ export interface StartAssistantContactCommandOutput extends StartAssistantContac
 
 /**
  * <p>Starts a chat contact with an AI agent.</p>
- *          <p>Use the returned <code>ParticipantToken</code> to call the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API.</p>
+ *          <p>Use the returned <code>ParticipantToken</code> with the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> operation.</p>
  *          <p>For more information about chat, see the following topics in the <i>Connect Customer
  *    Administrator Guide</i>: </p>
  *          <ul>
@@ -103,6 +103,9 @@ export interface StartAssistantContactCommandOutput extends StartAssistantContac
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling limit has been exceeded.</p>
  *
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>

@@ -13,7 +13,6 @@ import type {
   ContactFlowType,
   ContactMetricName,
   ContactParticipantRole,
-  ContactState,
   CurrentMetricName,
   DataTableAttributeValueType,
   DataTableLockLevel,
@@ -29,7 +28,6 @@ import type {
   FileStatusType,
   FileUseCaseType,
   FlowAssociationResourceType,
-  Grouping,
   InstanceAttributeType,
   InstanceReplicationStatus,
   InstanceStatus,
@@ -59,10 +57,12 @@ import type {
   SortOrder,
   Status,
   StorageType,
+  TestCaseEntryPointType,
   TestCaseStatus,
   TrafficDistributionGroupStatus,
   TrendIndicator,
   Unit,
+  UseCaseType,
   ViewStatus,
   ViewType,
   Visibility,
@@ -76,15 +76,17 @@ import type {
   AgentQualityMetrics,
   AgentsCriteria,
   AgentStatus,
-  AgentStatusIdentifier,
   AiAgentInfo,
   AliasConfiguration,
   AllowedExtension,
   AudioQualityMetricsInfo,
+  ChatEntryPointParameters,
   CreatedByInfo,
   DataTableLockVersion,
   DeviceInfo,
   ExternalInvocationConfiguration,
+  ExtractionConfiguration,
+  ExtractionDefinitionDisplay,
   FailedBatchAssociationSummary,
   GranularAccessControlConfiguration,
   HoursOfOperationConfig,
@@ -99,7 +101,6 @@ import type {
   ParticipantCapabilities,
   PredefinedAttributeValues,
   PrimaryValue,
-  QueueReference,
   QuickConnectConfig,
   RecurrenceConfig,
   RoutingProfileQueueReference,
@@ -107,9 +108,225 @@ import type {
   RuleTriggerEventSource,
   SecurityProfileItem,
   SuccessfulBatchAssociationSummary,
-  TestCaseEntryPoint,
   Validation,
+  VoiceCallEntryPointParameters,
 } from "./models_0";
+
+/**
+ * <p>Defines the starting point for a test case.</p>
+ * @public
+ */
+export interface TestCaseEntryPoint {
+  /**
+   * <p>The type of entry point.</p>
+   * @public
+   */
+  Type?: TestCaseEntryPointType | undefined;
+
+  /**
+   * <p>Parameters for voice call entry point.</p>
+   * @public
+   */
+  VoiceCallEntryPointParameters?: VoiceCallEntryPointParameters | undefined;
+
+  /**
+   * <p>Parameters for chat entry point.</p>
+   * @public
+   */
+  ChatEntryPointParameters?: ChatEntryPointParameters | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the test.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The description of the test.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The JSON string that represents the content of the test.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>Defines the starting point for your test.</p>
+   * @public
+   */
+  EntryPoint?: TestCaseEntryPoint | undefined;
+
+  /**
+   * <p>Defines the initial custom attributes for your test.</p>
+   * @public
+   */
+  InitializationData?: string | undefined;
+
+  /**
+   * <p>Indicates the test status as either SAVED or PUBLISHED. The PUBLISHED status will initiate validation on the content. The SAVED status does not initiate validation of the content.</p>
+   * @public
+   */
+  Status?: TestCaseStatus | undefined;
+
+  /**
+   * <p>Id of the test case if you want to create it in a replica region using Amazon Connect Global Resiliency</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The time at which the resource was last modified.</p>
+   * @public
+   */
+  LastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>The region in which the resource was last modified</p>
+   * @public
+   */
+  LastModifiedRegion?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTestCaseResponse {
+  /**
+   * <p>The identifier of the test.</p>
+   * @public
+   */
+  TestCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the test.</p>
+   * @public
+   */
+  TestCaseArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrafficDistributionGroupRequest {
+  /**
+   * <p>The name for the traffic distribution group. </p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description for the traffic distribution group.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The identifier of the Connect Customer instance that has been replicated. You can find the
+   *     <code>instanceId</code> in the ARN of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateTrafficDistributionGroupResponse {
+  /**
+   * <p>The identifier of the traffic distribution group.
+   * This can be the ID or the ARN of the traffic distribution group.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the traffic distribution group.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUseCaseRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier for the integration association.</p>
+   * @public
+   */
+  IntegrationAssociationId: string | undefined;
+
+  /**
+   * <p>The type of use case to associate to the integration association. Each integration association can have only one
+   *    of each use case type.</p>
+   * @public
+   */
+  UseCaseType: UseCaseType | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateUseCaseResponse {
+  /**
+   * <p>The identifier of the use case.</p>
+   * @public
+   */
+  UseCaseId?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the use case.</p>
+   * @public
+   */
+  UseCaseArn?: string | undefined;
+}
 
 /**
  * <p>Configuration settings for auto-accept for a specific channel.</p>
@@ -1509,6 +1726,28 @@ export interface DeleteEvaluationFormRequest {
    */
   EvaluationFormVersion?: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface DeleteExtractionDefinitionRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition to delete.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteExtractionDefinitionResponse {}
 
 /**
  * @public
@@ -4354,6 +4593,94 @@ export interface DescribeEvaluationFormRequest {
    * @public
    */
   EvaluationFormVersion?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExtractionDefinitionRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition to describe.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+}
+
+/**
+ * <p>Information about an extraction definition.</p>
+ * @public
+ */
+export interface ExtractionDefinition {
+  /**
+   * <p>The name of the extraction definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionArn: string | undefined;
+
+  /**
+   * <p>The configuration that defines how data is extracted.</p>
+   * @public
+   */
+  ExtractionConfiguration: ExtractionConfiguration | undefined;
+
+  /**
+   * <p>The display settings for the extraction definition.</p>
+   * @public
+   */
+  Display?: ExtractionDefinitionDisplay | undefined;
+
+  /**
+   * <p>The timestamp when the extraction definition was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the extraction definition was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the extraction definition.</p>
+   * @public
+   */
+  LastUpdatedBy: string | undefined;
+
+  /**
+   * <p>The tags used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeExtractionDefinitionResponse {
+  /**
+   * <p>The extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinition: ExtractionDefinition | undefined;
 }
 
 /**
@@ -7938,537 +8265,4 @@ export interface CurrentMetricSortCriteria {
    * @public
    */
   SortOrder?: SortOrder | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCurrentMetricDataRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The filters to apply to returned metrics. You can filter up to the following limits:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Queues: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Routing profiles: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p>
-   *             </li>
-   *             <li>
-   *                <p>RoutingStepExpressions: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>AgentStatuses: 50</p>
-   *             </li>
-   *             <li>
-   *                <p>Subtypes: 10</p>
-   *             </li>
-   *             <li>
-   *                <p>ValidationTestTypes: 10</p>
-   *             </li>
-   *          </ul>
-   *          <p>Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any
-   *    channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource
-   *    IDs and resource ARNs in the same request.</p>
-   *          <p>When using <code>AgentStatuses</code> as filter make sure Queues is added as primary filter.</p>
-   *          <p>When using <code>Subtypes</code> as filter make sure Queues is added as primary filter.</p>
-   *          <p>When using <code>ValidationTestTypes</code> as filter make sure Queues is added as primary filter.</p>
-   *          <p>When using the <code>RoutingStepExpression</code> filter, you need to pass exactly one <code>QueueId</code>. The
-   *    filter is also case sensitive so when using the <code>RoutingStepExpression</code> filter, grouping by
-   *     <code>ROUTING_STEP_EXPRESSION</code> is required.</p>
-   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
-   * @public
-   */
-  Filters: Filters | undefined;
-
-  /**
-   * <p>Defines the level of aggregation for metrics data by a dimension(s). Its similar to sorting items into buckets
-   *    based on a common characteristic, then counting or calculating something for each bucket. For example, when grouped
-   *    by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p>
-   *          <p>The grouping list is an ordered list, with the first item in the list defined as the primary grouping. If no
-   *    grouping is included in the request, the aggregation happens at the instance-level.</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you group by <code>AGENT_STATUS</code>, you must include the <code>QUEUE</code> as the primary grouping and
-   *      use queue filter. When you group by <code>AGENT_STATUS</code>, the only metric available is the
-   *       <code>AGENTS_ONLINE</code> metric.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you group by <code>SUBTYPE</code> or <code>VALIDATION_TEST_TYPE</code> as secondary grouping then you must include <code>QUEUE</code> as
-   *      primary grouping and use Queue as filter</p>
-   *             </li>
-   *             <li>
-   *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter. In
-   *      addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>,
-   *       <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>When using the <code>RoutingStepExpression</code> filter, group by <code>ROUTING_STEP_EXPRESSION</code> is
-   *      required.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Groupings?: Grouping[] | undefined;
-
-  /**
-   * <p>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a
-   *    description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
-   *          <note>
-   *             <p> MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.</p>
-   *          </note>
-   *          <dl>
-   *             <dt>AGENTS_AFTER_CONTACT_WORK</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time">ACW</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_AVAILABLE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time">Available</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ERROR</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time">Error</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_NON_PRODUCTIVE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time">NPT (Non-Productive
-   *        Time)</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ON_CALL</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On contact</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ON_CONTACT</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On contact</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_ONLINE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-real-time">Online</a>
-   *                </p>
-   *             </dd>
-   *             <dt>AGENTS_STAFFED</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#staffed-real-time">Staffed</a>
-   *                </p>
-   *             </dd>
-   *             <dt>CONTACTS_IN_QUEUE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#in-queue-real-time">In queue</a>
-   *                </p>
-   *             </dd>
-   *             <dt>CONTACTS_SCHEDULED</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time">Scheduled</a>
-   *                </p>
-   *             </dd>
-   *             <dt>ESTIMATED_WAIT_TIME</dt>
-   *             <dd>
-   *                <p>Unit: SECONDS</p>
-   *                <p>This metric supports filter and grouping combination only used for core routing purpose.
-   *               Valid filter and grouping use cases:
-   *           </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].</p>
-   *                   </li>
-   *                </ul>
-   *             </dd>
-   *             <dt>OLDEST_CONTACT_AGE</dt>
-   *             <dd>
-   *                <p>Unit: SECONDS</p>
-   *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
-   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if
-   *       you get a response like this:</p>
-   *                <p>
-   *                   <code>\{ "Metric": \{ "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" \}, "Value": 24113.0 </code>\}</p>
-   *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
-   *                <p>When the filter <code>RoutingStepExpression</code> is used, this metric is still calculated from enqueue
-   *       time. For example, if a contact that has been queued under <code><Expression 1></code> for 10 seconds has
-   *       expired and <code><Expression 2></code> becomes active, then <code>OLDEST_CONTACT_AGE</code> for this queue
-   *       will be counted starting from 10, not 0.</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#oldest-real-time">Oldest</a>
-   *                </p>
-   *             </dd>
-   *             <dt>SLOTS_ACTIVE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-real-time">Active</a>
-   *                </p>
-   *             </dd>
-   *             <dt>SLOTS_AVAILABLE</dt>
-   *             <dd>
-   *                <p>Unit: COUNT</p>
-   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#availability-real-time">Availability</a>
-   *                </p>
-   *             </dd>
-   *          </dl>
-   * @public
-   */
-  CurrentMetrics: CurrentMetric[] | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources
-   *    are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the
-   *    input metrics.</p>
-   *          <p>Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  SortCriteria?: CurrentMetricSortCriteria[] | undefined;
-}
-
-/**
- * <p>Contains the data for a real-time metric.</p>
- * @public
- */
-export interface CurrentMetricData {
-  /**
-   * <p>Information about the metric.</p>
-   * @public
-   */
-  Metric?: CurrentMetric | undefined;
-
-  /**
-   * <p>The value of the metric.</p>
-   * @public
-   */
-  Value?: number | undefined;
-}
-
-/**
- * <p>Information about the routing profile assigned to the user.</p>
- * @public
- */
-export interface RoutingProfileReference {
-  /**
-   * <p>The identifier of the routing profile.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * <p>Contains information about the dimensions for a set of metrics.</p>
- * @public
- */
-export interface Dimensions {
-  /**
-   * <p>Information about the queue for which metrics are returned.</p>
-   * @public
-   */
-  Queue?: QueueReference | undefined;
-
-  /**
-   * <p>The channel used for grouping and filters.</p>
-   * @public
-   */
-  Channel?: Channel | undefined;
-
-  /**
-   * <p>Information about the routing profile assigned to the user.</p>
-   * @public
-   */
-  RoutingProfile?: RoutingProfileReference | undefined;
-
-  /**
-   * <p>The expression of a step in a routing criteria.</p>
-   * @public
-   */
-  RoutingStepExpression?: string | undefined;
-
-  /**
-   * <p>Information about the agent status assigned to the user.</p>
-   * @public
-   */
-  AgentStatus?: AgentStatusIdentifier | undefined;
-
-  /**
-   * <p>The subtype of the channel used for the contact.</p>
-   * @public
-   */
-  Subtype?: string | undefined;
-
-  /**
-   * <p>The testing and simulation type</p>
-   * @public
-   */
-  ValidationTestType?: string | undefined;
-}
-
-/**
- * <p>Contains information about a set of real-time metrics.</p>
- * @public
- */
-export interface CurrentMetricResult {
-  /**
-   * <p>The dimensions for the metrics.</p>
-   * @public
-   */
-  Dimensions?: Dimensions | undefined;
-
-  /**
-   * <p>The set of metrics.</p>
-   * @public
-   */
-  Collections?: CurrentMetricData[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCurrentMetricDataResponse {
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
-   *    the token must use the same request parameters as the request that generated the token.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the real-time metrics.</p>
-   * @public
-   */
-  MetricResults?: CurrentMetricResult[] | undefined;
-
-  /**
-   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
-   * @public
-   */
-  DataSnapshotTime?: Date | undefined;
-
-  /**
-   * <p>The total count of the result, regardless of the current page size. </p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>Filters user data based on the contact information that is associated to the users. It contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
- * @public
- */
-export interface ContactFilter {
-  /**
-   * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact
-   *     states</a>.</p>
-   * @public
-   */
-  ContactStates?: ContactState[] | undefined;
-}
-
-/**
- * <p>A filter for the user data.</p>
- * @public
- */
-export interface UserDataFilters {
-  /**
-   * <p>A list of up to 100 queues or ARNs.</p>
-   * @public
-   */
-  Queues?: string[] | undefined;
-
-  /**
-   * <p>A filter for the user data based on the contact information that is associated to the user. It contains a list
-   *    of contact states. </p>
-   * @public
-   */
-  ContactFilter?: ContactFilter | undefined;
-
-  /**
-   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
-   * @public
-   */
-  RoutingProfiles?: string[] | undefined;
-
-  /**
-   * <p>A list of up to 100 agent IDs or ARNs.</p>
-   * @public
-   */
-  Agents?: string[] | undefined;
-
-  /**
-   * <p>A UserHierarchyGroup ID or ARN.</p>
-   * @public
-   */
-  UserHierarchyGroups?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetCurrentUserDataRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The filters to apply to returned user data. You can filter up to the following limits:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Queues: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Routing profiles: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Agents: 100</p>
-   *             </li>
-   *             <li>
-   *                <p>Contact states: 9</p>
-   *             </li>
-   *             <li>
-   *                <p>User hierarchy groups: 1</p>
-   *             </li>
-   *          </ul>
-   *          <p> The user data is retrieved for only the specified values/resources in the filter. A maximum of one filter can
-   *    be passed from queues, routing profiles, agents, and user hierarchy groups. </p>
-   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
-   * @public
-   */
-  Filters: UserDataFilters | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-}
-
-/**
- * <p>Information about the hierarchy group.</p>
- * @public
- */
-export interface HierarchyGroupSummaryReference {
-  /**
-   * <p>The unique identifier for the hierarchy group.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the hierarchy group. </p>
-   * @public
-   */
-  Arn?: string | undefined;
-}
-
-/**
- * <p>Information about the levels in the hierarchy group.</p>
- * @public
- */
-export interface HierarchyPathReference {
-  /**
-   * <p>Information about level one.</p>
-   * @public
-   */
-  LevelOne?: HierarchyGroupSummaryReference | undefined;
-
-  /**
-   * <p>Information about level two.</p>
-   * @public
-   */
-  LevelTwo?: HierarchyGroupSummaryReference | undefined;
-
-  /**
-   * <p>Information about level three.</p>
-   * @public
-   */
-  LevelThree?: HierarchyGroupSummaryReference | undefined;
-
-  /**
-   * <p>Information about level four.</p>
-   * @public
-   */
-  LevelFour?: HierarchyGroupSummaryReference | undefined;
-
-  /**
-   * <p>Information about level five.</p>
-   * @public
-   */
-  LevelFive?: HierarchyGroupSummaryReference | undefined;
-}
-
-/**
- * <p>Information about the user.</p>
- * @public
- */
-export interface UserReference {
-  /**
-   * <p>The unique identifier for the user.</p>
-   * @public
-   */
-  Id?: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the user.</p>
-   * @public
-   */
-  Arn?: string | undefined;
 }

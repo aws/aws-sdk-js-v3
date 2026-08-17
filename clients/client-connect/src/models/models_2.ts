@@ -7,15 +7,13 @@ import type {
   BooleanComparisonType,
   Channel,
   Comparison,
-  ContactEvaluationAttributeComparisonType,
-  ContactEvaluationAttributeKey,
   ContactFlowModuleState,
   ContactFlowState,
   ContactFlowStatus,
   ContactFlowType,
   ContactInitiationMethod,
-  ContactParticipantRole,
   ContactRecordingType,
+  ContactState,
   DataTableAttributeValueType,
   DateTimeComparisonType,
   DecimalComparisonType,
@@ -49,7 +47,6 @@ import type {
   NumberComparisonType,
   OperationalStatus,
   ParticipantRole,
-  PerformanceCategoryName,
   PhoneNumberCountryCode,
   PhoneNumberType,
   QueueType,
@@ -82,11 +79,11 @@ import type {
   AgentConfig,
   AgentContactReference,
   AgentStatus,
+  AgentStatusIdentifier,
   AgentStatusReference,
   AgentStatusSummary,
   AnalyticsDataAssociationResult,
   Application,
-  ControlPlaneAttributeFilter,
   DataTableLockVersion,
   Distribution,
   FlowAssociationSummary,
@@ -96,8 +93,8 @@ import type {
   LexV2Bot,
   OverrideTimeSlice,
   PrimaryValueResponse,
+  QueueReference,
   SecurityProfileItem,
-  TagCondition,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
@@ -105,21 +102,551 @@ import type {
 } from "./models_0";
 import type {
   Attribute,
-  ContactFlowModule,
+  CurrentMetric,
+  CurrentMetricSortCriteria,
   DataTableAttribute,
-  Dimensions,
   EvaluationContactParticipant,
   EvaluationScore,
   ExtensionConfiguration,
   Filters,
   HierarchyGroupSummary,
-  HierarchyPathReference,
   HoursOfOperationOverride,
   HoursOfOperationsIdentifier,
   Notification,
-  RoutingProfileReference,
-  UserReference,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface GetCurrentMetricDataRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The filters to apply to returned metrics. You can filter up to the following limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Queues: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Routing profiles: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Channels: 3 (VOICE, CHAT, and TASK channels are supported.)</p>
+   *             </li>
+   *             <li>
+   *                <p>RoutingStepExpressions: 50</p>
+   *             </li>
+   *             <li>
+   *                <p>AgentStatuses: 50</p>
+   *             </li>
+   *             <li>
+   *                <p>Subtypes: 10</p>
+   *             </li>
+   *             <li>
+   *                <p>ValidationTestTypes: 10</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metric data is retrieved only for the resources associated with the queues or routing profiles, and by any
+   *    channels included in the filter. (You cannot filter by both queue AND routing profile.) You can include both resource
+   *    IDs and resource ARNs in the same request.</p>
+   *          <p>When using <code>AgentStatuses</code> as filter make sure Queues is added as primary filter.</p>
+   *          <p>When using <code>Subtypes</code> as filter make sure Queues is added as primary filter.</p>
+   *          <p>When using <code>ValidationTestTypes</code> as filter make sure Queues is added as primary filter.</p>
+   *          <p>When using the <code>RoutingStepExpression</code> filter, you need to pass exactly one <code>QueueId</code>. The
+   *    filter is also case sensitive so when using the <code>RoutingStepExpression</code> filter, grouping by
+   *     <code>ROUTING_STEP_EXPRESSION</code> is required.</p>
+   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
+   * @public
+   */
+  Filters: Filters | undefined;
+
+  /**
+   * <p>Defines the level of aggregation for metrics data by a dimension(s). Its similar to sorting items into buckets
+   *    based on a common characteristic, then counting or calculating something for each bucket. For example, when grouped
+   *    by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. </p>
+   *          <p>The grouping list is an ordered list, with the first item in the list defined as the primary grouping. If no
+   *    grouping is included in the request, the aggregation happens at the instance-level.</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you group by <code>AGENT_STATUS</code>, you must include the <code>QUEUE</code> as the primary grouping and
+   *      use queue filter. When you group by <code>AGENT_STATUS</code>, the only metric available is the
+   *       <code>AGENTS_ONLINE</code> metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you group by <code>SUBTYPE</code> or <code>VALIDATION_TEST_TYPE</code> as secondary grouping then you must include <code>QUEUE</code> as
+   *      primary grouping and use Queue as filter</p>
+   *             </li>
+   *             <li>
+   *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter. In
+   *      addition, a routing profile filter is required for metrics <code>CONTACTS_SCHEDULED</code>,
+   *       <code>CONTACTS_IN_QUEUE</code>, and <code> OLDEST_CONTACT_AGE</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>When using the <code>RoutingStepExpression</code> filter, group by <code>ROUTING_STEP_EXPRESSION</code> is
+   *      required.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Groupings?: Grouping[] | undefined;
+
+  /**
+   * <p>The metrics to retrieve. Specify the name or metricId, and unit for each metric. The following metrics are available. For a
+   *    description of all the metrics, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the <i>Connect Customer Administrator Guide</i>.</p>
+   *          <note>
+   *             <p> MetricId should be used to reference custom metrics or out of the box metrics as Arn. If using MetricId, the limit is 10 MetricId per request.</p>
+   *          </note>
+   *          <dl>
+   *             <dt>AGENTS_AFTER_CONTACT_WORK</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#aftercallwork-real-time">ACW</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_AVAILABLE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#available-real-time">Available</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_ERROR</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#error-real-time">Error</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_NON_PRODUCTIVE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#non-productive-time-real-time">NPT (Non-Productive
+   *        Time)</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_ON_CALL</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On contact</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_ON_CONTACT</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#on-call-real-time">On contact</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_ONLINE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#online-real-time">Online</a>
+   *                </p>
+   *             </dd>
+   *             <dt>AGENTS_STAFFED</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#staffed-real-time">Staffed</a>
+   *                </p>
+   *             </dd>
+   *             <dt>CONTACTS_IN_QUEUE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#in-queue-real-time">In queue</a>
+   *                </p>
+   *             </dd>
+   *             <dt>CONTACTS_SCHEDULED</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#scheduled-real-time">Scheduled</a>
+   *                </p>
+   *             </dd>
+   *             <dt>ESTIMATED_WAIT_TIME</dt>
+   *             <dd>
+   *                <p>Unit: SECONDS</p>
+   *                <p>This metric supports filter and grouping combination only used for core routing purpose.
+   *               Valid filter and grouping use cases:
+   *           </p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Filter by a list of [Queues] and a list of [Channels], group by [“QUEUE”, “CHANNEL”]</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Filter by a singleton list of [Queue], a singleton list of [Channel], a list of [RoutingStepExpression], group by [“ROUTING_STEP_EXPRESSION”].</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *             <dt>OLDEST_CONTACT_AGE</dt>
+   *             <dd>
+   *                <p>Unit: SECONDS</p>
+   *                <p>When you use groupings, Unit says SECONDS and the Value is returned in SECONDS. </p>
+   *                <p>When you do not use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if
+   *       you get a response like this:</p>
+   *                <p>
+   *                   <code>\{ "Metric": \{ "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" \}, "Value": 24113.0 </code>\}</p>
+   *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
+   *                <p>When the filter <code>RoutingStepExpression</code> is used, this metric is still calculated from enqueue
+   *       time. For example, if a contact that has been queued under <code><Expression 1></code> for 10 seconds has
+   *       expired and <code><Expression 2></code> becomes active, then <code>OLDEST_CONTACT_AGE</code> for this queue
+   *       will be counted starting from 10, not 0.</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#oldest-real-time">Oldest</a>
+   *                </p>
+   *             </dd>
+   *             <dt>SLOTS_ACTIVE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#active-real-time">Active</a>
+   *                </p>
+   *             </dd>
+   *             <dt>SLOTS_AVAILABLE</dt>
+   *             <dd>
+   *                <p>Unit: COUNT</p>
+   *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html#availability-real-time">Availability</a>
+   *                </p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  CurrentMetrics: CurrentMetric[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
+   *    the token must use the same request parameters as the request that generated the token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The way to sort the resulting response based on metrics. You can enter one sort criteria. By default resources
+   *    are sorted based on <code>AGENTS_ONLINE</code>, <code>DESCENDING</code>. The metric collection is sorted based on the
+   *    input metrics.</p>
+   *          <p>Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Sorting on <code>SLOTS_ACTIVE</code> and <code>SLOTS_AVAILABLE</code> is not supported.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SortCriteria?: CurrentMetricSortCriteria[] | undefined;
+}
+
+/**
+ * <p>Contains the data for a real-time metric.</p>
+ * @public
+ */
+export interface CurrentMetricData {
+  /**
+   * <p>Information about the metric.</p>
+   * @public
+   */
+  Metric?: CurrentMetric | undefined;
+
+  /**
+   * <p>The value of the metric.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * <p>Information about the routing profile assigned to the user.</p>
+ * @public
+ */
+export interface RoutingProfileReference {
+  /**
+   * <p>The identifier of the routing profile.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Contains information about the dimensions for a set of metrics.</p>
+ * @public
+ */
+export interface Dimensions {
+  /**
+   * <p>Information about the queue for which metrics are returned.</p>
+   * @public
+   */
+  Queue?: QueueReference | undefined;
+
+  /**
+   * <p>The channel used for grouping and filters.</p>
+   * @public
+   */
+  Channel?: Channel | undefined;
+
+  /**
+   * <p>Information about the routing profile assigned to the user.</p>
+   * @public
+   */
+  RoutingProfile?: RoutingProfileReference | undefined;
+
+  /**
+   * <p>The expression of a step in a routing criteria.</p>
+   * @public
+   */
+  RoutingStepExpression?: string | undefined;
+
+  /**
+   * <p>Information about the agent status assigned to the user.</p>
+   * @public
+   */
+  AgentStatus?: AgentStatusIdentifier | undefined;
+
+  /**
+   * <p>The subtype of the channel used for the contact.</p>
+   * @public
+   */
+  Subtype?: string | undefined;
+
+  /**
+   * <p>The testing and simulation type</p>
+   * @public
+   */
+  ValidationTestType?: string | undefined;
+}
+
+/**
+ * <p>Contains information about a set of real-time metrics.</p>
+ * @public
+ */
+export interface CurrentMetricResult {
+  /**
+   * <p>The dimensions for the metrics.</p>
+   * @public
+   */
+  Dimensions?: Dimensions | undefined;
+
+  /**
+   * <p>The set of metrics.</p>
+   * @public
+   */
+  Collections?: CurrentMetricData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCurrentMetricDataResponse {
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <p>The token expires after 5 minutes from the time it is created. Subsequent requests that use
+   *    the token must use the same request parameters as the request that generated the token.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the real-time metrics.</p>
+   * @public
+   */
+  MetricResults?: CurrentMetricResult[] | undefined;
+
+  /**
+   * <p>The time at which the metrics were retrieved and cached for pagination.</p>
+   * @public
+   */
+  DataSnapshotTime?: Date | undefined;
+
+  /**
+   * <p>The total count of the result, regardless of the current page size. </p>
+   * @public
+   */
+  ApproximateTotalCount?: number | undefined;
+}
+
+/**
+ * <p>Filters user data based on the contact information that is associated to the users. It contains a list of <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact states</a>.</p>
+ * @public
+ */
+export interface ContactFilter {
+  /**
+   * <p>A list of up to 9 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">contact
+   *     states</a>.</p>
+   * @public
+   */
+  ContactStates?: ContactState[] | undefined;
+}
+
+/**
+ * <p>A filter for the user data.</p>
+ * @public
+ */
+export interface UserDataFilters {
+  /**
+   * <p>A list of up to 100 queues or ARNs.</p>
+   * @public
+   */
+  Queues?: string[] | undefined;
+
+  /**
+   * <p>A filter for the user data based on the contact information that is associated to the user. It contains a list
+   *    of contact states. </p>
+   * @public
+   */
+  ContactFilter?: ContactFilter | undefined;
+
+  /**
+   * <p>A list of up to 100 routing profile IDs or ARNs.</p>
+   * @public
+   */
+  RoutingProfiles?: string[] | undefined;
+
+  /**
+   * <p>A list of up to 100 agent IDs or ARNs.</p>
+   * @public
+   */
+  Agents?: string[] | undefined;
+
+  /**
+   * <p>A UserHierarchyGroup ID or ARN.</p>
+   * @public
+   */
+  UserHierarchyGroups?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetCurrentUserDataRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The filters to apply to returned user data. You can filter up to the following limits:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Queues: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Routing profiles: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Agents: 100</p>
+   *             </li>
+   *             <li>
+   *                <p>Contact states: 9</p>
+   *             </li>
+   *             <li>
+   *                <p>User hierarchy groups: 1</p>
+   *             </li>
+   *          </ul>
+   *          <p> The user data is retrieved for only the specified values/resources in the filter. A maximum of one filter can
+   *    be passed from queues, routing profiles, agents, and user hierarchy groups. </p>
+   *          <p>Currently tagging is only supported on the resources that are passed in the filter.</p>
+   * @public
+   */
+  Filters: UserDataFilters | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Information about the hierarchy group.</p>
+ * @public
+ */
+export interface HierarchyGroupSummaryReference {
+  /**
+   * <p>The unique identifier for the hierarchy group.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the hierarchy group. </p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
+
+/**
+ * <p>Information about the levels in the hierarchy group.</p>
+ * @public
+ */
+export interface HierarchyPathReference {
+  /**
+   * <p>Information about level one.</p>
+   * @public
+   */
+  LevelOne?: HierarchyGroupSummaryReference | undefined;
+
+  /**
+   * <p>Information about level two.</p>
+   * @public
+   */
+  LevelTwo?: HierarchyGroupSummaryReference | undefined;
+
+  /**
+   * <p>Information about level three.</p>
+   * @public
+   */
+  LevelThree?: HierarchyGroupSummaryReference | undefined;
+
+  /**
+   * <p>Information about level four.</p>
+   * @public
+   */
+  LevelFour?: HierarchyGroupSummaryReference | undefined;
+
+  /**
+   * <p>Information about level five.</p>
+   * @public
+   */
+  LevelFive?: HierarchyGroupSummaryReference | undefined;
+}
+
+/**
+ * <p>Information about the user.</p>
+ * @public
+ */
+export interface UserReference {
+  /**
+   * <p>The unique identifier for the user.</p>
+   * @public
+   */
+  Id?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the user.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
 
 /**
  * <p>Data for a user.</p>
@@ -5932,6 +6459,89 @@ export interface ListEvaluationFormVersionsResponse {
 /**
  * @public
  */
+export interface ListExtractionDefinitionsRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous response in
+   *    the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about an extraction definition.</p>
+ * @public
+ */
+export interface ExtractionDefinitionSummary {
+  /**
+   * <p>The name of the extraction definition.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The identifier of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the extraction definition.</p>
+   * @public
+   */
+  ExtractionDefinitionArn: string | undefined;
+
+  /**
+   * <p>The timestamp when the extraction definition was created.</p>
+   * @public
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp when the extraction definition was last updated.</p>
+   * @public
+   */
+  LastUpdatedTime: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user who last updated the extraction definition.</p>
+   * @public
+   */
+  LastUpdatedBy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListExtractionDefinitionsResponse {
+  /**
+   * <p>Information about the extraction definitions.</p>
+   * @public
+   */
+  ExtractionDefinitionSummaryList: ExtractionDefinitionSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListFlowAssociationsRequest {
   /**
    * <p>The identifier of the Connect Customer instance. You can <a href="https://docs.aws.amazon.com/connect/latest/adminguide/find-instance-arn.html">find the instance ID</a> in the Amazon Resource Name (ARN) of the instance.</p>
@@ -10457,497 +11067,4 @@ export interface NumberCondition {
    * @public
    */
   ComparisonType?: NumberComparisonType | undefined;
-}
-
-/**
- * <p>The value of a contact evaluation attribute condition.</p>
- * @public
- */
-export interface ContactEvaluationAttributeValue {
-  /**
-   * <p>A string value for the attribute.</p>
-   * @public
-   */
-  StringValue?: string | undefined;
-}
-
-/**
- * <p>An attribute condition for contact evaluation filtering.</p>
- * @public
- */
-export interface ContactEvaluationAttributeCondition {
-  /**
-   * <p>The key of the attribute.</p>
-   * @public
-   */
-  AttributeKey?: ContactEvaluationAttributeKey | undefined;
-
-  /**
-   * <p>The value of the attribute.</p>
-   * @public
-   */
-  AttributeValue?: ContactEvaluationAttributeValue | undefined;
-
-  /**
-   * <p>The comparison type for the condition.</p>
-   * @public
-   */
-  ComparisonType?: ContactEvaluationAttributeComparisonType | undefined;
-}
-
-/**
- * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
- * @public
- */
-export interface ContactEvaluationAttributeAndCondition {
-  /**
-   * <p>A list of tag conditions to apply.</p>
-   * @public
-   */
-  TagConditions?: TagCondition[] | undefined;
-
-  /**
-   * <p>A list of attribute conditions to apply.</p>
-   * @public
-   */
-  AttributeConditions?: ContactEvaluationAttributeCondition[] | undefined;
-}
-
-/**
- * <p>An object that can be used to specify tag conditions and attribute conditions inside the
- *     <code>SearchFilter</code> for contact evaluations. This accepts an <code>OR</code> or <code>AND</code>
- *    (List of List) input where:</p>
- *          <ul>
- *             <li>
- *                <p>The top level list specifies conditions that need to be applied with <code>OR</code> operator.</p>
- *             </li>
- *             <li>
- *                <p>The inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface ContactEvaluationAttributeFilter {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
-   * @public
-   */
-  OrConditions?: ContactEvaluationAttributeAndCondition[] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
-   * @public
-   */
-  AndCondition?: ContactEvaluationAttributeAndCondition | undefined;
-
-  /**
-   * <p>A tag condition to apply.</p>
-   * @public
-   */
-  TagCondition?: TagCondition | undefined;
-
-  /**
-   * <p>An attribute condition to apply.</p>
-   * @public
-   */
-  ContactEvaluationAttributeCondition?: ContactEvaluationAttributeCondition | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface EvaluationSearchFilter {
-  /**
-   * <p>An object that can be used to specify tag conditions.</p>
-   * @public
-   */
-  AttributeFilter?: ControlPlaneAttributeFilter | undefined;
-
-  /**
-   * <p>An object that can be used to specify tag conditions and attribute conditions for contact evaluations.</p>
-   * @public
-   */
-  ContactEvaluationAttributeFilter?: ContactEvaluationAttributeFilter | undefined;
-}
-
-/**
- * <p>Metadata information about an evaluation search.</p>
- * @public
- */
-export interface EvaluationSearchMetadata {
-  /**
-   * <p>The identifier of the contact in this instance of Connect Customer. </p>
-   * @public
-   */
-  ContactId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the person who evaluated the contact.</p>
-   * @public
-   */
-  EvaluatorArn: string | undefined;
-
-  /**
-   * <p>The unique ID of the agent who handled the contact.</p>
-   * @public
-   */
-  ContactAgentId?: string | undefined;
-
-  /**
-   * <p>The calibration session ID that this evaluation belongs to.</p>
-   * @public
-   */
-  CalibrationSessionId?: string | undefined;
-
-  /**
-   * <p>The total evaluation score expressed as a percentage.</p>
-   * @public
-   */
-  ScorePercentage?: number | undefined;
-
-  /**
-   * <p>The flag that marks the item as automatic fail. If the item or a child item gets an automatic fail answer, this
-   *    flag is true.</p>
-   * @public
-   */
-  ScoreAutomaticFail?: boolean | undefined;
-
-  /**
-   * <p>The flag to mark the item as not applicable for scoring.</p>
-   * @public
-   */
-  ScoreNotApplicable?: boolean | undefined;
-
-  /**
-   * <p>Whether auto-evaluation is enabled.</p>
-   * @public
-   */
-  AutoEvaluationEnabled?: boolean | undefined;
-
-  /**
-   * <p>The status of the contact auto evaluation. </p>
-   * @public
-   */
-  AutoEvaluationStatus?: AutoEvaluationStatus | undefined;
-
-  /**
-   * <p>When the evaluation was acknowledged by the agent.</p>
-   * @public
-   */
-  AcknowledgedTime?: Date | undefined;
-
-  /**
-   * <p>The agent who acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgedBy?: string | undefined;
-
-  /**
-   * <p>The comment from the agent when they acknowledged the evaluation.</p>
-   * @public
-   */
-  AcknowledgerComment?: string | undefined;
-
-  /**
-   * <p>Identifier of the sampling job.</p>
-   * @public
-   */
-  SamplingJobId?: string | undefined;
-
-  /**
-   * <p>Identifier for the review.</p>
-   * @public
-   */
-  ReviewId?: string | undefined;
-
-  /**
-   * <p>Role of a contact participant in the evaluation.</p>
-   * @public
-   */
-  ContactParticipantRole?: ContactParticipantRole | undefined;
-
-  /**
-   * <p>Identifier for a contact participant in the evaluation.</p>
-   * @public
-   */
-  ContactParticipantId?: string | undefined;
-
-  /**
-   * <p>The points earned for the evaluation.</p>
-   * @public
-   */
-  EarnedPoints?: number | undefined;
-
-  /**
-   * <p>The maximum base points possible for the evaluation.</p>
-   * @public
-   */
-  MaxBasePoint?: number | undefined;
-
-  /**
-   * <p>The performance category for the evaluation score.</p>
-   * @public
-   */
-  PerformanceCategory?: PerformanceCategoryName | undefined;
-}
-
-/**
- * <p>Summary of evaluation obtained from the search operation.</p>
- * @public
- */
-export interface EvaluationSearchSummary {
-  /**
-   * <p>A unique identifier for the contact evaluation.</p>
-   * @public
-   */
-  EvaluationId: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the contact evaluation resource.</p>
-   * @public
-   */
-  EvaluationArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormId?: string | undefined;
-
-  /**
-   * <p>A version of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormVersion: number | undefined;
-
-  /**
-   * <p>Title of the evaluation form.</p>
-   * @public
-   */
-  EvaluationFormTitle?: string | undefined;
-
-  /**
-   * <p>Summary information about the evaluation search.</p>
-   * @public
-   */
-  Metadata: EvaluationSearchMetadata | undefined;
-
-  /**
-   * <p>The status of the evaluation. </p>
-   * @public
-   */
-  Status: EvaluationStatus | undefined;
-
-  /**
-   * <p>Type of the evaluation. </p>
-   * @public
-   */
-  EvaluationType?: EvaluationType | undefined;
-
-  /**
-   * <p>The date and time when the evaluation was created, in UTC time.</p>
-   * @public
-   */
-  CreatedTime: Date | undefined;
-
-  /**
-   * <p>The date and time when the evaluation was modified last time, in UTC time.</p>
-   * @public
-   */
-  LastModifiedTime: Date | undefined;
-
-  /**
-   * <p>The tags used to organize, track, or control access for this resource. For example, \{ "Tags": \{"key1":"value1", "key2":"value2"\} \}.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactEvaluationsResponse {
-  /**
-   * <p>Contains information about contact evaluations.</p>
-   * @public
-   */
-  EvaluationSearchSummaryList?: EvaluationSearchSummary[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of contact evaluations that matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
- *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
- *          <ul>
- *             <li>
- *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
- *             </li>
- *             <li>
- *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
- *             </li>
- *          </ul>
- * @public
- */
-export interface ControlPlaneTagFilter {
-  /**
-   * <p>A list of conditions which would be applied together with an <code>OR</code> condition.</p>
-   * @public
-   */
-  OrConditions?: TagCondition[][] | undefined;
-
-  /**
-   * <p>A list of conditions which would be applied together with an <code>AND</code> condition.</p>
-   * @public
-   */
-  AndConditions?: TagCondition[] | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a tag condition.</p>
-   * @public
-   */
-  TagCondition?: TagCondition | undefined;
-}
-
-/**
- * <p>The search criteria to be used to return flow modules.</p>
- * @public
- */
-export interface ContactFlowModuleSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-}
-
-/**
- * @public
- */
-export interface SearchContactFlowModulesResponse {
-  /**
-   * <p>The search criteria to be used to return flow modules.</p>
-   * @public
-   */
-  ContactFlowModules?: ContactFlowModule[] | undefined;
-
-  /**
-   * <p>If there are additional results, this is the token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The total number of flows which matched your search query.</p>
-   * @public
-   */
-  ApproximateTotalCount?: number | undefined;
-}
-
-/**
- * <p> The contact flow type condition.</p>
- * @public
- */
-export interface ContactFlowTypeCondition {
-  /**
-   * <p> Contact flow type of the contact flow type condition.</p>
-   * @public
-   */
-  ContactFlowType?: ContactFlowType | undefined;
-}
-
-/**
- * <p> A list of conditions which would be applied together with an AND condition.</p>
- * @public
- */
-export interface ContactFlowAttributeAndCondition {
-  /**
-   * <p> Tag-based conditions for contact flow filtering.</p>
-   * @public
-   */
-  TagConditions?: TagCondition[] | undefined;
-
-  /**
-   * <p> Contact flow type condition.</p>
-   * @public
-   */
-  ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
-}
-
-/**
- * <p> Filter for contact flow attributes with multiple condition types.</p>
- * @public
- */
-export interface ContactFlowAttributeFilter {
-  /**
-   * <p> A list of conditions which would be applied together with an OR condition.</p>
-   * @public
-   */
-  OrConditions?: ContactFlowAttributeAndCondition[] | undefined;
-
-  /**
-   * <p> A list of conditions which would be applied together with a AND condition.</p>
-   * @public
-   */
-  AndCondition?: ContactFlowAttributeAndCondition | undefined;
-
-  /**
-   * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE BPO = 123</code>.
-   *   </p>
-   * @public
-   */
-  TagCondition?: TagCondition | undefined;
-
-  /**
-   * <p> Contact flow type condition within attribute filter.</p>
-   * @public
-   */
-  ContactFlowTypeCondition?: ContactFlowTypeCondition | undefined;
-}
-
-/**
- * <p>Filters to be applied to search results.</p>
- * @public
- */
-export interface ContactFlowSearchFilter {
-  /**
-   * <p>An object that can be used to specify Tag conditions inside the <code>SearchFilter</code>. This accepts an
-   *     <code>OR</code> of <code>AND</code> (List of List) input where:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Top level list specifies conditions that need to be applied with <code>OR</code> operator</p>
-   *             </li>
-   *             <li>
-   *                <p>Inner list specifies conditions that need to be applied with <code>AND</code> operator.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  TagFilter?: ControlPlaneTagFilter | undefined;
-
-  /**
-   * <p> Flow attribute filter for contact flow search operations. </p>
-   * @public
-   */
-  FlowAttributeFilter?: ContactFlowAttributeFilter | undefined;
 }

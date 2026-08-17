@@ -26,6 +26,7 @@ export * from "./ListDefaultVocabulariesPaginator";
 export * from "./ListEntitySecurityProfilesPaginator";
 export * from "./ListEvaluationFormsPaginator";
 export * from "./ListEvaluationFormVersionsPaginator";
+export * from "./ListExtractionDefinitionsPaginator";
 export * from "./ListFlowAssociationsPaginator";
 export * from "./ListHoursOfOperationOverridesPaginator";
 export * from "./ListHoursOfOperationsPaginator";
