@@ -161,6 +161,11 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     create an organization.</p>
  *             </li>
  *             <li>
+ *                <p>ACCOUNT_NOT_ACTIVE_FOR_TRANSFER_RESPONSIBILITY: Your account setup isn't
+ *                     complete or your account isn't fully active to invite or accept a Billing
+ *                     Transfer invitation.</p>
+ *             </li>
+ *             <li>
  *                <p>ACTIVE_RESPONSIBILITY_TRANSFER_PROCESS: You cannot delete organization due to an ongoing responsibility transfer process. For example, a pending invitation or an in-progress transfer. To delete the organization, you must resolve the current transfer process.</p>
  *             </li>
  *             <li>
@@ -366,7 +371,18 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     this transfer invitation because target organization is marked for deletion.</p>
  *             </li>
  *             <li>
- *                <p>UNSUPPORTED_PRICING: Your organization has a pricing contract that is unsupported.</p>
+ *                <p>TRANSFER_RESPONSIBILITY_UPDATE_NOT_ALLOWED: You cannot update this transfer
+ *                     because it is no longer active. Transfers that have been withdrawn, declined,
+ *                     expired, or cancelled cannot be modified.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNMET_BILLING_PREREQUISITE: Your current billing configuration is unsupported.
+ *                     Contact Amazon Web Services Support for assistance.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_PRICING: Ineligible for Billing Transfer. Your organization is
+ *                     subject to a pricing agreement with Amazon Web Services that Billing Transfer does not
+ *                     support.</p>
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
@@ -413,9 +429,9 @@ export interface LeaveOrganizationCommandOutput extends __MetadataBearer {}
  *                     invited account owner.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
- *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
- *                     Partner for help.</p>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the minimum notice
+ *                     period required by your partner agreement. Visit Amazon Web Services Partner Central or contact your Amazon Web Services
+ *                     Channel Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>

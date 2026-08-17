@@ -140,6 +140,11 @@ export class ConcurrentModificationException extends __BaseException {
  *                     create an organization.</p>
  *             </li>
  *             <li>
+ *                <p>ACCOUNT_NOT_ACTIVE_FOR_TRANSFER_RESPONSIBILITY: Your account setup isn't
+ *                     complete or your account isn't fully active to invite or accept a Billing
+ *                     Transfer invitation.</p>
+ *             </li>
+ *             <li>
  *                <p>ACTIVE_RESPONSIBILITY_TRANSFER_PROCESS: You cannot delete organization due to an ongoing responsibility transfer process. For example, a pending invitation or an in-progress transfer. To delete the organization, you must resolve the current transfer process.</p>
  *             </li>
  *             <li>
@@ -345,7 +350,18 @@ export class ConcurrentModificationException extends __BaseException {
  *                     this transfer invitation because target organization is marked for deletion.</p>
  *             </li>
  *             <li>
- *                <p>UNSUPPORTED_PRICING: Your organization has a pricing contract that is unsupported.</p>
+ *                <p>TRANSFER_RESPONSIBILITY_UPDATE_NOT_ALLOWED: You cannot update this transfer
+ *                     because it is no longer active. Transfers that have been withdrawn, declined,
+ *                     expired, or cancelled cannot be modified.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNMET_BILLING_PREREQUISITE: Your current billing configuration is unsupported.
+ *                     Contact Amazon Web Services Support for assistance.</p>
+ *             </li>
+ *             <li>
+ *                <p>UNSUPPORTED_PRICING: Ineligible for Billing Transfer. Your organization is
+ *                     subject to a pricing agreement with Amazon Web Services that Billing Transfer does not
+ *                     support.</p>
  *             </li>
  *             <li>
  *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
@@ -440,9 +456,8 @@ export class HandshakeAlreadyInStateException extends __BaseException {
  *                     because the organization has already enabled all features.</p>
  *             </li>
  *             <li>
- *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
- *                     account is from a different marketplace than the accounts in the
- *                     organization.</p>
+ *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: You can only join an
+ *                     organization that operates in the same Amazon Web Services partition as your account.</p>
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_IS_ALREADY_PENDING_ALL_FEATURES_MIGRATION: The handshake request
@@ -452,6 +467,9 @@ export class HandshakeAlreadyInStateException extends __BaseException {
  *             <li>
  *                <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change
  *                     the membership of an account too quickly after its previous change.</p>
+ *             </li>
+ *             <li>
+ *                <p>PAST_DUE_INVOICE: Your organization has an invoice that is past due.</p>
  *             </li>
  *             <li>
  *                <p>PAYMENT_INSTRUMENT_REQUIRED: You can't complete the operation with an account
@@ -464,6 +482,11 @@ export class HandshakeAlreadyInStateException extends __BaseException {
  *             </li>
  *             <li>
  *                <p>SOURCE_AND_TARGET_CANNOT_MATCH: An account can't accept a transfer invitation if it is both the sender and recipient of the invitation.</p>
+ *             </li>
+ *             <li>
+ *                <p>TARGET_ACCOUNT_VALIDATION_FAILURE: Billing transfer is not available for your
+ *                     account. Contact your billing administrator or Amazon Web Services Support for
+ *                     assistance.</p>
  *             </li>
  *             <li>
  *                <p>UNUSED_PREPAYMENT_BALANCE: Your organization has an outstanding pre-payment balance.</p>
@@ -575,9 +598,9 @@ export class InvalidHandshakeTransitionException extends __BaseException {
  *                     invited account owner.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
- *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
- *                     Partner for help.</p>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the minimum notice
+ *                     period required by your partner agreement. Visit Amazon Web Services Partner Central or contact your Amazon Web Services
+ *                     Channel Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>

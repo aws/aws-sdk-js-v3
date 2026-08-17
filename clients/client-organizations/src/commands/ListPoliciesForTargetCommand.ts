@@ -118,9 +118,9 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *                     invited account owner.</p>
  *             </li>
  *             <li>
- *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the terms of your partner
- *                     agreement. Visit Amazon Web Services Partner Central to view your partner agreements or contact your Amazon Web Services
- *                     Partner for help.</p>
+ *                <p>INVALID_END_DATE: The selected withdrawal date doesn't meet the minimum notice
+ *                     period required by your partner agreement. Visit Amazon Web Services Partner Central or contact your Amazon Web Services
+ *                     Channel Partner for help.</p>
  *             </li>
  *             <li>
  *                <p>INVALID_ENUM: You specified an invalid value.</p>
