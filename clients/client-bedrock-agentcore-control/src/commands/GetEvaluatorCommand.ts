@@ -91,7 +91,35 @@ export interface GetEvaluatorCommandOutput extends GetEvaluatorResponse, __Metad
  * //         lambdaTimeoutInSeconds: Number("int"),
  * //       },
  * //     },
+ * //     derived: { // DerivedEvaluatorConfig
+ * //       baseEvaluatorId: "STRING_VALUE", // required
+ * //       modelConfig: {//  Union: only one key present
+ * //         bedrockEvaluatorModelConfig: {
+ * //           modelId: "STRING_VALUE", // required
+ * //           inferenceConfig: {
+ * //             maxTokens: Number("int"),
+ * //             temperature: Number("float"),
+ * //             topP: Number("float"),
+ * //             stopSequences: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           additionalModelRequestFields: "DOCUMENT_VALUE",
+ * //         },
+ * //         responsesEvaluatorModelConfig: {
+ * //           modelId: "STRING_VALUE", // required
+ * //           maxOutputTokens: Number("int"),
+ * //           temperature: Number("float"),
+ * //           topP: Number("float"),
+ * //           reasoning: {
+ * //             effort: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //     },
  * //   },
+ * //   evaluatorType: "Builtin" || "ThirdParty" || "Custom" || "CustomCode" || "CustomDerived",
+ * //   provider: "AWS" || "DeepEval" || "AutoEval" || "Custom",
  * //   level: "TOOL_CALL" || "TRACE" || "SESSION", // required
  * //   status: "ACTIVE" || "CREATING" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED" || "DELETING", // required
  * //   createdAt: new Date("TIMESTAMP"), // required

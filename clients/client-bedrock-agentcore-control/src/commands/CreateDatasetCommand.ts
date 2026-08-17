@@ -46,7 +46,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  *       s3Uri: "STRING_VALUE", // required
  *     },
  *   },
- *   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1", // required
+ *   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "GENERIC_EVALUATION_PREDEFINED_V1", // required
  *   kmsKeyArn: "STRING_VALUE",
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",

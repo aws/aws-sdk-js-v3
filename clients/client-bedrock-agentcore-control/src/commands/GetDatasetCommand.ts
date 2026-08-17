@@ -47,7 +47,7 @@ export interface GetDatasetCommandOutput extends GetDatasetResponse, __MetadataB
  * //   status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //   draftStatus: "MODIFIED" || "UNMODIFIED",
  * //   failureReason: "STRING_VALUE",
- * //   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1", // required
+ * //   schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "GENERIC_EVALUATION_PREDEFINED_V1", // required
  * //   kmsKeyArn: "STRING_VALUE",
  * //   exampleCount: Number("long"), // required
  * //   downloadUrl: "STRING_VALUE",

@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetPolicyGenerationRequest } from "../models/models_1";
-import type { GetPolicyGenerationResponse } from "../models/models_2";
+import type { GetPolicyGenerationRequest, GetPolicyGenerationResponse } from "../models/models_2";
 import { GetPolicyGeneration$ } from "../schemas/schemas_0";
 
 /**

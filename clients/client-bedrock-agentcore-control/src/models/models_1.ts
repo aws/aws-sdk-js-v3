@@ -46,7 +46,7 @@ import type {
   AuthorizerConfiguration,
   ContainerConfiguration,
   FilesystemConfiguration,
-  InferenceConnectorTargetConfiguration,
+  InferenceConnectorSource,
   LifecycleConfiguration,
   NetworkConfiguration,
   OAuthCredentialProvider,
@@ -59,6 +59,18 @@ import type {
   UpdatedDescription,
   WorkloadIdentityDetails,
 } from "./models_0";
+
+/**
+ * <p>The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.</p>
+ * @public
+ */
+export interface InferenceConnectorTargetConfiguration {
+  /**
+   * <p>The source configuration identifying which inference connector to use.</p>
+   * @public
+   */
+  source: InferenceConnectorSource | undefined;
+}
 
 /**
  * <p>The configuration that controls how a provider prefix is applied to model IDs during translation.</p>
@@ -10028,21 +10040,4 @@ export interface UpdatePolicyEngineResponse {
    * @public
    */
   statusReasons: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface GetPolicyGenerationRequest {
-  /**
-   * <p>The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call.</p>
-   * @public
-   */
-  policyGenerationId: string | undefined;
-
-  /**
-   * <p>The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
 }

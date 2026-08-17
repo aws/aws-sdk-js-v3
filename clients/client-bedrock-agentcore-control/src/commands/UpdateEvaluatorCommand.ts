@@ -84,6 +84,32 @@ export interface UpdateEvaluatorCommandOutput extends UpdateEvaluatorResponse, _
  *         lambdaTimeoutInSeconds: Number("int"),
  *       },
  *     },
+ *     derived: { // DerivedEvaluatorConfig
+ *       baseEvaluatorId: "STRING_VALUE", // required
+ *       modelConfig: {//  Union: only one key present
+ *         bedrockEvaluatorModelConfig: {
+ *           modelId: "STRING_VALUE", // required
+ *           inferenceConfig: {
+ *             maxTokens: Number("int"),
+ *             temperature: Number("float"),
+ *             topP: Number("float"),
+ *             stopSequences: [
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *           additionalModelRequestFields: "DOCUMENT_VALUE",
+ *         },
+ *         responsesEvaluatorModelConfig: {
+ *           modelId: "STRING_VALUE", // required
+ *           maxOutputTokens: Number("int"),
+ *           temperature: Number("float"),
+ *           topP: Number("float"),
+ *           reasoning: {
+ *             effort: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     },
  *   },
  *   level: "TOOL_CALL" || "TRACE" || "SESSION",
  *   kmsKeyArn: "STRING_VALUE",

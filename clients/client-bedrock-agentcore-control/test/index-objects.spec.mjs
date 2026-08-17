@@ -357,6 +357,7 @@ import {
   DeleteWorkloadIdentityCommand,
   DeleteWorkloadIdentityRequest$,
   DeleteWorkloadIdentityResponse$,
+  DerivedEvaluatorConfig$,
   Descriptors$,
   DescriptorType,
   DraftStatus,
@@ -934,6 +935,7 @@ import {
   PrivateKeyJwtConfig$,
   PrivateKeySource$,
   ProtocolConfiguration$,
+  Provider,
   ProviderPrefix$,
   PutResourcePolicy$,
   PutResourcePolicyCommand,
@@ -1777,6 +1779,7 @@ assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
 assert(typeof DeleteWorkloadIdentityRequest$ === "object");
 assert(typeof DeleteWorkloadIdentityResponse$ === "object");
+assert(typeof DerivedEvaluatorConfig$ === "object");
 assert(typeof Descriptors$ === "object");
 assert(typeof EbsVolumeConfiguration$ === "object");
 assert(typeof Ec2Configuration$ === "object");
@@ -2377,6 +2380,7 @@ assert(typeof PolicyGenerationStatus === "object");
 assert(typeof PolicyStatus === "object");
 assert(typeof PolicyValidationMode === "object");
 assert(typeof PrincipalMatchOperator === "object");
+assert(typeof Provider === "object");
 assert(typeof RegistryAuthorizerType === "object");
 assert(typeof RegistryRecordCredentialProviderType === "object");
 assert(typeof RegistryRecordOAuthGrantType === "object");

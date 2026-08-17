@@ -42,6 +42,23 @@ import type {
 } from "./models_1";
 
 /**
+ * @public
+ */
+export interface GetPolicyGenerationRequest {
+  /**
+   * <p>The unique identifier of the policy generation request to be retrieved. This must be a valid generation ID from a previous <a href="https://docs.aws.amazon.com/bedrock-agentcore-control/latest/APIReference/API_StartPolicyGeneration.html">StartPolicyGeneration</a> call.</p>
+   * @public
+   */
+  policyGenerationId: string | undefined;
+
+  /**
+   * <p>The identifier of the policy engine associated with the policy generation request. This provides the context for the generation operation and schema validation.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+}
+
+/**
  * <p>Represents a resource within the AgentCore Policy system. Resources are the targets of policy evaluation. Currently, only AgentCore Gateways are supported as resources for policy enforcement.</p>
  * @public
  */

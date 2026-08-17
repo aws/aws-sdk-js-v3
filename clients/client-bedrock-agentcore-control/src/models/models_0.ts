@@ -44,6 +44,7 @@ import type {
   PassthroughProtocolType,
   Period,
   PrincipalMatchOperator,
+  Provider,
   ResourceType,
   SearchType,
   SecretSourceType,
@@ -6372,6 +6373,24 @@ export namespace EvaluatorModelConfig {
 }
 
 /**
+ * <p> The configuration for a derived evaluator. It reuses an existing evaluator's logic on your own model. </p>
+ * @public
+ */
+export interface DerivedEvaluatorConfig {
+  /**
+   * <p> The identifier of the base evaluator whose logic to run (a <code>Builtin.*</code> or <code>ThirdParty.*</code> evaluator). </p>
+   * @public
+   */
+  baseEvaluatorId: string | undefined;
+
+  /**
+   * <p> The configuration of the evaluator model that you supply. </p>
+   * @public
+   */
+  modelConfig: EvaluatorModelConfig | undefined;
+}
+
+/**
  * <p> The definition of a categorical rating scale option that provides a named category with its description for evaluation scoring. </p>
  * @public
  */
@@ -6496,6 +6515,7 @@ export interface LlmAsAJudgeEvaluatorConfig {
  */
 export type EvaluatorConfig =
   | EvaluatorConfig.CodeBasedMember
+  | EvaluatorConfig.DerivedMember
   | EvaluatorConfig.LlmAsAJudgeMember
   | EvaluatorConfig.$UnknownMember;
 
@@ -6510,6 +6530,7 @@ export namespace EvaluatorConfig {
   export interface LlmAsAJudgeMember {
     llmAsAJudge: LlmAsAJudgeEvaluatorConfig;
     codeBased?: never;
+    derived?: never;
     $unknown?: never;
   }
 
@@ -6520,6 +6541,18 @@ export namespace EvaluatorConfig {
   export interface CodeBasedMember {
     llmAsAJudge?: never;
     codeBased: CodeBasedEvaluatorConfig;
+    derived?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> The configuration for an evaluator derived from an existing base evaluator (a built-in or third-party evaluator), run on your own model. The base evaluator supplies the prompt and scoring. </p>
+   * @public
+   */
+  export interface DerivedMember {
+    llmAsAJudge?: never;
+    codeBased?: never;
+    derived: DerivedEvaluatorConfig;
     $unknown?: never;
   }
 
@@ -6529,6 +6562,7 @@ export namespace EvaluatorConfig {
   export interface $UnknownMember {
     llmAsAJudge?: never;
     codeBased?: never;
+    derived?: never;
     $unknown: [string, any];
   }
 
@@ -6539,6 +6573,7 @@ export namespace EvaluatorConfig {
   export interface Visitor<T> {
     llmAsAJudge: (value: LlmAsAJudgeEvaluatorConfig) => T;
     codeBased: (value: CodeBasedEvaluatorConfig) => T;
+    derived: (value: DerivedEvaluatorConfig) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -6705,6 +6740,18 @@ export interface GetEvaluatorResponse {
   evaluatorConfig: EvaluatorConfig | undefined;
 
   /**
+   * <p> The kind of evaluator resource. Valid values: </p> <ul> <li> <p> <code>Builtin</code> – An Amazon Web Services-managed global evaluator.</p> </li> <li> <p> <code>ThirdParty</code> – An Amazon Web Services-managed global evaluator from a third-party provider.</p> </li> <li> <p> <code>Custom</code> – A customer-created evaluator.</p> </li> <li> <p> <code>CustomCode</code> – A customer-created code-based evaluator.</p> </li> <li> <p> <code>CustomDerived</code> – A customer-created evaluator derived from an existing base evaluator.</p> </li> </ul>
+   * @public
+   */
+  evaluatorType?: EvaluatorType | undefined;
+
+  /**
+   * <p> The source of the evaluator's logic: Amazon Web Services, a third-party library, or you. </p>
+   * @public
+   */
+  provider?: Provider | undefined;
+
+  /**
    * <p> The evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>
    * @public
    */
@@ -6792,6 +6839,12 @@ export interface EvaluatorSummary {
    * @public
    */
   evaluatorType: EvaluatorType | undefined;
+
+  /**
+   * <p> The source of the evaluator's logic: Amazon Web Services, a third-party library, or you. </p>
+   * @public
+   */
+  provider?: Provider | undefined;
 
   /**
    * <p> The evaluation level (<code>TOOL_CALL</code>, <code>TRACE</code>, or <code>SESSION</code>) that determines the scope of evaluation. </p>
@@ -9464,18 +9517,6 @@ export interface InferenceConnectorSource {
    * @public
    */
   connectorId: string | undefined;
-}
-
-/**
- * <p>The configuration for a connector-based inference target. This configuration uses a built-in connector that provides predefined rules for a large language model (LLM) provider.</p>
- * @public
- */
-export interface InferenceConnectorTargetConfiguration {
-  /**
-   * <p>The source configuration identifying which inference connector to use.</p>
-   * @public
-   */
-  source: InferenceConnectorSource | undefined;
 }
 
 /**

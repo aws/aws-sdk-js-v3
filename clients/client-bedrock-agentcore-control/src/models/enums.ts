@@ -426,6 +426,10 @@ export const DatasetSchemaType = {
    * <p> AgentCore simulated evaluation schema, version 1. Dataset for synthetic data generation where each example is a scenario used to generate full conversations. </p>
    */
   AGENTCORE_EVALUATION_SIMULATED_V1: "AGENTCORE_EVALUATION_SIMULATED_V1",
+  /**
+   * <p> Unified generic evaluation schema, version 1. Supports single-turn (string input) and multi-turn (message list input) across all evaluation frameworks. </p>
+   */
+  GENERIC_EVALUATION_PREDEFINED_V1: "GENERIC_EVALUATION_PREDEFINED_V1",
 } as const;
 /**
  * @public
@@ -503,11 +507,28 @@ export const EvaluatorType = {
   BUILTIN: "Builtin",
   CODE: "CustomCode",
   CUSTOM: "Custom",
+  CUSTOM_DERIVED: "CustomDerived",
+  THIRD_PARTY: "ThirdParty",
 } as const;
 /**
  * @public
  */
 export type EvaluatorType = (typeof EvaluatorType)[keyof typeof EvaluatorType];
+
+/**
+ * @public
+ * @enum
+ */
+export const Provider = {
+  AUTO_EVAL: "AutoEval",
+  AWS: "AWS",
+  CUSTOM: "Custom",
+  DEEP_EVAL: "DeepEval",
+} as const;
+/**
+ * @public
+ */
+export type Provider = (typeof Provider)[keyof typeof Provider];
 
 /**
  * @public

@@ -236,6 +236,7 @@ const _DDERe = "DeleteDatasetExamplesResponse";
 const _DDR = "DeleteDatasetRequest";
 const _DDRe = "DeleteDatasetResponse";
 const _DE = "DeleteEvaluator";
+const _DEC = "DerivedEvaluatorConfig";
 const _DEL = "DatasetExampleList";
 const _DER = "DeleteEvaluatorRequest";
 const _DERe = "DeleteEvaluatorResponse";
@@ -1109,6 +1110,7 @@ const _au = "auth";
 const _b = "bundles";
 const _bA = "browserArn";
 const _bAu = "bundleArn";
+const _bEI = "baseEvaluatorId";
 const _bEMC = "bedrockEvaluatorModelConfig";
 const _bI = "browserId";
 const _bIu = "bundleId";
@@ -1219,6 +1221,7 @@ const _dV = "datasetVersion";
 const _dVo = "doubleValue";
 const _da = "datasets";
 const _de = "definition";
+const _der = "derived";
 const _des = "descriptors";
 const _di = "dimensions";
 const _dis = "disabled";
@@ -1507,8 +1510,8 @@ const _po = "policy";
 const _pol = "policies";
 const _pr = "priority";
 const _pre = "prefix";
-const _pro = "properties";
-const _prov = "provider";
+const _pro = "provider";
+const _prop = "properties";
 const _q = "qualifier";
 const _r = "reason";
 const _rA = "roleArn";
@@ -2782,6 +2785,11 @@ export var DeleteWorkloadIdentityResponse$: StaticStructureSchema = [3, n0, _DWI
   [],
   []
 ];
+export var DerivedEvaluatorConfig$: StaticStructureSchema = [3, n0, _DEC,
+  0,
+  [_bEI, _mCo],
+  [0, () => EvaluatorModelConfig$], 2
+];
 export var Descriptors$: StaticStructureSchema = [3, n0, _Des,
   0,
   [_mc, _aa, _cu, _aSg],
@@ -2869,8 +2877,8 @@ export var EpisodicReflectionOverride$: StaticStructureSchema = [3, n0, _ERO,
 ];
 export var EvaluatorSummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_eA, _eIv, _eNv, _eT, _st, _cA, _uA, _d, _le, _lFM, _kKA],
-  [0, 0, 0, 0, 0, 4, 4, [() => EvaluatorDescription, 0], 0, 2, 0], 7
+  [_eA, _eIv, _eNv, _eT, _st, _cA, _uA, _d, _pro, _le, _lFM, _kKA],
+  [0, 0, 0, 0, 0, 4, 4, [() => EvaluatorDescription, 0], 0, 0, 2, 0], 7
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
@@ -3029,8 +3037,8 @@ export var GetEvaluatorRequest$: StaticStructureSchema = [3, n0, _GER,
 ];
 export var GetEvaluatorResponse$: StaticStructureSchema = [3, n0, _GERe,
   0,
-  [_eA, _eIv, _eNv, _eC, _le, _st, _cA, _uA, _d, _lFM, _kKA],
-  [0, 0, 0, [() => EvaluatorConfig$, 0], 0, 0, 4, 4, [() => EvaluatorDescription, 0], 2, 0], 8
+  [_eA, _eIv, _eNv, _eC, _le, _st, _cA, _uA, _d, _eT, _pro, _lFM, _kKA],
+  [0, 0, 0, [() => EvaluatorConfig$, 0], 0, 0, 4, 4, [() => EvaluatorDescription, 0], 0, 0, 2, 0], 8
 ];
 export var GetGatewayRateLimitRequest$: StaticStructureSchema = [3, n0, _GGRLR,
   0,
@@ -4374,7 +4382,7 @@ export var SamplingConfig$: StaticStructureSchema = [3, n0, _SCa,
 ];
 export var SchemaDefinition$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_t, _pro, _requ, _it, _d],
+  [_t, _prop, _requ, _it, _d],
   [0, () => SchemaProperties, 64 | 0, () => SchemaDefinition$, 0], 1
 ];
 export var Secret$: StaticStructureSchema = [3, n0, _S,
@@ -5606,8 +5614,8 @@ export var DataSourceType$: StaticUnionSchema = [4, n0, _DST,
 ];
 export var EvaluatorConfig$: StaticUnionSchema = [4, n0, _ECv,
   0,
-  [_lAAJ, _cBod],
-  [[() => LlmAsAJudgeEvaluatorConfig$, 0], () => CodeBasedEvaluatorConfig$]
+  [_lAAJ, _cBod, _der],
+  [[() => LlmAsAJudgeEvaluatorConfig$, 0], () => CodeBasedEvaluatorConfig$, () => DerivedEvaluatorConfig$]
 ];
 export var EvaluatorModelConfig$: StaticUnionSchema = [4, n0, _EMC,
   0,
@@ -5701,7 +5709,7 @@ export var HttpTargetConfiguration$: StaticUnionSchema = [4, n0, _HTCt,
 ];
 export var InferenceTargetConfiguration$: StaticUnionSchema = [4, n0, _ITC,
   0,
-  [_conne, _prov],
+  [_conne, _pro],
   [() => InferenceConnectorTargetConfiguration$, () => InferenceProviderTargetConfiguration$]
 ];
 export var InterceptorConfiguration$: StaticUnionSchema = [4, n0, _ICnt,
