@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** AgenticRetrieveStream API now supports Amazon Bedrock AgentCore Memory. Use the new memoryConfiguration parameter to continue a session from short-term memory and retrieve from long-term memory. ([cd02310](https://github.com/aws/aws-sdk-js-v3/commit/cd02310c5f22c50a5cd7841d868b8b5133ded163))
+
+
+
+
+
 # [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
 
 

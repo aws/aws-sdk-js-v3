@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
+
+
+### Features
+
+* **client-connect:** This release adds new APIs to create, describe, update, delete, and list extraction definitions, enabling customers to manage lifecycle of extraction definition resources. Additionally, this release adds new event sources for Rules related to ACW and new action to Extract Information. ([7e3a6ef](https://github.com/aws/aws-sdk-js-v3/commit/7e3a6ef737a6facc14e74b1551b49c98bf0c66eb))
+
+
+
+
+
 # [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

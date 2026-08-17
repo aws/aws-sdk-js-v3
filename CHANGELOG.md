@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** AgenticRetrieveStream API now supports Amazon Bedrock AgentCore Memory. Use the new memoryConfiguration parameter to continue a session from short-term memory and retrieve from long-term memory. ([cd02310](https://github.com/aws/aws-sdk-js-v3/commit/cd02310c5f22c50a5cd7841d868b8b5133ded163))
+* **client-bedrock-agentcore-control:** Adds implementations of third-party evaluators, both managed-as-a-service and as templates within custom evaluators. ([f34b614](https://github.com/aws/aws-sdk-js-v3/commit/f34b614ac620e2eda1acff4413b559fb42d57092))
+* **client-connect:** This release adds new APIs to create, describe, update, delete, and list extraction definitions, enabling customers to manage lifecycle of extraction definition resources. Additionally, this release adds new event sources for Rules related to ACW and new action to Extract Information. ([7e3a6ef](https://github.com/aws/aws-sdk-js-v3/commit/7e3a6ef737a6facc14e74b1551b49c98bf0c66eb))
+* **client-drs:** AWS Elastic Disaster Recovery (AWS DRS) now offers Recovery Plans to recover multi-server applications in the right order in one action. Define the launch sequence once, with ordered steps and wait times, and DRS runs it automatically. Validate with non-disruptive drills and monitor in real time. ([3c0ff26](https://github.com/aws/aws-sdk-js-v3/commit/3c0ff266264be0ee6c2c2d59b00e1400421ba7b2))
+* **client-ecr:** Documentation update for the ECR PutReplicationConfiguration API to increase the replication rule limit from 10 to 25 ([dc40608](https://github.com/aws/aws-sdk-js-v3/commit/dc40608182e0bdaa9f2827432842f204f1ad6350))
+* **client-geo-maps:** Amazon Location Service now supports POI density and category filtering on dynamic maps. The GetStyleDescriptor API adds two optional parameters. PoiDensity (Off to VeryDense) controls POI volume, and PoiCategories filters by up to nine categories. Available on HERE and Grab map styles. ([629fb9e](https://github.com/aws/aws-sdk-js-v3/commit/629fb9e12a97f62946cc9606baf7b88870ab8d17))
+* **client-organizations:** Add new Transfer Responsibility error codes and document related CloudTrail events for accepting and terminating a Transfer Responsibility. ([7ec2697](https://github.com/aws/aws-sdk-js-v3/commit/7ec2697329f0b50cc36577d9a6fc313999dd41c3))
+
+
+
+
+
 # [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
+
+
+### Features
+
+* **client-organizations:** Add new Transfer Responsibility error codes and document related CloudTrail events for accepting and terminating a Transfer Responsibility. ([7ec2697](https://github.com/aws/aws-sdk-js-v3/commit/7ec2697329f0b50cc36577d9a6fc313999dd41c3))
+
+
+
+
+
 # [3.1111.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1110.0...v3.1111.0) (2026-08-14)
 
 **Note:** Version bump only for package @aws-sdk/client-organizations
