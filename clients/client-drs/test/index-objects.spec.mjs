@@ -6,6 +6,10 @@ import {
   AssociateSourceNetworkStackCommand,
   AssociateSourceNetworkStackRequest$,
   AssociateSourceNetworkStackResponse$,
+  CancelRecoveryPlanExecution$,
+  CancelRecoveryPlanExecutionCommand,
+  CancelRecoveryPlanExecutionRequest$,
+  CancelRecoveryPlanExecutionResponse$,
   ConflictException,
   ConflictException$,
   ConversionProperties$,
@@ -18,6 +22,14 @@ import {
   CreateLaunchConfigurationTemplateCommand,
   CreateLaunchConfigurationTemplateRequest$,
   CreateLaunchConfigurationTemplateResponse$,
+  CreateRecoveryPlan$,
+  CreateRecoveryPlanCommand,
+  CreateRecoveryPlanRequest$,
+  CreateRecoveryPlanResponse$,
+  CreateRecoveryPlanStep$,
+  CreateRecoveryPlanStepCommand,
+  CreateRecoveryPlanStepRequest$,
+  CreateRecoveryPlanStepResponse$,
   CreateReplicationConfigurationTemplate$,
   CreateReplicationConfigurationTemplateCommand,
   CreateReplicationConfigurationTemplateRequest$,
@@ -49,6 +61,18 @@ import {
   DeleteRecoveryInstance$,
   DeleteRecoveryInstanceCommand,
   DeleteRecoveryInstanceRequest$,
+  DeleteRecoveryPlan$,
+  DeleteRecoveryPlanCommand,
+  DeleteRecoveryPlanExecution$,
+  DeleteRecoveryPlanExecutionCommand,
+  DeleteRecoveryPlanExecutionRequest$,
+  DeleteRecoveryPlanExecutionResponse$,
+  DeleteRecoveryPlanRequest$,
+  DeleteRecoveryPlanResponse$,
+  DeleteRecoveryPlanStep$,
+  DeleteRecoveryPlanStepCommand,
+  DeleteRecoveryPlanStepRequest$,
+  DeleteRecoveryPlanStepResponse$,
   DeleteReplicationConfigurationTemplate$,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteReplicationConfigurationTemplateRequest$,
@@ -109,7 +133,9 @@ import {
   DrsClient,
   DrsServiceException,
   EC2InstanceState,
+  ErrorDetail$,
   EventResourceData$,
+  ExecutionServerStepConfiguration$,
   ExportSourceNetworkCfnTemplate$,
   ExportSourceNetworkCfnTemplateCommand,
   ExportSourceNetworkCfnTemplateRequest$,
@@ -125,6 +151,22 @@ import {
   GetLaunchConfiguration$,
   GetLaunchConfigurationCommand,
   GetLaunchConfigurationRequest$,
+  GetRecoveryPlan$,
+  GetRecoveryPlanCommand,
+  GetRecoveryPlanExecution$,
+  GetRecoveryPlanExecutionCommand,
+  GetRecoveryPlanExecutionRequest$,
+  GetRecoveryPlanExecutionResponse$,
+  GetRecoveryPlanExecutionStep$,
+  GetRecoveryPlanExecutionStepCommand,
+  GetRecoveryPlanExecutionStepRequest$,
+  GetRecoveryPlanExecutionStepResponse$,
+  GetRecoveryPlanRequest$,
+  GetRecoveryPlanResponse$,
+  GetRecoveryPlanStep$,
+  GetRecoveryPlanStepCommand,
+  GetRecoveryPlanStepRequest$,
+  GetRecoveryPlanStepResponse$,
   GetReplicationConfiguration$,
   GetReplicationConfigurationCommand,
   GetReplicationConfigurationRequest$,
@@ -171,6 +213,23 @@ import {
   ListLaunchActionsCommand,
   ListLaunchActionsRequest$,
   ListLaunchActionsResponse$,
+  ListRecoveryPlanExecutions$,
+  ListRecoveryPlanExecutionsCommand,
+  ListRecoveryPlanExecutionsRequest$,
+  ListRecoveryPlanExecutionsResponse$,
+  ListRecoveryPlanExecutionSteps$,
+  ListRecoveryPlanExecutionStepsCommand,
+  ListRecoveryPlanExecutionStepsFilter$,
+  ListRecoveryPlanExecutionStepsRequest$,
+  ListRecoveryPlanExecutionStepsResponse$,
+  ListRecoveryPlans$,
+  ListRecoveryPlansCommand,
+  ListRecoveryPlansRequest$,
+  ListRecoveryPlansResponse$,
+  ListRecoveryPlanSteps$,
+  ListRecoveryPlanStepsCommand,
+  ListRecoveryPlanStepsRequest$,
+  ListRecoveryPlanStepsResponse$,
   ListStagingAccounts$,
   ListStagingAccountsCommand,
   ListStagingAccountsRequest$,
@@ -192,6 +251,10 @@ import {
   paginateDescribeSourceServers,
   paginateListExtensibleSourceServers,
   paginateListLaunchActions,
+  paginateListRecoveryPlanExecutions,
+  paginateListRecoveryPlanExecutionSteps,
+  paginateListRecoveryPlans,
+  paginateListRecoveryPlanSteps,
   paginateListStagingAccounts,
   ParticipatingResource$,
   ParticipatingResourceID$,
@@ -218,9 +281,30 @@ import {
   RecoveryInstanceProperties$,
   RecoveryLifeCycle$,
   RecoveryMode,
+  RecoveryPlan$,
+  RecoveryPlanExecution$,
+  RecoveryPlanExecutionMode,
+  RecoveryPlanExecutionServer$,
+  RecoveryPlanExecutionSourceServer$,
+  RecoveryPlanExecutionStatus,
+  RecoveryPlanExecutionStep$,
+  RecoveryPlanExecutionStepConfiguration$,
+  RecoveryPlanExecutionStepStatus,
+  RecoveryPlanExecutionStepSummary$,
+  RecoveryPlanExecutionSummary$,
+  RecoveryPlanServer$,
+  RecoveryPlanServerImpactLevel,
+  RecoveryPlanStatus,
+  RecoveryPlanStep$,
+  RecoveryPlanStepConfiguration$,
+  RecoveryPlanSummary$,
   RecoveryResult,
   RecoverySnapshot$,
   RecoverySnapshotsOrder,
+  ReorderRecoveryPlanSteps$,
+  ReorderRecoveryPlanStepsCommand,
+  ReorderRecoveryPlanStepsRequest$,
+  ReorderRecoveryPlanStepsResponse$,
   ReplicationConfiguration$,
   ReplicationConfigurationDataPlaneRouting,
   ReplicationConfigurationDefaultLargeStagingDiskType,
@@ -235,10 +319,15 @@ import {
   RetryDataReplication$,
   RetryDataReplicationCommand,
   RetryDataReplicationRequest$,
+  RetryRecoveryPlanExecutionStep$,
+  RetryRecoveryPlanExecutionStepCommand,
+  RetryRecoveryPlanExecutionStepRequest$,
+  RetryRecoveryPlanExecutionStepResponse$,
   ReverseReplication$,
   ReverseReplicationCommand,
   ReverseReplicationRequest$,
   ReverseReplicationResponse$,
+  ServerStepConfiguration$,
   ServiceQuotaExceededException,
   ServiceQuotaExceededException$,
   SourceCloudProperties$,
@@ -254,6 +343,10 @@ import {
   StartFailbackLaunchResponse$,
   StartRecovery$,
   StartRecoveryCommand,
+  StartRecoveryPlanExecution$,
+  StartRecoveryPlanExecutionCommand,
+  StartRecoveryPlanExecutionRequest$,
+  StartRecoveryPlanExecutionResponse$,
   StartRecoveryRequest$,
   StartRecoveryRequestSourceServer$,
   StartRecoveryResponse$,
@@ -306,6 +399,18 @@ import {
   UpdateLaunchConfigurationTemplateCommand,
   UpdateLaunchConfigurationTemplateRequest$,
   UpdateLaunchConfigurationTemplateResponse$,
+  UpdateRecoveryPlan$,
+  UpdateRecoveryPlanCommand,
+  UpdateRecoveryPlanExecutionStep$,
+  UpdateRecoveryPlanExecutionStepCommand,
+  UpdateRecoveryPlanExecutionStepRequest$,
+  UpdateRecoveryPlanExecutionStepResponse$,
+  UpdateRecoveryPlanRequest$,
+  UpdateRecoveryPlanResponse$,
+  UpdateRecoveryPlanStep$,
+  UpdateRecoveryPlanStepCommand,
+  UpdateRecoveryPlanStepRequest$,
+  UpdateRecoveryPlanStepResponse$,
   UpdateReplicationConfiguration$,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationRequest$,
@@ -317,6 +422,7 @@ import {
   ValidationExceptionField$,
   ValidationExceptionReason,
   VolumeStatus,
+  WaitStepConfiguration$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -325,10 +431,16 @@ assert(typeof Drs === "function");
 // commands
 assert(typeof AssociateSourceNetworkStackCommand === "function");
 assert(typeof AssociateSourceNetworkStack$ === "object");
+assert(typeof CancelRecoveryPlanExecutionCommand === "function");
+assert(typeof CancelRecoveryPlanExecution$ === "object");
 assert(typeof CreateExtendedSourceServerCommand === "function");
 assert(typeof CreateExtendedSourceServer$ === "object");
 assert(typeof CreateLaunchConfigurationTemplateCommand === "function");
 assert(typeof CreateLaunchConfigurationTemplate$ === "object");
+assert(typeof CreateRecoveryPlanCommand === "function");
+assert(typeof CreateRecoveryPlan$ === "object");
+assert(typeof CreateRecoveryPlanStepCommand === "function");
+assert(typeof CreateRecoveryPlanStep$ === "object");
 assert(typeof CreateReplicationConfigurationTemplateCommand === "function");
 assert(typeof CreateReplicationConfigurationTemplate$ === "object");
 assert(typeof CreateSourceNetworkCommand === "function");
@@ -341,6 +453,12 @@ assert(typeof DeleteLaunchConfigurationTemplateCommand === "function");
 assert(typeof DeleteLaunchConfigurationTemplate$ === "object");
 assert(typeof DeleteRecoveryInstanceCommand === "function");
 assert(typeof DeleteRecoveryInstance$ === "object");
+assert(typeof DeleteRecoveryPlanCommand === "function");
+assert(typeof DeleteRecoveryPlan$ === "object");
+assert(typeof DeleteRecoveryPlanExecutionCommand === "function");
+assert(typeof DeleteRecoveryPlanExecution$ === "object");
+assert(typeof DeleteRecoveryPlanStepCommand === "function");
+assert(typeof DeleteRecoveryPlanStep$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateCommand === "function");
 assert(typeof DeleteReplicationConfigurationTemplate$ === "object");
 assert(typeof DeleteSourceNetworkCommand === "function");
@@ -373,6 +491,14 @@ assert(typeof GetFailbackReplicationConfigurationCommand === "function");
 assert(typeof GetFailbackReplicationConfiguration$ === "object");
 assert(typeof GetLaunchConfigurationCommand === "function");
 assert(typeof GetLaunchConfiguration$ === "object");
+assert(typeof GetRecoveryPlanCommand === "function");
+assert(typeof GetRecoveryPlan$ === "object");
+assert(typeof GetRecoveryPlanExecutionCommand === "function");
+assert(typeof GetRecoveryPlanExecution$ === "object");
+assert(typeof GetRecoveryPlanExecutionStepCommand === "function");
+assert(typeof GetRecoveryPlanExecutionStep$ === "object");
+assert(typeof GetRecoveryPlanStepCommand === "function");
+assert(typeof GetRecoveryPlanStep$ === "object");
 assert(typeof GetReplicationConfigurationCommand === "function");
 assert(typeof GetReplicationConfiguration$ === "object");
 assert(typeof InitializeServiceCommand === "function");
@@ -381,20 +507,34 @@ assert(typeof ListExtensibleSourceServersCommand === "function");
 assert(typeof ListExtensibleSourceServers$ === "object");
 assert(typeof ListLaunchActionsCommand === "function");
 assert(typeof ListLaunchActions$ === "object");
+assert(typeof ListRecoveryPlanExecutionsCommand === "function");
+assert(typeof ListRecoveryPlanExecutions$ === "object");
+assert(typeof ListRecoveryPlanExecutionStepsCommand === "function");
+assert(typeof ListRecoveryPlanExecutionSteps$ === "object");
+assert(typeof ListRecoveryPlansCommand === "function");
+assert(typeof ListRecoveryPlans$ === "object");
+assert(typeof ListRecoveryPlanStepsCommand === "function");
+assert(typeof ListRecoveryPlanSteps$ === "object");
 assert(typeof ListStagingAccountsCommand === "function");
 assert(typeof ListStagingAccounts$ === "object");
 assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PutLaunchActionCommand === "function");
 assert(typeof PutLaunchAction$ === "object");
+assert(typeof ReorderRecoveryPlanStepsCommand === "function");
+assert(typeof ReorderRecoveryPlanSteps$ === "object");
 assert(typeof RetryDataReplicationCommand === "function");
 assert(typeof RetryDataReplication$ === "object");
+assert(typeof RetryRecoveryPlanExecutionStepCommand === "function");
+assert(typeof RetryRecoveryPlanExecutionStep$ === "object");
 assert(typeof ReverseReplicationCommand === "function");
 assert(typeof ReverseReplication$ === "object");
 assert(typeof StartFailbackLaunchCommand === "function");
 assert(typeof StartFailbackLaunch$ === "object");
 assert(typeof StartRecoveryCommand === "function");
 assert(typeof StartRecovery$ === "object");
+assert(typeof StartRecoveryPlanExecutionCommand === "function");
+assert(typeof StartRecoveryPlanExecution$ === "object");
 assert(typeof StartReplicationCommand === "function");
 assert(typeof StartReplication$ === "object");
 assert(typeof StartSourceNetworkRecoveryCommand === "function");
@@ -419,6 +559,12 @@ assert(typeof UpdateLaunchConfigurationCommand === "function");
 assert(typeof UpdateLaunchConfiguration$ === "object");
 assert(typeof UpdateLaunchConfigurationTemplateCommand === "function");
 assert(typeof UpdateLaunchConfigurationTemplate$ === "object");
+assert(typeof UpdateRecoveryPlanCommand === "function");
+assert(typeof UpdateRecoveryPlan$ === "object");
+assert(typeof UpdateRecoveryPlanExecutionStepCommand === "function");
+assert(typeof UpdateRecoveryPlanExecutionStep$ === "object");
+assert(typeof UpdateRecoveryPlanStepCommand === "function");
+assert(typeof UpdateRecoveryPlanStep$ === "object");
 assert(typeof UpdateReplicationConfigurationCommand === "function");
 assert(typeof UpdateReplicationConfiguration$ === "object");
 assert(typeof UpdateReplicationConfigurationTemplateCommand === "function");
@@ -427,12 +573,18 @@ assert(typeof UpdateReplicationConfigurationTemplate$ === "object");
 assert(typeof Account$ === "object");
 assert(typeof AssociateSourceNetworkStackRequest$ === "object");
 assert(typeof AssociateSourceNetworkStackResponse$ === "object");
+assert(typeof CancelRecoveryPlanExecutionRequest$ === "object");
+assert(typeof CancelRecoveryPlanExecutionResponse$ === "object");
 assert(typeof ConversionProperties$ === "object");
 assert(typeof CPU$ === "object");
 assert(typeof CreateExtendedSourceServerRequest$ === "object");
 assert(typeof CreateExtendedSourceServerResponse$ === "object");
 assert(typeof CreateLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof CreateLaunchConfigurationTemplateResponse$ === "object");
+assert(typeof CreateRecoveryPlanRequest$ === "object");
+assert(typeof CreateRecoveryPlanResponse$ === "object");
+assert(typeof CreateRecoveryPlanStepRequest$ === "object");
+assert(typeof CreateRecoveryPlanStepResponse$ === "object");
 assert(typeof CreateReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof CreateSourceNetworkRequest$ === "object");
 assert(typeof CreateSourceNetworkResponse$ === "object");
@@ -448,6 +600,12 @@ assert(typeof DeleteLaunchActionResponse$ === "object");
 assert(typeof DeleteLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof DeleteLaunchConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteRecoveryInstanceRequest$ === "object");
+assert(typeof DeleteRecoveryPlanExecutionRequest$ === "object");
+assert(typeof DeleteRecoveryPlanExecutionResponse$ === "object");
+assert(typeof DeleteRecoveryPlanRequest$ === "object");
+assert(typeof DeleteRecoveryPlanResponse$ === "object");
+assert(typeof DeleteRecoveryPlanStepRequest$ === "object");
+assert(typeof DeleteRecoveryPlanStepResponse$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof DeleteReplicationConfigurationTemplateResponse$ === "object");
 assert(typeof DeleteSourceNetworkRequest$ === "object");
@@ -478,12 +636,22 @@ assert(typeof DescribeSourceServersResponse$ === "object");
 assert(typeof DisconnectRecoveryInstanceRequest$ === "object");
 assert(typeof DisconnectSourceServerRequest$ === "object");
 assert(typeof Disk$ === "object");
+assert(typeof ErrorDetail$ === "object");
 assert(typeof EventResourceData$ === "object");
+assert(typeof ExecutionServerStepConfiguration$ === "object");
 assert(typeof ExportSourceNetworkCfnTemplateRequest$ === "object");
 assert(typeof ExportSourceNetworkCfnTemplateResponse$ === "object");
 assert(typeof GetFailbackReplicationConfigurationRequest$ === "object");
 assert(typeof GetFailbackReplicationConfigurationResponse$ === "object");
 assert(typeof GetLaunchConfigurationRequest$ === "object");
+assert(typeof GetRecoveryPlanExecutionRequest$ === "object");
+assert(typeof GetRecoveryPlanExecutionResponse$ === "object");
+assert(typeof GetRecoveryPlanExecutionStepRequest$ === "object");
+assert(typeof GetRecoveryPlanExecutionStepResponse$ === "object");
+assert(typeof GetRecoveryPlanRequest$ === "object");
+assert(typeof GetRecoveryPlanResponse$ === "object");
+assert(typeof GetRecoveryPlanStepRequest$ === "object");
+assert(typeof GetRecoveryPlanStepResponse$ === "object");
 assert(typeof GetReplicationConfigurationRequest$ === "object");
 assert(typeof IdentificationHints$ === "object");
 assert(typeof InitializeServiceRequest$ === "object");
@@ -507,6 +675,15 @@ assert(typeof ListExtensibleSourceServersRequest$ === "object");
 assert(typeof ListExtensibleSourceServersResponse$ === "object");
 assert(typeof ListLaunchActionsRequest$ === "object");
 assert(typeof ListLaunchActionsResponse$ === "object");
+assert(typeof ListRecoveryPlanExecutionsRequest$ === "object");
+assert(typeof ListRecoveryPlanExecutionsResponse$ === "object");
+assert(typeof ListRecoveryPlanExecutionStepsFilter$ === "object");
+assert(typeof ListRecoveryPlanExecutionStepsRequest$ === "object");
+assert(typeof ListRecoveryPlanExecutionStepsResponse$ === "object");
+assert(typeof ListRecoveryPlansRequest$ === "object");
+assert(typeof ListRecoveryPlansResponse$ === "object");
+assert(typeof ListRecoveryPlanStepsRequest$ === "object");
+assert(typeof ListRecoveryPlanStepsResponse$ === "object");
 assert(typeof ListStagingAccountsRequest$ === "object");
 assert(typeof ListStagingAccountsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
@@ -530,13 +707,30 @@ assert(typeof RecoveryInstanceDisk$ === "object");
 assert(typeof RecoveryInstanceFailback$ === "object");
 assert(typeof RecoveryInstanceProperties$ === "object");
 assert(typeof RecoveryLifeCycle$ === "object");
+assert(typeof RecoveryPlan$ === "object");
+assert(typeof RecoveryPlanExecution$ === "object");
+assert(typeof RecoveryPlanExecutionServer$ === "object");
+assert(typeof RecoveryPlanExecutionSourceServer$ === "object");
+assert(typeof RecoveryPlanExecutionStep$ === "object");
+assert(typeof RecoveryPlanExecutionStepConfiguration$ === "object");
+assert(typeof RecoveryPlanExecutionStepSummary$ === "object");
+assert(typeof RecoveryPlanExecutionSummary$ === "object");
+assert(typeof RecoveryPlanServer$ === "object");
+assert(typeof RecoveryPlanStep$ === "object");
+assert(typeof RecoveryPlanStepConfiguration$ === "object");
+assert(typeof RecoveryPlanSummary$ === "object");
 assert(typeof RecoverySnapshot$ === "object");
+assert(typeof ReorderRecoveryPlanStepsRequest$ === "object");
+assert(typeof ReorderRecoveryPlanStepsResponse$ === "object");
 assert(typeof ReplicationConfiguration$ === "object");
 assert(typeof ReplicationConfigurationReplicatedDisk$ === "object");
 assert(typeof ReplicationConfigurationTemplate$ === "object");
 assert(typeof RetryDataReplicationRequest$ === "object");
+assert(typeof RetryRecoveryPlanExecutionStepRequest$ === "object");
+assert(typeof RetryRecoveryPlanExecutionStepResponse$ === "object");
 assert(typeof ReverseReplicationRequest$ === "object");
 assert(typeof ReverseReplicationResponse$ === "object");
+assert(typeof ServerStepConfiguration$ === "object");
 assert(typeof SourceCloudProperties$ === "object");
 assert(typeof SourceNetwork$ === "object");
 assert(typeof SourceNetworkData$ === "object");
@@ -546,6 +740,8 @@ assert(typeof StagingArea$ === "object");
 assert(typeof StagingSourceServer$ === "object");
 assert(typeof StartFailbackLaunchRequest$ === "object");
 assert(typeof StartFailbackLaunchResponse$ === "object");
+assert(typeof StartRecoveryPlanExecutionRequest$ === "object");
+assert(typeof StartRecoveryPlanExecutionResponse$ === "object");
 assert(typeof StartRecoveryRequest$ === "object");
 assert(typeof StartRecoveryRequestSourceServer$ === "object");
 assert(typeof StartRecoveryResponse$ === "object");
@@ -569,9 +765,16 @@ assert(typeof UpdateFailbackReplicationConfigurationRequest$ === "object");
 assert(typeof UpdateLaunchConfigurationRequest$ === "object");
 assert(typeof UpdateLaunchConfigurationTemplateRequest$ === "object");
 assert(typeof UpdateLaunchConfigurationTemplateResponse$ === "object");
+assert(typeof UpdateRecoveryPlanExecutionStepRequest$ === "object");
+assert(typeof UpdateRecoveryPlanExecutionStepResponse$ === "object");
+assert(typeof UpdateRecoveryPlanRequest$ === "object");
+assert(typeof UpdateRecoveryPlanResponse$ === "object");
+assert(typeof UpdateRecoveryPlanStepRequest$ === "object");
+assert(typeof UpdateRecoveryPlanStepResponse$ === "object");
 assert(typeof UpdateReplicationConfigurationRequest$ === "object");
 assert(typeof UpdateReplicationConfigurationTemplateRequest$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
+assert(typeof WaitStepConfiguration$ === "object");
 // enums
 assert(typeof DataReplicationErrorString === "object");
 assert(typeof DataReplicationInitiationStepName === "object");
@@ -602,6 +805,11 @@ assert(typeof RecoveryInstanceDataReplicationInitiationStepName === "object");
 assert(typeof RecoveryInstanceDataReplicationInitiationStepStatus === "object");
 assert(typeof RecoveryInstanceDataReplicationState === "object");
 assert(typeof RecoveryMode === "object");
+assert(typeof RecoveryPlanExecutionMode === "object");
+assert(typeof RecoveryPlanExecutionStatus === "object");
+assert(typeof RecoveryPlanExecutionStepStatus === "object");
+assert(typeof RecoveryPlanServerImpactLevel === "object");
+assert(typeof RecoveryPlanStatus === "object");
 assert(typeof RecoveryResult === "object");
 assert(typeof RecoverySnapshotsOrder === "object");
 assert(typeof ReplicationConfigurationDataPlaneRouting === "object");
@@ -642,5 +850,9 @@ assert(typeof paginateDescribeSourceNetworks === "function");
 assert(typeof paginateDescribeSourceServers === "function");
 assert(typeof paginateListExtensibleSourceServers === "function");
 assert(typeof paginateListLaunchActions === "function");
+assert(typeof paginateListRecoveryPlanExecutionSteps === "function");
+assert(typeof paginateListRecoveryPlanExecutions === "function");
+assert(typeof paginateListRecoveryPlanSteps === "function");
+assert(typeof paginateListRecoveryPlans === "function");
 assert(typeof paginateListStagingAccounts === "function");
 console.log(`Drs index test passed.`);

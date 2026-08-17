@@ -29,6 +29,11 @@ import type {
   RecoveryInstanceDataReplicationInitiationStepStatus,
   RecoveryInstanceDataReplicationState,
   RecoveryMode,
+  RecoveryPlanExecutionMode,
+  RecoveryPlanExecutionStatus,
+  RecoveryPlanExecutionStepStatus,
+  RecoveryPlanServerImpactLevel,
+  RecoveryPlanStatus,
   RecoveryResult,
   RecoverySnapshotsOrder,
   ReplicationConfigurationDataPlaneRouting,
@@ -388,6 +393,100 @@ export interface ValidationExceptionField {
    * @public
    */
   message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelRecoveryPlanExecutionRequest {
+  /**
+   * <p>The ARN of the Recovery Plan execution to cancel.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+}
+
+/**
+ * <p>Error details for a failed operation.</p>
+ * @public
+ */
+export interface ErrorDetail {
+  /**
+   * <p>The error message.</p>
+   * @public
+   */
+  message: string | undefined;
+
+  /**
+   * <p>The error code.</p>
+   * @public
+   */
+  code: string | undefined;
+}
+
+/**
+ * <p>A Recovery Plan execution.</p>
+ * @public
+ */
+export interface RecoveryPlanExecution {
+  /**
+   * <p>The ARN of the Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the Recovery Plan being executed.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * <p>The execution mode.</p>
+   * @public
+   */
+  mode: RecoveryPlanExecutionMode | undefined;
+
+  /**
+   * <p>The execution status.</p>
+   * @public
+   */
+  status: RecoveryPlanExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the execution started.</p>
+   * @public
+   */
+  startedAt: string | undefined;
+
+  /**
+   * <p>The timestamp when the execution completed.</p>
+   * @public
+   */
+  completedAt?: string | undefined;
+
+  /**
+   * <p>Error details if the execution failed.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+
+  /**
+   * <p>The tags associated with the Recovery Plan execution.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CancelRecoveryPlanExecutionResponse {
+  /**
+   * <p>The cancelled Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecution: RecoveryPlanExecution | undefined;
 }
 
 /**
@@ -1190,6 +1289,280 @@ export interface CreateLaunchConfigurationTemplateResponse {
 }
 
 /**
+ * @public
+ */
+export interface CreateRecoveryPlanRequest {
+  /**
+   * The name of a Recovery Plan.
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * The description of a Recovery Plan.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>A unique string provided to ensure request idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>The tags to apply to the Recovery Plan.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * A Recovery Plan resource.
+ * @public
+ */
+export interface RecoveryPlan {
+  /**
+   * <p>The ARN of the Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan.
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * The description of a Recovery Plan.
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The status of the Recovery Plan.</p>
+   * @public
+   */
+  status: RecoveryPlanStatus | undefined;
+
+  /**
+   * <p>The timestamp when the Recovery Plan was created.</p>
+   * @public
+   */
+  createdAt: string | undefined;
+
+  /**
+   * <p>The timestamp when the Recovery Plan was last updated.</p>
+   * @public
+   */
+  updatedAt: string | undefined;
+
+  /**
+   * <p>The tags associated with the Recovery Plan.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRecoveryPlanResponse {
+  /**
+   * A Recovery Plan resource.
+   * @public
+   */
+  recoveryPlan: RecoveryPlan | undefined;
+}
+
+/**
+ * A server associated with a Recovery Plan Step.
+ * @public
+ */
+export interface RecoveryPlanServer {
+  /**
+   * <p>The ARN of the source server.</p>
+   * @public
+   */
+  serverArn: string | undefined;
+
+  /**
+   * Defaults to CRITICAL if not specified.
+   * @public
+   */
+  impactLevel?: RecoveryPlanServerImpactLevel | undefined;
+}
+
+/**
+ * <p>Configuration for a <code>SERVER</code> type step.</p>
+ * @public
+ */
+export interface ServerStepConfiguration {
+  /**
+   * <p>The list of servers to recover in this step.</p>
+   * @public
+   */
+  servers: RecoveryPlanServer[] | undefined;
+}
+
+/**
+ * <p>Configuration for a <code>WAIT</code> type step.</p>
+ * @public
+ */
+export interface WaitStepConfiguration {
+  /**
+   * The wait duration in minutes for a Wait type step.
+   * @public
+   */
+  waitDurationMinutes: number | undefined;
+}
+
+/**
+ * Type-specific configuration for a recovery plan step.
+ * Exactly one member must be set.
+ * @public
+ */
+export type RecoveryPlanStepConfiguration =
+  | RecoveryPlanStepConfiguration.ServerStepConfigurationMember
+  | RecoveryPlanStepConfiguration.WaitStepConfigurationMember
+  | RecoveryPlanStepConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecoveryPlanStepConfiguration {
+  /**
+   * Configuration for a SERVER type step.
+   * @public
+   */
+  export interface ServerStepConfigurationMember {
+    serverStepConfiguration: ServerStepConfiguration;
+    waitStepConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Configuration for a WAIT type step.
+   * @public
+   */
+  export interface WaitStepConfigurationMember {
+    serverStepConfiguration?: never;
+    waitStepConfiguration: WaitStepConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    serverStepConfiguration?: never;
+    waitStepConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    serverStepConfiguration: (value: ServerStepConfiguration) => T;
+    waitStepConfiguration: (value: WaitStepConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CreateRecoveryPlanStepRequest {
+  /**
+   * <p>The ARN of the Recovery Plan to add the step to.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan Step.
+   * @public
+   */
+  stepName: string | undefined;
+
+  /**
+   * The order of a step within a Recovery Plan (1-based).
+   * @public
+   */
+  stepOrder?: number | undefined;
+
+  /**
+   * Type-specific configuration for a recovery plan step.
+   * Exactly one member must be set.
+   * @public
+   */
+  configuration: RecoveryPlanStepConfiguration | undefined;
+
+  /**
+   * <p>A unique string provided to ensure request idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * A Recovery Plan Step resource.
+ * @public
+ */
+export interface RecoveryPlanStep {
+  /**
+   * <p>The ARN of the Recovery Plan step.</p>
+   * @public
+   */
+  recoveryPlanStepArn: string | undefined;
+
+  /**
+   * The order of a step within a Recovery Plan (1-based).
+   * @public
+   */
+  stepOrder: number | undefined;
+
+  /**
+   * The name of a Recovery Plan Step.
+   * @public
+   */
+  stepName: string | undefined;
+
+  /**
+   * Type-specific configuration for a recovery plan step.
+   * Exactly one member must be set.
+   * @public
+   */
+  configuration: RecoveryPlanStepConfiguration | undefined;
+
+  /**
+   * <p>The timestamp when the step was created.</p>
+   * @public
+   */
+  createdAt: string | undefined;
+
+  /**
+   * <p>The timestamp when the step was last updated.</p>
+   * @public
+   */
+  updatedAt: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateRecoveryPlanStepResponse {
+  /**
+   * A Recovery Plan Step resource.
+   * @public
+   */
+  recoveryPlanStep: RecoveryPlanStep | undefined;
+}
+
+/**
  * <p>A rule in the Point in Time (PIT) policy representing when to take snapshots and how long to retain them for.</p>
  * @public
  */
@@ -1542,6 +1915,72 @@ export interface DeleteRecoveryInstanceRequest {
    * @public
    */
   recoveryInstanceID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanRequest {
+  /**
+   * <p>The ARN of the Recovery Plan to delete.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanResponse {
+  /**
+   * <p>The ARN of the deleted Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanExecutionRequest {
+  /**
+   * <p>The ARN of the Recovery Plan execution to delete.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanExecutionResponse {
+  /**
+   * <p>The ARN of the deleted Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanStepRequest {
+  /**
+   * <p>The ARN of the Recovery Plan step to delete.</p>
+   * @public
+   */
+  recoveryPlanStepArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteRecoveryPlanStepResponse {
+  /**
+   * <p>The ARN of the deleted Recovery Plan step.</p>
+   * @public
+   */
+  recoveryPlanStepArn: string | undefined;
 }
 
 /**
@@ -2720,6 +3159,245 @@ export interface DisconnectSourceServerRequest {
 /**
  * @public
  */
+export interface GetRecoveryPlanRequest {
+  /**
+   * <p>The ARN of the Recovery Plan to retrieve.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanResponse {
+  /**
+   * A Recovery Plan resource.
+   * @public
+   */
+  recoveryPlan: RecoveryPlan | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanExecutionRequest {
+  /**
+   * <p>The ARN of the Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanExecutionResponse {
+  /**
+   * <p>The Recovery Plan execution details.</p>
+   * @public
+   */
+  recoveryPlanExecution: RecoveryPlanExecution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanExecutionStepRequest {
+  /**
+   * <p>The ARN of the execution step.</p>
+   * @public
+   */
+  recoveryPlanExecutionStepArn: string | undefined;
+}
+
+/**
+ * A server within a recovery plan execution step, enriched with execution state.
+ * @public
+ */
+export interface RecoveryPlanExecutionServer {
+  /**
+   * <p>The ARN of the source server.</p>
+   * @public
+   */
+  serverArn: string | undefined;
+
+  /**
+   * Defaults to CRITICAL if not specified.
+   * @public
+   */
+  impactLevel?: RecoveryPlanServerImpactLevel | undefined;
+
+  /**
+   * The DRS recovery job ID. Populated when recovery is initiated for this server.
+   * @public
+   */
+  jobID?: string | undefined;
+}
+
+/**
+ * <p>Configuration for a <code>SERVER</code> type execution step.</p>
+ * @public
+ */
+export interface ExecutionServerStepConfiguration {
+  /**
+   * <p>The list of servers in this execution step.</p>
+   * @public
+   */
+  servers: RecoveryPlanExecutionServer[] | undefined;
+}
+
+/**
+ * Type-specific configuration for an execution step response.
+ * Mirrors RecoveryPlanStepConfiguration but uses execution-enriched server shapes.
+ * @public
+ */
+export type RecoveryPlanExecutionStepConfiguration =
+  | RecoveryPlanExecutionStepConfiguration.ExecutionServerStepConfigurationMember
+  | RecoveryPlanExecutionStepConfiguration.WaitStepConfigurationMember
+  | RecoveryPlanExecutionStepConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RecoveryPlanExecutionStepConfiguration {
+  /**
+   * Configuration for a SERVER type step (with execution state like jobID).
+   * @public
+   */
+  export interface ExecutionServerStepConfigurationMember {
+    executionServerStepConfiguration: ExecutionServerStepConfiguration;
+    waitStepConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * Configuration for a WAIT type step.
+   * @public
+   */
+  export interface WaitStepConfigurationMember {
+    executionServerStepConfiguration?: never;
+    waitStepConfiguration: WaitStepConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    executionServerStepConfiguration?: never;
+    waitStepConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    executionServerStepConfiguration: (value: ExecutionServerStepConfiguration) => T;
+    waitStepConfiguration: (value: WaitStepConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * A Recovery Plan Execution Step resource.
+ * @public
+ */
+export interface RecoveryPlanExecutionStep {
+  /**
+   * <p>The ARN of the execution step.</p>
+   * @public
+   */
+  recoveryPlanExecutionStepArn: string | undefined;
+
+  /**
+   * The order of a step within a Recovery Plan (1-based).
+   * @public
+   */
+  stepIndex: number | undefined;
+
+  /**
+   * <p>The status of the execution step.</p>
+   * @public
+   */
+  status: RecoveryPlanExecutionStepStatus | undefined;
+
+  /**
+   * The name of a Recovery Plan Step.
+   * @public
+   */
+  stepName: string | undefined;
+
+  /**
+   * Type-specific configuration for an execution step response.
+   * Mirrors RecoveryPlanStepConfiguration but uses execution-enriched server shapes.
+   * @public
+   */
+  configuration: RecoveryPlanExecutionStepConfiguration | undefined;
+
+  /**
+   * <p>Error details if the step failed.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+
+  /**
+   * <p>The number of times this step has been attempted.</p>
+   * @public
+   */
+  attempt: number | undefined;
+
+  /**
+   * <p>The timestamp when the execution step was created.</p>
+   * @public
+   */
+  createdAt: string | undefined;
+
+  /**
+   * <p>The timestamp when the execution step was last updated.</p>
+   * @public
+   */
+  updatedAt: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanExecutionStepResponse {
+  /**
+   * A Recovery Plan Execution Step resource.
+   * @public
+   */
+  recoveryPlanExecutionStep: RecoveryPlanExecutionStep | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanStepRequest {
+  /**
+   * <p>The ARN of the Recovery Plan step to retrieve.</p>
+   * @public
+   */
+  recoveryPlanStepArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetRecoveryPlanStepResponse {
+  /**
+   * A Recovery Plan Step resource.
+   * @public
+   */
+  recoveryPlanStep: RecoveryPlanStep | undefined;
+}
+
+/**
+ * @public
+ */
 export interface InitializeServiceRequest {}
 
 /**
@@ -2920,6 +3598,305 @@ export interface ListLaunchActionsResponse {
 
   /**
    * <p>Next token returned when listing resource launch actions.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanExecutionsRequest {
+  /**
+   * <p>Filter executions by Recovery Plan ARN.</p>
+   * @public
+   */
+  recoveryPlanArn?: string | undefined;
+
+  /**
+   * <p>Filter executions by status.</p>
+   * @public
+   */
+  status?: RecoveryPlanExecutionStatus | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a Recovery Plan execution.</p>
+ * @public
+ */
+export interface RecoveryPlanExecutionSummary {
+  /**
+   * <p>The ARN of the Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+
+  /**
+   * <p>The ARN of the Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * <p>The execution mode.</p>
+   * @public
+   */
+  mode: RecoveryPlanExecutionMode | undefined;
+
+  /**
+   * <p>The execution status.</p>
+   * @public
+   */
+  status: RecoveryPlanExecutionStatus | undefined;
+
+  /**
+   * <p>The timestamp when the execution started.</p>
+   * @public
+   */
+  startedAt: string | undefined;
+
+  /**
+   * <p>Error details if the execution failed.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanExecutionsResponse {
+  /**
+   * <p>The list of Recovery Plan executions.</p>
+   * @public
+   */
+  recoveryPlanExecutions: RecoveryPlanExecutionSummary[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Filters for listing Recovery Plan execution steps.</p>
+ * @public
+ */
+export interface ListRecoveryPlanExecutionStepsFilter {
+  /**
+   * <p>Filter by execution step status.</p>
+   * @public
+   */
+  status?: RecoveryPlanExecutionStepStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanExecutionStepsRequest {
+  /**
+   * <p>The ARN of the Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecutionArn: string | undefined;
+
+  /**
+   * <p>Filters for listing execution steps.</p>
+   * @public
+   */
+  filter?: ListRecoveryPlanExecutionStepsFilter | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a Recovery Plan execution step.</p>
+ * @public
+ */
+export interface RecoveryPlanExecutionStepSummary {
+  /**
+   * <p>The ARN of the execution step.</p>
+   * @public
+   */
+  recoveryPlanExecutionStepArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan Step.
+   * @public
+   */
+  stepName: string | undefined;
+
+  /**
+   * The order of a step within a Recovery Plan (1-based).
+   * @public
+   */
+  stepIndex: number | undefined;
+
+  /**
+   * <p>The status of the execution step.</p>
+   * @public
+   */
+  status: RecoveryPlanExecutionStepStatus | undefined;
+
+  /**
+   * Type-specific configuration for an execution step response.
+   * Mirrors RecoveryPlanStepConfiguration but uses execution-enriched server shapes.
+   * @public
+   */
+  configuration: RecoveryPlanExecutionStepConfiguration | undefined;
+
+  /**
+   * <p>Error details if the step failed.</p>
+   * @public
+   */
+  errorDetail?: ErrorDetail | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanExecutionStepsResponse {
+  /**
+   * <p>The list of execution steps.</p>
+   * @public
+   */
+  recoveryPlanExecutionSteps: RecoveryPlanExecutionStepSummary[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlansRequest {
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a Recovery Plan.</p>
+ * @public
+ */
+export interface RecoveryPlanSummary {
+  /**
+   * <p>The ARN of the Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan.
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The status of the Recovery Plan.</p>
+   * @public
+   */
+  status: RecoveryPlanStatus | undefined;
+
+  /**
+   * <p>The timestamp when the Recovery Plan was created.</p>
+   * @public
+   */
+  createdAt: string | undefined;
+
+  /**
+   * <p>The timestamp when the Recovery Plan was last updated.</p>
+   * @public
+   */
+  updatedAt: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlansResponse {
+  /**
+   * <p>The list of Recovery Plans.</p>
+   * @public
+   */
+  recoveryPlans: RecoveryPlanSummary[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanStepsRequest {
+  /**
+   * <p>The ARN of the Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * <p>Maximum number of results to return.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRecoveryPlanStepsResponse {
+  /**
+   * <p>The list of Recovery Plan steps.</p>
+   * @public
+   */
+  recoveryPlanSteps: RecoveryPlanStep[] | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
    * @public
    */
   nextToken?: string | undefined;
@@ -3294,6 +4271,98 @@ export interface UpdateFailbackReplicationConfigurationRequest {
 }
 
 /**
+ * <p>A source server with a specific recovery snapshot for plan execution.</p>
+ * @public
+ */
+export interface RecoveryPlanExecutionSourceServer {
+  /**
+   * <p>The ID of the source server.</p>
+   * @public
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>The ID of the recovery snapshot to use.</p>
+   * @public
+   */
+  recoverySnapshotID: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecoveryPlanExecutionRequest {
+  /**
+   * <p>The ARN of the Recovery Plan to execute.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * <p>The execution mode (<code>DRILL</code> or <code>RECOVERY</code>).</p>
+   * @public
+   */
+  mode: RecoveryPlanExecutionMode | undefined;
+
+  /**
+   * <p>A unique string provided to ensure request idempotency.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+
+  /**
+   * <p>Optional list of source servers with specific recovery snapshots. If not provided, the latest snapshot is used for each server.</p>
+   * @public
+   */
+  sourceServers?: RecoveryPlanExecutionSourceServer[] | undefined;
+
+  /**
+   * <p>The tags to apply to the Recovery Plan execution.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartRecoveryPlanExecutionResponse {
+  /**
+   * <p>The started Recovery Plan execution.</p>
+   * @public
+   */
+  recoveryPlanExecution: RecoveryPlanExecution | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReorderRecoveryPlanStepsRequest {
+  /**
+   * <p>The ARN of the Recovery Plan.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * <p>Ordered list of all step ARNs representing the desired sequence.</p>
+   * @public
+   */
+  orderedStepArns: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReorderRecoveryPlanStepsResponse {
+  /**
+   * <p>The steps with updated order.</p>
+   * @public
+   */
+  recoveryPlanSteps: RecoveryPlanStep[] | undefined;
+}
+
+/**
  * @public
  */
 export interface UpdateReplicationConfigurationTemplateRequest {
@@ -3398,6 +4467,28 @@ export interface UpdateReplicationConfigurationTemplateRequest {
    * @public
    */
   internetProtocol?: InternetProtocol | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryRecoveryPlanExecutionStepRequest {
+  /**
+   * <p>The ARN of the execution step to retry.</p>
+   * @public
+   */
+  recoveryPlanExecutionStepArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RetryRecoveryPlanExecutionStepResponse {
+  /**
+   * A Recovery Plan Execution Step resource.
+   * @public
+   */
+  recoveryPlanExecutionStep: RecoveryPlanExecutionStep | undefined;
 }
 
 /**
@@ -4096,4 +5187,113 @@ export interface UntagResourceRequest {
    * @public
    */
   tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanRequest {
+  /**
+   * <p>The ARN of the Recovery Plan to update.</p>
+   * @public
+   */
+  recoveryPlanArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan.
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * The description of a Recovery Plan.
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanResponse {
+  /**
+   * A Recovery Plan resource.
+   * @public
+   */
+  recoveryPlan: RecoveryPlan | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanExecutionStepRequest {
+  /**
+   * <p>The ARN of the execution step to update.</p>
+   * @public
+   */
+  recoveryPlanExecutionStepArn: string | undefined;
+
+  /**
+   * Only SKIPPED is accepted. Step must be in NOT_STARTED or FAILED status.
+   * @public
+   */
+  status?: RecoveryPlanExecutionStepStatus | undefined;
+
+  /**
+   * Full replacement of the server list. Only allowed when the step is in NOT_STARTED status (Server type steps only).
+   * @public
+   */
+  servers?: RecoveryPlanServer[] | undefined;
+
+  /**
+   * Updated wait duration. Only allowed when the step is in NOT_STARTED status (Wait type steps only).
+   * @public
+   */
+  waitDurationMinutes?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanExecutionStepResponse {
+  /**
+   * A Recovery Plan Execution Step resource.
+   * @public
+   */
+  recoveryPlanExecutionStep: RecoveryPlanExecutionStep | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanStepRequest {
+  /**
+   * <p>The ARN of the Recovery Plan step to update.</p>
+   * @public
+   */
+  recoveryPlanStepArn: string | undefined;
+
+  /**
+   * The name of a Recovery Plan Step.
+   * @public
+   */
+  stepName?: string | undefined;
+
+  /**
+   * Type-specific configuration for a recovery plan step.
+   * Exactly one member must be set.
+   * @public
+   */
+  configuration?: RecoveryPlanStepConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateRecoveryPlanStepResponse {
+  /**
+   * A Recovery Plan Step resource.
+   * @public
+   */
+  recoveryPlanStep: RecoveryPlanStep | undefined;
 }

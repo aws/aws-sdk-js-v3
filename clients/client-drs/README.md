@@ -22,16 +22,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `DrsClient` and
-the commands you need, for example `ListLaunchActionsCommand`:
+the commands you need, for example `ListRecoveryPlansCommand`:
 
 ```js
 // ES5 example
-const { DrsClient, ListLaunchActionsCommand } = require("@aws-sdk/client-drs");
+const { DrsClient, ListRecoveryPlansCommand } = require("@aws-sdk/client-drs");
 ```
 
 ```ts
 // ES6+ example
-import { DrsClient, ListLaunchActionsCommand } from "@aws-sdk/client-drs";
+import { DrsClient, ListRecoveryPlansCommand } from "@aws-sdk/client-drs";
 ```
 
 ### Usage
@@ -48,7 +48,7 @@ To send a request:
 const client = new DrsClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListLaunchActionsCommand(params);
+const command = new ListRecoveryPlansCommand(params);
 ```
 
 #### Async/await
@@ -104,7 +104,7 @@ const client = new Drs({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listLaunchActions(params);
+  const data = await client.listRecoveryPlans(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -112,7 +112,7 @@ try {
 
 // Promises.
 client
-  .listLaunchActions(params)
+  .listRecoveryPlans(params)
   .then((data) => {
     // process data.
   })
@@ -121,7 +121,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listLaunchActions(params, (err, data) => {
+client.listRecoveryPlans(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -188,6 +188,13 @@ AssociateSourceNetworkStack
 </details>
 <details>
 <summary>
+CancelRecoveryPlanExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/CancelRecoveryPlanExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CancelRecoveryPlanExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CancelRecoveryPlanExecutionCommandOutput/)
+</details>
+<details>
+<summary>
 CreateExtendedSourceServer
 </summary>
 
@@ -199,6 +206,20 @@ CreateLaunchConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/CreateLaunchConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateLaunchConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateLaunchConfigurationTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+CreateRecoveryPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/CreateRecoveryPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateRecoveryPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateRecoveryPlanCommandOutput/)
+</details>
+<details>
+<summary>
+CreateRecoveryPlanStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/CreateRecoveryPlanStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateRecoveryPlanStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/CreateRecoveryPlanStepCommandOutput/)
 </details>
 <details>
 <summary>
@@ -241,6 +262,27 @@ DeleteRecoveryInstance
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/DeleteRecoveryInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryInstanceCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRecoveryPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/DeleteRecoveryPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRecoveryPlanExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/DeleteRecoveryPlanExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanExecutionCommandOutput/)
+</details>
+<details>
+<summary>
+DeleteRecoveryPlanStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/DeleteRecoveryPlanStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/DeleteRecoveryPlanStepCommandOutput/)
 </details>
 <details>
 <summary>
@@ -356,6 +398,34 @@ GetLaunchConfiguration
 </details>
 <details>
 <summary>
+GetRecoveryPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/GetRecoveryPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanCommandOutput/)
+</details>
+<details>
+<summary>
+GetRecoveryPlanExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/GetRecoveryPlanExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanExecutionCommandOutput/)
+</details>
+<details>
+<summary>
+GetRecoveryPlanExecutionStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/GetRecoveryPlanExecutionStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanExecutionStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanExecutionStepCommandOutput/)
+</details>
+<details>
+<summary>
+GetRecoveryPlanStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/GetRecoveryPlanStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/GetRecoveryPlanStepCommandOutput/)
+</details>
+<details>
+<summary>
 GetReplicationConfiguration
 </summary>
 
@@ -384,6 +454,34 @@ ListLaunchActions
 </details>
 <details>
 <summary>
+ListRecoveryPlanExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/ListRecoveryPlanExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanExecutionsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRecoveryPlanExecutionSteps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/ListRecoveryPlanExecutionStepsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanExecutionStepsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanExecutionStepsCommandOutput/)
+</details>
+<details>
+<summary>
+ListRecoveryPlans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/ListRecoveryPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlansCommandOutput/)
+</details>
+<details>
+<summary>
+ListRecoveryPlanSteps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/ListRecoveryPlanStepsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanStepsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ListRecoveryPlanStepsCommandOutput/)
+</details>
+<details>
+<summary>
 ListStagingAccounts
 </summary>
 
@@ -405,10 +503,24 @@ PutLaunchAction
 </details>
 <details>
 <summary>
+ReorderRecoveryPlanSteps
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/ReorderRecoveryPlanStepsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ReorderRecoveryPlanStepsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/ReorderRecoveryPlanStepsCommandOutput/)
+</details>
+<details>
+<summary>
 RetryDataReplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/RetryDataReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/RetryDataReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/RetryDataReplicationCommandOutput/)
+</details>
+<details>
+<summary>
+RetryRecoveryPlanExecutionStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/RetryRecoveryPlanExecutionStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/RetryRecoveryPlanExecutionStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/RetryRecoveryPlanExecutionStepCommandOutput/)
 </details>
 <details>
 <summary>
@@ -430,6 +542,13 @@ StartRecovery
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/StartRecoveryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/StartRecoveryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/StartRecoveryCommandOutput/)
+</details>
+<details>
+<summary>
+StartRecoveryPlanExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/StartRecoveryPlanExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/StartRecoveryPlanExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/StartRecoveryPlanExecutionCommandOutput/)
 </details>
 <details>
 <summary>
@@ -514,6 +633,27 @@ UpdateLaunchConfigurationTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/UpdateLaunchConfigurationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateLaunchConfigurationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateLaunchConfigurationTemplateCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRecoveryPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/UpdateRecoveryPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRecoveryPlanExecutionStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/UpdateRecoveryPlanExecutionStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanExecutionStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanExecutionStepCommandOutput/)
+</details>
+<details>
+<summary>
+UpdateRecoveryPlanStep
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/drs/command/UpdateRecoveryPlanStepCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanStepCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-drs/Interface/UpdateRecoveryPlanStepCommandOutput/)
 </details>
 <details>
 <summary>

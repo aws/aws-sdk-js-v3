@@ -8,6 +8,11 @@ import {
   AssociateSourceNetworkStackCommand,
 } from "./commands/AssociateSourceNetworkStackCommand";
 import {
+  type CancelRecoveryPlanExecutionCommandInput,
+  type CancelRecoveryPlanExecutionCommandOutput,
+  CancelRecoveryPlanExecutionCommand,
+} from "./commands/CancelRecoveryPlanExecutionCommand";
+import {
   type CreateExtendedSourceServerCommandInput,
   type CreateExtendedSourceServerCommandOutput,
   CreateExtendedSourceServerCommand,
@@ -17,6 +22,16 @@ import {
   type CreateLaunchConfigurationTemplateCommandOutput,
   CreateLaunchConfigurationTemplateCommand,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
+import {
+  type CreateRecoveryPlanCommandInput,
+  type CreateRecoveryPlanCommandOutput,
+  CreateRecoveryPlanCommand,
+} from "./commands/CreateRecoveryPlanCommand";
+import {
+  type CreateRecoveryPlanStepCommandInput,
+  type CreateRecoveryPlanStepCommandOutput,
+  CreateRecoveryPlanStepCommand,
+} from "./commands/CreateRecoveryPlanStepCommand";
 import {
   type CreateReplicationConfigurationTemplateCommandInput,
   type CreateReplicationConfigurationTemplateCommandOutput,
@@ -43,6 +58,21 @@ import {
   type DeleteRecoveryInstanceCommandOutput,
   DeleteRecoveryInstanceCommand,
 } from "./commands/DeleteRecoveryInstanceCommand";
+import {
+  type DeleteRecoveryPlanCommandInput,
+  type DeleteRecoveryPlanCommandOutput,
+  DeleteRecoveryPlanCommand,
+} from "./commands/DeleteRecoveryPlanCommand";
+import {
+  type DeleteRecoveryPlanExecutionCommandInput,
+  type DeleteRecoveryPlanExecutionCommandOutput,
+  DeleteRecoveryPlanExecutionCommand,
+} from "./commands/DeleteRecoveryPlanExecutionCommand";
+import {
+  type DeleteRecoveryPlanStepCommandInput,
+  type DeleteRecoveryPlanStepCommandOutput,
+  DeleteRecoveryPlanStepCommand,
+} from "./commands/DeleteRecoveryPlanStepCommand";
 import {
   type DeleteReplicationConfigurationTemplateCommandInput,
   type DeleteReplicationConfigurationTemplateCommandOutput,
@@ -124,6 +154,26 @@ import {
   GetLaunchConfigurationCommand,
 } from "./commands/GetLaunchConfigurationCommand";
 import {
+  type GetRecoveryPlanCommandInput,
+  type GetRecoveryPlanCommandOutput,
+  GetRecoveryPlanCommand,
+} from "./commands/GetRecoveryPlanCommand";
+import {
+  type GetRecoveryPlanExecutionCommandInput,
+  type GetRecoveryPlanExecutionCommandOutput,
+  GetRecoveryPlanExecutionCommand,
+} from "./commands/GetRecoveryPlanExecutionCommand";
+import {
+  type GetRecoveryPlanExecutionStepCommandInput,
+  type GetRecoveryPlanExecutionStepCommandOutput,
+  GetRecoveryPlanExecutionStepCommand,
+} from "./commands/GetRecoveryPlanExecutionStepCommand";
+import {
+  type GetRecoveryPlanStepCommandInput,
+  type GetRecoveryPlanStepCommandOutput,
+  GetRecoveryPlanStepCommand,
+} from "./commands/GetRecoveryPlanStepCommand";
+import {
   type GetReplicationConfigurationCommandInput,
   type GetReplicationConfigurationCommandOutput,
   GetReplicationConfigurationCommand,
@@ -144,6 +194,26 @@ import {
   ListLaunchActionsCommand,
 } from "./commands/ListLaunchActionsCommand";
 import {
+  type ListRecoveryPlanExecutionsCommandInput,
+  type ListRecoveryPlanExecutionsCommandOutput,
+  ListRecoveryPlanExecutionsCommand,
+} from "./commands/ListRecoveryPlanExecutionsCommand";
+import {
+  type ListRecoveryPlanExecutionStepsCommandInput,
+  type ListRecoveryPlanExecutionStepsCommandOutput,
+  ListRecoveryPlanExecutionStepsCommand,
+} from "./commands/ListRecoveryPlanExecutionStepsCommand";
+import {
+  type ListRecoveryPlansCommandInput,
+  type ListRecoveryPlansCommandOutput,
+  ListRecoveryPlansCommand,
+} from "./commands/ListRecoveryPlansCommand";
+import {
+  type ListRecoveryPlanStepsCommandInput,
+  type ListRecoveryPlanStepsCommandOutput,
+  ListRecoveryPlanStepsCommand,
+} from "./commands/ListRecoveryPlanStepsCommand";
+import {
   type ListStagingAccountsCommandInput,
   type ListStagingAccountsCommandOutput,
   ListStagingAccountsCommand,
@@ -159,10 +229,20 @@ import {
   PutLaunchActionCommand,
 } from "./commands/PutLaunchActionCommand";
 import {
+  type ReorderRecoveryPlanStepsCommandInput,
+  type ReorderRecoveryPlanStepsCommandOutput,
+  ReorderRecoveryPlanStepsCommand,
+} from "./commands/ReorderRecoveryPlanStepsCommand";
+import {
   type RetryDataReplicationCommandInput,
   type RetryDataReplicationCommandOutput,
   RetryDataReplicationCommand,
 } from "./commands/RetryDataReplicationCommand";
+import {
+  type RetryRecoveryPlanExecutionStepCommandInput,
+  type RetryRecoveryPlanExecutionStepCommandOutput,
+  RetryRecoveryPlanExecutionStepCommand,
+} from "./commands/RetryRecoveryPlanExecutionStepCommand";
 import {
   type ReverseReplicationCommandInput,
   type ReverseReplicationCommandOutput,
@@ -178,6 +258,11 @@ import {
   type StartRecoveryCommandOutput,
   StartRecoveryCommand,
 } from "./commands/StartRecoveryCommand";
+import {
+  type StartRecoveryPlanExecutionCommandInput,
+  type StartRecoveryPlanExecutionCommandOutput,
+  StartRecoveryPlanExecutionCommand,
+} from "./commands/StartRecoveryPlanExecutionCommand";
 import {
   type StartReplicationCommandInput,
   type StartReplicationCommandOutput,
@@ -239,6 +324,21 @@ import {
   UpdateLaunchConfigurationTemplateCommand,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
 import {
+  type UpdateRecoveryPlanCommandInput,
+  type UpdateRecoveryPlanCommandOutput,
+  UpdateRecoveryPlanCommand,
+} from "./commands/UpdateRecoveryPlanCommand";
+import {
+  type UpdateRecoveryPlanExecutionStepCommandInput,
+  type UpdateRecoveryPlanExecutionStepCommandOutput,
+  UpdateRecoveryPlanExecutionStepCommand,
+} from "./commands/UpdateRecoveryPlanExecutionStepCommand";
+import {
+  type UpdateRecoveryPlanStepCommandInput,
+  type UpdateRecoveryPlanStepCommandOutput,
+  UpdateRecoveryPlanStepCommand,
+} from "./commands/UpdateRecoveryPlanStepCommand";
+import {
   type UpdateReplicationConfigurationCommandInput,
   type UpdateReplicationConfigurationCommandOutput,
   UpdateReplicationConfigurationCommand,
@@ -263,18 +363,28 @@ import { paginateDescribeSourceNetworks } from "./pagination/DescribeSourceNetwo
 import { paginateDescribeSourceServers } from "./pagination/DescribeSourceServersPaginator";
 import { paginateListExtensibleSourceServers } from "./pagination/ListExtensibleSourceServersPaginator";
 import { paginateListLaunchActions } from "./pagination/ListLaunchActionsPaginator";
+import { paginateListRecoveryPlanExecutions } from "./pagination/ListRecoveryPlanExecutionsPaginator";
+import { paginateListRecoveryPlanExecutionSteps } from "./pagination/ListRecoveryPlanExecutionStepsPaginator";
+import { paginateListRecoveryPlans } from "./pagination/ListRecoveryPlansPaginator";
+import { paginateListRecoveryPlanSteps } from "./pagination/ListRecoveryPlanStepsPaginator";
 import { paginateListStagingAccounts } from "./pagination/ListStagingAccountsPaginator";
 
 const commands = {
   AssociateSourceNetworkStackCommand,
+  CancelRecoveryPlanExecutionCommand,
   CreateExtendedSourceServerCommand,
   CreateLaunchConfigurationTemplateCommand,
+  CreateRecoveryPlanCommand,
+  CreateRecoveryPlanStepCommand,
   CreateReplicationConfigurationTemplateCommand,
   CreateSourceNetworkCommand,
   DeleteJobCommand,
   DeleteLaunchActionCommand,
   DeleteLaunchConfigurationTemplateCommand,
   DeleteRecoveryInstanceCommand,
+  DeleteRecoveryPlanCommand,
+  DeleteRecoveryPlanExecutionCommand,
+  DeleteRecoveryPlanStepCommand,
   DeleteReplicationConfigurationTemplateCommand,
   DeleteSourceNetworkCommand,
   DeleteSourceServerCommand,
@@ -291,17 +401,28 @@ const commands = {
   ExportSourceNetworkCfnTemplateCommand,
   GetFailbackReplicationConfigurationCommand,
   GetLaunchConfigurationCommand,
+  GetRecoveryPlanCommand,
+  GetRecoveryPlanExecutionCommand,
+  GetRecoveryPlanExecutionStepCommand,
+  GetRecoveryPlanStepCommand,
   GetReplicationConfigurationCommand,
   InitializeServiceCommand,
   ListExtensibleSourceServersCommand,
   ListLaunchActionsCommand,
+  ListRecoveryPlanExecutionsCommand,
+  ListRecoveryPlanExecutionStepsCommand,
+  ListRecoveryPlansCommand,
+  ListRecoveryPlanStepsCommand,
   ListStagingAccountsCommand,
   ListTagsForResourceCommand,
   PutLaunchActionCommand,
+  ReorderRecoveryPlanStepsCommand,
   RetryDataReplicationCommand,
+  RetryRecoveryPlanExecutionStepCommand,
   ReverseReplicationCommand,
   StartFailbackLaunchCommand,
   StartRecoveryCommand,
+  StartRecoveryPlanExecutionCommand,
   StartReplicationCommand,
   StartSourceNetworkRecoveryCommand,
   StartSourceNetworkReplicationCommand,
@@ -314,6 +435,9 @@ const commands = {
   UpdateFailbackReplicationConfigurationCommand,
   UpdateLaunchConfigurationCommand,
   UpdateLaunchConfigurationTemplateCommand,
+  UpdateRecoveryPlanCommand,
+  UpdateRecoveryPlanExecutionStepCommand,
+  UpdateRecoveryPlanStepCommand,
   UpdateReplicationConfigurationCommand,
   UpdateReplicationConfigurationTemplateCommand,
 };
@@ -328,6 +452,10 @@ const paginators = {
   paginateDescribeSourceServers,
   paginateListExtensibleSourceServers,
   paginateListLaunchActions,
+  paginateListRecoveryPlanExecutions,
+  paginateListRecoveryPlanExecutionSteps,
+  paginateListRecoveryPlans,
+  paginateListRecoveryPlanSteps,
   paginateListStagingAccounts,
 };
 
@@ -347,6 +475,23 @@ export interface Drs {
     args: AssociateSourceNetworkStackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateSourceNetworkStackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelRecoveryPlanExecutionCommand}
+   */
+  cancelRecoveryPlanExecution(
+    args: CancelRecoveryPlanExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelRecoveryPlanExecutionCommandOutput>;
+  cancelRecoveryPlanExecution(
+    args: CancelRecoveryPlanExecutionCommandInput,
+    cb: (err: any, data?: CancelRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+  cancelRecoveryPlanExecution(
+    args: CancelRecoveryPlanExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelRecoveryPlanExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -382,6 +527,40 @@ export interface Drs {
     args: CreateLaunchConfigurationTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLaunchConfigurationTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRecoveryPlanCommand}
+   */
+  createRecoveryPlan(
+    args: CreateRecoveryPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecoveryPlanCommandOutput>;
+  createRecoveryPlan(
+    args: CreateRecoveryPlanCommandInput,
+    cb: (err: any, data?: CreateRecoveryPlanCommandOutput) => void
+  ): void;
+  createRecoveryPlan(
+    args: CreateRecoveryPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecoveryPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRecoveryPlanStepCommand}
+   */
+  createRecoveryPlanStep(
+    args: CreateRecoveryPlanStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRecoveryPlanStepCommandOutput>;
+  createRecoveryPlanStep(
+    args: CreateRecoveryPlanStepCommandInput,
+    cb: (err: any, data?: CreateRecoveryPlanStepCommandOutput) => void
+  ): void;
+  createRecoveryPlanStep(
+    args: CreateRecoveryPlanStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRecoveryPlanStepCommandOutput) => void
   ): void;
 
   /**
@@ -484,6 +663,57 @@ export interface Drs {
     args: DeleteRecoveryInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteRecoveryInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecoveryPlanCommand}
+   */
+  deleteRecoveryPlan(
+    args: DeleteRecoveryPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecoveryPlanCommandOutput>;
+  deleteRecoveryPlan(
+    args: DeleteRecoveryPlanCommandInput,
+    cb: (err: any, data?: DeleteRecoveryPlanCommandOutput) => void
+  ): void;
+  deleteRecoveryPlan(
+    args: DeleteRecoveryPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecoveryPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecoveryPlanExecutionCommand}
+   */
+  deleteRecoveryPlanExecution(
+    args: DeleteRecoveryPlanExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecoveryPlanExecutionCommandOutput>;
+  deleteRecoveryPlanExecution(
+    args: DeleteRecoveryPlanExecutionCommandInput,
+    cb: (err: any, data?: DeleteRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+  deleteRecoveryPlanExecution(
+    args: DeleteRecoveryPlanExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteRecoveryPlanStepCommand}
+   */
+  deleteRecoveryPlanStep(
+    args: DeleteRecoveryPlanStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRecoveryPlanStepCommandOutput>;
+  deleteRecoveryPlanStep(
+    args: DeleteRecoveryPlanStepCommandInput,
+    cb: (err: any, data?: DeleteRecoveryPlanStepCommandOutput) => void
+  ): void;
+  deleteRecoveryPlanStep(
+    args: DeleteRecoveryPlanStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRecoveryPlanStepCommandOutput) => void
   ): void;
 
   /**
@@ -765,6 +995,74 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link GetRecoveryPlanCommand}
+   */
+  getRecoveryPlan(
+    args: GetRecoveryPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPlanCommandOutput>;
+  getRecoveryPlan(
+    args: GetRecoveryPlanCommandInput,
+    cb: (err: any, data?: GetRecoveryPlanCommandOutput) => void
+  ): void;
+  getRecoveryPlan(
+    args: GetRecoveryPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecoveryPlanExecutionCommand}
+   */
+  getRecoveryPlanExecution(
+    args: GetRecoveryPlanExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPlanExecutionCommandOutput>;
+  getRecoveryPlanExecution(
+    args: GetRecoveryPlanExecutionCommandInput,
+    cb: (err: any, data?: GetRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+  getRecoveryPlanExecution(
+    args: GetRecoveryPlanExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecoveryPlanExecutionStepCommand}
+   */
+  getRecoveryPlanExecutionStep(
+    args: GetRecoveryPlanExecutionStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPlanExecutionStepCommandOutput>;
+  getRecoveryPlanExecutionStep(
+    args: GetRecoveryPlanExecutionStepCommandInput,
+    cb: (err: any, data?: GetRecoveryPlanExecutionStepCommandOutput) => void
+  ): void;
+  getRecoveryPlanExecutionStep(
+    args: GetRecoveryPlanExecutionStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPlanExecutionStepCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecoveryPlanStepCommand}
+   */
+  getRecoveryPlanStep(
+    args: GetRecoveryPlanStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPlanStepCommandOutput>;
+  getRecoveryPlanStep(
+    args: GetRecoveryPlanStepCommandInput,
+    cb: (err: any, data?: GetRecoveryPlanStepCommandOutput) => void
+  ): void;
+  getRecoveryPlanStep(
+    args: GetRecoveryPlanStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPlanStepCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetReplicationConfigurationCommand}
    */
   getReplicationConfiguration(
@@ -834,6 +1132,76 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link ListRecoveryPlanExecutionsCommand}
+   */
+  listRecoveryPlanExecutions(): Promise<ListRecoveryPlanExecutionsCommandOutput>;
+  listRecoveryPlanExecutions(
+    args: ListRecoveryPlanExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecoveryPlanExecutionsCommandOutput>;
+  listRecoveryPlanExecutions(
+    args: ListRecoveryPlanExecutionsCommandInput,
+    cb: (err: any, data?: ListRecoveryPlanExecutionsCommandOutput) => void
+  ): void;
+  listRecoveryPlanExecutions(
+    args: ListRecoveryPlanExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecoveryPlanExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecoveryPlanExecutionStepsCommand}
+   */
+  listRecoveryPlanExecutionSteps(
+    args: ListRecoveryPlanExecutionStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecoveryPlanExecutionStepsCommandOutput>;
+  listRecoveryPlanExecutionSteps(
+    args: ListRecoveryPlanExecutionStepsCommandInput,
+    cb: (err: any, data?: ListRecoveryPlanExecutionStepsCommandOutput) => void
+  ): void;
+  listRecoveryPlanExecutionSteps(
+    args: ListRecoveryPlanExecutionStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecoveryPlanExecutionStepsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecoveryPlansCommand}
+   */
+  listRecoveryPlans(): Promise<ListRecoveryPlansCommandOutput>;
+  listRecoveryPlans(
+    args: ListRecoveryPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecoveryPlansCommandOutput>;
+  listRecoveryPlans(
+    args: ListRecoveryPlansCommandInput,
+    cb: (err: any, data?: ListRecoveryPlansCommandOutput) => void
+  ): void;
+  listRecoveryPlans(
+    args: ListRecoveryPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecoveryPlansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecoveryPlanStepsCommand}
+   */
+  listRecoveryPlanSteps(
+    args: ListRecoveryPlanStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecoveryPlanStepsCommandOutput>;
+  listRecoveryPlanSteps(
+    args: ListRecoveryPlanStepsCommandInput,
+    cb: (err: any, data?: ListRecoveryPlanStepsCommandOutput) => void
+  ): void;
+  listRecoveryPlanSteps(
+    args: ListRecoveryPlanStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecoveryPlanStepsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListStagingAccountsCommand}
    */
   listStagingAccounts(): Promise<ListStagingAccountsCommandOutput>;
@@ -886,6 +1254,23 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link ReorderRecoveryPlanStepsCommand}
+   */
+  reorderRecoveryPlanSteps(
+    args: ReorderRecoveryPlanStepsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReorderRecoveryPlanStepsCommandOutput>;
+  reorderRecoveryPlanSteps(
+    args: ReorderRecoveryPlanStepsCommandInput,
+    cb: (err: any, data?: ReorderRecoveryPlanStepsCommandOutput) => void
+  ): void;
+  reorderRecoveryPlanSteps(
+    args: ReorderRecoveryPlanStepsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReorderRecoveryPlanStepsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RetryDataReplicationCommand}
    */
   retryDataReplication(
@@ -900,6 +1285,23 @@ export interface Drs {
     args: RetryDataReplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RetryDataReplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RetryRecoveryPlanExecutionStepCommand}
+   */
+  retryRecoveryPlanExecutionStep(
+    args: RetryRecoveryPlanExecutionStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RetryRecoveryPlanExecutionStepCommandOutput>;
+  retryRecoveryPlanExecutionStep(
+    args: RetryRecoveryPlanExecutionStepCommandInput,
+    cb: (err: any, data?: RetryRecoveryPlanExecutionStepCommandOutput) => void
+  ): void;
+  retryRecoveryPlanExecutionStep(
+    args: RetryRecoveryPlanExecutionStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RetryRecoveryPlanExecutionStepCommandOutput) => void
   ): void;
 
   /**
@@ -951,6 +1353,23 @@ export interface Drs {
     args: StartRecoveryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartRecoveryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartRecoveryPlanExecutionCommand}
+   */
+  startRecoveryPlanExecution(
+    args: StartRecoveryPlanExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartRecoveryPlanExecutionCommandOutput>;
+  startRecoveryPlanExecution(
+    args: StartRecoveryPlanExecutionCommandInput,
+    cb: (err: any, data?: StartRecoveryPlanExecutionCommandOutput) => void
+  ): void;
+  startRecoveryPlanExecution(
+    args: StartRecoveryPlanExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartRecoveryPlanExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -1158,6 +1577,57 @@ export interface Drs {
   ): void;
 
   /**
+   * @see {@link UpdateRecoveryPlanCommand}
+   */
+  updateRecoveryPlan(
+    args: UpdateRecoveryPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecoveryPlanCommandOutput>;
+  updateRecoveryPlan(
+    args: UpdateRecoveryPlanCommandInput,
+    cb: (err: any, data?: UpdateRecoveryPlanCommandOutput) => void
+  ): void;
+  updateRecoveryPlan(
+    args: UpdateRecoveryPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecoveryPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecoveryPlanExecutionStepCommand}
+   */
+  updateRecoveryPlanExecutionStep(
+    args: UpdateRecoveryPlanExecutionStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecoveryPlanExecutionStepCommandOutput>;
+  updateRecoveryPlanExecutionStep(
+    args: UpdateRecoveryPlanExecutionStepCommandInput,
+    cb: (err: any, data?: UpdateRecoveryPlanExecutionStepCommandOutput) => void
+  ): void;
+  updateRecoveryPlanExecutionStep(
+    args: UpdateRecoveryPlanExecutionStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecoveryPlanExecutionStepCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecoveryPlanStepCommand}
+   */
+  updateRecoveryPlanStep(
+    args: UpdateRecoveryPlanStepCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecoveryPlanStepCommandOutput>;
+  updateRecoveryPlanStep(
+    args: UpdateRecoveryPlanStepCommandInput,
+    cb: (err: any, data?: UpdateRecoveryPlanStepCommandOutput) => void
+  ): void;
+  updateRecoveryPlanStep(
+    args: UpdateRecoveryPlanStepCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecoveryPlanStepCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateReplicationConfigurationCommand}
    */
   updateReplicationConfiguration(
@@ -1300,6 +1770,50 @@ export interface Drs {
     args: ListLaunchActionsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListLaunchActionsCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPlanExecutionsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPlanExecutionsCommandOutput}.
+   */
+  paginateListRecoveryPlanExecutions(
+    args?: ListRecoveryPlanExecutionsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPlanExecutionsCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPlanExecutionStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPlanExecutionStepsCommandOutput}.
+   */
+  paginateListRecoveryPlanExecutionSteps(
+    args: ListRecoveryPlanExecutionStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPlanExecutionStepsCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPlansCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPlansCommandOutput}.
+   */
+  paginateListRecoveryPlans(
+    args?: ListRecoveryPlansCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPlansCommandOutput>;
+
+  /**
+   * @see {@link ListRecoveryPlanStepsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListRecoveryPlanStepsCommandOutput}.
+   */
+  paginateListRecoveryPlanSteps(
+    args: ListRecoveryPlanStepsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListRecoveryPlanStepsCommandOutput>;
 
   /**
    * @see {@link ListStagingAccountsCommand}

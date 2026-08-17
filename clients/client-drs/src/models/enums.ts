@@ -138,6 +138,37 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
  * @public
  * @enum
  */
+export const RecoveryPlanExecutionMode = {
+  DRILL: "DRILL",
+  RECOVERY: "RECOVERY",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryPlanExecutionMode = (typeof RecoveryPlanExecutionMode)[keyof typeof RecoveryPlanExecutionMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryPlanExecutionStatus = {
+  CANCELLED: "CANCELLED",
+  CANCELLING: "CANCELLING",
+  COMPLETED: "COMPLETED",
+  CREATED: "CREATED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryPlanExecutionStatus =
+  (typeof RecoveryPlanExecutionStatus)[keyof typeof RecoveryPlanExecutionStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const ProductCodeMode = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -344,6 +375,33 @@ export const TargetInstanceTypeRightSizingMethod = {
  */
 export type TargetInstanceTypeRightSizingMethod =
   (typeof TargetInstanceTypeRightSizingMethod)[keyof typeof TargetInstanceTypeRightSizingMethod];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryPlanStatus = {
+  ACTIVE: "ACTIVE",
+  INVALID: "INVALID",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryPlanStatus = (typeof RecoveryPlanStatus)[keyof typeof RecoveryPlanStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryPlanServerImpactLevel = {
+  CRITICAL: "CRITICAL",
+  OPTIONAL: "OPTIONAL",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryPlanServerImpactLevel =
+  (typeof RecoveryPlanServerImpactLevel)[keyof typeof RecoveryPlanServerImpactLevel];
 
 /**
  * @public
@@ -665,6 +723,25 @@ export const ReplicationStatus = {
  * @public
  */
 export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof ReplicationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecoveryPlanExecutionStepStatus = {
+  COMPLETED: "COMPLETED",
+  EXECUTING: "EXECUTING",
+  FAILED: "FAILED",
+  NOT_STARTED: "NOT_STARTED",
+  SKIPPED: "SKIPPED",
+  TIMED_OUT: "TIMED_OUT",
+  WAITING: "WAITING",
+} as const;
+/**
+ * @public
+ */
+export type RecoveryPlanExecutionStepStatus =
+  (typeof RecoveryPlanExecutionStepStatus)[keyof typeof RecoveryPlanExecutionStepStatus];
 
 /**
  * @public

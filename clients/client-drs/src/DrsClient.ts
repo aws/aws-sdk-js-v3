@@ -59,6 +59,10 @@ import type {
   AssociateSourceNetworkStackCommandOutput,
 } from "./commands/AssociateSourceNetworkStackCommand";
 import type {
+  CancelRecoveryPlanExecutionCommandInput,
+  CancelRecoveryPlanExecutionCommandOutput,
+} from "./commands/CancelRecoveryPlanExecutionCommand";
+import type {
   CreateExtendedSourceServerCommandInput,
   CreateExtendedSourceServerCommandOutput,
 } from "./commands/CreateExtendedSourceServerCommand";
@@ -66,6 +70,14 @@ import type {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/CreateLaunchConfigurationTemplateCommand";
+import type {
+  CreateRecoveryPlanCommandInput,
+  CreateRecoveryPlanCommandOutput,
+} from "./commands/CreateRecoveryPlanCommand";
+import type {
+  CreateRecoveryPlanStepCommandInput,
+  CreateRecoveryPlanStepCommandOutput,
+} from "./commands/CreateRecoveryPlanStepCommand";
 import type {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
@@ -87,6 +99,18 @@ import type {
   DeleteRecoveryInstanceCommandInput,
   DeleteRecoveryInstanceCommandOutput,
 } from "./commands/DeleteRecoveryInstanceCommand";
+import type {
+  DeleteRecoveryPlanCommandInput,
+  DeleteRecoveryPlanCommandOutput,
+} from "./commands/DeleteRecoveryPlanCommand";
+import type {
+  DeleteRecoveryPlanExecutionCommandInput,
+  DeleteRecoveryPlanExecutionCommandOutput,
+} from "./commands/DeleteRecoveryPlanExecutionCommand";
+import type {
+  DeleteRecoveryPlanStepCommandInput,
+  DeleteRecoveryPlanStepCommandOutput,
+} from "./commands/DeleteRecoveryPlanStepCommand";
 import type {
   DeleteReplicationConfigurationTemplateCommandInput,
   DeleteReplicationConfigurationTemplateCommandOutput,
@@ -148,6 +172,19 @@ import type {
   GetLaunchConfigurationCommandInput,
   GetLaunchConfigurationCommandOutput,
 } from "./commands/GetLaunchConfigurationCommand";
+import type { GetRecoveryPlanCommandInput, GetRecoveryPlanCommandOutput } from "./commands/GetRecoveryPlanCommand";
+import type {
+  GetRecoveryPlanExecutionCommandInput,
+  GetRecoveryPlanExecutionCommandOutput,
+} from "./commands/GetRecoveryPlanExecutionCommand";
+import type {
+  GetRecoveryPlanExecutionStepCommandInput,
+  GetRecoveryPlanExecutionStepCommandOutput,
+} from "./commands/GetRecoveryPlanExecutionStepCommand";
+import type {
+  GetRecoveryPlanStepCommandInput,
+  GetRecoveryPlanStepCommandOutput,
+} from "./commands/GetRecoveryPlanStepCommand";
 import type {
   GetReplicationConfigurationCommandInput,
   GetReplicationConfigurationCommandOutput,
@@ -165,6 +202,22 @@ import type {
   ListLaunchActionsCommandOutput,
 } from "./commands/ListLaunchActionsCommand";
 import type {
+  ListRecoveryPlanExecutionsCommandInput,
+  ListRecoveryPlanExecutionsCommandOutput,
+} from "./commands/ListRecoveryPlanExecutionsCommand";
+import type {
+  ListRecoveryPlanExecutionStepsCommandInput,
+  ListRecoveryPlanExecutionStepsCommandOutput,
+} from "./commands/ListRecoveryPlanExecutionStepsCommand";
+import type {
+  ListRecoveryPlansCommandInput,
+  ListRecoveryPlansCommandOutput,
+} from "./commands/ListRecoveryPlansCommand";
+import type {
+  ListRecoveryPlanStepsCommandInput,
+  ListRecoveryPlanStepsCommandOutput,
+} from "./commands/ListRecoveryPlanStepsCommand";
+import type {
   ListStagingAccountsCommandInput,
   ListStagingAccountsCommandOutput,
 } from "./commands/ListStagingAccountsCommand";
@@ -174,9 +227,17 @@ import type {
 } from "./commands/ListTagsForResourceCommand";
 import type { PutLaunchActionCommandInput, PutLaunchActionCommandOutput } from "./commands/PutLaunchActionCommand";
 import type {
+  ReorderRecoveryPlanStepsCommandInput,
+  ReorderRecoveryPlanStepsCommandOutput,
+} from "./commands/ReorderRecoveryPlanStepsCommand";
+import type {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
+import type {
+  RetryRecoveryPlanExecutionStepCommandInput,
+  RetryRecoveryPlanExecutionStepCommandOutput,
+} from "./commands/RetryRecoveryPlanExecutionStepCommand";
 import type {
   ReverseReplicationCommandInput,
   ReverseReplicationCommandOutput,
@@ -186,6 +247,10 @@ import type {
   StartFailbackLaunchCommandOutput,
 } from "./commands/StartFailbackLaunchCommand";
 import type { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "./commands/StartRecoveryCommand";
+import type {
+  StartRecoveryPlanExecutionCommandInput,
+  StartRecoveryPlanExecutionCommandOutput,
+} from "./commands/StartRecoveryPlanExecutionCommand";
 import type { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import type {
   StartSourceNetworkRecoveryCommandInput,
@@ -220,6 +285,18 @@ import type {
   UpdateLaunchConfigurationTemplateCommandOutput,
 } from "./commands/UpdateLaunchConfigurationTemplateCommand";
 import type {
+  UpdateRecoveryPlanCommandInput,
+  UpdateRecoveryPlanCommandOutput,
+} from "./commands/UpdateRecoveryPlanCommand";
+import type {
+  UpdateRecoveryPlanExecutionStepCommandInput,
+  UpdateRecoveryPlanExecutionStepCommandOutput,
+} from "./commands/UpdateRecoveryPlanExecutionStepCommand";
+import type {
+  UpdateRecoveryPlanStepCommandInput,
+  UpdateRecoveryPlanStepCommandOutput,
+} from "./commands/UpdateRecoveryPlanStepCommand";
+import type {
   UpdateReplicationConfigurationCommandInput,
   UpdateReplicationConfigurationCommandOutput,
 } from "./commands/UpdateReplicationConfigurationCommand";
@@ -243,14 +320,20 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateSourceNetworkStackCommandInput
+  | CancelRecoveryPlanExecutionCommandInput
   | CreateExtendedSourceServerCommandInput
   | CreateLaunchConfigurationTemplateCommandInput
+  | CreateRecoveryPlanCommandInput
+  | CreateRecoveryPlanStepCommandInput
   | CreateReplicationConfigurationTemplateCommandInput
   | CreateSourceNetworkCommandInput
   | DeleteJobCommandInput
   | DeleteLaunchActionCommandInput
   | DeleteLaunchConfigurationTemplateCommandInput
   | DeleteRecoveryInstanceCommandInput
+  | DeleteRecoveryPlanCommandInput
+  | DeleteRecoveryPlanExecutionCommandInput
+  | DeleteRecoveryPlanStepCommandInput
   | DeleteReplicationConfigurationTemplateCommandInput
   | DeleteSourceNetworkCommandInput
   | DeleteSourceServerCommandInput
@@ -267,17 +350,28 @@ export type ServiceInputTypes =
   | ExportSourceNetworkCfnTemplateCommandInput
   | GetFailbackReplicationConfigurationCommandInput
   | GetLaunchConfigurationCommandInput
+  | GetRecoveryPlanCommandInput
+  | GetRecoveryPlanExecutionCommandInput
+  | GetRecoveryPlanExecutionStepCommandInput
+  | GetRecoveryPlanStepCommandInput
   | GetReplicationConfigurationCommandInput
   | InitializeServiceCommandInput
   | ListExtensibleSourceServersCommandInput
   | ListLaunchActionsCommandInput
+  | ListRecoveryPlanExecutionStepsCommandInput
+  | ListRecoveryPlanExecutionsCommandInput
+  | ListRecoveryPlanStepsCommandInput
+  | ListRecoveryPlansCommandInput
   | ListStagingAccountsCommandInput
   | ListTagsForResourceCommandInput
   | PutLaunchActionCommandInput
+  | ReorderRecoveryPlanStepsCommandInput
   | RetryDataReplicationCommandInput
+  | RetryRecoveryPlanExecutionStepCommandInput
   | ReverseReplicationCommandInput
   | StartFailbackLaunchCommandInput
   | StartRecoveryCommandInput
+  | StartRecoveryPlanExecutionCommandInput
   | StartReplicationCommandInput
   | StartSourceNetworkRecoveryCommandInput
   | StartSourceNetworkReplicationCommandInput
@@ -290,6 +384,9 @@ export type ServiceInputTypes =
   | UpdateFailbackReplicationConfigurationCommandInput
   | UpdateLaunchConfigurationCommandInput
   | UpdateLaunchConfigurationTemplateCommandInput
+  | UpdateRecoveryPlanCommandInput
+  | UpdateRecoveryPlanExecutionStepCommandInput
+  | UpdateRecoveryPlanStepCommandInput
   | UpdateReplicationConfigurationCommandInput
   | UpdateReplicationConfigurationTemplateCommandInput;
 
@@ -298,14 +395,20 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateSourceNetworkStackCommandOutput
+  | CancelRecoveryPlanExecutionCommandOutput
   | CreateExtendedSourceServerCommandOutput
   | CreateLaunchConfigurationTemplateCommandOutput
+  | CreateRecoveryPlanCommandOutput
+  | CreateRecoveryPlanStepCommandOutput
   | CreateReplicationConfigurationTemplateCommandOutput
   | CreateSourceNetworkCommandOutput
   | DeleteJobCommandOutput
   | DeleteLaunchActionCommandOutput
   | DeleteLaunchConfigurationTemplateCommandOutput
   | DeleteRecoveryInstanceCommandOutput
+  | DeleteRecoveryPlanCommandOutput
+  | DeleteRecoveryPlanExecutionCommandOutput
+  | DeleteRecoveryPlanStepCommandOutput
   | DeleteReplicationConfigurationTemplateCommandOutput
   | DeleteSourceNetworkCommandOutput
   | DeleteSourceServerCommandOutput
@@ -322,17 +425,28 @@ export type ServiceOutputTypes =
   | ExportSourceNetworkCfnTemplateCommandOutput
   | GetFailbackReplicationConfigurationCommandOutput
   | GetLaunchConfigurationCommandOutput
+  | GetRecoveryPlanCommandOutput
+  | GetRecoveryPlanExecutionCommandOutput
+  | GetRecoveryPlanExecutionStepCommandOutput
+  | GetRecoveryPlanStepCommandOutput
   | GetReplicationConfigurationCommandOutput
   | InitializeServiceCommandOutput
   | ListExtensibleSourceServersCommandOutput
   | ListLaunchActionsCommandOutput
+  | ListRecoveryPlanExecutionStepsCommandOutput
+  | ListRecoveryPlanExecutionsCommandOutput
+  | ListRecoveryPlanStepsCommandOutput
+  | ListRecoveryPlansCommandOutput
   | ListStagingAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutLaunchActionCommandOutput
+  | ReorderRecoveryPlanStepsCommandOutput
   | RetryDataReplicationCommandOutput
+  | RetryRecoveryPlanExecutionStepCommandOutput
   | ReverseReplicationCommandOutput
   | StartFailbackLaunchCommandOutput
   | StartRecoveryCommandOutput
+  | StartRecoveryPlanExecutionCommandOutput
   | StartReplicationCommandOutput
   | StartSourceNetworkRecoveryCommandOutput
   | StartSourceNetworkReplicationCommandOutput
@@ -345,6 +459,9 @@ export type ServiceOutputTypes =
   | UpdateFailbackReplicationConfigurationCommandOutput
   | UpdateLaunchConfigurationCommandOutput
   | UpdateLaunchConfigurationTemplateCommandOutput
+  | UpdateRecoveryPlanCommandOutput
+  | UpdateRecoveryPlanExecutionStepCommandOutput
+  | UpdateRecoveryPlanStepCommandOutput
   | UpdateReplicationConfigurationCommandOutput
   | UpdateReplicationConfigurationTemplateCommandOutput;
 

@@ -16,6 +16,15 @@ const _CP = "ConversionProperties";
 const _CPU = "CPU";
 const _CRCT = "CreateReplicationConfigurationTemplate";
 const _CRCTR = "CreateReplicationConfigurationTemplateRequest";
+const _CRP = "CreateRecoveryPlan";
+const _CRPE = "CancelRecoveryPlanExecution";
+const _CRPER = "CancelRecoveryPlanExecutionRequest";
+const _CRPERa = "CancelRecoveryPlanExecutionResponse";
+const _CRPR = "CreateRecoveryPlanRequest";
+const _CRPRr = "CreateRecoveryPlanResponse";
+const _CRPS = "CreateRecoveryPlanStep";
+const _CRPSR = "CreateRecoveryPlanStepRequest";
+const _CRPSRr = "CreateRecoveryPlanStepResponse";
 const _CSN = "CfnStackName";
 const _CSNR = "CreateSourceNetworkRequest";
 const _CSNRr = "CreateSourceNetworkResponse";
@@ -62,6 +71,15 @@ const _DRIa = "DataReplicationInitiation";
 const _DRIe = "DeleteRecoveryInstance";
 const _DRIes = "DescribeRecoveryInstances";
 const _DRIi = "DisconnectRecoveryInstance";
+const _DRP = "DeleteRecoveryPlan";
+const _DRPE = "DeleteRecoveryPlanExecution";
+const _DRPER = "DeleteRecoveryPlanExecutionRequest";
+const _DRPERe = "DeleteRecoveryPlanExecutionResponse";
+const _DRPR = "DeleteRecoveryPlanRequest";
+const _DRPRe = "DeleteRecoveryPlanResponse";
+const _DRPS = "DeleteRecoveryPlanStep";
+const _DRPSR = "DeleteRecoveryPlanStepRequest";
+const _DRPSRe = "DeleteRecoveryPlanStepResponse";
 const _DRS = "DescribeRecoverySnapshots";
 const _DRSR = "DescribeRecoverySnapshotsRequest";
 const _DRSRF = "DescribeRecoverySnapshotsRequestFilters";
@@ -83,10 +101,12 @@ const _DSSRi = "DisconnectSourceServerRequest";
 const _DSSe = "DescribeSourceServers";
 const _DSSi = "DisconnectSourceServer";
 const _Di = "Disks";
+const _ED = "ErrorDetail";
 const _ERD = "EventResourceData";
 const _ESNCT = "ExportSourceNetworkCfnTemplate";
 const _ESNCTR = "ExportSourceNetworkCfnTemplateRequest";
 const _ESNCTRx = "ExportSourceNetworkCfnTemplateResponse";
+const _ESSC = "ExecutionServerStepConfiguration";
 const _GFRC = "GetFailbackReplicationConfiguration";
 const _GFRCR = "GetFailbackReplicationConfigurationRequest";
 const _GFRCRe = "GetFailbackReplicationConfigurationResponse";
@@ -94,6 +114,18 @@ const _GLC = "GetLaunchConfiguration";
 const _GLCR = "GetLaunchConfigurationRequest";
 const _GRC = "GetReplicationConfiguration";
 const _GRCR = "GetReplicationConfigurationRequest";
+const _GRP = "GetRecoveryPlan";
+const _GRPE = "GetRecoveryPlanExecution";
+const _GRPER = "GetRecoveryPlanExecutionRequest";
+const _GRPERe = "GetRecoveryPlanExecutionResponse";
+const _GRPES = "GetRecoveryPlanExecutionStep";
+const _GRPESR = "GetRecoveryPlanExecutionStepRequest";
+const _GRPESRe = "GetRecoveryPlanExecutionStepResponse";
+const _GRPR = "GetRecoveryPlanRequest";
+const _GRPRe = "GetRecoveryPlanResponse";
+const _GRPS = "GetRecoveryPlanStep";
+const _GRPSR = "GetRecoveryPlanStepRequest";
+const _GRPSRe = "GetRecoveryPlanStepResponse";
 const _IH = "IdentificationHints";
 const _IS = "InitializeService";
 const _ISE = "InternalServerException";
@@ -126,6 +158,19 @@ const _LIIP = "LaunchIntoInstanceProperties";
 const _LLA = "ListLaunchActions";
 const _LLAR = "ListLaunchActionsRequest";
 const _LLARi = "ListLaunchActionsResponse";
+const _LRP = "ListRecoveryPlans";
+const _LRPE = "ListRecoveryPlanExecutions";
+const _LRPER = "ListRecoveryPlanExecutionsRequest";
+const _LRPERi = "ListRecoveryPlanExecutionsResponse";
+const _LRPES = "ListRecoveryPlanExecutionSteps";
+const _LRPESF = "ListRecoveryPlanExecutionStepsFilter";
+const _LRPESR = "ListRecoveryPlanExecutionStepsRequest";
+const _LRPESRi = "ListRecoveryPlanExecutionStepsResponse";
+const _LRPR = "ListRecoveryPlansRequest";
+const _LRPRi = "ListRecoveryPlansResponse";
+const _LRPS = "ListRecoveryPlanSteps";
+const _LRPSR = "ListRecoveryPlanStepsRequest";
+const _LRPSRi = "ListRecoveryPlanStepsResponse";
 const _LSA = "ListStagingAccounts";
 const _LSAR = "ListStagingAccountsRequest";
 const _LSARi = "ListStagingAccountsResponse";
@@ -169,7 +214,32 @@ const _RIF = "RecoveryInstanceFailback";
 const _RIP = "RecoveryInstanceProperties";
 const _RLC = "RecoveryLifeCycle";
 const _RNFE = "ResourceNotFoundException";
+const _RP = "RecoveryPlan";
+const _RPE = "RecoveryPlanExecution";
+const _RPES = "RecoveryPlanExecutionServer";
+const _RPESC = "RecoveryPlanExecutionStepConfiguration";
+const _RPESL = "RecoveryPlanExecutionSummaryList";
+const _RPESS = "RecoveryPlanExecutionSourceServer";
+const _RPESSL = "RecoveryPlanExecutionSourceServerList";
+const _RPESSLe = "RecoveryPlanExecutionStepSummaryList";
+const _RPESSe = "RecoveryPlanExecutionStepSummary";
+const _RPESe = "RecoveryPlanExecutionStep";
+const _RPESec = "RecoveryPlanExecutionSummary";
+const _RPESeco = "RecoveryPlanExecutionServers";
+const _RPS = "RecoveryPlanServer";
+const _RPSC = "RecoveryPlanStepConfiguration";
+const _RPSL = "RecoveryPlanStepList";
+const _RPSLe = "RecoveryPlanSummaryList";
+const _RPSe = "RecoveryPlanStep";
+const _RPSec = "RecoveryPlanSummary";
+const _RPSeco = "RecoveryPlanServers";
 const _RR = "ReverseReplication";
+const _RRPES = "RetryRecoveryPlanExecutionStep";
+const _RRPESR = "RetryRecoveryPlanExecutionStepRequest";
+const _RRPESRe = "RetryRecoveryPlanExecutionStepResponse";
+const _RRPS = "ReorderRecoveryPlanSteps";
+const _RRPSR = "ReorderRecoveryPlanStepsRequest";
+const _RRPSRe = "ReorderRecoveryPlanStepsResponse";
 const _RRR = "ReverseReplicationRequest";
 const _RRRe = "ReverseReplicationResponse";
 const _RS = "RecoverySnapshot";
@@ -188,6 +258,9 @@ const _SNL = "SourceNetworksList";
 const _SP = "SourceProperties";
 const _SQEE = "ServiceQuotaExceededException";
 const _SR = "StartRecovery";
+const _SRPE = "StartRecoveryPlanExecution";
+const _SRPER = "StartRecoveryPlanExecutionRequest";
+const _SRPERt = "StartRecoveryPlanExecutionResponse";
 const _SRR = "StartRecoveryRequest";
 const _SRRSS = "StartRecoveryRequestSourceServer";
 const _SRRSSt = "StartRecoveryRequestSourceServers";
@@ -199,6 +272,7 @@ const _SRRtop = "StopReplicationResponse";
 const _SRt = "StartReplication";
 const _SRto = "StopReplication";
 const _SS = "SourceServer";
+const _SSC = "ServerStepConfiguration";
 const _SSL = "SourceServersList";
 const _SSNR = "StartSourceNetworkRecovery";
 const _SSNRR = "StartSourceNetworkRecoveryRequest";
@@ -234,12 +308,22 @@ const _URC = "UpdateReplicationConfiguration";
 const _URCR = "UpdateReplicationConfigurationRequest";
 const _URCT = "UpdateReplicationConfigurationTemplate";
 const _URCTR = "UpdateReplicationConfigurationTemplateRequest";
+const _URP = "UpdateRecoveryPlan";
+const _URPES = "UpdateRecoveryPlanExecutionStep";
+const _URPESR = "UpdateRecoveryPlanExecutionStepRequest";
+const _URPESRp = "UpdateRecoveryPlanExecutionStepResponse";
+const _URPR = "UpdateRecoveryPlanRequest";
+const _URPRp = "UpdateRecoveryPlanResponse";
+const _URPS = "UpdateRecoveryPlanStep";
+const _URPSR = "UpdateRecoveryPlanStepRequest";
+const _URPSRp = "UpdateRecoveryPlanStepResponse";
 const _URR = "UntagResourceRequest";
 const _VE = "ValidationException";
 const _VEF = "ValidationExceptionField";
 const _VEFL = "ValidationExceptionFieldList";
 const _VTCM = "VolumeToConversionMap";
 const _VTPC = "VolumeToProductCodes";
+const _WSC = "WaitStepConfiguration";
 const _a = "arn";
 const _aC = "attemptCount";
 const _aCDT = "apiCallDateTime";
@@ -257,10 +341,13 @@ const _aVg = "agentVersion";
 const _ac = "active";
 const _acc = "accounts";
 const _act = "action";
+const _at = "attempt";
 const _b = "bytes";
 const _bSB = "backloggedStorageBytes";
 const _bT = "bandwidthThrottling";
 const _c = "client";
+const _cA = "createdAt";
+const _cAo = "completedAt";
 const _cDT = "creationDateTime";
 const _cP = "conversionProperties";
 const _cPI = "copyPrivateIp";
@@ -268,8 +355,10 @@ const _cPIP = "createPublicIP";
 const _cSID = "conversionServerID";
 const _cSN = "cfnStackName";
 const _cT = "copyTags";
+const _cTl = "clientToken";
 const _ca = "category";
 const _co = "code";
+const _con = "configuration";
 const _cor = "cores";
 const _cp = "cpus";
 const _d = "description";
@@ -288,6 +377,7 @@ const _eBA = "exportBucketArn";
 const _eD = "eventData";
 const _eDT = "etaDateTime";
 const _eDTn = "endDateTime";
+const _eDr = "errorDetail";
 const _eE = "ebsEncryption";
 const _eEKA = "ebsEncryptionKeyArn";
 const _eIID = "ec2InstanceID";
@@ -297,6 +387,7 @@ const _eM = "errorMessage";
 const _eRD = "eventResourceData";
 const _eRDl = "elapsedReplicationDuration";
 const _eS = "ebsSnapshots";
+const _eSSC = "executionServerStepConfiguration";
 const _eT = "expectedTimestamp";
 const _eVID = "ebsVolumeID";
 const _en = "enabled";
@@ -316,6 +407,7 @@ const _fS = "fullString";
 const _fTOS = "failbackToOriginalServer";
 const _fU = "forceUefi";
 const _fa = "failback";
+const _fi = "filter";
 const _fq = "fqdn";
 const _h = "hostname";
 const _hE = "httpError";
@@ -329,6 +421,7 @@ const _iBD = "isBootDisk";
 const _iD = "isDrill";
 const _iDN = "internalDeviceName";
 const _iH = "identificationHints";
+const _iL = "impactLevel";
 const _iP = "internetProtocol";
 const _iPs = "isPrimary";
 const _in = "initiated";
@@ -363,6 +456,7 @@ const _mA = "macAddress";
 const _mAC = "maxAttemptsCount";
 const _mN = "modelName";
 const _mR = "maxResults";
+const _mo = "mode";
 const _n = "name";
 const _nADT = "nextAttemptDateTime";
 const _nI = "networkInterfaces";
@@ -373,6 +467,7 @@ const _oAZ = "originAvailabilityZone";
 const _oB = "osByol";
 const _oE = "originEnvironment";
 const _oR = "originRegion";
+const _oSA = "orderedStepArns";
 const _oSDT = "optimizedStagingDiskType";
 const _op = "optional";
 const _os = "os";
@@ -406,6 +501,18 @@ const _rIP = "recoveryInstanceProperties";
 const _rIT = "recommendedInstanceType";
 const _rIu = "runId";
 const _rM = "recoveryMode";
+const _rP = "recoveryPlan";
+const _rPA = "recoveryPlanArn";
+const _rPE = "recoveryPlanExecution";
+const _rPEA = "recoveryPlanExecutionArn";
+const _rPES = "recoveryPlanExecutionStep";
+const _rPESA = "recoveryPlanExecutionStepArn";
+const _rPESe = "recoveryPlanExecutionSteps";
+const _rPEe = "recoveryPlanExecutions";
+const _rPS = "recoveryPlanStep";
+const _rPSA = "recoveryPlanStepArn";
+const _rPSe = "recoveryPlanSteps";
+const _rPe = "recoveryPlans";
 const _rS = "replicationStatus";
 const _rSB = "replicatedStorageBytes";
 const _rSBe = "rescannedStorageBytes";
@@ -417,7 +524,7 @@ const _rT = "resourceType";
 const _rVN = "rootVolumeName";
 const _ru = "runs";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.drs";
-const _sA = "stagingArea";
+const _sA = "startedAt";
 const _sADD = "ssmAgentDiscoveryDatetime";
 const _sAID = "stagingAccountIDs";
 const _sAIDo = "sourceAccountID";
@@ -425,25 +532,31 @@ const _sAIDt = "stagingAccountID";
 const _sASI = "stagingAreaSubnetId";
 const _sAT = "stagingAreaTags";
 const _sAZ = "stagingAvailabilityZone";
+const _sAe = "serverArn";
+const _sAt = "stagingArea";
 const _sC = "serviceCode";
 const _sCP = "sourceCloudProperties";
 const _sDT = "startDateTime";
 const _sDTt = "stagingDiskType";
 const _sDU = "s3DestinationUrl";
+const _sI = "stepIndex";
 const _sID = "snapshotID";
-const _sN = "stackName";
+const _sN = "stepName";
 const _sND = "sourceNetworkData";
 const _sNI = "supportsNitroInstances";
 const _sNID = "sourceNetworkID";
 const _sNIDo = "sourceNetworkIDs";
 const _sNo = "sourceNetworks";
 const _sNou = "sourceNetwork";
+const _sNt = "stackName";
+const _sO = "stepOrder";
 const _sOA = "stagingOutpostArn";
 const _sOAo = "sourceOutpostArn";
 const _sP = "sourceProperties";
 const _sR = "sourceRegion";
 const _sS = "sourceServer";
 const _sSA = "sourceServerArn";
+const _sSC = "serverStepConfiguration";
 const _sSID = "sourceServerID";
 const _sSIDo = "sourceServerIDs";
 const _sSSA = "stagingSourceServerArn";
@@ -451,6 +564,7 @@ const _sSo = "sourceServers";
 const _sV = "sourceVpc";
 const _sVID = "sourceVpcID";
 const _se = "server";
+const _ser = "servers";
 const _st = "steps";
 const _sta = "status";
 const _stat = "state";
@@ -466,6 +580,7 @@ const _th = "throughput";
 const _ti = "timestamp";
 const _ty = "type";
 const _u = "units";
+const _uA = "updatedAt";
 const _uDRS = "useDedicatedReplicationServer";
 const _uPIP = "usePrivateIP";
 const _v = "value";
@@ -475,6 +590,8 @@ const _vTCM = "volumeToConversionMap";
 const _vTPC = "volumeToProductCodes";
 const _vTVS = "volumeToVolumeSize";
 const _vWU = "vmWareUuid";
+const _wDM = "waitDurationMinutes";
+const _wSC = "waitStepConfiguration";
 const n0 = "com.amazonaws.drs";
 
 // smithy-typescript generated code
@@ -580,6 +697,16 @@ export var AssociateSourceNetworkStackResponse$: StaticStructureSchema = [3, n0,
   [_j],
   [[() => Job$, 0]]
 ];
+export var CancelRecoveryPlanExecutionRequest$: StaticStructureSchema = [3, n0, _CRPER,
+  0,
+  [_rPEA],
+  [0], 1
+];
+export var CancelRecoveryPlanExecutionResponse$: StaticStructureSchema = [3, n0, _CRPERa,
+  0,
+  [_rPE],
+  [[() => RecoveryPlanExecution$, 0]], 1
+];
 export var ConversionProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
   [_vTCM, _rVN, _fU, _dT, _vTVS, _vTPC],
@@ -609,6 +736,26 @@ export var CreateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
   0,
   [_lCT],
   [[() => LaunchConfigurationTemplate$, 0]]
+];
+export var CreateRecoveryPlanRequest$: StaticStructureSchema = [3, n0, _CRPR,
+  0,
+  [_n, _d, _cTl, _t],
+  [0, 0, [0, 4], [() => TagsMap, 0]], 1
+];
+export var CreateRecoveryPlanResponse$: StaticStructureSchema = [3, n0, _CRPRr,
+  0,
+  [_rP],
+  [[() => RecoveryPlan$, 0]], 1
+];
+export var CreateRecoveryPlanStepRequest$: StaticStructureSchema = [3, n0, _CRPSR,
+  0,
+  [_rPA, _sN, _con, _sO, _cTl],
+  [0, 0, () => RecoveryPlanStepConfiguration$, 1, [0, 4]], 3
+];
+export var CreateRecoveryPlanStepResponse$: StaticStructureSchema = [3, n0, _CRPSRr,
+  0,
+  [_rPS],
+  [() => RecoveryPlanStep$], 1
 ];
 export var CreateReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _CRCTR,
   0,
@@ -683,6 +830,36 @@ export var DeleteLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
 export var DeleteRecoveryInstanceRequest$: StaticStructureSchema = [3, n0, _DRIR,
   0,
   [_rIID],
+  [0], 1
+];
+export var DeleteRecoveryPlanExecutionRequest$: StaticStructureSchema = [3, n0, _DRPER,
+  0,
+  [_rPEA],
+  [0], 1
+];
+export var DeleteRecoveryPlanExecutionResponse$: StaticStructureSchema = [3, n0, _DRPERe,
+  0,
+  [_rPEA],
+  [0], 1
+];
+export var DeleteRecoveryPlanRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_rPA],
+  [0], 1
+];
+export var DeleteRecoveryPlanResponse$: StaticStructureSchema = [3, n0, _DRPRe,
+  0,
+  [_rPA],
+  [0], 1
+];
+export var DeleteRecoveryPlanStepRequest$: StaticStructureSchema = [3, n0, _DRPSR,
+  0,
+  [_rPSA],
+  [0], 1
+];
+export var DeleteRecoveryPlanStepResponse$: StaticStructureSchema = [3, n0, _DRPSRe,
+  0,
+  [_rPSA],
   [0], 1
 ];
 export var DeleteReplicationConfigurationTemplateRequest$: StaticStructureSchema = [3, n0, _DRCTR,
@@ -835,6 +1012,16 @@ export var Disk$: StaticStructureSchema = [3, n0, _D,
   [_dN, _b],
   [0, 1]
 ];
+export var ErrorDetail$: StaticStructureSchema = [3, n0, _ED,
+  0,
+  [_m, _co],
+  [0, 0], 2
+];
+export var ExecutionServerStepConfiguration$: StaticStructureSchema = [3, n0, _ESSC,
+  0,
+  [_ser],
+  [() => RecoveryPlanExecutionServers], 1
+];
 export var ExportSourceNetworkCfnTemplateRequest$: StaticStructureSchema = [3, n0, _ESNCTR,
   0,
   [_sNID],
@@ -859,6 +1046,46 @@ export var GetLaunchConfigurationRequest$: StaticStructureSchema = [3, n0, _GLCR
   0,
   [_sSID],
   [0], 1
+];
+export var GetRecoveryPlanExecutionRequest$: StaticStructureSchema = [3, n0, _GRPER,
+  0,
+  [_rPEA],
+  [0], 1
+];
+export var GetRecoveryPlanExecutionResponse$: StaticStructureSchema = [3, n0, _GRPERe,
+  0,
+  [_rPE],
+  [[() => RecoveryPlanExecution$, 0]], 1
+];
+export var GetRecoveryPlanExecutionStepRequest$: StaticStructureSchema = [3, n0, _GRPESR,
+  0,
+  [_rPESA],
+  [0], 1
+];
+export var GetRecoveryPlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _GRPESRe,
+  0,
+  [_rPES],
+  [() => RecoveryPlanExecutionStep$], 1
+];
+export var GetRecoveryPlanRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [_rPA],
+  [0], 1
+];
+export var GetRecoveryPlanResponse$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_rP],
+  [[() => RecoveryPlan$, 0]], 1
+];
+export var GetRecoveryPlanStepRequest$: StaticStructureSchema = [3, n0, _GRPSR,
+  0,
+  [_rPSA],
+  [0], 1
+];
+export var GetRecoveryPlanStepResponse$: StaticStructureSchema = [3, n0, _GRPSRe,
+  0,
+  [_rPS],
+  [() => RecoveryPlanStep$], 1
 ];
 export var GetReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _GRCR,
   0,
@@ -975,6 +1202,51 @@ export var ListLaunchActionsResponse$: StaticStructureSchema = [3, n0, _LLARi,
   [_i, _nT],
   [() => LaunchActions, 0]
 ];
+export var ListRecoveryPlanExecutionsRequest$: StaticStructureSchema = [3, n0, _LRPER,
+  0,
+  [_rPA, _sta, _mR, _nT],
+  [0, 0, 1, 0]
+];
+export var ListRecoveryPlanExecutionsResponse$: StaticStructureSchema = [3, n0, _LRPERi,
+  0,
+  [_rPEe, _nT],
+  [() => RecoveryPlanExecutionSummaryList, 0], 1
+];
+export var ListRecoveryPlanExecutionStepsFilter$: StaticStructureSchema = [3, n0, _LRPESF,
+  0,
+  [_sta],
+  [0]
+];
+export var ListRecoveryPlanExecutionStepsRequest$: StaticStructureSchema = [3, n0, _LRPESR,
+  0,
+  [_rPEA, _fi, _mR, _nT],
+  [0, () => ListRecoveryPlanExecutionStepsFilter$, 1, 0], 1
+];
+export var ListRecoveryPlanExecutionStepsResponse$: StaticStructureSchema = [3, n0, _LRPESRi,
+  0,
+  [_rPESe, _nT],
+  [() => RecoveryPlanExecutionStepSummaryList, 0], 1
+];
+export var ListRecoveryPlansRequest$: StaticStructureSchema = [3, n0, _LRPR,
+  0,
+  [_mR, _nT],
+  [1, 0]
+];
+export var ListRecoveryPlansResponse$: StaticStructureSchema = [3, n0, _LRPRi,
+  0,
+  [_rPe, _nT],
+  [() => RecoveryPlanSummaryList, 0], 1
+];
+export var ListRecoveryPlanStepsRequest$: StaticStructureSchema = [3, n0, _LRPSR,
+  0,
+  [_rPA, _mR, _nT],
+  [0, 1, 0], 1
+];
+export var ListRecoveryPlanStepsResponse$: StaticStructureSchema = [3, n0, _LRPSRi,
+  0,
+  [_rPSe, _nT],
+  [() => RecoveryPlanStepList, 0], 1
+];
 export var ListStagingAccountsRequest$: StaticStructureSchema = [3, n0, _LSAR,
   0,
   [_mR, _nT],
@@ -1085,10 +1357,70 @@ export var RecoveryLifeCycle$: StaticStructureSchema = [3, n0, _RLC,
   [_aCDT, _jID, _lRR],
   [5, 0, 0]
 ];
+export var RecoveryPlan$: StaticStructureSchema = [3, n0, _RP,
+  0,
+  [_rPA, _n, _sta, _cA, _uA, _d, _t],
+  [0, 0, 0, 0, 0, 0, [() => TagsMap, 0]], 5
+];
+export var RecoveryPlanExecution$: StaticStructureSchema = [3, n0, _RPE,
+  0,
+  [_rPEA, _rPA, _mo, _sta, _sA, _cAo, _eDr, _t],
+  [0, 0, 0, 0, 0, 0, () => ErrorDetail$, [() => TagsMap, 0]], 5
+];
+export var RecoveryPlanExecutionServer$: StaticStructureSchema = [3, n0, _RPES,
+  0,
+  [_sAe, _iL, _jID],
+  [0, 0, 0], 1
+];
+export var RecoveryPlanExecutionSourceServer$: StaticStructureSchema = [3, n0, _RPESS,
+  0,
+  [_sSID, _rSID],
+  [0, 0], 2
+];
+export var RecoveryPlanExecutionStep$: StaticStructureSchema = [3, n0, _RPESe,
+  0,
+  [_rPESA, _sI, _sta, _sN, _con, _at, _cA, _uA, _eDr],
+  [0, 1, 0, 0, () => RecoveryPlanExecutionStepConfiguration$, 1, 0, 0, () => ErrorDetail$], 8
+];
+export var RecoveryPlanExecutionStepSummary$: StaticStructureSchema = [3, n0, _RPESSe,
+  0,
+  [_rPESA, _sN, _sI, _sta, _con, _eDr],
+  [0, 0, 1, 0, () => RecoveryPlanExecutionStepConfiguration$, () => ErrorDetail$], 5
+];
+export var RecoveryPlanExecutionSummary$: StaticStructureSchema = [3, n0, _RPESec,
+  0,
+  [_rPEA, _rPA, _mo, _sta, _sA, _eDr],
+  [0, 0, 0, 0, 0, () => ErrorDetail$], 5
+];
+export var RecoveryPlanServer$: StaticStructureSchema = [3, n0, _RPS,
+  0,
+  [_sAe, _iL],
+  [0, 0], 1
+];
+export var RecoveryPlanStep$: StaticStructureSchema = [3, n0, _RPSe,
+  0,
+  [_rPSA, _sO, _sN, _con, _cA, _uA],
+  [0, 1, 0, () => RecoveryPlanStepConfiguration$, 0, 0], 6
+];
+export var RecoveryPlanSummary$: StaticStructureSchema = [3, n0, _RPSec,
+  0,
+  [_rPA, _n, _sta, _cA, _uA],
+  [0, 0, 0, 0, 0], 5
+];
 export var RecoverySnapshot$: StaticStructureSchema = [3, n0, _RS,
   0,
   [_sID, _sSID, _eT, _ti, _eS],
   [0, 0, 0, 0, 64 | 0], 3
+];
+export var ReorderRecoveryPlanStepsRequest$: StaticStructureSchema = [3, n0, _RRPSR,
+  0,
+  [_rPA, _oSA],
+  [0, 64 | 0], 2
+];
+export var ReorderRecoveryPlanStepsResponse$: StaticStructureSchema = [3, n0, _RRPSRe,
+  0,
+  [_rPSe],
+  [() => RecoveryPlanStepList], 1
 ];
 export var ReplicationConfiguration$: StaticStructureSchema = [3, n0, _RC,
   0,
@@ -1110,6 +1442,16 @@ export var RetryDataReplicationRequest$: StaticStructureSchema = [3, n0, _RDRR,
   [_sSID],
   [0], 1
 ];
+export var RetryRecoveryPlanExecutionStepRequest$: StaticStructureSchema = [3, n0, _RRPESR,
+  0,
+  [_rPESA],
+  [0], 1
+];
+export var RetryRecoveryPlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _RRPESRe,
+  0,
+  [_rPES],
+  [() => RecoveryPlanExecutionStep$], 1
+];
 export var ReverseReplicationRequest$: StaticStructureSchema = [3, n0, _RRR,
   0,
   [_rIID],
@@ -1119,6 +1461,11 @@ export var ReverseReplicationResponse$: StaticStructureSchema = [3, n0, _RRRe,
   0,
   [_rDSSA],
   [0]
+];
+export var ServerStepConfiguration$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_ser],
+  [() => RecoveryPlanServers], 1
 ];
 export var SourceCloudProperties$: StaticStructureSchema = [3, n0, _SCP,
   0,
@@ -1132,7 +1479,7 @@ export var SourceNetwork$: StaticStructureSchema = [3, n0, _SN,
 ];
 export var SourceNetworkData$: StaticStructureSchema = [3, n0, _SND,
   0,
-  [_sNID, _sV, _tV, _sN],
+  [_sNID, _sV, _tV, _sNt],
   [0, 0, 0, 0]
 ];
 export var SourceProperties$: StaticStructureSchema = [3, n0, _SP,
@@ -1142,7 +1489,7 @@ export var SourceProperties$: StaticStructureSchema = [3, n0, _SP,
 ];
 export var SourceServer$: StaticStructureSchema = [3, n0, _SS,
   0,
-  [_sSID, _a, _t, _rII, _lLR, _dRIa, _lC, _sP, _sA, _sCP, _rDep, _rDSSA, _sNID, _aVg],
+  [_sSID, _a, _t, _rII, _lLR, _dRIa, _lC, _sP, _sAt, _sCP, _rDep, _rDSSA, _sNID, _aVg],
   [0, 0, [() => TagsMap, 0], 0, 0, () => DataReplicationInfo$, () => LifeCycle$, () => SourceProperties$, () => StagingArea$, () => SourceCloudProperties$, 0, 0, 0, 0]
 ];
 export var StagingArea$: StaticStructureSchema = [3, n0, _SA,
@@ -1164,6 +1511,16 @@ export var StartFailbackLaunchResponse$: StaticStructureSchema = [3, n0, _SFLRt,
   0,
   [_j],
   [[() => Job$, 0]]
+];
+export var StartRecoveryPlanExecutionRequest$: StaticStructureSchema = [3, n0, _SRPER,
+  0,
+  [_rPA, _mo, _cTl, _sSo, _t],
+  [0, 0, [0, 4], () => RecoveryPlanExecutionSourceServerList, [() => TagsMap, 0]], 2
+];
+export var StartRecoveryPlanExecutionResponse$: StaticStructureSchema = [3, n0, _SRPERt,
+  0,
+  [_rPE],
+  [[() => RecoveryPlanExecution$, 0]], 1
 ];
 export var StartRecoveryRequest$: StaticStructureSchema = [3, n0, _SRR,
   0,
@@ -1280,6 +1637,36 @@ export var UpdateLaunchConfigurationTemplateResponse$: StaticStructureSchema = [
   [_lCT],
   [[() => LaunchConfigurationTemplate$, 0]]
 ];
+export var UpdateRecoveryPlanExecutionStepRequest$: StaticStructureSchema = [3, n0, _URPESR,
+  0,
+  [_rPESA, _sta, _ser, _wDM],
+  [0, 0, () => RecoveryPlanServers, 1], 1
+];
+export var UpdateRecoveryPlanExecutionStepResponse$: StaticStructureSchema = [3, n0, _URPESRp,
+  0,
+  [_rPES],
+  [() => RecoveryPlanExecutionStep$], 1
+];
+export var UpdateRecoveryPlanRequest$: StaticStructureSchema = [3, n0, _URPR,
+  0,
+  [_rPA, _n, _d],
+  [0, 0, 0], 1
+];
+export var UpdateRecoveryPlanResponse$: StaticStructureSchema = [3, n0, _URPRp,
+  0,
+  [_rP],
+  [[() => RecoveryPlan$, 0]], 1
+];
+export var UpdateRecoveryPlanStepRequest$: StaticStructureSchema = [3, n0, _URPSR,
+  0,
+  [_rPSA, _sN, _con],
+  [0, 0, () => RecoveryPlanStepConfiguration$], 1
+];
+export var UpdateRecoveryPlanStepResponse$: StaticStructureSchema = [3, n0, _URPSRp,
+  0,
+  [_rPS],
+  [() => RecoveryPlanStep$], 1
+];
 export var UpdateReplicationConfigurationRequest$: StaticStructureSchema = [3, n0, _URCR,
   0,
   [_sSID, _n, _sASI, _aDSG, _rSSGID, _rSIT, _uDRS, _dLSDT, _rD, _eE, _eEKA, _bT, _dPR, _cPIP, _sAT, _pP, _aRND, _iP],
@@ -1294,6 +1681,11 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
   [_n, _m],
   [0, 0]
+];
+export var WaitStepConfiguration$: StaticStructureSchema = [3, n0, _WSC,
+  0,
+  [_wDM],
+  [1], 1
 ];
 var __Unit = "unit" as const;
 var AccountIDs = 64 | 0;
@@ -1366,6 +1758,28 @@ var RecoveryInstanceDisks: StaticListSchema = [1, n0, _RIDe,
 ];
 var RecoveryInstanceIDs = 64 | 0;
 var RecoveryInstancesForTerminationRequest = 64 | 0;
+var RecoveryPlanExecutionServers: StaticListSchema = [1, n0, _RPESeco,
+  0, () => RecoveryPlanExecutionServer$
+];
+var RecoveryPlanExecutionSourceServerList: StaticListSchema = [1, n0, _RPESSL,
+  0, () => RecoveryPlanExecutionSourceServer$
+];
+var RecoveryPlanExecutionStepSummaryList: StaticListSchema = [1, n0, _RPESSLe,
+  0, () => RecoveryPlanExecutionStepSummary$
+];
+var RecoveryPlanExecutionSummaryList: StaticListSchema = [1, n0, _RPESL,
+  0, () => RecoveryPlanExecutionSummary$
+];
+var RecoveryPlanServers: StaticListSchema = [1, n0, _RPSeco,
+  0, () => RecoveryPlanServer$
+];
+var RecoveryPlanStepArnList = 64 | 0;
+var RecoveryPlanStepList: StaticListSchema = [1, n0, _RPSL,
+  0, () => RecoveryPlanStep$
+];
+var RecoveryPlanSummaryList: StaticListSchema = [1, n0, _RPSLe,
+  0, () => RecoveryPlanSummary$
+];
 var RecoverySnapshotsList: StaticListSchema = [1, n0, _RSL,
   0, () => RecoverySnapshot$
 ];
@@ -1429,14 +1843,33 @@ export var ParticipatingResourceID$: StaticUnionSchema = [4, n0, _PRID,
   [_sNID],
   [0]
 ];
+export var RecoveryPlanExecutionStepConfiguration$: StaticUnionSchema = [4, n0, _RPESC,
+  0,
+  [_eSSC, _wSC],
+  [() => ExecutionServerStepConfiguration$, () => WaitStepConfiguration$]
+];
+export var RecoveryPlanStepConfiguration$: StaticUnionSchema = [4, n0, _RPSC,
+  0,
+  [_sSC, _wSC],
+  [() => ServerStepConfiguration$, () => WaitStepConfiguration$]
+];
 export var AssociateSourceNetworkStack$: StaticOperationSchema = [9, n0, _ASNS,
   { [_ht]: ["POST", "/AssociateSourceNetworkStack", 202] }, () => AssociateSourceNetworkStackRequest$, () => AssociateSourceNetworkStackResponse$
+];
+export var CancelRecoveryPlanExecution$: StaticOperationSchema = [9, n0, _CRPE,
+  { [_ht]: ["POST", "/CancelRecoveryPlanExecution", 200] }, () => CancelRecoveryPlanExecutionRequest$, () => CancelRecoveryPlanExecutionResponse$
 ];
 export var CreateExtendedSourceServer$: StaticOperationSchema = [9, n0, _CESS,
   { [_ht]: ["POST", "/CreateExtendedSourceServer", 201] }, () => CreateExtendedSourceServerRequest$, () => CreateExtendedSourceServerResponse$
 ];
 export var CreateLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _CLCT,
   { [_ht]: ["POST", "/CreateLaunchConfigurationTemplate", 201] }, () => CreateLaunchConfigurationTemplateRequest$, () => CreateLaunchConfigurationTemplateResponse$
+];
+export var CreateRecoveryPlan$: StaticOperationSchema = [9, n0, _CRP,
+  { [_ht]: ["POST", "/CreateRecoveryPlan", 201] }, () => CreateRecoveryPlanRequest$, () => CreateRecoveryPlanResponse$
+];
+export var CreateRecoveryPlanStep$: StaticOperationSchema = [9, n0, _CRPS,
+  { [_ht]: ["POST", "/CreateRecoveryPlanStep", 201] }, () => CreateRecoveryPlanStepRequest$, () => CreateRecoveryPlanStepResponse$
 ];
 export var CreateReplicationConfigurationTemplate$: StaticOperationSchema = [9, n0, _CRCT,
   { [_ht]: ["POST", "/CreateReplicationConfigurationTemplate", 201] }, () => CreateReplicationConfigurationTemplateRequest$, () => ReplicationConfigurationTemplate$
@@ -1455,6 +1888,15 @@ export var DeleteLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _
 ];
 export var DeleteRecoveryInstance$: StaticOperationSchema = [9, n0, _DRIe,
   { [_ht]: ["POST", "/DeleteRecoveryInstance", 200] }, () => DeleteRecoveryInstanceRequest$, () => __Unit
+];
+export var DeleteRecoveryPlan$: StaticOperationSchema = [9, n0, _DRP,
+  { [_ht]: ["POST", "/DeleteRecoveryPlan", 200] }, () => DeleteRecoveryPlanRequest$, () => DeleteRecoveryPlanResponse$
+];
+export var DeleteRecoveryPlanExecution$: StaticOperationSchema = [9, n0, _DRPE,
+  { [_ht]: ["POST", "/DeleteRecoveryPlanExecution", 200] }, () => DeleteRecoveryPlanExecutionRequest$, () => DeleteRecoveryPlanExecutionResponse$
+];
+export var DeleteRecoveryPlanStep$: StaticOperationSchema = [9, n0, _DRPS,
+  { [_ht]: ["POST", "/DeleteRecoveryPlanStep", 200] }, () => DeleteRecoveryPlanStepRequest$, () => DeleteRecoveryPlanStepResponse$
 ];
 export var DeleteReplicationConfigurationTemplate$: StaticOperationSchema = [9, n0, _DRCT,
   { [_ht]: ["POST", "/DeleteReplicationConfigurationTemplate", 204] }, () => DeleteReplicationConfigurationTemplateRequest$, () => DeleteReplicationConfigurationTemplateResponse$
@@ -1504,6 +1946,18 @@ export var GetFailbackReplicationConfiguration$: StaticOperationSchema = [9, n0,
 export var GetLaunchConfiguration$: StaticOperationSchema = [9, n0, _GLC,
   { [_ht]: ["POST", "/GetLaunchConfiguration", 200] }, () => GetLaunchConfigurationRequest$, () => LaunchConfiguration$
 ];
+export var GetRecoveryPlan$: StaticOperationSchema = [9, n0, _GRP,
+  { [_ht]: ["POST", "/GetRecoveryPlan", 200] }, () => GetRecoveryPlanRequest$, () => GetRecoveryPlanResponse$
+];
+export var GetRecoveryPlanExecution$: StaticOperationSchema = [9, n0, _GRPE,
+  { [_ht]: ["POST", "/GetRecoveryPlanExecution", 200] }, () => GetRecoveryPlanExecutionRequest$, () => GetRecoveryPlanExecutionResponse$
+];
+export var GetRecoveryPlanExecutionStep$: StaticOperationSchema = [9, n0, _GRPES,
+  { [_ht]: ["POST", "/GetRecoveryPlanExecutionStep", 200] }, () => GetRecoveryPlanExecutionStepRequest$, () => GetRecoveryPlanExecutionStepResponse$
+];
+export var GetRecoveryPlanStep$: StaticOperationSchema = [9, n0, _GRPS,
+  { [_ht]: ["POST", "/GetRecoveryPlanStep", 200] }, () => GetRecoveryPlanStepRequest$, () => GetRecoveryPlanStepResponse$
+];
 export var GetReplicationConfiguration$: StaticOperationSchema = [9, n0, _GRC,
   { [_ht]: ["POST", "/GetReplicationConfiguration", 200] }, () => GetReplicationConfigurationRequest$, () => ReplicationConfiguration$
 ];
@@ -1516,6 +1970,18 @@ export var ListExtensibleSourceServers$: StaticOperationSchema = [9, n0, _LESS,
 export var ListLaunchActions$: StaticOperationSchema = [9, n0, _LLA,
   { [_ht]: ["POST", "/ListLaunchActions", 200] }, () => ListLaunchActionsRequest$, () => ListLaunchActionsResponse$
 ];
+export var ListRecoveryPlanExecutions$: StaticOperationSchema = [9, n0, _LRPE,
+  { [_ht]: ["POST", "/ListRecoveryPlanExecutions", 200] }, () => ListRecoveryPlanExecutionsRequest$, () => ListRecoveryPlanExecutionsResponse$
+];
+export var ListRecoveryPlanExecutionSteps$: StaticOperationSchema = [9, n0, _LRPES,
+  { [_ht]: ["POST", "/ListRecoveryPlanExecutionSteps", 200] }, () => ListRecoveryPlanExecutionStepsRequest$, () => ListRecoveryPlanExecutionStepsResponse$
+];
+export var ListRecoveryPlans$: StaticOperationSchema = [9, n0, _LRP,
+  { [_ht]: ["POST", "/ListRecoveryPlans", 200] }, () => ListRecoveryPlansRequest$, () => ListRecoveryPlansResponse$
+];
+export var ListRecoveryPlanSteps$: StaticOperationSchema = [9, n0, _LRPS,
+  { [_ht]: ["POST", "/ListRecoveryPlanSteps", 200] }, () => ListRecoveryPlanStepsRequest$, () => ListRecoveryPlanStepsResponse$
+];
 export var ListStagingAccounts$: StaticOperationSchema = [9, n0, _LSA,
   { [_ht]: ["GET", "/ListStagingAccounts", 200] }, () => ListStagingAccountsRequest$, () => ListStagingAccountsResponse$
 ];
@@ -1525,8 +1991,14 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 export var PutLaunchAction$: StaticOperationSchema = [9, n0, _PLA,
   { [_ht]: ["POST", "/PutLaunchAction", 200] }, () => PutLaunchActionRequest$, () => PutLaunchActionResponse$
 ];
+export var ReorderRecoveryPlanSteps$: StaticOperationSchema = [9, n0, _RRPS,
+  { [_ht]: ["POST", "/ReorderRecoveryPlanSteps", 200] }, () => ReorderRecoveryPlanStepsRequest$, () => ReorderRecoveryPlanStepsResponse$
+];
 export var RetryDataReplication$: StaticOperationSchema = [9, n0, _RDR,
   { [_ht]: ["POST", "/RetryDataReplication", 200] }, () => RetryDataReplicationRequest$, () => SourceServer$
+];
+export var RetryRecoveryPlanExecutionStep$: StaticOperationSchema = [9, n0, _RRPES,
+  { [_ht]: ["POST", "/RetryRecoveryPlanExecutionStep", 200] }, () => RetryRecoveryPlanExecutionStepRequest$, () => RetryRecoveryPlanExecutionStepResponse$
 ];
 export var ReverseReplication$: StaticOperationSchema = [9, n0, _RR,
   { [_ht]: ["POST", "/ReverseReplication", 200] }, () => ReverseReplicationRequest$, () => ReverseReplicationResponse$
@@ -1536,6 +2008,9 @@ export var StartFailbackLaunch$: StaticOperationSchema = [9, n0, _SFL,
 ];
 export var StartRecovery$: StaticOperationSchema = [9, n0, _SR,
   { [_ht]: ["POST", "/StartRecovery", 202] }, () => StartRecoveryRequest$, () => StartRecoveryResponse$
+];
+export var StartRecoveryPlanExecution$: StaticOperationSchema = [9, n0, _SRPE,
+  { [_ht]: ["POST", "/StartRecoveryPlanExecution", 201] }, () => StartRecoveryPlanExecutionRequest$, () => StartRecoveryPlanExecutionResponse$
 ];
 export var StartReplication$: StaticOperationSchema = [9, n0, _SRt,
   { [_ht]: ["POST", "/StartReplication", 200] }, () => StartReplicationRequest$, () => StartReplicationResponse$
@@ -1572,6 +2047,15 @@ export var UpdateLaunchConfiguration$: StaticOperationSchema = [9, n0, _ULC,
 ];
 export var UpdateLaunchConfigurationTemplate$: StaticOperationSchema = [9, n0, _ULCT,
   { [_ht]: ["POST", "/UpdateLaunchConfigurationTemplate", 200] }, () => UpdateLaunchConfigurationTemplateRequest$, () => UpdateLaunchConfigurationTemplateResponse$
+];
+export var UpdateRecoveryPlan$: StaticOperationSchema = [9, n0, _URP,
+  { [_ht]: ["POST", "/UpdateRecoveryPlan", 200] }, () => UpdateRecoveryPlanRequest$, () => UpdateRecoveryPlanResponse$
+];
+export var UpdateRecoveryPlanExecutionStep$: StaticOperationSchema = [9, n0, _URPES,
+  { [_ht]: ["POST", "/UpdateRecoveryPlanExecutionStep", 200] }, () => UpdateRecoveryPlanExecutionStepRequest$, () => UpdateRecoveryPlanExecutionStepResponse$
+];
+export var UpdateRecoveryPlanStep$: StaticOperationSchema = [9, n0, _URPS,
+  { [_ht]: ["POST", "/UpdateRecoveryPlanStep", 200] }, () => UpdateRecoveryPlanStepRequest$, () => UpdateRecoveryPlanStepResponse$
 ];
 export var UpdateReplicationConfiguration$: StaticOperationSchema = [9, n0, _URC,
   { [_ht]: ["POST", "/UpdateReplicationConfiguration", 200] }, () => UpdateReplicationConfigurationRequest$, () => ReplicationConfiguration$

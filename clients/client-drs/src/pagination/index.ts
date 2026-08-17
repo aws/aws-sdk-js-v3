@@ -10,4 +10,8 @@ export * from "./DescribeSourceNetworksPaginator";
 export * from "./DescribeSourceServersPaginator";
 export * from "./ListExtensibleSourceServersPaginator";
 export * from "./ListLaunchActionsPaginator";
+export * from "./ListRecoveryPlanExecutionsPaginator";
+export * from "./ListRecoveryPlanExecutionStepsPaginator";
+export * from "./ListRecoveryPlansPaginator";
+export * from "./ListRecoveryPlanStepsPaginator";
 export * from "./ListStagingAccountsPaginator";
