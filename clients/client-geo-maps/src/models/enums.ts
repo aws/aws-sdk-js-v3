@@ -124,17 +124,7 @@ export type StaticMapStyle = (typeof StaticMapStyle)[keyof typeof StaticMapStyle
  * @enum
  */
 export const ValidationExceptionReason = {
-  /**
-   *     The input cannot be parsed. For example a required JSON document, ARN identifier,
-   *     date value, or numeric field cannot be parsed.
-   *
-   */
   CANNOT_PARSE: "CannotParse",
-  /**
-   *     The input is present and parsable, but it is otherwise invalid. For example, a
-   *     required numeric argument is outside the allowed range.
-   *
-   */
   FIELD_VALIDATION_FAILED: "FieldValidationFailed",
   /**
    * The required input is missing.
@@ -157,6 +147,43 @@ export const ValidationExceptionReason = {
  * @public
  */
 export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const PoiCategory = {
+  ACCOMMODATIONS: "Accommodations",
+  BUSINESS_AND_SERVICES: "BusinessAndServices",
+  ENTERTAINMENT: "Entertainment",
+  FACILITIES_AND_BUILDINGS: "FacilitiesAndBuildings",
+  FOOD_AND_DRINK: "FoodAndDrink",
+  LEISURE_AND_OUTDOOR: "LeisureAndOutdoor",
+  SHOPPING: "Shopping",
+  SIGHTS_AND_MUSEUMS: "SightsAndMuseums",
+  TRANSPORTATION: "Transportation",
+} as const;
+/**
+ * @public
+ */
+export type PoiCategory = (typeof PoiCategory)[keyof typeof PoiCategory];
+
+/**
+ * @public
+ * @enum
+ */
+export const PoiDensity = {
+  DEFAULT: "Default",
+  DENSE: "Dense",
+  OFF: "Off",
+  SPARSE: "Sparse",
+  VERY_DENSE: "VeryDense",
+  VERY_SPARSE: "VerySparse",
+} as const;
+/**
+ * @public
+ */
+export type PoiDensity = (typeof PoiDensity)[keyof typeof PoiDensity];
 
 /**
  * @public

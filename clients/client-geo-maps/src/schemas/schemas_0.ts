@@ -46,6 +46,8 @@ const _M = "Message";
 const _N = "Name";
 const _P = "Padding";
 const _PB = "PricingBucket";
+const _PC = "PoiCategories";
+const _PD = "PoiDensity";
 const _PLS = "PositionListString";
 const _POI = "PointsOfInterests";
 const _PS = "PositionString";
@@ -97,6 +99,8 @@ const _ls = "label-size";
 const _m = "message";
 const _n = "name";
 const _p = "padding";
+const _pc = "poi-categories";
+const _pd = "poi-density";
 const _po = "pois";
 const _pv = "political-view";
 const _r = "reason";
@@ -218,8 +222,8 @@ export var GetStaticMapResponse$: StaticStructureSchema = [3, n0, _GSMRe,
 ];
 export var GetStyleDescriptorRequest$: StaticStructureSchema = [3, n0, _GSDR,
   0,
-  [_S, _CS, _PV, _T, _CD, _Tr, _TM, _Bu, _K],
-  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [0, { [_hQ]: _b }], [() => ApiKey, { [_hQ]: _k }]], 1
+  [_S, _CS, _PV, _T, _CD, _Tr, _TM, _Bu, _PD, _PC, _K],
+  [[0, 1], [0, { [_hQ]: _cs }], [() => CountryCode, { [_hQ]: _pv }], [0, { [_hQ]: _t }], [0, { [_hQ]: _cd }], [0, { [_hQ]: _tr }], [64 | 0, { [_hQ]: _tm }], [0, { [_hQ]: _b }], [0, { [_hQ]: _pd }], [64 | 0, { [_hQ]: _pc }], [() => ApiKey, { [_hQ]: _k }]], 1
 ];
 export var GetStyleDescriptorResponse$: StaticStructureSchema = [3, n0, _GSDRe,
   0,
@@ -241,6 +245,7 @@ export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   [_N, _M],
   [[0, { [_jN]: _n }], [0, { [_jN]: _m }]], 2
 ];
+var PoiCategoryList = 64 | 0;
 var TileAdditionalFeatureList = 64 | 0;
 var TravelModeList = 64 | 0;
 var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
@@ -248,17 +253,17 @@ var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
     0]
 ];
 export var GetGlyphs$: StaticOperationSchema = [9, n0, _GG,
-  { [_ht]: ["GET", "/glyphs/{FontStack}/{FontUnicodeRange}", 200] }, () => GetGlyphsRequest$, () => GetGlyphsResponse$
+  { [_ht]: ["GET", "/v2/glyphs/{FontStack}/{FontUnicodeRange}", 200] }, () => GetGlyphsRequest$, () => GetGlyphsResponse$
 ];
 export var GetSprites$: StaticOperationSchema = [9, n0, _GS,
-  { [_ht]: ["GET", "/styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}", 200] }, () => GetSpritesRequest$, () => GetSpritesResponse$
+  { [_ht]: ["GET", "/v2/styles/{Style}/{ColorScheme}/{Variant}/sprites/{FileName}", 200] }, () => GetSpritesRequest$, () => GetSpritesResponse$
 ];
 export var GetStaticMap$: StaticOperationSchema = [9, n0, _GSM,
-  { [_ht]: ["GET", "/static/{FileName}", 200] }, () => GetStaticMapRequest$, () => GetStaticMapResponse$
+  { [_ht]: ["GET", "/v2/static/{FileName}", 200] }, () => GetStaticMapRequest$, () => GetStaticMapResponse$
 ];
 export var GetStyleDescriptor$: StaticOperationSchema = [9, n0, _GSD,
-  { [_ht]: ["GET", "/styles/{Style}/descriptor", 200] }, () => GetStyleDescriptorRequest$, () => GetStyleDescriptorResponse$
+  { [_ht]: ["GET", "/v2/styles/{Style}/descriptor", 200] }, () => GetStyleDescriptorRequest$, () => GetStyleDescriptorResponse$
 ];
 export var GetTile$: StaticOperationSchema = [9, n0, _GT,
-  { [_ht]: ["GET", "/tiles/{Tileset}/{Z}/{X}/{Y}", 200] }, () => GetTileRequest$, () => GetTileResponse$
+  { [_ht]: ["GET", "/v2/tiles/{Tileset}/{Z}/{X}/{Y}", 200] }, () => GetTileRequest$, () => GetTileResponse$
 ];

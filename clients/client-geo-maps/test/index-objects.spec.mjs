@@ -32,6 +32,8 @@ import {
   LabelSize,
   MapFeatureMode,
   MapStyle,
+  PoiCategory,
+  PoiDensity,
   ResourceNotFoundException,
   ResourceNotFoundException$,
   ScaleBarUnit,
@@ -82,6 +84,8 @@ assert(typeof ContourDensity === "object");
 assert(typeof LabelSize === "object");
 assert(typeof MapFeatureMode === "object");
 assert(typeof MapStyle === "object");
+assert(typeof PoiCategory === "object");
+assert(typeof PoiDensity === "object");
 assert(typeof ScaleBarUnit === "object");
 assert(typeof StaticMapStyle === "object");
 assert(typeof Terrain === "object");

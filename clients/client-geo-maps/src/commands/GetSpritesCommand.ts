@@ -42,9 +42,9 @@ export interface GetSpritesCommandOutput extends GetSpritesCommandOutputType, __
  * const client = new GeoMapsClient(config);
  * const input = { // GetSpritesRequest
  *   FileName: "STRING_VALUE", // required
- *   Style: "STRING_VALUE", // required
- *   ColorScheme: "STRING_VALUE", // required
- *   Variant: "STRING_VALUE", // required
+ *   Style: "Standard" || "Monochrome" || "Hybrid" || "Satellite", // required
+ *   ColorScheme: "Light" || "Dark", // required
+ *   Variant: "Default", // required
  * };
  * const command = new GetSpritesCommand(input);
  * const response = await client.send(command);

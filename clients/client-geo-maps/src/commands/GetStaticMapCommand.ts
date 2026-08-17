@@ -31,7 +31,7 @@ export type GetStaticMapCommandOutputType = Omit<GetStaticMapResponse, "Blob"> &
 export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType, __MetadataBearer {}
 
 /**
- * <note> <p>This operation is not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers. </p> </note> <p> <code>GetStaticMap</code> provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots.</p> <p>For more information, see the following topics in the <i>Amazon Location Service Developer Guide</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html">Static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html">Customize static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html">Overlay on the static map</a> </p> </li> </ul>
+ * <p> <code>GetStaticMap</code> provides high-quality static map images with customizable options. You can modify the map's appearance and overlay additional information. It's an ideal solution for applications requiring tailored static map snapshots. Not supported in <code>ap-southeast-1</code> and <code>ap-southeast-5</code> regions for <a href="https://docs.aws.amazon.com/location/latest/developerguide/GrabMaps.html">GrabMaps</a> customers.</p> <p>For more information, see the following topics in the <i>Amazon Location Service Developer Guide</i>:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/static-maps.html">Static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/customizing-static-maps.html">Customize static maps</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/location/latest/developerguide/overlaying-static-map.html">Overlay on the static map</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,21 +44,21 @@ export interface GetStaticMapCommandOutput extends GetStaticMapCommandOutputType
  *   BoundingBox: "STRING_VALUE",
  *   BoundedPositions: "STRING_VALUE",
  *   Center: "STRING_VALUE",
- *   ColorScheme: "STRING_VALUE",
+ *   ColorScheme: "Light" || "Dark",
  *   CompactOverlay: "STRING_VALUE",
  *   CropLabels: true || false,
  *   GeoJsonOverlay: "STRING_VALUE",
  *   Height: Number("int"), // required
  *   Key: "STRING_VALUE",
- *   LabelSize: "STRING_VALUE",
+ *   LabelSize: "Small" || "Large",
  *   Language: "STRING_VALUE",
  *   Padding: Number("int"),
  *   PoliticalView: "STRING_VALUE",
- *   PointsOfInterests: "STRING_VALUE",
+ *   PointsOfInterests: "Enabled" || "Disabled",
  *   Radius: Number("long"),
  *   FileName: "STRING_VALUE", // required
- *   ScaleBarUnit: "STRING_VALUE",
- *   Style: "STRING_VALUE",
+ *   ScaleBarUnit: "Kilometers" || "KilometersMiles" || "Miles" || "MilesKilometers",
+ *   Style: "Satellite" || "Standard",
  *   Width: Number("int"), // required
  *   Zoom: Number("float"),
  * };

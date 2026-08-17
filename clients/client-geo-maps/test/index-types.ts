@@ -23,6 +23,8 @@ export type {
   LabelSize,
   MapFeatureMode,
   MapStyle,
+  PoiCategory,
+  PoiDensity,
   ScaleBarUnit,
   StaticMapStyle,
   Terrain,

@@ -41,16 +41,20 @@ export interface GetStyleDescriptorCommandOutput extends GetStyleDescriptorComma
  * const config = {}; // type is GeoMapsClientConfig
  * const client = new GeoMapsClient(config);
  * const input = { // GetStyleDescriptorRequest
- *   Style: "STRING_VALUE", // required
- *   ColorScheme: "STRING_VALUE",
+ *   Style: "Standard" || "Monochrome" || "Hybrid" || "Satellite", // required
+ *   ColorScheme: "Light" || "Dark",
  *   PoliticalView: "STRING_VALUE",
- *   Terrain: "STRING_VALUE",
- *   ContourDensity: "STRING_VALUE",
- *   Traffic: "STRING_VALUE",
+ *   Terrain: "Hillshade" || "Terrain3D",
+ *   ContourDensity: "Low" || "Medium" || "High",
+ *   Traffic: "All" || "Congestion",
  *   TravelModes: [ // TravelModeList
- *     "STRING_VALUE",
+ *     "Transit" || "Truck",
  *   ],
- *   Buildings: "STRING_VALUE",
+ *   Buildings: "Buildings3D",
+ *   PoiDensity: "Off" || "VerySparse" || "Sparse" || "Default" || "Dense" || "VeryDense",
+ *   PoiCategories: [ // PoiCategoryList
+ *     "FoodAndDrink" || "Entertainment" || "SightsAndMuseums" || "Transportation" || "Accommodations" || "LeisureAndOutdoor" || "Shopping" || "BusinessAndServices" || "FacilitiesAndBuildings",
+ *   ],
  *   Key: "STRING_VALUE",
  * };
  * const command = new GetStyleDescriptorCommand(input);
