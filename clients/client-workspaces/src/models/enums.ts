@@ -556,6 +556,7 @@ export type RunningMode = (typeof RunningMode)[keyof typeof RunningMode];
  */
 export const ModificationResourceEnum = {
   COMPUTE_TYPE: "COMPUTE_TYPE",
+  NESTED_VIRTUALIZATION: "NESTED_VIRTUALIZATION",
   PROTOCOL: "PROTOCOL",
   ROOT_VOLUME: "ROOT_VOLUME",
   USER_VOLUME: "USER_VOLUME",

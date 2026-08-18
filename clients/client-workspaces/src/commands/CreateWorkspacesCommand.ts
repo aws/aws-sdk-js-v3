@@ -81,6 +81,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *           Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
  *           PreferredProtocol: "TCP" || "NONE" || "INHERITED",
  *         },
+ *         NestedVirtualizationEnabled: true || false,
  *       },
  *       Tags: [ // TagList
  *         { // Tag
@@ -119,6 +120,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //             Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
  * //             PreferredProtocol: "TCP" || "NONE" || "INHERITED",
  * //           },
+ * //           NestedVirtualizationEnabled: true || false,
  * //         },
  * //         Tags: [ // TagList
  * //           { // Tag
@@ -164,10 +166,11 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //           Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
  * //           PreferredProtocol: "TCP" || "NONE" || "INHERITED",
  * //         },
+ * //         NestedVirtualizationEnabled: true || false,
  * //       },
  * //       ModificationStates: [ // ModificationStateList
  * //         { // ModificationState
- * //           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE" || "PROTOCOL",
+ * //           Resource: "ROOT_VOLUME" || "USER_VOLUME" || "COMPUTE_TYPE" || "PROTOCOL" || "NESTED_VIRTUALIZATION",
  * //           State: "UPDATE_INITIATED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED",
  * //         },
  * //       ],

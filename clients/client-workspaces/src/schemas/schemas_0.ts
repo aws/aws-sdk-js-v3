@@ -443,6 +443,7 @@ const _Mo = "Mode";
 const _N = "Name";
 const _NAC = "NetworkAccessConfiguration";
 const _NT = "NextToken";
+const _NVE = "NestedVirtualizationEnabled";
 const _O = "Owner";
 const _OAI = "OwnerAccountId";
 const _OIPE = "OperationInProgressException";
@@ -2150,8 +2151,8 @@ export var WorkspaceImage$: StaticStructureSchema = [3, n0, _WIor,
 ];
 export var WorkspaceProperties$: StaticStructureSchema = [3, n0, _WPor,
   0,
-  [_RM, _RMASTIM, _RVSG, _UVSG, _CTNo, _Pro, _OSNp, _GA],
-  [0, 1, 1, 1, 0, 64 | 0, 0, () => GlobalAcceleratorForWorkSpace$]
+  [_RM, _RMASTIM, _RVSG, _UVSG, _CTNo, _Pro, _OSNp, _GA, _NVE],
+  [0, 1, 1, 1, 0, 64 | 0, 0, () => GlobalAcceleratorForWorkSpace$, 2]
 ];
 export var WorkspaceRequest$: StaticStructureSchema = [3, n0, _WR,
   0,

@@ -56,6 +56,7 @@ export interface ModifyWorkspacePropertiesCommandOutput extends ModifyWorkspaceP
  *       Mode: "ENABLED_AUTO" || "DISABLED" || "INHERITED", // required
  *       PreferredProtocol: "TCP" || "NONE" || "INHERITED",
  *     },
+ *     NestedVirtualizationEnabled: true || false,
  *   },
  *   DataReplication: "NO_REPLICATION" || "PRIMARY_AS_SOURCE",
  * };

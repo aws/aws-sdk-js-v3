@@ -34,6 +34,10 @@ export interface MigrateWorkspaceCommandOutput extends MigrateWorkspaceResult, _
  *          <p>For available migration scenarios, details about what happens during migration, and best
  *          practices, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/migrate-workspaces.html">Migrate a
  *          WorkSpace</a>.</p>
+ *          <note>
+ *             <p>If the source WorkSpace has nested virtualization enabled and the target bundle does
+ *             not support nested virtualization, the migration fails.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

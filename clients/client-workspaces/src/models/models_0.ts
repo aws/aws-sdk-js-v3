@@ -1580,6 +1580,14 @@ export interface WorkspaceProperties {
    * @public
    */
   GlobalAccelerator?: GlobalAcceleratorForWorkSpace | undefined;
+
+  /**
+   * <p>Specifies whether nested virtualization is enabled for the WorkSpace.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/nested-virtualization.html">Nested virtualization
+   *          for Amazon WorkSpaces</a>.</p>
+   * @public
+   */
+  NestedVirtualizationEnabled?: boolean | undefined;
 }
 
 /**
@@ -1719,7 +1727,7 @@ export interface DataReplicationSettings {
  */
 export interface ModificationState {
   /**
-   * <p>The resource.</p>
+   * <p>The WorkSpace property being modified.</p>
    * @public
    */
   Resource?: ModificationResourceEnum | undefined;
