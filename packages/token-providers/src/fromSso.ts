@@ -15,9 +15,12 @@ import { validateTokenKey } from "./validateTokenKey";
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
 /**
- * Last refresh attempt time to ensure refresh is not attempted more than once every 30 seconds.
+ * Last refresh attempt time per SSO session, to ensure refresh for a given session is not
+ * attempted more than once every 30 seconds. Keyed by sso_session name rather than a single
+ * shared timestamp, so that refreshing one profile's token does not suppress a refresh for an
+ * unrelated profile/session that happens to also be due within the same 30-second window.
  */
-const lastRefreshAttemptTime = new Date(0);
+const lastRefreshAttemptTime = new Map<string, number>();
 
 export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
   /**
@@ -94,8 +97,9 @@ export const fromSso =
       return existingToken;
     }
 
-    // Skip new refresh, if last refresh was done within 30 seconds.
-    if (Date.now() - lastRefreshAttemptTime.getTime() < 30 * 1000) {
+    // Skip new refresh, if last refresh for this SSO session was done within 30 seconds.
+    const lastRefreshAttempt = lastRefreshAttemptTime.get(ssoSessionName) ?? 0;
+    if (Date.now() - lastRefreshAttempt < 30 * 1000) {
       /// return existing token if it's still valid.
       validateTokenExpiry(existingToken);
       return existingToken;
@@ -106,7 +110,7 @@ export const fromSso =
     validateTokenKey("refreshToken", ssoToken.refreshToken, true);
 
     try {
-      lastRefreshAttemptTime.setTime(Date.now());
+      lastRefreshAttemptTime.set(ssoSessionName, Date.now());
       const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
       validateTokenKey("accessToken", newSsoOidcToken.accessToken);
       validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
