@@ -152,6 +152,22 @@ const copyToClients = async (sourceDir, destinationDir, solo) => {
           const destinationFileName = packageSub.replace("doc-client-", "");
           const docClientArtifactPath = join(artifactPath, packageSub);
           const docClientDestPath = join(destinationDir, "..", "lib", "lib-dynamodb", "src", destinationFileName);
+
+          // Prune orphaned generated files codegen no longer emits, preserving hand-written files.
+          if (existsSync(docClientDestPath) && lstatSync(docClientDestPath).isDirectory()) {
+            const incoming = new Set(readdirSync(docClientArtifactPath));
+            for (const existing of readdirSync(docClientDestPath)) {
+              const existingPath = join(docClientDestPath, existing);
+              if (
+                !incoming.has(existing) &&
+                lstatSync(existingPath).isFile() &&
+                readFileSync(existingPath, "utf-8").startsWith("// smithy-typescript generated code")
+              ) {
+                removeSync(existingPath);
+              }
+            }
+          }
+
           copySync(docClientArtifactPath, docClientDestPath, { overwrite: true });
           removeSync(docClientArtifactPath);
         }
