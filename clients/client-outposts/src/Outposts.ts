@@ -23,6 +23,11 @@ import {
   CreateOutpostCommand,
 } from "./commands/CreateOutpostCommand";
 import {
+  type CreatePrivateConnectivityConfigCommandInput,
+  type CreatePrivateConnectivityConfigCommandOutput,
+  CreatePrivateConnectivityConfigCommand,
+} from "./commands/CreatePrivateConnectivityConfigCommand";
+import {
   type CreateQuoteCommandInput,
   type CreateQuoteCommandOutput,
   CreateQuoteCommand,
@@ -88,6 +93,11 @@ import {
   type GetOutpostSupportedInstanceTypesCommandOutput,
   GetOutpostSupportedInstanceTypesCommand,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import {
+  type GetPrivateConnectivityConfigCommandInput,
+  type GetPrivateConnectivityConfigCommandOutput,
+  GetPrivateConnectivityConfigCommand,
+} from "./commands/GetPrivateConnectivityConfigCommand";
 import { type GetQuoteCommandInput, type GetQuoteCommandOutput, GetQuoteCommand } from "./commands/GetQuoteCommand";
 import {
   type GetRenewalPricingCommandInput,
@@ -223,6 +233,7 @@ const commands = {
   CancelOrderCommand,
   CreateOrderCommand,
   CreateOutpostCommand,
+  CreatePrivateConnectivityConfigCommand,
   CreateQuoteCommand,
   CreateRenewalCommand,
   CreateSiteCommand,
@@ -237,6 +248,7 @@ const commands = {
   GetOutpostBillingInformationCommand,
   GetOutpostInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesCommand,
+  GetPrivateConnectivityConfigCommand,
   GetQuoteCommand,
   GetRenewalPricingCommand,
   GetSiteCommand,
@@ -346,6 +358,23 @@ export interface Outposts {
     args: CreateOutpostCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateOutpostCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePrivateConnectivityConfigCommand}
+   */
+  createPrivateConnectivityConfig(
+    args: CreatePrivateConnectivityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePrivateConnectivityConfigCommandOutput>;
+  createPrivateConnectivityConfig(
+    args: CreatePrivateConnectivityConfigCommandInput,
+    cb: (err: any, data?: CreatePrivateConnectivityConfigCommandOutput) => void
+  ): void;
+  createPrivateConnectivityConfig(
+    args: CreatePrivateConnectivityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePrivateConnectivityConfigCommandOutput) => void
   ): void;
 
   /**
@@ -584,6 +613,23 @@ export interface Outposts {
     args: GetOutpostSupportedInstanceTypesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetOutpostSupportedInstanceTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPrivateConnectivityConfigCommand}
+   */
+  getPrivateConnectivityConfig(
+    args: GetPrivateConnectivityConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrivateConnectivityConfigCommandOutput>;
+  getPrivateConnectivityConfig(
+    args: GetPrivateConnectivityConfigCommandInput,
+    cb: (err: any, data?: GetPrivateConnectivityConfigCommandOutput) => void
+  ): void;
+  getPrivateConnectivityConfig(
+    args: GetPrivateConnectivityConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrivateConnectivityConfigCommandOutput) => void
   ): void;
 
   /**
@@ -1168,6 +1214,7 @@ export interface Outposts {
  *       customers to build and run applications on premises using the same programming interfaces as
  *       in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
  *       data processing needs.</p>
+ *          <p>You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For more information on these API actions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html">Amazon Web Services Outposts actions</a> in the <i>Amazon EC2 API Reference</i>.</p>
  * @public
  */
 export class Outposts extends OutpostsClient implements Outposts {}

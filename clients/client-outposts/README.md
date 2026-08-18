@@ -11,6 +11,7 @@ customer premises. By providing local access to Amazon Web Services managed infr
 customers to build and run applications on premises using the same programming interfaces as
 in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
 data processing needs.</p>
+<p>You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For more information on these API actions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html">Amazon Web Services Outposts actions</a> in the <i>Amazon EC2 API Reference</i>.</p>
 
 ## Installing
 
@@ -213,6 +214,13 @@ CreateOutpost
 </details>
 <details>
 <summary>
+CreatePrivateConnectivityConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/CreatePrivateConnectivityConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreatePrivateConnectivityConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/CreatePrivateConnectivityConfigCommandOutput/)
+</details>
+<details>
+<summary>
 CreateQuote
 </summary>
 
@@ -308,6 +316,13 @@ GetOutpostSupportedInstanceTypes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetOutpostSupportedInstanceTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostSupportedInstanceTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetOutpostSupportedInstanceTypesCommandOutput/)
+</details>
+<details>
+<summary>
+GetPrivateConnectivityConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/outposts/command/GetPrivateConnectivityConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetPrivateConnectivityConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-outposts/Interface/GetPrivateConnectivityConfigCommandOutput/)
 </details>
 <details>
 <summary>

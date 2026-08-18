@@ -310,6 +310,19 @@ export type SupportedHardwareType = (typeof SupportedHardwareType)[keyof typeof 
  * @public
  * @enum
  */
+export const PrivateConnectivityStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type PrivateConnectivityStatus = (typeof PrivateConnectivityStatus)[keyof typeof PrivateConnectivityStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const QuoteConstraintType = {
   RACK_MAXIMUM: "RACK_MAXIMUM",
   RACK_MAX_POWER_KVA: "RACK_MAX_POWER_KVA",

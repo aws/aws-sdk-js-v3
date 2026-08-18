@@ -61,6 +61,9 @@ const _COOr = "CreateOrderOutput";
 const _COOre = "CreateOutpostOutput";
 const _COr = "CreateOrder";
 const _COre = "CreateOutpost";
+const _CPCC = "CreatePrivateConnectivityConfig";
+const _CPCCI = "CreatePrivateConnectivityConfigInput";
+const _CPCCO = "CreatePrivateConnectivityConfigOutput";
 const _CPK = "ClientPublicKey";
 const _CPN = "ContactPhoneNumber";
 const _CQ = "CreateQuote";
@@ -141,6 +144,9 @@ const _GOSIT = "GetOutpostSupportedInstanceTypes";
 const _GOSITI = "GetOutpostSupportedInstanceTypesInput";
 const _GOSITO = "GetOutpostSupportedInstanceTypesOutput";
 const _GOe = "GetOutpost";
+const _GPCC = "GetPrivateConnectivityConfig";
+const _GPCCI = "GetPrivateConnectivityConfigInput";
+const _GPCCO = "GetPrivateConnectivityConfigOutput";
 const _GQ = "GetQuote";
 const _GQI = "GetQuoteInput";
 const _GQO = "GetQuoteOutput";
@@ -261,6 +267,8 @@ const _Or = "Orders";
 const _Ou = "Outpost";
 const _Out = "Outposts";
 const _PC = "PostalCode";
+const _PCC = "PrivateConnectivityConfig";
+const _PCS = "PrivateConnectivityStatus";
 const _PCo = "PowerConnector";
 const _PDK = "PowerDrawKva";
 const _PFD = "PowerFeedDrop";
@@ -273,6 +281,7 @@ const _POr = "PricingOptions";
 const _POri = "PricingOption";
 const _PP = "PowerPhase";
 const _PR = "PricingResult";
+const _PRA = "ProvisioningRoleArn";
 const _PT = "PaymentTerm";
 const _PTr = "PricingType";
 const _Q = "Quote";
@@ -299,6 +308,7 @@ const _Qu = "Quantity";
 const _Quo = "Quotes";
 const _R = "Reason";
 const _RA = "ResourceArn";
+const _RAo = "RoleArn";
 const _RC = "RequestedCapacities";
 const _RCe = "RequestedConstraints";
 const _RDI = "RackDepthInches";
@@ -335,6 +345,7 @@ const _SHT = "SupportedHardwareType";
 const _SI = "SiteId";
 const _SIh = "ShipmentInformation";
 const _SIu = "SubscriptionId";
+const _SIub = "SubnetIds";
 const _SL = "SubscriptionList";
 const _SM = "StatusMessage";
 const _SOD = "StartOutpostDecommission";
@@ -396,6 +407,10 @@ const _USRPPO = "UpdateSiteRackPhysicalPropertiesOutput";
 const _V = "Value";
 const _VCPU = "VCPUs";
 const _VE = "ValidationException";
+const _VEI = "VpcEndpointId";
+const _VI = "VpcInformation";
+const _VIL = "VpcInformationList";
+const _VIp = "VpcId";
 const _VO = "ValidateOnly";
 const _WL = "WeightLbs";
 const _c = "client";
@@ -582,6 +597,16 @@ export var CreateOutpostOutput$: StaticStructureSchema = [3, n0, _COOre,
   [_Ou],
   [() => Outpost$]
 ];
+export var CreatePrivateConnectivityConfigInput$: StaticStructureSchema = [3, n0, _CPCCI,
+  0,
+  [_OIu, _VIL],
+  [[0, 1], () => VpcInformationList], 2
+];
+export var CreatePrivateConnectivityConfigOutput$: StaticStructureSchema = [3, n0, _CPCCO,
+  0,
+  [_PCC, _OIu],
+  [() => PrivateConnectivityConfig$, 0]
+];
 export var CreateQuoteInput$: StaticStructureSchema = [3, n0, _CQI,
   0,
   [_CC, _RC, _OI, _RCe, _RPO, _RPT, _D],
@@ -736,6 +761,16 @@ export var GetOutpostSupportedInstanceTypesOutput$: StaticStructureSchema = [3, 
   0,
   [_ITn, _NT],
   [() => InstanceTypeListDefinition, 0]
+];
+export var GetPrivateConnectivityConfigInput$: StaticStructureSchema = [3, n0, _GPCCI,
+  0,
+  [_OIu],
+  [[0, 1]], 1
+];
+export var GetPrivateConnectivityConfigOutput$: StaticStructureSchema = [3, n0, _GPCCO,
+  0,
+  [_PCC],
+  [() => PrivateConnectivityConfig$]
 ];
 export var GetQuoteInput$: StaticStructureSchema = [3, n0, _GQI,
   0,
@@ -942,6 +977,11 @@ export var PricingOption$: StaticStructureSchema = [3, n0, _POri,
   [_PTr, _SPD],
   [0, () => SubscriptionPricingDetails$]
 ];
+export var PrivateConnectivityConfig$: StaticStructureSchema = [3, n0, _PCC,
+  0,
+  [_RAo, _PCS, _VIL, _PRA],
+  [0, 0, () => VpcInformationList, 0]
+];
 export var Quote$: StaticStructureSchema = [3, n0, _Q,
   0,
   [_QIu, _AIc, _QS, _SM, _OAu, _CC, _RC, _RCe, _RPO, _RPT, _QO, _ORr, _SOI, _CDr, _ED, _D],
@@ -1107,6 +1147,11 @@ export var UpdateSiteRackPhysicalPropertiesOutput$: StaticStructureSchema = [3, 
   [_Si],
   [() => Site$]
 ];
+export var VpcInformation$: StaticStructureSchema = [3, n0, _VI,
+  0,
+  [_VIp, _SIub, _VEI],
+  [0, 64 | 0, 0]
+];
 var AccountIdList = 64 | 0;
 var AssetIdList = 64 | 0;
 var AssetInstanceCapacityList: StaticListSchema = [1, n0, _AICL,
@@ -1204,12 +1249,16 @@ var siteListDefinition: StaticListSchema = [1, n0, _sLD,
 ];
 var StateOrRegionList = 64 | 0;
 var StatusList = 64 | 0;
+var SubnetIds = 64 | 0;
 var SubscriptionList: StaticListSchema = [1, n0, _SL,
   0, () => Subscription$
 ];
 var SupportedStorageList = 64 | 0;
 var SupportedUplinkGbpsListDefinition = 64 | 1;
 var TagKeyList = 64 | 0;
+var VpcInformationList: StaticListSchema = [1, n0, _VIL,
+  0, () => VpcInformation$
+];
 var LineItemStatusCounts = 128 | 1;
 var TagMap = 128 | 0;
 export var CancelCapacityTask$: StaticOperationSchema = [9, n0, _CCT,
@@ -1223,6 +1272,9 @@ export var CreateOrder$: StaticOperationSchema = [9, n0, _COr,
 ];
 export var CreateOutpost$: StaticOperationSchema = [9, n0, _COre,
   { [_h]: ["POST", "/outposts", 200] }, () => CreateOutpostInput$, () => CreateOutpostOutput$
+];
+export var CreatePrivateConnectivityConfig$: StaticOperationSchema = [9, n0, _CPCC,
+  { [_h]: ["POST", "/outposts/{OutpostId}/privateConnectivity", 200] }, () => CreatePrivateConnectivityConfigInput$, () => CreatePrivateConnectivityConfigOutput$
 ];
 export var CreateQuote$: StaticOperationSchema = [9, n0, _CQ,
   { [_h]: ["POST", "/quotes", 200] }, () => CreateQuoteInput$, () => CreateQuoteOutput$
@@ -1265,6 +1317,9 @@ export var GetOutpostInstanceTypes$: StaticOperationSchema = [9, n0, _GOIT,
 ];
 export var GetOutpostSupportedInstanceTypes$: StaticOperationSchema = [9, n0, _GOSIT,
   { [_h]: ["GET", "/outposts/{OutpostIdentifier}/supportedInstanceTypes", 200] }, () => GetOutpostSupportedInstanceTypesInput$, () => GetOutpostSupportedInstanceTypesOutput$
+];
+export var GetPrivateConnectivityConfig$: StaticOperationSchema = [9, n0, _GPCC,
+  { [_h]: ["GET", "/outposts/{OutpostId}/privateConnectivity", 200] }, () => GetPrivateConnectivityConfigInput$, () => GetPrivateConnectivityConfigOutput$
 ];
 export var GetQuote$: StaticOperationSchema = [9, n0, _GQ,
   { [_h]: ["GET", "/quotes/{QuoteIdentifier}", 200] }, () => GetQuoteInput$, () => GetQuoteOutput$

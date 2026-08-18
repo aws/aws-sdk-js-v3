@@ -29,6 +29,7 @@ import type {
   PowerFeedDrop,
   PowerPhase,
   PricingResult,
+  PrivateConnectivityStatus,
   QuoteCapacityType,
   QuoteConstraintType,
   QuotePricingType,
@@ -982,6 +983,104 @@ export interface CreateOutpostOutput {
    * @public
    */
   Outpost?: Outpost | undefined;
+}
+
+/**
+ * <p>Information about a VPC used for private connectivity, including its subnets and an
+ *       associated VPC endpoint.</p>
+ * @public
+ */
+export interface VpcInformation {
+  /**
+   * <p>The ID of the VPC used for private connectivity.</p>
+   * @public
+   */
+  VpcId?: string | undefined;
+
+  /**
+   * <p>The IDs of the subnets associated with the VPC endpoint. Currently, only one subnet is
+   *       supported.</p>
+   * @public
+   */
+  SubnetIds?: string[] | undefined;
+
+  /**
+   * <p>The ID of the interface VPC endpoint for the Amazon Web Services Outposts service. When specified, the endpoint
+   *       must be in the <code>available</code> state and the specified subnets must be associated with
+   *       it.</p>
+   * @public
+   */
+  VpcEndpointId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivateConnectivityConfigInput {
+  /**
+   * <p>The ID or ARN of the Outpost.</p>
+   * @public
+   */
+  OutpostId: string | undefined;
+
+  /**
+   * <p>Information about the VPC used for private connectivity, including the VPC, its subnets,
+   *       and an associated VPC endpoint. You can specify at most one entry.</p>
+   * @public
+   */
+  VpcInformationList: VpcInformation[] | undefined;
+}
+
+/**
+ * <p>Information about the private connectivity configuration for an Outpost.</p>
+ * @public
+ */
+export interface PrivateConnectivityConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service-linked role that Amazon Web Services Outposts creates and uses to
+   *       provision and attach the network interfaces for private connectivity in your VPC. The role's
+   *       permissions are scoped to the specific Outpost and VPC.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of private connectivity for the Outpost. Valid values are <code>ENABLED</code>
+   *       and <code>DISABLED</code>.</p>
+   * @public
+   */
+  PrivateConnectivityStatus?: PrivateConnectivityStatus | undefined;
+
+  /**
+   * <p>Information about the VPC used for private connectivity.</p>
+   * @public
+   */
+  VpcInformationList?: VpcInformation[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the provisioning role in your account that Amazon Web Services Outposts uses
+   *       to establish the service link connection during Outpost installation. This field is present
+   *       only when VPC endpoint-based provisioning is configured.</p>
+   * @public
+   */
+  ProvisioningRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreatePrivateConnectivityConfigOutput {
+  /**
+   * <p>The private connectivity configuration for the Outpost.</p>
+   * @public
+   */
+  PrivateConnectivityConfig?: PrivateConnectivityConfig | undefined;
+
+  /**
+   * <p>The ID of the Outpost.</p>
+   * @public
+   */
+  OutpostId?: string | undefined;
 }
 
 /**
@@ -2515,6 +2614,28 @@ export interface GetOutpostSupportedInstanceTypesOutput {
    * @public
    */
   NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPrivateConnectivityConfigInput {
+  /**
+   * <p>The ID or ARN of the Outpost.</p>
+   * @public
+   */
+  OutpostId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetPrivateConnectivityConfigOutput {
+  /**
+   * <p>The private connectivity configuration for the Outpost.</p>
+   * @public
+   */
+  PrivateConnectivityConfig?: PrivateConnectivityConfig | undefined;
 }
 
 /**

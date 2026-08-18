@@ -61,6 +61,10 @@ import type {
 import type { CancelOrderCommandInput, CancelOrderCommandOutput } from "./commands/CancelOrderCommand";
 import type { CreateOrderCommandInput, CreateOrderCommandOutput } from "./commands/CreateOrderCommand";
 import type { CreateOutpostCommandInput, CreateOutpostCommandOutput } from "./commands/CreateOutpostCommand";
+import type {
+  CreatePrivateConnectivityConfigCommandInput,
+  CreatePrivateConnectivityConfigCommandOutput,
+} from "./commands/CreatePrivateConnectivityConfigCommand";
 import type { CreateQuoteCommandInput, CreateQuoteCommandOutput } from "./commands/CreateQuoteCommand";
 import type { CreateRenewalCommandInput, CreateRenewalCommandOutput } from "./commands/CreateRenewalCommand";
 import type { CreateSiteCommandInput, CreateSiteCommandOutput } from "./commands/CreateSiteCommand";
@@ -84,6 +88,10 @@ import type {
   GetOutpostSupportedInstanceTypesCommandInput,
   GetOutpostSupportedInstanceTypesCommandOutput,
 } from "./commands/GetOutpostSupportedInstanceTypesCommand";
+import type {
+  GetPrivateConnectivityConfigCommandInput,
+  GetPrivateConnectivityConfigCommandOutput,
+} from "./commands/GetPrivateConnectivityConfigCommand";
 import type { GetQuoteCommandInput, GetQuoteCommandOutput } from "./commands/GetQuoteCommand";
 import type {
   GetRenewalPricingCommandInput,
@@ -158,6 +166,7 @@ export type ServiceInputTypes =
   | CancelOrderCommandInput
   | CreateOrderCommandInput
   | CreateOutpostCommandInput
+  | CreatePrivateConnectivityConfigCommandInput
   | CreateQuoteCommandInput
   | CreateRenewalCommandInput
   | CreateSiteCommandInput
@@ -172,6 +181,7 @@ export type ServiceInputTypes =
   | GetOutpostCommandInput
   | GetOutpostInstanceTypesCommandInput
   | GetOutpostSupportedInstanceTypesCommandInput
+  | GetPrivateConnectivityConfigCommandInput
   | GetQuoteCommandInput
   | GetRenewalPricingCommandInput
   | GetSiteAddressCommandInput
@@ -206,6 +216,7 @@ export type ServiceOutputTypes =
   | CancelOrderCommandOutput
   | CreateOrderCommandOutput
   | CreateOutpostCommandOutput
+  | CreatePrivateConnectivityConfigCommandOutput
   | CreateQuoteCommandOutput
   | CreateRenewalCommandOutput
   | CreateSiteCommandOutput
@@ -220,6 +231,7 @@ export type ServiceOutputTypes =
   | GetOutpostCommandOutput
   | GetOutpostInstanceTypesCommandOutput
   | GetOutpostSupportedInstanceTypesCommandOutput
+  | GetPrivateConnectivityConfigCommandOutput
   | GetQuoteCommandOutput
   | GetRenewalPricingCommandOutput
   | GetSiteAddressCommandOutput
@@ -442,6 +454,7 @@ export interface OutpostsClientResolvedConfig extends OutpostsClientResolvedConf
  *       customers to build and run applications on premises using the same programming interfaces as
  *       in Amazon Web Services Regions, while using local compute and storage resources for lower latency and local
  *       data processing needs.</p>
+ *          <p>You can use certain Amazon EC2 API actions for Amazon Web Services Outposts. For more information on these API actions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/operation-list-outposts.html">Amazon Web Services Outposts actions</a> in the <i>Amazon EC2 API Reference</i>.</p>
  * @public
  */
 export class OutpostsClient extends __Client<

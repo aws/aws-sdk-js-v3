@@ -41,6 +41,10 @@ import {
   CreateOutpostCommand,
   CreateOutpostInput$,
   CreateOutpostOutput$,
+  CreatePrivateConnectivityConfig$,
+  CreatePrivateConnectivityConfigCommand,
+  CreatePrivateConnectivityConfigInput$,
+  CreatePrivateConnectivityConfigOutput$,
   CreateQuote$,
   CreateQuoteCommand,
   CreateQuoteInput$,
@@ -104,6 +108,10 @@ import {
   GetOutpostSupportedInstanceTypesCommand,
   GetOutpostSupportedInstanceTypesInput$,
   GetOutpostSupportedInstanceTypesOutput$,
+  GetPrivateConnectivityConfig$,
+  GetPrivateConnectivityConfigCommand,
+  GetPrivateConnectivityConfigInput$,
+  GetPrivateConnectivityConfigOutput$,
   GetQuote$,
   GetQuoteCommand,
   GetQuoteInput$,
@@ -210,6 +218,8 @@ import {
   PowerPhase,
   PricingOption$,
   PricingResult,
+  PrivateConnectivityConfig$,
+  PrivateConnectivityStatus,
   Quote$,
   QuoteCapacity$,
   QuoteCapacityType,
@@ -283,6 +293,7 @@ import {
   UplinkGbps,
   ValidationException,
   ValidationException$,
+  VpcInformation$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -297,6 +308,8 @@ assert(typeof CreateOrderCommand === "function");
 assert(typeof CreateOrder$ === "object");
 assert(typeof CreateOutpostCommand === "function");
 assert(typeof CreateOutpost$ === "object");
+assert(typeof CreatePrivateConnectivityConfigCommand === "function");
+assert(typeof CreatePrivateConnectivityConfig$ === "object");
 assert(typeof CreateQuoteCommand === "function");
 assert(typeof CreateQuote$ === "object");
 assert(typeof CreateRenewalCommand === "function");
@@ -325,6 +338,8 @@ assert(typeof GetOutpostInstanceTypesCommand === "function");
 assert(typeof GetOutpostInstanceTypes$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesCommand === "function");
 assert(typeof GetOutpostSupportedInstanceTypes$ === "object");
+assert(typeof GetPrivateConnectivityConfigCommand === "function");
+assert(typeof GetPrivateConnectivityConfig$ === "object");
 assert(typeof GetQuoteCommand === "function");
 assert(typeof GetQuote$ === "object");
 assert(typeof GetRenewalPricingCommand === "function");
@@ -396,6 +411,8 @@ assert(typeof CreateOrderInput$ === "object");
 assert(typeof CreateOrderOutput$ === "object");
 assert(typeof CreateOutpostInput$ === "object");
 assert(typeof CreateOutpostOutput$ === "object");
+assert(typeof CreatePrivateConnectivityConfigInput$ === "object");
+assert(typeof CreatePrivateConnectivityConfigOutput$ === "object");
 assert(typeof CreateQuoteInput$ === "object");
 assert(typeof CreateQuoteOutput$ === "object");
 assert(typeof CreateRenewalInput$ === "object");
@@ -427,6 +444,8 @@ assert(typeof GetOutpostInstanceTypesOutput$ === "object");
 assert(typeof GetOutpostOutput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesInput$ === "object");
 assert(typeof GetOutpostSupportedInstanceTypesOutput$ === "object");
+assert(typeof GetPrivateConnectivityConfigInput$ === "object");
+assert(typeof GetPrivateConnectivityConfigOutput$ === "object");
 assert(typeof GetQuoteInput$ === "object");
 assert(typeof GetQuoteOutput$ === "object");
 assert(typeof GetRenewalPricingInput$ === "object");
@@ -468,6 +487,7 @@ assert(typeof OrderingRequirement$ === "object");
 assert(typeof OrderSummary$ === "object");
 assert(typeof Outpost$ === "object");
 assert(typeof PricingOption$ === "object");
+assert(typeof PrivateConnectivityConfig$ === "object");
 assert(typeof Quote$ === "object");
 assert(typeof QuoteCapacity$ === "object");
 assert(typeof QuoteConstraint$ === "object");
@@ -501,6 +521,7 @@ assert(typeof UpdateSiteInput$ === "object");
 assert(typeof UpdateSiteOutput$ === "object");
 assert(typeof UpdateSiteRackPhysicalPropertiesInput$ === "object");
 assert(typeof UpdateSiteRackPhysicalPropertiesOutput$ === "object");
+assert(typeof VpcInformation$ === "object");
 // enums
 assert(typeof AddressType === "object");
 assert(typeof AssetState === "object");
@@ -531,6 +552,7 @@ assert(typeof PowerDrawKva === "object");
 assert(typeof PowerFeedDrop === "object");
 assert(typeof PowerPhase === "object");
 assert(typeof PricingResult === "object");
+assert(typeof PrivateConnectivityStatus === "object");
 assert(typeof QuoteCapacityType === "object");
 assert(typeof QuoteConstraintType === "object");
 assert(typeof QuotePricingType === "object");
