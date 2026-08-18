@@ -23,7 +23,7 @@ export interface DeleteIdNamespaceCommandInput extends DeleteIdNamespaceInput {}
 export interface DeleteIdNamespaceCommandOutput extends DeleteIdNamespaceOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the <code>IdNamespace</code> with a given name.</p>
+ * <p>Deletes the <code>IdNamespace</code> with a given name. This operation returns a <code>ResourceNotFoundException</code> if an ID namespace with the given name does not exist.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,9 @@ export interface DeleteIdNamespaceCommandOutput extends DeleteIdNamespaceOutput,
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The resource couldn't be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling. </p>
