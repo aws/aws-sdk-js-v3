@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--chunked-stream-reader-node.tsbuildinfo"
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.fixture.ts"]
+}

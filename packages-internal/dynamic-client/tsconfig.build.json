@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.types.json",
+  "compilerOptions": {
+    "composite": true,
+    "declarationDir": "dist-types",
+    "rootDir": "src",
+    "tsBuildInfoFile": "dist-types/.tsbuildinfo"
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.fixture.ts"],
+  "references": [
+    {
+      "path": "../core/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-node/tsconfig.build.json"
+    }
+  ]
+}

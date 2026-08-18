@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--karma-credential-loader.tsbuildinfo",
+    "lib": []
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts"],
+  "references": [
+    {
+      "path": "../credential-provider-node/tsconfig.build.json"
+    },
+    {
+      "path": "../nested-clients/tsconfig.build.json"
+    }
+  ]
+}

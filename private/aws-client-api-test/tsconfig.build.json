@@ -1,0 +1,81 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/private--aws-client-api-test.tsbuildinfo",
+    "lib": [
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "removeComments": false,
+    "strict": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../aws-protocoltests-ec2-schema/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/checksums/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-dynamodb/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-ec2/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-glacier/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-rds/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-route-53/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-s3/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-s3-control/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-sqs/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-sts/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-transcribe-streaming/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/core/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/credential-provider-node/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/middleware-bucket-endpoint/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/middleware-sdk-s3/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/signature-v4-multi-region/tsconfig.build.json"
+    },
+    {
+      "path": "../weather/tsconfig.build.json"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/private--weather-legacy-auth.tsbuildinfo",
+    "lib": [
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "removeComments": false,
+    "strict": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../../packages-internal/core/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/credential-provider-node/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/middleware-signing/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/middleware-token/tsconfig.build.json"
+    },
+    {
+      "path": "../../packages-internal/types/tsconfig.build.json"
+    }
+  ]
+}
