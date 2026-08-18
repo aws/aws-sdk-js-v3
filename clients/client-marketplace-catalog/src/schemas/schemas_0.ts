@@ -1,5 +1,10 @@
+const _AA = "AssessmentArn";
 const _ADE = "AccessDeniedException";
 const _AED = "AvailabilityEndDate";
+const _AI = "AssessmentId";
+const _AIs = "AssessmentIdentifier";
+const _AMISF = "AMISecurityFilters";
+const _AMISS = "AMISecuritySummary";
 const _AOI = "AssociatedOfferIds";
 const _APEIF = "AmiProductEntityIdFilter";
 const _APF = "AmiProductFilters";
@@ -9,6 +14,11 @@ const _APS = "AmiProductSort";
 const _APSm = "AmiProductSummary";
 const _APTF = "AmiProductTitleFilter";
 const _APVF = "AmiProductVisibilityFilter";
+const _AR = "AssessmentResult";
+const _AS = "AssessmentSummary";
+const _ASL = "AssessmentSummaryList";
+const _ATF = "AssessmentTargetFilter";
+const _ATS = "AssessmentTargetSummary";
 const _AV = "AfterValue";
 const _BA = "BuyerAccounts";
 const _BDE = "BatchDescribeEntities";
@@ -17,11 +27,19 @@ const _BDER = "BatchDescribeEntitiesRequest";
 const _BDERa = "BatchDescribeEntitiesResponse";
 const _BV = "BeforeValue";
 const _C = "Catalog";
+const _CA = "CreatedAt";
+const _CAL = "ControlAssessmentList";
+const _CAR = "ControlAssessmentResult";
+const _CAo = "ControlAssessment";
+const _CAon = "ControlAssessments";
 const _CBS = "CreatedBySource";
 const _CCS = "CancelChangeSet";
 const _CCSR = "CancelChangeSetRequest";
 const _CCSRa = "CancelChangeSetResponse";
 const _CD = "CreatedDate";
+const _CE = "ControlError";
+const _CEL = "ControlErrorList";
+const _CI = "ControlId";
 const _CN = "ChangeName";
 const _CPEIF = "ContainerProductEntityIdFilter";
 const _CPF = "ContainerProductFilters";
@@ -35,15 +53,21 @@ const _CRT = "ClientRequestToken";
 const _CS = "ChangeSummary";
 const _CSA = "ChangeSetArn";
 const _CSD = "ChangeSetDescription";
+const _CSF = "ContainerSecurityFilters";
 const _CSI = "ChangeSetId";
 const _CSN = "ChangeSetName";
+const _CSS = "ContainerSecuritySummary";
 const _CSSL = "ChangeSetSummaryList";
 const _CSSLI = "ChangeSetSummaryListItem";
 const _CST = "ChangeSetTags";
 const _CSh = "ChangeSet";
 const _CT = "ChangeType";
 const _Ch = "Change";
+const _Co = "Code";
 const _D = "Details";
+const _DA = "DescribeAssessment";
+const _DAR = "DescribeAssessmentRequest";
+const _DARe = "DescribeAssessmentResponse";
 const _DCS = "DescribeChangeSet";
 const _DCSR = "DescribeChangeSetRequest";
 const _DCSRe = "DescribeChangeSetResponse";
@@ -51,6 +75,7 @@ const _DD = "DetailsDocument";
 const _DE = "DescribeEntity";
 const _DER = "DescribeEntityRequest";
 const _DERe = "DescribeEntityResponse";
+const _DOI = "DeliveryOptionId";
 const _DPEIF = "DataProductEntityIdFilter";
 const _DPF = "DataProductFilters";
 const _DPLMDF = "DataProductLastModifiedDateFilter";
@@ -64,7 +89,8 @@ const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
 const _E = "Errors";
-const _EA = "EntityArn";
+const _EA = "ExpiresAt";
+const _EAn = "EntityArn";
 const _EC = "ErrorCode";
 const _ED = "EntityDetails";
 const _EDL = "ErrorDetailList";
@@ -78,6 +104,8 @@ const _ER = "EntityRequest";
 const _ERL = "EntityRequestList";
 const _ES = "EntitySummary";
 const _ESL = "EntitySummaryList";
+const _ESLr = "ErrorScopeList";
+const _ESr = "ErrorScope";
 const _ET = "EntityTags";
 const _ETF = "EntityTypeFilters";
 const _ETS = "EntityTypeSort";
@@ -87,7 +115,11 @@ const _En = "Entity";
 const _F = "Filter";
 const _FC = "FailureCode";
 const _FD = "FailureDescription";
+const _FF = "FrameworkFilters";
+const _FI = "FrameworkId";
 const _FL = "FilterList";
+const _FS = "FrameworkSummary";
+const _Fi = "Field";
 const _GRP = "GetResourcePolicy";
 const _GRPR = "GetResourcePolicyRequest";
 const _GRPRe = "GetResourcePolicyResponse";
@@ -95,6 +127,9 @@ const _I = "Intent";
 const _ISE = "InternalServiceException";
 const _Id = "Identifier";
 const _K = "Key";
+const _LA = "ListAssessments";
+const _LAR = "ListAssessmentsRequest";
+const _LARi = "ListAssessmentsResponse";
 const _LCS = "ListChangeSets";
 const _LCSR = "ListChangeSetsRequest";
 const _LCSRi = "ListChangeSetsResponse";
@@ -161,6 +196,7 @@ const _PRP = "PutResourcePolicy";
 const _PRPR = "PutResourcePolicyRequest";
 const _PRPRu = "PutResourcePolicyResponse";
 const _PT = "ProductTitle";
+const _R = "Reason";
 const _RA = "ResourceArn";
 const _RAAEDF = "ResaleAuthorizationAvailabilityEndDateFilter";
 const _RAAEDFDR = "ResaleAuthorizationAvailabilityEndDateFilterDateRange";
@@ -208,6 +244,7 @@ const _SSPSa = "SaaSProductSort";
 const _SSPTF = "SaaSProductTitleFilter";
 const _SSPVF = "SaaSProductVisibilityFilter";
 const _ST = "StartTime";
+const _Sc = "Scope";
 const _So = "Sort";
 const _St = "State";
 const _T = "Type";
@@ -227,6 +264,8 @@ const _URR = "UntagResourceRequest";
 const _URRn = "UntagResourceResponse";
 const _V = "Visibility";
 const _VE = "ValidationException";
+const _VEF = "ValidationExceptionField";
+const _VEFL = "ValidationExceptionFieldList";
 const _VL = "ValueList";
 const _Va = "Value";
 const _WCV = "WildCardValue";
@@ -315,8 +354,8 @@ export var ThrottlingException$: StaticErrorSchema = [-3, n0, _TE,
 n0_registry.registerError(ThrottlingException$, ThrottlingException);
 export var ValidationException$: StaticErrorSchema = [-3, n0, _VE,
   { [_e]: _c, [_hE]: 422 },
-  [_M],
-  [0]
+  [_M, _VEFL],
+  [0, () => ValidationExceptionFieldList]
 ];
 n0_registry.registerError(ValidationException$, ValidationException);
 /**
@@ -367,6 +406,31 @@ export var AmiProductVisibilityFilter$: StaticStructureSchema = [3, n0, _APVF,
   0,
   [_VL],
   [64 | 0]
+];
+export var AMISecurityFilters$: StaticStructureSchema = [3, n0, _AMISF,
+  0,
+  [_DOI],
+  [0]
+];
+export var AMISecuritySummary$: StaticStructureSchema = [3, n0, _AMISS,
+  0,
+  [_DOI],
+  [0]
+];
+export var AssessmentSummary$: StaticStructureSchema = [3, n0, _AS,
+  0,
+  [_AA, _AI, _FI, _ATS, _FS, _AR, _CA, _EA],
+  [0, 0, 0, () => AssessmentTargetSummary$, () => FrameworkSummary$, 0, 0, 0]
+];
+export var AssessmentTargetFilter$: StaticStructureSchema = [3, n0, _ATF,
+  0,
+  [_EI, _CSI],
+  [0, 0]
+];
+export var AssessmentTargetSummary$: StaticStructureSchema = [3, n0, _ATS,
+  0,
+  [_EI, _CSI],
+  [0, 0]
 ];
 export var BatchDescribeEntitiesRequest$: StaticStructureSchema = [3, n0, _BDER,
   0,
@@ -448,6 +512,26 @@ export var ContainerProductVisibilityFilter$: StaticStructureSchema = [3, n0, _C
   [_VL],
   [64 | 0]
 ];
+export var ContainerSecurityFilters$: StaticStructureSchema = [3, n0, _CSF,
+  0,
+  [_DOI],
+  [0]
+];
+export var ContainerSecuritySummary$: StaticStructureSchema = [3, n0, _CSS,
+  0,
+  [_DOI],
+  [0]
+];
+export var ControlAssessment$: StaticStructureSchema = [3, n0, _CAo,
+  0,
+  [_CI, _CAR, _E],
+  [0, 0, () => ControlErrorList]
+];
+export var ControlError$: StaticStructureSchema = [3, n0, _CE,
+  0,
+  [_Co, _M, _Sc],
+  [0, 0, () => ErrorScopeList]
+];
 export var DataProductEntityIdFilter$: StaticStructureSchema = [3, n0, _DPEIF,
   0,
   [_VL],
@@ -498,6 +582,16 @@ export var DeleteResourcePolicyResponse$: StaticStructureSchema = [3, n0, _DRPRe
   [],
   []
 ];
+export var DescribeAssessmentRequest$: StaticStructureSchema = [3, n0, _DAR,
+  0,
+  [_C, _AIs, _MR, _NT],
+  [0, 0, 1, 0], 2
+];
+export var DescribeAssessmentResponse$: StaticStructureSchema = [3, n0, _DARe,
+  0,
+  [_AA, _AI, _FI, _ATS, _FS, _AR, _CA, _EA, _CAon, _NT],
+  [0, 0, 0, () => AssessmentTargetSummary$, () => FrameworkSummary$, 0, 0, 0, () => ControlAssessmentList, 0]
+];
 export var DescribeChangeSetRequest$: StaticStructureSchema = [3, n0, _DCSR,
   0,
   [_C, _CSI],
@@ -515,7 +609,7 @@ export var DescribeEntityRequest$: StaticStructureSchema = [3, n0, _DER,
 ];
 export var DescribeEntityResponse$: StaticStructureSchema = [3, n0, _DERe,
   0,
-  [_ETnt, _EIn, _EA, _LMD, _D, _DD],
+  [_ETnt, _EIn, _EAn, _LMD, _D, _DD],
   [0, 0, 0, 0, 0, 15]
 ];
 export var Entity$: StaticStructureSchema = [3, n0, _En,
@@ -525,7 +619,7 @@ export var Entity$: StaticStructureSchema = [3, n0, _En,
 ];
 export var EntityDetail$: StaticStructureSchema = [3, n0, _EDn,
   0,
-  [_ETnt, _EA, _EIn, _LMD, _DD],
+  [_ETnt, _EAn, _EIn, _LMD, _DD],
   [0, 0, 0, 0, 15]
 ];
 export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
@@ -535,12 +629,17 @@ export var EntityRequest$: StaticStructureSchema = [3, n0, _ER,
 ];
 export var EntitySummary$: StaticStructureSchema = [3, n0, _ES,
   0,
-  [_N, _ETnt, _EI, _EA, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS],
+  [_N, _ETnt, _EI, _EAn, _LMD, _V, _APSm, _CPSo, _DPSa, _SSPS, _OS, _RAS, _MLPS, _OSS],
   [0, 0, 0, 0, 0, 0, () => AmiProductSummary$, () => ContainerProductSummary$, () => DataProductSummary$, () => SaaSProductSummary$, () => OfferSummary$, () => ResaleAuthorizationSummary$, () => MachineLearningProductSummary$, () => OfferSetSummary$]
 ];
 export var ErrorDetail$: StaticStructureSchema = [3, n0, _EDr,
   0,
   [_EC, _EM],
+  [0, 0]
+];
+export var ErrorScope$: StaticStructureSchema = [3, n0, _ESr,
+  0,
+  [_N, _Va],
   [0, 0]
 ];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
@@ -557,6 +656,16 @@ export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
   0,
   [_P],
   [0]
+];
+export var ListAssessmentsRequest$: StaticStructureSchema = [3, n0, _LAR,
+  0,
+  [_C, _FI, _ATF, _FF, _MR, _NT],
+  [0, 0, () => AssessmentTargetFilter$, () => FrameworkFilters$, 1, 0], 1
+];
+export var ListAssessmentsResponse$: StaticStructureSchema = [3, n0, _LARi,
+  0,
+  [_ASL, _NT],
+  [() => AssessmentSummaryList, 0]
 ];
 export var ListChangeSetsRequest$: StaticStructureSchema = [3, n0, _LCSR,
   0,
@@ -978,9 +1087,17 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
   [],
   []
 ];
+export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
+  0,
+  [_R, _ETnt, _EI, _CT, _Fi, _M],
+  [0, 0, 0, 0, 0, 0]
+];
 var AmiProductEntityIdFilterValueList = 64 | 0;
 var AmiProductTitleFilterValueList = 64 | 0;
 var AmiProductVisibilityFilterValueList = 64 | 0;
+var AssessmentSummaryList: StaticListSchema = [1, n0, _ASL,
+  0, () => AssessmentSummary$
+];
 var ChangeSetDescription: StaticListSchema = [1, n0, _CSD,
   0, () => ChangeSummary$
 ];
@@ -990,6 +1107,12 @@ var ChangeSetSummaryList: StaticListSchema = [1, n0, _CSSL,
 var ContainerProductEntityIdFilterValueList = 64 | 0;
 var ContainerProductTitleFilterValueList = 64 | 0;
 var ContainerProductVisibilityFilterValueList = 64 | 0;
+var ControlAssessmentList: StaticListSchema = [1, n0, _CAL,
+  0, () => ControlAssessment$
+];
+var ControlErrorList: StaticListSchema = [1, n0, _CEL,
+  0, () => ControlError$
+];
 var DataProductEntityIdFilterValueList = 64 | 0;
 var DataProductTitleFilterValueList = 64 | 0;
 var DataProductVisibilityFilterValueList = 64 | 0;
@@ -1001,6 +1124,9 @@ var EntitySummaryList: StaticListSchema = [1, n0, _ESL,
 ];
 var ErrorDetailList: StaticListSchema = [1, n0, _EDL,
   0, () => ErrorDetail$
+];
+var ErrorScopeList: StaticListSchema = [1, n0, _ESLr,
+  0, () => ErrorScope$
 ];
 var FilterList: StaticListSchema = [1, n0, _FL,
   0, () => Filter$
@@ -1050,6 +1176,9 @@ var TagKeyList = 64 | 0;
 var TagList: StaticListSchema = [1, n0, _TL,
   0, () => Tag$
 ];
+var ValidationExceptionFieldList: StaticListSchema = [1, n0, _VEFL,
+  0, () => ValidationExceptionField$
+];
 var ValueList = 64 | 0;
 var EntityDetails: StaticMapSchema = [2, n0, _ED,
   0, 0, () => EntityDetail$
@@ -1067,6 +1196,16 @@ export var EntityTypeSort$: StaticUnionSchema = [4, n0, _ETS,
   [_DPS, _SSPSa, _APS, _OSf, _CPS, _RASe, _MLPSa, _OSSf],
   [() => DataProductSort$, () => SaaSProductSort$, () => AmiProductSort$, () => OfferSort$, () => ContainerProductSort$, () => ResaleAuthorizationSort$, () => MachineLearningProductSort$, () => OfferSetSort$]
 ];
+export var FrameworkFilters$: StaticUnionSchema = [4, n0, _FF,
+  0,
+  [_AMISF, _CSF],
+  [() => AMISecurityFilters$, () => ContainerSecurityFilters$]
+];
+export var FrameworkSummary$: StaticUnionSchema = [4, n0, _FS,
+  0,
+  [_AMISS, _CSS],
+  [() => AMISecuritySummary$, () => ContainerSecuritySummary$]
+];
 export var BatchDescribeEntities$: StaticOperationSchema = [9, n0, _BDE,
   { [_h]: ["POST", "/BatchDescribeEntities", 200] }, () => BatchDescribeEntitiesRequest$, () => BatchDescribeEntitiesResponse$
 ];
@@ -1076,6 +1215,9 @@ export var CancelChangeSet$: StaticOperationSchema = [9, n0, _CCS,
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   { [_h]: ["DELETE", "/DeleteResourcePolicy", 200] }, () => DeleteResourcePolicyRequest$, () => DeleteResourcePolicyResponse$
 ];
+export var DescribeAssessment$: StaticOperationSchema = [9, n0, _DA,
+  { [_h]: ["POST", "/DescribeAssessment", 200] }, () => DescribeAssessmentRequest$, () => DescribeAssessmentResponse$
+];
 export var DescribeChangeSet$: StaticOperationSchema = [9, n0, _DCS,
   { [_h]: ["GET", "/DescribeChangeSet", 200] }, () => DescribeChangeSetRequest$, () => DescribeChangeSetResponse$
 ];
@@ -1084,6 +1226,9 @@ export var DescribeEntity$: StaticOperationSchema = [9, n0, _DE,
 ];
 export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
   { [_h]: ["GET", "/GetResourcePolicy", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
+];
+export var ListAssessments$: StaticOperationSchema = [9, n0, _LA,
+  { [_h]: ["POST", "/ListAssessments", 200] }, () => ListAssessmentsRequest$, () => ListAssessmentsResponse$
 ];
 export var ListChangeSets$: StaticOperationSchema = [9, n0, _LCS,
   { [_h]: ["POST", "/ListChangeSets", 200] }, () => ListChangeSetsRequest$, () => ListChangeSetsResponse$

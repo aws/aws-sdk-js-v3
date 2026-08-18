@@ -11,6 +11,12 @@ import {
   AmiProductTitleFilter$,
   AmiProductVisibilityFilter$,
   AmiProductVisibilityString,
+  AMISecurityFilters$,
+  AMISecuritySummary$,
+  AssessmentResult,
+  AssessmentSummary$,
+  AssessmentTargetFilter$,
+  AssessmentTargetSummary$,
   BatchDescribeEntities$,
   BatchDescribeEntitiesCommand,
   BatchDescribeEntitiesRequest$,
@@ -34,6 +40,11 @@ import {
   ContainerProductTitleFilter$,
   ContainerProductVisibilityFilter$,
   ContainerProductVisibilityString,
+  ContainerSecurityFilters$,
+  ContainerSecuritySummary$,
+  ControlAssessment$,
+  ControlAssessmentResult,
+  ControlError$,
   DataProductEntityIdFilter$,
   DataProductFilters$,
   DataProductLastModifiedDateFilter$,
@@ -48,6 +59,10 @@ import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyRequest$,
   DeleteResourcePolicyResponse$,
+  DescribeAssessment$,
+  DescribeAssessmentCommand,
+  DescribeAssessmentRequest$,
+  DescribeAssessmentResponse$,
   DescribeChangeSet$,
   DescribeChangeSetCommand,
   DescribeChangeSetRequest$,
@@ -63,8 +78,11 @@ import {
   EntityTypeFilters$,
   EntityTypeSort$,
   ErrorDetail$,
+  ErrorScope$,
   FailureCode,
   Filter$,
+  FrameworkFilters$,
+  FrameworkSummary$,
   GetResourcePolicy$,
   GetResourcePolicyCommand,
   GetResourcePolicyRequest$,
@@ -72,6 +90,10 @@ import {
   Intent,
   InternalServiceException,
   InternalServiceException$,
+  ListAssessments$,
+  ListAssessmentsCommand,
+  ListAssessmentsRequest$,
+  ListAssessmentsResponse$,
   ListChangeSets$,
   ListChangeSetsCommand,
   ListChangeSetsRequest$,
@@ -137,6 +159,8 @@ import {
   OfferTargetingFilter$,
   OfferTargetingString,
   OwnershipType,
+  paginateDescribeAssessment,
+  paginateListAssessments,
   paginateListChangeSets,
   paginateListEntities,
   PutResourcePolicy$,
@@ -203,6 +227,8 @@ import {
   UntagResourceResponse$,
   ValidationException,
   ValidationException$,
+  ValidationExceptionField$,
+  ValidationExceptionReason,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -215,12 +241,16 @@ assert(typeof CancelChangeSetCommand === "function");
 assert(typeof CancelChangeSet$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
+assert(typeof DescribeAssessmentCommand === "function");
+assert(typeof DescribeAssessment$ === "object");
 assert(typeof DescribeChangeSetCommand === "function");
 assert(typeof DescribeChangeSet$ === "object");
 assert(typeof DescribeEntityCommand === "function");
 assert(typeof DescribeEntity$ === "object");
 assert(typeof GetResourcePolicyCommand === "function");
 assert(typeof GetResourcePolicy$ === "object");
+assert(typeof ListAssessmentsCommand === "function");
+assert(typeof ListAssessments$ === "object");
 assert(typeof ListChangeSetsCommand === "function");
 assert(typeof ListChangeSets$ === "object");
 assert(typeof ListEntitiesCommand === "function");
@@ -244,6 +274,11 @@ assert(typeof AmiProductSort$ === "object");
 assert(typeof AmiProductSummary$ === "object");
 assert(typeof AmiProductTitleFilter$ === "object");
 assert(typeof AmiProductVisibilityFilter$ === "object");
+assert(typeof AMISecurityFilters$ === "object");
+assert(typeof AMISecuritySummary$ === "object");
+assert(typeof AssessmentSummary$ === "object");
+assert(typeof AssessmentTargetFilter$ === "object");
+assert(typeof AssessmentTargetSummary$ === "object");
 assert(typeof BatchDescribeEntitiesRequest$ === "object");
 assert(typeof BatchDescribeEntitiesResponse$ === "object");
 assert(typeof BatchDescribeErrorDetail$ === "object");
@@ -260,6 +295,10 @@ assert(typeof ContainerProductSort$ === "object");
 assert(typeof ContainerProductSummary$ === "object");
 assert(typeof ContainerProductTitleFilter$ === "object");
 assert(typeof ContainerProductVisibilityFilter$ === "object");
+assert(typeof ContainerSecurityFilters$ === "object");
+assert(typeof ContainerSecuritySummary$ === "object");
+assert(typeof ControlAssessment$ === "object");
+assert(typeof ControlError$ === "object");
 assert(typeof DataProductEntityIdFilter$ === "object");
 assert(typeof DataProductFilters$ === "object");
 assert(typeof DataProductLastModifiedDateFilter$ === "object");
@@ -270,6 +309,8 @@ assert(typeof DataProductTitleFilter$ === "object");
 assert(typeof DataProductVisibilityFilter$ === "object");
 assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DeleteResourcePolicyResponse$ === "object");
+assert(typeof DescribeAssessmentRequest$ === "object");
+assert(typeof DescribeAssessmentResponse$ === "object");
 assert(typeof DescribeChangeSetRequest$ === "object");
 assert(typeof DescribeChangeSetResponse$ === "object");
 assert(typeof DescribeEntityRequest$ === "object");
@@ -281,9 +322,14 @@ assert(typeof EntitySummary$ === "object");
 assert(typeof EntityTypeFilters$ === "object");
 assert(typeof EntityTypeSort$ === "object");
 assert(typeof ErrorDetail$ === "object");
+assert(typeof ErrorScope$ === "object");
 assert(typeof Filter$ === "object");
+assert(typeof FrameworkFilters$ === "object");
+assert(typeof FrameworkSummary$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
 assert(typeof GetResourcePolicyResponse$ === "object");
+assert(typeof ListAssessmentsRequest$ === "object");
+assert(typeof ListAssessmentsResponse$ === "object");
 assert(typeof ListChangeSetsRequest$ === "object");
 assert(typeof ListChangeSetsResponse$ === "object");
 assert(typeof ListEntitiesRequest$ === "object");
@@ -368,12 +414,15 @@ assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
+assert(typeof ValidationExceptionField$ === "object");
 // enums
 assert(typeof AmiProductSortBy === "object");
 assert(typeof AmiProductVisibilityString === "object");
+assert(typeof AssessmentResult === "object");
 assert(typeof ChangeStatus === "object");
 assert(typeof ContainerProductSortBy === "object");
 assert(typeof ContainerProductVisibilityString === "object");
+assert(typeof ControlAssessmentResult === "object");
 assert(typeof DataProductSortBy === "object");
 assert(typeof DataProductVisibilityString === "object");
 assert(typeof FailureCode === "object");
@@ -394,6 +443,7 @@ assert(typeof ResaleAuthorizationStatusString === "object");
 assert(typeof SaaSProductSortBy === "object");
 assert(typeof SaaSProductVisibilityString === "object");
 assert(typeof SortOrder === "object");
+assert(typeof ValidationExceptionReason === "object");
 // errors
 assert(AccessDeniedException.prototype instanceof MarketplaceCatalogServiceException);
 assert(typeof AccessDeniedException$ === "object");
@@ -413,6 +463,8 @@ assert(ValidationException.prototype instanceof MarketplaceCatalogServiceExcepti
 assert(typeof ValidationException$ === "object");
 assert(MarketplaceCatalogServiceException.prototype instanceof Error);
 // paginators
+assert(typeof paginateDescribeAssessment === "function");
+assert(typeof paginateListAssessments === "function");
 assert(typeof paginateListChangeSets === "function");
 assert(typeof paginateListEntities === "function");
 console.log(`MarketplaceCatalog index test passed.`);

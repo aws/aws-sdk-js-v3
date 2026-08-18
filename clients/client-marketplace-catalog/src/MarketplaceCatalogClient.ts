@@ -64,6 +64,10 @@ import type {
   DeleteResourcePolicyCommandOutput,
 } from "./commands/DeleteResourcePolicyCommand";
 import type {
+  DescribeAssessmentCommandInput,
+  DescribeAssessmentCommandOutput,
+} from "./commands/DescribeAssessmentCommand";
+import type {
   DescribeChangeSetCommandInput,
   DescribeChangeSetCommandOutput,
 } from "./commands/DescribeChangeSetCommand";
@@ -72,6 +76,7 @@ import type {
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
+import type { ListAssessmentsCommandInput, ListAssessmentsCommandOutput } from "./commands/ListAssessmentsCommand";
 import type { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand";
 import type { ListEntitiesCommandInput, ListEntitiesCommandOutput } from "./commands/ListEntitiesCommand";
 import type {
@@ -103,9 +108,11 @@ export type ServiceInputTypes =
   | BatchDescribeEntitiesCommandInput
   | CancelChangeSetCommandInput
   | DeleteResourcePolicyCommandInput
+  | DescribeAssessmentCommandInput
   | DescribeChangeSetCommandInput
   | DescribeEntityCommandInput
   | GetResourcePolicyCommandInput
+  | ListAssessmentsCommandInput
   | ListChangeSetsCommandInput
   | ListEntitiesCommandInput
   | ListTagsForResourceCommandInput
@@ -121,9 +128,11 @@ export type ServiceOutputTypes =
   | BatchDescribeEntitiesCommandOutput
   | CancelChangeSetCommandOutput
   | DeleteResourcePolicyCommandOutput
+  | DescribeAssessmentCommandOutput
   | DescribeChangeSetCommandOutput
   | DescribeEntityCommandOutput
   | GetResourcePolicyCommandOutput
+  | ListAssessmentsCommandOutput
   | ListChangeSetsCommandOutput
   | ListEntitiesCommandOutput
   | ListTagsForResourceCommandOutput

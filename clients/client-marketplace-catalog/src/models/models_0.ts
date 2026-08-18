@@ -4,9 +4,11 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 import type {
   AmiProductSortBy,
   AmiProductVisibilityString,
+  AssessmentResult,
   ChangeStatus,
   ContainerProductSortBy,
   ContainerProductVisibilityString,
+  ControlAssessmentResult,
   DataProductSortBy,
   DataProductVisibilityString,
   FailureCode,
@@ -27,6 +29,7 @@ import type {
   SaaSProductSortBy,
   SaaSProductVisibilityString,
   SortOrder,
+  ValidationExceptionReason,
 } from "./enums";
 
 /**
@@ -169,6 +172,194 @@ export interface AmiProductSummary {
 }
 
 /**
+ * <p>Filters that apply to assessments performed against the AMI Security framework.</p>
+ * @public
+ */
+export interface AMISecurityFilters {
+  /**
+   * <p>The unique ID of the delivery option whose AMI Security assessments you want to
+   *             list.</p>
+   * @public
+   */
+  DeliveryOptionId?: string | undefined;
+}
+
+/**
+ * <p>The details of the resource assessed under the AMI Security framework.</p>
+ * @public
+ */
+export interface AMISecuritySummary {
+  /**
+   * <p>The unique ID of the delivery option that was evaluated.</p>
+   * @public
+   */
+  DeliveryOptionId?: string | undefined;
+}
+
+/**
+ * <p>Identifies the entity or change set that was assessed.</p>
+ * @public
+ */
+export interface AssessmentTargetSummary {
+  /**
+   * <p>The unique ID of the entity that was assessed.</p>
+   * @public
+   */
+  EntityId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the change set that was assessed.</p>
+   * @public
+   */
+  ChangeSetId?: string | undefined;
+}
+
+/**
+ * <p>The details of the resource assessed under the Container Security framework.</p>
+ * @public
+ */
+export interface ContainerSecuritySummary {
+  /**
+   * <p>The unique ID of the delivery option that was evaluated.</p>
+   * @public
+   */
+  DeliveryOptionId?: string | undefined;
+}
+
+/**
+ * <p>The framework-specific details of the assessed resource. Exactly one member is set,
+ *             corresponding to the framework that was assessed.</p>
+ * @public
+ */
+export type FrameworkSummary =
+  | FrameworkSummary.AMISecuritySummaryMember
+  | FrameworkSummary.ContainerSecuritySummaryMember
+  | FrameworkSummary.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FrameworkSummary {
+  /**
+   * <p>The details of the resource assessed under the AMI Security framework.</p>
+   * @public
+   */
+  export interface AMISecuritySummaryMember {
+    AMISecuritySummary: AMISecuritySummary;
+    ContainerSecuritySummary?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The details of the resource assessed under the Container Security framework.</p>
+   * @public
+   */
+  export interface ContainerSecuritySummaryMember {
+    AMISecuritySummary?: never;
+    ContainerSecuritySummary: ContainerSecuritySummary;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AMISecuritySummary?: never;
+    ContainerSecuritySummary?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    AMISecuritySummary: (value: AMISecuritySummary) => T;
+    ContainerSecuritySummary: (value: ContainerSecuritySummary) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>Summarized information about an assessment.</p>
+ * @public
+ */
+export interface AssessmentSummary {
+  /**
+   * <p>The ARN associated with the assessment.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the assessment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the framework that was evaluated by this assessment, in the format
+   *             <code>frameworkId@version</code> (for example,
+   *             <code>AMISecurity@1.0</code>).</p>
+   * @public
+   */
+  FrameworkId?: string | undefined;
+
+  /**
+   * <p>Identifies the entity or change set that was assessed.</p>
+   * @public
+   */
+  AssessmentTargetSummary?: AssessmentTargetSummary | undefined;
+
+  /**
+   * <p>The framework-specific details of the assessed resource. The set member corresponds
+   *             to the framework identified by <code>FrameworkId</code>.</p>
+   * @public
+   */
+  FrameworkSummary?: FrameworkSummary | undefined;
+
+  /**
+   * <p>The overall result of the assessment.</p>
+   * @public
+   */
+  AssessmentResult?: AssessmentResult | undefined;
+
+  /**
+   * <p>The date and time the assessment was created, in ISO 8601 format
+   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * @public
+   */
+  CreatedAt?: string | undefined;
+
+  /**
+   * <p>The date and time the assessment expires, in ISO 8601 format
+   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * @public
+   */
+  ExpiresAt?: string | undefined;
+}
+
+/**
+ * <p>Filters assessment list results by the resource that was assessed. Provide an entity
+ *             identifier, a change set identifier, or both.</p>
+ * @public
+ */
+export interface AssessmentTargetFilter {
+  /**
+   * <p>The unique ID of the entity whose assessments you want to list.</p>
+   * @public
+   */
+  EntityId?: string | undefined;
+
+  /**
+   * <p>The unique ID of the change set that triggered the assessments you want to
+   *             list.</p>
+   * @public
+   */
+  ChangeSetId?: string | undefined;
+}
+
+/**
  * <p>An object that contains entity ID and the catalog in which the entity is present.</p>
  * @public
  */
@@ -272,6 +463,55 @@ export interface BatchDescribeEntitiesResponse {
 }
 
 /**
+ * <p>Detailed information about a single request field that failed
+ *             validation, including the field's location, the reason it failed, and a
+ *             human-readable message.</p>
+ * @public
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>The reason the field failed validation.</p>
+   * @public
+   */
+  Reason?: ValidationExceptionReason | undefined;
+
+  /**
+   * <p>The entity type the failing field applies to, if the field is on a
+   *             specific entity. For example, <code>AmiProduct@1.0</code>.</p>
+   * @public
+   */
+  EntityType?: string | undefined;
+
+  /**
+   * <p>The entity identifier the failing field applies to, if the field is on a
+   *             specific entity.</p>
+   * @public
+   */
+  EntityId?: string | undefined;
+
+  /**
+   * <p>The change type the failing field applies to, if the field is part of a
+   *             change request. For example, <code>AddDeliveryOptions</code>.</p>
+   * @public
+   */
+  ChangeType?: string | undefined;
+
+  /**
+   * <p>The name of the request field that failed validation, expressed as a
+   *             JSON path (for example, <code>Details.DeliveryOptions[0].Type</code>).</p>
+   * @public
+   */
+  Field?: string | undefined;
+
+  /**
+   * <p>A human-readable message describing why the field failed
+   *             validation.</p>
+   * @public
+   */
+  Message?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface CancelChangeSetRequest {
@@ -323,6 +563,184 @@ export interface DeleteResourcePolicyRequest {
  * @public
  */
 export interface DeleteResourcePolicyResponse {}
+
+/**
+ * @public
+ */
+export interface DescribeAssessmentRequest {
+  /**
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of the assessment to describe. You can provide either
+   *             the assessment ID (for example, <code>assessment-12345</code>) or the full
+   *             assessment ARN (for example,
+   *             <code>arn:aws:aws-marketplace:us-east-1::AWSMarketplace/Assessment/assessment-12345</code>).</p>
+   * @public
+   */
+  AssessmentIdentifier: string | undefined;
+
+  /**
+   * <p>Specifies the upper limit of <code>ControlAssessment</code> elements returned on a
+   *             single page. If a value isn't provided, the default value is 50. Valid values range
+   *             from 1 to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>A name-value pair that identifies the resource or attribute that a
+ *             <code>ControlError</code> applies to.</p>
+ * @public
+ */
+export interface ErrorScope {
+  /**
+   * <p>The name of the resource field the error applies to (for example,
+   *             <code>AMI_ID</code>, <code>FILE_PATH</code>, or <code>PACKAGE_NAME</code>).</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The value of the resource field the error applies to.</p>
+   * @public
+   */
+  Value?: string | undefined;
+}
+
+/**
+ * <p>An error reported during the evaluation of a single control.</p>
+ * @public
+ */
+export interface ControlError {
+  /**
+   * <p>The error code that identifies the type of error.</p>
+   * @public
+   */
+  Code?: string | undefined;
+
+  /**
+   * <p>The message for the error.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The list of name-value pairs that identify the resource or attribute that the error
+   *             applies to.</p>
+   * @public
+   */
+  Scope?: ErrorScope[] | undefined;
+}
+
+/**
+ * <p>The result of evaluating a single control as part of an assessment.</p>
+ * @public
+ */
+export interface ControlAssessment {
+  /**
+   * <p>The unique ID of the control that was evaluated.</p>
+   * @public
+   */
+  ControlId?: string | undefined;
+
+  /**
+   * <p>The result of the control evaluation.</p>
+   * @public
+   */
+  ControlAssessmentResult?: ControlAssessmentResult | undefined;
+
+  /**
+   * <p>An array of <code>ControlError</code> objects associated with the control
+   *             evaluation.</p>
+   * @public
+   */
+  Errors?: ControlError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeAssessmentResponse {
+  /**
+   * <p>The ARN associated with the assessment.</p>
+   * @public
+   */
+  AssessmentArn?: string | undefined;
+
+  /**
+   * <p>The unique ID of the assessment.</p>
+   * @public
+   */
+  AssessmentId?: string | undefined;
+
+  /**
+   * <p>The identifier of the framework that was evaluated by this assessment, in the format
+   *             <code>frameworkId@version</code> (for example,
+   *             <code>AMISecurity@1.0</code>).</p>
+   * @public
+   */
+  FrameworkId?: string | undefined;
+
+  /**
+   * <p>Identifies the entity or change set that was assessed.</p>
+   * @public
+   */
+  AssessmentTargetSummary?: AssessmentTargetSummary | undefined;
+
+  /**
+   * <p>The framework-specific details of the assessed resource. The set member corresponds
+   *             to the framework identified by <code>FrameworkId</code>.</p>
+   * @public
+   */
+  FrameworkSummary?: FrameworkSummary | undefined;
+
+  /**
+   * <p>The overall result of the assessment.</p>
+   * @public
+   */
+  AssessmentResult?: AssessmentResult | undefined;
+
+  /**
+   * <p>The date and time the assessment was created, in ISO 8601 format
+   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * @public
+   */
+  CreatedAt?: string | undefined;
+
+  /**
+   * <p>The date and time the assessment expires, in ISO 8601 format
+   *             (<code>2018-02-27T13:45:22Z</code>).</p>
+   * @public
+   */
+  ExpiresAt?: string | undefined;
+
+  /**
+   * <p>An array of <code>ControlAssessment</code> objects, each containing the result of an
+   *             individual control evaluated as part of the assessment.</p>
+   * @public
+   */
+  ControlAssessments?: ControlAssessment[] | undefined;
+
+  /**
+   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * @public
@@ -588,6 +1006,140 @@ export interface GetResourcePolicyResponse {
    * @public
    */
   Policy?: string | undefined;
+}
+
+/**
+ * <p>Filters that apply to assessments performed against the Container Security
+ *             framework.</p>
+ * @public
+ */
+export interface ContainerSecurityFilters {
+  /**
+   * <p>The unique ID of the delivery option whose Container Security assessments you want
+   *             to list.</p>
+   * @public
+   */
+  DeliveryOptionId?: string | undefined;
+}
+
+/**
+ * <p>Framework-specific filters used to scope <code>ListAssessments</code> results. Set
+ *             exactly one member, corresponding to the framework you want to filter by.</p>
+ * @public
+ */
+export type FrameworkFilters =
+  | FrameworkFilters.AMISecurityFiltersMember
+  | FrameworkFilters.ContainerSecurityFiltersMember
+  | FrameworkFilters.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace FrameworkFilters {
+  /**
+   * <p>Filters that apply to assessments performed against the AMI Security framework.</p>
+   * @public
+   */
+  export interface AMISecurityFiltersMember {
+    AMISecurityFilters: AMISecurityFilters;
+    ContainerSecurityFilters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Filters that apply to assessments performed against the Container Security
+   *             framework.</p>
+   * @public
+   */
+  export interface ContainerSecurityFiltersMember {
+    AMISecurityFilters?: never;
+    ContainerSecurityFilters: ContainerSecurityFilters;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    AMISecurityFilters?: never;
+    ContainerSecurityFilters?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    AMISecurityFilters: (value: AMISecurityFilters) => T;
+    ContainerSecurityFilters: (value: ContainerSecurityFilters) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface ListAssessmentsRequest {
+  /**
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
+   *          </p>
+   * @public
+   */
+  Catalog: string | undefined;
+
+  /**
+   * <p>The unique identifier of a framework. When specified, only assessments performed
+   *             against this framework are returned. For example, <code>AMISecurity</code>.</p>
+   * @public
+   */
+  FrameworkId?: string | undefined;
+
+  /**
+   * <p>Filters the list of assessments to those performed against a specific entity or
+   *             change set.</p>
+   * @public
+   */
+  AssessmentTargetFilter?: AssessmentTargetFilter | undefined;
+
+  /**
+   * <p>Framework-specific filters. Set exactly one member to filter results to assessments
+   *             performed against that framework.</p>
+   * @public
+   */
+  FrameworkFilters?: FrameworkFilters | undefined;
+
+  /**
+   * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
+   *             the default value is 20. Valid values range from 1 to 100.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListAssessmentsResponse {
+  /**
+   * <p>An array of <code>AssessmentSummary</code> objects.</p>
+   * @public
+   */
+  AssessmentSummaryList?: AssessmentSummary[] | undefined;
+
+  /**
+   * <p>The value of the next token, if it exists. <code>null</code> if there are no more
+   *             results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**

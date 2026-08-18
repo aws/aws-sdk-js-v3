@@ -2,6 +2,7 @@
 import type { ExceptionOptionType as __ExceptionOptionType } from "@smithy/core/client";
 
 import { MarketplaceCatalogServiceException as __BaseException } from "./MarketplaceCatalogServiceException";
+import type { ValidationExceptionField } from "./models_0";
 
 /**
  * <p>Access is denied.</p>
@@ -82,6 +83,13 @@ export class ValidationException extends __BaseException {
   readonly $fault = "client" as const;
   Message?: string | undefined;
   /**
+   * <p>A list of detailed entries describing the request fields that failed
+   *             validation. Present when the failure can be attributed to one or more specific
+   *             fields.</p>
+   * @public
+   */
+  ValidationExceptionFieldList?: ValidationExceptionField[] | undefined;
+  /**
    * @internal
    */
   constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
@@ -92,6 +100,7 @@ export class ValidationException extends __BaseException {
     });
     Object.setPrototypeOf(this, ValidationException.prototype);
     this.Message = opts.Message;
+    this.ValidationExceptionFieldList = opts.ValidationExceptionFieldList;
   }
 }
 

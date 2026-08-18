@@ -18,6 +18,11 @@ import {
   DeleteResourcePolicyCommand,
 } from "./commands/DeleteResourcePolicyCommand";
 import {
+  type DescribeAssessmentCommandInput,
+  type DescribeAssessmentCommandOutput,
+  DescribeAssessmentCommand,
+} from "./commands/DescribeAssessmentCommand";
+import {
   type DescribeChangeSetCommandInput,
   type DescribeChangeSetCommandOutput,
   DescribeChangeSetCommand,
@@ -32,6 +37,11 @@ import {
   type GetResourcePolicyCommandOutput,
   GetResourcePolicyCommand,
 } from "./commands/GetResourcePolicyCommand";
+import {
+  type ListAssessmentsCommandInput,
+  type ListAssessmentsCommandOutput,
+  ListAssessmentsCommand,
+} from "./commands/ListAssessmentsCommand";
 import {
   type ListChangeSetsCommandInput,
   type ListChangeSetsCommandOutput,
@@ -68,6 +78,8 @@ import {
   UntagResourceCommand,
 } from "./commands/UntagResourceCommand";
 import { MarketplaceCatalogClient } from "./MarketplaceCatalogClient";
+import { paginateDescribeAssessment } from "./pagination/DescribeAssessmentPaginator";
+import { paginateListAssessments } from "./pagination/ListAssessmentsPaginator";
 import { paginateListChangeSets } from "./pagination/ListChangeSetsPaginator";
 import { paginateListEntities } from "./pagination/ListEntitiesPaginator";
 
@@ -75,9 +87,11 @@ const commands = {
   BatchDescribeEntitiesCommand,
   CancelChangeSetCommand,
   DeleteResourcePolicyCommand,
+  DescribeAssessmentCommand,
   DescribeChangeSetCommand,
   DescribeEntityCommand,
   GetResourcePolicyCommand,
+  ListAssessmentsCommand,
   ListChangeSetsCommand,
   ListEntitiesCommand,
   ListTagsForResourceCommand,
@@ -87,6 +101,8 @@ const commands = {
   UntagResourceCommand,
 };
 const paginators = {
+  paginateDescribeAssessment,
+  paginateListAssessments,
   paginateListChangeSets,
   paginateListEntities,
 };
@@ -144,6 +160,23 @@ export interface MarketplaceCatalog {
   ): void;
 
   /**
+   * @see {@link DescribeAssessmentCommand}
+   */
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAssessmentCommandOutput>;
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    cb: (err: any, data?: DescribeAssessmentCommandOutput) => void
+  ): void;
+  describeAssessment(
+    args: DescribeAssessmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAssessmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeChangeSetCommand}
    */
   describeChangeSet(
@@ -192,6 +225,23 @@ export interface MarketplaceCatalog {
     args: GetResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssessmentsCommand}
+   */
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssessmentsCommandOutput>;
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    cb: (err: any, data?: ListAssessmentsCommandOutput) => void
+  ): void;
+  listAssessments(
+    args: ListAssessmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssessmentsCommandOutput) => void
   ): void;
 
   /**
@@ -312,6 +362,28 @@ export interface MarketplaceCatalog {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link DescribeAssessmentCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link DescribeAssessmentCommandOutput}.
+   */
+  paginateDescribeAssessment(
+    args: DescribeAssessmentCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<DescribeAssessmentCommandOutput>;
+
+  /**
+   * @see {@link ListAssessmentsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListAssessmentsCommandOutput}.
+   */
+  paginateListAssessments(
+    args: ListAssessmentsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListAssessmentsCommandOutput>;
 
   /**
    * @see {@link ListChangeSetsCommand}

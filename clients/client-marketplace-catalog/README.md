@@ -27,16 +27,16 @@ To install this package, use the CLI of your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MarketplaceCatalogClient` and
-the commands you need, for example `ListChangeSetsCommand`:
+the commands you need, for example `ListAssessmentsCommand`:
 
 ```js
 // ES5 example
-const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog");
+const { MarketplaceCatalogClient, ListAssessmentsCommand } = require("@aws-sdk/client-marketplace-catalog");
 ```
 
 ```ts
 // ES6+ example
-import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog";
+import { MarketplaceCatalogClient, ListAssessmentsCommand } from "@aws-sdk/client-marketplace-catalog";
 ```
 
 ### Usage
@@ -53,7 +53,7 @@ To send a request:
 const client = new MarketplaceCatalogClient({ region: "REGION" });
 
 const params = { /** input parameters */ };
-const command = new ListChangeSetsCommand(params);
+const command = new ListAssessmentsCommand(params);
 ```
 
 #### Async/await
@@ -109,7 +109,7 @@ const client = new MarketplaceCatalog({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listChangeSets(params);
+  const data = await client.listAssessments(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -117,7 +117,7 @@ try {
 
 // Promises.
 client
-  .listChangeSets(params)
+  .listAssessments(params)
   .then((data) => {
     // process data.
   })
@@ -126,7 +126,7 @@ client
   });
 
 // callbacks (not recommended).
-client.listChangeSets(params, (err, data) => {
+client.listAssessments(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -207,6 +207,13 @@ DeleteResourcePolicy
 </details>
 <details>
 <summary>
+DescribeAssessment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/DescribeAssessmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeAssessmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/DescribeAssessmentCommandOutput/)
+</details>
+<details>
+<summary>
 DescribeChangeSet
 </summary>
 
@@ -225,6 +232,13 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/GetResourcePolicyCommandOutput/)
+</details>
+<details>
+<summary>
+ListAssessments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/marketplace-catalog/command/ListAssessmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListAssessmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-marketplace-catalog/Interface/ListAssessmentsCommandOutput/)
 </details>
 <details>
 <summary>

@@ -46,6 +46,49 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
  * @public
  * @enum
  */
+export const AssessmentResult = {
+  FAIL: "FAIL",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type AssessmentResult = (typeof AssessmentResult)[keyof typeof AssessmentResult];
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidationExceptionReason = {
+  CANNOT_PARSE: "CannotParse",
+  FIELD_VALIDATION_FAILED: "FieldValidationFailed",
+  OTHER: "Other",
+  UNKNOWN_OPERATION: "UnknownOperation",
+} as const;
+/**
+ * @public
+ */
+export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof typeof ValidationExceptionReason];
+
+/**
+ * @public
+ * @enum
+ */
+export const ControlAssessmentResult = {
+  EXEMPTION_PASS: "EXEMPTION_PASS",
+  FAIL: "FAIL",
+  NOT_EXECUTED: "NOT_EXECUTED",
+  PASS: "PASS",
+} as const;
+/**
+ * @public
+ */
+export type ControlAssessmentResult = (typeof ControlAssessmentResult)[keyof typeof ControlAssessmentResult];
+
+/**
+ * @public
+ * @enum
+ */
 export const FailureCode = {
   ClientError: "CLIENT_ERROR",
   ServerFault: "SERVER_FAULT",
