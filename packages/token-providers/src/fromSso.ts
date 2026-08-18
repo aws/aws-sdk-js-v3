@@ -15,9 +15,10 @@ import { validateTokenKey } from "./validateTokenKey";
 import { writeSSOTokenToFile } from "./writeSSOTokenToFile";
 
 /**
- * Last refresh attempt time to ensure refresh is not attempted more than once every 30 seconds.
+ * Last refresh attempt time per SSO session to ensure refresh is not attempted more than once
+ * every 30 seconds per session rather than globally across sessions.
  */
-const lastRefreshAttemptTime = new Date(0);
+const lastRefreshAttemptTimes = new Map<string, number>();
 
 export interface FromSsoInit extends SourceProfileInit, CredentialProviderOptions {
   /**
@@ -88,14 +89,18 @@ export const fromSso =
     validateTokenKey("expiresAt", ssoToken.expiresAt);
 
     const { accessToken, expiresAt } = ssoToken;
-    const existingToken: TokenIdentity = { token: accessToken, expiration: new Date(expiresAt) };
+    const existingToken: TokenIdentity = {
+      token: accessToken,
+      expiration: new Date(expiresAt),
+    };
     if (existingToken.expiration!.getTime() - Date.now() > EXPIRE_WINDOW_MS) {
       // Token is valid and not expired.
       return existingToken;
     }
 
-    // Skip new refresh, if last refresh was done within 30 seconds.
-    if (Date.now() - lastRefreshAttemptTime.getTime() < 30 * 1000) {
+    // Skip new refresh, if last refresh for this SSO session was done within 30 seconds.
+    const lastRefreshAttemptTime = lastRefreshAttemptTimes.get(ssoSessionName) ?? 0;
+    if (Date.now() - lastRefreshAttemptTime < 30 * 1000) {
       /// return existing token if it's still valid.
       validateTokenExpiry(existingToken);
       return existingToken;
@@ -106,7 +111,7 @@ export const fromSso =
     validateTokenKey("refreshToken", ssoToken.refreshToken, true);
 
     try {
-      lastRefreshAttemptTime.setTime(Date.now());
+      lastRefreshAttemptTimes.set(ssoSessionName, Date.now());
       const newSsoOidcToken = await getNewSsoOidcToken(ssoToken, ssoRegion, init, callerClientConfig);
       validateTokenKey("accessToken", newSsoOidcToken.accessToken);
       validateTokenKey("expiresIn", newSsoOidcToken.expiresIn);
