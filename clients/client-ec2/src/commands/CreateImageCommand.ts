@@ -40,6 +40,12 @@ export interface CreateImageCommandOutput extends CreateImageResult, __MetadataB
  *                <p>If the source instance is in a Local Zone, you can create the snapshots in the same
  *           Local Zone or in its parent Region.</p>
  *             </li>
+ *             <li>
+ *                <p>If the source instance is on an Outpost that supports local snapshots, you can create
+ *           the snapshots on the same Outpost or in the parent Region of that Outpost. In this case,
+ *           you must use the <code>SnapshotLocation</code> parameter to specify where to create the
+ *           snapshots.</p>
+ *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed AMI</a> in
  *       the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>

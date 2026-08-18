@@ -5436,22 +5436,27 @@ export interface CreateImageRequest {
 
   /**
    * <note>
-   *             <p>Only supported for instances in Local Zones. If the source instance is not in a Local
-   *         Zone, omit this parameter.</p>
+   *             <p>Only supported for instances in Local Zones and for instances on Outposts that support
+   *         local snapshots. If the source instance is not in one of these locations, omit this
+   *         parameter.</p>
    *          </note>
    *          <p>The Amazon S3 location where the snapshots will be stored.</p>
    *          <ul>
    *             <li>
-   *                <p>To create local snapshots in the same Local Zone as the source instance, specify
-   *           <code>local</code>.</p>
+   *                <p>To create local snapshots in the same Local Zone or on the same Outpost as the source
+   *           instance, specify <code>local</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To create regional snapshots in the parent Region of the Local Zone, specify
-   *           <code>regional</code> or omit this parameter.</p>
+   *                <p>To create regional snapshots in the parent Region of the Local Zone or Outpost, specify
+   *             <code>regional</code>.</p>
    *             </li>
    *          </ul>
-   *          <p>Default: <code>regional</code>
-   *          </p>
+   *          <p>If the source instance is in a Local Zone and you omit this parameter, regional snapshots
+   *       are created in the parent Region of the Local Zone.</p>
+   *          <p>If the source instance is on an Outpost that supports local snapshots, this parameter is
+   *       required. If you omit it, the request fails with an
+   *       <code>InvalidParameterValue</code> error.</p>
+   *          <p>Default: <code>regional</code> (for instances in Local Zones only)</p>
    * @public
    */
   SnapshotLocation?: SnapshotLocationEnum | undefined;
