@@ -166,6 +166,11 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 Sid: Number("double"), // required
  * //                 Timezone: "AMERICA_PUERTO_RICO" || "US_ALASKA" || "US_ARIZONA" || "US_CENTRAL" || "US_EASTERN" || "US_HAWAII" || "US_MOUNTAIN" || "US_PACIFIC" || "US_SAMOA" || "UTC",
  * //               },
+ * //               NielsenNwOnlySettings: { // NielsenNwOnly
+ * //                 CheckDigitString: "STRING_VALUE", // required
+ * //                 Sid: Number("double"), // required
+ * //                 Timezone: "AMERICA_PUERTO_RICO" || "US_ALASKA" || "US_ARIZONA" || "US_CENTRAL" || "US_EASTERN" || "US_HAWAII" || "US_MOUNTAIN" || "US_PACIFIC" || "US_SAMOA" || "UTC",
+ * //               },
  * //             },
  * //           },
  * //           CodecSettings: { // AudioCodecSettings
@@ -563,7 +568,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                 Id3Behavior: "DISABLED" || "ENABLED",
  * //                 KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
  * //                 NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
- * //                 Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION",
+ * //                 Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION" || "SCTE_35_WITHOUT_IDR",
  * //                 SegmentLength: Number("int"),
  * //                 SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
  * //                 TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
@@ -620,7 +625,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //             CmafIngestGroupSettings: { // CmafIngestGroupSettings
  * //               Destination: "<OutputLocationRef>", // required
  * //               NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
- * //               Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION",
+ * //               Scte35Type: "NONE" || "SCTE_35_WITHOUT_SEGMENTATION" || "SCTE_35_WITHOUT_IDR",
  * //               SegmentLength: Number("int"),
  * //               SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
  * //               SendDelayMs: Number("int"),
@@ -716,7 +721,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                       ProgramNum: Number("int"),
  * //                       RateMode: "CBR" || "VBR",
  * //                       Scte27Pids: "STRING_VALUE",
- * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH" || "SCTE_35_WITHOUT_IDR",
  * //                       Scte35Pid: "STRING_VALUE",
  * //                       SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
  * //                       SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
@@ -806,7 +811,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                       NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
  * //                       PcrControl: "CONFIGURED_PCR_PERIOD" || "PCR_EVERY_PES_PACKET",
  * //                       PcrPeriod: Number("int"),
- * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH" || "SCTE_35_WITHOUT_IDR",
  * //                       Scte35PrerollPullupMilliseconds: Number("double"),
  * //                     },
  * //                   },
@@ -870,7 +875,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                       ProgramNum: Number("int"),
  * //                       RateMode: "CBR" || "VBR",
  * //                       Scte27Pids: "STRING_VALUE",
- * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH" || "SCTE_35_WITHOUT_IDR",
  * //                       Scte35Pid: "STRING_VALUE",
  * //                       SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
  * //                       SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
@@ -945,7 +950,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                       ProgramNum: Number("int"),
  * //                       RateMode: "CBR" || "VBR",
  * //                       Scte27Pids: "STRING_VALUE",
- * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH" || "SCTE_35_WITHOUT_IDR",
  * //                       Scte35Pid: "STRING_VALUE",
  * //                       SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
  * //                       SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
@@ -1017,7 +1022,7 @@ export interface UpdateChannelClassCommandOutput extends UpdateChannelClassRespo
  * //                       ProgramNum: Number("int"),
  * //                       RateMode: "CBR" || "VBR",
  * //                       Scte27Pids: "STRING_VALUE",
- * //                       Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                       Scte35Control: "NONE" || "PASSTHROUGH" || "SCTE_35_WITHOUT_IDR",
  * //                       Scte35Pid: "STRING_VALUE",
  * //                       SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
  * //                       SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",

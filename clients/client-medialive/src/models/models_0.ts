@@ -282,8 +282,6 @@ import type {
   S3CannedAcl,
   Scte20Convert608To708,
   Scte27OcrLanguage,
-  Scte35AposNoRegionalBlackoutBehavior,
-  Scte35AposWebDeliveryAllowedBehavior,
   Scte35ArchiveAllowedFlag,
   Scte35DeviceRestrictions,
   Scte35InputMode,
@@ -484,6 +482,31 @@ export interface NielsenNaesIiNw {
 }
 
 /**
+ * Nielsen Nw Only
+ * @public
+ */
+export interface NielsenNwOnly {
+  /**
+   * Enter the check digit string for the watermark
+   * @public
+   */
+  CheckDigitString: string | undefined;
+
+  /**
+   * Enter the Nielsen Source ID (SID) to include in the watermark
+   * @public
+   */
+  Sid: number | undefined;
+
+  /**
+   * Choose the timezone for the time stamps in the watermark. If not provided,
+   * the timestamps will be in Coordinated Universal Time (UTC)
+   * @public
+   */
+  Timezone?: NielsenWatermarkTimezones | undefined;
+}
+
+/**
  * Nielsen Watermarks Settings
  * @public
  */
@@ -507,6 +530,13 @@ export interface NielsenWatermarksSettings {
    * @public
    */
   NielsenNaesIiNwSettings?: NielsenNaesIiNw | undefined;
+
+  /**
+   * Complete these fields only if you want to insert watermarks of type Nielsen NAES VI (NW) only,
+   * without inserting NAES II (N2) watermarks.
+   * @public
+   */
+  NielsenNwOnlySettings?: NielsenNwOnly | undefined;
 }
 
 /**
@@ -5648,7 +5678,7 @@ export interface M2tsSettings {
   Scte27Pids?: string | undefined;
 
   /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
+   * SCTE-35 control. Option "none" indicates that a SCTE-35 marker will not be inserted, nor will an IDR be inserted at the SCTE-35 cue point, nor will the segment be segmented. Option "scte35WithoutIdr" indicates that a SCTE-35 marker will be inserted to indicate the cue point, but MediaLive will not insert an IDR on that frame nor will it introduce a new segment boundary there if it wasn't already going to be one (this option is required for use with downstream multiview bitstream stitching workflows). Option "passthrough" indicates that a SCTE-35 marker will be inserted to indicate the cue point, and an IDR will be inserted on that frame, and MediaLive itself will introduce a new segment boundary there.
    * @public
    */
   Scte35Control?: M2tsScte35Control | undefined;
@@ -6252,7 +6282,7 @@ export interface MultiplexM2tsSettings {
   PcrPeriod?: number | undefined;
 
   /**
-   * Optionally pass SCTE-35 signals from the input source to this output.
+   * SCTE-35 control. Option "none" indicates that a SCTE-35 marker will not be inserted, nor will an IDR be inserted at the SCTE-35 cue point, nor will the segment be segmented. Option "scte35WithoutIdr" indicates that a SCTE-35 marker will be inserted to indicate the cue point, but MediaLive will not insert an IDR on that frame nor will it introduce a new segment boundary there if it wasn't already going to be one (this option is required for use with downstream multiview bitstream stitching workflows). Option "passthrough" indicates that a SCTE-35 marker will be inserted to indicate the cue point, and an IDR will be inserted on that frame, and MediaLive itself will introduce a new segment boundary there.
    * @public
    */
   Scte35Control?: M2tsScte35Control | undefined;
@@ -6600,7 +6630,7 @@ export interface CmafIngestGroupSettings {
   NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
 
   /**
-   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * SCTE-35 insertion type. Option "none" indicates that a SCTE-35 marker will not be inserted, nor will an IDR be inserted at the SCTE-35 cue point, nor will the segment be segmented. Option "scte35WithoutIdr" indicates that a SCTE-35 marker will be inserted to indicate the cue point, but MediaLive will not insert an IDR on that frame nor will it introduce a new segment boundary there if it wasn't already going to be one (this option is required for use with downstream multiview bitstream stitching workflows). Option "scte35WithoutSegmentation" indicates that a SCTE-35 marker will be inserted to indicate the cue point, and an IDR will be inserted on that frame so that a downstream re-packager might split the segment there, but MediaLive itself will not introduce a new segment boundary there.
    * @public
    */
   Scte35Type?: Scte35Type | undefined;
@@ -7301,7 +7331,7 @@ export interface MediaPackageV2GroupSettings {
   NielsenId3Behavior?: CmafNielsenId3Behavior | undefined;
 
   /**
-   * Type of scte35 track to add. none or scte35WithoutSegmentation
+   * SCTE-35 insertion type. Option "none" indicates that a SCTE-35 marker will not be inserted, nor will an IDR be inserted at the SCTE-35 cue point, nor will the segment be segmented. Option "scte35WithoutIdr" indicates that a SCTE-35 marker will be inserted to indicate the cue point, but MediaLive will not insert an IDR on that frame nor will it introduce a new segment boundary there if it wasn't already going to be one (this option is required for use with downstream multiview bitstream stitching workflows). Option "scte35WithoutSegmentation" indicates that a SCTE-35 marker will be inserted to indicate the cue point, and an IDR will be inserted on that frame so that a downstream re-packager might split the segment there, but MediaLive itself will not introduce a new segment boundary there.
    * @public
    */
   Scte35Type?: Scte35Type | undefined;
@@ -10373,28 +10403,4 @@ export interface Scte35SpliceInsert {
    * @public
    */
   WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
-}
-
-/**
- * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
- * @public
- */
-export interface Scte35TimeSignalApos {
-  /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   * @public
-   */
-  AdAvailOffset?: number | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
 }

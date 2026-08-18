@@ -1126,6 +1126,7 @@ export type {
   NielsenCBET,
   NielsenConfiguration,
   NielsenNaesIiNw,
+  NielsenNwOnly,
   NielsenWatermarksSettings,
   NodeInterfaceMapping,
   NodeInterfaceMappingCreateRequest,

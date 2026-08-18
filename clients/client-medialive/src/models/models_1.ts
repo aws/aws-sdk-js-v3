@@ -55,6 +55,8 @@ import type {
   RebootInputDeviceForce,
   ReservationState,
   RouterEncryptionType,
+  Scte35AposNoRegionalBlackoutBehavior,
+  Scte35AposWebDeliveryAllowedBehavior,
   Scte35SegmentationScope,
   SdiSourceMode,
   SdiSourceState,
@@ -146,7 +148,6 @@ import type {
   RouteUpdateRequest,
   ScheduleAction,
   Scte35SpliceInsert,
-  Scte35TimeSignalApos,
   SdiSourceMapping,
   SdiSourceSummary,
   SignalMapSummary,
@@ -158,6 +159,30 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.
+ * @public
+ */
+export interface Scte35TimeSignalApos {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35AposNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35AposWebDeliveryAllowedBehavior | undefined;
+}
 
 /**
  * Avail Settings

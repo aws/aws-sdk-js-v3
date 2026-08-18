@@ -874,6 +874,7 @@ import {
   NielsenCBET$,
   NielsenConfiguration$,
   NielsenNaesIiNw$,
+  NielsenNwOnly$,
   NielsenPcmToId3TaggingState,
   NielsenWatermarksCbetStepaside,
   NielsenWatermarksDistributionTypes,
@@ -1934,6 +1935,7 @@ assert(typeof NetworkInputSettings$ === "object");
 assert(typeof NielsenCBET$ === "object");
 assert(typeof NielsenConfiguration$ === "object");
 assert(typeof NielsenNaesIiNw$ === "object");
+assert(typeof NielsenNwOnly$ === "object");
 assert(typeof NielsenWatermarksSettings$ === "object");
 assert(typeof NodeInterfaceMapping$ === "object");
 assert(typeof NodeInterfaceMappingCreateRequest$ === "object");

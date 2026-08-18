@@ -2336,6 +2336,7 @@ export type M2tsRateMode = (typeof M2tsRateMode)[keyof typeof M2tsRateMode];
 export const M2tsScte35Control = {
   NONE: "NONE",
   PASSTHROUGH: "PASSTHROUGH",
+  SCTE_35_WITHOUT_IDR: "SCTE_35_WITHOUT_IDR",
 } as const;
 /**
  * @public
@@ -2658,6 +2659,7 @@ export type CmafNielsenId3Behavior = (typeof CmafNielsenId3Behavior)[keyof typeo
  */
 export const Scte35Type = {
   NONE: "NONE",
+  SCTE_35_WITHOUT_IDR: "SCTE_35_WITHOUT_IDR",
   SCTE_35_WITHOUT_SEGMENTATION: "SCTE_35_WITHOUT_SEGMENTATION",
 } as const;
 /**

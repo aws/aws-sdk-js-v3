@@ -953,6 +953,8 @@ const _NM = "NameModifier";
 const _NN = "NetworkName";
 const _NNIN = "NielsenNaesIiNw";
 const _NNINS = "NielsenNaesIiNwSettings";
+const _NNO = "NielsenNwOnly";
+const _NNOS = "NielsenNwOnlySettings";
 const _NPB = "NullPacketBitrate";
 const _NPTIT = "NielsenPcmToId3Tagging";
 const _NR = "NumRetries";
@@ -2128,6 +2130,7 @@ const _nIo = "nodeId";
 const _nM = "nameModifier";
 const _nN = "networkName";
 const _nNINS = "nielsenNaesIiNwSettings";
+const _nNOS = "nielsenNwOnlySettings";
 const _nPB = "nullPacketBitrate";
 const _nPTIT = "nielsenPcmToId3Tagging";
 const _nR = "numRetries";
@@ -4653,10 +4656,15 @@ export var NielsenNaesIiNw$: StaticStructureSchema = [3, n0, _NNIN,
   [_CDSh, _Si, _Tim],
   [[0, { [_jN]: _cDS }], [1, { [_jN]: _si }], [0, { [_jN]: _tim }]], 2
 ];
+export var NielsenNwOnly$: StaticStructureSchema = [3, n0, _NNO,
+  0,
+  [_CDSh, _Si, _Tim],
+  [[0, { [_jN]: _cDS }], [1, { [_jN]: _si }], [0, { [_jN]: _tim }]], 2
+];
 export var NielsenWatermarksSettings$: StaticStructureSchema = [3, n0, _NWS,
   0,
-  [_NCS, _NDT, _NNINS],
-  [[() => NielsenCBET$, { [_jN]: _nCS }], [0, { [_jN]: _nDT }], [() => NielsenNaesIiNw$, { [_jN]: _nNINS }]]
+  [_NCS, _NDT, _NNINS, _NNOS],
+  [[() => NielsenCBET$, { [_jN]: _nCS }], [0, { [_jN]: _nDT }], [() => NielsenNaesIiNw$, { [_jN]: _nNINS }], [() => NielsenNwOnly$, { [_jN]: _nNOS }]]
 ];
 export var NodeInterfaceMapping$: StaticStructureSchema = [3, n0, _NIMo,
   0,
