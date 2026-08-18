@@ -2456,7 +2456,7 @@ export interface Tmpfs {
 export interface LinuxParameters {
   /**
    * <p>Any of the host devices to expose to the container. This parameter maps to
-   *     <code>Devices</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+   *     <code>Devices</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a>
    *    and the <code>--device</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
    *    run</a>.</p>
    *          <note>
@@ -2700,7 +2700,7 @@ export interface LogConfiguration {
 
 /**
  * <p>Details for a Docker volume mount point that's used in a job's container properties. This
- *    parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate">Create a
+ *    parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
  *     container</a> section of the <i>Docker Remote API</i> and the
  *     <code>--volume</code> option to docker run.</p>
  * @public
@@ -2780,12 +2780,12 @@ export interface ResourceRequirement {
    *                <p>The memory hard limit (in MiB) present to the container. This parameter is supported for
    *       jobs that are running on Amazon EC2 resources. If your container attempts to exceed the memory
    *       specified, the container is terminated. This parameter maps to <code>Memory</code> in the
-   *       <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *       <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *        <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. You
    *       must specify at least 4 MiB of memory for a job. This is required but can be specified in
    *       several places for multi-node parallel (MNP) jobs. It must be specified for each node at least
-   *       once. This parameter maps to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-   *       section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
+   *       once. This parameter maps to <code>Memory</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a>
+   *       section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    *                <note>
    *                   <p>If you're trying to maximize your resource utilization by providing your jobs as much
    *        memory as possible for a particular instance type, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html">Memory management</a> in the
@@ -2850,28 +2850,43 @@ export interface ResourceRequirement {
    *                      <p>
    *                         <code>VCPU</code> = 4 or 8</p>
    *                   </dd>
-   *                   <dt>value = 36864, 45056, 53248, or 61440</dt>
+   *                   <dt>value = 36864, 45056, or 53248</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 8</p>
+   *                   </dd>
+   *                   <dt>value = 61440</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 8 or 32</p>
    *                   </dd>
    *                   <dt>value = 32768, 40960, 49152, or 57344</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 8 or 16</p>
    *                   </dd>
-   *                   <dt>value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880</dt>
+   *                   <dt>value = 65536, 73728, 81920, 90112, 98304, 106496, or 114688</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 16</p>
+   *                   </dd>
+   *                   <dt>value = 122880</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 16 or 32</p>
+   *                   </dd>
+   *                   <dt>value = 249856</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 32</p>
    *                   </dd>
    *                </dl>
    *             </dd>
    *             <dt>type="VCPU"</dt>
    *             <dd>
    *                <p>The number of vCPUs reserved for the container. This parameter maps to
-   *        <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the
-   *       <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares.
+   *        <code>CpuShares</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the
+   *       <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares.
    *       For Amazon EC2 resources, you must specify at least one vCPU. This is required but can be specified
    *       in several places; it must be specified for each node at least once.</p>
    *                <p>The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more
@@ -2879,8 +2894,8 @@ export interface ResourceRequirement {
    *       in the <i>Amazon Web Services General Reference</i>.</p>
    *                <p>For jobs that are running on Fargate resources, then <code>value</code> must match one
    *       of the supported values and the <code>MEMORY</code> values must be one of the values supported
-   *       for that <code>VCPU</code> value. The supported values are 0.25, 0.5, 1, 2, 4, 8, and
-   *       16</p>
+   *       for that <code>VCPU</code> value. The supported values are 0.25, 0.5, 1, 2, 4, 8, 16, and
+   *       32.</p>
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
@@ -2919,6 +2934,11 @@ export interface ResourceRequirement {
    *                      <p>
    *                         <code>MEMORY</code> = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
    * </p>
+   *                   </dd>
+   *                   <dt>value = 32</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>MEMORY</code> = 61440, 122880, or 249856</p>
    *                   </dd>
    *                </dl>
    *             </dd>
@@ -3209,7 +3229,7 @@ export interface ContainerProperties {
    *             </code>.
    *    It can be 255 characters long. It can contain uppercase and lowercase letters, numbers,
    *  hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to <code>Image</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>IMAGE</code>
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>IMAGE</code>
    *    parameter of <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    *          <note>
    *             <p>Docker image architecture must match the processor architecture of the compute resources
@@ -3250,7 +3270,7 @@ export interface ContainerProperties {
    *    For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the
    *    job.</p>
    *          <p>Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to <code>CpuShares</code>
-   *    in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The
    *    number of vCPUs must be specified but can be specified in several places. You must specify it at
    *    least once for each node.</p>
@@ -3275,7 +3295,7 @@ export interface ContainerProperties {
 
   /**
    * <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>COMMAND</code>
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>COMMAND</code>
    *    parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information, see
    *     <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
    * @public
@@ -3306,7 +3326,7 @@ export interface ContainerProperties {
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in
-   *    the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    *          <important>
    *             <p>We don't recommend using plaintext environment variables for sensitive information, such as
@@ -3322,7 +3342,7 @@ export interface ContainerProperties {
 
   /**
    * <p>The mount points for data volumes in your container. This parameter maps to
-   *     <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+   *     <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a>
    *    and the <code>--volume</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
    *    run</a>.</p>
    * @public
@@ -3332,7 +3352,7 @@ export interface ContainerProperties {
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
    *    system. This parameter maps to <code>ReadonlyRootfs</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--read-only</code> option to <code>docker run</code>.</p>
    * @public
    */
@@ -3341,8 +3361,8 @@ export interface ContainerProperties {
   /**
    * <p>When this parameter is true, the container is given elevated permissions on the host
    *    container instance (similar to the <code>root</code> user). This parameter maps to
-   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The default value is false.</p>
+   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the
+   *    <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. The default value is false.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources and
    *     shouldn't be provided, or specified as false.</p>
@@ -3353,7 +3373,7 @@ export interface ContainerProperties {
 
   /**
    * <p>A list of <code>ulimits</code> to set in the container. This parameter maps to
-   *     <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+   *     <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a>
    *    and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
    *    run</a>.</p>
    *          <note>
@@ -3366,7 +3386,7 @@ export interface ContainerProperties {
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--user</code>
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--user</code>
    *    option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    * @public
    */
@@ -3399,8 +3419,8 @@ export interface ContainerProperties {
 
   /**
    * <p>The log configuration specification for the container.</p>
-   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-   *    section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. By default, containers use the same logging
+   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a>
+   *    section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. By default, containers use the same logging
    *    driver that the Docker daemon uses. However the container might use a different logging driver
    *    than the Docker daemon by specifying a log driver with this parameter in the container
    *    definition. To use a different logging driver for a container, the log system must be configured
@@ -3550,8 +3570,8 @@ export interface FirelensConfiguration {
 export interface TaskContainerProperties {
   /**
    * <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the
-   *     <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker
+   *     <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>COMMAND</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information,
    *    see <a href="https://docs.docker.com/engine/reference/builder/#cmd">Dockerfile reference:
    *     CMD</a>.</p>
@@ -3566,8 +3586,8 @@ export interface TaskContainerProperties {
   dependsOn?: TaskContainerDependency[] | undefined;
 
   /**
-   * <p>The environment variables to pass to a container. This parameter maps to Env in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-   *    section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+   * <p>The environment variables to pass to a container. This parameter maps to Env in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a>
+   *    section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a>
    *    and the <code>--env</code> parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. </p>
    *          <important>
    *             <p>We don't recommend using plaintext environment variables for sensitive information, such as
@@ -3609,8 +3629,8 @@ export interface TaskContainerProperties {
    *    default, images in the Docker Hub registry are available. Other repositories are specified with
    *    either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to
    *    255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward
-   *    slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration">
    *                <i>docker
    *      run</i>
@@ -3628,8 +3648,8 @@ export interface TaskContainerProperties {
 
   /**
    * <p>The log configuration specification for the container.</p>
-   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>By default, containers use the same logging driver that the Docker daemon uses. However the
@@ -3662,8 +3682,8 @@ export interface TaskContainerProperties {
 
   /**
    * <p>The mount points for data volumes in your container.</p>
-   *          <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *          <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>Windows containers can mount whole directories on the same drive as
@@ -3683,8 +3703,8 @@ export interface TaskContainerProperties {
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the
    *    host container instance (similar to the <code>root</code> user). This parameter maps to
-   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <note>
@@ -3696,8 +3716,8 @@ export interface TaskContainerProperties {
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
-   *    system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--read-only</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <note>
@@ -3730,8 +3750,8 @@ export interface TaskContainerProperties {
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is
    *    specified in a task definition, it overrides the default values set by Docker. This parameter
-   *    maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>Amazon ECS tasks hosted on Fargate use the default resource limit values set by the operating
@@ -3873,6 +3893,9 @@ export interface EcsTaskProperties {
    *          <p>If no value is specified, then the IPC resource namespace sharing depends on the Docker
    *    daemon setting on the container instance. For more information, see <a href="https://docs.docker.com/engine/reference/run/#ipc-settings---ipc">IPC settings</a> in
    *    the Docker run reference.</p>
+   *          <note>
+   *             <p>This parameter is not supported for jobs that run on Fargate resources.</p>
+   *          </note>
    * @public
    */
   ipcMode?: string | undefined;
@@ -5118,7 +5141,7 @@ export interface ContainerDetail {
    *    can specify the vCPU requirement for the job using <code>resourceRequirements</code>, but you
    *    can't specify the vCPU requirements in both the <code>vcpus</code> and
    *     <code>resourceRequirements</code> object. This parameter maps to <code>CpuShares</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each
    *    vCPU is equivalent to 1,024 CPU shares. You must specify at least one vCPU. This is required but
    *    can be specified in several places. It must be specified for each node at least once.</p>
@@ -5184,7 +5207,7 @@ export interface ContainerDetail {
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
    *    system. This parameter maps to <code>ReadonlyRootfs</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--read-only</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
    *                <code>docker
    *    run</code>
@@ -5195,7 +5218,7 @@ export interface ContainerDetail {
 
   /**
    * <p>A list of <code>ulimit</code> values to set in the container. This parameter maps to
-   *     <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a>
+   *     <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a>
    *    and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
    *    run</a>.</p>
    *          <note>
@@ -5219,7 +5242,7 @@ export interface ContainerDetail {
 
   /**
    * <p>The user name to use inside the container. This parameter maps to <code>User</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--user</code>
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--user</code>
    *    option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    * @public
    */
@@ -5290,8 +5313,8 @@ export interface ContainerDetail {
 
   /**
    * <p>The log configuration specification for the container.</p>
-   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a>
-   *    section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. By default, containers use the same logging
+   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a>
+   *    section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. By default, containers use the same logging
    *    driver that the Docker daemon uses. However, the container might use a different logging driver
    *    than the Docker daemon by specifying a log driver with this parameter in the container
    *    definition. To use a different logging driver for a container, the log system must be configured
@@ -5394,7 +5417,7 @@ export interface JobDependency {
 export interface TaskContainerDetails {
   /**
    * <p>The command that's passed to the container. This parameter maps to <code>Cmd</code> in the
-   *    <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the <code>COMMAND</code>
+   *    <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the <code>COMMAND</code>
    *    parameter to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. For more information, see
    *     <a href="https://docs.docker.com/engine/reference/builder/#cmd">https://docs.docker.com/engine/reference/builder/#cmd</a>.</p>
    * @public
@@ -5409,7 +5432,7 @@ export interface TaskContainerDetails {
 
   /**
    * <p>The environment variables to pass to a container. This parameter maps to <code>Env</code> in
-   *    the <a href="https://docs.docker.com/engine/api/v1.23/#create-a-container">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.23/">Docker Remote API</a> and the
+   *    the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker Remote API</a> and the
    *     <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker run</a>.</p>
    *          <important>
    *             <p>We don't recommend using plaintext environment variables for sensitive information, such as
@@ -5447,8 +5470,8 @@ export interface TaskContainerDetails {
    *    default, images in the Docker Hub registry are available. Other repositories are specified with
    *    either <code>repository-url/image:tag</code> or <code>repository-url/image@digest</code>. Up to
    *    255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward
-   *    slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    slashes, and number signs are allowed. This parameter maps to <code>Image</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>IMAGE</code> parameter of the <a href="https://docs.docker.com/engine/reference/run/#security-configuration">
    *                <i>docker
    *      run</i>
@@ -5469,8 +5492,8 @@ export interface TaskContainerDetails {
 
   /**
    * <p>The log configuration specification for the container.</p>
-   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *          <p>This parameter maps to <code>LogConfig</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>By default, containers use the same logging driver that the Docker daemon uses. However the
@@ -5503,8 +5526,8 @@ export interface TaskContainerDetails {
 
   /**
    * <p>The mount points for data volumes in your container.</p>
-   *          <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *          <p>This parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <a href="">--volume</a> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>Windows containers can mount whole directories on the same drive as
@@ -5523,8 +5546,8 @@ export interface TaskContainerDetails {
   /**
    * <p>When this parameter is <code>true</code>, the container is given elevated privileges on the
    *    host container instance (similar to the <code>root</code> user). This parameter maps to
-   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *     <code>Privileged</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--privileged</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <note>
@@ -5536,8 +5559,8 @@ export interface TaskContainerDetails {
 
   /**
    * <p>When this parameter is true, the container is given read-only access to its root file
-   *    system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    system. This parameter maps to <code>ReadonlyRootfs</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--read-only</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <note>
@@ -5570,8 +5593,8 @@ export interface TaskContainerDetails {
   /**
    * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is
    *    specified in a task definition, it overrides the default values set by Docker. This parameter
-   *    maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a
-   *     container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker
+   *    maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/latest/#tag/Container/operation/ContainerCreate">Create a
+   *     container</a> section of the <a href="https://docs.docker.com/engine/api/latest/">Docker
    *     Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker
    *    run</a>.</p>
    *          <p>Amazon ECS tasks hosted on Fargate use the default resource limit values set by the operating
