@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
+
+
+### Features
+
+* **client-marketplace-catalog:** Introducing two new APIs, DescribeAssessment and ListAssessments. These APIs expose validation issues on Marketplace resources. The validation issues are exposed via a newly created resource called Assessment. ([a2a6ab2](https://github.com/aws/aws-sdk-js-v3/commit/a2a6ab2fa2efc9f7d153df8a8ccd223878246b18))
+
+
+
+
+
 # [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
 
 **Note:** Version bump only for package @aws-sdk/client-marketplace-catalog

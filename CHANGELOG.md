@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
+
+
+### Bug Fixes
+
+* **token-providers:** update SSO refresh throttle per session ([#8268](https://github.com/aws/aws-sdk-js-v3/issues/8268)) ([ac44fb0](https://github.com/aws/aws-sdk-js-v3/commit/ac44fb0458e60ede908be394e814a542803ffb17))
+
+
+### Features
+
+* **client-entityresolution:** Added ResourceNotFoundException to DeleteSchemaMapping, DeleteMatchingWorkflow, DeleteIdMappingWorkflow, and DeleteIdNamespace. These operations now return a 404 ResourceNotFoundException (previously a 200 Success) when the target resource does not exist. ([860ccc2](https://github.com/aws/aws-sdk-js-v3/commit/860ccc2017d41a2fdc590eb1994b82ecb516ce93))
+* **client-marketplace-catalog:** Introducing two new APIs, DescribeAssessment and ListAssessments. These APIs expose validation issues on Marketplace resources. The validation issues are exposed via a newly created resource called Assessment. ([a2a6ab2](https://github.com/aws/aws-sdk-js-v3/commit/a2a6ab2fa2efc9f7d153df8a8ccd223878246b18))
+* **client-medialive:** AWS Elemental MediaLive now supports SCTE-35 marker passthrough without IDR frame insertion for CMAF Ingest, MediaPackage V2, and transport stream outputs. ([b93c2f3](https://github.com/aws/aws-sdk-js-v3/commit/b93c2f346ea5540ad7fef15147c0a1f4ebdf1627))
+* **client-outposts:** AWS Outposts now supports VPC Endpoint configuration in CreatePrivateConnectivityConfig, enabling scoped private connectivity with provisioning role creation for secure outpost installations ([74c9d45](https://github.com/aws/aws-sdk-js-v3/commit/74c9d45862ce98dea54768e85412952f85d85e65))
+* **client-workspaces:** Amazon WorkSpaces now supports nested virtualization, allowing you to run hypervisors and virtualization-based workloads within your WorkSpaces. You can enable or disable nested virtualization when creating a WorkSpace or by modifying an existing WorkSpace's properties. ([b15dc81](https://github.com/aws/aws-sdk-js-v3/commit/b15dc8120b455b776d7a79789ca767b8d38c687c))
+
+
+
+
+
 # [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
 
 

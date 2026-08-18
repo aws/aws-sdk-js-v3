@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
+
+
+### Features
+
+* **client-workspaces:** Amazon WorkSpaces now supports nested virtualization, allowing you to run hypervisors and virtualization-based workloads within your WorkSpaces. You can enable or disable nested virtualization when creating a WorkSpace or by modifying an existing WorkSpace's properties. ([b15dc81](https://github.com/aws/aws-sdk-js-v3/commit/b15dc8120b455b776d7a79789ca767b8d38c687c))
+
+
+
+
+
 # [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

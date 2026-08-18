@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
+
+
+### Bug Fixes
+
+* **token-providers:** update SSO refresh throttle per session ([#8268](https://github.com/aws/aws-sdk-js-v3/issues/8268)) ([ac44fb0](https://github.com/aws/aws-sdk-js-v3/commit/ac44fb0458e60ede908be394e814a542803ffb17))
+
+
+
+
+
 # [3.1112.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1111.0...v3.1112.0) (2026-08-17)
 
 **Note:** Version bump only for package @aws-sdk/token-providers
