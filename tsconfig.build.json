@@ -1,0 +1,1622 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/cloudfront-signer/tsconfig.build.json"
+    },
+    {
+      "path": "packages/config/tsconfig.build.json"
+    },
+    {
+      "path": "packages/crc64-nvme-crt/tsconfig.build.json"
+    },
+    {
+      "path": "packages/credential-providers/tsconfig.build.json"
+    },
+    {
+      "path": "packages/dsql-signer/tsconfig.build.json"
+    },
+    {
+      "path": "packages/ec2-metadata-service/tsconfig.build.json"
+    },
+    {
+      "path": "packages/polly-request-presigner/tsconfig.build.json"
+    },
+    {
+      "path": "packages/rds-signer/tsconfig.build.json"
+    },
+    {
+      "path": "packages/s3-presigned-post/tsconfig.build.json"
+    },
+    {
+      "path": "packages/s3-request-presigner/tsconfig.build.json"
+    },
+    {
+      "path": "packages/signature-v4-crt/tsconfig.build.json"
+    },
+    {
+      "path": "packages/signature-v4a/tsconfig.build.json"
+    },
+    {
+      "path": "packages/token-providers/tsconfig.build.json"
+    },
+    {
+      "path": "packages/xhr-http-handler/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/body-checksum-browser/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/body-checksum-node/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/checksums/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/chunked-stream-reader-node/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/core/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/crc64-nvme/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-cognito-identity/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-env/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-http/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-ini/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-login/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-node/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-process/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-sso/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/credential-provider-web-identity/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/crt-loader/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/dynamodb-codec/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/endpoint-cache/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/eventstream-handler-node/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/karma-credential-loader/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-api-key/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-bucket-endpoint/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-endpoint-discovery/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-eventstream/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-expect-continue/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-flexible-checksums/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-host-header/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-http-debug-log/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-location-constraint/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-logger/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-recursion-detection/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-api-gateway/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-ec2/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-glacier/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-machinelearning/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-rds/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-route53/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-s3/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-s3-control/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-sqs/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-sts/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-sdk-transcribe-streaming/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-signing/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-ssec/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-token/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-user-agent/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/middleware-websocket/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/nested-clients/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/region-config-resolver/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/sha256-tree-hash/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/signature-v4-multi-region/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/smithy-client/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/snapshot-testing/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/types/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/undici-http-handler/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-arn-parser/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-create-request/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-dns/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-dynamodb/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-endpoints/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-format-url/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-locate-window/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-user-agent-browser/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/util-user-agent-node/tsconfig.build.json"
+    },
+    {
+      "path": "packages-internal/xml-builder/tsconfig.build.json"
+    },
+    {
+      "path": "lib/lib-dynamodb/tsconfig.build.json"
+    },
+    {
+      "path": "lib/lib-storage/tsconfig.build.json"
+    },
+    {
+      "path": "lib/lib-transfer-manager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-accessanalyzer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-account/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-account-access/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-acm/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-acm-pca/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-agent-registry/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-agent-registry-control/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-aiops/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-amp/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-amplify/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-amplifybackend/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-amplifyuibuilder/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-api-gateway/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-apigatewaymanagementapi/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-apigatewayv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-app-mesh/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appconfig/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appconfigdata/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appfabric/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appflow/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appintegrations/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-application-auto-scaling/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-application-discovery-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-application-insights/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-application-signals/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-applicationcostprofiler/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-apprunner/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appstream/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-appsync/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-arc-region-switch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-arc-zonal-shift/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-artifact/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-athena/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-auditmanager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-auto-scaling/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-auto-scaling-plans/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-b2bi/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-backup/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-backup-gateway/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-backupsearch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-batch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bcm-dashboards/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bcm-data-exports/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bcm-pricing-calculator/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bcm-recommended-actions/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-agent/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-agent-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-agentcore/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-agentcore-control/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-data-automation/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-data-automation-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-bedrock-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-billing/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-billingconductor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-braket/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-budgets/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chatbot/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime-sdk-identity/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime-sdk-media-pipelines/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime-sdk-meetings/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime-sdk-messaging/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-chime-sdk-voice/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cleanrooms/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cleanroomsml/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloud9/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudcontrol/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-clouddirectory/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudformation/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudfront/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudfront-keyvaluestore/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudhsm/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudhsm-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudsearch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudsearch-domain/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudtrail/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudtrail-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudwatch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudwatch-events/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cloudwatch-logs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codeartifact/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codebuild/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codecatalyst/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codecommit/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codeconnections/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codedeploy/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codeguru-reviewer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codeguru-security/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codeguruprofiler/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codepipeline/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codestar-connections/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-codestar-notifications/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cognito-identity/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cognito-identity-provider/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cognito-sync/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-comprehend/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-comprehendmedical/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-compute-optimizer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-compute-optimizer-automation/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-config-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connect-contact-lens/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connectcampaigns/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connectcampaignsv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connectcases/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connecthealth/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-connectparticipant/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-controlcatalog/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-controltower/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cost-and-usage-report-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cost-explorer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-cost-optimization-hub/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-customer-profiles/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-data-pipeline/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-database-migration-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-databrew/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dataexchange/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-datasync/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-datazone/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dax/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-deadline/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-detective/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-device-farm/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-devops-agent/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-devops-guru/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-direct-connect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-directory-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-directory-service-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dlm/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-docdb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-docdb-elastic/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-drs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dsql/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dynamodb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-dynamodb-streams/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ebs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ec2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ec2-instance-connect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ecr/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ecr-public/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ecs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-efs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-eks/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-eks-auth/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elastic-beanstalk/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elastic-load-balancing/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elastic-load-balancing-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elasticache/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elasticsearch-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-elementalinference/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-emr/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-emr-containers/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-emr-serverless/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-entityresolution/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-eventbridge/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-evs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-finspace/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-finspace-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-firehose/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-fis/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-fms/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-forecast/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-forecastquery/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-frauddetector/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-freetier/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-fsx/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-gamelift/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-gameliftstreams/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-geo-maps/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-geo-places/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-geo-routes/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-glacier/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-global-accelerator/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-glue/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-grafana/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-greengrass/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-greengrassv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-groundstation/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-guardduty/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-health/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-healthlake/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iam/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-identitystore/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-imagebuilder/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-inspector/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-inspector-scan/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-inspector2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-interconnect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-internetmonitor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-invoicing/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iot/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iot-data-plane/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iot-jobs-data-plane/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iot-managed-integrations/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iot-wireless/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iotdeviceadvisor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iotfleetwise/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iotsecuretunneling/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iotsitewise/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iotthingsgraph/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-iottwinmaker/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ivs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ivs-realtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ivschat/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kafka/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kafkaconnect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kendra/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kendra-ranking/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-keyspaces/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-keyspacesstreams/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-analytics/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-analytics-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-video/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-video-archived-media/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-video-media/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-video-signaling/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kinesis-video-webrtc-storage/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-kms/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lakeformation/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lambda/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lambda-core/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lambda-microvms/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-launch-wizard/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lex-model-building-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lex-models-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lex-runtime-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lex-runtime-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-license-manager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-license-manager-linux-subscriptions/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-license-manager-user-subscriptions/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lightsail/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-location/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-lookoutequipment/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-m2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-machine-learning/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-macie2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mailmanager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-managedblockchain/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-managedblockchain-query/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-agreement/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-catalog/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-commerce-analytics/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-deployment/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-discovery/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-entitlement-service/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-metering/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-marketplace-reporting/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediaconnect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediaconvert/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-medialive/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediapackage/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediapackage-vod/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediapackagev2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediastore/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediastore-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mediatailor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-medical-imaging/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-memorydb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mgn/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-migration-hub/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-migration-hub-refactor-spaces/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-migrationhub-config/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-migrationhuborchestrator/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-migrationhubstrategy/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mpa/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mq/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mturk/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mwaa/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-mwaa-serverless/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-neptune/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-neptune-graph/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-neptunedata/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-network-firewall/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-networkflowmonitor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-networkmanager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-networkmonitor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-notifications/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-notificationscontacts/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-nova-act/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-oam/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-observabilityadmin/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-odb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-omics/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-opensearch/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-opensearchserverless/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-organizations/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-osis/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-outposts/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-partnercentral-account/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-partnercentral-benefits/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-partnercentral-channel/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-partnercentral-revenue-measurement/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-partnercentral-selling/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-payment-cryptography/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-payment-cryptography-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pca-connector-ad/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pca-connector-scep/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pcs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-personalize/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-personalize-events/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-personalize-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pi/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pinpoint/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pinpoint-email/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pinpoint-sms-voice/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pinpoint-sms-voice-v2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pipes/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-polly/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pricing/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-pricing-plan-manager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-proton/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-qapps/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-qbusiness/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-qconnect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-quicksight/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ram/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rbin/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rds/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rds-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-redshift/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-redshift-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-redshift-serverless/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rekognition/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rekognitionstreaming/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-repostspace/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-resiliencehub/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-resiliencehubv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-resource-explorer-2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-resource-groups/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-resource-groups-tagging-api/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rolesanywhere/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route-53/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route-53-domains/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53-recovery-cluster/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53-recovery-control-config/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53-recovery-readiness/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53globalresolver/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53profiles/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-route53resolver/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rtbfabric/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-rum/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3-control/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3files/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3outposts/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3tables/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-s3vectors/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-a2i-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-edge/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-featurestore-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-geospatial/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-metrics/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-runtime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemaker-runtime-http2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sagemakerjobruntime/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-savingsplans/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-scheduler/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-schemas/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-secrets-manager/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-security-ir/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-securityagent/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-securityhub/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-securitylake/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-serverlessapplicationrepository/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-service-catalog/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-service-catalog-appregistry/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-service-quotas/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-servicediscovery/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ses/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sesv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sfn/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-shield/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-signer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-signer-data/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-signin/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-simpledbv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-snow-device-management/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-snowball/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sns/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-socialmessaging/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sqs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm-contacts/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm-guiconnect/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm-incidents/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm-quicksetup/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-ssm-sap/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sso/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sso-admin/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sso-oidc/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-storage-gateway/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sts/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-supplychain/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-support/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-support-app/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-supportauthz/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-sustainability/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-swf/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-synthetics/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-taxsettings/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-textract/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-timestream-influxdb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-timestream-query/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-timestream-write/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-tnb/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-transcribe/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-transcribe-streaming/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-transfer/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-translate/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-trustedadvisor/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-uxc/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-verifiedpermissions/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-voice-id/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-vpc-lattice/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-waf/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-waf-regional/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-wafv2/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-wellarchitected/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-wickr/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-wisdom/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workdocs/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workmail/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workmailmessageflow/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workspaces/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workspaces-instances/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workspaces-thin-client/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-workspaces-web/tsconfig.build.json"
+    },
+    {
+      "path": "clients/client-xray/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-client-api-test/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-client-retry-test/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-echo-service/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-ec2/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-ec2-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json-10/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json-10-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json-machinelearning/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-json-schema-machinelearning/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-query/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-query-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson-apigateway/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson-glacier/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson-schema-apigateway/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restjson-schema-glacier/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restxml/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-restxml-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-smithy-rpcv2-cbor/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-protocoltests-smithy-rpcv2-cbor-schema/tsconfig.build.json"
+    },
+    {
+      "path": "private/aws-util-test/tsconfig.build.json"
+    },
+    {
+      "path": "private/weather/tsconfig.build.json"
+    },
+    {
+      "path": "private/weather-legacy-auth/tsconfig.build.json"
+    }
+  ]
+}

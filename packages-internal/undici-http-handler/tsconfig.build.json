@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--undici-http-handler.tsbuildinfo",
+    "lib": []
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts"]
+}
