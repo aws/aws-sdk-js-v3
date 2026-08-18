@@ -2,5 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "noCheck": true
-  }
+  },
+  "exclude": ["node_modules/", "**/*.spec.ts", "**/*.fixture.ts", "vitest.*.ts"]
 }

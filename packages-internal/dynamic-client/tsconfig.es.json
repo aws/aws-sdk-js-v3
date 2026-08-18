@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
     "lib": [],
-    "noUnusedLocals": true,
     "outDir": "dist-es",
     "rootDir": "src",
-    "stripInternal": true,
     "noCheck": true
   },
   "extends": "../../tsconfig.es.json",
