@@ -6,6 +6,11 @@ import {
   AccessPolicy$,
   AccessScope$,
   AccessScopeType,
+  ActivateCertificateAuthority$,
+  ActivateCertificateAuthorityCommand,
+  ActivateCertificateAuthorityRequest$,
+  ActivateCertificateAuthorityResponse$,
+  ActiveCertificateAuthority$,
   Addon$,
   AddonCompatibilityDetail$,
   AddonHealth$,
@@ -65,6 +70,14 @@ import {
   CapacityTypes,
   Category,
   Certificate$,
+  CertificateAuthority$,
+  CertificateAuthorityActivatedBy,
+  CertificateAuthorityCreatedBy,
+  CertificateAuthorityDistributionStatus,
+  CertificateAuthorityScheduledEvents$,
+  CertificateAuthoritySigningStatus,
+  CertificateAuthoritySummary$,
+  CertificateAuthorityValidity$,
   ClientException,
   ClientException$,
   ClientStat$,
@@ -101,6 +114,10 @@ import {
   CreateCapabilityCommand,
   CreateCapabilityRequest$,
   CreateCapabilityResponse$,
+  CreateCertificateAuthority$,
+  CreateCertificateAuthorityCommand,
+  CreateCertificateAuthorityRequest$,
+  CreateCertificateAuthorityResponse$,
   CreateCluster$,
   CreateClusterCommand,
   CreateClusterRequest$,
@@ -133,6 +150,10 @@ import {
   DeleteCapabilityCommand,
   DeleteCapabilityRequest$,
   DeleteCapabilityResponse$,
+  DeleteCertificateAuthority$,
+  DeleteCertificateAuthorityCommand,
+  DeleteCertificateAuthorityRequest$,
+  DeleteCertificateAuthorityResponse$,
   DeleteCluster$,
   DeleteClusterCommand,
   DeleteClusterRequest$,
@@ -178,6 +199,10 @@ import {
   DescribeCapabilityCommand,
   DescribeCapabilityRequest$,
   DescribeCapabilityResponse$,
+  DescribeCertificateAuthority$,
+  DescribeCertificateAuthorityCommand,
+  DescribeCertificateAuthorityRequest$,
+  DescribeCertificateAuthorityResponse$,
   DescribeCluster$,
   DescribeClusterCommand,
   DescribeClusterRequest$,
@@ -304,6 +329,10 @@ import {
   ListCapabilitiesCommand,
   ListCapabilitiesRequest$,
   ListCapabilitiesResponse$,
+  ListCertificateAuthorities$,
+  ListCertificateAuthoritiesCommand,
+  ListCertificateAuthoritiesRequest$,
+  ListCertificateAuthoritiesResponse$,
   ListClusters$,
   ListClustersCommand,
   ListClustersRequest$,
@@ -370,6 +399,7 @@ import {
   paginateListAddons,
   paginateListAssociatedAccessPolicies,
   paginateListCapabilities,
+  paginateListCertificateAuthorities,
   paginateListClusters,
   paginateListEksAnywhereSubscriptions,
   paginateListFargateProfiles,
@@ -493,6 +523,7 @@ import {
   VpcConfigResponse$,
   waitForAddonActive,
   waitForAddonDeleted,
+  waitForCertificateAuthorityUpdateComplete,
   waitForClusterActive,
   waitForClusterDeleted,
   waitForFargateProfileActive,
@@ -501,6 +532,7 @@ import {
   waitForNodegroupDeleted,
   waitUntilAddonActive,
   waitUntilAddonDeleted,
+  waitUntilCertificateAuthorityUpdateComplete,
   waitUntilClusterActive,
   waitUntilClusterDeleted,
   waitUntilFargateProfileActive,
@@ -517,6 +549,8 @@ import assert from "node:assert";
 assert(typeof EKSClient === "function");
 assert(typeof EKS === "function");
 // commands
+assert(typeof ActivateCertificateAuthorityCommand === "function");
+assert(typeof ActivateCertificateAuthority$ === "object");
 assert(typeof AssociateAccessPolicyCommand === "function");
 assert(typeof AssociateAccessPolicy$ === "object");
 assert(typeof AssociateEncryptionConfigCommand === "function");
@@ -531,6 +565,8 @@ assert(typeof CreateAddonCommand === "function");
 assert(typeof CreateAddon$ === "object");
 assert(typeof CreateCapabilityCommand === "function");
 assert(typeof CreateCapability$ === "object");
+assert(typeof CreateCertificateAuthorityCommand === "function");
+assert(typeof CreateCertificateAuthority$ === "object");
 assert(typeof CreateClusterCommand === "function");
 assert(typeof CreateCluster$ === "object");
 assert(typeof CreateEksAnywhereSubscriptionCommand === "function");
@@ -547,6 +583,8 @@ assert(typeof DeleteAddonCommand === "function");
 assert(typeof DeleteAddon$ === "object");
 assert(typeof DeleteCapabilityCommand === "function");
 assert(typeof DeleteCapability$ === "object");
+assert(typeof DeleteCertificateAuthorityCommand === "function");
+assert(typeof DeleteCertificateAuthority$ === "object");
 assert(typeof DeleteClusterCommand === "function");
 assert(typeof DeleteCluster$ === "object");
 assert(typeof DeleteEksAnywhereSubscriptionCommand === "function");
@@ -569,6 +607,8 @@ assert(typeof DescribeAddonVersionsCommand === "function");
 assert(typeof DescribeAddonVersions$ === "object");
 assert(typeof DescribeCapabilityCommand === "function");
 assert(typeof DescribeCapability$ === "object");
+assert(typeof DescribeCertificateAuthorityCommand === "function");
+assert(typeof DescribeCertificateAuthority$ === "object");
 assert(typeof DescribeClusterCommand === "function");
 assert(typeof DescribeCluster$ === "object");
 assert(typeof DescribeClusterVersionsCommand === "function");
@@ -603,6 +643,8 @@ assert(typeof ListAssociatedAccessPoliciesCommand === "function");
 assert(typeof ListAssociatedAccessPolicies$ === "object");
 assert(typeof ListCapabilitiesCommand === "function");
 assert(typeof ListCapabilities$ === "object");
+assert(typeof ListCertificateAuthoritiesCommand === "function");
+assert(typeof ListCertificateAuthorities$ === "object");
 assert(typeof ListClustersCommand === "function");
 assert(typeof ListClusters$ === "object");
 assert(typeof ListEksAnywhereSubscriptionsCommand === "function");
@@ -652,6 +694,9 @@ assert(typeof AccessConfigResponse$ === "object");
 assert(typeof AccessEntry$ === "object");
 assert(typeof AccessPolicy$ === "object");
 assert(typeof AccessScope$ === "object");
+assert(typeof ActivateCertificateAuthorityRequest$ === "object");
+assert(typeof ActivateCertificateAuthorityResponse$ === "object");
+assert(typeof ActiveCertificateAuthority$ === "object");
 assert(typeof Addon$ === "object");
 assert(typeof AddonCompatibilityDetail$ === "object");
 assert(typeof AddonHealth$ === "object");
@@ -689,6 +734,10 @@ assert(typeof CapabilityHealth$ === "object");
 assert(typeof CapabilityIssue$ === "object");
 assert(typeof CapabilitySummary$ === "object");
 assert(typeof Certificate$ === "object");
+assert(typeof CertificateAuthority$ === "object");
+assert(typeof CertificateAuthorityScheduledEvents$ === "object");
+assert(typeof CertificateAuthoritySummary$ === "object");
+assert(typeof CertificateAuthorityValidity$ === "object");
 assert(typeof ClientStat$ === "object");
 assert(typeof Cluster$ === "object");
 assert(typeof ClusterHealth$ === "object");
@@ -711,6 +760,8 @@ assert(typeof CreateAddonRequest$ === "object");
 assert(typeof CreateAddonResponse$ === "object");
 assert(typeof CreateCapabilityRequest$ === "object");
 assert(typeof CreateCapabilityResponse$ === "object");
+assert(typeof CreateCertificateAuthorityRequest$ === "object");
+assert(typeof CreateCertificateAuthorityResponse$ === "object");
 assert(typeof CreateClusterRequest$ === "object");
 assert(typeof CreateClusterResponse$ === "object");
 assert(typeof CreateEksAnywhereSubscriptionRequest$ === "object");
@@ -727,6 +778,8 @@ assert(typeof DeleteAddonRequest$ === "object");
 assert(typeof DeleteAddonResponse$ === "object");
 assert(typeof DeleteCapabilityRequest$ === "object");
 assert(typeof DeleteCapabilityResponse$ === "object");
+assert(typeof DeleteCertificateAuthorityRequest$ === "object");
+assert(typeof DeleteCertificateAuthorityResponse$ === "object");
 assert(typeof DeleteClusterRequest$ === "object");
 assert(typeof DeleteClusterResponse$ === "object");
 assert(typeof DeleteEksAnywhereSubscriptionRequest$ === "object");
@@ -750,6 +803,8 @@ assert(typeof DescribeAddonVersionsRequest$ === "object");
 assert(typeof DescribeAddonVersionsResponse$ === "object");
 assert(typeof DescribeCapabilityRequest$ === "object");
 assert(typeof DescribeCapabilityResponse$ === "object");
+assert(typeof DescribeCertificateAuthorityRequest$ === "object");
+assert(typeof DescribeCertificateAuthorityResponse$ === "object");
 assert(typeof DescribeClusterRequest$ === "object");
 assert(typeof DescribeClusterResponse$ === "object");
 assert(typeof DescribeClusterVersionsRequest$ === "object");
@@ -824,6 +879,8 @@ assert(typeof ListAssociatedAccessPoliciesRequest$ === "object");
 assert(typeof ListAssociatedAccessPoliciesResponse$ === "object");
 assert(typeof ListCapabilitiesRequest$ === "object");
 assert(typeof ListCapabilitiesResponse$ === "object");
+assert(typeof ListCertificateAuthoritiesRequest$ === "object");
+assert(typeof ListCertificateAuthoritiesResponse$ === "object");
 assert(typeof ListClustersRequest$ === "object");
 assert(typeof ListClustersResponse$ === "object");
 assert(typeof ListEksAnywhereSubscriptionsRequest$ === "object");
@@ -935,6 +992,10 @@ assert(typeof CapabilityStatus === "object");
 assert(typeof CapabilityType === "object");
 assert(typeof CapacityTypes === "object");
 assert(typeof Category === "object");
+assert(typeof CertificateAuthorityActivatedBy === "object");
+assert(typeof CertificateAuthorityCreatedBy === "object");
+assert(typeof CertificateAuthorityDistributionStatus === "object");
+assert(typeof CertificateAuthoritySigningStatus === "object");
 assert(typeof ClusterIssueCode === "object");
 assert(typeof ClusterStatus === "object");
 assert(typeof ClusterVersionStatus === "object");
@@ -1002,6 +1063,7 @@ assert(EKSServiceException.prototype instanceof Error);
 // waiters
 assert(typeof waitForAddonActive === "function");
 assert(typeof waitForAddonDeleted === "function");
+assert(typeof waitForCertificateAuthorityUpdateComplete === "function");
 assert(typeof waitForClusterActive === "function");
 assert(typeof waitForClusterDeleted === "function");
 assert(typeof waitForFargateProfileActive === "function");
@@ -1010,6 +1072,7 @@ assert(typeof waitForNodegroupActive === "function");
 assert(typeof waitForNodegroupDeleted === "function");
 assert(typeof waitUntilAddonActive === "function");
 assert(typeof waitUntilAddonDeleted === "function");
+assert(typeof waitUntilCertificateAuthorityUpdateComplete === "function");
 assert(typeof waitUntilClusterActive === "function");
 assert(typeof waitUntilClusterDeleted === "function");
 assert(typeof waitUntilFargateProfileActive === "function");
@@ -1024,6 +1087,7 @@ assert(typeof paginateListAccessPolicies === "function");
 assert(typeof paginateListAddons === "function");
 assert(typeof paginateListAssociatedAccessPolicies === "function");
 assert(typeof paginateListCapabilities === "function");
+assert(typeof paginateListCertificateAuthorities === "function");
 assert(typeof paginateListClusters === "function");
 assert(typeof paginateListEksAnywhereSubscriptions === "function");
 assert(typeof paginateListFargateProfiles === "function");

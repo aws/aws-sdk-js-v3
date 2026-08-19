@@ -7,3 +7,4 @@ export * from "./waitForFargateProfileActive";
 export * from "./waitForFargateProfileDeleted";
 export * from "./waitForNodegroupActive";
 export * from "./waitForNodegroupDeleted";
+export * from "./waitForCertificateAuthorityUpdateComplete";

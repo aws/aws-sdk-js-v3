@@ -84,56 +84,6 @@ export class InvalidParameterException extends __BaseException {
 }
 
 /**
- * <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
- * @public
- */
-export class InvalidRequestException extends __BaseException {
-  readonly name = "InvalidRequestException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * <p>The Amazon EKS cluster associated with the exception.</p>
-   * @public
-   */
-  clusterName?: string | undefined;
-
-  /**
-   * <p>The Amazon EKS managed node group associated with the exception.</p>
-   * @public
-   */
-  nodegroupName?: string | undefined;
-
-  /**
-   * <p>The request is invalid given the state of the add-on name. Check the state of the
-   *             cluster and the associated operations.</p>
-   * @public
-   */
-  addonName?: string | undefined;
-
-  /**
-   * <p>The Amazon EKS subscription ID with the exception.</p>
-   * @public
-   */
-  subscriptionId?: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
-    super({
-      name: "InvalidRequestException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidRequestException.prototype);
-    this.clusterName = opts.clusterName;
-    this.nodegroupName = opts.nodegroupName;
-    this.addonName = opts.addonName;
-    this.subscriptionId = opts.subscriptionId;
-  }
-}
-
-/**
  * <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
  *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
@@ -232,6 +182,76 @@ export class ServerException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServerException.prototype);
+    this.clusterName = opts.clusterName;
+    this.nodegroupName = opts.nodegroupName;
+    this.addonName = opts.addonName;
+    this.subscriptionId = opts.subscriptionId;
+  }
+}
+
+/**
+ * <p>The service is unavailable. Back off and retry the operation.</p>
+ * @public
+ */
+export class ServiceUnavailableException extends __BaseException {
+  readonly name = "ServiceUnavailableException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
+    super({
+      name: "ServiceUnavailableException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
+  }
+}
+
+/**
+ * <p>The request is invalid given the state of the cluster. Check the state of the cluster
+ *             and the associated operations.</p>
+ * @public
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name = "InvalidRequestException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * <p>The Amazon EKS cluster associated with the exception.</p>
+   * @public
+   */
+  clusterName?: string | undefined;
+
+  /**
+   * <p>The Amazon EKS managed node group associated with the exception.</p>
+   * @public
+   */
+  nodegroupName?: string | undefined;
+
+  /**
+   * <p>The request is invalid given the state of the add-on name. Check the state of the
+   *             cluster and the associated operations.</p>
+   * @public
+   */
+  addonName?: string | undefined;
+
+  /**
+   * <p>The Amazon EKS subscription ID with the exception.</p>
+   * @public
+   */
+  subscriptionId?: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
     this.clusterName = opts.clusterName;
     this.nodegroupName = opts.nodegroupName;
     this.addonName = opts.addonName;
@@ -429,26 +449,6 @@ export class ResourceLimitExceededException extends __BaseException {
     this.clusterName = opts.clusterName;
     this.nodegroupName = opts.nodegroupName;
     this.subscriptionId = opts.subscriptionId;
-  }
-}
-
-/**
- * <p>The service is unavailable. Back off and retry the operation.</p>
- * @public
- */
-export class ServiceUnavailableException extends __BaseException {
-  readonly name = "ServiceUnavailableException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceUnavailableException, __BaseException>) {
-    super({
-      name: "ServiceUnavailableException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceUnavailableException.prototype);
   }
 }
 

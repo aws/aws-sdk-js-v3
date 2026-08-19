@@ -13,6 +13,10 @@ import type {
   CapabilityType,
   CapacityTypes,
   Category,
+  CertificateAuthorityActivatedBy,
+  CertificateAuthorityCreatedBy,
+  CertificateAuthorityDistributionStatus,
+  CertificateAuthoritySigningStatus,
   ClusterIssueCode,
   ClusterStatus,
   ClusterVersionStatus,
@@ -188,6 +192,278 @@ export interface AccessScope {
    * @public
    */
   namespaces?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ActivateCertificateAuthorityRequest {
+  /**
+   * <p>The name of your cluster.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The ID of the certificate authority to activate as the cluster's signing certificate
+   *             authority. This certificate authority must already exist on the cluster and have a
+   *                 <code>distributionStatus</code> of <code>COMPLETE</code>.</p>
+   * @public
+   */
+  certificateAuthorityId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure
+   * the idempotency of the request.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * <p>Summary information about a certificate authority (CA) for an Amazon EKS cluster, returned by
+ *                 <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListCertificateAuthorities.html">
+ *                <code>ListCertificateAuthorities</code>
+ *             </a> and the certificate-authority write
+ *             operations.</p>
+ * @public
+ */
+export interface CertificateAuthoritySummary {
+  /**
+   * <p>The unique identifier of the certificate authority.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the certificate authority was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The entity that created the certificate authority, either <code>CUSTOMER</code> or
+   *                 <code>EKS</code>.</p>
+   * @public
+   */
+  createdBy?: CertificateAuthorityCreatedBy | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the certificate authority was last
+   *             activated. This value is absent if the certificate authority has never been
+   *             activated.</p>
+   * @public
+   */
+  activatedAt?: Date | undefined;
+
+  /**
+   * <p>The entity that most recently activated the certificate authority, either
+   *                 <code>CUSTOMER</code> or <code>EKS</code>.</p>
+   * @public
+   */
+  activatedBy?: CertificateAuthorityActivatedBy | undefined;
+
+  /**
+   * <p>The signing status of the certificate authority: <code>IN_USE</code>,
+   *                 <code>ACTIVATING</code>, or <code>NOT_USED</code>.</p>
+   * @public
+   */
+  signingStatus?: CertificateAuthoritySigningStatus | undefined;
+
+  /**
+   * <p>The distribution status of the certificate authority: <code>IN_PROGRESS</code>,
+   *                 <code>COMPLETE</code>, <code>FAILED</code>, or <code>DELETING</code>.</p>
+   * @public
+   */
+  distributionStatus?: CertificateAuthorityDistributionStatus | undefined;
+}
+
+/**
+ * <p>Contains information about the latest cancellation of an update to an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface Cancellation {
+  /**
+   * <p>The current status of the cancellation. Valid values are <code>InProgress</code>,
+   *             <code>Failed</code>, and <code>Successful</code>.</p>
+   * @public
+   */
+  status?: CancellationStatus | undefined;
+
+  /**
+   * <p>A message providing additional details about the cancellation, such as the reason for
+   *             the cancellation or failure details.</p>
+   * @public
+   */
+  reason?: string | undefined;
+}
+
+/**
+ * <p>An object representing an error when an asynchronous operation fails.</p>
+ * @public
+ */
+export interface ErrorDetail {
+  /**
+   * <p>A brief description of the error. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>SubnetNotFound</b>: We couldn't find one of the
+   *                     subnets associated with the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>SecurityGroupNotFound</b>: We couldn't find one
+   *                     of the security groups associated with the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>EniLimitReached</b>: You have reached the elastic
+   *                     network interface limit for your account.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>IpNotAvailable</b>: A subnet associated with the
+   *                     cluster doesn't have any available IP addresses.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>AccessDenied</b>: You don't have permissions to
+   *                     perform the specified operation.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>OperationNotPermitted</b>: The service role
+   *                     associated with the cluster doesn't have the required access permissions for
+   *                     Amazon EKS.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>VpcIdNotFound</b>: We couldn't find the VPC
+   *                     associated with the cluster.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  errorCode?: ErrorCode | undefined;
+
+  /**
+   * <p>A more complete description of the error.</p>
+   * @public
+   */
+  errorMessage?: string | undefined;
+
+  /**
+   * <p>An optional field that contains the resource IDs associated with the error.</p>
+   * @public
+   */
+  resourceIds?: string[] | undefined;
+}
+
+/**
+ * <p>An object representing the details of an update request.</p>
+ * @public
+ */
+export interface UpdateParam {
+  /**
+   * <p>The keys associated with an update request.</p>
+   * @public
+   */
+  type?: UpdateParamType | undefined;
+
+  /**
+   * <p>The value of the keys submitted as part of an update request.</p>
+   * @public
+   */
+  value?: string | undefined;
+}
+
+/**
+ * <p>An object representing an asynchronous update.</p>
+ * @public
+ */
+export interface Update {
+  /**
+   * <p>A UUID that is used to track the update.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The current status of the update.</p>
+   * @public
+   */
+  status?: UpdateStatus | undefined;
+
+  /**
+   * <p>The type of the update.</p>
+   * @public
+   */
+  type?: UpdateType | undefined;
+
+  /**
+   * <p>A key-value map that contains the parameters associated with the update.</p>
+   * @public
+   */
+  params?: UpdateParam[] | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp at object creation.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>Any errors associated with a <code>Failed</code> update.</p>
+   * @public
+   */
+  errors?: ErrorDetail[] | undefined;
+
+  /**
+   * <p>The latest cancellation information for the update. This field is present only if any
+   *             cancellation is attempted for the update.</p>
+   * @public
+   */
+  cancellation?: Cancellation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ActivateCertificateAuthorityResponse {
+  /**
+   * <p>An object representing the asynchronous update that promotes the certificate authority
+   *             to be the cluster's signer.</p>
+   * @public
+   */
+  update?: Update | undefined;
+
+  /**
+   * <p>Summary information about the certificate authority that is being activated.</p>
+   * @public
+   */
+  certificateAuthority?: CertificateAuthoritySummary | undefined;
+}
+
+/**
+ * <p>Identifies the certificate authority that is currently signing certificates for the
+ *             cluster.</p>
+ * @public
+ */
+export interface ActiveCertificateAuthority {
+  /**
+   * <p>The unique identifier of the certificate authority that is currently signing
+   *             certificates for the cluster.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The entity that activated the current signing certificate authority, either
+   *                 <code>CUSTOMER</code> or <code>EKS</code>.</p>
+   * @public
+   */
+  activatedBy?: CertificateAuthorityActivatedBy | undefined;
 }
 
 /**
@@ -891,155 +1167,6 @@ export interface AssociateEncryptionConfigRequest {
    * @public
    */
   clientRequestToken?: string | undefined;
-}
-
-/**
- * <p>Contains information about the latest cancellation of an update to an Amazon EKS cluster.</p>
- * @public
- */
-export interface Cancellation {
-  /**
-   * <p>The current status of the cancellation. Valid values are <code>InProgress</code>,
-   *             <code>Failed</code>, and <code>Successful</code>.</p>
-   * @public
-   */
-  status?: CancellationStatus | undefined;
-
-  /**
-   * <p>A message providing additional details about the cancellation, such as the reason for
-   *             the cancellation or failure details.</p>
-   * @public
-   */
-  reason?: string | undefined;
-}
-
-/**
- * <p>An object representing an error when an asynchronous operation fails.</p>
- * @public
- */
-export interface ErrorDetail {
-  /**
-   * <p>A brief description of the error. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>SubnetNotFound</b>: We couldn't find one of the
-   *                     subnets associated with the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>SecurityGroupNotFound</b>: We couldn't find one
-   *                     of the security groups associated with the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>EniLimitReached</b>: You have reached the elastic
-   *                     network interface limit for your account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>IpNotAvailable</b>: A subnet associated with the
-   *                     cluster doesn't have any available IP addresses.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>AccessDenied</b>: You don't have permissions to
-   *                     perform the specified operation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>OperationNotPermitted</b>: The service role
-   *                     associated with the cluster doesn't have the required access permissions for
-   *                     Amazon EKS.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>VpcIdNotFound</b>: We couldn't find the VPC
-   *                     associated with the cluster.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  errorCode?: ErrorCode | undefined;
-
-  /**
-   * <p>A more complete description of the error.</p>
-   * @public
-   */
-  errorMessage?: string | undefined;
-
-  /**
-   * <p>An optional field that contains the resource IDs associated with the error.</p>
-   * @public
-   */
-  resourceIds?: string[] | undefined;
-}
-
-/**
- * <p>An object representing the details of an update request.</p>
- * @public
- */
-export interface UpdateParam {
-  /**
-   * <p>The keys associated with an update request.</p>
-   * @public
-   */
-  type?: UpdateParamType | undefined;
-
-  /**
-   * <p>The value of the keys submitted as part of an update request.</p>
-   * @public
-   */
-  value?: string | undefined;
-}
-
-/**
- * <p>An object representing an asynchronous update.</p>
- * @public
- */
-export interface Update {
-  /**
-   * <p>A UUID that is used to track the update.</p>
-   * @public
-   */
-  id?: string | undefined;
-
-  /**
-   * <p>The current status of the update.</p>
-   * @public
-   */
-  status?: UpdateStatus | undefined;
-
-  /**
-   * <p>The type of the update.</p>
-   * @public
-   */
-  type?: UpdateType | undefined;
-
-  /**
-   * <p>A key-value map that contains the parameters associated with the update.</p>
-   * @public
-   */
-  params?: UpdateParam[] | undefined;
-
-  /**
-   * <p>The Unix epoch timestamp at object creation.</p>
-   * @public
-   */
-  createdAt?: Date | undefined;
-
-  /**
-   * <p>Any errors associated with a <code>Failed</code> update.</p>
-   * @public
-   */
-  errors?: ErrorDetail[] | undefined;
-
-  /**
-   * <p>The latest cancellation information for the update. This field is present only if any
-   *             cancellation is attempted for the update.</p>
-   * @public
-   */
-  cancellation?: Cancellation | undefined;
 }
 
 /**
@@ -1778,6 +1905,43 @@ export interface CreateCapabilityResponse {
    * @public
    */
   capability?: Capability | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCertificateAuthorityRequest {
+  /**
+   * <p>The name of your cluster.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure
+   * the idempotency of the request.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCertificateAuthorityResponse {
+  /**
+   * <p>An object representing the asynchronous update that adds the certificate authority to
+   *             the cluster's trust bundle.</p>
+   * @public
+   */
+  update?: Update | undefined;
+
+  /**
+   * <p>Summary information about the certificate authority that was created, including its ID
+   *             and initial signing and distribution status.</p>
+   * @public
+   */
+  certificateAuthority?: CertificateAuthoritySummary | undefined;
 }
 
 /**
@@ -2725,6 +2889,13 @@ export interface Certificate {
    * @public
    */
   data?: string | undefined;
+
+  /**
+   * <p>An object identifying the certificate authority that is currently signing certificates
+   *             for the cluster.</p>
+   * @public
+   */
+  active?: ActiveCertificateAuthority | undefined;
 }
 
 /**
@@ -5082,6 +5253,49 @@ export interface DeleteCapabilityResponse {
 /**
  * @public
  */
+export interface DeleteCertificateAuthorityRequest {
+  /**
+   * <p>The name of your cluster.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The ID of the certificate authority to delete. You can't delete the certificate
+   *             authority that's currently signing certificates for the cluster.</p>
+   * @public
+   */
+  certificateAuthorityId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure
+   * the idempotency of the request.</p>
+   * @public
+   */
+  clientRequestToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCertificateAuthorityResponse {
+  /**
+   * <p>An object representing the asynchronous update that removes the certificate authority
+   *             from the cluster's trust bundle.</p>
+   * @public
+   */
+  update?: Update | undefined;
+
+  /**
+   * <p>Summary information about the certificate authority that is being deleted.</p>
+   * @public
+   */
+  certificateAuthority?: CertificateAuthoritySummary | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DeleteClusterRequest {
   /**
    * <p>The name of the cluster to delete.</p>
@@ -5457,6 +5671,166 @@ export interface DescribeCapabilityResponse {
    * @public
    */
   capability?: Capability | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateAuthorityRequest {
+  /**
+   * <p>The name of your cluster.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The ID of the certificate authority to describe.</p>
+   * @public
+   */
+  certificateAuthorityId: string | undefined;
+}
+
+/**
+ * <p>The scheduled events during which Amazon EKS may automatically activate a certificate
+ *             authority, computed from its validity period. These events help ensure that a cluster's
+ *             signing certificate authority is rotated before its certificate expires.</p>
+ * @public
+ */
+export interface CertificateAuthorityScheduledEvents {
+  /**
+   * <p>The earliest Unix epoch timestamp in seconds at which Amazon EKS may automatically activate
+   *             this certificate authority.</p>
+   * @public
+   */
+  firstAutoActivation?: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds by which Amazon EKS will automatically activate this
+   *             certificate authority if you haven't already activated it.</p>
+   * @public
+   */
+  finalAutoActivation?: Date | undefined;
+}
+
+/**
+ * <p>The validity period of a certificate authority's certificate.</p>
+ * @public
+ */
+export interface CertificateAuthorityValidity {
+  /**
+   * <p>The Unix epoch timestamp in seconds for the start of the certificate authority's
+   *             validity period.</p>
+   * @public
+   */
+  notBefore?: Date | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for the end of the certificate authority's validity
+   *             period.</p>
+   * @public
+   */
+  notAfter?: Date | undefined;
+}
+
+/**
+ * <p>An object representing a certificate authority (CA) for an Amazon EKS cluster.</p>
+ * @public
+ */
+export interface CertificateAuthority {
+  /**
+   * <p>The unique identifier of the certificate authority.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the certificate authority was created.</p>
+   * @public
+   */
+  createdAt?: Date | undefined;
+
+  /**
+   * <p>The entity that created the certificate authority. Certificate authorities that you
+   *             create are <code>CUSTOMER</code>; those that Amazon EKS provisions on your behalf, such as a
+   *             cluster's initial certificate authority, are <code>EKS</code>.</p>
+   * @public
+   */
+  createdBy?: CertificateAuthorityCreatedBy | undefined;
+
+  /**
+   * <p>The Unix epoch timestamp in seconds for when the certificate authority was last
+   *             activated as the cluster's signer. This value is absent if the certificate authority has
+   *             never been activated.</p>
+   * @public
+   */
+  activatedAt?: Date | undefined;
+
+  /**
+   * <p>The entity that most recently activated the certificate authority. A value of
+   *                 <code>EKS</code> indicates that Amazon EKS activated it automatically; <code>CUSTOMER</code>
+   *             indicates that you activated it.</p>
+   * @public
+   */
+  activatedBy?: CertificateAuthorityActivatedBy | undefined;
+
+  /**
+   * <p>The signing status of the certificate authority. <code>IN_USE</code> means the
+   *             certificate authority is currently signing certificates for the cluster,
+   *                 <code>ACTIVATING</code> means it's being promoted to the signer, and
+   *                 <code>NOT_USED</code> means it's trusted by the cluster (for example, a successor CA
+   *             during a rotation, or a retired outgoing CA) but isn't the signer.</p>
+   * @public
+   */
+  signingStatus?: CertificateAuthoritySigningStatus | undefined;
+
+  /**
+   * <p>The distribution status of the certificate authority, which tracks whether Amazon EKS has
+   *             distributed its trust to the Amazon Web Services managed components in your cluster (the control plane,
+   *             Amazon EKS Auto Mode instances, and Amazon Web Services Fargate nodes). Valid values are
+   *                 <code>IN_PROGRESS</code>, <code>COMPLETE</code>, <code>FAILED</code>, and
+   *                 <code>DELETING</code>. A successor CA can only be activated after its distribution
+   *             status is <code>COMPLETE</code>.</p>
+   * @public
+   */
+  distributionStatus?: CertificateAuthorityDistributionStatus | undefined;
+
+  /**
+   * <p>The validity period of the certificate authority's certificate.</p>
+   * @public
+   */
+  validity?: CertificateAuthorityValidity | undefined;
+
+  /**
+   * <p>The scheduled auto-activation events for the certificate authority, computed from its
+   *             validity period.</p>
+   * @public
+   */
+  scheduledEvents?: CertificateAuthorityScheduledEvents | undefined;
+
+  /**
+   * <p>Indicates whether CA rollback is still available for this certificate authority. After
+   *             you activate a successor CA, rollback lets you revert to the outgoing CA for a limited
+   *             period while you finish updating any worker nodes or clients that were missed.</p>
+   * @public
+   */
+  rollbackAvailable?: boolean | undefined;
+
+  /**
+   * <p>The Base64-encoded public certificate of the certificate authority.</p>
+   * @public
+   */
+  data?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeCertificateAuthorityResponse {
+  /**
+   * <p>An object containing detailed information about the certificate authority.</p>
+   * @public
+   */
+  certificateAuthority?: CertificateAuthority | undefined;
 }
 
 /**
@@ -6893,6 +7267,66 @@ export interface ListCapabilitiesResponse {
 
   /**
    * <p>The <code>nextToken</code> value to include in a future <code>ListCapabilities</code> request. When the results of a <code>ListCapabilities</code> request exceed <code>maxResults</code>, you can use this value to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateAuthoritiesRequest {
+  /**
+   * <p>The name of your cluster.</p>
+   * @public
+   */
+  clusterName: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>nextToken</code> value. If you don't
+   *             specify a value, the default is 100 results.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value returned from a previous paginated request, where
+   *                 <code>maxResults</code> was used and the results exceeded the value of that
+   *             parameter. Pagination continues from the end of the previous results that returned the
+   *                 <code>nextToken</code> value. This value is null when there are no more results to
+   *             return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCertificateAuthoritiesResponse {
+  /**
+   * <p>A list of certificate authority summary objects, each containing basic information
+   *             about a certificate authority, including its ID, signing status, and distribution
+   *             status.</p>
+   * @public
+   */
+  certificateAuthorities?: CertificateAuthoritySummary[] | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future
+   *                 <code>ListCertificateAuthorities</code> request. When the results of a
+   *                 <code>ListCertificateAuthorities</code> request exceed <code>maxResults</code>, you
+   *             can use this value to retrieve the next page of results. This value is null when there
+   *             are no more results to return.</p>
+   *          <note>
+   *             <p>This token should be treated as an opaque identifier that is used only to
+   *                 retrieve the next items in a list and not for other programmatic purposes.</p>
+   *          </note>
    * @public
    */
   nextToken?: string | undefined;

@@ -95,6 +95,10 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "PENDING",
  * //     certificateAuthority: { // Certificate
  * //       data: "STRING_VALUE",
+ * //       active: { // ActiveCertificateAuthority
+ * //         id: "STRING_VALUE",
+ * //         activatedBy: "EKS" || "CUSTOMER",
+ * //       },
  * //     },
  * //     clientRequestToken: "STRING_VALUE",
  * //     platformVersion: "STRING_VALUE",

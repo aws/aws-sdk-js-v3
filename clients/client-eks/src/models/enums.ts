@@ -30,6 +30,224 @@ export type AccessScopeType = (typeof AccessScopeType)[keyof typeof AccessScopeT
  * @public
  * @enum
  */
+export const CertificateAuthorityActivatedBy = {
+  CUSTOMER: "CUSTOMER",
+  EKS: "EKS",
+} as const;
+/**
+ * @public
+ */
+export type CertificateAuthorityActivatedBy =
+  (typeof CertificateAuthorityActivatedBy)[keyof typeof CertificateAuthorityActivatedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityCreatedBy = {
+  CUSTOMER: "CUSTOMER",
+  EKS: "EKS",
+} as const;
+/**
+ * @public
+ */
+export type CertificateAuthorityCreatedBy =
+  (typeof CertificateAuthorityCreatedBy)[keyof typeof CertificateAuthorityCreatedBy];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthorityDistributionStatus = {
+  COMPLETE: "COMPLETE",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+} as const;
+/**
+ * @public
+ */
+export type CertificateAuthorityDistributionStatus =
+  (typeof CertificateAuthorityDistributionStatus)[keyof typeof CertificateAuthorityDistributionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CertificateAuthoritySigningStatus = {
+  ACTIVATING: "ACTIVATING",
+  IN_USE: "IN_USE",
+  NOT_USED: "NOT_USED",
+} as const;
+/**
+ * @public
+ */
+export type CertificateAuthoritySigningStatus =
+  (typeof CertificateAuthoritySigningStatus)[keyof typeof CertificateAuthoritySigningStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const CancellationStatus = {
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+/**
+ * @public
+ */
+export type CancellationStatus = (typeof CancellationStatus)[keyof typeof CancellationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ErrorCode = {
+  ACCESS_DENIED: "AccessDenied",
+  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
+  CLUSTER_UNREACHABLE: "ClusterUnreachable",
+  CONFIGURATION_CONFLICT: "ConfigurationConflict",
+  ENI_LIMIT_REACHED: "EniLimitReached",
+  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
+  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
+  IP_NOT_AVAILABLE: "IpNotAvailable",
+  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
+  NODE_CREATION_FAILURE: "NodeCreationFailure",
+  OPERATION_NOT_PERMITTED: "OperationNotPermitted",
+  POD_EVICTION_FAILURE: "PodEvictionFailure",
+  SECURITY_GROUP_NOT_FOUND: "SecurityGroupNotFound",
+  SUBNET_NOT_FOUND: "SubnetNotFound",
+  UNKNOWN: "Unknown",
+  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
+  VPC_ID_NOT_FOUND: "VpcIdNotFound",
+} as const;
+/**
+ * @public
+ */
+export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateParamType = {
+  ACTIVE_CERTIFICATE_AUTHORITY: "ActiveCertificateAuthority",
+  ADDON_VERSION: "AddonVersion",
+  AUTHENTICATION_MODE: "AuthenticationMode",
+  CERTIFICATE_AUTHORITY_ID: "CertificateAuthorityId",
+  CLUSTER_LOGGING: "ClusterLogging",
+  COMPUTE_CONFIG: "ComputeConfig",
+  CONFIGURATION_VALUES: "ConfigurationValues",
+  CONTROL_PLANE_EGRESS_MODE: "ControlPlaneEgressMode",
+  DELETION_PROTECTION: "DeletionProtection",
+  DESIRED_SIZE: "DesiredSize",
+  ENCRYPTION_CONFIG: "EncryptionConfig",
+  ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
+  ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
+  IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
+  KUBERNETES_NETWORK_CONFIG: "KubernetesNetworkConfig",
+  KUBE_API_SERVER_CONFIG: "KubeApiServerConfig",
+  KUBE_CONTROLLER_MANAGER_CONFIG: "KubeControllerManagerConfig",
+  KUBE_SCHEDULER_CONFIG: "KubeSchedulerConfig",
+  LABELS_TO_ADD: "LabelsToAdd",
+  LABELS_TO_REMOVE: "LabelsToRemove",
+  LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
+  LAUNCH_TEMPLATE_VERSION: "LaunchTemplateVersion",
+  MAX_SIZE: "MaxSize",
+  MAX_UNAVAILABLE: "MaxUnavailable",
+  MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
+  MIN_SIZE: "MinSize",
+  NETWORK_ACCESS: "NetworkAccess",
+  NODE_REPAIR_CONFIG: "NodeRepairConfig",
+  NODE_REPAIR_ENABLED: "NodeRepairEnabled",
+  PLATFORM_VERSION: "PlatformVersion",
+  POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
+  PREVIOUS_TIER: "PreviousTier",
+  PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
+  RELEASE_VERSION: "ReleaseVersion",
+  REMOTE_NETWORK_CONFIG: "RemoteNetworkConfig",
+  RESOLVE_CONFLICTS: "ResolveConflicts",
+  ROLE_ARN: "RoleArn",
+  ROLE_MAPPINGS_TO_ADD_OR_UPDATE: "RoleMappingsToAddOrUpdate",
+  ROLE_MAPPINGS_TO_REMOVE: "RoleMappingsToRemove",
+  SECURITY_GROUPS: "SecurityGroups",
+  SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
+  SIGNING_STATUS: "SigningStatus",
+  STORAGE_CONFIG: "StorageConfig",
+  SUBNETS: "Subnets",
+  TAINTS_TO_ADD: "TaintsToAdd",
+  TAINTS_TO_REMOVE: "TaintsToRemove",
+  TRUSTED_CERTIFICATE_AUTHORITIES: "TrustedCertificateAuthorities",
+  UPDATED_TIER: "UpdatedTier",
+  UPDATE_STRATEGY: "UpdateStrategy",
+  UPGRADE_POLICY: "UpgradePolicy",
+  VENDED_LOGS: "VendedLogs",
+  VERSION: "Version",
+  WARM_POOL_ENABLED: "WarmPoolEnabled",
+  WARM_POOL_MAX_GROUP_PREPARED_CAPACITY: "WarmPoolMaxGroupPreparedCapacity",
+  WARM_POOL_MIN_SIZE: "WarmPoolMinSize",
+  WARM_POOL_REUSE_ON_SCALE_IN: "WarmPoolReuseOnScaleIn",
+  WARM_POOL_STATE: "WarmPoolState",
+  ZONAL_SHIFT_CONFIG: "ZonalShiftConfig",
+} as const;
+/**
+ * @public
+ */
+export type UpdateParamType = (typeof UpdateParamType)[keyof typeof UpdateParamType];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateStatus = {
+  CANCELLED: "Cancelled",
+  FAILED: "Failed",
+  IN_PROGRESS: "InProgress",
+  SUCCESSFUL: "Successful",
+} as const;
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateType = {
+  ACCESS_CONFIG_UPDATE: "AccessConfigUpdate",
+  ADDON_UPDATE: "AddonUpdate",
+  ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
+  ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
+  AUTO_MODE_UPDATE: "AutoModeUpdate",
+  CAPABILITY_UPDATE: "CapabilityUpdate",
+  CERTIFICATE_AUTHORITY_UPDATE: "CertificateAuthorityUpdate",
+  CONFIG_UPDATE: "ConfigUpdate",
+  CONTROL_PLANE_COMPONENT_CONFIG_UPDATE: "ControlPlaneComponentConfigUpdate",
+  CONTROL_PLANE_EGRESS_UPDATE: "ControlPlaneEgressUpdate",
+  CONTROL_PLANE_SCALING_CONFIG_UPDATE: "ControlPlaneScalingConfigUpdate",
+  DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
+  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
+  ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
+  LOGGING_UPDATE: "LoggingUpdate",
+  REMOTE_NETWORK_CONFIG_UPDATE: "RemoteNetworkConfigUpdate",
+  UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
+  VENDED_LOGS_UPDATE: "VendedLogsUpdate",
+  VERSION_ROLLBACK: "VersionRollback",
+  VERSION_UPDATE: "VersionUpdate",
+  VPC_CONFIG_UPDATE: "VpcConfigUpdate",
+  ZONAL_SHIFT_CONFIG_UPDATE: "ZonalShiftConfigUpdate",
+} as const;
+/**
+ * @public
+ */
+export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
+
+/**
+ * @public
+ * @enum
+ */
 export const AddonIssueCode = {
   ACCESS_DENIED: "AccessDenied",
   ADDON_PERMISSION_FAILURE: "AddonPermissionFailure",
@@ -126,160 +344,6 @@ export const ArgoCdRole = {
  * @public
  */
 export type ArgoCdRole = (typeof ArgoCdRole)[keyof typeof ArgoCdRole];
-
-/**
- * @public
- * @enum
- */
-export const CancellationStatus = {
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  SUCCESSFUL: "Successful",
-} as const;
-/**
- * @public
- */
-export type CancellationStatus = (typeof CancellationStatus)[keyof typeof CancellationStatus];
-
-/**
- * @public
- * @enum
- */
-export const ErrorCode = {
-  ACCESS_DENIED: "AccessDenied",
-  ADMISSION_REQUEST_DENIED: "AdmissionRequestDenied",
-  CLUSTER_UNREACHABLE: "ClusterUnreachable",
-  CONFIGURATION_CONFLICT: "ConfigurationConflict",
-  ENI_LIMIT_REACHED: "EniLimitReached",
-  INSUFFICIENT_FREE_ADDRESSES: "InsufficientFreeAddresses",
-  INSUFFICIENT_NUMBER_OF_REPLICAS: "InsufficientNumberOfReplicas",
-  IP_NOT_AVAILABLE: "IpNotAvailable",
-  K8S_RESOURCE_NOT_FOUND: "K8sResourceNotFound",
-  NODE_CREATION_FAILURE: "NodeCreationFailure",
-  OPERATION_NOT_PERMITTED: "OperationNotPermitted",
-  POD_EVICTION_FAILURE: "PodEvictionFailure",
-  SECURITY_GROUP_NOT_FOUND: "SecurityGroupNotFound",
-  SUBNET_NOT_FOUND: "SubnetNotFound",
-  UNKNOWN: "Unknown",
-  UNSUPPORTED_ADDON_MODIFICATION: "UnsupportedAddonModification",
-  VPC_ID_NOT_FOUND: "VpcIdNotFound",
-} as const;
-/**
- * @public
- */
-export type ErrorCode = (typeof ErrorCode)[keyof typeof ErrorCode];
-
-/**
- * @public
- * @enum
- */
-export const UpdateParamType = {
-  ADDON_VERSION: "AddonVersion",
-  AUTHENTICATION_MODE: "AuthenticationMode",
-  CLUSTER_LOGGING: "ClusterLogging",
-  COMPUTE_CONFIG: "ComputeConfig",
-  CONFIGURATION_VALUES: "ConfigurationValues",
-  CONTROL_PLANE_EGRESS_MODE: "ControlPlaneEgressMode",
-  DELETION_PROTECTION: "DeletionProtection",
-  DESIRED_SIZE: "DesiredSize",
-  ENCRYPTION_CONFIG: "EncryptionConfig",
-  ENDPOINT_PRIVATE_ACCESS: "EndpointPrivateAccess",
-  ENDPOINT_PUBLIC_ACCESS: "EndpointPublicAccess",
-  IDENTITY_PROVIDER_CONFIG: "IdentityProviderConfig",
-  KUBERNETES_NETWORK_CONFIG: "KubernetesNetworkConfig",
-  KUBE_API_SERVER_CONFIG: "KubeApiServerConfig",
-  KUBE_CONTROLLER_MANAGER_CONFIG: "KubeControllerManagerConfig",
-  KUBE_SCHEDULER_CONFIG: "KubeSchedulerConfig",
-  LABELS_TO_ADD: "LabelsToAdd",
-  LABELS_TO_REMOVE: "LabelsToRemove",
-  LAUNCH_TEMPLATE_NAME: "LaunchTemplateName",
-  LAUNCH_TEMPLATE_VERSION: "LaunchTemplateVersion",
-  MAX_SIZE: "MaxSize",
-  MAX_UNAVAILABLE: "MaxUnavailable",
-  MAX_UNAVAILABLE_PERCENTAGE: "MaxUnavailablePercentage",
-  MIN_SIZE: "MinSize",
-  NETWORK_ACCESS: "NetworkAccess",
-  NODE_REPAIR_CONFIG: "NodeRepairConfig",
-  NODE_REPAIR_ENABLED: "NodeRepairEnabled",
-  PLATFORM_VERSION: "PlatformVersion",
-  POD_IDENTITY_ASSOCIATIONS: "PodIdentityAssociations",
-  PREVIOUS_TIER: "PreviousTier",
-  PUBLIC_ACCESS_CIDRS: "PublicAccessCidrs",
-  RELEASE_VERSION: "ReleaseVersion",
-  REMOTE_NETWORK_CONFIG: "RemoteNetworkConfig",
-  RESOLVE_CONFLICTS: "ResolveConflicts",
-  ROLE_ARN: "RoleArn",
-  ROLE_MAPPINGS_TO_ADD_OR_UPDATE: "RoleMappingsToAddOrUpdate",
-  ROLE_MAPPINGS_TO_REMOVE: "RoleMappingsToRemove",
-  SECURITY_GROUPS: "SecurityGroups",
-  SERVICE_ACCOUNT_ROLE_ARN: "ServiceAccountRoleArn",
-  STORAGE_CONFIG: "StorageConfig",
-  SUBNETS: "Subnets",
-  TAINTS_TO_ADD: "TaintsToAdd",
-  TAINTS_TO_REMOVE: "TaintsToRemove",
-  UPDATED_TIER: "UpdatedTier",
-  UPDATE_STRATEGY: "UpdateStrategy",
-  UPGRADE_POLICY: "UpgradePolicy",
-  VENDED_LOGS: "VendedLogs",
-  VERSION: "Version",
-  WARM_POOL_ENABLED: "WarmPoolEnabled",
-  WARM_POOL_MAX_GROUP_PREPARED_CAPACITY: "WarmPoolMaxGroupPreparedCapacity",
-  WARM_POOL_MIN_SIZE: "WarmPoolMinSize",
-  WARM_POOL_REUSE_ON_SCALE_IN: "WarmPoolReuseOnScaleIn",
-  WARM_POOL_STATE: "WarmPoolState",
-  ZONAL_SHIFT_CONFIG: "ZonalShiftConfig",
-} as const;
-/**
- * @public
- */
-export type UpdateParamType = (typeof UpdateParamType)[keyof typeof UpdateParamType];
-
-/**
- * @public
- * @enum
- */
-export const UpdateStatus = {
-  CANCELLED: "Cancelled",
-  FAILED: "Failed",
-  IN_PROGRESS: "InProgress",
-  SUCCESSFUL: "Successful",
-} as const;
-/**
- * @public
- */
-export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
-
-/**
- * @public
- * @enum
- */
-export const UpdateType = {
-  ACCESS_CONFIG_UPDATE: "AccessConfigUpdate",
-  ADDON_UPDATE: "AddonUpdate",
-  ASSOCIATE_ENCRYPTION_CONFIG: "AssociateEncryptionConfig",
-  ASSOCIATE_IDENTITY_PROVIDER_CONFIG: "AssociateIdentityProviderConfig",
-  AUTO_MODE_UPDATE: "AutoModeUpdate",
-  CAPABILITY_UPDATE: "CapabilityUpdate",
-  CONFIG_UPDATE: "ConfigUpdate",
-  CONTROL_PLANE_COMPONENT_CONFIG_UPDATE: "ControlPlaneComponentConfigUpdate",
-  CONTROL_PLANE_EGRESS_UPDATE: "ControlPlaneEgressUpdate",
-  CONTROL_PLANE_SCALING_CONFIG_UPDATE: "ControlPlaneScalingConfigUpdate",
-  DELETION_PROTECTION_UPDATE: "DeletionProtectionUpdate",
-  DISASSOCIATE_IDENTITY_PROVIDER_CONFIG: "DisassociateIdentityProviderConfig",
-  ENDPOINT_ACCESS_UPDATE: "EndpointAccessUpdate",
-  LOGGING_UPDATE: "LoggingUpdate",
-  REMOTE_NETWORK_CONFIG_UPDATE: "RemoteNetworkConfigUpdate",
-  UPGRADE_POLICY_UPDATE: "UpgradePolicyUpdate",
-  VENDED_LOGS_UPDATE: "VendedLogsUpdate",
-  VERSION_ROLLBACK: "VersionRollback",
-  VERSION_UPDATE: "VersionUpdate",
-  VPC_CONFIG_UPDATE: "VpcConfigUpdate",
-  ZONAL_SHIFT_CONFIG_UPDATE: "ZonalShiftConfigUpdate",
-} as const;
-/**
- * @public
- */
-export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
 
 /**
  * @public

@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CancelUpdateRequest, CancelUpdateResponse } from "../models/models_0";
-import { CancelUpdate$ } from "../schemas/schemas_0";
+import type { CreateCertificateAuthorityRequest, CreateCertificateAuthorityResponse } from "../models/models_0";
+import { CreateCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,40 +12,55 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link CancelUpdateCommand}.
+ * The input for {@link CreateCertificateAuthorityCommand}.
  */
-export interface CancelUpdateCommandInput extends CancelUpdateRequest {}
+export interface CreateCertificateAuthorityCommandInput extends CreateCertificateAuthorityRequest {}
 /**
  * @public
  *
- * The output of {@link CancelUpdateCommand}.
+ * The output of {@link CreateCertificateAuthorityCommand}.
  */
-export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __MetadataBearer {}
+export interface CreateCertificateAuthorityCommandOutput extends CreateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Cancels an in-progress update to an Amazon EKS cluster on a best-effort basis. Cancellation
- *             is only performed if the update can be cancelled. Currently, this is supported for
- *             <code>VersionRollback</code> update types on EKS Auto Mode clusters when nodes are
- *             rolling back.</p>
- *          <p>A successful cancellation stops the node rollback. After cancellation, nodes converge
- *             to the current cluster version honoring configured disruption controls. If the control
- *             plane rollback has already begun, the cancellation request fails.</p>
+ * <p>Appends a successor certificate authority (CA) to your cluster, beginning the CA
+ *             rotation process.</p>
+ *          <p>A cluster certificate authority is the root of trust for your cluster's control plane.
+ *             It signs the certificates that secure communication between the Kubernetes API server and its
+ *             clients, and its public certificate is distributed to your cluster's trust bundle so that
+ *             worker nodes and clients can verify the API server's identity. Each cluster can have at
+ *             most two certificate authorities at a time: the outgoing CA that's currently signing (its
+ *                 <code>signingStatus</code> is <code>IN_USE</code>) and one successor CA
+ *             (<code>signingStatus</code> of <code>NOT_USED</code>) that you can later activate to
+ *             complete the rotation.</p>
+ *          <p>Appending a successor CA adds its public certificate to the cluster's trust bundle so
+ *             that the cluster trusts both CAs simultaneously (the dual trust period), but it doesn't
+ *             begin signing certificates. Amazon EKS then distributes the successor CA to the Amazon Web Services managed
+ *             components in your cluster; you can track this through the CA's
+ *                 <code>distributionStatus</code>. The successor CA can't be activated until its
+ *                 <code>distributionStatus</code> is <code>COMPLETE</code>. To activate it as the
+ *             cluster's signer, use <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html">
+ *                <code>ActivateCertificateAuthority</code>
+ *             </a>. This is an asynchronous operation
+ *             that returns an <code>update</code> object. If you don't append a successor CA yourself,
+ *             Amazon EKS appends one automatically before the outgoing CA approaches expiration.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html">Rotate the Amazon EKS
+ *                 cluster certificate authority</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, CancelUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, CancelUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, CreateCertificateAuthorityCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, CreateCertificateAuthorityCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
  * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
- * const input = { // CancelUpdateRequest
- *   name: "STRING_VALUE", // required
- *   updateId: "STRING_VALUE", // required
+ * const input = { // CreateCertificateAuthorityRequest
+ *   clusterName: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new CancelUpdateCommand(input);
+ * const command = new CreateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * // { // CancelUpdateResponse
+ * // { // CreateCertificateAuthorityResponse
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
@@ -71,40 +86,34 @@ export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __Metad
  * //       reason: "STRING_VALUE",
  * //     },
  * //   },
+ * //   certificateAuthority: { // CertificateAuthoritySummary
+ * //     id: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "EKS" || "CUSTOMER",
+ * //     activatedAt: new Date("TIMESTAMP"),
+ * //     activatedBy: "EKS" || "CUSTOMER",
+ * //     signingStatus: "NOT_USED" || "ACTIVATING" || "IN_USE",
+ * //     distributionStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "DELETING",
+ * //   },
  * // };
  *
  * ```
  *
- * @param CancelUpdateCommandInput - {@link CancelUpdateCommandInput}
- * @returns {@link CancelUpdateCommandOutput}
- * @see {@link CancelUpdateCommandInput} for command's `input` shape.
- * @see {@link CancelUpdateCommandOutput} for command's `response` shape.
+ * @param CreateCertificateAuthorityCommandInput - {@link CreateCertificateAuthorityCommandInput}
+ * @returns {@link CreateCertificateAuthorityCommandOutput}
+ * @see {@link CreateCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link CreateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
- *
- * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
  *
- * @throws {@link InvalidRequestException} (client fault)
- *  <p>The request is invalid given the state of the cluster. Check the state of the cluster
- *             and the associated operations.</p>
- *
- * @throws {@link InvalidStateException} (client fault)
- *  <p>Amazon EKS detected upgrade readiness issues. Call the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ListInsights.html">
- *                <code>ListInsights</code>
- *             </a> API to view detected upgrade blocking issues.
- *             Pass the <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_UpdateClusterVersion.html#API_UpdateClusterVersion_RequestBody">
- *                <code>force</code>
- *             </a> flag when updating to override upgrade readiness
- *             errors.</p>
- *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in use.</p>
+ *
+ * @throws {@link ResourceLimitExceededException} (client fault)
+ *  <p>You have encountered a service limit on the specified resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
@@ -115,9 +124,8 @@ export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __Metad
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
- * @throws {@link ThrottlingException} (client fault)
- *  <p>The request or operation couldn't be performed because a service is throttling
- *             requests.</p>
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
@@ -125,21 +133,21 @@ export interface CancelUpdateCommandOutput extends CancelUpdateResponse, __Metad
  *
  * @public
  */
-export class CancelUpdateCommand extends command<CancelUpdateCommandInput, CancelUpdateCommandOutput>(
+export class CreateCertificateAuthorityCommand extends command<CreateCertificateAuthorityCommandInput, CreateCertificateAuthorityCommandOutput>(
   _ep0,
   _mw0,
-  "CancelUpdate",
-  CancelUpdate$
+  "CreateCertificateAuthority",
+  CreateCertificateAuthority$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CancelUpdateRequest;
-      output: CancelUpdateResponse;
+      input: CreateCertificateAuthorityRequest;
+      output: CreateCertificateAuthorityResponse;
     };
     sdk: {
-      input: CancelUpdateCommandInput;
-      output: CancelUpdateCommandOutput;
+      input: CreateCertificateAuthorityCommandInput;
+      output: CreateCertificateAuthorityCommandOutput;
     };
   };
 }

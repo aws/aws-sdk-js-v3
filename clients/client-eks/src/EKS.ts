@@ -8,6 +8,11 @@ import type {
 } from "@smithy/types";
 
 import {
+  type ActivateCertificateAuthorityCommandInput,
+  type ActivateCertificateAuthorityCommandOutput,
+  ActivateCertificateAuthorityCommand,
+} from "./commands/ActivateCertificateAuthorityCommand";
+import {
   type AssociateAccessPolicyCommandInput,
   type AssociateAccessPolicyCommandOutput,
   AssociateAccessPolicyCommand,
@@ -42,6 +47,11 @@ import {
   type CreateCapabilityCommandOutput,
   CreateCapabilityCommand,
 } from "./commands/CreateCapabilityCommand";
+import {
+  type CreateCertificateAuthorityCommandInput,
+  type CreateCertificateAuthorityCommandOutput,
+  CreateCertificateAuthorityCommand,
+} from "./commands/CreateCertificateAuthorityCommand";
 import {
   type CreateClusterCommandInput,
   type CreateClusterCommandOutput,
@@ -82,6 +92,11 @@ import {
   type DeleteCapabilityCommandOutput,
   DeleteCapabilityCommand,
 } from "./commands/DeleteCapabilityCommand";
+import {
+  type DeleteCertificateAuthorityCommandInput,
+  type DeleteCertificateAuthorityCommandOutput,
+  DeleteCertificateAuthorityCommand,
+} from "./commands/DeleteCertificateAuthorityCommand";
 import {
   type DeleteClusterCommandInput,
   type DeleteClusterCommandOutput,
@@ -137,6 +152,11 @@ import {
   type DescribeCapabilityCommandOutput,
   DescribeCapabilityCommand,
 } from "./commands/DescribeCapabilityCommand";
+import {
+  type DescribeCertificateAuthorityCommandInput,
+  type DescribeCertificateAuthorityCommandOutput,
+  DescribeCertificateAuthorityCommand,
+} from "./commands/DescribeCertificateAuthorityCommand";
 import {
   type DescribeClusterCommandInput,
   type DescribeClusterCommandOutput,
@@ -222,6 +242,11 @@ import {
   type ListCapabilitiesCommandOutput,
   ListCapabilitiesCommand,
 } from "./commands/ListCapabilitiesCommand";
+import {
+  type ListCertificateAuthoritiesCommandInput,
+  type ListCertificateAuthoritiesCommandOutput,
+  ListCertificateAuthoritiesCommand,
+} from "./commands/ListCertificateAuthoritiesCommand";
 import {
   type ListClustersCommandInput,
   type ListClustersCommandOutput,
@@ -342,6 +367,7 @@ import { paginateListAccessPolicies } from "./pagination/ListAccessPoliciesPagin
 import { paginateListAddons } from "./pagination/ListAddonsPaginator";
 import { paginateListAssociatedAccessPolicies } from "./pagination/ListAssociatedAccessPoliciesPaginator";
 import { paginateListCapabilities } from "./pagination/ListCapabilitiesPaginator";
+import { paginateListCertificateAuthorities } from "./pagination/ListCertificateAuthoritiesPaginator";
 import { paginateListClusters } from "./pagination/ListClustersPaginator";
 import { paginateListEksAnywhereSubscriptions } from "./pagination/ListEksAnywhereSubscriptionsPaginator";
 import { paginateListFargateProfiles } from "./pagination/ListFargateProfilesPaginator";
@@ -352,6 +378,7 @@ import { paginateListPodIdentityAssociations } from "./pagination/ListPodIdentit
 import { paginateListUpdates } from "./pagination/ListUpdatesPaginator";
 import { waitUntilAddonActive } from "./waiters/waitForAddonActive";
 import { waitUntilAddonDeleted } from "./waiters/waitForAddonDeleted";
+import { waitUntilCertificateAuthorityUpdateComplete } from "./waiters/waitForCertificateAuthorityUpdateComplete";
 import { waitUntilClusterActive } from "./waiters/waitForClusterActive";
 import { waitUntilClusterDeleted } from "./waiters/waitForClusterDeleted";
 import { waitUntilFargateProfileActive } from "./waiters/waitForFargateProfileActive";
@@ -360,6 +387,7 @@ import { waitUntilNodegroupActive } from "./waiters/waitForNodegroupActive";
 import { waitUntilNodegroupDeleted } from "./waiters/waitForNodegroupDeleted";
 
 const commands = {
+  ActivateCertificateAuthorityCommand,
   AssociateAccessPolicyCommand,
   AssociateEncryptionConfigCommand,
   AssociateIdentityProviderConfigCommand,
@@ -367,6 +395,7 @@ const commands = {
   CreateAccessEntryCommand,
   CreateAddonCommand,
   CreateCapabilityCommand,
+  CreateCertificateAuthorityCommand,
   CreateClusterCommand,
   CreateEksAnywhereSubscriptionCommand,
   CreateFargateProfileCommand,
@@ -375,6 +404,7 @@ const commands = {
   DeleteAccessEntryCommand,
   DeleteAddonCommand,
   DeleteCapabilityCommand,
+  DeleteCertificateAuthorityCommand,
   DeleteClusterCommand,
   DeleteEksAnywhereSubscriptionCommand,
   DeleteFargateProfileCommand,
@@ -386,6 +416,7 @@ const commands = {
   DescribeAddonConfigurationCommand,
   DescribeAddonVersionsCommand,
   DescribeCapabilityCommand,
+  DescribeCertificateAuthorityCommand,
   DescribeClusterCommand,
   DescribeClusterVersionsCommand,
   DescribeEksAnywhereSubscriptionCommand,
@@ -403,6 +434,7 @@ const commands = {
   ListAddonsCommand,
   ListAssociatedAccessPoliciesCommand,
   ListCapabilitiesCommand,
+  ListCertificateAuthoritiesCommand,
   ListClustersCommand,
   ListEksAnywhereSubscriptionsCommand,
   ListFargateProfilesCommand,
@@ -434,6 +466,7 @@ const paginators = {
   paginateListAddons,
   paginateListAssociatedAccessPolicies,
   paginateListCapabilities,
+  paginateListCertificateAuthorities,
   paginateListClusters,
   paginateListEksAnywhereSubscriptions,
   paginateListFargateProfiles,
@@ -452,9 +485,27 @@ const waiters = {
   waitUntilFargateProfileDeleted,
   waitUntilNodegroupActive,
   waitUntilNodegroupDeleted,
+  waitUntilCertificateAuthorityUpdateComplete,
 };
 
 export interface EKS {
+  /**
+   * @see {@link ActivateCertificateAuthorityCommand}
+   */
+  activateCertificateAuthority(
+    args: ActivateCertificateAuthorityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ActivateCertificateAuthorityCommandOutput>;
+  activateCertificateAuthority(
+    args: ActivateCertificateAuthorityCommandInput,
+    cb: (err: any, data?: ActivateCertificateAuthorityCommandOutput) => void
+  ): void;
+  activateCertificateAuthority(
+    args: ActivateCertificateAuthorityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ActivateCertificateAuthorityCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateAccessPolicyCommand}
    */
@@ -572,6 +623,23 @@ export interface EKS {
     args: CreateCapabilityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCapabilityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCertificateAuthorityCommand}
+   */
+  createCertificateAuthority(
+    args: CreateCertificateAuthorityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCertificateAuthorityCommandOutput>;
+  createCertificateAuthority(
+    args: CreateCertificateAuthorityCommandInput,
+    cb: (err: any, data?: CreateCertificateAuthorityCommandOutput) => void
+  ): void;
+  createCertificateAuthority(
+    args: CreateCertificateAuthorityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCertificateAuthorityCommandOutput) => void
   ): void;
 
   /**
@@ -708,6 +776,23 @@ export interface EKS {
     args: DeleteCapabilityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCapabilityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCertificateAuthorityCommand}
+   */
+  deleteCertificateAuthority(
+    args: DeleteCertificateAuthorityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCertificateAuthorityCommandOutput>;
+  deleteCertificateAuthority(
+    args: DeleteCertificateAuthorityCommandInput,
+    cb: (err: any, data?: DeleteCertificateAuthorityCommandOutput) => void
+  ): void;
+  deleteCertificateAuthority(
+    args: DeleteCertificateAuthorityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCertificateAuthorityCommandOutput) => void
   ): void;
 
   /**
@@ -896,6 +981,23 @@ export interface EKS {
     args: DescribeCapabilityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCapabilityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCertificateAuthorityCommand}
+   */
+  describeCertificateAuthority(
+    args: DescribeCertificateAuthorityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCertificateAuthorityCommandOutput>;
+  describeCertificateAuthority(
+    args: DescribeCertificateAuthorityCommandInput,
+    cb: (err: any, data?: DescribeCertificateAuthorityCommandOutput) => void
+  ): void;
+  describeCertificateAuthority(
+    args: DescribeCertificateAuthorityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCertificateAuthorityCommandOutput) => void
   ): void;
 
   /**
@@ -1187,6 +1289,23 @@ export interface EKS {
     args: ListCapabilitiesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCapabilitiesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCertificateAuthoritiesCommand}
+   */
+  listCertificateAuthorities(
+    args: ListCertificateAuthoritiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCertificateAuthoritiesCommandOutput>;
+  listCertificateAuthorities(
+    args: ListCertificateAuthoritiesCommandInput,
+    cb: (err: any, data?: ListCertificateAuthoritiesCommandOutput) => void
+  ): void;
+  listCertificateAuthorities(
+    args: ListCertificateAuthoritiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCertificateAuthoritiesCommandOutput) => void
   ): void;
 
   /**
@@ -1643,6 +1762,17 @@ export interface EKS {
   ): Paginator<ListCapabilitiesCommandOutput>;
 
   /**
+   * @see {@link ListCertificateAuthoritiesCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListCertificateAuthoritiesCommandOutput}.
+   */
+  paginateListCertificateAuthorities(
+    args: ListCertificateAuthoritiesCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListCertificateAuthoritiesCommandOutput>;
+
+  /**
    * @see {@link ListClustersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -1809,6 +1939,16 @@ export interface EKS {
     args: DescribeNodegroupCommandInput,
     waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
   ): Promise<WaiterResult<ResourceNotFoundException>>;
+
+  /**
+   * @see {@link DescribeUpdateCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilCertificateAuthorityUpdateComplete(
+    args: DescribeUpdateCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<EKS>, "client">
+  ): Promise<WaiterResult<DescribeUpdateCommandOutput>>;
 }
 
 /**

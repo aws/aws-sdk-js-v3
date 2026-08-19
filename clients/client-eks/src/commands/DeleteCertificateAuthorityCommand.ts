@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
-import { DescribeUpdate$ } from "../schemas/schemas_0";
+import type { DeleteCertificateAuthorityRequest, DeleteCertificateAuthorityResponse } from "../models/models_0";
+import { DeleteCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,39 +12,43 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DescribeUpdateCommand}.
+ * The input for {@link DeleteCertificateAuthorityCommand}.
  */
-export interface DescribeUpdateCommandInput extends DescribeUpdateRequest {}
+export interface DeleteCertificateAuthorityCommandInput extends DeleteCertificateAuthorityRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUpdateCommand}.
+ * The output of {@link DeleteCertificateAuthorityCommand}.
  */
-export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __MetadataBearer {}
+export interface DeleteCertificateAuthorityCommandOutput extends DeleteCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an update to an Amazon EKS resource.</p>
- *          <p>When the status of the update is <code>Successful</code>, the update is complete. If
- *             an update fails, the status is <code>Failed</code>, and an error detail explains the
- *             reason for the failure.</p>
+ * <p>Deletes a certificate authority (CA) from your cluster.</p>
+ *          <p>Deleting a certificate authority removes its public certificate from the cluster's
+ *             trust bundle. You can't delete the certificate authority that's currently signing
+ *             certificates for the cluster (its <code>signingStatus</code> is <code>IN_USE</code>) — to
+ *             remove the outgoing CA, first activate the successor CA with <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_ActivateCertificateAuthority.html">
+ *                <code>ActivateCertificateAuthority</code>
+ *             </a>. Amazon EKS also protects a successor CA
+ *             from deletion in certain cases to keep a valid rotation path — for example, a successor
+ *             that Amazon EKS appended can't be deleted while it's the only successor on the cluster. This is
+ *             an asynchronous operation that returns an <code>update</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, DeleteCertificateAuthorityCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, DeleteCertificateAuthorityCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
  * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
- * const input = { // DescribeUpdateRequest
- *   name: "STRING_VALUE", // required
- *   updateId: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE",
- *   addonName: "STRING_VALUE",
- *   capabilityName: "STRING_VALUE",
+ * const input = { // DeleteCertificateAuthorityRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   certificateAuthorityId: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new DescribeUpdateCommand(input);
+ * const command = new DeleteCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUpdateResponse
+ * // { // DeleteCertificateAuthorityResponse
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
@@ -70,24 +74,31 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * //       reason: "STRING_VALUE",
  * //     },
  * //   },
+ * //   certificateAuthority: { // CertificateAuthoritySummary
+ * //     id: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "EKS" || "CUSTOMER",
+ * //     activatedAt: new Date("TIMESTAMP"),
+ * //     activatedBy: "EKS" || "CUSTOMER",
+ * //     signingStatus: "NOT_USED" || "ACTIVATING" || "IN_USE",
+ * //     distributionStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "DELETING",
+ * //   },
  * // };
  *
  * ```
  *
- * @param DescribeUpdateCommandInput - {@link DescribeUpdateCommandInput}
- * @returns {@link DescribeUpdateCommandOutput}
- * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
- * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
+ * @param DeleteCertificateAuthorityCommandInput - {@link DeleteCertificateAuthorityCommandInput}
+ * @returns {@link DeleteCertificateAuthorityCommandOutput}
+ * @see {@link DeleteCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link DeleteCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
- *
- * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
  *             request.</p>
+ *
+ * @throws {@link ResourceInUseException} (client fault)
+ *  <p>The specified resource is in use.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
@@ -98,27 +109,30 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  *
  * @public
  */
-export class DescribeUpdateCommand extends command<DescribeUpdateCommandInput, DescribeUpdateCommandOutput>(
+export class DeleteCertificateAuthorityCommand extends command<DeleteCertificateAuthorityCommandInput, DeleteCertificateAuthorityCommandOutput>(
   _ep0,
   _mw0,
-  "DescribeUpdate",
-  DescribeUpdate$
+  "DeleteCertificateAuthority",
+  DeleteCertificateAuthority$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeUpdateRequest;
-      output: DescribeUpdateResponse;
+      input: DeleteCertificateAuthorityRequest;
+      output: DeleteCertificateAuthorityResponse;
     };
     sdk: {
-      input: DescribeUpdateCommandInput;
-      output: DescribeUpdateCommandOutput;
+      input: DeleteCertificateAuthorityCommandInput;
+      output: DeleteCertificateAuthorityCommandOutput;
     };
   };
 }

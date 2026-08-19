@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeUpdateRequest, DescribeUpdateResponse } from "../models/models_0";
-import { DescribeUpdate$ } from "../schemas/schemas_0";
+import type { ActivateCertificateAuthorityRequest, ActivateCertificateAuthorityResponse } from "../models/models_0";
+import { ActivateCertificateAuthority$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,39 +12,51 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DescribeUpdateCommand}.
+ * The input for {@link ActivateCertificateAuthorityCommand}.
  */
-export interface DescribeUpdateCommandInput extends DescribeUpdateRequest {}
+export interface ActivateCertificateAuthorityCommandInput extends ActivateCertificateAuthorityRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUpdateCommand}.
+ * The output of {@link ActivateCertificateAuthorityCommand}.
  */
-export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __MetadataBearer {}
+export interface ActivateCertificateAuthorityCommandOutput extends ActivateCertificateAuthorityResponse, __MetadataBearer {}
 
 /**
- * <p>Describes an update to an Amazon EKS resource.</p>
- *          <p>When the status of the update is <code>Successful</code>, the update is complete. If
- *             an update fails, the status is <code>Failed</code>, and an error detail explains the
- *             reason for the failure.</p>
+ * <p>Activates a successor certificate authority (CA) as the signing certificate authority
+ *             for your cluster, completing a CA rotation.</p>
+ *          <p>When you activate a successor CA, Amazon EKS promotes it to be the cluster's signer (its
+ *                 <code>signingStatus</code> becomes <code>IN_USE</code>) and the outgoing CA is
+ *             retired (<code>NOT_USED</code>). The outgoing CA remains in the cluster's trust bundle but
+ *             no longer signs certificates. The successor CA you activate must already be present on
+ *             the cluster and fully distributed (its <code>distributionStatus</code> must be
+ *                 <code>COMPLETE</code>). This is an asynchronous operation that returns an
+ *                 <code>update</code> object you can track with <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeUpdate.html">
+ *                <code>DescribeUpdate</code>
+ *             </a>.</p>
+ *          <p>Before you activate the successor CA, make sure the worker nodes you manage and your
+ *             external clients have been updated to trust it, so they maintain connectivity to the API
+ *             server after activation. For a limited period after activation, CA rollback is available
+ *             to revert to the outgoing CA if needed. If you don't activate the successor CA yourself,
+ *             Amazon EKS activates it automatically as the expiration deadline approaches. For more
+ *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/certificate-authority-rotation.html">Rotate the Amazon EKS
+ *                 cluster certificate authority</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { EKSClient, DescribeUpdateCommand } from "@aws-sdk/client-eks"; // ES Modules import
- * // const { EKSClient, DescribeUpdateCommand } = require("@aws-sdk/client-eks"); // CommonJS import
+ * import { EKSClient, ActivateCertificateAuthorityCommand } from "@aws-sdk/client-eks"; // ES Modules import
+ * // const { EKSClient, ActivateCertificateAuthorityCommand } = require("@aws-sdk/client-eks"); // CommonJS import
  * // import type { EKSClientConfig } from "@aws-sdk/client-eks";
  * const config = {}; // type is EKSClientConfig
  * const client = new EKSClient(config);
- * const input = { // DescribeUpdateRequest
- *   name: "STRING_VALUE", // required
- *   updateId: "STRING_VALUE", // required
- *   nodegroupName: "STRING_VALUE",
- *   addonName: "STRING_VALUE",
- *   capabilityName: "STRING_VALUE",
+ * const input = { // ActivateCertificateAuthorityRequest
+ *   clusterName: "STRING_VALUE", // required
+ *   certificateAuthorityId: "STRING_VALUE", // required
+ *   clientRequestToken: "STRING_VALUE",
  * };
- * const command = new DescribeUpdateCommand(input);
+ * const command = new ActivateCertificateAuthorityCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUpdateResponse
+ * // { // ActivateCertificateAuthorityResponse
  * //   update: { // Update
  * //     id: "STRING_VALUE",
  * //     status: "InProgress" || "Failed" || "Cancelled" || "Successful",
@@ -70,20 +82,24 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * //       reason: "STRING_VALUE",
  * //     },
  * //   },
+ * //   certificateAuthority: { // CertificateAuthoritySummary
+ * //     id: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"),
+ * //     createdBy: "EKS" || "CUSTOMER",
+ * //     activatedAt: new Date("TIMESTAMP"),
+ * //     activatedBy: "EKS" || "CUSTOMER",
+ * //     signingStatus: "NOT_USED" || "ACTIVATING" || "IN_USE",
+ * //     distributionStatus: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "DELETING",
+ * //   },
  * // };
  *
  * ```
  *
- * @param DescribeUpdateCommandInput - {@link DescribeUpdateCommandInput}
- * @returns {@link DescribeUpdateCommandOutput}
- * @see {@link DescribeUpdateCommandInput} for command's `input` shape.
- * @see {@link DescribeUpdateCommandOutput} for command's `response` shape.
+ * @param ActivateCertificateAuthorityCommandInput - {@link ActivateCertificateAuthorityCommandInput}
+ * @returns {@link ActivateCertificateAuthorityCommandOutput}
+ * @see {@link ActivateCertificateAuthorityCommandInput} for command's `input` shape.
+ * @see {@link ActivateCertificateAuthorityCommandOutput} for command's `response` shape.
  * @see {@link EKSClientResolvedConfig | config} for EKSClient's `config` shape.
- *
- * @throws {@link ClientException} (client fault)
- *  <p>These errors are usually caused by a client action. Actions can include using an
- *             action or resource on behalf of an <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html">IAM principal</a> that doesn't have permissions to use
- *             the action or resource or specifying an identifier that is not valid.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter is invalid. Review the available parameters for the API
@@ -98,27 +114,30 @@ export interface DescribeUpdateCommandOutput extends DescribeUpdateResponse, __M
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
+ * @throws {@link ServiceUnavailableException} (server fault)
+ *  <p>The service is unavailable. Back off and retry the operation.</p>
+ *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
  *
  * @public
  */
-export class DescribeUpdateCommand extends command<DescribeUpdateCommandInput, DescribeUpdateCommandOutput>(
+export class ActivateCertificateAuthorityCommand extends command<ActivateCertificateAuthorityCommandInput, ActivateCertificateAuthorityCommandOutput>(
   _ep0,
   _mw0,
-  "DescribeUpdate",
-  DescribeUpdate$
+  "ActivateCertificateAuthority",
+  ActivateCertificateAuthority$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeUpdateRequest;
-      output: DescribeUpdateResponse;
+      input: ActivateCertificateAuthorityRequest;
+      output: ActivateCertificateAuthorityResponse;
     };
     sdk: {
-      input: DescribeUpdateCommandInput;
-      output: DescribeUpdateCommandOutput;
+      input: ActivateCertificateAuthorityCommandInput;
+      output: ActivateCertificateAuthorityCommandOutput;
     };
   };
 }

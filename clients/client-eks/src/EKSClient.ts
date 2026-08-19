@@ -55,6 +55,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type {
+  ActivateCertificateAuthorityCommandInput,
+  ActivateCertificateAuthorityCommandOutput,
+} from "./commands/ActivateCertificateAuthorityCommand";
+import type {
   AssociateAccessPolicyCommandInput,
   AssociateAccessPolicyCommandOutput,
 } from "./commands/AssociateAccessPolicyCommand";
@@ -73,6 +77,10 @@ import type {
 } from "./commands/CreateAccessEntryCommand";
 import type { CreateAddonCommandInput, CreateAddonCommandOutput } from "./commands/CreateAddonCommand";
 import type { CreateCapabilityCommandInput, CreateCapabilityCommandOutput } from "./commands/CreateCapabilityCommand";
+import type {
+  CreateCertificateAuthorityCommandInput,
+  CreateCertificateAuthorityCommandOutput,
+} from "./commands/CreateCertificateAuthorityCommand";
 import type { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import type {
   CreateEksAnywhereSubscriptionCommandInput,
@@ -93,6 +101,10 @@ import type {
 } from "./commands/DeleteAccessEntryCommand";
 import type { DeleteAddonCommandInput, DeleteAddonCommandOutput } from "./commands/DeleteAddonCommand";
 import type { DeleteCapabilityCommandInput, DeleteCapabilityCommandOutput } from "./commands/DeleteCapabilityCommand";
+import type {
+  DeleteCertificateAuthorityCommandInput,
+  DeleteCertificateAuthorityCommandOutput,
+} from "./commands/DeleteCertificateAuthorityCommand";
 import type { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand";
 import type {
   DeleteEksAnywhereSubscriptionCommandInput,
@@ -128,6 +140,10 @@ import type {
   DescribeCapabilityCommandInput,
   DescribeCapabilityCommandOutput,
 } from "./commands/DescribeCapabilityCommand";
+import type {
+  DescribeCertificateAuthorityCommandInput,
+  DescribeCertificateAuthorityCommandOutput,
+} from "./commands/DescribeCertificateAuthorityCommand";
 import type { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand";
 import type {
   DescribeClusterVersionsCommandInput,
@@ -181,6 +197,10 @@ import type {
   ListAssociatedAccessPoliciesCommandOutput,
 } from "./commands/ListAssociatedAccessPoliciesCommand";
 import type { ListCapabilitiesCommandInput, ListCapabilitiesCommandOutput } from "./commands/ListCapabilitiesCommand";
+import type {
+  ListCertificateAuthoritiesCommandInput,
+  ListCertificateAuthoritiesCommandOutput,
+} from "./commands/ListCertificateAuthoritiesCommand";
 import type { ListClustersCommandInput, ListClustersCommandOutput } from "./commands/ListClustersCommand";
 import type {
   ListEksAnywhereSubscriptionsCommandInput,
@@ -257,6 +277,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | ActivateCertificateAuthorityCommandInput
   | AssociateAccessPolicyCommandInput
   | AssociateEncryptionConfigCommandInput
   | AssociateIdentityProviderConfigCommandInput
@@ -264,6 +285,7 @@ export type ServiceInputTypes =
   | CreateAccessEntryCommandInput
   | CreateAddonCommandInput
   | CreateCapabilityCommandInput
+  | CreateCertificateAuthorityCommandInput
   | CreateClusterCommandInput
   | CreateEksAnywhereSubscriptionCommandInput
   | CreateFargateProfileCommandInput
@@ -272,6 +294,7 @@ export type ServiceInputTypes =
   | DeleteAccessEntryCommandInput
   | DeleteAddonCommandInput
   | DeleteCapabilityCommandInput
+  | DeleteCertificateAuthorityCommandInput
   | DeleteClusterCommandInput
   | DeleteEksAnywhereSubscriptionCommandInput
   | DeleteFargateProfileCommandInput
@@ -283,6 +306,7 @@ export type ServiceInputTypes =
   | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeCapabilityCommandInput
+  | DescribeCertificateAuthorityCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterVersionsCommandInput
   | DescribeEksAnywhereSubscriptionCommandInput
@@ -300,6 +324,7 @@ export type ServiceInputTypes =
   | ListAddonsCommandInput
   | ListAssociatedAccessPoliciesCommandInput
   | ListCapabilitiesCommandInput
+  | ListCertificateAuthoritiesCommandInput
   | ListClustersCommandInput
   | ListEksAnywhereSubscriptionsCommandInput
   | ListFargateProfilesCommandInput
@@ -327,6 +352,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | ActivateCertificateAuthorityCommandOutput
   | AssociateAccessPolicyCommandOutput
   | AssociateEncryptionConfigCommandOutput
   | AssociateIdentityProviderConfigCommandOutput
@@ -334,6 +360,7 @@ export type ServiceOutputTypes =
   | CreateAccessEntryCommandOutput
   | CreateAddonCommandOutput
   | CreateCapabilityCommandOutput
+  | CreateCertificateAuthorityCommandOutput
   | CreateClusterCommandOutput
   | CreateEksAnywhereSubscriptionCommandOutput
   | CreateFargateProfileCommandOutput
@@ -342,6 +369,7 @@ export type ServiceOutputTypes =
   | DeleteAccessEntryCommandOutput
   | DeleteAddonCommandOutput
   | DeleteCapabilityCommandOutput
+  | DeleteCertificateAuthorityCommandOutput
   | DeleteClusterCommandOutput
   | DeleteEksAnywhereSubscriptionCommandOutput
   | DeleteFargateProfileCommandOutput
@@ -353,6 +381,7 @@ export type ServiceOutputTypes =
   | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeCapabilityCommandOutput
+  | DescribeCertificateAuthorityCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterVersionsCommandOutput
   | DescribeEksAnywhereSubscriptionCommandOutput
@@ -370,6 +399,7 @@ export type ServiceOutputTypes =
   | ListAddonsCommandOutput
   | ListAssociatedAccessPoliciesCommandOutput
   | ListCapabilitiesCommandOutput
+  | ListCertificateAuthoritiesCommandOutput
   | ListClustersCommandOutput
   | ListEksAnywhereSubscriptionsCommandOutput
   | ListFargateProfilesCommandOutput
