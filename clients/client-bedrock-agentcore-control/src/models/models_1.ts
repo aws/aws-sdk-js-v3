@@ -56,7 +56,6 @@ import type {
   Secret,
   SecretReference,
   Unit,
-  UpdatedDescription,
   WorkloadIdentityDetails,
 } from "./models_0";
 
@@ -4043,6 +4042,42 @@ export namespace MemoryStrategyInput {
 }
 
 /**
+ * <p>The validation rules for namespace variable values. When you specify multiple rules, the service enforces a logical <code>AND</code> across all provided key-value pairs.</p>
+ * @public
+ */
+export interface NamespaceKeyValidation {
+  /**
+   * <p>The allowed values for this namespace variable key.</p>
+   * @public
+   */
+  allowedValues?: string[] | undefined;
+
+  /**
+   * <p>A regex pattern that the namespace variable key-value must match.</p>
+   * @public
+   */
+  regexPattern?: string | undefined;
+}
+
+/**
+ * <p>A namespace variable key definition with optional <code>NamespaceKeyValidation</code> rules.</p>
+ * @public
+ */
+export interface NamespaceKeyEntry {
+  /**
+   * <p>The namespace variable key name.</p>
+   * @public
+   */
+  key: string | undefined;
+
+  /**
+   * <p>The validation rules that constrain values for this namespace variable at runtime (<code>CreateEvent</code> API).</p>
+   * @public
+   */
+  validation?: NamespaceKeyValidation | undefined;
+}
+
+/**
  * <p>Defines what content to stream and at what level of detail.</p>
  * @public
  */
@@ -4180,6 +4215,12 @@ export interface CreateMemoryInput {
    * @public
    */
   indexedKeys?: IndexedKey[] | undefined;
+
+  /**
+   * <p>The namespace variable key definitions with optional validation rules. Use these <code>namespaceKeys</code> in <code>namespaceTemplates</code> to control namespace hierarchy.</p>
+   * @public
+   */
+  namespaceKeys?: NamespaceKeyEntry[] | undefined;
 
   /**
    * <p>Configuration for streaming memory record data to external resources.</p>
@@ -5051,6 +5092,12 @@ export interface Memory {
   indexedKeys?: IndexedKey[] | undefined;
 
   /**
+   * <p>The namespace variable key definitions for this memory. Namespace keys define custom variables used in <code>namespaceTemplates</code> with optional validation rules.</p>
+   * @public
+   */
+  namespaceKeys?: NamespaceKeyEntry[] | undefined;
+
+  /**
    * <p>Configuration for streaming memory record data to external resources.</p>
    * @public
    */
@@ -5737,6 +5784,12 @@ export interface UpdateMemoryInput {
   addIndexedKeys?: IndexedKey[] | undefined;
 
   /**
+   * <p>The namespace variable key definitions with validation rules for this memory. Use this parameter to update existing <code>namespaceKey</code> validation rules or add new keys when namespace templates change.</p>
+   * @public
+   */
+  namespaceKeys?: NamespaceKeyEntry[] | undefined;
+
+  /**
    * <p>Configuration for streaming memory record data to external resources.</p>
    * @public
    */
@@ -5961,9 +6014,7 @@ export namespace PrivateKeySource {
 }
 
 /**
- * Configuration for private_key_jwt client authentication (RFC 7523).
- * On Create: privateKeySource and signingAlgorithm are required (enforced server-side).
- * On Update: all fields are optional — only provided fields are updated.
+ * <p>The private key configuration for private_key_jwt client authentication.</p>
  * @public
  */
 export interface PrivateKeyJwtConfig {
@@ -6040,9 +6091,7 @@ export interface CustomOauth2ProviderConfigInput {
   clientAuthenticationMethod?: ClientAuthenticationMethodType | undefined;
 
   /**
-   * Configuration for private_key_jwt client authentication (RFC 7523).
-   * On Create: privateKeySource and signingAlgorithm are required (enforced server-side).
-   * On Update: all fields are optional — only provided fields are updated.
+   * <p>The private_key_jwt client authentication configuration for this credential provider. When specified, the credential provider uses JWT client assertions to authenticate with the token endpoint.</p>
    * @public
    */
   privateKeyJwtConfig?: PrivateKeyJwtConfig | undefined;
@@ -6590,9 +6639,7 @@ export interface CustomOauth2ProviderConfigOutput {
   privateEndpointOverrides?: PrivateEndpointOverride[] | undefined;
 
   /**
-   * Configuration for private_key_jwt client authentication (RFC 7523).
-   * On Create: privateKeySource and signingAlgorithm are required (enforced server-side).
-   * On Update: all fields are optional — only provided fields are updated.
+   * <p>The configuration for private_key_jwt client authentication used by this OAuth2 credential provider.</p>
    * @public
    */
   privateKeyJwtConfig?: PrivateKeyJwtConfig | undefined;
@@ -9964,80 +10011,4 @@ export interface ListPolicyEngineSummariesResponse {
    * @public
    */
   nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyEngineRequest {
-  /**
-   * <p>The unique identifier of the policy engine to be updated.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The new description for the policy engine.</p>
-   * @public
-   */
-  description?: UpdatedDescription | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdatePolicyEngineResponse {
-  /**
-   * <p>The unique identifier of the updated policy engine.</p>
-   * @public
-   */
-  policyEngineId: string | undefined;
-
-  /**
-   * <p>The name of the updated policy engine.</p>
-   * @public
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The original creation timestamp of the policy engine.</p>
-   * @public
-   */
-  createdAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the policy engine was last updated.</p>
-   * @public
-   */
-  updatedAt: Date | undefined;
-
-  /**
-   * <p>The ARN of the updated policy engine.</p>
-   * @public
-   */
-  policyEngineArn: string | undefined;
-
-  /**
-   * <p>The current status of the updated policy engine.</p>
-   * @public
-   */
-  status: PolicyEngineStatus | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
-   * @public
-   */
-  encryptionKeyArn?: string | undefined;
-
-  /**
-   * <p>The updated description of the policy engine.</p>
-   * @public
-   */
-  description?: string | undefined;
-
-  /**
-   * <p>Additional information about the update status.</p>
-   * @public
-   */
-  statusReasons: string[] | undefined;
 }

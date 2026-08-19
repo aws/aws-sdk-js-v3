@@ -3,6 +3,7 @@ import type {
   DescriptorType,
   EnforcementMode,
   FindingType,
+  PolicyEngineStatus,
   PolicyGenerationStatus,
   PolicyStatus,
   PolicyValidationMode,
@@ -40,6 +41,82 @@ import type {
   McpServerTargetConfiguration,
   UpdatedAuthorizerConfiguration,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface UpdatePolicyEngineRequest {
+  /**
+   * <p>The unique identifier of the policy engine to be updated.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The new description for the policy engine.</p>
+   * @public
+   */
+  description?: UpdatedDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdatePolicyEngineResponse {
+  /**
+   * <p>The unique identifier of the updated policy engine.</p>
+   * @public
+   */
+  policyEngineId: string | undefined;
+
+  /**
+   * <p>The name of the updated policy engine.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The original creation timestamp of the policy engine.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the policy engine was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
+
+  /**
+   * <p>The ARN of the updated policy engine.</p>
+   * @public
+   */
+  policyEngineArn: string | undefined;
+
+  /**
+   * <p>The current status of the updated policy engine.</p>
+   * @public
+   */
+  status: PolicyEngineStatus | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the KMS key used to encrypt the policy engine data.</p>
+   * @public
+   */
+  encryptionKeyArn?: string | undefined;
+
+  /**
+   * <p>The updated description of the policy engine.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Additional information about the update status.</p>
+   * @public
+   */
+  statusReasons: string[] | undefined;
+}
 
 /**
  * @public

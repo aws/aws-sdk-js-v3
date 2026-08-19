@@ -724,6 +724,9 @@ const _MTC = "McpTargetConfiguration";
 const _MTSC = "McpToolSchemaConfiguration";
 const _MVR = "ManagedVpcResource";
 const _NC = "NetworkConfiguration";
+const _NKE = "NamespaceKeyEntry";
+const _NKL = "NamespaceKeysList";
+const _NKV = "NamespaceKeyValidation";
 const _NSD = "NumericalScaleDefinition";
 const _NSDu = "NumericalScaleDefinitions";
 const _NV = "NumberValidation";
@@ -1429,6 +1432,7 @@ const _mode = "models";
 const _mon = "monitoring";
 const _n = "name";
 const _nC = "networkConfiguration";
+const _nK = "namespaceKeys";
 const _nM = "networkMode";
 const _nMC = "networkModeConfig";
 const _nT = "namespaceTemplates";
@@ -1537,6 +1541,7 @@ const _rLI = "rateLimitId";
 const _rM = "remoteMcp";
 const _rMMDSV = "requireMMDSV2";
 const _rP = "resourcePriority";
+const _rPe = "regexPattern";
 const _rR = "registryRecords";
 const _rS = "relevanceScore";
 const _rSSE = "requireServiceS3Endpoint";
@@ -2332,8 +2337,8 @@ export var CreateHarnessResponse$: StaticStructureSchema = [3, n0, _CHRr,
 ];
 export var CreateMemoryInput$: StaticStructureSchema = [3, n0, _CMI,
   0,
-  [_n, _eED, _cT, _d, _eKA, _mERA, _mS, _iK, _sDR, _ta],
-  [0, 1, [0, 4], [() => Description, 0], 0, 0, [() => MemoryStrategyInputList, 0], () => IndexedKeysList, () => StreamDeliveryResources$, 128 | 0], 2
+  [_n, _eED, _cT, _d, _eKA, _mERA, _mS, _iK, _nK, _sDR, _ta],
+  [0, 1, [0, 4], [() => Description, 0], 0, 0, [() => MemoryStrategyInputList, 0], () => IndexedKeysList, () => NamespaceKeysList, () => StreamDeliveryResources$, 128 | 0], 2
 ];
 export var CreateMemoryOutput$: StaticStructureSchema = [3, n0, _CMO,
   0,
@@ -4037,8 +4042,8 @@ export var McpServerTargetConfiguration$: StaticStructureSchema = [3, n0, _MSTC,
 ];
 export var Memory$: StaticStructureSchema = [3, n0, _M,
   0,
-  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _str, _iK, _sDR, _mBRA],
-  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => IndexedKeysList, () => StreamDeliveryResources$, 0], 7
+  [_ar, _i, _n, _eED, _st, _cA, _uA, _d, _eKA, _mERA, _fR, _str, _iK, _nK, _sDR, _mBRA],
+  [0, 0, 0, 1, 0, 4, 4, [() => Description, 0], 0, 0, 0, [() => MemoryStrategyList, 0], () => IndexedKeysList, () => NamespaceKeysList, () => StreamDeliveryResources$, 0], 7
 ];
 export var MemoryRecordSchema$: StaticStructureSchema = [3, n0, _MRS,
   0,
@@ -4119,6 +4124,16 @@ export var ModifyStrategyConfiguration$: StaticStructureSchema = [3, n0, _MSC,
   0,
   [_ex, _cons, _ref, _sMC],
   [[() => ModifyExtractionConfiguration$, 0], [() => ModifyConsolidationConfiguration$, 0], [() => ModifyReflectionConfiguration$, 0], () => ModifySelfManagedConfiguration$]
+];
+export var NamespaceKeyEntry$: StaticStructureSchema = [3, n0, _NKE,
+  0,
+  [_k, _val],
+  [0, () => NamespaceKeyValidation$], 1
+];
+export var NamespaceKeyValidation$: StaticStructureSchema = [3, n0, _NKV,
+  0,
+  [_aV, _rPe],
+  [64 | 0, 0]
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
   0,
@@ -4907,8 +4922,8 @@ export var UpdateHarnessResponse$: StaticStructureSchema = [3, n0, _UHRp,
 ];
 export var UpdateMemoryInput$: StaticStructureSchema = [3, n0, _UMI,
   0,
-  [_mIe, _cT, _d, _eED, _mERA, _mS, _aIK, _sDR],
-  [[0, 1], [0, 4], [() => Description, 0], 1, 0, [() => ModifyMemoryStrategies$, 0], () => IndexedKeysList, () => StreamDeliveryResources$], 1
+  [_mIe, _cT, _d, _eED, _mERA, _mS, _aIK, _nK, _sDR],
+  [[0, 1], [0, 4], [() => Description, 0], 1, 0, [() => ModifyMemoryStrategies$, 0], () => IndexedKeysList, () => NamespaceKeysList, () => StreamDeliveryResources$], 1
 ];
 export var UpdateMemoryOutput$: StaticStructureSchema = [3, n0, _UMO,
   0,
@@ -5329,6 +5344,10 @@ var ModelEntries: StaticListSchema = [1, n0, _MEo,
 var ModifyMemoryStrategiesList: StaticListSchema = [1, n0, _MMSL,
   0, [() => ModifyMemoryStrategyInput$,
     0]
+];
+var NamespaceAllowedValuesList = 64 | 0;
+var NamespaceKeysList: StaticListSchema = [1, n0, _NKL,
+  0, () => NamespaceKeyEntry$
 ];
 var NamespacesList = 64 | 0;
 var NonEmptyStringList = 64 | 0;

@@ -216,6 +216,17 @@ export interface GetMemoryCommandOutput extends GetMemoryOutput, __MetadataBeare
  * //         type: "STRING" || "STRINGLIST" || "NUMBER", // required
  * //       },
  * //     ],
+ * //     namespaceKeys: [ // NamespaceKeysList
+ * //       { // NamespaceKeyEntry
+ * //         key: "STRING_VALUE", // required
+ * //         validation: { // NamespaceKeyValidation
+ * //           allowedValues: [ // NamespaceAllowedValuesList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           regexPattern: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     ],
  * //     streamDeliveryResources: { // StreamDeliveryResources
  * //       resources: [ // StreamDeliveryResourcesList // required
  * //         { // StreamDeliveryResource Union: only one key present

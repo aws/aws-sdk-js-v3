@@ -1099,6 +1099,8 @@ export type {
   ModifyReflectionConfiguration,
   ModifySelfManagedConfiguration,
   ModifyStrategyConfiguration,
+  NamespaceKeyEntry,
+  NamespaceKeyValidation,
   NetworkConfiguration,
   NumberValidation,
   NumericalScaleDefinition,

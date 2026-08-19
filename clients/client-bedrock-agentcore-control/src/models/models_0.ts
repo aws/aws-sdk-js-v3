@@ -6971,7 +6971,7 @@ export interface UpdateEvaluatorResponse {
 }
 
 /**
- * Rate configuration for a metric (requests or tokens)
+ * <p>Contains the rate configuration for a rate limit metric, specifying the allowed rate and time period.</p>
  * @public
  */
 export interface RateConfig {
@@ -6982,69 +6982,67 @@ export interface RateConfig {
   rate: number | undefined;
 
   /**
-   * Time period for rate limiting
+   * <p>The time period for the rate limit. Valid values:</p> <ul> <li> <p> <code>second</code>—Measures the rate limit over a one-second window.</p> </li> <li> <p> <code>minute</code>—Measures the rate limit over a one-minute window.</p> </li> </ul>
    * @public
    */
   period: Period | undefined;
 }
 
 /**
- * A single rule entry within a limit, mapping dimension values to rate configurations
+ * <p>A single rule entry within a rate limit that maps dimension values to rate configurations. Each entry defines the rate limits for a specific combination of dimension values.</p>
  * @public
  */
 export interface LimitEntry {
   /**
-   * Map of dimension name to dimension value, matching the parent limit's dimensionKeys.
-   * Keys must exactly match the dimensionKeys. Values may be "*" as a wildcard.
-   * "*" may only appear at trailing positions (based on dimensionKeys ordering).
+   * <p>A map of dimension names to dimension values for this rule entry. Keys must match the parent rate limit's dimension keys. Values may use <code>*</code> as a wildcard, but only in trailing positions based on the dimension keys ordering.</p>
    * @public
    */
   dimensions: Record<string, string> | undefined;
 
   /**
-   * Request rate limits (RPS or RPM). Limited to 1 entry for now.
+   * <p>The request rate limit configuration. Specifies the maximum number of requests allowed per time period.</p>
    * @public
    */
   requests?: RateConfig[] | undefined;
 
   /**
-   * Token rate limits (TPM). Limited to 1 entry for now. — P1
+   * <p>The token rate limit configuration. Specifies the maximum number of tokens allowed per time period.</p>
    * @public
    */
   tokens?: RateConfig[] | undefined;
 
   /**
-   * Connection rate limits (per second only). Limited to 1 entry for now. — P2
+   * <p>The connection rate limit configuration. Specifies the maximum number of concurrent connections allowed.</p>
    * @public
    */
   connections?: RateConfig[] | undefined;
 }
 
 /**
- * A limit definition within a BatchPut request (rateLimitId used for upsert matching)
+ * <p>A rate limit definition within a batch put request. If you provide a <code>rateLimitId</code>, the service uses it for upsert matching against existing rate limits.</p>
  * @public
  */
 export interface BatchPutLimitEntry {
   /**
-   * Optional — if provided, used for upsert matching against existing limits.
+   * <p>The unique identifier of the rate limit. If provided, the service uses it for upsert matching against existing rate limits.</p>
    * @public
    */
   rateLimitId?: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension key names defining the scope of a limit
+   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * List of rule entries within a limit
+   * <p>The list of rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
@@ -7067,20 +7065,19 @@ export interface BatchPutGatewayRateLimitsRequest {
   clientToken?: string | undefined;
 
   /**
-   * Complete set of rate limits for this gateway. Replaces all existing limits atomically.
+   * <p>The complete set of rate limits for this gateway. This operation replaces all existing rate limits in a single request. If the operation fails, no rate limits are changed.</p>
    * @public
    */
   rateLimits: BatchPutLimitEntry[] | undefined;
 }
 
 /**
- * Shared fields for GatewayRateLimit responses
+ * <p>Contains detailed information about a gateway rate limit, including its configuration and current status.</p>
  * @public
  */
 export interface GatewayRateLimitDetail {
   /**
-   * Limit identifier. Optional on Create (system-generates if not provided by customer).
-   * Always present in responses.
+   * <p>The unique identifier of the rate limit.</p>
    * @public
    */
   rateLimitId: string | undefined;
@@ -7092,25 +7089,25 @@ export interface GatewayRateLimitDetail {
   gatewayIdentifier: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>The human-readable description of the rate limit.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension key names defining the scope of a limit
+   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * List of rule entries within a limit
+   * <p>The list of rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * Status of a gateway limit
+   * <p>The current status of the rate limit.</p>
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
@@ -7133,7 +7130,7 @@ export interface GatewayRateLimitDetail {
  */
 export interface BatchPutGatewayRateLimitsResponse {
   /**
-   * The resulting set of rate limits after the batch operation.
+   * <p>The resulting set of rate limits after the batch operation.</p>
    * @public
    */
   rateLimits: GatewayRateLimitDetail[] | undefined;
@@ -7156,39 +7153,37 @@ export interface CreateGatewayRateLimitRequest {
   clientToken?: string | undefined;
 
   /**
-   * Optional customer-defined limit ID. If not provided, system generates one.
+   * <p>An optional customer-defined identifier for the rate limit. If not provided, the system generates one.</p>
    * @public
    */
   rateLimitId?: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>An optional human-readable description for this rate limit. If not provided, the rate limit is created without a description.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension names defining the scope of this limit.
-   * Unique per gateway — no two limits can share the same dimensionKeys.
+   * <p>The ordered list of dimension key names that define the scope of this rate limit. Must be unique per gateway—no two rate limits can share the same dimension keys.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * Rule entries mapping dimension values to rate configurations.
+   * <p>The rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 }
 
 /**
- * Shared fields for GatewayRateLimit responses
+ * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
  * @public
  */
 export interface CreateGatewayRateLimitResponse {
   /**
-   * Limit identifier. Optional on Create (system-generates if not provided by customer).
-   * Always present in responses.
+   * <p>The unique identifier of the created rate limit.</p>
    * @public
    */
   rateLimitId: string | undefined;
@@ -7200,25 +7195,25 @@ export interface CreateGatewayRateLimitResponse {
   gatewayIdentifier: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>The human-readable description of the rate limit.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension key names defining the scope of a limit
+   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * List of rule entries within a limit
+   * <p>The list of rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * Status of a gateway limit
+   * <p>The current status of the rate limit.</p>
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
@@ -7258,14 +7253,13 @@ export interface DeleteGatewayRateLimitRequest {
  */
 export interface DeleteGatewayRateLimitResponse {
   /**
-   * Limit identifier. Optional on Create (system-generates if not provided by customer).
-   * Always present in responses.
+   * <p>The unique identifier of the deleted rate limit.</p>
    * @public
    */
   rateLimitId: string | undefined;
 
   /**
-   * Status of a gateway limit
+   * <p>The current status of the rate limit deletion.</p>
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
@@ -7289,13 +7283,12 @@ export interface GetGatewayRateLimitRequest {
 }
 
 /**
- * Shared fields for GatewayRateLimit responses
+ * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
  * @public
  */
 export interface GetGatewayRateLimitResponse {
   /**
-   * Limit identifier. Optional on Create (system-generates if not provided by customer).
-   * Always present in responses.
+   * <p>The unique identifier of the rate limit.</p>
    * @public
    */
   rateLimitId: string | undefined;
@@ -7307,25 +7300,25 @@ export interface GetGatewayRateLimitResponse {
   gatewayIdentifier: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>The human-readable description of the rate limit.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension key names defining the scope of a limit
+   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * List of rule entries within a limit
+   * <p>The list of rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * Status of a gateway limit
+   * <p>The current status of the rate limit.</p>
    * @public
    */
   status: GatewayRateLimitStatus | undefined;
@@ -7400,26 +7393,25 @@ export interface UpdateGatewayRateLimitRequest {
   rateLimitId: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>The updated human-readable description for this rate limit.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Updated rule entries. key and dimensionKeys are immutable and cannot be changed.
+   * <p>The updated rule entries. The dimension keys are immutable after creation and cannot be changed.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 }
 
 /**
- * Shared fields for GatewayRateLimit responses
+ * <p>Shared fields for <code>GatewayRateLimit</code> responses.</p>
  * @public
  */
 export interface UpdateGatewayRateLimitResponse {
   /**
-   * Limit identifier. Optional on Create (system-generates if not provided by customer).
-   * Always present in responses.
+   * <p>The unique identifier of the rate limit.</p>
    * @public
    */
   rateLimitId: string | undefined;
@@ -7431,25 +7423,25 @@ export interface UpdateGatewayRateLimitResponse {
   gatewayIdentifier: string | undefined;
 
   /**
-   * Optional human-readable description for this limit.
+   * <p>The human-readable description of the rate limit.</p>
    * @public
    */
   description?: string | undefined;
 
   /**
-   * Ordered list of dimension key names defining the scope of a limit
+   * <p>The ordered list of dimension key names that define the scope of this rate limit.</p>
    * @public
    */
   dimensionKeys: string[] | undefined;
 
   /**
-   * List of rule entries within a limit
+   * <p>The list of rule entries that map dimension values to rate configurations.</p>
    * @public
    */
   entries: LimitEntry[] | undefined;
 
   /**
-   * Status of a gateway limit
+   * <p>The current status of the rate limit.</p>
    * @public
    */
   status: GatewayRateLimitStatus | undefined;

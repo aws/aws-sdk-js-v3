@@ -840,6 +840,8 @@ import {
   ModifySelfManagedConfiguration$,
   ModifyStrategyConfiguration$,
   Monitoring,
+  NamespaceKeyEntry$,
+  NamespaceKeyValidation$,
   NetworkConfiguration$,
   NetworkMode,
   NumberValidation$,
@@ -2076,6 +2078,8 @@ assert(typeof ModifyMemoryStrategyInput$ === "object");
 assert(typeof ModifyReflectionConfiguration$ === "object");
 assert(typeof ModifySelfManagedConfiguration$ === "object");
 assert(typeof ModifyStrategyConfiguration$ === "object");
+assert(typeof NamespaceKeyEntry$ === "object");
+assert(typeof NamespaceKeyValidation$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
 assert(typeof NumberValidation$ === "object");
 assert(typeof NumericalScaleDefinition$ === "object");
