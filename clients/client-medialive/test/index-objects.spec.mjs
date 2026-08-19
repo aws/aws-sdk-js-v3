@@ -1212,6 +1212,7 @@ import {
   VideoDescription$,
   VideoDescriptionRespondToAfd,
   VideoDescriptionScalingBehavior,
+  VideoPositionRectangle$,
   VideoSelector$,
   VideoSelectorColorSpace,
   VideoSelectorColorSpaceSettings$,
@@ -2107,6 +2108,7 @@ assert(typeof ValidationError$ === "object");
 assert(typeof VideoBlackFailoverSettings$ === "object");
 assert(typeof VideoCodecSettings$ === "object");
 assert(typeof VideoDescription$ === "object");
+assert(typeof VideoPositionRectangle$ === "object");
 assert(typeof VideoSelector$ === "object");
 assert(typeof VideoSelectorColorSpaceSettings$ === "object");
 assert(typeof VideoSelectorPid$ === "object");

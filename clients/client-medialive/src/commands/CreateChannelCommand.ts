@@ -1204,6 +1204,18 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *         ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "SMART_CROP",
  *         Sharpness: Number("int"),
  *         Width: Number("int"),
+ *         CropRectangle: { // VideoPositionRectangle
+ *           Height: Number("int"), // required
+ *           Width: Number("int"), // required
+ *           X: Number("int"), // required
+ *           Y: Number("int"), // required
+ *         },
+ *         OutputPositionRectangle: {
+ *           Height: Number("int"), // required
+ *           Width: Number("int"), // required
+ *           X: Number("int"), // required
+ *           Y: Number("int"), // required
+ *         },
  *       },
  *     ],
  *     ThumbnailConfiguration: { // ThumbnailConfiguration
@@ -2652,6 +2664,18 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //           ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "SMART_CROP",
  * //           Sharpness: Number("int"),
  * //           Width: Number("int"),
+ * //           CropRectangle: { // VideoPositionRectangle
+ * //             Height: Number("int"), // required
+ * //             Width: Number("int"), // required
+ * //             X: Number("int"), // required
+ * //             Y: Number("int"), // required
+ * //           },
+ * //           OutputPositionRectangle: {
+ * //             Height: Number("int"), // required
+ * //             Width: Number("int"), // required
+ * //             X: Number("int"), // required
+ * //             Y: Number("int"), // required
+ * //           },
  * //         },
  * //       ],
  * //       ThumbnailConfiguration: { // ThumbnailConfiguration

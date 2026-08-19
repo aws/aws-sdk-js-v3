@@ -58,6 +58,8 @@ import type {
   Scte35AposNoRegionalBlackoutBehavior,
   Scte35AposWebDeliveryAllowedBehavior,
   Scte35SegmentationScope,
+  Scte35SpliceInsertNoRegionalBlackoutBehavior,
+  Scte35SpliceInsertWebDeliveryAllowedBehavior,
   SdiSourceMode,
   SdiSourceState,
   SdiSourceType,
@@ -147,7 +149,6 @@ import type {
   RouterInputSettings,
   RouteUpdateRequest,
   ScheduleAction,
-  Scte35SpliceInsert,
   SdiSourceMapping,
   SdiSourceSummary,
   SignalMapSummary,
@@ -159,6 +160,30 @@ import type {
   VideoDescription,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
+ * @public
+ */
+export interface Scte35SpliceInsert {
+  /**
+   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
+   * @public
+   */
+  AdAvailOffset?: number | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | undefined;
+
+  /**
+   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
+   * @public
+   */
+  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
+}
 
 /**
  * Atypical configuration that applies segment breaks only on SCTE-35 time signal placement opportunities and breaks.

@@ -287,8 +287,6 @@ import type {
   Scte35InputMode,
   Scte35NoRegionalBlackoutFlag,
   Scte35SegmentationCancelIndicator,
-  Scte35SpliceInsertNoRegionalBlackoutBehavior,
-  Scte35SpliceInsertWebDeliveryAllowedBehavior,
   Scte35Type,
   Scte35WebDeliveryAllowedFlag,
   SdiSourceMode,
@@ -10220,6 +10218,37 @@ export interface VideoCodecSettings {
 }
 
 /**
+ * A rectangle defined by position (x, y) and dimensions (width, height) in pixels.
+ * Used for output positioning and input cropping.
+ * @public
+ */
+export interface VideoPositionRectangle {
+  /**
+   * Height in pixels. Must be an even number.
+   * @public
+   */
+  Height: number | undefined;
+
+  /**
+   * Width in pixels. Must be an even number.
+   * @public
+   */
+  Width: number | undefined;
+
+  /**
+   * Left offset in pixels. Must be an even number.
+   * @public
+   */
+  X: number | undefined;
+
+  /**
+   * Top offset in pixels. Must be an even number.
+   * @public
+   */
+  Y: number | undefined;
+}
+
+/**
  * Video settings for this stream.
  * @public
  */
@@ -10271,6 +10300,27 @@ export interface VideoDescription {
    * @public
    */
   Width?: number | undefined;
+
+  /**
+   * Region of the input video to crop before scaling. If not specified, the entire input
+   * frame is used.
+   *
+   * Note: Unlike \{@link outputPositionRectangle\}, the bounds of cropRectangle are validated
+   * at ingest time by the encoder/scaler rather than at the API level, because the input
+   * resolution is not known until the source is probed. Field-level constraints on (x, y,
+   * width, height) defined on \{@link VideoPositionRectangle\} still apply.
+   * @public
+   */
+  CropRectangle?: VideoPositionRectangle | undefined;
+
+  /**
+   * Position of the encoded video within the output frame. The area outside the rectangle
+   * is filled with black. If not specified, the video fills the entire output frame.
+   * When used, both \{@link width\} and \{@link height\} of the VideoDescription must be
+   * explicitly specified so that the rectangle can be validated against the output frame.
+   * @public
+   */
+  OutputPositionRectangle?: VideoPositionRectangle | undefined;
 }
 
 /**
@@ -10379,28 +10429,4 @@ export interface Esam {
    * @public
    */
   ZoneIdentity?: string | undefined;
-}
-
-/**
- * Typical configuration that applies breaks on splice inserts in addition to time signal placement opportunities, breaks, and advertisements.
- * @public
- */
-export interface Scte35SpliceInsert {
-  /**
-   * When specified, this offset (in milliseconds) is added to the input Ad Avail PTS time. This only applies to embedded SCTE 104/35 messages and does not apply to OOB messages.
-   * @public
-   */
-  AdAvailOffset?: number | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with noRegionalBlackoutFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  NoRegionalBlackoutFlag?: Scte35SpliceInsertNoRegionalBlackoutBehavior | undefined;
-
-  /**
-   * When set to ignore, Segment Descriptors with webDeliveryAllowedFlag set to 0 will no longer trigger blackouts or Ad Avail slates
-   * @public
-   */
-  WebDeliveryAllowedFlag?: Scte35SpliceInsertWebDeliveryAllowedBehavior | undefined;
 }

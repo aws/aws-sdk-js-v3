@@ -1298,6 +1298,7 @@ export type {
   VideoBlackFailoverSettings,
   VideoCodecSettings,
   VideoDescription,
+  VideoPositionRectangle,
   VideoSelector,
   VideoSelectorColorSpaceSettings,
   VideoSelectorPid,

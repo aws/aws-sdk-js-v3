@@ -259,6 +259,7 @@ const _CPIRr = "CreatePartnerInputResponse";
 const _CR = "CaptionRectangle";
 const _CRI = "ConnectionRetryInterval";
 const _CRIo = "ConnectedRouterInputs";
+const _CRr = "CropRectangle";
 const _CS = "ContainerSettings";
 const _CSG = "ChannelSecurityGroups";
 const _CSM = "CaptionSynchronizationMode";
@@ -985,6 +986,7 @@ const _OLR = "OutputLocationRef";
 const _OLS = "OutputLockingSettings";
 const _ON = "OutputName";
 const _ONu = "OutputNames";
+const _OPR = "OutputPositionRectangle";
 const _OR = "OutputRectangle";
 const _OS = "OutlineSize";
 const _OSIOSA = "OutputStaticImageOverlayScheduleActions";
@@ -1461,6 +1463,7 @@ const _VEa = "ValidationError";
 const _VOS = "VpcOutputSettings";
 const _VOSD = "VpcOutputSettingsDescription";
 const _VP = "VideoPid";
+const _VPR = "VideoPositionRectangle";
 const _VQ = "VbrQuality";
 const _VQi = "VideoQuality";
 const _VS = "VideoSelector";
@@ -1478,7 +1481,9 @@ const _WDAF = "WebDeliveryAllowedFlag";
 const _WDS = "WebvttDestinationSettings";
 const _WR = "WhitelistRules";
 const _WS = "WavSettings";
+const _X = "X";
 const _XP = "XPosition";
+const _Y = "Y";
 const _YP = "YPosition";
 const _ZI = "ZoneIdentity";
 const _a = "algorithm";
@@ -1635,6 +1640,7 @@ const _cO = "comparisonOperator";
 const _cOh = "channelsOut";
 const _cPG = "channelPlacementGroups";
 const _cPGI = "channelPlacementGroupId";
+const _cR = "cropRectangle";
 const _cRI = "connectionRetryInterval";
 const _cRIo = "connectedRouterInputs";
 const _cS = "containerSettings";
@@ -2157,6 +2163,7 @@ const _oLM = "outputLockingMode";
 const _oLS = "outputLockingSettings";
 const _oN = "outputName";
 const _oNu = "outputNames";
+const _oPR = "outputPositionRectangle";
 const _oR = "outputRectangle";
 const _oS = "outlineSize";
 const _oSIOSA = "outputStaticImageOverlayScheduleActions";
@@ -2493,7 +2500,9 @@ const _wDAF = "webDeliveryAllowedFlag";
 const _wDS = "webvttDestinationSettings";
 const _wR = "whitelistRules";
 const _wS = "wavSettings";
+const _x = "x";
 const _xP = "xPosition";
+const _y = "y";
 const _yP = "yPosition";
 const _zI = "zoneIdentity";
 const n0 = "com.amazonaws.medialive";
@@ -5513,8 +5522,13 @@ export var VideoCodecSettings$: StaticStructureSchema = [3, n0, _VCS,
 ];
 export var VideoDescription$: StaticStructureSchema = [3, n0, _VDi,
   0,
-  [_N, _CSo, _H, _RTA, _SBc, _Sh, _W],
-  [[0, { [_jN]: _n }], [() => VideoCodecSettings$, { [_jN]: _cSo }], [1, { [_jN]: _h }], [0, { [_jN]: _rTA }], [0, { [_jN]: _sBc }], [1, { [_jN]: _sh }], [1, { [_jN]: _w }]], 1
+  [_N, _CSo, _H, _RTA, _SBc, _Sh, _W, _CRr, _OPR],
+  [[0, { [_jN]: _n }], [() => VideoCodecSettings$, { [_jN]: _cSo }], [1, { [_jN]: _h }], [0, { [_jN]: _rTA }], [0, { [_jN]: _sBc }], [1, { [_jN]: _sh }], [1, { [_jN]: _w }], [() => VideoPositionRectangle$, { [_jN]: _cR }], [() => VideoPositionRectangle$, { [_jN]: _oPR }]], 1
+];
+export var VideoPositionRectangle$: StaticStructureSchema = [3, n0, _VPR,
+  0,
+  [_H, _W, _X, _Y],
+  [[1, { [_jN]: _h }], [1, { [_jN]: _w }], [1, { [_jN]: _x }], [1, { [_jN]: _y }]], 4
 ];
 export var VideoSelector$: StaticStructureSchema = [3, n0, _VS,
   0,
