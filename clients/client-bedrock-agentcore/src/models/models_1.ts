@@ -31,6 +31,46 @@ import type {
 /**
  * @public
  */
+export interface GetEventInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The identifier of the session containing the event.</p>
+   * @public
+   */
+  sessionId: string | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with the event.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The identifier of the event to retrieve.</p>
+   * @public
+   */
+  eventId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventOutput {
+  /**
+   * <p>The requested event information.</p>
+   * @public
+   */
+  event: Event | undefined;
+}
+
+/**
+ * @public
+ */
 export interface GetMemoryRecordInput {
   /**
    * <p>The identifier of the AgentCore Memory resource containing the memory record.</p>
@@ -43,6 +83,12 @@ export interface GetMemoryRecordInput {
    * @public
    */
   memoryRecordId: string | undefined;
+
+  /**
+   * <p>The namespace of the memory record to retrieve. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  namespace?: string | undefined;
 }
 
 /**

@@ -130,6 +130,7 @@ const _EC = "EfsConfiguration";
 const _ECL = "EvaluationContentList";
 const _ECW = "EmbeddedCryptoWallet";
 const _ECv = "EvaluationContent";
+const _ECx = "ExtractionConfig";
 const _EE = "EvaluationExplanation";
 const _EET = "EvaluationExpectedTrajectory";
 const _EI = "EvaluationInput";
@@ -367,6 +368,8 @@ const _MD = "MemoryDocument";
 const _MDA = "MouseDragArguments";
 const _MDR = "MouseDragResult";
 const _MDc = "McpDescriptor";
+const _MJD = "MemoryJsonData";
+const _MJDC = "MemoryJsonDataContent";
 const _ML = "MessagesList";
 const _MM = "Mcp-Method";
 const _MMA = "MouseMoveArguments";
@@ -713,6 +716,7 @@ const _eCW = "embeddedCryptoWallet";
 const _eCf = "efsConfiguration";
 const _eCr = "errorCode";
 const _eCv = "evaluationConfig";
+const _eCx = "extractionConfig";
 const _eD = "errorDetails";
 const _eF = "eventFilter";
 const _eI = "eventId";
@@ -867,7 +871,8 @@ const _nOSI = "numberOfSessionsIgnored";
 const _nOSIP = "numberOfSessionsInProgress";
 const _nP = "namespacePath";
 const _nT = "nextToken";
-const _nV = "numberValue";
+const _nV = "namespaceVariables";
+const _nVu = "numberValue";
 const _na = "namespace";
 const _nam = "namespaces";
 const _ne = "network";
@@ -989,6 +994,7 @@ const _sMe = "secretsManager";
 const _sMes = "sessionMetadata";
 const _sN = "serviceNames";
 const _sNe = "serverName";
+const _sNo = "sourceNamespaces";
 const _sP = "systemPrompt";
 const _sPI = "selectedPaymentId";
 const _sPJP = "systemPromptJsonPath";
@@ -1261,6 +1267,7 @@ var HarnessInlineFunctionDescription: StaticSimpleSchema = [0, n0, _HIFD, 8, 0];
 var HarnessLiteLlmApiBase: StaticSimpleSchema = [0, n0, _HLLAB, 8, 0];
 var HarnessRemoteMcpUrl: StaticSimpleSchema = [0, n0, _HRMU, 8, 0];
 var MemoryDocument: StaticSimpleSchema = [0, n0, _MD, 8, 15];
+var MemoryJsonDataContent: StaticSimpleSchema = [0, n0, _MJDC, 8, 15];
 var MppPaymentCredential: StaticSimpleSchema = [0, n0, _MPC, 8, 0];
 var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var PaymentDocument: StaticSimpleSchema = [0, n0, _PD, 8, 15];
@@ -1534,8 +1541,8 @@ export var CreateABTestResponse$: StaticStructureSchema = [3, n0, _CABTRr,
 ];
 export var CreateEventInput$: StaticStructureSchema = [3, n0, _CEI,
   0,
-  [_mI, _aI, _eTv, _p, _sI, _b, _cT, _met, _eMx],
-  [[0, 1], 0, 4, [() => PayloadTypeList, 0], 0, () => Branch$, [0, 4], () => MetadataMap, 0], 4
+  [_mI, _aI, _eTv, _p, _sI, _b, _cT, _met, _eMx, _eCx],
+  [[0, 1], 0, 4, [() => PayloadTypeList, 0], 0, () => Branch$, [0, 4], () => MetadataMap, 0, () => ExtractionConfig$], 4
 ];
 export var CreateEventOutput$: StaticStructureSchema = [3, n0, _CEO,
   0,
@@ -1619,8 +1626,8 @@ export var DeleteEventOutput$: StaticStructureSchema = [3, n0, _DEO,
 ];
 export var DeleteMemoryRecordInput$: StaticStructureSchema = [3, n0, _DMRI,
   0,
-  [_mI, _mRI],
-  [[0, 1], [0, 1]], 2
+  [_mI, _mRI, _na],
+  [[0, 1], [0, 1], [0, { [_hQ]: _na }]], 2
 ];
 export var DeleteMemoryRecordOutput$: StaticStructureSchema = [3, n0, _DMRO,
   0,
@@ -1752,6 +1759,11 @@ export var ExternalProxy$: StaticStructureSchema = [3, n0, _EP,
   [_se, _po, _dP, _cr],
   [0, 1, 64 | 0, () => ProxyCredentials$], 2
 ];
+export var ExtractionConfig$: StaticStructureSchema = [3, n0, _ECx,
+  0,
+  [_nV],
+  [128 | 0]
+];
 export var ExtractionJob$: StaticStructureSchema = [3, n0, _EJ,
   0,
   [_jI],
@@ -1859,8 +1871,8 @@ export var GetEventOutput$: StaticStructureSchema = [3, n0, _GEO,
 ];
 export var GetMemoryRecordInput$: StaticStructureSchema = [3, n0, _GMRI,
   0,
-  [_mI, _mRI],
-  [[0, 1], [0, 1]], 2
+  [_mI, _mRI, _na],
+  [[0, 1], [0, 1], [0, { [_hQ]: _na }]], 2
 ];
 export var GetMemoryRecordOutput$: StaticStructureSchema = [3, n0, _GMRO,
   0,
@@ -2372,6 +2384,11 @@ export var McpDescriptor$: StaticStructureSchema = [3, n0, _MDc,
   [_se, _too],
   [() => ServerDefinition$, () => ToolsDefinition$], 2
 ];
+export var MemoryJsonData$: StaticStructureSchema = [3, n0, _MJD,
+  8,
+  [_co],
+  [[() => MemoryJsonDataContent, 0]], 1
+];
 export var MemoryMetadataFilterExpression$: StaticStructureSchema = [3, n0, _MMFE,
   0,
   [_le, _o, _ri],
@@ -2389,8 +2406,8 @@ export var MemoryRecordCreateInput$: StaticStructureSchema = [3, n0, _MRCI,
 ];
 export var MemoryRecordDeleteInput$: StaticStructureSchema = [3, n0, _MRDI,
   0,
-  [_mRI],
-  [0], 1
+  [_mRI, _na],
+  [0, 0], 1
 ];
 export var MemoryRecordOutput$: StaticStructureSchema = [3, n0, _MRO,
   0,
@@ -2404,8 +2421,8 @@ export var MemoryRecordSummary$: StaticStructureSchema = [3, n0, _MRS,
 ];
 export var MemoryRecordUpdateInput$: StaticStructureSchema = [3, n0, _MRUI,
   0,
-  [_mRI, _tim, _co, _nam, _mSIe, _met],
-  [0, 4, [() => MemoryContent$, 0], 64 | 0, 0, () => MemoryRecordMetadataMap], 2
+  [_mRI, _tim, _co, _nam, _sNo, _mSIe, _met],
+  [0, 4, [() => MemoryContent$, 0], 64 | 0, 64 | 0, 0, () => MemoryRecordMetadataMap], 2
 ];
 export var MessageMetadata$: StaticStructureSchema = [3, n0, _MMe,
   0,
@@ -3158,6 +3175,7 @@ var MemoryRecordMetadataMap: StaticMapSchema = [2, n0, _MRMM,
 var MetadataMap: StaticMapSchema = [2, n0, _MMet,
   0, 0, () => MetadataValue$
 ];
+var NamespaceVariablesMap = 128 | 0;
 var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu,
   0, [0,
     0]
@@ -3348,7 +3366,7 @@ export var MemoryRecordLeftExpression$: StaticUnionSchema = [4, n0, _MRLE,
 ];
 export var MemoryRecordMetadataValue$: StaticUnionSchema = [4, n0, _MRMV,
   0,
-  [_sVt, _sLV, _nV, _dTV],
+  [_sVt, _sLV, _nVu, _dTV],
   [0, 64 | 0, 1, 4]
 ];
 export var MemoryRecordRightExpression$: StaticUnionSchema = [4, n0, _MRRE,
@@ -3368,8 +3386,8 @@ export var OutputConfig$: StaticUnionSchema = [4, n0, _OC,
 ];
 export var PayloadType$: StaticUnionSchema = [4, n0, _PT,
   0,
-  [_conv, _bl],
-  [[() => Conversational$, 0], [() => MemoryDocument, 0]]
+  [_conv, _bl, _js],
+  [[() => Conversational$, 0], [() => MemoryDocument, 0], [() => MemoryJsonData$, 0]]
 ];
 export var PaymentInput$: StaticUnionSchema = [4, n0, _PIa,
   0,

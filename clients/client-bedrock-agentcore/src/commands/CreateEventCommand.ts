@@ -46,6 +46,9 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  *         role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
  *       },
  *       blob: "DOCUMENT_VALUE",
+ *       json: { // MemoryJsonData
+ *         content: "DOCUMENT_VALUE", // required
+ *       },
  *     },
  *   ],
  *   branch: { // Branch
@@ -59,6 +62,11 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  *     },
  *   },
  *   extractionMode: "SKIP",
+ *   extractionConfig: { // ExtractionConfig
+ *     namespaceVariables: { // NamespaceVariablesMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new CreateEventCommand(input);
  * const response = await client.send(command);
@@ -78,6 +86,9 @@ export interface CreateEventCommandOutput extends CreateEventOutput, __MetadataB
  * //           role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
  * //         },
  * //         blob: "DOCUMENT_VALUE",
+ * //         json: { // MemoryJsonData
+ * //           content: "DOCUMENT_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     branch: { // Branch

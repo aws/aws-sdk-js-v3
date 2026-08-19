@@ -9560,6 +9560,12 @@ export interface MemoryRecordDeleteInput {
    * @public
    */
   memoryRecordId: string | undefined;
+
+  /**
+   * <p>The namespace of the memory record being deleted. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  namespace?: string | undefined;
 }
 
 /**
@@ -9626,6 +9632,12 @@ export interface MemoryRecordUpdateInput {
   namespaces?: string[] | undefined;
 
   /**
+   * <p>The namespaces of the source memory record being updated. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  sourceNamespaces?: string[] | undefined;
+
+  /**
    * <p>The updated ID of the memory strategy that defines how this memory record is grouped.</p>
    * @public
    */
@@ -9688,6 +9700,18 @@ export interface Branch {
    * @public
    */
   name: string | undefined;
+}
+
+/**
+ * <p>The configuration for extraction behavior. Use this structure to specify namespace variable keys and their values for namespace substitution during long-term memory extraction.</p>
+ * @public
+ */
+export interface ExtractionConfig {
+  /**
+   * <p>A map of <code>namespaceKeys</code> to their values. The service substitutes these values into <code>namespaceTemplates</code> during long-term memory extraction to control namespace hierarchy.</p>
+   * @public
+   */
+  namespaceVariables?: Record<string, string> | undefined;
 }
 
 /**
@@ -9787,12 +9811,25 @@ export interface Conversational {
 }
 
 /**
+ * <p>Contains non-conversational, JSON-formatted content for an event payload. JSON payloads are extracted into long-term memory.</p>
+ * @public
+ */
+export interface MemoryJsonData {
+  /**
+   * <p>The JSON content of the payload. Accepts any JSON value, including objects, arrays, strings, numbers, booleans, and null. The maximum size is 100 KB.</p>
+   * @public
+   */
+  content: __DocumentType | undefined;
+}
+
+/**
  * <p>Contains the payload content for an event.</p>
  * @public
  */
 export type PayloadType =
   | PayloadType.BlobMember
   | PayloadType.ConversationalMember
+  | PayloadType.JsonMember
   | PayloadType.$UnknownMember;
 
 /**
@@ -9806,6 +9843,7 @@ export namespace PayloadType {
   export interface ConversationalMember {
     conversational: Conversational;
     blob?: never;
+    json?: never;
     $unknown?: never;
   }
 
@@ -9816,6 +9854,18 @@ export namespace PayloadType {
   export interface BlobMember {
     conversational?: never;
     blob: __DocumentType;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The JSON content of the payload. Use this type to store non-conversational, JSON-formatted data, such as behavioral events, activity logs, or system events.</p>
+   * @public
+   */
+  export interface JsonMember {
+    conversational?: never;
+    blob?: never;
+    json: MemoryJsonData;
     $unknown?: never;
   }
 
@@ -9825,6 +9875,7 @@ export namespace PayloadType {
   export interface $UnknownMember {
     conversational?: never;
     blob?: never;
+    json?: never;
     $unknown: [string, any];
   }
 
@@ -9835,6 +9886,7 @@ export namespace PayloadType {
   export interface Visitor<T> {
     conversational: (value: Conversational) => T;
     blob: (value: __DocumentType) => T;
+    json: (value: MemoryJsonData) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -9868,7 +9920,7 @@ export interface CreateEventInput {
   eventTimestamp: Date | undefined;
 
   /**
-   * <p>The content payload of the event. This can include conversational data or binary content.</p>
+   * <p>The content payload of the event. This can include conversational data, JSON data, or binary content.</p>
    * @public
    */
   payload: PayloadType[] | undefined;
@@ -9896,6 +9948,12 @@ export interface CreateEventInput {
    * @public
    */
   extractionMode?: ExtractionMode | undefined;
+
+  /**
+   * <p>The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.</p>
+   * @public
+   */
+  extractionConfig?: ExtractionConfig | undefined;
 }
 
 /**
@@ -10018,6 +10076,12 @@ export interface DeleteMemoryRecordInput {
    * @public
    */
   memoryRecordId: string | undefined;
+
+  /**
+   * <p>The namespace of the memory record to delete. This value is used for IAM condition key authorization.</p>
+   * @public
+   */
+  namespace?: string | undefined;
 }
 
 /**
@@ -10029,44 +10093,4 @@ export interface DeleteMemoryRecordOutput {
    * @public
    */
   memoryRecordId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEventInput {
-  /**
-   * <p>The identifier of the AgentCore Memory resource containing the event.</p>
-   * @public
-   */
-  memoryId: string | undefined;
-
-  /**
-   * <p>The identifier of the session containing the event.</p>
-   * @public
-   */
-  sessionId: string | undefined;
-
-  /**
-   * <p>The identifier of the actor associated with the event.</p>
-   * @public
-   */
-  actorId: string | undefined;
-
-  /**
-   * <p>The identifier of the event to retrieve.</p>
-   * @public
-   */
-  eventId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface GetEventOutput {
-  /**
-   * <p>The requested event information.</p>
-   * @public
-   */
-  event: Event | undefined;
 }

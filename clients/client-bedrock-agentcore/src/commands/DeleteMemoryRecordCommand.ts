@@ -35,6 +35,7 @@ export interface DeleteMemoryRecordCommandOutput extends DeleteMemoryRecordOutpu
  * const input = { // DeleteMemoryRecordInput
  *   memoryId: "STRING_VALUE", // required
  *   memoryRecordId: "STRING_VALUE", // required
+ *   namespace: "STRING_VALUE",
  * };
  * const command = new DeleteMemoryRecordCommand(input);
  * const response = await client.send(command);

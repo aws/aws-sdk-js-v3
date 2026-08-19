@@ -35,6 +35,7 @@ export interface GetMemoryRecordCommandOutput extends GetMemoryRecordOutput, __M
  * const input = { // GetMemoryRecordInput
  *   memoryId: "STRING_VALUE", // required
  *   memoryRecordId: "STRING_VALUE", // required
+ *   namespace: "STRING_VALUE",
  * };
  * const command = new GetMemoryRecordCommand(input);
  * const response = await client.send(command);

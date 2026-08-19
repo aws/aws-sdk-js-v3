@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { GetEventInput, GetEventOutput } from "../models/models_0";
+import type { GetEventInput, GetEventOutput } from "../models/models_1";
 import { GetEvent$ } from "../schemas/schemas_0";
 
 /**
@@ -56,6 +56,9 @@ export interface GetEventCommandOutput extends GetEventOutput, __MetadataBearer 
  * //           role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
  * //         },
  * //         blob: "DOCUMENT_VALUE",
+ * //         json: { // MemoryJsonData
+ * //           content: "DOCUMENT_VALUE", // required
+ * //         },
  * //       },
  * //     ],
  * //     branch: { // Branch

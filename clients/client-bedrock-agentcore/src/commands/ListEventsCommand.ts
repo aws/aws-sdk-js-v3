@@ -78,6 +78,9 @@ export interface ListEventsCommandOutput extends ListEventsOutput, __MetadataBea
  * //             role: "ASSISTANT" || "USER" || "TOOL" || "OTHER", // required
  * //           },
  * //           blob: "DOCUMENT_VALUE",
+ * //           json: { // MemoryJsonData
+ * //             content: "DOCUMENT_VALUE", // required
+ * //           },
  * //         },
  * //       ],
  * //       branch: { // Branch

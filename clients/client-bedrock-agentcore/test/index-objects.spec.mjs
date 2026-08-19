@@ -167,6 +167,7 @@ import {
   ExecutionSummaryCluster$,
   ExecutionSummaryClusteringResultContent$,
   ExternalProxy$,
+  ExtractionConfig$,
   ExtractionJob$,
   ExtractionJobFilterInput$,
   ExtractionJobMessages$,
@@ -397,6 +398,7 @@ import {
   LiveViewStream$,
   McpDescriptor$,
   MemoryContent$,
+  MemoryJsonData$,
   MemoryMetadataFilterExpression$,
   MemoryRecord$,
   MemoryRecordCreateInput$,
@@ -858,6 +860,7 @@ assert(typeof ExecutionSummaryAffectedSession$ === "object");
 assert(typeof ExecutionSummaryCluster$ === "object");
 assert(typeof ExecutionSummaryClusteringResultContent$ === "object");
 assert(typeof ExternalProxy$ === "object");
+assert(typeof ExtractionConfig$ === "object");
 assert(typeof ExtractionJob$ === "object");
 assert(typeof ExtractionJobFilterInput$ === "object");
 assert(typeof ExtractionJobMessages$ === "object");
@@ -1004,6 +1007,7 @@ assert(typeof ListSessionsOutput$ === "object");
 assert(typeof LiveViewStream$ === "object");
 assert(typeof McpDescriptor$ === "object");
 assert(typeof MemoryContent$ === "object");
+assert(typeof MemoryJsonData$ === "object");
 assert(typeof MemoryMetadataFilterExpression$ === "object");
 assert(typeof MemoryRecord$ === "object");
 assert(typeof MemoryRecordCreateInput$ === "object");

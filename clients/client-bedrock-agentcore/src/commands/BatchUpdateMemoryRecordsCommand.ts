@@ -44,6 +44,9 @@ export interface BatchUpdateMemoryRecordsCommandOutput extends BatchUpdateMemory
  *       namespaces: [ // NamespacesList
  *         "STRING_VALUE",
  *       ],
+ *       sourceNamespaces: [
+ *         "STRING_VALUE",
+ *       ],
  *       memoryStrategyId: "STRING_VALUE",
  *       metadata: { // MemoryRecordMetadataMap
  *         "<keys>": { // MemoryRecordMetadataValue Union: only one key present

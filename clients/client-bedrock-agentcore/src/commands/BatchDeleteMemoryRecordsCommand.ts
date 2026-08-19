@@ -37,6 +37,7 @@ export interface BatchDeleteMemoryRecordsCommandOutput extends BatchDeleteMemory
  *   records: [ // MemoryRecordsDeleteInputList // required
  *     { // MemoryRecordDeleteInput
  *       memoryRecordId: "STRING_VALUE", // required
+ *       namespace: "STRING_VALUE",
  *     },
  *   ],
  * };
