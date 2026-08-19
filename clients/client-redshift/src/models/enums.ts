@@ -363,6 +363,7 @@ export type DescribeIntegrationsFilterName =
 export const LogDestinationType = {
   CLOUDWATCH: "cloudwatch",
   S3: "s3",
+  S3TABLE: "s3table",
 } as const;
 /**
  * @public

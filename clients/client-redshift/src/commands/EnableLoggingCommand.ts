@@ -37,10 +37,12 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  *   ClusterIdentifier: "STRING_VALUE", // required
  *   BucketName: "STRING_VALUE",
  *   S3KeyPrefix: "STRING_VALUE",
- *   LogDestinationType: "s3" || "cloudwatch",
+ *   LogDestinationType: "s3" || "cloudwatch" || "s3table",
  *   LogExports: [ // LogTypeList
  *     "STRING_VALUE",
  *   ],
+ *   S3TableKmsKeyId: "STRING_VALUE",
+ *   S3TableGranularity: "STRING_VALUE",
  * };
  * const command = new EnableLoggingCommand(input);
  * const response = await client.send(command);
@@ -51,10 +53,21 @@ export interface EnableLoggingCommandOutput extends LoggingStatus, __MetadataBea
  * //   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
  * //   LastFailureTime: new Date("TIMESTAMP"),
  * //   LastFailureMessage: "STRING_VALUE",
- * //   LogDestinationType: "s3" || "cloudwatch",
+ * //   LogDestinationType: "s3" || "cloudwatch" || "s3table",
  * //   LogExports: [ // LogTypeList
  * //     "STRING_VALUE",
  * //   ],
+ * //   S3Tables: { // S3TablePublishStatus
+ * //     S3Tables: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     S3TableNamespace: "STRING_VALUE",
+ * //     S3TableGranularity: "STRING_VALUE",
+ * //     EnabledAll: true || false,
+ * //     LastIngestionTimes: { // S3TableLastIngestionTimeMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

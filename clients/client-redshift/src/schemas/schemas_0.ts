@@ -468,6 +468,7 @@ const _EALn = "EndpointAuthorizationList";
 const _EANFF = "EndpointAuthorizationNotFoundFault";
 const _EAPCLEF = "EndpointAuthorizationsPerClusterLimitExceededFault";
 const _EAn = "EndpointAuthorization";
+const _EAna = "EnabledAll";
 const _EAnd = "EndpointAccesses";
 const _EAndp = "EndpointAuthorizations";
 const _EC = "EventCategories";
@@ -676,6 +677,8 @@ const _LFSU = "LakeFormationScopeUnion";
 const _LFT = "LastFailureTime";
 const _LIAA = "LakehouseIdcApplicationArn";
 const _LIR = "LakehouseIdcRegistration";
+const _LIT = "LastIngestionTimes";
+const _LPS = "LoggingPublishStatus";
 const _LR = "LakehouseRegistration";
 const _LRM = "ListRecommendationsMessage";
 const _LRR = "ListRecommendationsResult";
@@ -1062,8 +1065,13 @@ const _SSna = "SnapshotSchedule";
 const _SSu = "SubnetStatus";
 const _ST = "SourceType";
 const _STA = "SnsTopicArn";
+const _STG = "S3TableGranularity";
 const _STK = "SsoTagKeys";
+const _STKKI = "S3TableKmsKeyId";
 const _STN = "SourceTableName";
+const _STNa = "S3TableNamespace";
+const _STPS = "S3TablePublishStatus";
+const _STa = "S3Tables";
 const _STn = "SnapshotType";
 const _STna = "SnapshotTime";
 const _STt = "StartTime";
@@ -2337,8 +2345,8 @@ export var CertificateAssociation$: StaticStructureSchema = [3, n0, _CAer,
 ];
 export var Cluster$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CIl, _NT, _CS, _CAS, _MS, _MU, _DBN, _En, _CCT, _ASRP, _MSRP, _CSGl, _VSG, _CPG, _CSGNl, _VIp, _AZ, _PMW, _PMV, _CV, _AVU, _NON, _PA, _Enc, _RS, _DTP, _HS, _CSCS, _CPK, _CN, _EIS, _CRN, _T, _KKI, _EVR, _IR, _PAe, _MTN, _ERNONO, _DMW, _SSI, _SSS, _ENSST, _ENSSTS, _NMWST, _RI, _AZRS, _CNA, _TSCIMB, _AC, _DIRA, _RNES, _CDN, _CDCA, _CDCED, _MPSA, _MPSKKI, _IAT, _MAZ, _MAZS, _LRS, _CAa, _ECFAO],
-  [0, 0, 0, 0, 0, 0, 0, [() => Endpoint$, 0], 4, 1, 1, [() => ClusterSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => ClusterParameterGroupStatusList, 0], 0, 0, 0, 0, [() => PendingModifiedValues$, 0], 0, 2, 1, 2, 2, () => RestoreStatus$, () => DataTransferProgress$, () => HsmStatus$, () => ClusterSnapshotCopyStatus$, 0, () => ClusterNodesList, () => ElasticIpStatus$, 0, [() => TagList, 0], 0, 2, [() => ClusterIamRoleList, 0], 64 | 0, 0, 0, [() => DeferredMaintenanceWindowsList, 0], 0, 0, 4, 0, 4, () => ResizeInfo$, 0, 0, 1, () => AquaConfiguration$, 0, () => ReservedNodeExchangeStatus$, 0, 0, 4, 0, 0, 0, 0, () => SecondaryClusterInfo$, 0, 0, 0]
+  [_CIl, _NT, _CS, _CAS, _MS, _MU, _DBN, _En, _CCT, _ASRP, _MSRP, _CSGl, _VSG, _CPG, _CSGNl, _VIp, _AZ, _PMW, _PMV, _CV, _AVU, _NON, _PA, _Enc, _RS, _DTP, _HS, _CSCS, _CPK, _CN, _EIS, _CRN, _T, _KKI, _EVR, _IR, _PAe, _MTN, _ERNONO, _DMW, _SSI, _SSS, _ENSST, _ENSSTS, _NMWST, _RI, _AZRS, _CNA, _TSCIMB, _AC, _DIRA, _RNES, _CDN, _CDCA, _CDCED, _MPSA, _MPSKKI, _IAT, _MAZ, _MAZS, _LRS, _CAa, _ECFAO, _LPS],
+  [0, 0, 0, 0, 0, 0, 0, [() => Endpoint$, 0], 4, 1, 1, [() => ClusterSecurityGroupMembershipList, 0], [() => VpcSecurityGroupMembershipList, 0], [() => ClusterParameterGroupStatusList, 0], 0, 0, 0, 0, [() => PendingModifiedValues$, 0], 0, 2, 1, 2, 2, () => RestoreStatus$, () => DataTransferProgress$, () => HsmStatus$, () => ClusterSnapshotCopyStatus$, 0, () => ClusterNodesList, () => ElasticIpStatus$, 0, [() => TagList, 0], 0, 2, [() => ClusterIamRoleList, 0], 64 | 0, 0, 0, [() => DeferredMaintenanceWindowsList, 0], 0, 0, 4, 0, 4, () => ResizeInfo$, 0, 0, 1, () => AquaConfiguration$, 0, () => ReservedNodeExchangeStatus$, 0, 0, 4, 0, 0, 0, 0, () => SecondaryClusterInfo$, 0, 0, 0, () => LoggingPublishStatus$]
 ];
 export var ClusterAssociatedToSchedule$: StaticStructureSchema = [3, n0, _CATS,
   0,
@@ -3052,8 +3060,8 @@ export var DescribeUsageLimitsMessage$: StaticStructureSchema = [3, n0, _DULMe,
 ];
 export var DisableLoggingMessage$: StaticStructureSchema = [3, n0, _DLM,
   0,
-  [_CIl],
-  [0], 1
+  [_CIl, _LDT, _LE],
+  [0, 0, 64 | 0], 1
 ];
 export var DisableSnapshotCopyMessage$: StaticStructureSchema = [3, n0, _DSCM,
   0,
@@ -3082,8 +3090,8 @@ export var ElasticIpStatus$: StaticStructureSchema = [3, n0, _EIS,
 ];
 export var EnableLoggingMessage$: StaticStructureSchema = [3, n0, _ELM,
   0,
-  [_CIl, _BN, _SKP, _LDT, _LE],
-  [0, 0, 0, 0, 64 | 0], 1
+  [_CIl, _BN, _SKP, _LDT, _LE, _STKKI, _STG],
+  [0, 0, 0, 0, 64 | 0, 0, 0], 1
 ];
 export var EnableSnapshotCopyMessage$: StaticStructureSchema = [3, n0, _ESCM,
   0,
@@ -3290,10 +3298,15 @@ export var ListRecommendationsResult$: StaticStructureSchema = [3, n0, _LRR,
   [_Re, _M],
   [[() => RecommendationList, 0], 0]
 ];
+export var LoggingPublishStatus$: StaticStructureSchema = [3, n0, _LPS,
+  0,
+  [_STa],
+  [() => S3TablePublishStatus$]
+];
 export var LoggingStatus$: StaticStructureSchema = [3, n0, _LS,
   0,
-  [_LEo, _BN, _SKP, _LSDT, _LFT, _LFM, _LDT, _LE],
-  [2, 0, 0, 4, 4, 0, 0, 64 | 0]
+  [_LEo, _BN, _SKP, _LSDT, _LFT, _LFM, _LDT, _LE, _STa],
+  [2, 0, 0, 4, 4, 0, 0, 64 | 0, () => S3TablePublishStatus$]
 ];
 export var MaintenanceTrack$: StaticStructureSchema = [3, n0, _MT,
   0,
@@ -3754,6 +3767,11 @@ export var RotateEncryptionKeyResult$: StaticStructureSchema = [3, n0, _REKR,
   0,
   [_C],
   [[() => Cluster$, 0]]
+];
+export var S3TablePublishStatus$: StaticStructureSchema = [3, n0, _STPS,
+  0,
+  [_STa, _STNa, _STG, _EAna, _LIT],
+  [64 | 0, 0, 0, 2, 128 | 0]
 ];
 export var ScheduledAction$: StaticStructureSchema = [3, n0, _SAc,
   0,
@@ -4282,6 +4300,7 @@ var VpcSecurityGroupMembershipList: StaticListSchema = [1, n0, _VSGML,
     { [_xN]: _VSGp }]
 ];
 var EncryptionContextMap = 128 | 0;
+var S3TableLastIngestionTimeMap = 128 | 0;
 export var LakeFormationScopeUnion$: StaticUnionSchema = [4, n0, _LFSU,
   0,
   [_LFQ],

@@ -35,6 +35,10 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * const client = new RedshiftClient(config);
  * const input = { // DisableLoggingMessage
  *   ClusterIdentifier: "STRING_VALUE", // required
+ *   LogDestinationType: "s3" || "cloudwatch" || "s3table",
+ *   LogExports: [ // LogTypeList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DisableLoggingCommand(input);
  * const response = await client.send(command);
@@ -45,10 +49,21 @@ export interface DisableLoggingCommandOutput extends LoggingStatus, __MetadataBe
  * //   LastSuccessfulDeliveryTime: new Date("TIMESTAMP"),
  * //   LastFailureTime: new Date("TIMESTAMP"),
  * //   LastFailureMessage: "STRING_VALUE",
- * //   LogDestinationType: "s3" || "cloudwatch",
+ * //   LogDestinationType: "s3" || "cloudwatch" || "s3table",
  * //   LogExports: [ // LogTypeList
  * //     "STRING_VALUE",
  * //   ],
+ * //   S3Tables: { // S3TablePublishStatus
+ * //     S3Tables: [
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     S3TableNamespace: "STRING_VALUE",
+ * //     S3TableGranularity: "STRING_VALUE",
+ * //     EnabledAll: true || false,
+ * //     LastIngestionTimes: { // S3TableLastIngestionTimeMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //   },
  * // };
  *
  * ```

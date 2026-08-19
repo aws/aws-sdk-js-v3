@@ -234,6 +234,19 @@ export interface EnableSnapshotCopyCommandOutput extends EnableSnapshotCopyResul
  * //     LakehouseRegistrationStatus: "STRING_VALUE",
  * //     CatalogArn: "STRING_VALUE",
  * //     ExtraComputeForAutomaticOptimization: "STRING_VALUE",
+ * //     LoggingPublishStatus: { // LoggingPublishStatus
+ * //       S3Tables: { // S3TablePublishStatus
+ * //         S3Tables: [ // LogTypeList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         S3TableNamespace: "STRING_VALUE",
+ * //         S3TableGranularity: "STRING_VALUE",
+ * //         EnabledAll: true || false,
+ * //         LastIngestionTimes: { // S3TableLastIngestionTimeMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
+ * //     },
  * //   },
  * // };
  *

@@ -1838,6 +1838,55 @@ export interface ClusterIamRole {
 }
 
 /**
+ * <p>Describes the status of system table publishing to S3 Tables for a cluster.</p>
+ * @public
+ */
+export interface S3TablePublishStatus {
+  /**
+   * <p>The system tables currently being published.</p>
+   * @public
+   */
+  S3Tables?: string[] | undefined;
+
+  /**
+   * <p>The namespace in the S3 table bucket that holds the published tables.</p>
+   * @public
+   */
+  S3TableNamespace?: string | undefined;
+
+  /**
+   * <p>The scope of system table publishing in effect. Possible values are <code>cluster</code> and <code>account</code>.</p>
+   * @public
+   */
+  S3TableGranularity?: string | undefined;
+
+  /**
+   * <p>
+   *             <code>true</code> if the cluster is enrolled in all current and future system tables rather than an explicit subset.</p>
+   * @public
+   */
+  EnabledAll?: boolean | undefined;
+
+  /**
+   * <p>A map whose keys are the names of the published system tables and whose values are the time each table last received data. Use this to judge data freshness.</p>
+   * @public
+   */
+  LastIngestionTimes?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Describes the system table publishing status for a cluster.</p>
+ * @public
+ */
+export interface LoggingPublishStatus {
+  /**
+   * <p>The status of system table publishing to S3 Tables.</p>
+   * @public
+   */
+  S3Tables?: S3TablePublishStatus | undefined;
+}
+
+/**
  * <p>The AvailabilityZone and ClusterNodes information of the secondary compute unit.</p>
  * @public
  */
@@ -2642,6 +2691,12 @@ export interface Cluster {
    * @public
    */
   ExtraComputeForAutomaticOptimization?: string | undefined;
+
+  /**
+   * <p>The status of system table publishing for the cluster. This field is present only when system table publishing is configured.</p>
+   * @public
+   */
+  LoggingPublishStatus?: LoggingPublishStatus | undefined;
 }
 
 /**
@@ -8028,17 +8083,23 @@ export interface LoggingStatus {
   LastFailureMessage?: string | undefined;
 
   /**
-   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   * <p>The log destination type. An enum with possible values of <code>s3</code>, <code>cloudwatch</code>, and <code>s3table</code>.</p>
    * @public
    */
   LogDestinationType?: LogDestinationType | undefined;
 
   /**
-   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
-   *             <code>userlog</code>.</p>
+   * <p>The collection of exported log types. When <code>LogDestinationType</code> is <code>s3</code> or <code>cloudwatch</code>, possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and
+   *             <code>userlog</code>. When <code>LogDestinationType</code> is <code>s3table</code>, the values are the names of the system tables being published.</p>
    * @public
    */
   LogExports?: string[] | undefined;
+
+  /**
+   * <p>The status of system table publishing to S3 Tables. This field is populated only when system table publishing is active.</p>
+   * @public
+   */
+  S3Tables?: S3TablePublishStatus | undefined;
 }
 
 /**
@@ -9420,6 +9481,18 @@ export interface DisableLoggingMessage {
    * @public
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The log destination type. An enum with possible values of <code>s3</code>, <code>cloudwatch</code>, and <code>s3table</code>. When set to <code>s3table</code>, stops system table publishing. When omitted, the operation disables audit logging.</p>
+   * @public
+   */
+  LogDestinationType?: LogDestinationType | undefined;
+
+  /**
+   * <p>The collection of log types to stop exporting. When <code>LogDestinationType</code> is <code>s3table</code>, the values are the names of the system tables to stop publishing. Omitting this parameter or passing <code>all</code> stops publishing all system tables.</p>
+   * @public
+   */
+  LogExports?: string[] | undefined;
 }
 
 /**
@@ -9517,16 +9590,28 @@ export interface EnableLoggingMessage {
   S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>The log destination type. An enum with possible values of <code>s3</code> and <code>cloudwatch</code>.</p>
+   * <p>The log destination type. An enum with possible values of <code>s3</code>, <code>cloudwatch</code>, and <code>s3table</code>.</p>
    * @public
    */
   LogDestinationType?: LogDestinationType | undefined;
 
   /**
-   * <p>The collection of exported log types. Possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>.</p>
+   * <p>The collection of exported log types. When <code>LogDestinationType</code> is <code>s3</code> or <code>cloudwatch</code>, possible values are <code>connectionlog</code>, <code>useractivitylog</code>, and <code>userlog</code>. When <code>LogDestinationType</code> is <code>s3table</code>, the values are the names of the system tables to publish. Omitting this parameter, passing an empty list, or including the value <code>all</code> publishes all current and future system tables.</p>
    * @public
    */
   LogExports?: string[] | undefined;
+
+  /**
+   * <p>The identifier of a customer managed KMS key used to encrypt the S3 tables. This parameter is valid only when <code>LogDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  S3TableKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The scope of system table publishing. Valid values are <code>cluster</code> and <code>account</code>. A value of <code>cluster</code> scopes publishing to the individual cluster. A value of <code>account</code> scopes publishing to the Amazon Web Services account. This parameter is valid only when <code>LogDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  S3TableGranularity?: string | undefined;
 }
 
 /**
@@ -10377,9 +10462,6 @@ export interface ModifyClusterMessage {
    *             the <code>MasterUserPassword</code> element exists in the
    *                 <code>PendingModifiedValues</code> element of the operation response. </p>
    *          <p>You can't use <code>MasterUserPassword</code> if <code>ManageMasterPassword</code> is <code>true</code>.</p>
-   *          <p>If your admin user account is locked, this operation also unlocks your account and
-   *             resets the failed-login counter. This option is available only when account lockout
-   *             security is enabled for the cluster.</p>
    *          <note>
    *             <p>Operations never return the password, so this operation provides a way to
    *                 regain access to the admin user account for a cluster if the password is
@@ -10871,40 +10953,4 @@ export interface ModifyClusterSnapshotScheduleMessage {
    * @public
    */
   DisassociateSchedule?: boolean | undefined;
-}
-
-/**
- * <p></p>
- * @public
- */
-export interface ModifyClusterSubnetGroupMessage {
-  /**
-   * <p>The name of the subnet group to be modified.</p>
-   * @public
-   */
-  ClusterSubnetGroupName: string | undefined;
-
-  /**
-   * <p>A text description of the subnet group to be modified.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
-   *             request.</p>
-   * @public
-   */
-  SubnetIds: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ModifyClusterSubnetGroupResult {
-  /**
-   * <p>Describes a subnet group.</p>
-   * @public
-   */
-  ClusterSubnetGroup?: ClusterSubnetGroup | undefined;
 }

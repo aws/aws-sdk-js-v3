@@ -631,6 +631,7 @@ import {
   ListRecommendationsMessage$,
   ListRecommendationsResult$,
   LogDestinationType,
+  LoggingPublishStatus$,
   LoggingStatus$,
   MaintenanceTrack$,
   Mode,
@@ -884,6 +885,7 @@ import {
   RotateEncryptionKeyMessage$,
   RotateEncryptionKeyResult$,
   S3AccessGrantsScopeUnion$,
+  S3TablePublishStatus$,
   ScheduledAction$,
   ScheduledActionAlreadyExistsFault,
   ScheduledActionAlreadyExistsFault$,
@@ -1520,6 +1522,7 @@ assert(typeof LakeFormationScopeUnion$ === "object");
 assert(typeof LakehouseConfiguration$ === "object");
 assert(typeof ListRecommendationsMessage$ === "object");
 assert(typeof ListRecommendationsResult$ === "object");
+assert(typeof LoggingPublishStatus$ === "object");
 assert(typeof LoggingStatus$ === "object");
 assert(typeof MaintenanceTrack$ === "object");
 assert(typeof ModifyAquaInputMessage$ === "object");
@@ -1616,6 +1619,7 @@ assert(typeof RevokeSnapshotAccessResult$ === "object");
 assert(typeof RotateEncryptionKeyMessage$ === "object");
 assert(typeof RotateEncryptionKeyResult$ === "object");
 assert(typeof S3AccessGrantsScopeUnion$ === "object");
+assert(typeof S3TablePublishStatus$ === "object");
 assert(typeof ScheduledAction$ === "object");
 assert(typeof ScheduledActionFilter$ === "object");
 assert(typeof ScheduledActionsMessage$ === "object");

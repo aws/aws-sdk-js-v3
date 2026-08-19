@@ -11,6 +11,7 @@ import type {
   AuthorizedTokenIssuer,
   Cluster,
   ClusterSecurityGroup,
+  ClusterSubnetGroup,
   EventSubscription,
   NamespaceIdentifierUnion,
   Parameter,
@@ -23,6 +24,42 @@ import type {
   Snapshot,
   TableRestoreStatus,
 } from "./models_0";
+
+/**
+ * <p></p>
+ * @public
+ */
+export interface ModifyClusterSubnetGroupMessage {
+  /**
+   * <p>The name of the subnet group to be modified.</p>
+   * @public
+   */
+  ClusterSubnetGroupName: string | undefined;
+
+  /**
+   * <p>A text description of the subnet group to be modified.</p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a single
+   *             request.</p>
+   * @public
+   */
+  SubnetIds: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ModifyClusterSubnetGroupResult {
+  /**
+   * <p>Describes a subnet group.</p>
+   * @public
+   */
+  ClusterSubnetGroup?: ClusterSubnetGroup | undefined;
+}
 
 /**
  * @public
