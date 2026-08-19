@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** AgentCore Memory now supports Flexible Namespaces ([65c89d6](https://github.com/aws/aws-sdk-js-v3/commit/65c89d6d82897e07d0d671fbd0a3a0a44a93a9a2))
+
+
+
+
+
 # [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore-control

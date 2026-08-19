@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
+
+
+### Features
+
+* **client-account-access:** Adds throttling exceptions to operation outputs that were previously inconsistent with other operations. ([1e39b38](https://github.com/aws/aws-sdk-js-v3/commit/1e39b38544c7b77246db936bc6313163f98718b9))
+* **client-batch:** AWS Batch now supports managing CloudWatch Container Insights on compute environments via CreateComputeEnvironment and UpdateComputeEnvironment. ([f77fc37](https://github.com/aws/aws-sdk-js-v3/commit/f77fc37f101238d66a1849924da42be3ac50f4c5))
+* **client-bedrock-agentcore-control:** AgentCore Memory now supports Flexible Namespaces ([65c89d6](https://github.com/aws/aws-sdk-js-v3/commit/65c89d6d82897e07d0d671fbd0a3a0a44a93a9a2))
+* **client-bedrock-agentcore:** AgentCore Memory now supports Flexible Namespaces and Non-Conversational Payloads in CreateEvent API ([a0d8fb6](https://github.com/aws/aws-sdk-js-v3/commit/a0d8fb6df9d13bd1f22f89c1a5defef183becaf4))
+* **client-eks:** Adds support for EKS cluster certificate authorities (CA) ([a1316ea](https://github.com/aws/aws-sdk-js-v3/commit/a1316eaec0734d880bdb975c082110f36d3d7180))
+* **client-medialive:** AWS Elemental MediaLive now supports video cropping and output positioning. Use cropRectangle and outputPositionRectangle to position the encoded video within the output frame, with the surrounding area filled with black. ([2bf1331](https://github.com/aws/aws-sdk-js-v3/commit/2bf1331a81cddad987b30380c685cc3b4f85f18b))
+* **client-redshift-serverless:** Amazon Redshift Enhanced System Table Retention that allows customers to store their system table data directly in S3 Tables in customer's account instead of Redshift Managed Storage ([73ad53c](https://github.com/aws/aws-sdk-js-v3/commit/73ad53c311578c41c4420d71835f63ff021b703a))
+* **client-redshift:** Amazon Redshift enhanced System Table retention that allows customers to store their system table data directly in S3 Tables in customer's account instead of Redshift Managed Storage ([a46d1f9](https://github.com/aws/aws-sdk-js-v3/commit/a46d1f96345459f8c606642be702b8a723d97d51))
+* **client-vpc-lattice:** Amazon VPC Lattice now supports modification of private DNS options on Service Network VPC Associations ([92c89b2](https://github.com/aws/aws-sdk-js-v3/commit/92c89b2723c281f6fc8d2562ec86dbd3c9716bdf))
+* **lib-transfer-manager:** add file based download api and worker thread based download. ([#8259](https://github.com/aws/aws-sdk-js-v3/issues/8259)) ([b2d6035](https://github.com/aws/aws-sdk-js-v3/commit/b2d60357c87e86ce7da8902c9bd243bcc3bb34b2))
+
+
+
+
+
 # [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
 
 

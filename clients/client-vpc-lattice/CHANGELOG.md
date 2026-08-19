@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
+
+
+### Features
+
+* **client-vpc-lattice:** Amazon VPC Lattice now supports modification of private DNS options on Service Network VPC Associations ([92c89b2](https://github.com/aws/aws-sdk-js-v3/commit/92c89b2723c281f6fc8d2562ec86dbd3c9716bdf))
+
+
+
+
+
 # [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-vpc-lattice

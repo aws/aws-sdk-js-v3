@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
+
+
+### Features
+
+* **client-redshift-serverless:** Amazon Redshift Enhanced System Table Retention that allows customers to store their system table data directly in S3 Tables in customer's account instead of Redshift Managed Storage ([73ad53c](https://github.com/aws/aws-sdk-js-v3/commit/73ad53c311578c41c4420d71835f63ff021b703a))
+
+
+
+
+
 # [3.1113.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1112.0...v3.1113.0) (2026-08-18)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-serverless
