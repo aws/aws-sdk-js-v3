@@ -599,6 +599,8 @@
     "S3TransferManager": "function"
   },
   "@aws-sdk/lib-transfer-manager/transfer-manager": {
+    "DownloadToFileRequest": "type(interface)",
+    "DownloadToFileResponse": "type(interface)",
     "IS3TransferManager": "type(interface)",
     "S3TransferManager": "function"
   },

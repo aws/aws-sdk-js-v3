@@ -12,6 +12,7 @@
 import { HttpResponse } from "@smithy/core/protocols";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import type { HttpHandlerOptions, HttpRequest, HttpResponse as HttpResponseShape } from "@smithy/types";
+import type { ChecksumAlgorithm } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
 import { cpus } from "node:os";
 import * as path from "node:path";
@@ -57,7 +58,7 @@ export interface HttpWorkerFileRequestMessage extends BaseHttpWorkerRequestMessa
   filePath: string;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -66,11 +67,56 @@ export interface HttpWorkerRAMRequestMessage extends BaseHttpWorkerRequestMessag
   sharedBuffer: SharedArrayBuffer;
   offset: number;
   length: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
 export type HttpWorkerRequestMessage = HttpWorkerFileRequestMessage | HttpWorkerRAMRequestMessage;
+
+/**
+ * Main thread → Worker: download a part and write directly to a file offset.
+ * @internal
+ */
+export interface HttpWorkerDownloadToFileMessage extends BaseHttpWorkerRequestMessage {
+  type: "httpDownloadToFile";
+  filePath: string;
+  offset: number;
+  expectedLength: number;
+  checksumAlgorithm?: ChecksumAlgorithm;
+}
+
+/**
+ * Main thread → Worker: download a part and stream the response back.
+ * @internal
+ */
+export interface HttpWorkerDownloadStreamMessage extends BaseHttpWorkerRequestMessage {
+  type: "httpDownloadStream";
+  /**
+   * Expected byte length of the part (used for buffer pre-allocation).
+   */
+  expectedSize: number;
+  /**
+   * Part/range index for in-order delivery on the main thread.
+   */
+  rangeIndex: number;
+  /**
+   * Optional CRC algorithm for inline checksum validation against S3 response headers.
+   */
+  checksumAlgorithm?: ChecksumAlgorithm;
+}
+
+/**
+ * Main thread → Worker: return a consumed ArrayBuffer for reuse.
+ * Sent after the main-thread consumer has finished reading a transferred buffer.
+ * @internal
+ */
+export interface HttpWorkerReturnBufferMessage {
+  type: "returnBuffer";
+  /**
+   * The ArrayBuffer being returned (transferred back to the worker).
+   */
+  buffer: ArrayBuffer;
+}
 
 export interface HttpWorkerConfigMessage {
   type: "config";
@@ -81,7 +127,13 @@ export interface HttpWorkerDoneMessage {
   type: "done";
 }
 
-export type HttpWorkerInboundMessage = HttpWorkerRequestMessage | HttpWorkerConfigMessage | HttpWorkerDoneMessage;
+export type HttpWorkerInboundMessage =
+  | HttpWorkerRequestMessage
+  | HttpWorkerDownloadToFileMessage
+  | HttpWorkerDownloadStreamMessage
+  | HttpWorkerReturnBufferMessage
+  | HttpWorkerConfigMessage
+  | HttpWorkerDoneMessage;
 
 export interface HttpWorkerResponseMessage {
   type: "httpResponse";
@@ -101,7 +153,57 @@ export interface HttpWorkerReadyMessage {
   type: "ready";
 }
 
-export type HttpWorkerOutboundMessage = HttpWorkerResponseMessage | HttpWorkerErrorMessage | HttpWorkerReadyMessage;
+/**
+ * Worker → Main thread: download part completed successfully.
+ * @internal
+ */
+export interface HttpWorkerDownloadResultMessage {
+  type: "httpDownloadResult";
+  id: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  bytesWritten: number;
+  checksum?: string;
+}
+
+/**
+ * Worker → Main thread: download part failed.
+ * @internal
+ */
+export interface HttpWorkerDownloadErrorMessage {
+  type: "httpDownloadError";
+  id: number;
+  error: string;
+  code?: string;
+  name?: string;
+}
+
+/**
+ * Worker → Main thread: stream-mode download completed.
+ * The ArrayBuffer is transferred (zero-copy) via the postMessage transfer list.
+ * @internal
+ */
+export interface HttpWorkerDownloadStreamResultMessage {
+  type: "httpDownloadStreamResult";
+  id: number;
+  rangeIndex: number;
+  /**
+   * The ArrayBuffer containing the downloaded part data (transferred, not copied).
+   */
+  buffer: ArrayBuffer;
+  byteLength: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  checksum?: string;
+}
+
+export type HttpWorkerOutboundMessage =
+  | HttpWorkerResponseMessage
+  | HttpWorkerErrorMessage
+  | HttpWorkerReadyMessage
+  | HttpWorkerDownloadResultMessage
+  | HttpWorkerDownloadErrorMessage
+  | HttpWorkerDownloadStreamResultMessage;
 
 /** @internal */
 export function defaultWorkerCount(): number {
@@ -114,7 +216,7 @@ export interface FileSource {
   filePath: string;
   partSize: number;
   totalFileSize: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -124,7 +226,7 @@ export interface SharedBufferSource {
   sharedBuffer: SharedArrayBuffer;
   partSize: number;
   totalSize: number;
-  checksumAlgorithm?: string;
+  checksumAlgorithm?: ChecksumAlgorithm;
   checksumHeader?: string;
 }
 
@@ -144,11 +246,112 @@ export interface WorkerHttpHandlerOptions extends HttpHandlerOptions {
   dataSource?: DataSource;
 }
 
+/**
+ * Metadata passed to the worker instructing it to write the HTTP response body
+ * to a specific file offset rather than returning it over the message channel.
+ * @internal
+ */
+export interface DownloadDataToFile {
+  /**
+   * Absolute path to the temp file where the part body should be written.
+   */
+  filePath: string;
+  /**
+   * Absolute byte offset in the file where writing should begin. Used only as a
+   * fallback: the worker prefers the start byte from the response's ContentRange
+   * header, since part sizes are not guaranteed to be uniform.
+   */
+  offset: number;
+  /**
+   * Expected byte length of the part body. Used only as a fallback, for the same
+   * reason as {@link DownloadDataToFile.offset}.
+   */
+  expectedLength: number;
+  /**
+   * Optional algorithm for inline checksum validation against S3 response headers.
+   */
+  checksumAlgorithm?: ChecksumAlgorithm;
+  /**
+   * Unique token for correlating the download result with the caller.
+   */
+  resultToken?: string;
+}
+
+/**
+ * Metadata passed to the worker instructing it to download a part into a
+ * worker-owned ArrayBuffer and transfer ownership to main (zero-copy).
+ * @internal
+ */
+export interface DownloadStreamOptions {
+  /**
+   * Expected byte length of the part (used for buffer pre-allocation).
+   */
+  expectedSize: number;
+  /**
+   * Part/range index for in-order delivery on the main thread.
+   */
+  rangeIndex: number;
+  /**
+   * Optional algorithm for inline checksum validation against S3 response headers.
+   */
+  checksumAlgorithm?: ChecksumAlgorithm;
+  /**
+   * Unique token for correlating the download result with the caller.
+   */
+  resultToken?: string;
+}
+
+/**
+ * Options for WorkerHttpHandler.handle() that extend standard HttpHandlerOptions
+ * with download-to-file metadata for Part GET requests.
+ * @internal
+ */
+export interface WorkerHttpHandlerDownloadOptions extends HttpHandlerOptions {
+  downloadDataToFile?: DownloadDataToFile;
+  downloadStream?: DownloadStreamOptions;
+}
+
+/**
+ * Result returned when a download-to-file request completes successfully.
+ * @internal
+ */
+export interface DownloadToFileResult {
+  statusCode: number;
+  headers: Record<string, string>;
+  bytesWritten: number;
+  checksum?: string;
+}
+
+/**
+ * Result returned when a transfer-mode download completes successfully.
+ * Contains the transferred ArrayBuffer (zero-copy from worker).
+ * @internal
+ */
+export interface DownloadStreamResult {
+  rangeIndex: number;
+  /**
+   * The ArrayBuffer transferred from the worker (zero-copy).
+   */
+  buffer: ArrayBuffer;
+  byteLength: number;
+  statusCode: number;
+  headers: Record<string, string>;
+  checksum?: string;
+}
+
 export class WorkerHttpHandler {
   private workers: Worker[] = [];
   private inflightRequests = new Map<
     number,
     { resolve: (value: { response: HttpResponse }) => void; reject: (error: unknown) => void; workerIndex: number }
+  >();
+  private inflightDownloads = new Map<
+    number,
+    { resolve: (value: DownloadToFileResult) => void; reject: (error: unknown) => void; workerIndex: number }
+  >();
+  private inflightStreamDownloads = new Map<
+    number,
+    { resolve: (value: DownloadStreamResult) => void; reject: (error: unknown) => void; workerIndex: number }
   >();
   private nextRequestId = 0;
   private workerInflightCounts: number[] = [];
@@ -158,12 +361,53 @@ export class WorkerHttpHandler {
   private initPromise: Promise<void> | undefined;
   private fallbackHandler: NodeHttpHandler;
 
+  /**
+   * Stores completed download results keyed by a caller-provided token.
+   * The TM passes a unique token in the downloadDataToFile options and
+   * retrieves the result after this.s3.send() completes.
+   * @internal
+   */
+  private completedDownloads = new Map<string, { bytesWritten: number; checksum?: string }>();
+
+  /**
+   * Stores completed stream-mode download results keyed by a caller-provided token.
+   * Unlike completedDownloads, this includes the ArrayBuffer with the response body.
+   * @internal
+   */
+  private completedTransfers = new Map<string, DownloadStreamResult>();
+
   readonly metadata = { handlerProtocol: "http/1.1" };
 
   constructor(options?: { workerThreadCount?: number; maxConcurrentUploads?: number }) {
     this.workerThreadCount = options?.workerThreadCount ?? defaultWorkerCount();
     this.maxConcurrentUploads = options?.maxConcurrentUploads ?? 32;
     this.fallbackHandler = new NodeHttpHandler();
+  }
+
+  /**
+   * Retrieves and removes the completed download result for a given token.
+   * Returns undefined if no result is stored for that token.
+   * @internal
+   */
+  public getDownloadResult(token: string): { bytesWritten: number; checksum?: string } | undefined {
+    const result = this.completedDownloads.get(token);
+    if (result) {
+      this.completedDownloads.delete(token);
+    }
+    return result;
+  }
+
+  /**
+   * Retrieves and removes the completed stream-mode download result for a given token.
+   * Includes the ArrayBuffer with the response body (zero-copy from worker).
+   * @internal
+   */
+  public getStreamDownloadResult(token: string): DownloadStreamResult | undefined {
+    const result = this.completedTransfers.get(token);
+    if (result) {
+      this.completedTransfers.delete(token);
+    }
+    return result;
   }
 
   /**
@@ -242,6 +486,65 @@ export class WorkerHttpHandler {
             }
             return;
           }
+
+          if (msg.type === "httpDownloadResult") {
+            const pending = this.inflightDownloads.get(msg.id);
+            this.inflightDownloads.delete(msg.id);
+            if (pending) {
+              this.workerInflightCounts[pending.workerIndex]--;
+              pending.resolve({
+                statusCode: msg.statusCode,
+                headers: msg.headers,
+                bytesWritten: msg.bytesWritten,
+                checksum: msg.checksum,
+              });
+            }
+            return;
+          }
+
+          if (msg.type === "httpDownloadError") {
+            // First, check if it's a file-mode download that failed
+            const pending = this.inflightDownloads.get(msg.id);
+            this.inflightDownloads.delete(msg.id);
+            if (pending) {
+              this.workerInflightCounts[pending.workerIndex]--;
+              const error = Object.assign(new Error(msg.error), {
+                ...(msg.code && { code: msg.code }),
+                ...(msg.name && { name: msg.name }),
+              });
+              pending.reject(error);
+              return;
+            }
+            // Check stream downloads if not found in file downloads.
+            const pendingTransfer = this.inflightStreamDownloads.get(msg.id);
+            this.inflightStreamDownloads.delete(msg.id);
+            if (pendingTransfer) {
+              this.workerInflightCounts[pendingTransfer.workerIndex]--;
+              const error = Object.assign(new Error(msg.error), {
+                ...(msg.code && { code: msg.code }),
+                ...(msg.name && { name: msg.name }),
+              });
+              pendingTransfer.reject(error);
+            }
+            return;
+          }
+
+          if (msg.type === "httpDownloadStreamResult") {
+            const pending = this.inflightStreamDownloads.get(msg.id);
+            this.inflightStreamDownloads.delete(msg.id);
+            if (pending) {
+              this.workerInflightCounts[pending.workerIndex]--;
+              pending.resolve({
+                rangeIndex: msg.rangeIndex,
+                buffer: msg.buffer,
+                byteLength: msg.byteLength,
+                statusCode: msg.statusCode,
+                headers: msg.headers,
+                checksum: msg.checksum,
+              });
+            }
+            return;
+          }
         });
 
         worker.on("error", (err) => {
@@ -258,6 +561,18 @@ export class WorkerHttpHandler {
             if (pending.workerIndex === workerIndex) {
               pending.reject(err);
               this.inflightRequests.delete(id);
+            }
+          }
+          for (const [id, pending] of this.inflightDownloads) {
+            if (pending.workerIndex === workerIndex) {
+              pending.reject(err);
+              this.inflightDownloads.delete(id);
+            }
+          }
+          for (const [id, pending] of this.inflightStreamDownloads) {
+            if (pending.workerIndex === workerIndex) {
+              pending.reject(err);
+              this.inflightStreamDownloads.delete(id);
             }
           }
           // Mark this worker as dead so pickWorkerIndex() never routes to it.
@@ -294,6 +609,21 @@ export class WorkerHttpHandler {
     });
   }
 
+  /**
+   * Dispatches a download-to-file message to the least-busy worker and tracks the in-flight count.
+   */
+  private dispatchDownloadToWorker(
+    id: number,
+    message: HttpWorkerDownloadToFileMessage
+  ): Promise<DownloadToFileResult> {
+    const workerIndex = this.pickWorkerIndex();
+    this.workerInflightCounts[workerIndex]++;
+    return new Promise((resolve, reject) => {
+      this.inflightDownloads.set(id, { resolve, reject, workerIndex });
+      this.workers[workerIndex].postMessage(message);
+    });
+  }
+
   private extractPartNumber(request: HttpRequest): number | undefined {
     const partNumber = request.query?.partNumber;
     if (partNumber) {
@@ -302,8 +632,153 @@ export class WorkerHttpHandler {
     return undefined;
   }
 
-  async handle(request: HttpRequest, options?: WorkerHttpHandlerOptions): Promise<{ response: HttpResponse }> {
-    const dataSource = options?.dataSource;
+  /**
+   * Returns a consumed ArrayBuffer to the worker that originally sent it,
+   * so it can be reused for future downloads.
+   * @internal
+   */
+  public returnBuffer(buffer: ArrayBuffer, workerIndex?: number): void {
+    // Round-robin or send to any available worker if index not specified
+    const targetIndex = workerIndex ?? this.nextRequestId % this.workers.length;
+    const message: HttpWorkerReturnBufferMessage = { type: "returnBuffer", buffer };
+    this.workers[targetIndex]?.postMessage(message, [buffer]);
+  }
+
+  async handle(
+    request: HttpRequest,
+    options?: WorkerHttpHandlerOptions | WorkerHttpHandlerDownloadOptions
+  ): Promise<{ response: HttpResponse }> {
+    // Download-to-file path: dispatch as httpDownloadToFile message.
+    // The worker handles the HTTP request and writes the body to file.
+    // We return a proper { response: HttpResponse } so the SDK middleware
+    // pipeline (checksums, deserialization, etc.) can process the response
+    // normally. The body is omitted since it was written directly to disk.
+    const downloadDataToFile = (options as WorkerHttpHandlerDownloadOptions | undefined)?.downloadDataToFile;
+    if (downloadDataToFile) {
+      await this.ensureInitialized();
+
+      const id = this.nextRequestId++;
+      const serializedRequest: WorkerHttpRequest = {
+        method: request.method,
+        protocol: request.protocol,
+        hostname: request.hostname,
+        port: request.port,
+        path: request.path,
+        query: request.query,
+        headers: request.headers,
+      };
+
+      const message: HttpWorkerDownloadToFileMessage = {
+        type: "httpDownloadToFile",
+        id,
+        request: serializedRequest,
+        filePath: downloadDataToFile.filePath,
+        offset: downloadDataToFile.offset,
+        expectedLength: downloadDataToFile.expectedLength,
+        checksumAlgorithm: downloadDataToFile.checksumAlgorithm,
+      };
+
+      const result = await this.dispatchDownloadToWorker(id, message);
+
+      // Store the download-specific result (bytesWritten, checksum) in the
+      // side-channel map so the TM can retrieve it after s3.send() returns.
+      if (downloadDataToFile.resultToken) {
+        this.completedDownloads.set(downloadDataToFile.resultToken, {
+          bytesWritten: result.bytesWritten,
+          checksum: result.checksum,
+        });
+      }
+
+      // Wrap the DownloadToFileResult in a proper HttpResponse so the SDK
+      // middleware pipeline can process it (flexible-checksums, deserialization, etc.).
+      //
+      // IMPORTANT: We strip per-part checksum headers (x-amz-checksum-*)
+      // because the flexible-checksums middleware would try to validate the
+      // body checksum against these headers — but there's no body to validate
+      // (it was written to file by the worker). The worker already validated
+      // the per-part CRC inline and stored the result in completedDownloads.
+      const responseHeaders: Record<string, string> = {};
+      for (const [key, value] of Object.entries(result.headers)) {
+        if (!key.startsWith("x-amz-checksum-")) {
+          responseHeaders[key] = value;
+        }
+      }
+
+      return {
+        response: new HttpResponse({
+          statusCode: result.statusCode,
+          headers: responseHeaders,
+          body: createEmptyReadable(),
+        }),
+      };
+    }
+
+    // Download-to-stream path: send the request to a worker thread.
+    // The worker assembles the response body into its own ArrayBuffer and transfers
+    // ownership to main. The transferred buffer is stored in the
+    // map for the caller to retrieve, not returned in the HttpResponse.
+    const downloadStream = (options as WorkerHttpHandlerDownloadOptions | undefined)?.downloadStream;
+    if (downloadStream) {
+      await this.ensureInitialized();
+
+      const id = this.nextRequestId++;
+      const serializedRequest: WorkerHttpRequest = {
+        method: request.method,
+        protocol: request.protocol,
+        hostname: request.hostname,
+        port: request.port,
+        path: request.path,
+        query: request.query,
+        headers: request.headers,
+      };
+
+      const message: HttpWorkerDownloadStreamMessage = {
+        type: "httpDownloadStream",
+        id,
+        request: serializedRequest,
+        expectedSize: downloadStream.expectedSize,
+        rangeIndex: downloadStream.rangeIndex,
+        checksumAlgorithm: downloadStream.checksumAlgorithm,
+      };
+
+      const workerIndex = this.pickWorkerIndex();
+      this.workerInflightCounts[workerIndex]++;
+      const result = await new Promise<DownloadStreamResult>((resolve, reject) => {
+        this.inflightStreamDownloads.set(id, { resolve, reject, workerIndex });
+        this.workers[workerIndex].postMessage(message);
+      });
+
+      // Strip per-part checksum headers (validated inline by the worker)
+      const responseHeaders: Record<string, string> = {};
+      for (const [key, value] of Object.entries(result.headers)) {
+        if (!key.startsWith("x-amz-checksum-")) {
+          responseHeaders[key] = value;
+        }
+      }
+
+      // For error responses (4xx/5xx), pass the body through so the SDK can
+      // deserialize the proper error type (e.g. PreconditionFailed).
+      let body: Readable | undefined;
+      if (result.statusCode >= 400) {
+        const bodyBuf = Buffer.from(result.buffer, 0, result.byteLength);
+        body = Readable.from([bodyBuf]);
+      }
+
+      // Store the transfer result only for successful responses.
+      if (result.statusCode < 400 && downloadStream.resultToken) {
+        this.completedTransfers.set(downloadStream.resultToken, result);
+      }
+
+      return {
+        response: new HttpResponse({
+          statusCode: result.statusCode,
+          headers: responseHeaders,
+          body: body ?? createEmptyReadable(),
+        }),
+      };
+    }
+
+    const dataSource = (options as WorkerHttpHandlerOptions | undefined)?.dataSource;
     const partNumber = this.extractPartNumber(request);
 
     // Fall back to default Node HTTP handler for non-upload-part requests

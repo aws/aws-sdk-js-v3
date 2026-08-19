@@ -107,6 +107,38 @@ export type DownloadRequest = GetObjectCommandInput;
 export type DownloadResponse = GetObjectCommandOutput;
 
 /**
+ * Features the same properties as DownloadRequest, with an additional
+ * file destination.
+ *
+ * @alpha
+ */
+export interface DownloadToFileRequest extends DownloadRequest {
+  /**
+   * The local file path to which the response body will be written.
+   * Must be a non-empty string.
+   */
+  destination: string;
+  /**
+   * Whether to fail the request if a file already exists at the destination.
+   * When false, the existing file is overwritten.
+   * Defaults to false.
+   */
+  failIfExists?: boolean;
+}
+
+/**
+ * Features the same properties as DownloadResponse, excluding Body.
+ *
+ * @alpha
+ */
+export interface DownloadToFileResponse extends Omit<DownloadResponse, "Body"> {
+  /**
+   * The total number of bytes written to the destination file.
+   */
+  bytesWritten: number;
+}
+
+/**
  * Options for transfer operations that combine HTTP handler options with transfer event listeners.
  *
  * @property eventListeners - Collection of callbacks for monitoring transfer lifecycle events
@@ -147,6 +179,16 @@ export interface IS3TransferManager {
    * @returns the response from the S3 API for the download request.
    */
   download(request: DownloadRequest, transferOptions?: TransferOptions): Promise<DownloadResponse>;
+
+  /**
+   * Downloads an S3 object to a local file.
+   *
+   * @param request - Download request including the local file destination path.
+   * @param transferOptions - Allows users to specify cancel functions for the request and a collection of callbacks for monitoring transfer lifecycle events. Allows tracking statuses per request.
+   *
+   * @returns the response containing bytes written, and object metadata.
+   */
+  downloadToFile(request: DownloadToFileRequest, transferOptions?: TransferOptions): Promise<DownloadToFileResponse>;
 
   /**
    * Uploads files in a directory to the provided S3 bucket.
