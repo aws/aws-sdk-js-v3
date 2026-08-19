@@ -68,6 +68,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal service error occurred. Try your request again later.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Try your request again later.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
  *

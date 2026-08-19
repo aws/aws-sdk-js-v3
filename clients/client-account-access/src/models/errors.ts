@@ -84,6 +84,26 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
+ * <p>The request was denied due to request throttling. Try your request again later.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
  * <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
  * @public
  */
@@ -140,25 +160,5 @@ export class ServiceQuotaExceededException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * <p>The request was denied due to request throttling. Try your request again later.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }

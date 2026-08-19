@@ -59,6 +59,9 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist. Verify that the resource identifier is correct and that the resource exists in the current Region.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Try your request again later.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p>The input does not satisfy the constraints specified by the service. Check your request parameters and retry the request.</p>
  *
