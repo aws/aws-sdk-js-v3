@@ -10335,6 +10335,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aws-sdk/lib-transfer-manager@workspace:lib/lib-transfer-manager"
   dependencies:
+    "@aws-sdk/checksums": "workspace:^3.1000.28"
     "@aws-sdk/client-s3": "workspace:3.1113.0"
     "@smithy/core": "npm:^3.31.1"
     "@smithy/node-http-handler": "npm:^4.9.13"
