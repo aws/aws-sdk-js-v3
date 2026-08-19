@@ -64,7 +64,7 @@ export interface UpdateResourceConfigurationCommandOutput extends UpdateResource
  * //     "STRING_VALUE",
  * //   ],
  * //   allowAssociationToShareableServiceNetwork: true || false,
- * //   protocol: "STRING_VALUE",
+ * //   protocol: "TCP",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
  * //     dnsResource: { // DnsResource

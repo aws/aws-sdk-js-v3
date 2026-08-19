@@ -37,9 +37,16 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput extends UpdateS
  * const client = new VPCLatticeClient(config);
  * const input = { // UpdateServiceNetworkVpcAssociationRequest
  *   serviceNetworkVpcAssociationIdentifier: "STRING_VALUE", // required
- *   securityGroupIds: [ // SecurityGroupList // required
+ *   securityGroupIds: [ // SecurityGroupList
  *     "STRING_VALUE",
  *   ],
+ *   privateDnsEnabled: true || false,
+ *   dnsOptions: { // DnsOptions
+ *     privateDnsPreference: "STRING_VALUE",
+ *     privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ *       "STRING_VALUE",
+ *     ],
+ *   },
  * };
  * const command = new UpdateServiceNetworkVpcAssociationCommand(input);
  * const response = await client.send(command);
@@ -51,6 +58,13 @@ export interface UpdateServiceNetworkVpcAssociationCommandOutput extends UpdateS
  * //   securityGroupIds: [ // SecurityGroupList
  * //     "STRING_VALUE",
  * //   ],
+ * //   privateDnsEnabled: true || false,
+ * //   dnsOptions: { // DnsOptions
+ * //     privateDnsPreference: "STRING_VALUE",
+ * //     privateDnsSpecifiedDomains: [ // PrivateDnsSpecifiedDomainsList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```

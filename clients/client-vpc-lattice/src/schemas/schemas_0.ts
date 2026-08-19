@@ -1390,13 +1390,13 @@ export var UpdateServiceNetworkResponse$: StaticStructureSchema = [3, n0, _USNRp
 ];
 export var UpdateServiceNetworkVpcAssociationRequest$: StaticStructureSchema = [3, n0, _USNVAR,
   0,
-  [_sNVAI, _sGI],
-  [[0, 1], 64 | 0], 2
+  [_sNVAI, _sGI, _pDE, _dO],
+  [[0, 1], 64 | 0, 2, () => DnsOptions$], 1
 ];
 export var UpdateServiceNetworkVpcAssociationResponse$: StaticStructureSchema = [3, n0, _USNVARp,
   0,
-  [_i, _a, _st, _cB, _sGI],
-  [0, 0, 0, 0, 64 | 0]
+  [_i, _a, _st, _cB, _sGI, _pDE, _dO],
+  [0, 0, 0, 0, 64 | 0, 2, () => DnsOptions$]
 ];
 export var UpdateServiceRequest$: StaticStructureSchema = [3, n0, _USR,
   0,

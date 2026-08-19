@@ -38,7 +38,7 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  *   portRanges: [ // PortRangeList
  *     "STRING_VALUE",
  *   ],
- *   protocol: "STRING_VALUE",
+ *   protocol: "TCP",
  *   resourceGatewayIdentifier: "STRING_VALUE",
  *   resourceConfigurationGroupIdentifier: "STRING_VALUE",
  *   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
@@ -74,7 +74,7 @@ export interface CreateResourceConfigurationCommandOutput extends CreateResource
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],
- * //   protocol: "STRING_VALUE",
+ * //   protocol: "TCP",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
  * //     dnsResource: { // DnsResource

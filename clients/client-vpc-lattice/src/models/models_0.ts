@@ -5843,7 +5843,19 @@ export interface UpdateServiceNetworkVpcAssociationRequest {
    * <p>The IDs of the security groups.</p>
    * @public
    */
-  securityGroupIds: string[] | undefined;
+  securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
+   * <p> DNS options for the service network VPC association. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 }
 
 /**
@@ -5879,6 +5891,18 @@ export interface UpdateServiceNetworkVpcAssociationResponse {
    * @public
    */
   securityGroupIds?: string[] | undefined;
+
+  /**
+   * <p> Indicates if private DNS is enabled for the VPC association. </p>
+   * @public
+   */
+  privateDnsEnabled?: boolean | undefined;
+
+  /**
+   * <p> DNS options for the service network VPC association. </p>
+   * @public
+   */
+  dnsOptions?: DnsOptions | undefined;
 }
 
 /**

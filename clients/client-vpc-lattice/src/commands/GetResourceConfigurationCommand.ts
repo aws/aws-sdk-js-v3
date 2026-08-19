@@ -48,7 +48,7 @@ export interface GetResourceConfigurationCommandOutput extends GetResourceConfig
  * //   portRanges: [ // PortRangeList
  * //     "STRING_VALUE",
  * //   ],
- * //   protocol: "STRING_VALUE",
+ * //   protocol: "TCP",
  * //   customDomainName: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   resourceConfigurationDefinition: { // ResourceConfigurationDefinition Union: only one key present
