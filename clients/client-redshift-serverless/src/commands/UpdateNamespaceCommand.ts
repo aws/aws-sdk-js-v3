@@ -23,7 +23,7 @@ export interface UpdateNamespaceCommandInput extends UpdateNamespaceRequest {}
 export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example, you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code> and <code>logExports</code> in a single request.</p>
+ * <p>Updates a namespace with the specified settings. Unless required, you can't update multiple parameters in one request. For example, you must specify both <code>adminUsername</code> and <code>adminUserPassword</code> to update either field, but you can't update both <code>kmsKeyId</code> and <code>logExports</code> in a single request.</p> <p>Similarly, an S3 Tables log-publishing update (a request where <code>logDestinationType</code> is <code>s3table</code>) cannot be combined with any other namespace configuration change and must be submitted as its own request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,13 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  *   ],
  *   manageAdminPassword: true || false,
  *   adminPasswordSecretKmsKeyId: "STRING_VALUE",
+ *   logDestinationType: "STRING_VALUE",
+ *   s3TableAction: "STRING_VALUE",
+ *   s3TableNames: [ // S3TableNameList
+ *     "STRING_VALUE",
+ *   ],
+ *   s3TableKmsKeyId: "STRING_VALUE",
+ *   s3TableGranularity: "STRING_VALUE",
  * };
  * const command = new UpdateNamespaceCommand(input);
  * const response = await client.send(command);
@@ -70,6 +77,17 @@ export interface UpdateNamespaceCommandOutput extends UpdateNamespaceResponse, _
  * //     adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //     lakehouseRegistrationStatus: "STRING_VALUE",
  * //     catalogArn: "STRING_VALUE",
+ * //     s3TablePublishStatus: { // S3TablePublishStatus
+ * //       s3Tables: [ // S3TableNameList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       s3TableNamespace: "STRING_VALUE",
+ * //       s3TableGranularity: "STRING_VALUE",
+ * //       enabledAll: true || false,
+ * //       lastIngestionTimes: { // S3TableLastIngestionTimeMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
  * //   },
  * // };
  *

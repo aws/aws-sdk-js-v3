@@ -2,11 +2,14 @@
 import type {
   LakehouseIdcRegistration,
   LakehouseRegistration,
+  LogDestinationType,
   LogExport,
   ManagedWorkgroupStatus,
   NamespaceStatus,
   OfferingType,
   PerformanceTargetStatus,
+  S3TableAction,
+  S3TableGranularity,
   SnapshotStatus,
   State,
   UsageLimitBreachAction,
@@ -579,6 +582,42 @@ export interface CreateNamespaceRequest {
 }
 
 /**
+ * <p>Describes the state of Amazon S3 Tables system-table log publishing for a namespace.</p>
+ * @public
+ */
+export interface S3TablePublishStatus {
+  /**
+   * <p>The system tables currently being published.</p>
+   * @public
+   */
+  s3Tables?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the namespace in the S3 table bucket that holds the published tables.</p>
+   * @public
+   */
+  s3TableNamespace?: string | undefined;
+
+  /**
+   * <p>The scope currently in effect. Values are <code>namespace</code> or <code>account</code>.</p>
+   * @public
+   */
+  s3TableGranularity?: S3TableGranularity | undefined;
+
+  /**
+   * <p> <code>true</code> when the namespace is enrolled in every current and future system table rather than an explicit list of tables.</p>
+   * @public
+   */
+  enabledAll?: boolean | undefined;
+
+  /**
+   * <p>A map of system table name to the time that table last received data, as an ISO-8601 timestamp. A table that has not yet been ingested is absent from the map. Use it to judge data freshness.</p>
+   * @public
+   */
+  lastIngestionTimes?: Record<string, string> | undefined;
+}
+
+/**
  * <p>A collection of database objects and users.</p>
  * @public
  */
@@ -672,6 +711,12 @@ export interface Namespace {
    * @public
    */
   catalogArn?: string | undefined;
+
+  /**
+   * <p>The current Amazon S3 Tables log-publishing status for the namespace. Not returned when S3 Tables publishing has never been configured for the namespace.</p>
+   * @public
+   */
+  s3TablePublishStatus?: S3TablePublishStatus | undefined;
 }
 
 /**
@@ -3254,6 +3299,36 @@ export interface UpdateNamespaceRequest {
    * @public
    */
   adminPasswordSecretKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The destination for the log data. Valid values are <code>s3table</code> and <code>cloudwatch</code>.</p> <p>Set this to <code>s3table</code> to manage Amazon S3 Tables system-table publishing for the namespace.</p>
+   * @public
+   */
+  logDestinationType?: LogDestinationType | undefined;
+
+  /**
+   * <p>Whether to enable or disable Amazon S3 Tables publishing. Valid values are <code>Enable</code> and <code>Disable</code>, matched case-insensitively.</p> <p>When omitted, defaults to <code>Enable</code>. Valid only when <code>logDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  s3TableAction?: S3TableAction | undefined;
+
+  /**
+   * <p>The system tables to publish (on enable) or to stop publishing (on disable). Each value is either a system table view name that begins with <code>sys_</code> or the keyword <code>all</code>.</p> <p>Omitting this parameter, passing an empty list, or including <code>all</code> each select every current and future system table. Each name must be 1-128 characters, and the list can contain up to 256 names.</p> <p>Valid only when <code>logDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  s3TableNames?: string[] | undefined;
+
+  /**
+   * <p>The identifier of the Key Management Service key used to encrypt the published Amazon S3 Tables data. When omitted, the data is encrypted with SSE-S3 (Amazon S3 managed keys).</p> <p>Valid only when <code>logDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  s3TableKmsKeyId?: string | undefined;
+
+  /**
+   * <p>The scope of the Amazon S3 Tables destination. Valid values are <code>namespace</code> and <code>account</code>, matched case-insensitively. <code>namespace</code> scopes the published tables to this namespace; <code>account</code> scopes them to the Amazon Web Services account.</p> <p>Required when enabling. Omitting this parameter or passing a blank value fails with <code>ValidationException</code>. Valid only when <code>logDestinationType</code> is <code>s3table</code>.</p>
+   * @public
+   */
+  s3TableGranularity?: S3TableGranularity | undefined;
 }
 
 /**

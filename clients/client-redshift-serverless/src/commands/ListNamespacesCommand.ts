@@ -61,6 +61,17 @@ export interface ListNamespacesCommandOutput extends ListNamespacesResponse, __M
  * //       adminPasswordSecretKmsKeyId: "STRING_VALUE",
  * //       lakehouseRegistrationStatus: "STRING_VALUE",
  * //       catalogArn: "STRING_VALUE",
+ * //       s3TablePublishStatus: { // S3TablePublishStatus
+ * //         s3Tables: [ // S3TableNameList
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         s3TableNamespace: "STRING_VALUE",
+ * //         s3TableGranularity: "STRING_VALUE",
+ * //         enabledAll: true || false,
+ * //         lastIngestionTimes: { // S3TableLastIngestionTimeMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

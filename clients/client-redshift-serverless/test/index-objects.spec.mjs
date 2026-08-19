@@ -216,6 +216,7 @@ import {
   ListWorkgroupsCommand,
   ListWorkgroupsRequest$,
   ListWorkgroupsResponse$,
+  LogDestinationType,
   LogExport,
   ManagedWorkgroupListItem$,
   ManagedWorkgroupStatus,
@@ -268,6 +269,9 @@ import {
   RestoreTableFromSnapshotCommand,
   RestoreTableFromSnapshotRequest$,
   RestoreTableFromSnapshotResponse$,
+  S3TableAction,
+  S3TableGranularity,
+  S3TablePublishStatus$,
   Schedule$,
   ScheduledActionAssociation$,
   ScheduledActionResponse$,
@@ -598,6 +602,7 @@ assert(typeof RestoreTableFromRecoveryPointRequest$ === "object");
 assert(typeof RestoreTableFromRecoveryPointResponse$ === "object");
 assert(typeof RestoreTableFromSnapshotRequest$ === "object");
 assert(typeof RestoreTableFromSnapshotResponse$ === "object");
+assert(typeof S3TablePublishStatus$ === "object");
 assert(typeof Schedule$ === "object");
 assert(typeof ScheduledActionAssociation$ === "object");
 assert(typeof ScheduledActionResponse$ === "object");
@@ -637,11 +642,14 @@ assert(typeof Workgroup$ === "object");
 // enums
 assert(typeof LakehouseIdcRegistration === "object");
 assert(typeof LakehouseRegistration === "object");
+assert(typeof LogDestinationType === "object");
 assert(typeof LogExport === "object");
 assert(typeof ManagedWorkgroupStatus === "object");
 assert(typeof NamespaceStatus === "object");
 assert(typeof OfferingType === "object");
 assert(typeof PerformanceTargetStatus === "object");
+assert(typeof S3TableAction === "object");
+assert(typeof S3TableGranularity === "object");
 assert(typeof SnapshotStatus === "object");
 assert(typeof State === "object");
 assert(typeof UsageLimitBreachAction === "object");

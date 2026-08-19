@@ -34,6 +34,19 @@ export type LogExport = (typeof LogExport)[keyof typeof LogExport];
  * @public
  * @enum
  */
+export const S3TableGranularity = {
+  ACCOUNT: "account",
+  NAMESPACE: "namespace",
+} as const;
+/**
+ * @public
+ */
+export type S3TableGranularity = (typeof S3TableGranularity)[keyof typeof S3TableGranularity];
+
+/**
+ * @public
+ * @enum
+ */
 export const NamespaceStatus = {
   AVAILABLE: "AVAILABLE",
   DELETING: "DELETING",
@@ -180,3 +193,29 @@ export const ManagedWorkgroupStatus = {
  * @public
  */
 export type ManagedWorkgroupStatus = (typeof ManagedWorkgroupStatus)[keyof typeof ManagedWorkgroupStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const LogDestinationType = {
+  CLOUDWATCH: "cloudwatch",
+  S3TABLE: "s3table",
+} as const;
+/**
+ * @public
+ */
+export type LogDestinationType = (typeof LogDestinationType)[keyof typeof LogDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3TableAction = {
+  DISABLE: "Disable",
+  ENABLE: "Enable",
+} as const;
+/**
+ * @public
+ */
+export type S3TableAction = (typeof S3TableAction)[keyof typeof S3TableAction];

@@ -202,6 +202,7 @@ const _SCCn = "SnapshotCopyConfigurations";
 const _SL = "SnapshotList";
 const _SQEE = "ServiceQuotaExceededException";
 const _ST = "ServerlessTrack";
+const _STPS = "S3TablePublishStatus";
 const _Sc = "Schedule";
 const _T = "Token";
 const _TA = "TargetAction";
@@ -299,6 +300,7 @@ const _dS = "durationSeconds";
 const _dU = "dbUser";
 const _e = "error";
 const _eA = "endpointArn";
+const _eAn = "enabledAll";
 const _eCFAO = "extraComputeForAutomaticOptimization";
 const _eCT = "endpointCreateTime";
 const _eD = "endDate";
@@ -325,9 +327,11 @@ const _jN = "jsonName";
 const _k = "key";
 const _kKI = "kmsKeyId";
 const _l = "level";
+const _lDT = "logDestinationType";
 const _lE = "logExports";
 const _lIAA = "lakehouseIdcApplicationArn";
 const _lIR = "lakehouseIdcRegistration";
+const _lIT = "lastIngestionTimes";
 const _lR = "lakehouseRegistration";
 const _lRS = "lakehouseRegistrationStatus";
 const _m = "message";
@@ -406,7 +410,14 @@ const _sRP = "snapshotRetentionPeriod";
 const _sRST = "snapshotRetentionStartTime";
 const _sSN = "sourceSchemaName";
 const _sT = "startTime";
+const _sTA = "s3TableAction";
+const _sTG = "s3TableGranularity";
+const _sTKKI = "s3TableKmsKeyId";
 const _sTN = "sourceTableName";
+const _sTNa = "s3TableNamespace";
+const _sTNab = "s3TableNames";
+const _sTPS = "s3TablePublishStatus";
+const _sTa = "s3Tables";
 const _sc = "schedule";
 const _se = "server";
 const _sn = "snapshot";
@@ -457,6 +468,7 @@ import { TypeRegistry } from "@smithy/core/schema";
 import type {
   StaticErrorSchema,
   StaticListSchema,
+  StaticMapSchema,
   StaticOperationSchema,
   StaticSimpleSchema,
   StaticStructureSchema,
@@ -1089,8 +1101,8 @@ export var ManagedWorkgroupListItem$: StaticStructureSchema = [3, n0, _MWLI,
 ];
 export var Namespace$: StaticStructureSchema = [3, n0, _N,
   0,
-  [_nA, _nI, _nN, _aU, _dN, _kKI, _dIRA, _iR, _lE, _st, _cD, _aPSA, _aPSKKI, _lRS, _cA],
-  [0, 0, 0, [() => DbUser, 0], 0, 0, 0, 64 | 0, 64 | 0, 0, 5, 0, 0, 0, 0]
+  [_nA, _nI, _nN, _aU, _dN, _kKI, _dIRA, _iR, _lE, _st, _cD, _aPSA, _aPSKKI, _lRS, _cA, _sTPS],
+  [0, 0, 0, [() => DbUser, 0], 0, 0, 0, 64 | 0, 64 | 0, 0, 5, 0, 0, 0, 0, () => S3TablePublishStatus$]
 ];
 export var NetworkInterface$: StaticStructureSchema = [3, n0, _NI,
   0,
@@ -1171,6 +1183,11 @@ export var RestoreTableFromSnapshotResponse$: StaticStructureSchema = [3, n0, _R
   0,
   [_tRS],
   [() => TableRestoreStatus$]
+];
+export var S3TablePublishStatus$: StaticStructureSchema = [3, n0, _STPS,
+  0,
+  [_sTa, _sTNa, _sTG, _eAn, _lIT],
+  [64 | 0, 0, 0, 2, 128 | 0]
 ];
 export var ScheduledActionAssociation$: StaticStructureSchema = [3, n0, _SAA,
   0,
@@ -1259,8 +1276,8 @@ export var UpdateLakehouseConfigurationResponse$: StaticStructureSchema = [3, n0
 ];
 export var UpdateNamespaceRequest$: StaticStructureSchema = [3, n0, _UNR,
   0,
-  [_nN, _aUP, _aU, _kKI, _dIRA, _iR, _lE, _mAP, _aPSKKI],
-  [0, [() => DbPassword, 0], [() => DbUser, 0], 0, 0, 64 | 0, 64 | 0, 2, 0], 1
+  [_nN, _aUP, _aU, _kKI, _dIRA, _iR, _lE, _mAP, _aPSKKI, _lDT, _sTA, _sTNab, _sTKKI, _sTG],
+  [0, [() => DbPassword, 0], [() => DbUser, 0], 0, 0, 64 | 0, 64 | 0, 2, 0, 0, 0, 64 | 0, 0, 0], 1
 ];
 export var UpdateNamespaceResponse$: StaticStructureSchema = [3, n0, _UNRp,
   0,
@@ -1374,6 +1391,7 @@ var ReservationOfferingsList: StaticListSchema = [1, n0, _ROL,
 var ReservationsList: StaticListSchema = [1, n0, _RL,
   0, () => Reservation$
 ];
+var S3TableNameList = 64 | 0;
 var ScheduledActionsList: StaticListSchema = [1, n0, _SAL,
   0, () => ScheduledActionAssociation$
 ];
@@ -1413,6 +1431,7 @@ var WorkgroupList: StaticListSchema = [1, n0, _WL,
   0, () => Workgroup$
 ];
 var WorkgroupNameList = 64 | 0;
+var S3TableLastIngestionTimeMap = 128 | 0;
 export var Schedule$: StaticUnionSchema = [4, n0, _Sc,
   0,
   [_at, _cr],
