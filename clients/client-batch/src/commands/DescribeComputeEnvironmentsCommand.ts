@@ -123,6 +123,9 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //       containerOrchestrationType: "ECS" || "EKS",
  * //       uuid: "STRING_VALUE",
  * //       context: "STRING_VALUE",
+ * //       ecsSettings: { // EcsSettings
+ * //         containerInsights: "ENABLED" || "ENHANCED" || "DISABLED",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

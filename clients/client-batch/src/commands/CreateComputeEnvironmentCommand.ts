@@ -123,6 +123,9 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *     kubernetesNamespace: "STRING_VALUE", // required
  *   },
  *   context: "STRING_VALUE",
+ *   ecsSettings: { // EcsSettings
+ *     containerInsights: "ENABLED" || "ENHANCED" || "DISABLED",
+ *   },
  * };
  * const command = new CreateComputeEnvironmentCommand(input);
  * const response = await client.send(command);

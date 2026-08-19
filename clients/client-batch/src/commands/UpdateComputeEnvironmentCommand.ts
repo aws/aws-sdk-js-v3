@@ -95,6 +95,9 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *     jobExecutionTimeoutMinutes: Number("long"),
  *   },
  *   context: "STRING_VALUE",
+ *   ecsSettings: { // EcsSettings
+ *     containerInsights: "ENABLED" || "ENHANCED" || "DISABLED",
+ *   },
  * };
  * const command = new UpdateComputeEnvironmentCommand(input);
  * const response = await client.send(command);

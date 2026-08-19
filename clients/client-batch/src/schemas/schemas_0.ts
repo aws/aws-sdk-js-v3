@@ -132,7 +132,8 @@ const _EPPD = "EksPodPropertiesDetail";
 const _EPPO = "EksPodPropertiesOverride";
 const _EPVC = "EksPersistentVolumeClaim";
 const _EPk = "EksProperties";
-const _ES = "EksSecret";
+const _ES = "EcsSettings";
+const _ESk = "EksSecret";
 const _ESp = "EphemeralStorage";
 const _ETD = "EcsTaskDetails";
 const _ETP = "EcsTaskProperties";
@@ -365,6 +366,7 @@ const _cEA = "computeEnvironmentArn";
 const _cEN = "computeEnvironmentName";
 const _cEO = "computeEnvironmentOrder";
 const _cEo = "computeEnvironments";
+const _cI = "containerInsights";
 const _cIA = "containerInstanceArn";
 const _cID = "containerID";
 const _cL = "capacityLimits";
@@ -412,7 +414,8 @@ const _ePO = "ecsPropertiesOverride";
 const _ePOk = "eksPropertiesOverride";
 const _ePk = "eksProperties";
 const _eRA = "executionRoleArn";
-const _eS = "ephemeralStorage";
+const _eS = "ecsSettings";
+const _eSp = "ephemeralStorage";
 const _eTAP = "earliestTimeAtPosition";
 const _eVC = "efsVolumeConfiguration";
 const _en = "environment";
@@ -745,8 +748,8 @@ export var CapacityLimit$: StaticStructureSchema = [3, n0, _CL,
 ];
 export var ComputeEnvironmentDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
-  [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _cont],
-  [0, 0, 1, 0, 128 | 0, 0, 0, 0, 0, () => ComputeResource$, 0, () => UpdatePolicy$, () => EksConfiguration$, 0, 0, 0], 2
+  [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _cont, _eS],
+  [0, 0, 1, 0, 128 | 0, 0, 0, 0, 0, () => ComputeResource$, 0, () => UpdatePolicy$, () => EksConfiguration$, 0, 0, 0, () => EcsSettings$], 2
 ];
 export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
   0,
@@ -785,7 +788,7 @@ export var ConsumableResourceSummary$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var ContainerDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _sec, _nC, _fPC, _eS, _rP, _rC, _eEC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _sec, _nC, _fPC, _eSp, _rP, _rC, _eEC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, () => Ulimits, 2, 0, 1, 0, 0, 0, 0, 0, () => NetworkInterfaceList, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$, 2]
 ];
 export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
@@ -795,7 +798,7 @@ export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var ContainerProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _sec, _nC, _fPC, _eEC, _eS, _rP, _rC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _sec, _nC, _fPC, _eEC, _eSp, _rP, _rC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, 2, () => Ulimits, 0, 0, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, 2, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$]
 ];
 export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -805,8 +808,8 @@ export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
 ];
 export var CreateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _CCER,
   0,
-  [_cEN, _ty, _st, _uC, _cR, _sRe, _t, _eCk, _cont],
-  [0, 0, 0, 1, () => ComputeResource$, 0, 128 | 0, () => EksConfiguration$, 0], 2
+  [_cEN, _ty, _st, _uC, _cR, _sRe, _t, _eCk, _cont, _eS],
+  [0, 0, 0, 1, () => ComputeResource$, 0, 128 | 0, () => EksConfiguration$, 0, () => EcsSettings$], 2
 ];
 export var CreateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _CCERr,
   0,
@@ -1048,14 +1051,19 @@ export var EcsPropertiesOverride$: StaticStructureSchema = [3, n0, _EPO,
   [_tP],
   [() => ListTaskPropertiesOverride]
 ];
+export var EcsSettings$: StaticStructureSchema = [3, n0, _ES,
+  0,
+  [_cI],
+  [0]
+];
 export var EcsTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
   0,
-  [_con, _cIA, _tA, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
+  [_con, _cIA, _tA, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
   [() => ListTaskContainerDetails, 0, 0, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2]
 ];
 export var EcsTaskProperties$: StaticStructureSchema = [3, n0, _ETP,
   0,
-  [_con, _eS, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
+  [_con, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
   [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2], 1
 ];
 export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
@@ -1168,7 +1176,7 @@ export var EksPropertiesOverride$: StaticStructureSchema = [3, n0, _EPOk,
   [_pP],
   [() => EksPodPropertiesOverride$]
 ];
-export var EksSecret$: StaticStructureSchema = [3, n0, _ES,
+export var EksSecret$: StaticStructureSchema = [3, n0, _ESk,
   0,
   [_sN, _op],
   [0, 2], 1
@@ -1720,8 +1728,8 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateComputeEnvironmentRequest$: StaticStructureSchema = [3, n0, _UCER,
   0,
-  [_cE, _st, _uC, _cR, _sRe, _uP, _cont],
-  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0], 1
+  [_cE, _st, _uC, _cR, _sRe, _uP, _cont, _eS],
+  [0, 0, 1, () => ComputeResourceUpdate$, 0, () => UpdatePolicy$, 0, () => EcsSettings$], 1
 ];
 export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _UCERp,
   0,

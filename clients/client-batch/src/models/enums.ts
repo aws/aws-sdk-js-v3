@@ -74,6 +74,20 @@ export type CRType = (typeof CRType)[keyof typeof CRType];
  * @public
  * @enum
  */
+export const ContainerInsights = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+  ENHANCED: "ENHANCED",
+} as const;
+/**
+ * @public
+ */
+export type ContainerInsights = (typeof ContainerInsights)[keyof typeof ContainerInsights];
+
+/**
+ * @public
+ * @enum
+ */
 export const CEState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",

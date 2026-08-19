@@ -5,6 +5,7 @@ import type {
   CEState,
   CEStatus,
   CEType,
+  ContainerInsights,
   CRAllocationStrategy,
   CRType,
   CRUpdateAllocationStrategy,
@@ -1066,6 +1067,40 @@ export interface ComputeResource {
 }
 
 /**
+ * <p>The Amazon ECS settings for a compute environment, including the CloudWatch Container Insights
+ *    mode. Use this structure with <code>CreateComputeEnvironment</code> and
+ *    <code>UpdateComputeEnvironment</code>.</p>
+ * @public
+ */
+export interface EcsSettings {
+  /**
+   * <p>Specifies the CloudWatch Container Insights mode for the compute environment. Valid values
+   *    are:</p>
+   *          <dl>
+   *             <dt>ENABLED</dt>
+   *             <dd>
+   *                <p>Turns on standard Container Insights, which collects CPU, memory, disk, and network
+   *       utilization metrics for the compute environment.</p>
+   *             </dd>
+   *             <dt>ENHANCED</dt>
+   *             <dd>
+   *                <p>Turns on enhanced Container Insights, which collects the standard metrics along with
+   *       additional per-task observability metrics.</p>
+   *             </dd>
+   *             <dt>DISABLED</dt>
+   *             <dd>
+   *                <p>Turns off Container Insights for the compute environment.</p>
+   *             </dd>
+   *          </dl>
+   *          <p>If you don't specify a value, the default is <code>DISABLED</code>. For more information,
+   *    see <a href="https://docs.aws.amazon.com/batch/latest/userguide/cloudwatch-container-insights.html">Container Insights</a> in the
+   *    <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  containerInsights?: ContainerInsights | undefined;
+}
+
+/**
  * <p>Configuration for the Amazon EKS cluster that supports the Batch compute environment. The
  *    cluster must exist before the compute environment can be created.</p>
  * @public
@@ -1211,6 +1246,13 @@ export interface CreateComputeEnvironmentRequest {
    * @public
    */
   context?: string | undefined;
+
+  /**
+   * <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch
+   *       Container Insights collection for the compute environment.</p>
+   * @public
+   */
+  ecsSettings?: EcsSettings | undefined;
 }
 
 /**
@@ -2141,6 +2183,13 @@ export interface ComputeEnvironmentDetail {
    * @public
    */
   context?: string | undefined;
+
+  /**
+   * <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch
+   *    Container Insights collection.</p>
+   * @public
+   */
+  ecsSettings?: EcsSettings | undefined;
 }
 
 /**
@@ -9729,6 +9778,13 @@ export interface UpdateComputeEnvironmentRequest {
    * @public
    */
   context?: string | undefined;
+
+  /**
+   * <p>The Amazon ECS settings for the compute environment. These settings control CloudWatch
+   *       Container Insights collection for the compute environment.</p>
+   * @public
+   */
+  ecsSettings?: EcsSettings | undefined;
 }
 
 /**

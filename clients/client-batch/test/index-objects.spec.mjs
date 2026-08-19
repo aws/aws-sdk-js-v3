@@ -30,6 +30,7 @@ import {
   ConsumableResourceRequirement$,
   ConsumableResourceSummary$,
   ContainerDetail$,
+  ContainerInsights,
   ContainerOverrides$,
   ContainerProperties$,
   ContainerSummary$,
@@ -130,6 +131,7 @@ import {
   EcsProperties$,
   EcsPropertiesDetail$,
   EcsPropertiesOverride$,
+  EcsSettings$,
   EcsTaskDetails$,
   EcsTaskProperties$,
   EFSAuthorizationConfig$,
@@ -532,6 +534,7 @@ assert(typeof Ec2Configuration$ === "object");
 assert(typeof EcsProperties$ === "object");
 assert(typeof EcsPropertiesDetail$ === "object");
 assert(typeof EcsPropertiesOverride$ === "object");
+assert(typeof EcsSettings$ === "object");
 assert(typeof EcsTaskDetails$ === "object");
 assert(typeof EcsTaskProperties$ === "object");
 assert(typeof EFSAuthorizationConfig$ === "object");
@@ -688,6 +691,7 @@ assert(typeof AssignPublicIp === "object");
 assert(typeof CEState === "object");
 assert(typeof CEStatus === "object");
 assert(typeof CEType === "object");
+assert(typeof ContainerInsights === "object");
 assert(typeof CRAllocationStrategy === "object");
 assert(typeof CRType === "object");
 assert(typeof CRUpdateAllocationStrategy === "object");
