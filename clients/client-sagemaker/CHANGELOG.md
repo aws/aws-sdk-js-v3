@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+
+### Features
+
+* **client-sagemaker:** Added IAM Identity Center (IdC) support to CreatePartnerApp and UpdatePartnerApp APIs. Added Customer Managed Key (CMK) support to CreateMlflowApp and DescribeMlflowApp. ([5548588](https://github.com/aws/aws-sdk-js-v3/commit/5548588739d30ba5b7ebf1c6a88fa5749adb15b0))
+
+
+
+
+
 # [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+
+### Features
+
+* **client-sesv2:** Amazon SES now supports per-message tracking overrides. You can use the new ConfigurationOverrides parameter in SendEmail and SendBulkEmail to enable or disable open and click tracking for individual messages without changing your account-level or configuration set settings. ([da56caa](https://github.com/aws/aws-sdk-js-v3/commit/da56caa551406c67f4add96bcb7a98ac9ad9ec5d))
+
+
+
+
+
 # [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2

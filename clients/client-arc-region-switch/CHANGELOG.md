@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+
+### Features
+
+* **client-arc-region-switch:** Adds support for Rds switchover read replica for Oracle databases in Region switch plans ([85ffb20](https://github.com/aws/aws-sdk-js-v3/commit/85ffb20a7857736b13916df32017903c6fd0b3e0))
+
+
+
+
+
 # [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-arc-region-switch

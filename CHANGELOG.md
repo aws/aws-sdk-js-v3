@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+
+### Features
+
+* **client-amplify:** Increased the maximum allowed length from 255 to 4,096 characters to support longer access tokens. ([f7f8ecd](https://github.com/aws/aws-sdk-js-v3/commit/f7f8ecd1b8b45ba69bb48d1ac61a5bafc2a2d672))
+* **client-arc-region-switch:** Adds support for Rds switchover read replica for Oracle databases in Region switch plans ([85ffb20](https://github.com/aws/aws-sdk-js-v3/commit/85ffb20a7857736b13916df32017903c6fd0b3e0))
+* **client-batch:** AWS Batch now supports a new compute environment type that provides fully managed EC2 capacity with broader compute flexibility than Fargate, including GPU instances, bare metal, and specific instance type selection, without infrastructure management overhead. ([9c559a7](https://github.com/aws/aws-sdk-js-v3/commit/9c559a7366166cbe4e81c2752eb1c26696a884a9))
+* **client-cloudfront:** Added SigV4a as a supported signing protocol for Origin Access Control (OAC), enabling CloudFront to sign requests to Amazon S3 Multi-Region Access Point (S3-MRAP) origins. ([9547629](https://github.com/aws/aws-sdk-js-v3/commit/95476293d5fa70f266cb4aa4c54ecebce9c771ce))
+* **client-direct-connect:** This release adds custom route prefix pool allocations for Direct Connect. You can set IPv4 and IPv6 route prefix counts on private and transit virtual interfaces, and view pool size and unallocated counts on connections and LAGs, plus direct connect gateway attachment prefix allocation totals. ([a94fb97](https://github.com/aws/aws-sdk-js-v3/commit/a94fb9783b97be5c59ef543ea7448d0e09f6f048))
+* **client-ec2:** EC2 marks UEFI instance metadata field as sensitive. ([c232746](https://github.com/aws/aws-sdk-js-v3/commit/c232746ad78da7961a997005c6102943c392c30c))
+* **client-lambda:** Adds support for full JSON resource-based policies, enabling customers to create, retrieve, update, and delete function resource policies as complete JSON documents. ([72573a2](https://github.com/aws/aws-sdk-js-v3/commit/72573a2ad860a406a0fe742dfd40b50458b6153d))
+* **client-sagemaker:** Added IAM Identity Center (IdC) support to CreatePartnerApp and UpdatePartnerApp APIs. Added Customer Managed Key (CMK) support to CreateMlflowApp and DescribeMlflowApp. ([5548588](https://github.com/aws/aws-sdk-js-v3/commit/5548588739d30ba5b7ebf1c6a88fa5749adb15b0))
+* **client-sesv2:** Amazon SES now supports per-message tracking overrides. You can use the new ConfigurationOverrides parameter in SendEmail and SendBulkEmail to enable or disable open and click tracking for individual messages without changing your account-level or configuration set settings. ([da56caa](https://github.com/aws/aws-sdk-js-v3/commit/da56caa551406c67f4add96bcb7a98ac9ad9ec5d))
+
+
+
+
+
 # [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
 
 

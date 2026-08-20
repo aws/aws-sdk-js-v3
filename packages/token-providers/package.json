@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.1114.0",
+  "version": "3.1115.0",
   "description": "A collection of token providers",
   "keywords": [
     "aws",

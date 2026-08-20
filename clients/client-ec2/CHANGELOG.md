@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
+
+
+### Features
+
+* **client-ec2:** EC2 marks UEFI instance metadata field as sensitive. ([c232746](https://github.com/aws/aws-sdk-js-v3/commit/c232746ad78da7961a997005c6102943c392c30c))
+
+
+
+
+
 # [3.1114.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1113.0...v3.1114.0) (2026-08-19)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2
