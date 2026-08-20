@@ -2352,6 +2352,8 @@ export type {
   HyperParameterTuningResourceConfig,
   IamIdentity,
   IamPolicyConstraints,
+  IdcConfigInput,
+  IdcConfigOutput,
   IdentityProviderOAuthSetting,
   IdleSettings,
   Image,

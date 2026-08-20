@@ -784,6 +784,18 @@ export interface PartnerAppConfig {
 }
 
 /**
+ * <p>Specifies the Amazon Web Services IAM Identity Center configuration to use for a SageMaker Partner AI App that uses <code>IDC</code> authorization.</p>
+ * @public
+ */
+export interface IdcConfigInput {
+  /**
+   * <p>The ARN of the Amazon Web Services IAM Identity Center instance that the SageMaker Partner AI App uses to authenticate users.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+}
+
+/**
  * <p>Maintenance configuration settings for the SageMaker Partner AI App.</p>
  * @public
  */
@@ -842,7 +854,13 @@ export interface CreatePartnerAppRequest {
   ApplicationConfig?: PartnerAppConfig | undefined;
 
   /**
-   * <p>The authorization type that users use to access the SageMaker Partner AI App.</p>
+   * <p>Specifies the Amazon Web Services IAM Identity Center configuration for the SageMaker Partner AI App. Specify this parameter when <code>AuthType</code> is <code>IDC</code>. Apps that use <code>IAM</code> authorization don't use this parameter.</p>
+   * @public
+   */
+  IdcConfig?: IdcConfigInput | undefined;
+
+  /**
+   * <p>The authorization type that users use to access the SageMaker Partner AI App. Valid values:</p> <ul> <li> <p> <code>IAM</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM identity.</p> </li> <li> <p> <code>IDC</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM Identity Center identity. Specify the Identity Center instance to use in <code>IdcConfig</code>.</p> </li> </ul>
    * @public
    */
   AuthType: PartnerAppAuthType | undefined;
@@ -8292,15 +8310,4 @@ export interface DescribeHumanTaskUiResponse {
    * @public
    */
   UiTemplate: UiTemplateInfo | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeHyperParameterTuningJobRequest {
-  /**
-   * <p>The name of the tuning job.</p>
-   * @public
-   */
-  HyperParameterTuningJobName: string | undefined;
 }

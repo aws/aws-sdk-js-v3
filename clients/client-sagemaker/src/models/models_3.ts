@@ -42,7 +42,6 @@ import type {
   HubSortBy,
   HubStatus,
   HyperParameterTuningJobObjectiveType,
-  HyperParameterTuningJobSortByOptions,
   HyperParameterTuningJobStatus,
   HyperParameterTuningJobStrategyType,
   ImageStatus,
@@ -293,6 +292,17 @@ import type {
   TrialComponentStatus,
   WorkerAccessConfiguration,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DescribeHyperParameterTuningJobRequest {
+  /**
+   * <p>The name of the tuning job.</p>
+   * @public
+   */
+  HyperParameterTuningJobName: string | undefined;
+}
 
 /**
  * <p>Shows the latest objective metric emitted by a training job that was launched by a hyperparameter tuning job. You define the objective metric in the <code>HyperParameterTuningJobObjective</code> parameter of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_HyperParameterTuningJobConfig.html">HyperParameterTuningJobConfig</a>.</p>
@@ -2037,6 +2047,12 @@ export interface DescribeMlflowAppResponse {
   RoleArn?: string | undefined;
 
   /**
+   * <p>The ID of the Amazon Web Services KMS key used to encrypt the data at rest associated with the MLflow App. This field is absent if the MLflow App is not encrypted with a customer-managed key.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
    * <p>The current creation status of the described MLflow App.</p>
    * @public
    */
@@ -3565,6 +3581,24 @@ export interface ErrorInfo {
 }
 
 /**
+ * <p>Contains the Amazon Web Services IAM Identity Center configuration of a SageMaker Partner AI App that uses <code>IDC</code> authorization.</p>
+ * @public
+ */
+export interface IdcConfigOutput {
+  /**
+   * <p>The ARN of the Amazon Web Services IAM Identity Center instance that the SageMaker Partner AI App uses to authenticate users.</p>
+   * @public
+   */
+  InstanceArn: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon Web Services IAM Identity Center application that SageMaker creates for the SageMaker Partner AI App.</p>
+   * @public
+   */
+  ApplicationArn?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface DescribePartnerAppResponse {
@@ -3647,7 +3681,7 @@ export interface DescribePartnerAppResponse {
   ApplicationConfig?: PartnerAppConfig | undefined;
 
   /**
-   * <p>The authorization type that users use to access the SageMaker Partner AI App.</p>
+   * <p>The authorization type that users use to access the SageMaker Partner AI App. Valid values:</p> <ul> <li> <p> <code>IAM</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM identity.</p> </li> <li> <p> <code>IDC</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM Identity Center identity.</p> </li> </ul>
    * @public
    */
   AuthType?: PartnerAppAuthType | undefined;
@@ -3681,6 +3715,12 @@ export interface DescribePartnerAppResponse {
    * @public
    */
   AvailableUpgrade?: AvailableUpgrade | undefined;
+
+  /**
+   * <p>Contains the Amazon Web Services IAM Identity Center configuration for the SageMaker Partner AI App, including the Identity Center instance and the Identity Center application that SageMaker creates for the app. The service returns this field for apps that use <code>IDC</code> authorization.</p>
+   * @public
+   */
+  IdcConfig?: IdcConfigOutput | undefined;
 }
 
 /**
@@ -11750,86 +11790,4 @@ export interface ListHumanTaskUisRequest {
    * @public
    */
   MaxResults?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHumanTaskUisResponse {
-  /**
-   * <p>An array of objects describing the human task user interfaces.</p>
-   * @public
-   */
-  HumanTaskUiSummaries: HumanTaskUiSummary[] | undefined;
-
-  /**
-   * <p>A token to resume pagination.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListHyperParameterTuningJobsRequest {
-  /**
-   * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of tuning jobs to return. The default value is 10.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   * @public
-   */
-  SortBy?: HyperParameterTuningJobSortByOptions | undefined;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   * @public
-   */
-  SortOrder?: SortOrder | undefined;
-
-  /**
-   * <p>A string in the tuning job name. This filter returns only tuning jobs whose name contains the specified string.</p>
-   * @public
-   */
-  NameContains?: string | undefined;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were created after the specified time.</p>
-   * @public
-   */
-  CreationTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were created before the specified time.</p>
-   * @public
-   */
-  CreationTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were modified after the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeAfter?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only tuning jobs that were modified before the specified time.</p>
-   * @public
-   */
-  LastModifiedTimeBefore?: Date | undefined;
-
-  /**
-   * <p>A filter that returns only tuning jobs with the specified status.</p>
-   * @public
-   */
-  StatusEquals?: HyperParameterTuningJobStatus | undefined;
 }

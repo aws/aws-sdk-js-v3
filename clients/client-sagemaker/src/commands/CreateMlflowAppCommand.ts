@@ -36,6 +36,7 @@ export interface CreateMlflowAppCommandOutput extends CreateMlflowAppResponse, _
  *   Name: "STRING_VALUE", // required
  *   ArtifactStoreUri: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE", // required
+ *   KmsKeyId: "STRING_VALUE",
  *   ModelRegistrationMode: "AutoModelRegistrationEnabled" || "AutoModelRegistrationDisabled",
  *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
  *   AccountDefaultStatus: "ENABLED" || "DISABLED",

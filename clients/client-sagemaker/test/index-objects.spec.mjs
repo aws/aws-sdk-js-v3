@@ -1382,6 +1382,8 @@ import {
   HyperParameterTuningResourceConfig$,
   IamIdentity$,
   IamPolicyConstraints$,
+  IdcConfigInput$,
+  IdcConfigOutput$,
   IdentityProviderOAuthSetting$,
   IdleResourceSharing,
   IdleSettings$,
@@ -4429,6 +4431,8 @@ assert(typeof HyperParameterTuningJobWarmStartConfig$ === "object");
 assert(typeof HyperParameterTuningResourceConfig$ === "object");
 assert(typeof IamIdentity$ === "object");
 assert(typeof IamPolicyConstraints$ === "object");
+assert(typeof IdcConfigInput$ === "object");
+assert(typeof IdcConfigOutput$ === "object");
 assert(typeof IdentityProviderOAuthSetting$ === "object");
 assert(typeof IdleSettings$ === "object");
 assert(typeof Image$ === "object");

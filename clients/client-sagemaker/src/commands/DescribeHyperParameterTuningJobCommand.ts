@@ -2,8 +2,10 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeHyperParameterTuningJobRequest } from "../models/models_2";
-import type { DescribeHyperParameterTuningJobResponse } from "../models/models_3";
+import type {
+  DescribeHyperParameterTuningJobRequest,
+  DescribeHyperParameterTuningJobResponse,
+} from "../models/models_3";
 import { DescribeHyperParameterTuningJob$ } from "../schemas/schemas_0";
 
 /**

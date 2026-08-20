@@ -18,6 +18,8 @@ import type {
   HomeEfsFileSystemCreation,
   HubContentSupportStatus,
   HubContentType,
+  HyperParameterTuningJobSortByOptions,
+  HyperParameterTuningJobStatus,
   ImageSortBy,
   ImageSortOrder,
   ImageVersionSortBy,
@@ -54,7 +56,6 @@ import type {
   ModelPackageSortBy,
   ModelPackageStatus,
   ModelPackageType,
-  ModelRegistrationMode,
   ModelSortKey,
   ModelVariantAction,
   MonitoringAlertHistorySortKey,
@@ -237,6 +238,7 @@ import type {
   FeatureMetadata,
   Filter,
   GitConfigForUpdate,
+  HumanTaskUiSummary,
   HyperParameterTrainingJobSummary,
   HyperParameterTuningJobSearchEntity,
   HyperParameterTuningJobSummary,
@@ -275,6 +277,88 @@ import type {
   Workforce,
   Workteam,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListHumanTaskUisResponse {
+  /**
+   * <p>An array of objects describing the human task user interfaces.</p>
+   * @public
+   */
+  HumanTaskUiSummaries: HumanTaskUiSummary[] | undefined;
+
+  /**
+   * <p>A token to resume pagination.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListHyperParameterTuningJobsRequest {
+  /**
+   * <p>If the result of the previous <code>ListHyperParameterTuningJobs</code> request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of tuning jobs, use the token in the next request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of tuning jobs to return. The default value is 10.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   * @public
+   */
+  SortBy?: HyperParameterTuningJobSortByOptions | undefined;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
+
+  /**
+   * <p>A string in the tuning job name. This filter returns only tuning jobs whose name contains the specified string.</p>
+   * @public
+   */
+  NameContains?: string | undefined;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were created after the specified time.</p>
+   * @public
+   */
+  CreationTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were created before the specified time.</p>
+   * @public
+   */
+  CreationTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were modified after the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeAfter?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only tuning jobs that were modified before the specified time.</p>
+   * @public
+   */
+  LastModifiedTimeBefore?: Date | undefined;
+
+  /**
+   * <p>A filter that returns only tuning jobs with the specified status.</p>
+   * @public
+   */
+  StatusEquals?: HyperParameterTuningJobStatus | undefined;
+}
 
 /**
  * @public
@@ -10408,62 +10492,4 @@ export interface UpdateInferenceExperimentResponse {
    * @public
    */
   InferenceExperimentArn: string | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMlflowAppRequest {
-  /**
-   * <p>The ARN of the MLflow App to update.</p>
-   * @public
-   */
-  Arn: string | undefined;
-
-  /**
-   * <p>The name of the MLflow App to update.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The new S3 URI for the general purpose bucket to use as the artifact store for the MLflow App.</p>
-   * @public
-   */
-  ArtifactStoreUri?: string | undefined;
-
-  /**
-   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>AutoModelRegistrationEnabled</code>. To disable automatic model registration, set this value to <code>AutoModelRegistrationDisabled</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>AutoModelRegistrationEnabled</code> </p>
-   * @public
-   */
-  ModelRegistrationMode?: ModelRegistrationMode | undefined;
-
-  /**
-   * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
-   * @public
-   */
-  WeeklyMaintenanceWindowStart?: string | undefined;
-
-  /**
-   * <p>List of SageMaker Domain IDs for which this MLflow App is the default.</p>
-   * @public
-   */
-  DefaultDomainIdList?: string[] | undefined;
-
-  /**
-   * <p>Indicates whether this this MLflow App is the default for the account.</p>
-   * @public
-   */
-  AccountDefaultStatus?: AccountDefaultStatus | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateMlflowAppResponse {
-  /**
-   * <p>The ARN of the updated MLflow App.</p>
-   * @public
-   */
-  Arn?: string | undefined;
 }

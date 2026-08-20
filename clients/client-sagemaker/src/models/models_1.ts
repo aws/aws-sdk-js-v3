@@ -6911,6 +6911,12 @@ export interface CreateMlflowAppRequest {
   RoleArn: string | undefined;
 
   /**
+   * <p>The ID of the Amazon Web Services KMS key used to encrypt the data at rest associated with the MLflow App. If you don't specify a value, the MLflow App is not encrypted with a customer-managed key.</p>
+   * @public
+   */
+  KmsKeyId?: string | undefined;
+
+  /**
    * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>AutoModelRegistrationEnabled</code>. To disable automatic model registration, set this value to <code>AutoModelRegistrationDisabled</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>AutoModelRegistrationDisabled</code>.</p>
    * @public
    */

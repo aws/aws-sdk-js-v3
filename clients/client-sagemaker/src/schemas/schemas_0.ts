@@ -6,6 +6,7 @@ const _AAc = "ActionArns";
 const _AAd = "AddAssociation";
 const _AAl = "AlgorithmArn";
 const _AAp = "AppArn";
+const _AApp = "ApplicationArn";
 const _AAr = "ArtifactArn";
 const _AArt = "ArtifactArns";
 const _ABL = "AbsoluteBorrowLimits";
@@ -1723,6 +1724,7 @@ const _IAU = "IncludeAvailableUpgrade";
 const _IAV = "InferenceAmiVersion";
 const _IAm = "ImageArn";
 const _IAn = "InputArtifacts";
+const _IAns = "InstanceArn";
 const _IAs = "IsActive";
 const _IB = "InferenceBenchmark";
 const _IC = "InferenceComponents";
@@ -1737,9 +1739,11 @@ const _ICD = "InferenceContainerDefinitions";
 const _ICDC = "InferenceComponentDeploymentConfig";
 const _ICDCC = "InferenceComponentDataCacheConfig";
 const _ICDCCS = "InferenceComponentDataCacheConfigSummary";
+const _ICI = "IdcConfigInput";
 const _ICJC = "ImageClassificationJobConfig";
 const _ICM = "InferenceComponentMetadata";
 const _ICN = "InferenceComponentName";
+const _ICO = "IdcConfigOutput";
 const _ICPS = "InferenceComponentPlacementStatus";
 const _ICPSL = "InferenceComponentPlacementStatusList";
 const _ICRC = "InferenceComponentRuntimeConfig";
@@ -1754,6 +1758,7 @@ const _ICSS = "InferenceComponentSpecificationSummary";
 const _ICSSL = "InferenceComponentSpecificationSummaryList";
 const _ICSn = "InferenceComponentSpecification";
 const _ICSnf = "InferenceComponentSummary";
+const _ICd = "IdcConfig";
 const _ICm = "ImageConfig";
 const _ICn = "InstanceCount";
 const _ICnf = "InferenceContainers";
@@ -5285,8 +5290,8 @@ export var CreateLabelingJobResponse$: StaticStructureSchema = [3, n0, _CLJRr,
 ];
 export var CreateMlflowAppRequest$: StaticStructureSchema = [3, n0, _CMAR,
   0,
-  [_N, _ASU, _RAo, _MRM, _WMWS, _ADS, _DDIL, _Ta],
-  [0, 0, 0, 0, 0, 0, 64 | 0, () => TagList], 3
+  [_N, _ASU, _RAo, _KKI, _MRM, _WMWS, _ADS, _DDIL, _Ta],
+  [0, 0, 0, 0, 0, 0, 0, 64 | 0, () => TagList], 3
 ];
 export var CreateMlflowAppResponse$: StaticStructureSchema = [3, n0, _CMARr,
   0,
@@ -5435,8 +5440,8 @@ export var CreatePartnerAppPresignedUrlResponse$: StaticStructureSchema = [3, n0
 ];
 export var CreatePartnerAppRequest$: StaticStructureSchema = [3, n0, _CPAR,
   0,
-  [_N, _T, _ERA, _Ti, _ATu, _KKI, _MCai, _ACp, _EISBI, _EAMVU, _CTl, _Ta],
-  [0, 0, 0, 0, 0, 0, () => PartnerAppMaintenanceConfig$, () => PartnerAppConfig$, 2, 2, [0, 4], () => TagList], 5
+  [_N, _T, _ERA, _Ti, _ATu, _KKI, _MCai, _ACp, _ICd, _EISBI, _EAMVU, _CTl, _Ta],
+  [0, 0, 0, 0, 0, 0, () => PartnerAppMaintenanceConfig$, () => PartnerAppConfig$, () => IdcConfigInput$, 2, 2, [0, 4], () => TagList], 5
 ];
 export var CreatePartnerAppResponse$: StaticStructureSchema = [3, n0, _CPARr,
   0,
@@ -6620,8 +6625,8 @@ export var DescribeMlflowAppRequest$: StaticStructureSchema = [3, n0, _DMARes,
 ];
 export var DescribeMlflowAppResponse$: StaticStructureSchema = [3, n0, _DMAResc,
   0,
-  [_Ar, _N, _ASU, _MVl, _RAo, _St, _MRM, _ADS, _DDIL, _CT, _CB, _LMT, _LMB, _WMWS, _MSa],
-  [0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 4, () => UserContext$, 4, () => UserContext$, 0, 0]
+  [_Ar, _N, _ASU, _MVl, _RAo, _KKI, _St, _MRM, _ADS, _DDIL, _CT, _CB, _LMT, _LMB, _WMWS, _MSa],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 64 | 0, 4, () => UserContext$, 4, () => UserContext$, 0, 0]
 ];
 export var DescribeMlflowTrackingServerRequest$: StaticStructureSchema = [3, n0, _DMTSRes,
   0,
@@ -6760,8 +6765,8 @@ export var DescribePartnerAppRequest$: StaticStructureSchema = [3, n0, _DPARes,
 ];
 export var DescribePartnerAppResponse$: StaticStructureSchema = [3, n0, _DPAResc,
   0,
-  [_Ar, _N, _T, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCai, _Ti, _V, _ACp, _ATu, _EISBI, _Er, _EAMVU, _CVED, _AUv],
-  [0, 0, 0, 0, 4, 4, 0, 0, 0, () => PartnerAppMaintenanceConfig$, 0, 0, () => PartnerAppConfig$, 0, 2, () => ErrorInfo$, 2, 4, () => AvailableUpgrade$]
+  [_Ar, _N, _T, _St, _CT, _LMT, _ERA, _KKI, _BU, _MCai, _Ti, _V, _ACp, _ATu, _EISBI, _Er, _EAMVU, _CVED, _AUv, _ICd],
+  [0, 0, 0, 0, 4, 4, 0, 0, 0, () => PartnerAppMaintenanceConfig$, 0, 0, () => PartnerAppConfig$, 0, 2, () => ErrorInfo$, 2, 4, () => AvailableUpgrade$, () => IdcConfigOutput$]
 ];
 export var DescribePipelineDefinitionForExecutionRequest$: StaticStructureSchema = [3, n0, _DPDFER,
   0,
@@ -7602,6 +7607,16 @@ export var IamPolicyConstraints$: StaticStructureSchema = [3, n0, _IPC,
   0,
   [_SIou, _VSI],
   [0, 0]
+];
+export var IdcConfigInput$: StaticStructureSchema = [3, n0, _ICI,
+  0,
+  [_IAns],
+  [0], 1
+];
+export var IdcConfigOutput$: StaticStructureSchema = [3, n0, _ICO,
+  0,
+  [_IAns, _AApp],
+  [0, 0], 1
 ];
 export var IdentityProviderOAuthSetting$: StaticStructureSchema = [3, n0, _IPOASd,
   0,
@@ -11215,8 +11230,8 @@ export var UpdateNotebookInstanceOutput$: StaticStructureSchema = [3, n0, _UNIO,
 ];
 export var UpdatePartnerAppRequest$: StaticStructureSchema = [3, n0, _UPAR,
   0,
-  [_Ar, _MCai, _Ti, _ACp, _EISBI, _EAMVU, _AVp, _CTl, _Ta],
-  [0, () => PartnerAppMaintenanceConfig$, 0, () => PartnerAppConfig$, 2, 2, 0, [0, 4], () => TagList], 1
+  [_Ar, _MCai, _Ti, _ACp, _ICd, _ATu, _EISBI, _EAMVU, _AVp, _CTl, _Ta],
+  [0, () => PartnerAppMaintenanceConfig$, 0, () => PartnerAppConfig$, () => IdcConfigInput$, 0, 2, 2, 0, [0, 4], () => TagList], 1
 ];
 export var UpdatePartnerAppResponse$: StaticStructureSchema = [3, n0, _UPARp,
   0,

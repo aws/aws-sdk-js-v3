@@ -100,6 +100,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__",
       "__member__"
     ]
+  },
+  "IdcConfig": {
+    "InstanceArn": "__InstanceArn__",
+    "ApplicationArn": "__ApplicationArn__"
   }
 }
 
@@ -178,6 +182,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "__member__",
       "__member__"
     ]
+  },
+  IdcConfig: {
+    InstanceArn: "__InstanceArn__",
+    ApplicationArn: "__ApplicationArn__"
   },
   $metadata: {
     httpStatusCode: (number) 200,

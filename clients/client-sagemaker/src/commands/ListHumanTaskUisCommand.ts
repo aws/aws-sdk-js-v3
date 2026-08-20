@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_3";
+import type { ListHumanTaskUisRequest } from "../models/models_3";
+import type { ListHumanTaskUisResponse } from "../models/models_4";
 import { ListHumanTaskUis$ } from "../schemas/schemas_0";
 
 /**

@@ -60,7 +60,10 @@ export interface CreatePartnerAppCommandOutput extends CreatePartnerAppResponse,
  *       },
  *     ],
  *   },
- *   AuthType: "IAM", // required
+ *   IdcConfig: { // IdcConfigInput
+ *     InstanceArn: "STRING_VALUE", // required
+ *   },
+ *   AuthType: "IAM" || "IDC", // required
  *   EnableIamSessionBasedIdentity: true || false,
  *   EnableAutoMinorVersionUpgrade: true || false,
  *   ClientToken: "STRING_VALUE",

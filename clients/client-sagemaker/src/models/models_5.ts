@@ -1,13 +1,16 @@
 // smithy-typescript generated code
 import type {
   _InstanceType,
+  AccountDefaultStatus,
   BooleanOperator,
   CrossAccountFilterOption,
   IPAddressType,
   ModelApprovalStatus,
   ModelCardStatus,
   ModelPackageRegistrationType,
+  ModelRegistrationMode,
   NotebookInstanceAcceleratorType,
+  PartnerAppAuthType,
   ResourceType,
   RootAccess,
   SearchSortOrder,
@@ -28,6 +31,7 @@ import type {
   UserSettings,
 } from "./models_1";
 import type {
+  IdcConfigInput,
   MemberDefinition,
   NotebookInstanceLifecycleHook,
   NotificationConfiguration,
@@ -54,6 +58,64 @@ import type {
   ResourceConfigForUpdate,
   VisibilityConditions,
 } from "./models_4";
+
+/**
+ * @public
+ */
+export interface UpdateMlflowAppRequest {
+  /**
+   * <p>The ARN of the MLflow App to update.</p>
+   * @public
+   */
+  Arn: string | undefined;
+
+  /**
+   * <p>The name of the MLflow App to update.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The new S3 URI for the general purpose bucket to use as the artifact store for the MLflow App.</p>
+   * @public
+   */
+  ArtifactStoreUri?: string | undefined;
+
+  /**
+   * <p>Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. To enable automatic model registration, set this value to <code>AutoModelRegistrationEnabled</code>. To disable automatic model registration, set this value to <code>AutoModelRegistrationDisabled</code>. If not specified, <code>AutomaticModelRegistration</code> defaults to <code>AutoModelRegistrationEnabled</code> </p>
+   * @public
+   */
+  ModelRegistrationMode?: ModelRegistrationMode | undefined;
+
+  /**
+   * <p>The new weekly maintenance window start day and time to update. The maintenance window day and time should be in Coordinated Universal Time (UTC) 24-hour standard time. For example: TUE:03:30.</p>
+   * @public
+   */
+  WeeklyMaintenanceWindowStart?: string | undefined;
+
+  /**
+   * <p>List of SageMaker Domain IDs for which this MLflow App is the default.</p>
+   * @public
+   */
+  DefaultDomainIdList?: string[] | undefined;
+
+  /**
+   * <p>Indicates whether this this MLflow App is the default for the account.</p>
+   * @public
+   */
+  AccountDefaultStatus?: AccountDefaultStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateMlflowAppResponse {
+  /**
+   * <p>The ARN of the updated MLflow App.</p>
+   * @public
+   */
+  Arn?: string | undefined;
+}
 
 /**
  * @public
@@ -470,6 +532,18 @@ export interface UpdatePartnerAppRequest {
    * @public
    */
   ApplicationConfig?: PartnerAppConfig | undefined;
+
+  /**
+   * <p>Specifies the Amazon Web Services IAM Identity Center configuration for the SageMaker Partner AI App. Specify this parameter when <code>AuthType</code> is <code>IDC</code>. Apps that use <code>IAM</code> authorization don't use this parameter.</p>
+   * @public
+   */
+  IdcConfig?: IdcConfigInput | undefined;
+
+  /**
+   * <p>The authorization type that users use to access the SageMaker Partner AI App. Use this parameter to migrate an existing SageMaker Partner AI App from <code>IAM</code> authorization to <code>IDC</code> authorization. Valid values:</p> <ul> <li> <p> <code>IAM</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM identity.</p> </li> <li> <p> <code>IDC</code>: Users access the SageMaker Partner AI App with their Amazon Web Services IAM Identity Center identity. Specify the Identity Center instance to use in <code>IdcConfig</code>.</p> </li> </ul>
+   * @public
+   */
+  AuthType?: PartnerAppAuthType | undefined;
 
   /**
    * <p>When set to <code>TRUE</code>, the SageMaker Partner AI App sets the Amazon Web Services IAM session name or the authenticated IAM user as the identity of the SageMaker Partner AI App user.</p>

@@ -43,6 +43,7 @@ export interface DescribeMlflowAppCommandOutput extends DescribeMlflowAppRespons
  * //   ArtifactStoreUri: "STRING_VALUE",
  * //   MlflowVersion: "STRING_VALUE",
  * //   RoleArn: "STRING_VALUE",
+ * //   KmsKeyId: "STRING_VALUE",
  * //   Status: "Creating" || "Created" || "CreateFailed" || "Updating" || "Updated" || "UpdateFailed" || "Deleting" || "DeleteFailed" || "Deleted",
  * //   ModelRegistrationMode: "AutoModelRegistrationEnabled" || "AutoModelRegistrationDisabled",
  * //   AccountDefaultStatus: "ENABLED" || "DISABLED",

@@ -72,7 +72,7 @@ export interface DescribePartnerAppCommandOutput extends DescribePartnerAppRespo
  * //       },
  * //     ],
  * //   },
- * //   AuthType: "IAM",
+ * //   AuthType: "IAM" || "IDC",
  * //   EnableIamSessionBasedIdentity: true || false,
  * //   Error: { // ErrorInfo
  * //     Code: "STRING_VALUE",
@@ -85,6 +85,10 @@ export interface DescribePartnerAppCommandOutput extends DescribePartnerAppRespo
  * //     ReleaseNotes: [ // ReleaseNotesList
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   IdcConfig: { // IdcConfigOutput
+ * //     InstanceArn: "STRING_VALUE", // required
+ * //     ApplicationArn: "STRING_VALUE",
  * //   },
  * // };
  *

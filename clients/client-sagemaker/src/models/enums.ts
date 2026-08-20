@@ -4321,6 +4321,7 @@ export type ModelSpeculativeDecodingS3DataType =
  */
 export const PartnerAppAuthType = {
   IAM: "IAM",
+  IDC: "IDC",
 } as const;
 /**
  * @public

@@ -57,6 +57,10 @@ export interface UpdatePartnerAppCommandOutput extends UpdatePartnerAppResponse,
  *       },
  *     ],
  *   },
+ *   IdcConfig: { // IdcConfigInput
+ *     InstanceArn: "STRING_VALUE", // required
+ *   },
+ *   AuthType: "IAM" || "IDC",
  *   EnableIamSessionBasedIdentity: true || false,
  *   EnableAutoMinorVersionUpgrade: true || false,
  *   AppVersion: "STRING_VALUE",
