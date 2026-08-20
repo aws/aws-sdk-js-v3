@@ -215,6 +215,7 @@ const _NIAO = "NoInputAndOutput";
 const _NIAOO = "NoInputAndOutputOutput";
 const _NP = "NestedPayload";
 const _NSL = "NestedStringList";
+const _NU = "NestedUnion";
 const _Nu = "Null";
 const _ONSES = "OmitsNullSerializesEmptyString";
 const _ONSESI = "OmitsNullSerializesEmptyStringInput";
@@ -619,6 +620,7 @@ const _to = "token";
 const _u = "union";
 const _uM = "unionMember";
 const _uP = "unionPayload";
+const _uV = "unionValue";
 const _v = "value";
 const _xati = "x-amz-test-id";
 const _xf = "x-foo";
@@ -1463,8 +1465,13 @@ export var EventStream$: StaticUnionSchema = [4, n0, _ES,
 ];
 export var MyUnion$: StaticUnionSchema = [4, n0, _MU,
   0,
-  [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV],
-  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1$, () => GreetingStruct$]
+  [_sV, _bVo, _nVu, _bVl, _tV, _eV, _lVi, _mV, _sVt, _rSV, _uV],
+  [0, 2, 1, 21, 4, 0, 64 | 0, 128 | 0, () => GreetingStruct_n1$, () => GreetingStruct$, () => NestedUnion$]
+];
+export var NestedUnion$: StaticUnionSchema = [4, n0, _NU,
+  0,
+  [_sV],
+  [0]
 ];
 export var PayloadUnion$: StaticUnionSchema = [4, n0, _PU,
   0,

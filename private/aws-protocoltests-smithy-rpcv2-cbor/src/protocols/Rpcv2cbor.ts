@@ -67,6 +67,7 @@ import type {
   RpcV2CborSparseMapsCommandInput,
   RpcV2CborSparseMapsCommandOutput,
 } from "../commands/RpcV2CborSparseMapsCommand";
+import type { RpcV2CborUnionsCommandInput, RpcV2CborUnionsCommandOutput } from "../commands/RpcV2CborUnionsCommand";
 import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -91,7 +92,10 @@ import type {
   RecursiveShapesInputOutputNested2,
   RpcV2CborDenseMapsInputOutput,
   RpcV2CborListInputOutput,
+  RpcV2CborNestedUnion,
   RpcV2CborSparseMapsInputOutput,
+  RpcV2CborUnion,
+  RpcV2CborUnionInputOutput,
   SimpleScalarStructure,
   SimpleStructure,
   SparseNullsOperationInputOutput,
@@ -240,6 +244,19 @@ export const se_RpcV2CborSparseMapsCommand = async (
   let body: any;
   body = cbor.serialize(se_RpcV2CborSparseMapsInputOutput(input, context));
   return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/RpcV2CborSparseMaps", undefined, body);
+};
+
+/**
+ * serializeRpcv2cborRpcV2CborUnionsCommand
+ */
+export const se_RpcV2CborUnionsCommand = async (
+  input: RpcV2CborUnionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = cbor.serialize(_json(input));
+  return buildHttpRpcRequest(context, headers, "/service/RpcV2Protocol/operation/RpcV2CborUnions", undefined, body);
 };
 
 /**
@@ -509,6 +526,28 @@ export const de_RpcV2CborSparseMapsCommand = async (
 };
 
 /**
+ * deserializeRpcv2cborRpcV2CborUnionsCommand
+ */
+export const de_RpcV2CborUnionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RpcV2CborUnionsCommandOutput> => {
+  cr(output);
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+
+  const data: any = await parseBody(output.body, context)
+  let contents: any = {};
+  contents = _json(data);
+  const response: RpcV2CborUnionsCommandOutput = {
+    $metadata: deserializeMetadata(output), ...contents,
+  };
+  return response;
+
+};
+
+/**
  * deserializeRpcv2cborSimpleScalarPropertiesCommand
  */
 export const de_SimpleScalarPropertiesCommand = async (
@@ -756,6 +795,8 @@ const se_RpcV2CborListInputOutput = (
   });
 }
 
+// se_RpcV2CborNestedUnion omitted.
+
 /**
  * serializeRpcv2cborRpcV2CborSparseMapsInputOutput
  */
@@ -771,6 +812,10 @@ const se_RpcV2CborSparseMapsInputOutput = (
     'sparseStructMap': _ => se_SparseStructMap(_, context),
   });
 }
+
+// se_RpcV2CborUnion omitted.
+
+// se_RpcV2CborUnionInputOutput omitted.
 
 /**
  * serializeRpcv2cborSimpleScalarStructure
@@ -1109,6 +1154,8 @@ const de_RpcV2CborListInputOutput = (
   }) as any;
 }
 
+// de_RpcV2CborNestedUnion omitted.
+
 /**
  * deserializeRpcv2cborRpcV2CborSparseMapsInputOutput
  */
@@ -1124,6 +1171,10 @@ const de_RpcV2CborSparseMapsInputOutput = (
     'sparseStructMap': (_: any) => de_SparseStructMap(_, context),
   }) as any;
 }
+
+// de_RpcV2CborUnion omitted.
+
+// de_RpcV2CborUnionInputOutput omitted.
 
 /**
  * deserializeRpcv2cborSimpleScalarStructure

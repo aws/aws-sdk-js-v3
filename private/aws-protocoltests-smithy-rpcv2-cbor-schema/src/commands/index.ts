@@ -10,5 +10,6 @@ export * from "./RecursiveShapesCommand";
 export * from "./RpcV2CborDenseMapsCommand";
 export * from "./RpcV2CborListsCommand";
 export * from "./RpcV2CborSparseMapsCommand";
+export * from "./RpcV2CborUnionsCommand";
 export * from "./SimpleScalarPropertiesCommand";
 export * from "./SparseNullsOperationCommand";

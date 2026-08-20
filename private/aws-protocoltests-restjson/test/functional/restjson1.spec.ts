@@ -6902,6 +6902,53 @@ it("RestJsonSerializeRenamedStructureUnionValue:Request", async () => {
 });
 
 /**
+ * Serializes a nested union value
+ */
+it("RestJsonSerializeNestedUnionValue:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new JsonUnionsCommand(
+    {
+      contents: {
+        unionValue: {
+          stringValue: "foo",
+        } as any,
+      } as any,
+    } as any,
+  );
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/JsonUnions");
+
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"contents\": {
+            \"unionValue\": {
+                \"stringValue\": \"foo\"
+            }
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
  * Deserializes a string union value
  */
 it("RestJsonDeserializeStringUnionValue:Response", async () => {
@@ -7324,6 +7371,57 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
       contents: {
         structureValue: {
           hi: "hello",
+        },
+      },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a nested union value
+ */
+it("RestJsonDeserializeNestedUnionValue:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "contents": {
+              "unionValue": {
+                  "stringValue": "foo"
+              }
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new JsonUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r.$metadata.httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        unionValue: {
+          stringValue: "foo",
         },
       },
     },

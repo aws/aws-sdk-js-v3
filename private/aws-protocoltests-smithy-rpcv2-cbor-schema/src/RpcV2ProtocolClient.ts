@@ -88,6 +88,7 @@ import type {
   RpcV2CborSparseMapsCommandInput,
   RpcV2CborSparseMapsCommandOutput,
 } from "./commands/RpcV2CborSparseMapsCommand";
+import type { RpcV2CborUnionsCommandInput, RpcV2CborUnionsCommandOutput } from "./commands/RpcV2CborUnionsCommand";
 import type {
   SimpleScalarPropertiesCommandInput,
   SimpleScalarPropertiesCommandOutput,
@@ -122,6 +123,7 @@ export type ServiceInputTypes =
   | RpcV2CborDenseMapsCommandInput
   | RpcV2CborListsCommandInput
   | RpcV2CborSparseMapsCommandInput
+  | RpcV2CborUnionsCommandInput
   | SimpleScalarPropertiesCommandInput
   | SparseNullsOperationCommandInput;
 
@@ -140,6 +142,7 @@ export type ServiceOutputTypes =
   | RpcV2CborDenseMapsCommandOutput
   | RpcV2CborListsCommandOutput
   | RpcV2CborSparseMapsCommandOutput
+  | RpcV2CborUnionsCommandOutput
   | SimpleScalarPropertiesCommandOutput
   | SparseNullsOperationCommandOutput;
 

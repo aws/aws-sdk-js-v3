@@ -60,6 +60,9 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  *     renamedStructureValue: { // GreetingStruct
  *       salutation: "STRING_VALUE",
  *     },
+ *     unionValue: { // NestedUnion Union: only one key present
+ *       stringValue: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new JsonUnionsCommand(input);
@@ -83,6 +86,9 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * //     },
  * //     renamedStructureValue: { // GreetingStruct
  * //       salutation: "STRING_VALUE",
+ * //     },
+ * //     unionValue: { // NestedUnion Union: only one key present
+ * //       stringValue: "STRING_VALUE",
  * //     },
  * //   },
  * // };
