@@ -345,6 +345,18 @@ export type NeptuneUngracefulBehavior = (typeof NeptuneUngracefulBehavior)[keyof
  * @public
  * @enum
  */
+export const RdsUngracefulBehavior = {
+  PROMOTE_READ_REPLICA: "promoteReadReplica",
+} as const;
+/**
+ * @public
+ */
+export type RdsUngracefulBehavior = (typeof RdsUngracefulBehavior)[keyof typeof RdsUngracefulBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const ExecutionBlockType = {
   AURORA: "AuroraGlobalDatabase",
   AURORA_PROVISIONED_SCALING: "AuroraProvisionedScaling",
@@ -360,6 +372,7 @@ export const ExecutionBlockType = {
   PARALLEL: "Parallel",
   RDS_CREATE_CROSS_REGION_REPLICA: "RdsCreateCrossRegionReplica",
   RDS_PROMOTE_READ_REPLICA: "RdsPromoteReadReplica",
+  RDS_SWITCHOVER_READ_REPLICA: "RdsSwitchoverReadReplica",
   REGION_SWITCH: "ARCRegionSwitchPlan",
   ROUTE53_HEALTH_CHECK: "Route53HealthCheck",
   ROUTING_CONTROL: "ARCRoutingControl",

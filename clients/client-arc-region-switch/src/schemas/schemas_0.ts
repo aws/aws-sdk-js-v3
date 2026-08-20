@@ -113,6 +113,8 @@ const _RRRS = "Route53ResourceRecordSet";
 const _RRRSL = "Route53ResourceRecordSetList";
 const _RSPC = "RegionSwitchPlanConfiguration";
 const _RSR = "RegionalScalingResource";
+const _RSRRC = "RdsSwitchoverReadReplicaConfiguration";
+const _RU = "RdsUngraceful";
 const _RW = "ResourceWarning";
 const _S = "Service";
 const _SL = "ServiceList";
@@ -254,6 +256,7 @@ const _rPRRC = "rdsPromoteReadReplicaConfig";
 const _rS = "recordSets";
 const _rSI = "recordSetIdentifier";
 const _rSPC = "regionSwitchPlanConfig";
+const _rSRRC = "rdsSwitchoverReadReplicaConfig";
 const _rT = "resourceType";
 const _rTK = "resourceTagKeys";
 const _rTOM = "recoveryTimeObjectiveMinutes";
@@ -708,6 +711,16 @@ export var RdsPromoteReadReplicaConfiguration$: StaticStructureSchema = [3, n0, 
   [_dIAM, _tM, _cAR, _eIx],
   [128 | 0, 1, 0, 0], 1
 ];
+export var RdsSwitchoverReadReplicaConfiguration$: StaticStructureSchema = [3, n0, _RSRRC,
+  0,
+  [_dIAM, _tM, _cAR, _eIx, _u],
+  [128 | 0, 1, 0, 0, () => RdsUngraceful$], 1
+];
+export var RdsUngraceful$: StaticStructureSchema = [3, n0, _RU,
+  0,
+  [_u],
+  [0]
+];
 export var RegionSwitchPlanConfiguration$: StaticStructureSchema = [3, n0, _RSPC,
   0,
   [_a, _cAR, _eIx],
@@ -922,8 +935,8 @@ var RegionNeptuneClusterArnMap = 128 | 0;
 var Tags = 128 | 0;
 export var ExecutionBlockConfiguration$: StaticUnionSchema = [4, n0, _EBC,
   0,
-  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC],
-  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$]
+  [_cALC, _eACIC, _eAC, _aRCC, _gAC, _pC, _rSPC, _eCIC, _eRSC, _rHCC, _dDC, _rPRRC, _rCCRRRC, _lESMC, _aSSC, _aPSC, _nGDC, _rSRRC],
+  [() => CustomActionLambdaConfiguration$, () => Ec2AsgCapacityIncreaseConfiguration$, () => ExecutionApprovalConfiguration$, () => ArcRoutingControlConfiguration$, () => GlobalAuroraConfiguration$, () => ParallelExecutionBlockConfiguration$, () => RegionSwitchPlanConfiguration$, () => EcsCapacityIncreaseConfiguration$, () => EksResourceScalingConfiguration$, () => Route53HealthCheckConfiguration$, () => DocumentDbConfiguration$, () => RdsPromoteReadReplicaConfiguration$, () => RdsCreateCrossRegionReplicaConfiguration$, () => LambdaEventSourceMappingConfiguration$, () => AuroraServerlessScalingConfiguration$, () => AuroraProvisionedScalingConfiguration$, () => NeptuneGlobalDatabaseConfiguration$, () => RdsSwitchoverReadReplicaConfiguration$]
 ];
 export var ReportOutput$: StaticUnionSchema = [4, n0, _RO,
   0,

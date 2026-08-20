@@ -22,6 +22,7 @@ import type {
   LambdaUngracefulBehavior,
   NeptuneDefaultBehavior,
   NeptuneUngracefulBehavior,
+  RdsUngracefulBehavior,
   RecoveryApproach,
   RegionToRunIn,
   ResourceWarningStatus,
@@ -1487,6 +1488,54 @@ export interface RdsPromoteReadReplicaConfiguration {
 }
 
 /**
+ * <p>The ungraceful execution settings for an Amazon RDS switchover read replica execution block.</p>
+ * @public
+ */
+export interface RdsUngraceful {
+  /**
+   * <p>The ungraceful behavior to perform if switching to ungraceful execution.</p>
+   * @public
+   */
+  ungraceful?: RdsUngracefulBehavior | undefined;
+}
+
+/**
+ * <p>Configuration for switching over an Amazon RDS read replica to become the new primary database instance during a Region switch.</p>
+ * @public
+ */
+export interface RdsSwitchoverReadReplicaConfiguration {
+  /**
+   * <p>The timeout value specified for the configuration.</p>
+   * @public
+   */
+  timeoutMinutes?: number | undefined;
+
+  /**
+   * <p>The cross-account role for the configuration.</p>
+   * @public
+   */
+  crossAccountRole?: string | undefined;
+
+  /**
+   * <p>The external ID (secret key) for the configuration.</p>
+   * @public
+   */
+  externalId?: string | undefined;
+
+  /**
+   * <p>A map of database instance ARNs for each Region in the plan.</p>
+   * @public
+   */
+  dbInstanceArnMap: Record<string, string> | undefined;
+
+  /**
+   * <p>The ungraceful execution settings for the configuration.</p>
+   * @public
+   */
+  ungraceful?: RdsUngraceful | undefined;
+}
+
+/**
  * <p>Configuration for nested Region switch plans. This allows one Region switch plan to trigger another plan as part of its execution.</p>
  * @public
  */
@@ -2258,6 +2307,7 @@ export type ExecutionBlockConfiguration =
   | ExecutionBlockConfiguration.ParallelConfigMember
   | ExecutionBlockConfiguration.RdsCreateCrossRegionReadReplicaConfigMember
   | ExecutionBlockConfiguration.RdsPromoteReadReplicaConfigMember
+  | ExecutionBlockConfiguration.RdsSwitchoverReadReplicaConfigMember
   | ExecutionBlockConfiguration.RegionSwitchPlanConfigMember
   | ExecutionBlockConfiguration.Route53HealthCheckConfigMember
   | ExecutionBlockConfiguration.$UnknownMember;
@@ -2288,6 +2338,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2313,6 +2364,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2338,6 +2390,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2363,6 +2416,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2388,6 +2442,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2413,6 +2468,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2438,6 +2494,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2463,6 +2520,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2488,6 +2546,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2513,6 +2572,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2538,6 +2598,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2563,6 +2624,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2588,6 +2650,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2613,6 +2676,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2638,6 +2702,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig: AuroraServerlessScalingConfiguration;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2663,6 +2728,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig: AuroraProvisionedScalingConfiguration;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown?: never;
   }
 
@@ -2688,6 +2754,33 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig: NeptuneGlobalDatabaseConfiguration;
+    rdsSwitchoverReadReplicaConfig?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An Amazon RDS switchover read replica execution block.</p>
+   * @public
+   */
+  export interface RdsSwitchoverReadReplicaConfigMember {
+    customActionLambdaConfig?: never;
+    ec2AsgCapacityIncreaseConfig?: never;
+    executionApprovalConfig?: never;
+    arcRoutingControlConfig?: never;
+    globalAuroraConfig?: never;
+    parallelConfig?: never;
+    regionSwitchPlanConfig?: never;
+    ecsCapacityIncreaseConfig?: never;
+    eksResourceScalingConfig?: never;
+    route53HealthCheckConfig?: never;
+    documentDbConfig?: never;
+    rdsPromoteReadReplicaConfig?: never;
+    rdsCreateCrossRegionReadReplicaConfig?: never;
+    lambdaEventSourceMappingConfig?: never;
+    auroraServerlessScalingConfig?: never;
+    auroraProvisionedScalingConfig?: never;
+    neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig: RdsSwitchoverReadReplicaConfiguration;
     $unknown?: never;
   }
 
@@ -2712,6 +2805,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig?: never;
     auroraProvisionedScalingConfig?: never;
     neptuneGlobalDatabaseConfig?: never;
+    rdsSwitchoverReadReplicaConfig?: never;
     $unknown: [string, any];
   }
 
@@ -2737,6 +2831,7 @@ export namespace ExecutionBlockConfiguration {
     auroraServerlessScalingConfig: (value: AuroraServerlessScalingConfiguration) => T;
     auroraProvisionedScalingConfig: (value: AuroraProvisionedScalingConfiguration) => T;
     neptuneGlobalDatabaseConfig: (value: NeptuneGlobalDatabaseConfiguration) => T;
+    rdsSwitchoverReadReplicaConfig: (value: RdsSwitchoverReadReplicaConfiguration) => T;
     _: (name: string, value: any) => T;
   }
 }

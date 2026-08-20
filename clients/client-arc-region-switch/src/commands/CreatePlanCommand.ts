@@ -312,8 +312,19 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  *                         "<keys>": "STRING_VALUE",
  *                       },
  *                     },
+ *                     rdsSwitchoverReadReplicaConfig: { // RdsSwitchoverReadReplicaConfiguration
+ *                       timeoutMinutes: Number("int"),
+ *                       crossAccountRole: "STRING_VALUE",
+ *                       externalId: "STRING_VALUE",
+ *                       dbInstanceArnMap: { // required
+ *                         "<keys>": "STRING_VALUE",
+ *                       },
+ *                       ungraceful: { // RdsUngraceful
+ *                         ungraceful: "promoteReadReplica",
+ *                       },
+ *                     },
  *                   },
- *                   executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
+ *                   executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
  *                 },
  *               ],
  *             },
@@ -459,8 +470,17 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  *                 "<keys>": "STRING_VALUE",
  *               },
  *             },
+ *             rdsSwitchoverReadReplicaConfig: {
+ *               timeoutMinutes: Number("int"),
+ *               crossAccountRole: "STRING_VALUE",
+ *               externalId: "STRING_VALUE",
+ *               dbInstanceArnMap: "<RdsDbInstanceArnMap>", // required
+ *               ungraceful: {
+ *                 ungraceful: "promoteReadReplica",
+ *               },
+ *             },
  *           },
- *           executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
+ *           executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
  *         },
  *       ],
  *       workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required
@@ -796,8 +816,19 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  * //                           "<keys>": "STRING_VALUE",
  * //                         },
  * //                       },
+ * //                       rdsSwitchoverReadReplicaConfig: { // RdsSwitchoverReadReplicaConfiguration
+ * //                         timeoutMinutes: Number("int"),
+ * //                         crossAccountRole: "STRING_VALUE",
+ * //                         externalId: "STRING_VALUE",
+ * //                         dbInstanceArnMap: { // required
+ * //                           "<keys>": "STRING_VALUE",
+ * //                         },
+ * //                         ungraceful: { // RdsUngraceful
+ * //                           ungraceful: "promoteReadReplica",
+ * //                         },
+ * //                       },
  * //                     },
- * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
+ * //                     executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
  * //                   },
  * //                 ],
  * //               },
@@ -943,8 +974,17 @@ export interface CreatePlanCommandOutput extends CreatePlanResponse, __MetadataB
  * //                   "<keys>": "STRING_VALUE",
  * //                 },
  * //               },
+ * //               rdsSwitchoverReadReplicaConfig: {
+ * //                 timeoutMinutes: Number("int"),
+ * //                 crossAccountRole: "STRING_VALUE",
+ * //                 externalId: "STRING_VALUE",
+ * //                 dbInstanceArnMap: "<RdsDbInstanceArnMap>", // required
+ * //                 ungraceful: {
+ * //                   ungraceful: "promoteReadReplica",
+ * //                 },
+ * //               },
  * //             },
- * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase", // required
+ * //             executionBlockType: "CustomActionLambda" || "ManualApproval" || "AuroraGlobalDatabase" || "EC2AutoScaling" || "ARCRoutingControl" || "ARCRegionSwitchPlan" || "Parallel" || "ECSServiceScaling" || "EKSResourceScaling" || "Route53HealthCheck" || "DocumentDb" || "RdsPromoteReadReplica" || "RdsCreateCrossRegionReplica" || "LambdaEventSourceMapping" || "AuroraServerlessScaling" || "AuroraProvisionedScaling" || "NeptuneGlobalDatabase" || "RdsSwitchoverReadReplica", // required
  * //           },
  * //         ],
  * //         workflowTargetAction: "activate" || "deactivate" || "postRecovery", // required

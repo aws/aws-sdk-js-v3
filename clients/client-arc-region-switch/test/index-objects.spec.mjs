@@ -141,6 +141,9 @@ import {
   Plan$,
   RdsCreateCrossRegionReplicaConfiguration$,
   RdsPromoteReadReplicaConfiguration$,
+  RdsSwitchoverReadReplicaConfiguration$,
+  RdsUngraceful$,
+  RdsUngracefulBehavior,
   RecoveryApproach,
   RegionSwitchPlanConfiguration$,
   RegionToRunIn,
@@ -314,6 +317,8 @@ assert(typeof ParallelExecutionBlockConfiguration$ === "object");
 assert(typeof Plan$ === "object");
 assert(typeof RdsCreateCrossRegionReplicaConfiguration$ === "object");
 assert(typeof RdsPromoteReadReplicaConfiguration$ === "object");
+assert(typeof RdsSwitchoverReadReplicaConfiguration$ === "object");
+assert(typeof RdsUngraceful$ === "object");
 assert(typeof RegionSwitchPlanConfiguration$ === "object");
 assert(typeof ReportConfiguration$ === "object");
 assert(typeof ReportOutput$ === "object");
@@ -365,6 +370,7 @@ assert(typeof LambdaEventSourceMappingUngracefulBehavior === "object");
 assert(typeof LambdaUngracefulBehavior === "object");
 assert(typeof NeptuneDefaultBehavior === "object");
 assert(typeof NeptuneUngracefulBehavior === "object");
+assert(typeof RdsUngracefulBehavior === "object");
 assert(typeof RecoveryApproach === "object");
 assert(typeof RegionToRunIn === "object");
 assert(typeof ResourceWarningStatus === "object");
