@@ -71,9 +71,9 @@ __metadata:
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.74"
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.45"
     "@aws-sdk/weather": "workspace:3.1115.0"
-    "@smithy/core": "npm:^3.31.1"
-    "@smithy/node-http-handler": "npm:^4.9.13"
-    "@smithy/types": "npm:^4.16.1"
+    "@smithy/core": "npm:^3.33.3"
+    "@smithy/node-http-handler": "npm:^4.11.3"
+    "@smithy/types": "npm:^4.17.2"
     "@tsconfig/node20": "npm:20.1.8"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
@@ -88,8 +88,8 @@ __metadata:
   resolution: "@aws-sdk/aws-client-retry-test@workspace:private/aws-client-retry-test"
   dependencies:
     "@aws-sdk/client-lambda": "workspace:3.1115.0"
-    "@smithy/core": "npm:^3.31.1"
-    "@smithy/types": "npm:^4.16.1"
+    "@smithy/core": "npm:^3.33.3"
+    "@smithy/types": "npm:^4.17.2"
     "@tsconfig/node20": "npm:20.1.8"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
@@ -10313,8 +10313,8 @@ __metadata:
   resolution: "@aws-sdk/lib-storage@workspace:lib/lib-storage"
   dependencies:
     "@aws-sdk/client-s3": "workspace:3.1115.0"
-    "@smithy/core": "npm:^3.31.1"
-    "@smithy/types": "npm:^4.16.1"
+    "@smithy/core": "npm:^3.33.3"
+    "@smithy/types": "npm:^4.17.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
     buffer: "npm:5.6.0"
@@ -10337,9 +10337,9 @@ __metadata:
   dependencies:
     "@aws-sdk/checksums": "workspace:^3.1000.28"
     "@aws-sdk/client-s3": "workspace:3.1115.0"
-    "@smithy/core": "npm:^3.31.1"
-    "@smithy/node-http-handler": "npm:^4.9.13"
-    "@smithy/types": "npm:^4.16.1"
+    "@smithy/core": "npm:^3.33.3"
+    "@smithy/node-http-handler": "npm:^4.11.3"
+    "@smithy/types": "npm:^4.17.2"
     "@tsconfig/recommended": "npm:1.0.1"
     "@types/node": "npm:^20.14.8"
     concurrently: "npm:7.0.0"
@@ -15380,16 +15380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@smithy/types@npm:^4.16.1":
-  version: 4.16.1
-  resolution: "@smithy/types@npm:4.16.1"
-  dependencies:
-    tslib: "npm:^2.6.2"
-  checksum: 10c0/e024d9d148deca7bd21d032a9316db109bbe7cf256ffbb8d3981655b9f4f7695c08ec9b87f5a8cf1442e783ba26cb27e4f09603c5bfa3ba1e526c41b1b3e94d2
-  languageName: node
-  linkType: hard
-
-"@smithy/types@npm:^4.17.2":
+"@smithy/types@npm:^4.16.1, @smithy/types@npm:^4.17.2":
   version: 4.17.2
   resolution: "@smithy/types@npm:4.17.2"
   dependencies:
