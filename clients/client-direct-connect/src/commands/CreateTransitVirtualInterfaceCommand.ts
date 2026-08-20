@@ -61,6 +61,8 @@ export interface CreateTransitVirtualInterfaceCommandOutput extends CreateTransi
  *       },
  *     ],
  *     enableSiteLink: true || false,
+ *     prefixPoolAllocatedCountIpv4: Number("int"),
+ *     prefixPoolAllocatedCountIpv6: Number("int"),
  *     rateLimit: "STRING_VALUE",
  *   },
  * };
@@ -118,6 +120,8 @@ export interface CreateTransitVirtualInterfaceCommandOutput extends CreateTransi
  * //       },
  * //     ],
  * //     siteLinkEnabled: true || false,
+ * //     prefixPoolAllocatedCountIpv4: Number("int"),
+ * //     prefixPoolAllocatedCountIpv6: Number("int"),
  * //     rateLimit: "STRING_VALUE",
  * //   },
  * // };

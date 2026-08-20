@@ -43,6 +43,8 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  *   mtu: Number("int"),
  *   enableSiteLink: true || false,
  *   virtualInterfaceName: "STRING_VALUE",
+ *   prefixPoolAllocatedCountIpv4: Number("int"),
+ *   prefixPoolAllocatedCountIpv6: Number("int"),
  *   rateLimit: "STRING_VALUE",
  * };
  * const command = new UpdateVirtualInterfaceAttributesCommand(input);
@@ -98,6 +100,8 @@ export interface UpdateVirtualInterfaceAttributesCommandOutput extends VirtualIn
  * //     },
  * //   ],
  * //   siteLinkEnabled: true || false,
+ * //   prefixPoolAllocatedCountIpv4: Number("int"),
+ * //   prefixPoolAllocatedCountIpv6: Number("int"),
  * //   rateLimit: "STRING_VALUE",
  * // };
  *

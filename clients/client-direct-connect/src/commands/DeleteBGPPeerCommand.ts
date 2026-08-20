@@ -94,6 +94,8 @@ export interface DeleteBGPPeerCommandOutput extends DeleteBGPPeerResponse, __Met
  * //       },
  * //     ],
  * //     siteLinkEnabled: true || false,
+ * //     prefixPoolAllocatedCountIpv4: Number("int"),
+ * //     prefixPoolAllocatedCountIpv6: Number("int"),
  * //     rateLimit: "STRING_VALUE",
  * //   },
  * // };

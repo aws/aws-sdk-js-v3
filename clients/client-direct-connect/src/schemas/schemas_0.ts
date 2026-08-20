@@ -335,6 +335,12 @@ const _pI = "proposalId";
 const _pIMSC = "partnerInterconnectMacSecCapable";
 const _pN = "partnerName";
 const _pNr = "providerName";
+const _pPACI = "prefixPoolAllocatedCountIpv4";
+const _pPACIr = "prefixPoolAllocatedCountIpv6";
+const _pPSI = "prefixPoolSizeIpv4";
+const _pPSIr = "prefixPoolSizeIpv6";
+const _pPUCI = "prefixPoolUnallocatedCountIpv4";
+const _pPUCIr = "prefixPoolUnallocatedCountIpv6";
 const _pS = "proposalState";
 const _pT = "pathType";
 const _pl = "platform";
@@ -369,6 +375,7 @@ const _tB = "totalBandwidth";
 const _tDIM = "testDurationInMinutes";
 const _tI = "testId";
 const _tK = "tagKeys";
+const _tPPA = "totalPrefixPoolAllocations";
 const _ty = "type";
 const _v = "vlan";
 const _vG = "virtualGateways";
@@ -586,8 +593,8 @@ export var ConfirmTransitVirtualInterfaceResponse$: StaticStructureSchema = [3, 
 ];
 export var Connection$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _rLS, _pIMSC],
-  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, () => RateLimiterStatus$, 2]
+  [_oA, _cI, _cN, _cS, _r, _l, _b, _v, _pN, _lIT, _lI, _aD, _jFC, _aDV, _aLDI, _hLR, _t, _pNr, _mSC, _pES, _eM, _mSK, _rLS, _pIMSC, _pPSI, _pPSIr, _pPUCI, _pPUCIr],
+  [0, 0, 0, 0, 0, 0, 0, 1, 0, 4, 0, 0, 2, 0, 0, 0, () => TagList, 0, 2, 0, 0, () => MacSecKeyList, () => RateLimiterStatus$, 2, 1, 1, 1, 1]
 ];
 export var Connections$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -866,8 +873,8 @@ export var DescribeVirtualInterfacesRequest$: StaticStructureSchema = [3, n0, _D
 ];
 export var DirectConnectGateway$: StaticStructureSchema = [3, n0, _DCG,
   0,
-  [_dCGI, _dCGN, _aSA, _oA, _dCGS, _sCE, _t],
-  [0, 0, 1, 0, 0, 0, () => TagList]
+  [_dCGI, _dCGN, _aSA, _oA, _dCGS, _sCE, _tPPA, _t],
+  [0, 0, 1, 0, 0, 0, 1, () => TagList]
 ];
 export var DirectConnectGatewayAssociation$: StaticStructureSchema = [3, n0, _DCGA,
   0,
@@ -911,8 +918,8 @@ export var Interconnects$: StaticStructureSchema = [3, n0, _In,
 ];
 export var Lag$: StaticStructureSchema = [3, n0, _L,
   0,
-  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK, _rLS],
-  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList, () => RateLimiterStatus$]
+  [_cB, _nOC, _lI, _oA, _lN, _lS, _l, _r, _mL, _aD, _aDV, _aLDI, _co, _aHC, _jFC, _hLR, _t, _pNr, _mSC, _eM, _mSK, _pPSI, _pPSIr, _pPUCI, _pPUCIr, _rLS],
+  [0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, () => ConnectionList, 2, 2, 0, () => TagList, 0, 2, 0, () => MacSecKeyList, 1, 1, 1, 1, () => RateLimiterStatus$]
 ];
 export var Lags$: StaticStructureSchema = [3, n0, _La,
   0,
@@ -966,8 +973,8 @@ export var NewBGPPeer$: StaticStructureSchema = [3, n0, _NBGPP,
 ];
 export var NewPrivateVirtualInterface$: StaticStructureSchema = [3, n0, _NPVI,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _vGI, _dCGI, _t, _eSL, _rL],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2, 0], 2
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _vGI, _dCGI, _t, _eSL, _pPACI, _pPACIr, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, () => TagList, 2, 1, 1, 0], 2
 ];
 export var NewPrivateVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NPVIA,
   0,
@@ -986,8 +993,8 @@ export var NewPublicVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0,
 ];
 export var NewTransitVirtualInterface$: StaticStructureSchema = [3, n0, _NTVI,
   0,
-  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _dCGI, _t, _eSL, _rL],
-  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, () => TagList, 2, 0]
+  [_vIN, _v, _a, _aL, _mt, _aK, _aA, _cA, _aF, _dCGI, _t, _eSL, _pPACI, _pPACIr, _rL],
+  [0, 1, 1, 1, 1, 0, 0, 0, 0, 0, () => TagList, 2, 1, 1, 0]
 ];
 export var NewTransitVirtualInterfaceAllocation$: StaticStructureSchema = [3, n0, _NTVIA,
   0,
@@ -1101,8 +1108,8 @@ export var UpdateLagRequest$: StaticStructureSchema = [3, n0, _ULR,
 ];
 export var UpdateVirtualInterfaceAttributesRequest$: StaticStructureSchema = [3, n0, _UVIAR,
   0,
-  [_vII, _mt, _eSL, _vIN, _rL],
-  [0, 1, 2, 0, 0], 1
+  [_vII, _mt, _eSL, _vIN, _pPACI, _pPACIr, _rL],
+  [0, 1, 2, 0, 1, 1, 0], 1
 ];
 export var VirtualGateway$: StaticStructureSchema = [3, n0, _VG,
   0,
@@ -1116,8 +1123,8 @@ export var VirtualGateways$: StaticStructureSchema = [3, n0, _VGi,
 ];
 export var VirtualInterface$: StaticStructureSchema = [3, n0, _VI,
   0,
-  [_oA, _vII, _l, _cI, _vITi, _vIN, _v, _a, _aL, _aSA, _aK, _aA, _cA, _aF, _vIS, _cRC, _mt, _jFC, _vGI, _dCGI, _rFP, _bP, _r, _aDV, _aLDI, _t, _sLE, _rL],
-  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, () => RouteFilterPrefixList, () => BGPPeerList, 0, 0, 0, () => TagList, 2, 0]
+  [_oA, _vII, _l, _cI, _vITi, _vIN, _v, _a, _aL, _aSA, _aK, _aA, _cA, _aF, _vIS, _cRC, _mt, _jFC, _vGI, _dCGI, _rFP, _bP, _r, _aDV, _aLDI, _t, _sLE, _pPACI, _pPACIr, _rL],
+  [0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 2, 0, 0, () => RouteFilterPrefixList, () => BGPPeerList, 0, 0, 0, () => TagList, 2, 1, 1, 0]
 ];
 export var VirtualInterfaces$: StaticStructureSchema = [3, n0, _VIi,
   0,

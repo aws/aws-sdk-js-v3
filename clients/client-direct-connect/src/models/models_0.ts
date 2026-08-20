@@ -570,6 +570,30 @@ export interface Connection {
    * @public
    */
   partnerInterconnectMacSecCapable?: boolean | undefined;
+
+  /**
+   * <p>The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.</p>
+   * @public
+   */
+  prefixPoolSizeIpv4?: number | undefined;
+
+  /**
+   * <p>The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the connection. Not applicable to hosted connections or interconnects.</p>
+   * @public
+   */
+  prefixPoolSizeIpv6?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.</p>
+   * @public
+   */
+  prefixPoolUnallocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface. Not applicable to hosted connections or interconnects.</p>
+   * @public
+   */
+  prefixPoolUnallocatedCountIpv6?: number | undefined;
 }
 
 /**
@@ -1157,6 +1181,18 @@ export interface VirtualInterface {
    * @public
    */
   siteLinkEnabled?: boolean | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes allocated to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
    * <p>The rate limit (bandwidth allocation) applied to the virtual interface. The value must be one of the supported bandwidth values and cannot exceed the bandwidth of the parent connection or LAG. Supported values: <code>50Mbps</code>, <code>100Mbps</code>, <code>200Mbps</code>, <code>300Mbps</code>, <code>400Mbps</code>, <code>500Mbps</code>, <code>600Mbps</code>, <code>700Mbps</code>, <code>800Mbps</code>, <code>900Mbps</code>, <code>1Gbps</code>, <code>1.2Gbps</code>, <code>1.5Gbps</code>, <code>1.8Gbps</code>, <code>2Gbps</code>, <code>2.1Gbps</code>, <code>2.4Gbps</code>, <code>2.7Gbps</code>, <code>3Gbps</code>, <code>3.2Gbps</code>, <code>3.6Gbps</code>, <code>4Gbps</code>, <code>5Gbps</code>, <code>6Gbps</code>, <code>7Gbps</code>, <code>8Gbps</code>, <code>9Gbps</code>, <code>10Gbps</code>, <code>12Gbps</code>, <code>15Gbps</code>, <code>18Gbps</code>, <code>20Gbps</code>, <code>21Gbps</code>, <code>24Gbps</code>, <code>27Gbps</code>, <code>30Gbps</code>, <code>32Gbps</code>, <code>36Gbps</code>, <code>40Gbps</code>, <code>50Gbps</code>, <code>60Gbps</code>, <code>70Gbps</code>, <code>80Gbps</code>, <code>100Gbps</code>, <code>120Gbps</code>, <code>150Gbps</code>, <code>180Gbps</code>, <code>200Gbps</code>, <code>210Gbps</code>, <code>240Gbps</code>, <code>270Gbps</code>, <code>300Gbps</code>, <code>320Gbps</code>, <code>360Gbps</code>, <code>400Gbps</code>, <code>450Gbps</code>, <code>480Gbps</code>, <code>500Gbps</code>, <code>540Gbps</code>, <code>600Gbps</code>, <code>700Gbps</code>, <code>800Gbps</code>, <code>900Gbps</code>, <code>1Tbps</code>, <code>1.1Tbps</code>, <code>1.2Tbps</code>, <code>1.3Tbps</code>, <code>1.4Tbps</code>, <code>1.5Tbps</code>, <code>1.6Tbps</code>.</p>
@@ -2095,6 +2131,12 @@ export interface DirectConnectGateway {
   stateChangeError?: string | undefined;
 
   /**
+   * <p>The total number of inbound route prefixes allocated to the attachments on the Direct Connect gateway. The count combines the IPv4 and IPv6 address families.</p>
+   * @public
+   */
+  totalPrefixPoolAllocations?: number | undefined;
+
+  /**
    * <p>Information about a tag.</p>
    * @public
    */
@@ -2700,6 +2742,30 @@ export interface Lag {
   macSecKeys?: MacSecKey[] | undefined;
 
   /**
+   * <p>The total number of inbound IPv4 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * @public
+   */
+  prefixPoolSizeIpv4?: number | undefined;
+
+  /**
+   * <p>The total number of inbound IPv6 route prefixes you can allocate across the virtual interfaces on the LAG. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * @public
+   */
+  prefixPoolSizeIpv6?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * @public
+   */
+  prefixPoolUnallocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes in the LAG prefix pool not yet allocated to a virtual interface. Not applicable to LAGs that are interconnects and support hosted connections.</p>
+   * @public
+   */
+  prefixPoolUnallocatedCountIpv6?: number | undefined;
+
+  /**
    * <p>The rate limiter status for the LAG, including how many rate limiters are in use and the maximum allowed.</p>
    * @public
    */
@@ -2831,6 +2897,18 @@ export interface NewPrivateVirtualInterface {
    * @public
    */
   enableSiteLink?: boolean | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
    * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
@@ -3105,6 +3183,18 @@ export interface NewTransitVirtualInterface {
    * @public
    */
   enableSiteLink?: boolean | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
    * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. The rate limit restricts the maximum bandwidth that the virtual interface can use on the parent connection.</p>
@@ -4844,6 +4934,18 @@ export interface UpdateVirtualInterfaceAttributesRequest {
    * @public
    */
   virtualInterfaceName?: string | undefined;
+
+  /**
+   * <p>The number of inbound IPv4 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv4?: number | undefined;
+
+  /**
+   * <p>The number of inbound IPv6 route prefixes to allocate to the virtual interface. Not applicable to public virtual interfaces.</p>
+   * @public
+   */
+  prefixPoolAllocatedCountIpv6?: number | undefined;
 
   /**
    * <p>The rate limit (bandwidth allocation) to apply to the virtual interface. Use this to update the bandwidth allocation on an existing virtual interface.</p>

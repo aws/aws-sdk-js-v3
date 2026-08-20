@@ -46,6 +46,7 @@ export interface UpdateDirectConnectGatewayCommandOutput extends UpdateDirectCon
  * //     ownerAccount: "STRING_VALUE",
  * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //     stateChangeError: "STRING_VALUE",
+ * //     totalPrefixPoolAllocations: Number("int"),
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE", // required

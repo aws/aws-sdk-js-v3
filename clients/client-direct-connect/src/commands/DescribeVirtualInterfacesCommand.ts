@@ -105,6 +105,8 @@ export interface DescribeVirtualInterfacesCommandOutput extends VirtualInterface
  * //         },
  * //       ],
  * //       siteLinkEnabled: true || false,
+ * //       prefixPoolAllocatedCountIpv4: Number("int"),
+ * //       prefixPoolAllocatedCountIpv6: Number("int"),
  * //       rateLimit: "STRING_VALUE",
  * //     },
  * //   ],

@@ -94,6 +94,10 @@ export interface AllocateHostedConnectionCommandOutput extends Connection, __Met
  * //     totalBandwidth: "STRING_VALUE",
  * //   },
  * //   partnerInterconnectMacSecCapable: true || false,
+ * //   prefixPoolSizeIpv4: Number("int"),
+ * //   prefixPoolSizeIpv6: Number("int"),
+ * //   prefixPoolUnallocatedCountIpv4: Number("int"),
+ * //   prefixPoolUnallocatedCountIpv6: Number("int"),
  * // };
  *
  * ```

@@ -113,6 +113,8 @@ export interface CreatePublicVirtualInterfaceCommandOutput extends VirtualInterf
  * //     },
  * //   ],
  * //   siteLinkEnabled: true || false,
+ * //   prefixPoolAllocatedCountIpv4: Number("int"),
+ * //   prefixPoolAllocatedCountIpv6: Number("int"),
  * //   rateLimit: "STRING_VALUE",
  * // };
  *

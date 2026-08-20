@@ -112,6 +112,8 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * //       },
  * //     ],
  * //     siteLinkEnabled: true || false,
+ * //     prefixPoolAllocatedCountIpv4: Number("int"),
+ * //     prefixPoolAllocatedCountIpv6: Number("int"),
  * //     rateLimit: "STRING_VALUE",
  * //   },
  * // };
