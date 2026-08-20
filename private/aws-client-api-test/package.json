@@ -57,9 +57,9 @@
     "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.74",
     "@aws-sdk/signature-v4-multi-region": "workspace:^3.996.45",
     "@aws-sdk/weather": "workspace:3.1115.0",
-    "@smithy/core": "^3.31.1",
-    "@smithy/node-http-handler": "^4.9.13",
-    "@smithy/types": "^4.16.1",
+    "@smithy/core": "^3.33.3",
+    "@smithy/node-http-handler": "^4.11.3",
+    "@smithy/types": "^4.17.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
