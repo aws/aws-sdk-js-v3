@@ -23,7 +23,7 @@ export interface AssociateResourcesToSubscriptionCommandInput extends AssociateR
 export interface AssociateResourcesToSubscriptionCommandOutput extends AssociateResourcesToSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Adds one or more resources to an existing subscription. The subscription must be in an active state that is not pending other changes.</p> <note> <p>For subscriptions in the CloudFront plan family, the associated resources must include exactly one Amazon CloudFront distribution and one AWS WAF web ACL. You can also include other supported resources, such as Amazon Route 53 hosted zones, and CloudFront KeyValueStores.</p> </note>
+ * <p>Adds one or more resources to an existing subscription. The subscription must be in an active state that is not pending other changes.</p> <note> <p>For subscriptions in the CloudFront plan family, the associated resources must include exactly one Amazon CloudFront distribution and one WAF web ACL. You can also include other supported resources, such as Amazon Route 53 hosted zones, and CloudFront KeyValueStores.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

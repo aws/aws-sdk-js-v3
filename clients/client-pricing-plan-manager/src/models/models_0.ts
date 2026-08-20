@@ -102,7 +102,7 @@ export interface Subscription {
   statusReason?: string | undefined;
 
   /**
-   * <p>The ARNs of the AWS resources covered by this subscription.</p>
+   * <p>The ARNs of the resources covered by this subscription.</p>
    * @public
    */
   resourceArns: string[] | undefined;
@@ -286,13 +286,13 @@ export interface CreateSubscriptionInput {
   usageLevel?: string | undefined;
 
   /**
-   * <p>The ARNs of the AWS resources to include in the subscription. Specify one or more supported resources.</p> <note> <p>For subscriptions in the CloudFront plan family, the resources must include exactly one Amazon CloudFront distribution and exactly one AWS WAF web ACL. You can also include other supported resources, such as Amazon Route 53 hosted zones and CloudFront KeyValueStores.</p> </note>
+   * <p>The ARNs of the resources to include in the subscription. Specify one or more supported resources.</p> <note> <p>For subscriptions in the CloudFront plan family, the resources must include exactly one Amazon CloudFront distribution and exactly one WAF web ACL. You can also include other supported resources, such as Amazon Route 53 hosted zones and CloudFront KeyValueStores.</p> </note>
    * @public
    */
   resourceArns: string[] | undefined;
 
   /**
-   * <p>Determines whether the subscription requires explicit approval before billing starts. Set to <code>MANUAL</code> to require a separate <code>ApprovePaidSubscription</code> call, or <code>IMMEDIATE</code> to activate the subscription right away. Defaults to <code>IMMEDIATE</code> if not specified.</p>
+   * <p>Determines whether the subscription requires explicit approval before billing starts. Set to <code>MANUAL</code> to require a separate <code>ApprovePaidSubscription</code> call, or <code>IMMEDIATE</code> to activate the subscription right away. For paid tier plans, this defaults to <code>MANUAL</code> if not specified. For the <code>FREE</code> plan tier, only <code>IMMEDIATE</code> is supported, and it is the default.</p>
    * @public
    */
   approvalMode?: ApprovalMode | undefined;
@@ -454,7 +454,7 @@ export interface SubscriptionSummary {
   statusReason?: string | undefined;
 
   /**
-   * <p>The ARNs of the AWS resources covered by this subscription.</p>
+   * <p>The ARNs of the resources covered by this subscription.</p>
    * @public
    */
   resourceArns: string[] | undefined;

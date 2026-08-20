@@ -26,7 +26,7 @@ export interface DisassociateResourcesFromSubscriptionCommandInput extends Disas
 export interface DisassociateResourcesFromSubscriptionCommandOutput extends DisassociateResourcesFromSubscriptionOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more resources from an existing subscription.</p> <note> <p>For subscriptions in the CloudFront plan family, the associated resources must always include exactly one Amazon CloudFront distribution and exactly one AWS WAF web ACL. You cannot remove these required resources.</p> </note>
+ * <p>Removes one or more resources from an existing subscription.</p> <note> <p>For subscriptions in the CloudFront plan family, the associated resources must always include exactly one Amazon CloudFront distribution and exactly one WAF web ACL. You cannot remove these required resources.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
