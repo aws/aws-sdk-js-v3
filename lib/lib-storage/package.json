@@ -51,8 +51,8 @@
     "test:e2e:watch": "yarn g:vitest watch -c vitest.config.e2e.mts"
   },
   "dependencies": {
-    "@smithy/core": "^3.31.1",
-    "@smithy/types": "^4.16.1",
+    "@smithy/core": "^3.33.3",
+    "@smithy/types": "^4.17.2",
     "buffer": "5.6.0",
     "events": "3.3.0",
     "stream-browserify": "3.0.0",

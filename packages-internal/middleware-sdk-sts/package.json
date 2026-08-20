@@ -41,7 +41,7 @@
   "dependencies": {
     "@aws-sdk/middleware-signing": "workspace:^3.973.3",
     "@aws-sdk/types": "workspace:^3.974.4",
-    "@smithy/types": "^4.16.1",
+    "@smithy/types": "^4.17.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

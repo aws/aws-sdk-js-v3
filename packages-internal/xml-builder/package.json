@@ -47,7 +47,7 @@
     "test:fuzz": "jazzer tests/xml-parser.fuzz.js corpus --sync -i xml-parser -- -max_total_time=300"
   },
   "dependencies": {
-    "@smithy/types": "^4.16.1",
+    "@smithy/types": "^4.17.2",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

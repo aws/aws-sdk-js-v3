@@ -48,7 +48,7 @@
     "@aws-sdk/client-sagemaker-runtime": "workspace:3.1115.0",
     "@aws-sdk/client-xray": "workspace:3.1115.0",
     "@smithy/protocol-http": "^5.5.16",
-    "@smithy/types": "^4.16.1",
+    "@smithy/types": "^4.17.2",
     "@smithy/util-stream": "^4.7.16",
     "@smithy/util-utf8": "^4.4.16",
     "tslib": "^2.6.2"
