@@ -518,6 +518,7 @@ export type OriginAccessControlSigningBehaviors =
  */
 export const OriginAccessControlSigningProtocols = {
   sigv4: "sigv4",
+  sigv4a: "sigv4a",
 } as const;
 /**
  * @public

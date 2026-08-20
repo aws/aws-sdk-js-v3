@@ -2671,7 +2671,7 @@ export interface OriginAccessControlSummary {
   Name: string | undefined;
 
   /**
-   * <p>The signing protocol of the origin access control. The signing protocol determines how CloudFront signs (authenticates) requests. The only valid value is <code>sigv4</code>.</p>
+   * <p>The signing protocol of the origin access control. The signing protocol determines how CloudFront signs (authenticates) requests. The only valid values are <code>sigv4</code> and <code>sigv4a</code>.</p>
    * @public
    */
   SigningProtocol: OriginAccessControlSigningProtocols | undefined;
