@@ -658,6 +658,257 @@ export interface LaunchTemplateSpecification {
 }
 
 /**
+ * <p>The infrastructure optimization configuration for an Amazon ECS Managed Instances capacity
+ *    provider. Specifies the idle-instance scale-in behavior.</p>
+ * @public
+ */
+export interface InfrastructureOptimization {
+  /**
+   * <p>The number of seconds an instance can remain idle before it is terminated. Valid
+   *    values are <code>-1</code> or <code>0</code> to <code>3600</code>. Use <code>-1</code> as a
+   *    special value to disable scale-in (instances are never terminated for being idle). If not
+   *    specified, a default value applies.</p>
+   * @public
+   */
+  scaleInAfter?: number | undefined;
+}
+
+/**
+ * <p>The capacity reservation configuration for Amazon ECS Managed Instances. Use this to target
+ *    On-Demand Capacity Reservations or Reserved Instances.</p>
+ * @public
+ */
+export interface CapacityReservationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the capacity reservation group to target.</p>
+   * @public
+   */
+  reservationGroupArn?: string | undefined;
+
+  /**
+   * <p>The capacity reservation preference. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RESERVATIONS_ONLY</code> — Use only capacity reservations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESERVATIONS_FIRST</code> — Prefer capacity reservations but fall back to
+   *      On-Demand if unavailable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RESERVATIONS_EXCLUDED</code> — Do not use capacity reservations.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  reservationPreference?: string | undefined;
+}
+
+/**
+ * <p>The instance type requirements for the Amazon ECS Managed Instances capacity provider. Use this
+ *    to specify which Amazon EC2 instance types or instance families Amazon ECS can launch.</p>
+ * @public
+ */
+export interface InstanceRequirementsRequest {
+  /**
+   * <p>A list of specific instance types or instance families that Amazon ECS can launch (for example,
+   *    <code>m5.large</code> or <code>g5</code>). When specified, only these instance types are
+   *    used.</p>
+   * @public
+   */
+  allowedInstanceTypes?: string[] | undefined;
+}
+
+/**
+ * <p>The local storage configuration for Amazon ECS Managed Instances.</p>
+ * @public
+ */
+export interface ManagedInstancesLocalStorageConfiguration {
+  /**
+   * <p>Specifies whether instance store volumes (local NVMe SSDs) are available to containers.
+   *    When enabled, containers can use the instance store for high-performance temporary
+   *    storage.</p>
+   * @public
+   */
+  useLocalStorage?: boolean | undefined;
+}
+
+/**
+ * <p>The network configuration for Amazon ECS Managed Instances. Specifies the VPC subnets and
+ *    security groups where instances are launched.</p>
+ * @public
+ */
+export interface ManagedInstancesNetworkConfiguration {
+  /**
+   * <p>The VPC subnets where managed instances are launched. If your subnets don't provide public
+   *    IP addresses, they must have a NAT gateway for outbound internet access.</p>
+   * @public
+   */
+  subnets: string[] | undefined;
+
+  /**
+   * <p>The VPC security groups to associate with the managed instances.</p>
+   * @public
+   */
+  securityGroups: string[] | undefined;
+}
+
+/**
+ * <p>The storage configuration for Amazon ECS Managed Instances.</p>
+ * @public
+ */
+export interface ManagedInstancesStorageConfiguration {
+  /**
+   * <p>The size of the root EBS volume in GiB for the managed instances.</p>
+   * @public
+   */
+  storageSizeGiB?: number | undefined;
+}
+
+/**
+ * <p>The instance launch configuration for an Amazon ECS Managed Instances capacity provider.
+ *    Specifies the instance profile, networking, instance selection constraints, capacity pricing
+ *    model, storage, and monitoring settings.</p>
+ * @public
+ */
+export interface InstanceLaunchTemplate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances. The instance profile
+   *    must use the <code>AmazonECSInstanceRolePolicyForManagedInstances</code> managed policy with a
+   *    trust policy for <code>ec2.amazonaws.com</code>.</p>
+   * @public
+   */
+  ec2InstanceProfileArn: string | undefined;
+
+  /**
+   * <p>The network configuration for the managed instances. Specifies the VPC subnets and security
+   *    groups where instances are launched.</p>
+   * @public
+   */
+  networkConfiguration: ManagedInstancesNetworkConfiguration | undefined;
+
+  /**
+   * <p>The instance type requirements for the capacity provider. Use this to constrain which Amazon EC2
+   *    instance types Amazon ECS can launch. If not specified, all available instance types are
+   *    eligible.</p>
+   * @public
+   */
+  instanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The capacity pricing model for the managed instances. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ON_DEMAND</code> (default) — On-Demand pricing.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SPOT</code> — Spot Instances, which can provide significant cost savings
+   *      for fault-tolerant workloads.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  capacityOptionType?: string | undefined;
+
+  /**
+   * <p>The storage configuration for the managed instances. Configures the root EBS volume size.
+   *    If not specified, the service uses the default EBS volume size for the instance type.</p>
+   * @public
+   */
+  storageConfiguration?: ManagedInstancesStorageConfiguration | undefined;
+
+  /**
+   * <p>The level of CloudWatch monitoring for the managed instances. Valid values are
+   *    <code>BASIC</code> and <code>DETAILED</code>.</p>
+   * @public
+   */
+  monitoring?: string | undefined;
+
+  /**
+   * <p>Specifies whether FIPS 140-2 validated cryptographic modules are enabled on the managed
+   *    instances. Not available in all Regions.</p>
+   * @public
+   */
+  fipsEnabled?: boolean | undefined;
+
+  /**
+   * <p>The capacity reservation configuration for the managed instances. Use this to target
+   *    On-Demand Capacity Reservations or Reserved Instances for predictable capacity and cost
+   *    optimization.</p>
+   * @public
+   */
+  capacityReservations?: CapacityReservationRequest | undefined;
+
+  /**
+   * <p>Specifies whether instance tags are accessible from the instance metadata service (IMDS).
+   *    If not specified, instance tags are not accessible from IMDS.</p>
+   * @public
+   */
+  instanceMetadataTagsPropagation?: boolean | undefined;
+
+  /**
+   * <p>The local storage configuration for the managed instances. If not specified, instance store
+   *    volumes are not available to containers.</p>
+   * @public
+   */
+  localStorageConfiguration?: ManagedInstancesLocalStorageConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for an Amazon ECS Managed Instances capacity provider. This object is required
+ *    when creating a compute environment with <code>computeResources.type</code> set to
+ *    <code>ECS_MANAGED_INSTANCES</code>.</p>
+ * @public
+ */
+export interface ManagedInstancesProvider {
+  /**
+   * <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it
+   *    launches. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CAPACITY_PROVIDER</code> — Propagates tags to instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> (default) — Does not propagate tags to instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  propagateTags?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on your behalf.
+   *    This role must have a trust policy for <code>ecs.amazonaws.com</code>. You must have the
+   *    <code>iam:PassRole</code> permission for this role with the condition
+   *    <code>iam:PassedToService: ecs.amazonaws.com</code>.</p>
+   * @public
+   */
+  infrastructureRoleArn: string | undefined;
+
+  /**
+   * <p>The instance launch configuration for the Amazon ECS Managed Instances capacity provider.
+   *    Contains networking, instance profile, instance requirements, capacity type, storage, and
+   *    monitoring configuration.</p>
+   * @public
+   */
+  instanceLaunchTemplate: InstanceLaunchTemplate | undefined;
+
+  /**
+   * <p>The infrastructure optimization configuration for the capacity provider. Specifies the
+   *    idle-instance scale-in behavior.</p>
+   * @public
+   */
+  infrastructureOptimization?: InfrastructureOptimization | undefined;
+}
+
+/**
  * <p>An object that represents a scaling policy for a compute environment.</p>
  * @public
  */
@@ -698,13 +949,21 @@ export interface ComputeScalingPolicy {
 export interface ComputeResource {
   /**
    * <p>The type of compute environment: <code>EC2</code>, <code>SPOT</code>, <code>FARGATE</code>,
-   *    or <code>FARGATE_SPOT</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in the
-   *     <i>Batch User Guide</i>.</p>
+   *    <code>FARGATE_SPOT</code>, or <code>ECS_MANAGED_INSTANCES</code>. For more information, see
+   *    <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+   *     environments</a> in the <i>Batch User Guide</i>.</p>
    *          <p> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role with the
    *     <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon EC2 spot fleet role</a> in the
    *     <i>Batch User Guide</i>.</p>
+   *          <p>If you choose <code>ECS_MANAGED_INSTANCES</code>, you must also specify a
+   *    <code>managedInstancesProvider</code> configuration. To use Spot capacity, set
+   *    <code>capacityOptionType</code> to <code>SPOT</code> in the
+   *    <code>managedInstancesProvider.instanceLaunchTemplate</code> configuration. For more
+   *    information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS Managed Instances compute
+   *     environments</a> in the <i>Batch User Guide</i>.</p>
    *          <note>
-   *             <p>Multi-node parallel jobs aren't supported on Spot Instances.</p>
+   *             <p>Multi-node parallel jobs aren't supported on Spot Instances or Amazon ECS Managed
+   *     Instances.</p>
    *          </note>
    * @public
    */
@@ -1064,6 +1323,29 @@ export interface ComputeResource {
    * @public
    */
   scalingPolicy?: ComputeScalingPolicy | undefined;
+
+  /**
+   * <p>The configuration for the Amazon ECS Managed Instances capacity provider. This parameter is
+   *    required when <code>computeResources.type</code> is <code>ECS_MANAGED_INSTANCES</code> and must
+   *    not be specified for other compute environment types.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/ecs_managed_instances.html">Amazon ECS
+   *    Managed Instances compute environments</a> in the
+   *    <i>Batch User Guide</i>.</p>
+   * @public
+   */
+  managedInstancesProvider?: ManagedInstancesProvider | undefined;
+
+  /**
+   * <p>The tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances launched by the
+   *    compute environment. These tags are separate from the compute environment resource tags (the
+   *    top-level <code>tags</code> parameter). Use <code>capacityTags</code> for cost allocation and
+   *    organization of the underlying infrastructure resources.</p>
+   *          <p>This parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments.
+   *    You must have the <code>batch:SetCapacityTags</code> permission on the
+   *    compute environment resource to use this parameter.</p>
+   * @public
+   */
+  capacityTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3976,14 +4258,19 @@ export interface EcsTaskProperties {
 
   /**
    * <p>The network configuration for jobs that are running on Fargate resources. Jobs that are
-   *    running on Amazon EC2 resources must not specify this parameter.</p>
+   *    running on Amazon EC2 resources or Amazon ECS Managed Instances must not specify this parameter.</p>
    * @public
    */
   networkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
-   *    Fargate.</p>
+   *    Fargate or Amazon ECS Managed Instances. Use this to specify the operating system family
+   *    (<code>operatingSystemFamily</code>) and CPU architecture
+   *    (<code>cpuArchitecture</code>).</p>
+   *          <p>For Amazon ECS Managed Instances, the valid value for <code>operatingSystemFamily</code> is
+   *    <code>LINUX</code> (default). The valid values for <code>cpuArchitecture</code> are
+   *    <code>X86_64</code> and <code>ARM64</code>.</p>
    * @public
    */
   runtimePlatform?: RuntimePlatform | undefined;
@@ -4000,6 +4287,20 @@ export interface EcsTaskProperties {
    * @public
    */
   enableExecuteCommand?: boolean | undefined;
+
+  /**
+   * <p>The network mode to use for the task. Valid values: <code>host</code>. When not specified,
+   *    the default is <code>host</code>.</p>
+   *          <p>With <code>host</code> mode, the container shares the host instance's network stack
+   *    directly. When running tasks that use the <code>host</code> network mode, do not run containers
+   *    using the root user (UID 0). Running as root grants unrestricted access to host resources and
+   *    increases the attack surface.</p>
+   *          <p>This parameter only applies to jobs running on Amazon ECS Managed Instances
+   *    (<code>MANAGED_INSTANCES</code> platform capability). It cannot be specified for Fargate or
+   *    Amazon EC2 platform job definitions.</p>
+   * @public
+   */
+  networkMode?: string | undefined;
 }
 
 /**
@@ -4937,7 +5238,8 @@ export interface JobDefinition {
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
-   *    <code>FARGATE</code>.</p>
+   *    <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify
+   *    <code>MANAGED_INSTANCES</code>.</p>
    * @public
    */
   platformCapabilities?: PlatformCapability[] | undefined;
@@ -5843,7 +6145,8 @@ export interface EcsTaskDetails {
 
   /**
    * <p>An object that represents the compute environment architecture for Batch jobs on
-   *    Fargate.</p>
+   *    Fargate or Amazon ECS Managed Instances. Contains the operating system family and CPU architecture
+   *    of the task.</p>
    * @public
    */
   runtimePlatform?: RuntimePlatform | undefined;
@@ -5860,6 +6163,14 @@ export interface EcsTaskDetails {
    * @public
    */
   enableExecuteCommand?: boolean | undefined;
+
+  /**
+   * <p>The network mode configured for the task. This field is populated for jobs running on Amazon ECS
+   *    Managed Instances (<code>MANAGED_INSTANCES</code> platform capability) and always returns
+   *    <code>host</code>.</p>
+   * @public
+   */
+  networkMode?: string | undefined;
 }
 
 /**
@@ -6396,7 +6707,8 @@ export interface JobDetail {
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
    *    defaults to <code>EC2</code>. Jobs run on Fargate resources specify
-   *    <code>FARGATE</code>.</p>
+   *    <code>FARGATE</code>. Jobs run on Amazon ECS Managed Instances specify
+   *    <code>MANAGED_INSTANCES</code>.</p>
    * @public
    */
   platformCapabilities?: PlatformCapability[] | undefined;
@@ -8495,7 +8807,11 @@ export interface RegisterJobDefinitionRequest {
   /**
    * <p>The platform capabilities required by the job definition. If no value is specified, it
    *       defaults to <code>EC2</code>. To run the job on Fargate resources, specify
-   *         <code>FARGATE</code>.</p>
+   *       <code>FARGATE</code>. To run the job on Amazon ECS Managed Instances, specify
+   *       <code>MANAGED_INSTANCES</code>.</p>
+   *          <p>Jobs with the <code>MANAGED_INSTANCES</code> platform capability must use
+   *       <code>ecsProperties</code> (not <code>containerProperties</code>) and do not support
+   *       multi-node parallel jobs.</p>
    *          <note>
    *             <p>If the job runs on Amazon EKS resources, then you must not specify
    *           <code>platformCapabilities</code>.</p>
@@ -9276,6 +9592,109 @@ export interface UntagResourceRequest {
 export interface UntagResourceResponse {}
 
 /**
+ * <p>The instance launch configuration for updating an Amazon ECS Managed Instances capacity
+ *    provider. You cannot change <code>capacityOptionType</code> or <code>fipsEnabled</code> after
+ *    the compute environment is created.</p>
+ * @public
+ */
+export interface InstanceLaunchTemplateUpdate {
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the Amazon EC2 instance profile for the managed instances.</p>
+   * @public
+   */
+  ec2InstanceProfileArn?: string | undefined;
+
+  /**
+   * <p>The updated network configuration for the managed instances.</p>
+   * @public
+   */
+  networkConfiguration?: ManagedInstancesNetworkConfiguration | undefined;
+
+  /**
+   * <p>The updated instance type requirements for the capacity provider.</p>
+   * @public
+   */
+  instanceRequirements?: InstanceRequirementsRequest | undefined;
+
+  /**
+   * <p>The updated storage configuration for the managed instances.</p>
+   * @public
+   */
+  storageConfiguration?: ManagedInstancesStorageConfiguration | undefined;
+
+  /**
+   * <p>The updated monitoring level. Valid values are <code>BASIC</code> and
+   *    <code>DETAILED</code>.</p>
+   * @public
+   */
+  monitoring?: string | undefined;
+
+  /**
+   * <p>The updated capacity reservation configuration.</p>
+   * @public
+   */
+  capacityReservations?: CapacityReservationRequest | undefined;
+
+  /**
+   * <p>Specifies whether instance tags are accessible from the instance metadata service
+   *    (IMDS).</p>
+   * @public
+   */
+  instanceMetadataTagsPropagation?: boolean | undefined;
+
+  /**
+   * <p>The updated local storage configuration.</p>
+   * @public
+   */
+  localStorageConfiguration?: ManagedInstancesLocalStorageConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for updating an Amazon ECS Managed Instances capacity provider. Used in
+ *    <code>UpdateComputeEnvironment</code> requests. The <code>capacityOptionType</code> and
+ *    <code>fipsEnabled</code> fields cannot be changed on update.</p>
+ * @public
+ */
+export interface UpdateManagedInstancesProviderConfiguration {
+  /**
+   * <p>Specifies whether tags on the capacity provider are propagated to the Amazon EC2 instances it
+   *    launches. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CAPACITY_PROVIDER</code> — Propagates tags to instances.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> — Does not propagate tags to instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  propagateTags?: string | undefined;
+
+  /**
+   * <p>The updated Amazon Resource Name (ARN) of the IAM role that Amazon ECS assumes to manage Amazon EC2 instances on
+   *    your behalf.</p>
+   * @public
+   */
+  infrastructureRoleArn?: string | undefined;
+
+  /**
+   * <p>The updated instance launch configuration for the Amazon ECS Managed Instances capacity
+   *    provider.</p>
+   * @public
+   */
+  instanceLaunchTemplate?: InstanceLaunchTemplateUpdate | undefined;
+
+  /**
+   * <p>The updated infrastructure optimization configuration.</p>
+   * @public
+   */
+  infrastructureOptimization?: InfrastructureOptimization | undefined;
+}
+
+/**
  * <p>An object that represents the attributes of a compute environment that can be updated. For
  *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
  *     <i>Batch User Guide</i>.</p>
@@ -9642,14 +10061,16 @@ export interface ComputeResourceUpdate {
 
   /**
    * <p>The type of compute environment: <code>EC2</code>, <code>SPOT</code>, <code>FARGATE</code>,
-   *    or <code>FARGATE_SPOT</code>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute environments</a> in the
-   *     <i>Batch User Guide</i>.</p>
+   *    <code>FARGATE_SPOT</code>, or <code>ECS_MANAGED_INSTANCES</code>. For more information, see
+   *    <a href="https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html">Compute
+   *     environments</a> in the <i>Batch User Guide</i>.</p>
    *          <p> If you choose <code>SPOT</code>, you must also specify an Amazon EC2 Spot Fleet role with the
    *     <code>spotIamFleetRole</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/spot_fleet_IAM_role.html">Amazon EC2 spot fleet role</a> in the
    *     <i>Batch User Guide</i>.</p>
    *          <p>When updating a compute environment, changing the type of a compute environment requires an
    *    infrastructure update of the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute
    *     environments</a> in the <i>Batch User Guide</i>.</p>
+   *          <p>You cannot change the type to or from <code>ECS_MANAGED_INSTANCES</code>.</p>
    * @public
    */
   type?: CRType | undefined;
@@ -9685,6 +10106,23 @@ export interface ComputeResourceUpdate {
    * @public
    */
   scalingPolicy?: ComputeScalingPolicy | undefined;
+
+  /**
+   * <p>The updated configuration for the Amazon ECS Managed Instances capacity provider. This parameter
+   *    is only valid when the compute environment type is <code>ECS_MANAGED_INSTANCES</code>. You
+   *    cannot change <code>capacityOptionType</code> or <code>fipsEnabled</code> on update.</p>
+   * @public
+   */
+  managedInstancesProvider?: UpdateManagedInstancesProviderConfiguration | undefined;
+
+  /**
+   * <p>The updated tags to apply to the Amazon ECS capacity provider and Amazon EC2 instances. This
+   *    parameter is only valid for <code>ECS_MANAGED_INSTANCES</code> compute environments. You must
+   *    have the <code>batch:SetCapacityTags</code> permission on the compute environment resource to
+   *    use this parameter.</p>
+   * @public
+   */
+  capacityTags?: Record<string, string> | undefined;
 }
 
 /**

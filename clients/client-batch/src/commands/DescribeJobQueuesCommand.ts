@@ -63,7 +63,7 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * //           serviceEnvironment: "STRING_VALUE", // required
  * //         },
  * //       ],
- * //       jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING",
+ * //       jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING" || "ECS_MANAGED_INSTANCES",
  * //       tags: { // TagrisTagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },

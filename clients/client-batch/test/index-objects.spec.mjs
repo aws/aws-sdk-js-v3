@@ -16,6 +16,7 @@ import {
   CancelJobRequest$,
   CancelJobResponse$,
   CapacityLimit$,
+  CapacityReservationRequest$,
   CEState,
   CEStatus,
   CEType,
@@ -179,6 +180,10 @@ import {
   GetJobQueueSnapshotResponse$,
   Host$,
   ImagePullSecret$,
+  InfrastructureOptimization$,
+  InstanceLaunchTemplate$,
+  InstanceLaunchTemplateUpdate$,
+  InstanceRequirementsRequest$,
   JobCapacityUsageSummary$,
   JobDefinition$,
   JobDefinitionType,
@@ -231,6 +236,10 @@ import {
   ListTagsForResourceResponse$,
   LogConfiguration$,
   LogDriver,
+  ManagedInstancesLocalStorageConfiguration$,
+  ManagedInstancesNetworkConfiguration$,
+  ManagedInstancesProvider$,
+  ManagedInstancesStorageConfiguration$,
   MountPoint$,
   NetworkConfiguration$,
   NetworkInterface$,
@@ -347,6 +356,7 @@ import {
   UpdateJobQueueCommand,
   UpdateJobQueueRequest$,
   UpdateJobQueueResponse$,
+  UpdateManagedInstancesProviderConfiguration$,
   UpdatePolicy$,
   UpdateQuotaShare$,
   UpdateQuotaShareCommand,
@@ -473,6 +483,7 @@ assert(typeof AttemptTaskContainerDetails$ === "object");
 assert(typeof CancelJobRequest$ === "object");
 assert(typeof CancelJobResponse$ === "object");
 assert(typeof CapacityLimit$ === "object");
+assert(typeof CapacityReservationRequest$ === "object");
 assert(typeof ComputeEnvironmentDetail$ === "object");
 assert(typeof ComputeEnvironmentOrder$ === "object");
 assert(typeof ComputeResource$ === "object");
@@ -577,6 +588,10 @@ assert(typeof GetJobQueueSnapshotRequest$ === "object");
 assert(typeof GetJobQueueSnapshotResponse$ === "object");
 assert(typeof Host$ === "object");
 assert(typeof ImagePullSecret$ === "object");
+assert(typeof InfrastructureOptimization$ === "object");
+assert(typeof InstanceLaunchTemplate$ === "object");
+assert(typeof InstanceLaunchTemplateUpdate$ === "object");
+assert(typeof InstanceRequirementsRequest$ === "object");
 assert(typeof JobCapacityUsageSummary$ === "object");
 assert(typeof JobDefinition$ === "object");
 assert(typeof JobDependency$ === "object");
@@ -607,6 +622,10 @@ assert(typeof ListServiceJobsResponse$ === "object");
 assert(typeof ListTagsForResourceRequest$ === "object");
 assert(typeof ListTagsForResourceResponse$ === "object");
 assert(typeof LogConfiguration$ === "object");
+assert(typeof ManagedInstancesLocalStorageConfiguration$ === "object");
+assert(typeof ManagedInstancesNetworkConfiguration$ === "object");
+assert(typeof ManagedInstancesProvider$ === "object");
+assert(typeof ManagedInstancesStorageConfiguration$ === "object");
 assert(typeof MountPoint$ === "object");
 assert(typeof NetworkConfiguration$ === "object");
 assert(typeof NetworkInterface$ === "object");
@@ -675,6 +694,7 @@ assert(typeof UpdateConsumableResourceRequest$ === "object");
 assert(typeof UpdateConsumableResourceResponse$ === "object");
 assert(typeof UpdateJobQueueRequest$ === "object");
 assert(typeof UpdateJobQueueResponse$ === "object");
+assert(typeof UpdateManagedInstancesProviderConfiguration$ === "object");
 assert(typeof UpdatePolicy$ === "object");
 assert(typeof UpdateQuotaShareRequest$ === "object");
 assert(typeof UpdateQuotaShareResponse$ === "object");

@@ -34,7 +34,8 @@ const _CQSRr = "CreateQuotaShareResponse";
 const _CR = "ComputeResource";
 const _CRL = "ConsumableResourceList";
 const _CRP = "ConsumableResourceProperties";
-const _CRR = "ConsumableResourceRequirement";
+const _CRR = "CapacityReservationRequest";
+const _CRRo = "ConsumableResourceRequirement";
 const _CRS = "ConsumableResourceSummary";
 const _CRSL = "ConsumableResourceSummaryList";
 const _CRU = "ComputeResourceUpdate";
@@ -159,8 +160,12 @@ const _GJQS = "GetJobQueueSnapshot";
 const _GJQSR = "GetJobQueueSnapshotRequest";
 const _GJQSRe = "GetJobQueueSnapshotResponse";
 const _H = "Host";
+const _ILT = "InstanceLaunchTemplate";
+const _ILTU = "InstanceLaunchTemplateUpdate";
+const _IO = "InfrastructureOptimization";
 const _IPS = "ImagePullSecret";
 const _IPSm = "ImagePullSecrets";
+const _IRR = "InstanceRequirementsRequest";
 const _JCUS = "JobCapacityUsageSummary";
 const _JCUSL = "JobCapacityUsageSummaryList";
 const _JD = "JobDefinition";
@@ -218,6 +223,10 @@ const _LTPO = "ListTaskPropertiesOverride";
 const _LTS = "LaunchTemplateSpecification";
 const _LTSO = "LaunchTemplateSpecificationOverride";
 const _LTSOL = "LaunchTemplateSpecificationOverrideList";
+const _MILSC = "ManagedInstancesLocalStorageConfiguration";
+const _MINC = "ManagedInstancesNetworkConfiguration";
+const _MIP = "ManagedInstancesProvider";
+const _MISC = "ManagedInstancesStorageConfiguration";
 const _MP = "MountPoint";
 const _MPo = "MountPoints";
 const _NC = "NetworkConfiguration";
@@ -318,6 +327,7 @@ const _UCRRp = "UpdateConsumableResourceResponse";
 const _UJQ = "UpdateJobQueue";
 const _UJQR = "UpdateJobQueueRequest";
 const _UJQRp = "UpdateJobQueueResponse";
+const _UMIPC = "UpdateManagedInstancesProviderConfiguration";
 const _UP = "UpdatePolicy";
 const _UQS = "UpdateQuotaShare";
 const _UQSR = "UpdateQuotaShareRequest";
@@ -341,6 +351,7 @@ const _a = "arn";
 const _aC = "authorizationConfig";
 const _aDS = "attemptDurationSeconds";
 const _aI = "attachmentId";
+const _aIT = "allowedInstanceTypes";
 const _aJI = "arrayJobId";
 const _aP = "arrayProperties";
 const _aPA = "accessPointArn";
@@ -374,6 +385,7 @@ const _cN = "claimName";
 const _cNo = "containerName";
 const _cO = "containerOverrides";
 const _cOT = "containerOrchestrationType";
+const _cOTa = "capacityOptionType";
 const _cP = "containerPath";
 const _cPo = "containerProperties";
 const _cPr = "credentialsParameter";
@@ -383,10 +395,12 @@ const _cRL = "consumableResourceList";
 const _cRN = "consumableResourceName";
 const _cRP = "consumableResourceProperties";
 const _cRPO = "consumableResourcePropertiesOverride";
+const _cRa = "capacityReservations";
 const _cRo = "consumableResource";
 const _cRom = "computeReservation";
 const _cRon = "consumableResources";
-const _cT = "clientToken";
+const _cT = "capacityTags";
+const _cTl = "clientToken";
 const _cU = "capacityUnit";
 const _cUa = "capacityUsage";
 const _co = "container";
@@ -407,6 +421,7 @@ const _eCc = "ec2Configuration";
 const _eCk = "eksConfiguration";
 const _eD = "emptyDir";
 const _eEC = "enableExecuteCommand";
+const _eIPA = "ec2InstanceProfileArn";
 const _eKP = "ec2KeyPair";
 const _eOE = "evaluateOnExit";
 const _eP = "ecsProperties";
@@ -423,6 +438,7 @@ const _env = "env";
 const _es = "essential";
 const _f = "filters";
 const _fC = "firelensConfiguration";
+const _fE = "fipsEnabled";
 const _fOQ = "frontOfQueue";
 const _fOQS = "frontOfQuotaShares";
 const _fP = "fairsharePolicy";
@@ -444,13 +460,18 @@ const _iCs = "isCancelled";
 const _iI = "imageId";
 const _iIO = "imageIdOverride";
 const _iKV = "imageKubernetesVersion";
+const _iLT = "instanceLaunchTemplate";
 const _iM = "ipcMode";
 const _iMN = "isMainNode";
+const _iMTP = "instanceMetadataTagsPropagation";
+const _iO = "infrastructureOptimization";
 const _iPE = "initProcessEnabled";
 const _iPP = "imagePullPolicy";
 const _iPS = "imagePullSecrets";
 const _iR = "instanceRole";
+const _iRA = "infrastructureRoleArn";
 const _iRAS = "idleResourceAssignmentStrategy";
+const _iRn = "instanceRequirements";
 const _iSP = "inSharePreemption";
 const _iT = "instanceTypes";
 const _iTm = "imageType";
@@ -483,6 +504,7 @@ const _lA = "latestAttempt";
 const _lC = "logConfiguration";
 const _lD = "logDriver";
 const _lP = "linuxParameters";
+const _lSC = "localStorageConfiguration";
 const _lSN = "logStreamName";
 const _lT = "launchTemplate";
 const _lTI = "launchTemplateId";
@@ -493,6 +515,7 @@ const _m = "message";
 const _mC = "maxCapacity";
 const _mCa = "maxvCpus";
 const _mCi = "minvCpus";
+const _mIP = "managedInstancesProvider";
 const _mN = "mainNode";
 const _mNJI = "multiNodeJobId";
 const _mO = "mountOptions";
@@ -505,11 +528,13 @@ const _mTS = "maxTimeSeconds";
 const _me = "memory";
 const _med = "medium";
 const _met = "metadata";
+const _mo = "monitoring";
 const _n = "name";
 const _nC = "networkConfiguration";
 const _nD = "nodeDetails";
 const _nI = "networkInterfaces";
 const _nIo = "nodeIndex";
+const _nM = "networkMode";
 const _nN = "nodeName";
 const _nNu = "numNodes";
 const _nO = "nodeOverrides";
@@ -560,10 +585,12 @@ const _rANR = "runAsNonRoot";
 const _rAU = "runAsUser";
 const _rC = "repositoryCredentials";
 const _rD = "rootDirectory";
+const _rGA = "reservationGroupArn";
 const _rO = "readOnly";
 const _rORF = "readOnlyRootFilesystem";
-const _rP = "runtimePlatform";
+const _rP = "reservationPreference";
 const _rPA = "recentPreemptedAttempts";
+const _rPu = "runtimePlatform";
 const _rR = "resourceRequirements";
 const _rRF = "readonlyRootFilesystem";
 const _rS = "retryStrategy";
@@ -578,6 +605,7 @@ const _sAN = "serviceAccountName";
 const _sAc = "scheduledAt";
 const _sAt = "stoppedAt";
 const _sC = "securityContext";
+const _sCt = "storageConfiguration";
 const _sD = "shareDistribution";
 const _sDS = "shareDecaySeconds";
 const _sE = "serviceEnvironment";
@@ -586,8 +614,10 @@ const _sEN = "serviceEnvironmentName";
 const _sEO = "serviceEnvironmentOrder";
 const _sET = "serviceEnvironmentType";
 const _sEe = "serviceEnvironments";
+const _sG = "securityGroups";
 const _sGI = "securityGroupIds";
 const _sI = "shareIdentifier";
+const _sIA = "scaleInAfter";
 const _sIFR = "spotIamFleetRole";
 const _sIGB = "sizeInGiB";
 const _sJT = "serviceJobType";
@@ -609,6 +639,7 @@ const _sRI = "serviceResourceId";
 const _sRP = "serviceRequestPayload";
 const _sRe = "serviceRole";
 const _sS = "statusSummary";
+const _sSGB = "storageSizeGiB";
 const _sSLUA = "statusSummaryLastUpdatedAt";
 const _sT = "startTimeout";
 const _sTt = "stopTimeout";
@@ -642,6 +673,7 @@ const _tm = "tmpfs";
 const _ty = "type";
 const _u = "uuid";
 const _uC = "unmanagedvCpus";
+const _uLS = "useLocalStorage";
 const _uP = "updatePolicy";
 const _uT = "userdataType";
 const _uTLIV = "updateToLatestImageVersion";
@@ -746,6 +778,11 @@ export var CapacityLimit$: StaticStructureSchema = [3, n0, _CL,
   [_mC, _cU],
   [1, 0]
 ];
+export var CapacityReservationRequest$: StaticStructureSchema = [3, n0, _CRR,
+  0,
+  [_rGA, _rP],
+  [0, 0]
+];
 export var ComputeEnvironmentDetail$: StaticStructureSchema = [3, n0, _CED,
   0,
   [_cEN, _cEA, _uC, _eCA, _t, _ty, _st, _sta, _sR, _cR, _sRe, _uP, _eCk, _cOT, _u, _cont, _eS],
@@ -758,13 +795,13 @@ export var ComputeEnvironmentOrder$: StaticStructureSchema = [3, n0, _CEO,
 ];
 export var ComputeResource$: StaticStructureSchema = [3, n0, _CR,
   0,
-  [_ty, _mCa, _aS, _mCi, _dC, _iT, _iI, _su, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP],
-  [0, 1, 0, 1, 1, 64 | 0, 0, 64 | 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$], 2
+  [_ty, _mCa, _aS, _mCi, _dC, _iT, _iI, _su, _sGI, _eKP, _iR, _t, _pG, _bP, _sIFR, _lT, _eCc, _sP, _mIP, _cT],
+  [0, 1, 0, 1, 1, 64 | 0, 0, 64 | 0, 64 | 0, 0, 0, 128 | 0, 0, 1, 0, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, () => ComputeScalingPolicy$, () => ManagedInstancesProvider$, 128 | 0], 2
 ];
 export var ComputeResourceUpdate$: StaticStructureSchema = [3, n0, _CRU,
   0,
-  [_mCi, _mCa, _dC, _su, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI, _sP],
-  [1, 1, 1, 64 | 0, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, 2, 0, 0, () => ComputeScalingPolicy$]
+  [_mCi, _mCa, _dC, _su, _sGI, _aS, _iT, _eKP, _iR, _t, _pG, _bP, _lT, _eCc, _uTLIV, _ty, _iI, _sP, _mIP, _cT],
+  [1, 1, 1, 64 | 0, 64 | 0, 0, 64 | 0, 0, 0, 128 | 0, 0, 1, () => LaunchTemplateSpecification$, () => Ec2ConfigurationList, 2, 0, 0, () => ComputeScalingPolicy$, () => UpdateManagedInstancesProviderConfiguration$, 128 | 0]
 ];
 export var ComputeScalingPolicy$: StaticStructureSchema = [3, n0, _CSP,
   0,
@@ -776,7 +813,7 @@ export var ConsumableResourceProperties$: StaticStructureSchema = [3, n0, _CRP,
   [_cRL],
   [() => ConsumableResourceList]
 ];
-export var ConsumableResourceRequirement$: StaticStructureSchema = [3, n0, _CRR,
+export var ConsumableResourceRequirement$: StaticStructureSchema = [3, n0, _CRRo,
   0,
   [_cRo, _q],
   [0, 1]
@@ -788,7 +825,7 @@ export var ConsumableResourceSummary$: StaticStructureSchema = [3, n0, _CRS,
 ];
 export var ContainerDetail$: StaticStructureSchema = [3, n0, _CD,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _sec, _nC, _fPC, _eSp, _rP, _rC, _eEC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _ul, _p, _us, _eC, _r, _cIA, _tA, _lSN, _iTn, _nI, _rR, _lP, _lC, _sec, _nC, _fPC, _eSp, _rPu, _rC, _eEC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, () => Ulimits, 2, 0, 1, 0, 0, 0, 0, 0, () => NetworkInterfaceList, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$, 2]
 ];
 export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
@@ -798,7 +835,7 @@ export var ContainerOverrides$: StaticStructureSchema = [3, n0, _CO,
 ];
 export var ContainerProperties$: StaticStructureSchema = [3, n0, _CP,
   0,
-  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _sec, _nC, _fPC, _eEC, _eSp, _rP, _rC],
+  [_im, _v, _me, _com, _jRA, _eRA, _vo, _en, _mP, _rRF, _p, _ul, _us, _iTn, _rR, _lP, _lC, _sec, _nC, _fPC, _eEC, _eSp, _rPu, _rC],
   [0, 1, 1, 64 | 0, 0, 0, () => Volumes, () => EnvironmentVariables, () => MountPoints, 2, 2, () => Ulimits, 0, 0, () => ResourceRequirements, () => LinuxParameters$, () => LogConfiguration$, () => SecretList, () => NetworkConfiguration$, () => FargatePlatformConfiguration$, 2, () => EphemeralStorage$, () => RuntimePlatform$, () => RepositoryCredentials$]
 ];
 export var ContainerSummary$: StaticStructureSchema = [3, n0, _CS,
@@ -1058,13 +1095,13 @@ export var EcsSettings$: StaticStructureSchema = [3, n0, _ES,
 ];
 export var EcsTaskDetails$: StaticStructureSchema = [3, n0, _ETD,
   0,
-  [_con, _cIA, _tA, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
-  [() => ListTaskContainerDetails, 0, 0, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2]
+  [_con, _cIA, _tA, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rPu, _vo, _eEC, _nM],
+  [() => ListTaskContainerDetails, 0, 0, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2, 0]
 ];
 export var EcsTaskProperties$: StaticStructureSchema = [3, n0, _ETP,
   0,
-  [_con, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rP, _vo, _eEC],
-  [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2], 1
+  [_con, _eSp, _eRA, _pV, _iM, _tRA, _pM, _nC, _rPu, _vo, _eEC, _nM],
+  [() => ListTaskContainerProperties, () => EphemeralStorage$, 0, 0, 0, 0, 0, () => NetworkConfiguration$, () => RuntimePlatform$, () => Volumes, 2, 0], 1
 ];
 export var EFSAuthorizationConfig$: StaticStructureSchema = [3, n0, _EFSAC,
   0,
@@ -1266,6 +1303,26 @@ export var ImagePullSecret$: StaticStructureSchema = [3, n0, _IPS,
   [_n],
   [0], 1
 ];
+export var InfrastructureOptimization$: StaticStructureSchema = [3, n0, _IO,
+  0,
+  [_sIA],
+  [1]
+];
+export var InstanceLaunchTemplate$: StaticStructureSchema = [3, n0, _ILT,
+  0,
+  [_eIPA, _nC, _iRn, _cOTa, _sCt, _mo, _fE, _cRa, _iMTP, _lSC],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => InstanceRequirementsRequest$, 0, () => ManagedInstancesStorageConfiguration$, 0, 2, () => CapacityReservationRequest$, 2, () => ManagedInstancesLocalStorageConfiguration$], 2
+];
+export var InstanceLaunchTemplateUpdate$: StaticStructureSchema = [3, n0, _ILTU,
+  0,
+  [_eIPA, _nC, _iRn, _sCt, _mo, _cRa, _iMTP, _lSC],
+  [0, () => ManagedInstancesNetworkConfiguration$, () => InstanceRequirementsRequest$, () => ManagedInstancesStorageConfiguration$, 0, () => CapacityReservationRequest$, 2, () => ManagedInstancesLocalStorageConfiguration$]
+];
+export var InstanceRequirementsRequest$: StaticStructureSchema = [3, n0, _IRR,
+  0,
+  [_aIT],
+  [64 | 0]
+];
 export var JobCapacityUsageSummary$: StaticStructureSchema = [3, n0, _JCUS,
   0,
   [_cU, _q],
@@ -1415,6 +1472,26 @@ export var LogConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
   [_lD, _opt, _sO],
   [0, 128 | 0, () => SecretList], 1
+];
+export var ManagedInstancesLocalStorageConfiguration$: StaticStructureSchema = [3, n0, _MILSC,
+  0,
+  [_uLS],
+  [2]
+];
+export var ManagedInstancesNetworkConfiguration$: StaticStructureSchema = [3, n0, _MINC,
+  0,
+  [_su, _sG],
+  [64 | 0, 64 | 0], 2
+];
+export var ManagedInstancesProvider$: StaticStructureSchema = [3, n0, _MIP,
+  0,
+  [_iRA, _iLT, _pT, _iO],
+  [0, () => InstanceLaunchTemplate$, 0, () => InfrastructureOptimization$], 2
+];
+export var ManagedInstancesStorageConfiguration$: StaticStructureSchema = [3, n0, _MISC,
+  0,
+  [_sSGB],
+  [1]
 ];
 export var MountPoint$: StaticStructureSchema = [3, n0, _MP,
   0,
@@ -1643,7 +1720,7 @@ export var SubmitJobResponse$: StaticStructureSchema = [3, n0, _SJRu,
 ];
 export var SubmitServiceJobRequest$: StaticStructureSchema = [3, n0, _SSJR,
   0,
-  [_jN, _jQ, _sRP, _sJT, _rS, _sPch, _sI, _qSN, _pC, _tC, _t, _cT],
+  [_jN, _jQ, _sRP, _sJT, _rS, _sPch, _sI, _qSN, _pC, _tC, _t, _cTl],
   [0, 0, 0, 0, () => ServiceJobRetryStrategy$, 1, 0, 0, () => ServiceJobPreemptionConfiguration$, () => ServiceJobTimeout$, 128 | 0, [0, 4]], 4
 ];
 export var SubmitServiceJobResponse$: StaticStructureSchema = [3, n0, _SSJRu,
@@ -1738,7 +1815,7 @@ export var UpdateComputeEnvironmentResponse$: StaticStructureSchema = [3, n0, _U
 ];
 export var UpdateConsumableResourceRequest$: StaticStructureSchema = [3, n0, _UCRR,
   0,
-  [_cRo, _ope, _q, _cT],
+  [_cRo, _ope, _q, _cTl],
   [0, 0, 1, [0, 4]], 1
 ];
 export var UpdateConsumableResourceResponse$: StaticStructureSchema = [3, n0, _UCRRp,
@@ -1755,6 +1832,11 @@ export var UpdateJobQueueResponse$: StaticStructureSchema = [3, n0, _UJQRp,
   0,
   [_jQN, _jQA],
   [0, 0]
+];
+export var UpdateManagedInstancesProviderConfiguration$: StaticStructureSchema = [3, n0, _UMIPC,
+  0,
+  [_pT, _iRA, _iLT, _iO],
+  [0, 0, () => InstanceLaunchTemplateUpdate$, () => InfrastructureOptimization$]
 ];
 export var UpdatePolicy$: StaticStructureSchema = [3, n0, _UP,
   0,

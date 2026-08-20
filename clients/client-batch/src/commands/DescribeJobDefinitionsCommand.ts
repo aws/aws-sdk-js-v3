@@ -357,6 +357,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //                   runtimePlatform: "<RuntimePlatform>",
  * //                   volumes: "<Volumes>",
  * //                   enableExecuteCommand: true || false,
+ * //                   networkMode: "STRING_VALUE",
  * //                 },
  * //               ],
  * //             },
@@ -496,7 +497,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //       },
  * //       propagateTags: true || false,
  * //       platformCapabilities: [ // PlatformCapabilityList
- * //         "EC2" || "FARGATE",
+ * //         "EC2" || "FARGATE" || "MANAGED_INSTANCES",
  * //       ],
  * //       ecsProperties: {
  * //         taskProperties: [ // required
@@ -544,6 +545,7 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //             runtimePlatform: "<RuntimePlatform>",
  * //             volumes: "<Volumes>",
  * //             enableExecuteCommand: true || false,
+ * //             networkMode: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },

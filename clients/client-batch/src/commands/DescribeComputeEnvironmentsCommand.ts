@@ -59,7 +59,7 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //       status: "CREATING" || "UPDATING" || "DELETING" || "DELETED" || "VALID" || "INVALID",
  * //       statusReason: "STRING_VALUE",
  * //       computeResources: { // ComputeResource
- * //         type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
+ * //         type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT" || "ECS_MANAGED_INSTANCES", // required
  * //         allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "BEST_FIT_PROGRESSIVE_ORDERED" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED" || "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED",
  * //         minvCpus: Number("int"),
  * //         maxvCpus: Number("int"), // required
@@ -109,6 +109,42 @@ export interface DescribeComputeEnvironmentsCommandOutput extends DescribeComput
  * //         ],
  * //         scalingPolicy: { // ComputeScalingPolicy
  * //           minScaleDownDelayMinutes: Number("int"),
+ * //         },
+ * //         managedInstancesProvider: { // ManagedInstancesProvider
+ * //           propagateTags: "STRING_VALUE",
+ * //           infrastructureRoleArn: "STRING_VALUE", // required
+ * //           instanceLaunchTemplate: { // InstanceLaunchTemplate
+ * //             ec2InstanceProfileArn: "STRING_VALUE", // required
+ * //             networkConfiguration: { // ManagedInstancesNetworkConfiguration
+ * //               subnets: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               securityGroups: "<StringList>", // required
+ * //             },
+ * //             instanceRequirements: { // InstanceRequirementsRequest
+ * //               allowedInstanceTypes: "<StringList>",
+ * //             },
+ * //             capacityOptionType: "STRING_VALUE",
+ * //             storageConfiguration: { // ManagedInstancesStorageConfiguration
+ * //               storageSizeGiB: Number("int"),
+ * //             },
+ * //             monitoring: "STRING_VALUE",
+ * //             fipsEnabled: true || false,
+ * //             capacityReservations: { // CapacityReservationRequest
+ * //               reservationGroupArn: "STRING_VALUE",
+ * //               reservationPreference: "STRING_VALUE",
+ * //             },
+ * //             instanceMetadataTagsPropagation: true || false,
+ * //             localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ * //               useLocalStorage: true || false,
+ * //             },
+ * //           },
+ * //           infrastructureOptimization: { // InfrastructureOptimization
+ * //             scaleInAfter: Number("int"),
+ * //           },
+ * //         },
+ * //         capacityTags: {
+ * //           "<keys>": "STRING_VALUE",
  * //         },
  * //       },
  * //       serviceRole: "STRING_VALUE",

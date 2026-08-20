@@ -413,6 +413,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //                   runtimePlatform: "<RuntimePlatform>",
  * //                   volumes: "<Volumes>",
  * //                   enableExecuteCommand: true || false,
+ * //                   networkMode: "STRING_VALUE",
  * //                 },
  * //               ],
  * //             },
@@ -563,7 +564,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //       },
  * //       propagateTags: true || false,
  * //       platformCapabilities: [ // PlatformCapabilityList
- * //         "EC2" || "FARGATE",
+ * //         "EC2" || "FARGATE" || "MANAGED_INSTANCES",
  * //       ],
  * //       eksProperties: { // EksPropertiesDetail
  * //         podProperties: { // EksPodPropertiesDetail
@@ -770,6 +771,7 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //             runtimePlatform: "<RuntimePlatform>",
  * //             volumes: "<Volumes>",
  * //             enableExecuteCommand: true || false,
+ * //             networkMode: "STRING_VALUE",
  * //           },
  * //         ],
  * //       },

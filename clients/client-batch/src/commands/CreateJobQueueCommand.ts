@@ -55,7 +55,7 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *       serviceEnvironment: "STRING_VALUE", // required
  *     },
  *   ],
- *   jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING",
+ *   jobQueueType: "EKS" || "ECS" || "ECS_FARGATE" || "SAGEMAKER_TRAINING" || "ECS_MANAGED_INSTANCES",
  *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -119,6 +119,30 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * *\/
  * ```
  *
+ * @example To create a job queue with an ECS Managed Instances compute environment
+ * ```javascript
+ * // This example creates a job queue called ManagedInstancesQueue that uses an ECS Managed Instances compute environment.
+ * const input = {
+ *   computeEnvironmentOrder: [
+ *     {
+ *       computeEnvironment: "my-managed-instances-ce",
+ *       order: 1
+ *     }
+ *   ],
+ *   jobQueueName: "ManagedInstancesQueue",
+ *   priority: 10,
+ *   state: "ENABLED"
+ * };
+ * const command = new CreateJobQueueCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobQueueArn: "arn:aws:batch:us-east-1:123456789012:job-queue/ManagedInstancesQueue",
+ *   jobQueueName: "ManagedInstancesQueue"
+ * }
+ * *\/
+ * ```
+ *
  * @example To create a job queue with multiple compute environments
  * ```javascript
  * // This example creates a job queue called HighPriority that uses the C4OnDemand compute environment with an order of 1 and the M4Spot compute environment with an order of 2.
@@ -143,6 +167,34 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  * {
  *   jobQueueArn: "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
  *   jobQueueName: "HighPriority"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create a job queue with On-Demand and Spot ECS Managed Instances compute environments
+ * ```javascript
+ * // This example creates a job queue that uses both On-Demand and Spot ECS Managed Instances compute environments. On-Demand environments must be ordered before Spot environments.
+ * const input = {
+ *   computeEnvironmentOrder: [
+ *     {
+ *       computeEnvironment: "my-managed-instances-ce",
+ *       order: 1
+ *     },
+ *     {
+ *       computeEnvironment: "my-spot-managed-instances-ce",
+ *       order: 2
+ *     }
+ *   ],
+ *   jobQueueName: "ManagedInstancesMixedQueue",
+ *   priority: 5,
+ *   state: "ENABLED"
+ * };
+ * const command = new CreateJobQueueCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobQueueArn: "arn:aws:batch:us-east-1:123456789012:job-queue/ManagedInstancesMixedQueue",
+ *   jobQueueName: "ManagedInstancesMixedQueue"
  * }
  * *\/
  * ```

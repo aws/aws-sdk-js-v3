@@ -62,7 +62,7 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *   state: "ENABLED" || "DISABLED",
  *   unmanagedvCpus: Number("int"),
  *   computeResources: { // ComputeResource
- *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT", // required
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT" || "ECS_MANAGED_INSTANCES", // required
  *     allocationStrategy: "BEST_FIT" || "BEST_FIT_PROGRESSIVE" || "BEST_FIT_PROGRESSIVE_ORDERED" || "SPOT_CAPACITY_OPTIMIZED" || "SPOT_PRICE_CAPACITY_OPTIMIZED" || "SPOT_CAPACITY_OPTIMIZED_PRIORITIZED",
  *     minvCpus: Number("int"),
  *     maxvCpus: Number("int"), // required
@@ -113,9 +113,45 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *     scalingPolicy: { // ComputeScalingPolicy
  *       minScaleDownDelayMinutes: Number("int"),
  *     },
+ *     managedInstancesProvider: { // ManagedInstancesProvider
+ *       propagateTags: "STRING_VALUE",
+ *       infrastructureRoleArn: "STRING_VALUE", // required
+ *       instanceLaunchTemplate: { // InstanceLaunchTemplate
+ *         ec2InstanceProfileArn: "STRING_VALUE", // required
+ *         networkConfiguration: { // ManagedInstancesNetworkConfiguration
+ *           subnets: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           securityGroups: "<StringList>", // required
+ *         },
+ *         instanceRequirements: { // InstanceRequirementsRequest
+ *           allowedInstanceTypes: "<StringList>",
+ *         },
+ *         capacityOptionType: "STRING_VALUE",
+ *         storageConfiguration: { // ManagedInstancesStorageConfiguration
+ *           storageSizeGiB: Number("int"),
+ *         },
+ *         monitoring: "STRING_VALUE",
+ *         fipsEnabled: true || false,
+ *         capacityReservations: { // CapacityReservationRequest
+ *           reservationGroupArn: "STRING_VALUE",
+ *           reservationPreference: "STRING_VALUE",
+ *         },
+ *         instanceMetadataTagsPropagation: true || false,
+ *         localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ *           useLocalStorage: true || false,
+ *         },
+ *       },
+ *       infrastructureOptimization: { // InfrastructureOptimization
+ *         scaleInAfter: Number("int"),
+ *       },
+ *     },
+ *     capacityTags: { // TagrisTagsMap
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   serviceRole: "STRING_VALUE",
- *   tags: { // TagrisTagsMap
+ *   tags: {
  *     "<keys>": "STRING_VALUE",
  *   },
  *   eksConfiguration: { // EksConfiguration
@@ -238,6 +274,136 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  * {
  *   computeEnvironmentArn: "arn:aws:batch:us-east-1:012345678910:compute-environment/M4Spot",
  *   computeEnvironmentName: "M4Spot"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an ECS Managed Instances compute environment with capacity reservations
+ * ```javascript
+ * // This example creates an ECS Managed Instances compute environment that targets On-Demand Capacity Reservations for predictable capacity.
+ * const input = {
+ *   computeEnvironmentName: "my-reserved-managed-instances-ce",
+ *   computeResources: {
+ *     managedInstancesProvider: {
+ *       infrastructureRoleArn: "arn:aws:iam::123456789012:role/ecsInfrastructureRole",
+ *       instanceLaunchTemplate: {
+ *         capacityReservations: {
+ *           reservationGroupArn: "arn:aws:ec2:us-east-1:123456789012:capacity-reservation-group/my-reservation-group",
+ *           reservationPreference: "RESERVATIONS_FIRST"
+ *         },
+ *         ec2InstanceProfileArn: "arn:aws:iam::123456789012:instance-profile/ecsInstanceProfile",
+ *         instanceRequirements: {
+ *           allowedInstanceTypes: [
+ *             "m5.xlarge",
+ *             "m5.2xlarge"
+ *           ]
+ *         },
+ *         networkConfiguration: {
+ *           securityGroups: [
+ *             "sg-abcde012"
+ *           ],
+ *           subnets: [
+ *             "subnet-abcde012",
+ *             "subnet-bcde012a"
+ *           ]
+ *         }
+ *       }
+ *     },
+ *     maxvCpus: 512,
+ *     type: "ECS_MANAGED_INSTANCES"
+ *   },
+ *   state: "ENABLED",
+ *   type: "MANAGED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   computeEnvironmentArn: "arn:aws:batch:us-east-1:123456789012:compute-environment/my-reserved-managed-instances-ce",
+ *   computeEnvironmentName: "my-reserved-managed-instances-ce"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an ECS Managed Instances compute environment
+ * ```javascript
+ * // This example creates a managed compute environment that uses ECS Managed Instances.
+ * const input = {
+ *   computeEnvironmentName: "my-managed-instances-ce",
+ *   computeResources: {
+ *     managedInstancesProvider: {
+ *       infrastructureRoleArn: "arn:aws:iam::123456789012:role/ecsInfrastructureRole",
+ *       instanceLaunchTemplate: {
+ *         ec2InstanceProfileArn: "arn:aws:iam::123456789012:instance-profile/ecsInstanceProfile",
+ *         networkConfiguration: {
+ *           securityGroups: [
+ *             "sg-abcde012"
+ *           ],
+ *           subnets: [
+ *             "subnet-abcde012",
+ *             "subnet-bcde012a"
+ *           ]
+ *         }
+ *       }
+ *     },
+ *     maxvCpus: 256,
+ *     type: "ECS_MANAGED_INSTANCES"
+ *   },
+ *   state: "ENABLED",
+ *   type: "MANAGED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   computeEnvironmentArn: "arn:aws:batch:us-east-1:123456789012:compute-environment/my-managed-instances-ce",
+ *   computeEnvironmentName: "my-managed-instances-ce"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To create an ECS Managed Instances Spot compute environment
+ * ```javascript
+ * // This example creates a Spot-backed ECS Managed Instances compute environment constrained to specific instance types.
+ * const input = {
+ *   computeEnvironmentName: "my-spot-managed-instances-ce",
+ *   computeResources: {
+ *     managedInstancesProvider: {
+ *       infrastructureRoleArn: "arn:aws:iam::123456789012:role/ecsInfrastructureRole",
+ *       instanceLaunchTemplate: {
+ *         capacityOptionType: "SPOT",
+ *         ec2InstanceProfileArn: "arn:aws:iam::123456789012:instance-profile/ecsInstanceProfile",
+ *         instanceRequirements: {
+ *           allowedInstanceTypes: [
+ *             "m5.large",
+ *             "m5.xlarge",
+ *             "m6i.large",
+ *             "m6i.xlarge"
+ *           ]
+ *         },
+ *         networkConfiguration: {
+ *           securityGroups: [
+ *             "sg-abcde012"
+ *           ],
+ *           subnets: [
+ *             "subnet-abcde012",
+ *             "subnet-bcde012a"
+ *           ]
+ *         }
+ *       }
+ *     },
+ *     maxvCpus: 1000,
+ *     type: "ECS_MANAGED_INSTANCES"
+ *   },
+ *   state: "ENABLED",
+ *   type: "MANAGED"
+ * };
+ * const command = new CreateComputeEnvironmentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   computeEnvironmentArn: "arn:aws:batch:us-east-1:123456789012:compute-environment/my-spot-managed-instances-ce",
+ *   computeEnvironmentName: "my-spot-managed-instances-ce"
  * }
  * *\/
  * ```

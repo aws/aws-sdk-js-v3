@@ -61,6 +61,7 @@ export type UserdataType = (typeof UserdataType)[keyof typeof UserdataType];
  */
 export const CRType = {
   EC2: "EC2",
+  ECS_MANAGED_INSTANCES: "ECS_MANAGED_INSTANCES",
   FARGATE: "FARGATE",
   FARGATE_SPOT: "FARGATE_SPOT",
   SPOT: "SPOT",
@@ -117,6 +118,7 @@ export type CEType = (typeof CEType)[keyof typeof CEType];
 export const JobQueueType = {
   ECS: "ECS",
   ECS_FARGATE: "ECS_FARGATE",
+  ECS_MANAGED_INSTANCES: "ECS_MANAGED_INSTANCES",
   EKS: "EKS",
   SAGEMAKER_TRAINING: "SAGEMAKER_TRAINING",
 } as const;
@@ -368,6 +370,7 @@ export type FirelensConfigurationType = (typeof FirelensConfigurationType)[keyof
 export const PlatformCapability = {
   EC2: "EC2",
   FARGATE: "FARGATE",
+  MANAGED_INSTANCES: "MANAGED_INSTANCES",
 } as const;
 /**
  * @public

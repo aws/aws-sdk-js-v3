@@ -83,10 +83,44 @@ export interface UpdateComputeEnvironmentCommandOutput extends UpdateComputeEnvi
  *       },
  *     ],
  *     updateToLatestImageVersion: true || false,
- *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT",
+ *     type: "EC2" || "SPOT" || "FARGATE" || "FARGATE_SPOT" || "ECS_MANAGED_INSTANCES",
  *     imageId: "STRING_VALUE",
  *     scalingPolicy: { // ComputeScalingPolicy
  *       minScaleDownDelayMinutes: Number("int"),
+ *     },
+ *     managedInstancesProvider: { // UpdateManagedInstancesProviderConfiguration
+ *       propagateTags: "STRING_VALUE",
+ *       infrastructureRoleArn: "STRING_VALUE",
+ *       instanceLaunchTemplate: { // InstanceLaunchTemplateUpdate
+ *         ec2InstanceProfileArn: "STRING_VALUE",
+ *         networkConfiguration: { // ManagedInstancesNetworkConfiguration
+ *           subnets: [ // required
+ *             "STRING_VALUE",
+ *           ],
+ *           securityGroups: "<StringList>", // required
+ *         },
+ *         instanceRequirements: { // InstanceRequirementsRequest
+ *           allowedInstanceTypes: "<StringList>",
+ *         },
+ *         storageConfiguration: { // ManagedInstancesStorageConfiguration
+ *           storageSizeGiB: Number("int"),
+ *         },
+ *         monitoring: "STRING_VALUE",
+ *         capacityReservations: { // CapacityReservationRequest
+ *           reservationGroupArn: "STRING_VALUE",
+ *           reservationPreference: "STRING_VALUE",
+ *         },
+ *         instanceMetadataTagsPropagation: true || false,
+ *         localStorageConfiguration: { // ManagedInstancesLocalStorageConfiguration
+ *           useLocalStorage: true || false,
+ *         },
+ *       },
+ *       infrastructureOptimization: { // InfrastructureOptimization
+ *         scaleInAfter: Number("int"),
+ *       },
+ *     },
+ *     capacityTags: { // TagrisTagsMap
+ *       "<keys>": "STRING_VALUE",
  *     },
  *   },
  *   serviceRole: "STRING_VALUE",

@@ -326,6 +326,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *               runtimePlatform: "<RuntimePlatform>",
  *               volumes: "<Volumes>",
  *               enableExecuteCommand: true || false,
+ *               networkMode: "STRING_VALUE",
  *             },
  *           ],
  *         },
@@ -479,7 +480,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *     "<keys>": "STRING_VALUE",
  *   },
  *   platformCapabilities: [ // PlatformCapabilityList
- *     "EC2" || "FARGATE",
+ *     "EC2" || "FARGATE" || "MANAGED_INSTANCES",
  *   ],
  *   eksProperties: {
  *     podProperties: {
@@ -647,6 +648,7 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *         runtimePlatform: "<RuntimePlatform>",
  *         volumes: "<Volumes>",
  *         enableExecuteCommand: true || false,
+ *         networkMode: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -726,6 +728,57 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * *\/
  * ```
  *
+ * @example To register a GPU job definition on ECS Managed Instances
+ * ```javascript
+ * // This example registers a job definition that requests GPU resources on ECS Managed Instances.
+ * const input = {
+ *   ecsProperties: {
+ *     taskProperties: [
+ *       {
+ *         containers: [
+ *           {
+ *             command: [
+ *               "nvidia-smi"
+ *             ],
+ *             image: "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-gpu-image:latest",
+ *             name: "main",
+ *             resourceRequirements: [
+ *               {
+ *                 type: "VCPU",
+ *                 value: "4"
+ *               },
+ *               {
+ *                 type: "MEMORY",
+ *                 value: "16384"
+ *               },
+ *               {
+ *                 type: "GPU",
+ *                 value: "1"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         executionRoleArn: "arn:aws:iam::123456789012:role/ecsTaskExecutionRole"
+ *       }
+ *     ]
+ *   },
+ *   jobDefinitionName: "my-gpu-managed-instances-job-def",
+ *   platformCapabilities: [
+ *     "MANAGED_INSTANCES"
+ *   ],
+ *   type: "container"
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobDefinitionArn: "arn:aws:batch:us-east-1:123456789012:job-definition/my-gpu-managed-instances-job-def:1",
+ *   jobDefinitionName: "my-gpu-managed-instances-job-def",
+ *   revision: 1
+ * }
+ * *\/
+ * ```
+ *
  * @example To register a job definition
  * ```javascript
  * // This example registers a job definition for a simple container job.
@@ -756,6 +809,122 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  * {
  *   jobDefinitionArn: "arn:aws:batch:us-east-1:012345678910:job-definition/sleep10:1",
  *   jobDefinitionName: "sleep10",
+ *   revision: 1
+ * }
+ * *\/
+ * ```
+ *
+ * @example To register a job definition on ECS Managed Instances
+ * ```javascript
+ * // This example registers a job definition that runs on ECS Managed Instances using ecsProperties with the MANAGED_INSTANCES platform capability.
+ * const input = {
+ *   ecsProperties: {
+ *     taskProperties: [
+ *       {
+ *         containers: [
+ *           {
+ *             command: [
+ *               "echo",
+ *               "hello managed instances"
+ *             ],
+ *             image: "public.ecr.aws/amazonlinux/amazonlinux:2023",
+ *             name: "main",
+ *             resourceRequirements: [
+ *               {
+ *                 type: "VCPU",
+ *                 value: "1"
+ *               },
+ *               {
+ *                 type: "MEMORY",
+ *                 value: "1024"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         executionRoleArn: "arn:aws:iam::123456789012:role/ecsTaskExecutionRole"
+ *       }
+ *     ]
+ *   },
+ *   jobDefinitionName: "my-managed-instances-job-def",
+ *   platformCapabilities: [
+ *     "MANAGED_INSTANCES"
+ *   ],
+ *   type: "container"
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobDefinitionArn: "arn:aws:batch:us-east-1:123456789012:job-definition/my-managed-instances-job-def:1",
+ *   jobDefinitionName: "my-managed-instances-job-def",
+ *   revision: 1
+ * }
+ * *\/
+ * ```
+ *
+ * @example To register a multi-container job definition on ECS Managed Instances
+ * ```javascript
+ * // This example registers a job definition with a main container and a sidecar logging container on ECS Managed Instances.
+ * const input = {
+ *   ecsProperties: {
+ *     taskProperties: [
+ *       {
+ *         containers: [
+ *           {
+ *             command: [
+ *               "echo",
+ *               "processing data"
+ *             ],
+ *             essential: true,
+ *             image: "public.ecr.aws/amazonlinux/amazonlinux:2023",
+ *             name: "main",
+ *             resourceRequirements: [
+ *               {
+ *                 type: "VCPU",
+ *                 value: "2"
+ *               },
+ *               {
+ *                 type: "MEMORY",
+ *                 value: "4096"
+ *               }
+ *             ]
+ *           },
+ *           {
+ *             command: [
+ *               "echo",
+ *               "logging sidecar"
+ *             ],
+ *             essential: false,
+ *             image: "public.ecr.aws/amazonlinux/amazonlinux:2023",
+ *             name: "sidecar",
+ *             resourceRequirements: [
+ *               {
+ *                 type: "VCPU",
+ *                 value: "1"
+ *               },
+ *               {
+ *                 type: "MEMORY",
+ *                 value: "512"
+ *               }
+ *             ]
+ *           }
+ *         ],
+ *         executionRoleArn: "arn:aws:iam::123456789012:role/ecsTaskExecutionRole"
+ *       }
+ *     ]
+ *   },
+ *   jobDefinitionName: "my-sidecar-managed-instances-job-def",
+ *   platformCapabilities: [
+ *     "MANAGED_INSTANCES"
+ *   ],
+ *   type: "container"
+ * };
+ * const command = new RegisterJobDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   jobDefinitionArn: "arn:aws:batch:us-east-1:123456789012:job-definition/my-sidecar-managed-instances-job-def:1",
+ *   jobDefinitionName: "my-sidecar-managed-instances-job-def",
  *   revision: 1
  * }
  * *\/
