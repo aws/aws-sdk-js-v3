@@ -1159,6 +1159,23 @@ export interface DeleteFunctionEventInvokeConfigRequest {
 }
 
 /**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to delete the policy from. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The revision ID that the existing policy must match for the deletion to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
+   * @public
+   */
+  RevisionId?: string | undefined;
+}
+
+/**
  * <p>Configuration options for callback operations in durable executions, including timeout settings and retry behavior.</p>
  * @public
  */
@@ -2628,7 +2645,7 @@ export interface ProvisionedPollerConfig {
   MinimumPollers?: number | undefined;
 
   /**
-   * <p>The maximum number of event pollers this event source can scale up to. For Amazon SQS events source mappings, default is 200, and minimum value allowed is 2. For Amazon MSK and self-managed Apache Kafka event source mappings, default is 200, and minimum value allowed is 1.</p>
+   * <p>The maximum number of event pollers this event source can scale up to. For Amazon SQS event source mappings, the accepted range is between 2 and 10,000, with a default of 200. For Amazon MSK and self-managed Apache Kafka event source mappings, the accepted range is between 1 and 2,000, with a default of 200.</p>
    * @public
    */
   MaximumPollers?: number | undefined;
@@ -6190,6 +6207,34 @@ export interface GetFunctionEventInvokeConfigRequest {
 /**
  * @public
  */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResponse {
+  /**
+   * <p>The resource-based policy attached to the Lambda resource you specified.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The revision ID of the policy. Pass this value as the <code>RevisionId</code> in a <a>PutResourcePolicy</a> or <a>DeleteResourcePolicy</a> request. Doing so ensures the operation acts on the expected version of the policy.</p>
+   * @public
+   */
+  RevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface ListLayersRequest {
   /**
    * <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
@@ -6965,6 +7010,46 @@ export interface PutFunctionEventInvokeConfigRequest {
    * @public
    */
   DestinationConfig?: DestinationConfig | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Lambda resource you want to add the policy to. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The policy document you want to add to your Lambda resource. This is formatted as a JSON string.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Working with resource-based policies in Lambda</a> in the <i>Lambda Developer Guide</i>.</p>
+   * @public
+   */
+  Policy: string | undefined;
+
+  /**
+   * <p>The revision ID that the existing policy must match for the replacement to proceed. If the revision ID doesn't match, the operation fails with a <code>PreconditionFailedException</code> error. To retrieve the current revision ID, use the <a>GetResourcePolicy</a> operation.</p>
+   * @public
+   */
+  RevisionId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The resource-based policy that Lambda adds to the resource.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
+   * @public
+   */
+  RevisionId?: string | undefined;
 }
 
 /**

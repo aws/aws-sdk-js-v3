@@ -129,6 +129,9 @@ import {
   DeleteProvisionedConcurrencyConfig$,
   DeleteProvisionedConcurrencyConfigCommand,
   DeleteProvisionedConcurrencyConfigRequest$,
+  DeleteResourcePolicy$,
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyRequest$,
   DestinationConfig$,
   DocumentDBEventSourceConfig$,
   DurableConfig$,
@@ -275,6 +278,10 @@ import {
   GetProvisionedConcurrencyConfigCommand,
   GetProvisionedConcurrencyConfigRequest$,
   GetProvisionedConcurrencyConfigResponse$,
+  GetResourcePolicy$,
+  GetResourcePolicyCommand,
+  GetResourcePolicyRequest$,
+  GetResourcePolicyResponse$,
   GetRuntimeManagementConfig$,
   GetRuntimeManagementConfigCommand,
   GetRuntimeManagementConfigRequest$,
@@ -472,6 +479,10 @@ import {
   PutProvisionedConcurrencyConfigCommand,
   PutProvisionedConcurrencyConfigRequest$,
   PutProvisionedConcurrencyConfigResponse$,
+  PutResourcePolicy$,
+  PutResourcePolicyCommand,
+  PutResourcePolicyRequest$,
+  PutResourcePolicyResponse$,
   PutRuntimeManagementConfig$,
   PutRuntimeManagementConfigCommand,
   PutRuntimeManagementConfigRequest$,
@@ -670,6 +681,8 @@ assert(typeof DeleteLayerVersionCommand === "function");
 assert(typeof DeleteLayerVersion$ === "object");
 assert(typeof DeleteProvisionedConcurrencyConfigCommand === "function");
 assert(typeof DeleteProvisionedConcurrencyConfig$ === "object");
+assert(typeof DeleteResourcePolicyCommand === "function");
+assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof GetAccountSettingsCommand === "function");
 assert(typeof GetAccountSettings$ === "object");
 assert(typeof GetAliasCommand === "function");
@@ -712,6 +725,8 @@ assert(typeof GetPolicyCommand === "function");
 assert(typeof GetPolicy$ === "object");
 assert(typeof GetProvisionedConcurrencyConfigCommand === "function");
 assert(typeof GetProvisionedConcurrencyConfig$ === "object");
+assert(typeof GetResourcePolicyCommand === "function");
+assert(typeof GetResourcePolicy$ === "object");
 assert(typeof GetRuntimeManagementConfigCommand === "function");
 assert(typeof GetRuntimeManagementConfig$ === "object");
 assert(typeof InvokeCommand === "function");
@@ -766,6 +781,8 @@ assert(typeof PutFunctionScalingConfigCommand === "function");
 assert(typeof PutFunctionScalingConfig$ === "object");
 assert(typeof PutProvisionedConcurrencyConfigCommand === "function");
 assert(typeof PutProvisionedConcurrencyConfig$ === "object");
+assert(typeof PutResourcePolicyCommand === "function");
+assert(typeof PutResourcePolicy$ === "object");
 assert(typeof PutRuntimeManagementConfigCommand === "function");
 assert(typeof PutRuntimeManagementConfig$ === "object");
 assert(typeof RemoveLayerVersionPermissionCommand === "function");
@@ -867,6 +884,7 @@ assert(typeof DeleteFunctionResponse$ === "object");
 assert(typeof DeleteFunctionUrlConfigRequest$ === "object");
 assert(typeof DeleteLayerVersionRequest$ === "object");
 assert(typeof DeleteProvisionedConcurrencyConfigRequest$ === "object");
+assert(typeof DeleteResourcePolicyRequest$ === "object");
 assert(typeof DestinationConfig$ === "object");
 assert(typeof DocumentDBEventSourceConfig$ === "object");
 assert(typeof DurableConfig$ === "object");
@@ -938,6 +956,8 @@ assert(typeof GetPolicyRequest$ === "object");
 assert(typeof GetPolicyResponse$ === "object");
 assert(typeof GetProvisionedConcurrencyConfigRequest$ === "object");
 assert(typeof GetProvisionedConcurrencyConfigResponse$ === "object");
+assert(typeof GetResourcePolicyRequest$ === "object");
+assert(typeof GetResourcePolicyResponse$ === "object");
 assert(typeof GetRuntimeManagementConfigRequest$ === "object");
 assert(typeof GetRuntimeManagementConfigResponse$ === "object");
 assert(typeof ImageConfig$ === "object");
@@ -1014,6 +1034,8 @@ assert(typeof PutFunctionScalingConfigRequest$ === "object");
 assert(typeof PutFunctionScalingConfigResponse$ === "object");
 assert(typeof PutProvisionedConcurrencyConfigRequest$ === "object");
 assert(typeof PutProvisionedConcurrencyConfigResponse$ === "object");
+assert(typeof PutResourcePolicyRequest$ === "object");
+assert(typeof PutResourcePolicyResponse$ === "object");
 assert(typeof PutRuntimeManagementConfigRequest$ === "object");
 assert(typeof PutRuntimeManagementConfigResponse$ === "object");
 assert(typeof RemoveLayerVersionPermissionRequest$ === "object");

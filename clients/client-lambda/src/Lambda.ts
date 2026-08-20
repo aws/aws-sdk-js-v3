@@ -108,6 +108,11 @@ import {
   DeleteProvisionedConcurrencyConfigCommand,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand";
 import {
+  type DeleteResourcePolicyCommandInput,
+  type DeleteResourcePolicyCommandOutput,
+  DeleteResourcePolicyCommand,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   type GetAccountSettingsCommandInput,
   type GetAccountSettingsCommandOutput,
   GetAccountSettingsCommand,
@@ -204,6 +209,11 @@ import {
   type GetProvisionedConcurrencyConfigCommandOutput,
   GetProvisionedConcurrencyConfigCommand,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import {
+  type GetResourcePolicyCommandInput,
+  type GetResourcePolicyCommandOutput,
+  GetResourcePolicyCommand,
+} from "./commands/GetResourcePolicyCommand";
 import {
   type GetRuntimeManagementConfigCommandInput,
   type GetRuntimeManagementConfigCommandOutput,
@@ -331,6 +341,11 @@ import {
   type PutProvisionedConcurrencyConfigCommandOutput,
   PutProvisionedConcurrencyConfigCommand,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
+import {
+  type PutResourcePolicyCommandInput,
+  type PutResourcePolicyCommandOutput,
+  PutResourcePolicyCommand,
+} from "./commands/PutResourcePolicyCommand";
 import {
   type PutRuntimeManagementConfigCommandInput,
   type PutRuntimeManagementConfigCommandOutput,
@@ -464,6 +479,7 @@ const commands = {
   DeleteFunctionUrlConfigCommand,
   DeleteLayerVersionCommand,
   DeleteProvisionedConcurrencyConfigCommand,
+  DeleteResourcePolicyCommand,
   GetAccountSettingsCommand,
   GetAliasCommand,
   GetCapacityProviderCommand,
@@ -485,6 +501,7 @@ const commands = {
   GetLayerVersionPolicyCommand,
   GetPolicyCommand,
   GetProvisionedConcurrencyConfigCommand,
+  GetResourcePolicyCommand,
   GetRuntimeManagementConfigCommand,
   InvokeCommand,
   InvokeAsyncCommand,
@@ -512,6 +529,7 @@ const commands = {
   PutFunctionRecursionConfigCommand,
   PutFunctionScalingConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
+  PutResourcePolicyCommand,
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
   RemovePermissionCommand,
@@ -899,6 +917,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link DeleteResourcePolicyCommand}
+   */
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccountSettingsCommand}
    */
   getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
@@ -1254,6 +1289,23 @@ export interface Lambda {
     args: GetProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProvisionedConcurrencyConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
   ): void;
 
   /**
@@ -1718,6 +1770,23 @@ export interface Lambda {
     args: PutProvisionedConcurrencyConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutProvisionedConcurrencyConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutResourcePolicyCommand}
+   */
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
   ): void;
 
   /**

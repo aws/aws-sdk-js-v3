@@ -126,6 +126,10 @@ import type {
   DeleteProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/DeleteProvisionedConcurrencyConfigCommand";
 import type {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import type {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand";
@@ -197,6 +201,10 @@ import type {
   GetProvisionedConcurrencyConfigCommandInput,
   GetProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/GetProvisionedConcurrencyConfigCommand";
+import type {
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
 import type {
   GetRuntimeManagementConfigCommandInput,
   GetRuntimeManagementConfigCommandOutput,
@@ -284,6 +292,10 @@ import type {
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
 } from "./commands/PutProvisionedConcurrencyConfigCommand";
+import type {
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import type {
   PutRuntimeManagementConfigCommandInput,
   PutRuntimeManagementConfigCommandOutput,
@@ -375,6 +387,7 @@ export type ServiceInputTypes =
   | DeleteFunctionUrlConfigCommandInput
   | DeleteLayerVersionCommandInput
   | DeleteProvisionedConcurrencyConfigCommandInput
+  | DeleteResourcePolicyCommandInput
   | GetAccountSettingsCommandInput
   | GetAliasCommandInput
   | GetCapacityProviderCommandInput
@@ -396,6 +409,7 @@ export type ServiceInputTypes =
   | GetLayerVersionPolicyCommandInput
   | GetPolicyCommandInput
   | GetProvisionedConcurrencyConfigCommandInput
+  | GetResourcePolicyCommandInput
   | GetRuntimeManagementConfigCommandInput
   | InvokeAsyncCommandInput
   | InvokeCommandInput
@@ -423,6 +437,7 @@ export type ServiceInputTypes =
   | PutFunctionRecursionConfigCommandInput
   | PutFunctionScalingConfigCommandInput
   | PutProvisionedConcurrencyConfigCommandInput
+  | PutResourcePolicyCommandInput
   | PutRuntimeManagementConfigCommandInput
   | RemoveLayerVersionPermissionCommandInput
   | RemovePermissionCommandInput
@@ -465,6 +480,7 @@ export type ServiceOutputTypes =
   | DeleteFunctionUrlConfigCommandOutput
   | DeleteLayerVersionCommandOutput
   | DeleteProvisionedConcurrencyConfigCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | GetAccountSettingsCommandOutput
   | GetAliasCommandOutput
   | GetCapacityProviderCommandOutput
@@ -486,6 +502,7 @@ export type ServiceOutputTypes =
   | GetLayerVersionPolicyCommandOutput
   | GetPolicyCommandOutput
   | GetProvisionedConcurrencyConfigCommandOutput
+  | GetResourcePolicyCommandOutput
   | GetRuntimeManagementConfigCommandOutput
   | InvokeAsyncCommandOutput
   | InvokeCommandOutput
@@ -513,6 +530,7 @@ export type ServiceOutputTypes =
   | PutFunctionRecursionConfigCommandOutput
   | PutFunctionScalingConfigCommandOutput
   | PutProvisionedConcurrencyConfigCommandOutput
+  | PutResourcePolicyCommandOutput
   | PutRuntimeManagementConfigCommandOutput
   | RemoveLayerVersionPermissionCommandOutput
   | RemovePermissionCommandOutput

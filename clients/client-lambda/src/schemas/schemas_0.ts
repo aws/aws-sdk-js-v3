@@ -163,6 +163,8 @@ const _DN = "DatabaseName";
 const _DPCC = "DeleteProvisionedConcurrencyConfig";
 const _DPCCR = "DeleteProvisionedConcurrencyConfigRequest";
 const _DR = "DryRun";
+const _DRP = "DeleteResourcePolicy";
+const _DRPR = "DeleteResourcePolicyRequest";
 const _De = "Destination";
 const _Du = "Duration";
 const _E = "Error";
@@ -322,6 +324,9 @@ const _GPRe = "GetPolicyResponse";
 const _GRMC = "GetRuntimeManagementConfig";
 const _GRMCR = "GetRuntimeManagementConfigRequest";
 const _GRMCRe = "GetRuntimeManagementConfigResponse";
+const _GRP = "GetResourcePolicy";
+const _GRPR = "GetResourcePolicyRequest";
+const _GRPRe = "GetResourcePolicyResponse";
 const _H = "Handler";
 const _HT = "HeartbeatTimeout";
 const _HTS = "HeartbeatTimeoutSeconds";
@@ -523,6 +528,9 @@ const _PPE = "PublicPolicyException";
 const _PRMC = "PutRuntimeManagementConfig";
 const _PRMCR = "PutRuntimeManagementConfigRequest";
 const _PRMCRu = "PutRuntimeManagementConfigResponse";
+const _PRP = "PutResourcePolicy";
+const _PRPR = "PutResourcePolicyRequest";
+const _PRPRu = "PutResourcePolicyResponse";
 const _PT = "PropagateTags";
 const _PTa = "PackageType";
 const _PTu = "PublishTo";
@@ -536,6 +544,7 @@ const _Q = "Qualifier";
 const _Qu = "Queues";
 const _R = "Reason";
 const _RA = "Retry-After";
+const _RAe = "ResourceArn";
 const _RC = "RoutingConfig";
 const _RCE = "ResourceConflictException";
 const _RCEe = "ReservedConcurrentExecutions";
@@ -1502,6 +1511,11 @@ export var DeleteProvisionedConcurrencyConfigRequest$: StaticStructureSchema = [
   [_FN, _Q],
   [[0, 1], [0, { [_hQ]: _Q }]], 2
 ];
+export var DeleteResourcePolicyRequest$: StaticStructureSchema = [3, n0, _DRPR,
+  0,
+  [_RAe, _RI],
+  [[0, 1], [0, { [_hQ]: _RI }]], 1
+];
 export var DestinationConfig$: StaticStructureSchema = [3, n0, _DC,
   0,
   [_OS, _OF],
@@ -1856,6 +1870,16 @@ export var GetProvisionedConcurrencyConfigResponse$: StaticStructureSchema = [3,
   0,
   [_RPCE, _APCE, _APCEl, _Sta, _SRt, _LM],
   [1, 1, 1, 0, 0, 0]
+];
+export var GetResourcePolicyRequest$: StaticStructureSchema = [3, n0, _GRPR,
+  0,
+  [_RAe],
+  [[0, 1]], 1
+];
+export var GetResourcePolicyResponse$: StaticStructureSchema = [3, n0, _GRPRe,
+  0,
+  [_Po, _RI],
+  [0, 0]
 ];
 export var GetRuntimeManagementConfigRequest$: StaticStructureSchema = [3, n0, _GRMCR,
   0,
@@ -2231,6 +2255,16 @@ export var PutProvisionedConcurrencyConfigResponse$: StaticStructureSchema = [3,
   0,
   [_RPCE, _APCEl, _APCE, _Sta, _SRt, _LM],
   [1, 1, 1, 0, 0, 0]
+];
+export var PutResourcePolicyRequest$: StaticStructureSchema = [3, n0, _PRPR,
+  0,
+  [_RAe, _Po, _RI],
+  [[0, 1], 0, 0], 2
+];
+export var PutResourcePolicyResponse$: StaticStructureSchema = [3, n0, _PRPRu,
+  0,
+  [_Po, _RI],
+  [0, 0]
 ];
 export var PutRuntimeManagementConfigRequest$: StaticStructureSchema = [3, n0, _PRMCR,
   0,
@@ -2673,6 +2707,9 @@ export var DeleteLayerVersion$: StaticOperationSchema = [9, n0, _DLV,
 export var DeleteProvisionedConcurrencyConfig$: StaticOperationSchema = [9, n0, _DPCC,
   { [_h]: ["DELETE", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 204] }, () => DeleteProvisionedConcurrencyConfigRequest$, () => __Unit
 ];
+export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
+  { [_h]: ["DELETE", "/2026-07-09/resource-policy/{ResourceArn}", 204] }, () => DeleteResourcePolicyRequest$, () => __Unit
+];
 export var GetAccountSettings$: StaticOperationSchema = [9, n0, _GAS,
   { [_h]: ["GET", "/2016-08-19/account-settings", 200] }, () => GetAccountSettingsRequest$, () => GetAccountSettingsResponse$
 ];
@@ -2735,6 +2772,9 @@ export var GetPolicy$: StaticOperationSchema = [9, n0, _GP,
 ];
 export var GetProvisionedConcurrencyConfig$: StaticOperationSchema = [9, n0, _GPCC,
   { [_h]: ["GET", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 200] }, () => GetProvisionedConcurrencyConfigRequest$, () => GetProvisionedConcurrencyConfigResponse$
+];
+export var GetResourcePolicy$: StaticOperationSchema = [9, n0, _GRP,
+  { [_h]: ["GET", "/2026-07-09/resource-policy/{ResourceArn}", 200] }, () => GetResourcePolicyRequest$, () => GetResourcePolicyResponse$
 ];
 export var GetRuntimeManagementConfig$: StaticOperationSchema = [9, n0, _GRMC,
   { [_h]: ["GET", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200] }, () => GetRuntimeManagementConfigRequest$, () => GetRuntimeManagementConfigResponse$
@@ -2816,6 +2856,9 @@ export var PutFunctionScalingConfig$: StaticOperationSchema = [9, n0, _PFSC,
 ];
 export var PutProvisionedConcurrencyConfig$: StaticOperationSchema = [9, n0, _PPCC,
   { [_h]: ["PUT", "/2019-09-30/functions/{FunctionName}/provisioned-concurrency", 202] }, () => PutProvisionedConcurrencyConfigRequest$, () => PutProvisionedConcurrencyConfigResponse$
+];
+export var PutResourcePolicy$: StaticOperationSchema = [9, n0, _PRP,
+  { [_h]: ["PUT", "/2026-07-09/resource-policy/{ResourceArn}", 200] }, () => PutResourcePolicyRequest$, () => PutResourcePolicyResponse$
 ];
 export var PutRuntimeManagementConfig$: StaticOperationSchema = [9, n0, _PRMC,
   { [_h]: ["PUT", "/2021-07-20/functions/{FunctionName}/runtime-management-config", 200] }, () => PutRuntimeManagementConfigRequest$, () => PutRuntimeManagementConfigResponse$
