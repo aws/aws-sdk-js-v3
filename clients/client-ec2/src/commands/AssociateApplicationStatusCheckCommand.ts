@@ -29,19 +29,19 @@ export interface AssociateApplicationStatusCheckCommandOutput extends AssociateA
  *                <p>You must specify either <code>TargetTagAssociations</code> or <code>InstanceIds</code>, but not both. Specifying both results in an <code>InvalidParameterCombination</code> error.</p>
  *             </li>
  *             <li>
- *                <p>The application status check must already exist and belong to your account.</p>
+ *                <p>You must own the application status check. The check must already exist in your account.</p>
  *             </li>
  *             <li>
- *                <p>Tag keys must not be blank.</p>
+ *                <p>You must not leave tag keys blank.</p>
  *             </li>
  *             <li>
- *                <p>Maximum 50 tag associations per application status check.</p>
+ *                <p>You can create a maximum of 50 tag associations for each application status check.</p>
  *             </li>
  *             <li>
- *                <p>Use <code>DisassociateApplicationStatusCheck</code> to remove associations.</p>
+ *                <p>You can use <code>DisassociateApplicationStatusCheck</code> to remove associations.</p>
  *             </li>
  *             <li>
- *                <p>When you associate <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a>, the application status check automatically monitors all current and future instances that have the specified tags.</p>
+ *                <p>You can associate <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">tags</a> so that the application status check automatically monitors all current and future instances that have the specified tags.</p>
  *             </li>
  *          </ul>
  * @example

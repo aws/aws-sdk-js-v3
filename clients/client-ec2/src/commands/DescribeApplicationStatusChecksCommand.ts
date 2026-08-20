@@ -23,7 +23,7 @@ export interface DescribeApplicationStatusChecksCommandInput extends DescribeApp
 export interface DescribeApplicationStatusChecksCommandOutput extends DescribeApplicationStatusChecksResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more application status checks. Returns configuration details for your application status checks, including protocol, port, path, thresholds, and associations. The following rules apply:</p>
+ * <p>Describes application status checks, including configuration details such as protocol, port, path, thresholds, and associations. Results are paginated. Use the <code>NextToken</code> parameter to retrieve additional results. The following rules apply:</p>
  *          <ul>
  *             <li>
  *                <p>If you do not specify any application status check IDs, all checks in your account are returned.</p>

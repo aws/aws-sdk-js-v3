@@ -29,7 +29,7 @@ export interface EnableApplicationStatusCheckSuppressionCommandOutput extends En
  * <p>Suppresses application status checks for the specified instances. While suppressed, health checks continue to run but do not affect the instance-level application status. The following rules apply:</p>
  *          <ul>
  *             <li>
- *                <p>Maximum 100 instance IDs per request.</p>
+ *                <p>You can specify a maximum of 100 instance IDs for each request.</p>
  *             </li>
  *             <li>
  *                <p>Use <code>DisableApplicationStatusCheckSuppression</code> to resume normal health check reporting.</p>

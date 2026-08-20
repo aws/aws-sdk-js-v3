@@ -26,22 +26,22 @@ export interface CreateApplicationStatusCheckCommandOutput extends CreateApplica
  * <p>Creates an application status check for monitoring the health of applications running on your instances. You can configure the protocol, port, path, and thresholds for the health check. The following rules apply:</p>
  *          <ul>
  *             <li>
- *                <p>You can create a maximum of 50 application status checks per account.</p>
+ *                <p>You can create a maximum of 50 application status checks for each account.</p>
  *             </li>
  *             <li>
- *                <p>Health checks do not start until you associate the check with instances or tags using <code>AssociateApplicationStatusCheck</code>.</p>
+ *                <p>You must associate the check with instances or tags using <code>AssociateApplicationStatusCheck</code> before health checks start.</p>
  *             </li>
  *             <li>
- *                <p>The <code>Timeout</code> value must be less than the <code>Interval</code> value.</p>
+ *                <p>You must set the <code>Timeout</code> value to less than the <code>Interval</code> value.</p>
  *             </li>
  *             <li>
- *                <p>The <code>Path</code> must start with a forward slash (<code>/</code>). Default: <code>/</code>.</p>
+ *                <p>You must start the <code>Path</code> with a forward slash (<code>/</code>). Default: <code>/</code>.</p>
  *             </li>
  *             <li>
- *                <p>If you do not specify <code>Aggregation</code>, it defaults to <code>included</code>, which means the check contributes to the instance-level application status.</p>
+ *                <p>You can specify <code>Aggregation</code> as <code>included</code> or <code>excluded</code>. If you do not specify a value, it defaults to <code>included</code>, which means the check contributes to the instance-level application status.</p>
  *             </li>
  *             <li>
- *                <p>Default values: <code>Interval</code> is 60 seconds, <code>Timeout</code> is 6 seconds, <code>FailureThreshold</code> is 2, <code>SuccessThreshold</code> is 2, <code>StatusCodeMatcher</code> is <code>200</code>, <code>InitializationGracePeriodSeconds</code> is 300 seconds.</p>
+ *                <p>You can use the following default values: <code>Interval</code> is 60 seconds, <code>Timeout</code> is 6 seconds, <code>FailureThreshold</code> is 2, <code>SuccessThreshold</code> is 2, <code>StatusCodeMatcher</code> is <code>200</code>, <code>InitializationGracePeriodSeconds</code> is 300 seconds.</p>
  *             </li>
  *             <li>
  *                <p>You can tag the application status check during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a>.</p>

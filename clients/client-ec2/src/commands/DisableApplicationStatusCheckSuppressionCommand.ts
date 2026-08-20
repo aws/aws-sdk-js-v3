@@ -26,7 +26,7 @@ export interface DisableApplicationStatusCheckSuppressionCommandInput extends Di
 export interface DisableApplicationStatusCheckSuppressionCommandOutput extends DisableApplicationStatusCheckSuppressionResult, __MetadataBearer {}
 
 /**
- * <p>Disables suppression of application status checks for the specified instances. After suppression is disabled, health check results resume affecting the instance-level application status. You can specify a maximum of 100 instance IDs per request.</p>
+ * <p>Disables suppression of application status checks for the specified instances. After suppression is disabled, health check results resume affecting the instance-level application status. You can specify a maximum of 100 instance IDs for each request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

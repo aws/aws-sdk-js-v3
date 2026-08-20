@@ -3660,6 +3660,7 @@ const _ITnstan = "InstanceTag";
 const _ITnstanc = "InstanceTopology";
 const _ITnt = "InterfaceType";
 const _IU = "InstanceUsages";
+const _IUDR = "ImageUefiDataRequest";
 const _IUIR = "IncludeUnsupportedInRegion";
 const _IUR = "ImageUsageReports";
 const _IURE = "ImageUsageReportEntries";
@@ -5630,7 +5631,7 @@ const _SRou = "SourceResource";
 const _SRt = "StateReason";
 const _SRu = "SupportedRegions";
 const _SRup = "SupportedRegion";
-const _SS = "StatusSince";
+const _SS = "SensitiveString";
 const _SSA = "SecondarySubnetArn";
 const _SSC = "SqlServerCredentials";
 const _SSG = "StaleSecurityGroup";
@@ -5662,7 +5663,8 @@ const _SSec = "SecondarySubnets";
 const _SSer = "ServiceState";
 const _SSn = "SnapshotSet";
 const _SSs = "SseSpecification";
-const _SSt = "S3Storage";
+const _SSt = "StatusSince";
+const _SSto = "S3Storage";
 const _SSu = "SupportedStrategies";
 const _SSy = "SystemStatus";
 const _ST = "SuccessThreshold";
@@ -8562,6 +8564,7 @@ var ClientSecretType: StaticSimpleSchema = [0, n0, _CST, 8, 0];
 var CopySnapshotRequestPSU: StaticSimpleSchema = [0, n0, _CSRPSU, 8, 0];
 var customerGatewayConfiguration: StaticSimpleSchema = [0, n0, _cGC, 8, 0];
 var EkPubKeyValue: StaticSimpleSchema = [0, n0, _EPKV, 8, 0];
+var ImageUefiDataRequest: StaticSimpleSchema = [0, n0, _IUDR, 8, 0];
 var ImportManifestUrl: StaticSimpleSchema = [0, n0, _IMU, 8, 0];
 var ModifyInstanceAttributeValue: StaticSimpleSchema = [0, n0, _MIAV, 8, 0];
 var PasswordData: StaticSimpleSchema = [0, n0, _PD, 8, 0];
@@ -8570,6 +8573,7 @@ var ReportInstanceStatusRequestDescription: StaticSimpleSchema = [0, n0, _RISRD,
 var RunInstancesUserData: StaticSimpleSchema = [0, n0, _RIUD, 8, 0];
 var S3StorageUploadPolicySignature: StaticSimpleSchema = [0, n0, _SSUPS, 8, 0];
 var SensitiveMacCredentials: StaticSimpleSchema = [0, n0, _SMC, 8, 0];
+var SensitiveString: StaticSimpleSchema = [0, n0, _SS, 8, 0];
 var SensitiveUrl: StaticSimpleSchema = [0, n0, _SU, 8, 0];
 var SensitiveUserData: StaticSimpleSchema = [0, n0, _SUD, 8, 0];
 var VpnConnectionDeviceSampleConfiguration: StaticSimpleSchema = [0, n0, _VCDSC, 8, 0];
@@ -9009,7 +9013,7 @@ export var AnalysisSecurityGroupRule$: StaticStructureSchema = [3, n0, _ASGR,
 ];
 export var ApplicationStatus$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_Sta, _STS, _SS, _RAe, _Det],
+  [_Sta, _STS, _SSt, _RAe, _Det],
   [[0, { [_eQN]: `Status`
   , [_xN]: _sta }], [4, { [_eQN]: `StatusTimeStamp`
   , [_xN]: _sTS }], [4, { [_eQN]: `StatusSince`
@@ -9054,7 +9058,7 @@ export var ApplicationStatusCheckResponseObject$: StaticStructureSchema = [3, n0
 ];
 export var ApplicationStatusDetail$: StaticStructureSchema = [3, n0, _ASD,
   0,
-  [_ASCI, _CUT, _Ag, _Sta, _STS, _SS, _Re],
+  [_ASCI, _CUT, _Ag, _Sta, _STS, _SSt, _Re],
   [[0, { [_eQN]: `ApplicationStatusCheckId`
   , [_xN]: _aSCI }], [4, { [_eQN]: `CheckUpdateTime`
   , [_xN]: _cUT }], [0, { [_eQN]: `Aggregation`
@@ -17800,7 +17804,7 @@ export var GetInstanceUefiDataResult$: StaticStructureSchema = [3, n0, _GIUDRe,
   0,
   [_II, _UD],
   [[0, { [_eQN]: `InstanceId`
-  , [_xN]: _iI }], [0, { [_eQN]: `UefiData`
+  , [_xN]: _iI }], [() => SensitiveString, { [_eQN]: `UefiData`
   , [_xN]: _uD }]]
 ];
 export var GetIpamAddressHistoryRequest$: StaticStructureSchema = [3, n0, _GIAHR,
@@ -23207,7 +23211,7 @@ export var RegisterImageRequest$: StaticStructureSchema = [3, n0, _RIRe,
   0,
   [_N, _IL, _BPi, _BM, _TSp, _UD, _ISmd, _TS, _DR, _De, _Arc, _KI, _RIa, _RDN, _BDMl, _VTir, _SNS, _ESna],
   [[0, { [_eQN]: `Name`
-  , [_xN]: _n }], 0, [() => BillingProductList, { [_xN]: _BPil }], 0, 0, 0, 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
+  , [_xN]: _n }], 0, [() => BillingProductList, { [_xN]: _BPil }], 0, 0, [() => ImageUefiDataRequest, 0], 0, [() => TagSpecificationList, { [_xN]: _TSa }], [2, { [_eQN]: `DryRun`
   , [_xN]: _dR }], [0, { [_eQN]: `Description`
   , [_xN]: _de }], [0, { [_eQN]: `Architecture`
   , [_xN]: _arc }], [0, { [_eQN]: `KernelId`
@@ -24219,7 +24223,7 @@ export var S3ObjectTag$: StaticStructureSchema = [3, n0, _SOTb,
   [_K, _V],
   [0, 0]
 ];
-export var S3Storage$: StaticStructureSchema = [3, n0, _SSt,
+export var S3Storage$: StaticStructureSchema = [3, n0, _SSto,
   0,
   [_AWSAKI, _Bu, _Pre, _UPp, _UPS],
   [0, [0, { [_eQN]: `Bucket`
