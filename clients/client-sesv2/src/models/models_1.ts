@@ -12,6 +12,7 @@ import type {
   BulkEmailContent,
   BulkEmailEntry,
   BulkEmailEntryResult,
+  ConfigurationOverrides,
   Destination,
   DkimSigningAttributes,
   EmailContent,
@@ -23,6 +24,35 @@ import type {
   Topic,
   TopicPreference,
 } from "./models_0";
+
+/**
+ * <p>A request to enable or disable DKIM signing of email that you send from an email
+ *             identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the DKIM signing configuration for the identity.</p>
+   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
+   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
+   *             messages are sent without DKIM signing.</p>
+   * @public
+   */
+  SigningEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesResponse {}
 
 /**
  * <p>A request to change the DKIM attributes for an email identity.</p>
@@ -425,6 +455,14 @@ export interface SendBulkEmailRequest {
    * @public
    */
   TenantName?: string | undefined;
+
+  /**
+   * <p>An object that overrides, for the messages in this request only, settings that would
+   *             otherwise apply to them. The overrides apply to every message in the request. Each
+   *             setting that you don't override keeps the value that already applies.</p>
+   * @public
+   */
+  ConfigurationOverrides?: ConfigurationOverrides | undefined;
 }
 
 /**
@@ -593,6 +631,13 @@ export interface SendEmailRequest {
    * @public
    */
   ListManagementOptions?: ListManagementOptions | undefined;
+
+  /**
+   * <p>An object that overrides, for this message only, settings that would otherwise apply to
+   *             it. Each setting that you don't override keeps the value that already applies.</p>
+   * @public
+   */
+  ConfigurationOverrides?: ConfigurationOverrides | undefined;
 }
 
 /**

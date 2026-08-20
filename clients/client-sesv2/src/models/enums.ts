@@ -199,6 +199,19 @@ export type DimensionValueSource = (typeof DimensionValueSource)[keyof typeof Di
  * @public
  * @enum
  */
+export const FeatureStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SubscriptionStatus = {
   OPT_IN: "OPT_IN",
   OPT_OUT: "OPT_OUT",
@@ -259,19 +272,6 @@ export const SuppressionListScope = {
  * @public
  */
 export type SuppressionListScope = (typeof SuppressionListScope)[keyof typeof SuppressionListScope];
-
-/**
- * @public
- * @enum
- */
-export const FeatureStatus = {
-  DISABLED: "DISABLED",
-  ENABLED: "ENABLED",
-} as const;
-/**
- * @public
- */
-export type FeatureStatus = (typeof FeatureStatus)[keyof typeof FeatureStatus];
 
 /**
  * @public

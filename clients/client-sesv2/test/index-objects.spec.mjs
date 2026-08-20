@@ -33,6 +33,7 @@ import {
   Complaint$,
   ConcurrentModificationException,
   ConcurrentModificationException$,
+  ConfigurationOverrides$,
   ConflictException,
   ConflictException$,
   Contact$,
@@ -618,6 +619,7 @@ import {
   Topic$,
   TopicFilter$,
   TopicPreference$,
+  TrackingConfigurationOverrides$,
   TrackingOptions$,
   UntagResource$,
   UntagResourceCommand,
@@ -910,6 +912,7 @@ assert(typeof CancelExportJobResponse$ === "object");
 assert(typeof CloudWatchDestination$ === "object");
 assert(typeof CloudWatchDimensionConfiguration$ === "object");
 assert(typeof Complaint$ === "object");
+assert(typeof ConfigurationOverrides$ === "object");
 assert(typeof Contact$ === "object");
 assert(typeof ContactList$ === "object");
 assert(typeof ContactListDestination$ === "object");
@@ -1208,6 +1211,7 @@ assert(typeof TestRenderEmailTemplateResponse$ === "object");
 assert(typeof Topic$ === "object");
 assert(typeof TopicFilter$ === "object");
 assert(typeof TopicPreference$ === "object");
+assert(typeof TrackingConfigurationOverrides$ === "object");
 assert(typeof TrackingOptions$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");

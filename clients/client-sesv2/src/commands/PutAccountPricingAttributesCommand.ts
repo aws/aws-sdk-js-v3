@@ -23,8 +23,7 @@ export interface PutAccountPricingAttributesCommandInput extends PutAccountPrici
 export interface PutAccountPricingAttributesCommandOutput extends PutAccountPricingAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Set the pricing plan for your Amazon SES account. Use this operation to choose a billing plan
- *             that packages multiple Amazon SES features at a single rate.</p>
+ * <p>Set the pricing plan for your Amazon SES account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

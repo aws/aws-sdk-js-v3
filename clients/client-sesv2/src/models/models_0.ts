@@ -1027,6 +1027,98 @@ export interface Complaint {
 }
 
 /**
+ * <p>An object that overrides, for a single email sending request, the engagement tracking
+ *             settings that would otherwise apply. Use these overrides to turn open tracking or click
+ *             tracking on or off for an individual message, for example to suppress tracking in a
+ *             transactional message that you send from an account or a configuration set that has
+ *             tracking enabled.</p>
+ *          <p>Without an override, engagement tracking is determined by your account-level
+ *             <code>EngagementMetrics</code> setting, which you configure using the
+ *                 <code>PutAccountVdmAttributes</code> operation, by the
+ *                 <code>EngagementMetrics</code> setting of the configuration set that the message
+ *             uses, which you configure using the <code>PutConfigurationSetVdmOptions</code> operation,
+ *             and by whether that configuration set has an event destination whose
+ *                 <code>MatchingEventTypes</code> include the <code>OPEN</code> or <code>CLICK</code>
+ *             event types.</p>
+ *          <p>For more information about tracking open and click events, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/event-publishing.html">Amazon SES
+ *                 Developer Guide</a>.</p>
+ * @public
+ */
+export interface TrackingConfigurationOverrides {
+  /**
+   * <p>Specifies whether Amazon SES tracks when the recipient opens this message. Can be one of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – Amazon SES tracks opens for this message, even when
+   *                     your account-level and configuration set settings don't enable open
+   *                     tracking.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Amazon SES doesn't track opens for this message, even
+   *                     when your account-level or configuration set settings enable open tracking. Amazon SES
+   *                     doesn't add the tracking image to the message.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this value, Amazon SES uses the open tracking setting that would
+   *             otherwise apply to the message.</p>
+   * @public
+   */
+  OpenTrackingEnabled?: FeatureStatus | undefined;
+
+  /**
+   * <p>Specifies whether Amazon SES tracks when the recipient clicks a link in this message. Can be
+   *             one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> – Amazon SES tracks clicks for this message, even when
+   *                     your account-level and configuration set settings don't enable click
+   *                     tracking.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Amazon SES doesn't track clicks for this message, even
+   *                     when your account-level or configuration set settings enable click tracking.
+   *                     Amazon SES doesn't rewrite the links in the message.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this value, Amazon SES uses the click tracking setting that would
+   *             otherwise apply to the message.</p>
+   *          <note>
+   *             <p>Enabling open or click tracking with an override doesn't create an event
+   *                 destination. Amazon SES records the resulting open and click events in VDM, where you can
+   *                 review them using VDM metrics and Message Insights. To also receive these events at
+   *                 a destination that you own, the configuration set that the message uses must have an
+   *                 event destination that publishes open and click events.</p>
+   *          </note>
+   * @public
+   */
+  ClickTrackingEnabled?: FeatureStatus | undefined;
+}
+
+/**
+ * <p>An object that overrides settings for a single email sending request. An override
+ *             applies only to the message or messages in the request that contains it. It doesn't
+ *             change your account-level settings, and it doesn't change the configuration set that the
+ *             request uses.</p>
+ *          <p>A setting that you don't override keeps the value that would otherwise apply to the
+ *             message. Depending on the setting, that value comes from the configuration set that the
+ *             message uses, from your account-level settings, or from the Amazon SES default.</p>
+ * @public
+ */
+export interface ConfigurationOverrides {
+  /**
+   * <p>An object that overrides the open and click tracking settings that would otherwise
+   *             apply to the message.</p>
+   * @public
+   */
+  Tracking?: TrackingConfigurationOverrides | undefined;
+}
+
+/**
  * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
  * @public
  */
@@ -4590,7 +4682,7 @@ export interface GetAccountRequest {}
 
 /**
  * <p>The pricing attributes that apply to your Amazon SES account, including the currently active
- *             pricing plan and any scheduled change for the next billing cycle.</p>
+ *             pricing plan and any scheduled change.</p>
  * @public
  */
 export interface PricingAttributes {
@@ -4601,7 +4693,7 @@ export interface PricingAttributes {
   CurrentPlan?: PricingPlan | undefined;
 
   /**
-   * <p>The pricing plan that will become active at the start of the next billing cycle, if a
+   * <p>The pricing plan that will become active at the start of the next monthly cycle, if a
    *             scheduled change has been requested. This field is empty when no scheduled change is
    *             pending.</p>
    * @public
@@ -7953,27 +8045,28 @@ export interface PutAccountDetailsResponse {}
  */
 export interface PutAccountPricingAttributesRequest {
   /**
-   * <p>The pricing plan to apply to your Amazon SES account. Can be one of the following:</p>
+   * <p>The pricing plan to apply to your Amazon SES account. For details about each plan, see <a href="http://aws.amazon.com/ses/pricing/">Amazon SES Pricing</a>. Can be one of the
+   *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>NONE</code> – No pricing plan is applied; billing follows per-feature
-   *                     pricing.</p>
+   *                   <code>NONE</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ESSENTIALS</code> – Baseline Amazon SES capabilities and select premium
-   *                     features.</p>
+   *                   <code>ESSENTIALS</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PRO</code> – Includes everything in <code>ESSENTIALS</code>, plus
-   *                     additional premium features for growing senders.</p>
+   *                   <code>PRO</code>
+   *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ENTERPRISE</code> – Includes everything in <code>PRO</code>, plus
-   *                     features intended for large-scale senders.</p>
+   *                   <code>ENTERPRISE</code>
+   *                </p>
    *             </li>
    *          </ul>
    * @public
@@ -8459,32 +8552,3 @@ export interface PutEmailIdentityConfigurationSetAttributesRequest {
  * @public
  */
 export interface PutEmailIdentityConfigurationSetAttributesResponse {}
-
-/**
- * <p>A request to enable or disable DKIM signing of email that you send from an email
- *             identity.</p>
- * @public
- */
-export interface PutEmailIdentityDkimAttributesRequest {
-  /**
-   * <p>The email identity.</p>
-   * @public
-   */
-  EmailIdentity: string | undefined;
-
-  /**
-   * <p>Sets the DKIM signing configuration for the identity.</p>
-   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
-   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
-   *             messages are sent without DKIM signing.</p>
-   * @public
-   */
-  SigningEnabled?: boolean | undefined;
-}
-
-/**
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- * @public
- */
-export interface PutEmailIdentityDkimAttributesResponse {}

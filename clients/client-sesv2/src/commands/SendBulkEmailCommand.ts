@@ -110,6 +110,12 @@ export interface SendBulkEmailCommandOutput extends SendBulkEmailResponse, __Met
  *   ConfigurationSetName: "STRING_VALUE",
  *   EndpointId: "STRING_VALUE",
  *   TenantName: "STRING_VALUE",
+ *   ConfigurationOverrides: { // ConfigurationOverrides
+ *     Tracking: { // TrackingConfigurationOverrides
+ *       OpenTrackingEnabled: "ENABLED" || "DISABLED",
+ *       ClickTrackingEnabled: "ENABLED" || "DISABLED",
+ *     },
+ *   },
  * };
  * const command = new SendBulkEmailCommand(input);
  * const response = await client.send(command);

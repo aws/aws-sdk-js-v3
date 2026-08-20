@@ -152,6 +152,12 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *     ContactListName: "STRING_VALUE", // required
  *     TopicName: "STRING_VALUE",
  *   },
+ *   ConfigurationOverrides: { // ConfigurationOverrides
+ *     Tracking: { // TrackingConfigurationOverrides
+ *       OpenTrackingEnabled: "ENABLED" || "DISABLED",
+ *       ClickTrackingEnabled: "ENABLED" || "DISABLED",
+ *     },
+ *   },
  * };
  * const command = new SendEmailCommand(input);
  * const response = await client.send(command);

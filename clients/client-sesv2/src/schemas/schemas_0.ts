@@ -101,6 +101,7 @@ const _CMRE = "CreateMultiRegionEndpoint";
 const _CMRER = "CreateMultiRegionEndpointRequest";
 const _CMRERr = "CreateMultiRegionEndpointResponse";
 const _CMS = "CustomerManagedStatus";
+const _CO = "ConfigurationOverrides";
 const _CP = "CurrentPlan";
 const _CRD = "CustomRedirectDomain";
 const _CS = "ConfigurationSets";
@@ -109,6 +110,7 @@ const _CSN = "ConfigurationSetName";
 const _CST = "ComplaintSubType";
 const _CT = "ContentType";
 const _CTE = "ContentTransferEncoding";
+const _CTEl = "ClickTrackingEnabled";
 const _CTEo = "ConditionThresholdEnabled";
 const _CTR = "CreateTenantRequest";
 const _CTRA = "CreateTenantResourceAssociation";
@@ -517,6 +519,7 @@ const _Na = "Name";
 const _OCT = "OverallConfidenceThreshold";
 const _OP = "OverallPlacement";
 const _OSD = "OptimizedSharedDelivery";
+const _OTE = "OpenTrackingEnabled";
 const _OV = "OverallVolume";
 const _P = "Policy";
 const _PA = "PricingAttributes";
@@ -715,6 +718,7 @@ const _TAe = "TemplateArn";
 const _TAo = "ToAddresses";
 const _TAop = "TopicArn";
 const _TC = "TemplateContent";
+const _TCO = "TrackingConfigurationOverrides";
 const _TD = "TemplateData";
 const _TDP = "TopicDefaultPreferences";
 const _TF = "TopicFilter";
@@ -755,6 +759,7 @@ const _Tim = "Timestamps";
 const _To = "Topics";
 const _Tok = "Tokens";
 const _Top = "Topic";
+const _Tr = "Tracking";
 const _Ty = "Type";
 const _UA = "UnsubscribeAll";
 const _UC = "UpdateContact";
@@ -1020,6 +1025,11 @@ export var Complaint$: StaticStructureSchema = [3, n0, _C,
   0,
   [_CST, _CFT],
   [0, 0]
+];
+export var ConfigurationOverrides$: StaticStructureSchema = [3, n0, _CO,
+  0,
+  [_Tr],
+  [() => TrackingConfigurationOverrides$]
 ];
 export var Contact$: StaticStructureSchema = [3, n0, _Co,
   0,
@@ -2343,8 +2353,8 @@ export var RouteDetails$: StaticStructureSchema = [3, n0, _RDou,
 ];
 export var SendBulkEmailRequest$: StaticStructureSchema = [3, n0, _SBER,
   0,
-  [_DCe, _BEEu, _FEA, _FEAIA, _RTA, _FFEA, _FFEAIA, _DET, _CSN, _EIn, _TNe],
-  [() => BulkEmailContent$, () => BulkEmailEntryList, 0, 0, 64 | 0, 0, 0, () => MessageTagList, 0, 0, 0], 2
+  [_DCe, _BEEu, _FEA, _FEAIA, _RTA, _FFEA, _FFEAIA, _DET, _CSN, _EIn, _TNe, _CO],
+  [() => BulkEmailContent$, () => BulkEmailEntryList, 0, 0, 64 | 0, 0, 0, () => MessageTagList, 0, 0, 0, () => ConfigurationOverrides$], 2
 ];
 export var SendBulkEmailResponse$: StaticStructureSchema = [3, n0, _SBERe,
   0,
@@ -2363,8 +2373,8 @@ export var SendCustomVerificationEmailResponse$: StaticStructureSchema = [3, n0,
 ];
 export var SendEmailRequest$: StaticStructureSchema = [3, n0, _SER,
   0,
-  [_Con, _FEA, _FEAIA, _Des, _RTA, _FFEA, _FFEAIA, _ET, _CSN, _EIn, _TNe, _LMO],
-  [() => EmailContent$, 0, 0, () => Destination$, 64 | 0, 0, 0, () => MessageTagList, 0, 0, 0, () => ListManagementOptions$], 1
+  [_Con, _FEA, _FEAIA, _Des, _RTA, _FFEA, _FFEAIA, _ET, _CSN, _EIn, _TNe, _LMO, _CO],
+  [() => EmailContent$, 0, 0, () => Destination$, 64 | 0, 0, 0, () => MessageTagList, 0, 0, 0, () => ListManagementOptions$, () => ConfigurationOverrides$], 1
 ];
 export var SendEmailResponse$: StaticStructureSchema = [3, n0, _SERe,
   0,
@@ -2510,6 +2520,11 @@ export var TopicPreference$: StaticStructureSchema = [3, n0, _TPo,
   0,
   [_TNo, _SSub],
   [0, 0], 2
+];
+export var TrackingConfigurationOverrides$: StaticStructureSchema = [3, n0, _TCO,
+  0,
+  [_OTE, _CTEl],
+  [0, 0]
 ];
 export var TrackingOptions$: StaticStructureSchema = [3, n0, _TO,
   0,
