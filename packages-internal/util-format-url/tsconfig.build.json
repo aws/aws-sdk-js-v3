@@ -1,0 +1,23 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--util-format-url.tsbuildinfo",
+    "paths": {
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"],
+      "@aws-sdk/core/*": ["../core/dist-types/submodules/*/index.d.ts"]
+    },
+    "lib": []
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts"],
+  "references": [
+    {
+      "path": "../core/tsconfig.build.json"
+    }
+  ]
+}

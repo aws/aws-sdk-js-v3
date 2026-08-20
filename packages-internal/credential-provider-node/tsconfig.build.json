@@ -1,0 +1,39 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--credential-provider-node.tsbuildinfo",
+    "paths": {
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+    }
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts"],
+  "references": [
+    {
+      "path": "../credential-provider-env/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-http/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-ini/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-process/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-sso/tsconfig.build.json"
+    },
+    {
+      "path": "../credential-provider-web-identity/tsconfig.build.json"
+    },
+    {
+      "path": "../types/tsconfig.build.json"
+    }
+  ]
+}

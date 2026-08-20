@@ -1,0 +1,33 @@
+{
+  "extends": "../../tsconfig.es.json",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/packages-internal--nested-clients.tsbuildinfo",
+    "paths": {
+      "@aws-sdk/nested-clients/sso-oidc": ["./src/submodules/sso-oidc/index.ts"],
+      "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"],
+      "@aws-sdk/nested-clients/signin": ["./src/submodules/signin/index.ts"],
+      "@aws-sdk/nested-clients/cognito-identity": ["./src/submodules/cognito-identity/index.ts"],
+      "@aws-sdk/nested-clients/sso": ["./src/submodules/sso/index.ts"],
+      "@smithy/core/*": ["../../node_modules/@smithy/core/dist-types/submodules/*/index.d.ts"]
+    },
+    "lib": ["dom"]
+  },
+  "include": ["src/"],
+  "exclude": ["src/**/*.spec.ts"],
+  "references": [
+    {
+      "path": "../core/tsconfig.build.json"
+    },
+    {
+      "path": "../signature-v4-multi-region/tsconfig.build.json"
+    },
+    {
+      "path": "../types/tsconfig.build.json"
+    }
+  ]
+}

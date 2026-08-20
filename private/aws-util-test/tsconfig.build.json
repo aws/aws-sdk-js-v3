@@ -1,0 +1,42 @@
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "composite": true,
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "dist-types",
+    "tsBuildInfoFile": "../../.tsbuildinfo/private--aws-util-test.tsbuildinfo",
+    "lib": [
+      "dom"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "removeComments": false,
+    "strict": true,
+    "isolatedModules": true
+  },
+  "include": [
+    "src/"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts"
+  ],
+  "references": [
+    {
+      "path": "../aws-protocoltests-json/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-cognito-identity/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-s3/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-s3-control/tsconfig.build.json"
+    },
+    {
+      "path": "../../clients/client-sts/tsconfig.build.json"
+    }
+  ]
+}
