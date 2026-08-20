@@ -11,6 +11,5 @@
     }
   },
   "extends": "../../tsconfig.types.json",
-  "include": ["src/"],
-  "exclude": ["src/**/*.spec.ts", "src/**/*.fixture.ts"]
+  "include": ["src/"]
 }
