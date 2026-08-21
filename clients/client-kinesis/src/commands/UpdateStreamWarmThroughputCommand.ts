@@ -23,12 +23,13 @@ export interface UpdateStreamWarmThroughputCommandInput extends UpdateStreamWarm
 export interface UpdateStreamWarmThroughputCommandOutput extends UpdateStreamWarmThroughputOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the warm throughput configuration for the specified Amazon Kinesis Data Streams on-demand data stream. This operation allows you to proactively scale your on-demand data stream to a specified throughput level, enabling better performance for sudden traffic spikes. </p>
+ * <p>Updates the warm throughput configuration for the specified Amazon Kinesis Data Streams on-demand data stream. Updates the warm throughput configuration for the specified on-demand data stream. Use this operation to scale your stream to a specified throughput level before anticipated traffic spikes, or to release excess capacity after traffic has decreased. </p>
  *          <note>
  *             <p>When invoking this API, you must use either the <code>StreamARN</code> or the <code>StreamName</code> parameter, or both. It is recommended that you use the <code>StreamARN</code> input parameter when you invoke this API.</p>
  *          </note>
  *          <p>Updating the warm throughput is an asynchronous operation. Upon receiving the request, Kinesis Data Streams returns immediately and sets the status of the stream to <code>UPDATING</code>. After the update is complete, Kinesis Data Streams sets the status of the stream back to <code>ACTIVE</code>. Depending on the size of the stream, the scaling action could take a few minutes to complete. You can continue to read and write data to your stream while its status is <code>UPDATING</code>.</p>
  *          <p>This operation is only supported for data streams with the on-demand capacity mode in accounts that have <code>MinimumThroughputBillingCommitment</code> enabled. Provisioned capacity mode streams do not support warm throughput configuration.</p>
+ *          <p>To release excess capacity, call the API again and set the warm throughput to the same or a lower value.</p>
  *          <p>This operation has the following default limits. By default, you cannot do the following:</p>
  *          <ul>
  *             <li>

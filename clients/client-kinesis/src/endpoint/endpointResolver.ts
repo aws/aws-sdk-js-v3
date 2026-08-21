@@ -9,6 +9,8 @@ import type { EndpointParameters } from "./EndpointParameters";
 const cache = new EndpointCache({
   size: 50,
   params: [
+    "AccountId",
+    "AccountIdEndpointMode",
     "ConsumerARN",
     "Endpoint",
     "OperationType",

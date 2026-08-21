@@ -1,5 +1,11 @@
 // smithy-typescript generated code
 import {
+  AccountIdEndpointMode,
+  AccountIdEndpointModeInputConfig,
+  AccountIdEndpointModeResolvedConfig,
+  resolveAccountIdEndpointModeConfig,
+} from "@aws-sdk/core/account-id-endpoint";
+import {
   type HostHeaderInputConfig,
   type HostHeaderResolvedConfig,
   type UserAgentInputConfig,
@@ -372,6 +378,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   profile?: string;
 
   /**
+   * Defines if the AWS AccountId will be used for endpoint routing.
+   */
+  accountIdEndpointMode?: AccountIdEndpointMode | __Provider<AccountIdEndpointMode>;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -422,6 +433,7 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type KinesisClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
+  AccountIdEndpointModeInputConfig &
   UserAgentInputConfig &
   RetryInputConfig &
   RegionInputConfig &
@@ -443,6 +455,7 @@ export interface KinesisClientConfig extends KinesisClientConfigType {}
 export type KinesisClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
+  AccountIdEndpointModeResolvedConfig &
   UserAgentResolvedConfig &
   RetryResolvedConfig &
   RegionResolvedConfig &
@@ -480,15 +493,16 @@ export class KinesisClient extends __Client<
     super(_config_0 as any);
     this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveUserAgentConfig(_config_1);
-    const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveRegionConfig(_config_3);
-    const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveEndpointConfig(_config_5);
-    const _config_7 = resolveEventStreamSerdeConfig(_config_6);
-    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
-    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    this.config = _config_9;
+    const _config_2 = resolveAccountIdEndpointModeConfig(_config_1);
+    const _config_3 = resolveUserAgentConfig(_config_2);
+    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_5 = resolveRegionConfig(_config_4);
+    const _config_6 = resolveHostHeaderConfig(_config_5);
+    const _config_7 = resolveEndpointConfig(_config_6);
+    const _config_8 = resolveEventStreamSerdeConfig(_config_7);
+    const _config_9 = resolveHttpAuthSchemeConfig(_config_8);
+    const _config_10 = resolveRuntimeExtensions(_config_9, configuration?.extensions || []);
+    this.config = _config_10;
     this.middlewareStack.use(getSchemaSerdePlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));

@@ -2,6 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import { NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS } from "@aws-sdk/core/account-id-endpoint";
 import {
   createDefaultUserAgentProvider,
   emitWarningIfUnsupportedVersion as awsCheckVersion,
@@ -48,6 +49,7 @@ export const getRuntimeConfig = (config: KinesisClientConfig) => {
     ...config,
     runtime: "node",
     defaultsMode,
+    accountIdEndpointMode: config?.accountIdEndpointMode ?? loadNodeConfig(NODE_ACCOUNT_ID_ENDPOINT_MODE_CONFIG_OPTIONS, loaderConfig),
     authSchemePreference: config?.authSchemePreference ?? loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? credentialDefaultProvider,

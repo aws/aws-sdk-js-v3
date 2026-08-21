@@ -46,12 +46,15 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  *             You can terminate the loop when the shard is closed, or when the shard iterator reaches
  *             the record with the sequence number or other attribute that marks it as the last record
  *             to process.</p>
- *          <p>Each data record can be up to 1 MiB in size, and each shard can read up to 2 MiB per
- *             second. You can ensure that your calls don't exceed the maximum supported size or
- *             throughput by using the <code>Limit</code> parameter to specify the maximum number of
- *             records that <a>GetRecords</a> can return. Consider your average record size
- *             when determining this limit. The maximum number of records that can be returned per call
- *             is 10,000.</p>
+ *          <p>Each data record can be up to 1 MiB in size by default. Amazon Kinesis Data Streams supports
+ *             large records up to 10 MiB in size, but the average throughput for your stream cannot exceed
+ *             1 MiB per second. For more information about how large records are handled, see
+ *             <a href="https://docs.aws.amazon.com/streams/latest/dev/large-records.html">Large records</a>.
+ *             Each shard can read up to 2 MiB per second. You can ensure that your calls don't exceed
+ *             the maximum supported size or throughput by using the <code>Limit</code> parameter to
+ *             specify the maximum number of records that <a>GetRecords</a> can return.
+ *             Consider your average record size when determining this limit. The maximum number of records
+ *             that can be returned per call is 10,000.</p>
  *          <p>The size of the data returned by <a>GetRecords</a> varies depending on the
  *             utilization of the shard. It is recommended that consumer applications retrieve records
  *             via the <code>GetRecords</code> command using the 5 TPS limit to remain caught up.

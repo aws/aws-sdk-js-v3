@@ -2,6 +2,7 @@
 // @ts-ignore: package.json will be imported from dist folders
 import packageInfo from "../package.json"; // eslint-disable-line
 
+import { DEFAULT_ACCOUNT_ID_ENDPOINT_MODE } from "@aws-sdk/core/account-id-endpoint";
 import { createDefaultUserAgentProvider } from "@aws-sdk/core/client";
 import { invalidProvider, loadConfigsForDefaultMode } from "@smithy/core/client";
 import {
@@ -29,6 +30,7 @@ export const getRuntimeConfig = (config: KinesisClientConfig) => {
     ...config,
     runtime: "browser",
     defaultsMode,
+    accountIdEndpointMode: config?.accountIdEndpointMode ?? (() => Promise.resolve(DEFAULT_ACCOUNT_ID_ENDPOINT_MODE)),
     bodyLengthChecker: config?.bodyLengthChecker ?? calculateBodyLength,
     credentialDefaultProvider: config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider: config?.defaultUserAgentProvider ?? createDefaultUserAgentProvider({serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version}),

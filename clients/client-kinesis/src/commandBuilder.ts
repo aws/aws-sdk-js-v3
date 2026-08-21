@@ -24,7 +24,9 @@ export const _ep0: EndpointParameterInstructions = {
 /**
  * @internal
  */
-export const _ep1: EndpointParameterInstructions = {};
+export const _ep1: EndpointParameterInstructions = {
+  OperationType: { type: "staticContextParams", value: `control` },
+};
 
 /**
  * @internal

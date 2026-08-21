@@ -15,6 +15,8 @@ export interface ClientInputEndpointParameters {
   useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  accountId?: string | undefined | Provider<string | undefined>;
+  accountIdEndpointMode?: string | undefined | Provider<string | undefined>;
 }
 
 /**
@@ -42,9 +44,11 @@ export const resolveClientEndpointParameters = <T>(
  */
 export const commonParams = {
   UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+  AccountId: { type: "builtInParams", name: "accountId" },
   Endpoint: { type: "builtInParams", name: "endpoint" },
   Region: { type: "builtInParams", name: "region" },
   UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
+  AccountIdEndpointMode: { type: "builtInParams", name: "accountIdEndpointMode" },
 } as const satisfies EndpointParameterInstructions;
 
 /**
@@ -55,9 +59,11 @@ export interface EndpointParameters extends __EndpointParameters {
   UseDualStack?: boolean | undefined;
   UseFIPS?: boolean | undefined;
   Endpoint?: string | undefined;
+  OperationType?: string | undefined;
   StreamId?: string | undefined;
   StreamARN?: string | undefined;
-  OperationType?: string | undefined;
   ConsumerARN?: string | undefined;
   ResourceARN?: string | undefined;
+  AccountId?: string | undefined;
+  AccountIdEndpointMode?: string | undefined;
 }
