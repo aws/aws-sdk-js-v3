@@ -23,7 +23,7 @@ export interface ListScanJobSummariesCommandInput extends ListScanJobSummariesIn
 export interface ListScanJobSummariesCommandOutput extends ListScanJobSummariesOutput, __MetadataBearer {}
 
 /**
- * <p>This is a request for a summary of scan jobs created or running within the most recent 30 days.</p>
+ * <p>This is a request for a summary of scan jobs created or running within the most recent 14 days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
