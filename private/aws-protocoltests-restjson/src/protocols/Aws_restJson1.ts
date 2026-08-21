@@ -424,6 +424,7 @@ import {
   type HeadersAndImplicitPayloadEvent,
   type HeadersEvent,
   type NestedPayload,
+  type NestedUnion,
   type PayloadConfig,
   type PayloadStructure,
   type PayloadUnion,
@@ -5798,11 +5799,14 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                           stringValue: value => ({ "stringValue": value }),
                           structureValue: value => ({ "structureValue": _json(value) }),
                           timestampValue: value => ({ "timestampValue": (value.getTime() / 1_000) }),
+                          unionValue: value => ({ "unionValue": _json(value) }),
                           _: (name, value) => ({ [name]: value } as any)
                         });
                       }
 
                       // se_NestedPayload omitted.
+
+                      // se_NestedUnion omitted.
 
                       // se_PayloadConfig omitted.
 
@@ -6167,10 +6171,17 @@ export const de_HttpEmptyPrefixHeadersCommand = async (
                             timestampValue: __expectNonNull(__parseEpochTimestamp(__expectNumber(output.timestampValue)))
                           };
                         }
+                        if (output.unionValue != null) {
+                          return {
+                            unionValue: _json(__expectUnion(output.unionValue))
+                          };
+                        }
                         return { $unknown: Object.entries(output)[0] };
                       }
 
                       // de_NestedPayload omitted.
+
+                      // de_NestedUnion omitted.
 
                       // de_PayloadConfig omitted.
 

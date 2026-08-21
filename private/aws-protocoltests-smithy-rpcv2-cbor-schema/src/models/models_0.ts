@@ -184,12 +184,98 @@ export interface RpcV2CborListInputOutput {
 /**
  * @public
  */
+export type RpcV2CborNestedUnion =
+  | RpcV2CborNestedUnion.StringValueMember
+  | RpcV2CborNestedUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RpcV2CborNestedUnion {
+  export interface StringValueMember {
+    stringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
 export interface RpcV2CborSparseMapsInputOutput {
   sparseStructMap?: Record<string, GreetingStruct | null> | undefined;
   sparseNumberMap?: Record<string, number | null> | undefined;
   sparseBooleanMap?: Record<string, boolean | null> | undefined;
   sparseStringMap?: Record<string, string | null> | undefined;
   sparseSetMap?: Record<string, string[] | null> | undefined;
+}
+
+/**
+ * @public
+ */
+export type RpcV2CborUnion =
+  | RpcV2CborUnion.StringValueMember
+  | RpcV2CborUnion.UnionValueMember
+  | RpcV2CborUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RpcV2CborUnion {
+  export interface StringValueMember {
+    stringValue: string;
+    unionValue?: never;
+    $unknown?: never;
+  }
+
+  export interface UnionValueMember {
+    stringValue?: never;
+    unionValue: RpcV2CborNestedUnion;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    unionValue?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    unionValue: (value: RpcV2CborNestedUnion) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface RpcV2CborUnionInputOutput {
+  contents?: RpcV2CborUnion | undefined;
+  otherValue?: string | undefined;
 }
 
 /**

@@ -54,6 +54,11 @@ import {
   RpcV2CborSparseMapsCommand,
 } from "./commands/RpcV2CborSparseMapsCommand";
 import {
+  type RpcV2CborUnionsCommandInput,
+  type RpcV2CborUnionsCommandOutput,
+  RpcV2CborUnionsCommand,
+} from "./commands/RpcV2CborUnionsCommand";
+import {
   type SimpleScalarPropertiesCommandInput,
   type SimpleScalarPropertiesCommandOutput,
   SimpleScalarPropertiesCommand,
@@ -77,6 +82,7 @@ const commands = {
   RpcV2CborDenseMapsCommand,
   RpcV2CborListsCommand,
   RpcV2CborSparseMapsCommand,
+  RpcV2CborUnionsCommand,
   SimpleScalarPropertiesCommand,
   SparseNullsOperationCommand,
 };
@@ -278,6 +284,24 @@ export interface RpcV2Protocol {
     args: RpcV2CborSparseMapsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RpcV2CborSparseMapsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RpcV2CborUnionsCommand}
+   */
+  rpcV2CborUnions(): Promise<RpcV2CborUnionsCommandOutput>;
+  rpcV2CborUnions(
+    args: RpcV2CborUnionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RpcV2CborUnionsCommandOutput>;
+  rpcV2CborUnions(
+    args: RpcV2CborUnionsCommandInput,
+    cb: (err: any, data?: RpcV2CborUnionsCommandOutput) => void
+  ): void;
+  rpcV2CborUnions(
+    args: RpcV2CborUnionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RpcV2CborUnionsCommandOutput) => void
   ): void;
 
   /**

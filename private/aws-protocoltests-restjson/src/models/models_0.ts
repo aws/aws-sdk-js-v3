@@ -994,6 +994,42 @@ export interface RenamedGreeting {
 }
 
 /**
+ * A union used to test unions nested inside unions.
+ * @public
+ */
+export type NestedUnion =
+  | NestedUnion.StringValueMember
+  | NestedUnion.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace NestedUnion {
+  export interface StringValueMember {
+    stringValue: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: NestedUnion, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * A union with a representative set of types for members.
  * @public
  */
@@ -1008,6 +1044,7 @@ export type MyUnion =
   | MyUnion.StringValueMember
   | MyUnion.StructureValueMember
   | MyUnion.TimestampValueMember
+  | MyUnion.UnionValueMember
   | MyUnion.$UnknownMember;
 
 /**
@@ -1025,6 +1062,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1039,6 +1077,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1053,6 +1092,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1067,6 +1107,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1081,6 +1122,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1095,6 +1137,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1109,6 +1152,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1123,6 +1167,7 @@ export namespace MyUnion {
     mapValue: Record<string, string>;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1137,6 +1182,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue: GreetingStruct;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown?: never;
   }
 
@@ -1151,6 +1197,26 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue: RenamedGreeting;
+    unionValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * A union used to test unions nested inside unions.
+   * @public
+   */
+  export interface UnionValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    numberValue?: never;
+    blobValue?: never;
+    timestampValue?: never;
+    enumValue?: never;
+    listValue?: never;
+    mapValue?: never;
+    structureValue?: never;
+    renamedStructureValue?: never;
+    unionValue: NestedUnion;
     $unknown?: never;
   }
 
@@ -1168,6 +1234,7 @@ export namespace MyUnion {
     mapValue?: never;
     structureValue?: never;
     renamedStructureValue?: never;
+    unionValue?: never;
     $unknown: [string, any];
   }
 
@@ -1182,6 +1249,7 @@ export namespace MyUnion {
     mapValue: (value: Record<string, string>) => T;
     structureValue: (value: GreetingStruct) => T;
     renamedStructureValue: (value: RenamedGreeting) => T;
+    unionValue: (value: NestedUnion) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1196,6 +1264,7 @@ export namespace MyUnion {
     if (value.mapValue !== undefined) return visitor.mapValue(value.mapValue);
     if (value.structureValue !== undefined) return visitor.structureValue(value.structureValue);
     if (value.renamedStructureValue !== undefined) return visitor.renamedStructureValue(value.renamedStructureValue);
+    if (value.unionValue !== undefined) return visitor.unionValue(value.unionValue);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }

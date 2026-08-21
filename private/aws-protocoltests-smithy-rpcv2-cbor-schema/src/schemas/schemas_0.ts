@@ -31,8 +31,12 @@ const _RVCDM = "RpcV2CborDenseMaps";
 const _RVCDMIO = "RpcV2CborDenseMapsInputOutput";
 const _RVCL = "RpcV2CborLists";
 const _RVCLIO = "RpcV2CborListInputOutput";
+const _RVCNU = "RpcV2CborNestedUnion";
 const _RVCSM = "RpcV2CborSparseMaps";
 const _RVCSMIO = "RpcV2CborSparseMapsInputOutput";
+const _RVCU = "RpcV2CborUnion";
+const _RVCUIO = "RpcV2CborUnionInputOutput";
+const _RVCUp = "RpcV2CborUnions";
 const _SBM = "SparseBooleanMap";
 const _SL = "StructureList";
 const _SLM = "StructureListMember";
@@ -59,6 +63,7 @@ const _bVl = "blobValue";
 const _b_ = "b";
 const _c = "client";
 const _cOD = "clientOptionalDefaults";
+const _co = "contents";
 const _d = "datetime";
 const _dB = "defaultBoolean";
 const _dBM = "denseBooleanMap";
@@ -101,6 +106,7 @@ const _me = "member";
 const _n = "nested";
 const _nSL = "nestedStringList";
 const _oTLD = "otherTopLevelDefault";
+const _oV = "otherValue";
 const _p = "path";
 const _rM = "recursiveMember";
 const _s = "sparse";
@@ -119,6 +125,7 @@ const _sVt = "stringValue";
 const _tBV = "trueBooleanValue";
 const _tL = "timestampList";
 const _tLD = "topLevelDefault";
+const _uV = "unionValue";
 const _v = "value";
 const _zB = "zeroByte";
 const _zD = "zeroDouble";
@@ -138,6 +145,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import { ComplexError, InvalidGreeting, ValidationException } from "../models/errors";
@@ -258,6 +266,11 @@ export var RpcV2CborSparseMapsInputOutput$: StaticStructureSchema = [3, n1, _RVC
   [_sSM, _sNM, _sBM, _sSMp, _sSMpa],
   [[() => SparseStructMap, 0], [() => SparseNumberMap, 0], [() => SparseBooleanMap, 0], [() => SparseStringMap, 0], [() => SparseSetMap, 0]]
 ];
+export var RpcV2CborUnionInputOutput$: StaticStructureSchema = [3, n1, _RVCUIO,
+  0,
+  [_co, _oV],
+  [() => RpcV2CborUnion$, 0]
+];
 export var SimpleScalarStructure$: StaticStructureSchema = [3, n1, _SSS,
   0,
   [_tBV, _fBV, _bV, _dV, _fV, _iV, _lV, _sV, _sVt, _bVl],
@@ -329,6 +342,16 @@ var TestStringMap = 128 | 0;
 var SparseStringMap: StaticMapSchema = [2, n2, _SSMpa,
   { [_s]: 1 }, 0, 0
 ];
+export var RpcV2CborNestedUnion$: StaticUnionSchema = [4, n1, _RVCNU,
+  0,
+  [_sVt],
+  [0]
+];
+export var RpcV2CborUnion$: StaticUnionSchema = [4, n1, _RVCU,
+  0,
+  [_sVt, _uV],
+  [0, () => RpcV2CborNestedUnion$]
+];
 export var EmptyInputOutput$: StaticOperationSchema = [9, n1, _EIO,
   0, () => EmptyStructure$, () => EmptyStructure$
 ];
@@ -361,6 +384,9 @@ export var RpcV2CborLists$: StaticOperationSchema = [9, n1, _RVCL,
 ];
 export var RpcV2CborSparseMaps$: StaticOperationSchema = [9, n1, _RVCSM,
   0, () => RpcV2CborSparseMapsInputOutput$, () => RpcV2CborSparseMapsInputOutput$
+];
+export var RpcV2CborUnions$: StaticOperationSchema = [9, n1, _RVCUp,
+  2, () => RpcV2CborUnionInputOutput$, () => RpcV2CborUnionInputOutput$
 ];
 export var SimpleScalarProperties$: StaticOperationSchema = [9, n1, _SSP,
   0, () => SimpleScalarStructure$, () => SimpleScalarStructure$

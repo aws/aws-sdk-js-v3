@@ -2321,6 +2321,13 @@ RpcV2CborSparseMaps
 </details>
 <details>
 <summary>
+RpcV2CborUnions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/json-protocol/command/RpcV2CborUnionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-protocol/Interface/RpcV2CborUnionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-protocol/Interface/RpcV2CborUnionsCommandOutput/)
+</details>
+<details>
+<summary>
 SimpleScalarProperties
 </summary>
 

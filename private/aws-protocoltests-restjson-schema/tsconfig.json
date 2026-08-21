@@ -1,8 +1,8 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
     "importHelpers": true,
+    "types": ["node"],
     "removeComments": true,
     "resolveJsonModule": true,
     "rootDir": "src",

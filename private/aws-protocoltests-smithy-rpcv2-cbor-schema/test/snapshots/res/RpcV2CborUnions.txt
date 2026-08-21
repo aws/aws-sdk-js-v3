@@ -1,18 +1,21 @@
 ======================== minimal response ========================
 [status] 200
   
-content-type: application/json
-x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
 
-[Uint8Array (json)]
+[Uint8Array (cbor object view)]
 {}
+
+[actual bytes]
+160
 
 
 --- [output object] ---
 {
   $metadata: {
     httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    requestId: (undefined),
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,
@@ -23,17 +26,24 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
 ======================== w/ optional fields ========================
 [status] 200
   
-content-type: application/json
-x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+smithy-protocol: rpc-v2-cbor
+content-type: application/cbor
 
-[Uint8Array (json)]
+[Uint8Array (cbor object view)]
 {
   "contents": {
     "unionValue": {
       "stringValue": "__stringValue__"
     }
-  }
+  },
+  "otherValue": "__otherValue__"
 }
+
+[actual bytes]
+162, 104, 99, 111, 110, 116, 101, 110, 116, 115, 161, 106, 117, 110, 105, 111, 110, 86, 97, 108, 117, 101, 161, 107,
+115, 116, 114, 105, 110, 103, 86, 97, 108, 117, 101, 111, 95, 95, 115, 116, 114, 105, 110, 103, 86, 97, 108, 117,
+101, 95, 95, 106, 111, 116, 104, 101, 114, 86, 97, 108, 117, 101, 110, 95, 95, 111, 116, 104, 101, 114, 86, 97,
+108, 117, 101, 95, 95
 
 
 --- [output object] ---
@@ -43,9 +53,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       stringValue: "__stringValue__"
     }
   },
+  otherValue: "__otherValue__",
   $metadata: {
     httpStatusCode: (number) 200,
-    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    requestId: (undefined),
     extendedRequestId: (undefined),
     cfId: (undefined),
     attempts: (number) 1,

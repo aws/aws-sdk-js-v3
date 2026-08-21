@@ -13,6 +13,7 @@ import { RecursiveShapesCommand } from "../../src/commands/RecursiveShapesComman
 import { RpcV2CborDenseMapsCommand } from "../../src/commands/RpcV2CborDenseMapsCommand";
 import { RpcV2CborListsCommand } from "../../src/commands/RpcV2CborListsCommand";
 import { RpcV2CborSparseMapsCommand } from "../../src/commands/RpcV2CborSparseMapsCommand";
+import { RpcV2CborUnionsCommand } from "../../src/commands/RpcV2CborUnionsCommand";
 import { SimpleScalarPropertiesCommand } from "../../src/commands/SimpleScalarPropertiesCommand";
 import { SparseNullsOperationCommand } from "../../src/commands/SparseNullsOperationCommand";
 import { RpcV2ProtocolClient } from "../../src/RpcV2ProtocolClient";
@@ -2617,6 +2618,190 @@ it("RpcV2CborDeserializesZeroValuesInSparseMaps:Response", async () => {
       sparseBooleanMap: {
         x: false,
       },
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes a union followed by another structure member
+ */
+it("RpcV2CborSerializesUnionValue:Request", async () => {
+  const client = new RpcV2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new RpcV2CborUnionsCommand(
+    {
+      contents: {
+        stringValue: "foo",
+      } as any,
+      otherValue: "bar",
+    } as any,
+  );
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborUnions");
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
+
+    expect(r.headers["accept"]).toBe("application/cbor");
+    expect(r.headers["content-type"]).toBe("application/cbor");
+    expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const bodyString = `omhjb250ZW50c6Frc3RyaW5nVmFsdWVjZm9vam90aGVyVmFsdWVjYmFy`;
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a nested union followed by another structure member
+ */
+it("RpcV2CborSerializesNestedUnionValue:Request", async () => {
+  const client = new RpcV2ProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new RpcV2CborUnionsCommand(
+    {
+      contents: {
+        unionValue: {
+          stringValue: "foo",
+        } as any,
+      } as any,
+      otherValue: "bar",
+    } as any,
+  );
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/service/RpcV2Protocol/operation/RpcV2CborUnions");
+    expect(
+      r.headers["content-length"],
+      `Header key "content-length" should have been defined in ${JSON.stringify(r.headers)}`
+    ).toBeDefined();
+
+    expect(r.headers["accept"]).toBe("application/cbor");
+    expect(r.headers["content-type"]).toBe("application/cbor");
+    expect(r.headers["smithy-protocol"]).toBe("rpc-v2-cbor");
+
+    expect(r.body, `Body was undefined.`).toBeDefined();
+    const bodyString = `omhjb250ZW50c6FqdW5pb25WYWx1ZaFrc3RyaW5nVmFsdWVjZm9vam90aGVyVmFsdWVjYmFy`;
+    const unequalParts: any = compareEquivalentCborBodies(bodyString, r.body);
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Deserializes a tagged union followed by another structure member
+ */
+it("RpcV2CborDeserializesUnionValue:Response", async () => {
+  const client = new RpcV2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "smithy-protocol": "rpc-v2-cbor",
+        "content-type": "application/cbor",
+      },
+      `omhjb250ZW50c6Frc3RyaW5nVmFsdWVjZm9vam90aGVyVmFsdWVjYmFy`
+    ),
+  });
+
+  const params: any = {};
+  const command = new RpcV2CborUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r.$metadata.httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        stringValue: "foo",
+      },
+      otherValue: "bar",
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(
+      r[param],
+      `The output field ${param} should have been defined in ${JSON.stringify(r, null, 2)}`
+    ).toBeDefined();
+    expect(equivalentContents(paramsToValidate[param], r[param])).toBe(true);
+  });
+});
+
+/**
+ * Deserializes a nested union followed by another structure member
+ */
+it("RpcV2CborDeserializesNestedUnionValue:Response", async () => {
+  const client = new RpcV2ProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "smithy-protocol": "rpc-v2-cbor",
+        "content-type": "application/cbor",
+      },
+      `omhjb250ZW50c6FqdW5pb25WYWx1ZaFrc3RyaW5nVmFsdWVjZm9vam90aGVyVmFsdWVjYmFy`
+    ),
+  });
+
+  const params: any = {};
+  const command = new RpcV2CborUnionsCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r.$metadata.httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      contents: {
+        unionValue: {
+          stringValue: "foo",
+        },
+      },
+      otherValue: "bar",
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
