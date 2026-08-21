@@ -49,6 +49,7 @@ import type {
   SearchType,
   SecretSourceType,
   ServerProtocol,
+  StaticQueryParameterConflictResolution,
   WafFailureMode,
 } from "./enums";
 
@@ -9398,6 +9399,12 @@ export interface StickinessConfiguration {
    * @public
    */
   timeout?: number | undefined;
+
+  /**
+   * <p>Additional headers to include in session affinity routing. When set, requests are only considered part of the same session if both the <code>identifier</code> and all composite identifier values match.</p>
+   * @public
+   */
+  compositeIdentifier?: string[] | undefined;
 }
 
 /**
@@ -9428,6 +9435,18 @@ export interface PassthroughTargetConfiguration {
    * @public
    */
   stickinessConfiguration?: StickinessConfiguration | undefined;
+
+  /**
+   * <p>A map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target. The total outbound URL length, which includes the endpoint and the percent-encoded query parameters, is enforced by the service.</p>
+   * @public
+   */
+  staticQueryParameters?: Record<string, string> | undefined;
+
+  /**
+   * <p>Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. If not set, defaults to <code>CLIENT_OVERRIDE</code>:</p> <ul> <li> <p> <code>CLIENT_OVERRIDE</code> - The client-supplied value overrides the configured static value for that parameter name.</p> </li> <li> <p> <code>STATIC_OVERRIDE</code> - The configured static value is retained, overriding the client-supplied value for that parameter name.</p> </li> </ul>
+   * @public
+   */
+  staticQueryParameterConflictResolution?: StaticQueryParameterConflictResolution | undefined;
 }
 
 /**

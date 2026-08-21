@@ -23,7 +23,7 @@ export interface DeleteMemoryCommandInput extends DeleteMemoryInput {}
 export interface DeleteMemoryCommandOutput extends DeleteMemoryOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Bedrock AgentCore Memory resource.</p>
+ * <p>Deletes an Amazon Bedrock AgentCore Memory resource. When you delete a memory resource, it is permanently removed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

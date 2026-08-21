@@ -427,9 +427,9 @@ export const DatasetSchemaType = {
    */
   AGENTCORE_EVALUATION_SIMULATED_V1: "AGENTCORE_EVALUATION_SIMULATED_V1",
   /**
-   * <p> Unified generic evaluation schema, version 1. Supports single-turn (string input) and multi-turn (message list input) across all evaluation frameworks. </p>
+   * <p> Third-party evaluation schema, version 1. Supports single-turn (string input) and multi-turn (message list input) across third-party evaluation frameworks. </p>
    */
-  GENERIC_EVALUATION_PREDEFINED_V1: "GENERIC_EVALUATION_PREDEFINED_V1",
+  THIRD_PARTY_EVALUATION_V1: "THIRD_PARTY_EVALUATION_V1",
 } as const;
 /**
  * @public
@@ -763,6 +763,20 @@ export const PassthroughProtocolType = {
  * @public
  */
 export type PassthroughProtocolType = (typeof PassthroughProtocolType)[keyof typeof PassthroughProtocolType];
+
+/**
+ * @public
+ * @enum
+ */
+export const StaticQueryParameterConflictResolution = {
+  CLIENT_OVERRIDE: "CLIENT_OVERRIDE",
+  STATIC_OVERRIDE: "STATIC_OVERRIDE",
+} as const;
+/**
+ * @public
+ */
+export type StaticQueryParameterConflictResolution =
+  (typeof StaticQueryParameterConflictResolution)[keyof typeof StaticQueryParameterConflictResolution];
 
 /**
  * @public

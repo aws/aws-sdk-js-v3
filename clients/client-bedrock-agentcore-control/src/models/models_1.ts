@@ -5784,7 +5784,7 @@ export interface UpdateMemoryInput {
   addIndexedKeys?: IndexedKey[] | undefined;
 
   /**
-   * <p>The namespace variable key definitions with validation rules for this memory. Use this parameter to update existing <code>namespaceKey</code> validation rules or add new keys when namespace templates change.</p>
+   * <p>The namespace variable key definitions with validation rules for this memory. This value fully replaces the existing set — any key you omit is removed. Any referenced <code>namespaceKey</code> omission will throw ValidationException.</p>
    * @public
    */
   namespaceKeys?: NamespaceKeyEntry[] | undefined;

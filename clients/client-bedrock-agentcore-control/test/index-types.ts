@@ -591,6 +591,7 @@ export type {
   SecretSourceType,
   ServerProtocol,
   SigningAlgorithm,
+  StaticQueryParameterConflictResolution,
   Status,
   SynchronizationType,
   TargetProtocolType,

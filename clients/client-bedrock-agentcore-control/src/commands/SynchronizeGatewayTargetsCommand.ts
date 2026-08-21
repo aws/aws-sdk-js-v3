@@ -188,7 +188,14 @@ export interface SynchronizeGatewayTargetsCommandOutput extends SynchronizeGatew
  * //             stickinessConfiguration: { // StickinessConfiguration
  * //               identifier: "STRING_VALUE", // required
  * //               timeout: Number("int"),
+ * //               compositeIdentifier: [ // CompositeIdentifierList
+ * //                 "STRING_VALUE",
+ * //               ],
  * //             },
+ * //             staticQueryParameters: { // StaticQueryParameters
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             staticQueryParameterConflictResolution: "CLIENT_OVERRIDE" || "STATIC_OVERRIDE",
  * //           },
  * //           connector: { // HttpConnectorTargetConfiguration
  * //             source: { // HttpConnectorSource

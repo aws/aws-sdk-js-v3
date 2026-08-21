@@ -47,7 +47,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * //       description: "STRING_VALUE",
  * //       status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED", // required
  * //       draftStatus: "MODIFIED" || "UNMODIFIED",
- * //       schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "GENERIC_EVALUATION_PREDEFINED_V1", // required
+ * //       schemaType: "AGENTCORE_EVALUATION_PREDEFINED_V1" || "AGENTCORE_EVALUATION_SIMULATED_V1" || "THIRD_PARTY_EVALUATION_V1", // required
  * //       exampleCount: Number("long"), // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required

@@ -1022,6 +1022,7 @@ import {
   StartPolicyGenerationRequest$,
   StartPolicyGenerationResponse$,
   StaticOverride$,
+  StaticQueryParameterConflictResolution,
   StaticRoute$,
   Status,
   StickinessConfiguration$,
@@ -2397,6 +2398,7 @@ assert(typeof SearchType === "object");
 assert(typeof SecretSourceType === "object");
 assert(typeof ServerProtocol === "object");
 assert(typeof SigningAlgorithm === "object");
+assert(typeof StaticQueryParameterConflictResolution === "object");
 assert(typeof Status === "object");
 assert(typeof SynchronizationType === "object");
 assert(typeof TargetProtocolType === "object");

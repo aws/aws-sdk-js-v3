@@ -863,6 +863,8 @@ const _SPG = "StartPolicyGeneration";
 const _SPGR = "StartPolicyGenerationRequest";
 const _SPGRt = "StartPolicyGenerationResponse";
 const _SQEE = "ServiceQuotaExceededException";
+const _SQP = "StaticQueryParameters";
+const _SQPV = "StaticQueryParameterValue";
 const _SR = "SecretReference";
 const _SRE = "SubscriptionRequiredException";
 const _SRRFA = "SubmitRegistryRecordForApproval";
@@ -1149,6 +1151,7 @@ const _cIA = "codeInterpreterArn";
 const _cII = "codeInterpreterId";
 const _cIS = "codeInterpreterSummaries";
 const _cIo = "connectorId";
+const _cIom = "compositeIdentifier";
 const _cJWTA = "customJWTAuthorizer";
 const _cL = "credentialLocation";
 const _cM = "commitMessage";
@@ -1609,6 +1612,8 @@ const _sPC = "stripePrivyConfiguration";
 const _sPa = "samplingPercentage";
 const _sPe = "serverProtocol";
 const _sPt = "stripePrivy";
+const _sQP = "staticQueryParameters";
+const _sQPCR = "staticQueryParameterConflictResolution";
 const _sR = "statusReasons";
 const _sRt = "statusReason";
 const _sRta = "staticRoute";
@@ -1893,6 +1898,7 @@ var OAuthCustomParametersValue: StaticSimpleSchema = [0, n0, _OACPV, 8, 0];
 var Prompt: StaticSimpleSchema = [0, n0, _P, 8, 0];
 var SensitiveJson: StaticSimpleSchema = [0, n0, _SJ, 8, 15];
 var SensitiveText: StaticSimpleSchema = [0, n0, _ST, 8, 0];
+var StaticQueryParameterValue: StaticSimpleSchema = [0, n0, _SQPV, 8, 0];
 var TargetDescription: StaticSimpleSchema = [0, n0, _TD, 8, 0];
 var TargetName: StaticSimpleSchema = [0, n0, _TN, 8, 0];
 export var A2aDescriptor$: StaticStructureSchema = [3, n0, _AD,
@@ -4192,8 +4198,8 @@ export var OutputConfig$: StaticStructureSchema = [3, n0, _OC,
 ];
 export var PassthroughTargetConfiguration$: StaticStructureSchema = [3, n0, _PTC,
   0,
-  [_end, _pT, _sch, _sCti],
-  [0, 0, [() => HttpApiSchemaConfiguration$, 0], () => StickinessConfiguration$], 2
+  [_end, _pT, _sch, _sCti, _sQP, _sQPCR],
+  [0, 0, [() => HttpApiSchemaConfiguration$, 0], () => StickinessConfiguration$, [() => StaticQueryParameters, 0], 0], 2
 ];
 export var PaymentConnectorSummary$: StaticStructureSchema = [3, n0, _PCS,
   0,
@@ -4527,8 +4533,8 @@ export var StaticRoute$: StaticStructureSchema = [3, n0, _SRt,
 ];
 export var StickinessConfiguration$: StaticStructureSchema = [3, n0, _SCt,
   0,
-  [_id, _ti],
-  [0, 1], 1
+  [_id, _ti, _cIom],
+  [0, 1, 64 | 0], 1
 ];
 export var StrategyConfiguration$: StaticStructureSchema = [3, n0, _SCtr,
   0,
@@ -5186,6 +5192,7 @@ var CodeInterpreterSummaries: StaticListSchema = [1, n0, _CISo,
   0, [() => CodeInterpreterSummary$,
     0]
 ];
+var CompositeIdentifierList = 64 | 0;
 var Conditions: StaticListSchema = [1, n0, _Co,
   0, () => Condition$
 ];
@@ -5503,6 +5510,12 @@ var OAuthCustomParameters: StaticMapSchema = [2, n0, _OACPu,
 ];
 var SchemaProperties: StaticMapSchema = [2, n0, _SP,
   0, 0, () => SchemaDefinition$
+];
+var StaticQueryParameters: StaticMapSchema = [2, n0, _SQP,
+  0, [0,
+    0]
+  , [() => StaticQueryParameterValue,
+    0]
 ];
 var TagsMap = 128 | 0;
 var TrafficSplitMetadataMap = 128 | 0;
