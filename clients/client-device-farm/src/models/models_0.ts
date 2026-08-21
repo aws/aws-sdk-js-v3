@@ -1003,6 +1003,21 @@ export interface CreateRemoteAccessSessionConfiguration {
    * @public
    */
   deviceProxy?: DeviceProxy | undefined;
+
+  /**
+   * <p>The name-value string pairs that specify additional settings for the remote access
+   *             session.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>appium:version</code>: The major version of the Appium server to use for
+   *                     the session (for example, 2 or 3). The service may reject the selected version
+   *                     if it is not available for the selected device.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -1651,14 +1666,14 @@ export interface CreateTestGridUrlRequest {
  */
 export interface CreateTestGridUrlResult {
   /**
-   * <p>A signed URL, expiring in <a>CreateTestGridUrlRequest$expiresInSeconds</a> seconds, to be passed
+   * <p>A signed URL, expiring in the time specified by the <code>CreateTestGridUrlRequest</code>, to be passed
    *          to a <code>RemoteWebDriver</code>. </p>
    * @public
    */
   url?: string | undefined;
 
   /**
-   * <p>The number of seconds the URL from <a>CreateTestGridUrlResult$url</a> stays active.</p>
+   * <p>The number of seconds the URL stays active from creation.</p>
    * @public
    */
   expires?: Date | undefined;
@@ -2568,35 +2583,6 @@ export interface ScheduleRunTest {
   /**
    * <p>The test's parameters, such as test framework parameters and fixture settings.
    *             Parameters are represented by name-value pairs of strings.</p>
-   *          <p>For all tests:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>app_performance_monitoring</code>: Performance monitoring is enabled by default.
-   *                     Set this parameter to false to disable it.</p>
-   *             </li>
-   *          </ul>
-   *          <p>For Appium tests (all types):</p>
-   *          <ul>
-   *             <li>
-   *                <p>appium_version: The Appium version. Currently supported values are 1.6.5
-   *                     (and later), latest, and default.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>latest runs the latest Appium version supported by Device
-   *                             Farm (1.9.1).</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>For default, Device Farm selects a compatible version of
-   *                             Appium for the device. The current behavior is to run 1.7.2 on Android
-   *                             devices and iOS 9 and earlier and 1.7.2 for iOS 10 and later.</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>This behavior is subject to change.</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
    *          <p>For fuzz tests (Android only):</p>
    *          <ul>
    *             <li>
@@ -5318,6 +5304,9 @@ export interface ListSamplesRequest {
 
 /**
  * <p>Represents a sample of performance data.</p>
+ *          <important>
+ *             <p>Device Farm does not support performance data samples during test executions.</p>
+ *          </important>
  * @public
  */
 export interface Sample {

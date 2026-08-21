@@ -776,8 +776,8 @@ export var CreateProjectResult$: StaticStructureSchema = [3, n0, _CPRr,
 ];
 export var CreateRemoteAccessSessionConfiguration$: StaticStructureSchema = [3, n0, _CRASC,
   0,
-  [_aA, _bM, _vCA, _dPe],
-  [64 | 0, 0, 64 | 0, () => DeviceProxy$]
+  [_aA, _bM, _vCA, _dPe, _pa],
+  [64 | 0, 0, 64 | 0, () => DeviceProxy$, 128 | 0]
 ];
 export var CreateRemoteAccessSessionRequest$: StaticStructureSchema = [3, n0, _CRASR,
   0,
@@ -1896,6 +1896,7 @@ var OfferingStatusMap: StaticMapSchema = [2, n0, _OSM,
   0, 0, () => OfferingStatus$
 ];
 var PurchasedDevicesMap = 128 | 1;
+var RemoteAccessParameters = 128 | 0;
 var TestParameters = 128 | 0;
 var UniqueProblemsByExecutionResultMap: StaticMapSchema = [2, n0, _UPBERM,
   0, 0, () => UniqueProblems

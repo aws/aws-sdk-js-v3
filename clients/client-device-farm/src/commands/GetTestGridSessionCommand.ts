@@ -23,13 +23,14 @@ export interface GetTestGridSessionCommandInput extends GetTestGridSessionReques
 export interface GetTestGridSessionCommandOutput extends GetTestGridSessionResult, __MetadataBearer {}
 
 /**
- * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <a>CreateTestGridUrlResult$url</a>. You can use the following to look up sessions:</p>
+ * <p>A session is an instance of a browser created through a <code>RemoteWebDriver</code> with the URL from <code>
+ *             CreateTestGridUrlResult</code>. You can use the following to look up sessions:</p>
  *          <ul>
  *             <li>
- *                <p>The session ARN (<a>GetTestGridSessionRequest$sessionArn</a>).</p>
+ *                <p>The session ARN.</p>
  *             </li>
  *             <li>
- *                <p>The project ARN and a session ID (<a>GetTestGridSessionRequest$projectArn</a> and <a>GetTestGridSessionRequest$sessionId</a>).</p>
+ *                <p>The project ARN and a session ID.</p>
  *             </li>
  *          </ul>
  *          <p></p>

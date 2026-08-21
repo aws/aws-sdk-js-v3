@@ -50,6 +50,9 @@ export interface CreateRemoteAccessSessionCommandOutput extends CreateRemoteAcce
  *       host: "STRING_VALUE", // required
  *       port: Number("int"), // required
  *     },
+ *     parameters: { // RemoteAccessParameters
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   interactionMode: "INTERACTIVE" || "NO_VIDEO" || "VIDEO_ONLY",
  *   skipAppResign: true || false,

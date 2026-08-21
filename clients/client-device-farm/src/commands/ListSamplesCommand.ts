@@ -24,6 +24,9 @@ export interface ListSamplesCommandOutput extends ListSamplesResult, __MetadataB
 
 /**
  * <p>Gets information about samples, given an AWS Device Farm job ARN.</p>
+ *          <important>
+ *             <p>Device Farm does not support performance data samples during test executions.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
