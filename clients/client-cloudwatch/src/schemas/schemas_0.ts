@@ -300,6 +300,7 @@ const _OAw = "OwningAccounts";
 const _OB = "OrderBy";
 const _OF = "OutputFormat";
 const _OKA = "OKActions";
+const _OSEAWUPE = "OnlyStartEvaluatingAfterWarmUpPeriodEnds";
 const _P = "Period";
 const _PAD = "PutAnomalyDetector";
 const _PADI = "PutAnomalyDetectorInput";
@@ -420,6 +421,8 @@ const _URO = "UntagResourceOutput";
 const _V = "Value";
 const _Va = "Values";
 const _WCW = "WallClockWindow";
+const _WUC = "WarmUpConfiguration";
+const _WUPDIM = "WarmUpPeriodDurationInMinutes";
 const _aQE = "awsQueryError";
 const _c = "client";
 const _dVM = "dashboardValidationMessages";
@@ -992,8 +995,8 @@ export var ListTagsForResourceOutput$: StaticStructureSchema = [3, n0, _LTFRO,
 ];
 export var LogAlarm$: StaticStructureSchema = [3, n0, _LAo,
   0,
-  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _SQC, _QRTE, _QRTA, _Th, _CO, _TMD, _STT, _ESv, _ALLC, _ALLRA],
-  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 4, 0, 1, 0]
+  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _SQC, _QRTE, _QRTA, _Th, _CO, _TMD, _STT, _ESv, _ALLC, _ALLRA, _WUC],
+  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 4, 0, 1, 0, () => WarmUpConfiguration$]
 ];
 export var ManagedRule$: StaticStructureSchema = [3, n0, _MRan,
   0,
@@ -1022,8 +1025,8 @@ export var Metric$: StaticStructureSchema = [3, n0, _Met,
 ];
 export var MetricAlarm$: StaticStructureSchema = [3, n0, _MAe,
   0,
-  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT, _EW, _EC, _EI],
-  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4, () => EvaluationWindow$, () => EvaluationCriteria$, 1]
+  [_AN, _AAl, _ADl, _ACUT, _AE, _OKA, _AA, _IDA, _SV, _SR, _SRD, _SUT, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _TMI, _ESv, _STT, _EW, _WUC, _EC, _EI],
+  [0, 0, 0, 4, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 4, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, 0, 0, 4, () => EvaluationWindow$, () => WarmUpConfiguration$, () => EvaluationCriteria$, 1]
 ];
 export var MetricCharacteristics$: StaticStructureSchema = [3, n0, _MC,
   0,
@@ -1127,8 +1130,8 @@ export var PutInsightRuleOutput$: StaticStructureSchema = [3, n0, _PIRO,
 ];
 export var PutLogAlarmInput$: StaticStructureSchema = [3, n0, _PLAI,
   0,
-  [_AN, _SQC, _QRTE, _QRTA, _Th, _CO, _ADl, _ALLC, _ALLRA, _AE, _OKA, _AA, _IDA, _TMD, _Ta],
-  [0, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 1, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList], 6
+  [_AN, _SQC, _QRTE, _QRTA, _Th, _CO, _ADl, _ALLC, _ALLRA, _AE, _OKA, _AA, _IDA, _TMD, _Ta, _WUC],
+  [0, () => ScheduledQueryConfiguration$, 1, 1, 1, 0, 0, 1, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, () => TagList, () => WarmUpConfiguration$], 6
 ];
 export var PutManagedInsightRulesInput$: StaticStructureSchema = [3, n0, _PMIRI,
   0,
@@ -1142,8 +1145,8 @@ export var PutManagedInsightRulesOutput$: StaticStructureSchema = [3, n0, _PMIRO
 ];
 export var PutMetricAlarmInput$: StaticStructureSchema = [3, n0, _PMAI,
   0,
-  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI, _EW, _EC, _EI],
-  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0, () => EvaluationWindow$, () => EvaluationCriteria$, 1], 1
+  [_AN, _ADl, _AE, _OKA, _AA, _IDA, _MN, _N, _Sta, _ESx, _D, _P, _U, _EP, _DTA, _Th, _CO, _TMD, _ELSCP, _Me, _Ta, _TMI, _EW, _WUC, _EC, _EI],
+  [0, 0, 2, 64 | 0, 64 | 0, 64 | 0, 0, 0, 0, 0, () => Dimensions, 1, 0, 1, 1, 1, 0, 0, 0, () => MetricDataQueries, () => TagList, 0, () => EvaluationWindow$, () => WarmUpConfiguration$, () => EvaluationCriteria$, 1], 1
 ];
 export var PutMetricDataInput$: StaticStructureSchema = [3, n0, _PMDI,
   0,
@@ -1274,6 +1277,11 @@ export var WallClockWindow$: StaticStructureSchema = [3, n0, _WCW,
   0,
   [_Ti],
   [0]
+];
+export var WarmUpConfiguration$: StaticStructureSchema = [3, n0, _WUC,
+  0,
+  [_WUPDIM, _OSEAWUPE],
+  [1, 2], 1
 ];
 var __Unit = "unit" as const;
 var AlarmContributors: StaticListSchema = [1, n0, _ACl,

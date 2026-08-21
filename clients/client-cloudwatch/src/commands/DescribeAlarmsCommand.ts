@@ -154,6 +154,10 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //         },
  * //         SlidingWindow: {},
  * //       },
+ * //       WarmUpConfiguration: { // WarmUpConfiguration
+ * //         WarmUpPeriodDurationInMinutes: Number("int"), // required
+ * //         OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ * //       },
  * //       EvaluationCriteria: { // EvaluationCriteria Union: only one key present
  * //         PromQLCriteria: { // AlarmPromQLCriteria
  * //           Query: "STRING_VALUE", // required
@@ -207,6 +211,10 @@ export interface DescribeAlarmsCommandOutput extends DescribeAlarmsOutput, __Met
  * //       EvaluationState: "PARTIAL_DATA" || "EVALUATION_FAILURE" || "EVALUATION_ERROR",
  * //       ActionLogLineCount: Number("int"),
  * //       ActionLogLineRoleArn: "STRING_VALUE",
+ * //       WarmUpConfiguration: {
+ * //         WarmUpPeriodDurationInMinutes: Number("int"), // required
+ * //         OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

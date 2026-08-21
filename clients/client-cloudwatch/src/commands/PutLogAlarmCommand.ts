@@ -85,6 +85,10 @@ export interface PutLogAlarmCommandOutput extends __MetadataBearer {}
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   WarmUpConfiguration: { // WarmUpConfiguration
+ *     WarmUpPeriodDurationInMinutes: Number("int"), // required
+ *     OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ *   },
  * };
  * const command = new PutLogAlarmCommand(input);
  * const response = await client.send(command);

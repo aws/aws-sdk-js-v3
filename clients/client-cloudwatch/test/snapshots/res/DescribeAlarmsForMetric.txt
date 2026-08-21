@@ -130,6 +130,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "EvaluationWindow": {
         "SlidingWindow": {}
       },
+      "WarmUpConfiguration": {
+        "WarmUpPeriodDurationInMinutes": 0,
+        "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
+      },
       "EvaluationCriteria": {
         "PromQLCriteria": {
           "Query": "__Query__",
@@ -242,6 +246,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           "Timezone": "__Timezone__"
         }
       },
+      "WarmUpConfiguration": {
+        "WarmUpPeriodDurationInMinutes": 0,
+        "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
+      },
       "EvaluationCriteria": {
         "PromQLCriteria": {
           "Query": "__Query__",
@@ -351,6 +359,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "StateTransitionedTimestamp": 946702799.999,
       "EvaluationWindow": {
         "SlidingWindow": {}
+      },
+      "WarmUpConfiguration": {
+        "WarmUpPeriodDurationInMinutes": 0,
+        "OnlyStartEvaluatingAfterWarmUpPeriodEnds": false
       },
       "EvaluationCriteria": {
         "PromQLCriteria": {
@@ -469,6 +481,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       EvaluationWindow: {
         SlidingWindow: {}
       },
+      WarmUpConfiguration: {
+        WarmUpPeriodDurationInMinutes: (number) 0,
+        OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
+      },
       EvaluationCriteria: {
         PromQLCriteria: {
           Query: "__Query__",
@@ -581,6 +597,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           Timezone: "__Timezone__"
         }
       },
+      WarmUpConfiguration: {
+        WarmUpPeriodDurationInMinutes: (number) 0,
+        OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
+      },
       EvaluationCriteria: {
         PromQLCriteria: {
           Query: "__Query__",
@@ -690,6 +710,10 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       StateTransitionedTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
       EvaluationWindow: {
         SlidingWindow: {}
+      },
+      WarmUpConfiguration: {
+        WarmUpPeriodDurationInMinutes: (number) 0,
+        OnlyStartEvaluatingAfterWarmUpPeriodEnds: (boolean) false
       },
       EvaluationCriteria: {
         PromQLCriteria: {

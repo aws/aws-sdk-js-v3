@@ -1455,6 +1455,38 @@ export interface ScheduledQueryConfiguration {
 }
 
 /**
+ * <p>The configuration settings that define the warm-up behavior for an alarm. Use these
+ *             settings to delay alarm evaluation after you create or update the alarm, which reduces
+ *             alarm noise while a new resource or service starts publishing data.</p>
+ *          <p>During the warm-up period, the alarm stays in <code>INSUFFICIENT_DATA</code> and
+ *             does not perform alarm actions.</p>
+ * @public
+ */
+export interface WarmUpConfiguration {
+  /**
+   * <p>The length of the warm-up period, in minutes. After you create or update the alarm,
+   *             the alarm stays in <code>INSUFFICIENT_DATA</code> for this duration. During this time,
+   *             the alarm does not perform alarm actions.</p>
+   *          <p>You can change this value at any time, including after the warm-up period ends. If
+   *             you change it after the warm-up period ends, the new value does not restart the
+   *             warm-up period.</p>
+   * @public
+   */
+  WarmUpPeriodDurationInMinutes: number | undefined;
+
+  /**
+   * <p>Specifies whether the alarm waits for the full warm-up period before it starts
+   *             to evaluate. The default is <code>false</code>. If <code>true</code>, the alarm waits
+   *             the entire <code>WarmUpPeriodDurationInMinutes</code> before it starts to evaluate, even
+   *             if metric data arrives earlier. If <code>false</code>, the alarm ends the warm-up period
+   *             early. Evaluation begins as soon as the alarm has enough metric data to fill its
+   *             evaluation window.</p>
+   * @public
+   */
+  OnlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean | undefined;
+}
+
+/**
  * <p>The details about a log alarm.</p>
  * @public
  */
@@ -1592,6 +1624,16 @@ export interface LogAlarm {
    * @public
    */
   ActionLogLineRoleArn?: string | undefined;
+
+  /**
+   * <p>The warm-up configuration for the alarm. A warm-up period delays alarm evaluation
+   *             after you create or update the alarm. During the warm-up period, the alarm stays in
+   *                 <code>INSUFFICIENT_DATA</code> and does not perform alarm actions.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html">Alarm warm-up
+   *                 periods</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * @public
+   */
+  WarmUpConfiguration?: WarmUpConfiguration | undefined;
 }
 
 /**
@@ -1960,6 +2002,16 @@ export interface MetricAlarm {
    * @public
    */
   EvaluationWindow?: EvaluationWindow | undefined;
+
+  /**
+   * <p>The warm-up configuration for the alarm. A warm-up period delays alarm evaluation
+   *             after you create or update the alarm. During the warm-up period, the alarm stays in
+   *                 <code>INSUFFICIENT_DATA</code> and does not perform alarm actions.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html">Alarm warm-up
+   *                 periods</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * @public
+   */
+  WarmUpConfiguration?: WarmUpConfiguration | undefined;
 
   /**
    * <p>The evaluation criteria for the alarm.</p>
@@ -3555,7 +3607,7 @@ export interface MetricStreamStatisticsMetric {
  *                 <code>SUM</code>, and <code>SAMPLECOUNT</code> statistics for each metric that is
  *             streamed. This structure contains information for one metric that includes additional
  *             statistics in the stream. For more information about statistics, see CloudWatch,
- *             listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+ *             listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">
  *                 CloudWatch statistics definitions</a>.</p>
  * @public
  */
@@ -3580,7 +3632,7 @@ export interface MetricStreamStatisticsConfiguration {
    *             </code> percentile statistics such as
    *                 <code>p90</code>, <code>p99</code> and so on.</p>
    *          <p>If the <code>OutputFormat</code> for the stream is <code>json</code>, the valid values
-   *             include the abbreviations for all of the statistics listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   *             include the abbreviations for all of the statistics listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">
    *                 CloudWatch statistics definitions</a>. For example, this includes
    *                 <code>tm98, </code>
    *             <code>wm90</code>, <code>PR(:300)</code>, and so on.</p>
@@ -3663,7 +3715,7 @@ export interface GetMetricStreamOutput {
   /**
    * <p>Each entry in this array displays information about one or more metrics that include
    *             additional statistics in the metric stream. For more information about the additional
-   *             statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   *             statistics, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">
    *                 CloudWatch statistics definitions</a>. </p>
    * @public
    */
@@ -4950,6 +5002,16 @@ export interface PutLogAlarmInput {
    * @public
    */
   Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The warm-up configuration for the alarm. A warm-up period delays alarm evaluation
+   *             after you create or update the alarm. The warm-up period reduces alarm noise from
+   *             missing data while a new resource or service starts publishing data.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html">Alarm warm-up
+   *                 periods</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * @public
+   */
+  WarmUpConfiguration?: WarmUpConfiguration | undefined;
 }
 
 /**
@@ -5669,6 +5731,16 @@ export interface PutMetricAlarmInput {
   EvaluationWindow?: EvaluationWindow | undefined;
 
   /**
+   * <p>The warm-up configuration for the alarm. A warm-up period delays alarm evaluation
+   *             after you create or update the alarm. The warm-up period reduces alarm noise from
+   *             missing data while a new resource or service starts publishing metrics.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html">Alarm warm-up
+   *                 periods</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
+   * @public
+   */
+  WarmUpConfiguration?: WarmUpConfiguration | undefined;
+
+  /**
    * <p>The evaluation criteria for the alarm. For each <code>PutMetricAlarm</code>
    *             operation, you must specify either <code>MetricName</code>, a <code>Metrics</code>
    *             array, or an <code>EvaluationCriteria</code>.</p>
@@ -5877,7 +5949,7 @@ export interface PutMetricStreamInput {
    *             additional statistics to stream for those metrics. The additional statistics that you
    *             can stream depend on the stream's <code>OutputFormat</code>. If the
    *                 <code>OutputFormat</code> is <code>json</code>, you can stream any additional
-   *             statistic that is supported by CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   *             statistic that is supported by CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html">
    *                 CloudWatch statistics definitions</a>. If the <code>OutputFormat</code>
    *             is <code>opentelemetry1.0</code> or <code>opentelemetry0.7</code>, you can stream
    *             percentile statistics such as p95, p99.9, and so on.</p>

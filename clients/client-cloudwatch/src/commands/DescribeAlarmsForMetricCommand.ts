@@ -125,6 +125,10 @@ export interface DescribeAlarmsForMetricCommandOutput extends DescribeAlarmsForM
  * //         },
  * //         SlidingWindow: {},
  * //       },
+ * //       WarmUpConfiguration: { // WarmUpConfiguration
+ * //         WarmUpPeriodDurationInMinutes: Number("int"), // required
+ * //         OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ * //       },
  * //       EvaluationCriteria: { // EvaluationCriteria Union: only one key present
  * //         PromQLCriteria: { // AlarmPromQLCriteria
  * //           Query: "STRING_VALUE", // required

@@ -312,6 +312,7 @@ import {
   waitUntilCompositeAlarmExists,
   waitUntilLogAlarmExists,
   WallClockWindow$,
+  WarmUpConfiguration$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -559,6 +560,7 @@ assert(typeof TagResourceOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof WallClockWindow$ === "object");
+assert(typeof WarmUpConfiguration$ === "object");
 // enums
 assert(typeof ActionsSuppressedBy === "object");
 assert(typeof AlarmMuteRuleStatus === "object");

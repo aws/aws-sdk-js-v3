@@ -32,9 +32,17 @@ export interface AssociateDatasetKmsKeyCommandOutput extends AssociateDatasetKms
  *             is implicit for every account in every Region — you do not need to create it before
  *             calling this operation.</p>
  *          <p>You can call <code>AssociateDatasetKmsKey</code> on a dataset that is already
- *             associated with a KMS key to replace the existing key with a different one. To replace
- *             a key, the caller must have <code>kms:Decrypt</code> permission on both the current
- *             key and the new key.</p>
+ *             associated with a KMS key to replace the existing key with a different one. The
+ *             caller must have <code>kms:Decrypt</code> permission on both the current key and
+ *             the new key.</p>
+ *          <note>
+ *             <p>If the currently associated key has been deleted, is scheduled for deletion,
+ *                 is pending import, is unavailable, or has been disabled, Amazon CloudWatch
+ *                 does not require <code>kms:Decrypt</code> permission on the current key and
+ *                 the rotation proceeds. If the key was only disabled, consider re-enabling it
+ *                 instead of rotating, because re-enabling allows Amazon CloudWatch to
+ *                 resume decrypting your existing metric data encrypted with that key.</p>
+ *          </note>
  *          <p>The KMS key that you specify must meet all of the following requirements:</p>
  *          <ul>
  *             <li>
@@ -72,13 +80,14 @@ export interface AssociateDatasetKmsKeyCommandOutput extends AssociateDatasetKms
  *             checks include <code>kms:DescribeKey</code>, <code>kms:GenerateDataKey</code>,
  *             <code>kms:Encrypt</code>, <code>kms:Decrypt</code>, and <code>kms:ReEncrypt*</code>.
  *             After those succeed, a <code>kms:Decrypt</code> dry-run is run with the caller's
- *             credentials to verify that the calling principal can use the key. When you are
- *             replacing an existing key, the caller's <code>kms:Decrypt</code> dry-run is run on
- *             the current key first, and only then on the new key.</p>
- *          <p>If any of these checks fails, the operation fails and the existing key association
- *             (if any) remains unchanged. Common failure causes include the key being disabled, the
- *             key policy not granting the required permissions to Amazon CloudWatch, or the
- *             caller lacking <code>kms:Decrypt</code> permission on the key.</p>
+ *             credentials to verify that the calling principal can use the new key. When you are
+ *             replacing an existing key, the caller's <code>kms:Decrypt</code> dry-run is also run
+ *             on the current key.</p>
+ *          <p>If any of these checks on the new key fails, the operation fails and the existing
+ *             key association (if any) remains unchanged. Common failure causes include the new key
+ *             being disabled, the key policy not granting the required permissions to
+ *             Amazon CloudWatch, or the caller lacking <code>kms:Decrypt</code> permission on
+ *             the new key.</p>
  *          <p>For more information about using customer managed keys with Amazon CloudWatch,
  *             see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cmk-encryption.html">Encryption at rest
  *                 with customer managed keys</a> in the <i>Amazon CloudWatch User

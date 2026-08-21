@@ -151,6 +151,10 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  *     },
  *     SlidingWindow: {},
  *   },
+ *   WarmUpConfiguration: { // WarmUpConfiguration
+ *     WarmUpPeriodDurationInMinutes: Number("int"), // required
+ *     OnlyStartEvaluatingAfterWarmUpPeriodEnds: true || false,
+ *   },
  *   EvaluationCriteria: { // EvaluationCriteria Union: only one key present
  *     PromQLCriteria: { // AlarmPromQLCriteria
  *       Query: "STRING_VALUE", // required

@@ -308,6 +308,7 @@ export type {
   UntagResourceInput,
   UntagResourceOutput,
   WallClockWindow,
+  WarmUpConfiguration,
   ConcurrentModificationException,
   ConflictException,
   DashboardInvalidInputError,

@@ -31,18 +31,25 @@ export interface DisassociateDatasetKmsKeyCommandOutput extends DisassociateData
  *             dataset must currently have a customer managed KMS key associated with it. If the
  *             dataset has no associated KMS key, the operation fails with
  *             <code>ResourceNotFoundException</code>.</p>
- *          <p>Amazon CloudWatch performs a dry-run <code>kms:Decrypt</code> call on the key
- *             as part of this operation. This verifies that the caller is authorized to use the
- *             currently associated key. The caller must have <code>kms:Decrypt</code> permission on
- *             the currently associated key, and the key must be enabled and accessible. If the key
- *             has been disabled or scheduled for deletion, you must first re-enable or restore it
- *             before you can disassociate it from the dataset.</p>
+ *          <p>Amazon CloudWatch performs a dry-run <code>kms:Decrypt</code> call on the
+ *             currently associated key as part of this operation. The caller must have
+ *             <code>kms:Decrypt</code> permission on the currently associated key. If the key is
+ *             accessible but the caller lacks <code>kms:Decrypt</code> permission, the operation
+ *             fails with <code>AccessDeniedException</code>.</p>
+ *          <note>
+ *             <p>If the currently associated key has been deleted, is scheduled for deletion,
+ *                 is pending import, is unavailable, or has been disabled, Amazon CloudWatch
+ *                 does not require <code>kms:Decrypt</code> permission on that key and the
+ *                 disassociation proceeds. If the key was only disabled, consider re-enabling it
+ *                 instead of disassociating, because re-enabling allows Amazon CloudWatch to
+ *                 resume decrypting your existing metric data.</p>
+ *          </note>
  *          <important>
  *             <p>Disassociating a KMS key from a dataset does not immediately remove the
  *                 <code>kms:Decrypt</code> requirement on data plane operations. For up to three
  *                 hours after disassociation, callers must continue to have
  *                 <code>kms:Decrypt</code> permission on the previously associated key. Some data
- *                 may still be encrypted with that key during this window. After this enforcement
+ *                 might still be encrypted with that key during this window. After this enforcement
  *                 window elapses, the <code>kms:Decrypt</code> requirement is lifted.</p>
  *          </important>
  *          <p>For more information about using customer managed keys with Amazon CloudWatch,
