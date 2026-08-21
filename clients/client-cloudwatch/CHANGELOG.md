@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
+
+
+### Features
+
+* **client-cloudwatch:** Allows customers to specify an initial warm up period to wait for metrics to arrive when creating metric or log alarms ([e354f16](https://github.com/aws/aws-sdk-js-v3/commit/e354f162a662f9a7037e0749079b85fce50c1d23))
+
+
+
+
+
 # [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

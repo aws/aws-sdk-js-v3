@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
+
+
+### Features
+
+* **client-device-farm:** Added support to CreateRemoveAccessSession for selecting a server version on the mobile WebDriver endpoint. ([d91e09c](https://github.com/aws/aws-sdk-js-v3/commit/d91e09c83fde16fc9c9a0c2cb4f3cfe093ea6636))
+
+
+
+
+
 # [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
 
 **Note:** Version bump only for package @aws-sdk/client-device-farm

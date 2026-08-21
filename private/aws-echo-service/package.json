@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/aws-echo-service",
-  "version": "3.1115.0",
+  "version": "3.1116.0",
   "private": true,
   "description": "@aws-sdk/aws-echo-service client",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/aws-echo-service",
@@ -44,7 +44,7 @@
     "clean": "premove dist-cjs dist-es dist-types"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.8",
+    "@aws-sdk/core": "workspace:^3.977.9",
     "@smithy/core": "^3.33.3",
     "@smithy/fetch-http-handler": "^5.7.2",
     "@smithy/node-http-handler": "^4.11.3",

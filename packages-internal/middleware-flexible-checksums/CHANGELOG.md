@@ -75,6 +75,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.974.54 (2026-08-21)
+### Chores
+* **middleware-flexible-checksums:** update dependencies.
+
+
+
 # 3.974.53 (2026-08-14)
 ### Chores
 * upgrade to typescript 7 ([#8264](https://github.com/aws/aws-sdk-js-v3/issues/8264)) ([ca81fbb](https://github.com/aws/aws-sdk-js-v3/commit/ca81fbb7398345aa31482dd7aa1971bccf278989))

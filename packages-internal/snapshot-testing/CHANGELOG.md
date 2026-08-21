@@ -55,6 +55,13 @@
 
 
 
+
+# 3.0.56 (2026-08-20)
+### Chores
+* **codegen:** update to sync with the latest smithy-ts ([#8272](https://github.com/aws/aws-sdk-js-v3/issues/8272)) ([8369ada](https://github.com/aws/aws-sdk-js-v3/commit/8369ada75d60056e24e1ee8bca20f16ce2faea93))
+
+
+
 # 3.0.55 (2026-08-14)
 ### Chores
 * upgrade to typescript 7 ([#8264](https://github.com/aws/aws-sdk-js-v3/issues/8264)) ([ca81fbb](https://github.com/aws/aws-sdk-js-v3/commit/ca81fbb7398345aa31482dd7aa1971bccf278989))

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/credential-provider-cognito-identity",
-  "version": "3.972.68",
+  "version": "3.972.69",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/credential-provider-cognito-identity",
   "license": "Apache-2.0",
   "author": {
@@ -40,8 +40,8 @@
     "test:browser:watch": "yarn g:vitest watch -c vitest.config.browser.mts"
   },
   "dependencies": {
-    "@aws-sdk/nested-clients": "workspace:^3.997.43",
-    "@aws-sdk/types": "workspace:^3.974.4",
+    "@aws-sdk/nested-clients": "workspace:^3.997.44",
+    "@aws-sdk/types": "workspace:^3.974.5",
     "@smithy/core": "^3.33.3",
     "@smithy/types": "^4.17.2",
     "tslib": "^2.6.2"

@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/body-checksum-node",
-  "version": "3.972.29",
+  "version": "3.972.30",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages-internal/body-checksum-node",
   "license": "Apache-2.0",
   "author": {
@@ -39,8 +39,8 @@
   },
   "dependencies": {
     "@aws-sdk/chunked-stream-reader-node": "workspace:^3.972.10",
-    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.25",
-    "@aws-sdk/types": "workspace:^3.974.4",
+    "@aws-sdk/sha256-tree-hash": "workspace:^3.972.26",
+    "@aws-sdk/types": "workspace:^3.974.5",
     "@smithy/core": "^3.33.3",
     "@smithy/types": "^4.17.2",
     "tslib": "^2.6.2"

@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
+
+
+### Features
+
+* **client-bedrock-agentcore-control:** Update Dataset schema to THIRDPARTYEVALUATIONV1 ([f0fe8db](https://github.com/aws/aws-sdk-js-v3/commit/f0fe8db338215ab7282bb6dc28a45d633c38390a))
+* **client-bedrock-agentcore:** Increase spans count from 1k to 20k ([e83264a](https://github.com/aws/aws-sdk-js-v3/commit/e83264aa59df69c8c79c73afcff152ebf9f0f14d))
+* **client-cloudwatch:** Allows customers to specify an initial warm up period to wait for metrics to arrive when creating metric or log alarms ([e354f16](https://github.com/aws/aws-sdk-js-v3/commit/e354f162a662f9a7037e0749079b85fce50c1d23))
+* **client-device-farm:** Added support to CreateRemoveAccessSession for selecting a server version on the mobile WebDriver endpoint. ([d91e09c](https://github.com/aws/aws-sdk-js-v3/commit/d91e09c83fde16fc9c9a0c2cb4f3cfe093ea6636))
+* **client-kinesis:** Generate account endpoint for Kinesis Data Streams requests when the account ID is available ([ed9966e](https://github.com/aws/aws-sdk-js-v3/commit/ed9966e2cf2557ed22b64f9be573c618466c2f26))
+
+
+
+
+
 # [3.1115.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1114.0...v3.1115.0) (2026-08-20)
 
 

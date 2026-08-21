@@ -51,6 +51,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
+
+# 3.972.49 (2026-08-21)
+### Chores
+* **middleware-sdk-s3-control:** update dependencies.
+
+
+
 # 3.972.48 (2026-08-14)
 ### Chores
 * upgrade to typescript 7 ([#8264](https://github.com/aws/aws-sdk-js-v3/issues/8264)) ([ca81fbb](https://github.com/aws/aws-sdk-js-v3/commit/ca81fbb7398345aa31482dd7aa1971bccf278989))

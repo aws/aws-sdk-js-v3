@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-s3-control",
-  "version": "3.1115.0",
+  "version": "3.1116.0",
   "description": "AWS SDK for JavaScript S3 Control Client for Node.js, Browser and React Native",
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/clients/client-s3-control",
   "license": "Apache-2.0",
@@ -52,10 +52,10 @@
     "test:index": "tsc -p tsconfig.test.json && node ./test/index-objects.spec.mjs"
   },
   "dependencies": {
-    "@aws-sdk/core": "workspace:^3.977.8",
-    "@aws-sdk/credential-provider-node": "workspace:^3.972.80",
-    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.74",
-    "@aws-sdk/types": "workspace:^3.974.4",
+    "@aws-sdk/core": "workspace:^3.977.9",
+    "@aws-sdk/credential-provider-node": "workspace:^3.972.81",
+    "@aws-sdk/middleware-sdk-s3": "workspace:^3.972.75",
+    "@aws-sdk/types": "workspace:^3.974.5",
     "@smithy/core": "^3.33.3",
     "@smithy/fetch-http-handler": "^5.7.2",
     "@smithy/middleware-apply-body-checksum": "^4.6.3",
