@@ -6,6 +6,7 @@ import type {
   CompleteMultipartUploadCommandOutput,
   CreateMultipartUploadCommandInput,
   GetObjectCommandInput,
+  ListObjectsV2CommandInput,
   PutObjectCommandInput,
   PutObjectCommandOutput,
   UploadPartCommandInput,
@@ -16,6 +17,7 @@ import {
   CreateMultipartUploadCommand,
   GetObjectCommand,
   HeadObjectCommand,
+  ListObjectsV2Command,
   PutObjectCommand,
   S3Client,
   UploadPartCommand,
@@ -23,12 +25,19 @@ import {
 import type { Logger } from "@smithy/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { createReadStream, existsSync } from "node:fs";
-import { open, opendir, realpath, stat } from "node:fs/promises";
-import { join, relative, resolve, sep } from "node:path";
+import { open, opendir, mkdir, realpath, stat } from "node:fs/promises";
+import { dirname, join, relative, resolve, sep } from "node:path";
 import { Readable } from "node:stream";
 
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
-import { handleFailure, Semaphore, validateDirectory } from "./directory-transfer-utils";
+import {
+  createDestinationDirectory,
+  deriveLocalPath,
+  handleFailure,
+  isFolderObject,
+  Semaphore,
+  validateDirectory,
+} from "./directory-transfer-utils";
 import type { AddEventListenerOptions, EventListener, RemoveEventListenerOptions } from "./event-listener-types";
 import { FileManager } from "./file-manager";
 import { destroyStreams, joinStreams } from "./join-streams";
@@ -1294,11 +1303,228 @@ export class S3TransferManager implements IS3TransferManager {
    *
    * @alpha
    */
-  public downloadDirectory(
+  public async downloadDirectory(
     request: DownloadDirectoryRequest,
     transferOptions?: TransferOptions
   ): Promise<DownloadDirectoryResponse> {
-    throw new Error("Method not implemented.");
+    const destination = await createDestinationDirectory(request.destination);
+    const maxConcurrency = request.maxConcurrency ?? 64;
+    const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
+    const semaphore = new Semaphore(maxConcurrency);
+    const abortController = new AbortController();
+    const inFlight = new Set<Promise<void>>();
+
+    let objectsDownloaded = 0;
+    let objectsFailed = 0;
+    let terminated = false;
+    let terminationError: unknown;
+
+    this.checkAborted(transferOptions);
+    this.addEventListeners(transferOptions?.eventListeners);
+
+    let transferredBytes = 0;
+    let transferredFiles = 0;
+    let discoveredFiles = 0;
+    let discoveredBytes = 0;
+    let totalFiles: number | undefined = undefined;
+    let totalBytes: number | undefined = undefined;
+    let traversalComplete = false;
+
+    const removeLocalEventListeners = () => {
+      this.removeEventListeners(transferOptions?.eventListeners);
+      if (transferOptions?.abortSignal) {
+        this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
+        this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
+      }
+    };
+
+    this.dispatchEvent(
+      Object.assign(new Event("transferInitiated"), {
+        request,
+        snapshot: {
+          transferredBytes: 0,
+          totalBytes: undefined,
+          transferredFiles: 0,
+          totalFiles: undefined,
+        },
+      })
+    );
+
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    if (userSignal) {
+      userSignal.addEventListener("abort", () => abortController.abort(), {
+        once: true,
+      });
+    }
+
+    try {
+      // Stream objects page by page. Using null delimiter so that
+      // ListObjectsV2 returns every object under the prefix, including those in
+      // "sub directories", rather than collapsing them into CommonPrefixes.
+      let continuationToken: string | undefined;
+
+      do {
+        if (terminated || abortController.signal.aborted) break;
+        this.checkAborted(transferOptions);
+
+        const listRequest: ListObjectsV2CommandInput = {
+          Bucket: request.bucket,
+          Prefix: request.s3Prefix,
+          Delimiter: undefined,
+          ContinuationToken: continuationToken,
+        };
+
+        const listResponse = await this.s3.send(new ListObjectsV2Command(listRequest), {
+          abortSignal: abortController.signal,
+        });
+
+        continuationToken = listResponse.IsTruncated ? listResponse.NextContinuationToken : undefined;
+
+        for (const object of listResponse.Contents ?? []) {
+          if (terminated || abortController.signal.aborted) break;
+          this.checkAborted(transferOptions);
+
+          // Skip folder placeholder objects (key ends with "/" and zero bytes).
+          if (isFolderObject(object)) {
+            continue;
+          }
+
+          if (!object.Key) {
+            continue;
+          }
+
+          // Apply user filter.
+          if (request.filter && !request.filter(object)) {
+            continue;
+          }
+
+          const currentObject = object;
+          const key = currentObject.Key!;
+
+          await semaphore.acquire();
+
+          if (terminated || abortController.signal.aborted) {
+            semaphore.release();
+            break;
+          }
+
+          const task = (async () => {
+            let objectRequest: GetObjectCommandInput = {
+              Bucket: request.bucket,
+              Key: key,
+            };
+            try {
+              // Derive and validate the local destination path.
+              const localPath = deriveLocalPath(destination, key);
+
+              // Ensure all intermediate sub directories exist before writing.
+              await mkdir(dirname(localPath), { recursive: true });
+
+              if (request.downloadObjectRequestModifier) {
+                objectRequest = request.downloadObjectRequestModifier(objectRequest);
+              }
+
+              await this.downloadToFile(
+                {
+                  ...objectRequest,
+                  destination: localPath,
+                },
+                {
+                  abortSignal: abortController.signal,
+                }
+              );
+
+              objectsDownloaded++;
+              transferredFiles++;
+              transferredBytes += currentObject.Size ?? 0;
+
+              this.dispatchEvent(
+                Object.assign(new Event("bytesTransferred"), {
+                  request,
+                  snapshot: {
+                    transferredBytes,
+                    totalBytes: traversalComplete ? totalBytes : undefined,
+                    transferredFiles,
+                    totalFiles: traversalComplete ? totalFiles : undefined,
+                  },
+                })
+              );
+            } catch (error) {
+              if (terminated || abortController.signal.aborted) {
+                objectsFailed++;
+                return;
+              }
+              const context: DirectoryTransferFailureContext = {
+                request,
+                objectRequest,
+                error,
+              };
+              const result = await handleFailure(failurePolicy, context, abortController);
+              if (result === "terminate") {
+                terminated = true;
+                if (!terminationError) {
+                  terminationError = error;
+                }
+              }
+              objectsFailed++;
+            } finally {
+              semaphore.release();
+            }
+          })();
+
+          inFlight.add(task);
+          task.finally(() => inFlight.delete(task));
+
+          discoveredFiles++;
+          discoveredBytes += currentObject.Size ?? 0;
+        }
+      } while (continuationToken);
+    } catch (error) {
+      // A failure while listing objects (not an individual download) terminates
+      // the whole operation.
+      if (!terminated) {
+        terminated = true;
+        terminationError = error;
+      }
+      abortController.abort();
+    }
+
+    traversalComplete = true;
+    totalFiles = discoveredFiles;
+    totalBytes = discoveredBytes;
+
+    await Promise.allSettled([...inFlight]);
+
+    if (terminated && terminationError) {
+      this.dispatchEvent(
+        Object.assign(new Event("transferFailed"), {
+          request,
+          snapshot: {
+            transferredBytes,
+            totalBytes,
+            transferredFiles,
+            totalFiles,
+          },
+        })
+      );
+      removeLocalEventListeners();
+      throw terminationError;
+    }
+
+    this.dispatchEvent(
+      Object.assign(new Event("transferComplete"), {
+        request,
+        response: { objectsDownloaded, objectsFailed },
+        snapshot: {
+          transferredBytes,
+          totalBytes,
+          transferredFiles,
+          totalFiles,
+        },
+      })
+    );
+    removeLocalEventListeners();
+    return { objectsDownloaded, objectsFailed };
   }
 
   /**

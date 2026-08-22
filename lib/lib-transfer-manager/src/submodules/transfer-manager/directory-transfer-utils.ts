@@ -1,6 +1,8 @@
+import type { _Object as S3Object } from "@aws-sdk/client-s3";
 import type { Stats } from "node:fs";
-import { stat } from "node:fs/promises";
-import { resolve } from "node:path";
+import { existsSync } from "node:fs";
+import { mkdir, stat } from "node:fs/promises";
+import { isAbsolute, resolve, sep } from "node:path";
 
 import type { CannedFailurePolicy, DirectoryTransferFailureContext, FailurePolicy } from "./types";
 
@@ -93,4 +95,76 @@ export async function handleFailure(
     abortController.abort();
     return "terminate";
   }
+}
+
+/**
+ * Prepares the destination directory for a directory download.
+ *
+ * If the path does not exist, it is created along with any missing parent
+ * directories, using the runtime's default file-creation permissions.
+ *
+ * @param dirPath - The destination directory path.
+ * @returns The resolved absolute path of the destination directory.
+ *
+ * @throws Error - If the path exists but is not a directory.
+ *
+ * @internal
+ */
+export async function createDestinationDirectory(dirPath: string): Promise<string> {
+  const absolutePath = resolve(dirPath);
+  if (existsSync(absolutePath)) {
+    // Already exists, validate if the path is a directory.
+    return validateDirectory(absolutePath);
+  }
+  // If it does not exist, create the destination and any missing parent directories.
+  await mkdir(absolutePath, { recursive: true });
+  return absolutePath;
+}
+
+/**
+ * Determines whether an S3 object represents a folder placeholder rather than a
+ * file. Objects whose key ends with "/" and whose size is zero.
+ *
+ * @param object - The S3 object to check.
+ * @returns true if the object is a folder placeholder.
+ *
+ * @internal
+ */
+export function isFolderObject(object: S3Object): boolean {
+  return (object.Key?.endsWith("/") ?? false) && (object.Size ?? 0) === 0;
+}
+
+/**
+ * Derives the local absolute file path for an S3 object key, relative to the
+ * destination directory.
+ *
+ *
+ * @param destination - The resolved absolute destination directory.
+ * @param key - The S3 object key. Callers must pass a non-empty key.
+ * @returns The resolved absolute local file path.
+ *
+ * @throws Error - If the key is absolute, or resolves outside the destination directory.
+ *
+ * @internal
+ */
+export function deriveLocalPath(destination: string, key: string): string {
+  // normalize the key separators to the local file separator.
+  const normalizedKey = sep === "/" ? key : key.split("/").join(sep);
+
+  // An absolute key would ignore the destination, reject it.
+  if (isAbsolute(normalizedKey)) {
+    throw new Error(`Object key resolves to an absolute path and would escape the destination directory: ${key}`);
+  }
+
+  // combine with the destination and reject paths that escape it.
+  const fullPath = resolve(destination, normalizedKey);
+  const destinationWithSep = destination.endsWith(sep) ? destination : destination + sep;
+
+  if (fullPath !== destination && !fullPath.startsWith(destinationWithSep)) {
+    throw new Error(
+      `Object key "${key}" resolves to a path outside the destination directory. Path traversal is not allowed.`
+    );
+  }
+
+  return fullPath;
 }
