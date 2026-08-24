@@ -8,6 +8,7 @@ export * from "./DisassociateFeedCommand";
 export * from "./ExportDictionaryEntriesCommand";
 export * from "./GetDictionaryCommand";
 export * from "./GetFeedCommand";
+export * from "./GetFixtureCommand";
 export * from "./ListDictionariesCommand";
 export * from "./ListFeedsCommand";
 export * from "./ListTagsForResourceCommand";

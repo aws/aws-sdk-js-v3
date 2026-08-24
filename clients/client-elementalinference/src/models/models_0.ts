@@ -469,6 +469,12 @@ export interface CreateFeedResponse {
   outputs: GetOutput[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that you specified in the request. This property is absent if you didn't specify an IAM role. </p>
+   * @public
+   */
+  accessRoleArn?: string | undefined;
+
+  /**
    * <p>The current status of the feed. After creation of the feed has succeeded, the status will be AVAILABLE. </p>
    * @public
    */
@@ -867,6 +873,12 @@ export interface GetFeedResponse {
   outputs: GetOutput[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that Elemental Inference assumes. Elemental Inference uses this role to access resources in your account on your behalf. This property is absent if the feed doesn't have an IAM role. </p>
+   * @public
+   */
+  accessRoleArn?: string | undefined;
+
+  /**
    * <p>The status of the feed.</p>
    * @public
    */
@@ -1055,6 +1067,12 @@ export interface UpdateFeedResponse {
   outputs: GetOutput[] | undefined;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role for the feed, after the update. This property is absent if the feed doesn't have an IAM role. </p>
+   * @public
+   */
+  accessRoleArn?: string | undefined;
+
+  /**
    * <p>The status of the feed.</p>
    * @public
    */
@@ -1071,6 +1089,58 @@ export interface UpdateFeedResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFixtureRequest {
+  /**
+   * <p>The ID of the fixture to retrieve, as returned by SearchFixtures.</p>
+   * @public
+   */
+  fixtureId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetFixtureResponse {
+  /**
+   * <p>The ID that you specified in the request.</p>
+   * @public
+   */
+  fixtureId: string | undefined;
+
+  /**
+   * <p>The name of the fixture, as provided by the data source. For example, the names of the two competing teams. </p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The group that the fixture belongs to, such as the competition, league, or tournament. The data source doesn't provide this information for every fixture. </p>
+   * @public
+   */
+  fixtureGroup?: string | undefined;
+
+  /**
+   * <p>The scheduled start time of the fixture, as provided by the data source. The actual start time might differ. </p>
+   * @public
+   */
+  scheduledStart?: Date | undefined;
+
+  /**
+   * <p>The status of the fixture in its lifecycle, as provided by the data source. For example, Scheduled or Completed. </p>
+   * @public
+   */
+  status: string | undefined;
+
+  /**
+   * <p>An array of the competitors (the teams or individuals) in the fixture.</p>
+   * @public
+   */
+  competitors: Competitor[] | undefined;
 }
 
 /**

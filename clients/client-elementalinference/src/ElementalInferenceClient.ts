@@ -66,6 +66,7 @@ import type {
 } from "./commands/ExportDictionaryEntriesCommand";
 import type { GetDictionaryCommandInput, GetDictionaryCommandOutput } from "./commands/GetDictionaryCommand";
 import type { GetFeedCommandInput, GetFeedCommandOutput } from "./commands/GetFeedCommand";
+import type { GetFixtureCommandInput, GetFixtureCommandOutput } from "./commands/GetFixtureCommand";
 import type { ListDictionariesCommandInput, ListDictionariesCommandOutput } from "./commands/ListDictionariesCommand";
 import type { ListFeedsCommandInput, ListFeedsCommandOutput } from "./commands/ListFeedsCommand";
 import type {
@@ -101,6 +102,7 @@ export type ServiceInputTypes =
   | ExportDictionaryEntriesCommandInput
   | GetDictionaryCommandInput
   | GetFeedCommandInput
+  | GetFixtureCommandInput
   | ListDictionariesCommandInput
   | ListFeedsCommandInput
   | ListTagsForResourceCommandInput
@@ -123,6 +125,7 @@ export type ServiceOutputTypes =
   | ExportDictionaryEntriesCommandOutput
   | GetDictionaryCommandOutput
   | GetFeedCommandOutput
+  | GetFixtureCommandOutput
   | ListDictionariesCommandOutput
   | ListFeedsCommandOutput
   | ListTagsForResourceCommandOutput

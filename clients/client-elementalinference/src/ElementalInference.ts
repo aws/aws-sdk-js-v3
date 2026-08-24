@@ -49,6 +49,11 @@ import {
 } from "./commands/GetDictionaryCommand";
 import { type GetFeedCommandInput, type GetFeedCommandOutput, GetFeedCommand } from "./commands/GetFeedCommand";
 import {
+  type GetFixtureCommandInput,
+  type GetFixtureCommandOutput,
+  GetFixtureCommand,
+} from "./commands/GetFixtureCommand";
+import {
   type ListDictionariesCommandInput,
   type ListDictionariesCommandOutput,
   ListDictionariesCommand,
@@ -102,6 +107,7 @@ const commands = {
   ExportDictionaryEntriesCommand,
   GetDictionaryCommand,
   GetFeedCommand,
+  GetFixtureCommand,
   ListDictionariesCommand,
   ListFeedsCommand,
   ListTagsForResourceCommand,
@@ -272,6 +278,23 @@ export interface ElementalInference {
     args: GetFeedCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFeedCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFixtureCommand}
+   */
+  getFixture(
+    args: GetFixtureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFixtureCommandOutput>;
+  getFixture(
+    args: GetFixtureCommandInput,
+    cb: (err: any, data?: GetFixtureCommandOutput) => void
+  ): void;
+  getFixture(
+    args: GetFixtureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFixtureCommandOutput) => void
   ): void;
 
   /**

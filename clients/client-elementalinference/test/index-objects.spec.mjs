@@ -59,6 +59,10 @@ import {
   GetFeedCommand,
   GetFeedRequest$,
   GetFeedResponse$,
+  GetFixture$,
+  GetFixtureCommand,
+  GetFixtureRequest$,
+  GetFixtureResponse$,
   GetOutput$,
   InternalServerErrorException,
   InternalServerErrorException$,
@@ -139,6 +143,8 @@ assert(typeof GetDictionaryCommand === "function");
 assert(typeof GetDictionary$ === "object");
 assert(typeof GetFeedCommand === "function");
 assert(typeof GetFeed$ === "object");
+assert(typeof GetFixtureCommand === "function");
+assert(typeof GetFixture$ === "object");
 assert(typeof ListDictionariesCommand === "function");
 assert(typeof ListDictionaries$ === "object");
 assert(typeof ListFeedsCommand === "function");
@@ -184,6 +190,8 @@ assert(typeof GetDictionaryRequest$ === "object");
 assert(typeof GetDictionaryResponse$ === "object");
 assert(typeof GetFeedRequest$ === "object");
 assert(typeof GetFeedResponse$ === "object");
+assert(typeof GetFixtureRequest$ === "object");
+assert(typeof GetFixtureResponse$ === "object");
 assert(typeof GetOutput$ === "object");
 assert(typeof ListDictionariesRequest$ === "object");
 assert(typeof ListDictionariesResponse$ === "object");

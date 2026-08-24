@@ -42,6 +42,9 @@ const _GDRe = "GetDictionaryResponse";
 const _GF = "GetFeed";
 const _GFR = "GetFeedRequest";
 const _GFRe = "GetFeedResponse";
+const _GFRet = "GetFixtureRequest";
+const _GFReti = "GetFixtureResponse";
+const _GFe = "GetFixture";
 const _GO = "GetOutput";
 const _GOL = "GetOutputList";
 const _GTOE = "GatewayTimedOutException";
@@ -271,8 +274,8 @@ export var CreateFeedRequest$: StaticStructureSchema = [3, n0, _CFR,
 ];
 export var CreateFeedResponse$: StaticStructureSchema = [3, n0, _CFRr,
   0,
-  [_a, _n, _i, _dE, _o, _st, _as, _t],
-  [0, 0, 0, 64 | 0, () => GetOutputList, 0, () => FeedAssociation$, 128 | 0], 6
+  [_a, _n, _i, _dE, _o, _st, _aRA, _as, _t],
+  [0, 0, 0, 64 | 0, () => GetOutputList, 0, 0, () => FeedAssociation$, 128 | 0], 6
 ];
 export var CreateOutput$: StaticStructureSchema = [3, n0, _CO,
   0,
@@ -366,8 +369,18 @@ export var GetFeedRequest$: StaticStructureSchema = [3, n0, _GFR,
 ];
 export var GetFeedResponse$: StaticStructureSchema = [3, n0, _GFRe,
   0,
-  [_a, _n, _i, _dE, _o, _st, _as, _t],
-  [0, 0, 0, 64 | 0, () => GetOutputList, 0, () => FeedAssociation$, 128 | 0], 6
+  [_a, _n, _i, _dE, _o, _st, _aRA, _as, _t],
+  [0, 0, 0, 64 | 0, () => GetOutputList, 0, 0, () => FeedAssociation$, 128 | 0], 6
+];
+export var GetFixtureRequest$: StaticStructureSchema = [3, n0, _GFRet,
+  0,
+  [_fI],
+  [[0, 1]], 1
+];
+export var GetFixtureResponse$: StaticStructureSchema = [3, n0, _GFReti,
+  0,
+  [_fI, _n, _st, _co, _fG, _sS],
+  [0, 0, 0, () => CompetitorList, 0, 5], 4
 ];
 export var GetOutput$: StaticStructureSchema = [3, n0, _GO,
   0,
@@ -456,8 +469,8 @@ export var UpdateFeedRequest$: StaticStructureSchema = [3, n0, _UFR,
 ];
 export var UpdateFeedResponse$: StaticStructureSchema = [3, n0, _UFRp,
   0,
-  [_a, _n, _i, _dE, _o, _st, _as, _t],
-  [0, 0, 0, 64 | 0, () => GetOutputList, 0, () => FeedAssociation$, 128 | 0], 6
+  [_a, _n, _i, _dE, _o, _st, _aRA, _as, _t],
+  [0, 0, 0, 64 | 0, () => GetOutputList, 0, 0, () => FeedAssociation$, 128 | 0], 6
 ];
 export var UpdateOutput$: StaticStructureSchema = [3, n0, _UO,
   0,
@@ -529,6 +542,9 @@ export var GetDictionary$: StaticOperationSchema = [9, n0, _GD,
 ];
 export var GetFeed$: StaticOperationSchema = [9, n0, _GF,
   { [_ht]: ["GET", "/v1/feed/{id}", 200] }, () => GetFeedRequest$, () => GetFeedResponse$
+];
+export var GetFixture$: StaticOperationSchema = [9, n0, _GFe,
+  { [_ht]: ["GET", "/v1/fixtures/{fixtureId}", 200] }, () => GetFixtureRequest$, () => GetFixtureResponse$
 ];
 export var ListDictionaries$: StaticOperationSchema = [9, n0, _LD,
   { [_ht]: ["GET", "/v1/dictionaries", 200] }, () => ListDictionariesRequest$, () => ListDictionariesResponse$

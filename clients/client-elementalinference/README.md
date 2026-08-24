@@ -244,6 +244,13 @@ GetFeed
 </details>
 <details>
 <summary>
+GetFixture
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elementalinference/command/GetFixtureCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFixtureCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elementalinference/Interface/GetFixtureCommandOutput/)
+</details>
+<details>
+<summary>
 ListDictionaries
 </summary>
 

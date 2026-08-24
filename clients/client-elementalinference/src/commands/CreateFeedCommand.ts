@@ -117,6 +117,7 @@ export interface CreateFeedCommandOutput extends CreateFeedResponse, __MetadataB
  * //       fromAssociation: true || false,
  * //     },
  * //   ],
+ * //   accessRoleArn: "STRING_VALUE",
  * //   status: "CREATING" || "AVAILABLE" || "ACTIVE" || "UPDATING" || "DELETING" || "DELETED" || "ARCHIVED", // required
  * //   association: { // FeedAssociation
  * //     associatedResourceName: "STRING_VALUE", // required
