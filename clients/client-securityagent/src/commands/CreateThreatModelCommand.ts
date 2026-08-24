@@ -79,6 +79,15 @@ export interface CreateThreatModelCommandOutput extends CreateThreatModelOutput,
  *         branch: "STRING_VALUE",
  *       },
  *     ],
+ *     trustedCaCertificates: [ // TrustedCaCertificateList
+ *       { // TrustedCaCertificate
+ *         source: { // CaCertificateSource Union: only one key present
+ *           inlinePem: "STRING_VALUE",
+ *           artifactId: "STRING_VALUE",
+ *           s3Location: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *   },
  *   scopeDocs: [
  *     {
@@ -150,6 +159,15 @@ export interface CreateThreatModelCommandOutput extends CreateThreatModelOutput,
  * //         integrationId: "STRING_VALUE", // required
  * //         providerResourceId: "STRING_VALUE", // required
  * //         branch: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     trustedCaCertificates: [ // TrustedCaCertificateList
+ * //       { // TrustedCaCertificate
+ * //         source: { // CaCertificateSource Union: only one key present
+ * //           inlinePem: "STRING_VALUE",
+ * //           artifactId: "STRING_VALUE",
+ * //           s3Location: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //   },

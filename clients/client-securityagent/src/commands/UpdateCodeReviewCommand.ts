@@ -79,6 +79,15 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  *         branch: "STRING_VALUE",
  *       },
  *     ],
+ *     trustedCaCertificates: [ // TrustedCaCertificateList
+ *       { // TrustedCaCertificate
+ *         source: { // CaCertificateSource Union: only one key present
+ *           inlinePem: "STRING_VALUE",
+ *           artifactId: "STRING_VALUE",
+ *           s3Location: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *   },
  *   serviceRole: "STRING_VALUE",
  *   logConfig: { // CloudWatchLog
@@ -137,6 +146,15 @@ export interface UpdateCodeReviewCommandOutput extends UpdateCodeReviewOutput, _
  * //         integrationId: "STRING_VALUE", // required
  * //         providerResourceId: "STRING_VALUE", // required
  * //         branch: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     trustedCaCertificates: [ // TrustedCaCertificateList
+ * //       { // TrustedCaCertificate
+ * //         source: { // CaCertificateSource Union: only one key present
+ * //           inlinePem: "STRING_VALUE",
+ * //           artifactId: "STRING_VALUE",
+ * //           s3Location: "STRING_VALUE",
+ * //         },
  * //       },
  * //     ],
  * //   },

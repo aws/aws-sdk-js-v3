@@ -100,9 +100,11 @@ const _CAS = "CreateAgentSpace";
 const _CASI = "CreateAgentSpaceInput";
 const _CASO = "CreateAgentSpaceOutput";
 const _CC = "CertificateChain";
+const _CCP = "CaCertificatePem";
 const _CCR = "CreateCodeReview";
 const _CCRI = "CreateCodeReviewInput";
 const _CCRO = "CreateCodeReviewOutput";
+const _CCS = "CaCertificateSource";
 const _CDM = "ConfluenceDocumentMetadata";
 const _CDR = "ConfluenceDocumentResource";
 const _CE = "ConflictException";
@@ -376,6 +378,8 @@ const _STMJOt = "StopThreatModelJobOutput";
 const _STMJt = "StopThreatModelJob";
 const _T = "Task";
 const _TAS = "ThreatAnchorShape";
+const _TCC = "TrustedCaCertificate";
+const _TCCL = "TrustedCaCertificateList";
 const _TD = "TargetDomain";
 const _TDL = "TargetDomainList";
 const _TDS = "TargetDomainSummary";
@@ -594,6 +598,7 @@ const _iI = "installationId";
 const _iIA = "idcInstanceArn";
 const _iIn = "integrationId";
 const _iP = "isPrimary";
+const _iPn = "inlinePem";
 const _iR = "integratedRepositories";
 const _iRS = "integratedResourceSummaries";
 const _iRa = "iamRoles";
@@ -717,6 +722,7 @@ const _sUc = "scriptUrl";
 const _sUr = "s3Uri";
 const _se = "server";
 const _sev = "severity";
+const _so = "source";
 const _st = "state";
 const _sta = "status";
 const _stat = "statement";
@@ -724,6 +730,7 @@ const _ste = "steps";
 const _str = "stride";
 const _t = "type";
 const _tA = "threatAction";
+const _tCC = "trustedCaCertificates";
 const _tD = "targetDomains";
 const _tDI = "targetDomainIds";
 const _tDIa = "targetDomainId";
@@ -865,6 +872,7 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var AccessToken: StaticSimpleSchema = [0, n0, _AT, 8, 0];
+var CaCertificatePem: StaticSimpleSchema = [0, n0, _CCP, 8, 0];
 var CertificateChain: StaticSimpleSchema = [0, n0, _CC, 8, 0];
 var SecurityRequirementDocumentContent: StaticSimpleSchema = [0, n0, _SRDC, 8, 21];
 var SensitiveEmailAddress: StaticSimpleSchema = [0, n0, _SEA, 8, 0];
@@ -915,8 +923,8 @@ export var ArtifactSummary$: StaticStructureSchema = [3, n0, _ASr,
 ];
 export var Assets$: StaticStructureSchema = [3, n0, _As,
   0,
-  [_en, _ac, _doc, _sCo, _iR],
-  [() => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList]
+  [_en, _ac, _doc, _sCo, _iR, _tCC],
+  [() => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0]]
 ];
 export var Authentication$: StaticStructureSchema = [3, n0, _Au,
   0,
@@ -1910,8 +1918,8 @@ export var Pentest$: StaticStructureSchema = [3, n0, _P,
 ];
 export var PentestJob$: StaticStructureSchema = [3, n0, _PJ,
   0,
-  [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _cA, _uA],
-  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, 0, 0, 64 | 0, 1, 0, 64 | 0, 5, 5]
+  [_pJIe, _pIen, _ti, _o, _sta, _en, _ac, _doc, _sCo, _eP, _aD, _eRT, _ste, _eC, _sRe, _lCo, _vC, _nTC, _eI, _iR, _tCC, _cRSo, _cUS, _dMS, _mTH, _jT, _sFI, _cA, _uA],
+  [0, 0, 0, 0, 0, () => EndpointList, [() => ActorList, 0], () => DocumentList, () => SourceCodeRepositoryList, () => EndpointList, () => EndpointList, 64 | 0, () => StepList, () => ExecutionContextList, 0, () => CloudWatchLog$, () => VpcConfig$, () => NetworkTrafficConfig$, () => ErrorInformation$, () => IntegratedRepositoryList, [() => TrustedCaCertificateList, 0], 0, 0, 64 | 0, 1, 0, 64 | 0, 5, 5]
 ];
 export var PentestJobSummary$: StaticStructureSchema = [3, n0, _PJS,
   0,
@@ -2117,6 +2125,11 @@ export var ThreatSummary$: StaticStructureSchema = [3, n0, _TSh,
   0,
   [_tIhre, _tJI, _ti, _stat, _sev, _sta, _str, _cB, _uB, _cA, _uA],
   [0, 0, 0, 0, 0, 0, 64 | 0, 0, 0, 5, 5]
+];
+export var TrustedCaCertificate$: StaticStructureSchema = [3, n0, _TCC,
+  8,
+  [_so],
+  [[() => CaCertificateSource$, 0]], 1
 ];
 export var UntagResourceInput$: StaticStructureSchema = [3, n0, _URI,
   0,
@@ -2497,6 +2510,10 @@ var ThreatModelSummaryList: StaticListSchema = [1, n0, _TMSL,
 var ThreatSummaryList: StaticListSchema = [1, n0, _TSLh,
   0, () => ThreatSummary$
 ];
+var TrustedCaCertificateList: StaticListSchema = [1, n0, _TCCL,
+  0, [() => TrustedCaCertificate$,
+    0]
+];
 var UpdateSecurityRequirementEntryList: StaticListSchema = [1, n0, _USREL,
   0, () => UpdateSecurityRequirementEntry$
 ];
@@ -2511,6 +2528,11 @@ var VpcConfigs: StaticListSchema = [1, n0, _VCp,
   0, () => VpcConfig$
 ];
 var TagMap = 128 | 0;
+export var CaCertificateSource$: StaticUnionSchema = [4, n0, _CCS,
+  0,
+  [_iPn, _aI, _sL],
+  [[() => CaCertificatePem, 0], 0, 0]
+];
 export var DiffSource$: StaticUnionSchema = [4, n0, _DS,
   0,
   [_sUr],

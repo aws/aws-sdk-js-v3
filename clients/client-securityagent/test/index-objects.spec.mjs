@@ -109,6 +109,7 @@ import {
   BitbucketRepositoryMetadata$,
   BitbucketRepositoryResource$,
   BitbucketResourceCapabilities$,
+  CaCertificateSource$,
   Category$,
   CleanUpStrategy,
   CloudWatchLog$,
@@ -496,6 +497,7 @@ import {
   ThreatSummary$,
   ThrottlingException,
   ThrottlingException$,
+  TrustedCaCertificate$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceInput$,
@@ -813,6 +815,7 @@ assert(typeof BitbucketIntegrationInput$ === "object");
 assert(typeof BitbucketRepositoryMetadata$ === "object");
 assert(typeof BitbucketRepositoryResource$ === "object");
 assert(typeof BitbucketResourceCapabilities$ === "object");
+assert(typeof CaCertificateSource$ === "object");
 assert(typeof Category$ === "object");
 assert(typeof CloudWatchLog$ === "object");
 assert(typeof CodeLocation$ === "object");
@@ -1012,6 +1015,7 @@ assert(typeof ThreatModelJobTask$ === "object");
 assert(typeof ThreatModelJobTaskSummary$ === "object");
 assert(typeof ThreatModelSummary$ === "object");
 assert(typeof ThreatSummary$ === "object");
+assert(typeof TrustedCaCertificate$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UntagResourceOutput$ === "object");
 assert(typeof UpdateAgentSpaceInput$ === "object");

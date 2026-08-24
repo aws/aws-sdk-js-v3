@@ -1015,6 +1015,87 @@ export interface SourceCodeRepository {
 }
 
 /**
+ * <p>The source of a trusted CA certificate. Exactly one member must be set.</p>
+ * @public
+ */
+export type CaCertificateSource =
+  | CaCertificateSource.ArtifactIdMember
+  | CaCertificateSource.InlinePemMember
+  | CaCertificateSource.S3LocationMember
+  | CaCertificateSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaCertificateSource {
+  /**
+   * <p>A PEM-encoded X.509 certificate supplied inline.</p>
+   * @public
+   */
+  export interface InlinePemMember {
+    inlinePem: string;
+    artifactId?: never;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The artifact ID of an uploaded certificate file.</p>
+   * @public
+   */
+  export interface ArtifactIdMember {
+    inlinePem?: never;
+    artifactId: string;
+    s3Location?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The Amazon S3 location URI of a customer-staged certificate.</p>
+   * @public
+   */
+  export interface S3LocationMember {
+    inlinePem?: never;
+    artifactId?: never;
+    s3Location: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    inlinePem?: never;
+    artifactId?: never;
+    s3Location?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    inlinePem: (value: string) => T;
+    artifactId: (value: string) => T;
+    s3Location: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A trust anchor used when validating a target endpoint's TLS certificate.</p>
+ * @public
+ */
+export interface TrustedCaCertificate {
+  /**
+   * <p>The source that AWS Security Agent reads the certificate from.</p>
+   * @public
+   */
+  source: CaCertificateSource | undefined;
+}
+
+/**
  * <p>The collection of assets used in a pentest configuration, including endpoints, actors, documents, source code repositories, and integrated repositories.</p>
  * @public
  */
@@ -1048,6 +1129,12 @@ export interface Assets {
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
+
+  /**
+   * <p>The trust anchors used to validate target endpoint TLS certificates. Provide these for endpoints served by a private or internal certificate authority (CA), an intermediate CA, or a self-signed certificate.</p>
+   * @public
+   */
+  trustedCaCertificates?: TrustedCaCertificate[] | undefined;
 }
 
 /**
@@ -2542,6 +2629,12 @@ export interface PentestJob {
    * @public
    */
   integratedRepositories?: IntegratedRepository[] | undefined;
+
+  /**
+   * <p>The trust anchors used to validate target endpoint TLS certificates during the pentest job.</p>
+   * @public
+   */
+  trustedCaCertificates?: TrustedCaCertificate[] | undefined;
 
   /**
    * <p>The code remediation strategy for the pentest job.</p>
