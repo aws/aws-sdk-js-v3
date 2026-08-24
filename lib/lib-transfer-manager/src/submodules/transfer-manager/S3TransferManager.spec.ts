@@ -1,6 +1,6 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
-import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
@@ -1827,6 +1827,292 @@ describe("S3TransferManager Unit Tests", () => {
       } finally {
         await rm(tmpDir, { recursive: true });
       }
+    });
+  });
+
+  /**
+   * Conformance tests derived from the shared S3 Transfer Manager spec:
+   * AwsDrSeps .../s3-transfer-manager/test-cases/download-directory.json
+   *
+   * Each test mirrors one scenario from that file: it seeds the objects the
+   * ListObjectsV2 mock returns, lets GetObject return a correctly-sized body,
+   * and asserts the resulting objectsDownloaded/objectsFailed and on-disk files.
+   *
+   * Note on local paths: the spec's case 2 states s3Prefix is NOT stripped
+   * ("full key is preserved"), which is what this implementation does. A couple
+   * of the spec's older cases still show prefix-stripped expectedFiles; those
+   * assertions here follow the authoritative full-key behavior and are called
+   * out inline.
+   */
+  describe("downloadDirectory (download-directory.json conformance)", () => {
+    let tmpDir: string;
+    let sendCalls: any[];
+
+    /**
+     * Mock S3 client for directory downloads.
+     * - ListObjectsV2Command → returns { Contents } from the provided objects.
+     * - GetObjectCommand → returns a single-part body sized per `sizeByKey`, or
+     *   rejects with the mapped error when `errorByKey` has an entry.
+     */
+    function createMockClient(
+      objects: Array<{ key: string; size: number }>,
+      errorByKey: Record<string, { status: number; name: string }> = {}
+    ) {
+      sendCalls = [];
+      const sizeByKey = new Map(objects.map((o) => [o.key, o.size]));
+      const mockSend = vi.fn().mockImplementation((command: any) => {
+        sendCalls.push(command);
+        const name = command.constructor.name;
+        if (name === "ListObjectsV2Command") {
+          return Promise.resolve({
+            Contents: objects.map((o) => ({ Key: o.key, Size: o.size })),
+            IsTruncated: false,
+            $metadata: {},
+          });
+        }
+        // GetObjectCommand
+        const key = command.input.Key as string;
+        const err = errorByKey[key];
+        if (err) {
+          return Promise.reject(Object.assign(new Error(err.name), { name: err.name, $metadata: { httpStatusCode: err.status } }));
+        }
+        const size = sizeByKey.get(key) ?? 0;
+        return Promise.resolve({
+          Body: Readable.from(Buffer.alloc(size, 1)),
+          ContentLength: size,
+          ContentRange: `bytes 0-${Math.max(size - 1, 0)}/${size}`,
+          PartsCount: 1,
+          ETag: '"mock-etag"',
+          $metadata: { httpStatusCode: 200 },
+        });
+      });
+      return { send: mockSend, config: {} } as any;
+    }
+
+    const listCalls = () => sendCalls.filter((c: any) => c.constructor.name === "ListObjectsV2Command");
+    const getCalls = () => sendCalls.filter((c: any) => c.constructor.name === "GetObjectCommand");
+
+    beforeEach(async () => {
+      tmpDir = await mkdtemp(join(tmpdir(), "tm-downloadDir-conf-"));
+    });
+
+    afterEach(async () => {
+      await rm(tmpDir, { recursive: true, force: true });
+    });
+
+    it("downloads every listed object to the destination", async () => {
+      const objects = [
+        { key: "photo1.jpg", size: 2048576 },
+        { key: "photo2.jpg", size: 1048576 },
+        { key: "readme.txt", size: 1024 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient, targetPartSizeBytes: 8388608, multipartDownloadType: "PART", maxConcurrentDownloads: 10 });
+
+      const result = await tm.downloadDirectory({ bucket: "example-bucket", destination });
+
+      expect(result.objectsDownloaded).toBe(3);
+      expect(result.objectsFailed).toBe(0);
+      expect((await stat(join(destination, "photo1.jpg"))).size).toBe(2048576);
+      expect((await stat(join(destination, "photo2.jpg"))).size).toBe(1048576);
+      expect((await stat(join(destination, "readme.txt"))).size).toBe(1024);
+    });
+
+    it("preserves the full key in the local path (prefix not stripped)", async () => {
+      const objects = [
+        { key: "photos/2023/jan/photo1.jpg", size: 1048576 },
+        { key: "photos/2023/jan/photo2.jpg", size: 1048576 },
+        { key: "photos/readme.txt", size: 1024 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({ bucket: "example-bucket", destination, s3Prefix: "photos/" });
+
+      expect(result.objectsDownloaded).toBe(3);
+      expect(result.objectsFailed).toBe(0);
+      expect(listCalls()[0].input.Prefix).toBe("photos/");
+      expect((await stat(join(destination, "photos/2023/jan/photo1.jpg"))).size).toBe(1048576);
+      expect((await stat(join(destination, "photos/2023/jan/photo2.jpg"))).size).toBe(1048576);
+      expect((await stat(join(destination, "photos/readme.txt"))).size).toBe(1024);
+    });
+
+    it("with filter callback: only downloads matching objects", async () => {
+      const objects = [
+        { key: "mixed/image.jpg", size: 1048576 },
+        { key: "mixed/document.txt", size: 2048 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        s3Prefix: "mixed/",
+        filter: (object) => object.Key!.endsWith(".jpg"),
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(0);
+      expect(existsSync(join(destination, "mixed/image.jpg"))).toBe(true);
+      expect(existsSync(join(destination, "mixed/document.txt"))).toBe(false);
+    });
+
+    it("skip folder objects, zero-byte keys ending in / are not downloaded", async () => {
+      const objects = [
+        { key: "data/folder1/", size: 0 },
+        { key: "data/file1.txt", size: 1024 },
+        { key: "data/folder2/", size: 0 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient, targetPartSizeBytes: 8388608, multipartDownloadType: "PART" });
+
+      const result = await tm.downloadDirectory({ bucket: "example-bucket", destination, s3Prefix: "data/" });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(0);
+      expect(existsSync(join(destination, "data/file1.txt"))).toBe(true);
+      // Only the file was fetched; folder placeholders were skipped.
+      expect(getCalls().map((c: any) => c.input.Key)).toEqual(["data/file1.txt"]);
+    });
+
+    it("path traversal (../../../etc/passwd) is rejected", async () => {
+      const objects = [
+        { key: "../../../etc/passwd", size: 1024 },
+        { key: "safe-file.txt", size: 2048 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const failures: Array<{ key: unknown; message: string }> = [];
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        recursive: true,
+        failurePolicy: async (context) => {
+          failures.push({
+            key: (context.objectRequest as any).Key,
+            message: (context.error as Error).message,
+          });
+          return "continue";
+        },
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(1);
+
+      // Exactly one object was rejected, and it was the traversal key — rejected
+      // for path traversal, before any download to disk.
+      expect(failures).toHaveLength(1);
+      expect(failures[0].key).toBe("../../../etc/passwd");
+      expect(failures[0].message).toMatch(/traversal/i);
+
+      expect(existsSync(join(destination, "safe-file.txt"))).toBe(true);
+    });
+
+    it("path traversal with a single relative parent (../2023/Jan/1.png) is rejected", async () => {
+      const objects = [
+        { key: "../2023/Jan/1.png", size: 1024 },
+        { key: "safe-file.txt", size: 2048 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        failurePolicy: "continue" as CannedFailurePolicy,
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(1);
+      expect(existsSync(join(destination, "safe-file.txt"))).toBe(true);
+    });
+
+    it("complex multi-level traversal (foo/../2023/../../Jan/1.png) is rejected", async () => {
+      const objects = [
+        { key: "foo/../2023/../../Jan/1.png", size: 1024 },
+        { key: "normal/file.txt", size: 512 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        failurePolicy: "continue" as CannedFailurePolicy,
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(1);
+      expect(existsSync(join(destination, "normal/file.txt"))).toBe(true);
+    });
+
+    it("verify continue policy, a failed object does not stop the rest", async () => {
+      const objects = [
+        { key: "file1.txt", size: 1024 },
+        { key: "file2.txt", size: 2048 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects, {
+        "file1.txt": { status: 404, name: "NoSuchKey" },
+      });
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        failurePolicy: "continue" as CannedFailurePolicy,
+        maxConcurrency: 10,
+      });
+
+      expect(result.objectsDownloaded).toBe(1);
+      expect(result.objectsFailed).toBe(1);
+      expect(existsSync(join(destination, "file2.txt"))).toBe(true);
+      expect(existsSync(join(destination, "file1.txt"))).toBe(false);
+    });
+
+    it("verify default terminate policy, operation stops and throws after the first failure", async () => {
+      const objects = [
+        { key: "file1.txt", size: 1024 },
+        { key: "file2.txt", size: 2048 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects, {
+        "file1.txt": { status: 404, name: "NoSuchKey" },
+      });
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      await expect(
+        tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 1 })
+      ).rejects.toThrow("NoSuchKey");
+    });
+
+    it("S3 directory bucket: downloads objects including nested keys", async () => {
+      const objects = [
+        { key: "report.pdf", size: 1048576 },
+        { key: "data/metrics.csv", size: 2048576 },
+      ];
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient, targetPartSizeBytes: 8388608, multipartDownloadType: "PART", maxConcurrentDownloads: 10 });
+
+      const result = await tm.downloadDirectory({
+        bucket: "example-directory-bucket--use1-az1--x-s3",
+        destination,
+      });
+
+      expect(result.objectsDownloaded).toBe(2);
+      expect(result.objectsFailed).toBe(0);
+      expect((await stat(join(destination, "report.pdf"))).size).toBe(1048576);
+      expect((await stat(join(destination, "data/metrics.csv"))).size).toBe(2048576);
     });
   });
 
