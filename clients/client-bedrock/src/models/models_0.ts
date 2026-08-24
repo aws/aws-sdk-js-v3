@@ -314,7 +314,7 @@ export interface InferenceConfiguration {
  */
 export interface ModelConfiguration {
   /**
-   * <p>The ID of the model to use for optimization.</p>
+   * <p>The model to use for optimization. The value depends on the resource that you use:</p> <ul> <li> <p>If you use a base model, specify the model ID or its ARN. For a list of model IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-cards.html">Models at a glance</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use a cross-Region (system-defined) inference profile, specify the inference profile ID or its ARN. For a list of inference profile IDs, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference-support.html">Supported Regions and models for inference profiles</a> in the Amazon Bedrock User Guide.</p> </li> <li> <p>If you use an application inference profile, specify its full ARN, including the account ID and Region.</p> </li> </ul>
    * @public
    */
   modelId: string | undefined;
