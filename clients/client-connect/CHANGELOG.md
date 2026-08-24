@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+
+### Features
+
+* **client-connect:** This release adds the ExtractedInformation segment to the ListRealtimeContactAnalysisSegmentsV2 API, enabling customers to retrieve information extracted from real-time contact analysis. ([775d1ad](https://github.com/aws/aws-sdk-js-v3/commit/775d1ad448656964101a68254d6f3bc427cc1c71))
+
+
+
+
+
 # [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

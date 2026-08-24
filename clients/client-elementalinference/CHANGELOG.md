@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+
+### Features
+
+* **client-elementalinference:** Added support for the GetFixture API, enabling customers to retrieve the details of a fixture from its fixture ID, and added the access role ARN to the CreateFeed, GetFeed, and UpdateFeed responses. ([d4b7183](https://github.com/aws/aws-sdk-js-v3/commit/d4b71834e5c6b1ec7578383b377ca56cb5fa15ff))
+
+
+
+
+
 # [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-elementalinference

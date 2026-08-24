@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+
+### Features
+
+* **client-kafka:** Amazon MSK Replicator now supports OAuth authentication when connecting to external Apache Kafka clusters, enabling customers to replicate data from clusters that require OAuth for client authentication. This new capability is supported in all AWS Regions where MSK Express brokers are available. ([a461b5a](https://github.com/aws/aws-sdk-js-v3/commit/a461b5a05e729c86fa25cbea2a50c8a212229059))
+
+
+
+
+
 # [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

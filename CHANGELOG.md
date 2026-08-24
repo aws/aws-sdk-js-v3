@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+
+### Features
+
+* **client-bedrock:** Adds support for specifying an inference profile ID or ARN, or an application inference profile ARN as the target model in CreateAdvancedPromptOptimizationJob. ([9110f46](https://github.com/aws/aws-sdk-js-v3/commit/9110f46bc465f2e48dde0cf60a01a2237c64c149))
+* **client-connect-contact-lens:** This release adds the ExtractedInformation segment to the ListRealtimeContactAnalysisSegments API, enabling customers to retrieve information extracted from real-time contact analysis. ([9c5bda8](https://github.com/aws/aws-sdk-js-v3/commit/9c5bda85ffcdbe88f13cf0523a7db2dd8bbb9c24))
+* **client-connect:** This release adds the ExtractedInformation segment to the ListRealtimeContactAnalysisSegmentsV2 API, enabling customers to retrieve information extracted from real-time contact analysis. ([775d1ad](https://github.com/aws/aws-sdk-js-v3/commit/775d1ad448656964101a68254d6f3bc427cc1c71))
+* **client-dsql:** Corrected the validation pattern on the ServiceName response field in the GetVpcEndpointServiceName API to match the values Amazon Aurora DSQL actually returns. ([1b689a9](https://github.com/aws/aws-sdk-js-v3/commit/1b689a9f60c4e25b68c5bda5dc13099a832ab7d2))
+* **client-elementalinference:** Added support for the GetFixture API, enabling customers to retrieve the details of a fixture from its fixture ID, and added the access role ARN to the CreateFeed, GetFeed, and UpdateFeed responses. ([d4b7183](https://github.com/aws/aws-sdk-js-v3/commit/d4b71834e5c6b1ec7578383b377ca56cb5fa15ff))
+* **client-kafka:** Amazon MSK Replicator now supports OAuth authentication when connecting to external Apache Kafka clusters, enabling customers to replicate data from clusters that require OAuth for client authentication. This new capability is supported in all AWS Regions where MSK Express brokers are available. ([a461b5a](https://github.com/aws/aws-sdk-js-v3/commit/a461b5a05e729c86fa25cbea2a50c8a212229059))
+* **client-launch-wizard:** Added accountConstraints and patternType to GetWorkload, ListWorkloads, GetWorkloadDeploymentPattern and ListWorkloadDeploymentPatterns for Launch Wizard ([721b9f4](https://github.com/aws/aws-sdk-js-v3/commit/721b9f472cd55b438546f4a381bb34f908def7c0))
+* **client-securityagent:** Adding private and self-signed certificate configuration support for penetration tests ([42f6ecb](https://github.com/aws/aws-sdk-js-v3/commit/42f6ecb8005948dd807a6dda70d65bf04f604df9))
+* **client-timestream-influxdb:** Service-managed parameter groups now only apply optimized defaults to DB Clusters automatically. New field effectiveDbParameterGroupIdentifier surfaces the parameter group actually applied. ([8c7f04c](https://github.com/aws/aws-sdk-js-v3/commit/8c7f04cdea238dab23f4f43c9e368937931686e9))
+
+
+
+
+
 # [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
 
 

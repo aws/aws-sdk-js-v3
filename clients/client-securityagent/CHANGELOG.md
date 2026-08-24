@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
+
+
+### Features
+
+* **client-securityagent:** Adding private and self-signed certificate configuration support for penetration tests ([42f6ecb](https://github.com/aws/aws-sdk-js-v3/commit/42f6ecb8005948dd807a6dda70d65bf04f604df9))
+
+
+
+
+
 # [3.1116.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1115.0...v3.1116.0) (2026-08-21)
 
 **Note:** Version bump only for package @aws-sdk/client-securityagent
