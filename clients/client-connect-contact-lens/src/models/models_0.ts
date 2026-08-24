@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import type { PostContactSummaryFailureCode, PostContactSummaryStatus, SentimentValue } from "./enums";
+import type {
+  ExtractedInformationFailureCode,
+  PostContactSummaryFailureCode,
+  PostContactSummaryStatus,
+  SentimentValue,
+} from "./enums";
 
 /**
  * @public
@@ -32,18 +37,18 @@ export interface ListRealtimeContactAnalysisSegmentsRequest {
 }
 
 /**
- * <p>The section of the contact audio where that category rule was detected.</p>
+ * <p>The section of the contact audio where a match was detected.</p>
  * @public
  */
 export interface PointOfInterest {
   /**
-   * <p>The beginning offset in milliseconds where the category rule was detected.</p>
+   * <p>The beginning offset (in milliseconds) where the match was detected.</p>
    * @public
    */
   BeginOffsetMillis: number | undefined;
 
   /**
-   * <p>The ending offset in milliseconds where the category rule was detected.</p>
+   * <p>The ending offset (in milliseconds) where the match was detected.</p>
    * @public
    */
   EndOffsetMillis: number | undefined;
@@ -78,6 +83,91 @@ export interface Categories {
    * @public
    */
   MatchedDetails: Record<string, CategoryDetails> | undefined;
+}
+
+/**
+ * <p>An individual value extracted from the conversation, including its content and the
+ *             locations where it was found.</p>
+ * @public
+ */
+export interface ExtractedInformationValue {
+  /**
+   * <p>The text content of the extracted value.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The sections in the conversation that indicate where the extracted value was
+   *             found.</p>
+   * @public
+   */
+  PointsOfInterest: PointOfInterest[] | undefined;
+}
+
+/**
+ * <p>Segment containing information extracted from the conversation. Each segment
+ *             represents the results for a single extraction definition.</p>
+ * @public
+ */
+export interface ExtractedInformation {
+  /**
+   * <p>The identifier of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+
+  /**
+   * <p>The name of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionName: string | undefined;
+
+  /**
+   * <p>The display label of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionDisplayLabel?: string | undefined;
+
+  /**
+   * <p>The list of values extracted from the conversation for this extraction definition.
+   *             This field is empty when a <code>FailureCode</code> is present.</p>
+   * @public
+   */
+  ExtractedValues?: ExtractedInformationValue[] | undefined;
+
+  /**
+   * <p>If the information failed to be extracted, one of the following failure codes
+   *             occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached
+   *                     your service quota.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: Information extraction requires a
+   *                     conversation with at least one turn from each participant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The extracted information cannot be
+   *                     provided because it failed to meet system safety guidelines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAX_PACKAGE_FEATURE_ONLY</code>: Information extraction is only available
+   *                     in Amazon Connect Customer instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: ExtractedInformationFailureCode | undefined;
 }
 
 /**
@@ -120,10 +210,8 @@ export interface PostContactSummary {
    *             <li>
    *                <p>
    *                   <code>INVALID_ANALYSIS_CONFIGURATION</code>: This code occurs when, for
-   *                     example, you're using a
-   *                     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a>
-   *                      that isn't supported by generative AI-powered post-contact summaries.
-   *                 </p>
+   *                     example, you're using a <a href="https://docs.aws.amazon.com/connect/latest/adminguide/supported-languages.html#supported-languages-contact-lens">language</a> that isn't supported by generative AI-powered post-contact
+   *                     summaries. </p>
    *             </li>
    *             <li>
    *                <p>
@@ -243,6 +331,12 @@ export interface RealtimeContactAnalysisSegment {
    * @public
    */
   PostContactSummary?: PostContactSummary | undefined;
+
+  /**
+   * <p>The extracted information from the conversation.</p>
+   * @public
+   */
+  ExtractedInformation?: ExtractedInformation | undefined;
 }
 
 /**

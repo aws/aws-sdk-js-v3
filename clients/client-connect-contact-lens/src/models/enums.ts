@@ -3,6 +3,23 @@
  * @public
  * @enum
  */
+export const ExtractedInformationFailureCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  MAX_PACKAGE_FEATURE_ONLY: "MAX_PACKAGE_FEATURE_ONLY",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type ExtractedInformationFailureCode =
+  (typeof ExtractedInformationFailureCode)[keyof typeof ExtractedInformationFailureCode];
+
+/**
+ * @public
+ * @enum
+ */
 export const PostContactSummaryFailureCode = {
   FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
   INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",

@@ -26,7 +26,12 @@ export interface ListRealtimeContactAnalysisSegmentsCommandInput extends ListRea
 export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRealtimeContactAnalysisSegmentsResponse, __MetadataBearer {}
 
 /**
- * <p>Provides a list of analysis segments for a real-time analysis session.</p>
+ * <p>Provides a list of analysis segments for a real-time analysis session for
+ *             voice.</p>
+ *          <note>
+ *             <p>Voice data is retained for 24 hours. You must invoke this API during that
+ *                 time.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +87,23 @@ export interface ListRealtimeContactAnalysisSegmentsCommandOutput extends ListRe
  * //         Content: "STRING_VALUE",
  * //         Status: "FAILED" || "COMPLETED", // required
  * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INVALID_ANALYSIS_CONFIGURATION" || "INTERNAL_ERROR",
+ * //       },
+ * //       ExtractedInformation: { // ExtractedInformation
+ * //         ExtractionDefinitionId: "STRING_VALUE", // required
+ * //         ExtractionDefinitionName: "STRING_VALUE", // required
+ * //         ExtractionDefinitionDisplayLabel: "STRING_VALUE",
+ * //         ExtractedValues: [ // ExtractedInformationValues
+ * //           { // ExtractedInformationValue
+ * //             Content: "STRING_VALUE", // required
+ * //             PointsOfInterest: [ // required
+ * //               {
+ * //                 BeginOffsetMillis: Number("int"), // required
+ * //                 EndOffsetMillis: Number("int"), // required
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INTERNAL_ERROR" || "MAX_PACKAGE_FEATURE_ONLY",
  * //       },
  * //     },
  * //   ],

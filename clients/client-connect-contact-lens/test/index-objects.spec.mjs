@@ -7,6 +7,9 @@ import {
   ConnectContactLens,
   ConnectContactLensClient,
   ConnectContactLensServiceException,
+  ExtractedInformation$,
+  ExtractedInformationFailureCode,
+  ExtractedInformationValue$,
   InternalServiceException,
   InternalServiceException$,
   InvalidRequestException,
@@ -40,6 +43,8 @@ assert(typeof ListRealtimeContactAnalysisSegments$ === "object");
 assert(typeof Categories$ === "object");
 assert(typeof CategoryDetails$ === "object");
 assert(typeof CharacterOffsets$ === "object");
+assert(typeof ExtractedInformation$ === "object");
+assert(typeof ExtractedInformationValue$ === "object");
 assert(typeof IssueDetected$ === "object");
 assert(typeof ListRealtimeContactAnalysisSegmentsRequest$ === "object");
 assert(typeof ListRealtimeContactAnalysisSegmentsResponse$ === "object");
@@ -48,6 +53,7 @@ assert(typeof PostContactSummary$ === "object");
 assert(typeof RealtimeContactAnalysisSegment$ === "object");
 assert(typeof Transcript$ === "object");
 // enums
+assert(typeof ExtractedInformationFailureCode === "object");
 assert(typeof PostContactSummaryFailureCode === "object");
 assert(typeof PostContactSummaryStatus === "object");
 assert(typeof SentimentValue === "object");
