@@ -47,7 +47,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  *   NextToken: "STRING_VALUE",
  *   OutputType: "Raw" || "Redacted", // required
  *   SegmentTypes: [ // RealTimeContactAnalysisSegmentTypes // required
- *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments" || "PostContactSummary",
+ *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments" || "PostContactSummary" || "ExtractedInformation",
  *   ],
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsV2Command(input);
@@ -140,6 +140,23 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput extends List
  * //         Content: "STRING_VALUE",
  * //         Status: "FAILED" || "COMPLETED", // required
  * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INVALID_ANALYSIS_CONFIGURATION" || "INTERNAL_ERROR",
+ * //       },
+ * //       ExtractedInformation: { // RealTimeContactAnalysisSegmentExtractedInformation
+ * //         ExtractionDefinitionId: "STRING_VALUE", // required
+ * //         ExtractionDefinitionName: "STRING_VALUE", // required
+ * //         ExtractionDefinitionDisplayLabel: "STRING_VALUE",
+ * //         ExtractedValues: [ // RealTimeContactAnalysisExtractedInformationValues
+ * //           { // RealTimeContactAnalysisExtractedInformationValue
+ * //             Content: "STRING_VALUE", // required
+ * //             PointsOfInterest: [ // required
+ * //               {
+ * //                 Id: "STRING_VALUE", // required
+ * //                 CharacterOffsets: "<RealTimeContactAnalysisCharacterInterval>",
+ * //               },
+ * //             ],
+ * //           },
+ * //         ],
+ * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INTERNAL_ERROR" || "MAX_PACKAGE_FEATURE_ONLY",
  * //       },
  * //     },
  * //   ],

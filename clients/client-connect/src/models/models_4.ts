@@ -60,10 +60,11 @@ import type {
   QueueInfo,
   RecordingInfo,
   TaskTemplateInfoV2,
+  View,
   WisdomInfo,
   WorkspaceTheme,
 } from "./models_1";
-import type { BooleanCondition, DateTimeCondition, DecimalCondition, NumberCondition } from "./models_2";
+import type { BooleanCondition, DateTimeCondition } from "./models_2";
 import type {
   ChatMessage,
   ContactFlowModuleSearchFilter,
@@ -73,6 +74,7 @@ import type {
   ContactSearchSummaryQueueInfo,
   DataTableSearchFilter,
   DateCondition,
+  DecimalCondition,
   EmailAddressInfo,
   EmailAddressSearchFilter,
   EmailAttachment,
@@ -85,6 +87,7 @@ import type {
   ListCondition,
   MetricSearchFilter,
   NotificationSearchFilter,
+  NumberCondition,
   ParticipantConfiguration,
   ParticipantDetails,
   PersistentChat,
@@ -105,6 +108,47 @@ import type {
   WorkspaceAssociationSearchFilter,
   WorkspaceSearchFilter,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface UpdateViewContentResponse {
+  /**
+   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+   * @public
+   */
+  View?: View | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateViewMetadataRequest {
+  /**
+   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
+   * @public
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
+   * @public
+   */
+  ViewId: string | undefined;
+
+  /**
+   * <p>The name of the view.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The description of the view.</p>
+   * @public
+   */
+  Description?: string | undefined;
+}
 
 /**
  * @public

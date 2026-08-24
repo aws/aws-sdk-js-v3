@@ -22,6 +22,7 @@ import type {
   DataTableAttributeValueType,
   DataTableLockLevel,
   DateComparisonType,
+  DecimalComparisonType,
   EmailHeaderType,
   EvaluationFormLanguageCode,
   EvaluationFormVersionStatus,
@@ -41,6 +42,7 @@ import type {
   NotificationPriority,
   NotificationStatus,
   NotificationType,
+  NumberComparisonType,
   OutboundMessageSourceType,
   OverrideType,
   ParticipantRole,
@@ -141,7 +143,70 @@ import type {
   ViewInputContent,
   VoiceEnhancementConfig,
 } from "./models_1";
-import type { NumberCondition, SignInConfig, TelephonyConfig } from "./models_2";
+import type { SignInConfig, TelephonyConfig } from "./models_2";
+
+/**
+ * <p>A decimal search condition for Search APIs.</p>
+ * @public
+ */
+export interface DecimalCondition {
+  /**
+   * <p>A name of the decimal property to be searched.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>A minimum value of the decimal property.</p>
+   * @public
+   */
+  MinValue?: number | undefined;
+
+  /**
+   * <p>A maximum value of the decimal property.</p>
+   * @public
+   */
+  MaxValue?: number | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the decimal condition.</p>
+   * @public
+   */
+  ComparisonType?: DecimalComparisonType | undefined;
+}
+
+/**
+ * <p>A leaf node condition which can be used to specify a numeric condition.</p>
+ *          <note>
+ *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
+ *          </note>
+ * @public
+ */
+export interface NumberCondition {
+  /**
+   * <p>The name of the field in the number condition.</p>
+   * @public
+   */
+  FieldName?: string | undefined;
+
+  /**
+   * <p>The minValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MinValue?: number | undefined;
+
+  /**
+   * <p>The maxValue to be used while evaluating the number condition.</p>
+   * @public
+   */
+  MaxValue?: number | undefined;
+
+  /**
+   * <p>The type of comparison to be made when evaluating the number condition.</p>
+   * @public
+   */
+  ComparisonType?: NumberComparisonType | undefined;
+}
 
 /**
  * <p>The value of a contact evaluation attribute condition.</p>
@@ -8001,45 +8066,4 @@ export interface UpdateViewContentRequest {
    * @public
    */
   Content: ViewInputContent | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewContentResponse {
-  /**
-   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
-   * @public
-   */
-  View?: View | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateViewMetadataRequest {
-  /**
-   * <p>The identifier of the Connect Customer instance. You can find the instanceId in the ARN of the
-   *    instance.</p>
-   * @public
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The identifier of the view. Both <code>ViewArn</code> and <code>ViewId</code> can be used.</p>
-   * @public
-   */
-  ViewId: string | undefined;
-
-  /**
-   * <p>The name of the view.</p>
-   * @public
-   */
-  Name?: string | undefined;
-
-  /**
-   * <p>The description of the view.</p>
-   * @public
-   */
-  Description?: string | undefined;
 }

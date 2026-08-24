@@ -2575,6 +2575,7 @@ export const RealTimeContactAnalysisSegmentType = {
   Attachments: "Attachments",
   Categories: "Categories",
   Event: "Event",
+  ExtractedInformation: "ExtractedInformation",
   Issues: "Issues",
   PostContactSummary: "PostContactSummary",
   Transcript: "Transcript",
@@ -2612,6 +2613,23 @@ export const ArtifactStatus = {
  * @public
  */
 export type ArtifactStatus = (typeof ArtifactStatus)[keyof typeof ArtifactStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const RealTimeContactAnalysisExtractedInformationFailureCode = {
+  FAILED_SAFETY_GUIDELINES: "FAILED_SAFETY_GUIDELINES",
+  INSUFFICIENT_CONVERSATION_CONTENT: "INSUFFICIENT_CONVERSATION_CONTENT",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  MAX_PACKAGE_FEATURE_ONLY: "MAX_PACKAGE_FEATURE_ONLY",
+  QUOTA_EXCEEDED: "QUOTA_EXCEEDED",
+} as const;
+/**
+ * @public
+ */
+export type RealTimeContactAnalysisExtractedInformationFailureCode =
+  (typeof RealTimeContactAnalysisExtractedInformationFailureCode)[keyof typeof RealTimeContactAnalysisExtractedInformationFailureCode];
 
 /**
  * @public

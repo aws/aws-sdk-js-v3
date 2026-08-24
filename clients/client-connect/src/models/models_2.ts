@@ -16,7 +16,6 @@ import type {
   ContactState,
   DataTableAttributeValueType,
   DateTimeComparisonType,
-  DecimalComparisonType,
   DirectoryType,
   EntityType,
   EvaluationFormValidationFindingSeverity,
@@ -44,13 +43,13 @@ import type {
   NotificationPriority,
   NotificationSource,
   NotificationStatus,
-  NumberComparisonType,
   OperationalStatus,
   ParticipantRole,
   PhoneNumberCountryCode,
   PhoneNumberType,
   QueueType,
   QuickConnectType,
+  RealTimeContactAnalysisExtractedInformationFailureCode,
   RealTimeContactAnalysisOutputType,
   RealTimeContactAnalysisPostContactSummaryFailureCode,
   RealTimeContactAnalysisPostContactSummaryStatus,
@@ -8204,6 +8203,87 @@ export interface RealTimeContactAnalysisSegmentEvent {
 }
 
 /**
+ * <p>An individual value extracted from the conversation, including its content and the locations where it
+ *    was found.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisExtractedInformationValue {
+  /**
+   * <p>The text content of the extracted value.</p>
+   * @public
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>The sections in the conversation that indicate where the extracted value was found.</p>
+   * @public
+   */
+  PointsOfInterest: RealTimeContactAnalysisTranscriptItemWithCharacterOffsets[] | undefined;
+}
+
+/**
+ * <p>Segment containing information extracted from the conversation. Each segment represents the results for a
+ *    single extraction definition.</p>
+ * @public
+ */
+export interface RealTimeContactAnalysisSegmentExtractedInformation {
+  /**
+   * <p>The identifier of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionId: string | undefined;
+
+  /**
+   * <p>The name of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionName: string | undefined;
+
+  /**
+   * <p>The display label of the extraction definition that produced this result.</p>
+   * @public
+   */
+  ExtractionDefinitionDisplayLabel?: string | undefined;
+
+  /**
+   * <p>The list of values extracted from the conversation for this extraction definition. This field is empty when a
+   *    <code>FailureCode</code> is present.</p>
+   * @public
+   */
+  ExtractedValues?: RealTimeContactAnalysisExtractedInformationValue[] | undefined;
+
+  /**
+   * <p>If the information failed to be extracted, one of the following failure codes occurs:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUOTA_EXCEEDED</code>: The number of concurrent analytics jobs reached your service quota.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INSUFFICIENT_CONVERSATION_CONTENT</code>: Information extraction requires a conversation with at least
+   *      one turn from each participant.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED_SAFETY_GUIDELINES</code>: The extracted information cannot be provided because it failed to meet
+   *      system safety guidelines.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTERNAL_ERROR</code>: Internal system error.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MAX_PACKAGE_FEATURE_ONLY</code>: Information extraction is only available in Amazon Connect Customer instances.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  FailureCode?: RealTimeContactAnalysisExtractedInformationFailureCode | undefined;
+}
+
+/**
  * <p>Transcript representation containing Id, Content and list of character intervals that are associated with
  *    analysis data. For example, this object within an issue detected would describe both content that contains identified
  *    issue and intervals where that content is taken from.</p>
@@ -8385,6 +8465,7 @@ export type RealtimeContactAnalysisSegment =
   | RealtimeContactAnalysisSegment.AttachmentsMember
   | RealtimeContactAnalysisSegment.CategoriesMember
   | RealtimeContactAnalysisSegment.EventMember
+  | RealtimeContactAnalysisSegment.ExtractedInformationMember
   | RealtimeContactAnalysisSegment.IssuesMember
   | RealtimeContactAnalysisSegment.PostContactSummaryMember
   | RealtimeContactAnalysisSegment.TranscriptMember
@@ -8405,6 +8486,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments?: never;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown?: never;
   }
 
@@ -8419,6 +8501,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments?: never;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown?: never;
   }
 
@@ -8433,6 +8516,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments?: never;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown?: never;
   }
 
@@ -8447,6 +8531,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event: RealTimeContactAnalysisSegmentEvent;
     Attachments?: never;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown?: never;
   }
 
@@ -8461,6 +8546,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments: RealTimeContactAnalysisSegmentAttachments;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown?: never;
   }
 
@@ -8475,6 +8561,22 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments?: never;
     PostContactSummary: RealTimeContactAnalysisSegmentPostContactSummary;
+    ExtractedInformation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The extracted information from the conversation.</p>
+   * @public
+   */
+  export interface ExtractedInformationMember {
+    Transcript?: never;
+    Categories?: never;
+    Issues?: never;
+    Event?: never;
+    Attachments?: never;
+    PostContactSummary?: never;
+    ExtractedInformation: RealTimeContactAnalysisSegmentExtractedInformation;
     $unknown?: never;
   }
 
@@ -8488,6 +8590,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event?: never;
     Attachments?: never;
     PostContactSummary?: never;
+    ExtractedInformation?: never;
     $unknown: [string, any];
   }
 
@@ -8502,6 +8605,7 @@ export namespace RealtimeContactAnalysisSegment {
     Event: (value: RealTimeContactAnalysisSegmentEvent) => T;
     Attachments: (value: RealTimeContactAnalysisSegmentAttachments) => T;
     PostContactSummary: (value: RealTimeContactAnalysisSegmentPostContactSummary) => T;
+    ExtractedInformation: (value: RealTimeContactAnalysisSegmentExtractedInformation) => T;
     _: (name: string, value: any) => T;
   }
 }
@@ -11004,67 +11108,4 @@ export interface DateTimeCondition {
    * @public
    */
   ComparisonType?: DateTimeComparisonType | undefined;
-}
-
-/**
- * <p>A decimal search condition for Search APIs.</p>
- * @public
- */
-export interface DecimalCondition {
-  /**
-   * <p>A name of the decimal property to be searched.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>A minimum value of the decimal property.</p>
-   * @public
-   */
-  MinValue?: number | undefined;
-
-  /**
-   * <p>A maximum value of the decimal property.</p>
-   * @public
-   */
-  MaxValue?: number | undefined;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the decimal condition.</p>
-   * @public
-   */
-  ComparisonType?: DecimalComparisonType | undefined;
-}
-
-/**
- * <p>A leaf node condition which can be used to specify a numeric condition.</p>
- *          <note>
- *             <p>The currently supported value for <code>FieldName</code> is <code>limit</code>.</p>
- *          </note>
- * @public
- */
-export interface NumberCondition {
-  /**
-   * <p>The name of the field in the number condition.</p>
-   * @public
-   */
-  FieldName?: string | undefined;
-
-  /**
-   * <p>The minValue to be used while evaluating the number condition.</p>
-   * @public
-   */
-  MinValue?: number | undefined;
-
-  /**
-   * <p>The maxValue to be used while evaluating the number condition.</p>
-   * @public
-   */
-  MaxValue?: number | undefined;
-
-  /**
-   * <p>The type of comparison to be made when evaluating the number condition.</p>
-   * @public
-   */
-  ComparisonType?: NumberComparisonType | undefined;
 }

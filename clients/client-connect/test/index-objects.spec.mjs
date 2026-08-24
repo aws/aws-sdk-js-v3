@@ -1687,6 +1687,8 @@ import {
   RealTimeContactAnalysisAttachment$,
   RealTimeContactAnalysisCategoryDetails$,
   RealTimeContactAnalysisCharacterInterval$,
+  RealTimeContactAnalysisExtractedInformationFailureCode,
+  RealTimeContactAnalysisExtractedInformationValue$,
   RealTimeContactAnalysisIssueDetected$,
   RealTimeContactAnalysisOutputType,
   RealTimeContactAnalysisPointOfInterest$,
@@ -1696,6 +1698,7 @@ import {
   RealTimeContactAnalysisSegmentAttachments$,
   RealTimeContactAnalysisSegmentCategories$,
   RealTimeContactAnalysisSegmentEvent$,
+  RealTimeContactAnalysisSegmentExtractedInformation$,
   RealTimeContactAnalysisSegmentIssues$,
   RealTimeContactAnalysisSegmentPostContactSummary$,
   RealTimeContactAnalysisSegmentTranscript$,
@@ -4102,12 +4105,14 @@ assert(typeof ReadOnlyFieldInfo$ === "object");
 assert(typeof RealTimeContactAnalysisAttachment$ === "object");
 assert(typeof RealTimeContactAnalysisCategoryDetails$ === "object");
 assert(typeof RealTimeContactAnalysisCharacterInterval$ === "object");
+assert(typeof RealTimeContactAnalysisExtractedInformationValue$ === "object");
 assert(typeof RealTimeContactAnalysisIssueDetected$ === "object");
 assert(typeof RealTimeContactAnalysisPointOfInterest$ === "object");
 assert(typeof RealtimeContactAnalysisSegment$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentAttachments$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentCategories$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentEvent$ === "object");
+assert(typeof RealTimeContactAnalysisSegmentExtractedInformation$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentIssues$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentPostContactSummary$ === "object");
 assert(typeof RealTimeContactAnalysisSegmentTranscript$ === "object");
@@ -4644,6 +4649,7 @@ assert(typeof QuestionRuleCategoryAutomationCondition === "object");
 assert(typeof QueueStatus === "object");
 assert(typeof QueueType === "object");
 assert(typeof QuickConnectType === "object");
+assert(typeof RealTimeContactAnalysisExtractedInformationFailureCode === "object");
 assert(typeof RealTimeContactAnalysisOutputType === "object");
 assert(typeof RealTimeContactAnalysisPostContactSummaryFailureCode === "object");
 assert(typeof RealTimeContactAnalysisPostContactSummaryStatus === "object");

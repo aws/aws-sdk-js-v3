@@ -1008,8 +1008,10 @@ const _ECxt = "ExtractionConfiguration";
 const _ED = "ExtractionDefinition";
 const _EDA = "ExtractionDefinitionArn";
 const _EDD = "ExtractionDefinitionDisplay";
+const _EDDL = "ExtractionDefinitionDisplayLabel";
 const _EDI = "ExtractionDefinitionId";
 const _EDIM = "ExpiryDurationInMinutes";
+const _EDN = "ExtractionDefinitionName";
 const _EDNFB = "ExtractionDefinitionNotFoundBehavior";
 const _EDS = "ExtractionDefinitionSummary";
 const _EDSL = "ExtractionDefinitionSummaryList";
@@ -1089,6 +1091,7 @@ const _EIC = "ExternalInvocationConfiguration";
 const _EIU = "EventIngestionUrl";
 const _EIn = "EndpointInfo";
 const _EIv = "EvaluationId";
+const _EIx = "ExtractedInformation";
 const _EL = "ExportLocation";
 const _EM = "ErrorMessage";
 const _EMPT = "EmailMessagePlainText";
@@ -1154,6 +1157,7 @@ const _EUU = "EvaluatorUserUnion";
 const _EV = "EvaluatedValue";
 const _EVVOA = "EnableValueValidationOnAssociation";
 const _EVm = "EmptyValue";
+const _EVx = "ExtractedValues";
 const _En = "Enabled";
 const _Ena = "Enablement";
 const _End = "Endpoint";
@@ -2153,6 +2157,8 @@ const _RTCAAe = "RealTimeContactAnalysisAttachments";
 const _RTCACD = "RealTimeContactAnalysisCategoryDetails";
 const _RTCACI = "RealTimeContactAnalysisCharacterInterval";
 const _RTCACIe = "RealTimeContactAnalysisCharacterIntervals";
+const _RTCAEIV = "RealTimeContactAnalysisExtractedInformationValue";
+const _RTCAEIVe = "RealTimeContactAnalysisExtractedInformationValues";
 const _RTCAID = "RealTimeContactAnalysisIssueDetected";
 const _RTCAIDe = "RealTimeContactAnalysisIssuesDetected";
 const _RTCAMD = "RealTimeContactAnalysisMatchedDetails";
@@ -2161,6 +2167,7 @@ const _RTCAPOIe = "RealTimeContactAnalysisPointsOfInterest";
 const _RTCASA = "RealTimeContactAnalysisSegmentAttachments";
 const _RTCASC = "RealTimeContactAnalysisSegmentCategories";
 const _RTCASE = "RealTimeContactAnalysisSegmentEvent";
+const _RTCASEI = "RealTimeContactAnalysisSegmentExtractedInformation";
 const _RTCASI = "RealTimeContactAnalysisSegmentIssues";
 const _RTCASPCS = "RealTimeContactAnalysisSegmentPostContactSummary";
 const _RTCAST = "RealTimeContactAnalysisSegmentTranscript";
@@ -7649,6 +7656,11 @@ export var RealTimeContactAnalysisCharacterInterval$: StaticStructureSchema = [3
   [_BOC, _EOC],
   [1, 1], 2
 ];
+export var RealTimeContactAnalysisExtractedInformationValue$: StaticStructureSchema = [3, n0, _RTCAEIV,
+  0,
+  [_Co, _POI],
+  [0, () => RealTimeContactAnalysisTranscriptItemsWithCharacterOffsets], 2
+];
 export var RealTimeContactAnalysisIssueDetected$: StaticStructureSchema = [3, n0, _RTCAID,
   0,
   [_TIr],
@@ -7673,6 +7685,11 @@ export var RealTimeContactAnalysisSegmentEvent$: StaticStructureSchema = [3, n0,
   0,
   [_I, _ETve, _Time, _PI, _PR, _DNi],
   [0, 0, () => RealTimeContactAnalysisTimeData$, 0, 0, 0], 3
+];
+export var RealTimeContactAnalysisSegmentExtractedInformation$: StaticStructureSchema = [3, n0, _RTCASEI,
+  0,
+  [_EDI, _EDN, _EDDL, _EVx, _FCa],
+  [0, 0, 0, () => RealTimeContactAnalysisExtractedInformationValues, 0], 2
 ];
 export var RealTimeContactAnalysisSegmentIssues$: StaticStructureSchema = [3, n0, _RTCASI,
   0,
@@ -10193,6 +10210,9 @@ var RealTimeContactAnalysisAttachments: StaticListSchema = [1, n0, _RTCAAe,
 var RealTimeContactAnalysisCharacterIntervals: StaticListSchema = [1, n0, _RTCACIe,
   0, () => RealTimeContactAnalysisCharacterInterval$
 ];
+var RealTimeContactAnalysisExtractedInformationValues: StaticListSchema = [1, n0, _RTCAEIVe,
+  0, () => RealTimeContactAnalysisExtractedInformationValue$
+];
 var RealTimeContactAnalysisIssuesDetected: StaticListSchema = [1, n0, _RTCAIDe,
   0, () => RealTimeContactAnalysisIssueDetected$
 ];
@@ -10594,8 +10614,8 @@ export var PredefinedAttributeValues$: StaticUnionSchema = [4, n0, _PAVre,
 ];
 export var RealtimeContactAnalysisSegment$: StaticUnionSchema = [4, n0, _RCASe,
   0,
-  [_Tr, _Cate, _Is, _Eve, _Atta, _PCS],
-  [() => RealTimeContactAnalysisSegmentTranscript$, () => RealTimeContactAnalysisSegmentCategories$, () => RealTimeContactAnalysisSegmentIssues$, () => RealTimeContactAnalysisSegmentEvent$, () => RealTimeContactAnalysisSegmentAttachments$, () => RealTimeContactAnalysisSegmentPostContactSummary$]
+  [_Tr, _Cate, _Is, _Eve, _Atta, _PCS, _EIx],
+  [() => RealTimeContactAnalysisSegmentTranscript$, () => RealTimeContactAnalysisSegmentCategories$, () => RealTimeContactAnalysisSegmentIssues$, () => RealTimeContactAnalysisSegmentEvent$, () => RealTimeContactAnalysisSegmentAttachments$, () => RealTimeContactAnalysisSegmentPostContactSummary$, () => RealTimeContactAnalysisSegmentExtractedInformation$]
 ];
 export var RealTimeContactAnalysisTimeData$: StaticUnionSchema = [4, n0, _RTCATD,
   0,
