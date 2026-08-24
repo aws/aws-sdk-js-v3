@@ -1993,7 +1993,6 @@ describe("S3TransferManager Unit Tests", () => {
       const result = await tm.downloadDirectory({
         bucket: "example-bucket",
         destination,
-        recursive: true,
         failurePolicy: async (context) => {
           failures.push({
             key: (context.objectRequest as any).Key,

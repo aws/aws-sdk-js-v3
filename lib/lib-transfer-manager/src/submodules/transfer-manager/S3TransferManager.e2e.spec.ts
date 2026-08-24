@@ -1005,4 +1005,86 @@ describe(S3TransferManager.name, () => {
       }
     }, 60_000);
   });
+
+  describe("downloadDirectory tests", () => {
+    const prefix = `download-dir-e2e-${Date.now()}`;
+
+    async function cleanupS3Objects(s3Prefix: string) {
+      const listed = await client.listObjectsV2({ Bucket, Prefix: s3Prefix });
+      if (listed.Contents?.length) {
+        await Promise.all(listed.Contents.map((obj) => client.deleteObject({ Bucket, Key: obj.Key! })));
+      }
+    }
+
+    it("first calls uploadDirectory to upload a nested tree then verifies if downloadDirectory reproduces the same relative paths and byte-identical file contents under the destination", async () => {
+      const s3Prefix = `${prefix}/roundtrip`;
+      const source = await mkdtemp(join(tmpdir(), "tm-e2e-src-"));
+      const dest = await mkdtemp(join(tmpdir(), "tm-e2e-dst-"));
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        // Build a local source tree with nested directories and varied sizes.
+        await writeFile(join(source, "photo1.jpg"), data(20 * 1024 * 1024));
+        await mkdir(join(source, "2023", "jan"), { recursive: true });
+        await writeFile(join(source, "2023", "jan", "photo2.jpg"), data(1048576));
+        await writeFile(join(source, "readme.txt"), data(1024));
+
+        // Upload the whole tree to S3 under the prefix.
+        const up = await tm.uploadDirectory({ bucket: Bucket, source, recursive: true, s3Prefix });
+        expect(up.objectsUploaded).toBe(3);
+        expect(up.objectsFailed).toBe(0);
+
+        // Download it back into a fresh local directory.
+        const down = await tm.downloadDirectory({ bucket: Bucket, destination: dest, s3Prefix });
+        expect(down.objectsDownloaded).toBe(3);
+        expect(down.objectsFailed).toBe(0);
+
+        // The downloaded tree lives under <dest>/<s3Prefix>/... (full key preserved).
+        // readFile throws if a file is missing, so each call verifies both
+        // existence and byte-identical content against the original.
+        const downloadedRoot = join(dest, s3Prefix);
+        check(await readFile(join(downloadedRoot, "photo1.jpg")));
+        check(await readFile(join(downloadedRoot, "2023", "jan", "photo2.jpg")));
+        check(await readFile(join(downloadedRoot, "readme.txt")));
+      } finally {
+        await rm(source, { recursive: true });
+        await rm(dest, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    }, 180_000);
+
+    it("apply the filter callback to only download objects matching the predicate (.jpg)", async () => {
+      const s3Prefix = `${prefix}/roundtrip-filter`;
+      const source = await mkdtemp(join(tmpdir(), "tm-e2e-src-"));
+      const dest = await mkdtemp(join(tmpdir(), "tm-e2e-dst-"));
+      const tm = new S3TransferManager({ s3: client });
+
+      try {
+        await writeFile(join(source, "keep.jpg"), data(1024));
+        await writeFile(join(source, "skip.txt"), data(1024));
+
+        const up = await tm.uploadDirectory({ bucket: Bucket, source, recursive: true, s3Prefix });
+        expect(up.objectsUploaded).toBe(2);
+
+        const down = await tm.downloadDirectory({
+          bucket: Bucket,
+          destination: dest,
+          s3Prefix,
+          filter: (object) => object.Key!.endsWith(".jpg"),
+        });
+
+        expect(down.objectsDownloaded).toBe(1);
+        expect(down.objectsFailed).toBe(0);
+
+        // Only the matching object was written; the destination holds exactly it.
+        const downloadedRoot = join(dest, s3Prefix);
+        expect(await readdir(downloadedRoot)).toEqual(["keep.jpg"]);
+        check(await readFile(join(downloadedRoot, "keep.jpg")));
+      } finally {
+        await rm(source, { recursive: true });
+        await rm(dest, { recursive: true });
+        await cleanupS3Objects(s3Prefix);
+      }
+    }, 180_000);
+  });
 });
