@@ -1219,6 +1219,12 @@ export interface GetDbClusterOutput {
   dbParameterGroupIdentifier?: string | undefined;
 
   /**
+   * <p>The ID of the DB parameter group actually applied to your DB cluster. When the service applies optimized defaults, it creates a service-managed DB parameter group and this field reflects that group, while dbParameterGroupIdentifier reflects the customer-provided DB parameter group. When no service-managed DB parameter group is applied, this value matches dbParameterGroupIdentifier.</p>
+   * @public
+   */
+  effectiveDbParameterGroupIdentifier?: string | undefined;
+
+  /**
    * <p>Configuration for sending InfluxDB engine logs to send to specified S3 bucket.</p>
    * @public
    */

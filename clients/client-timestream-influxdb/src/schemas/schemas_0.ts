@@ -153,6 +153,7 @@ const _dTu = "durationType";
 const _dVCDFH = "distinctValueCacheDisableFromHistory";
 const _e = "error";
 const _eA = "expiresAfter";
+const _eDPGI = "effectiveDbParameterGroupIdentifier";
 const _eMPB = "execMemPoolBytes";
 const _eT = "engineType";
 const _en = "endpoint";
@@ -488,8 +489,8 @@ export var GetDbClusterInput$: StaticStructureSchema = [3, n0, _GDCI,
 ];
 export var GetDbClusterOutput$: StaticStructureSchema = [3, n0, _GDCO,
   0,
-  [_i, _n, _a, _st, _en, _rE, _p, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGIb, _lDC, _mS, _lMT, _nMT, _iAPSA, _vSI, _vSGI, _fM, _cC, _dBC, _kKI],
-  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 5, 5, 0, 64 | 0, 64 | 0, 0, () => ClusterConfiguration$, () => DbBackupConfigurationOutputList, 0], 3
+  [_i, _n, _a, _st, _en, _rE, _p, _dT, _dIT, _nT, _dST, _aS, _eT, _pA, _dPGIb, _eDPGI, _lDC, _mS, _lMT, _nMT, _iAPSA, _vSI, _vSGI, _fM, _cC, _dBC, _kKI],
+  [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 0, () => LogDeliveryConfiguration$, () => MaintenanceSchedule$, 5, 5, 0, 64 | 0, 64 | 0, 0, () => ClusterConfiguration$, () => DbBackupConfigurationOutputList, 0], 3
 ];
 export var GetDbInstanceInput$: StaticStructureSchema = [3, n0, _GDII,
   0,

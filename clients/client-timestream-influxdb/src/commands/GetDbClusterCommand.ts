@@ -53,6 +53,7 @@ export interface GetDbClusterCommandOutput extends GetDbClusterOutput, __Metadat
  * //   engineType: "INFLUXDB_V2" || "INFLUXDB_V3_CORE" || "INFLUXDB_V3_ENTERPRISE",
  * //   publiclyAccessible: true || false,
  * //   dbParameterGroupIdentifier: "STRING_VALUE",
+ * //   effectiveDbParameterGroupIdentifier: "STRING_VALUE",
  * //   logDeliveryConfiguration: { // LogDeliveryConfiguration
  * //     s3Configuration: { // S3Configuration
  * //       bucketName: "STRING_VALUE", // required
