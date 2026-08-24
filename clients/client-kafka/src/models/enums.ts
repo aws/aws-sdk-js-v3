@@ -218,6 +218,34 @@ export type PartitionStrategy = (typeof PartitionStrategy)[keyof typeof Partitio
  * @public
  * @enum
  */
+export const JwtSigningAlgorithm = {
+  ES384: "ES384",
+  RS256: "RS256",
+} as const;
+/**
+ * @public
+ */
+export type JwtSigningAlgorithm = (typeof JwtSigningAlgorithm)[keyof typeof JwtSigningAlgorithm];
+
+/**
+ * @public
+ * @enum
+ */
+export const TokenEndpointAuthenticationMethod = {
+  BASIC: "BASIC",
+  NONE: "NONE",
+  POST: "POST",
+} as const;
+/**
+ * @public
+ */
+export type TokenEndpointAuthenticationMethod =
+  (typeof TokenEndpointAuthenticationMethod)[keyof typeof TokenEndpointAuthenticationMethod];
+
+/**
+ * @public
+ * @enum
+ */
 export const KafkaClusterSaslScramMechanism = {
   SHA256: "SHA256",
   SHA512: "SHA512",

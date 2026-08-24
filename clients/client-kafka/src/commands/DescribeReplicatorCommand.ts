@@ -67,6 +67,25 @@ export interface DescribeReplicatorCommandOutput extends DescribeReplicatorRespo
  * //         MTLS: { // KafkaClusterMTLSAuthentication
  * //           SecretArn: "STRING_VALUE", // required
  * //         },
+ * //         SaslOAuthBearer: { // KafkaClusterSaslOAuthBearerAuthentication
+ * //           TokenEndpointUrl: "STRING_VALUE", // required
+ * //           ClientCredentials: { // KafkaClusterOAuthClientCredentials
+ * //             TokenRequestSecretArn: "STRING_VALUE", // required
+ * //           },
+ * //           IamJwtBearer: { // KafkaClusterOAuthIamJwtBearer
+ * //             Audience: "STRING_VALUE", // required
+ * //             SigningAlgorithm: "RS256" || "ES384", // required
+ * //             TokenRequestSecretArn: "STRING_VALUE",
+ * //           },
+ * //           ClientCredentialsAssertion: { // KafkaClusterOAuthClientCredentialsAssertion
+ * //             Audience: "STRING_VALUE", // required
+ * //             SigningAlgorithm: "RS256" || "ES384", // required
+ * //             TokenRequestSecretArn: "STRING_VALUE",
+ * //           },
+ * //           TokenEndpointAuthenticationMethod: "POST" || "BASIC" || "NONE", // required
+ * //           Scope: "STRING_VALUE",
+ * //           TokenEndpointTlsCertificateArn: "STRING_VALUE",
+ * //         },
  * //       },
  * //       EncryptionInTransit: { // KafkaClusterEncryptionInTransit
  * //         EncryptionType: "TLS", // required

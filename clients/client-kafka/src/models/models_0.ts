@@ -11,6 +11,7 @@ import type {
   CustomerActionStatus,
   EnhancedMonitoring,
   IcebergCompressionType,
+  JwtSigningAlgorithm,
   KafkaClusterEncryptionInTransitType,
   KafkaClusterSaslScramMechanism,
   KafkaVersionStatus,
@@ -25,6 +26,7 @@ import type {
   S3StorageClass,
   StorageMode,
   TargetCompressionType,
+  TokenEndpointAuthenticationMethod,
   TopicState,
   UserIdentityType,
   ValueConverter,
@@ -1634,6 +1636,114 @@ export interface KafkaClusterMTLSAuthentication {
 }
 
 /**
+ * <p>Details for SASL/OAUTHBEARER using standard client_credentials grant.</p>
+ * @public
+ */
+export interface KafkaClusterOAuthClientCredentials {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the OAuth client credentials.</p>
+   * @public
+   */
+  TokenRequestSecretArn: string | undefined;
+}
+
+/**
+ * <p>Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion.</p>
+ * @public
+ */
+export interface KafkaClusterOAuthClientCredentialsAssertion {
+  /**
+   * <p>The audience for the JWT client assertion.</p>
+   * @public
+   */
+  Audience: string | undefined;
+
+  /**
+   * <p>The signing algorithm for the JWT client assertion.</p>
+   * @public
+   */
+  SigningAlgorithm: JwtSigningAlgorithm | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the signing key.</p>
+   * @public
+   */
+  TokenRequestSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Details for SASL/OAUTHBEARER using JWT Bearer assertion grant.</p>
+ * @public
+ */
+export interface KafkaClusterOAuthIamJwtBearer {
+  /**
+   * <p>The audience for the JWT Bearer assertion.</p>
+   * @public
+   */
+  Audience: string | undefined;
+
+  /**
+   * <p>The signing algorithm for the JWT Bearer assertion.</p>
+   * @public
+   */
+  SigningAlgorithm: JwtSigningAlgorithm | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Secrets Manager secret containing the signing key.</p>
+   * @public
+   */
+  TokenRequestSecretArn?: string | undefined;
+}
+
+/**
+ * <p>Details for SASL/OAUTHBEARER client authentication.</p>
+ * @public
+ */
+export interface KafkaClusterSaslOAuthBearerAuthentication {
+  /**
+   * <p>The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.</p>
+   * @public
+   */
+  TokenEndpointUrl: string | undefined;
+
+  /**
+   * <p>Details for SASL/OAUTHBEARER using standard client_credentials grant.</p>
+   * @public
+   */
+  ClientCredentials?: KafkaClusterOAuthClientCredentials | undefined;
+
+  /**
+   * <p>Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523).</p>
+   * @public
+   */
+  IamJwtBearer?: KafkaClusterOAuthIamJwtBearer | undefined;
+
+  /**
+   * <p>Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion.</p>
+   * @public
+   */
+  ClientCredentialsAssertion?: KafkaClusterOAuthClientCredentialsAssertion | undefined;
+
+  /**
+   * <p>How client credentials are sent to the identity provider. Valid values are POST, BASIC, or NONE.</p>
+   * @public
+   */
+  TokenEndpointAuthenticationMethod: TokenEndpointAuthenticationMethod | undefined;
+
+  /**
+   * <p>OAuth scope to request.</p>
+   * @public
+   */
+  Scope?: string | undefined;
+
+  /**
+   * <p>Secrets Manager ARN containing a custom CA certificate for the identity provider.</p>
+   * @public
+   */
+  TokenEndpointTlsCertificateArn?: string | undefined;
+}
+
+/**
  * <p>Details for SASL/SCRAM client authentication.</p>
  * @public
  */
@@ -1667,6 +1777,12 @@ export interface KafkaClusterClientAuthentication {
    * @public
    */
   MTLS?: KafkaClusterMTLSAuthentication | undefined;
+
+  /**
+   * <p>Details for SASL/OAUTHBEARER client authentication.</p>
+   * @public
+   */
+  SaslOAuthBearer?: KafkaClusterSaslOAuthBearerAuthentication | undefined;
 }
 
 /**

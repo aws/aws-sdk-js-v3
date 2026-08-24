@@ -191,6 +191,7 @@ import {
   InternalServerErrorException$,
   JmxExporter$,
   JmxExporterInfo$,
+  JwtSigningAlgorithm,
   Kafka,
   KafkaClient,
   KafkaCluster$,
@@ -200,6 +201,10 @@ import {
   KafkaClusterEncryptionInTransit$,
   KafkaClusterEncryptionInTransitType,
   KafkaClusterMTLSAuthentication$,
+  KafkaClusterOAuthClientCredentials$,
+  KafkaClusterOAuthClientCredentialsAssertion$,
+  KafkaClusterOAuthIamJwtBearer$,
+  KafkaClusterSaslOAuthBearerAuthentication$,
   KafkaClusterSaslScramAuthentication$,
   KafkaClusterSaslScramMechanism,
   KafkaClusterSummary$,
@@ -364,6 +369,7 @@ import {
   TagResourceRequest$,
   TargetCompressionType,
   Tls$,
+  TokenEndpointAuthenticationMethod,
   TooManyRequestsException,
   TooManyRequestsException$,
   TopicConfiguration$,
@@ -703,6 +709,10 @@ assert(typeof KafkaClusterClientVpcConfig$ === "object");
 assert(typeof KafkaClusterDescription$ === "object");
 assert(typeof KafkaClusterEncryptionInTransit$ === "object");
 assert(typeof KafkaClusterMTLSAuthentication$ === "object");
+assert(typeof KafkaClusterOAuthClientCredentials$ === "object");
+assert(typeof KafkaClusterOAuthClientCredentialsAssertion$ === "object");
+assert(typeof KafkaClusterOAuthIamJwtBearer$ === "object");
+assert(typeof KafkaClusterSaslOAuthBearerAuthentication$ === "object");
 assert(typeof KafkaClusterSaslScramAuthentication$ === "object");
 assert(typeof KafkaClusterSummary$ === "object");
 assert(typeof KafkaVersion$ === "object");
@@ -850,6 +860,7 @@ assert(typeof ConsumerGroupOffsetSyncMode === "object");
 assert(typeof CustomerActionStatus === "object");
 assert(typeof EnhancedMonitoring === "object");
 assert(typeof IcebergCompressionType === "object");
+assert(typeof JwtSigningAlgorithm === "object");
 assert(typeof KafkaClusterEncryptionInTransitType === "object");
 assert(typeof KafkaClusterSaslScramMechanism === "object");
 assert(typeof KafkaVersionStatus === "object");
@@ -864,6 +875,7 @@ assert(typeof S3CompressionType === "object");
 assert(typeof S3StorageClass === "object");
 assert(typeof StorageMode === "object");
 assert(typeof TargetCompressionType === "object");
+assert(typeof TokenEndpointAuthenticationMethod === "object");
 assert(typeof TopicState === "object");
 assert(typeof UserIdentityType === "object");
 assert(typeof ValueConverter === "object");

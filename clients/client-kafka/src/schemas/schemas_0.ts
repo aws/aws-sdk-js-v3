@@ -8,6 +8,7 @@ const _AO = "AppendOnly";
 const _AOA = "ActiveOperationArn";
 const _ATCT = "AddedToClusterTime";
 const _Ar = "Arn";
+const _Au = "Audience";
 const _B = "Bucket";
 const _BA = "BucketArn";
 const _BASS = "BatchAssociateScramSecret";
@@ -52,7 +53,8 @@ const _CAo = "ConfigurationArn";
 const _CB = "ClientBroker";
 const _CBI = "CreatedBrokerIds";
 const _CBSI = "CurrentBrokerSoftwareInfo";
-const _CC = "CreateChannel";
+const _CC = "ClientCredentials";
+const _CCA = "ClientCredentialsAssertion";
 const _CCE = "ClusterConnectivityException";
 const _CCR = "CreateChannelRequest";
 const _CCRr = "CreateChannelResponse";
@@ -63,8 +65,9 @@ const _CCRreate = "CreateConfigurationResponse";
 const _CCV = "CreateClusterV2";
 const _CCVR = "CreateClusterV2Request";
 const _CCVRr = "CreateClusterV2Response";
-const _CCr = "CreateCluster";
-const _CCre = "CreateConfiguration";
+const _CCr = "CreateChannel";
+const _CCre = "CreateCluster";
+const _CCrea = "CreateConfiguration";
 const _CE = "ConflictException";
 const _CGOSM = "ConsumerGroupOffsetSyncMode";
 const _CGR = "ConsumerGroupReplication";
@@ -227,6 +230,7 @@ const _I = "Iam";
 const _IC = "InCluster";
 const _IDC = "IcebergDestinationConfiguration";
 const _IDU = "IcebergDestinationUpdate";
+const _IJB = "IamJwtBearer";
 const _IP = "InvalidParameter";
 const _IRR = "IsReplicatorReference";
 const _ISEE = "InternalServerErrorException";
@@ -242,7 +246,11 @@ const _KCCVC = "KafkaClusterClientVpcConfig";
 const _KCD = "KafkaClusterDescription";
 const _KCEIT = "KafkaClusterEncryptionInTransit";
 const _KCMTLSA = "KafkaClusterMTLSAuthentication";
+const _KCOACC = "KafkaClusterOAuthClientCredentials";
+const _KCOACCA = "KafkaClusterOAuthClientCredentialsAssertion";
+const _KCOAIJB = "KafkaClusterOAuthIamJwtBearer";
 const _KCS = "KafkaClusterSummary";
+const _KCSOABA = "KafkaClusterSaslOAuthBearerAuthentication";
 const _KCSSA = "KafkaClusterSaslScramAuthentication";
 const _KCSa = "KafkaClustersSummary";
 const _KCa = "KafkaCluster";
@@ -386,6 +394,7 @@ const _Rev = "Revisions";
 const _S = "S3";
 const _SA = "SecretArn";
 const _SAL = "SecretArnList";
+const _SAi = "SigningAlgorithm";
 const _SC = "StorageClass";
 const _SCA = "ServerlessClientAuthentication";
 const _SCGO = "SynchroniseConsumerGroupOffsets";
@@ -408,6 +417,7 @@ const _SL = "SourceList";
 const _SM = "StorageMode";
 const _SN = "StepName";
 const _SNo = "SourceName";
+const _SOAB = "SaslOAuthBearer";
 const _SP = "ServerProperties";
 const _SPt = "StartingPosition";
 const _SR = "ServerlessRequest";
@@ -419,7 +429,8 @@ const _ST = "StartTime";
 const _SUE = "ServiceUnavailableException";
 const _SV = "SourceVersion";
 const _Sa = "Sasl";
-const _Sc = "Scram";
+const _Sc = "Scope";
+const _Scr = "Scram";
 const _Se = "Serverless";
 const _St = "Status";
 const _Sta = "State";
@@ -434,7 +445,10 @@ const _TCI = "TargetClusterInfo";
 const _TCL = "TopicConfigurationList";
 const _TCT = "TargetCompressionType";
 const _TCo = "TopicConfiguration";
+const _TEAM = "TokenEndpointAuthenticationMethod";
 const _TEE = "TopicExistsException";
+const _TETCA = "TokenEndpointTlsCertificateArn";
+const _TEU = "TokenEndpointUrl";
 const _TI = "TopicInfo";
 const _TIT = "TargetInstanceType";
 const _TK = "TagKeys";
@@ -450,6 +464,7 @@ const _TNOBN = "TargetNumberOfBrokerNodes";
 const _TPI = "TopicPartitionInfo";
 const _TR = "TopicReplication";
 const _TRR = "TagResourceRequest";
+const _TRSA = "TokenRequestSecretArn";
 const _TRU = "TopicReplicationUpdate";
 const _TRa = "TagResource";
 const _TTE = "TopicsToExclude";
@@ -545,6 +560,7 @@ const _aO = "appendOnly";
 const _aOA = "activeOperationArn";
 const _aTCT = "addedToClusterTime";
 const _ar = "arn";
+const _au = "audience";
 const _b = "bucket";
 const _bA = "bucketArn";
 const _bAZD = "brokerAZDistribution";
@@ -581,6 +597,8 @@ const _cAo = "configurationArn";
 const _cB = "clientBroker";
 const _cBI = "createdBrokerIds";
 const _cBSI = "currentBrokerSoftwareInfo";
+const _cC = "clientCredentials";
+const _cCA = "clientCredentialsAssertion";
 const _cGOSM = "consumerGroupOffsetSyncMode";
 const _cGR = "consumerGroupReplication";
 const _cGTE = "consumerGroupsToExclude";
@@ -656,6 +674,7 @@ const _i = "iam";
 const _iC = "inCluster";
 const _iDC = "icebergDestinationConfiguration";
 const _iDU = "icebergDestinationUpdate";
+const _iJB = "iamJwtBearer";
 const _iP = "invalidParameter";
 const _iRR = "isReplicatorReference";
 const _iT = "instanceType";
@@ -757,6 +776,7 @@ const _rev = "revisions";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.kafka";
 const _sA = "secretArn";
 const _sAL = "secretArnList";
+const _sAi = "signingAlgorithm";
 const _sC = "storageClass";
 const _sCGO = "synchroniseConsumerGroupOffsets";
 const _sCI = "sourceClusterInfo";
@@ -777,6 +797,7 @@ const _sL = "sourceList";
 const _sM = "storageMode";
 const _sN = "stepName";
 const _sNo = "sourceName";
+const _sOAB = "saslOAuthBearer";
 const _sP = "serverProperties";
 const _sPt = "startingPosition";
 const _sS = "stepStatus";
@@ -785,7 +806,8 @@ const _sT = "startTime";
 const _sV = "sourceVersion";
 const _s_ = "s3";
 const _sa = "sasl";
-const _sc = "scram";
+const _sc = "scope";
+const _scr = "scram";
 const _se = "server";
 const _ser = "serverless";
 const _st = "status";
@@ -800,6 +822,9 @@ const _tCA = "targetClusterArn";
 const _tCI = "targetClusterInfo";
 const _tCL = "topicConfigurationList";
 const _tCT = "targetCompressionType";
+const _tEAM = "tokenEndpointAuthenticationMethod";
+const _tETCA = "tokenEndpointTlsCertificateArn";
+const _tEU = "tokenEndpointUrl";
 const _tIT = "targetInstanceType";
 const _tK = "tagKeys";
 const _tKCA = "targetKafkaClusterArn";
@@ -811,6 +836,7 @@ const _tNC = "topicNameConfiguration";
 const _tNF = "topicNameFilter";
 const _tNOBN = "targetNumberOfBrokerNodes";
 const _tR = "topicReplication";
+const _tRSA = "tokenRequestSecretArn";
 const _tTE = "topicsToExclude";
 const _tTR = "topicsToReplicate";
 const _tV = "targetVersions";
@@ -1531,8 +1557,8 @@ export var KafkaCluster$: StaticStructureSchema = [3, n0, _KCa,
 ];
 export var KafkaClusterClientAuthentication$: StaticStructureSchema = [3, n0, _KCCA,
   0,
-  [_SSa, _MTLS],
-  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }], [() => KafkaClusterMTLSAuthentication$, { [_jN]: _mTLS }]]
+  [_SSa, _MTLS, _SOAB],
+  [[() => KafkaClusterSaslScramAuthentication$, { [_jN]: _sSa }], [() => KafkaClusterMTLSAuthentication$, { [_jN]: _mTLS }], [() => KafkaClusterSaslOAuthBearerAuthentication$, { [_jN]: _sOAB }]]
 ];
 export var KafkaClusterClientVpcConfig$: StaticStructureSchema = [3, n0, _KCCVC,
   0,
@@ -1553,6 +1579,26 @@ export var KafkaClusterMTLSAuthentication$: StaticStructureSchema = [3, n0, _KCM
   0,
   [_SA],
   [[0, { [_jN]: _sA }]], 1
+];
+export var KafkaClusterOAuthClientCredentials$: StaticStructureSchema = [3, n0, _KCOACC,
+  0,
+  [_TRSA],
+  [[0, { [_jN]: _tRSA }]], 1
+];
+export var KafkaClusterOAuthClientCredentialsAssertion$: StaticStructureSchema = [3, n0, _KCOACCA,
+  0,
+  [_Au, _SAi, _TRSA],
+  [[0, { [_jN]: _au }], [0, { [_jN]: _sAi }], [0, { [_jN]: _tRSA }]], 2
+];
+export var KafkaClusterOAuthIamJwtBearer$: StaticStructureSchema = [3, n0, _KCOAIJB,
+  0,
+  [_Au, _SAi, _TRSA],
+  [[0, { [_jN]: _au }], [0, { [_jN]: _sAi }], [0, { [_jN]: _tRSA }]], 2
+];
+export var KafkaClusterSaslOAuthBearerAuthentication$: StaticStructureSchema = [3, n0, _KCSOABA,
+  0,
+  [_TEU, _TEAM, _CC, _IJB, _CCA, _Sc, _TETCA],
+  [[0, { [_jN]: _tEU }], [0, { [_jN]: _tEAM }], [() => KafkaClusterOAuthClientCredentials$, { [_jN]: _cC }], [() => KafkaClusterOAuthIamJwtBearer$, { [_jN]: _iJB }], [() => KafkaClusterOAuthClientCredentialsAssertion$, { [_jN]: _cCA }], [0, { [_jN]: _sc }], [0, { [_jN]: _tETCA }]], 2
 ];
 export var KafkaClusterSaslScramAuthentication$: StaticStructureSchema = [3, n0, _KCSSA,
   0,
@@ -1921,15 +1967,15 @@ export var S3Storage$: StaticStructureSchema = [3, n0, _SSt,
 ];
 export var Sasl$: StaticStructureSchema = [3, n0, _Sa,
   0,
-  [_Sc, _I],
-  [[() => Scram$, { [_jN]: _sc }], [() => Iam$, { [_jN]: _i }]]
+  [_Scr, _I],
+  [[() => Scram$, { [_jN]: _scr }], [() => Iam$, { [_jN]: _i }]]
 ];
 export var SchemaEvolution$: StaticStructureSchema = [3, n0, _SE,
   0,
   [_ESE],
   [[2, { [_jN]: _eSE }]]
 ];
-export var Scram$: StaticStructureSchema = [3, n0, _Sc,
+export var Scram$: StaticStructureSchema = [3, n0, _Scr,
   0,
   [_En],
   [[2, { [_jN]: _ena }]]
@@ -2206,8 +2252,8 @@ export var VpcConnectivityIam$: StaticStructureSchema = [3, n0, _VCIp,
 ];
 export var VpcConnectivitySasl$: StaticStructureSchema = [3, n0, _VCS,
   0,
-  [_Sc, _I],
-  [[() => VpcConnectivityScram$, { [_jN]: _sc }], [() => VpcConnectivityIam$, { [_jN]: _i }]]
+  [_Scr, _I],
+  [[() => VpcConnectivityScram$, { [_jN]: _scr }], [() => VpcConnectivityIam$, { [_jN]: _i }]]
 ];
 export var VpcConnectivityScram$: StaticStructureSchema = [3, n0, _VCSp,
   0,
@@ -2354,16 +2400,16 @@ export var BatchAssociateScramSecret$: StaticOperationSchema = [9, n0, _BASS,
 export var BatchDisassociateScramSecret$: StaticOperationSchema = [9, n0, _BDSS,
   { [_h]: ["PATCH", "/v1/clusters/{ClusterArn}/scram-secrets", 200] }, () => BatchDisassociateScramSecretRequest$, () => BatchDisassociateScramSecretResponse$
 ];
-export var CreateChannel$: StaticOperationSchema = [9, n0, _CC,
+export var CreateChannel$: StaticOperationSchema = [9, n0, _CCr,
   { [_h]: ["POST", "/v1/clusters/{ClusterArn}/channels", 200] }, () => CreateChannelRequest$, () => CreateChannelResponse$
 ];
-export var CreateCluster$: StaticOperationSchema = [9, n0, _CCr,
+export var CreateCluster$: StaticOperationSchema = [9, n0, _CCre,
   { [_h]: ["POST", "/v1/clusters", 200] }, () => CreateClusterRequest$, () => CreateClusterResponse$
 ];
 export var CreateClusterV2$: StaticOperationSchema = [9, n0, _CCV,
   { [_h]: ["POST", "/api/v2/clusters", 200] }, () => CreateClusterV2Request$, () => CreateClusterV2Response$
 ];
-export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CCre,
+export var CreateConfiguration$: StaticOperationSchema = [9, n0, _CCrea,
   { [_h]: ["POST", "/v1/configurations", 200] }, () => CreateConfigurationRequest$, () => CreateConfigurationResponse$
 ];
 export var CreateReplicator$: StaticOperationSchema = [9, n0, _CRr,
