@@ -1,8 +1,10 @@
 import {
+  AccountConstraint$,
   CreateDeployment$,
   CreateDeploymentCommand,
   CreateDeploymentInput$,
   CreateDeploymentOutput$,
+  DelegatedAdminConstraint$,
   DeleteDeployment$,
   DeleteDeploymentCommand,
   DeleteDeploymentInput$,
@@ -64,6 +66,7 @@ import {
   ListWorkloadsCommand,
   ListWorkloadsInput$,
   ListWorkloadsOutput$,
+  ManagementAccountConstraint$,
   paginateListDeploymentEvents,
   paginateListDeploymentPatternVersions,
   paginateListDeployments,
@@ -130,8 +133,10 @@ assert(typeof UntagResource$ === "object");
 assert(typeof UpdateDeploymentCommand === "function");
 assert(typeof UpdateDeployment$ === "object");
 // structural schemas
+assert(typeof AccountConstraint$ === "object");
 assert(typeof CreateDeploymentInput$ === "object");
 assert(typeof CreateDeploymentOutput$ === "object");
+assert(typeof DelegatedAdminConstraint$ === "object");
 assert(typeof DeleteDeploymentInput$ === "object");
 assert(typeof DeleteDeploymentOutput$ === "object");
 assert(typeof DeploymentConditionalField$ === "object");
@@ -162,6 +167,7 @@ assert(typeof ListWorkloadDeploymentPatternsInput$ === "object");
 assert(typeof ListWorkloadDeploymentPatternsOutput$ === "object");
 assert(typeof ListWorkloadsInput$ === "object");
 assert(typeof ListWorkloadsOutput$ === "object");
+assert(typeof ManagementAccountConstraint$ === "object");
 assert(typeof TagResourceInput$ === "object");
 assert(typeof TagResourceOutput$ === "object");
 assert(typeof UntagResourceInput$ === "object");

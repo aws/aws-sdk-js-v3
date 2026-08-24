@@ -42,6 +42,14 @@ export interface GetWorkloadCommandOutput extends GetWorkloadOutput, __MetadataB
  * //     workloadName: "STRING_VALUE",
  * //     displayName: "STRING_VALUE",
  * //     status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
+ * //     accountConstraints: [ // AccountConstraintsList
+ * //       { // AccountConstraint Union: only one key present
+ * //         managementAccount: {},
+ * //         delegatedAdmin: { // DelegatedAdminConstraint
+ * //           servicePrincipal: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     ],
  * //     description: "STRING_VALUE",
  * //     documentationUrl: "STRING_VALUE",
  * //     iconUrl: "STRING_VALUE",

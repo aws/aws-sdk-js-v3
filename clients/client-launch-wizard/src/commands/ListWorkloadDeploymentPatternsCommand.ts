@@ -50,6 +50,14 @@ export interface ListWorkloadDeploymentPatternsCommandOutput extends ListWorkloa
  * //       description: "STRING_VALUE",
  * //       status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
  * //       statusMessage: "STRING_VALUE",
+ * //       accountConstraints: [ // AccountConstraintsList
+ * //         { // AccountConstraint Union: only one key present
+ * //           managementAccount: {},
+ * //           delegatedAdmin: { // DelegatedAdminConstraint
+ * //             servicePrincipal: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

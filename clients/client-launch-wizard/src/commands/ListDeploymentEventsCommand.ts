@@ -47,6 +47,9 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  * //       status: "CANCELED" || "CANCELING" || "COMPLETED" || "CREATED" || "FAILED" || "IN_PROGRESS" || "PENDING" || "TIMED_OUT",
  * //       statusReason: "STRING_VALUE",
  * //       timestamp: new Date("TIMESTAMP"),
+ * //       metadata: { // DeploymentEventMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

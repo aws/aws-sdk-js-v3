@@ -1,6 +1,9 @@
+const _AC = "AccountConstraint";
+const _ACL = "AccountConstraintsList";
 const _CD = "CreateDeployment";
 const _CDI = "CreateDeploymentInput";
 const _CDO = "CreateDeploymentOutput";
+const _DAC = "DelegatedAdminConstraint";
 const _DCF = "DeploymentConditionalField";
 const _DD = "DeploymentData";
 const _DDI = "DeleteDeploymentInput";
@@ -50,6 +53,7 @@ const _LWDPI = "ListWorkloadDeploymentPatternsInput";
 const _LWDPO = "ListWorkloadDeploymentPatternsOutput";
 const _LWI = "ListWorkloadsInput";
 const _LWO = "ListWorkloadsOutput";
+const _MAC = "ManagementAccountConstraint";
 const _RLE = "ResourceLimitException";
 const _RNFE = "ResourceNotFoundException";
 const _SCD = "SpecificationsConditionalData";
@@ -69,6 +73,7 @@ const _WDPDS = "WorkloadDeploymentPatternDataSummary";
 const _WDPDSL = "WorkloadDeploymentPatternDataSummaryList";
 const _WDS = "WorkloadDataSummary";
 const _WDSL = "WorkloadDataSummaryList";
+const _aC = "accountConstraints";
 const _aV = "allowedValues";
 const _c = "client";
 const _cA = "createdAt";
@@ -77,6 +82,7 @@ const _con = "conditionals";
 const _d = "description";
 const _dA = "deletedAt";
 const _dAe = "deploymentArn";
+const _dAel = "delegatedAdmin";
 const _dE = "deploymentEvents";
 const _dI = "deploymentId";
 const _dN = "displayName";
@@ -98,7 +104,9 @@ const _i = "id";
 const _iU = "iconUrl";
 const _m = "message";
 const _mA = "modifiedAt";
+const _mAa = "managementAccount";
 const _mR = "maxResults";
+const _me = "metadata";
 const _n = "name";
 const _nT = "nextToken";
 const _pN = "patternName";
@@ -107,6 +115,7 @@ const _rA = "resourceArn";
 const _rG = "resourceGroup";
 const _s = "smithy.ts.sdk.synthetic.com.amazonaws.launchwizard";
 const _sM = "statusMessage";
+const _sP = "servicePrincipal";
 const _sR = "statusReason";
 const _se = "server";
 const _sp = "specifications";
@@ -132,6 +141,7 @@ import type {
   StaticMapSchema,
   StaticOperationSchema,
   StaticStructureSchema,
+  StaticUnionSchema,
 } from "@smithy/types";
 
 import {
@@ -190,6 +200,11 @@ export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
   [_dI],
   [0]
 ];
+export var DelegatedAdminConstraint$: StaticStructureSchema = [3, n0, _DAC,
+  0,
+  [_sP],
+  [0], 1
+];
 export var DeleteDeploymentInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
   [_dI],
@@ -217,8 +232,8 @@ export var DeploymentDataSummary$: StaticStructureSchema = [3, n0, _DDS,
 ];
 export var DeploymentEventDataSummary$: StaticStructureSchema = [3, n0, _DEDS,
   0,
-  [_n, _d, _st, _sR, _ti],
-  [0, 0, 0, 0, 4]
+  [_n, _d, _st, _sR, _ti, _me],
+  [0, 0, 0, 0, 4, 128 | 0]
 ];
 export var DeploymentFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
@@ -340,6 +355,11 @@ export var ListWorkloadsOutput$: StaticStructureSchema = [3, n0, _LWO,
   [_wo, _nT],
   [() => WorkloadDataSummaryList, 0]
 ];
+export var ManagementAccountConstraint$: StaticStructureSchema = [3, n0, _MAC,
+  0,
+  [],
+  []
+];
 export var TagResourceInput$: StaticStructureSchema = [3, n0, _TRI,
   0,
   [_rA, _t],
@@ -372,23 +392,26 @@ export var UpdateDeploymentOutput$: StaticStructureSchema = [3, n0, _UDO,
 ];
 export var WorkloadData$: StaticStructureSchema = [3, n0, _WD,
   0,
-  [_wN, _dN, _st, _d, _dU, _iU, _sM],
-  [0, 0, 0, 0, 0, 0, 0]
+  [_wN, _dN, _st, _aC, _d, _dU, _iU, _sM],
+  [0, 0, 0, () => AccountConstraintsList, 0, 0, 0, 0]
 ];
 export var WorkloadDataSummary$: StaticStructureSchema = [3, n0, _WDS,
   0,
-  [_wN, _dN, _st],
-  [0, 0, 0]
+  [_wN, _dN, _st, _aC],
+  [0, 0, 0, () => AccountConstraintsList]
 ];
 export var WorkloadDeploymentPatternData$: StaticStructureSchema = [3, n0, _WDPD,
   0,
-  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM, _sp],
-  [0, 0, 0, 0, 0, 0, 0, 0, () => DeploymentSpecificationsData]
+  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM, _aC, _sp],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => AccountConstraintsList, () => DeploymentSpecificationsData]
 ];
 export var WorkloadDeploymentPatternDataSummary$: StaticStructureSchema = [3, n0, _WDPDS,
   0,
-  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM],
-  [0, 0, 0, 0, 0, 0, 0, 0]
+  [_wN, _dPN, _wVN, _dPVN, _dN, _d, _st, _sM, _aC],
+  [0, 0, 0, 0, 0, 0, 0, 0, () => AccountConstraintsList]
+];
+var AccountConstraintsList: StaticListSchema = [1, n0, _ACL,
+  0, () => AccountConstraint$
 ];
 var AllowedValues = 64 | 0;
 var DeploymentDataSummaryList: StaticListSchema = [1, n0, _DDSL,
@@ -421,10 +444,16 @@ var WorkloadDataSummaryList: StaticListSchema = [1, n0, _WDSL,
 var WorkloadDeploymentPatternDataSummaryList: StaticListSchema = [1, n0, _WDPDSL,
   0, () => WorkloadDeploymentPatternDataSummary$
 ];
+var DeploymentEventMetadata = 128 | 0;
 var DeploymentSpecifications: StaticMapSchema = [2, n0, _DS,
   8, 0, 0
 ];
 var Tags = 128 | 0;
+export var AccountConstraint$: StaticUnionSchema = [4, n0, _AC,
+  0,
+  [_mAa, _dAel],
+  [() => ManagementAccountConstraint$, () => DelegatedAdminConstraint$]
+];
 export var CreateDeployment$: StaticOperationSchema = [9, n0, _CD,
   { [_h]: ["POST", "/createDeployment", 200] }, () => CreateDeploymentInput$, () => CreateDeploymentOutput$
 ];

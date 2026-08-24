@@ -9,6 +9,77 @@ import type {
 } from "./enums";
 
 /**
+ * The deployment must be initiated from a delegated administrator account for the specified service principal.
+ * @public
+ */
+export interface DelegatedAdminConstraint {
+  /**
+   * The service principal for which the account must be a delegated administrator. For example, `stacksets.cloudformation.amazonaws.com`.
+   * @public
+   */
+  servicePrincipal: string | undefined;
+}
+
+/**
+ * The deployment must be initiated from the AWS Organizations management account.
+ * @public
+ */
+export interface ManagementAccountConstraint {}
+
+/**
+ * A constraint on which AWS account a deployment can be initiated from. Specify one of the supported constraint types.
+ * @public
+ */
+export type AccountConstraint =
+  | AccountConstraint.DelegatedAdminMember
+  | AccountConstraint.ManagementAccountMember
+  | AccountConstraint.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace AccountConstraint {
+  /**
+   * The deployment must be initiated from the AWS Organizations management account.
+   * @public
+   */
+  export interface ManagementAccountMember {
+    managementAccount: ManagementAccountConstraint;
+    delegatedAdmin?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * The deployment must be initiated from a delegated administrator account for the specified service principal.
+   * @public
+   */
+  export interface DelegatedAdminMember {
+    managementAccount?: never;
+    delegatedAdmin: DelegatedAdminConstraint;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    managementAccount?: never;
+    delegatedAdmin?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    managementAccount: (value: ManagementAccountConstraint) => T;
+    delegatedAdmin: (value: DelegatedAdminConstraint) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * @public
  */
 export interface CreateDeploymentInput {
@@ -145,6 +216,13 @@ export interface DeploymentEventDataSummary {
    * @public
    */
   timestamp?: Date | undefined;
+
+  /**
+   * A map of metadata key-value pairs associated with a deployment event.
+   * For error detection events, contains workload context and log excerpts used for troubleshooting.
+   * @public
+   */
+  metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -657,6 +735,12 @@ export interface WorkloadData {
   status?: WorkloadStatus | undefined;
 
   /**
+   * Optional list of constraints describing what kind of AWS account is allowed to deploy this workload or deployment pattern. Within a single list the semantics are OR: an account satisfies the list if it satisfies any entry. Workload-level and pattern-level lists combine with AND at deployment time. An absent or empty list at this level means no constraint at this level.
+   * @public
+   */
+  accountConstraints?: AccountConstraint[] | undefined;
+
+  /**
    * <p>The description of a workload.</p>
    * @public
    */
@@ -761,6 +845,12 @@ export interface WorkloadDeploymentPatternData {
    * @public
    */
   statusMessage?: string | undefined;
+
+  /**
+   * Optional list of constraints describing what kind of AWS account is allowed to deploy this workload or deployment pattern. Within a single list the semantics are OR: an account satisfies the list if it satisfies any entry. Workload-level and pattern-level lists combine with AND at deployment time. An absent or empty list at this level means no constraint at this level.
+   * @public
+   */
+  accountConstraints?: AccountConstraint[] | undefined;
 
   /**
    * <p>The settings specified for the deployment. These settings define how to deploy and configure your resources created by the deployment. For more information about the specifications required for creating a deployment for a SAP workload, see <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/launch-wizard-specifications-sap.html">SAP deployment specifications</a>. To retrieve the specifications required to create a deployment for other workloads, use the <a href="https://docs.aws.amazon.com/launchwizard/latest/APIReference/API_GetWorkloadDeploymentPattern.html"> <code>GetWorkloadDeploymentPattern</code> </a> operation.</p>
@@ -885,6 +975,12 @@ export interface WorkloadDataSummary {
    * @public
    */
   status?: WorkloadStatus | undefined;
+
+  /**
+   * Optional list of constraints describing what kind of AWS account is allowed to deploy this workload or deployment pattern. Within a single list the semantics are OR: an account satisfies the list if it satisfies any entry. Workload-level and pattern-level lists combine with AND at deployment time. An absent or empty list at this level means no constraint at this level.
+   * @public
+   */
+  accountConstraints?: AccountConstraint[] | undefined;
 }
 
 /**
@@ -979,6 +1075,12 @@ export interface WorkloadDeploymentPatternDataSummary {
    * @public
    */
   statusMessage?: string | undefined;
+
+  /**
+   * Optional list of constraints describing what kind of AWS account is allowed to deploy this workload or deployment pattern. Within a single list the semantics are OR: an account satisfies the list if it satisfies any entry. Workload-level and pattern-level lists combine with AND at deployment time. An absent or empty list at this level means no constraint at this level.
+   * @public
+   */
+  accountConstraints?: AccountConstraint[] | undefined;
 }
 
 /**

@@ -44,6 +44,14 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsOutput, __Metad
  * //       workloadName: "STRING_VALUE",
  * //       displayName: "STRING_VALUE",
  * //       status: "ACTIVE" || "INACTIVE" || "DISABLED" || "DELETED",
+ * //       accountConstraints: [ // AccountConstraintsList
+ * //         { // AccountConstraint Union: only one key present
+ * //           managementAccount: {},
+ * //           delegatedAdmin: { // DelegatedAdminConstraint
+ * //             servicePrincipal: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
