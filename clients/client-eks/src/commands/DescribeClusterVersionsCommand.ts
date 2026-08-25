@@ -126,6 +126,15 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * //               },
  * //             },
  * //             kubeControllerManagerConfig: { // KubeControllerManagerVersionConfig
+ * //               podGcControllerConfig: { // PodGcControllerVersionConfig
+ * //                 terminatedPodGcThreshold: { // IntegerParameterConfig
+ * //                   defaultValue: Number("int"),
+ * //                   constraints: { // IntegerConstraints
+ * //                     min: Number("int"),
+ * //                     max: Number("int"),
+ * //                   },
+ * //                 },
+ * //               },
  * //               horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerVersionConfig
  * //                 horizontalPodAutoscalerSyncPeriod: {
  * //                   defaultValue: "STRING_VALUE",
@@ -176,6 +185,15 @@ export interface DescribeClusterVersionsCommandOutput extends DescribeClusterVer
  * //           },
  * //         },
  * //         kubeControllerManagerConfig: {
+ * //           podGcControllerConfig: {
+ * //             terminatedPodGcThreshold: {
+ * //               defaultValue: Number("int"),
+ * //               constraints: {
+ * //                 min: Number("int"),
+ * //                 max: Number("int"),
+ * //               },
+ * //             },
+ * //           },
  * //           horizontalPodAutoscalerControllerConfig: {
  * //             horizontalPodAutoscalerSyncPeriod: "<DurationParameterConfig>",
  * //           },

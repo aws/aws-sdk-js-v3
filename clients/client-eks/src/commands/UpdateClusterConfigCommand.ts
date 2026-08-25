@@ -178,6 +178,9 @@ export interface UpdateClusterConfigCommandOutput extends UpdateClusterConfigRes
  *     },
  *   },
  *   kubeControllerManagerConfig: { // KubeControllerManagerConfigRequest
+ *     podGcControllerConfig: { // PodGcControllerConfigRequest
+ *       terminatedPodGcThreshold: Number("int"),
+ *     },
  *     horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigRequest
  *       horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  *     },

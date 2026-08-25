@@ -201,6 +201,9 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResponse, _
  * //       },
  * //     },
  * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       podGcControllerConfig: { // PodGcControllerConfigResponse
+ * //         terminatedPodGcThreshold: Number("int"),
+ * //       },
  * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
  * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  * //       },

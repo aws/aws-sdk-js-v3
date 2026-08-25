@@ -214,6 +214,9 @@ export interface RegisterClusterCommandOutput extends RegisterClusterResponse, _
  * //       },
  * //     },
  * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       podGcControllerConfig: { // PodGcControllerConfigResponse
+ * //         terminatedPodGcThreshold: Number("int"),
+ * //       },
  * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
  * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  * //       },

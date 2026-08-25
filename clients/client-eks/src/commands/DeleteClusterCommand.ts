@@ -201,6 +201,9 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       },
  * //     },
  * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       podGcControllerConfig: { // PodGcControllerConfigResponse
+ * //         terminatedPodGcThreshold: Number("int"),
+ * //       },
  * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
  * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  * //       },

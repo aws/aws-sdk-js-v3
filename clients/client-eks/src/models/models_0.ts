@@ -2061,10 +2061,28 @@ export interface HorizontalPodAutoscalerControllerConfigRequest {
 }
 
 /**
+ * <p>The pod garbage collection controller configuration for the Kubernetes controller manager.</p>
+ * @public
+ */
+export interface PodGcControllerConfigRequest {
+  /**
+   * <p>The number of terminated pods that can exist before the garbage collector starts deleting them.</p>
+   * @public
+   */
+  terminatedPodGcThreshold?: number | undefined;
+}
+
+/**
  * <p>The configuration for the Kubernetes controller manager on an Amazon EKS cluster.</p>
  * @public
  */
 export interface KubeControllerManagerConfigRequest {
+  /**
+   * <p>The pod garbage collection controller configuration.</p>
+   * @public
+   */
+  podGcControllerConfig?: PodGcControllerConfigRequest | undefined;
+
   /**
    * <p>The horizontal pod autoscaler controller configuration.</p>
    * @public
@@ -3058,10 +3076,28 @@ export interface HorizontalPodAutoscalerControllerConfigResponse {
 }
 
 /**
+ * <p>The pod garbage collection controller configuration for the Kubernetes controller manager.</p>
+ * @public
+ */
+export interface PodGcControllerConfigResponse {
+  /**
+   * <p>The number of terminated pods that can exist before the garbage collector starts deleting them.</p>
+   * @public
+   */
+  terminatedPodGcThreshold?: number | undefined;
+}
+
+/**
  * <p>The Kubernetes controller manager configuration for an Amazon EKS cluster.</p>
  * @public
  */
 export interface KubeControllerManagerConfigResponse {
+  /**
+   * <p>The pod garbage collection controller configuration.</p>
+   * @public
+   */
+  podGcControllerConfig?: PodGcControllerConfigResponse | undefined;
+
   /**
    * <p>The horizontal pod autoscaler controller configuration.</p>
    * @public
@@ -6035,10 +6071,64 @@ export interface HorizontalPodAutoscalerControllerVersionConfig {
 }
 
 /**
+ * <p>Constraints for an integer parameter specifying allowed range.</p>
+ * @public
+ */
+export interface IntegerConstraints {
+  /**
+   * <p>The minimum allowed value.</p>
+   * @public
+   */
+  min?: number | undefined;
+
+  /**
+   * <p>The maximum allowed value.</p>
+   * @public
+   */
+  max?: number | undefined;
+}
+
+/**
+ * <p>An integer parameter configuration with default value and constraints.</p>
+ * @public
+ */
+export interface IntegerParameterConfig {
+  /**
+   * <p>The default value for the integer parameter.</p>
+   * @public
+   */
+  defaultValue?: number | undefined;
+
+  /**
+   * <p>The constraints for the integer parameter.</p>
+   * @public
+   */
+  constraints?: IntegerConstraints | undefined;
+}
+
+/**
+ * <p>The pod garbage collection controller version configuration.</p>
+ * @public
+ */
+export interface PodGcControllerVersionConfig {
+  /**
+   * <p>The terminated pod garbage collection threshold configuration with default value and constraints.</p>
+   * @public
+   */
+  terminatedPodGcThreshold?: IntegerParameterConfig | undefined;
+}
+
+/**
  * <p>The Kubernetes controller manager version-specific configuration defaults and constraints.</p>
  * @public
  */
 export interface KubeControllerManagerVersionConfig {
+  /**
+   * <p>The pod garbage collection controller configuration with default value and constraints.</p>
+   * @public
+   */
+  podGcControllerConfig?: PodGcControllerVersionConfig | undefined;
+
   /**
    * <p>The horizontal pod autoscaler controller configuration with default value and constraints.</p>
    * @public

@@ -287,6 +287,8 @@ import {
   InsightStatus$,
   InsightStatusValue,
   InsightSummary$,
+  IntegerConstraints$,
+  IntegerParameterConfig$,
   IntegerRangeConstraint$,
   InvalidParameterException,
   InvalidParameterException$,
@@ -408,6 +410,9 @@ import {
   paginateListNodegroups,
   paginateListPodIdentityAssociations,
   paginateListUpdates,
+  PodGcControllerConfigRequest$,
+  PodGcControllerConfigResponse$,
+  PodGcControllerVersionConfig$,
   PodIdentityAssociation$,
   PodIdentityAssociationSummary$,
   PortRangeConstraints$,
@@ -854,6 +859,8 @@ assert(typeof InsightResourceDetail$ === "object");
 assert(typeof InsightsFilter$ === "object");
 assert(typeof InsightStatus$ === "object");
 assert(typeof InsightSummary$ === "object");
+assert(typeof IntegerConstraints$ === "object");
+assert(typeof IntegerParameterConfig$ === "object");
 assert(typeof IntegerRangeConstraint$ === "object");
 assert(typeof Issue$ === "object");
 assert(typeof KubeApiServerConfigRequest$ === "object");
@@ -916,6 +923,9 @@ assert(typeof OidcIdentityProviderConfig$ === "object");
 assert(typeof OidcIdentityProviderConfigRequest$ === "object");
 assert(typeof OutpostConfigRequest$ === "object");
 assert(typeof OutpostConfigResponse$ === "object");
+assert(typeof PodGcControllerConfigRequest$ === "object");
+assert(typeof PodGcControllerConfigResponse$ === "object");
+assert(typeof PodGcControllerVersionConfig$ === "object");
 assert(typeof PodIdentityAssociation$ === "object");
 assert(typeof PodIdentityAssociationSummary$ === "object");
 assert(typeof PortRangeConstraints$ === "object");

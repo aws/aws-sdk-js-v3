@@ -195,6 +195,9 @@ export interface DeregisterClusterCommandOutput extends DeregisterClusterRespons
  * //       },
  * //     },
  * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       podGcControllerConfig: { // PodGcControllerConfigResponse
+ * //         terminatedPodGcThreshold: Number("int"),
+ * //       },
  * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
  * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  * //       },

@@ -223,12 +223,14 @@ const _HPACCR = "HorizontalPodAutoscalerControllerConfigRequest";
 const _HPACCRo = "HorizontalPodAutoscalerControllerConfigResponse";
 const _HPACVC = "HorizontalPodAutoscalerControllerVersionConfig";
 const _I = "Identity";
+const _IC = "IntegerConstraints";
 const _ICSS = "InsightCategorySpecificSummary";
 const _IF = "InsightsFilter";
 const _IL = "IssueList";
 const _IPC = "IdentityProviderConfig";
 const _IPCR = "IdentityProviderConfigResponse";
 const _IPCd = "IdentityProviderConfigs";
+const _IPCn = "IntegerParameterConfig";
 const _IPE = "InvalidParameterException";
 const _IRC = "IntegerRangeConstraint";
 const _IRD = "InsightResourceDetail";
@@ -320,6 +322,9 @@ const _OIDC = "OIDC";
 const _OIPC = "OidcIdentityProviderConfig";
 const _OIPCR = "OidcIdentityProviderConfigRequest";
 const _P = "Provider";
+const _PGCCR = "PodGcControllerConfigRequest";
+const _PGCCRo = "PodGcControllerConfigResponse";
+const _PGCVC = "PodGcControllerVersionConfig";
 const _PIA = "PodIdentityAssociation";
 const _PIAS = "PodIdentityAssociationSummary";
 const _PIASo = "PodIdentityAssociationSummaries";
@@ -642,6 +647,7 @@ const _pA = "principalArn";
 const _pAC = "publicAccessCidrs";
 const _pAo = "policyArn";
 const _pERA = "podExecutionRoleArn";
+const _pGCC = "podGcControllerConfig";
 const _pI = "productId";
 const _pIA = "podIdentityAssociations";
 const _pIC = "podIdentityConfiguration";
@@ -717,6 +723,7 @@ const _tK = "tagKeys";
 const _tL = "taintsList";
 const _tM = "timeoutMinutes";
 const _tN = "tierName";
+const _tPGT = "terminatedPodGcThreshold";
 const _tRA = "targetRoleArn";
 const _ta = "taints";
 const _te = "term";
@@ -1701,6 +1708,16 @@ export var InsightSummary$: StaticStructureSchema = [3, n0, _ISn,
   [_i, _n, _cat, _kV, _lRTa, _lTT, _de, _iS],
   [0, 0, 0, 0, 4, 4, 0, () => InsightStatus$]
 ];
+export var IntegerConstraints$: StaticStructureSchema = [3, n0, _IC,
+  0,
+  [_mi, _ma],
+  [1, 1]
+];
+export var IntegerParameterConfig$: StaticStructureSchema = [3, n0, _IPCn,
+  0,
+  [_dVe, _cons],
+  [1, () => IntegerConstraints$]
+];
 export var IntegerRangeConstraint$: StaticStructureSchema = [3, n0, _IRC,
   0,
   [_mi, _ma],
@@ -1728,18 +1745,18 @@ export var KubeApiServerVersionConfig$: StaticStructureSchema = [3, n0, _KASVC,
 ];
 export var KubeControllerManagerConfigRequest$: StaticStructureSchema = [3, n0, _KCMCR,
   0,
-  [_hPACC],
-  [() => HorizontalPodAutoscalerControllerConfigRequest$]
+  [_pGCC, _hPACC],
+  [() => PodGcControllerConfigRequest$, () => HorizontalPodAutoscalerControllerConfigRequest$]
 ];
 export var KubeControllerManagerConfigResponse$: StaticStructureSchema = [3, n0, _KCMCRu,
   0,
-  [_hPACC],
-  [() => HorizontalPodAutoscalerControllerConfigResponse$]
+  [_pGCC, _hPACC],
+  [() => PodGcControllerConfigResponse$, () => HorizontalPodAutoscalerControllerConfigResponse$]
 ];
 export var KubeControllerManagerVersionConfig$: StaticStructureSchema = [3, n0, _KCMVC,
   0,
-  [_hPACC],
-  [() => HorizontalPodAutoscalerControllerVersionConfig$]
+  [_pGCC, _hPACC],
+  [() => PodGcControllerVersionConfig$, () => HorizontalPodAutoscalerControllerVersionConfig$]
 ];
 export var KubernetesNetworkConfigRequest$: StaticStructureSchema = [3, n0, _KNCR,
   0,
@@ -2010,6 +2027,21 @@ export var OutpostConfigResponse$: StaticStructureSchema = [3, n0, _OCRu,
   0,
   [_oA, _cPIT, _cPP, _eIT, _eP],
   [64 | 0, 0, () => ControlPlanePlacementResponse$, 0, () => EtcdPlacementResponse$], 2
+];
+export var PodGcControllerConfigRequest$: StaticStructureSchema = [3, n0, _PGCCR,
+  0,
+  [_tPGT],
+  [1]
+];
+export var PodGcControllerConfigResponse$: StaticStructureSchema = [3, n0, _PGCCRo,
+  0,
+  [_tPGT],
+  [1]
+];
+export var PodGcControllerVersionConfig$: StaticStructureSchema = [3, n0, _PGCVC,
+  0,
+  [_tPGT],
+  [() => IntegerParameterConfig$]
 ];
 export var PodIdentityAssociation$: StaticStructureSchema = [3, n0, _PIA,
   0,

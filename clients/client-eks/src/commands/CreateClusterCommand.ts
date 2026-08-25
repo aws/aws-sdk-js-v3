@@ -191,6 +191,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *     },
  *   },
  *   kubeControllerManagerConfig: { // KubeControllerManagerConfigRequest
+ *     podGcControllerConfig: { // PodGcControllerConfigRequest
+ *       terminatedPodGcThreshold: Number("int"),
+ *     },
  *     horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigRequest
  *       horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  *     },
@@ -354,6 +357,9 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //       },
  * //     },
  * //     kubeControllerManagerConfig: { // KubeControllerManagerConfigResponse
+ * //       podGcControllerConfig: { // PodGcControllerConfigResponse
+ * //         terminatedPodGcThreshold: Number("int"),
+ * //       },
  * //       horizontalPodAutoscalerControllerConfig: { // HorizontalPodAutoscalerControllerConfigResponse
  * //         horizontalPodAutoscalerSyncPeriod: "STRING_VALUE",
  * //       },
