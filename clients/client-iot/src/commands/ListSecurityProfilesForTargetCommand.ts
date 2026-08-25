@@ -23,7 +23,10 @@ export interface ListSecurityProfilesForTargetCommandInput extends ListSecurityP
 export interface ListSecurityProfilesForTargetCommandOutput extends ListSecurityProfilesForTargetResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
+ * <note>
+ *             <p>The IoT Device Defender detect feature will no longer be available to new customers starting August 31, 2026. If you would like to use the detect feature, sign up prior to August 31, 2026. To learn about alternatives to IoT Device Defender detect, see IoT Device Defender detect feature availability change in the IoT Device Defender Developer Guide. There is no change to IoT Device Defender audit availability.</p>
+ *          </note>
+ *          <p>Lists the Device Defender security profiles attached to a target (thing group).</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListSecurityProfilesForTarget</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

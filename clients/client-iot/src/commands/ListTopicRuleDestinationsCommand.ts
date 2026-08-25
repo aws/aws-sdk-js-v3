@@ -60,6 +60,13 @@ export interface ListTopicRuleDestinationsCommandOutput extends ListTopicRuleDes
  * //         vpcId: "STRING_VALUE",
  * //         roleArn: "STRING_VALUE",
  * //       },
+ * //       influxDBSummary: { // InfluxDBDestinationSummary
+ * //         endpoint: "STRING_VALUE",
+ * //         influxDBVersion: "V2" || "V3",
+ * //         secretId: "STRING_VALUE",
+ * //         secretType: "SecretString" || "SecretBinary",
+ * //         secretKey: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

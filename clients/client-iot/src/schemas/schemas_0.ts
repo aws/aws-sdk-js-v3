@@ -587,6 +587,11 @@ const _IAA = "IotAnalyticsAction";
 const _IAE = "InvalidAggregationException";
 const _ICI = "IssuerCertificateIdentifier";
 const _ID = "ImplicitDeny";
+const _IDBA = "InfluxDBAction";
+const _IDBBC = "InfluxDBBatchConfig";
+const _IDBDC = "InfluxDBDestinationConfiguration";
+const _IDBDP = "InfluxDBDestinationProperties";
+const _IDBDS = "InfluxDBDestinationSummary";
 const _IE = "InternalException";
 const _IEA = "IotEventsAction";
 const _IF = "IndexingFilter";
@@ -1482,6 +1487,11 @@ const _iCI = "issuerCertificateIdentifier";
 const _iCS = "issuerCertificateSubject";
 const _iCSN = "issuerCertificateSerialNumber";
 const _iD = "inlineDocument";
+const _iDB = "influxDB";
+const _iDBC = "influxDBConfiguration";
+const _iDBP = "influxDBProperties";
+const _iDBS = "influxDBSummary";
+const _iDBV = "influxDBVersion";
 const _iDV = "isDefaultVersion";
 const _iDm = "implicitDeny";
 const _iE = "iotEvents";
@@ -1630,6 +1640,7 @@ const _op = "optional";
 const _ope = "operation";
 const _oper = "operator";
 const _or = "order";
+const _org = "organization";
 const _ow = "owner";
 const _p = "policies";
 const _pA = "packageArn";
@@ -1769,11 +1780,13 @@ const _sFC = "succeededFindingsCount";
 const _sFCk = "skippedFindingsCount";
 const _sG = "securityGroups";
 const _sI = "suppressIndefinitely";
+const _sIe = "secretId";
 const _sIo = "sourceIp";
 const _sIt = "streamId";
 const _sItr = "streamInfo";
 const _sIu = "subnetIds";
 const _sJR = "scheduledJobRollouts";
+const _sK = "secretKey";
 const _sL = "s3Location";
 const _sMN = "stateMachineName";
 const _sN = "streamName";
@@ -1801,6 +1814,7 @@ const _sSJP = "startSigningJobParameter";
 const _sT = "startTime";
 const _sTF = "startedTimeFilter";
 const _sTe = "serviceType";
+const _sTec = "secretType";
 const _sTt = "statisticalThreshold";
 const _sV = "stateValue";
 const _sVS = "sbomValidationStatus";
@@ -1905,6 +1919,7 @@ const _tTP = "thingTypeProperties";
 const _tTa = "targetType";
 const _tTh = "thingTypes";
 const _tTr = "transferredTo";
+const _tU = "timestampUnit";
 const _tV = "templateVersion";
 const _ta = "targets";
 const _tag = "tags";
@@ -2254,8 +2269,8 @@ export var AcceptCertificateTransferRequest$: StaticStructureSchema = [3, n0, _A
 ];
 export var Action$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_dDB, _dDBy, _l, _sn, _sq, _k, _r, _s_, _f, _cM, _cA, _cLl, _el, _sa, _iA, _iE, _iSW, _sF, _t, _h, _ka, _oS, _lo],
-  [() => DynamoDBAction$, () => DynamoDBv2Action$, () => LambdaAction$, () => SnsAction$, () => SqsAction$, () => KinesisAction$, () => RepublishAction$, () => S3Action$, () => FirehoseAction$, () => CloudwatchMetricAction$, () => CloudwatchAlarmAction$, () => CloudwatchLogsAction$, () => ElasticsearchAction$, () => SalesforceAction$, () => IotAnalyticsAction$, () => IotEventsAction$, () => IotSiteWiseAction$, () => StepFunctionsAction$, () => TimestreamAction$, () => HttpAction$, () => KafkaAction$, () => OpenSearchAction$, () => LocationAction$]
+  [_dDB, _dDBy, _l, _sn, _sq, _k, _r, _s_, _f, _cM, _cA, _cLl, _el, _sa, _iA, _iE, _iSW, _sF, _t, _h, _ka, _oS, _lo, _iDB],
+  [() => DynamoDBAction$, () => DynamoDBv2Action$, () => LambdaAction$, () => SnsAction$, () => SqsAction$, () => KinesisAction$, () => RepublishAction$, () => S3Action$, () => FirehoseAction$, () => CloudwatchMetricAction$, () => CloudwatchAlarmAction$, () => CloudwatchLogsAction$, () => ElasticsearchAction$, () => SalesforceAction$, () => IotAnalyticsAction$, () => IotEventsAction$, () => IotSiteWiseAction$, () => StepFunctionsAction$, () => TimestreamAction$, () => HttpAction$, () => KafkaAction$, () => OpenSearchAction$, () => LocationAction$, () => InfluxDBAction$]
 ];
 export var ActiveViolation$: StaticStructureSchema = [3, n0, _AV,
   0,
@@ -4137,6 +4152,31 @@ export var IndexingFilter$: StaticStructureSchema = [3, n0, _IF,
   [_nSN, _gL, _conne],
   [64 | 0, () => GeoLocationsFilter, () => ConnectivityFilter$]
 ];
+export var InfluxDBAction$: StaticStructureSchema = [3, n0, _IDBA,
+  0,
+  [_dA, _rAo, _dNa, _tNab, _org, _tag, _tU, _bC],
+  [0, 0, 0, 0, 0, 128 | 0, 0, () => InfluxDBBatchConfig$], 4
+];
+export var InfluxDBBatchConfig$: StaticStructureSchema = [3, n0, _IDBBC,
+  0,
+  [_mBS, _mBOM, _mBSB, _bAT],
+  [1, 1, 1, 2]
+];
+export var InfluxDBDestinationConfiguration$: StaticStructureSchema = [3, n0, _IDBDC,
+  0,
+  [_end, _iDBV, _sIe, _sTec, _sK],
+  [0, 0, 0, 0, 0], 3
+];
+export var InfluxDBDestinationProperties$: StaticStructureSchema = [3, n0, _IDBDP,
+  0,
+  [_end, _iDBV, _sIe, _sTec, _sK],
+  [0, 0, 0, 0, 0]
+];
+export var InfluxDBDestinationSummary$: StaticStructureSchema = [3, n0, _IDBDS,
+  0,
+  [_end, _iDBV, _sIe, _sTec, _sK],
+  [0, 0, 0, 0, 0]
+];
 export var IotAnalyticsAction$: StaticStructureSchema = [3, n0, _IAA,
   0,
   [_cAh, _cNh, _bM, _rAo],
@@ -5594,18 +5634,18 @@ export var TopicRule$: StaticStructureSchema = [3, n0, _TR,
 ];
 export var TopicRuleDestination$: StaticStructureSchema = [3, n0, _TRD,
   0,
-  [_ar, _st, _cAr, _lUA, _sRt, _hUP, _vP],
-  [0, 0, 4, 4, 0, () => HttpUrlDestinationProperties$, () => VpcDestinationProperties$]
+  [_ar, _st, _cAr, _lUA, _sRt, _hUP, _vP, _iDBP],
+  [0, 0, 4, 4, 0, () => HttpUrlDestinationProperties$, () => VpcDestinationProperties$, () => InfluxDBDestinationProperties$]
 ];
 export var TopicRuleDestinationConfiguration$: StaticStructureSchema = [3, n0, _TRDC,
   0,
-  [_hUC, _vCp],
-  [() => HttpUrlDestinationConfiguration$, () => VpcDestinationConfiguration$]
+  [_hUC, _vCp, _iDBC],
+  [() => HttpUrlDestinationConfiguration$, () => VpcDestinationConfiguration$, () => InfluxDBDestinationConfiguration$]
 ];
 export var TopicRuleDestinationSummary$: StaticStructureSchema = [3, n0, _TRDS,
   0,
-  [_ar, _st, _cAr, _lUA, _sRt, _hUS, _vDS],
-  [0, 0, 4, 4, 0, () => HttpUrlDestinationSummary$, () => VpcDestinationSummary$]
+  [_ar, _st, _cAr, _lUA, _sRt, _hUS, _vDS, _iDBS],
+  [0, 0, 4, 4, 0, () => HttpUrlDestinationSummary$, () => VpcDestinationSummary$, () => InfluxDBDestinationSummary$]
 ];
 export var TopicRuleListItem$: StaticStructureSchema = [3, n0, _TRLI,
   0,
@@ -6329,6 +6369,7 @@ var EventConfigurations: StaticMapSchema = [2, n0, _EC,
   0, 0, () => Configuration$
 ];
 var HttpHeaders = 128 | 0;
+var InfluxDBTagMap = 128 | 0;
 var ParameterMap = 128 | 0;
 var _Parameters = 128 | 0;
 var PublicKeyMap = 128 | 0;

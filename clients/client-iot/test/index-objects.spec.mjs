@@ -748,6 +748,14 @@ import {
   IndexNotReadyException,
   IndexNotReadyException$,
   IndexStatus,
+  InfluxDBAction$,
+  InfluxDBBatchConfig$,
+  InfluxDBDestinationConfiguration$,
+  InfluxDBDestinationProperties$,
+  InfluxDBDestinationSummary$,
+  InfluxDBSecretType,
+  InfluxDBTimestampUnit,
+  InfluxDBVersion,
   InternalException,
   InternalException$,
   InternalFailureException,
@@ -2450,6 +2458,11 @@ assert(typeof HttpUrlDestinationProperties$ === "object");
 assert(typeof HttpUrlDestinationSummary$ === "object");
 assert(typeof ImplicitDeny$ === "object");
 assert(typeof IndexingFilter$ === "object");
+assert(typeof InfluxDBAction$ === "object");
+assert(typeof InfluxDBBatchConfig$ === "object");
+assert(typeof InfluxDBDestinationConfiguration$ === "object");
+assert(typeof InfluxDBDestinationProperties$ === "object");
+assert(typeof InfluxDBDestinationSummary$ === "object");
 assert(typeof IotAnalyticsAction$ === "object");
 assert(typeof IotEventsAction$ === "object");
 assert(typeof IotSiteWiseAction$ === "object");
@@ -2876,6 +2889,9 @@ assert(typeof FieldType === "object");
 assert(typeof FleetIndexingApi === "object");
 assert(typeof FleetMetricUnit === "object");
 assert(typeof IndexStatus === "object");
+assert(typeof InfluxDBSecretType === "object");
+assert(typeof InfluxDBTimestampUnit === "object");
+assert(typeof InfluxDBVersion === "object");
 assert(typeof JobEndBehavior === "object");
 assert(typeof JobExecutionFailureType === "object");
 assert(typeof JobExecutionStatus === "object");

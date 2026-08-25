@@ -23,7 +23,10 @@ export interface CreateDimensionCommandInput extends CreateDimensionRequest {}
 export interface CreateDimensionCommandOutput extends CreateDimensionResponse, __MetadataBearer {}
 
 /**
- * <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
+ * <note>
+ *             <p>The IoT Device Defender detect feature will no longer be available to new customers starting August 31, 2026. If you would like to use the detect feature, sign up prior to August 31, 2026. To learn about alternatives to IoT Device Defender detect, see IoT Device Defender detect feature availability change in the IoT Device Defender Developer Guide. There is no change to IoT Device Defender audit availability.</p>
+ *          </note>
+ *          <p>Create a dimension that you can use to limit the scope of a metric used in a security profile for IoT Device Defender.
  *       For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateDimension</a> action.</p>
  * @example

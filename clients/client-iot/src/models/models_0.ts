@@ -33,10 +33,12 @@ import type {
   DimensionValueOperator,
   DynamoKeyType,
   FleetMetricUnit,
+  InfluxDBSecretType,
+  InfluxDBTimestampUnit,
+  InfluxDBVersion,
   JobEndBehavior,
   JobExecutionFailureType,
   LogLevel,
-  LogTargetType,
   MessageFormat,
   OTAUpdateStatus,
   OutputFormat,
@@ -566,6 +568,121 @@ export interface HttpAction {
    * @public
    */
   batchConfig?: BatchConfig | undefined;
+}
+
+/**
+ * <p>The batching configuration of an InfluxDB rule action. IoT closes a batch and writes
+ *       it to InfluxDB when the first of the configured limits is reached.</p>
+ * @public
+ */
+export interface InfluxDBBatchConfig {
+  /**
+   * <p>The maximum number of data points to collect in a batch.</p>
+   *          <p>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+   *       when another configured limit is reached.</p>
+   * @public
+   */
+  maxBatchSize?: number | undefined;
+
+  /**
+   * <p>The maximum length of time, in milliseconds, to keep a batch open before writing it to
+   *       InfluxDB.</p>
+   *          <p>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+   *       when another configured limit is reached.</p>
+   * @public
+   */
+  maxBatchOpenMs?: number | undefined;
+
+  /**
+   * <p>The maximum size of a batch, in bytes, before IoT writes it to InfluxDB.</p>
+   *          <p>If you don't specify a value, this limit doesn't apply. IoT then closes each batch
+   *       when another configured limit is reached.</p>
+   * @public
+   */
+  maxBatchSizeBytes?: number | undefined;
+
+  /**
+   * <p>Specifies whether to collect data points from different topics into the same
+   *       batch.</p>
+   *          <p>If omitted or <code>false</code>, IoT batches data points for each topic
+   *       separately.</p>
+   * @public
+   */
+  batchAcrossTopics?: boolean | undefined;
+}
+
+/**
+ * <p>The InfluxDB rule action converts the message payload into InfluxDB line protocol. It
+ *       writes the result to a table in an InfluxDB database. The database can be an Amazon
+ *       Timestream for InfluxDB instance or a self-managed InfluxDB cluster.</p>
+ *          <p>The action connects to InfluxDB through an InfluxDB topic rule destination, which must
+ *       be in the <code>ENABLED</code> state before the action can write data.</p>
+ * @public
+ */
+export interface InfluxDBAction {
+  /**
+   * <p>The ARN of the InfluxDB topic rule destination that identifies the InfluxDB instance to
+   *       write to.</p>
+   * @public
+   */
+  destinationArn: string | undefined;
+
+  /**
+   * <p>The ARN of the role that grants permission to retrieve the InfluxDB API token from
+   *       Amazon Web Services Secrets Manager.</p>
+   * @public
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The name of the InfluxDB database to write to. In InfluxDB 2, this is the name of the
+   *       bucket.</p>
+   * @public
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>The name of the table to write the data point to. This is the measurement name of the
+   *       InfluxDB line protocol record.</p>
+   *          <p>Accepts substitution templates.</p>
+   * @public
+   */
+  tableName: string | undefined;
+
+  /**
+   * <p>The name of the InfluxDB organization that owns the database.</p>
+   *          <p>A write to an InfluxDB 2 instance fails if this value isn't set. This value isn't used
+   *       when the destination is an InfluxDB 3 instance.</p>
+   * @public
+   */
+  organization?: string | undefined;
+
+  /**
+   * <p>The set of tags to write with each data point. Tags are the indexed metadata of an
+   *       InfluxDB data point.</p>
+   *          <p>Tag names and tag values accept substitution templates. A tag name can't use the
+   *         <code>@\{...\}</code> per-element form. A tag name must resolve to the same value for every
+   *       element of an array payload.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The precision of the timestamp written with each data point. Valid values are
+   *         <code>s</code> (seconds), <code>ms</code> (milliseconds), <code>us</code> (microseconds),
+   *       and <code>ns</code> (nanoseconds).</p>
+   *          <p>If omitted, the topic rule action uses <code>ms</code>.</p>
+   * @public
+   */
+  timestampUnit?: InfluxDBTimestampUnit | undefined;
+
+  /**
+   * <p>The batching configuration for the action. When present, IoT collects data points
+   *       from multiple messages and writes them to InfluxDB in a single request.</p>
+   *          <p>If omitted, each message is written to InfluxDB in its own request.</p>
+   * @public
+   */
+  batchConfig?: InfluxDBBatchConfig | undefined;
 }
 
 /**
@@ -1561,6 +1678,12 @@ export interface Action {
    * @public
    */
   location?: LocationAction | undefined;
+
+  /**
+   * <p>Write data to an InfluxDB database.</p>
+   * @public
+   */
+  influxDB?: InfluxDBAction | undefined;
 }
 
 /**
@@ -6850,6 +6973,47 @@ export interface HttpUrlDestinationConfiguration {
 }
 
 /**
+ * <p>The configuration of an InfluxDB topic rule destination.</p>
+ * @public
+ */
+export interface InfluxDBDestinationConfiguration {
+  /**
+   * <p>The URL of the InfluxDB instance to write to.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The major version of the InfluxDB instance. Valid values are <code>V2</code> and
+   *         <code>V3</code>.</p>
+   * @public
+   */
+  influxDBVersion: InfluxDBVersion | undefined;
+
+  /**
+   * <p>The ARN or name of the Amazon Web Services Secrets Manager secret that contains the InfluxDB API
+   *       token.</p>
+   * @public
+   */
+  secretId: string | undefined;
+
+  /**
+   * <p>The type of the secret that contains the InfluxDB API token. Valid values are
+   *         <code>SecretString</code> and <code>SecretBinary</code>.</p>
+   *          <p>If omitted, IoT reads the secret as a string.</p>
+   * @public
+   */
+  secretType?: InfluxDBSecretType | undefined;
+
+  /**
+   * <p>The key to read from the secret value when the secret contains a JSON object. If
+   *       omitted, IoT uses the entire secret value as the InfluxDB API token.</p>
+   * @public
+   */
+  secretKey?: string | undefined;
+}
+
+/**
  * <p>The configuration information for a virtual private cloud (VPC) destination.</p>
  * @public
  */
@@ -6895,6 +7059,13 @@ export interface TopicRuleDestinationConfiguration {
    * @public
    */
   vpcConfiguration?: VpcDestinationConfiguration | undefined;
+
+  /**
+   * <p>The configuration of an InfluxDB topic rule destination, which you specify when you
+   *       call <code>CreateTopicRuleDestination</code>.</p>
+   * @public
+   */
+  influxDBConfiguration?: InfluxDBDestinationConfiguration | undefined;
 }
 
 /**
@@ -6918,6 +7089,48 @@ export interface HttpUrlDestinationProperties {
    * @public
    */
   confirmationUrl?: string | undefined;
+}
+
+/**
+ * <p>The properties of an existing InfluxDB topic rule destination, as returned by
+ *         <code>CreateTopicRuleDestination</code> and
+ *       <code>GetTopicRuleDestination</code>.</p>
+ * @public
+ */
+export interface InfluxDBDestinationProperties {
+  /**
+   * <p>The URL of the InfluxDB instance that the destination writes to.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The major version of the InfluxDB instance. Valid values are <code>V2</code> and
+   *         <code>V3</code>.</p>
+   * @public
+   */
+  influxDBVersion?: InfluxDBVersion | undefined;
+
+  /**
+   * <p>The ARN or name of the Amazon Web Services Secrets Manager secret that contains the InfluxDB API
+   *       token.</p>
+   * @public
+   */
+  secretId?: string | undefined;
+
+  /**
+   * <p>The type of the secret that contains the InfluxDB API token. Valid values are
+   *         <code>SecretString</code> and <code>SecretBinary</code>.</p>
+   * @public
+   */
+  secretType?: InfluxDBSecretType | undefined;
+
+  /**
+   * <p>The key that is read from the secret value when the secret contains a JSON
+   *       object.</p>
+   * @public
+   */
+  secretKey?: string | undefined;
 }
 
 /**
@@ -7028,6 +7241,14 @@ export interface TopicRuleDestination {
    * @public
    */
   vpcProperties?: VpcDestinationProperties | undefined;
+
+  /**
+   * <p>The properties of an InfluxDB topic rule destination, as returned by
+   *         <code>CreateTopicRuleDestination</code> and
+   *       <code>GetTopicRuleDestination</code>.</p>
+   * @public
+   */
+  influxDBProperties?: InfluxDBDestinationProperties | undefined;
 }
 
 /**
@@ -7779,51 +8000,3 @@ export interface DeleteTopicRuleDestinationRequest {
    */
   arn: string | undefined;
 }
-
-/**
- * @public
- */
-export interface DeleteTopicRuleDestinationResponse {}
-
-/**
- * @public
- */
-export interface DeleteV2LoggingLevelRequest {
-  /**
-   * <p>The type of resource for which you are configuring logging. Must be
-   *             <code>THING_Group</code>.</p>
-   * @public
-   */
-  targetType: LogTargetType | undefined;
-
-  /**
-   * <p>The name of the resource for which you are configuring logging.</p>
-   * @public
-   */
-  targetName: string | undefined;
-}
-
-/**
- * <p>The input for the DeprecateThingType operation.</p>
- * @public
- */
-export interface DeprecateThingTypeRequest {
-  /**
-   * <p>The name of the thing type to deprecate.</p>
-   * @public
-   */
-  thingTypeName: string | undefined;
-
-  /**
-   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
-   * 			associate it with things.</p>
-   * @public
-   */
-  undoDeprecate?: boolean | undefined;
-}
-
-/**
- * <p>The output for the DeprecateThingType operation.</p>
- * @public
- */
-export interface DeprecateThingTypeResponse {}

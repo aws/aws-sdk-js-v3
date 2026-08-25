@@ -258,6 +258,23 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //           latitude: "STRING_VALUE", // required
  * //           longitude: "STRING_VALUE", // required
  * //         },
+ * //         influxDB: { // InfluxDBAction
+ * //           destinationArn: "STRING_VALUE", // required
+ * //           roleArn: "STRING_VALUE", // required
+ * //           databaseName: "STRING_VALUE", // required
+ * //           tableName: "STRING_VALUE", // required
+ * //           organization: "STRING_VALUE",
+ * //           tags: { // InfluxDBTagMap
+ * //             "<keys>": "STRING_VALUE",
+ * //           },
+ * //           timestampUnit: "s" || "ms" || "us" || "ns",
+ * //           batchConfig: { // InfluxDBBatchConfig
+ * //             maxBatchSize: Number("int"),
+ * //             maxBatchOpenMs: Number("int"),
+ * //             maxBatchSizeBytes: Number("int"),
+ * //             batchAcrossTopics: true || false,
+ * //           },
+ * //         },
  * //       },
  * //     ],
  * //     ruleDisabled: true || false,
@@ -473,6 +490,23 @@ export interface GetTopicRuleCommandOutput extends GetTopicRuleResponse, __Metad
  * //         },
  * //         latitude: "STRING_VALUE", // required
  * //         longitude: "STRING_VALUE", // required
+ * //       },
+ * //       influxDB: {
+ * //         destinationArn: "STRING_VALUE", // required
+ * //         roleArn: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //         organization: "STRING_VALUE",
+ * //         tags: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         timestampUnit: "s" || "ms" || "us" || "ns",
+ * //         batchConfig: {
+ * //           maxBatchSize: Number("int"),
+ * //           maxBatchOpenMs: Number("int"),
+ * //           maxBatchSizeBytes: Number("int"),
+ * //           batchAcrossTopics: true || false,
+ * //         },
  * //       },
  * //     },
  * //   },

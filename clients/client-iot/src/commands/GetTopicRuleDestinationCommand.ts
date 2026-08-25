@@ -58,6 +58,13 @@ export interface GetTopicRuleDestinationCommandOutput extends GetTopicRuleDestin
  * //       vpcId: "STRING_VALUE",
  * //       roleArn: "STRING_VALUE",
  * //     },
+ * //     influxDBProperties: { // InfluxDBDestinationProperties
+ * //       endpoint: "STRING_VALUE",
+ * //       influxDBVersion: "V2" || "V3",
+ * //       secretId: "STRING_VALUE",
+ * //       secretType: "SecretString" || "SecretBinary",
+ * //       secretKey: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *

@@ -19,6 +19,8 @@ import type {
   EncryptionType,
   EventType,
   FleetMetricUnit,
+  InfluxDBSecretType,
+  InfluxDBVersion,
   LogLevel,
   LogTargetType,
   PackageVersionAction,
@@ -70,12 +72,89 @@ import type {
   LogEventConfiguration,
   RegistrationConfig,
   SecurityProfileTarget,
+  StreamSummary,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ */
+export interface ListStreamsResponse {
+  /**
+   * <p>A list of streams.</p>
+   * @public
+   */
+  streams?: StreamSummary[] | undefined;
+
+  /**
+   * <p>A token used to get the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   * @public
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>To retrieve the next set of results, the <code>nextToken</code>
+   * 			value from a previous response; otherwise <b>null</b> to receive
+   * 			the first set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * <p>The list of tags assigned to the resource.</p>
+   * @public
+   */
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTargetsForPolicyRequest {
+  /**
+   * <p>The policy name.</p>
+   * @public
+   */
+  policyName: string | undefined;
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   * @public
+   */
+  marker?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   * @public
+   */
+  pageSize?: number | undefined;
+}
 
 /**
  * @public
@@ -773,6 +852,48 @@ export interface HttpUrlDestinationSummary {
 }
 
 /**
+ * <p>A summary of an InfluxDB topic rule destination, as returned by
+ *         <code>ListTopicRuleDestinations</code>. For the full set of destination properties, see
+ *         <code>InfluxDBDestinationProperties</code>.</p>
+ * @public
+ */
+export interface InfluxDBDestinationSummary {
+  /**
+   * <p>The URL of the InfluxDB instance that the destination writes to.</p>
+   * @public
+   */
+  endpoint?: string | undefined;
+
+  /**
+   * <p>The major version of the InfluxDB instance. Valid values are <code>V2</code> and
+   *         <code>V3</code>.</p>
+   * @public
+   */
+  influxDBVersion?: InfluxDBVersion | undefined;
+
+  /**
+   * <p>The ARN or name of the Amazon Web Services Secrets Manager secret that contains the InfluxDB API
+   *       token.</p>
+   * @public
+   */
+  secretId?: string | undefined;
+
+  /**
+   * <p>The type of the secret that contains the InfluxDB API token. Valid values are
+   *         <code>SecretString</code> and <code>SecretBinary</code>.</p>
+   * @public
+   */
+  secretType?: InfluxDBSecretType | undefined;
+
+  /**
+   * <p>The key that is read from the secret value when the secret contains a JSON
+   *       object.</p>
+   * @public
+   */
+  secretKey?: string | undefined;
+}
+
+/**
  * <p>The summary of a virtual private cloud (VPC) destination.</p>
  * @public
  */
@@ -879,6 +1000,13 @@ export interface TopicRuleDestinationSummary {
    * @public
    */
   vpcDestinationSummary?: VpcDestinationSummary | undefined;
+
+  /**
+   * <p>A summary of an InfluxDB topic rule destination, as returned by
+   *         <code>ListTopicRuleDestinations</code>.</p>
+   * @public
+   */
+  influxDBSummary?: InfluxDBDestinationSummary | undefined;
 }
 
 /**

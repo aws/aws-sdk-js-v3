@@ -23,7 +23,10 @@ export interface CreateCustomMetricCommandInput extends CreateCustomMetricReques
 export interface CreateCustomMetricCommandOutput extends CreateCustomMetricResponse, __MetadataBearer {}
 
 /**
- * <p> Use this API to define a
+ * <note>
+ *             <p>The IoT Device Defender detect feature will no longer be available to new customers starting August 31, 2026. If you would like to use the detect feature, sign up prior to August 31, 2026. To learn about alternatives to IoT Device Defender detect, see IoT Device Defender detect feature availability change in the IoT Device Defender Developer Guide. There is no change to IoT Device Defender audit availability.</p>
+ *          </note>
+ *          <p> Use this API to define a
  *       Custom
  *       Metric
  *       published by your devices to Device Defender. </p>

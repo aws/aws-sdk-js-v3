@@ -48,6 +48,13 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  *       vpcId: "STRING_VALUE", // required
  *       roleArn: "STRING_VALUE", // required
  *     },
+ *     influxDBConfiguration: { // InfluxDBDestinationConfiguration
+ *       endpoint: "STRING_VALUE", // required
+ *       influxDBVersion: "V2" || "V3", // required
+ *       secretId: "STRING_VALUE", // required
+ *       secretType: "SecretString" || "SecretBinary",
+ *       secretKey: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new CreateTopicRuleDestinationCommand(input);
@@ -71,6 +78,13 @@ export interface CreateTopicRuleDestinationCommandOutput extends CreateTopicRule
  * //       ],
  * //       vpcId: "STRING_VALUE",
  * //       roleArn: "STRING_VALUE",
+ * //     },
+ * //     influxDBProperties: { // InfluxDBDestinationProperties
+ * //       endpoint: "STRING_VALUE",
+ * //       influxDBVersion: "V2" || "V3",
+ * //       secretId: "STRING_VALUE",
+ * //       secretType: "SecretString" || "SecretBinary",
+ * //       secretKey: "STRING_VALUE",
  * //     },
  * //   },
  * // };

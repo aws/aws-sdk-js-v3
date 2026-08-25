@@ -39,6 +39,7 @@ import type {
   JobExecutionStatus,
   JobStatus,
   LogLevel,
+  LogTargetType,
   MitigationActionType,
   ModelStatus,
   NamedShadowIndexingMode,
@@ -106,7 +107,6 @@ import type {
   SchedulingConfig,
   ServerCertificateConfig,
   StreamFile,
-  Tag,
   TaskStatisticsForAuditCheck,
   ThingGroupProperties,
   ThingTypeProperties,
@@ -114,6 +114,54 @@ import type {
   TlsConfig,
   TopicRuleDestination,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteTopicRuleDestinationResponse {}
+
+/**
+ * @public
+ */
+export interface DeleteV2LoggingLevelRequest {
+  /**
+   * <p>The type of resource for which you are configuring logging. Must be
+   *             <code>THING_Group</code>.</p>
+   * @public
+   */
+  targetType: LogTargetType | undefined;
+
+  /**
+   * <p>The name of the resource for which you are configuring logging.</p>
+   * @public
+   */
+  targetName: string | undefined;
+}
+
+/**
+ * <p>The input for the DeprecateThingType operation.</p>
+ * @public
+ */
+export interface DeprecateThingTypeRequest {
+  /**
+   * <p>The name of the thing type to deprecate.</p>
+   * @public
+   */
+  thingTypeName: string | undefined;
+
+  /**
+   * <p>Whether to undeprecate a deprecated thing type. If <b>true</b>, the thing type will not be deprecated anymore and you can
+   * 			associate it with things.</p>
+   * @public
+   */
+  undoDeprecate?: boolean | undefined;
+}
+
+/**
+ * <p>The output for the DeprecateThingType operation.</p>
+ * @public
+ */
+export interface DeprecateThingTypeResponse {}
 
 /**
  * @public
@@ -8623,80 +8671,4 @@ export interface StreamSummary {
    * @public
    */
   description?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListStreamsResponse {
-  /**
-   * <p>A list of streams.</p>
-   * @public
-   */
-  streams?: StreamSummary[] | undefined;
-
-  /**
-   * <p>A token used to get the next set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceRequest {
-  /**
-   * <p>The ARN of the resource.</p>
-   * @public
-   */
-  resourceArn: string | undefined;
-
-  /**
-   * <p>To retrieve the next set of results, the <code>nextToken</code>
-   * 			value from a previous response; otherwise <b>null</b> to receive
-   * 			the first set of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsForResourceResponse {
-  /**
-   * <p>The list of tags assigned to the resource.</p>
-   * @public
-   */
-  tags?: Tag[] | undefined;
-
-  /**
-   * <p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTargetsForPolicyRequest {
-  /**
-   * <p>The policy name.</p>
-   * @public
-   */
-  policyName: string | undefined;
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   * @public
-   */
-  marker?: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   * @public
-   */
-  pageSize?: number | undefined;
 }

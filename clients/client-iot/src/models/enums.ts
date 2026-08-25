@@ -43,6 +43,21 @@ export type DynamoKeyType = (typeof DynamoKeyType)[keyof typeof DynamoKeyType];
  * @public
  * @enum
  */
+export const InfluxDBTimestampUnit = {
+  MICROSECONDS: "us",
+  MILLISECONDS: "ms",
+  NANOSECONDS: "ns",
+  SECONDS: "s",
+} as const;
+/**
+ * @public
+ */
+export type InfluxDBTimestampUnit = (typeof InfluxDBTimestampUnit)[keyof typeof InfluxDBTimestampUnit];
+
+/**
+ * @public
+ * @enum
+ */
 export const CannedAccessControlList = {
   AuthenticatedRead: "authenticated-read",
   AwsExecRead: "aws-exec-read",
@@ -782,6 +797,32 @@ export const DayOfWeek = {
  * @public
  */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
+
+/**
+ * @public
+ * @enum
+ */
+export const InfluxDBVersion = {
+  V2: "V2",
+  V3: "V3",
+} as const;
+/**
+ * @public
+ */
+export type InfluxDBVersion = (typeof InfluxDBVersion)[keyof typeof InfluxDBVersion];
+
+/**
+ * @public
+ * @enum
+ */
+export const InfluxDBSecretType = {
+  SECRET_BINARY: "SecretBinary",
+  SECRET_STRING: "SecretString",
+} as const;
+/**
+ * @public
+ */
+export type InfluxDBSecretType = (typeof InfluxDBSecretType)[keyof typeof InfluxDBSecretType];
 
 /**
  * @public
