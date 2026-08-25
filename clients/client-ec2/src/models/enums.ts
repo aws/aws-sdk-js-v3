@@ -3438,13 +3438,41 @@ export type FleetCapacityReservationUsageStrategy =
  * @public
  * @enum
  */
+export const ReservedCapacityAllocationStrategy = {
+  PRIORITIZED: "prioritized",
+} as const;
+/**
+ * @public
+ */
+export type ReservedCapacityAllocationStrategy =
+  (typeof ReservedCapacityAllocationStrategy)[keyof typeof ReservedCapacityAllocationStrategy];
+
+/**
+ * @public
+ * @enum
+ */
 export const FleetReservationType = {
+  CAPACITY_BLOCK: "capacity-block",
   INTERRUPTIBLE_CAPACITY_RESERVATION: "interruptible-capacity-reservation",
+  ON_DEMAND_CAPACITY_RESERVATION: "on-demand-capacity-reservation",
 } as const;
 /**
  * @public
  */
 export type FleetReservationType = (typeof FleetReservationType)[keyof typeof FleetReservationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ReservedCapacityFallbackMarketType = {
+  ON_DEMAND: "on-demand",
+} as const;
+/**
+ * @public
+ */
+export type ReservedCapacityFallbackMarketType =
+  (typeof ReservedCapacityFallbackMarketType)[keyof typeof ReservedCapacityFallbackMarketType];
 
 /**
  * @public
@@ -4208,6 +4236,7 @@ export type ShutdownBehavior = (typeof ShutdownBehavior)[keyof typeof ShutdownBe
 export const MarketType = {
   capacity_block: "capacity-block",
   interruptible_capacity_reservation: "interruptible-capacity-reservation",
+  on_demand: "on-demand",
   spot: "spot",
 } as const;
 /**

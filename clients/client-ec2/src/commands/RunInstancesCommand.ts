@@ -171,7 +171,7 @@ export interface RunInstancesCommandOutput extends Reservation, __MetadataBearer
  *     Version: "STRING_VALUE",
  *   },
  *   InstanceMarketOptions: { // InstanceMarketOptionsRequest
- *     MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
+ *     MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
  *     SpotOptions: { // SpotMarketOptions
  *       MaxPrice: "STRING_VALUE",
  *       SpotInstanceType: "one-time" || "persistent",

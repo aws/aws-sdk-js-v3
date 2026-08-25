@@ -41,7 +41,6 @@ import type {
   InstanceGeneration,
   InstanceInterruptionBehavior,
   InstanceLifecycle,
-  InterfacePermissionType,
   InterruptibleCapacityReservationAllocationStatus,
   InterruptionType,
   IpAddressType,
@@ -91,12 +90,13 @@ import type {
   NatGatewayState,
   NestedVirtualizationSpecification,
   NetworkInterfaceCreationType,
-  NetworkInterfacePermissionStateCode,
   NetworkInterfaceStatus,
   NetworkInterfaceType,
   PlatformValues,
   PrefixListState,
   Protocol,
+  ReservedCapacityAllocationStrategy,
+  ReservedCapacityFallbackMarketType,
   ResourceType,
   Rir,
   RuleAction,
@@ -3244,7 +3244,47 @@ export interface OnDemandOptionsRequest {
 }
 
 /**
- * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
+ * <p>Describes the target Capacity Reservations or Capacity Reservation Resource Groups for an EC2 Fleet
+ *             that launches into reserved capacity. You can specify Capacity Reservation IDs or a
+ *             Capacity Reservation Resource Group ARN, but not both.</p>
+ * @public
+ */
+export interface FleetCapacityReservationTargetRequest {
+  /**
+   * <p>The IDs of the Capacity Reservations in which to launch the instances.</p>
+   * @public
+   */
+  CapacityReservationIds?: string[] | undefined;
+
+  /**
+   * <p>The ARNs of the Capacity Reservation Resource Groups in which to launch the
+   *             instances.</p>
+   * @public
+   */
+  CapacityReservationResourceGroupArns?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the fallback behavior for an EC2 Fleet that uses reserved capacity when the
+ *             reserved capacity is not enough to meet the target capacity. If you don't specify
+ *             fallback options, EC2 Fleet does not fall back to any other market type after the specified
+ *             reservation types are exhausted.</p>
+ * @public
+ */
+export interface ReservedCapacityFallbackOptionsRequest {
+  /**
+   * <p>The instance purchasing options to fall back to when the reserved capacity is not
+   *             enough to meet the target capacity. The only supported value is <code>on-demand</code>,
+   *             which launches On-Demand Instances to fulfill the remaining target capacity.</p>
+   * @public
+   */
+  MarketTypes?: ReservedCapacityFallbackMarketType[] | undefined;
+}
+
+/**
+ * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when <code>DefaultTargetCapacityType</code>
+ *             is set to <code>reserved-capacity</code>. EC2 Fleet can fulfill reserved capacity using On-Demand Capacity Reservations,
+ *             Capacity Blocks for ML, and interruptible Capacity Reservations.</p>
  *          <note>
  *             <p>This configuration can only be used if the EC2 Fleet is of type
  *               <code>instant</code>.</p>
@@ -3252,16 +3292,45 @@ export interface OnDemandOptionsRequest {
  *          <p>When you specify <code>ReservedCapacityOptions</code>, you must also set
  *            <code>DefaultTargetCapacityType</code> to <code>reserved-capacity</code> in the
  *            <code>TargetCapacitySpecification</code>.</p>
- *          <p>For more information about Interruptible Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-launch-instances-interruptible-cr-walkthrough.html">Launch
- *               instances into an Interruptible Capacity Reservation</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information about interruptible Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-launch-instances-interruptible-cr-walkthrough.html">Launch
+ *               instances into an interruptible Capacity Reservation</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @public
  */
 export interface ReservedCapacityOptionsRequest {
   /**
-   * <p>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request.</p>
+   * <p>The strategy that determines the order in which EC2 Fleet launches instances across the
+   *             reservation types that you specify. The only supported value is <code>prioritized</code>,
+   *             which launches instances in the priority order that you specify in your launch template
+   *             overrides. If you don't specify an allocation strategy, instances are launched in a
+   *             random order.</p>
+   * @public
+   */
+  AllocationStrategy?: ReservedCapacityAllocationStrategy | undefined;
+
+  /**
+   * <p>The types of Capacity Reservations to use for fulfilling the EC2 Fleet request. This is an
+   *             ordered list: EC2 Fleet attempts to launch instances into each Capacity Reservation type in the order
+   *             that you specify them before moving on to the next type.</p>
    * @public
    */
   ReservationTypes?: FleetReservationType[] | undefined;
+
+  /**
+   * <p>The Capacity Reservations or Capacity Reservation Resource Groups to use for fulfilling the EC2 Fleet
+   *             request. You can specify Capacity Reservation IDs or a Capacity Reservation Resource Group
+   *             ARN, but not both.</p>
+   * @public
+   */
+  CapacityReservationTarget?: FleetCapacityReservationTargetRequest | undefined;
+
+  /**
+   * <p>The fallback behavior for the EC2 Fleet when there is not enough reserved capacity available
+   *             to meet the target capacity. This member takes a
+   *             <code>ReservedCapacityFallbackOptionsRequest</code> structure, in which you set
+   *             <code>MarketTypes</code> to the instance purchasing options to fall back to.</p>
+   * @public
+   */
+  ReservedCapacityFallbackOptions?: ReservedCapacityFallbackOptionsRequest | undefined;
 }
 
 /**
@@ -4737,8 +4806,10 @@ export interface CreateFleetError {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block,
-   *          or Interruptible Capacity Reservation instance.</p>
+   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block for ML,
+   *          or interruptible Capacity Reservation instance. If you are using <code>ReservedCapacityOptions</code> with
+   *          <code>on-demand-capacity-reservation</code> in the <code>ReservationTypes</code> list, the
+   *          value can also be <code>on-demand-capacity-reservation</code>.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -4771,8 +4842,8 @@ export interface CreateFleetInstance {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block,
-   *          or Interruptible Capacity Reservation instance.</p>
+   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block for ML,
+   *          or interruptible Capacity Reservation instance.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -14308,61 +14379,4 @@ export interface CreateNetworkInterfaceResult {
    * @public
    */
   ClientToken?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
- * @public
- */
-export interface CreateNetworkInterfacePermissionRequest {
-  /**
-   * <p>The ID of the network interface.</p>
-   * @public
-   */
-  NetworkInterfaceId: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AwsAccountId?: string | undefined;
-
-  /**
-   * <p>The Amazon Web Services service. Currently not supported.</p>
-   * @public
-   */
-  AwsService?: string | undefined;
-
-  /**
-   * <p>The type of permission to grant.</p>
-   * @public
-   */
-  Permission: InterfacePermissionType | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * <p>Describes the state of a network interface permission.</p>
- * @public
- */
-export interface NetworkInterfacePermissionState {
-  /**
-   * <p>The state of the permission.</p>
-   * @public
-   */
-  State?: NetworkInterfacePermissionStateCode | undefined;
-
-  /**
-   * <p>A status message, if applicable.</p>
-   * @public
-   */
-  StatusMessage?: string | undefined;
 }

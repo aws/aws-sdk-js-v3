@@ -181,7 +181,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  *       "STRING_VALUE",
  *     ],
  *     InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptionsRequest
- *       MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
+ *       MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
  *       SpotOptions: { // LaunchTemplateSpotMarketOptionsRequest
  *         MaxPrice: "STRING_VALUE",
  *         SpotInstanceType: "one-time" || "persistent",
@@ -480,7 +480,7 @@ export interface CreateLaunchTemplateVersionCommandOutput extends CreateLaunchTe
  * //         "STRING_VALUE",
  * //       ],
  * //       InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptions
- * //         MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
+ * //         MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
  * //         SpotOptions: { // LaunchTemplateSpotMarketOptions
  * //           MaxPrice: "STRING_VALUE",
  * //           SpotInstanceType: "one-time" || "persistent",

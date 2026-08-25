@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_6";
+import type { ImportSnapshotRequest, ImportSnapshotResult } from "../models/models_7";
 import { ImportSnapshot$ } from "../schemas/schemas_0";
 
 /**

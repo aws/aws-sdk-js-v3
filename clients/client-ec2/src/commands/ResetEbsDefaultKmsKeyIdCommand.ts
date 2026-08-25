@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { ResetEbsDefaultKmsKeyIdRequest } from "../models/models_7";
-import type { ResetEbsDefaultKmsKeyIdResult } from "../models/models_8";
+import type { ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResult } from "../models/models_8";
 import { ResetEbsDefaultKmsKeyId$ } from "../schemas/schemas_0";
 
 /**

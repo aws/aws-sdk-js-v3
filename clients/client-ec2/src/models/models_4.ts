@@ -16,6 +16,7 @@ import type {
   BootModeValues,
   CapacityReservationPreference,
   CurrencyCodeValues,
+  DestinationFileFormat,
   DeviceType,
   DiskType,
   EbsEncryptionSupport,
@@ -150,13 +151,128 @@ import type {
   RouteServerPeer,
   RouteTable,
 } from "./models_2";
-import type {
-  Byoasn,
-  DestinationOptionsResponse,
-  Filter,
-  IdFormat,
-  InstanceTagNotificationAttribute,
-} from "./models_3";
+import type { Byoasn, Filter, FleetData, IdFormat, InstanceTagNotificationAttribute } from "./models_3";
+
+/**
+ * @public
+ */
+export interface DescribeFleetsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the EC2 Fleets.</p>
+   * @public
+   */
+  Fleets?: FleetData[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeFlowLogsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |
+   *                     <code>FAILED</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>log-destination-type</code> - The type of destination for the flow log
+   *                     data (<code>cloud-watch-logs</code> | <code>s3</code> |
+   *                         <code>kinesis-data-firehose</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>flow-log-id</code> - The ID of the flow log.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>log-group-name</code> - The name of the log group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |
+   *                     <code>REJECT</code> | <code>ALL</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filter?: Filter[] | undefined;
+
+  /**
+   * <p>One or more flow log IDs.</p>
+   *          <p>Constraint: Maximum of 1000 flow log IDs.</p>
+   * @public
+   */
+  FlowLogIds?: string[] | undefined;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes the destination options for a flow log.</p>
+ * @public
+ */
+export interface DestinationOptionsResponse {
+  /**
+   * <p>The format for the flow log.</p>
+   * @public
+   */
+  FileFormat?: DestinationFileFormat | undefined;
+
+  /**
+   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.</p>
+   * @public
+   */
+  HiveCompatiblePartitions?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether to partition the flow log per hour.</p>
+   * @public
+   */
+  PerHourPartition?: boolean | undefined;
+}
 
 /**
  * <p>A single resource's tag configuration associated with the Flow Logs Amazon EC2 Tags feature fields in your custom log format.</p>
@@ -14181,179 +14297,4 @@ export interface DescribeScheduledInstanceAvailabilityResult {
    * @public
    */
   ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[] | undefined;
-}
-
-/**
- * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
- * @public
- */
-export interface SlotStartTimeRangeRequest {
-  /**
-   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  EarliestTime?: Date | undefined;
-
-  /**
-   * <p>The latest date and time, in UTC, for the Scheduled Instance to start.</p>
-   * @public
-   */
-  LatestTime?: Date | undefined;
-}
-
-/**
- * <p>Contains the parameters for DescribeScheduledInstances.</p>
- * @public
- */
-export interface DescribeScheduledInstancesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[] | undefined;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 100.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>The Scheduled Instance IDs.</p>
-   * @public
-   */
-  ScheduledInstanceIds?: string[] | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  SlotStartTimeRange?: SlotStartTimeRangeRequest | undefined;
-}
-
-/**
- * <p>Describes a Scheduled Instance.</p>
- * @public
- */
-export interface ScheduledInstance {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The date when the Scheduled Instance was purchased.</p>
-   * @public
-   */
-  CreateDate?: Date | undefined;
-
-  /**
-   * <p>The hourly price for a single instance.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The number of instances.</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The instance type.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The network platform.</p>
-   * @public
-   */
-  NetworkPlatform?: string | undefined;
-
-  /**
-   * <p>The time for the next schedule to start.</p>
-   * @public
-   */
-  NextSlotStartTime?: Date | undefined;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The time that the previous schedule ended or will end.</p>
-   * @public
-   */
-  PreviousSlotEndTime?: Date | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence?: ScheduledInstanceRecurrence | undefined;
-
-  /**
-   * <p>The Scheduled Instance ID.</p>
-   * @public
-   */
-  ScheduledInstanceId?: string | undefined;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   * @public
-   */
-  SlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The end date for the Scheduled Instance.</p>
-   * @public
-   */
-  TermEndDate?: Date | undefined;
-
-  /**
-   * <p>The start date for the Scheduled Instance.</p>
-   * @public
-   */
-  TermStartDate?: Date | undefined;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   * @public
-   */
-  TotalScheduledInstanceHours?: number | undefined;
 }

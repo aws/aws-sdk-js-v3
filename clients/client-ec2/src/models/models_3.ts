@@ -25,7 +25,6 @@ import type {
   ConversionTaskState,
   DefaultTargetCapacityType,
   DeleteQueuedReservedInstancesErrorCode,
-  DestinationFileFormat,
   DiskImageFormat,
   ElasticGpuState,
   ElasticGpuStatus,
@@ -52,6 +51,8 @@ import type {
   PeriodType,
   PlatformValues,
   ReportState,
+  ReservedCapacityAllocationStrategy,
+  ReservedCapacityFallbackMarketType,
   Schedule,
   SnapshotReturnCodes,
   SpotAllocationStrategy,
@@ -98,6 +99,7 @@ import type {
   FleetLaunchTemplateSpecification,
   GroupIdentifier,
   LaunchTemplateAndOverridesResponse,
+  LocalGatewayRouteTableVpcAssociation,
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   ManagedPrefixList,
@@ -126,6 +128,36 @@ import type {
   VerifiedAccessGroup,
   VpcBlockPublicAccessExclusion,
 } from "./models_2";
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
+  /**
+   * <p>The ID of the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVpcAssociationId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
+  /**
+   * <p>Information about the association.</p>
+   * @public
+   */
+  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
+}
 
 /**
  * @public
@@ -8633,8 +8665,10 @@ export interface DescribeFleetError {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block,
-   *          or Interruptible Capacity Reservation instance.</p>
+   * <p>Indicates if the instance that could not be launched was a Spot, On-Demand, Capacity Block for ML,
+   *          or interruptible Capacity Reservation instance. If you are using <code>ReservedCapacityOptions</code> with
+   *          <code>on-demand-capacity-reservation</code> in the <code>ReservationTypes</code> list, the
+   *          value can also be <code>on-demand-capacity-reservation</code>.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -8667,8 +8701,8 @@ export interface DescribeFleetsInstances {
   LaunchTemplateAndOverrides?: LaunchTemplateAndOverridesResponse | undefined;
 
   /**
-   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block,
-   *          or Interruptible Capacity Reservation instance.</p>
+   * <p>Indicates if the instance that was launched is a Spot, On-Demand, Capacity Block for ML,
+   *          or interruptible Capacity Reservation instance.</p>
    * @public
    */
   Lifecycle?: InstanceLifecycle | undefined;
@@ -8813,15 +8847,51 @@ export interface OnDemandOptions {
 }
 
 /**
- * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when DefaultTargetCapacityType is set to <code>reserved-capacity</code>.</p>
+ * <p>Describes the fallback behavior for an EC2 Fleet that uses reserved capacity when the
+ *             reserved capacity is not enough to meet the target capacity. If you don't specify
+ *             fallback options, EC2 Fleet does not fall back to any other market type after the specified
+ *             reservation types are exhausted.</p>
+ * @public
+ */
+export interface ReservedCapacityFallbackOptions {
+  /**
+   * <p>The instance purchasing options to fall back to when the reserved capacity is not
+   *             enough to meet the target capacity. The only supported value is <code>on-demand</code>,
+   *             which launches On-Demand Instances to fulfill the remaining target capacity.</p>
+   * @public
+   */
+  MarketTypes?: ReservedCapacityFallbackMarketType[] | undefined;
+}
+
+/**
+ * <p>Defines EC2 Fleet preferences for utilizing reserved capacity when <code>DefaultTargetCapacityType</code>
+ *             is set to <code>reserved-capacity</code>. EC2 Fleet can fulfill reserved capacity using On-Demand Capacity Reservations,
+ *             Capacity Blocks for ML, and interruptible Capacity Reservations.</p>
  * @public
  */
 export interface ReservedCapacityOptions {
+  /**
+   * <p>The strategy that determines the order in which EC2 Fleet launches instances across the
+   *             reservation types that you specify. The only supported value is <code>prioritized</code>,
+   *             which launches instances in the priority order that you specify in your launch template
+   *             overrides. If you don't specify an allocation strategy, instances are launched in a
+   *             random order.</p>
+   * @public
+   */
+  AllocationStrategy?: ReservedCapacityAllocationStrategy | undefined;
+
   /**
    * <p>The types of Capacity Reservations used for fulfilling the EC2 Fleet request.</p>
    * @public
    */
   ReservationTypes?: FleetReservationType[] | undefined;
+
+  /**
+   * <p>The fallback behavior for the EC2 Fleet when there is not enough reserved capacity available
+   *             to meet the target capacity.</p>
+   * @public
+   */
+  ReservedCapacityFallbackOptions?: ReservedCapacityFallbackOptions | undefined;
 }
 
 /**
@@ -9227,125 +9297,4 @@ export interface FleetData {
    * @public
    */
   Context?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFleetsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the EC2 Fleets.</p>
-   * @public
-   */
-  Fleets?: FleetData[] | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeFlowLogsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>One or more filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> |
-   *                     <code>FAILED</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>log-destination-type</code> - The type of destination for the flow log
-   *                     data (<code>cloud-watch-logs</code> | <code>s3</code> |
-   *                         <code>kinesis-data-firehose</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>flow-log-id</code> - The ID of the flow log.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>log-group-name</code> - The name of the log group.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> |
-   *                     <code>REJECT</code> | <code>ALL</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filter?: Filter[] | undefined;
-
-  /**
-   * <p>One or more flow log IDs.</p>
-   *          <p>Constraint: Maximum of 1000 flow log IDs.</p>
-   * @public
-   */
-  FlowLogIds?: string[] | undefined;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number | undefined;
-
-  /**
-   * <p>The token to request the next page of items. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-}
-
-/**
- * <p>Describes the destination options for a flow log.</p>
- * @public
- */
-export interface DestinationOptionsResponse {
-  /**
-   * <p>The format for the flow log.</p>
-   * @public
-   */
-  FileFormat?: DestinationFileFormat | undefined;
-
-  /**
-   * <p>Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3.</p>
-   * @public
-   */
-  HiveCompatiblePartitions?: boolean | undefined;
-
-  /**
-   * <p>Indicates whether to partition the flow log per hour.</p>
-   * @public
-   */
-  PerHourPartition?: boolean | undefined;
 }

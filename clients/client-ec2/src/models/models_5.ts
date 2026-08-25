@@ -147,7 +147,182 @@ import type {
   FastLaunchSnapshotConfigurationResponse,
   Filter,
 } from "./models_3";
-import type { AttributeBooleanValue, ProductCode, RegisteredInstance, ScheduledInstance } from "./models_4";
+import type { AttributeBooleanValue, ProductCode, RegisteredInstance, ScheduledInstanceRecurrence } from "./models_4";
+
+/**
+ * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
+ * @public
+ */
+export interface SlotStartTimeRangeRequest {
+  /**
+   * <p>The earliest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  EarliestTime?: Date | undefined;
+
+  /**
+   * <p>The latest date and time, in UTC, for the Scheduled Instance to start.</p>
+   * @public
+   */
+  LatestTime?: Date | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DescribeScheduledInstances.</p>
+ * @public
+ */
+export interface DescribeScheduledInstancesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone (for example, <code>us-west-2a</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type</code> - The instance type (for example, <code>c4.large</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>platform</code> - The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 100.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The Scheduled Instance IDs.</p>
+   * @public
+   */
+  ScheduledInstanceIds?: string[] | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  SlotStartTimeRange?: SlotStartTimeRangeRequest | undefined;
+}
+
+/**
+ * <p>Describes a Scheduled Instance.</p>
+ * @public
+ */
+export interface ScheduledInstance {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The date when the Scheduled Instance was purchased.</p>
+   * @public
+   */
+  CreateDate?: Date | undefined;
+
+  /**
+   * <p>The hourly price for a single instance.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The number of instances.</p>
+   * @public
+   */
+  InstanceCount?: number | undefined;
+
+  /**
+   * <p>The instance type.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The network platform.</p>
+   * @public
+   */
+  NetworkPlatform?: string | undefined;
+
+  /**
+   * <p>The time for the next schedule to start.</p>
+   * @public
+   */
+  NextSlotStartTime?: Date | undefined;
+
+  /**
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The time that the previous schedule ended or will end.</p>
+   * @public
+   */
+  PreviousSlotEndTime?: Date | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence?: ScheduledInstanceRecurrence | undefined;
+
+  /**
+   * <p>The Scheduled Instance ID.</p>
+   * @public
+   */
+  ScheduledInstanceId?: string | undefined;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   * @public
+   */
+  SlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The end date for the Scheduled Instance.</p>
+   * @public
+   */
+  TermEndDate?: Date | undefined;
+
+  /**
+   * <p>The start date for the Scheduled Instance.</p>
+   * @public
+   */
+  TermStartDate?: Date | undefined;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   * @public
+   */
+  TotalScheduledInstanceHours?: number | undefined;
+}
 
 /**
  * <p>Contains the output of DescribeScheduledInstances.</p>
@@ -10927,99 +11102,4 @@ export interface EnableEbsEncryptionByDefaultResult {
    * @public
    */
   EbsEncryptionByDefault?: boolean | undefined;
-}
-
-/**
- * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
- *          <note>
- *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- *         <code>LaunchTemplateId</code>, but not both.</p>
- *          </note>
- * @public
- */
-export interface FastLaunchLaunchTemplateSpecificationRequest {
-  /**
-   * <p>Specify the ID of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  LaunchTemplateId?: string | undefined;
-
-  /**
-   * <p>Specify the name of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  LaunchTemplateName?: string | undefined;
-
-  /**
-   * <p>Specify the version of the launch template that the AMI should use for Windows fast
-   *       launch.</p>
-   * @public
-   */
-  Version: string | undefined;
-}
-
-/**
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
- *       fast launch enabled AMI.</p>
- * @public
- */
-export interface FastLaunchSnapshotConfigurationRequest {
-  /**
-   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled
-   *       AMI.</p>
-   * @public
-   */
-  TargetResourceCount?: number | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableFastLaunchRequest {
-  /**
-   * <p>Specify the ID of the image for which to enable Windows fast launch.</p>
-   * @public
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
-   *       Supported values include: <code>snapshot</code>, which is the default value.</p>
-   * @public
-   */
-  ResourceType?: string | undefined;
-
-  /**
-   * <p>Configuration settings for creating and managing the snapshots that are used for
-   *       pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
-   *       must be <code>snapshot</code>.</p>
-   * @public
-   */
-  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest | undefined;
-
-  /**
-   * <p>The launch template to use when launching Windows instances from pre-provisioned
-   *       snapshots. Launch template parameters can include either the name or ID of the launch
-   *       template, but not both.</p>
-   * @public
-   */
-  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest | undefined;
-
-  /**
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
-   *       greater.</p>
-   * @public
-   */
-  MaxParallelLaunches?: number | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
 }

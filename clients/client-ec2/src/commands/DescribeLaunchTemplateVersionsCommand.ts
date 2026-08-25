@@ -202,7 +202,7 @@ export interface DescribeLaunchTemplateVersionsCommandOutput extends DescribeLau
  * //           "STRING_VALUE",
  * //         ],
  * //         InstanceMarketOptions: { // LaunchTemplateInstanceMarketOptions
- * //           MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation",
+ * //           MarketType: "spot" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
  * //           SpotOptions: { // LaunchTemplateSpotMarketOptions
  * //             MaxPrice: "STRING_VALUE",
  * //             SpotInstanceType: "one-time" || "persistent",

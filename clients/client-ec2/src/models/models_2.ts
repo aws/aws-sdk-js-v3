@@ -29,6 +29,7 @@ import type {
   Ipv6SupportValue,
   LaunchTemplateErrorCode,
   MulticastSupportValue,
+  NetworkInterfacePermissionStateCode,
   PayerResponsibility,
   PayerResponsibilityScope,
   PayerResponsibilityType,
@@ -141,13 +142,68 @@ import type {
   LocalGatewayRoute,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayRouteTableVpcAssociation,
-  NetworkInterfacePermissionState,
   OperatorRequest,
   Subnet,
   Vpc,
   VpcEncryptionControl,
 } from "./models_1";
+
+/**
+ * <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
+ * @public
+ */
+export interface CreateNetworkInterfacePermissionRequest {
+  /**
+   * <p>The ID of the network interface.</p>
+   * @public
+   */
+  NetworkInterfaceId: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AwsAccountId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services service. Currently not supported.</p>
+   * @public
+   */
+  AwsService?: string | undefined;
+
+  /**
+   * <p>The type of permission to grant.</p>
+   * @public
+   */
+  Permission: InterfacePermissionType | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * <p>Describes the state of a network interface permission.</p>
+ * @public
+ */
+export interface NetworkInterfacePermissionState {
+  /**
+   * <p>The state of the permission.</p>
+   * @public
+   */
+  State?: NetworkInterfacePermissionStateCode | undefined;
+
+  /**
+   * <p>A status message, if applicable.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
 
 /**
  * <p>Describes a permission for a network interface.</p>
@@ -10509,34 +10565,4 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationRes
    * @public
    */
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVpcAssociationRequest {
-  /**
-   * <p>The ID of the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVpcAssociationId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface DeleteLocalGatewayRouteTableVpcAssociationResult {
-  /**
-   * <p>Information about the association.</p>
-   * @public
-   */
-  LocalGatewayRouteTableVpcAssociation?: LocalGatewayRouteTableVpcAssociation | undefined;
 }

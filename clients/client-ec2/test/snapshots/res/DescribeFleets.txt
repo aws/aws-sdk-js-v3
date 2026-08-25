@@ -3351,6 +3351,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </maxTotalPrice>
             </onDemandOptions>
             <reservedCapacityOptions>
+                <allocationStrategy>
+                    __AllocationStrategy__
+                </allocationStrategy>
                 <reservationTypeSet>
                     <item>
                         __member__
@@ -3362,6 +3365,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __member__
                     </item>
                 </reservationTypeSet>
+                <reservedCapacityFallbackOptions>
+                    <marketTypeSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </marketTypeSet>
+                </reservedCapacityFallbackOptions>
             </reservedCapacityOptions>
             <tagSet>
                 <item>
@@ -8999,6 +9015,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </maxTotalPrice>
             </onDemandOptions>
             <reservedCapacityOptions>
+                <allocationStrategy>
+                    __AllocationStrategy__
+                </allocationStrategy>
                 <reservationTypeSet>
                     <item>
                         __member__
@@ -9010,6 +9029,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __member__
                     </item>
                 </reservationTypeSet>
+                <reservedCapacityFallbackOptions>
+                    <marketTypeSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </marketTypeSet>
+                </reservedCapacityFallbackOptions>
             </reservedCapacityOptions>
             <tagSet>
                 <item>
@@ -14647,6 +14679,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                 </maxTotalPrice>
             </onDemandOptions>
             <reservedCapacityOptions>
+                <allocationStrategy>
+                    __AllocationStrategy__
+                </allocationStrategy>
                 <reservationTypeSet>
                     <item>
                         __member__
@@ -14658,6 +14693,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                         __member__
                     </item>
                 </reservationTypeSet>
+                <reservedCapacityFallbackOptions>
+                    <marketTypeSet>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                        <item>
+                            __member__
+                        </item>
+                    </marketTypeSet>
+                </reservedCapacityFallbackOptions>
             </reservedCapacityOptions>
             <tagSet>
                 <item>
@@ -18509,11 +18557,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MaxTotalPrice: "__MaxTotalPrice__"
       },
       ReservedCapacityOptions: {
+        AllocationStrategy: "__AllocationStrategy__",
         ReservationTypes: [
           "__member__",
           "__member__",
           "__member__"
-        ]
+        ],
+        ReservedCapacityFallbackOptions: {
+          MarketTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       },
       Tags: [
         {
@@ -21113,11 +21169,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MaxTotalPrice: "__MaxTotalPrice__"
       },
       ReservedCapacityOptions: {
+        AllocationStrategy: "__AllocationStrategy__",
         ReservationTypes: [
           "__member__",
           "__member__",
           "__member__"
-        ]
+        ],
+        ReservedCapacityFallbackOptions: {
+          MarketTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       },
       Tags: [
         {
@@ -23717,11 +23781,19 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         MaxTotalPrice: "__MaxTotalPrice__"
       },
       ReservedCapacityOptions: {
+        AllocationStrategy: "__AllocationStrategy__",
         ReservationTypes: [
           "__member__",
           "__member__",
           "__member__"
-        ]
+        ],
+        ReservedCapacityFallbackOptions: {
+          MarketTypes: [
+            "__member__",
+            "__member__",
+            "__member__"
+          ]
+        }
       },
       Tags: [
         {

@@ -1,6 +1,7 @@
 // smithy-typescript generated code
 import type {
   _InstanceType,
+  AddressAttributeName,
   AmdSevSnpSpecification,
   CapacityManagerStatus,
   HostnameType,
@@ -29,6 +30,7 @@ import type {
   TransitGatewayAttachmentResourceType,
 } from "./enums";
 import type {
+  AddressAttribute,
   ByoipCidr,
   ClientVpnAuthorizationRuleStatus,
   IamInstanceProfileSpecification,
@@ -52,6 +54,55 @@ import type { InstanceState, NetworkInsightsAccessScopeAnalysis, NetworkInsights
 import type { InstanceNetworkInterfaceSpecification, RunInstancesMonitoringEnabled } from "./models_5";
 import type { CapacityManagerMonitoredTagKey } from "./models_6";
 import type { CapacityReservationSpecification, EnclaveOptionsRequest, InstanceMonitoring } from "./models_7";
+
+/**
+ * @public
+ */
+export interface ResetAddressAttributeRequest {
+  /**
+   * <p>[EC2-VPC] The allocation ID.</p>
+   * @public
+   */
+  AllocationId: string | undefined;
+
+  /**
+   * <p>The attribute of the IP address.</p>
+   * @public
+   */
+  Attribute: AddressAttributeName | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetAddressAttributeResult {
+  /**
+   * <p>Information about the IP address.</p>
+   * @public
+   */
+  Address?: AddressAttribute | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEbsDefaultKmsKeyIdRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public

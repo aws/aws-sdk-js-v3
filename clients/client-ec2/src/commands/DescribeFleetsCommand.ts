@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeFleetsRequest, DescribeFleetsResult } from "../models/models_3";
+import type { DescribeFleetsRequest } from "../models/models_3";
+import type { DescribeFleetsResult } from "../models/models_4";
 import { DescribeFleets$ } from "../schemas/schemas_0";
 
 /**
@@ -226,9 +227,15 @@ export interface DescribeFleetsCommandOutput extends DescribeFleetsResult, __Met
  * //         MaxTotalPrice: "STRING_VALUE",
  * //       },
  * //       ReservedCapacityOptions: { // ReservedCapacityOptions
+ * //         AllocationStrategy: "prioritized",
  * //         ReservationTypes: [ // ReservationTypeList
- * //           "interruptible-capacity-reservation",
+ * //           "on-demand-capacity-reservation" || "capacity-block" || "interruptible-capacity-reservation",
  * //         ],
+ * //         ReservedCapacityFallbackOptions: { // ReservedCapacityFallbackOptions
+ * //           MarketTypes: [ // ReservedCapacityFallbackMarketTypeList
+ * //             "on-demand",
+ * //           ],
+ * //         },
  * //       },
  * //       Tags: [ // TagList
  * //         { // Tag

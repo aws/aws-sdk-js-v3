@@ -954,6 +954,8 @@ const _CROR = "CapacityReservationOptionsRequest";
 const _CRP = "CapacityReservationPreference";
 const _CRR = "CreateRouteRequest";
 const _CRRGA = "CapacityReservationResourceGroupArn";
+const _CRRGAS = "CapacityReservationResourceGroupArnSet";
+const _CRRGAa = "CapacityReservationResourceGroupArns";
 const _CRRVT = "CreateReplaceRootVolumeTask";
 const _CRRVTR = "CreateReplaceRootVolumeTaskRequest";
 const _CRRVTRr = "CreateReplaceRootVolumeTaskResult";
@@ -2727,6 +2729,7 @@ const _FCR = "FleetCapacityReservations";
 const _FCRFCR = "FailedCapacityReservationFleetCancellationResult";
 const _FCRFCRS = "FailedCapacityReservationFleetCancellationResultSet";
 const _FCRS = "FleetCapacityReservationSet";
+const _FCRTR = "FleetCapacityReservationTargetRequest";
 const _FCRl = "FleetCapacityReservation";
 const _FCa = "FailureCode";
 const _FCu = "FulfilledCapacity";
@@ -4266,6 +4269,7 @@ const _MTMSR = "ModifyTrafficMirrorSessionRequest";
 const _MTMSRo = "ModifyTrafficMirrorSessionResult";
 const _MTP = "MaxTotalPrice";
 const _MTa = "MarketType";
+const _MTar = "MarketTypes";
 const _MTe = "MemberType";
 const _MV = "MinVersion";
 const _MVA = "ModifyVolumeAttribute";
@@ -4917,6 +4921,9 @@ const _RBUI = "RestorableByUserIds";
 const _RBe = "RestorableBy";
 const _RC = "ReturnCode";
 const _RCA = "ResourceConfigurationArn";
+const _RCFMTL = "ReservedCapacityFallbackMarketTypeList";
+const _RCFO = "ReservedCapacityFallbackOptions";
+const _RCFOR = "ReservedCapacityFallbackOptionsRequest";
 const _RCGA = "ResourceConfigurationGroupArn";
 const _RCL = "ReasonCodesList";
 const _RCLe = "RecurringChargesList";
@@ -7543,6 +7550,7 @@ const _mTDID = "maxTermDurationInDays";
 const _mTDIDi = "minTermDurationInDays";
 const _mTIMB = "maximumThroughputInMBps";
 const _mTP = "maxTotalPrice";
+const _mTS = "marketTypeSet";
 const _mTa = "marketType";
 const _mTe = "memberType";
 const _mVE = "managesVpcEndpoints";
@@ -7871,6 +7879,7 @@ const _rBET = "recycleBinEnterTime";
 const _rBETe = "recycleBinExitTime";
 const _rC = "returnCode";
 const _rCA = "resourceConfigurationArn";
+const _rCFO = "reservedCapacityFallbackOptions";
 const _rCGA = "resourceConfigurationGroupArn";
 const _rCO = "reservedCapacityOptions";
 const _rCS = "resourceComplianceStatus";
@@ -17267,6 +17276,11 @@ export var FleetCapacityReservation$: StaticStructureSchema = [3, n0, _FCRl,
   , [_xN]: _we }], [1, { [_eQN]: `Priority`
   , [_xN]: _pri }]]
 ];
+export var FleetCapacityReservationTargetRequest$: StaticStructureSchema = [3, n0, _FCRTR,
+  0,
+  [_CRIa, _CRRGAa],
+  [[() => CapacityReservationIdSet, { [_xN]: _CRI }], [() => CapacityReservationResourceGroupArnSet, { [_xN]: _CRRGA }]]
+];
 export var FleetData$: StaticStructureSchema = [3, n0, _FDl,
   0,
   [_ASc, _CTre, _FIl, _FS, _CT, _ECTP, _FCu, _FODC, _LTC, _TCS, _TIWE, _Ty, _VF, _VU, _RUI, _SO, _ODO, _RCO, _T, _Err, _Ins, _Con],
@@ -23608,16 +23622,29 @@ export var ReservationValue$: StaticStructureSchema = [3, n0, _RVe,
   , [_xN]: _rTV }], [0, { [_eQN]: `RemainingUpfrontValue`
   , [_xN]: _rUV }]]
 ];
+export var ReservedCapacityFallbackOptions$: StaticStructureSchema = [3, n0, _RCFO,
+  0,
+  [_MTar],
+  [[() => ReservedCapacityFallbackMarketTypeList, { [_eQN]: `MarketTypeSet`
+  , [_xN]: _mTS }]]
+];
+export var ReservedCapacityFallbackOptionsRequest$: StaticStructureSchema = [3, n0, _RCFOR,
+  0,
+  [_MTar],
+  [[() => ReservedCapacityFallbackMarketTypeList, { [_xN]: _MTa }]]
+];
 export var ReservedCapacityOptions$: StaticStructureSchema = [3, n0, _RCO,
   0,
-  [_RTese],
-  [[() => ReservationTypeList, { [_eQN]: `ReservationTypeSet`
-  , [_xN]: _rTSese }]]
+  [_ASl, _RTese, _RCFO],
+  [[0, { [_eQN]: `AllocationStrategy`
+  , [_xN]: _aSl }], [() => ReservationTypeList, { [_eQN]: `ReservationTypeSet`
+  , [_xN]: _rTSese }], [() => ReservedCapacityFallbackOptions$, { [_eQN]: `ReservedCapacityFallbackOptions`
+  , [_xN]: _rCFO }]]
 ];
 export var ReservedCapacityOptionsRequest$: StaticStructureSchema = [3, n0, _RCOR,
   0,
-  [_RTese],
-  [[() => ReservationTypeListRequest, { [_xN]: _RT }]]
+  [_ASl, _RTese, _CRT, _RCFO],
+  [0, [() => ReservationTypeListRequest, { [_xN]: _RT }], [() => FleetCapacityReservationTargetRequest$, 0], [() => ReservedCapacityFallbackOptionsRequest$, 0]]
 ];
 export var ReservedInstanceLimitPrice$: StaticStructureSchema = [3, n0, _RILP,
   0,
@@ -27250,6 +27277,10 @@ var CapacityReservationIdSet: StaticListSchema = [1, n0, _CRIS,
   0, [0,
     { [_xN]: _it }]
 ];
+var CapacityReservationResourceGroupArnSet: StaticListSchema = [1, n0, _CRRGAS,
+  0, [0,
+    { [_xN]: _it }]
+];
 var CapacityReservationSet: StaticListSchema = [1, n0, _CRSapa,
   0, [() => CapacityReservation$,
     { [_xN]: _it }]
@@ -28964,6 +28995,10 @@ var ReservationTypeList: StaticListSchema = [1, n0, _RTL,
 var ReservationTypeListRequest: StaticListSchema = [1, n0, _RTLR,
   0, [0,
     { [_xN]: _RT }]
+];
+var ReservedCapacityFallbackMarketTypeList: StaticListSchema = [1, n0, _RCFMTL,
+  0, [0,
+    { [_xN]: _it }]
 ];
 var ReservedInstanceIdSet: StaticListSchema = [1, n0, _RIIS,
   0, [0,

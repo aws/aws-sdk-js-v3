@@ -2554,6 +2554,7 @@ import {
   FleetActivityStatus,
   FleetBlockDeviceMappingRequest$,
   FleetCapacityReservation$,
+  FleetCapacityReservationTargetRequest$,
   FleetCapacityReservationTenancy,
   FleetCapacityReservationUsageStrategy,
   FleetData$,
@@ -4165,6 +4166,10 @@ import {
   ReservationState,
   ReservationType,
   ReservationValue$,
+  ReservedCapacityAllocationStrategy,
+  ReservedCapacityFallbackMarketType,
+  ReservedCapacityFallbackOptions$,
+  ReservedCapacityFallbackOptionsRequest$,
   ReservedCapacityOptions$,
   ReservedCapacityOptionsRequest$,
   ReservedInstanceLimitPrice$,
@@ -7758,6 +7763,7 @@ assert(typeof FirewallStatefulRule$ === "object");
 assert(typeof FirewallStatelessRule$ === "object");
 assert(typeof FleetBlockDeviceMappingRequest$ === "object");
 assert(typeof FleetCapacityReservation$ === "object");
+assert(typeof FleetCapacityReservationTargetRequest$ === "object");
 assert(typeof FleetData$ === "object");
 assert(typeof FleetEbsBlockDeviceRequest$ === "object");
 assert(typeof FleetIamInstanceProfileSpecificationRequest$ === "object");
@@ -8583,6 +8589,8 @@ assert(typeof RequestSpotLaunchSpecification$ === "object");
 assert(typeof Reservation$ === "object");
 assert(typeof ReservationFleetInstanceSpecification$ === "object");
 assert(typeof ReservationValue$ === "object");
+assert(typeof ReservedCapacityFallbackOptions$ === "object");
+assert(typeof ReservedCapacityFallbackOptionsRequest$ === "object");
 assert(typeof ReservedCapacityOptions$ === "object");
 assert(typeof ReservedCapacityOptionsRequest$ === "object");
 assert(typeof ReservedInstanceLimitPrice$ === "object");
@@ -9268,6 +9276,8 @@ assert(typeof ReportStatusType === "object");
 assert(typeof ReservationEndDateType === "object");
 assert(typeof ReservationState === "object");
 assert(typeof ReservationType === "object");
+assert(typeof ReservedCapacityAllocationStrategy === "object");
+assert(typeof ReservedCapacityFallbackMarketType === "object");
 assert(typeof ReservedInstanceState === "object");
 assert(typeof ResetFpgaImageAttributeName === "object");
 assert(typeof ResetImageAttributeName === "object");

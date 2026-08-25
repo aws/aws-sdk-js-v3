@@ -110,13 +110,103 @@ import type {
   Filter,
   IpamPoolCidr,
 } from "./models_3";
-import type {
-  ImportImageLicenseConfigurationResponse,
-  RegisteredInstance,
-  SnapshotDetail,
-  SnapshotTaskDetail,
-} from "./models_4";
+import type { ImportImageLicenseConfigurationResponse, RegisteredInstance, SnapshotDetail } from "./models_4";
 import type { RouteServerPropagation, TransitGatewayPropagation } from "./models_5";
+
+/**
+ * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
+ *          <note>
+ *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
+ *         <code>LaunchTemplateId</code>, but not both.</p>
+ *          </note>
+ * @public
+ */
+export interface FastLaunchLaunchTemplateSpecificationRequest {
+  /**
+   * <p>Specify the ID of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
+   * @public
+   */
+  LaunchTemplateId?: string | undefined;
+
+  /**
+   * <p>Specify the name of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
+   * @public
+   */
+  LaunchTemplateName?: string | undefined;
+
+  /**
+   * <p>Specify the version of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
+   * @public
+   */
+  Version: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled AMI.</p>
+ * @public
+ */
+export interface FastLaunchSnapshotConfigurationRequest {
+  /**
+   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled
+   *       AMI.</p>
+   * @public
+   */
+  TargetResourceCount?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableFastLaunchRequest {
+  /**
+   * <p>Specify the ID of the image for which to enable Windows fast launch.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
+   *       Supported values include: <code>snapshot</code>, which is the default value.</p>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>Configuration settings for creating and managing the snapshots that are used for
+   *       pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
+   *       must be <code>snapshot</code>.</p>
+   * @public
+   */
+  SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest | undefined;
+
+  /**
+   * <p>The launch template to use when launching Windows instances from pre-provisioned
+   *       snapshots. Launch template parameters can include either the name or ID of the launch
+   *       template, but not both.</p>
+   * @public
+   */
+  LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest | undefined;
+
+  /**
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
+   *       greater.</p>
+   * @public
+   */
+  MaxParallelLaunches?: number | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
 
 /**
  * @public
@@ -9464,153 +9554,6 @@ export interface ImportKeyPairResult {
 
   /**
    * <p>The tags applied to the imported key pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
-}
-
-/**
- * <p>The disk container object for the import snapshot request.</p>
- * @public
- */
-export interface SnapshotDiskContainer {
-  /**
-   * <p>The description of the disk image being imported.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>VHD</code> | <code>VMDK</code> | <code>RAW</code>
-   *          </p>
-   * @public
-   */
-  Format?: string | undefined;
-
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon
-   *    S3 URL (s3://..).</p>
-   * @public
-   */
-  Url?: string | undefined;
-
-  /**
-   * <p>The Amazon S3 bucket for the disk image.</p>
-   * @public
-   */
-  UserBucket?: UserBucket | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportSnapshotRequest {
-  /**
-   * <p>The client-specific data.</p>
-   * @public
-   */
-  ClientData?: ClientData | undefined;
-
-  /**
-   * <p>Token to enable idempotency for VM import requests.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The description string for the import snapshot task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>Information about the disk container.</p>
-   * @public
-   */
-  DiskContainer?: SnapshotDiskContainer | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>Specifies whether the destination snapshot of the imported image should be encrypted. The default KMS key for EBS is
-   *    used unless you specify a non-default KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
-   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * @public
-   */
-  Encrypted?: boolean | undefined;
-
-  /**
-   * <p>An identifier for the symmetric KMS key to use when creating the
-   *    encrypted snapshot. This parameter is only required if you want to use a non-default KMS key; if this
-   *    parameter is not specified, the default KMS key for EBS is used. If a <code>KmsKeyId</code> is
-   *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The KMS key identifier may be provided in any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>key</code> namespace, and then the key ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the key, the Amazon Web Services account ID of the key owner, the <code>alias</code> namespace, and then the key alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>Amazon Web Services parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
-   *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified KMS key must exist in the Region that the snapshot is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
-   * @public
-   */
-  KmsKeyId?: string | undefined;
-
-  /**
-   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
-   * @public
-   */
-  RoleName?: string | undefined;
-
-  /**
-   * <p>The tags to apply to the import snapshot task during creation.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportSnapshotResult {
-  /**
-   * <p>A description of the import snapshot task.</p>
-   * @public
-   */
-  Description?: string | undefined;
-
-  /**
-   * <p>The ID of the import snapshot task.</p>
-   * @public
-   */
-  ImportTaskId?: string | undefined;
-
-  /**
-   * <p>Information about the import snapshot task.</p>
-   * @public
-   */
-  SnapshotTaskDetail?: SnapshotTaskDetail | undefined;
-
-  /**
-   * <p>Any tags assigned to the import snapshot task.</p>
    * @public
    */
   Tags?: Tag[] | undefined;

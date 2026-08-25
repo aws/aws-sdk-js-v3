@@ -65,9 +65,23 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  *     MaxTotalPrice: "STRING_VALUE",
  *   },
  *   ReservedCapacityOptions: { // ReservedCapacityOptionsRequest
+ *     AllocationStrategy: "prioritized",
  *     ReservationTypes: [ // ReservationTypeListRequest
- *       "interruptible-capacity-reservation",
+ *       "on-demand-capacity-reservation" || "capacity-block" || "interruptible-capacity-reservation",
  *     ],
+ *     CapacityReservationTarget: { // FleetCapacityReservationTargetRequest
+ *       CapacityReservationIds: [ // CapacityReservationIdSet
+ *         "STRING_VALUE",
+ *       ],
+ *       CapacityReservationResourceGroupArns: [ // CapacityReservationResourceGroupArnSet
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *     ReservedCapacityFallbackOptions: { // ReservedCapacityFallbackOptionsRequest
+ *       MarketTypes: [ // ReservedCapacityFallbackMarketTypeList
+ *         "on-demand",
+ *       ],
+ *     },
  *   },
  *   ExcessCapacityTerminationPolicy: "no-termination" || "termination",
  *   LaunchTemplateConfigs: [ // FleetLaunchTemplateConfigListRequest // required

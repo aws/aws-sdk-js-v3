@@ -2,8 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeScheduledInstancesRequest } from "../models/models_4";
-import type { DescribeScheduledInstancesResult } from "../models/models_5";
+import type { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_5";
 import { DescribeScheduledInstances$ } from "../schemas/schemas_0";
 
 /**

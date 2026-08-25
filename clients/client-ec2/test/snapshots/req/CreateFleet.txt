@@ -2,14 +2,14 @@ POST https://ec2.us-east-1.amazonaws.com
 /
 
 content-type: application/x-www-form-urlencoded
-content-length: 84480
+content-length: 85338
 x-amz-user-agent: aws-sdk-js/3.___._
 user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/ec2#_.__ m/E,e
 host: ec2.us-east-1.amazonaws.com
 amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
 amz-sdk-request: attempt=1; max=3
 x-amz-date: 19991231T235959Z
-x-amz-content-sha256: 9c3f5284bc35906ac7e611f935f7cce120327d9a4e4f5e3eb3d3d04e1a8f7ed6
+x-amz-content-sha256: 963d800b83e58dfcf3f56fc797341773bbe8e02115a6d25ef92603353fc9a977
 authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/ec2/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-user-agent, Signature=***
 
 [string (query)]
@@ -1039,9 +1039,19 @@ OnDemandOptions.SingleInstanceType=false&
 OnDemandOptions.SingleAvailabilityZone=false&
 OnDemandOptions.MinTargetCapacity=0&
 OnDemandOptions.MaxTotalPrice=__MaxTotalPrice__&
+ReservedCapacityOptions.AllocationStrategy=__AllocationStrategy__&
 ReservedCapacityOptions.ReservationType.1=__member__&
 ReservedCapacityOptions.ReservationType.2=__member__&
 ReservedCapacityOptions.ReservationType.3=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationId.1=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationId.2=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationId.3=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationResourceGroupArn.1=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationResourceGroupArn.2=__member__&
+ReservedCapacityOptions.CapacityReservationTarget.CapacityReservationResourceGroupArn.3=__member__&
+ReservedCapacityOptions.ReservedCapacityFallbackOptions.MarketType.1=__member__&
+ReservedCapacityOptions.ReservedCapacityFallbackOptions.MarketType.2=__member__&
+ReservedCapacityOptions.ReservedCapacityFallbackOptions.MarketType.3=__member__&
 ExcessCapacityTerminationPolicy=__ExcessCapacityTerminationPolicy__&
 TerminateInstancesWithExpiration=false&
 Type=__Type__&
