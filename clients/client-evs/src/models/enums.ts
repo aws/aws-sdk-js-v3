@@ -66,6 +66,7 @@ export type EntitlementStatus = (typeof EntitlementStatus)[keyof typeof Entitlem
 export const _InstanceType = {
   I4I_METAL: "i4i.metal",
   I7I_METAL_24XL: "i7i.metal-24xl",
+  I7I_METAL_48XL: "i7i.metal-48xl",
 } as const;
 /**
  * @public

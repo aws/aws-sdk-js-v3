@@ -54,7 +54,7 @@ export interface DeleteEnvironmentHostCommandOutput extends DeleteEnvironmentHos
  * //     hostName: "STRING_VALUE",
  * //     ipAddress: "STRING_VALUE",
  * //     keyName: "STRING_VALUE",
- * //     instanceType: "i4i.metal" || "i7i.metal-24xl",
+ * //     instanceType: "i4i.metal" || "i7i.metal-24xl" || "i7i.metal-48xl",
  * //     placementGroupId: "STRING_VALUE",
  * //     dedicatedHostId: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
