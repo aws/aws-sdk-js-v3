@@ -41,7 +41,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) or Amazon Elastic Container Servi
 <li>
 <p>Submits the metering record for a set of customers.
 <code>BatchMeterUsage</code> API calls are captured by CloudTrail. You can use
-CloudTrail to verify that the software as a subscription (SaaS) metering records that
+CloudTrail to verify that the software as a service (SaaS) metering records that
 you sent are accurate by searching for records with the <code>eventName</code>
 of <code>BatchMeterUsage</code>. You can also use CloudTrail to audit records over
 time. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-concepts.html">CloudTrail User
@@ -84,7 +84,7 @@ with the <code>CustomerAWSAccountId</code>, <code>ProductCode</code>, and <code>
 products</b>
 </p>
 <p>
-<i>RegisteredUsage</i>
+<i>RegisterUsage</i>
 </p>
 <ul>
 <li>

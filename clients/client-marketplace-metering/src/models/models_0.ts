@@ -97,9 +97,9 @@ export interface UsageRecord {
 
   /**
    * <p>The <code>CustomerAWSAccountId</code> parameter specifies the AWS account ID of the buyer.</p>
-   *          <note>
-   *             <p>For existing integrations, to access your <code>CustomerIdentifier</code> to <code>CustomerAWSAccountId</code> mapping, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/data-feed-account.html">Account Feeds</a>.</p>
-   *          </note>
+   *          <important>
+   *             <p>If you have an existing integration and need the <code>CustomerAWSAccountId</code> that corresponds to a <code>CustomerIdentifier</code>, contact <a href="https://aws.amazon.com/marketplace/management/contact-us/">AWS Marketplace Seller Operations</a> to obtain the mapping. Do not request the <code>CustomerAWSAccountId</code> directly from buyers. We cannot verify that a buyer-provided account ID is authentic, which can result in incorrect metering or billing.</p>
+   *          </important>
    * @public
    */
   CustomerAWSAccountId?: string | undefined;
@@ -130,6 +130,11 @@ export interface BatchMeterUsageRequest {
   /**
    * <p>Product code is used to uniquely identify a product in Amazon Web Services Marketplace. The product code should
    *             be the same as the one used during the publishing of a new product.</p>
+   *          <important>
+   *             <p>
+   *                <code>ProductCode</code> is required only for legacy integrations that use <code>CustomerIdentifier</code>. For new integrations using <code>LicenseArn</code> (Concurrent Agreements), do NOT include <code>ProductCode</code> at the request level. The <code>LicenseArn</code> in each <code>UsageRecord</code> identifies both the product and the specific agreement.</p>
+   *             <p>Sending metering records with both <code>ProductCode</code> and <code>LicenseArn</code> for the same customer within the same hour will result in duplicate billing. If you are migrating from product-based metering to license-based metering, stop sending <code>ProductCode</code> before you start sending <code>LicenseArn</code>.</p>
+   *          </important>
    * @public
    */
   ProductCode?: string | undefined;
