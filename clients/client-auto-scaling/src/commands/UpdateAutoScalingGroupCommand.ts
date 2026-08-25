@@ -184,6 +184,13 @@ export interface UpdateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       SpotAllocationStrategy: "STRING_VALUE",
  *       SpotInstancePools: Number("int"),
  *       SpotMaxPrice: "STRING_VALUE",
+ *       DistributionSegments: [ // DistributionSegments
+ *         { // DistributionSegment
+ *           TargetCapacityTypes: [ // TargetCapacityTypes
+ *             "on-demand-capacity-reservation" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
+ *           ],
+ *         },
+ *       ],
  *     },
  *   },
  *   MinSize: Number("int"),

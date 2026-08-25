@@ -30,6 +30,7 @@ import type {
   ScaleInProtectedInstances,
   ScalingActivityStatusCode,
   StandbyInstances,
+  TargetCapacityType,
   WarmPoolState,
   WarmPoolStatus,
 } from "./enums";
@@ -929,9 +930,44 @@ export interface LifecycleHookSpecification {
 }
 
 /**
- * <p>Use this structure to specify the distribution of On-Demand Instances and Spot
- *             Instances and the allocation strategies used to fulfill On-Demand and Spot capacities
- *             for a mixed instances policy.</p>
+ * <p>Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it
+ *             launches instances.</p>
+ * @public
+ */
+export interface DistributionSegment {
+  /**
+   * <p>The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in
+   *             the priority order of the capacity types, and within each capacity type, in the order of
+   *             instance types listed in your launch template <code>Overrides</code>.</p>
+   *          <p>The following lists the valid values:</p>
+   *          <dl>
+   *             <dt>on-demand-capacity-reservation</dt>
+   *             <dd>
+   *                <p>On-Demand Capacity Reservations.</p>
+   *             </dd>
+   *             <dt>capacity-block</dt>
+   *             <dd>
+   *                <p>Capacity Blocks.</p>
+   *             </dd>
+   *             <dt>interruptible-capacity-reservation</dt>
+   *             <dd>
+   *                <p>Interruptible Capacity Reservations.</p>
+   *             </dd>
+   *             <dt>on-demand</dt>
+   *             <dd>
+   *                <p>On-Demand capacity. Include this value to allow the group to fall back to
+   *                         On-Demand capacity when the preceding capacity types are unavailable.</p>
+   *             </dd>
+   *          </dl>
+   * @public
+   */
+  TargetCapacityTypes?: TargetCapacityType[] | undefined;
+}
+
+/**
+ * <p>Use this structure to specify how a mixed instances policy distributes capacity across
+ *             On-Demand, Spot, and supported Capacity Reservation types, and to specify the allocation
+ *             strategies that are used to fulfill the capacity.</p>
  * @public
  */
 export interface InstancesDistribution {
@@ -1056,6 +1092,16 @@ export interface InstancesDistribution {
    * @public
    */
   SpotMaxPrice?: string | undefined;
+
+  /**
+   * <p>The Distribution Segments configuration. Each segment contains an ordered list of
+   *             capacity types to prioritize.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html">Use Distribution
+   *                 Segments to target multiple capacity types</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   * @public
+   */
+  DistributionSegments?: DistributionSegment[] | undefined;
 }
 
 /**
@@ -1838,18 +1884,23 @@ export interface LaunchTemplate {
 }
 
 /**
- * <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot
- *             Instances within a single Auto Scaling group.</p>
+ * <p>Use this structure to launch multiple instance types and configure how capacity is
+ *             distributed across On-Demand, Spot, and supported Capacity Reservation types within a
+ *             single Auto Scaling group.</p>
  *          <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch
- *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
+ *             instances, prioritize capacity types, and help optimize your costs. For more
+ *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
  *                 groups with multiple instance types and purchase options</a> in the
+ *                 <i>Amazon EC2 Auto Scaling User Guide</i>. To learn how to prioritize multiple capacity
+ *             types, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html">Use Distribution
+ *                 Segments to target multiple capacity types</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @public
  */
 export interface MixedInstancesPolicy {
   /**
    * <p>One or more launch templates and the instance types (overrides) that are used to
-   *             launch EC2 instances to fulfill On-Demand and Spot capacities.</p>
+   *             launch EC2 instances to fulfill the configured capacities.</p>
    * @public
    */
   LaunchTemplate?: LaunchTemplate | undefined;
@@ -1956,6 +2007,9 @@ export interface CreateAutoScalingGroupType {
   /**
    * <p>The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
    *                 groups with multiple instance types and purchase options</a> in the
+   *                 <i>Amazon EC2 Auto Scaling User Guide</i>. To learn how to prioritize multiple capacity
+   *             types, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html">Use Distribution
+   *                 Segments to target multiple capacity types</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
    */
@@ -3922,10 +3976,12 @@ export interface DesiredConfiguration {
   LaunchTemplate?: LaunchTemplateSpecification | undefined;
 
   /**
-   * <p>Use this structure to launch multiple instance types and On-Demand Instances and Spot
-   *             Instances within a single Auto Scaling group.</p>
+   * <p>Use this structure to launch multiple instance types and configure how capacity is
+   *             distributed across On-Demand, Spot, and supported Capacity Reservation types within a
+   *             single Auto Scaling group.</p>
    *          <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch
-   *             instances and help optimize your costs. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
+   *             instances, prioritize capacity types, and help optimize your costs. For more
+   *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
    *                 groups with multiple instance types and purchase options</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    * @public
@@ -8410,6 +8466,10 @@ export interface UpdateAutoScalingGroupType {
    * <p>The mixed instances policy. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html">Auto Scaling
    *                 groups with multiple instance types and purchase options</a> in the
    *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+   *          <p>You can remove the Distribution Segments configuration by specifying
+   *                 <code>OnDemandBaseCapacity</code> or
+   *                 <code>OnDemandPercentageAboveBaseCapacity</code>. You can also remove it explicitly
+   *             by specifying an empty list for <code>DistributionSegments</code>.</p>
    * @public
    */
   MixedInstancesPolicy?: MixedInstancesPolicy | undefined;

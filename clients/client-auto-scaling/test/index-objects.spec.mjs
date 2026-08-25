@@ -190,6 +190,7 @@ import {
   DisableMetricsCollection$,
   DisableMetricsCollectionCommand,
   DisableMetricsCollectionQuery$,
+  DistributionSegment$,
   Ebs$,
   EnabledMetric$,
   EnableMetricsCollection$,
@@ -379,6 +380,7 @@ import {
   Tag$,
   TagDescription$,
   TagsType$,
+  TargetCapacityType,
   TargetTrackingConfiguration$,
   TargetTrackingMetricDataQuery$,
   TargetTrackingMetricStat$,
@@ -625,6 +627,7 @@ assert(typeof DetachLoadBalancerTargetGroupsType$ === "object");
 assert(typeof DetachTrafficSourcesResultType$ === "object");
 assert(typeof DetachTrafficSourcesType$ === "object");
 assert(typeof DisableMetricsCollectionQuery$ === "object");
+assert(typeof DistributionSegment$ === "object");
 assert(typeof Ebs$ === "object");
 assert(typeof EnabledMetric$ === "object");
 assert(typeof EnableMetricsCollectionQuery$ === "object");
@@ -763,6 +766,7 @@ assert(typeof RetryStrategy === "object");
 assert(typeof ScaleInProtectedInstances === "object");
 assert(typeof ScalingActivityStatusCode === "object");
 assert(typeof StandbyInstances === "object");
+assert(typeof TargetCapacityType === "object");
 assert(typeof WarmPoolState === "object");
 assert(typeof WarmPoolStatus === "object");
 // errors

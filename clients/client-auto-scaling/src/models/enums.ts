@@ -149,6 +149,21 @@ export type RetentionAction = (typeof RetentionAction)[keyof typeof RetentionAct
  * @public
  * @enum
  */
+export const TargetCapacityType = {
+  CAPACITY_BLOCK: "capacity-block",
+  INTERRUPTIBLE_CAPACITY_RESERVATION: "interruptible-capacity-reservation",
+  ON_DEMAND: "on-demand",
+  ON_DEMAND_CAPACITY_RESERVATION: "on-demand-capacity-reservation",
+} as const;
+/**
+ * @public
+ */
+export type TargetCapacityType = (typeof TargetCapacityType)[keyof typeof TargetCapacityType];
+
+/**
+ * @public
+ * @enum
+ */
 export const BareMetal = {
   EXCLUDED: "excluded",
   INCLUDED: "included",

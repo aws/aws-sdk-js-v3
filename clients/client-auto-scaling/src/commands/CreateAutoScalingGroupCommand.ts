@@ -155,6 +155,13 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *       SpotAllocationStrategy: "STRING_VALUE",
  *       SpotInstancePools: Number("int"),
  *       SpotMaxPrice: "STRING_VALUE",
+ *       DistributionSegments: [ // DistributionSegments
+ *         { // DistributionSegment
+ *           TargetCapacityTypes: [ // TargetCapacityTypes
+ *             "on-demand-capacity-reservation" || "capacity-block" || "interruptible-capacity-reservation" || "on-demand",
+ *           ],
+ *         },
+ *       ],
  *     },
  *   },
  *   InstanceId: "STRING_VALUE",
@@ -387,6 +394,59 @@ export interface CreateAutoScalingGroupCommandOutput extends __MetadataBearer {}
  *     }
  *   },
  *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE, subnet-610acd08EXAMPLE"
+ * };
+ * const command = new CreateAutoScalingGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
+ * @example To create an Auto Scaling group using Distribution Segments
+ * ```javascript
+ * // This example creates an Auto Scaling group that uses Distribution Segments to prioritize On-Demand Capacity Reservations, Capacity Blocks, interruptible Capacity Reservations, and then On-Demand capacity.
+ * const input = {
+ *   AutoScalingGroupName: "my-asg",
+ *   CapacityReservationSpecification: {
+ *     CapacityReservationTarget: {
+ *       CapacityReservationResourceGroupArns: [
+ *         "arn:aws:resource-groups:us-east-1:123456789012:group/my-capacity-reservation-group"
+ *       ]
+ *     }
+ *   },
+ *   DesiredCapacity: 5,
+ *   MaxSize: 10,
+ *   MinSize: 0,
+ *   MixedInstancesPolicy: {
+ *     InstancesDistribution: {
+ *       DistributionSegments: [
+ *         {
+ *           TargetCapacityTypes: [
+ *             "on-demand-capacity-reservation",
+ *             "capacity-block",
+ *             "interruptible-capacity-reservation",
+ *             "on-demand"
+ *           ]
+ *         }
+ *       ],
+ *       OnDemandAllocationStrategy: "prioritized"
+ *     },
+ *     LaunchTemplate: {
+ *       LaunchTemplateSpecification: {
+ *         LaunchTemplateName: "my-template-for-auto-scaling",
+ *         Version: "$Default"
+ *       },
+ *       Overrides: [
+ *         {
+ *           InstanceType: "m5.24xlarge"
+ *         },
+ *         {
+ *           InstanceType: "p5.48xlarge"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   VPCZoneIdentifier: "subnet-057fa0918fEXAMPLE"
  * };
  * const command = new CreateAutoScalingGroupCommand(input);
  * const response = await client.send(command);

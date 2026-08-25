@@ -166,6 +166,7 @@ const _DPTe = "DescribePoliciesType";
 const _DPe = "DeletePolicy";
 const _DPes = "DescribePolicies";
 const _DR = "DefaultResult";
+const _DS = "DistributionSegment";
 const _DSA = "DeleteScheduledAction";
 const _DSAT = "DeleteScheduledActionType";
 const _DSATe = "DescribeScalingActivitiesType";
@@ -174,6 +175,7 @@ const _DSAe = "DescribeScalingActivities";
 const _DSAes = "DescribeScheduledActions";
 const _DSI = "DisableScaleIn";
 const _DSPT = "DescribeScalingProcessTypes";
+const _DSi = "DistributionSegments";
 const _DT = "DeleteTags";
 const _DTPT = "DescribeTerminationPolicyTypes";
 const _DTPTA = "DescribeTerminationPolicyTypesAnswer";
@@ -531,6 +533,7 @@ const _Stat = "Stat";
 const _Str = "Strategy";
 const _T = "Tags";
 const _TARN = "TopicARN";
+const _TCT = "TargetCapacityTypes";
 const _TD = "TagDescription";
 const _TDL = "TagDescriptionList";
 const _TGARN = "TargetGroupARNs";
@@ -1121,6 +1124,11 @@ export var DisableMetricsCollectionQuery$: StaticStructureSchema = [3, n0, _DMCQ
   [_ASGN, _Me],
   [0, 64 | 0], 1
 ];
+export var DistributionSegment$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [_TCT],
+  [64 | 0]
+];
 export var Ebs$: StaticStructureSchema = [3, n0, _E,
   0,
   [_SI, _VS, _VT, _DOT, _Io, _En, _Th],
@@ -1243,8 +1251,8 @@ export var InstanceReusePolicy$: StaticStructureSchema = [3, n0, _IRP,
 ];
 export var InstancesDistribution$: StaticStructureSchema = [3, n0, _ID,
   0,
-  [_ODAS, _ODBC, _ODPABC, _SAS, _SIP, _SMP],
-  [0, 1, 1, 0, 1, 0]
+  [_ODAS, _ODBC, _ODPABC, _SAS, _SIP, _SMP, _DSi],
+  [0, 1, 1, 0, 1, 0, () => DistributionSegments]
 ];
 export var LaunchConfiguration$: StaticStructureSchema = [3, n0, _LC,
   0,
@@ -1693,6 +1701,9 @@ var CapacityReservationResourceGroupArns = 64 | 0;
 var CheckpointPercentages = 64 | 1;
 var ClassicLinkVPCSecurityGroups = 64 | 0;
 var CpuManufacturers = 64 | 0;
+var DistributionSegments: StaticListSchema = [1, n0, _DSi,
+  0, () => DistributionSegment$
+];
 var EnabledMetrics: StaticListSchema = [1, n0, _EM,
   0, () => EnabledMetric$
 ];
@@ -1800,6 +1811,7 @@ var TagDescriptionList: StaticListSchema = [1, n0, _TDL,
 var Tags: StaticListSchema = [1, n0, _T,
   0, () => Tag$
 ];
+var TargetCapacityTypes = 64 | 0;
 var TargetGroupARNs = 64 | 0;
 var TargetTrackingMetricDataQueries: StaticListSchema = [1, n0, _TTMDQa,
   0, () => TargetTrackingMetricDataQuery$
