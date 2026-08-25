@@ -49,7 +49,7 @@ export interface ListExecutionsCommandOutput extends ListExecutionsResponse, __M
  * //       agentSubTask: "STRING_VALUE", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
- * //       executionStatus: "FAILED" || "RUNNING" || "STOPPED" || "CANCELED" || "TIMED_OUT", // required
+ * //       executionStatus: "FAILED" || "RUNNING" || "STOPPED" || "CANCELED" || "TIMED_OUT" || "WAITING", // required
  * //       agentType: "STRING_VALUE",
  * //       uid: "STRING_VALUE",
  * //     },

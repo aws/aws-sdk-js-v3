@@ -41,6 +41,9 @@ export interface CreateAgentSpaceCommandOutput extends CreateAgentSpaceOutput, _
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   preferences: { // AgentSpacePreferences
+ *     "<keys>": true || false,
+ *   },
  * };
  * const command = new CreateAgentSpaceCommand(input);
  * const response = await client.send(command);
@@ -53,6 +56,9 @@ export interface CreateAgentSpaceCommandOutput extends CreateAgentSpaceOutput, _
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     kmsKeyArn: "STRING_VALUE",
  * //     agentSpaceId: "STRING_VALUE", // required
+ * //     preferences: { // AgentSpacePreferences
+ * //       "<keys>": true || false,
+ * //     },
  * //   },
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

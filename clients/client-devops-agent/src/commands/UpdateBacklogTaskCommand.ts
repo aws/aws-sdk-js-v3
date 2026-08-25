@@ -35,7 +35,7 @@ export interface UpdateBacklogTaskCommandOutput extends UpdateBacklogTaskRespons
  * const input = { // UpdateBacklogTaskRequest
  *   agentSpaceId: "STRING_VALUE", // required
  *   taskId: "STRING_VALUE", // required
- *   taskStatus: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED",
+ *   taskStatus: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdateBacklogTaskCommand(input);
@@ -56,7 +56,7 @@ export interface UpdateBacklogTaskCommandOutput extends UpdateBacklogTaskRespons
  * //     },
  * //     taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING", // required
  * //     priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
- * //     status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED", // required
+ * //     status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING", // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     version: Number("int"), // required

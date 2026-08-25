@@ -545,6 +545,13 @@ UpdateAgentSpace
 </details>
 <details>
 <summary>
+UpdateApprovalAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/devops-agent/command/UpdateApprovalActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateApprovalActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-devops-agent/Interface/UpdateApprovalActionCommandOutput/)
+</details>
+<details>
+<summary>
 UpdateAsset
 </summary>
 

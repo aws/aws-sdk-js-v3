@@ -174,7 +174,7 @@ export interface RegisterServiceCommandOutput extends RegisterServiceOutput, __M
  *         apiKey: { // NewRelicApiKeyConfig
  *           apiKey: "STRING_VALUE", // required
  *           accountId: "STRING_VALUE", // required
- *           region: "US" || "EU", // required
+ *           region: "US" || "EU" || "JP", // required
  *           applicationIds: [ // NewRelicApplicationIds
  *             "STRING_VALUE",
  *           ],

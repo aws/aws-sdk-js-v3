@@ -51,6 +51,7 @@ export * from "./SendMessageCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateAgentSpaceCommand";
+export * from "./UpdateApprovalActionCommand";
 export * from "./UpdateAssetCommand";
 export * from "./UpdateAssetFileCommand";
 export * from "./UpdateAssociationCommand";

@@ -41,11 +41,15 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       accountType: "source", // required
  *       assumableRoleArn: "STRING_VALUE", // required
  *       externalId: "STRING_VALUE",
+ *       agentElevatedRoleArn: "STRING_VALUE",
+ *       agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  *     },
  *     aws: { // AWSConfiguration
  *       assumableRoleArn: "STRING_VALUE", // required
  *       accountId: "STRING_VALUE", // required
  *       accountType: "monitor", // required
+ *       agentElevatedRoleArn: "STRING_VALUE",
+ *       agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  *     },
  *     github: { // GitHubConfiguration
  *       repoName: "STRING_VALUE", // required
@@ -85,10 +89,23 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       accountId: "STRING_VALUE", // required
  *       endpoint: "STRING_VALUE", // required
  *     },
- *     mcpserverdatadog: {},
+ *     mcpserverdatadog: { // MCPServerDatadogConfiguration
+ *       enabledElevatedTools: [ // MCPToolDetailsList
+ *         { // MCPToolDetail
+ *           name: "STRING_VALUE", // required
+ *           toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ *         },
+ *       ],
+ *     },
  *     mcpserver: { // MCPServerConfiguration
  *       tools: [ // MCPToolsList // required
  *         "STRING_VALUE",
+ *       ],
+ *       toolDetails: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ *         },
  *       ],
  *     },
  *     gitlab: { // GitLabConfiguration
@@ -113,6 +130,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *       tools: [
  *         "STRING_VALUE",
  *       ],
+ *       enabledElevatedTools: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ *         },
+ *       ],
  *     },
  *     pagerduty: { // PagerDutyConfiguration
  *       services: [ // PagerDutyServicesList // required
@@ -123,6 +146,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *     mcpserversigv4: { // MCPServerSigV4Configuration
  *       tools: [ // required
  *         "STRING_VALUE",
+ *       ],
+ *       toolDetails: [
+ *         {
+ *           name: "STRING_VALUE", // required
+ *           toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ *         },
  *       ],
  *     },
  *     remoteagent: {},
@@ -150,11 +179,15 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         accountType: "source", // required
  * //         assumableRoleArn: "STRING_VALUE", // required
  * //         externalId: "STRING_VALUE",
+ * //         agentElevatedRoleArn: "STRING_VALUE",
+ * //         agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  * //       },
  * //       aws: { // AWSConfiguration
  * //         assumableRoleArn: "STRING_VALUE", // required
  * //         accountId: "STRING_VALUE", // required
  * //         accountType: "monitor", // required
+ * //         agentElevatedRoleArn: "STRING_VALUE",
+ * //         agentElevatedRoleArnStatus: "valid" || "invalid" || "pending-confirmation",
  * //       },
  * //       github: { // GitHubConfiguration
  * //         repoName: "STRING_VALUE", // required
@@ -194,10 +227,23 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         accountId: "STRING_VALUE", // required
  * //         endpoint: "STRING_VALUE", // required
  * //       },
- * //       mcpserverdatadog: {},
+ * //       mcpserverdatadog: { // MCPServerDatadogConfiguration
+ * //         enabledElevatedTools: [ // MCPToolDetailsList
+ * //           { // MCPToolDetail
+ * //             name: "STRING_VALUE", // required
+ * //             toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ * //           },
+ * //         ],
+ * //       },
  * //       mcpserver: { // MCPServerConfiguration
  * //         tools: [ // MCPToolsList // required
  * //           "STRING_VALUE",
+ * //         ],
+ * //         toolDetails: [
+ * //           {
+ * //             name: "STRING_VALUE", // required
+ * //             toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ * //           },
  * //         ],
  * //       },
  * //       gitlab: { // GitLabConfiguration
@@ -222,6 +268,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //         tools: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         enabledElevatedTools: [
+ * //           {
+ * //             name: "STRING_VALUE", // required
+ * //             toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ * //           },
+ * //         ],
  * //       },
  * //       pagerduty: { // PagerDutyConfiguration
  * //         services: [ // PagerDutyServicesList // required
@@ -232,6 +284,12 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //       mcpserversigv4: { // MCPServerSigV4Configuration
  * //         tools: [ // required
  * //           "STRING_VALUE",
+ * //         ],
+ * //         toolDetails: [
+ * //           {
+ * //             name: "STRING_VALUE", // required
+ * //             toolClassification: "READ_ONLY" || "MUTATIVE" || "DESTRUCTIVE",
+ * //           },
  * //         ],
  * //       },
  * //       remoteagent: {},

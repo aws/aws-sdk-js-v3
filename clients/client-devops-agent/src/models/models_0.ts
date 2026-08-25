@@ -2,6 +2,9 @@
 import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
+  AgentSpacePreferenceKey,
+  ApprovalActionType,
+  ApprovalStatus,
   AuthFlow,
   CapabilityType,
   EventChannelType,
@@ -30,6 +33,7 @@ import type {
   TaskSortOrder,
   TaskStatus,
   TaskType,
+  ToolClassification,
   UserType,
   ValidationStatus,
   WebhookType,
@@ -893,6 +897,12 @@ export interface AgentSpace {
    * @public
    */
   agentSpaceId: string | undefined;
+
+  /**
+   * <p>The preferences configured on the agent space. Preferences that are not set take their default values.</p>
+   * @public
+   */
+  preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
 }
 
 /**
@@ -929,6 +939,18 @@ export interface AWSConfiguration {
    * @public
    */
   accountType: MonitorAccountType | undefined;
+
+  /**
+   * <p>Optional IAM role ARN to be assumed by AIDevOps for elevated directed actions on behalf of the customer. Used for mutating operations gated by elevatedActionsEnabled on the AgentSpace. When not provided, only non-elevated directed actions are available for this AWS account.</p>
+   * @public
+   */
+  agentElevatedRoleArn?: string | undefined;
+
+  /**
+   * <p>Validation status of the agentElevatedRoleArn. Updated asynchronously after the customer registers an elevated role. Possible values: PENDING_CONFIRMATION (validation in progress), VALID (role validated), INVALID (validation failed).</p>
+   * @public
+   */
+  agentElevatedRoleArnStatus?: ValidationStatus | undefined;
 }
 
 /**
@@ -1028,6 +1050,8 @@ export interface GitHubConfiguration {
 
   /**
    * <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+   *
+   * @deprecated (since 2026-08-04) Superseded by the ReleaseManagement association. Configure the runtime role on the ReleaseManagement association and reference it via releaseManagementAssociationId.
    * @public
    */
   runtimeRoleArn?: string | undefined;
@@ -1058,9 +1082,29 @@ export interface GitLabConfiguration {
 
   /**
    * <p>Optional role ARN that AIDevOps assumes at runtime for automatic verification testing and VPC connectivity on this association.</p>
+   *
+   * @deprecated (since 2026-08-04) Superseded by the ReleaseManagement association. Configure the runtime role on the ReleaseManagement association and reference it via releaseManagementAssociationId.
    * @public
    */
   runtimeRoleArn?: string | undefined;
+}
+
+/**
+ * <p>An MCP tool together with its access categorization.</p>
+ * @public
+ */
+export interface MCPToolDetail {
+  /**
+   * <p>The name of the MCP tool.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The access categorization of the MCP tool.</p>
+   * @public
+   */
+  toolClassification?: ToolClassification | undefined;
 }
 
 /**
@@ -1073,13 +1117,25 @@ export interface MCPServerConfiguration {
    * @public
    */
   tools: string[] | undefined;
+
+  /**
+   * <p>List of MCP tools with their access categorization. When provided, the tool names must match those in the tools member.</p>
+   * @public
+   */
+  toolDetails?: MCPToolDetail[] | undefined;
 }
 
 /**
  * <p>Mixin for webhook update support.</p>
  * @public
  */
-export interface MCPServerDatadogConfiguration {}
+export interface MCPServerDatadogConfiguration {
+  /**
+   * <p>The subset of elevated-access tools enabled for this integration.</p>
+   * @public
+   */
+  enabledElevatedTools?: MCPToolDetail[] | undefined;
+}
 
 /**
  * <p>Configuration for Grafana MCP server integration, used with an AWS-hosted MCP server.</p>
@@ -1103,6 +1159,12 @@ export interface MCPServerGrafanaConfiguration {
    * @public
    */
   tools?: string[] | undefined;
+
+  /**
+   * <p>The subset of elevated-access tools enabled for this integration.</p>
+   * @public
+   */
+  enabledElevatedTools?: MCPToolDetail[] | undefined;
 }
 
 /**
@@ -1133,6 +1195,12 @@ export interface MCPServerSigV4Configuration {
    * @public
    */
   tools: string[] | undefined;
+
+  /**
+   * <p>List of MCP tools with their access categorization. When provided, the tool names must match those in the tools member.</p>
+   * @public
+   */
+  toolDetails?: MCPToolDetail[] | undefined;
 }
 
 /**
@@ -1250,7 +1318,7 @@ export interface SlackConfiguration {
 }
 
 /**
- * <p>Configuration for AWS source account integration. Note: passRole check on 'assumableRoleArn' is not supported.</p>
+ * <p>Configuration for AWS source account integration. Setting the role ARNs on this configuration requires the caller to have at least the iam:PassRole permission (see assumableRoleArn).</p>
  * @public
  */
 export interface SourceAwsConfiguration {
@@ -1267,7 +1335,7 @@ export interface SourceAwsConfiguration {
   accountType: SourceAccountType | undefined;
 
   /**
-   * <p>Role ARN to be assumed by AIDevOps to operate on behalf of customer.</p>
+   * <p>Role ARN to be assumed by AIDevOps to operate on behalf of customer. To set this role ARN on AssociateService or UpdateAssociation, the caller must have at least the iam:PassRole permission on arn:aws:iam::&lt;account-id&gt;:role/* in the caller's own account, with the condition iam:PassedToService set to aidevops.amazonaws.com. A broader iam:PassRole grant also satisfies this requirement.</p>
    * @public
    */
   assumableRoleArn: string | undefined;
@@ -1277,6 +1345,18 @@ export interface SourceAwsConfiguration {
    * @public
    */
   externalId?: string | undefined;
+
+  /**
+   * <p>Optional IAM role ARN to be assumed by AIDevOps for elevated directed actions on behalf of the customer. Used for mutating operations gated by elevatedActionsEnabled on the AgentSpace. When not provided, only non-elevated directed actions are available for this AWS account. Setting this role is subject to the same minimum iam:PassRole requirement described on assumableRoleArn.</p>
+   * @public
+   */
+  agentElevatedRoleArn?: string | undefined;
+
+  /**
+   * <p>Validation status of the agentElevatedRoleArn. Updated asynchronously after the customer registers an elevated role. Possible values: PENDING_CONFIRMATION (validation in progress), VALID (role validated), INVALID (validation failed).</p>
+   * @public
+   */
+  agentElevatedRoleArnStatus?: ValidationStatus | undefined;
 }
 
 /**
@@ -2294,6 +2374,12 @@ export interface CreateAgentSpaceInput {
    * @public
    */
   tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The preferences to configure on the agent space. Preferences not provided take their default values.</p>
+   * @public
+   */
+  preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
 }
 
 /**
@@ -2678,6 +2764,12 @@ export interface UpdateAgentSpaceInput {
    * @public
    */
   locale?: string | undefined;
+
+  /**
+   * <p>The preferences to configure on the agent space. When provided, this replaces the full set of configured preferences; preferences not included revert to their default values. When omitted, the current preferences are left unchanged.</p>
+   * @public
+   */
+  preferences?: Partial<Record<AgentSpacePreferenceKey, boolean>> | undefined;
 }
 
 /**
@@ -2726,6 +2818,60 @@ export interface UpdateOperatorAppIdpConfigOutput {
    * @public
    */
   idp: IdpAuthConfiguration | undefined;
+}
+
+/**
+ * <p>An approval decision supplied when resuming a paused agent execution. When an agent execution pauses to request approval for an elevated action, SendMessage streams an approval request carrying interrupt identifiers. This structure carries the decision back to the service — which paused tool invocation is being resumed, the opaque interrupt identifier that resumes it, the identifier of the approval request being resolved, optional display text of the control the user chose, and the action taken (APPROVED or REJECTED) — so the service can resume the paused execution. All members are optional on the wire; service-side validation is applied against the populated subset.</p>
+ * @public
+ */
+export interface ApprovalAction {
+  /**
+   * <p>Identifier of the specific paused tool invocation that requested approval. Correlates the approval decision back to the paused invocation.</p>
+   * @public
+   */
+  toolUseId?: string | undefined;
+
+  /**
+   * <p>An opaque resume identifier issued by the service when an agent execution pauses for approval. Provide it when resuming so the service can resume the correct paused execution.</p>
+   * @public
+   */
+  interruptId?: string | undefined;
+
+  /**
+   * <p>Identifier of the approval request being resolved.</p>
+   * @public
+   */
+  approvalId?: string | undefined;
+
+  /**
+   * <p>Optional display text of the UI control the user chose (for example, "Approve Exact", "Approve Broader", or "Reject"), provided as auxiliary decision context.</p>
+   * @public
+   */
+  buttonText?: string | undefined;
+
+  /**
+   * <p>The action taken on the approval request — APPROVED or REJECTED.</p>
+   * @public
+   */
+  action?: ApprovalActionType | undefined;
+}
+
+/**
+ * <p>Tool-invocation pattern primitive used to express both an agent-requested approval and a finalized approval. The primitive is uniform across AWS and third-party tools: a tool identifier plus a map of argument pins that narrow which invocations the pattern matches.</p>
+ * @public
+ */
+export interface ApprovalPattern {
+  /**
+   * <p>Identifier of the tool the pattern applies to (e.g. `use_aws` for AWS actions, or a third-party tool name).</p>
+   * @public
+   */
+  tool: string | undefined;
+
+  /**
+   * <p>Argument constraints that narrow which tool invocations the pattern matches. For AWS tools, the map must include `operation` (the IAM action, e.g. `ec2:AuthorizeSecurityGroupIngress`) and `resource_arn` (the resource ARN or ARN glob); additional narrowing arguments go in further pin keys. The same `\{tool, argumentPins\}` shape is used uniformly for AWS and third-party tools, with tool-specific keys for third-party tools. Requests whose argument pins are collectively too large are rejected with a ValidationException.</p>
+   * @public
+   */
+  argumentPins: Record<string, string> | undefined;
 }
 
 /**
@@ -2853,7 +2999,7 @@ export interface AssetFileContent {
  */
 export interface AssetSourceUrlContent {
   /**
-   * <p>The source URL to import asset content from</p>
+   * <p>The source URL to import asset content from.</p>
    * @public
    */
   url: string | undefined;
@@ -3491,7 +3637,7 @@ export interface CreateBacklogTaskResponse {
  */
 export interface CreateChatRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space where the chat will be created.</p>
    * @public
    */
   agentSpaceId: string | undefined;
@@ -4906,7 +5052,7 @@ export interface ListBacklogTasksResponse {
  */
 export interface ListChatsRequest {
   /**
-   * <p>Unique identifier for an agent space (allows alphanumeric characters and hyphens; 1-64 characters)</p>
+   * <p>The unique identifier for the agent space to list chats from.</p>
    * @public
    */
   agentSpaceId: string | undefined;
@@ -5852,10 +5998,16 @@ export interface SendMessageContext {
   lastMessage?: string | undefined;
 
   /**
-   * <p>Response to a UI prompt (not a text conversation message). Operator App SDK clients set this to the control-string sentinel `"APPROVAL_ACTION"` when the request is resuming a paused tool call after an operator approval decision; in that case the structured decision context lives on the sibling `approvalAction` member and the chat agent reads from there. Preserved as a String for back-compat: pre-typed-approval clients still encode arbitrary UI-prompt responses as JSON in this field, and the chat agent parses them out during the transition.</p>
+   * <p>Response to a UI prompt (not a text conversation message). Set this to the sentinel value `"APPROVAL_ACTION"` when the request is resuming a paused execution after an approval decision; in that case the structured decision is provided on the sibling `approvalAction` member. Preserved as a String for backward compatibility: clients that predate the typed approval field may still encode UI-prompt responses as JSON in this field.</p>
    * @public
    */
   userActionResponse?: string | undefined;
+
+  /**
+   * <p>An approval decision supplied when resuming a paused agent execution. When an agent execution pauses to request approval for an elevated action, SendMessage streams an approval request carrying interrupt identifiers. To resume the paused execution, call SendMessage again with `userActionResponse` set to `"APPROVAL_ACTION"` and this member populated with those identifiers and the decision (APPROVED or REJECTED). Optional; omit it for messages that are not resuming an approval.</p>
+   * @public
+   */
+  approvalAction?: ApprovalAction | undefined;
 }
 
 /**
@@ -5900,6 +6052,12 @@ export interface SendMessageRequest {
    * @public
    */
   assetIds?: string[] | undefined;
+
+  /**
+   * <p>Optional model tier selection. Valid values: smart, balanced, fast. Absent or unrecognized values default to balanced.</p>
+   * @public
+   */
+  modelTier?: string | undefined;
 }
 
 /**
@@ -6490,6 +6648,18 @@ export interface RegisteredService {
    * @public
    */
   privateConnectionName?: string | undefined;
+
+  /**
+   * <p>The timestamp when the service was registered.</p>
+   * @public
+   */
+  createdAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the service was last updated.</p>
+   * @public
+   */
+  updatedAt: Date | undefined;
 }
 
 /**
@@ -8080,6 +8250,78 @@ export interface UntagResourceRequest {
  * @public
  */
 export interface UntagResourceResponse {}
+
+/**
+ * <p>Request structure for UpdateApprovalAction. Submits the terminal decision (APPROVED or REJECTED) against an approval request, optionally carrying the finalized pattern and time-to-live when the action is APPROVED, or a free-text rationale when the action is REJECTED. Cross-field invariants between `action` and the approve-only / reject-only members are enforced by service-side validation.</p>
+ * @public
+ */
+export interface UpdateApprovalActionRequest {
+  /**
+   * <p>The agent space identifier — multi-tenant workspace scope. Bound from the request URI.</p>
+   * @public
+   */
+  agentSpaceId: string | undefined;
+
+  /**
+   * <p>Identifier of the approval request being resolved. A UUID. Bound from the request URI.</p>
+   * @public
+   */
+  approvalId: string | undefined;
+
+  /**
+   * <p>The action to take on the approval request — APPROVED or REJECTED.</p>
+   * @public
+   */
+  action: ApprovalActionType | undefined;
+
+  /**
+   * <p>The finalized pattern (tool + argumentPins) that scopes the approval. Required when `action` is APPROVED; must be absent when `action` is REJECTED. The pattern narrows, and must not widen, the invocation originally requested by the agent. This cross-field invariant is enforced by service-side validation.</p>
+   * @public
+   */
+  finalPattern?: ApprovalPattern | undefined;
+
+  /**
+   * <p>Optional free-text rationale for the decision. Permitted when `action` is REJECTED; ignored when `action` is APPROVED.</p>
+   * @public
+   */
+  reason?: string | undefined;
+
+  /**
+   * <p>Approval lifetime in seconds, starting from when the decision is submitted. Required when `action` is APPROVED AND `singleUse` is false; must be absent when `action` is REJECTED or when `singleUse` is true (a single-use approval backs one executed action and the redemption window collapses). Cross-field invariants are enforced by service-side validation; the @range bound here is the operation-boundary check that always applies (a maximum of 4 hours).</p>
+   * @public
+   */
+  ttlSeconds?: number | undefined;
+
+  /**
+   * <p>Whether the approved action backs a single executed tool call (true) or is reusable within ttlSeconds (false). Required when `action` is APPROVED; must be absent when `action` is REJECTED. When true, ttlSeconds must be absent (the redemption window collapses to the single use). When false, ttlSeconds is required and bounds the reuse window. Cross-field invariants are enforced by service-side validation.</p>
+   * @public
+   */
+  singleUse?: boolean | undefined;
+}
+
+/**
+ * <p>Response structure for UpdateApprovalAction. Reports the post-submission lifecycle status of the approval request and, when applicable, the absolute expiry timestamp. The status is a lifecycle state distinct from the action verb — an APPROVED submission transitions the request to APPROVED status (live, redeemable); a REJECTED submission transitions it to REJECTED status (terminal).</p>
+ * @public
+ */
+export interface UpdateApprovalActionResponse {
+  /**
+   * <p>Identifier of the approval request that was resolved. Echoed back so the client can correlate the response with the request.</p>
+   * @public
+   */
+  approvalId: string | undefined;
+
+  /**
+   * <p>Lifecycle status of the approval request immediately after submission. Expected post-submission states are APPROVED (when the action is APPROVED) or REJECTED (when the action is REJECTED); PENDING is not returned from this operation, and REVOKED and REDEEMED are reachable only via subsequent reads.</p>
+   * @public
+   */
+  status: ApprovalStatus | undefined;
+
+  /**
+   * <p>Absolute timestamp at which the approval expires. Set when status is APPROVED (computed as the submission time plus ttlSeconds); absent when status is REJECTED.</p>
+   * @public
+   */
+  expiresAt?: Date | undefined;
+}
 
 /**
  * <p>Request structure for updating an asset</p>

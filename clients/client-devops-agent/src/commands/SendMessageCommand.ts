@@ -40,11 +40,19 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  *     currentPage: "STRING_VALUE",
  *     lastMessage: "STRING_VALUE",
  *     userActionResponse: "STRING_VALUE",
+ *     approvalAction: { // ApprovalAction
+ *       toolUseId: "STRING_VALUE",
+ *       interruptId: "STRING_VALUE",
+ *       approvalId: "STRING_VALUE",
+ *       buttonText: "STRING_VALUE",
+ *       action: "APPROVED" || "REJECTED",
+ *     },
  *   },
  *   userId: "STRING_VALUE",
  *   assetIds: [ // AssetIdList
  *     "STRING_VALUE",
  *   ],
+ *   modelTier: "STRING_VALUE",
  * };
  * const command = new SendMessageCommand(input);
  * const response = await client.send(command);

@@ -37,6 +37,9 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   locale: "STRING_VALUE",
+ *   preferences: { // AgentSpacePreferences
+ *     "<keys>": true || false,
+ *   },
  * };
  * const command = new UpdateAgentSpaceCommand(input);
  * const response = await client.send(command);
@@ -49,6 +52,9 @@ export interface UpdateAgentSpaceCommandOutput extends UpdateAgentSpaceOutput, _
  * //     updatedAt: new Date("TIMESTAMP"), // required
  * //     kmsKeyArn: "STRING_VALUE",
  * //     agentSpaceId: "STRING_VALUE", // required
+ * //     preferences: { // AgentSpacePreferences
+ * //       "<keys>": true || false,
+ * //     },
  * //   },
  * // };
  *

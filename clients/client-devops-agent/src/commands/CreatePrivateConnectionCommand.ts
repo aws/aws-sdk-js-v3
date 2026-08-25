@@ -93,6 +93,9 @@ export interface CreatePrivateConnectionCommandOutput extends CreatePrivateConne
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception is thrown when an unexpected error occurs in the processing of a request.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters provided in the request are invalid.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was throttled due to too many requests. Please slow down and try again.</p>
  *
@@ -104,9 +107,6 @@ export interface CreatePrivateConnectionCommandOutput extends CreatePrivateConne
  *
  * @throws {@link ContentSizeExceededException} (client fault)
  *  <p>This exception is thrown when the content size exceeds the allowed limit.</p>
- *
- * @throws {@link InvalidParameterException} (client fault)
- *  <p>One or more parameters provided in the request are invalid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource could not be found.</p>

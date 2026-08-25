@@ -41,7 +41,7 @@ export interface ListBacklogTasksCommandOutput extends ListBacklogTasksResponse,
  *       "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL",
  *     ],
  *     status: [ // TaskStatusList
- *       "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED",
+ *       "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING",
  *     ],
  *     taskType: [ // TaskTypeList
  *       "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING",
@@ -72,7 +72,7 @@ export interface ListBacklogTasksCommandOutput extends ListBacklogTasksResponse,
  * //       },
  * //       taskType: "INVESTIGATION" || "EVALUATION" || "RELEASE_READINESS_REVIEW" || "RELEASE_TESTING", // required
  * //       priority: "CRITICAL" || "HIGH" || "MEDIUM" || "LOW" || "MINIMAL", // required
- * //       status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED", // required
+ * //       status: "PENDING_TRIAGE" || "LINKED" || "PENDING_START" || "IN_PROGRESS" || "PENDING_CUSTOMER_APPROVAL" || "COMPLETED" || "FAILED" || "TIMED_OUT" || "CANCELED" || "SKIPPED" || "WAITING", // required
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       version: Number("int"), // required

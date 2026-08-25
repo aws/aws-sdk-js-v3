@@ -4,6 +4,11 @@ import {
   AdditionalServiceDetails$,
   AdditionalServiceRegistrationStep$,
   AgentSpace$,
+  AgentSpacePreferenceKey,
+  ApprovalAction$,
+  ApprovalActionType,
+  ApprovalPattern$,
+  ApprovalStatus,
   Asset$,
   AssetContent$,
   AssetFile$,
@@ -268,6 +273,7 @@ import {
   MCPServerSigV4Configuration$,
   MCPServerSigV4ServiceDetails$,
   MCPServerSplunkConfiguration$,
+  MCPToolDetail$,
   Message$,
   MonitorAccountType,
   NewRelicApiKeyConfig$,
@@ -385,6 +391,7 @@ import {
   TaskType,
   ThrottlingException,
   ThrottlingException$,
+  ToolClassification,
   Trigger$,
   TriggerCondition$,
   UntagResource$,
@@ -395,6 +402,10 @@ import {
   UpdateAgentSpaceCommand,
   UpdateAgentSpaceInput$,
   UpdateAgentSpaceOutput$,
+  UpdateApprovalAction$,
+  UpdateApprovalActionCommand,
+  UpdateApprovalActionRequest$,
+  UpdateApprovalActionResponse$,
   UpdateAsset$,
   UpdateAssetCommand,
   UpdateAssetFile$,
@@ -555,6 +566,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAgentSpaceCommand === "function");
 assert(typeof UpdateAgentSpace$ === "object");
+assert(typeof UpdateApprovalActionCommand === "function");
+assert(typeof UpdateApprovalAction$ === "object");
 assert(typeof UpdateAssetCommand === "function");
 assert(typeof UpdateAsset$ === "object");
 assert(typeof UpdateAssetFileCommand === "function");
@@ -579,6 +592,8 @@ assert(typeof ValidateAwsAssociations$ === "object");
 assert(typeof AdditionalServiceDetails$ === "object");
 assert(typeof AdditionalServiceRegistrationStep$ === "object");
 assert(typeof AgentSpace$ === "object");
+assert(typeof ApprovalAction$ === "object");
+assert(typeof ApprovalPattern$ === "object");
 assert(typeof Asset$ === "object");
 assert(typeof AssetContent$ === "object");
 assert(typeof AssetFile$ === "object");
@@ -726,6 +741,7 @@ assert(typeof MCPServerSigV4AuthorizationConfig$ === "object");
 assert(typeof MCPServerSigV4Configuration$ === "object");
 assert(typeof MCPServerSigV4ServiceDetails$ === "object");
 assert(typeof MCPServerSplunkConfiguration$ === "object");
+assert(typeof MCPToolDetail$ === "object");
 assert(typeof Message$ === "object");
 assert(typeof NewRelicApiKeyConfig$ === "object");
 assert(typeof NewRelicServiceAuthorizationConfig$ === "object");
@@ -807,6 +823,8 @@ assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAgentSpaceInput$ === "object");
 assert(typeof UpdateAgentSpaceOutput$ === "object");
+assert(typeof UpdateApprovalActionRequest$ === "object");
+assert(typeof UpdateApprovalActionResponse$ === "object");
 assert(typeof UpdateAssetFileRequest$ === "object");
 assert(typeof UpdateAssetFileResponse$ === "object");
 assert(typeof UpdateAssetRequest$ === "object");
@@ -833,6 +851,9 @@ assert(typeof ValidateAwsAssociationsOutput$ === "object");
 assert(typeof ValidationExceptionField$ === "object");
 assert(typeof Webhook$ === "object");
 // enums
+assert(typeof AgentSpacePreferenceKey === "object");
+assert(typeof ApprovalActionType === "object");
+assert(typeof ApprovalStatus === "object");
 assert(typeof AuthFlow === "object");
 assert(typeof CapabilityType === "object");
 assert(typeof EventChannelType === "object");
@@ -861,6 +882,7 @@ assert(typeof TaskSortField === "object");
 assert(typeof TaskSortOrder === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof TaskType === "object");
+assert(typeof ToolClassification === "object");
 assert(typeof UserType === "object");
 assert(typeof ValidationStatus === "object");
 assert(typeof WebhookType === "object");

@@ -157,6 +157,10 @@ import type { SendMessageCommandInput, SendMessageCommandOutput } from "./comman
 import type { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import type { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import type { UpdateAgentSpaceCommandInput, UpdateAgentSpaceCommandOutput } from "./commands/UpdateAgentSpaceCommand";
+import type {
+  UpdateApprovalActionCommandInput,
+  UpdateApprovalActionCommandOutput,
+} from "./commands/UpdateApprovalActionCommand";
 import type { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand";
 import type { UpdateAssetFileCommandInput, UpdateAssetFileCommandOutput } from "./commands/UpdateAssetFileCommand";
 import type {
@@ -252,6 +256,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentSpaceCommandInput
+  | UpdateApprovalActionCommandInput
   | UpdateAssetCommandInput
   | UpdateAssetFileCommandInput
   | UpdateAssociationCommandInput
@@ -319,6 +324,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentSpaceCommandOutput
+  | UpdateApprovalActionCommandOutput
   | UpdateAssetCommandOutput
   | UpdateAssetFileCommandOutput
   | UpdateAssociationCommandOutput

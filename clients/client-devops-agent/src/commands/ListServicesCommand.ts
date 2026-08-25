@@ -90,7 +90,7 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //         },
  * //         mcpservernewrelic: { // RegisteredNewRelicDetails
  * //           accountId: "STRING_VALUE", // required
- * //           region: "US" || "EU", // required
+ * //           region: "US" || "EU" || "JP", // required
  * //           description: "STRING_VALUE",
  * //         },
  * //         azuredevops: { // RegisteredAzureDevOpsServiceDetails
@@ -143,6 +143,8 @@ export interface ListServicesCommandOutput extends ListServicesOutput, __Metadat
  * //       },
  * //       kmsKeyArn: "STRING_VALUE",
  * //       privateConnectionName: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"), // required
+ * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
  * //   ],
  * // };

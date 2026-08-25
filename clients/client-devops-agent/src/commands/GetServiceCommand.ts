@@ -86,7 +86,7 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //       },
  * //       mcpservernewrelic: { // RegisteredNewRelicDetails
  * //         accountId: "STRING_VALUE", // required
- * //         region: "US" || "EU", // required
+ * //         region: "US" || "EU" || "JP", // required
  * //         description: "STRING_VALUE",
  * //       },
  * //       azuredevops: { // RegisteredAzureDevOpsServiceDetails
@@ -139,6 +139,8 @@ export interface GetServiceCommandOutput extends GetServiceOutput, __MetadataBea
  * //     },
  * //     kmsKeyArn: "STRING_VALUE",
  * //     privateConnectionName: "STRING_VALUE",
+ * //     createdAt: new Date("TIMESTAMP"), // required
+ * //     updatedAt: new Date("TIMESTAMP"), // required
  * //   },
  * //   tags: { // Tags
  * //     "<keys>": "STRING_VALUE",

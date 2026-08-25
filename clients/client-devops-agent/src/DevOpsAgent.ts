@@ -251,6 +251,11 @@ import {
   UpdateAgentSpaceCommand,
 } from "./commands/UpdateAgentSpaceCommand";
 import {
+  type UpdateApprovalActionCommandInput,
+  type UpdateApprovalActionCommandOutput,
+  UpdateApprovalActionCommand,
+} from "./commands/UpdateApprovalActionCommand";
+import {
   type UpdateAssetCommandInput,
   type UpdateAssetCommandOutput,
   UpdateAssetCommand,
@@ -367,6 +372,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentSpaceCommand,
+  UpdateApprovalActionCommand,
   UpdateAssetCommand,
   UpdateAssetFileCommand,
   UpdateAssociationCommand,
@@ -1281,6 +1287,23 @@ export interface DevOpsAgent {
     args: UpdateAgentSpaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateAgentSpaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateApprovalActionCommand}
+   */
+  updateApprovalAction(
+    args: UpdateApprovalActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateApprovalActionCommandOutput>;
+  updateApprovalAction(
+    args: UpdateApprovalActionCommandInput,
+    cb: (err: any, data?: UpdateApprovalActionCommandOutput) => void
+  ): void;
+  updateApprovalAction(
+    args: UpdateApprovalActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateApprovalActionCommandOutput) => void
   ): void;
 
   /**

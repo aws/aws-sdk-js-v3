@@ -49,6 +49,9 @@ export interface ListAgentSpacesCommandOutput extends ListAgentSpacesOutput, __M
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //       kmsKeyArn: "STRING_VALUE",
  * //       agentSpaceId: "STRING_VALUE", // required
+ * //       preferences: { // AgentSpacePreferences
+ * //         "<keys>": true || false,
+ * //       },
  * //     },
  * //   ],
  * // };

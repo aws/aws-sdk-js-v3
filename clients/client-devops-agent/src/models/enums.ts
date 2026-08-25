@@ -74,6 +74,7 @@ export const NewRelicRegion = {
    * <p>EU region</p>
    */
   EU: "EU",
+  JP: "JP",
   /**
    * <p>US region</p>
    */
@@ -112,6 +113,18 @@ export type RemoteAgentAuthorizationMethod =
  * @public
  * @enum
  */
+export const AgentSpacePreferenceKey = {
+  ELEVATED_ACTIONS_ENABLED: "elevatedActionsEnabled",
+} as const;
+/**
+ * @public
+ */
+export type AgentSpacePreferenceKey = (typeof AgentSpacePreferenceKey)[keyof typeof AgentSpacePreferenceKey];
+
+/**
+ * @public
+ * @enum
+ */
 export const CapabilityType = {
   /**
    * <p>Release readiness review auto-trigger capability.</p>
@@ -143,18 +156,6 @@ export type MonitorAccountType = (typeof MonitorAccountType)[keyof typeof Monito
  * @public
  * @enum
  */
-export const SourceAccountType = {
-  SOURCE: "source",
-} as const;
-/**
- * @public
- */
-export type SourceAccountType = (typeof SourceAccountType)[keyof typeof SourceAccountType];
-
-/**
- * @public
- * @enum
- */
 export const ValidationStatus = {
   /**
    * <p>The association has failed validation and requires attention.</p>
@@ -173,6 +174,32 @@ export const ValidationStatus = {
  * @public
  */
 export type ValidationStatus = (typeof ValidationStatus)[keyof typeof ValidationStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ToolClassification = {
+  DESTRUCTIVE: "DESTRUCTIVE",
+  MUTATIVE: "MUTATIVE",
+  READ_ONLY: "READ_ONLY",
+} as const;
+/**
+ * @public
+ */
+export type ToolClassification = (typeof ToolClassification)[keyof typeof ToolClassification];
+
+/**
+ * @public
+ * @enum
+ */
+export const SourceAccountType = {
+  SOURCE: "source",
+} as const;
+/**
+ * @public
+ */
+export type SourceAccountType = (typeof SourceAccountType)[keyof typeof SourceAccountType];
 
 /**
  * @public
@@ -223,6 +250,56 @@ export const AuthFlow = {
  * @public
  */
 export type AuthFlow = (typeof AuthFlow)[keyof typeof AuthFlow];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApprovalActionType = {
+  /**
+   * <p>The agent's tool invocation is approved; finalPattern and ttlSeconds carry the finalized scope and lifetime.</p>
+   */
+  APPROVED: "APPROVED",
+  /**
+   * <p>The agent's tool invocation is rejected; reason optionally carries a free-text rationale.</p>
+   */
+  REJECTED: "REJECTED",
+} as const;
+/**
+ * @public
+ */
+export type ApprovalActionType = (typeof ApprovalActionType)[keyof typeof ApprovalActionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ApprovalStatus = {
+  /**
+   * <p>The action was APPROVED; the approval request is live and may be redeemed via a credential mint until it is revoked or fully redeemed.</p>
+   */
+  APPROVED: "APPROVED",
+  /**
+   * <p>The approval request is awaiting a decision.</p>
+   */
+  PENDING: "PENDING",
+  /**
+   * <p>The approval was consumed by a credential mint at least once. Non-single-use approvals stay re-redeemable until expiry; single-use approvals are terminal.</p>
+   */
+  REDEEMED: "REDEEMED",
+  /**
+   * <p>The action was REJECTED; no further redemption is possible.</p>
+   */
+  REJECTED: "REJECTED",
+  /**
+   * <p>The approval was administratively invalidated; no further redemption is possible.</p>
+   */
+  REVOKED: "REVOKED",
+} as const;
+/**
+ * @public
+ */
+export type ApprovalStatus = (typeof ApprovalStatus)[keyof typeof ApprovalStatus];
 
 /**
  * @public
@@ -327,6 +404,7 @@ export const TaskStatus = {
    * <p>Task has exceeded its time limit</p>
    */
   TIMED_OUT: "TIMED_OUT",
+  WAITING: "WAITING",
 } as const;
 /**
  * @public
@@ -540,6 +618,7 @@ export const ExecutionStatus = {
    * <p>Unlike in the case of user-initiated Cancelation, a customer won't be billed</p>
    */
   TIMED_OUT: "TIMED_OUT",
+  WAITING: "WAITING",
 } as const;
 /**
  * @public

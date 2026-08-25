@@ -1,4 +1,5 @@
 const _A = "Asset";
+const _AA = "ApprovalAction";
 const _AC = "AzureConfiguration";
 const _ACs = "AssociationCapabilities";
 const _ACss = "AssetContent";
@@ -14,6 +15,7 @@ const _AL = "AssetList";
 const _ALs = "AssociationsList";
 const _AM = "AssistantMessage";
 const _AMB = "AssistantMessageBlock";
+const _AP = "ApprovalPattern";
 const _AS = "AgentSpace";
 const _ASD = "AdditionalServiceDetails";
 const _ASI = "AssociateServiceInput";
@@ -129,6 +131,7 @@ const _GHC = "GitHubConfiguration";
 const _GL = "GoalList";
 const _GLC = "GitLabConfiguration";
 const _GLD = "GitLabDetails";
+const _GLTV = "GitLabTokenValue";
 const _GOA = "GetOperatorApp";
 const _GOAI = "GetOperatorAppInput";
 const _GOAO = "GetOperatorAppOutput";
@@ -224,6 +227,9 @@ const _MCPSSC = "MCPServerSplunkConfiguration";
 const _MCPSSVAC = "MCPServerSigV4AuthorizationConfig";
 const _MCPSSVC = "MCPServerSigV4Configuration";
 const _MCPSSVSD = "MCPServerSigV4ServiceDetails";
+const _MCPTD = "MCPToolDetail";
+const _MCPTDL = "MCPToolDetailsList";
+const _NRAK = "NewRelicApiKey";
 const _NRAKC = "NewRelicApiKeyConfig";
 const _NRSAC = "NewRelicServiceAuthorizationConfig";
 const _NRSD = "NewRelicServiceDetails";
@@ -314,6 +320,9 @@ const _TRRa = "TagResourceResponse";
 const _TV = "TokenValue";
 const _Tr = "Trigger";
 const _UA = "UpdateAsset";
+const _UAA = "UpdateApprovalAction";
+const _UAAR = "UpdateApprovalActionRequest";
+const _UAARp = "UpdateApprovalActionResponse";
 const _UAF = "UpdateAssetFile";
 const _UAFR = "UpdateAssetFileRequest";
 const _UAFRp = "UpdateAssetFileResponse";
@@ -359,23 +368,28 @@ const _VEFL = "ValidationExceptionFieldList";
 const _W = "Webhook";
 const _WL = "WebhooksList";
 const _WS = "WebhookSecret";
-const _a = "association";
+const _a = "action";
+const _aA = "approvalAction";
 const _aC = "authorizationConfig";
 const _aCd = "additionalContext";
 const _aD = "authorizationDiscovery";
+const _aERA = "agentElevatedRoleArn";
+const _aERAS = "agentElevatedRoleArnStatus";
 const _aF = "authFlow";
 const _aH = "authorizationHeader";
-const _aI = "assetId";
+const _aI = "approvalId";
 const _aIc = "accountId";
 const _aIp = "applicationIds";
-const _aIs = "associationId";
-const _aIss = "assetIds";
+const _aIs = "assetId";
+const _aIss = "associationId";
+const _aIsse = "assetIds";
 const _aK = "apiKey";
 const _aKH = "apiKeyHeader";
 const _aKN = "apiKeyName";
 const _aKV = "apiKeyValue";
 const _aM = "authorizationMethod";
 const _aMs = "assistantMessage";
+const _aP = "argumentPins";
 const _aPI = "alertPolicyIds";
 const _aR = "accessibleResources";
 const _aRA = "assumableRoleArn";
@@ -393,15 +407,16 @@ const _aTg = "agentType";
 const _aU = "accountUrn";
 const _aUu = "authorizationUrl";
 const _aV = "assetVersion";
-const _ac = "action";
-const _as = "asset";
-const _ass = "associations";
+const _as = "association";
+const _ass = "asset";
+const _asso = "associations";
 const _aw = "aws";
 const _az = "azuredevops";
 const _azu = "azureidentity";
 const _azur = "azure";
 const _b = "body";
-const _bT = "bearerToken";
+const _bT = "buttonText";
+const _bTe = "bearerToken";
 const _by = "bytes";
 const _c = "client";
 const _cA = "createdAt";
@@ -431,8 +446,10 @@ const _dR = "dnsResolution";
 const _de = "delta";
 const _dy = "dynatrace";
 const _e = "error";
+const _eA = "expiresAt";
 const _eC = "errorCode";
 const _eCv = "eventChannel";
+const _eET = "enabledElevatedTools";
 const _eG = "entityGuids";
 const _eI = "executionId";
 const _eIn = "envId";
@@ -451,6 +468,7 @@ const _exe = "executions";
 const _f = "file";
 const _fL = "fieldList";
 const _fM = "failureMessage";
+const _fP = "finalPattern";
 const _fST = "filterServiceTypes";
 const _fSTi = "filterServiceType";
 const _fi = "filter";
@@ -475,9 +493,10 @@ const _iAPE = "ipv4AddressesPerEni";
 const _iAT = "ipAddressType";
 const _iCI = "idpClientId";
 const _iCS = "idpClientSecret";
-const _iI = "instanceIdentifier";
+const _iI = "interruptId";
 const _iIA = "idcInstanceArn";
-const _iIn = "instanceId";
+const _iIn = "instanceIdentifier";
+const _iIns = "instanceId";
 const _iT = "inputTokens";
 const _iU = "issuerUrl";
 const _iUn = "instanceUrl";
@@ -503,6 +522,7 @@ const _mASLH = "monthlyAccountSystemLearningHours";
 const _mI = "messageId";
 const _mR = "maxResults";
 const _mRA = "mcpRoleArn";
+const _mT = "modelTier";
 const _mc = "mcpserverdatadog";
 const _mcp = "mcpserver";
 const _mcps = "mcpserversplunk";
@@ -528,7 +548,7 @@ const _oTu = "outputTokens";
 const _oa = "oauth";
 const _ob = "objectives";
 const _or = "order";
-const _p = "path";
+const _p = "preferences";
 const _pC = "privateConnections";
 const _pCN = "privateConnectionName";
 const _pEI = "parentExecutionId";
@@ -539,7 +559,8 @@ const _pN = "projectName";
 const _pP = "projectPath";
 const _pR = "portRanges";
 const _pTI = "primaryTaskId";
-const _pa = "pagerduty";
+const _pa = "path";
+const _pag = "pagerduty";
 const _pr = "priority";
 const _pro = "provider";
 const _r = "reference";
@@ -565,6 +586,7 @@ const _rTE = "returnToEndpoint";
 const _rU = "referenceUrl";
 const _rV = "recommendationVersion";
 const _re = "resources";
+const _rea = "reason";
 const _rec = "recommendation";
 const _reco = "records";
 const _recom = "recommendations";
@@ -586,7 +608,8 @@ const _sMel = "selfManaged";
 const _sN = "sequenceNumber";
 const _sR = "statusReason";
 const _sT = "serviceType";
-const _sU = "sourceUrl";
+const _sU = "singleUse";
+const _sUo = "sourceUrl";
 const _sc = "scopes";
 const _sch = "schedule";
 const _se = "server";
@@ -600,8 +623,10 @@ const _sta = "state";
 const _str = "streaming";
 const _su = "summary";
 const _sy = "system";
-const _t = "tags";
-const _tD = "textDelta";
+const _t = "tool";
+const _tC = "toolClassification";
+const _tD = "toolDetails";
+const _tDe = "textDelta";
 const _tI = "triggerId";
 const _tIa = "taskId";
 const _tIe = "tenantId";
@@ -610,17 +635,20 @@ const _tK = "tagKeys";
 const _tN = "tokenName";
 const _tNe = "teamName";
 const _tR = "toolResult";
-const _tS = "taskStatus";
+const _tS = "ttlSeconds";
+const _tSa = "taskStatus";
 const _tT = "taskType";
 const _tTo = "tokenType";
 const _tTot = "totalTokens";
 const _tTr = "transmissionTarget";
 const _tU = "targetUrl";
+const _tUI = "toolUseId";
 const _tUPCN = "targetUrlPrivateConnectionName";
 const _tUo = "toolUse";
 const _tV = "tokenValue";
-const _ta = "task";
-const _tas = "tasks";
+const _ta = "tags";
+const _tas = "task";
+const _task = "tasks";
 const _te = "text";
 const _ti = "title";
 const _to = "tools";
@@ -764,32 +792,44 @@ var CustomHeaderValue: StaticSimpleSchema = [0, n0, _CHV, 8, 0];
 var Description: StaticSimpleSchema = [0, n0, _D, 8, 0];
 var EmailAddress: StaticSimpleSchema = [0, n0, _EA, 8, 0];
 var ExchangeParameterValue: StaticSimpleSchema = [0, n0, _EPV, 8, 0];
+var GitLabTokenValue: StaticSimpleSchema = [0, n0, _GLTV, 8, 0];
 var IdpClientSecret: StaticSimpleSchema = [0, n0, _ICS, 8, 0];
+var NewRelicApiKey: StaticSimpleSchema = [0, n0, _NRAK, 8, 0];
 var TokenValue: StaticSimpleSchema = [0, n0, _TV, 8, 0];
 var WebhookSecret: StaticSimpleSchema = [0, n0, _WS, 8, 0];
 export var AgentSpace$: StaticStructureSchema = [3, n0, _AS,
   0,
-  [_n, _cA, _uA, _aSI, _d, _l, _kKA],
-  [0, 5, 5, 0, [() => Description, 0], 0, 0], 4
+  [_n, _cA, _uA, _aSI, _d, _l, _kKA, _p],
+  [0, 5, 5, 0, [() => Description, 0], 0, 0, 128 | 2], 4
+];
+export var ApprovalAction$: StaticStructureSchema = [3, n0, _AA,
+  0,
+  [_tUI, _iI, _aI, _bT, _a],
+  [0, 0, 0, 0, 0]
+];
+export var ApprovalPattern$: StaticStructureSchema = [3, n0, _AP,
+  0,
+  [_t, _aP],
+  [0, 128 | 0], 2
 ];
 export var Asset$: StaticStructureSchema = [3, n0, _A,
   0,
-  [_aI, _aT, _me, _v, _cA, _uA],
+  [_aIs, _aT, _me, _v, _cA, _uA],
   [0, 0, 15, 1, 4, 4], 6
 ];
 export var AssetFile$: StaticStructureSchema = [3, n0, _AF,
   0,
-  [_p, _co, _v, _cA, _uA, _me],
+  [_pa, _co, _v, _cA, _uA, _me],
   [0, () => AssetFileBody$, 1, 4, 4, 15], 5
 ];
 export var AssetFileContent$: StaticStructureSchema = [3, n0, _AFC,
   0,
-  [_p, _b, _me],
+  [_pa, _b, _me],
   [0, () => AssetFileBody$, 15], 2
 ];
 export var AssetFileSummary$: StaticStructureSchema = [3, n0, _AFS,
   0,
-  [_p, _v, _cA, _uA, _me],
+  [_pa, _v, _cA, _uA, _me],
   [0, 1, 4, 4, 15], 4
 ];
 export var AssetSourceUrlContent$: StaticStructureSchema = [3, n0, _ASUC,
@@ -819,18 +859,18 @@ export var AssociateServiceInput$: StaticStructureSchema = [3, n0, _ASI,
 ];
 export var AssociateServiceOutput$: StaticStructureSchema = [3, n0, _ASO,
   0,
-  [_a, _w],
+  [_as, _w],
   [[() => Association$, 0], [() => GenericWebhook$, 0]], 1
 ];
 export var Association$: StaticStructureSchema = [3, n0, _As,
   0,
-  [_aSI, _cA, _uA, _aIs, _sI, _con, _st, _ca],
+  [_aSI, _cA, _uA, _aIss, _sI, _con, _st, _ca],
   [0, 5, 5, 0, 0, [() => ServiceConfiguration$, 0], 0, () => AssociationCapabilities], 6
 ];
 export var AWSConfiguration$: StaticStructureSchema = [3, n0, _AWSC,
   0,
-  [_aRA, _aIc, _aTc],
-  [0, 0, 0], 3
+  [_aRA, _aIc, _aTc, _aERA, _aERAS],
+  [0, 0, 0, 0, 0], 3
 ];
 export var AzureConfiguration$: StaticStructureSchema = [3, n0, _AC,
   0,
@@ -854,17 +894,17 @@ export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
 ];
 export var CreateAgentSpaceInput$: StaticStructureSchema = [3, n0, _CASI,
   0,
-  [_n, _d, _l, _kKA, _cT, _t],
-  [0, [() => Description, 0], 0, 0, [0, 4], 128 | 0], 1
+  [_n, _d, _l, _kKA, _cT, _ta, _p],
+  [0, [() => Description, 0], 0, 0, [0, 4], 128 | 0, 128 | 2], 1
 ];
 export var CreateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _CASO,
   0,
-  [_aS, _t],
+  [_aS, _ta],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
 export var CreateAssetFileRequest$: StaticStructureSchema = [3, n0, _CAFR,
   0,
-  [_aSI, _aI, _p, _co, _me, _cT],
+  [_aSI, _aIs, _pa, _co, _me, _cT],
   [[0, 1], [0, 1], [0, 1], () => AssetFileBody$, 15, [0, 4]], 4
 ];
 export var CreateAssetFileResponse$: StaticStructureSchema = [3, n0, _CAFRr,
@@ -879,7 +919,7 @@ export var CreateAssetRequest$: StaticStructureSchema = [3, n0, _CAR,
 ];
 export var CreateAssetResponse$: StaticStructureSchema = [3, n0, _CARr,
   0,
-  [_as],
+  [_ass],
   [() => Asset$], 1
 ];
 export var CreateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
@@ -889,7 +929,7 @@ export var CreateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _CBTR,
 ];
 export var CreateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _CBTRr,
   0,
-  [_ta],
+  [_tas],
   [() => Task$], 1
 ];
 export var CreateChatRequest$: StaticStructureSchema = [3, n0, _CCR,
@@ -904,17 +944,17 @@ export var CreateChatResponse$: StaticStructureSchema = [3, n0, _CCRr,
 ];
 export var CreatePrivateConnectionInput$: StaticStructureSchema = [3, n0, _CPCI,
   0,
-  [_n, _mo, _t],
+  [_n, _mo, _ta],
   [0, () => PrivateConnectionMode$, 128 | 0], 2
 ];
 export var CreatePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _CPCO,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _t],
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _ta],
   [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 128 | 0], 3
 ];
 export var CreateTriggerRequest$: StaticStructureSchema = [3, n0, _CTR,
   0,
-  [_aSI, _ty, _cond, _ac, _st, _cT],
+  [_aSI, _ty, _cond, _a, _st, _cT],
   [[0, 1], 0, () => TriggerCondition$, 15, 0, [0, 4]], 4
 ];
 export var CreateTriggerResponse$: StaticStructureSchema = [3, n0, _CTRr,
@@ -939,7 +979,7 @@ export var DeleteAgentSpaceOutput$: StaticStructureSchema = [3, n0, _DASO,
 ];
 export var DeleteAssetFileRequest$: StaticStructureSchema = [3, n0, _DAFR,
   0,
-  [_aSI, _aI, _p],
+  [_aSI, _aIs, _pa],
   [[0, 1], [0, 1], [0, 1]], 3
 ];
 export var DeleteAssetFileResponse$: StaticStructureSchema = [3, n0, _DAFRe,
@@ -949,7 +989,7 @@ export var DeleteAssetFileResponse$: StaticStructureSchema = [3, n0, _DAFRe,
 ];
 export var DeleteAssetRequest$: StaticStructureSchema = [3, n0, _DAR,
   0,
-  [_aSI, _aI],
+  [_aSI, _aIs],
   [[0, 1], [0, 1]], 2
 ];
 export var DeleteAssetResponse$: StaticStructureSchema = [3, n0, _DARe,
@@ -994,7 +1034,7 @@ export var DescribePrivateConnectionInput$: StaticStructureSchema = [3, n0, _DPC
 ];
 export var DescribePrivateConnectionOutput$: StaticStructureSchema = [3, n0, _DPCOe,
   0,
-  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _t],
+  [_n, _ty, _st, _rGI, _hA, _vI, _rCI, _cET, _dR, _fM, _ta],
   [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 128 | 0], 3
 ];
 export var DisableOperatorAppInput$: StaticStructureSchema = [3, n0, _DOAI,
@@ -1004,7 +1044,7 @@ export var DisableOperatorAppInput$: StaticStructureSchema = [3, n0, _DOAI,
 ];
 export var DisassociateServiceInput$: StaticStructureSchema = [3, n0, _DSIi,
   0,
-  [_aSI, _aIs],
+  [_aSI, _aIss],
   [[0, 1], [0, 1]], 2
 ];
 export var DisassociateServiceOutput$: StaticStructureSchema = [3, n0, _DSOi,
@@ -1074,12 +1114,12 @@ export var GetAgentSpaceInput$: StaticStructureSchema = [3, n0, _GASI,
 ];
 export var GetAgentSpaceOutput$: StaticStructureSchema = [3, n0, _GASO,
   0,
-  [_aS, _t],
+  [_aS, _ta],
   [[() => AgentSpace$, 0], 128 | 0], 1
 ];
 export var GetAssetContentRequest$: StaticStructureSchema = [3, n0, _GACR,
   0,
-  [_aSI, _aI, _aV],
+  [_aSI, _aIs, _aV],
   [[0, 1], [0, 1], [1, { [_hQ]: _aV }]], 2
 ];
 export var GetAssetContentResponse$: StaticStructureSchema = [3, n0, _GACRe,
@@ -1089,7 +1129,7 @@ export var GetAssetContentResponse$: StaticStructureSchema = [3, n0, _GACRe,
 ];
 export var GetAssetFileRequest$: StaticStructureSchema = [3, n0, _GAFR,
   0,
-  [_aSI, _aI, _p, _aV],
+  [_aSI, _aIs, _pa, _aV],
   [[0, 1], [0, 1], [0, 1], [1, { [_hQ]: _aV }]], 3
 ];
 export var GetAssetFileResponse$: StaticStructureSchema = [3, n0, _GAFRe,
@@ -1099,22 +1139,22 @@ export var GetAssetFileResponse$: StaticStructureSchema = [3, n0, _GAFRe,
 ];
 export var GetAssetRequest$: StaticStructureSchema = [3, n0, _GAR,
   0,
-  [_aSI, _aI, _aV],
+  [_aSI, _aIs, _aV],
   [[0, 1], [0, 1], [1, { [_hQ]: _aV }]], 2
 ];
 export var GetAssetResponse$: StaticStructureSchema = [3, n0, _GARe,
   0,
-  [_as],
+  [_ass],
   [() => Asset$], 1
 ];
 export var GetAssociationInput$: StaticStructureSchema = [3, n0, _GAI,
   0,
-  [_aSI, _aIs],
+  [_aSI, _aIss],
   [[0, 1], [0, 1]], 2
 ];
 export var GetAssociationOutput$: StaticStructureSchema = [3, n0, _GAO,
   0,
-  [_a],
+  [_as],
   [[() => Association$, 0]], 1
 ];
 export var GetBacklogTaskRequest$: StaticStructureSchema = [3, n0, _GBTR,
@@ -1124,7 +1164,7 @@ export var GetBacklogTaskRequest$: StaticStructureSchema = [3, n0, _GBTR,
 ];
 export var GetBacklogTaskResponse$: StaticStructureSchema = [3, n0, _GBTRe,
   0,
-  [_ta],
+  [_tas],
   [() => Task$], 1
 ];
 export var GetOperatorAppInput$: StaticStructureSchema = [3, n0, _GOAI,
@@ -1154,7 +1194,7 @@ export var GetServiceInput$: StaticStructureSchema = [3, n0, _GSI,
 ];
 export var GetServiceOutput$: StaticStructureSchema = [3, n0, _GSO,
   0,
-  [_ser, _t],
+  [_ser, _ta],
   [[() => RegisteredService$, 0], 128 | 0], 1
 ];
 export var GetTriggerRequest$: StaticStructureSchema = [3, n0, _GTR,
@@ -1169,18 +1209,18 @@ export var GetTriggerResponse$: StaticStructureSchema = [3, n0, _GTRe,
 ];
 export var GitHubConfiguration$: StaticStructureSchema = [3, n0, _GHC,
   0,
-  [_rN, _rIe, _o, _oT, _iI, _rRA],
+  [_rN, _rIe, _o, _oT, _iIn, _rRA],
   [0, 0, 0, 0, 0, 0], 4
 ];
 export var GitLabConfiguration$: StaticStructureSchema = [3, n0, _GLC,
   0,
-  [_pI, _pP, _iI, _rRA],
+  [_pI, _pP, _iIn, _rRA],
   [0, 0, 0, 0], 2
 ];
 export var GitLabDetails$: StaticStructureSchema = [3, n0, _GLD,
   0,
   [_tU, _tTo, _tV, _gI],
-  [0, 0, [() => TokenValue, 0], 0], 3
+  [0, 0, [() => GitLabTokenValue, 0], 0], 3
 ];
 export var Goal$: StaticStructureSchema = [3, n0, _G,
   0,
@@ -1239,7 +1279,7 @@ export var ListAgentSpacesOutput$: StaticStructureSchema = [3, n0, _LASO,
 ];
 export var ListAssetFilesRequest$: StaticStructureSchema = [3, n0, _LAFR,
   0,
-  [_aSI, _aI, _aV, _nT, _mR],
+  [_aSI, _aIs, _aV, _nT, _mR],
   [[0, 1], [0, 1], [1, { [_hQ]: _aV }], [0, { [_hQ]: _nT }], [1, { [_hQ]: _mR }]], 2
 ];
 export var ListAssetFilesResponse$: StaticStructureSchema = [3, n0, _LAFRi,
@@ -1269,7 +1309,7 @@ export var ListAssetTypesResponse$: StaticStructureSchema = [3, n0, _LATRi,
 ];
 export var ListAssetVersionsRequest$: StaticStructureSchema = [3, n0, _LAVR,
   0,
-  [_aSI, _aI, _mR, _nT],
+  [_aSI, _aIs, _mR, _nT],
   [[0, 1], [0, 1], [1, { [_hQ]: _mR }], [0, { [_hQ]: _nT }]], 2
 ];
 export var ListAssetVersionsResponse$: StaticStructureSchema = [3, n0, _LAVRi,
@@ -1284,7 +1324,7 @@ export var ListAssociationsInput$: StaticStructureSchema = [3, n0, _LAI,
 ];
 export var ListAssociationsOutput$: StaticStructureSchema = [3, n0, _LAO,
   0,
-  [_ass, _nT],
+  [_asso, _nT],
   [[() => AssociationsList, 0], 0], 1
 ];
 export var ListBacklogTasksRequest$: StaticStructureSchema = [3, n0, _LBTR,
@@ -1294,7 +1334,7 @@ export var ListBacklogTasksRequest$: StaticStructureSchema = [3, n0, _LBTR,
 ];
 export var ListBacklogTasksResponse$: StaticStructureSchema = [3, n0, _LBTRi,
   0,
-  [_tas, _nT],
+  [_task, _nT],
   [() => TaskList, 0], 1
 ];
 export var ListChatsRequest$: StaticStructureSchema = [3, n0, _LCR,
@@ -1384,7 +1424,7 @@ export var ListTagsForResourceRequest$: StaticStructureSchema = [3, n0, _LTFRR,
 ];
 export var ListTagsForResourceResponse$: StaticStructureSchema = [3, n0, _LTFRRi,
   0,
-  [_t],
+  [_ta],
   [128 | 0], 1
 ];
 export var ListTriggersRequest$: StaticStructureSchema = [3, n0, _LTR,
@@ -1399,7 +1439,7 @@ export var ListTriggersResponse$: StaticStructureSchema = [3, n0, _LTRi,
 ];
 export var ListWebhooksInput$: StaticStructureSchema = [3, n0, _LWI,
   0,
-  [_aSI, _aIs],
+  [_aSI, _aIss],
   [[0, 1], [0, 1]], 2
 ];
 export var ListWebhooksOutput$: StaticStructureSchema = [3, n0, _LWO,
@@ -1424,13 +1464,13 @@ export var MCPServerBearerTokenConfig$: StaticStructureSchema = [3, n0, _MCPSBTC
 ];
 export var MCPServerConfiguration$: StaticStructureSchema = [3, n0, _MCPSC,
   0,
-  [_to],
-  [64 | 0], 1
+  [_to, _tD],
+  [64 | 0, () => MCPToolDetailsList], 1
 ];
 export var MCPServerDatadogConfiguration$: StaticStructureSchema = [3, n0, _MCPSDC,
   0,
-  [],
-  []
+  [_eET],
+  [() => MCPToolDetailsList]
 ];
 export var MCPServerDetails$: StaticStructureSchema = [3, n0, _MCPSD,
   0,
@@ -1439,8 +1479,8 @@ export var MCPServerDetails$: StaticStructureSchema = [3, n0, _MCPSD,
 ];
 export var MCPServerGrafanaConfiguration$: StaticStructureSchema = [3, n0, _MCPSGC,
   0,
-  [_end, _oI, _to],
-  [0, 0, 64 | 0], 1
+  [_end, _oI, _to, _eET],
+  [0, 0, 64 | 0, () => MCPToolDetailsList], 1
 ];
 export var MCPServerNewRelicConfiguration$: StaticStructureSchema = [3, n0, _MCPSNRC,
   0,
@@ -1464,8 +1504,8 @@ export var MCPServerSigV4AuthorizationConfig$: StaticStructureSchema = [3, n0, _
 ];
 export var MCPServerSigV4Configuration$: StaticStructureSchema = [3, n0, _MCPSSVC,
   0,
-  [_to],
-  [64 | 0], 1
+  [_to, _tD],
+  [64 | 0, () => MCPToolDetailsList], 1
 ];
 export var MCPServerSigV4ServiceDetails$: StaticStructureSchema = [3, n0, _MCPSSVSD,
   0,
@@ -1477,10 +1517,15 @@ export var MCPServerSplunkConfiguration$: StaticStructureSchema = [3, n0, _MCPSS
   [],
   []
 ];
+export var MCPToolDetail$: StaticStructureSchema = [3, n0, _MCPTD,
+  0,
+  [_n, _tC],
+  [0, 0], 1
+];
 export var NewRelicApiKeyConfig$: StaticStructureSchema = [3, n0, _NRAKC,
   0,
   [_aK, _aIc, _reg, _aIp, _eG, _aPI],
-  [[() => ApiKeyValue, 0], 0, 0, 64 | 0, 64 | 0, 64 | 0], 3
+  [[() => NewRelicApiKey, 0], 0, 0, 64 | 0, 64 | 0, 64 | 0], 3
 ];
 export var NewRelicServiceDetails$: StaticStructureSchema = [3, n0, _NRSD,
   0,
@@ -1529,12 +1574,12 @@ export var RecommendationContent$: StaticStructureSchema = [3, n0, _RC,
 ];
 export var ReferenceInput$: StaticStructureSchema = [3, n0, _RI,
   0,
-  [_sy, _rIef, _rU, _aIs, _ti],
+  [_sy, _rIef, _rU, _aIss, _ti],
   [0, 0, 0, 0, 0], 4
 ];
 export var ReferenceOutput$: StaticStructureSchema = [3, n0, _RO,
   0,
-  [_sy, _rIef, _rU, _aIs, _ti],
+  [_sy, _rIef, _rU, _aIss, _ti],
   [0, 0, 0, 0, 0], 4
 ];
 export var RegisteredAzureDevOpsServiceDetails$: StaticStructureSchema = [3, n0, _RADOSD,
@@ -1594,8 +1639,8 @@ export var RegisteredRemoteAgentSigV4Details$: StaticStructureSchema = [3, n0, _
 ];
 export var RegisteredService$: StaticStructureSchema = [3, n0, _RS,
   0,
-  [_sI, _sT, _n, _aR, _aSD, _kKA, _pCN],
-  [0, 0, 0, 64 | 15, [() => AdditionalServiceDetails$, 0], 0, 0], 2
+  [_sI, _sT, _cA, _uA, _n, _aR, _aSD, _kKA, _pCN],
+  [0, 0, 5, 5, 0, 64 | 15, [() => AdditionalServiceDetails$, 0], 0, 0], 4
 ];
 export var RegisteredServiceNowDetails$: StaticStructureSchema = [3, n0, _RSND,
   0,
@@ -1609,12 +1654,12 @@ export var RegisteredSlackServiceDetails$: StaticStructureSchema = [3, n0, _RSSD
 ];
 export var RegisterServiceInput$: StaticStructureSchema = [3, n0, _RSI,
   0,
-  [_ser, _sD, _kKA, _pCN, _tUPCN, _eUPCN, _n, _t],
+  [_ser, _sD, _kKA, _pCN, _tUPCN, _eUPCN, _n, _ta],
   [[0, 1], [() => ServiceDetails$, 0], 0, 0, 0, 0, 0, 128 | 0], 2
 ];
 export var RegisterServiceOutput$: StaticStructureSchema = [3, n0, _RSO,
   0,
-  [_sI, _aSd, _kKA, _t],
+  [_sI, _aSd, _kKA, _ta],
   [0, () => AdditionalServiceRegistrationStep$, 0, 128 | 0]
 ];
 export var RemoteAgentAPIKeyConfig$: StaticStructureSchema = [3, n0, _RAAPIKC,
@@ -1684,8 +1729,8 @@ export var SendMessageContentBlockStopEvent$: StaticStructureSchema = [3, n0, _S
 ];
 export var SendMessageContext$: StaticStructureSchema = [3, n0, _SMC,
   0,
-  [_cP, _lM, _uAR],
-  [0, 0, 0]
+  [_cP, _lM, _uAR, _aA],
+  [0, 0, 0, () => ApprovalAction$]
 ];
 export var SendMessageHeartbeatEvent$: StaticStructureSchema = [3, n0, _SMHE,
   0,
@@ -1699,8 +1744,8 @@ export var SendMessageJsonDelta$: StaticStructureSchema = [3, n0, _SMJD,
 ];
 export var SendMessageRequest$: StaticStructureSchema = [3, n0, _SMR,
   0,
-  [_aSI, _eI, _co, _cont, _uI, _aIss],
-  [[0, 1], 0, 0, () => SendMessageContext$, 0, 64 | 0], 3
+  [_aSI, _eI, _co, _cont, _uI, _aIsse, _mT],
+  [[0, 1], 0, 0, () => SendMessageContext$, 0, 64 | 0, 0], 3
 ];
 export var SendMessageResponse$: StaticStructureSchema = [3, n0, _SMRe,
   0,
@@ -1749,7 +1794,7 @@ export var ServiceManagedInput$: StaticStructureSchema = [3, n0, _SMIe,
 ];
 export var ServiceNowConfiguration$: StaticStructureSchema = [3, n0, _SNC,
   0,
-  [_iIn, _aSu],
+  [_iIns, _aSu],
   [0, 64 | 0]
 ];
 export var ServiceNowOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n0, _SNOACCC,
@@ -1779,12 +1824,12 @@ export var SlackTransmissionTarget$: StaticStructureSchema = [3, n0, _STT,
 ];
 export var SourceAwsConfiguration$: StaticStructureSchema = [3, n0, _SAC,
   0,
-  [_aIc, _aTc, _aRA, _eIx],
-  [0, 0, 0, 0], 3
+  [_aIc, _aTc, _aRA, _eIx, _aERA, _aERAS],
+  [0, 0, 0, 0, 0, 0], 3
 ];
 export var TagResourceRequest$: StaticStructureSchema = [3, n0, _TRR,
   0,
-  [_rA, _t],
+  [_rA, _ta],
   [[0, 1], 128 | 0], 2
 ];
 export var TagResourceResponse$: StaticStructureSchema = [3, n0, _TRRa,
@@ -1804,7 +1849,7 @@ export var TaskFilter$: StaticStructureSchema = [3, n0, _TF,
 ];
 export var Trigger$: StaticStructureSchema = [3, n0, _Tr,
   0,
-  [_tI, _aSI, _ty, _cond, _ac, _st, _cA, _uA],
+  [_tI, _aSI, _ty, _cond, _a, _st, _cA, _uA],
   [0, 0, 0, () => TriggerCondition$, 15, 0, 4, 4], 8
 ];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
@@ -1819,17 +1864,27 @@ export var UntagResourceResponse$: StaticStructureSchema = [3, n0, _URRn,
 ];
 export var UpdateAgentSpaceInput$: StaticStructureSchema = [3, n0, _UASI,
   0,
-  [_aSI, _n, _d, _l],
-  [[0, 1], 0, [() => Description, 0], 0], 1
+  [_aSI, _n, _d, _l, _p],
+  [[0, 1], 0, [() => Description, 0], 0, 128 | 2], 1
 ];
 export var UpdateAgentSpaceOutput$: StaticStructureSchema = [3, n0, _UASO,
   0,
   [_aS],
   [[() => AgentSpace$, 0]], 1
 ];
+export var UpdateApprovalActionRequest$: StaticStructureSchema = [3, n0, _UAAR,
+  0,
+  [_aSI, _aI, _a, _fP, _rea, _tS, _sU],
+  [[0, 1], [0, 1], 0, () => ApprovalPattern$, 0, 1, 2], 3
+];
+export var UpdateApprovalActionResponse$: StaticStructureSchema = [3, n0, _UAARp,
+  0,
+  [_aI, _st, _eA],
+  [0, 0, 4], 2
+];
 export var UpdateAssetFileRequest$: StaticStructureSchema = [3, n0, _UAFR,
   0,
-  [_aSI, _aI, _p, _co, _me, _cT],
+  [_aSI, _aIs, _pa, _co, _me, _cT],
   [[0, 1], [0, 1], [0, 1], () => AssetFileBody$, 15, [0, 4]], 3
 ];
 export var UpdateAssetFileResponse$: StaticStructureSchema = [3, n0, _UAFRp,
@@ -1839,32 +1894,32 @@ export var UpdateAssetFileResponse$: StaticStructureSchema = [3, n0, _UAFRp,
 ];
 export var UpdateAssetRequest$: StaticStructureSchema = [3, n0, _UAR,
   0,
-  [_aSI, _aI, _me, _co, _cT],
+  [_aSI, _aIs, _me, _co, _cT],
   [[0, 1], [0, 1], 15, () => AssetContent$, [0, 4]], 2
 ];
 export var UpdateAssetResponse$: StaticStructureSchema = [3, n0, _UARp,
   0,
-  [_as],
+  [_ass],
   [() => Asset$], 1
 ];
 export var UpdateAssociationInput$: StaticStructureSchema = [3, n0, _UAI,
   0,
-  [_aSI, _aIs, _con, _ca],
+  [_aSI, _aIss, _con, _ca],
   [[0, 1], [0, 1], [() => ServiceConfiguration$, 0], () => AssociationCapabilities], 3
 ];
 export var UpdateAssociationOutput$: StaticStructureSchema = [3, n0, _UAO,
   0,
-  [_a, _w],
+  [_as, _w],
   [[() => Association$, 0], [() => GenericWebhook$, 0]], 1
 ];
 export var UpdateBacklogTaskRequest$: StaticStructureSchema = [3, n0, _UBTR,
   0,
-  [_aSI, _tIa, _tS, _cT],
+  [_aSI, _tIa, _tSa, _cT],
   [[0, 1], [0, 1], 0, [0, 4]], 2
 ];
 export var UpdateBacklogTaskResponse$: StaticStructureSchema = [3, n0, _UBTRp,
   0,
-  [_ta],
+  [_tas],
   [() => Task$], 1
 ];
 export var UpdateGoalRequest$: StaticStructureSchema = [3, n0, _UGR,
@@ -1939,7 +1994,7 @@ export var ValidateAwsAssociationsOutput$: StaticStructureSchema = [3, n0, _VAAO
 ];
 export var ValidationExceptionField$: StaticStructureSchema = [3, n0, _VEF,
   0,
-  [_p, _m],
+  [_pa, _m],
   [0, 0], 2
 ];
 export var Webhook$: StaticStructureSchema = [3, n0, _W,
@@ -1988,6 +2043,9 @@ var JournalRecordList: StaticListSchema = [1, n0, _JRL,
 ];
 var ListOfSecurityGroupIds = 64 | 0;
 var ListOfSubnetIds = 64 | 0;
+var MCPToolDetailsList: StaticListSchema = [1, n0, _MCPTDL,
+  0, () => MCPToolDetail$
+];
 var MCPToolsList = 64 | 0;
 var NewRelicAlertPolicyIds = 64 | 0;
 var NewRelicApplicationIds = 64 | 0;
@@ -2031,6 +2089,8 @@ var WebhooksList: StaticListSchema = [1, n0, _WL,
   0, () => Webhook$
 ];
 var WebIdentityTokenAudienceList = 64 | 0;
+var AgentSpacePreferences = 128 | 2;
+var ApprovalArgumentPins = 128 | 0;
 var AssociationCapabilities: StaticMapSchema = [2, n0, _ACs,
   0, 0, () => CapabilityConfiguration$
 ];
@@ -2049,7 +2109,7 @@ var ExchangeParameters: StaticMapSchema = [2, n0, _EP,
 var Tags = 128 | 0;
 export var AdditionalServiceDetails$: StaticUnionSchema = [4, n0, _ASD,
   0,
-  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pa, _mcpserv, _rem, _remo],
+  [_gi, _sl, _mc, _mcp, _servi, _git, _mcps, _mcpse, _az, _azu, _mcpser, _pag, _mcpserv, _rem, _remo],
   [() => RegisteredGithubServiceDetails$, () => RegisteredSlackServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredMCPServerDetails$, 0], () => RegisteredServiceNowDetails$, () => RegisteredGitLabServiceDetails$, [() => RegisteredMCPServerDetails$, 0], [() => RegisteredNewRelicDetails$, 0], () => RegisteredAzureDevOpsServiceDetails$, () => RegisteredAzureIdentityDetails$, () => RegisteredGrafanaServerDetails$, () => RegisteredPagerDutyDetails$, [() => RegisteredMCPServerSigV4Details$, 0], [() => RegisteredRemoteAgentDetails$, 0], [() => RegisteredRemoteAgentSigV4Details$, 0]]
 ];
 export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS,
@@ -2059,7 +2119,7 @@ export var AdditionalServiceRegistrationStep$: StaticUnionSchema = [4, n0, _ASRS
 ];
 export var AssetContent$: StaticUnionSchema = [4, n0, _ACss,
   0,
-  [_f, _z, _sU],
+  [_f, _z, _sUo],
   [() => AssetFileContent$, () => AssetZipContent$, () => AssetSourceUrlContent$]
 ];
 export var AssetFileBody$: StaticUnionSchema = [4, n0, _AFB,
@@ -2084,7 +2144,7 @@ export var DynatraceServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _DS
 ];
 export var MCPServerAuthorizationConfig$: StaticUnionSchema = [4, n0, _MCPSAC,
   0,
-  [_oACC, _oALO, _aK, _bT, _aD],
+  [_oACC, _oALO, _aK, _bTe, _aD],
   [[() => MCPServerOAuthClientCredentialsConfig$, 0], [() => MCPServerOAuth3LOConfig$, 0], [() => MCPServerAPIKeyConfig$, 0], [() => MCPServerBearerTokenConfig$, 0], () => MCPServerAuthorizationDiscoveryConfig$]
 ];
 export var Message$: StaticUnionSchema = [4, n0, _M,
@@ -2109,12 +2169,12 @@ export var PrivateConnectionMode$: StaticUnionSchema = [4, n0, _PCM,
 ];
 export var RemoteAgentAuthorizationConfig$: StaticUnionSchema = [4, n0, _RAAC,
   0,
-  [_aK, _oACC, _bT],
+  [_aK, _oACC, _bTe],
   [[() => RemoteAgentAPIKeyConfig$, 0], [() => RemoteAgentOAuthClientCredentialsConfig$, 0], [() => RemoteAgentBearerTokenConfig$, 0]]
 ];
 export var SendMessageContentBlockDelta$: StaticUnionSchema = [4, n0, _SMCBD,
   0,
-  [_tD, _jD],
+  [_tDe, _jD],
   [() => SendMessageTextDelta$, () => SendMessageJsonDelta$]
 ];
 export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
@@ -2124,12 +2184,12 @@ export var SendMessageEvents$: StaticUnionSchema = [4, n0, _SME,
 ];
 export var ServiceConfiguration$: StaticUnionSchema = [4, n0, _SCe,
   0,
-  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pa, _mcpserv, _rem, _remo],
+  [_sA, _aw, _gi, _sl, _dy, _servi, _mcpse, _mc, _mcp, _git, _mcps, _eCv, _azur, _az, _mcpser, _pag, _mcpserv, _rem, _remo],
   [() => SourceAwsConfiguration$, () => AWSConfiguration$, () => GitHubConfiguration$, () => SlackConfiguration$, () => DynatraceConfiguration$, () => ServiceNowConfiguration$, () => MCPServerNewRelicConfiguration$, () => MCPServerDatadogConfiguration$, () => MCPServerConfiguration$, () => GitLabConfiguration$, () => MCPServerSplunkConfiguration$, () => EventChannelConfiguration$, () => AzureConfiguration$, () => AzureDevOpsConfiguration$, () => MCPServerGrafanaConfiguration$, [() => PagerDutyConfiguration$, 0], () => MCPServerSigV4Configuration$, () => RemoteAgentConfiguration$, () => RemoteAgentSigV4Configuration$]
 ];
 export var ServiceDetails$: StaticUnionSchema = [4, n0, _SD,
   0,
-  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pa, _azu, _mcpserv, _rem, _remo],
+  [_dy, _servi, _mc, _mcp, _git, _mcps, _mcpse, _eCv, _mcpser, _pag, _azu, _mcpserv, _rem, _remo],
   [[() => DynatraceServiceDetails$, 0], [() => ServiceNowServiceDetails$, 0], [() => DatadogServiceDetails$, 0], [() => MCPServerDetails$, 0], [() => GitLabDetails$, 0], [() => MCPServerDetails$, 0], [() => NewRelicServiceDetails$, 0], () => EventChannelDetails$, [() => GrafanaServiceDetails$, 0], [() => PagerDutyDetails$, 0], () => RegisteredAzureIdentityDetails$, [() => MCPServerSigV4ServiceDetails$, 0], [() => RemoteAgentServiceDetails$, 0], [() => RemoteAgentSigV4ServiceDetails$, 0]]
 ];
 export var ServiceNowServiceAuthorizationConfig$: StaticUnionSchema = [4, n0, _SNSAC,
@@ -2302,6 +2362,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _URn,
 ];
 export var UpdateAgentSpace$: StaticOperationSchema = [9, n0, _UAS,
   { [_end]: ["cp."], [_ht]: ["PATCH", "/v1/agentspaces/{agentSpaceId}", 200] }, () => UpdateAgentSpaceInput$, () => UpdateAgentSpaceOutput$
+];
+export var UpdateApprovalAction$: StaticOperationSchema = [9, n0, _UAA,
+  { [_end]: ["dp."], [_ht]: ["POST", "/agents/agent-space/{agentSpaceId}/approvals/{approvalId}/update-action", 200] }, () => UpdateApprovalActionRequest$, () => UpdateApprovalActionResponse$
 ];
 export var UpdateAsset$: StaticOperationSchema = [9, n0, _UA,
   { [_end]: ["dp."], [_ht]: ["PATCH", "/asset/agent-space/{agentSpaceId}/assets/{assetId}", 200] }, () => UpdateAssetRequest$, () => UpdateAssetResponse$
