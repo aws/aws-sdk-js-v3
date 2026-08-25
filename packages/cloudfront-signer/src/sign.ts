@@ -135,12 +135,14 @@ export function getSignedUrl({
   }
 
   let baseUrl: string | undefined;
+  let resourceUrl: string | undefined;
   if (url) {
-    // Encode the URL up front so the policy Resource matches the URL on the
-    // wire. CloudFront verifies the signature against the encoded URL, so
-    // signing the unencoded form would produce 403 AccessDenied whenever the
-    // path contains characters like '=', ',', or spaces.
+    // Encode the URL for output, while preserving the input representation of
+    // query spaces in the policy Resource. Path characters must be encoded in
+    // both representations, but changing `+` to `%20` before signing changes
+    // the signature even though both forms produce the same output URL.
     baseUrl = encodeUrlPath(url);
+    resourceUrl = encodeUrlPath(url, true);
   } else if (policy) {
     const resources = getPolicyResources(policy!);
     if (!resources[0]) {
@@ -155,7 +157,7 @@ export function getSignedUrl({
     cloudfrontSignBuilder.setCustomPolicy(policy);
   } else {
     cloudfrontSignBuilder.setPolicyParameters({
-      url: baseUrl,
+      url: resourceUrl,
       dateLessThan,
       dateGreaterThan,
       ipAddress,
@@ -277,7 +279,7 @@ interface CloudfrontAttributes {
  * Already percent-encoded sequences are preserved (no double-encoding).
  * @internal
  */
-function encodeUrlPath(url: string): string {
+function encodeUrlPath(url: string, preserveQuerySpaceEncoding = false): string {
   const protocolEnd = url.indexOf("//");
   if (protocolEnd === -1) {
     return url;
@@ -313,14 +315,54 @@ function encodeUrlPath(url: string): string {
   // so we replace them explicitly.
   let encodedQuery = "";
   if (rawQuery) {
-    for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
-      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key).replace(/'/g, "%27")}=${encodeURIComponent(
-        value
-      ).replace(/'/g, "%27")}`;
+    if (preserveQuerySpaceEncoding) {
+      encodedQuery = encodeQueryForSigning(rawQuery);
+    } else {
+      for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
+        encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key).replace(/'/g, "%27")}=${encodeURIComponent(
+          value
+        ).replace(/'/g, "%27")}`;
+      }
     }
   }
 
   return origin + encodedPath + encodedQuery;
+}
+
+/**
+ * Encodes a query for a policy Resource without collapsing distinct space
+ * representations. All other component encoding matches the output URL.
+ * @internal
+ */
+function encodeQueryForSigning(rawQuery: string): string {
+  const entries = rawQuery
+    .slice(1)
+    .split("&")
+    .filter((entry) => entry.length > 0)
+    .map((entry) => {
+      const separatorIndex = entry.indexOf("=");
+      const key = separatorIndex === -1 ? entry : entry.slice(0, separatorIndex);
+      const value = separatorIndex === -1 ? "" : entry.slice(separatorIndex + 1);
+      return `${encodeQueryComponentForSigning(key)}=${encodeQueryComponentForSigning(value)}`;
+    });
+
+  return entries.length > 0 ? `?${entries.join("&")}` : "";
+}
+
+function encodeQueryComponentForSigning(component: string): string {
+  return component
+    .split(/(%20|\+| )/gi)
+    .map((part) => {
+      if (part === "+" || part === " " || part.toUpperCase() === "%20") {
+        return part;
+      }
+      try {
+        return encodeURIComponent(decodeURIComponent(part)).replace(/'/g, "%27");
+      } catch {
+        return encodeURIComponent(part).replace(/'/g, "%27");
+      }
+    })
+    .join("");
 }
 
 /**

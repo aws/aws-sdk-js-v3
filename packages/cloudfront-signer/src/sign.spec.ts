@@ -973,6 +973,89 @@ describe("url component encoding", () => {
     expect(signedUrl.slice(0, target.length)).toBe(target);
   });
 
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should preserve the last-known-good signature when a query value contains a space", () => {
+    const url = new URL("http://example.com/path/to/file.pdf");
+    url.searchParams.set("response-content-disposition", "inline; filename*=filename.pdf");
+    const href = url.toString();
+    const encodedHref =
+      "http://example.com/path/to/file.pdf?response-content-disposition=inline%3B%20filename*%3Dfilename.pdf";
+
+    expect(href).toBe(
+      "http://example.com/path/to/file.pdf?response-content-disposition=inline%3B+filename*%3Dfilename.pdf"
+    );
+
+    const policyFor = (resource: string) =>
+      JSON.stringify({
+        Statement: [
+          {
+            Resource: resource,
+            Condition: {
+              DateLessThan: {
+                "AWS:EpochTime": epochDateLessThan,
+              },
+            },
+          },
+        ],
+      });
+    const lastKnownGoodSignedUrl =
+      "http://example.com/path/to/file.pdf?response-content-disposition=inline%3B%20filename*%3Dfilename.pdf&Expires=1577836800&Key-Pair-Id=APKAEIBAERJR2EXAMPLE&Signature=JBs7DvOuSvgzWJQS~I03~90rFF-yVftF9gNpKd9TrRXrs6oLMITJ7htEnL2RU4XnZWx9-RY5uudGMIOCgkDGSmlmpk2-DXykCq00ZhRdawHHFIMOm~lc-e0ARIxWkcdRvyNBNsGJphyrPZIkcmWKHqlUUIi75gkjKCugcB96T09vjdEQ-rPVE-TYkF5RUjGVRBb8VLZHzC5nQsnf2nLi9-u4mCaq4obNWT1cGsIUJ3I4JbNd8N2nG5O3u0Y10Kye3HRkCstSBgqPX56CZqxFxUxIbcCrHgQUYTzQe60e76oqYPfk3ItRV4Ec3lan07gmO4e~zRp4xKN9wUmZm0sGMg__";
+    const lastKnownGood = parseUrl(lastKnownGoodSignedUrl);
+    const lastKnownGoodSignature = denormalizeBase64(lastKnownGood.query!["Signature"] as string);
+
+    // 3.1034.0 emitted `%20` on the wire but signed the original `+` representation.
+    expect(verifySignature(lastKnownGoodSignature, policyFor(href))).toBeTruthy();
+    expect(verifySignature(lastKnownGoodSignature, policyFor(encodedHref))).toBeFalsy();
+
+    const signedUrl = getSignedUrl({
+      url: href,
+      keyPairId,
+      dateLessThan,
+      privateKey,
+      passphrase,
+    });
+    const parsedUrl = parseUrl(signedUrl);
+    const signature = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+
+    // The output query is normalized, but the policy Resource retains the
+    // pre-normalization representation used by the last-known-good release.
+    expect(signedUrl).toContain(`${encodedHref}&Expires=${epochDateLessThan}`);
+    expect(verifySignature(signature, policyFor(href))).toBeTruthy();
+    expect(verifySignature(signature, policyFor(encodedHref))).toBeFalsy();
+
+    // Exact output from the last-known-good @aws-sdk/cloudfront-signer 3.1034.0.
+    expect(signedUrl).toBe(lastKnownGoodSignedUrl);
+  });
+
+  it("should keep query space and plus representations distinct when signing", () => {
+    const cases = [
+      { query: "value=a b", output: "value=a%20b" },
+      { query: "value=a%20b", output: "value=a%20b" },
+      { query: "value=a+b", output: "value=a%20b" },
+      { query: "value=a%2Bb", output: "value=a%2Bb" },
+    ];
+    const signatures = cases.map(({ query, output }) => {
+      const resource = `http://example.com/file?${query}`;
+      const signedUrl = getSignedUrl({ url: resource, keyPairId, dateLessThan, privateKey, passphrase });
+      const parsedUrl = parseUrl(signedUrl);
+      const signature = denormalizeBase64(parsedUrl.query!["Signature"] as string);
+      const policy = JSON.stringify({
+        Statement: [
+          {
+            Resource: resource,
+            Condition: { DateLessThan: { "AWS:EpochTime": epochDateLessThan } },
+          },
+        ],
+      });
+
+      expect(signedUrl).toContain(`http://example.com/file?${output}&Expires=${epochDateLessThan}`);
+      expect(verifySignature(signature, policy)).toBeTruthy();
+      return parsedUrl.query!["Signature"];
+    });
+
+    expect(new Set(signatures).size).toBe(cases.length);
+  });
+
   // https://github.com/aws/aws-sdk-js-v3/issues/8113
   it("should encode single quotes in filename*=UTF-8'' query values", () => {
     const encodedFilename = encodeURIComponent("文件");
