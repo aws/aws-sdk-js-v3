@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
+
+
+### Features
+
+* **client-auto-scaling:** Adds support for Distribution Segments in mixed instances policies, providing ordered prioritization across On-Demand Capacity Reservations, Capacity Blocks, interruptible Capacity Reservations, and On-Demand capacity. ([986ae92](https://github.com/aws/aws-sdk-js-v3/commit/986ae9241a144e9451649a2a9ffaff34e0f92580))
+* **client-devops-agent:** Adds the UpdateApprovalAction API for resolving agent action approvals in AWS DevOps Agent agent spaces. ([6dfd3b3](https://github.com/aws/aws-sdk-js-v3/commit/6dfd3b3406c6fb6e62d22e52e75ea4868771874a))
+* **client-ec2:** Fleet feature to support Capacity Reservation Resource Groups with Amazon EC2 Capacity Blocks and interruptible Capacity Reservations ([144e994](https://github.com/aws/aws-sdk-js-v3/commit/144e9945727c1f0ad29a8802a71252ccfa45685b))
+* **client-eks:** This feature would give customers the ability to tune TerminatedPodGcThreshold configuration in an Amazon EKS cluster. ([bdc0470](https://github.com/aws/aws-sdk-js-v3/commit/bdc0470b66fbc407e269b9ce8585b89f9e88f1b6))
+* **client-evs:** EVS now supports i7i.metal-48xl EC2 bare metal instance type, delivering high random IOPS performance with real-time latency, ideal for IO intensive and latency-sensitive workloads such as transactional databases, real-time analytics, and AI ML pre-processing. ([7b66b72](https://github.com/aws/aws-sdk-js-v3/commit/7b66b723ef49dd23c2c0d75519f158afdc4ff339))
+* **client-iam-toolbox:** AWS Identity and Access Management (IAM) announces access troubleshooter, helping you debug access denied errors faster. Supported error messages now include an identifier you can use to retrieve detailed evaluations of the policies considered and their results. Preview in US East (N. Virginia). ([3187bf7](https://github.com/aws/aws-sdk-js-v3/commit/3187bf7af85ea69be074c7e116a47eaf1fc5aacc))
+* **client-iot:** As part of this release, we are extending capability of AWS IoT Rules Engine to support IoT InfluxDB Action. The IoT InfluxDB action lets customers send messages from IoT sensors and applications to InfluxDB. ([9e82d71](https://github.com/aws/aws-sdk-js-v3/commit/9e82d71cdf27d94e117e7cbe4246c45b6896fbfa))
+* **clients:** update client endpoints as of 2026-08-25 ([c732c7a](https://github.com/aws/aws-sdk-js-v3/commit/c732c7aef2a152da059c8c3e8095b95fba74f0a4))
+
+
+
+
+
 # [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
 
 

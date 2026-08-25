@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
+
+
+### Features
+
+* **client-devops-agent:** Adds the UpdateApprovalAction API for resolving agent action approvals in AWS DevOps Agent agent spaces. ([6dfd3b3](https://github.com/aws/aws-sdk-js-v3/commit/6dfd3b3406c6fb6e62d22e52e75ea4868771874a))
+
+
+
+
+
 # [3.1117.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1116.0...v3.1117.0) (2026-08-24)
 
 **Note:** Version bump only for package @aws-sdk/client-devops-agent
