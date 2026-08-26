@@ -104,6 +104,7 @@ export class S3TransferManager implements IS3TransferManager {
     this.requestChecksumCalculation = config.requestChecksumCalculation ?? "WHEN_SUPPORTED";
     this.responseChecksumValidation = config.responseChecksumValidation ?? "WHEN_SUPPORTED";
     this.maxConcurrentUploads = config.maxConcurrentUploads ?? 32;
+    this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 32;
     this.workerThreadCount = config.workerThreadCount ?? defaultWorkerCount();
 
     this.s3 =
@@ -117,6 +118,7 @@ export class S3TransferManager implements IS3TransferManager {
       this.workerHttpHandler = new WorkerHttpHandler({
         workerThreadCount: this.workerThreadCount,
         maxConcurrentUploads: this.maxConcurrentUploads,
+        maxConcurrentDownloads: this.maxConcurrentDownloads,
       });
       if (this.s3.config) {
         this.s3.config.requestHandler = this.workerHttpHandler as any;
@@ -127,7 +129,6 @@ export class S3TransferManager implements IS3TransferManager {
     this.multipartUploadThresholdBytes = config.multipartUploadThresholdBytes ?? 16 * 1024 * 1024; // 16 MB
 
     this.multipartDownloadType = config.multipartDownloadType ?? "PART";
-    this.maxConcurrentDownloads = config.maxConcurrentDownloads ?? 32;
     this.logger = config.logger ?? new LogLevel("warn");
     this.eventListeners = {
       transferInitiated: config.eventListeners?.transferInitiated ?? [],

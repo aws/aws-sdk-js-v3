@@ -357,6 +357,7 @@ export class WorkerHttpHandler {
   private workerInflightCounts: number[] = [];
   private workerThreadCount: number;
   private maxConcurrentUploads: number;
+  private maxConcurrentDownloads: number;
   private initialized = false;
   private initPromise: Promise<void> | undefined;
   private fallbackHandler: NodeHttpHandler;
@@ -378,9 +379,14 @@ export class WorkerHttpHandler {
 
   readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor(options?: { workerThreadCount?: number; maxConcurrentUploads?: number }) {
+  constructor(options?: {
+    workerThreadCount?: number;
+    maxConcurrentUploads?: number;
+    maxConcurrentDownloads?: number;
+  }) {
     this.workerThreadCount = options?.workerThreadCount ?? defaultWorkerCount();
     this.maxConcurrentUploads = options?.maxConcurrentUploads ?? 32;
+    this.maxConcurrentDownloads = options?.maxConcurrentDownloads ?? 32;
     this.fallbackHandler = new NodeHttpHandler();
   }
 
@@ -446,7 +452,10 @@ export class WorkerHttpHandler {
           if (msg.type === "ready") {
             worker.postMessage({
               type: "config",
-              maxSockets: Math.max(50, Math.ceil(this.maxConcurrentUploads / this.workerThreadCount)),
+              maxSockets: Math.max(
+                50,
+                Math.ceil(Math.max(this.maxConcurrentUploads, this.maxConcurrentDownloads) / this.workerThreadCount)
+              ),
             } satisfies HttpWorkerConfigMessage);
             readyCount++;
             if (!settled && readyCount === this.workerThreadCount) {
