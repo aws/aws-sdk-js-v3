@@ -3234,6 +3234,7 @@ export type Tenancy = (typeof Tenancy)[keyof typeof Tenancy];
  */
 export const VpcState = {
   available: "available",
+  deleting: "deleting",
   pending: "pending",
 } as const;
 /**
@@ -3566,6 +3567,7 @@ export type FleetType = (typeof FleetType)[keyof typeof FleetType];
  * @enum
  */
 export const InstanceLifecycle = {
+  CAPACITY_BLOCK: "capacity-block",
   INTERRUPTIBLE_CAPACITY_RESERVATION: "interruptible-capacity-reservation",
   ON_DEMAND: "on-demand",
   SPOT: "spot",

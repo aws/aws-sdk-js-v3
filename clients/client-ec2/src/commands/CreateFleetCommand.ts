@@ -371,7 +371,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
- * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
+ * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation" || "capacity-block",
  * //       ErrorCode: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
@@ -494,7 +494,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResult, __MetadataB
  * //           AvailabilityZoneId: "STRING_VALUE",
  * //         },
  * //       },
- * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation",
+ * //       Lifecycle: "spot" || "on-demand" || "interruptible-capacity-reservation" || "capacity-block",
  * //       InstanceIds: [ // InstanceIdsSet
  * //         "STRING_VALUE",
  * //       ],

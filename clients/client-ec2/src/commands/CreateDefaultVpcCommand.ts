@@ -120,7 +120,7 @@ export interface CreateDefaultVpcCommandOutput extends CreateDefaultVpcResult, _
  * //       InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
  * //     },
  * //     VpcId: "STRING_VALUE",
- * //     State: "pending" || "available",
+ * //     State: "pending" || "available" || "deleting",
  * //     CidrBlock: "STRING_VALUE",
  * //     DhcpOptionsId: "STRING_VALUE",
  * //   },
