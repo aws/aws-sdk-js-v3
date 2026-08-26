@@ -241,6 +241,7 @@ const _PDAC = "PagerDutyAuthorizationConfig";
 const _PDC = "PagerDutyConfiguration";
 const _PDD = "PagerDutyDetails";
 const _PDOACCC = "PagerDutyOAuthClientCredentialsConfig";
+const _PF = "PatternFilter";
 const _PM = "PendingMessage";
 const _PMe = "PendingMessages";
 const _R = "Recommendation";
@@ -312,6 +313,8 @@ const _T = "Task";
 const _TC = "TriggerCondition";
 const _TE = "ThrottlingException";
 const _TF = "TaskFilter";
+const _TFG = "TriggerFilterGroup";
+const _TFGr = "TriggerFilterGroups";
 const _TL = "TaskList";
 const _TLr = "TriggerList";
 const _TR = "TagResource";
@@ -561,6 +564,7 @@ const _pR = "portRanges";
 const _pTI = "primaryTaskId";
 const _pa = "path";
 const _pag = "pagerduty";
+const _pat = "patterns";
 const _pr = "priority";
 const _pro = "provider";
 const _r = "reference";
@@ -624,9 +628,11 @@ const _str = "streaming";
 const _su = "summary";
 const _sy = "system";
 const _t = "tool";
+const _tB = "targetBranches";
 const _tC = "toolClassification";
 const _tD = "toolDetails";
 const _tDe = "textDelta";
+const _tFG = "triggerFilterGroups";
 const _tI = "triggerId";
 const _tIa = "taskId";
 const _tIe = "tenantId";
@@ -884,8 +890,8 @@ export var AzureDevOpsConfiguration$: StaticStructureSchema = [3, n0, _ADOC,
 ];
 export var CapabilityConfiguration$: StaticStructureSchema = [3, n0, _CC,
   0,
-  [_en],
-  [2]
+  [_en, _tFG],
+  [2, () => TriggerFilterGroups]
 ];
 export var ChatExecution$: StaticStructureSchema = [3, n0, _CEh,
   0,
@@ -1552,6 +1558,11 @@ export var PagerDutyOAuthClientCredentialsConfig$: StaticStructureSchema = [3, n
   [_cI, _cS, _cN, _eP],
   [[() => ClientId, 0], [() => ClientSecret, 0], 0, [() => ExchangeParameters, 0]], 2
 ];
+export var PatternFilter$: StaticStructureSchema = [3, n0, _PF,
+  0,
+  [_pat],
+  [64 | 0], 1
+];
 export var PendingMessage$: StaticStructureSchema = [3, n0, _PM,
   0,
   [_mI, _m],
@@ -1852,6 +1863,11 @@ export var Trigger$: StaticStructureSchema = [3, n0, _Tr,
   [_tI, _aSI, _ty, _cond, _a, _st, _cA, _uA],
   [0, 0, 0, () => TriggerCondition$, 15, 0, 4, 4], 8
 ];
+export var TriggerFilterGroup$: StaticStructureSchema = [3, n0, _TFG,
+  0,
+  [_ev, _tB],
+  [64 | 0, () => PatternFilter$]
+];
 export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
   0,
   [_rA, _tK],
@@ -2076,9 +2092,14 @@ var TaskList: StaticListSchema = [1, n0, _TL,
 ];
 var TaskStatusList = 64 | 0;
 var TaskTypeList = 64 | 0;
+var TriggerEventList = 64 | 0;
+var TriggerFilterGroups: StaticListSchema = [1, n0, _TFGr,
+  0, () => TriggerFilterGroup$
+];
 var TriggerList: StaticListSchema = [1, n0, _TLr,
   0, () => Trigger$
 ];
+var TriggerRegexPatternList = 64 | 0;
 var UserMessage: StaticListSchema = [1, n0, _UMs,
   0, () => UserMessageBlock$
 ];

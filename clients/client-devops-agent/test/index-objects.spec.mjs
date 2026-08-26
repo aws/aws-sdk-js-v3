@@ -298,6 +298,7 @@ import {
   paginateListJournalRecords,
   paginateListServices,
   paginateListTriggers,
+  PatternFilter$,
   PendingMessage$,
   PostRegisterServiceSupportedService,
   Priority,
@@ -394,6 +395,8 @@ import {
   ToolClassification,
   Trigger$,
   TriggerCondition$,
+  TriggerEvent,
+  TriggerFilterGroup$,
   UntagResource$,
   UntagResourceCommand,
   UntagResourceRequest$,
@@ -751,6 +754,7 @@ assert(typeof PagerDutyAuthorizationConfig$ === "object");
 assert(typeof PagerDutyConfiguration$ === "object");
 assert(typeof PagerDutyDetails$ === "object");
 assert(typeof PagerDutyOAuthClientCredentialsConfig$ === "object");
+assert(typeof PatternFilter$ === "object");
 assert(typeof PendingMessage$ === "object");
 assert(typeof PrivateConnectionMode$ === "object");
 assert(typeof PrivateConnectionSummary$ === "object");
@@ -819,6 +823,7 @@ assert(typeof Task$ === "object");
 assert(typeof TaskFilter$ === "object");
 assert(typeof Trigger$ === "object");
 assert(typeof TriggerCondition$ === "object");
+assert(typeof TriggerFilterGroup$ === "object");
 assert(typeof UntagResourceRequest$ === "object");
 assert(typeof UntagResourceResponse$ === "object");
 assert(typeof UpdateAgentSpaceInput$ === "object");
@@ -883,6 +888,7 @@ assert(typeof TaskSortOrder === "object");
 assert(typeof TaskStatus === "object");
 assert(typeof TaskType === "object");
 assert(typeof ToolClassification === "object");
+assert(typeof TriggerEvent === "object");
 assert(typeof UserType === "object");
 assert(typeof ValidationStatus === "object");
 assert(typeof WebhookType === "object");

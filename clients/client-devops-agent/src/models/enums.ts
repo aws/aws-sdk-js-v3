@@ -144,6 +144,25 @@ export type CapabilityType = (typeof CapabilityType)[keyof typeof CapabilityType
  * @public
  * @enum
  */
+export const TriggerEvent = {
+  /**
+   * <p>A change request is created or updated while in draft state.</p>
+   */
+  PULL_REQUEST_DRAFT: "PULL_REQUEST_DRAFT",
+  /**
+   * <p>A change request is created, updated, or marked ready for review while in a non-draft state.</p>
+   */
+  PULL_REQUEST_READY_FOR_REVIEW: "PULL_REQUEST_READY_FOR_REVIEW",
+} as const;
+/**
+ * @public
+ */
+export type TriggerEvent = (typeof TriggerEvent)[keyof typeof TriggerEvent];
+
+/**
+ * @public
+ * @enum
+ */
 export const MonitorAccountType = {
   MONITOR: "monitor",
 } as const;

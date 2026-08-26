@@ -171,6 +171,18 @@ export interface GetAssociationCommandOutput extends GetAssociationOutput, __Met
  * //     capabilities: { // AssociationCapabilities
  * //       "<keys>": { // CapabilityConfiguration
  * //         enabled: true || false,
+ * //         triggerFilterGroups: [ // TriggerFilterGroups
+ * //           { // TriggerFilterGroup
+ * //             events: [ // TriggerEventList
+ * //               "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT",
+ * //             ],
+ * //             targetBranches: { // PatternFilter
+ * //               patterns: [ // TriggerRegexPatternList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   },

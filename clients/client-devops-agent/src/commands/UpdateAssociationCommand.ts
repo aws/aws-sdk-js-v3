@@ -160,6 +160,18 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  *   capabilities: { // AssociationCapabilities
  *     "<keys>": { // CapabilityConfiguration
  *       enabled: true || false,
+ *       triggerFilterGroups: [ // TriggerFilterGroups
+ *         { // TriggerFilterGroup
+ *           events: [ // TriggerEventList
+ *             "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT",
+ *           ],
+ *           targetBranches: { // PatternFilter
+ *             patterns: [ // TriggerRegexPatternList // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         },
+ *       ],
  *     },
  *   },
  * };
@@ -298,6 +310,18 @@ export interface UpdateAssociationCommandOutput extends UpdateAssociationOutput,
  * //     capabilities: { // AssociationCapabilities
  * //       "<keys>": { // CapabilityConfiguration
  * //         enabled: true || false,
+ * //         triggerFilterGroups: [ // TriggerFilterGroups
+ * //           { // TriggerFilterGroup
+ * //             events: [ // TriggerEventList
+ * //               "PULL_REQUEST_READY_FOR_REVIEW" || "PULL_REQUEST_DRAFT",
+ * //             ],
+ * //             targetBranches: { // PatternFilter
+ * //               patterns: [ // TriggerRegexPatternList // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
  * //       },
  * //     },
  * //   },

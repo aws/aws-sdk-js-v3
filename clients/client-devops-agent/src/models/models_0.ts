@@ -34,6 +34,7 @@ import type {
   TaskStatus,
   TaskType,
   ToolClassification,
+  TriggerEvent,
   UserType,
   ValidationStatus,
   WebhookType,
@@ -906,6 +907,36 @@ export interface AgentSpace {
 }
 
 /**
+ * <p>A regex-based match condition. Passes when the value matches any pattern.</p>
+ * @public
+ */
+export interface PatternFilter {
+  /**
+   * <p>Anchored full-match regex patterns. The condition passes when the value matches at least one pattern.</p>
+   * @public
+   */
+  patterns: string[] | undefined;
+}
+
+/**
+ * <p>A group of trigger conditions. The group matches when ALL present conditions pass. A group cannot be empty: at least one condition must be present.</p>
+ * @public
+ */
+export interface TriggerFilterGroup {
+  /**
+   * <p>Passes when the webhook event is one of the listed events.</p>
+   * @public
+   */
+  events?: TriggerEvent[] | undefined;
+
+  /**
+   * <p>Passes when the change request target branch matches. Applicable to RELEASE_READINESS_REVIEW only.</p>
+   * @public
+   */
+  targetBranches?: PatternFilter | undefined;
+}
+
+/**
  * <p>Capability configuration for the AWS DevOps Agent.</p>
  * @public
  */
@@ -915,6 +946,12 @@ export interface CapabilityConfiguration {
    * @public
    */
   enabled?: boolean | undefined;
+
+  /**
+   * <p>Optional trigger filter groups. Evaluated only when enabled=true; retained while the capability is disabled, so re-enabling restores the prior trigger behavior.</p>
+   * @public
+   */
+  triggerFilterGroups?: TriggerFilterGroup[] | undefined;
 }
 
 /**
