@@ -308,4 +308,23 @@ describe("@aws-sdk/cloudfront-signer e2e", () => {
     expect(response.status).toBe(200);
     expect(await response.text()).toBe(OBJECT_BODY);
   });
+
+  // https://github.com/aws/aws-sdk-js-v3/issues/8277
+  it("should access content when query contains + (space encoded as +)", async () => {
+    const url = new URL(`https://${domain}/${OBJECT_KEY}`);
+    url.searchParams.set("response-content-disposition", "inline; filename*=filename.pdf");
+    const signedUrl = getSignedUrl({
+      url: url.toString(),
+      keyPairId,
+      privateKey,
+      dateLessThan: new Date(Date.now() + 60_000).toISOString(),
+    });
+
+    // + must be preserved in the signed URL, not converted to %20
+    expect(signedUrl).toContain("inline%3B+filename*%3Dfilename.pdf");
+
+    const response = await fetch(signedUrl);
+    expect(response.status).toBe(200);
+    expect(await response.text()).toBe(OBJECT_BODY);
+  });
 }, 660_000);

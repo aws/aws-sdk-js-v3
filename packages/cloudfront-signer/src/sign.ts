@@ -307,20 +307,52 @@ function encodeUrlPath(url: string): string {
     }
   });
 
-  // Re-encode query parameters if present.
-  // Single quotes must be encoded as %27 because CloudFront normalizes them
-  // before verifying signatures. encodeURIComponent does not encode quotes,
-  // so we replace them explicitly.
+  // Re-encode query parameters if present. Encode by hand rather than via
+  // URLSearchParams, which would read `+` as a space and re-emit it as %20 —
+  // in an RFC 3986 query `+` is literal, and rewriting it changes the resource
+  // being signed (#8277).
   let encodedQuery = "";
   if (rawQuery) {
-    for (const [key, value] of new URLSearchParams(rawQuery.slice(1)).entries()) {
-      encodedQuery += `${encodedQuery ? "&" : "?"}${encodeURIComponent(key).replace(/'/g, "%27")}=${encodeURIComponent(
-        value
-      ).replace(/'/g, "%27")}`;
-    }
+    const pairs = rawQuery
+      .slice(1)
+      .split("&")
+      .filter((p) => p.length > 0)
+      .map((pair) => {
+        const eqIdx = pair.indexOf("=");
+        const rawKey = eqIdx === -1 ? pair : pair.slice(0, eqIdx);
+        const rawValue = eqIdx === -1 ? "" : pair.slice(eqIdx + 1);
+        return `${encodeQueryComponent(rawKey)}=${encodeQueryComponent(rawValue)}`;
+      });
+    encodedQuery = pairs.length > 0 ? `?${pairs.join("&")}` : "";
   }
 
   return origin + encodedPath + encodedQuery;
+}
+
+/**
+ * Percent-encodes a query component (key or value) preserving `+` literally
+ * and uppercasing existing %xx hex to match what the previous decode/re-encode
+ * emitted. Single quotes are encoded as %27 for CloudFront compatibility.
+ *
+ * `+` is preserved in query strings but encoded as %2B in path segments by
+ * the path encoder above. The query behavior matches ≤3.1034.0, which signed
+ * query `+` literally; the path behavior was introduced in #7763 and is not
+ * covered by an e2e test.
+ * @internal
+ */
+function encodeQueryComponent(component: string): string {
+  return component
+    .split(/(%[0-9A-Fa-f]{2}|\+)/g)
+    .map((part, i) => {
+      // Odd indices are the captured separators (%XX or +). Preserve them,
+      // uppercasing hex to match what the previous decode/re-encode emitted —
+      // and what the path encoder above still emits.
+      if (i % 2 === 1) {
+        return part === "+" ? "+" : part.toUpperCase();
+      }
+      return encodeURIComponent(part).replace(/'/g, "%27");
+    })
+    .join("");
 }
 
 /**
