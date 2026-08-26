@@ -54,6 +54,7 @@ const _IUA = "InstanceUserArn";
 const _IUS = "InstanceUserSummary";
 const _IUSL = "InstanceUserSummaryList";
 const _IUSn = "InstanceUserSummaries";
+const _LED = "LicenseExpirationDate";
 const _LI = "ListInstances";
 const _LIP = "ListIdentityProviders";
 const _LIPR = "ListIdentityProvidersRequest";
@@ -391,8 +392,8 @@ export var ListUserAssociationsResponse$: StaticStructureSchema = [3, n0, _LUARi
 ];
 export var ProductUserSummary$: StaticStructureSchema = [3, n0, _PUSr,
   0,
-  [_U, _P, _IP, _St, _PUA, _SM, _D, _SSD, _SED],
-  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0], 4
+  [_U, _P, _IP, _St, _PUA, _SM, _D, _SSD, _SED, _LED],
+  [0, 0, () => IdentityProvider$, 0, 0, 0, 0, 0, 0, 0], 4
 ];
 export var RdsSalSettings$: StaticStructureSchema = [3, n0, _RSS,
   0,

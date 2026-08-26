@@ -109,6 +109,7 @@ export interface ListProductSubscriptionsCommandOutput extends ListProductSubscr
  * //       Domain: "STRING_VALUE",
  * //       SubscriptionStartDate: "STRING_VALUE",
  * //       SubscriptionEndDate: "STRING_VALUE",
+ * //       LicenseExpirationDate: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

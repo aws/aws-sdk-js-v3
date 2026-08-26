@@ -102,6 +102,7 @@ export interface StopProductSubscriptionCommandOutput extends StopProductSubscri
  * //     Domain: "STRING_VALUE",
  * //     SubscriptionStartDate: "STRING_VALUE",
  * //     SubscriptionEndDate: "STRING_VALUE",
+ * //     LicenseExpirationDate: "STRING_VALUE",
  * //   },
  * // };
  *
