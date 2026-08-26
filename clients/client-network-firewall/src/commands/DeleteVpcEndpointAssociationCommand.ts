@@ -62,7 +62,7 @@ export interface DeleteVpcEndpointAssociationCommandOutput extends DeleteVpcEndp
  * //     ],
  * //   },
  * //   VpcEndpointAssociationStatus: { // VpcEndpointAssociationStatus
- * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
+ * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required
  * //     AssociationSyncState: { // AssociationSyncState
  * //       "<keys>": { // AZSyncState
  * //         Attachment: { // Attachment

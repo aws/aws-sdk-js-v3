@@ -163,7 +163,7 @@ export interface CreateFirewallCommandOutput extends CreateFirewallResponse, __M
  * //     },
  * //   },
  * //   FirewallStatus: { // FirewallStatus
- * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
+ * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required
  * //     ConfigurationSyncStateSummary: "PENDING" || "IN_SYNC" || "CAPACITY_CONSTRAINED", // required
  * //     SyncStates: { // SyncStates
  * //       "<keys>": { // SyncState

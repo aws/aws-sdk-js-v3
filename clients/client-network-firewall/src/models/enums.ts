@@ -179,6 +179,7 @@ export type ListenerPropertyType = (typeof ListenerPropertyType)[keyof typeof Li
  */
 export const FirewallStatusValue = {
   DELETING: "DELETING",
+  FAILED: "FAILED",
   PROVISIONING: "PROVISIONING",
   READY: "READY",
 } as const;

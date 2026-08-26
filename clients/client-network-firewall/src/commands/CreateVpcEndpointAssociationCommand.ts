@@ -68,7 +68,7 @@ export interface CreateVpcEndpointAssociationCommandOutput extends CreateVpcEndp
  * //     ],
  * //   },
  * //   VpcEndpointAssociationStatus: { // VpcEndpointAssociationStatus
- * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
+ * //     Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED", // required
  * //     AssociationSyncState: { // AssociationSyncState
  * //       "<keys>": { // AZSyncState
  * //         Attachment: { // Attachment

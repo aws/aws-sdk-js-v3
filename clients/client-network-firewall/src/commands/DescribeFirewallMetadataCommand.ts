@@ -42,7 +42,7 @@ export interface DescribeFirewallMetadataCommandOutput extends DescribeFirewallM
  * //   FirewallArn: "STRING_VALUE",
  * //   FirewallPolicyArn: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   Status: "PROVISIONING" || "DELETING" || "READY",
+ * //   Status: "PROVISIONING" || "DELETING" || "READY" || "FAILED",
  * //   SupportedAvailabilityZones: { // SupportedAvailabilityZones
  * //     "<keys>": { // AvailabilityZoneMetadata
  * //       IPAddressType: "DUALSTACK" || "IPV4" || "IPV6",
