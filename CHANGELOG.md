@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
+
+
+### Features
+
+* **client-devops-agent:** AWS DevOps Agent now supports trigger filter groups for Release Readiness Review, letting you control when the capability auto-triggers based on webhook events and target branches. ([bc3d53d](https://github.com/aws/aws-sdk-js-v3/commit/bc3d53d55006d95d34928b8044289a080f3fe512))
+* **client-ec2:** Adds deleting state to possible VPC States. ([43091d5](https://github.com/aws/aws-sdk-js-v3/commit/43091d55b3ca5ef039506afdcbd9c293162c61f3))
+* **client-license-manager-user-subscriptions:** Released support for License Expiry field in ListProductSubscriptions API ([454d7f7](https://github.com/aws/aws-sdk-js-v3/commit/454d7f7ffbfe044a534ac3f874c108e4eae1739e))
+* **client-network-firewall:** Adding new status enum for Firewalls. ([4cb21cb](https://github.com/aws/aws-sdk-js-v3/commit/4cb21cb3b82b7dbb9bdad31694d084e517f8047a))
+* **client-sagemaker:** Amazon SageMaker AI now supports ml.g7 instances for model optimization. You can now run model optimization jobs on ml.g7 instances, in supported AWS Regions. ([6d5e106](https://github.com/aws/aws-sdk-js-v3/commit/6d5e106634bcc6f63cf148bb3339a64f3d5c0404))
+
+
+
+
+
 # [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
 
 

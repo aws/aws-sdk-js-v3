@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
+
+
+### Features
+
+* **client-ec2:** Adds deleting state to possible VPC States. ([43091d5](https://github.com/aws/aws-sdk-js-v3/commit/43091d55b3ca5ef039506afdcbd9c293162c61f3))
+
+
+
+
+
 # [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
 
 

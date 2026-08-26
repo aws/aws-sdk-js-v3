@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
+
+
+### Features
+
+* **client-network-firewall:** Adding new status enum for Firewalls. ([4cb21cb](https://github.com/aws/aws-sdk-js-v3/commit/4cb21cb3b82b7dbb9bdad31694d084e517f8047a))
+
+
+
+
+
 # [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
 
 **Note:** Version bump only for package @aws-sdk/client-network-firewall

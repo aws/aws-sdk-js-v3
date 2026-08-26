@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
+
+
+### Features
+
+* **client-license-manager-user-subscriptions:** Released support for License Expiry field in ListProductSubscriptions API ([454d7f7](https://github.com/aws/aws-sdk-js-v3/commit/454d7f7ffbfe044a534ac3f874c108e4eae1739e))
+
+
+
+
+
 # [3.1118.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1117.0...v3.1118.0) (2026-08-25)
 
 **Note:** Version bump only for package @aws-sdk/client-license-manager-user-subscriptions
