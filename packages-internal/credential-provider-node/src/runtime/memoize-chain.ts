@@ -60,6 +60,11 @@ export function memoizeChain(
             .then((c) => {
               credentials = c;
             })
+            .catch(() => {
+              // contained: this promise is intentionally not awaited, the cached
+              // credentials are still valid, and the finally block releases the
+              // lock so the next invocation retries the chain.
+            })
             .finally(() => {
               passiveLock = undefined;
             });
