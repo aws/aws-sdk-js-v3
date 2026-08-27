@@ -20,6 +20,8 @@ const _DMIO = "DeleteMicrovmImageOutput";
 const _DMIV = "DeleteMicrovmImageVersion";
 const _DMIVI = "DeleteMicrovmImageVersionInput";
 const _DMIVO = "DeleteMicrovmImageVersionOutput";
+const _EVM = "EnvironmentVariableMap";
+const _EVV = "EnvironmentVariableValue";
 const _GM = "GetMicrovm";
 const _GMI = "GetMicrovmImage";
 const _GMIB = "GetMicrovmImageBuild";
@@ -33,6 +35,7 @@ const _GMIVO = "GetMicrovmImageVersionOutput";
 const _GMR = "GetMicrovmRequest";
 const _GMRe = "GetMicrovmResponse";
 const _H = "Hooks";
+const _ICE = "InsufficientCapacityException";
 const _IP = "IdlePolicy";
 const _IPVE = "InvalidParameterValueException";
 const _ISE = "InternalServerException";
@@ -80,6 +83,7 @@ const _PS = "PortSpecification";
 const _R = "Resource";
 const _RA = "Retry-After";
 const _RCE = "ResourceConflictException";
+const _RHP = "RunHookPayload";
 const _RL = "ResourcesList";
 const _RM = "ResumeMicrovm";
 const _RMR = "ResumeMicrovmRequest";
@@ -228,6 +232,7 @@ import type {
 import {
   AccessDeniedException,
   ConflictException,
+  InsufficientCapacityException,
   InternalServerException,
   InvalidParameterValueException,
   ResourceConflictException,
@@ -257,6 +262,12 @@ export var ConflictException$: StaticErrorSchema = [-3, n0, _CE,
   [0, 0, 0]
 ];
 n0_registry.registerError(ConflictException$, ConflictException);
+export var InsufficientCapacityException$: StaticErrorSchema = [-3, n0, _ICE,
+  { [_e]: _se, [_hE]: 500 },
+  [_m],
+  [0], 1
+];
+n0_registry.registerError(InsufficientCapacityException$, InsufficientCapacityException);
 export var InternalServerException$: StaticErrorSchema = [-3, n0, _ISE,
   { [_e]: _se, [_hE]: 500 },
   [_m, _rAS],
@@ -321,6 +332,8 @@ export const errorTypeRegistries = [
   n0_registry,
 ]
 var AuthTokenValue: StaticSimpleSchema = [0, n0, _ATV, 8, 0];
+var EnvironmentVariableValue: StaticSimpleSchema = [0, n0, _EVV, 8, 0];
+var RunHookPayload: StaticSimpleSchema = [0, n0, _RHP, 8, 0];
 export var CloudWatchLogging$: StaticStructureSchema = [3, n0, _CWL,
   0,
   [_lG, _lS],
@@ -344,12 +357,12 @@ export var CreateMicrovmAuthTokenResponse$: StaticStructureSchema = [3, n0, _CMA
 export var CreateMicrovmImageRequest$: StaticStructureSchema = [3, n0, _CMIR,
   0,
   [_bIA, _bRA, _cA, _n, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _t, _cT],
-  [0, 0, () => CodeArtifact$, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, 128 | 0, [0, 4]], 4
+  [0, 0, () => CodeArtifact$, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], 128 | 0, [0, 4]], 4
 ];
 export var CreateMicrovmImageResponse$: StaticStructureSchema = [3, n0, _CMIRr,
   0,
   [_iA, _n, _st, _cAr, _bIA, _bRA, _cA, _iV, _lAIV, _lFIV, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _t, _uA],
-  [0, 0, 0, 4, 0, 0, () => CodeArtifact$, 0, 0, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, 128 | 0, 4], 8
+  [0, 0, 0, 4, 0, 0, () => CodeArtifact$, 0, 0, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], 128 | 0, 4], 8
 ];
 export var CreateMicrovmShellAuthTokenRequest$: StaticStructureSchema = [3, n0, _CMSATR,
   0,
@@ -409,7 +422,7 @@ export var GetMicrovmImageVersionInput$: StaticStructureSchema = [3, n0, _GMIVI,
 export var GetMicrovmImageVersionOutput$: StaticStructureSchema = [3, n0, _GMIVO,
   0,
   [_bIA, _bRA, _cA, _iA, _iV, _st, _sta, _cAr, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _uA, _sR, _t],
-  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, 4, 0, 128 | 0], 8
+  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], 4, 0, 128 | 0], 8
 ];
 export var GetMicrovmRequest$: StaticStructureSchema = [3, n0, _GMR,
   0,
@@ -479,7 +492,7 @@ export var ListMicrovmImageVersionsInput$: StaticStructureSchema = [3, n0, _LMIV
 export var ListMicrovmImageVersionsOutput$: StaticStructureSchema = [3, n0, _LMIVO,
   0,
   [_i, _nT],
-  [() => MicrovmImageVersionSummaryList, 0], 1
+  [[() => MicrovmImageVersionSummaryList, 0], 0], 1
 ];
 export var ListMicrovmsRequest$: StaticStructureSchema = [3, n0, _LMR,
   0,
@@ -513,8 +526,8 @@ export var ManagedMicrovmImageSummary$: StaticStructureSchema = [3, n0, _MMIS,
 ];
 export var ManagedMicrovmImageVersion$: StaticStructureSchema = [3, n0, _MMIV,
   0,
-  [_iA, _iV, _cAr, _uA],
-  [0, 0, 4, 4], 3
+  [_iA, _iV, _cAr, _sta, _uA],
+  [0, 0, 4, 0, 4], 3
 ];
 export var MicrovmHooks$: StaticStructureSchema = [3, n0, _MH,
   0,
@@ -539,7 +552,7 @@ export var MicrovmImageSummary$: StaticStructureSchema = [3, n0, _MIS,
 export var MicrovmImageVersionSummary$: StaticStructureSchema = [3, n0, _MIVS,
   0,
   [_bIA, _bRA, _cA, _iA, _iV, _st, _sta, _cAr, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _uA, _sR, _t],
-  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, 4, 0, 128 | 0], 8
+  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], 4, 0, 128 | 0], 8
 ];
 export var MicrovmItem$: StaticStructureSchema = [3, n0, _MI,
   0,
@@ -569,7 +582,7 @@ export var ResumeMicrovmResponse$: StaticStructureSchema = [3, n0, _RMRe,
 export var RunMicrovmRequest$: StaticStructureSchema = [3, n0, _RMRu,
   0,
   [_iI, _iNC, _eNC, _iV, _eRA, _iP, _l, _rHP, _mDIS, _cT],
-  [0, 64 | 0, 64 | 0, 0, 0, () => IdlePolicy$, () => Logging$, 0, 1, [0, 4]], 1
+  [0, 64 | 0, 64 | 0, 0, 0, () => IdlePolicy$, () => Logging$, [() => RunHookPayload, 0], 1, [0, 4]], 1
 ];
 export var RunMicrovmResponse$: StaticStructureSchema = [3, n0, _RMRun,
   0,
@@ -614,12 +627,12 @@ export var UntagResourceRequest$: StaticStructureSchema = [3, n0, _URR,
 export var UpdateMicrovmImageRequest$: StaticStructureSchema = [3, n0, _UMIR,
   0,
   [_bIA, _bRA, _cA, _iI, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _cT],
-  [0, 0, () => CodeArtifact$, [0, 1], 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, [0, 4]], 4
+  [0, 0, () => CodeArtifact$, [0, 1], 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], [0, 4]], 4
 ];
 export var UpdateMicrovmImageResponse$: StaticStructureSchema = [3, n0, _UMIRp,
   0,
   [_iA, _n, _st, _cAr, _bIA, _bRA, _cA, _uA, _iV, _lAIV, _lFIV, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV],
-  [0, 0, 0, 4, 0, 0, () => CodeArtifact$, 4, 0, 0, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0], 9
+  [0, 0, 0, 4, 0, 0, () => CodeArtifact$, 4, 0, 0, 0, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0]], 9
 ];
 export var UpdateMicrovmImageVersionRequest$: StaticStructureSchema = [3, n0, _UMIVR,
   0,
@@ -629,7 +642,7 @@ export var UpdateMicrovmImageVersionRequest$: StaticStructureSchema = [3, n0, _U
 export var UpdateMicrovmImageVersionResponse$: StaticStructureSchema = [3, n0, _UMIVRp,
   0,
   [_bIA, _bRA, _cA, _iA, _iV, _st, _sta, _cAr, _bIV, _d, _l, _eNC, _cC, _r, _aOC, _h, _eV, _uA, _sR, _t],
-  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, 128 | 0, 4, 0, 128 | 0], 8
+  [0, 0, () => CodeArtifact$, 0, 0, 0, 0, 4, 0, 0, () => Logging$, 64 | 0, () => CpuConfigurationList, () => ResourcesList, 64 | 0, () => Hooks$, [() => EnvironmentVariableMap, 0], 4, 0, 128 | 0], 8
 ];
 var __Unit = "unit" as const;
 var CapabilityList = 64 | 0;
@@ -652,7 +665,8 @@ var MicrovmImageSummaries: StaticListSchema = [1, n0, _MISi,
   0, () => MicrovmImageSummary$
 ];
 var MicrovmImageVersionSummaryList: StaticListSchema = [1, n0, _MIVSL,
-  0, () => MicrovmImageVersionSummary$
+  0, [() => MicrovmImageVersionSummary$,
+    0]
 ];
 var MicrovmItemList: StaticListSchema = [1, n0, _MIL,
   0, () => MicrovmItem$
@@ -665,7 +679,12 @@ var TagKeyList: StaticListSchema = [1, n0, _TKL,
   0, [0,
     { [_xN]: _K }]
 ];
-var EnvironmentVariableMap = 128 | 0;
+var EnvironmentVariableMap: StaticMapSchema = [2, n0, _EVM,
+  0, [0,
+    0]
+  , [() => EnvironmentVariableValue,
+    0]
+];
 var Tags = 128 | 0;
 var TokenParts: StaticMapSchema = [2, n0, _TP,
   0, [0,

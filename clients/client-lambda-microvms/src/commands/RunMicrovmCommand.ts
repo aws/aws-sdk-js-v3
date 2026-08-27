@@ -98,6 +98,9 @@ export interface RunMicrovmCommandOutput extends RunMicrovmResponse, __MetadataB
  * @throws {@link ConflictException} (client fault)
  *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
  *
+ * @throws {@link InsufficientCapacityException} (server fault)
+ *  <p>There is insufficient capacity to fulfill the request. Retry the request later.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry the request later.</p>
  *

@@ -55,6 +55,9 @@ export interface CreateMicrovmShellAuthTokenCommandOutput extends CreateMicrovmS
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The request could not be completed due to a conflict with the current state of the resource.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry the request later.</p>
  *

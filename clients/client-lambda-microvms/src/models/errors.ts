@@ -232,6 +232,26 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
+ * <p>There is insufficient capacity to fulfill the request. Retry the request later.</p>
+ * @public
+ */
+export class InsufficientCapacityException extends __BaseException {
+  readonly name = "InsufficientCapacityException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientCapacityException, __BaseException>) {
+    super({
+      name: "InsufficientCapacityException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientCapacityException.prototype);
+  }
+}
+
+/**
  * <p>One of the parameters in the request is not valid.</p>
  * @public
  */

@@ -139,3 +139,23 @@ export const MicrovmImageVersionStatus = {
  * @public
  */
 export type MicrovmImageVersionStatus = (typeof MicrovmImageVersionStatus)[keyof typeof MicrovmImageVersionStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManagedMicrovmImageVersionStatus = {
+  /**
+   * <p>The version is available for use.</p>
+   */
+  AVAILABLE: "AVAILABLE",
+  /**
+   * <p>The version is deprecated. Do not use this version for new MicroVM images. Existing MicroVM images that use this version will continue to function.</p>
+   */
+  DEPRECATED: "DEPRECATED",
+} as const;
+/**
+ * @public
+ */
+export type ManagedMicrovmImageVersionStatus =
+  (typeof ManagedMicrovmImageVersionStatus)[keyof typeof ManagedMicrovmImageVersionStatus];

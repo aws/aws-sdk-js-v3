@@ -49,6 +49,8 @@ import {
   Hooks$,
   HookState,
   IdlePolicy$,
+  InsufficientCapacityException,
+  InsufficientCapacityException$,
   InternalServerException,
   InternalServerException$,
   InvalidParameterValueException,
@@ -88,6 +90,7 @@ import {
   LoggingDisabled$,
   ManagedMicrovmImageSummary$,
   ManagedMicrovmImageVersion$,
+  ManagedMicrovmImageVersionStatus,
   MicrovmHooks$,
   MicrovmImageBuildSummary$,
   MicrovmImageHooks$,
@@ -278,6 +281,7 @@ assert(typeof BuildState === "object");
 assert(typeof Capability === "object");
 assert(typeof Chipset === "object");
 assert(typeof HookState === "object");
+assert(typeof ManagedMicrovmImageVersionStatus === "object");
 assert(typeof MicrovmImageState === "object");
 assert(typeof MicrovmImageVersionState === "object");
 assert(typeof MicrovmImageVersionStatus === "object");
@@ -287,6 +291,8 @@ assert(AccessDeniedException.prototype instanceof LambdaMicrovmsServiceException
 assert(typeof AccessDeniedException$ === "object");
 assert(ConflictException.prototype instanceof LambdaMicrovmsServiceException);
 assert(typeof ConflictException$ === "object");
+assert(InsufficientCapacityException.prototype instanceof LambdaMicrovmsServiceException);
+assert(typeof InsufficientCapacityException$ === "object");
 assert(InternalServerException.prototype instanceof LambdaMicrovmsServiceException);
 assert(typeof InternalServerException$ === "object");
 assert(InvalidParameterValueException.prototype instanceof LambdaMicrovmsServiceException);

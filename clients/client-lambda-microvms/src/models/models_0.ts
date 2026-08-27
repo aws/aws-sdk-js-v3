@@ -5,6 +5,7 @@ import type {
   Capability,
   Chipset,
   HookState,
+  ManagedMicrovmImageVersionStatus,
   MicrovmImageState,
   MicrovmImageVersionState,
   MicrovmImageVersionStatus,
@@ -42,7 +43,7 @@ export type CodeArtifact =
  */
 export namespace CodeArtifact {
   /**
-   * <p>The URI of the code artifact, such as an Amazon S3 path or Amazon ECR image URI.</p>
+   * <p>The URI of the code artifact in Amazon S3.</p>
    * @public
    */
   export interface UriMember {
@@ -1204,6 +1205,306 @@ export interface ListManagedMicrovmImagesOutput {
 /**
  * @public
  */
+export interface ListTagsRequest {
+  /**
+   * <p>The ARN of the resource to list tags for.</p>
+   * @public
+   */
+  Resource: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsResponse {
+  /**
+   * <p>The key-value pairs of tags associated with the resource.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMicrovmsRequest {
+  /**
+   * <p>The maximum number of results to return in a single call.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>Optional filter to list only MicroVMs running the specified image.</p>
+   * @public
+   */
+  imageIdentifier?: string | undefined;
+
+  /**
+   * <p>Optional filter to list only MicroVMs running the specified image version.</p>
+   * @public
+   */
+  imageVersion?: string | undefined;
+}
+
+/**
+ * <p>Contains summary information about a MicroVM instance.</p>
+ * @public
+ */
+export interface MicrovmItem {
+  /**
+   * <p>The unique identifier of the MicroVM.</p>
+   * @public
+   */
+  microvmId: string | undefined;
+
+  /**
+   * <p>The current lifecycle state of the MicroVM.</p>
+   * @public
+   */
+  state: MicrovmState | undefined;
+
+  /**
+   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
+   * @public
+   */
+  imageArn: string | undefined;
+
+  /**
+   * <p>The version of the MicroVM image used to run this MicroVM.</p>
+   * @public
+   */
+  imageVersion: string | undefined;
+
+  /**
+   * <p>The timestamp when the MicroVM started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMicrovmsResponse {
+  /**
+   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The list of MicroVMs.</p>
+   * @public
+   */
+  items: MicrovmItem[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeMicrovmRequest {
+  /**
+   * <p>The ID of the MicroVM to resume.</p>
+   * @public
+   */
+  microvmIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResumeMicrovmResponse {}
+
+/**
+ * @public
+ */
+export interface RunMicrovmRequest {
+  /**
+   * <p>The list of ingress network connectors to configure for the MicroVM.</p>
+   * @public
+   */
+  ingressNetworkConnectors?: string[] | undefined;
+
+  /**
+   * <p>The list of egress network connectors to configure for the MicroVM.</p>
+   * @public
+   */
+  egressNetworkConnectors?: string[] | undefined;
+
+  /**
+   * <p>The identifier (ARN or ID) of the MicroVM image to run.</p>
+   * @public
+   */
+  imageIdentifier: string | undefined;
+
+  /**
+   * <p>The version of the MicroVM image to run.</p>
+   * @public
+   */
+  imageVersion?: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role to be assumed by the MicroVM during execution.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>Configuration to control auto-suspend and auto-resume behavior.</p>
+   * @public
+   */
+  idlePolicy?: IdlePolicy | undefined;
+
+  /**
+   * <p>The logging configuration for this MicroVM instance. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream application logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
+   * @public
+   */
+  logging?: Logging | undefined;
+
+  /**
+   * <p>Per-MicroVM initialization data delivered as the request body of the /run lifecycle hook. Use to pass tenant-specific configuration such as session IDs or secret references. Maximum: 16,384 bytes.</p>
+   * @public
+   */
+  runHookPayload?: string | undefined;
+
+  /**
+   * <p>The maximum duration in seconds that the MicroVM can exist before being terminated by the platform. Valid range: 1–28,800 (8 hours).</p>
+   * @public
+   */
+  maximumDurationInSeconds?: number | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RunMicrovmResponse {
+  /**
+   * <p>The unique identifier of the MicroVM.</p>
+   * @public
+   */
+  microvmId: string | undefined;
+
+  /**
+   * <p>The current lifecycle state of the MicroVM.</p>
+   * @public
+   */
+  state: MicrovmState | undefined;
+
+  /**
+   * <p>The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.</p>
+   * @public
+   */
+  endpoint: string | undefined;
+
+  /**
+   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
+   * @public
+   */
+  imageArn: string | undefined;
+
+  /**
+   * <p>The version of the MicroVM image used to run this MicroVM.</p>
+   * @public
+   */
+  imageVersion: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM execution role assumed by the MicroVM.</p>
+   * @public
+   */
+  executionRoleArn?: string | undefined;
+
+  /**
+   * <p>The idle policy configuration of the MicroVM.</p>
+   * @public
+   */
+  idlePolicy?: IdlePolicy | undefined;
+
+  /**
+   * <p>The maximum duration in seconds that the MicroVM can exist.</p>
+   * @public
+   */
+  maximumDurationInSeconds: number | undefined;
+
+  /**
+   * <p>The timestamp when the MicroVM first started.</p>
+   * @public
+   */
+  startedAt: Date | undefined;
+
+  /**
+   * <p>The timestamp when the MicroVM terminated.</p>
+   * @public
+   */
+  terminatedAt?: Date | undefined;
+
+  /**
+   * <p>The reason for why the MicroVM is in the current state.</p>
+   * @public
+   */
+  stateReason?: string | undefined;
+
+  /**
+   * <p>The list of ingress network connectors configured for the MicroVM.</p>
+   * @public
+   */
+  ingressNetworkConnectors?: string[] | undefined;
+
+  /**
+   * <p>The list of egress network connectors configured for the MicroVM.</p>
+   * @public
+   */
+  egressNetworkConnectors?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SuspendMicrovmRequest {
+  /**
+   * <p>The ID of the MicroVM to suspend.</p>
+   * @public
+   */
+  microvmIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SuspendMicrovmResponse {}
+
+/**
+ * @public
+ */
+export interface TerminateMicrovmRequest {
+  /**
+   * <p>The ID of the MicroVM to terminate.</p>
+   * @public
+   */
+  microvmIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TerminateMicrovmResponse {}
+
+/**
+ * @public
+ */
 export interface ListManagedMicrovmImageVersionsInput {
   /**
    * <p>The maximum number of results to return in a single call.</p>
@@ -1240,6 +1541,12 @@ export interface ManagedMicrovmImageVersion {
    * @public
    */
   imageVersion: string | undefined;
+
+  /**
+   * <p>The lifecycle status of the managed MicroVM image version. Valid values: AVAILABLE (the version is available for use) or DEPRECATED (the version is deprecated; do not use it for new MicroVM images).</p>
+   * @public
+   */
+  status?: ManagedMicrovmImageVersionStatus | undefined;
 
   /**
    * <p>The timestamp when the version was created.</p>
@@ -1646,340 +1953,6 @@ export interface ListMicrovmImageVersionsOutput {
 /**
  * @public
  */
-export interface ListTagsRequest {
-  /**
-   * <p>The ARN of the resource to list tags for.</p>
-   * @public
-   */
-  Resource: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ListTagsResponse {
-  /**
-   * <p>The key-value pairs of tags associated with the resource.</p>
-   * @public
-   */
-  Tags?: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMicrovmsRequest {
-  /**
-   * <p>The maximum number of results to return in a single call.</p>
-   * @public
-   */
-  maxResults?: number | undefined;
-
-  /**
-   * <p>The pagination token from a previous call. Use this token to retrieve the next page of results.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>Optional filter to list only MicroVMs running the specified image.</p>
-   * @public
-   */
-  imageIdentifier?: string | undefined;
-
-  /**
-   * <p>Optional filter to list only MicroVMs running the specified image version.</p>
-   * @public
-   */
-  imageVersion?: string | undefined;
-}
-
-/**
- * <p>Contains summary information about a MicroVM instance.</p>
- * @public
- */
-export interface MicrovmItem {
-  /**
-   * <p>The unique identifier of the MicroVM.</p>
-   * @public
-   */
-  microvmId: string | undefined;
-
-  /**
-   * <p>The current lifecycle state of the MicroVM.</p>
-   * @public
-   */
-  state: MicrovmState | undefined;
-
-  /**
-   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
-   * @public
-   */
-  imageArn: string | undefined;
-
-  /**
-   * <p>The version of the MicroVM image used to run this MicroVM.</p>
-   * @public
-   */
-  imageVersion: string | undefined;
-
-  /**
-   * <p>The timestamp when the MicroVM started.</p>
-   * @public
-   */
-  startedAt: Date | undefined;
-}
-
-/**
- * @public
- */
-export interface ListMicrovmsResponse {
-  /**
-   * <p>The pagination token to use in a subsequent request to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   * @public
-   */
-  nextToken?: string | undefined;
-
-  /**
-   * <p>The list of MicroVMs.</p>
-   * @public
-   */
-  items: MicrovmItem[] | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeMicrovmRequest {
-  /**
-   * <p>The ID of the MicroVM to resume.</p>
-   * @public
-   */
-  microvmIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface ResumeMicrovmResponse {}
-
-/**
- * @public
- */
-export interface RunMicrovmRequest {
-  /**
-   * <p>The list of ingress network connectors to configure for the MicroVM.</p>
-   * @public
-   */
-  ingressNetworkConnectors?: string[] | undefined;
-
-  /**
-   * <p>The list of egress network connectors to configure for the MicroVM.</p>
-   * @public
-   */
-  egressNetworkConnectors?: string[] | undefined;
-
-  /**
-   * <p>The identifier (ARN or ID) of the MicroVM image to run.</p>
-   * @public
-   */
-  imageIdentifier: string | undefined;
-
-  /**
-   * <p>The version of the MicroVM image to run.</p>
-   * @public
-   */
-  imageVersion?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role to be assumed by the MicroVM during execution.</p>
-   * @public
-   */
-  executionRoleArn?: string | undefined;
-
-  /**
-   * <p>Configuration to control auto-suspend and auto-resume behavior.</p>
-   * @public
-   */
-  idlePolicy?: IdlePolicy | undefined;
-
-  /**
-   * <p>The logging configuration for this MicroVM instance. Specify \{"cloudWatch": \{"logGroup": "..."\}\} to stream application logs to a custom CloudWatch log group, or \{"disabled": \{\}\} to turn off logging.</p>
-   * @public
-   */
-  logging?: Logging | undefined;
-
-  /**
-   * <p>Per-MicroVM initialization data delivered as the request body of the /run lifecycle hook. Use to pass tenant-specific configuration such as session IDs or secret references. Maximum: 16,384 bytes.</p>
-   * @public
-   */
-  runHookPayload?: string | undefined;
-
-  /**
-   * <p>The maximum duration in seconds that the MicroVM can exist before being terminated by the platform. Valid range: 1–28,800 (8 hours).</p>
-   * @public
-   */
-  maximumDurationInSeconds?: number | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
-   * @public
-   */
-  clientToken?: string | undefined;
-}
-
-/**
- * @public
- */
-export interface RunMicrovmResponse {
-  /**
-   * <p>The unique identifier of the MicroVM.</p>
-   * @public
-   */
-  microvmId: string | undefined;
-
-  /**
-   * <p>The current lifecycle state of the MicroVM.</p>
-   * @public
-   */
-  state: MicrovmState | undefined;
-
-  /**
-   * <p>The HTTPS endpoint URL for communicating with the MicroVM. Include a valid authentication token in the X-aws-proxy-auth header when sending requests.</p>
-   * @public
-   */
-  endpoint: string | undefined;
-
-  /**
-   * <p>The ARN of the MicroVM image used to run this MicroVM.</p>
-   * @public
-   */
-  imageArn: string | undefined;
-
-  /**
-   * <p>The version of the MicroVM image used to run this MicroVM.</p>
-   * @public
-   */
-  imageVersion: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM execution role assumed by the MicroVM.</p>
-   * @public
-   */
-  executionRoleArn?: string | undefined;
-
-  /**
-   * <p>The idle policy configuration of the MicroVM.</p>
-   * @public
-   */
-  idlePolicy?: IdlePolicy | undefined;
-
-  /**
-   * <p>The maximum duration in seconds that the MicroVM can exist.</p>
-   * @public
-   */
-  maximumDurationInSeconds: number | undefined;
-
-  /**
-   * <p>The timestamp when the MicroVM first started.</p>
-   * @public
-   */
-  startedAt: Date | undefined;
-
-  /**
-   * <p>The timestamp when the MicroVM terminated.</p>
-   * @public
-   */
-  terminatedAt?: Date | undefined;
-
-  /**
-   * <p>The reason for why the MicroVM is in the current state.</p>
-   * @public
-   */
-  stateReason?: string | undefined;
-
-  /**
-   * <p>The list of ingress network connectors configured for the MicroVM.</p>
-   * @public
-   */
-  ingressNetworkConnectors?: string[] | undefined;
-
-  /**
-   * <p>The list of egress network connectors configured for the MicroVM.</p>
-   * @public
-   */
-  egressNetworkConnectors?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface SuspendMicrovmRequest {
-  /**
-   * <p>The ID of the MicroVM to suspend.</p>
-   * @public
-   */
-  microvmIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface SuspendMicrovmResponse {}
-
-/**
- * @public
- */
-export interface TerminateMicrovmRequest {
-  /**
-   * <p>The ID of the MicroVM to terminate.</p>
-   * @public
-   */
-  microvmIdentifier: string | undefined;
-}
-
-/**
- * @public
- */
-export interface TerminateMicrovmResponse {}
-
-/**
- * @public
- */
-export interface TagResourceRequest {
-  /**
-   * <p>The ARN of the resource to tag.</p>
-   * @public
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>The key-value pairs of tags to add to the resource.</p>
-   * @public
-   */
-  Tags: Record<string, string> | undefined;
-}
-
-/**
- * @public
- */
-export interface UntagResourceRequest {
-  /**
-   * <p>The ARN of the resource to remove tags from.</p>
-   * @public
-   */
-  Resource: string | undefined;
-
-  /**
-   * <p>The list of tag keys to remove from the resource.</p>
-   * @public
-   */
-  TagKeys: string[] | undefined;
-}
-
-/**
- * @public
- */
 export interface UpdateMicrovmImageRequest {
   /**
    * <p>The ARN of the base MicroVM image.</p>
@@ -2337,4 +2310,38 @@ export interface UpdateMicrovmImageVersionResponse {
    * @public
    */
   tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to tag.</p>
+   * @public
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>The key-value pairs of tags to add to the resource.</p>
+   * @public
+   */
+  Tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource to remove tags from.</p>
+   * @public
+   */
+  Resource: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the resource.</p>
+   * @public
+   */
+  TagKeys: string[] | undefined;
 }

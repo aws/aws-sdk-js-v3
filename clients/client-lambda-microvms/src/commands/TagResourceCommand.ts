@@ -65,6 +65,18 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link TooManyRequestsException} (client fault)
  *  <p>The request throughput limit was exceeded. Retry the request later.</p>
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>An internal server error occurred. Retry the request later.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling. Retry the request later.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input does not satisfy the constraints specified by the service.</p>
+ *
  * @throws {@link LambdaMicrovmsServiceException}
  * <p>Base exception class for all service exceptions from LambdaMicrovms service.</p>
  *
