@@ -3583,10 +3583,16 @@ export interface DeleteDomainInput {
   clientToken?: string | undefined;
 
   /**
-   * <p>Specifies the optional flag to delete all child entities within the domain.</p>
+   * <p>Specifies whether to skip the check that prevents deletion of a domain that still contains resources. When you use this parameter, Amazon DataZone deletes the domain but might not remove its associated resources, which can leave orphaned resources behind. To delete a domain and fully clean up its associated resources, use <code>cascadeDelete</code> instead. You can't use this parameter together with <code>cascadeDelete</code>.</p>
    * @public
    */
   skipDeletionCheck?: boolean | undefined;
+
+  /**
+   * <p>Specifies whether to delete the domain along with all of its associated resources. When you use this parameter, Amazon DataZone deletes the domain and cleanly removes its associated resources without leaving orphaned resources behind. Amazon DataZone reports deletion progress in the <code>deleteProgress</code> field. Amazon DataZone reports any resources that it can't delete in the <code>failureReasons</code> field of the <code>GetDomain</code> response. You can't use this parameter together with <code>skipDeletionCheck</code>. If you don't specify a value, the default is <code>false</code>.</p>
+   * @public
+   */
+  cascadeDelete?: boolean | undefined;
 }
 
 /**
@@ -3598,6 +3604,36 @@ export interface DeleteDomainOutput {
    * @public
    */
   status: DomainStatus | undefined;
+}
+
+/**
+ * <p>The progress of a domain deletion, including the number of projects that Amazon DataZone successfully deleted. Amazon DataZone returns this structure in the response to a <code>GetDomain</code> request while a cascade deletion is in progress.</p>
+ * @public
+ */
+export interface DeleteProgress {
+  /**
+   * <p>The number of projects that Amazon DataZone successfully deleted during the domain deletion.</p>
+   * @public
+   */
+  successfullyDeletedProjectCount?: number | undefined;
+}
+
+/**
+ * <p>The details of a resource deletion failure during a cascade deletion of the domain.</p>
+ * @public
+ */
+export interface FailureReason {
+  /**
+   * <p>The identifier of the resource that failed to delete.</p>
+   * @public
+   */
+  id?: string | undefined;
+
+  /**
+   * <p>The error message associated with the resource that failed to delete.</p>
+   * @public
+   */
+  message?: string | undefined;
 }
 
 /**
@@ -3704,6 +3740,18 @@ export interface GetDomainOutput {
    * @public
    */
   serviceRole?: string | undefined;
+
+  /**
+   * <p>The list of failure reasons for resources that Amazon DataZone could not delete during a cascade deletion of the domain.</p>
+   * @public
+   */
+  failureReasons?: FailureReason[] | undefined;
+
+  /**
+   * <p>The progress of the current domain deletion, including the number of projects that Amazon DataZone successfully deleted.</p>
+   * @public
+   */
+  deleteProgress?: DeleteProgress | undefined;
 }
 
 /**
@@ -11330,55 +11378,4 @@ export interface NotebookExportError {
    * @public
    */
   message: string | undefined;
-}
-
-/**
- * <p>The Amazon Simple Storage Service destination for a notebook export in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export interface S3Destination {
-  /**
-   * <p>The Amazon Simple Storage Service URI of the exported notebook.</p>
-   * @public
-   */
-  uri?: string | undefined;
-}
-
-/**
- * <p>The output location for a notebook export in Amazon SageMaker Unified Studio.</p>
- * @public
- */
-export type OutputLocation =
-  | OutputLocation.S3Member
-  | OutputLocation.$UnknownMember;
-
-/**
- * @public
- */
-export namespace OutputLocation {
-  /**
-   * <p>The Amazon Simple Storage Service destination for the notebook export.</p>
-   * @public
-   */
-  export interface S3Member {
-    s3: S3Destination;
-    $unknown?: never;
-  }
-
-  /**
-   * @public
-   */
-  export interface $UnknownMember {
-    s3?: never;
-    $unknown: [string, any];
-  }
-
-  /**
-   * @deprecated unused in schema-serde mode.
-   *
-   */
-  export interface Visitor<T> {
-    s3: (value: S3Destination) => T;
-    _: (name: string, value: any) => T;
-  }
 }

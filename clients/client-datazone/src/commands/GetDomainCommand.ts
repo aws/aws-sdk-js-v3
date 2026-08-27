@@ -59,6 +59,15 @@ export interface GetDomainCommandOutput extends GetDomainOutput, __MetadataBeare
  * //   },
  * //   domainVersion: "V1" || "V2",
  * //   serviceRole: "STRING_VALUE",
+ * //   failureReasons: [ // FailureReasonsList
+ * //     { // FailureReason
+ * //       id: "STRING_VALUE",
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //   ],
+ * //   deleteProgress: { // DeleteProgress
+ * //     successfullyDeletedProjectCount: Number("int"),
+ * //   },
  * // };
  *
  * ```

@@ -345,6 +345,7 @@ import {
   DeleteNotebookCommand,
   DeleteNotebookInput$,
   DeleteNotebookOutput$,
+  DeleteProgress$,
   DeleteProject$,
   DeleteProjectCommand,
   DeleteProjectInput$,
@@ -424,6 +425,7 @@ import {
   EqualToExpression$,
   EventSummary$,
   FailureCause$,
+  FailureReason$,
   FileFormat,
   Filter$,
   FilterClause$,
@@ -1851,6 +1853,7 @@ assert(typeof DeleteListingInput$ === "object");
 assert(typeof DeleteListingOutput$ === "object");
 assert(typeof DeleteNotebookInput$ === "object");
 assert(typeof DeleteNotebookOutput$ === "object");
+assert(typeof DeleteProgress$ === "object");
 assert(typeof DeleteProjectInput$ === "object");
 assert(typeof DeleteProjectMembershipInput$ === "object");
 assert(typeof DeleteProjectMembershipOutput$ === "object");
@@ -1900,6 +1903,7 @@ assert(typeof EnvironmentSummary$ === "object");
 assert(typeof EqualToExpression$ === "object");
 assert(typeof EventSummary$ === "object");
 assert(typeof FailureCause$ === "object");
+assert(typeof FailureReason$ === "object");
 assert(typeof Filter$ === "object");
 assert(typeof FilterClause$ === "object");
 assert(typeof FilterExpression$ === "object");

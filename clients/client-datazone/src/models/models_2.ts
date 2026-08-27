@@ -96,7 +96,6 @@ import type {
   GrantedEntity,
   Import,
   NotebookExportError,
-  OutputLocation,
   RuleDetail,
   RuleScope,
   RuleTarget,
@@ -104,6 +103,57 @@ import type {
   SubscriptionTargetForm,
   TimeSeriesDataPointFormOutput,
 } from "./models_1";
+
+/**
+ * <p>The Amazon Simple Storage Service destination for a notebook export in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export interface S3Destination {
+  /**
+   * <p>The Amazon Simple Storage Service URI of the exported notebook.</p>
+   * @public
+   */
+  uri?: string | undefined;
+}
+
+/**
+ * <p>The output location for a notebook export in Amazon SageMaker Unified Studio.</p>
+ * @public
+ */
+export type OutputLocation =
+  | OutputLocation.S3Member
+  | OutputLocation.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OutputLocation {
+  /**
+   * <p>The Amazon Simple Storage Service destination for the notebook export.</p>
+   * @public
+   */
+  export interface S3Member {
+    s3: S3Destination;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    s3?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    s3: (value: S3Destination) => T;
+    _: (name: string, value: any) => T;
+  }
+}
 
 /**
  * @public

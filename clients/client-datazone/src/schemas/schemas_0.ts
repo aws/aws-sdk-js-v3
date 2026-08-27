@@ -289,7 +289,7 @@ const _DN = "DomainName";
 const _DNI = "DeleteNotebookInput";
 const _DNO = "DeleteNotebookOutput";
 const _DNe = "DeleteNotebook";
-const _DP = "DeploymentProperties";
+const _DP = "DeleteProgress";
 const _DPD = "DataProductDescription";
 const _DPI = "DataProductItem";
 const _DPIAA = "DataProductItemAdditionalAttributes";
@@ -309,7 +309,8 @@ const _DPPO = "DeleteProjectProfileOutput";
 const _DPR = "DataProductRevision";
 const _DPRI = "DataProductResultItem";
 const _DPRa = "DataProductRevisions";
-const _DPe = "DeleteProject";
+const _DPe = "DeploymentProperties";
+const _DPel = "DeleteProject";
 const _DR = "DeleteRule";
 const _DRI = "DeleteRuleInput";
 const _DRO = "DeleteRuleOutput";
@@ -400,7 +401,9 @@ const _FNi = "FirstName";
 const _FO = "FormOutput";
 const _FOL = "FormOutputList";
 const _FOM = "FormsOutputMap";
-const _FR = "FailureReasons";
+const _FR = "FailureReason";
+const _FRL = "FailureReasonsList";
+const _FRa = "FailureReasons";
 const _FTD = "FormTypeData";
 const _FTN = "FormTypeName";
 const _GA = "GetAsset";
@@ -1173,8 +1176,9 @@ const _cCA = "codeConnectionArn";
 const _cCE = "compatibleComputeEnvironments";
 const _cCo = "computeConfiguration";
 const _cCol = "columnConfiguration";
-const _cD = "certificateData";
+const _cD = "cascadeDelete";
 const _cDU = "createDomainUnit";
+const _cDe = "certificateData";
 const _cE = "credentialsExpiration";
 const _cEFB = "createEnvironmentFromBlueprint";
 const _cEP = "createEnvironmentProfile";
@@ -1235,6 +1239,7 @@ const _dPIa = "dataProductItem";
 const _dPL = "dataProductListing";
 const _dPR = "dataProductRevision";
 const _dPa = "dataProduct";
+const _dPe = "deleteProgress";
 const _dS = "deploymentStatus";
 const _dSCS = "dataSourceConfigurationSnapshot";
 const _dSI = "dataSourceId";
@@ -1648,6 +1653,7 @@ const _sB = "sortBy";
 const _sC = "storageConfiguration";
 const _sD = "shortDescription";
 const _sDC = "skipDeletionCheck";
+const _sDPC = "successfullyDeletedProjectCount";
 const _sEP = "sparkEmrProperties";
 const _sGCM = "subscriptionGrantCreationMode";
 const _sGI = "securityGroupIds";
@@ -2769,8 +2775,8 @@ export var DeleteDataSourceOutput$: StaticStructureSchema = [3, n0, _DDSO,
 ];
 export var DeleteDomainInput$: StaticStructureSchema = [3, n0, _DDI,
   0,
-  [_i, _cT, _sDC],
-  [[0, 1], [0, { [_hQ]: _cT, [_iTd]: 1 }], [2, { [_hQ]: _sDC }]], 1
+  [_i, _cT, _sDC, _cD],
+  [[0, 1], [0, { [_hQ]: _cT, [_iTd]: 1 }], [2, { [_hQ]: _sDC }], [2, { [_hQ]: _cD }]], 1
 ];
 export var DeleteDomainOutput$: StaticStructureSchema = [3, n0, _DDO,
   0,
@@ -2877,6 +2883,11 @@ export var DeleteNotebookOutput$: StaticStructureSchema = [3, n0, _DNO,
   [],
   []
 ];
+export var DeleteProgress$: StaticStructureSchema = [3, n0, _DP,
+  0,
+  [_sDPC],
+  [1]
+];
 export var DeleteProjectInput$: StaticStructureSchema = [3, n0, _DPIe,
   0,
   [_dI, _i, _sDC],
@@ -2952,7 +2963,7 @@ export var Deployment$: StaticStructureSchema = [3, n0, _De,
   [_dIe, _dT, _dS, _fRa, _mes, _iDC],
   [0, 0, 0, () => EnvironmentError$, 64 | 0, 2]
 ];
-export var DeploymentProperties$: StaticStructureSchema = [3, n0, _DP,
+export var DeploymentProperties$: StaticStructureSchema = [3, n0, _DPe,
   0,
   [_sTM, _eTM],
   [1, 1]
@@ -3107,6 +3118,11 @@ export var FailureCause$: StaticStructureSchema = [3, n0, _FC,
   [_m],
   [0]
 ];
+export var FailureReason$: StaticStructureSchema = [3, n0, _FR,
+  0,
+  [_id, _m],
+  [0, 0]
+];
 export var Filter$: StaticStructureSchema = [3, n0, _F,
   0,
   [_a, _v, _iVn, _op],
@@ -3239,8 +3255,8 @@ export var GetDomainInput$: StaticStructureSchema = [3, n0, _GDI,
 ];
 export var GetDomainOutput$: StaticStructureSchema = [3, n0, _GDO,
   0,
-  [_id, _dER, _st, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe],
-  [0, 0, 0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 4, 4, 128 | 0, 0, 0], 3
+  [_id, _dER, _st, _rDUI, _n, _de, _sSO, _ar, _kKI, _pU, _cA, _lUA, _ta, _dVo, _sRe, _fR, _dPe],
+  [0, 0, 0, 0, 0, 0, () => SingleSignOn$, 0, 0, 0, 4, 4, 128 | 0, 0, 0, () => FailureReasonsList, () => DeleteProgress$], 3
 ];
 export var GetDomainUnitInput$: StaticStructureSchema = [3, n0, _GDUI,
   0,
@@ -4744,7 +4760,7 @@ export var SparkEmrPropertiesInput$: StaticStructureSchema = [3, n0, _SEPI,
 ];
 export var SparkEmrPropertiesOutput$: StaticStructureSchema = [3, n0, _SEPO,
   0,
-  [_cAomp, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cD, _mEA, _mEC],
+  [_cAomp, _cr, _cE, _gTo, _iPA, _jVE, _lE, _lU, _pVE, _rRu, _tCSU, _cDe, _mEA, _mEC],
   [0, [() => UsernamePassword$, 0], 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [() => ManagedEndpointCredentials$, 0]]
 ];
 export var SparkEmrPropertiesPatch$: StaticStructureSchema = [3, n0, _SEPP,
@@ -5430,8 +5446,11 @@ var EnvironmentSummaries: StaticListSchema = [1, n0, _ESn,
     0]
 ];
 var FailedQueryProcessingErrorMessages = 64 | 0;
-var FailureReasons: StaticListSchema = [1, n0, _FR,
+var FailureReasons: StaticListSchema = [1, n0, _FRa,
   0, () => ProjectDeletionError$
+];
+var FailureReasonsList: StaticListSchema = [1, n0, _FRL,
+  0, () => FailureReason$
 ];
 var FilterExpressions: StaticListSchema = [1, n0, _FEi,
   0, () => FilterExpression$
@@ -6148,7 +6167,7 @@ export var DeleteListing$: StaticOperationSchema = [9, n0, _DL,
 export var DeleteNotebook$: StaticOperationSchema = [9, n0, _DNe,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/notebooks/{identifier}", 200] }, () => DeleteNotebookInput$, () => DeleteNotebookOutput$
 ];
-export var DeleteProject$: StaticOperationSchema = [9, n0, _DPe,
+export var DeleteProject$: StaticOperationSchema = [9, n0, _DPel,
   { [_ht]: ["DELETE", "/v2/domains/{domainIdentifier}/projects/{identifier}", 204] }, () => DeleteProjectInput$, () => DeleteProjectOutput$
 ];
 export var DeleteProjectMembership$: StaticOperationSchema = [9, n0, _DPM,
