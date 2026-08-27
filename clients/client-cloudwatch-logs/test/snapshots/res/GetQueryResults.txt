@@ -79,7 +79,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "estimatedRecordsSkipped": 0,
     "bytesScanned": 0,
     "estimatedBytesSkipped": 0,
-    "logGroupsScanned": 0
+    "logGroupsScanned": 0,
+    "resultCount": 0
   },
   "status": "__status__",
   "encryptionKey": "__encryptionKey__",
@@ -140,7 +141,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     estimatedRecordsSkipped: (number) 0,
     bytesScanned: (number) 0,
     estimatedBytesSkipped: (number) 0,
-    logGroupsScanned: (number) 0
+    logGroupsScanned: (number) 0,
+    resultCount: (number) 0
   },
   status: "__status__",
   encryptionKey: "__encryptionKey__",

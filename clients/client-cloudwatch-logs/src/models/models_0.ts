@@ -5776,6 +5776,16 @@ export interface QueryStatistics {
    * @public
    */
   logGroupsScanned?: number | undefined;
+
+  /**
+   * <p>The number of rows in the final query result set. This value represents the total number
+   *       of output rows across all pages. For queries that include post-aggregation filters (such as
+   *       <code>stats count(*) by field | filter count > threshold</code>), this value might be less
+   *       than <code>recordsMatched</code>. It reflects only the rows that survived all operations in
+   *       the query.</p>
+   * @public
+   */
+  resultCount?: number | undefined;
 }
 
 /**

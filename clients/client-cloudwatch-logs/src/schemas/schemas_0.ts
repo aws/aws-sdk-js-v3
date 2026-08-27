@@ -826,6 +826,7 @@ const _rAe = "resourceArns";
 const _rAo = "roleArn";
 const _rC = "recordsCount";
 const _rCe = "resourceConfig";
+const _rCes = "resultCount";
 const _rD = "retentionDays";
 const _rEI = "rejectedEntityInfo";
 const _rF = "recordFields";
@@ -2439,8 +2440,8 @@ export var QueryParameter$: StaticStructureSchema = [3, n0, _QP,
 ];
 export var QueryStatistics$: StaticStructureSchema = [3, n0, _QS,
   0,
-  [_rM, _rS, _eRS, _bS, _eBS, _lGS],
-  [1, 1, 1, 1, 1, 1]
+  [_rM, _rS, _eRS, _bS, _eBS, _lGS, _rCes],
+  [1, 1, 1, 1, 1, 1, 1]
 ];
 export var RecordField$: StaticStructureSchema = [3, n0, _RF,
   0,
