@@ -29,6 +29,11 @@ import {
   AdminCreateUserCommand,
 } from "./commands/AdminCreateUserCommand";
 import {
+  type AdminDeleteSoftwareTokenCommandInput,
+  type AdminDeleteSoftwareTokenCommandOutput,
+  AdminDeleteSoftwareTokenCommand,
+} from "./commands/AdminDeleteSoftwareTokenCommand";
+import {
   type AdminDeleteUserAttributesCommandInput,
   type AdminDeleteUserAttributesCommandOutput,
   AdminDeleteUserAttributesCommand,
@@ -640,6 +645,7 @@ const commands = {
   AdminAddUserToGroupCommand,
   AdminConfirmSignUpCommand,
   AdminCreateUserCommand,
+  AdminDeleteSoftwareTokenCommand,
   AdminDeleteUserCommand,
   AdminDeleteUserAttributesCommand,
   AdminDisableProviderForUserCommand,
@@ -861,6 +867,23 @@ export interface CognitoIdentityProvider {
     args: AdminCreateUserCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AdminCreateUserCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AdminDeleteSoftwareTokenCommand}
+   */
+  adminDeleteSoftwareToken(
+    args: AdminDeleteSoftwareTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AdminDeleteSoftwareTokenCommandOutput>;
+  adminDeleteSoftwareToken(
+    args: AdminDeleteSoftwareTokenCommandInput,
+    cb: (err: any, data?: AdminDeleteSoftwareTokenCommandOutput) => void
+  ): void;
+  adminDeleteSoftwareToken(
+    args: AdminDeleteSoftwareTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AdminDeleteSoftwareTokenCommandOutput) => void
   ): void;
 
   /**

@@ -465,6 +465,26 @@ export class UsernameExistsException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ * @public
+ */
+export class UserNotConfirmedException extends __BaseException {
+  readonly name = "UserNotConfirmedException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UserNotConfirmedException, __BaseException>) {
+    super({
+      name: "UserNotConfirmedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UserNotConfirmedException.prototype);
+  }
+}
+
+/**
  * <p>This exception is thrown when a user tries to confirm the account with an email
  *             address or phone number that has already been supplied as an alias for a different user
  *             profile. This exception indicates that an account with this email address or phone
@@ -588,26 +608,6 @@ export class UnsupportedOperationException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, UnsupportedOperationException.prototype);
-  }
-}
-
-/**
- * <p>This exception is thrown when a user isn't confirmed successfully.</p>
- * @public
- */
-export class UserNotConfirmedException extends __BaseException {
-  readonly name = "UserNotConfirmedException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UserNotConfirmedException, __BaseException>) {
-    super({
-      name: "UserNotConfirmedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UserNotConfirmedException.prototype);
   }
 }
 

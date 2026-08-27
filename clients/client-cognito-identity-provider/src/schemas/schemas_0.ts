@@ -23,6 +23,9 @@ const _ADE = "AccessDeniedException";
 const _ADPFU = "AdminDisableProviderForUser";
 const _ADPFUR = "AdminDisableProviderForUserRequest";
 const _ADPFURd = "AdminDisableProviderForUserResponse";
+const _ADST = "AdminDeleteSoftwareToken";
+const _ADSTR = "AdminDeleteSoftwareTokenRequest";
+const _ADSTRd = "AdminDeleteSoftwareTokenResponse";
 const _ADT = "AttributeDataType";
 const _ADU = "AdminDeleteUser";
 const _ADUA = "AdminDeleteUserAttributes";
@@ -1485,6 +1488,16 @@ export var AdminCreateUserResponse$: StaticStructureSchema = [3, n0, _ACURd,
   0,
   [_Us],
   [[() => UserType$, 0]]
+];
+export var AdminDeleteSoftwareTokenRequest$: StaticStructureSchema = [3, n0, _ADSTR,
+  0,
+  [_UPI, _U],
+  [0, [() => UsernameType, 0]], 2
+];
+export var AdminDeleteSoftwareTokenResponse$: StaticStructureSchema = [3, n0, _ADSTRd,
+  0,
+  [],
+  []
 ];
 export var AdminDeleteUserAttributesRequest$: StaticStructureSchema = [3, n0, _ADUAR,
   0,
@@ -3237,6 +3250,9 @@ export var AdminConfirmSignUp$: StaticOperationSchema = [9, n0, _ACSU,
 ];
 export var AdminCreateUser$: StaticOperationSchema = [9, n0, _ACU,
   0, () => AdminCreateUserRequest$, () => AdminCreateUserResponse$
+];
+export var AdminDeleteSoftwareToken$: StaticOperationSchema = [9, n0, _ADST,
+  0, () => AdminDeleteSoftwareTokenRequest$, () => AdminDeleteSoftwareTokenResponse$
 ];
 export var AdminDeleteUser$: StaticOperationSchema = [9, n0, _ADU,
   0, () => AdminDeleteUserRequest$, () => __Unit

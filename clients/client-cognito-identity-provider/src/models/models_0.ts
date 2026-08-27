@@ -997,6 +997,33 @@ export interface AdminCreateUserConfigType {
 }
 
 /**
+ * @public
+ */
+export interface AdminDeleteSoftwareTokenRequest {
+  /**
+   * <p>The ID of the user pool where you want to delete the user's software
+   *             token.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The name of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
+   * @public
+   */
+  Username: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface AdminDeleteSoftwareTokenResponse {}
+
+/**
  * <p>Represents the request to delete a user as an administrator.</p>
  * @public
  */
@@ -2032,11 +2059,6 @@ export interface AdminLinkProviderForUserRequest {
    *             ignored.</p>
    *          <p>The <code>ProviderName</code> should be set to <code>Cognito</code> for users in
    *             Cognito user pools.</p>
-   *          <important>
-   *             <p>All attributes in the DestinationUser profile must be mutable. If you have
-   *                 assigned the user any immutable custom attributes, the operation won't
-   *                 succeed.</p>
-   *          </important>
    * @public
    */
   DestinationUser: ProviderUserIdentifierType | undefined;
@@ -12144,36 +12166,4 @@ export interface SignUpResponse {
    * @public
    */
   Session?: string | undefined;
-}
-
-/**
- * <p>Represents the request to start the user import job.</p>
- * @public
- */
-export interface StartUserImportJobRequest {
-  /**
-   * <p>The ID of the user pool that you want to start importing users into.</p>
-   * @public
-   */
-  UserPoolId: string | undefined;
-
-  /**
-   * <p>The ID of a user import job that you previously created.</p>
-   * @public
-   */
-  JobId: string | undefined;
-}
-
-/**
- * <p>Represents the response from the server to the request to start the user import
- *             job.</p>
- * @public
- */
-export interface StartUserImportJobResponse {
-  /**
-   * <p>The details of the user import job. Includes logging destination, status, and the Amazon S3
-   *             pre-signed URL for CSV upload.</p>
-   * @public
-   */
-  UserImportJob?: UserImportJobType | undefined;
 }

@@ -246,6 +246,13 @@ AdminCreateUser
 </details>
 <details>
 <summary>
+AdminDeleteSoftwareToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cognito-identity-provider/command/AdminDeleteSoftwareTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AdminDeleteSoftwareTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cognito-identity-provider/Interface/AdminDeleteSoftwareTokenCommandOutput/)
+</details>
+<details>
+<summary>
 AdminDeleteUser
 </summary>
 

@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { DescribeUserPoolDomainRequest, DescribeUserPoolDomainResponse } from "../models/models_0";
-import { DescribeUserPoolDomain$ } from "../schemas/schemas_0";
+import type { AdminDeleteSoftwareTokenRequest, AdminDeleteSoftwareTokenResponse } from "../models/models_0";
+import { AdminDeleteSoftwareToken$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,25 +12,23 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link DescribeUserPoolDomainCommand}.
+ * The input for {@link AdminDeleteSoftwareTokenCommand}.
  */
-export interface DescribeUserPoolDomainCommandInput extends DescribeUserPoolDomainRequest {}
+export interface AdminDeleteSoftwareTokenCommandInput extends AdminDeleteSoftwareTokenRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeUserPoolDomainCommand}.
+ * The output of {@link AdminDeleteSoftwareTokenCommand}.
  */
-export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDomainResponse, __MetadataBearer {}
+export interface AdminDeleteSoftwareTokenCommandOutput extends AdminDeleteSoftwareTokenResponse, __MetadataBearer {}
 
 /**
- * <p>Given a user pool domain name, returns information about the domain
- *             configuration.</p>
- *          <note>
- *             <p>This operation doesn't return results when you query a prefix domain in a
- *                 secondary Region. Prefix domains are Region-specific and can only be described in
- *                 the Region where they were created. To describe a prefix domain for a replica user
- *                 pool, make the request to the primary Region's endpoint.</p>
- *          </note>
+ * <p>Deletes a user's registered time-based one-time password (TOTP) multi-factor
+ *             authentication (MFA) factor, also known as a software token. After this operation, the
+ *             user can no longer sign in with TOTP MFA, and can register a new TOTP factor with
+ *                 <code>AssociateSoftwareToken</code>. Use this operation when a user loses access to
+ *             their TOTP-generating device, for example, a lost or reset phone, and needs to register
+ *             a new one.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -54,45 +52,25 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CognitoIdentityProviderClient, DescribeUserPoolDomainCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
- * // const { CognitoIdentityProviderClient, DescribeUserPoolDomainCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
+ * import { CognitoIdentityProviderClient, AdminDeleteSoftwareTokenCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
+ * // const { CognitoIdentityProviderClient, AdminDeleteSoftwareTokenCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * // import type { CognitoIdentityProviderClientConfig } from "@aws-sdk/client-cognito-identity-provider";
  * const config = {}; // type is CognitoIdentityProviderClientConfig
  * const client = new CognitoIdentityProviderClient(config);
- * const input = { // DescribeUserPoolDomainRequest
- *   Domain: "STRING_VALUE", // required
+ * const input = { // AdminDeleteSoftwareTokenRequest
+ *   UserPoolId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE", // required
  * };
- * const command = new DescribeUserPoolDomainCommand(input);
+ * const command = new AdminDeleteSoftwareTokenCommand(input);
  * const response = await client.send(command);
- * // { // DescribeUserPoolDomainResponse
- * //   DomainDescription: { // DomainDescriptionType
- * //     UserPoolId: "STRING_VALUE",
- * //     AWSAccountId: "STRING_VALUE",
- * //     Domain: "STRING_VALUE",
- * //     S3Bucket: "STRING_VALUE",
- * //     CloudFrontDistribution: "STRING_VALUE",
- * //     Version: "STRING_VALUE",
- * //     Status: "CREATING" || "DELETING" || "UPDATING" || "ACTIVE" || "FAILED",
- * //     CustomDomainConfig: { // CustomDomainConfigType
- * //       CertificateArn: "STRING_VALUE", // required
- * //       SecurityPolicy: "TLS_V1" || "TLS_V1_2_2021" || "TLS_V1_3_2025",
- * //     },
- * //     ManagedLoginVersion: Number("int"),
- * //     Routing: { // RoutingType
- * //       Failover: { // FailoverType
- * //         SecondaryRegion: "STRING_VALUE", // required
- * //         PrimaryRoute53HealthCheckId: "STRING_VALUE", // required
- * //       },
- * //     },
- * //   },
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeUserPoolDomainCommandInput - {@link DescribeUserPoolDomainCommandInput}
- * @returns {@link DescribeUserPoolDomainCommandOutput}
- * @see {@link DescribeUserPoolDomainCommandInput} for command's `input` shape.
- * @see {@link DescribeUserPoolDomainCommandOutput} for command's `response` shape.
+ * @param AdminDeleteSoftwareTokenCommandInput - {@link AdminDeleteSoftwareTokenCommandInput}
+ * @returns {@link AdminDeleteSoftwareTokenCommandOutput}
+ * @see {@link AdminDeleteSoftwareTokenCommandInput} for command's `input` shape.
+ * @see {@link AdminDeleteSoftwareTokenCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
  * @throws {@link InternalErrorException} (server fault)
@@ -112,27 +90,37 @@ export interface DescribeUserPoolDomainCommandOutput extends DescribeUserPoolDom
  *  <p>This exception is thrown when the Amazon Cognito service can't find the requested
  *             resource.</p>
  *
+ * @throws {@link TooManyRequestsException} (client fault)
+ *  <p>This exception is thrown when the user has made too many requests for a given
+ *             operation.</p>
+ *
+ * @throws {@link UserNotConfirmedException} (client fault)
+ *  <p>This exception is thrown when a user isn't confirmed successfully.</p>
+ *
+ * @throws {@link UserNotFoundException} (client fault)
+ *  <p>This exception is thrown when a user isn't found.</p>
+ *
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
  *
  * @public
  */
-export class DescribeUserPoolDomainCommand extends command<DescribeUserPoolDomainCommandInput, DescribeUserPoolDomainCommandOutput>(
+export class AdminDeleteSoftwareTokenCommand extends command<AdminDeleteSoftwareTokenCommandInput, AdminDeleteSoftwareTokenCommandOutput>(
   _ep0,
   _mw0,
-  "DescribeUserPoolDomain",
-  DescribeUserPoolDomain$
+  "AdminDeleteSoftwareToken",
+  AdminDeleteSoftwareToken$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: DescribeUserPoolDomainRequest;
-      output: DescribeUserPoolDomainResponse;
+      input: AdminDeleteSoftwareTokenRequest;
+      output: {};
     };
     sdk: {
-      input: DescribeUserPoolDomainCommandInput;
-      output: DescribeUserPoolDomainCommandOutput;
+      input: AdminDeleteSoftwareTokenCommandInput;
+      output: AdminDeleteSoftwareTokenCommandOutput;
     };
   };
 }

@@ -72,6 +72,10 @@ import type {
 } from "./commands/AdminConfirmSignUpCommand";
 import type { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "./commands/AdminCreateUserCommand";
 import type {
+  AdminDeleteSoftwareTokenCommandInput,
+  AdminDeleteSoftwareTokenCommandOutput,
+} from "./commands/AdminDeleteSoftwareTokenCommand";
+import type {
   AdminDeleteUserAttributesCommandInput,
   AdminDeleteUserAttributesCommandOutput,
 } from "./commands/AdminDeleteUserAttributesCommand";
@@ -467,6 +471,7 @@ export type ServiceInputTypes =
   | AdminAddUserToGroupCommandInput
   | AdminConfirmSignUpCommandInput
   | AdminCreateUserCommandInput
+  | AdminDeleteSoftwareTokenCommandInput
   | AdminDeleteUserAttributesCommandInput
   | AdminDeleteUserCommandInput
   | AdminDisableProviderForUserCommandInput
@@ -601,6 +606,7 @@ export type ServiceOutputTypes =
   | AdminAddUserToGroupCommandOutput
   | AdminConfirmSignUpCommandOutput
   | AdminCreateUserCommandOutput
+  | AdminDeleteSoftwareTokenCommandOutput
   | AdminDeleteUserAttributesCommandOutput
   | AdminDeleteUserCommandOutput
   | AdminDisableProviderForUserCommandOutput

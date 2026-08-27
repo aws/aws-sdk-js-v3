@@ -51,6 +51,38 @@ import type {
 } from "./models_0";
 
 /**
+ * <p>Represents the request to start the user import job.</p>
+ * @public
+ */
+export interface StartUserImportJobRequest {
+  /**
+   * <p>The ID of the user pool that you want to start importing users into.</p>
+   * @public
+   */
+  UserPoolId: string | undefined;
+
+  /**
+   * <p>The ID of a user import job that you previously created.</p>
+   * @public
+   */
+  JobId: string | undefined;
+}
+
+/**
+ * <p>Represents the response from the server to the request to start the user import
+ *             job.</p>
+ * @public
+ */
+export interface StartUserImportJobResponse {
+  /**
+   * <p>The details of the user import job. Includes logging destination, status, and the Amazon S3
+   *             pre-signed URL for CSV upload.</p>
+   * @public
+   */
+  UserImportJob?: UserImportJobType | undefined;
+}
+
+/**
  * @public
  */
 export interface StartWebAuthnRegistrationRequest {

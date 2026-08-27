@@ -4,6 +4,7 @@ export * from "./AddUserPoolClientSecretCommand";
 export * from "./AdminAddUserToGroupCommand";
 export * from "./AdminConfirmSignUpCommand";
 export * from "./AdminCreateUserCommand";
+export * from "./AdminDeleteSoftwareTokenCommand";
 export * from "./AdminDeleteUserAttributesCommand";
 export * from "./AdminDeleteUserCommand";
 export * from "./AdminDisableProviderForUserCommand";

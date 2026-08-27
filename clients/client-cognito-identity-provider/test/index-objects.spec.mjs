@@ -26,6 +26,10 @@ import {
   AdminCreateUserConfigType$,
   AdminCreateUserRequest$,
   AdminCreateUserResponse$,
+  AdminDeleteSoftwareToken$,
+  AdminDeleteSoftwareTokenCommand,
+  AdminDeleteSoftwareTokenRequest$,
+  AdminDeleteSoftwareTokenResponse$,
   AdminDeleteUser$,
   AdminDeleteUserAttributes$,
   AdminDeleteUserAttributesCommand,
@@ -801,6 +805,8 @@ assert(typeof AdminConfirmSignUpCommand === "function");
 assert(typeof AdminConfirmSignUp$ === "object");
 assert(typeof AdminCreateUserCommand === "function");
 assert(typeof AdminCreateUser$ === "object");
+assert(typeof AdminDeleteSoftwareTokenCommand === "function");
+assert(typeof AdminDeleteSoftwareToken$ === "object");
 assert(typeof AdminDeleteUserCommand === "function");
 assert(typeof AdminDeleteUser$ === "object");
 assert(typeof AdminDeleteUserAttributesCommand === "function");
@@ -1064,6 +1070,8 @@ assert(typeof AdminConfirmSignUpResponse$ === "object");
 assert(typeof AdminCreateUserConfigType$ === "object");
 assert(typeof AdminCreateUserRequest$ === "object");
 assert(typeof AdminCreateUserResponse$ === "object");
+assert(typeof AdminDeleteSoftwareTokenRequest$ === "object");
+assert(typeof AdminDeleteSoftwareTokenResponse$ === "object");
 assert(typeof AdminDeleteUserAttributesRequest$ === "object");
 assert(typeof AdminDeleteUserAttributesResponse$ === "object");
 assert(typeof AdminDeleteUserRequest$ === "object");
