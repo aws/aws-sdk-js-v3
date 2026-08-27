@@ -116,6 +116,7 @@ export interface DescribeDBSnapshotsCommandOutput extends DBSnapshotMessage, __M
  * //         },
  * //       ],
  * //       SnapshotAvailabilityZone: "STRING_VALUE",
+ * //       FullSnapshotSizeInBytes: Number("long"),
  * //     },
  * //   ],
  * // };

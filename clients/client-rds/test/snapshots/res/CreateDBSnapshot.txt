@@ -257,6 +257,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
         <SnapshotAvailabilityZone>
             __SnapshotAvailabilityZone__
         </SnapshotAvailabilityZone>
+        <FullSnapshotSizeInBytes>
+            0
+        </FullSnapshotSizeInBytes>
     </DBSnapshot>
 </CreateDBSnapshotResult>
 

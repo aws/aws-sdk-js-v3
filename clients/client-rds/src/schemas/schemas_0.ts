@@ -747,6 +747,7 @@ const _FP = "FixedPrice";
 const _FQDN = "FQDN";
 const _FR = "FailureReason";
 const _FS = "FileSize";
+const _FSSIB = "FullSnapshotSizeInBytes";
 const _FSa = "FailoverState";
 const _FVL = "FilterValueList";
 const _Fi = "Filters";
@@ -3229,8 +3230,8 @@ export var DBShardGroup$: StaticStructureSchema = [3, n0, _DBSGh,
 ];
 export var DBSnapshot$: StaticStructureSchema = [3, n0, _DBS,
   0,
-  [_DBSIn, _DBII, _SCT, _E, _AS, _St, _P, _AZ, _VI, _ICTn, _MU, _EV, _LM, _STna, _I, _ST, _OGN, _PP, _SR, _SDBSI, _STt, _TCA, _Enc, _SET, _BRP, _PBW, _KKI, _DBSA, _Ti, _IAMDAE, _PF, _DRI, _TL, _STn, _OSCT, _SDT, _DBSI, _MT, _DLV, _ASVd, _SAZ],
-  [0, 0, 4, 0, 1, 0, 1, 0, 0, 4, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 2, [() => ProcessorFeatureList, 0], 0, [() => TagList, 0], 0, 4, 4, 0, 2, 2, () => AdditionalStorageVolumesList, 0]
+  [_DBSIn, _DBII, _SCT, _E, _AS, _St, _P, _AZ, _VI, _ICTn, _MU, _EV, _LM, _STna, _I, _ST, _OGN, _PP, _SR, _SDBSI, _STt, _TCA, _Enc, _SET, _BRP, _PBW, _KKI, _DBSA, _Ti, _IAMDAE, _PF, _DRI, _TL, _STn, _OSCT, _SDT, _DBSI, _MT, _DLV, _ASVd, _SAZ, _FSSIB],
+  [0, 0, 4, 0, 1, 0, 1, 0, 0, 4, 0, 0, 0, 0, 1, 1, 0, 1, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 2, [() => ProcessorFeatureList, 0], 0, [() => TagList, 0], 0, 4, 4, 0, 2, 2, () => AdditionalStorageVolumesList, 0, 1]
 ];
 export var DBSnapshotAttribute$: StaticStructureSchema = [3, n0, _DBSAn,
   0,

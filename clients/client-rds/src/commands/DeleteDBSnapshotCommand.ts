@@ -99,6 +99,7 @@ export interface DeleteDBSnapshotCommandOutput extends DeleteDBSnapshotResult, _
  * //       },
  * //     ],
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     FullSnapshotSizeInBytes: Number("long"),
  * //   },
  * // };
  *

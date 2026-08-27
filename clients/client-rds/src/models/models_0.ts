@@ -1488,6 +1488,12 @@ export interface DBSnapshot {
    * @public
    */
   SnapshotAvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The full size of the DB snapshot, in bytes.</p> <important> <p>This is not the incremental size of the snapshot. This is the full snapshot size and represents the size of all the blocks that were written to the source volume at the time the snapshot was created.</p> </important>
+   * @public
+   */
+  FullSnapshotSizeInBytes?: number | undefined;
 }
 
 /**

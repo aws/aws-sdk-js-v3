@@ -101,6 +101,7 @@ export interface ModifyDBSnapshotCommandOutput extends ModifyDBSnapshotResult, _
  * //       },
  * //     ],
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     FullSnapshotSizeInBytes: Number("long"),
  * //   },
  * // };
  *

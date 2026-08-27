@@ -114,6 +114,7 @@ export interface CopyDBSnapshotCommandOutput extends CopyDBSnapshotResult, __Met
  * //       },
  * //     ],
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     FullSnapshotSizeInBytes: Number("long"),
  * //   },
  * // };
  *

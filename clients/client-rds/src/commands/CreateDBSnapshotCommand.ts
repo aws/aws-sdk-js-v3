@@ -106,6 +106,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //       },
  * //     ],
  * //     SnapshotAvailabilityZone: "STRING_VALUE",
+ * //     FullSnapshotSizeInBytes: Number("long"),
  * //   },
  * // };
  *
