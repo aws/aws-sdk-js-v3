@@ -425,6 +425,19 @@ export type DeploymentWaitType = (typeof DeploymentWaitType)[keyof typeof Deploy
  * @public
  * @enum
  */
+export const DeploymentMode = {
+  RESTART: "RESTART",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const MinimumHealthyHostsType = {
   FLEET_PERCENT: "FLEET_PERCENT",
   HOST_COUNT: "HOST_COUNT",

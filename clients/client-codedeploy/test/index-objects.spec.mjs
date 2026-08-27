@@ -132,6 +132,7 @@ import {
   DeploymentIsNotInReadyStateException$,
   DeploymentLimitExceededException,
   DeploymentLimitExceededException$,
+  DeploymentMode,
   DeploymentNotStartedException,
   DeploymentNotStartedException$,
   DeploymentOption,
@@ -745,6 +746,7 @@ assert(typeof AutoRollbackEvent === "object");
 assert(typeof BundleType === "object");
 assert(typeof ComputePlatform === "object");
 assert(typeof DeploymentCreator === "object");
+assert(typeof DeploymentMode === "object");
 assert(typeof DeploymentOption === "object");
 assert(typeof DeploymentReadyAction === "object");
 assert(typeof DeploymentStatus === "object");

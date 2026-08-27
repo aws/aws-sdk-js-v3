@@ -6,6 +6,7 @@ import type {
   BundleType,
   ComputePlatform,
   DeploymentCreator,
+  DeploymentMode,
   DeploymentOption,
   DeploymentReadyAction,
   DeploymentStatus,
@@ -2606,6 +2607,12 @@ export interface CreateDeploymentInput {
    * @public
    */
   fileExistsBehavior?: FileExistsBehavior | undefined;
+
+  /**
+   * The deployment mode to use for the deployment. When set to STANDARD (the default), the deployment runs the standard set of deployment lifecycle events. When set to RESTART, an EC2/On-premises in-place deployment runs a shortened set of lifecycle events to quickly restart the application on the target instances.
+   * @public
+   */
+  deploymentMode?: DeploymentMode | undefined;
 
   /**
    * <p>Allows you to specify information about alarms associated with a deployment. The alarm

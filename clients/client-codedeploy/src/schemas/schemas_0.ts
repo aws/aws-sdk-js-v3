@@ -382,6 +382,7 @@ const _dI = "deploymentId";
 const _dIe = "deploymentIds";
 const _dIep = "deploymentsInfo";
 const _dIepl = "deploymentInfo";
+const _dM = "deploymentMode";
 const _dO = "deploymentOverview";
 const _dOe = "deploymentOption";
 const _dRO = "deploymentReadyOption";
@@ -1501,8 +1502,8 @@ export var CreateDeploymentGroupOutput$: StaticStructureSchema = [3, n0, _CDGO,
 ];
 export var CreateDeploymentInput$: StaticStructureSchema = [3, n0, _CDIr,
   0,
-  [_aN, _dGNe, _re, _dCN, _d, _iASF, _tIar, _aRC, _uOIO, _fEB, _oAC],
-  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, () => AlarmConfiguration$], 1
+  [_aN, _dGNe, _re, _dCN, _d, _iASF, _tIar, _aRC, _uOIO, _fEB, _dM, _oAC],
+  [0, 0, () => RevisionLocation$, 0, 0, 2, () => TargetInstances$, () => AutoRollbackConfiguration$, 2, 0, 0, () => AlarmConfiguration$], 1
 ];
 export var CreateDeploymentOutput$: StaticStructureSchema = [3, n0, _CDO,
   0,

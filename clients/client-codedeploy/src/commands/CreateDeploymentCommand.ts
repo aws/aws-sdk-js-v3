@@ -91,6 +91,7 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *   },
  *   updateOutdatedInstancesOnly: true || false,
  *   fileExistsBehavior: "DISALLOW" || "OVERWRITE" || "RETAIN",
+ *   deploymentMode: "STANDARD" || "RESTART",
  *   overrideAlarmConfiguration: { // AlarmConfiguration
  *     enabled: true || false,
  *     ignorePollAlarmFailure: true || false,
@@ -172,11 +173,17 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *  <p>The Auto Scaling group was specified in an invalid format or does not
  *             exist.</p>
  *
+ * @throws {@link InvalidComputePlatformException} (client fault)
+ *  <p>The computePlatform is invalid. The computePlatform should be <code>Lambda</code>, <code>Server</code>, or <code>ECS</code>.</p>
+ *
  * @throws {@link InvalidDeploymentConfigNameException} (client fault)
  *  <p>The deployment configuration name was specified in an invalid format.</p>
  *
  * @throws {@link InvalidDeploymentGroupNameException} (client fault)
  *  <p>The deployment group name was specified in an invalid format.</p>
+ *
+ * @throws {@link InvalidECSServiceException} (client fault)
+ *  <p> The Amazon ECS service identifier is not valid. </p>
  *
  * @throws {@link InvalidFileExistsBehaviorException} (client fault)
  *  <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
@@ -190,6 +197,9 @@ export interface CreateDeploymentCommandOutput extends CreateDeploymentOutput, _
  *  <p>The IgnoreApplicationStopFailures value is invalid. For Lambda
  *             deployments, <code>false</code> is expected. For EC2/On-premises deployments,
  *                 <code>true</code> or <code>false</code> is expected.</p>
+ *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input was specified in an invalid format.</p>
  *
  * @throws {@link InvalidLoadBalancerInfoException} (client fault)
  *  <p>An invalid load balancer name, or no load balancer name, was specified.</p>

@@ -75,6 +75,9 @@ export interface CreateApplicationCommandOutput extends CreateApplicationOutput,
  * @throws {@link InvalidTagsToAddException} (client fault)
  *  <p> The specified tags are not valid. </p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>An API function was called too frequently.</p>
+ *
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *

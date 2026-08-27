@@ -58,8 +58,15 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @see {@link ListDeploymentTargetsCommandOutput} for command's `response` shape.
  * @see {@link CodeDeployClientResolvedConfig | config} for CodeDeployClient's `config` shape.
  *
+ * @throws {@link ApplicationDoesNotExistException} (client fault)
+ *  <p>The application does not exist with the user or Amazon Web Services account.</p>
+ *
  * @throws {@link DeploymentDoesNotExistException} (client fault)
  *  <p>The deployment with the user or Amazon Web Services account does not exist.</p>
+ *
+ * @throws {@link DeploymentGroupDoesNotExistException} (client fault)
+ *  <p>The named deployment group with the user or Amazon Web Services account does not
+ *             exist.</p>
  *
  * @throws {@link DeploymentIdRequiredException} (client fault)
  *  <p>At least one deployment ID must be specified.</p>

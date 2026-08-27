@@ -774,6 +774,26 @@ export class InvalidTagsToAddException extends __BaseException {
 }
 
 /**
+ * <p>An API function was called too frequently.</p>
+ * @public
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name = "ThrottlingException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+  }
+}
+
+/**
  * <p>The named deployment group with the user or Amazon Web Services account does not
  *             exist.</p>
  * @public
@@ -935,6 +955,26 @@ export class InvalidDeploymentConfigNameException extends __BaseException {
 }
 
 /**
+ * <p> The Amazon ECS service identifier is not valid. </p>
+ * @public
+ */
+export class InvalidECSServiceException extends __BaseException {
+  readonly name = "InvalidECSServiceException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidECSServiceException, __BaseException>) {
+    super({
+      name: "InvalidECSServiceException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidECSServiceException.prototype);
+  }
+}
+
+/**
  * <p>An invalid fileExistsBehavior option was specified to determine how CodeDeploy handles files or directories that already exist in a deployment
  *             target location, but weren't part of the previous successful deployment. Valid values
  *             include "DISALLOW," "OVERWRITE," and "RETAIN."</p>
@@ -995,6 +1035,26 @@ export class InvalidIgnoreApplicationStopFailuresValueException extends __BaseEx
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidIgnoreApplicationStopFailuresValueException.prototype);
+  }
+}
+
+/**
+ * <p>The input was specified in an invalid format.</p>
+ * @public
+ */
+export class InvalidInputException extends __BaseException {
+  readonly name = "InvalidInputException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
+    super({
+      name: "InvalidInputException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidInputException.prototype);
   }
 }
 
@@ -1135,26 +1195,6 @@ export class RevisionDoesNotExistException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, RevisionDoesNotExistException.prototype);
-  }
-}
-
-/**
- * <p>An API function was called too frequently.</p>
- * @public
- */
-export class ThrottlingException extends __BaseException {
-  readonly name = "ThrottlingException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
   }
 }
 
@@ -1401,46 +1441,6 @@ export class InvalidEC2TagException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidEC2TagException.prototype);
-  }
-}
-
-/**
- * <p> The Amazon ECS service identifier is not valid. </p>
- * @public
- */
-export class InvalidECSServiceException extends __BaseException {
-  readonly name = "InvalidECSServiceException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidECSServiceException, __BaseException>) {
-    super({
-      name: "InvalidECSServiceException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidECSServiceException.prototype);
-  }
-}
-
-/**
- * <p>The input was specified in an invalid format.</p>
- * @public
- */
-export class InvalidInputException extends __BaseException {
-  readonly name = "InvalidInputException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidInputException, __BaseException>) {
-    super({
-      name: "InvalidInputException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidInputException.prototype);
   }
 }
 

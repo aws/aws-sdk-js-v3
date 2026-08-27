@@ -148,6 +148,7 @@ export type {
   BundleType,
   ComputePlatform,
   DeploymentCreator,
+  DeploymentMode,
   DeploymentOption,
   DeploymentReadyAction,
   DeploymentStatus,
