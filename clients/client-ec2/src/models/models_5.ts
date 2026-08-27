@@ -150,6 +150,108 @@ import type {
 import type { AttributeBooleanValue, ProductCode, RegisteredInstance, ScheduledInstanceRecurrence } from "./models_4";
 
 /**
+ * <p>Describes a schedule that is available for your Scheduled Instances.</p>
+ * @public
+ */
+export interface ScheduledInstanceAvailability {
+  /**
+   * <p>The Availability Zone.</p>
+   * @public
+   */
+  AvailabilityZone?: string | undefined;
+
+  /**
+   * <p>The number of available instances.</p>
+   * @public
+   */
+  AvailableInstanceCount?: number | undefined;
+
+  /**
+   * <p>The time period for the first schedule to start.</p>
+   * @public
+   */
+  FirstSlotStartTime?: Date | undefined;
+
+  /**
+   * <p>The hourly price for a single instance.</p>
+   * @public
+   */
+  HourlyPrice?: string | undefined;
+
+  /**
+   * <p>The instance type. You can specify one of the C3, C4, M4, or R3 instance types.</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+
+  /**
+   * <p>The maximum term. The only possible value is 365 days.</p>
+   * @public
+   */
+  MaxTermDurationInDays?: number | undefined;
+
+  /**
+   * <p>The minimum term. The only possible value is 365 days.</p>
+   * @public
+   */
+  MinTermDurationInDays?: number | undefined;
+
+  /**
+   * <p>The network platform.</p>
+   * @public
+   */
+  NetworkPlatform?: string | undefined;
+
+  /**
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   * @public
+   */
+  Platform?: string | undefined;
+
+  /**
+   * <p>The purchase token. This token expires in two hours.</p>
+   * @public
+   */
+  PurchaseToken?: string | undefined;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   * @public
+   */
+  Recurrence?: ScheduledInstanceRecurrence | undefined;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   * @public
+   */
+  SlotDurationInHours?: number | undefined;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   * @public
+   */
+  TotalScheduledInstanceHours?: number | undefined;
+}
+
+/**
+ * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
+ * @public
+ */
+export interface DescribeScheduledInstanceAvailabilityResult {
+  /**
+   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Information about the available Scheduled Instances.</p>
+   * @public
+   */
+  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[] | undefined;
+}
+
+/**
  * <p>Describes the time period for a Scheduled Instance to start its first schedule.</p>
  * @public
  */
@@ -11078,28 +11180,4 @@ export interface EnableCapacityManagerResult {
    * @public
    */
   OrganizationsAccess?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableEbsEncryptionByDefaultRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface EnableEbsEncryptionByDefaultResult {
-  /**
-   * <p>The updated status of encryption by default.</p>
-   * @public
-   */
-  EbsEncryptionByDefault?: boolean | undefined;
 }

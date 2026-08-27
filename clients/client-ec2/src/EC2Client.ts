@@ -2746,6 +2746,10 @@ import type {
   ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput,
 } from "./commands/ReplaceImageCriteriaInAllowedImagesSettingsCommand";
 import type {
+  ReplaceImageInstanceTypeSpecificationCommandInput,
+  ReplaceImageInstanceTypeSpecificationCommandOutput,
+} from "./commands/ReplaceImageInstanceTypeSpecificationCommand";
+import type {
   ReplaceNetworkAclAssociationCommandInput,
   ReplaceNetworkAclAssociationCommandOutput,
 } from "./commands/ReplaceNetworkAclAssociationCommand";
@@ -3689,6 +3693,7 @@ export type ServiceInputTypes =
   | ReleaseIpamPoolAllocationCommandInput
   | ReplaceIamInstanceProfileAssociationCommandInput
   | ReplaceImageCriteriaInAllowedImagesSettingsCommandInput
+  | ReplaceImageInstanceTypeSpecificationCommandInput
   | ReplaceNetworkAclAssociationCommandInput
   | ReplaceNetworkAclEntryCommandInput
   | ReplaceRouteCommandInput
@@ -4494,6 +4499,7 @@ export type ServiceOutputTypes =
   | ReleaseIpamPoolAllocationCommandOutput
   | ReplaceIamInstanceProfileAssociationCommandOutput
   | ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput
+  | ReplaceImageInstanceTypeSpecificationCommandOutput
   | ReplaceNetworkAclAssociationCommandOutput
   | ReplaceNetworkAclEntryCommandOutput
   | ReplaceRouteCommandOutput

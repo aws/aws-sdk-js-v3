@@ -749,6 +749,7 @@ export * from "./ReleaseHostsCommand";
 export * from "./ReleaseIpamPoolAllocationCommand";
 export * from "./ReplaceIamInstanceProfileAssociationCommand";
 export * from "./ReplaceImageCriteriaInAllowedImagesSettingsCommand";
+export * from "./ReplaceImageInstanceTypeSpecificationCommand";
 export * from "./ReplaceNetworkAclAssociationCommand";
 export * from "./ReplaceNetworkAclEntryCommand";
 export * from "./ReplaceRouteCommand";

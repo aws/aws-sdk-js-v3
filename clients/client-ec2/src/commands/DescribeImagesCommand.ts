@@ -152,6 +152,18 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
  * //           WatermarkCreationTime: new Date("TIMESTAMP"),
  * //         },
  * //       ],
+ * //       InstanceTypeSpecification: { // InstanceTypeSpecification
+ * //         SupportedInstanceTypes: [ // SupportedInstanceTypeSet
+ * //           { // InstanceTypeItem
+ * //             InstanceType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         UnsupportedInstanceTypes: [ // UnsupportedInstanceTypeSet
+ * //           {
+ * //             InstanceType: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
  * //       ImageId: "STRING_VALUE",
  * //       ImageLocation: "STRING_VALUE",
  * //       State: "pending" || "available" || "invalid" || "deregistered" || "transient" || "failed" || "error" || "disabled",

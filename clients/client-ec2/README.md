@@ -5483,6 +5483,13 @@ ReplaceImageCriteriaInAllowedImagesSettings
 </details>
 <details>
 <summary>
+ReplaceImageInstanceTypeSpecification
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceImageInstanceTypeSpecificationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageInstanceTypeSpecificationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageInstanceTypeSpecificationCommandOutput/)
+</details>
+<details>
+<summary>
 ReplaceNetworkAclAssociation
 </summary>
 

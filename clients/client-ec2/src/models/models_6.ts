@@ -114,6 +114,30 @@ import type { ImportImageLicenseConfigurationResponse, RegisteredInstance, Snaps
 import type { RouteServerPropagation, TransitGatewayPropagation } from "./models_5";
 
 /**
+ * @public
+ */
+export interface EnableEbsEncryptionByDefaultRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableEbsEncryptionByDefaultResult {
+  /**
+   * <p>The updated status of encryption by default.</p>
+   * @public
+   */
+  EbsEncryptionByDefault?: boolean | undefined;
+}
+
+/**
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
@@ -9490,71 +9514,4 @@ export interface ImportInstanceResult {
    * @public
    */
   ConversionTask?: ConversionTask | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportKeyPairRequest {
-  /**
-   * <p>The tags to apply to the imported key pair.</p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>A unique name for the key pair.</p>
-   * @public
-   */
-  KeyName: string | undefined;
-
-  /**
-   * <p>The public key.</p>
-   * @public
-   */
-  PublicKeyMaterial: Uint8Array | undefined;
-}
-
-/**
- * @public
- */
-export interface ImportKeyPairResult {
-  /**
-   * <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  KeyFingerprint?: string | undefined;
-
-  /**
-   * <p>The key pair name that you provided.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>The ID of the resulting key pair.</p>
-   * @public
-   */
-  KeyPairId?: string | undefined;
-
-  /**
-   * <p>The tags applied to the imported key pair.</p>
-   * @public
-   */
-  Tags?: Tag[] | undefined;
 }

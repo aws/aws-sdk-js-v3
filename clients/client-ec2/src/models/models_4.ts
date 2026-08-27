@@ -2062,6 +2062,11 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>boot-mode</code> – The boot mode of the image (<code>legacy-bios</code> |
+   *             <code>uefi</code> | <code>uefi-preferred</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>creation-date</code> - The time when the image was created, in the ISO 8601
    *           format in the UTC time zone (YYYY-MM-DDThh:mm:ss.sssZ), for example,
    *             <code>2021-09-29T11:04:43.305Z</code>. You can use a wildcard (<code>*</code>), for
@@ -2136,6 +2141,20 @@ export interface DescribeImagesRequest {
    *                <p>
    *                   <code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> |
    *             <code>ramdisk</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type-specification.supported-instance-type</code> – The instance
+   *           types that are compatible with the AMI, as specified by the AMI owner. Values can be
+   *           individual instance types (for example, <code>t3.micro</code>) or wildcard patterns that
+   *           match multiple instance types (for example, <code>t3.*</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>instance-type-specification.unsupported-instance-type</code> – The instance
+   *           types that are not compatible with the AMI, as specified by the AMI owner. Values can be
+   *           individual instance types (for example, <code>t3.micro</code>) or wildcard patterns that
+   *           match multiple instance types (for example, <code>t3.*</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2293,6 +2312,38 @@ export interface ImageWatermark {
    * @public
    */
   WatermarkCreationTime?: Date | undefined;
+}
+
+/**
+ * <p>An instance type name or wildcard pattern in an instance type specification.</p>
+ * @public
+ */
+export interface InstanceTypeItem {
+  /**
+   * <p>The instance type or wildcard pattern (for example, <code>t3.*</code> or
+   *         <code>m5.large</code>).</p>
+   * @public
+   */
+  InstanceType?: string | undefined;
+}
+
+/**
+ * <p>Describes the instance type compatibility rules for an AMI, including lists of supported
+ *       and unsupported instance type patterns.</p>
+ * @public
+ */
+export interface InstanceTypeSpecification {
+  /**
+   * <p>The instance types that the AMI supports.</p>
+   * @public
+   */
+  SupportedInstanceTypes?: InstanceTypeItem[] | undefined;
+
+  /**
+   * <p>The instance types that the AMI does not support.</p>
+   * @public
+   */
+  UnsupportedInstanceTypes?: InstanceTypeItem[] | undefined;
 }
 
 /**
@@ -2504,6 +2555,13 @@ export interface Image {
    * @public
    */
   ImageWatermarks?: ImageWatermark[] | undefined;
+
+  /**
+   * <p>The instance type specification for the AMI, which defines which instance types are
+   *       compatible with this image.</p>
+   * @public
+   */
+  InstanceTypeSpecification?: InstanceTypeSpecification | undefined;
 
   /**
    * <p>The ID of the AMI.</p>
@@ -14195,106 +14253,4 @@ export interface ScheduledInstanceRecurrence {
    * @public
    */
   OccurrenceUnit?: string | undefined;
-}
-
-/**
- * <p>Describes a schedule that is available for your Scheduled Instances.</p>
- * @public
- */
-export interface ScheduledInstanceAvailability {
-  /**
-   * <p>The Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZone?: string | undefined;
-
-  /**
-   * <p>The number of available instances.</p>
-   * @public
-   */
-  AvailableInstanceCount?: number | undefined;
-
-  /**
-   * <p>The time period for the first schedule to start.</p>
-   * @public
-   */
-  FirstSlotStartTime?: Date | undefined;
-
-  /**
-   * <p>The hourly price for a single instance.</p>
-   * @public
-   */
-  HourlyPrice?: string | undefined;
-
-  /**
-   * <p>The instance type. You can specify one of the C3, C4, M4, or R3 instance types.</p>
-   * @public
-   */
-  InstanceType?: string | undefined;
-
-  /**
-   * <p>The maximum term. The only possible value is 365 days.</p>
-   * @public
-   */
-  MaxTermDurationInDays?: number | undefined;
-
-  /**
-   * <p>The minimum term. The only possible value is 365 days.</p>
-   * @public
-   */
-  MinTermDurationInDays?: number | undefined;
-
-  /**
-   * <p>The network platform.</p>
-   * @public
-   */
-  NetworkPlatform?: string | undefined;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   * @public
-   */
-  Platform?: string | undefined;
-
-  /**
-   * <p>The purchase token. This token expires in two hours.</p>
-   * @public
-   */
-  PurchaseToken?: string | undefined;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   * @public
-   */
-  Recurrence?: ScheduledInstanceRecurrence | undefined;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   * @public
-   */
-  SlotDurationInHours?: number | undefined;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   * @public
-   */
-  TotalScheduledInstanceHours?: number | undefined;
-}
-
-/**
- * <p>Contains the output of DescribeScheduledInstanceAvailability.</p>
- * @public
- */
-export interface DescribeScheduledInstanceAvailabilityResult {
-  /**
-   * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string | undefined;
-
-  /**
-   * <p>Information about the available Scheduled Instances.</p>
-   * @public
-   */
-  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[] | undefined;
 }

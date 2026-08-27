@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import type {
-  _InstanceType,
   AccountVpcEncryptionControlMode,
   Affinity,
   AggregationStatusEnum,
@@ -32,7 +31,6 @@ import type {
   InstanceAttributeName,
   InstanceAutoRecoveryState,
   InstanceBandwidthWeighting,
-  InstanceInterruptionBehavior,
   InstanceMatchCriteria,
   InstanceMetadataEndpointState,
   InstanceMetadataProtocolState,
@@ -67,7 +65,6 @@ import type {
   SecurityGroupReferencingSupportValue,
   SelfServicePortal,
   SnapshotAttributeName,
-  SpotInstanceType,
   Status,
   TargetStorageTier,
   TpmSupportValues,
@@ -197,13 +194,8 @@ import type {
 } from "./models_4";
 import type {
   CreateVolumePermission,
-  InstanceNetworkInterfaceSpecification,
   LaunchTemplateConfig,
-  RunInstancesMonitoringEnabled,
   ScheduledInstance,
-  SpotFleetRequestConfigData,
-  SpotInstanceRequest,
-  SpotPlacement,
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
   VpcBlockPublicAccessOptions,
@@ -219,6 +211,73 @@ import type {
   UserBucket,
   VolumeDetail,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface ImportKeyPairRequest {
+  /**
+   * <p>The tags to apply to the imported key pair.</p>
+   * @public
+   */
+  TagSpecifications?: TagSpecification[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+
+  /**
+   * <p>A unique name for the key pair.</p>
+   * @public
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>The public key.</p>
+   * @public
+   */
+  PublicKeyMaterial: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ImportKeyPairResult {
+  /**
+   * <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  KeyFingerprint?: string | undefined;
+
+  /**
+   * <p>The key pair name that you provided.</p>
+   * @public
+   */
+  KeyName?: string | undefined;
+
+  /**
+   * <p>The ID of the resulting key pair.</p>
+   * @public
+   */
+  KeyPairId?: string | undefined;
+
+  /**
+   * <p>The tags applied to the imported key pair.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+}
 
 /**
  * <p>The disk container object for the import snapshot request.</p>
@@ -9208,6 +9267,70 @@ export interface ReplaceImageCriteriaInAllowedImagesSettingsResult {
 }
 
 /**
+ * <p>The instance type specification for an AMI, which contains lists of supported and
+ *       unsupported instance types that define which instance types are compatible with the AMI.</p>
+ * @public
+ */
+export interface InstanceTypeSpecificationRequest {
+  /**
+   * <p>The instance types that the AMI supports. You can specify instance type names or use
+   *       wildcard patterns (for example, <code>t3.*</code>).</p>
+   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
+   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
+   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
+   * @public
+   */
+  SupportedInstanceTypes?: string[] | undefined;
+
+  /**
+   * <p>The instance types that the AMI does not support. You can specify instance type names or
+   *       use wildcard patterns (for example, <code>t3.*</code>).</p>
+   *          <p>Constraints: Maximum 100 entries. Each entry must be 1-24 characters and match the pattern
+   *         <code>^[A-Za-z0-9_.*-]+$</code>. Consecutive wildcard characters (<code>**</code>) are not
+   *       allowed. Entries must be unique within each list and across both lists; duplicate entries cause the request to fail.</p>
+   * @public
+   */
+  UnsupportedInstanceTypes?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageInstanceTypeSpecificationRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   * @public
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The instance type specification to set on the AMI. Omit this parameter to remove the
+   *       existing instance type specification.</p>
+   * @public
+   */
+  InstanceTypeSpecification?: InstanceTypeSpecificationRequest | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ReplaceImageInstanceTypeSpecificationResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   * @public
+   */
+  ReturnValue?: boolean | undefined;
+}
+
+/**
  * @public
  */
 export interface ReplaceNetworkAclAssociationRequest {
@@ -9660,291 +9783,4 @@ export interface ReportInstanceStatusRequest {
    * @public
    */
   Description?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for RequestSpotFleet.</p>
- * @public
- */
-export interface RequestSpotFleetRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The configuration for the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestConfig: SpotFleetRequestConfigData | undefined;
-}
-
-/**
- * <p>Contains the output of RequestSpotFleet.</p>
- * @public
- */
-export interface RequestSpotFleetResponse {
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   * @public
-   */
-  SpotFleetRequestId?: string | undefined;
-}
-
-/**
- * <p>Describes the launch specification for an instance.</p>
- * @public
- */
-export interface RequestSpotLaunchSpecification {
-  /**
-   * <p>The IDs of the security groups.</p>
-   * @public
-   */
-  SecurityGroupIds?: string[] | undefined;
-
-  /**
-   * <p>Not supported.</p>
-   * @public
-   */
-  SecurityGroups?: string[] | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  AddressingType?: string | undefined;
-
-  /**
-   * <p>The block device mapping entries. You can't specify both a snapshot ID and an encryption value.
-   *            This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume,
-   *            it is not blank and its encryption status is used for the volume encryption status.</p>
-   * @public
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[] | undefined;
-
-  /**
-   * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   * @public
-   */
-  EbsOptimized?: boolean | undefined;
-
-  /**
-   * <p>The IAM instance profile.</p>
-   * @public
-   */
-  IamInstanceProfile?: IamInstanceProfileSpecification | undefined;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   * @public
-   */
-  ImageId?: string | undefined;
-
-  /**
-   * <p>The instance type. Only one instance type can be specified.</p>
-   * @public
-   */
-  InstanceType?: _InstanceType | undefined;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   * @public
-   */
-  KernelId?: string | undefined;
-
-  /**
-   * <p>The name of the key pair.</p>
-   * @public
-   */
-  KeyName?: string | undefined;
-
-  /**
-   * <p>Indicates whether basic or detailed monitoring is enabled for the instance.</p>
-   *          <p>Default: Disabled</p>
-   * @public
-   */
-  Monitoring?: RunInstancesMonitoringEnabled | undefined;
-
-  /**
-   * <p>The network interfaces. If you specify a network interface, you must specify
-   *            subnet IDs and security group IDs using the network interface.</p>
-   * @public
-   */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[] | undefined;
-
-  /**
-   * <p>The placement information for the instance.</p>
-   * @public
-   */
-  Placement?: SpotPlacement | undefined;
-
-  /**
-   * <p>The ID of the RAM disk.</p>
-   * @public
-   */
-  RamdiskId?: string | undefined;
-
-  /**
-   * <p>The ID of the subnet in which to launch the instance.</p>
-   * @public
-   */
-  SubnetId?: string | undefined;
-
-  /**
-   * <p>The base64-encoded user data that instances use when starting up. User data is limited to 16 KB.</p>
-   * @public
-   */
-  UserData?: string | undefined;
-}
-
-/**
- * <p>Contains the parameters for RequestSpotInstances.</p>
- * @public
- */
-export interface RequestSpotInstancesRequest {
-  /**
-   * <p>The launch specification.</p>
-   * @public
-   */
-  LaunchSpecification?: RequestSpotLaunchSpecification | undefined;
-
-  /**
-   * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
-   *             <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
-   *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
-   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
-   * @public
-   */
-  TagSpecifications?: TagSpecification[] | undefined;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   * @public
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean | undefined;
-
-  /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
-   *          <important>
-   *             <p>If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify this parameter.</p>
-   *          </important>
-   * @public
-   */
-  SpotPrice?: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">Ensuring idempotency in
-   *                 Amazon EC2 API requests</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * @public
-   */
-  ClientToken?: string | undefined;
-
-  /**
-   * <p>The maximum number of Spot Instances to launch.</p>
-   *          <p>Default: 1</p>
-   * @public
-   */
-  InstanceCount?: number | undefined;
-
-  /**
-   * <p>The Spot Instance request type.</p>
-   *          <p>Default: <code>one-time</code>
-   *          </p>
-   * @public
-   */
-  Type?: SpotInstanceType | undefined;
-
-  /**
-   * <p>The start date of the request. If this is a one-time request, the request becomes
-   *             active at this date and time and remains active until all instances launch, the request
-   *             expires, or the request is canceled. If the request is persistent, the request becomes
-   *             active at this date and time and remains active until it expires or is canceled.</p>
-   *          <p>The specified start date and time cannot be equal to the current date and time. You
-   *             must specify a start date and time that occurs after the current date and time.</p>
-   * @public
-   */
-  ValidFrom?: Date | undefined;
-
-  /**
-   * <p>The end date of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   *          <ul>
-   *             <li>
-   *                <p>For a persistent request, the request remains active until the
-   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
-   *                     remains active until you cancel it. </p>
-   *             </li>
-   *             <li>
-   *                <p>For a one-time request, the request remains active until all instances launch,
-   *                     the request is canceled, or the <code>ValidUntil</code> date and time is
-   *                     reached. By default, the request is valid for 7 days from the date the request
-   *                     was created.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ValidUntil?: Date | undefined;
-
-  /**
-   * <p>The instance launch group. Launch groups are Spot Instances that launch together and
-   *             terminate together.</p>
-   *          <p>Default: Instances are launched and terminated individually</p>
-   * @public
-   */
-  LaunchGroup?: string | undefined;
-
-  /**
-   * <p>The user-specified name for a logical grouping of requests.</p>
-   *          <p>When you specify an Availability Zone group in a Spot Instance request, all Spot
-   *             Instances in the request are launched in the same Availability Zone. Instance proximity
-   *             is maintained with this parameter, but the choice of Availability Zone is not. The group
-   *             applies only to requests for Spot Instances of the same instance type. Any additional
-   *             Spot Instance requests that are specified with the same Availability Zone group name are
-   *             launched in that same Availability Zone, as long as at least one instance from the group
-   *             is still active.</p>
-   *          <p>If there is no active instance running in the Availability Zone group that you specify
-   *             for a new Spot Instance request (all instances are terminated, the request is expired,
-   *             or the maximum price you specified falls below current Spot price), then Amazon EC2 launches
-   *             the instance in any Availability Zone where the constraint can be met. Consequently, the
-   *             subsequent set of Spot Instances could be placed in a different zone from the original
-   *             request, even if you specified the same Availability Zone group.</p>
-   *          <p>Default: Instances are launched in any available Availability Zone.</p>
-   * @public
-   */
-  AvailabilityZoneGroup?: string | undefined;
-
-  /**
-   * <p>Deprecated.</p>
-   * @public
-   */
-  BlockDurationMinutes?: number | undefined;
-}
-
-/**
- * <p>Contains the output of RequestSpotInstances.</p>
- * @public
- */
-export interface RequestSpotInstancesResult {
-  /**
-   * <p>The Spot Instance requests.</p>
-   * @public
-   */
-  SpotInstanceRequests?: SpotInstanceRequest[] | undefined;
 }

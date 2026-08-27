@@ -3746,6 +3746,11 @@ import {
   ReplaceImageCriteriaInAllowedImagesSettingsCommand,
 } from "./commands/ReplaceImageCriteriaInAllowedImagesSettingsCommand";
 import {
+  type ReplaceImageInstanceTypeSpecificationCommandInput,
+  type ReplaceImageInstanceTypeSpecificationCommandOutput,
+  ReplaceImageInstanceTypeSpecificationCommand,
+} from "./commands/ReplaceImageInstanceTypeSpecificationCommand";
+import {
   type ReplaceNetworkAclAssociationCommandInput,
   type ReplaceNetworkAclAssociationCommandOutput,
   ReplaceNetworkAclAssociationCommand,
@@ -5032,6 +5037,7 @@ const commands = {
   ReleaseIpamPoolAllocationCommand,
   ReplaceIamInstanceProfileAssociationCommand,
   ReplaceImageCriteriaInAllowedImagesSettingsCommand,
+  ReplaceImageInstanceTypeSpecificationCommand,
   ReplaceNetworkAclAssociationCommand,
   ReplaceNetworkAclEntryCommand,
   ReplaceRouteCommand,
@@ -18286,6 +18292,23 @@ export interface EC2 {
     args: ReplaceImageCriteriaInAllowedImagesSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ReplaceImageInstanceTypeSpecificationCommand}
+   */
+  replaceImageInstanceTypeSpecification(
+    args: ReplaceImageInstanceTypeSpecificationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReplaceImageInstanceTypeSpecificationCommandOutput>;
+  replaceImageInstanceTypeSpecification(
+    args: ReplaceImageInstanceTypeSpecificationCommandInput,
+    cb: (err: any, data?: ReplaceImageInstanceTypeSpecificationCommandOutput) => void
+  ): void;
+  replaceImageInstanceTypeSpecification(
+    args: ReplaceImageInstanceTypeSpecificationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReplaceImageInstanceTypeSpecificationCommandOutput) => void
   ): void;
 
   /**

@@ -3643,6 +3643,7 @@ const _ITIL = "ImportTaskIdList";
 const _ITILn = "InstanceTypeInfoList";
 const _ITIm = "ImportTaskIds";
 const _ITIn = "InstanceTypeInfo";
+const _ITIns = "InstanceTypeItem";
 const _ITK = "InstanceTagKeys";
 const _ITKS = "InstanceTagKeySet";
 const _ITKn = "InstanceTagKey";
@@ -3652,6 +3653,7 @@ const _ITO = "InstanceTypeOfferings";
 const _ITOL = "InstanceTypeOfferingsList";
 const _ITOn = "InstanceTypeOffering";
 const _ITS = "InstanceTypeSpecifications";
+const _ITSR = "InstanceTypeSpecificationRequest";
 const _ITSn = "InstanceTypeSpecification";
 const _ITm = "ImageType";
 const _ITn = "InterruptionType";
@@ -3712,6 +3714,7 @@ const _Ipa = "Ipams";
 const _Ipv = "Ipv4";
 const _Ipv_ = "Ipv6";
 const _Is = "Issuer";
+const _It = "Item";
 const _K = "Key";
 const _KDF = "KinesisDataFirehose";
 const _KF = "KeyFormat";
@@ -5021,6 +5024,9 @@ const _RIIPAR = "ReplaceIamInstanceProfileAssociationRequest";
 const _RIIPARe = "ReplaceIamInstanceProfileAssociationResult";
 const _RIIS = "ReservedInstanceIdSet";
 const _RIISL = "ReservedInstancesIdStringList";
+const _RIITS = "ReplaceImageInstanceTypeSpecification";
+const _RIITSR = "ReplaceImageInstanceTypeSpecificationRequest";
+const _RIITSRe = "ReplaceImageInstanceTypeSpecificationResult";
 const _RIIe = "ReservedInstanceId";
 const _RIIes = "ReservedInstancesId";
 const _RIIese = "ReservedInstancesIds";
@@ -5521,12 +5527,16 @@ const _SISGIS = "ScheduledInstancesSecurityGroupIdSet";
 const _SISL = "SnapshotIdStringList";
 const _SISLu = "SubnetIdStringList";
 const _SISp = "SpotInstanceStatus";
-const _SIT = "SpotInstanceType";
+const _SIT = "SupportedInstanceTypes";
 const _SITR = "StoreImageTaskResults";
 const _SITRS = "StoreImageTaskResultSet";
+const _SITRSu = "SupportedInstanceTypeRequestSet";
 const _SITRt = "StoreImageTaskResult";
+const _SITS = "SupportedInstanceTypeSet";
 const _SITe = "SecondaryInterfaceType";
 const _SITi = "SingleInstanceType";
+const _SITp = "SpotInstanceType";
+const _SITu = "SupportedInstanceType";
 const _SIc = "ScheduledInstance";
 const _SIe = "ServiceId";
 const _SIec = "SecondaryInterfaces";
@@ -6088,6 +6098,10 @@ const _UIR = "UnmonitorInstancesRequest";
 const _UIRn = "UnmonitorInstancesResult";
 const _UIS = "UnsuccessfulItemSet";
 const _UISL = "UserIdStringList";
+const _UIT = "UnsupportedInstanceTypes";
+const _UITRS = "UnsupportedInstanceTypeRequestSet";
+const _UITS = "UnsupportedInstanceTypeSet";
+const _UITn = "UnsupportedInstanceType";
 const _UIn = "UnsuccessfulItem";
 const _UInm = "UnmonitorInstances";
 const _UIs = "UserIds";
@@ -7321,6 +7335,7 @@ const _iTKS = "instanceTagKeySet";
 const _iTOS = "instanceTypeOfferingSet";
 const _iTS = "instanceTypeSet";
 const _iTSS = "instanceTypeSpecificationSet";
+const _iTSn = "instanceTypeSpecification";
 const _iTd = "idempotencyToken";
 const _iTm = "imageType";
 const _iTn = "interruptionType";
@@ -8121,6 +8136,7 @@ const _sISe = "secondaryInterfaceSet";
 const _sISu = "subnetIdSet";
 const _sIT = "spotInstanceType";
 const _sITRS = "storeImageTaskResultSet";
+const _sITS = "supportedInstanceTypeSet";
 const _sITe = "secondaryInterfaceType";
 const _sITi = "singleInstanceType";
 const _sIn = "snapshotId";
@@ -8419,6 +8435,7 @@ const _uICSS = "unsuccessfulInstanceCreditSpecificationSet";
 const _uIE = "userInfoEndpoint";
 const _uIPS = "unknownIpPermissionSet";
 const _uIPSn = "unassignedIpv6PrefixSet";
+const _uITS = "unsupportedInstanceTypeSet";
 const _uLI = "useLongIds";
 const _uLIA = "useLongIdsAggregated";
 const _uO = "usageOperation";
@@ -18667,7 +18684,7 @@ export var IKEVersionsRequestListValue$: StaticStructureSchema = [3, n0, _IKEVRL
 ];
 export var Image$: StaticStructureSchema = [3, n0, _Ima,
   0,
-  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
+  [_PDl, _UO, _BDMl, _De, _ESna, _Hy, _IOA, _N, _RDN, _RDT, _SNS, _SRt, _T, _VTir, _BM, _TSp, _DTe, _ISmd, _SIIo, _DPer, _LLT, _IAm, _SII, _SIRo, _FTE, _PSPN, _IW, _ITSn, _IIm, _IL, _St, _OI, _CDr, _Pu, _PCro, _Arc, _ITm, _KI, _RIa, _Pl],
   [[0, { [_eQN]: `PlatformDetails`
   , [_xN]: _pDl }], [0, { [_eQN]: `UsageOperation`
   , [_xN]: _uO }], [() => BlockDeviceMappingList, { [_eQN]: `BlockDeviceMapping`
@@ -18695,7 +18712,8 @@ export var Image$: StaticStructureSchema = [3, n0, _Ima,
   , [_xN]: _sIR }], [2, { [_eQN]: `FreeTierEligible`
   , [_xN]: _fTE }], [0, { [_eQN]: `PublicSsmParameterName`
   , [_xN]: _pSPN }], [() => ImageWatermarkList, { [_eQN]: `ImageWatermarkSet`
-  , [_xN]: _iWS }], [0, { [_eQN]: `ImageId`
+  , [_xN]: _iWS }], [() => InstanceTypeSpecification$, { [_eQN]: `InstanceTypeSpecification`
+  , [_xN]: _iTSn }], [0, { [_eQN]: `ImageId`
   , [_xN]: _iIma }], [0, { [_eQN]: `ImageLocation`
   , [_xN]: _iL }], [0, { [_eQN]: `ImageState`
   , [_xN]: _iSmag }], [0, { [_eQN]: `ImageOwnerId`
@@ -19708,6 +19726,12 @@ export var InstanceTypeInfoFromInstanceRequirements$: StaticStructureSchema = [3
   [[0, { [_eQN]: `InstanceType`
   , [_xN]: _iT }]]
 ];
+export var InstanceTypeItem$: StaticStructureSchema = [3, n0, _ITIns,
+  0,
+  [_IT],
+  [[0, { [_eQN]: `InstanceType`
+  , [_xN]: _iT }]]
+];
 export var InstanceTypeOffering$: StaticStructureSchema = [3, n0, _ITOn,
   0,
   [_IT, _LTo, _Loc],
@@ -19715,6 +19739,18 @@ export var InstanceTypeOffering$: StaticStructureSchema = [3, n0, _ITOn,
   , [_xN]: _iT }], [0, { [_eQN]: `LocationType`
   , [_xN]: _lTo }], [0, { [_eQN]: `Location`
   , [_xN]: _lo }]]
+];
+export var InstanceTypeSpecification$: StaticStructureSchema = [3, n0, _ITSn,
+  0,
+  [_SIT, _UIT],
+  [[() => SupportedInstanceTypeSet, { [_eQN]: `SupportedInstanceTypeSet`
+  , [_xN]: _sITS }], [() => UnsupportedInstanceTypeSet, { [_eQN]: `UnsupportedInstanceTypeSet`
+  , [_xN]: _uITS }]]
+];
+export var InstanceTypeSpecificationRequest$: StaticStructureSchema = [3, n0, _ITSR,
+  0,
+  [_SIT, _UIT],
+  [[() => SupportedInstanceTypeRequestSet, { [_xN]: _SITu }], [() => UnsupportedInstanceTypeRequestSet, { [_xN]: _UITn }]]
 ];
 export var InstanceUsage$: StaticStructureSchema = [3, n0, _IUn,
   0,
@@ -20765,7 +20801,7 @@ export var LaunchTemplateSpecification$: StaticStructureSchema = [3, n0, _LTS,
 ];
 export var LaunchTemplateSpotMarketOptions$: StaticStructureSchema = [3, n0, _LTSMO,
   0,
-  [_MPax, _SIT, _BDMlo, _VU, _IIB],
+  [_MPax, _SITp, _BDMlo, _VU, _IIB],
   [[0, { [_eQN]: `MaxPrice`
   , [_xN]: _mP }], [0, { [_eQN]: `SpotInstanceType`
   , [_xN]: _sIT }], [1, { [_eQN]: `BlockDurationMinutes`
@@ -20775,7 +20811,7 @@ export var LaunchTemplateSpotMarketOptions$: StaticStructureSchema = [3, n0, _LT
 ];
 export var LaunchTemplateSpotMarketOptionsRequest$: StaticStructureSchema = [3, n0, _LTSMOR,
   0,
-  [_MPax, _SIT, _BDMlo, _VU, _IIB],
+  [_MPax, _SITp, _BDMlo, _VU, _IIB],
   [0, 0, 1, 4, 0]
 ];
 export var LaunchTemplateTagSpecification$: StaticStructureSchema = [3, n0, _LTTS,
@@ -23426,6 +23462,17 @@ export var ReplaceImageCriteriaInAllowedImagesSettingsResult$: StaticStructureSc
   [[2, { [_eQN]: `Return`
   , [_xN]: _r }]]
 ];
+export var ReplaceImageInstanceTypeSpecificationRequest$: StaticStructureSchema = [3, n0, _RIITSR,
+  0,
+  [_IIm, _ITSn, _DR],
+  [0, [() => InstanceTypeSpecificationRequest$, 0], 2], 1
+];
+export var ReplaceImageInstanceTypeSpecificationResult$: StaticStructureSchema = [3, n0, _RIITSRe,
+  0,
+  [_RV],
+  [[2, { [_eQN]: `ReturnValue`
+  , [_xN]: _rV }]]
+];
 export var ReplaceNetworkAclAssociationRequest$: StaticStructureSchema = [3, n0, _RNAAR,
   0,
   [_AIs, _NAI, _DR],
@@ -24912,7 +24959,7 @@ export var SpotMaintenanceStrategies$: StaticStructureSchema = [3, n0, _SMS,
 ];
 export var SpotMarketOptions$: StaticStructureSchema = [3, n0, _SMO,
   0,
-  [_MPax, _SIT, _BDMlo, _VU, _IIB],
+  [_MPax, _SITp, _BDMlo, _VU, _IIB],
   [0, 0, 1, 4, 0]
 ];
 export var SpotOptions$: StaticStructureSchema = [3, n0, _SO,
@@ -29407,6 +29454,14 @@ var SupportedAdditionalProcessorFeatureList: StaticListSchema = [1, n0, _SAPFL,
   0, [0,
     { [_xN]: _it }]
 ];
+var SupportedInstanceTypeRequestSet: StaticListSchema = [1, n0, _SITRSu,
+  0, [0,
+    { [_xN]: _It }]
+];
+var SupportedInstanceTypeSet: StaticListSchema = [1, n0, _SITS,
+  0, [() => InstanceTypeItem$,
+    { [_xN]: _it }]
+];
 var SupportedIpAddressTypes: StaticListSchema = [1, n0, _SIAT,
   0, [0,
     { [_xN]: _it }]
@@ -29676,6 +29731,14 @@ var UnsuccessfulItemSet: StaticListSchema = [1, n0, _UIS,
 ];
 var UnsuccessfulSuppressionResponseSet: StaticListSchema = [1, n0, _USRS,
   0, [() => UnsuccessfulSuppressionResponseObject$,
+    { [_xN]: _it }]
+];
+var UnsupportedInstanceTypeRequestSet: StaticListSchema = [1, n0, _UITRS,
+  0, [0,
+    { [_xN]: _It }]
+];
+var UnsupportedInstanceTypeSet: StaticListSchema = [1, n0, _UITS,
+  0, [() => InstanceTypeItem$,
     { [_xN]: _it }]
 ];
 var UsageClassTypeList: StaticListSchema = [1, n0, _UCTL,
@@ -32207,6 +32270,9 @@ export var ReplaceIamInstanceProfileAssociation$: StaticOperationSchema = [9, n0
 ];
 export var ReplaceImageCriteriaInAllowedImagesSettings$: StaticOperationSchema = [9, n0, _RICIAIS,
   0, () => ReplaceImageCriteriaInAllowedImagesSettingsRequest$, () => ReplaceImageCriteriaInAllowedImagesSettingsResult$
+];
+export var ReplaceImageInstanceTypeSpecification$: StaticOperationSchema = [9, n0, _RIITS,
+  0, () => ReplaceImageInstanceTypeSpecificationRequest$, () => ReplaceImageInstanceTypeSpecificationResult$
 ];
 export var ReplaceNetworkAclAssociation$: StaticOperationSchema = [9, n0, _RNAA,
   0, () => ReplaceNetworkAclAssociationRequest$, () => ReplaceNetworkAclAssociationResult$

@@ -3085,7 +3085,10 @@ import {
   InstanceTypeHypervisor,
   InstanceTypeInfo$,
   InstanceTypeInfoFromInstanceRequirements$,
+  InstanceTypeItem$,
   InstanceTypeOffering$,
+  InstanceTypeSpecification$,
+  InstanceTypeSpecificationRequest$,
   InstanceUsage$,
   IntegrateServices$,
   InterfacePermissionType,
@@ -4117,6 +4120,10 @@ import {
   ReplaceImageCriteriaInAllowedImagesSettingsCommand,
   ReplaceImageCriteriaInAllowedImagesSettingsRequest$,
   ReplaceImageCriteriaInAllowedImagesSettingsResult$,
+  ReplaceImageInstanceTypeSpecification$,
+  ReplaceImageInstanceTypeSpecificationCommand,
+  ReplaceImageInstanceTypeSpecificationRequest$,
+  ReplaceImageInstanceTypeSpecificationResult$,
   ReplacementStrategy,
   ReplaceNetworkAclAssociation$,
   ReplaceNetworkAclAssociationCommand,
@@ -6342,6 +6349,8 @@ assert(typeof ReplaceIamInstanceProfileAssociationCommand === "function");
 assert(typeof ReplaceIamInstanceProfileAssociation$ === "object");
 assert(typeof ReplaceImageCriteriaInAllowedImagesSettingsCommand === "function");
 assert(typeof ReplaceImageCriteriaInAllowedImagesSettings$ === "object");
+assert(typeof ReplaceImageInstanceTypeSpecificationCommand === "function");
+assert(typeof ReplaceImageInstanceTypeSpecification$ === "object");
 assert(typeof ReplaceNetworkAclAssociationCommand === "function");
 assert(typeof ReplaceNetworkAclAssociation$ === "object");
 assert(typeof ReplaceNetworkAclEntryCommand === "function");
@@ -8070,7 +8079,10 @@ assert(typeof InstanceTagNotificationAttribute$ === "object");
 assert(typeof InstanceTopology$ === "object");
 assert(typeof InstanceTypeInfo$ === "object");
 assert(typeof InstanceTypeInfoFromInstanceRequirements$ === "object");
+assert(typeof InstanceTypeItem$ === "object");
 assert(typeof InstanceTypeOffering$ === "object");
+assert(typeof InstanceTypeSpecification$ === "object");
+assert(typeof InstanceTypeSpecificationRequest$ === "object");
 assert(typeof InstanceUsage$ === "object");
 assert(typeof IntegrateServices$ === "object");
 assert(typeof InternetGateway$ === "object");
@@ -8566,6 +8578,8 @@ assert(typeof ReplaceIamInstanceProfileAssociationRequest$ === "object");
 assert(typeof ReplaceIamInstanceProfileAssociationResult$ === "object");
 assert(typeof ReplaceImageCriteriaInAllowedImagesSettingsRequest$ === "object");
 assert(typeof ReplaceImageCriteriaInAllowedImagesSettingsResult$ === "object");
+assert(typeof ReplaceImageInstanceTypeSpecificationRequest$ === "object");
+assert(typeof ReplaceImageInstanceTypeSpecificationResult$ === "object");
 assert(typeof ReplaceNetworkAclAssociationRequest$ === "object");
 assert(typeof ReplaceNetworkAclAssociationResult$ === "object");
 assert(typeof ReplaceNetworkAclEntryRequest$ === "object");

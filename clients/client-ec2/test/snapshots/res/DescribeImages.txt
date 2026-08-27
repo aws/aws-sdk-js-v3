@@ -347,6 +347,42 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </watermarkCreationTime>
                 </item>
             </imageWatermarkSet>
+            <instanceTypeSpecification>
+                <supportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </supportedInstanceTypeSet>
+                <unsupportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </unsupportedInstanceTypeSet>
+            </instanceTypeSpecification>
             <imageId>
                 __ImageId__
             </imageId>
@@ -722,6 +758,42 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </watermarkCreationTime>
                 </item>
             </imageWatermarkSet>
+            <instanceTypeSpecification>
+                <supportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </supportedInstanceTypeSet>
+                <unsupportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </unsupportedInstanceTypeSet>
+            </instanceTypeSpecification>
             <imageId>
                 __ImageId__
             </imageId>
@@ -1097,6 +1169,42 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
                     </watermarkCreationTime>
                 </item>
             </imageWatermarkSet>
+            <instanceTypeSpecification>
+                <supportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </supportedInstanceTypeSet>
+                <unsupportedInstanceTypeSet>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                    <item>
+                        <instanceType>
+                            __InstanceType__
+                        </instanceType>
+                    </item>
+                </unsupportedInstanceTypeSet>
+            </instanceTypeSpecification>
             <imageId>
                 __ImageId__
             </imageId>
@@ -1292,6 +1400,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           WatermarkCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ],
+      InstanceTypeSpecification: {
+        SupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ],
+        UnsupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ]
+      },
       ImageId: "__ImageId__",
       ImageLocation: "__ImageLocation__",
       State: "__State__",
@@ -1445,6 +1577,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           WatermarkCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ],
+      InstanceTypeSpecification: {
+        SupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ],
+        UnsupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ]
+      },
       ImageId: "__ImageId__",
       ImageLocation: "__ImageLocation__",
       State: "__State__",
@@ -1598,6 +1754,30 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
           WatermarkCreationTime: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
         }
       ],
+      InstanceTypeSpecification: {
+        SupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ],
+        UnsupportedInstanceTypes: [
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          },
+          {
+            InstanceType: "__InstanceType__"
+          }
+        ]
+      },
       ImageId: "__ImageId__",
       ImageLocation: "__ImageLocation__",
       State: "__State__",
