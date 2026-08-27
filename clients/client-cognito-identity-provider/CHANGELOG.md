@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Adds the AdminDeleteSoftwareToken API operation, enabling administrators to remove a user's registered TOTP (software token) MFA configuration from a user pool. ([f661beb](https://github.com/aws/aws-sdk-js-v3/commit/f661bebc4db63a4cea2e02b2ec722e82e4908425))
+
+
+
+
+
 # [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

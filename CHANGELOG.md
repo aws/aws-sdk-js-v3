@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Added resultCount to QueryStatistics in GetQueryResults. This field returns the total number of output rows in the final result set, helping customers programmatically determine whether a query produced results after all operations including post-aggregation filters. ([0e4d242](https://github.com/aws/aws-sdk-js-v3/commit/0e4d242b71b24dc7305d6a3b7356e052bd969e67))
+* **client-codedeploy:** Added a deploymentMode parameter to CreateDeployment. Set it to RESTART to restart an EC2 and on-premises fleet, using the last successful revision, honoring Deployment Configuration. ([78d4f96](https://github.com/aws/aws-sdk-js-v3/commit/78d4f9640b6a9fe509f5a466cfa821052f76a614))
+* **client-cognito-identity-provider:** Adds the AdminDeleteSoftwareToken API operation, enabling administrators to remove a user's registered TOTP (software token) MFA configuration from a user pool. ([f661beb](https://github.com/aws/aws-sdk-js-v3/commit/f661bebc4db63a4cea2e02b2ec722e82e4908425))
+* **client-datazone:** Add cascadeDelete to DeleteDomain. When specified, DataZone recursively deletes all projects, environments, subscriptions, and their underlying AWS resources before removing the domain. Deletion progress is reported via deleteProgress and resource failures via failureReasons on GetDomain. ([3a74dc4](https://github.com/aws/aws-sdk-js-v3/commit/3a74dc4b94d54616c93dabef996e6680c2ef1edb))
+* **client-ec2:** EC2 allows AMI owners to define compatible instance types on their AMIs, blocking RunInstances calls automatically for launches on non-permitted instance types. ([311b3b2](https://github.com/aws/aws-sdk-js-v3/commit/311b3b26dbad32a32a94713fca4ffb65eaf2ec61))
+* **client-lambda-microvms:** Added InsufficientCapacityException to RunMicrovm for capacity-related failures. Added lifecycle status field (AVAILABLE, DEPRECATED) to ListManagedMicrovmImageVersions. Added ConflictException to CreateMicrovmAuthToken and CreateMicrovmShellAuthToken for unregistered MicroVMs. ([72a8ff8](https://github.com/aws/aws-sdk-js-v3/commit/72a8ff80923f172e73030a0b28d9946fb16d0ffa))
+* **client-rds:** Adding support for the full snapshot size, in bytes, of DB instance snapshots. ([ab2f66f](https://github.com/aws/aws-sdk-js-v3/commit/ab2f66f5f52d48690e0e914fb1cf52c290837ec5))
+
+
+
+
+
 # [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
 
 

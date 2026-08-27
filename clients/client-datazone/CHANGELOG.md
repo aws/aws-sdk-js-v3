@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+
+### Features
+
+* **client-datazone:** Add cascadeDelete to DeleteDomain. When specified, DataZone recursively deletes all projects, environments, subscriptions, and their underlying AWS resources before removing the domain. Deletion progress is reported via deleteProgress and resource failures via failureReasons on GetDomain. ([3a74dc4](https://github.com/aws/aws-sdk-js-v3/commit/3a74dc4b94d54616c93dabef996e6680c2ef1edb))
+
+
+
+
+
 # [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-datazone

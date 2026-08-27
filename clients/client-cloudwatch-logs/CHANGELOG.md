@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+
+### Features
+
+* **client-cloudwatch-logs:** Added resultCount to QueryStatistics in GetQueryResults. This field returns the total number of output rows in the final result set, helping customers programmatically determine whether a query produced results after all operations including post-aggregation filters. ([0e4d242](https://github.com/aws/aws-sdk-js-v3/commit/0e4d242b71b24dc7305d6a3b7356e052bd969e67))
+
+
+
+
+
 # [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch-logs

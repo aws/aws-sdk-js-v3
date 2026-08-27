@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
+
+
+### Features
+
+* **client-rds:** Adding support for the full snapshot size, in bytes, of DB instance snapshots. ([ab2f66f](https://github.com/aws/aws-sdk-js-v3/commit/ab2f66f5f52d48690e0e914fb1cf52c290837ec5))
+
+
+
+
+
 # [3.1119.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1118.0...v3.1119.0) (2026-08-26)
 
 **Note:** Version bump only for package @aws-sdk/client-rds
