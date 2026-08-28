@@ -1097,6 +1097,19 @@ export type ThresholdType = (typeof ThresholdType)[keyof typeof ThresholdType];
  * @public
  * @enum
  */
+export const ServiceRevisionCleanup = {
+  BLOCKING: "BLOCKING",
+  DEFERRED: "DEFERRED",
+} as const;
+/**
+ * @public
+ */
+export type ServiceRevisionCleanup = (typeof ServiceRevisionCleanup)[keyof typeof ServiceRevisionCleanup];
+
+/**
+ * @public
+ * @enum
+ */
 export const DeploymentLifecycleHookStage = {
   POST_PRODUCTION_TRAFFIC_SHIFT: "POST_PRODUCTION_TRAFFIC_SHIFT",
   POST_SCALE_UP: "POST_SCALE_UP",

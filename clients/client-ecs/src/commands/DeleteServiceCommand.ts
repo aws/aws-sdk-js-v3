@@ -125,6 +125,11 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //         canaryPercent: Number("double"),
  * //         canaryBakeTimeInMinutes: Number("int"),
  * //       },
+ * //       earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ * //         enable: true || false, // required
+ * //         healthyPercent: Number("int"),
+ * //         sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
+ * //       },
  * //     },
  * //     taskSets: [ // TaskSets
  * //       { // TaskSet

@@ -158,6 +158,7 @@ const _DEGSRes = "DescribeExpressGatewayServiceRequest";
 const _DEGSResc = "DescribeExpressGatewayServiceResponse";
 const _DEGSe = "DescribeExpressGatewayService";
 const _DES = "DeploymentEphemeralStorage";
+const _DESC = "DeploymentEarlySuccessCriteria";
 const _DL = "DevicesList";
 const _DLH = "DeploymentLifecycleHook";
 const _DLHD = "DeploymentLifecycleHookDetail";
@@ -743,6 +744,7 @@ const _eP = "entryPoint";
 const _eRA = "executionRoleArn";
 const _eS = "effectiveSettings";
 const _eSA = "executionStoppedAt";
+const _eSC = "earlySuccessCriteria";
 const _eSp = "ephemeralStorage";
 const _eVC = "efsVolumeConfiguration";
 const _en = "environment";
@@ -786,9 +788,10 @@ const _hD = "hookDetails";
 const _hE = "httpError";
 const _hI = "hookId";
 const _hL = "hardLimit";
-const _hP = "hostPath";
+const _hP = "healthyPercent";
 const _hPR = "hostPortRange";
-const _hPo = "hostPort";
+const _hPo = "hostPath";
+const _hPos = "hostPort";
 const _hS = "healthStatus";
 const _hTA = "hookTargetArn";
 const _he = "header";
@@ -1030,6 +1033,7 @@ const _sSA = "stabilityStatusAt";
 const _sSG = "serviceSecurityGroups";
 const _sSGB = "storageSizeGiB";
 const _sSR = "sourceServiceRevisions";
+const _sSRC = "sourceServiceRevisionCleanup";
 const _sSV = "stringSetValue";
 const _sSt = "stabilityStatus";
 const _sT = "startTimeout";
@@ -1813,13 +1817,18 @@ export var DeploymentCircuitBreaker$: StaticStructureSchema = [3, n0, _DCBe,
 ];
 export var DeploymentConfiguration$: StaticStructureSchema = [3, n0, _DC,
   0,
-  [_dCB, _mPa, _mHP, _al, _str, _bTIM, _lH, _lCi, _cC],
-  [() => DeploymentCircuitBreaker$, 1, 1, () => DeploymentAlarms$, 0, 1, () => DeploymentLifecycleHookList, () => LinearConfiguration$, () => CanaryConfiguration$]
+  [_dCB, _mPa, _mHP, _al, _str, _bTIM, _lH, _lCi, _cC, _eSC],
+  [() => DeploymentCircuitBreaker$, 1, 1, () => DeploymentAlarms$, 0, 1, () => DeploymentLifecycleHookList, () => LinearConfiguration$, () => CanaryConfiguration$, () => DeploymentEarlySuccessCriteria$]
 ];
 export var DeploymentController$: StaticStructureSchema = [3, n0, _DCe,
   0,
   [_t],
   [0], 1
+];
+export var DeploymentEarlySuccessCriteria$: StaticStructureSchema = [3, n0, _DESC,
+  0,
+  [_enab, _hP, _sSRC],
+  [2, 1, 0], 1
 ];
 export var DeploymentEphemeralStorage$: StaticStructureSchema = [3, n0, _DES,
   0,
@@ -2003,7 +2012,7 @@ export var DescribeTasksResponse$: StaticStructureSchema = [3, n0, _DTRe,
 ];
 export var Device$: StaticStructureSchema = [3, n0, _De,
   0,
-  [_hP, _cPo, _pe],
+  [_hPo, _cPo, _pe],
   [0, 0, 64 | 0], 1
 ];
 export var DiscoverPollEndpointRequest$: StaticStructureSchema = [3, n0, _DPER,
@@ -2498,7 +2507,7 @@ export var NetworkBandwidthGbpsRequest$: StaticStructureSchema = [3, n0, _NBGR,
 ];
 export var NetworkBinding$: StaticStructureSchema = [3, n0, _NB,
   0,
-  [_bIP, _cPon, _hPo, _pr, _cPR, _hPR],
+  [_bIP, _cPon, _hPos, _pr, _cPR, _hPR],
   [0, 1, 1, 0, 0, 0]
 ];
 export var NetworkConfiguration$: StaticStructureSchema = [3, n0, _NC,
@@ -2533,7 +2542,7 @@ export var PlatformDevice$: StaticStructureSchema = [3, n0, _PD,
 ];
 export var PortMapping$: StaticStructureSchema = [3, n0, _PM,
   0,
-  [_cPon, _hPo, _pr, _n, _aP, _cPR],
+  [_cPon, _hPos, _pr, _n, _aP, _cPR],
   [1, 1, 0, 0, 0, 0]
 ];
 export var ProtectedTask$: StaticStructureSchema = [3, n0, _PT,

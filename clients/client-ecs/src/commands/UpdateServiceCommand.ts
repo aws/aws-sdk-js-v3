@@ -88,6 +88,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  *       canaryPercent: Number("double"),
  *       canaryBakeTimeInMinutes: Number("int"),
  *     },
+ *     earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ *       enable: true || false, // required
+ *       healthyPercent: Number("int"),
+ *       sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
+ *     },
  *   },
  *   availabilityZoneRebalancing: "ENABLED" || "DISABLED",
  *   networkConfiguration: { // NetworkConfiguration
@@ -330,6 +335,11 @@ export interface UpdateServiceCommandOutput extends UpdateServiceResponse, __Met
  * //       canaryConfiguration: { // CanaryConfiguration
  * //         canaryPercent: Number("double"),
  * //         canaryBakeTimeInMinutes: Number("int"),
+ * //       },
+ * //       earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ * //         enable: true || false, // required
+ * //         healthyPercent: Number("int"),
+ * //         sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
  * //       },
  * //     },
  * //     taskSets: [ // TaskSets

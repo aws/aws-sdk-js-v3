@@ -125,6 +125,11 @@ export interface DescribeServiceDeploymentsCommandOutput extends DescribeService
  * //           canaryPercent: Number("double"),
  * //           canaryBakeTimeInMinutes: Number("int"),
  * //         },
+ * //         earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ * //           enable: true || false, // required
+ * //           healthyPercent: Number("int"),
+ * //           sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
+ * //         },
  * //       },
  * //       rollback: { // Rollback
  * //         reason: "STRING_VALUE",

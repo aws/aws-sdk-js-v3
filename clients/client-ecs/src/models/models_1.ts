@@ -24,13 +24,17 @@ import type {
   ContainerImage,
   DeploymentEphemeralStorage,
   EBSTagSpecification,
-  ECSManagedResources,
   EnvironmentFile,
   EphemeralStorage,
   Failure,
   InferenceAccelerator,
   KeyValuePair,
   LoadBalancer,
+  ManagedAutoScaling,
+  ManagedIngressPath,
+  ManagedLogGroup,
+  ManagedMetricAlarm,
+  ManagedSecurityGroup,
   MonitoringConfiguration,
   NetworkBinding,
   NetworkConfiguration,
@@ -50,6 +54,42 @@ import type {
   Volume,
   VpcLatticeConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Represents the Amazon Web Services resources managed by Amazon ECS for an Express service, including ingress paths, auto-scaling policies, metric alarms, and security groups.</p>
+ * @public
+ */
+export interface ECSManagedResources {
+  /**
+   * <p>The ingress paths and endpoints for the Express service.</p>
+   * @public
+   */
+  ingressPaths?: ManagedIngressPath[] | undefined;
+
+  /**
+   * <p>The auto-scaling configuration and policies for the Express service.</p>
+   * @public
+   */
+  autoScaling?: ManagedAutoScaling | undefined;
+
+  /**
+   * <p>The CloudWatch metric alarms associated with the Express service.</p>
+   * @public
+   */
+  metricAlarms?: ManagedMetricAlarm[] | undefined;
+
+  /**
+   * <p>The security groups managed by the Express service.</p>
+   * @public
+   */
+  serviceSecurityGroups?: ManagedSecurityGroup[] | undefined;
+
+  /**
+   * <p>The log groups managed by the Express service.</p>
+   * @public
+   */
+  logGroups?: ManagedLogGroup[] | undefined;
+}
 
 /**
  * <p>The runtime platform that Amazon ECS applies to a service revision. This value overrides the runtime platform specified in the task definition. You can't set this value.</p>

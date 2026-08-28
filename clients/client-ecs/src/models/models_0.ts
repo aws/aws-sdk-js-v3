@@ -88,6 +88,7 @@ import type {
   ServiceDeploymentRollbackMonitorsStatus,
   ServiceDeploymentStatus,
   ServiceField,
+  ServiceRevisionCleanup,
   SettingName,
   SettingType,
   SortOrder,
@@ -4864,7 +4865,7 @@ export interface PortMapping {
   hostPort?: number | undefined;
 
   /**
-   * <p>The protocol used for the port mapping. Valid values are <code>tcp</code> and <code>udp</code>. The default is <code>tcp</code>. <code>protocol</code> is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment. </p>
+   * <p>The protocol that's used for the port mapping. Valid values are <code>tcp</code> and <code>udp</code> (case-sensitive). The default is <code>tcp</code>. Amazon ECS treats any other specified value as <code>tcp</code>. <code>protocol</code> is immutable in a Service Connect service. To update this field, you must delete and redeploy the service. </p>
    * @public
    */
   protocol?: TransportProtocol | undefined;
@@ -6118,6 +6119,30 @@ export interface DeploymentCircuitBreaker {
 }
 
 /**
+ * <note> <p>You can use early success criteria only with rolling deployment strategy.</p> </note> <p>The configuration that determines when a rolling update deployment is considered successful. Early success criteria defines the percentage of tasks that must be healthy before a deployment completes. It also controls whether Amazon ECS must remove the previous tasks before a deployment completes.</p>
+ * @public
+ */
+export interface DeploymentEarlySuccessCriteria {
+  /**
+   * <p>Specifies whether to use the early success criteria for the service deployment. When set to <code>false</code>, the deployment uses the default behavior, where Amazon ECS considers the deployment successful when the target service revision fully stabilizes and the previous tasks are removed. The default value is <code>false</code>.</p> <p>When set to <code>true</code>, Amazon ECS monitors the deployment to meet early success criteria. You must also specify <code>healthyPercent</code> and <code>sourceServiceRevisionCleanup</code>.</p>
+   * @public
+   */
+  enable: boolean | undefined;
+
+  /**
+   * <p>The percentage of healthy tasks that the target service revision must reach before Amazon ECS considers the deployment successful. This percentage is relative to the service's <code>desiredCount</code> and must be an integer between <code>0</code> and <code>100</code>. This value must be greater than or equal to the <code>minimumHealthyPercent</code> value.</p> <p>After this percentage of tasks is healthy and the bake time elapses, Amazon ECS completes the deployment. Amazon ECS continues to scale the target service revision to 100 percent in the background.</p>
+   * @public
+   */
+  healthyPercent?: number | undefined;
+
+  /**
+   * <p>The time when Amazon ECS removes the source revisions' tasks relative to deployment completion. The valid values are:</p> <ul> <li> <p> <code>BLOCKING</code>—Amazon ECS removes the previous tasks before it marks the deployment as successful.</p> </li> <li> <p> <code>DEFERRED</code>—Amazon ECS marks the deployment successful, and then removes the previous tasks in the background.</p> </li> </ul>
+   * @public
+   */
+  sourceServiceRevisionCleanup?: ServiceRevisionCleanup | undefined;
+}
+
+/**
  * <p>The timeout configuration for a deployment lifecycle hook. This determines how long Amazon ECS waits for the hook to complete before taking the specified timeout action.</p>
  * @public
  */
@@ -6253,6 +6278,12 @@ export interface DeploymentConfiguration {
    * @public
    */
   canaryConfiguration?: CanaryConfiguration | undefined;
+
+  /**
+   * <p>The early success criteria configuration for a rolling deployment. With early success criteria, you can configure an Amazon ECS deployment to complete faster. Amazon ECS declares a deployment successful once a target percentage of tasks are healthy, instead of waiting for the service to fully stabilize.</p>
+   * @public
+   */
+  earlySuccessCriteria?: DeploymentEarlySuccessCriteria | undefined;
 }
 
 /**
@@ -9345,40 +9376,4 @@ export interface ManagedMetricAlarm {
    * @public
    */
   updatedAt: Date | undefined;
-}
-
-/**
- * <p>Represents the Amazon Web Services resources managed by Amazon ECS for an Express service, including ingress paths, auto-scaling policies, metric alarms, and security groups.</p>
- * @public
- */
-export interface ECSManagedResources {
-  /**
-   * <p>The ingress paths and endpoints for the Express service.</p>
-   * @public
-   */
-  ingressPaths?: ManagedIngressPath[] | undefined;
-
-  /**
-   * <p>The auto-scaling configuration and policies for the Express service.</p>
-   * @public
-   */
-  autoScaling?: ManagedAutoScaling | undefined;
-
-  /**
-   * <p>The CloudWatch metric alarms associated with the Express service.</p>
-   * @public
-   */
-  metricAlarms?: ManagedMetricAlarm[] | undefined;
-
-  /**
-   * <p>The security groups managed by the Express service.</p>
-   * @public
-   */
-  serviceSecurityGroups?: ManagedSecurityGroup[] | undefined;
-
-  /**
-   * <p>The log groups managed by the Express service.</p>
-   * @public
-   */
-  logGroups?: ManagedLogGroup[] | undefined;
 }

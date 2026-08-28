@@ -183,6 +183,7 @@ import {
   DeploymentConfiguration$,
   DeploymentController$,
   DeploymentControllerType,
+  DeploymentEarlySuccessCriteria$,
   DeploymentEphemeralStorage$,
   DeploymentLifecycleHook$,
   DeploymentLifecycleHookAction,
@@ -546,6 +547,7 @@ import {
   ServiceNotFoundException$,
   ServiceRegistry$,
   ServiceRevision$,
+  ServiceRevisionCleanup,
   ServiceRevisionLoadBalancer$,
   ServiceRevisionOverrides$,
   ServiceRevisionSummary$,
@@ -948,6 +950,7 @@ assert(typeof DeploymentAlarms$ === "object");
 assert(typeof DeploymentCircuitBreaker$ === "object");
 assert(typeof DeploymentConfiguration$ === "object");
 assert(typeof DeploymentController$ === "object");
+assert(typeof DeploymentEarlySuccessCriteria$ === "object");
 assert(typeof DeploymentEphemeralStorage$ === "object");
 assert(typeof DeploymentLifecycleHook$ === "object");
 assert(typeof DeploymentLifecycleHookDetail$ === "object");
@@ -1295,6 +1298,7 @@ assert(typeof ServiceDeploymentLifecycleStage === "object");
 assert(typeof ServiceDeploymentRollbackMonitorsStatus === "object");
 assert(typeof ServiceDeploymentStatus === "object");
 assert(typeof ServiceField === "object");
+assert(typeof ServiceRevisionCleanup === "object");
 assert(typeof SettingName === "object");
 assert(typeof SettingType === "object");
 assert(typeof SortOrder === "object");

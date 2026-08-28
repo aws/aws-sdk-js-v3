@@ -115,6 +115,11 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       canaryPercent: Number("double"),
  *       canaryBakeTimeInMinutes: Number("int"),
  *     },
+ *     earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ *       enable: true || false, // required
+ *       healthyPercent: Number("int"),
+ *       sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
+ *     },
  *   },
  *   placementConstraints: [ // PlacementConstraints
  *     { // PlacementConstraint
@@ -339,6 +344,11 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //       canaryConfiguration: { // CanaryConfiguration
  * //         canaryPercent: Number("double"),
  * //         canaryBakeTimeInMinutes: Number("int"),
+ * //       },
+ * //       earlySuccessCriteria: { // DeploymentEarlySuccessCriteria
+ * //         enable: true || false, // required
+ * //         healthyPercent: Number("int"),
+ * //         sourceServiceRevisionCleanup: "BLOCKING" || "DEFERRED",
  * //       },
  * //     },
  * //     taskSets: [ // TaskSets
