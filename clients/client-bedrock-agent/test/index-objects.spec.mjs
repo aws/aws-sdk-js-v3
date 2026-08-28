@@ -120,12 +120,15 @@ import {
   CustomSourceType,
   CustomTransformationConfiguration$,
   CyclicConnectionFlowValidationDetails$,
+  DailySchedule$,
   DataDeletionPolicy,
   DataSource$,
   DataSourceConfiguration$,
   DataSourceStatus,
   DataSourceSummary$,
   DataSourceType,
+  DayOfMonth$,
+  DayOfWeek,
   DeleteAgent$,
   DeleteAgentActionGroup$,
   DeleteAgentActionGroupCommand,
@@ -329,6 +332,7 @@ import {
   KnowledgeBaseSummary$,
   KnowledgeBaseType,
   LambdaFunctionFlowNodeConfiguration$,
+  LastDayOfMonth$,
   LexFlowNodeConfiguration$,
   ListAgentActionGroups$,
   ListAgentActionGroupsCommand,
@@ -420,6 +424,7 @@ import {
   MissingStartingNodesFlowValidationDetails$,
   MongoDbAtlasConfiguration$,
   MongoDbAtlasFieldMapping$,
+  MonthlySchedule$,
   MultipleLoopControllerNodesFlowValidationDetails$,
   MultipleLoopInputNodesFlowValidationDetails$,
   MultipleNodeInputConnectionsFlowValidationDetails$,
@@ -558,6 +563,7 @@ import {
   SupplementalDataStorageLocation$,
   SupplementalDataStorageLocationType,
   SupportedLanguages,
+  SyncSchedule$,
   SystemContentBlock$,
   TagResource$,
   TagResourceCommand,
@@ -653,6 +659,7 @@ import {
   WebDataSourceConfiguration$,
   WebScopeType,
   WebSourceConfiguration$,
+  WeeklySchedule$,
 } from "../dist-cjs/index.js";
 import assert from "node:assert";
 // clients
@@ -880,9 +887,11 @@ assert(typeof CustomOrchestration$ === "object");
 assert(typeof CustomS3Location$ === "object");
 assert(typeof CustomTransformationConfiguration$ === "object");
 assert(typeof CyclicConnectionFlowValidationDetails$ === "object");
+assert(typeof DailySchedule$ === "object");
 assert(typeof DataSource$ === "object");
 assert(typeof DataSourceConfiguration$ === "object");
 assert(typeof DataSourceSummary$ === "object");
+assert(typeof DayOfMonth$ === "object");
 assert(typeof DeleteAgentActionGroupRequest$ === "object");
 assert(typeof DeleteAgentActionGroupResponse$ === "object");
 assert(typeof DeleteAgentAliasRequest$ === "object");
@@ -1000,6 +1009,7 @@ assert(typeof KnowledgeBaseOrchestrationConfiguration$ === "object");
 assert(typeof KnowledgeBasePromptTemplate$ === "object");
 assert(typeof KnowledgeBaseSummary$ === "object");
 assert(typeof LambdaFunctionFlowNodeConfiguration$ === "object");
+assert(typeof LastDayOfMonth$ === "object");
 assert(typeof LexFlowNodeConfiguration$ === "object");
 assert(typeof ListAgentActionGroupsRequest$ === "object");
 assert(typeof ListAgentActionGroupsResponse$ === "object");
@@ -1058,6 +1068,7 @@ assert(typeof MissingNodeOutputFlowValidationDetails$ === "object");
 assert(typeof MissingStartingNodesFlowValidationDetails$ === "object");
 assert(typeof MongoDbAtlasConfiguration$ === "object");
 assert(typeof MongoDbAtlasFieldMapping$ === "object");
+assert(typeof MonthlySchedule$ === "object");
 assert(typeof MultipleLoopControllerNodesFlowValidationDetails$ === "object");
 assert(typeof MultipleLoopInputNodesFlowValidationDetails$ === "object");
 assert(typeof MultipleNodeInputConnectionsFlowValidationDetails$ === "object");
@@ -1146,6 +1157,7 @@ assert(typeof StorageFlowNodeS3Configuration$ === "object");
 assert(typeof StorageFlowNodeServiceConfiguration$ === "object");
 assert(typeof SupplementalDataStorageConfiguration$ === "object");
 assert(typeof SupplementalDataStorageLocation$ === "object");
+assert(typeof SyncSchedule$ === "object");
 assert(typeof SystemContentBlock$ === "object");
 assert(typeof TagResourceRequest$ === "object");
 assert(typeof TagResourceResponse$ === "object");
@@ -1208,6 +1220,7 @@ assert(typeof WebCrawlerConfiguration$ === "object");
 assert(typeof WebCrawlerLimits$ === "object");
 assert(typeof WebDataSourceConfiguration$ === "object");
 assert(typeof WebSourceConfiguration$ === "object");
+assert(typeof WeeklySchedule$ === "object");
 // enums
 assert(typeof AccessControlAccess === "object");
 assert(typeof AccessControlPrincipalType === "object");
@@ -1232,6 +1245,7 @@ assert(typeof CustomSourceType === "object");
 assert(typeof DataDeletionPolicy === "object");
 assert(typeof DataSourceStatus === "object");
 assert(typeof DataSourceType === "object");
+assert(typeof DayOfWeek === "object");
 assert(typeof DocumentStatus === "object");
 assert(typeof EmbeddingDataType === "object");
 assert(typeof EmbeddingModelType === "object");

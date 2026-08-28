@@ -64,6 +64,18 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //           },
  * //         },
  * //         connectorParameters: "DOCUMENT_VALUE",
+ * //         syncSchedule: { // SyncSchedule Union: only one key present
+ * //           daily: {},
+ * //           weekly: { // WeeklySchedule
+ * //             dayOfWeek: "SUNDAY" || "MONDAY" || "TUESDAY" || "WEDNESDAY" || "THURSDAY" || "FRIDAY" || "SATURDAY", // required
+ * //           },
+ * //           monthly: { // MonthlySchedule
+ * //             dayOfMonth: { // DayOfMonth Union: only one key present
+ * //               dayNumber: Number("int"),
+ * //               lastDayOfMonth: {},
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       s3Configuration: { // S3DataSourceConfiguration
  * //         bucketArn: "STRING_VALUE", // required

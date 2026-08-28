@@ -141,6 +141,7 @@ const _DKBDRe = "DeleteKnowledgeBaseDocumentsResponse";
 const _DKBR = "DeleteKnowledgeBaseRequest";
 const _DKBRe = "DeleteKnowledgeBaseResponse";
 const _DM = "DocumentMetadata";
+const _DOM = "DayOfMonth";
 const _DP = "DeletePrompt";
 const _DPC = "DeletionProtectionConfiguration";
 const _DPR = "DeletePromptRequest";
@@ -148,10 +149,11 @@ const _DPRe = "DeletePromptResponse";
 const _DRP = "DeleteResourcePolicy";
 const _DRPR = "DeleteResourcePolicyRequest";
 const _DRPRe = "DeleteResourcePolicyResponse";
-const _DS = "DataSource";
+const _DS = "DailySchedule";
 const _DSC = "DataSourceConfiguration";
 const _DSS = "DataSourceSummary";
 const _DSSa = "DataSourceSummaries";
+const _DSa = "DataSource";
 const _EMC = "EmbeddingModelConfiguration";
 const _ESC = "EnrichmentStrategyConfiguration";
 const _F = "Function";
@@ -299,6 +301,7 @@ const _LAV = "ListAgentVersions";
 const _LAVR = "ListAgentVersionsRequest";
 const _LAVRi = "ListAgentVersionsResponse";
 const _LCFNC = "LoopControllerFlowNodeConfiguration";
+const _LDOM = "LastDayOfMonth";
 const _LDS = "ListDataSources";
 const _LDSR = "ListDataSourcesRequest";
 const _LDSRi = "ListDataSourcesResponse";
@@ -357,6 +360,7 @@ const _MNIFVD = "MissingNodeInputFlowValidationDetails";
 const _MNITFVD = "MismatchedNodeInputTypeFlowValidationDetails";
 const _MNOFVD = "MissingNodeOutputFlowValidationDetails";
 const _MNOTFVD = "MismatchedNodeOutputTypeFlowValidationDetails";
+const _MS = "MonthlySchedule";
 const _MSNFVD = "MissingStartingNodesFlowValidationDetails";
 const _Me = "Messages";
 const _NAC = "NeptuneAnalyticsConfiguration";
@@ -467,6 +471,7 @@ const _SPDSC = "SharePointDataSourceConfiguration";
 const _SPSC = "SharePointSourceConfiguration";
 const _SPr = "S3Prefixes";
 const _SQEE = "ServiceQuotaExceededException";
+const _SS = "SyncSchedule";
 const _SSC = "SalesforceSourceConfiguration";
 const _SSCe = "SessionSummaryConfiguration";
 const _SSEC = "ServerSideEncryptionConfiguration";
@@ -558,6 +563,7 @@ const _VSRC = "VectorSearchRerankingConfiguration";
 const _WCC = "WebCrawlerConfiguration";
 const _WCL = "WebCrawlerLimits";
 const _WDSC = "WebDataSourceConfiguration";
+const _WS = "WeeklySchedule";
 const _WSC = "WebSourceConfiguration";
 const _a = "application/json";
 const _aA = "agentArn";
@@ -671,6 +677,9 @@ const _dDP = "dataDeletionPolicy";
 const _dE = "domainEndpoint";
 const _dI = "documentIdentifiers";
 const _dN = "databaseName";
+const _dNa = "dayNumber";
+const _dOM = "dayOfMonth";
+const _dOW = "dayOfWeek";
 const _dPC = "deletionProtectionConfiguration";
 const _dPS = "deletionProtectionStatus";
 const _dPT = "deletionProtectionThreshold";
@@ -682,6 +691,7 @@ const _dST = "dataSourceType";
 const _dU = "databaseUser";
 const _dV = "defaultVariant";
 const _da = "data";
+const _dai = "daily";
 const _de = "definition";
 const _det = "details";
 const _di = "dimensions";
@@ -782,6 +792,7 @@ const _lA = "lambdaArn";
 const _lAV = "latestAgentVersion";
 const _lC = "levelConfigurations";
 const _lCo = "loopController";
+const _lDOM = "lastDayOfMonth";
 const _lF = "lambdaFunction";
 const _lI = "localeId";
 const _lINT = "loopIncompatibleNodeType";
@@ -831,6 +842,7 @@ const _mTi = "mimeType";
 const _me = "messages";
 const _met = "method";
 const _meta = "metadata";
+const _mo = "monthly";
 const _n = "name";
 const _nAC = "neptuneAnalyticsConfiguration";
 const _nL = "naturalLanguage";
@@ -939,6 +951,7 @@ const _sRIUC = "skipResourceInUseCheck";
 const _sS = "stopSequences";
 const _sSC = "sessionSummaryConfiguration";
 const _sSEC = "serverSideEncryptionConfiguration";
+const _sSy = "syncSchedule";
 const _sT = "sourceType";
 const _sTA = "stepToApply";
 const _sU = "siteUrls";
@@ -1014,6 +1027,7 @@ const _val = "validations";
 const _valu = "values";
 const _value = "value";
 const _vi = "video";
+const _w = "weekly";
 const _wA = "workgroupArn";
 const _wC = "webConfiguration";
 const n0 = "com.amazonaws.bedrockagent";
@@ -1459,7 +1473,12 @@ export var CyclicConnectionFlowValidationDetails$: StaticStructureSchema = [3, n
   [_con],
   [0], 1
 ];
-export var DataSource$: StaticStructureSchema = [3, n0, _DS,
+export var DailySchedule$: StaticStructureSchema = [3, n0, _DS,
+  0,
+  [],
+  []
+];
+export var DataSource$: StaticStructureSchema = [3, n0, _DSa,
   0,
   [_kBI, _dSI, _n, _st, _dSC, _cA, _uA, _d, _sSEC, _vIC, _dDP, _fR],
   [0, 0, 0, 0, [() => DataSourceConfiguration$, 0], 5, 5, 0, () => ServerSideEncryptionConfiguration$, () => VectorIngestionConfiguration$, 0, 64 | 0], 7
@@ -2039,6 +2058,11 @@ export var LambdaFunctionFlowNodeConfiguration$: StaticStructureSchema = [3, n0,
   [_lA],
   [0], 1
 ];
+export var LastDayOfMonth$: StaticStructureSchema = [3, n0, _LDOM,
+  0,
+  [],
+  []
+];
 export var LexFlowNodeConfiguration$: StaticStructureSchema = [3, n0, _LFNC,
   0,
   [_bAA, _lI],
@@ -2231,8 +2255,8 @@ export var ManagedKnowledgeBaseConfiguration$: StaticStructureSchema = [3, n0, _
 ];
 export var ManagedKnowledgeBaseConnectorConfiguration$: StaticStructureSchema = [3, n0, _MKBCC,
   0,
-  [_dPC, _mEC, _cP],
-  [() => DeletionProtectionConfiguration$, () => MediaExtractionConfiguration$, 15]
+  [_dPC, _mEC, _cP, _sSy],
+  [() => DeletionProtectionConfiguration$, () => MediaExtractionConfiguration$, 15, () => SyncSchedule$]
 ];
 export var MediaExtractionConfiguration$: StaticStructureSchema = [3, n0, _MEC,
   0,
@@ -2328,6 +2352,11 @@ export var MongoDbAtlasFieldMapping$: StaticStructureSchema = [3, n0, _MDAFM,
   0,
   [_vF, _tF, _mF],
   [0, 0, 0], 3
+];
+export var MonthlySchedule$: StaticStructureSchema = [3, n0, _MS,
+  0,
+  [_dOM],
+  [() => DayOfMonth$], 1
 ];
 export var MultipleLoopControllerNodesFlowValidationDetails$: StaticStructureSchema = [3, n0, _MLCNFVDu,
   0,
@@ -3019,6 +3048,11 @@ export var WebSourceConfiguration$: StaticStructureSchema = [3, n0, _WSC,
   [_uC],
   [() => UrlConfiguration$], 1
 ];
+export var WeeklySchedule$: StaticStructureSchema = [3, n0, _WS,
+  0,
+  [_dOW],
+  [0], 1
+];
 var ActionGroupSummaries: StaticListSchema = [1, n0, _AGSc,
   0, () => ActionGroupSummary$
 ];
@@ -3225,6 +3259,11 @@ export var ContentBlock$: StaticUnionSchema = [4, n0, _CBo,
   [_tex, _cPa],
   [0, () => CachePointBlock$]
 ];
+export var DayOfMonth$: StaticUnionSchema = [4, n0, _DOM,
+  0,
+  [_dNa, _lDOM],
+  [1, () => LastDayOfMonth$]
+];
 export var FlowConnectionConfiguration$: StaticUnionSchema = [4, n0, _FCC,
   0,
   [_da, _condi],
@@ -3284,6 +3323,11 @@ export var StorageFlowNodeServiceConfiguration$: StaticUnionSchema = [4, n0, _SF
   0,
   [_s_],
   [() => StorageFlowNodeS3Configuration$]
+];
+export var SyncSchedule$: StaticUnionSchema = [4, n0, _SS,
+  0,
+  [_dai, _w, _mo],
+  [() => DailySchedule$, () => WeeklySchedule$, () => MonthlySchedule$]
 ];
 export var SystemContentBlock$: StaticUnionSchema = [4, n0, _SCBy,
   8,

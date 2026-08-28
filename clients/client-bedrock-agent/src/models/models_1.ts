@@ -4,6 +4,8 @@ import type { DocumentType as __DocumentType } from "@smithy/types";
 
 import type {
   AgentStatus,
+  EmbeddingDataType,
+  EmbeddingModelType,
   FlowNodeType,
   FlowStatus,
   IncludedData,
@@ -14,6 +16,7 @@ import type {
   KnowledgeBaseType,
   PromptTemplateType,
   QueryEngineType,
+  RedshiftProvisionedAuthType,
   RedshiftQueryEngineStorageType,
   RedshiftQueryEngineType,
   RedshiftServerlessAuthType,
@@ -25,9 +28,9 @@ import type {
   AgentKnowledgeBaseSummary,
   AgentVersion,
   AgentVersionSummary,
+  AudioConfiguration,
   CollectorFlowNodeConfiguration,
   ConditionFlowNodeConfiguration,
-  EmbeddingModelConfiguration,
   FlowConnection,
   FlowNodeInput,
   FlowNodeOutput,
@@ -41,16 +44,135 @@ import type {
   LexFlowNodeConfiguration,
   LoopControllerFlowNodeConfiguration,
   LoopInputFlowNodeConfiguration,
-  ManagedKnowledgeBaseConfiguration,
   OutputFlowNodeConfiguration,
   PromptFlowNodeConfiguration,
   PromptInferenceConfiguration,
   PromptTemplateConfiguration,
-  RedshiftProvisionedAuthConfiguration,
   RetrievalFlowNodeConfiguration,
   S3Location,
+  ServerSideEncryptionConfiguration,
   StorageFlowNodeConfiguration,
 } from "./models_0";
+
+/**
+ * <p>Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.</p>
+ * @public
+ */
+export interface VideoSegmentationConfiguration {
+  /**
+   * <p>The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.</p>
+   * @public
+   */
+  fixedLengthDuration: number | undefined;
+}
+
+/**
+ * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+ * @public
+ */
+export interface VideoConfiguration {
+  /**
+   * <p>Configuration for segmenting video content during processing.</p>
+   * @public
+   */
+  segmentationConfiguration: VideoSegmentationConfiguration | undefined;
+}
+
+/**
+ * <p>The vector configuration details for the Bedrock embeddings model.</p>
+ * @public
+ */
+export interface BedrockEmbeddingModelConfiguration {
+  /**
+   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
+   * @public
+   */
+  dimensions?: number | undefined;
+
+  /**
+   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
+   * @public
+   */
+  embeddingDataType?: EmbeddingDataType | undefined;
+
+  /**
+   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
+   * @public
+   */
+  audio?: AudioConfiguration[] | undefined;
+
+  /**
+   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
+   * @public
+   */
+  video?: VideoConfiguration[] | undefined;
+}
+
+/**
+ * <p>The configuration details for the embeddings model.</p>
+ * @public
+ */
+export interface EmbeddingModelConfiguration {
+  /**
+   * <p>The vector configuration details on the Bedrock embeddings model.</p>
+   * @public
+   */
+  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
+}
+
+/**
+ * <p>Configurations for a managed knowledge base.</p>
+ * @public
+ */
+export interface ManagedKnowledgeBaseConfiguration {
+  /**
+   * <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
+   * @public
+   */
+  embeddingModelType?: EmbeddingModelType | undefined;
+
+  /**
+   * <p>The ARN for the embeddings model.</p>
+   * @public
+   */
+  embeddingModelArn?: string | undefined;
+
+  /**
+   * <p>The configuration details for the embeddings model.</p>
+   * @public
+   */
+  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
+
+  /**
+   * <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
+   * @public
+   */
+  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
+}
+
+/**
+ * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
+ * @public
+ */
+export interface RedshiftProvisionedAuthConfiguration {
+  /**
+   * <p>The type of authentication to use.</p>
+   * @public
+   */
+  type: RedshiftProvisionedAuthType | undefined;
+
+  /**
+   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
+   * @public
+   */
+  databaseUser?: string | undefined;
+
+  /**
+   * <p>The ARN of an Secrets Manager secret for authentication.</p>
+   * @public
+   */
+  usernamePasswordSecretArn?: string | undefined;
+}
 
 /**
  * <p>Contains configurations for a provisioned Amazon Redshift query engine.</p>

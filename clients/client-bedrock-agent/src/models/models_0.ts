@@ -26,9 +26,8 @@ import type {
   DataDeletionPolicy,
   DataSourceStatus,
   DataSourceType,
+  DayOfWeek,
   DocumentStatus,
-  EmbeddingDataType,
-  EmbeddingModelType,
   EnabledOrDisabledState,
   EnrichmentStrategyMethod,
   FlowConnectionType,
@@ -55,7 +54,6 @@ import type {
   PromptState,
   PromptTemplateType,
   PromptType,
-  RedshiftProvisionedAuthType,
   RelayConversationHistory,
   RequireConfirmation,
   RerankingMetadataSelectionMode,
@@ -2655,6 +2653,164 @@ export interface MediaExtractionConfiguration {
 }
 
 /**
+ * <p>A daily sync. The run time is system-chosen (off-peak) and not configurable.</p>
+ * @public
+ */
+export interface DailySchedule {}
+
+/**
+ * <p>The option to run the monthly sync on the last calendar day of each month.</p>
+ * @public
+ */
+export interface LastDayOfMonth {}
+
+/**
+ * <p>The day of the month on which a monthly sync runs. Specify exactly one of <code>dayNumber</code> or <code>lastDayOfMonth</code>.</p>
+ * @public
+ */
+export type DayOfMonth =
+  | DayOfMonth.DayNumberMember
+  | DayOfMonth.LastDayOfMonthMember
+  | DayOfMonth.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DayOfMonth {
+  /**
+   * <p>A specific day of the month, from 1 to 28. Values are capped at 28, so a monthly sync runs in every month, including February.</p>
+   * @public
+   */
+  export interface DayNumberMember {
+    dayNumber: number;
+    lastDayOfMonth?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Set this option to run the monthly sync on the last calendar day of each month.</p>
+   * @public
+   */
+  export interface LastDayOfMonthMember {
+    dayNumber?: never;
+    lastDayOfMonth: LastDayOfMonth;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    dayNumber?: never;
+    lastDayOfMonth?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    dayNumber: (value: number) => T;
+    lastDayOfMonth: (value: LastDayOfMonth) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>A monthly sync on a specified day of the month.</p>
+ * @public
+ */
+export interface MonthlySchedule {
+  /**
+   * <p>The day of the month on which the monthly sync runs.</p>
+   * @public
+   */
+  dayOfMonth: DayOfMonth | undefined;
+}
+
+/**
+ * <p>A weekly sync on a specified day of the week.</p>
+ * @public
+ */
+export interface WeeklySchedule {
+  /**
+   * <p>The day of the week on which the weekly sync runs.</p>
+   * @public
+   */
+  dayOfWeek: DayOfWeek | undefined;
+}
+
+/**
+ * <p>The recurring schedule on which a managed knowledge base connector automatically syncs its data source. Specify exactly one of <code>daily</code>, <code>weekly</code>, or <code>monthly</code>.</p>
+ * @public
+ */
+export type SyncSchedule =
+  | SyncSchedule.DailyMember
+  | SyncSchedule.MonthlyMember
+  | SyncSchedule.WeeklyMember
+  | SyncSchedule.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SyncSchedule {
+  /**
+   * <p>A daily sync that runs once a day at a system-chosen off-peak time. The run time is not configurable.</p>
+   * @public
+   */
+  export interface DailyMember {
+    daily: DailySchedule;
+    weekly?: never;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A weekly sync that runs once a week on the specified day of the week.</p>
+   * @public
+   */
+  export interface WeeklyMember {
+    daily?: never;
+    weekly: WeeklySchedule;
+    monthly?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>A monthly sync that runs once a month on the specified day of the month.</p>
+   * @public
+   */
+  export interface MonthlyMember {
+    daily?: never;
+    weekly?: never;
+    monthly: MonthlySchedule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    daily?: never;
+    weekly?: never;
+    monthly?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    daily: (value: DailySchedule) => T;
+    weekly: (value: WeeklySchedule) => T;
+    monthly: (value: MonthlySchedule) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
  * <p>Configuration for managed knowledge base connector data sources.</p>
  * @public
  */
@@ -2676,6 +2832,12 @@ export interface ManagedKnowledgeBaseConnectorConfiguration {
    * @public
    */
   connectorParameters?: __DocumentType | undefined;
+
+  /**
+   * <p>The recurring schedule on which the connector automatically syncs this data source. If not specified, the data source is not synced automatically and you start each sync yourself. Not supported for the Custom connector.</p>
+   * @public
+   */
+  syncSchedule?: SyncSchedule | undefined;
 }
 
 /**
@@ -8842,124 +9004,4 @@ export interface AudioConfiguration {
    * @public
    */
   segmentationConfiguration: AudioSegmentationConfiguration | undefined;
-}
-
-/**
- * <p>Configuration for segmenting video content during multimodal knowledge base ingestion. Determines how video files are divided into chunks for processing.</p>
- * @public
- */
-export interface VideoSegmentationConfiguration {
-  /**
-   * <p>The duration in seconds for each video segment. Video files will be divided into chunks of this length for processing.</p>
-   * @public
-   */
-  fixedLengthDuration: number | undefined;
-}
-
-/**
- * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
- * @public
- */
-export interface VideoConfiguration {
-  /**
-   * <p>Configuration for segmenting video content during processing.</p>
-   * @public
-   */
-  segmentationConfiguration: VideoSegmentationConfiguration | undefined;
-}
-
-/**
- * <p>The vector configuration details for the Bedrock embeddings model.</p>
- * @public
- */
-export interface BedrockEmbeddingModelConfiguration {
-  /**
-   * <p>The dimensions details for the vector configuration used on the Bedrock embeddings model.</p>
-   * @public
-   */
-  dimensions?: number | undefined;
-
-  /**
-   * <p>The data type for the vectors when using a model to convert text into vector embeddings. The model must support the specified data type for vector embeddings. Floating-point (float32) is the default data type, and is supported by most models for vector embeddings. See <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-supported.html">Supported embeddings models</a> for information on the available models and their vector data types.</p>
-   * @public
-   */
-  embeddingDataType?: EmbeddingDataType | undefined;
-
-  /**
-   * <p>Configuration settings for processing audio content in multimodal knowledge bases.</p>
-   * @public
-   */
-  audio?: AudioConfiguration[] | undefined;
-
-  /**
-   * <p>Configuration settings for processing video content in multimodal knowledge bases.</p>
-   * @public
-   */
-  video?: VideoConfiguration[] | undefined;
-}
-
-/**
- * <p>The configuration details for the embeddings model.</p>
- * @public
- */
-export interface EmbeddingModelConfiguration {
-  /**
-   * <p>The vector configuration details on the Bedrock embeddings model.</p>
-   * @public
-   */
-  bedrockEmbeddingModelConfiguration?: BedrockEmbeddingModelConfiguration | undefined;
-}
-
-/**
- * <p>Configurations for a managed knowledge base.</p>
- * @public
- */
-export interface ManagedKnowledgeBaseConfiguration {
-  /**
-   * <p>Choose <code>CUSTOM</code> to provide your own Bedrock embedding model ARN. Choose <code>MANAGED</code> to use a service-managed embedding model. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-create.html#kb-managed-embedding-models">Embedding model options</a>.</p>
-   * @public
-   */
-  embeddingModelType?: EmbeddingModelType | undefined;
-
-  /**
-   * <p>The ARN for the embeddings model.</p>
-   * @public
-   */
-  embeddingModelArn?: string | undefined;
-
-  /**
-   * <p>The configuration details for the embeddings model.</p>
-   * @public
-   */
-  embeddingModelConfiguration?: EmbeddingModelConfiguration | undefined;
-
-  /**
-   * <p>Contains the configuration for server-side encryption for your managed knowledge base.</p>
-   * @public
-   */
-  serverSideEncryptionConfiguration?: ServerSideEncryptionConfiguration | undefined;
-}
-
-/**
- * <p>Contains configurations for authentication to an Amazon Redshift provisioned data warehouse. Specify the type of authentication to use in the <code>type</code> field and include the corresponding field. If you specify IAM authentication, you don't need to include another field.</p>
- * @public
- */
-export interface RedshiftProvisionedAuthConfiguration {
-  /**
-   * <p>The type of authentication to use.</p>
-   * @public
-   */
-  type: RedshiftProvisionedAuthType | undefined;
-
-  /**
-   * <p>The database username for authentication to an Amazon Redshift provisioned data warehouse.</p>
-   * @public
-   */
-  databaseUser?: string | undefined;
-
-  /**
-   * <p>The ARN of an Secrets Manager secret for authentication.</p>
-   * @public
-   */
-  usernamePasswordSecretArn?: string | undefined;
 }
