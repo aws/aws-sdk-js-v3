@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+
+### Features
+
+* **client-bedrock-agent:** Adds an optional syncSchedule field to CreateDataSource and UpdateDataSource for Managed Knowledge Bases data source connectors, so a data source can sync automatically on a daily, weekly, or monthly schedule. ([a8d3714](https://github.com/aws/aws-sdk-js-v3/commit/a8d3714a751f972452553ba631a98176e6ea584c))
+* **client-bedrock-agentcore:** AgentCore Memory now supports direct ingestion into long-term memory via IngestData API ([20d652d](https://github.com/aws/aws-sdk-js-v3/commit/20d652de566b291145576f6e4c24a7c8da4ea2be))
+* **client-cognito-identity-provider:** Adds two new operations - GetClientToken which allows M2M auth through the SDK, and DescribeTermsByClient to find which Terms are associated with a user-pool client without knowing the Terms resource id. ([86dffd2](https://github.com/aws/aws-sdk-js-v3/commit/86dffd282f1ac269d1268f9a75f1550df61c5cc6))
+* **client-ecs:** Amazon Elastic Container Service - This release adds support for early success criteria on ECS rolling deployments, letting deployment complete once a configurable percentage of tasks are healthy, with configurable BLOCKING (required) or DEFERRED (asynchronous) cleanup of previous service revisions. ([ef22d75](https://github.com/aws/aws-sdk-js-v3/commit/ef22d750f27bd01ff6b88b8e1cc0f34efea8d171))
+* **client-healthlake:** New HealthLake API, RestoreFHIRDatastore, providing the capability to restore active datastores to a point in time within the last 30 days or recover a deleted datastore from the delete snapshot. ([6249174](https://github.com/aws/aws-sdk-js-v3/commit/6249174262656b83d0bba16cf59ba892b849a707))
+* **client-partnercentral-selling:** Releasing PARC, new APN Program that lets sellers add solftware revenue details to aws opportunity summary ([2b6350f](https://github.com/aws/aws-sdk-js-v3/commit/2b6350f01269baa5e6d079a93ff9f6b0804d982f))
+
+
+
+
+
 # [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
 
 

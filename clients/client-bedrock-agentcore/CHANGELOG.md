@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+
+### Features
+
+* **client-bedrock-agentcore:** AgentCore Memory now supports direct ingestion into long-term memory via IngestData API ([20d652d](https://github.com/aws/aws-sdk-js-v3/commit/20d652de566b291145576f6e4c24a7c8da4ea2be))
+
+
+
+
+
 # [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agentcore

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+
+### Features
+
+* **client-bedrock-agent:** Adds an optional syncSchedule field to CreateDataSource and UpdateDataSource for Managed Knowledge Bases data source connectors, so a data source can sync automatically on a daily, weekly, or monthly schedule. ([a8d3714](https://github.com/aws/aws-sdk-js-v3/commit/a8d3714a751f972452553ba631a98176e6ea584c))
+
+
+
+
+
 # [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent

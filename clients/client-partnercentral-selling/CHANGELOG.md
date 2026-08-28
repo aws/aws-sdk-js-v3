@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+
+### Features
+
+* **client-partnercentral-selling:** Releasing PARC, new APN Program that lets sellers add solftware revenue details to aws opportunity summary ([2b6350f](https://github.com/aws/aws-sdk-js-v3/commit/2b6350f01269baa5e6d079a93ff9f6b0804d982f))
+
+
+
+
+
 # [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
 
 **Note:** Version bump only for package @aws-sdk/client-partnercentral-selling

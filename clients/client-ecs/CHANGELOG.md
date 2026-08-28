@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1121.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1120.0...v3.1121.0) (2026-08-28)
+
+
+### Features
+
+* **client-ecs:** Amazon Elastic Container Service - This release adds support for early success criteria on ECS rolling deployments, letting deployment complete once a configurable percentage of tasks are healthy, with configurable BLOCKING (required) or DEFERRED (asynchronous) cleanup of previous service revisions. ([ef22d75](https://github.com/aws/aws-sdk-js-v3/commit/ef22d750f27bd01ff6b88b8e1cc0f34efea8d171))
+
+
+
+
+
 # [3.1120.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.1119.0...v3.1120.0) (2026-08-27)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs
