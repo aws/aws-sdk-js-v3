@@ -20,12 +20,14 @@ import type {
   AccountRecoverySettingType,
   AdminCreateUserConfigType,
   AnalyticsConfigurationType,
+  AnalyticsMetadataType,
   AssetType,
   AttributeType,
   CodeDeliveryDetailsType,
   CustomDomainConfigType,
   DeviceConfigurationType,
   EmailConfigurationType,
+  EmailMfaConfigType,
   GroupType,
   IdentityProviderType,
   IssuerConfigurationType,
@@ -34,21 +36,249 @@ import type {
   LimitDefinitionType,
   LimitType,
   ManagedLoginBrandingType,
+  MFAOptionType,
   RefreshTokenRotationType,
   ResourceServerScopeType,
   ResourceServerType,
   RoutingType,
   SmsConfigurationType,
+  SmsMfaConfigType,
+  SoftwareTokenMfaConfigType,
   TermsType,
   TokenValidityUnitsType,
   UserAttributeUpdateSettingsType,
+  UserContextDataType,
   UserImportJobType,
   UserPoolAddOnsType,
   UserPoolClientType,
   UserPoolPolicyType,
   UserPoolReplicaType,
   VerificationMessageTemplateType,
+  WebAuthnConfigurationType,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface SetUserPoolMfaConfigResponse {
+  /**
+   * <p>Shows user pool SMS message configuration for MFA and sign-in with SMS-message OTPs.
+   *             Includes the message template and the SMS message sending configuration for
+   *             Amazon SNS.</p>
+   * @public
+   */
+  SmsMfaConfiguration?: SmsMfaConfigType | undefined;
+
+  /**
+   * <p>Shows user pool configuration for time-based one-time password (TOTP) MFA. Includes
+   *             TOTP enabled or disabled state.</p>
+   * @public
+   */
+  SoftwareTokenMfaConfiguration?: SoftwareTokenMfaConfigType | undefined;
+
+  /**
+   * <p>Shows configuration for user pool email message MFA and sign-in with one-time
+   *             passwords (OTPs). Includes the subject and body of the email message template for
+   *             sign-in and MFA messages. To activate this setting, your user pool must be in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html">
+   *                      Essentials tier</a> or higher.</p>
+   * @public
+   */
+  EmailMfaConfiguration?: EmailMfaConfigType | undefined;
+
+  /**
+   * <p>Displays multi-factor authentication (MFA) as on, off, or optional. When
+   *                 <code>ON</code>, all users must set up MFA before they can sign in. When
+   *                 <code>OPTIONAL</code>, your application must make a client-side determination of
+   *             whether a user wants to register an MFA device. For user pools with adaptive
+   *             authentication with threat protection, choose <code>OPTIONAL</code>.</p>
+   *          <p>When <code>MfaConfiguration</code> is <code>OPTIONAL</code>, managed login
+   *             doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in
+   *             API responses and in managed login for users who have chosen and configured a preferred
+   *             MFA factor.</p>
+   * @public
+   */
+  MfaConfiguration?: UserPoolMfaType | undefined;
+
+  /**
+   * <p>The configuration of your user pool for passkey, or WebAuthn, sign-in with
+   *             authenticators such as biometric and security-key devices. Includes relying-party
+   *             configuration and settings for user-verification requirements.</p>
+   * @public
+   */
+  WebAuthnConfiguration?: WebAuthnConfigurationType | undefined;
+}
+
+/**
+ * <p>Represents the request to set user settings.</p>
+ * @public
+ */
+export interface SetUserSettingsRequest {
+  /**
+   * <p>A valid access token that Amazon Cognito issued to the currently signed-in user. Must include a scope claim for
+   * <code>aws.cognito.signin.user.admin</code>.</p>
+   * @public
+   */
+  AccessToken: string | undefined;
+
+  /**
+   * <p>You can use this parameter only to set an SMS configuration that uses SMS for
+   *             delivery.</p>
+   * @public
+   */
+  MFAOptions: MFAOptionType[] | undefined;
+}
+
+/**
+ * <p>The response from the server for a set user settings request.</p>
+ * @public
+ */
+export interface SetUserSettingsResponse {}
+
+/**
+ * <p>Represents the request to register a user.</p>
+ * @public
+ */
+export interface SignUpRequest {
+  /**
+   * <p>The ID of the app client where the user wants to sign up.</p>
+   * @public
+   */
+  ClientId: string | undefined;
+
+  /**
+   * <p>A keyed-hash message authentication code (HMAC) calculated using the secret key of a
+   *             user pool client and username plus the client ID in the message. For more information
+   *             about <code>SecretHash</code>, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#cognito-user-pools-computing-secret-hash">Computing secret hash values</a>.</p>
+   * @public
+   */
+  SecretHash?: string | undefined;
+
+  /**
+   * <p>The username of the user that you want to sign up. The value of this parameter is
+   *             typically a username, but can be any alias attribute in your user pool.</p>
+   * @public
+   */
+  Username: string | undefined;
+
+  /**
+   * <p>The user's proposed password. The password must comply with the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/managing-users-passwords.html">password requirements</a> of your user pool.</p>
+   *          <p>Users can sign up without a password when your user pool supports passwordless sign-in
+   *             with email or SMS OTPs. To create a user with no password, omit this parameter or submit
+   *             a blank value. You can only create a passwordless user when passwordless sign-in is
+   *             available.</p>
+   * @public
+   */
+  Password?: string | undefined;
+
+  /**
+   * <p>An array of name-value pairs representing user attributes.</p>
+   *          <p>For custom attributes, include a <code>custom:</code> prefix in the attribute name,
+   *             for example <code>custom:department</code>.</p>
+   * @public
+   */
+  UserAttributes?: AttributeType[] | undefined;
+
+  /**
+   * <p>Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda
+   *     trigger. This set of key-value pairs are for custom validation of information that you
+   *     collect from your users but don't need to retain.</p>
+   *          <p>Your Lambda function can analyze this additional data and act on it. Your function
+   *     can automatically confirm and verify select users or perform external API operations
+   *     like logging user attributes and validation data to Amazon CloudWatch Logs.</p>
+   *          <p>For more information about the pre sign-up Lambda trigger, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">Pre sign-up Lambda trigger</a>.</p>
+   * @public
+   */
+  ValidationData?: AttributeType[] | undefined;
+
+  /**
+   * <p>Information that supports analytics outcomes with Amazon Pinpoint, including the
+   * user's endpoint ID. The endpoint ID is a destination for Amazon Pinpoint push notifications, for example a device identifier,
+   * email address, or phone number.</p>
+   * @public
+   */
+  AnalyticsMetadata?: AnalyticsMetadataType | undefined;
+
+  /**
+   * <p>Contextual data about your user session like the device fingerprint, IP address, or location. Amazon Cognito threat
+   * protection evaluates the risk of an authentication event based on the context that your app generates and passes to Amazon Cognito
+   * when it makes API requests.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-viewing-threat-protection-app.html">Collecting data for threat protection in
+   * applications</a>.</p>
+   * @public
+   */
+  UserContextData?: UserContextDataType | undefined;
+
+  /**
+   * <p>A map of custom key-value pairs that you can provide as input for any custom workflows
+   *             that this action triggers. You create custom workflows by assigning Lambda functions
+   *             to user pool triggers.</p>
+   *          <p>When Amazon Cognito invokes any of these functions, it passes a JSON payload, which the
+   *             function receives as input. This payload contains a <code>clientMetadata</code>
+   *             attribute that provides the data that you assigned to the ClientMetadata parameter in
+   *             your request. In your function code, you can process the <code>clientMetadata</code>
+   *             value to enhance your workflow for your specific needs.</p>
+   *          <p>To review the Lambda trigger types that Amazon Cognito invokes at runtime with API requests, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-working-with-lambda-triggers.html#lambda-triggers-by-event">
+   * Connecting API actions to Lambda triggers</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+   *          <note>
+   *             <p>When you use the <code>ClientMetadata</code> parameter, note that Amazon Cognito won't do the
+   *                 following:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Store the <code>ClientMetadata</code> value. This data is available only
+   *                         to Lambda triggers that are assigned to a user pool to support custom
+   *                         workflows. If your user pool configuration doesn't include triggers, the
+   *                         <code>ClientMetadata</code> parameter serves no purpose.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Validate the <code>ClientMetadata</code> value.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Encrypt the <code>ClientMetadata</code> value. Don't send sensitive
+   *                         information in this parameter.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   * @public
+   */
+  ClientMetadata?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>The response from the server for a registration request.</p>
+ * @public
+ */
+export interface SignUpResponse {
+  /**
+   * <p>Indicates whether the user was automatically confirmed. You can auto-confirm users
+   *             with a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-pre-sign-up.html">pre sign-up Lambda trigger</a>.</p>
+   * @public
+   */
+  UserConfirmed: boolean | undefined;
+
+  /**
+   * <p>In user pools that automatically verify and confirm new users, Amazon Cognito sends users a
+   *             message with a code or link that confirms ownership of the phone number or email address
+   *             that they entered. The <code>CodeDeliveryDetails</code> object is information about the
+   *             delivery destination for that link or code.</p>
+   * @public
+   */
+  CodeDeliveryDetails?: CodeDeliveryDetailsType | undefined;
+
+  /**
+   * <p>The unique identifier of the new user, for example
+   *                 <code>a1b2c3d4-5678-90ab-cdef-EXAMPLE11111</code>.</p>
+   * @public
+   */
+  UserSub: string | undefined;
+
+  /**
+   * <p>A session Id that you can pass to <code>ConfirmSignUp</code> when you want to
+   *             immediately sign in your user with the <code>USER_AUTH</code> flow after they complete
+   *             sign-up.</p>
+   * @public
+   */
+  Session?: string | undefined;
+}
 
 /**
  * <p>Represents the request to start the user import job.</p>

@@ -152,6 +152,7 @@ import {
   ChangePasswordCommand,
   ChangePasswordRequest$,
   ChangePasswordResponse$,
+  ClientAuthenticationResultType$,
   ClientSecretDescriptorType$,
   CloudWatchLogsConfigurationType$,
   CodeDeliveryDetailsType$,
@@ -298,6 +299,10 @@ import {
   DescribeRiskConfigurationRequest$,
   DescribeRiskConfigurationResponse$,
   DescribeTerms$,
+  DescribeTermsByClient$,
+  DescribeTermsByClientCommand,
+  DescribeTermsByClientRequest$,
+  DescribeTermsByClientResponse$,
   DescribeTermsCommand,
   DescribeTermsRequest$,
   DescribeTermsResponse$,
@@ -360,6 +365,10 @@ import {
   ForgotPasswordCommand,
   ForgotPasswordRequest$,
   ForgotPasswordResponse$,
+  GetClientToken$,
+  GetClientTokenCommand,
+  GetClientTokenRequest$,
+  GetClientTokenResponse$,
   GetCSVHeader$,
   GetCSVHeaderCommand,
   GetCSVHeaderRequest$,
@@ -925,6 +934,8 @@ assert(typeof DescribeRiskConfigurationCommand === "function");
 assert(typeof DescribeRiskConfiguration$ === "object");
 assert(typeof DescribeTermsCommand === "function");
 assert(typeof DescribeTerms$ === "object");
+assert(typeof DescribeTermsByClientCommand === "function");
+assert(typeof DescribeTermsByClient$ === "object");
 assert(typeof DescribeUserImportJobCommand === "function");
 assert(typeof DescribeUserImportJob$ === "object");
 assert(typeof DescribeUserPoolCommand === "function");
@@ -937,6 +948,8 @@ assert(typeof ForgetDeviceCommand === "function");
 assert(typeof ForgetDevice$ === "object");
 assert(typeof ForgotPasswordCommand === "function");
 assert(typeof ForgotPassword$ === "object");
+assert(typeof GetClientTokenCommand === "function");
+assert(typeof GetClientToken$ === "object");
 assert(typeof GetCSVHeaderCommand === "function");
 assert(typeof GetCSVHeader$ === "object");
 assert(typeof GetDeviceCommand === "function");
@@ -1129,6 +1142,7 @@ assert(typeof AuthEventType$ === "object");
 assert(typeof ChallengeResponseType$ === "object");
 assert(typeof ChangePasswordRequest$ === "object");
 assert(typeof ChangePasswordResponse$ === "object");
+assert(typeof ClientAuthenticationResultType$ === "object");
 assert(typeof ClientSecretDescriptorType$ === "object");
 assert(typeof CloudWatchLogsConfigurationType$ === "object");
 assert(typeof CodeDeliveryDetailsType$ === "object");
@@ -1194,6 +1208,8 @@ assert(typeof DescribeResourceServerRequest$ === "object");
 assert(typeof DescribeResourceServerResponse$ === "object");
 assert(typeof DescribeRiskConfigurationRequest$ === "object");
 assert(typeof DescribeRiskConfigurationResponse$ === "object");
+assert(typeof DescribeTermsByClientRequest$ === "object");
+assert(typeof DescribeTermsByClientResponse$ === "object");
 assert(typeof DescribeTermsRequest$ === "object");
 assert(typeof DescribeTermsResponse$ === "object");
 assert(typeof DescribeUserImportJobRequest$ === "object");
@@ -1220,6 +1236,8 @@ assert(typeof FirehoseConfigurationType$ === "object");
 assert(typeof ForgetDeviceRequest$ === "object");
 assert(typeof ForgotPasswordRequest$ === "object");
 assert(typeof ForgotPasswordResponse$ === "object");
+assert(typeof GetClientTokenRequest$ === "object");
+assert(typeof GetClientTokenResponse$ === "object");
 assert(typeof GetCSVHeaderRequest$ === "object");
 assert(typeof GetCSVHeaderResponse$ === "object");
 assert(typeof GetDeviceRequest$ === "object");

@@ -259,6 +259,10 @@ import type {
   DescribeRiskConfigurationCommandInput,
   DescribeRiskConfigurationCommandOutput,
 } from "./commands/DescribeRiskConfigurationCommand";
+import type {
+  DescribeTermsByClientCommandInput,
+  DescribeTermsByClientCommandOutput,
+} from "./commands/DescribeTermsByClientCommand";
 import type { DescribeTermsCommandInput, DescribeTermsCommandOutput } from "./commands/DescribeTermsCommand";
 import type {
   DescribeUserImportJobCommandInput,
@@ -275,6 +279,7 @@ import type {
 } from "./commands/DescribeUserPoolDomainCommand";
 import type { ForgetDeviceCommandInput, ForgetDeviceCommandOutput } from "./commands/ForgetDeviceCommand";
 import type { ForgotPasswordCommandInput, ForgotPasswordCommandOutput } from "./commands/ForgotPasswordCommand";
+import type { GetClientTokenCommandInput, GetClientTokenCommandOutput } from "./commands/GetClientTokenCommand";
 import type { GetCSVHeaderCommandInput, GetCSVHeaderCommandOutput } from "./commands/GetCSVHeaderCommand";
 import type { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand";
 import type { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
@@ -530,6 +535,7 @@ export type ServiceInputTypes =
   | DescribeManagedLoginBrandingCommandInput
   | DescribeResourceServerCommandInput
   | DescribeRiskConfigurationCommandInput
+  | DescribeTermsByClientCommandInput
   | DescribeTermsCommandInput
   | DescribeUserImportJobCommandInput
   | DescribeUserPoolClientCommandInput
@@ -538,6 +544,7 @@ export type ServiceInputTypes =
   | ForgetDeviceCommandInput
   | ForgotPasswordCommandInput
   | GetCSVHeaderCommandInput
+  | GetClientTokenCommandInput
   | GetDeviceCommandInput
   | GetGroupCommandInput
   | GetIdentityProviderByIdentifierCommandInput
@@ -665,6 +672,7 @@ export type ServiceOutputTypes =
   | DescribeManagedLoginBrandingCommandOutput
   | DescribeResourceServerCommandOutput
   | DescribeRiskConfigurationCommandOutput
+  | DescribeTermsByClientCommandOutput
   | DescribeTermsCommandOutput
   | DescribeUserImportJobCommandOutput
   | DescribeUserPoolClientCommandOutput
@@ -673,6 +681,7 @@ export type ServiceOutputTypes =
   | ForgetDeviceCommandOutput
   | ForgotPasswordCommandOutput
   | GetCSVHeaderCommandOutput
+  | GetClientTokenCommandOutput
   | GetDeviceCommandOutput
   | GetGroupCommandOutput
   | GetIdentityProviderByIdentifierCommandOutput

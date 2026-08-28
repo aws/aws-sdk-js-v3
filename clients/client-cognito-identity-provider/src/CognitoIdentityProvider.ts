@@ -324,6 +324,11 @@ import {
   DescribeRiskConfigurationCommand,
 } from "./commands/DescribeRiskConfigurationCommand";
 import {
+  type DescribeTermsByClientCommandInput,
+  type DescribeTermsByClientCommandOutput,
+  DescribeTermsByClientCommand,
+} from "./commands/DescribeTermsByClientCommand";
+import {
   type DescribeTermsCommandInput,
   type DescribeTermsCommandOutput,
   DescribeTermsCommand,
@@ -358,6 +363,11 @@ import {
   type ForgotPasswordCommandOutput,
   ForgotPasswordCommand,
 } from "./commands/ForgotPasswordCommand";
+import {
+  type GetClientTokenCommandInput,
+  type GetClientTokenCommandOutput,
+  GetClientTokenCommand,
+} from "./commands/GetClientTokenCommand";
 import {
   type GetCSVHeaderCommandInput,
   type GetCSVHeaderCommandOutput,
@@ -705,12 +715,14 @@ const commands = {
   DescribeResourceServerCommand,
   DescribeRiskConfigurationCommand,
   DescribeTermsCommand,
+  DescribeTermsByClientCommand,
   DescribeUserImportJobCommand,
   DescribeUserPoolCommand,
   DescribeUserPoolClientCommand,
   DescribeUserPoolDomainCommand,
   ForgetDeviceCommand,
   ForgotPasswordCommand,
+  GetClientTokenCommand,
   GetCSVHeaderCommand,
   GetDeviceCommand,
   GetGroupCommand,
@@ -1891,6 +1903,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DescribeTermsByClientCommand}
+   */
+  describeTermsByClient(
+    args: DescribeTermsByClientCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTermsByClientCommandOutput>;
+  describeTermsByClient(
+    args: DescribeTermsByClientCommandInput,
+    cb: (err: any, data?: DescribeTermsByClientCommandOutput) => void
+  ): void;
+  describeTermsByClient(
+    args: DescribeTermsByClientCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTermsByClientCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeUserImportJobCommand}
    */
   describeUserImportJob(
@@ -1990,6 +2019,23 @@ export interface CognitoIdentityProvider {
     args: ForgotPasswordCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ForgotPasswordCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetClientTokenCommand}
+   */
+  getClientToken(
+    args: GetClientTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClientTokenCommandOutput>;
+  getClientToken(
+    args: GetClientTokenCommandInput,
+    cb: (err: any, data?: GetClientTokenCommandOutput) => void
+  ): void;
+  getClientToken(
+    args: GetClientTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClientTokenCommandOutput) => void
   ): void;
 
   /**

@@ -2,7 +2,7 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SignUpRequest, SignUpResponse } from "../models/models_0";
+import type { SignUpRequest, SignUpResponse } from "../models/models_1";
 import { SignUp$ } from "../schemas/schemas_0";
 
 /**

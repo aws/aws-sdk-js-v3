@@ -152,6 +152,8 @@ const _CA = "CustomAttributes";
 const _CAC = "CreateAuthChallenge";
 const _CALT = "CustomAttributesListType";
 const _CAM = "CustomAuthMode";
+const _CAR = "ClientAuthenticationResult";
+const _CART = "ClientAuthenticationResultType";
 const _CAa = "CallerArn";
 const _CAe = "CertificateArn";
 const _CAr = "CreatedAt";
@@ -318,6 +320,9 @@ const _DRURI = "DefaultRedirectURI";
 const _DSVC = "DeviceSecretVerifierConfig";
 const _DSVCT = "DeviceSecretVerifierConfigType";
 const _DT = "DeviceType";
+const _DTBC = "DescribeTermsByClient";
+const _DTBCR = "DescribeTermsByClientRequest";
+const _DTBCRe = "DescribeTermsByClientResponse";
 const _DTR = "DeleteTermsRequest";
 const _DTRe = "DescribeTermsRequest";
 const _DTRes = "DescribeTermsResponse";
@@ -428,6 +433,9 @@ const _G = "Groups";
 const _GCSVH = "GetCSVHeader";
 const _GCSVHR = "GetCSVHeaderRequest";
 const _GCSVHRe = "GetCSVHeaderResponse";
+const _GCT = "GetClientToken";
+const _GCTR = "GetClientTokenRequest";
+const _GCTRe = "GetClientTokenResponse";
 const _GD = "GetDevice";
 const _GDR = "GetDeviceRequest";
 const _GDRe = "GetDeviceResponse";
@@ -792,6 +800,7 @@ const _Sa = "Salt";
 const _Sc = "Scopes";
 const _Sch = "Schema";
 const _Se = "Settings";
+const _Sec = "Secret";
 const _St = "Status";
 const _Su = "Subject";
 const _T = "Terms";
@@ -1784,6 +1793,11 @@ export var ChangePasswordResponse$: StaticStructureSchema = [3, n0, _CPRh,
   [],
   []
 ];
+export var ClientAuthenticationResultType$: StaticStructureSchema = [3, n0, _CART,
+  0,
+  [_ATc, _EIxp, _TT],
+  [[() => TokenModelType, 0], 1, 0]
+];
 export var ClientSecretDescriptorType$: StaticStructureSchema = [3, n0, _CSDT,
   0,
   [_CSI, _CSV, _CSCD],
@@ -2109,6 +2123,16 @@ export var DescribeRiskConfigurationResponse$: StaticStructureSchema = [3, n0, _
   [_RC],
   [[() => RiskConfigurationType$, 0]], 1
 ];
+export var DescribeTermsByClientRequest$: StaticStructureSchema = [3, n0, _DTBCR,
+  0,
+  [_CI, _UPI, _TN],
+  [[() => ClientIdType, 0], 0, 0], 3
+];
+export var DescribeTermsByClientResponse$: StaticStructureSchema = [3, n0, _DTBCRe,
+  0,
+  [_T],
+  [[() => TermsType$, 0]]
+];
 export var DescribeTermsRequest$: StaticStructureSchema = [3, n0, _DTRe,
   0,
   [_TI, _UPI],
@@ -2238,6 +2262,16 @@ export var ForgotPasswordResponse$: StaticStructureSchema = [3, n0, _FPRo,
   0,
   [_CDD],
   [() => CodeDeliveryDetailsType$]
+];
+export var GetClientTokenRequest$: StaticStructureSchema = [3, n0, _GCTR,
+  0,
+  [_CI, _Sec, _Sc, _CM],
+  [[() => ClientIdType, 0], [() => ClientSecretType, 0], 64 | 0, 128 | 0], 2
+];
+export var GetClientTokenResponse$: StaticStructureSchema = [3, n0, _GCTRe,
+  0,
+  [_CAR],
+  [[() => ClientAuthenticationResultType$, 0]]
 ];
 export var GetCSVHeaderRequest$: StaticStructureSchema = [3, n0, _GCSVHR,
   0,
@@ -3431,6 +3465,9 @@ export var DescribeRiskConfiguration$: StaticOperationSchema = [9, n0, _DRC,
 export var DescribeTerms$: StaticOperationSchema = [9, n0, _DTes,
   0, () => DescribeTermsRequest$, () => DescribeTermsResponse$
 ];
+export var DescribeTermsByClient$: StaticOperationSchema = [9, n0, _DTBC,
+  0, () => DescribeTermsByClientRequest$, () => DescribeTermsByClientResponse$
+];
 export var DescribeUserImportJob$: StaticOperationSchema = [9, n0, _DUIJ,
   0, () => DescribeUserImportJobRequest$, () => DescribeUserImportJobResponse$
 ];
@@ -3448,6 +3485,9 @@ export var ForgetDevice$: StaticOperationSchema = [9, n0, _FDo,
 ];
 export var ForgotPassword$: StaticOperationSchema = [9, n0, _FP,
   0, () => ForgotPasswordRequest$, () => ForgotPasswordResponse$
+];
+export var GetClientToken$: StaticOperationSchema = [9, n0, _GCT,
+  0, () => GetClientTokenRequest$, () => GetClientTokenResponse$
 ];
 export var GetCSVHeader$: StaticOperationSchema = [9, n0, _GCSVH,
   0, () => GetCSVHeaderRequest$, () => GetCSVHeaderResponse$

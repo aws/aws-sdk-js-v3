@@ -2,7 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { SetUserPoolMfaConfigRequest, SetUserPoolMfaConfigResponse } from "../models/models_0";
+import type { SetUserPoolMfaConfigRequest } from "../models/models_0";
+import type { SetUserPoolMfaConfigResponse } from "../models/models_1";
 import { SetUserPoolMfaConfig$ } from "../schemas/schemas_0";
 
 /**
