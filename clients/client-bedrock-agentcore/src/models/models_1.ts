@@ -22,8 +22,11 @@ import type {
   A2aDescriptor,
   ActorSummary,
   AgentSkillsDescriptor,
+  Conversational,
   Event,
+  ExtractionConfig,
   MemoryContent,
+  MemoryJsonData,
   MemoryRecordMetadataValue,
   MetadataValue,
 } from "./models_0";
@@ -142,6 +145,174 @@ export interface GetMemoryRecordOutput {
    * @public
    */
   memoryRecord: MemoryRecord | undefined;
+}
+
+/**
+ * <p>A single content payload item to ingest. A payload item contains either conversational or JSON content.</p>
+ * @public
+ */
+export type IngestPayloadType =
+  | IngestPayloadType.ConversationalMember
+  | IngestPayloadType.JsonMember
+  | IngestPayloadType.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace IngestPayloadType {
+  /**
+   * <p>The conversational content for this payload item.</p>
+   * @public
+   */
+  export interface ConversationalMember {
+    conversational: Conversational;
+    json?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The JSON content for this payload item.</p>
+   * @public
+   */
+  export interface JsonMember {
+    conversational?: never;
+    json: MemoryJsonData;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    conversational?: never;
+    json?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    conversational: (value: Conversational) => T;
+    json: (value: MemoryJsonData) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * <p>The content included directly in the request as one or more payload items.</p>
+ * @public
+ */
+export interface InlineMemoryContent {
+  /**
+   * <p>The list of content payload items to ingest.</p>
+   * @public
+   */
+  payload: IngestPayloadType[] | undefined;
+}
+
+/**
+ * <p>The source of the content to ingest. Only inline content is supported.</p>
+ * @public
+ */
+export type ContentSource =
+  | ContentSource.InlineMember
+  | ContentSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ContentSource {
+  /**
+   * <p>The content included directly in the request.</p>
+   * @public
+   */
+  export interface InlineMember {
+    inline: InlineMemoryContent;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    inline?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    inline: (value: InlineMemoryContent) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface IngestDataInput {
+  /**
+   * <p>The identifier of the AgentCore Memory resource to ingest content into.</p>
+   * @public
+   */
+  memoryId: string | undefined;
+
+  /**
+   * <p>The content to ingest. Only inline content is supported.</p>
+   * @public
+   */
+  source: ContentSource | undefined;
+
+  /**
+   * <p>The timestamp of when the content occurred.</p>
+   * @public
+   */
+  contentTimestamp: Date | undefined;
+
+  /**
+   * <p>The identifier of the actor associated with this content. An actor represents an entity that participates in sessions and generates content.</p>
+   * @public
+   */
+  actorId: string | undefined;
+
+  /**
+   * <p>The identifier of the session that the content belongs to. If not provided, a session identifier is generated and returned in the response.</p>
+   * @public
+   */
+  sessionId?: string | undefined;
+
+  /**
+   * <p>The extraction configuration for long-term memory records. Use this parameter to specify namespace variable keys and their values for namespace substitution during extraction.</p>
+   * @public
+   */
+  extractionConfig?: ExtractionConfig | undefined;
+
+  /**
+   * <p>The key-value metadata to attach to the content.</p>
+   * @public
+   */
+  metadata?: Record<string, MetadataValue> | undefined;
+
+  /**
+   * <p>A unique, case-sensitive identifier to ensure that the operation completes no more than one time. If this token matches a previous request, AgentCore ignores the request, but does not return an error.</p>
+   * @public
+   */
+  clientToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface IngestDataOutput {
+  /**
+   * <p>The identifier of the session that the service ingested the content into. This value echoes the session identifier from the request, or the identifier that the service generated when you did not provide one.</p>
+   * @public
+   */
+  sessionId: string | undefined;
 }
 
 /**

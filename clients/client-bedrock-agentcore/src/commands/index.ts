@@ -33,6 +33,7 @@ export * from "./GetResourcePaymentTokenCommand";
 export * from "./GetWorkloadAccessTokenCommand";
 export * from "./GetWorkloadAccessTokenForJWTCommand";
 export * from "./GetWorkloadAccessTokenForUserIdCommand";
+export * from "./IngestDataCommand";
 export * from "./InvokeAgentRuntimeCommand";
 export * from "./InvokeAgentRuntimeCommandCommand";
 export * from "./InvokeBrowserCommand";

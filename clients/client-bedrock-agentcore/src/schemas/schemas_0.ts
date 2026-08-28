@@ -83,6 +83,7 @@ const _CRVT = "CustomRequestValueType";
 const _CS = "ControlStats";
 const _CSE = "ContentStartEvent";
 const _CSEo = "ContentStopEvent";
+const _CSo = "ContentSource";
 const _CT = "Content-Type";
 const _CWFC = "CloudWatchFilterConfig";
 const _CWLF = "CloudWatchLogsFilter";
@@ -301,6 +302,9 @@ const _ICBL = "InputContentBlockList";
 const _ICI = "InvokeCodeInterpreter";
 const _ICIR = "InvokeCodeInterpreterRequest";
 const _ICIRn = "InvokeCodeInterpreterResponse";
+const _ID = "IngestData";
+const _IDI = "IngestDataInput";
+const _IDO = "IngestDataOutput";
 const _IFS = "InsightsFailureSignal";
 const _IFSL = "InsightsFailureSignalList";
 const _IGT = "InlineGroundTruth";
@@ -310,6 +314,9 @@ const _IHRn = "InvokeHarnessResponse";
 const _IHSO = "InvokeHarnessStreamOutput";
 const _IIE = "InvalidInputException";
 const _IL = "InsightList";
+const _IMC = "InlineMemoryContent";
+const _IPL = "IngestPayloadList";
+const _IPT = "IngestPayloadType";
 const _ISE = "InternalServerException";
 const _KPA = "KeyPressArguments";
 const _KPR = "KeyPressResult";
@@ -674,7 +681,8 @@ const _cSo = "contentStart";
 const _cSon = "contentStop";
 const _cSu = "customState";
 const _cT = "clientToken";
-const _cTo = "contentType";
+const _cTo = "contentTimestamp";
+const _cTon = "contentType";
 const _cWC = "cloudWatchConfig";
 const _cWIT = "cacheWriteInputTokens";
 const _cWL = "cloudWatchLogs";
@@ -1032,6 +1040,7 @@ const _sig = "signals";
 const _sign = "signature";
 const _sk = "skills";
 const _sm = "sms";
+const _so = "source";
 const _st = "streaming";
 const _sta = "status";
 const _star = "start";
@@ -2134,10 +2143,25 @@ export var HarnessToolUseBlockStart$: StaticStructureSchema = [3, n0, _HTUBS,
   [_tUI, _n, _t, _sNe],
   [0, 0, 0, 0], 2
 ];
+export var IngestDataInput$: StaticStructureSchema = [3, n0, _IDI,
+  0,
+  [_mI, _so, _cTo, _aI, _sI, _eCx, _met, _cT],
+  [[0, 1], [() => ContentSource$, 0], 4, 0, 0, () => ExtractionConfig$, () => MetadataMap, [0, 4]], 4
+];
+export var IngestDataOutput$: StaticStructureSchema = [3, n0, _IDO,
+  0,
+  [_sI],
+  [0], 1
+];
 export var InlineGroundTruth$: StaticStructureSchema = [3, n0, _IGT,
   0,
   [_as, _eTx, _tu],
   [() => EvaluationContentList, () => EvaluationExpectedTrajectory$, () => GroundTruthTurnList]
+];
+export var InlineMemoryContent$: StaticStructureSchema = [3, n0, _IMC,
+  0,
+  [_p],
+  [[() => IngestPayloadList, 0]], 1
 ];
 export var InputContentBlock$: StaticStructureSchema = [3, n0, _ICB,
   0,
@@ -2156,7 +2180,7 @@ export var InsightsFailureSignal$: StaticStructureSchema = [3, n0, _IFS,
 ];
 export var InvokeAgentRuntimeCommandRequest$: StaticStructureSchema = [3, n0, _IARCR,
   0,
-  [_aRA, _bo, _cTo, _ac, _rSI, _tI, _tPr, _tS, _ba, _q, _aIc],
+  [_aRA, _bo, _cTon, _ac, _rSI, _tI, _tPr, _tS, _ba, _q, _aIc],
   [[0, 1], [() => InvokeAgentRuntimeCommandRequestBody$, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0, _IARCRB,
@@ -2166,17 +2190,17 @@ export var InvokeAgentRuntimeCommandRequestBody$: StaticStructureSchema = [3, n0
 ];
 export var InvokeAgentRuntimeCommandResponse$: StaticStructureSchema = [3, n0, _IARCRn,
   0,
-  [_cTo, _stre, _rSI, _tI, _tPr, _tS, _ba, _sCt],
+  [_cTon, _stre, _rSI, _tI, _tPr, _tS, _ba, _sCt],
   [[0, { [_hH]: _CT }], [() => InvokeAgentRuntimeCommandStreamOutput$, 16], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [1, 32]], 2
 ];
 export var InvokeAgentRuntimeRequest$: StaticStructureSchema = [3, n0, _IARR,
   0,
-  [_aRA, _p, _cTo, _ac, _mSI, _rSI, _mPV, _mM, _mN, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
+  [_aRA, _p, _cTon, _ac, _mSI, _rSI, _mPV, _mM, _mN, _rUI, _tI, _tPr, _tS, _ba, _q, _aIc],
   [[0, 1], [() => Body, 16], [0, { [_hH]: _CT }], [0, { [_hH]: _Ac }], [0, { [_hH]: _MSI }], [0, { [_hH]: _XABARSI, [_iT]: 1 }], [0, { [_hH]: _MPV }], [0, { [_hH]: _MM }], [0, { [_hH]: _MN }], [0, { [_hH]: _XABARUI }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [0, { [_hQ]: _q }], [0, { [_hQ]: _aIc }]], 2
 ];
 export var InvokeAgentRuntimeResponse$: StaticStructureSchema = [3, n0, _IARRn,
   0,
-  [_cTo, _rSI, _mSI, _mPV, _tI, _tPr, _tS, _ba, _resp, _sCt],
+  [_cTon, _rSI, _mSI, _mPV, _tI, _tPr, _tS, _ba, _resp, _sCt],
   [[0, { [_hH]: _CT }], [0, { [_hH]: _XABARSI }], [0, { [_hH]: _MSI }], [0, { [_hH]: _MPV }], [0, { [_hH]: _XATI }], [0, { [_hH]: _tr }], [0, { [_hH]: _tra }], [0, { [_hH]: _ba }], [() => ResponseStream, 16], [1, 32]], 1
 ];
 export var InvokeBrowserRequest$: StaticStructureSchema = [3, n0, _IBR,
@@ -3043,6 +3067,10 @@ var HarnessTools: StaticListSchema = [1, n0, _HTa,
     0]
 ];
 var IgnoredReferenceInputFields = 64 | 0;
+var IngestPayloadList: StaticListSchema = [1, n0, _IPL,
+  0, [() => IngestPayloadType$,
+    0]
+];
 var InputContentBlockList: StaticListSchema = [1, n0, _ICBL,
   0, [() => InputContentBlock$,
     0]
@@ -3219,6 +3247,11 @@ export var Content$: StaticUnionSchema = [4, n0, _Con,
   [_te],
   [[() => SensitiveString, 0]]
 ];
+export var ContentSource$: StaticUnionSchema = [4, n0, _CSo,
+  0,
+  [_inl],
+  [[() => InlineMemoryContent$, 0]]
+];
 export var Context$: StaticUnionSchema = [4, n0, _Cont,
   0,
   [_sCp],
@@ -3328,6 +3361,11 @@ export var HarnessToolResultContentBlock$: StaticUnionSchema = [4, n0, _HTRCBa,
   0,
   [_te, _js],
   [[() => SensitiveText, 0], [() => SensitiveJson, 0]]
+];
+export var IngestPayloadType$: StaticUnionSchema = [4, n0, _IPT,
+  0,
+  [_conv, _js],
+  [[() => Conversational$, 0], [() => MemoryJsonData$, 0]]
 ];
 export var InvokeAgentRuntimeCommandStreamOutput$: StaticUnionSchema = [4, n0, _IARCSO,
   { [_st]: 1 },
@@ -3575,6 +3613,9 @@ export var GetWorkloadAccessTokenForJWT$: StaticOperationSchema = [9, n0, _GWATF
 ];
 export var GetWorkloadAccessTokenForUserId$: StaticOperationSchema = [9, n0, _GWATFUI,
   { [_ht]: ["POST", "/identities/GetWorkloadAccessTokenForUserId", 200] }, () => GetWorkloadAccessTokenForUserIdRequest$, () => GetWorkloadAccessTokenForUserIdResponse$
+];
+export var IngestData$: StaticOperationSchema = [9, n0, _ID,
+  { [_ht]: ["POST", "/memories/{memoryId}/ingest", 202] }, () => IngestDataInput$, () => IngestDataOutput$
 ];
 export var InvokeAgentRuntime$: StaticOperationSchema = [9, n0, _IAR,
   { [_ht]: ["POST", "/runtimes/{agentRuntimeArn}/invocations", 200] }, () => InvokeAgentRuntimeRequest$, () => InvokeAgentRuntimeResponse$

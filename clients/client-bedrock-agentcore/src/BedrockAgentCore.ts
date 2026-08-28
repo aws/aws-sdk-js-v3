@@ -162,6 +162,11 @@ import {
   GetWorkloadAccessTokenForUserIdCommand,
 } from "./commands/GetWorkloadAccessTokenForUserIdCommand";
 import {
+  type IngestDataCommandInput,
+  type IngestDataCommandOutput,
+  IngestDataCommand,
+} from "./commands/IngestDataCommand";
+import {
   type InvokeAgentRuntimeCommandInput,
   type InvokeAgentRuntimeCommandOutput,
   InvokeAgentRuntimeCommand,
@@ -368,6 +373,7 @@ const commands = {
   GetWorkloadAccessTokenCommand,
   GetWorkloadAccessTokenForJWTCommand,
   GetWorkloadAccessTokenForUserIdCommand,
+  IngestDataCommand,
   InvokeAgentRuntimeCommand,
   InvokeAgentRuntimeCommandCommand,
   InvokeBrowserCommand,
@@ -992,6 +998,23 @@ export interface BedrockAgentCore {
     args: GetWorkloadAccessTokenForUserIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetWorkloadAccessTokenForUserIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link IngestDataCommand}
+   */
+  ingestData(
+    args: IngestDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<IngestDataCommandOutput>;
+  ingestData(
+    args: IngestDataCommandInput,
+    cb: (err: any, data?: IngestDataCommandOutput) => void
+  ): void;
+  ingestData(
+    args: IngestDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: IngestDataCommandOutput) => void
   ): void;
 
   /**

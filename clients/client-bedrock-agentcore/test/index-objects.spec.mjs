@@ -79,6 +79,7 @@ import {
   ContentBlock$,
   ContentBlockType,
   ContentDeltaEvent$,
+  ContentSource$,
   ContentStartEvent$,
   ContentStopEvent$,
   Context$,
@@ -301,7 +302,13 @@ import {
   HarnessToolUseBlockStart$,
   HarnessToolUseStatus,
   HarnessToolUseType,
+  IngestData$,
+  IngestDataCommand,
+  IngestDataInput$,
+  IngestDataOutput$,
+  IngestPayloadType$,
   InlineGroundTruth$,
+  InlineMemoryContent$,
   InputContentBlock$,
   Insight$,
   InsightsFailureCategory,
@@ -687,6 +694,8 @@ assert(typeof GetWorkloadAccessTokenForJWTCommand === "function");
 assert(typeof GetWorkloadAccessTokenForJWT$ === "object");
 assert(typeof GetWorkloadAccessTokenForUserIdCommand === "function");
 assert(typeof GetWorkloadAccessTokenForUserId$ === "object");
+assert(typeof IngestDataCommand === "function");
+assert(typeof IngestData$ === "object");
 assert(typeof InvokeAgentRuntimeCommand === "function");
 assert(typeof InvokeAgentRuntime$ === "object");
 assert(typeof InvokeAgentRuntimeCommandCommand === "function");
@@ -804,6 +813,7 @@ assert(typeof ConfigurationBundleToolEntry$ === "object");
 assert(typeof Content$ === "object");
 assert(typeof ContentBlock$ === "object");
 assert(typeof ContentDeltaEvent$ === "object");
+assert(typeof ContentSource$ === "object");
 assert(typeof ContentStartEvent$ === "object");
 assert(typeof ContentStopEvent$ === "object");
 assert(typeof Context$ === "object");
@@ -951,7 +961,11 @@ assert(typeof HarnessToolResultMetadataBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlock$ === "object");
 assert(typeof HarnessToolUseBlockDelta$ === "object");
 assert(typeof HarnessToolUseBlockStart$ === "object");
+assert(typeof IngestDataInput$ === "object");
+assert(typeof IngestDataOutput$ === "object");
+assert(typeof IngestPayloadType$ === "object");
 assert(typeof InlineGroundTruth$ === "object");
+assert(typeof InlineMemoryContent$ === "object");
 assert(typeof InputContentBlock$ === "object");
 assert(typeof Insight$ === "object");
 assert(typeof InsightsFailureSignal$ === "object");

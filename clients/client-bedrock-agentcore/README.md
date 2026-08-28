@@ -419,6 +419,13 @@ GetWorkloadAccessTokenForUserId
 </details>
 <details>
 <summary>
+IngestData
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/bedrock-agentcore/command/IngestDataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/IngestDataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-bedrock-agentcore/Interface/IngestDataCommandOutput/)
+</details>
+<details>
+<summary>
 InvokeAgentRuntime
 </summary>
 

@@ -170,6 +170,7 @@ import type {
   GetWorkloadAccessTokenForUserIdCommandInput,
   GetWorkloadAccessTokenForUserIdCommandOutput,
 } from "./commands/GetWorkloadAccessTokenForUserIdCommand";
+import type { IngestDataCommandInput, IngestDataCommandOutput } from "./commands/IngestDataCommand";
 import type {
   InvokeAgentRuntimeCommandInput,
   InvokeAgentRuntimeCommandOutput,
@@ -323,6 +324,7 @@ export type ServiceInputTypes =
   | GetWorkloadAccessTokenCommandInput
   | GetWorkloadAccessTokenForJWTCommandInput
   | GetWorkloadAccessTokenForUserIdCommandInput
+  | IngestDataCommandInput
   | InvokeAgentRuntimeCommandCommandInput
   | InvokeAgentRuntimeCommandInput
   | InvokeBrowserCommandInput
@@ -394,6 +396,7 @@ export type ServiceOutputTypes =
   | GetWorkloadAccessTokenCommandOutput
   | GetWorkloadAccessTokenForJWTCommandOutput
   | GetWorkloadAccessTokenForUserIdCommandOutput
+  | IngestDataCommandOutput
   | InvokeAgentRuntimeCommandCommandOutput
   | InvokeAgentRuntimeCommandOutput
   | InvokeBrowserCommandOutput
