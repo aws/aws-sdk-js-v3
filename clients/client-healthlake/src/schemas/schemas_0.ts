@@ -7,9 +7,16 @@ const _AOM = "AgentOutputMessage";
 const _AR = "AgentResponse";
 const _AS = "AuthorizationStrategy";
 const _B = "Body";
+const _BC = "BackupConfiguration";
+const _BEA = "BackupEnabledAt";
+const _BSI = "BackupStatusInfo";
+const _BT = "BackupType";
+const _BTE = "BackupTagsEnabled";
+const _C = "Configuration";
 const _CA = "CreatedAfter";
 const _CAr = "CreatedAt";
 const _CB = "CreatedBefore";
+const _CBRC = "ContinuousBackupRestoreConfiguration";
 const _CD = "ChangeDescription";
 const _CDTP = "CreateDataTransformationProfile";
 const _CDTPR = "CreateDataTransformationProfileRequest";
@@ -25,6 +32,7 @@ const _CT = "ClientToken";
 const _CTm = "CmkType";
 const _DA = "DatastoreArn";
 const _DARA = "DataAccessRoleArn";
+const _DBS = "DatastoreBackupStatus";
 const _DDE = "DriftDetectionEnabled";
 const _DDTJ = "DescribeDataTransformationJob";
 const _DDTJR = "DescribeDataTransformationJobRequest";
@@ -66,6 +74,7 @@ const _ECr = "ErrorCategory";
 const _EJP = "ExportJobProperties";
 const _EJPL = "ExportJobPropertiesList";
 const _EM = "ErrorMessage";
+const _ERP = "EarliestRestorePoint";
 const _ET = "EndTime";
 const _EVPI = "ExistingVersionedProfileId";
 const _EVPS = "ExistingVersionedProfileSource";
@@ -111,6 +120,7 @@ const _LFHIREJRi = "ListFHIRExportJobsResponse";
 const _LFHIRIJ = "ListFHIRImportJobs";
 const _LFHIRIJR = "ListFHIRImportJobsRequest";
 const _LFHIRIJRi = "ListFHIRImportJobsResponse";
+const _LRP = "LatestRestorePoint";
 const _LTFR = "ListTagsForResource";
 const _LTFRR = "ListTagsForResourceRequest";
 const _LTFRRi = "ListTagsForResourceResponse";
@@ -137,13 +147,20 @@ const _PMS = "ProfileMappingSource";
 const _PN = "ProfileName";
 const _PV = "ProfileVersion";
 const _RARN = "ResourceARN";
+const _RC = "RestoreConfiguration";
+const _RFHIRD = "RestoreFHIRDatastore";
+const _RFHIRDR = "RestoreFHIRDatastoreRequest";
+const _RFHIRDRe = "RestoreFHIRDatastoreResponse";
 const _RNFE = "ResourceNotFoundException";
+const _RPID = "RetentionPeriodInDays";
+const _RPT = "RestorePointTime";
 const _S = "Status";
 const _SA = "SubmittedAfter";
 const _SB = "SubmittedBefore";
 const _SC = "SseConfiguration";
 const _SCo = "S3Configuration";
 const _SD = "SampleData";
+const _SDI = "SourceDatastoreId";
 const _SDS = "SampleDataSource";
 const _SDTJ = "StartDataTransformationJob";
 const _SDTJR = "StartDataTransformationJobRequest";
@@ -156,6 +173,7 @@ const _SFHIRIJ = "StartFHIRImportJob";
 const _SFHIRIJR = "StartFHIRImportJobRequest";
 const _SFHIRIJRt = "StartFHIRImportJobResponse";
 const _SP = "StarterProfile";
+const _SPDT = "ScheduledPermanentDeletionTime";
 const _SPN = "StarterProfileName";
 const _SPS = "StarterProfileSource";
 const _SQEE = "ServiceQuotaExceededException";
@@ -371,6 +389,16 @@ export var AnalyticsConfiguration$: StaticStructureSchema = [3, n0, _AC,
   [_S],
   [0]
 ];
+export var BackupConfiguration$: StaticStructureSchema = [3, n0, _BC,
+  0,
+  [_S, _BT, _RPID, _BTE],
+  [0, 0, 1, 2]
+];
+export var ContinuousBackupRestoreConfiguration$: StaticStructureSchema = [3, n0, _CBRC,
+  0,
+  [_RPT],
+  [4]
+];
 export var CreateDataTransformationProfileRequest$: StaticStructureSchema = [3, n0, _CDTPR,
   0,
   [_SF, _So, _PN, _KKI, _PD, _Ta, _CT],
@@ -383,13 +411,18 @@ export var CreateDataTransformationProfileResponse$: StaticStructureSchema = [3,
 ];
 export var CreateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _CFHIRDR,
   0,
-  [_DTV, _DN, _SC, _PDC, _CT, _Ta, _IPC, _AC, _NC, _PC],
-  [0, 0, () => SseConfiguration$, () => PreloadDataConfig$, [0, 4], () => TagList, () => IdentityProviderConfiguration$, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$], 1
+  [_DTV, _DN, _SC, _PDC, _CT, _Ta, _IPC, _AC, _NC, _PC, _BC],
+  [0, 0, () => SseConfiguration$, () => PreloadDataConfig$, [0, 4], () => TagList, () => IdentityProviderConfiguration$, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$, () => BackupConfiguration$], 1
 ];
 export var CreateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _CFHIRDRr,
   0,
   [_DI, _DA, _DS, _DE],
   [0, 0, 0, 0], 4
+];
+export var DatastoreBackupStatus$: StaticStructureSchema = [3, n0, _DBS,
+  0,
+  [_C, _BEA, _ERP, _LRP, _SPDT],
+  [() => BackupConfiguration$, 4, 4, 4, 4]
 ];
 export var DatastoreFilter$: StaticStructureSchema = [3, n0, _DF,
   0,
@@ -398,8 +431,8 @@ export var DatastoreFilter$: StaticStructureSchema = [3, n0, _DF,
 ];
 export var DatastoreProperties$: StaticStructureSchema = [3, n0, _DP,
   0,
-  [_DI, _DA, _DS, _DTV, _DE, _DN, _CAr, _SC, _PDC, _IPC, _EC, _NC, _AC, _PC],
-  [0, 0, 0, 0, 0, 0, 4, () => SseConfiguration$, () => PreloadDataConfig$, () => IdentityProviderConfiguration$, () => ErrorCause$, () => NlpConfiguration$, () => AnalyticsConfiguration$, () => ProfileConfiguration$], 5
+  [_DI, _DA, _DS, _DTV, _DE, _DN, _CAr, _SC, _PDC, _IPC, _EC, _NC, _AC, _PC, _BSI],
+  [0, 0, 0, 0, 0, 0, 4, () => SseConfiguration$, () => PreloadDataConfig$, () => IdentityProviderConfiguration$, () => ErrorCause$, () => NlpConfiguration$, () => AnalyticsConfiguration$, () => ProfileConfiguration$, () => DatastoreBackupStatus$], 5
 ];
 export var DataTransformationProfileSummary$: StaticStructureSchema = [3, n0, _DTPS,
   0,
@@ -621,6 +654,16 @@ export var PublishDataTransformationProfileResponse$: StaticStructureSchema = [3
   [_PI, _V, _SF, _TF, _LUA, _PN],
   [0, 1, 0, 0, 4, 0], 5
 ];
+export var RestoreFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _RFHIRDR,
+  0,
+  [_SDI, _RC, _DN, _SC, _CT, _Ta, _IPC, _AC, _NC, _PC],
+  [0, () => RestoreConfiguration$, 0, () => SseConfiguration$, [0, 4], () => TagList, () => IdentityProviderConfiguration$, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$], 2
+];
+export var RestoreFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _RFHIRDRe,
+  0,
+  [_DI, _DA, _DS, _DE],
+  [0, 0, 0, 0], 4
+];
 export var S3Configuration$: StaticStructureSchema = [3, n0, _SCo,
   0,
   [_SU, _KKI],
@@ -733,8 +776,8 @@ export var UpdateDataTransformationProfileResponse$: StaticStructureSchema = [3,
 ];
 export var UpdateFHIRDatastoreRequest$: StaticStructureSchema = [3, n0, _UFHIRDR,
   0,
-  [_DI, _DN, _AC, _NC, _PC, _IPC],
-  [0, 0, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$, () => IdentityProviderConfiguration$], 1
+  [_DI, _DN, _AC, _NC, _PC, _IPC, _BC],
+  [0, 0, () => AnalyticsConfiguration$, () => NlpConfiguration$, () => ProfileConfiguration$, () => IdentityProviderConfiguration$, () => BackupConfiguration$], 1
 ];
 export var UpdateFHIRDatastoreResponse$: StaticStructureSchema = [3, n0, _UFHIRDRp,
   0,
@@ -798,6 +841,11 @@ export var OutputDataConfig$: StaticUnionSchema = [4, n0, _ODC,
   [_SCo],
   [() => S3Configuration$]
 ];
+export var RestoreConfiguration$: StaticUnionSchema = [4, n0, _RC,
+  0,
+  [_CBRC],
+  [() => ContinuousBackupRestoreConfiguration$]
+];
 export var CreateDataTransformationProfile$: StaticOperationSchema = [9, n0, _CDTP,
   { [_en]: ["datatransformation."], [_h]: ["POST", "/data-transformation-profile", 201] }, () => CreateDataTransformationProfileRequest$, () => CreateDataTransformationProfileResponse$
 ];
@@ -848,6 +896,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var PublishDataTransformationProfile$: StaticOperationSchema = [9, n0, _PDTP,
   { [_en]: ["datatransformation."], [_h]: ["POST", "/data-transformation-profile/{ProfileId}/publish", 200] }, () => PublishDataTransformationProfileRequest$, () => PublishDataTransformationProfileResponse$
+];
+export var RestoreFHIRDatastore$: StaticOperationSchema = [9, n0, _RFHIRD,
+  0, () => RestoreFHIRDatastoreRequest$, () => RestoreFHIRDatastoreResponse$
 ];
 export var StartDataTransformationJob$: StaticOperationSchema = [9, n0, _SDTJ,
   { [_en]: ["datatransformation."], [_h]: ["POST", "/data-transformation-job", 200] }, () => StartDataTransformationJobRequest$, () => StartDataTransformationJobResponse$

@@ -52,6 +52,12 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  *     Metadata: "STRING_VALUE",
  *     IdpLambdaArn: "STRING_VALUE",
  *   },
+ *   BackupConfiguration: { // BackupConfiguration
+ *     Status: "ENABLED" || "DISABLED",
+ *     BackupType: "CONTINUOUS",
+ *     RetentionPeriodInDays: Number("int"),
+ *     BackupTagsEnabled: true || false,
+ *   },
  * };
  * const command = new UpdateFHIRDatastoreCommand(input);
  * const response = await client.send(command);
@@ -94,6 +100,18 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     BackupStatusInfo: { // DatastoreBackupStatus
+ * //       Configuration: { // BackupConfiguration
+ * //         Status: "ENABLED" || "DISABLED",
+ * //         BackupType: "CONTINUOUS",
+ * //         RetentionPeriodInDays: Number("int"),
+ * //         BackupTagsEnabled: true || false,
+ * //       },
+ * //       BackupEnabledAt: new Date("TIMESTAMP"),
+ * //       EarliestRestorePoint: new Date("TIMESTAMP"),
+ * //       LatestRestorePoint: new Date("TIMESTAMP"),
+ * //       ScheduledPermanentDeletionTime: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *
@@ -126,6 +144,61 @@ export interface UpdateFHIRDatastoreCommandOutput extends UpdateFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
+ * @example Update a data store's name and configuration
+ * ```javascript
+ * //
+ * const input = {
+ *   AnalyticsConfiguration: {
+ *     Status: "DISABLED"
+ *   },
+ *   DatastoreId: "datastore-id",
+ *   DatastoreName: "RenamedFhirDatastore",
+ *   IdentityProviderConfiguration: {
+ *     AuthorizationStrategy: "SMART_ON_FHIR_V1",
+ *     FineGrainedAuthorizationEnabled: true
+ *   },
+ *   NlpConfiguration: {
+ *     Status: "ENABLED"
+ *   },
+ *   ProfileConfiguration: {
+ *     DefaultProfiles: [
+ *       "us-core-3.1.1",
+ *       "carin-bb-2.0.0"
+ *     ]
+ *   }
+ * };
+ * const command = new UpdateFHIRDatastoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DatastoreProperties: {
+ *     AnalyticsConfiguration: {
+ *       Status: "PAUSING"
+ *     },
+ *     DatastoreArn: "arn:aws:healthlake:us-east-1:123456789012:datastore/datastore-id",
+ *     DatastoreEndpoint: "https://healthlake.us-east-1.amazonaws.com/datastore/datastore-id/r4/",
+ *     DatastoreId: "datastore-id",
+ *     DatastoreName: "RenamedFhirDatastore",
+ *     DatastoreStatus: "UPDATING",
+ *     DatastoreTypeVersion: "R4",
+ *     IdentityProviderConfiguration: {
+ *       AuthorizationStrategy: "SMART_ON_FHIR_V1",
+ *       FineGrainedAuthorizationEnabled: true
+ *     },
+ *     NlpConfiguration: {
+ *       Status: "ENABLING"
+ *     },
+ *     ProfileConfiguration: {
+ *       DefaultProfiles: [
+ *         "us-core-3.1.1",
+ *         "carin-bb-2.0.0"
+ *       ]
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */

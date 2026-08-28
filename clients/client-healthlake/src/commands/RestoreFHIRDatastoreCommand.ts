@@ -2,8 +2,8 @@
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { _ep0, _mw0, command } from "../commandBuilder";
-import type { CreateFHIRDatastoreRequest, CreateFHIRDatastoreResponse } from "../models/models_0";
-import { CreateFHIRDatastore$ } from "../schemas/schemas_0";
+import type { RestoreFHIRDatastoreRequest, RestoreFHIRDatastoreResponse } from "../models/models_0";
+import { RestoreFHIRDatastore$ } from "../schemas/schemas_0";
 
 /**
  * @public
@@ -12,37 +12,39 @@ export type { __MetadataBearer };
 /**
  * @public
  *
- * The input for {@link CreateFHIRDatastoreCommand}.
+ * The input for {@link RestoreFHIRDatastoreCommand}.
  */
-export interface CreateFHIRDatastoreCommandInput extends CreateFHIRDatastoreRequest {}
+export interface RestoreFHIRDatastoreCommandInput extends RestoreFHIRDatastoreRequest {}
 /**
  * @public
  *
- * The output of {@link CreateFHIRDatastoreCommand}.
+ * The output of {@link RestoreFHIRDatastoreCommand}.
  */
-export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreResponse, __MetadataBearer {}
+export interface RestoreFHIRDatastoreCommandOutput extends RestoreFHIRDatastoreResponse, __MetadataBearer {}
 
 /**
- * <p>Create a FHIR-enabled data store.</p>
+ * Restore a backup-enabled data store to a point in time. Creates a new data store from the backup.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { HealthLakeClient, CreateFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
- * // const { HealthLakeClient, CreateFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
+ * import { HealthLakeClient, RestoreFHIRDatastoreCommand } from "@aws-sdk/client-healthlake"; // ES Modules import
+ * // const { HealthLakeClient, RestoreFHIRDatastoreCommand } = require("@aws-sdk/client-healthlake"); // CommonJS import
  * // import type { HealthLakeClientConfig } from "@aws-sdk/client-healthlake";
  * const config = {}; // type is HealthLakeClientConfig
  * const client = new HealthLakeClient(config);
- * const input = { // CreateFHIRDatastoreRequest
+ * const input = { // RestoreFHIRDatastoreRequest
+ *   SourceDatastoreId: "STRING_VALUE", // required
+ *   RestoreConfiguration: { // RestoreConfiguration Union: only one key present
+ *     ContinuousBackupRestoreConfiguration: { // ContinuousBackupRestoreConfiguration
+ *       RestorePointTime: new Date("TIMESTAMP"),
+ *     },
+ *   },
  *   DatastoreName: "STRING_VALUE",
- *   DatastoreTypeVersion: "R4", // required
  *   SseConfiguration: { // SseConfiguration
  *     KmsEncryptionConfig: { // KmsEncryptionConfig
  *       CmkType: "CUSTOMER_MANAGED_KMS_KEY" || "AWS_OWNED_KMS_KEY", // required
  *       KmsKeyId: "STRING_VALUE",
  *     },
- *   },
- *   PreloadDataConfig: { // PreloadDataConfig
- *     PreloadDataType: "SYNTHEA", // required
  *   },
  *   ClientToken: "STRING_VALUE",
  *   Tags: [ // TagList
@@ -68,16 +70,10 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *       "STRING_VALUE",
  *     ],
  *   },
- *   BackupConfiguration: { // BackupConfiguration
- *     Status: "ENABLED" || "DISABLED",
- *     BackupType: "CONTINUOUS",
- *     RetentionPeriodInDays: Number("int"),
- *     BackupTagsEnabled: true || false,
- *   },
  * };
- * const command = new CreateFHIRDatastoreCommand(input);
+ * const command = new RestoreFHIRDatastoreCommand(input);
  * const response = await client.send(command);
- * // { // CreateFHIRDatastoreResponse
+ * // { // RestoreFHIRDatastoreResponse
  * //   DatastoreId: "STRING_VALUE", // required
  * //   DatastoreArn: "STRING_VALUE", // required
  * //   DatastoreStatus: "CREATING" || "ACTIVE" || "DELETING" || "DELETED" || "CREATE_FAILED" || "UPDATING" || "UPDATE_FAILED", // required
@@ -86,17 +82,23 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  *
  * ```
  *
- * @param CreateFHIRDatastoreCommandInput - {@link CreateFHIRDatastoreCommandInput}
- * @returns {@link CreateFHIRDatastoreCommandOutput}
- * @see {@link CreateFHIRDatastoreCommandInput} for command's `input` shape.
- * @see {@link CreateFHIRDatastoreCommandOutput} for command's `response` shape.
+ * @param RestoreFHIRDatastoreCommandInput - {@link RestoreFHIRDatastoreCommandInput}
+ * @returns {@link RestoreFHIRDatastoreCommandOutput}
+ * @see {@link RestoreFHIRDatastoreCommandInput} for command's `input` shape.
+ * @see {@link RestoreFHIRDatastoreCommandOutput} for command's `response` shape.
  * @see {@link HealthLakeClientResolvedConfig | config} for HealthLakeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The data store is in a transition state and the user requested action cannot be performed.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>
+ *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
@@ -108,23 +110,47 @@ export interface CreateFHIRDatastoreCommandOutput extends CreateFHIRDatastoreRes
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
  *
+ * @example Restore a data store to a point in time
+ * ```javascript
+ * //
+ * const input = {
+ *   DatastoreName: "RestoredFhirDatastore",
+ *   RestoreConfiguration: {
+ *     ContinuousBackupRestoreConfiguration: {
+ *       RestorePointTime: "2026-08-01T00:00:00Z"
+ *     }
+ *   },
+ *   SourceDatastoreId: "source-datastore-id"
+ * };
+ * const command = new RestoreFHIRDatastoreCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DatastoreArn: "arn:aws:healthlake:us-east-1:123456789012:datastore/fhir/restored-datastore-id",
+ *   DatastoreEndpoint: "https://healthlake.us-east-1.amazonaws.com/datastore/restored-datastore-id/r4/",
+ *   DatastoreId: "restored-datastore-id",
+ *   DatastoreStatus: "CREATING"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
-export class CreateFHIRDatastoreCommand extends command<CreateFHIRDatastoreCommandInput, CreateFHIRDatastoreCommandOutput>(
+export class RestoreFHIRDatastoreCommand extends command<RestoreFHIRDatastoreCommandInput, RestoreFHIRDatastoreCommandOutput>(
   _ep0,
   _mw0,
-  "CreateFHIRDatastore",
-  CreateFHIRDatastore$
+  "RestoreFHIRDatastore",
+  RestoreFHIRDatastore$
 ) {
   /** @internal type navigation helper, not in runtime. */
   protected declare static __types: {
     api: {
-      input: CreateFHIRDatastoreRequest;
-      output: CreateFHIRDatastoreResponse;
+      input: RestoreFHIRDatastoreRequest;
+      output: RestoreFHIRDatastoreResponse;
     };
     sdk: {
-      input: CreateFHIRDatastoreCommandInput;
-      output: CreateFHIRDatastoreCommandOutput;
+      input: RestoreFHIRDatastoreCommandInput;
+      output: RestoreFHIRDatastoreCommandOutput;
     };
   };
 }

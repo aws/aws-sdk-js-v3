@@ -160,7 +160,7 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * The request exceeds the service quota.
+ * <p>The request exceeds the service quota.</p>
  * @public
  */
 export class ServiceQuotaExceededException extends __BaseException {
@@ -252,7 +252,7 @@ export class NotImplementedOperationException extends __BaseException {
 }
 
 /**
- * <p>You are not authorized to make this request. Verify that your AWS credentials are valid and that you have the required permissions.</p>
+ * <p>You are not authorized to make this request. Verify that your Amazon Web Services credentials are valid and that you have the required permissions.</p>
  * @public
  */
 export class UnauthorizedException extends __BaseException {
@@ -296,7 +296,7 @@ export class UnsupportedMIMETypeException extends __BaseException {
 }
 
 /**
- * A dependent service failed to fulfill the request.
+ * <p>A dependent service failed to fulfill the request.</p>
  * @public
  */
 export class FailedDependencyException extends __BaseException {

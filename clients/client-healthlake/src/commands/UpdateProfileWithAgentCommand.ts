@@ -84,7 +84,7 @@ export interface UpdateProfileWithAgentCommandOutput extends UpdateProfileWithAg
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>
  *
  * @throws {@link UnauthorizedException} (client fault)
- *  <p>You are not authorized to make this request. Verify that your AWS credentials are valid and that you have the required permissions.</p>
+ *  <p>You are not authorized to make this request. Verify that your Amazon Web Services credentials are valid and that you have the required permissions.</p>
  *
  * @throws {@link UnsupportedMIMETypeException} (client fault)
  *  <p>The content type in your request is not supported. Use a supported content type for this operation.</p>

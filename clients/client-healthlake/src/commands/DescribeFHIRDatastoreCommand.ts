@@ -76,6 +76,18 @@ export interface DescribeFHIRDatastoreCommandOutput extends DescribeFHIRDatastor
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     BackupStatusInfo: { // DatastoreBackupStatus
+ * //       Configuration: { // BackupConfiguration
+ * //         Status: "ENABLED" || "DISABLED",
+ * //         BackupType: "CONTINUOUS",
+ * //         RetentionPeriodInDays: Number("int"),
+ * //         BackupTagsEnabled: true || false,
+ * //       },
+ * //       BackupEnabledAt: new Date("TIMESTAMP"),
+ * //       EarliestRestorePoint: new Date("TIMESTAMP"),
+ * //       LatestRestorePoint: new Date("TIMESTAMP"),
+ * //       ScheduledPermanentDeletionTime: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

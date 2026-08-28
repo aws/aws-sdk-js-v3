@@ -70,7 +70,7 @@ export interface PublishDataTransformationProfileCommandOutput extends PublishDa
  *  <p>The requested data store was not found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  The request exceeds the service quota.
+ *  <p>The request exceeds the service quota.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The user has exceeded their maximum number of allowed calls to the given API. </p>

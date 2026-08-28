@@ -16,6 +16,7 @@ export * from "./ListFHIRExportJobsCommand";
 export * from "./ListFHIRImportJobsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PublishDataTransformationProfileCommand";
+export * from "./RestoreFHIRDatastoreCommand";
 export * from "./StartDataTransformationJobCommand";
 export * from "./StartFHIRExportJobCommand";
 export * from "./StartFHIRImportJobCommand";

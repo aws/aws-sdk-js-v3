@@ -4,6 +4,8 @@ import type {
   AgentOutputMessageType,
   AnalyticsStatus,
   AuthorizationStrategy,
+  BackupStatus,
+  BackupType,
   CmkType,
   DatastoreStatus,
   ErrorCategory,
@@ -176,7 +178,7 @@ export interface CreateDataTransformationProfileRequest {
   Source: CreateDataTransformationProfileSource | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key identifier used to encrypt the profile content at rest.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key identifier used to encrypt the profile content at rest.</p>
    * @public
    */
   KmsKeyId?: string | undefined;
@@ -638,13 +640,13 @@ export interface TransformationInputDataConfig {
  */
 export interface DataTransformationS3Configuration {
   /**
-   * <p>The Amazon S3 URI where AWS HealthLake writes the converted output files.</p>
+   * <p>The Amazon S3 URI where HealthLake writes the converted output files.</p>
    * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * <p>The AWS Key Management Service (AWS KMS) key identifier used to encrypt the transformation job output written to Amazon S3.</p>
+   * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key identifier used to encrypt the transformation job output written to Amazon S3.</p>
    * @public
    */
   KmsKeyId: string | undefined;
@@ -656,7 +658,7 @@ export interface DataTransformationS3Configuration {
  */
 export interface TransformationOutputDataConfig {
   /**
-   * <p>The Amazon S3 output location and AWS Key Management Service (AWS KMS) encryption configuration.</p>
+   * <p>The Amazon S3 output location and Amazon Web Services Key Management Service (Amazon Web Services KMS) encryption configuration.</p>
    * @public
    */
   S3Configuration: DataTransformationS3Configuration | undefined;
@@ -674,13 +676,13 @@ export interface StartDataTransformationJobRequest {
   InputDataConfig: TransformationInputDataConfig | undefined;
 
   /**
-   * <p>The Amazon S3 output location and AWS Key Management Service (AWS KMS) encryption configuration.</p>
+   * <p>The Amazon S3 output location and Amazon Web Services Key Management Service (Amazon Web Services KMS) encryption configuration.</p>
    * @public
    */
   OutputDataConfig: TransformationOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that AWS HealthLake assumes to read from and write to the specified Amazon S3 locations.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that HealthLake assumes to read from and write to the specified Amazon S3 locations.</p>
    * @public
    */
   DataAccessRoleArn: string | undefined;
@@ -704,7 +706,7 @@ export interface StartDataTransformationJobRequest {
   ProfileId: string | undefined;
 
   /**
-   * <p>Specifies whether drift detection is enabled for this job. When enabled, AWS HealthLake writes a drift report to the output Amazon S3 location alongside the converted files.</p>
+   * <p>Specifies whether drift detection is enabled for this job. When enabled, HealthLake writes a drift report to the output Amazon S3 location alongside the converted files.</p>
    * @public
    */
   DriftDetectionEnabled?: boolean | undefined;
@@ -897,12 +899,54 @@ export interface AnalyticsConfiguration {
 }
 
 /**
+ * The backup configuration for the data store.
+ * @public
+ */
+export interface BackupConfiguration {
+  /**
+   * The backup status of the data store.
+   * @public
+   */
+  Status?: BackupStatus | undefined;
+
+  /**
+   * The type of backup.
+   * @public
+   */
+  BackupType?: BackupType | undefined;
+
+  /**
+   * The number of days backup data is retained.
+   * @public
+   */
+  RetentionPeriodInDays?: number | undefined;
+
+  /**
+   * Specifies whether tags are included in backups.
+   * @public
+   */
+  BackupTagsEnabled?: boolean | undefined;
+}
+
+/**
+ * Configuration for continuous backup (point-in-time) restore.
+ * @public
+ */
+export interface ContinuousBackupRestoreConfiguration {
+  /**
+   * The point in time to restore the data store to, specified as a UTC timestamp.
+   * @public
+   */
+  RestorePointTime?: Date | undefined;
+}
+
+/**
  * <p>The identity provider configuration selected when the data store was created.</p>
  * @public
  */
 export interface IdentityProviderConfiguration {
   /**
-   * <p>The authorization strategy selected when the HealthLake data store is created.</p> <note> <p>HealthLake provides support for both SMART on FHIR V1 and V2 as described below.</p> <ul> <li> <p> <code>SMART_ON_FHIR_V1</code> – Support for only SMART on FHIR V1, which includes <code>read</code> (read/search) and <code>write</code> (create/update/delete) permissions.</p> </li> <li> <p> <code>SMART_ON_FHIR</code> – Support for both SMART on FHIR V1 and V2, which includes <code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>, and <code>search</code> permissions.</p> </li> <li> <p> <code>AWS_AUTH</code> – The default HealthLake authorization strategy; not affiliated with SMART on FHIR.</p> </li> </ul> </note>
+   * <p>The authorization strategy selected when the HealthLake data store is created.</p> <note> <p>HealthLake provides support for both SMART on FHIR V1 and V2 as described below.</p> <ul> <li> <p> <code>SMART_ON_FHIR_V1</code> – Support for only SMART on FHIR V1, which includes <code>read</code> (read/search) and <code>write</code> (create/update/delete) permissions.</p> </li> <li> <p> <code>SMART_ON_FHIR</code> – Support for both SMART on FHIR V1 and V2, which includes <code>create</code>, <code>read</code>, <code>update</code>, <code>delete</code>, and <code>search</code> permissions.</p> </li> <li> <p> <code>Amazon Web Services_AUTH</code> – The default HealthLake authorization strategy; not affiliated with SMART on FHIR.</p> </li> </ul> </note>
    * @public
    */
   AuthorizationStrategy: AuthorizationStrategy | undefined;
@@ -963,7 +1007,7 @@ export interface ProfileConfiguration {
 }
 
 /**
- * <p>The customer-managed-key (CMK) used when creating a data store. If a customer-owned key is not specified, an AWS-owned key is used for encryption. </p>
+ * <p>The customer-managed-key (CMK) used when creating a data store. If a customer-owned key is not specified, an Amazon Web Services-owned key is used for encryption. </p>
  * @public
  */
 export interface KmsEncryptionConfig {
@@ -1073,6 +1117,12 @@ export interface CreateFHIRDatastoreRequest {
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
+
+  /**
+   * The backup configuration for the data store.
+   * @public
+   */
+  BackupConfiguration?: BackupConfiguration | undefined;
 }
 
 /**
@@ -1098,10 +1148,46 @@ export interface CreateFHIRDatastoreResponse {
   DatastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * <p>The AWS endpoint created for the data store.</p>
+   * <p>The Amazon Web Services endpoint created for the data store.</p>
    * @public
    */
   DatastoreEndpoint: string | undefined;
+}
+
+/**
+ * The backup status information for the data store.
+ * @public
+ */
+export interface DatastoreBackupStatus {
+  /**
+   * The backup configuration for the data store.
+   * @public
+   */
+  Configuration?: BackupConfiguration | undefined;
+
+  /**
+   * The time backup was enabled on the data store.
+   * @public
+   */
+  BackupEnabledAt?: Date | undefined;
+
+  /**
+   * The earliest point in time the data store can be restored to.
+   * @public
+   */
+  EarliestRestorePoint?: Date | undefined;
+
+  /**
+   * The latest point in time the data store can be restored to.
+   * @public
+   */
+  LatestRestorePoint?: Date | undefined;
+
+  /**
+   * The time the retained backup data is scheduled for permanent deletion.
+   * @public
+   */
+  ScheduledPermanentDeletionTime?: Date | undefined;
 }
 
 /**
@@ -1194,7 +1280,7 @@ export interface DatastoreProperties {
   DatastoreTypeVersion: FHIRVersion | undefined;
 
   /**
-   * <p>The AWS endpoint for the data store.</p>
+   * <p>The Amazon Web Services endpoint for the data store.</p>
    * @public
    */
   DatastoreEndpoint: string | undefined;
@@ -1240,6 +1326,12 @@ export interface DatastoreProperties {
    * @public
    */
   ProfileConfiguration?: ProfileConfiguration | undefined;
+
+  /**
+   * The backup status information for the data store.
+   * @public
+   */
+  BackupStatusInfo?: DatastoreBackupStatus | undefined;
 }
 
 /**
@@ -1247,7 +1339,7 @@ export interface DatastoreProperties {
  */
 export interface DeleteFHIRDatastoreRequest {
   /**
-   * <p> The AWS-generated identifier for the data store to be deleted.</p>
+   * <p> The Amazon Web Services-generated identifier for the data store to be deleted.</p>
    * @public
    */
   DatastoreId: string | undefined;
@@ -1258,13 +1350,13 @@ export interface DeleteFHIRDatastoreRequest {
  */
 export interface DeleteFHIRDatastoreResponse {
   /**
-   * <p>The AWS-generated ID for the deleted data store.</p>
+   * <p>The Amazon Web Services-generated ID for the deleted data store.</p>
    * @public
    */
   DatastoreId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that grants access permission to AWS HealthLake.</p>
+   * <p>The Amazon Resource Name (ARN) that grants access permission to HealthLake.</p>
    * @public
    */
   DatastoreArn: string | undefined;
@@ -1276,7 +1368,7 @@ export interface DeleteFHIRDatastoreResponse {
   DatastoreStatus: DatastoreStatus | undefined;
 
   /**
-   * <p>The AWS endpoint of the data store to be deleted.</p>
+   * <p>The Amazon Web Services endpoint of the data store to be deleted.</p>
    * @public
    */
   DatastoreEndpoint: string | undefined;
@@ -1354,7 +1446,7 @@ export interface TransformationJobProperties {
   OutputDataConfig: TransformationOutputDataConfig | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants AWS HealthLake access to the specified Amazon S3 locations. AWS HealthLake assumes this role to read input files and write output files.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Identity and Access Management (IAM) role that grants HealthLake access to the specified Amazon S3 locations. HealthLake assumes this role to read input files and write output files.</p>
    * @public
    */
   DataAccessRoleArn: string | undefined;
@@ -1396,7 +1488,7 @@ export interface TransformationJobProperties {
   EndTime?: Date | undefined;
 
   /**
-   * <p>Specifies whether drift detection is enabled for this job. When enabled, AWS HealthLake writes a drift report to the output Amazon S3 location alongside the converted files.</p>
+   * <p>Specifies whether drift detection is enabled for this job. When enabled, HealthLake writes a drift report to the output Amazon S3 location alongside the converted files.</p>
    * @public
    */
   DriftDetectionEnabled?: boolean | undefined;
@@ -1472,18 +1564,18 @@ export interface DescribeFHIRExportJobRequest {
 }
 
 /**
- * <p>The configuration of the S3 bucket for either an import or export job. This includes assigning access permissions.</p>
+ * <p>The configuration of the Amazon S3 bucket for either an import or export job. This includes assigning access permissions.</p>
  * @public
  */
 export interface S3Configuration {
   /**
-   * <p>The <code>S3Uri</code> is the user-specified S3 location of the FHIR data to be imported into AWS HealthLake.</p>
+   * <p>The <code>S3Uri</code> is the user-specified Amazon S3 location of the FHIR data to be imported into HealthLake.</p>
    * @public
    */
   S3Uri: string | undefined;
 
   /**
-   * <p>The Key Management Service (KMS) key ID used to access the S3 bucket. </p>
+   * <p>The Key Management Service (KMS) key ID used to access the Amazon S3 bucket. </p>
    * @public
    */
   KmsKeyId: string | undefined;
@@ -1629,7 +1721,7 @@ export type InputDataConfig =
  */
 export namespace InputDataConfig {
   /**
-   * <p>The <code>S3Uri</code> is the user-specified S3 location of the FHIR data to be imported into AWS HealthLake.</p>
+   * <p>The <code>S3Uri</code> is the user-specified Amazon S3 location of the FHIR data to be imported into HealthLake.</p>
    * @public
    */
   export interface S3UriMember {
@@ -1661,13 +1753,13 @@ export namespace InputDataConfig {
  */
 export interface JobProgressReport {
   /**
-   * <p>The number of files scanned from the S3 input bucket.</p>
+   * <p>The number of files scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalNumberOfScannedFiles?: number | undefined;
 
   /**
-   * <p>The size (in MB) of files scanned from the S3 input bucket.</p>
+   * <p>The size (in MB) of files scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalSizeOfScannedFilesInMB?: number | undefined;
@@ -1679,7 +1771,7 @@ export interface JobProgressReport {
   TotalNumberOfImportedFiles?: number | undefined;
 
   /**
-   * <p>The number of resources scanned from the S3 input bucket.</p>
+   * <p>The number of resources scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalNumberOfResourcesScanned?: number | undefined;
@@ -1697,49 +1789,49 @@ export interface JobProgressReport {
   TotalNumberOfResourcesWithCustomerError?: number | undefined;
 
   /**
-   * <p>The number of files that failed to be read from the S3 input bucket due to customer error.</p>
+   * <p>The number of files that failed to be read from the Amazon S3 input bucket due to customer error.</p>
    * @public
    */
   TotalNumberOfFilesReadWithCustomerError?: number | undefined;
 
   /**
-   * The number of non-FHIR files scanned from the S3 input bucket.
+   * <p>The number of non-FHIR files scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalNumberOfScannedNonFhirFiles?: number | undefined;
 
   /**
-   * The size (in MB) of non-FHIR files scanned from the S3 input bucket.
+   * <p>The size (in MB) of non-FHIR files scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalSizeOfScannedNonFhirFilesInMB?: number | undefined;
 
   /**
-   * The number of non-FHIR files imported.
+   * <p>The number of non-FHIR files imported.</p>
    * @public
    */
   TotalNumberOfImportedNonFhirFiles?: number | undefined;
 
   /**
-   * The number of non-FHIR resources scanned from the S3 input bucket.
+   * <p>The number of non-FHIR resources scanned from the Amazon S3 input bucket.</p>
    * @public
    */
   TotalNumberOfNonFhirResourcesScanned?: number | undefined;
 
   /**
-   * The number of non-FHIR resources imported.
+   * <p>The number of non-FHIR resources imported.</p>
    * @public
    */
   TotalNumberOfNonFhirResourcesImported?: number | undefined;
 
   /**
-   * The number of non-FHIR resources that failed due to customer error.
+   * <p>The number of non-FHIR resources that failed due to customer error.</p>
    * @public
    */
   TotalNumberOfNonFhirResourcesWithCustomerError?: number | undefined;
 
   /**
-   * The number of non-FHIR files that failed to be read from the S3 input bucket due to customer error.
+   * <p>The number of non-FHIR files that failed to be read from the Amazon S3 input bucket due to customer error.</p>
    * @public
    */
   TotalNumberOfNonFhirFilesReadWithCustomerError?: number | undefined;
@@ -1751,18 +1843,13 @@ export interface JobProgressReport {
   Throughput?: number | undefined;
 
   /**
-   * Number of CCDA files successfully transformed during the import's
-   * transformation phase. Populated only for import jobs that use the
-   * two-Step-Function (transformation + ingestion) flow; null for legacy
-   * single-SF imports and for pure FHIR imports that skip transformation.
+   * <p>Number of CCDA files successfully transformed during the import's transformation phase. Populated only for import jobs that use the two-Step-Function (transformation + ingestion) flow; null for legacy single-SF imports and for pure FHIR imports that skip transformation.</p>
    * @public
    */
   TotalFilesConverted?: number | undefined;
 
   /**
-   * Number of FHIR resources produced by the transformation phase.
-   * Populated only for import jobs that use the two-Step-Function flow;
-   * null for legacy single-SF imports and for pure FHIR imports.
+   * <p>Number of FHIR resources produced by the transformation phase. Populated only for import jobs that use the two-Step-Function flow; null for legacy single-SF imports and for pure FHIR imports.</p>
    * @public
    */
   TotalResourcesGenerated?: number | undefined;
@@ -1828,7 +1915,7 @@ export interface ImportJobProperties {
   JobProgressReport?: JobProgressReport | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that grants AWS HealthLake access to the input data.</p>
+   * <p>The Amazon Resource Name (ARN) that grants HealthLake access to the input data.</p>
    * @public
    */
   DataAccessRoleArn?: string | undefined;
@@ -2150,6 +2237,139 @@ export interface ListTagsForResourceResponse {
 }
 
 /**
+ * Specifies the type and parameters for the restore operation.
+ * @public
+ */
+export type RestoreConfiguration =
+  | RestoreConfiguration.ContinuousBackupRestoreConfigurationMember
+  | RestoreConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace RestoreConfiguration {
+  /**
+   * Configuration for restoring from continuous backup to a specific point in time.
+   * @public
+   */
+  export interface ContinuousBackupRestoreConfigurationMember {
+    ContinuousBackupRestoreConfiguration: ContinuousBackupRestoreConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    ContinuousBackupRestoreConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  /**
+   * @deprecated unused in schema-serde mode.
+   *
+   */
+  export interface Visitor<T> {
+    ContinuousBackupRestoreConfiguration: (value: ContinuousBackupRestoreConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+}
+
+/**
+ * @public
+ */
+export interface RestoreFHIRDatastoreRequest {
+  /**
+   * The identifier of the source data store to restore from.
+   * @public
+   */
+  SourceDatastoreId: string | undefined;
+
+  /**
+   * The restore configuration specifying the type and parameters for the restore.
+   * @public
+   */
+  RestoreConfiguration: RestoreConfiguration | undefined;
+
+  /**
+   * The name for the restored data store.
+   * @public
+   */
+  DatastoreName?: string | undefined;
+
+  /**
+   * The server-side encryption key configuration for the restored data store.
+   * @public
+   */
+  SseConfiguration?: SseConfiguration | undefined;
+
+  /**
+   * An optional user-provided token to ensure API idempotency of the restore.
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * The resource tags applied to the restored data store.
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * The identity provider configuration for the restored data store.
+   * @public
+   */
+  IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
+
+  /**
+   * The analytics configuration for the restored data store.
+   * @public
+   */
+  AnalyticsConfiguration?: AnalyticsConfiguration | undefined;
+
+  /**
+   * The NLP configuration for the restored data store.
+   * @public
+   */
+  NlpConfiguration?: NlpConfiguration | undefined;
+
+  /**
+   * The profile configuration for the restored data store.
+   * @public
+   */
+  ProfileConfiguration?: ProfileConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestoreFHIRDatastoreResponse {
+  /**
+   * The restored data store identifier.
+   * @public
+   */
+  DatastoreId: string | undefined;
+
+  /**
+   * The Amazon Resource Name (ARN) for the restored data store.
+   * @public
+   */
+  DatastoreArn: string | undefined;
+
+  /**
+   * The restored data store status.
+   * @public
+   */
+  DatastoreStatus: DatastoreStatus | undefined;
+
+  /**
+   * The AWS endpoint for the restored data store.
+   * @public
+   */
+  DatastoreEndpoint: string | undefined;
+}
+
+/**
  * @public
  */
 export interface StartFHIRExportJobRequest {
@@ -2236,7 +2456,7 @@ export interface StartFHIRImportJobRequest {
   DatastoreId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) that grants access permission to AWS HealthLake.</p>
+   * <p>The Amazon Resource Name (ARN) that grants access permission to HealthLake.</p>
    * @public
    */
   DataAccessRoleArn: string | undefined;
@@ -2254,19 +2474,19 @@ export interface StartFHIRImportJobRequest {
   ValidationLevel?: ValidationLevel | undefined;
 
   /**
-   * A bounded-length string value.
+   * <p>The data transformation profile identifier to use for the import job.</p>
    * @public
    */
   ProfileId?: string | undefined;
 
   /**
-   * A bounded-length string value.
+   * <p>The input format of the data to be imported.</p>
    * @public
    */
   InputFormat?: string | undefined;
 
   /**
-   * A boolean value.
+   * <p>Specifies whether to enable drift detection for the import job.</p>
    * @public
    */
   DriftDetectionEnabled?: boolean | undefined;
@@ -2384,6 +2604,12 @@ export interface UpdateFHIRDatastoreRequest {
    * @public
    */
   IdentityProviderConfiguration?: IdentityProviderConfiguration | undefined;
+
+  /**
+   * The backup configuration for the data store.
+   * @public
+   */
+  BackupConfiguration?: BackupConfiguration | undefined;
 }
 
 /**

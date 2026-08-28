@@ -10,9 +10,13 @@ import {
   AnalyticsConfiguration$,
   AnalyticsStatus,
   AuthorizationStrategy,
+  BackupConfiguration$,
+  BackupStatus,
+  BackupType,
   CmkType,
   ConflictException,
   ConflictException$,
+  ContinuousBackupRestoreConfiguration$,
   ConversationNotFoundException,
   ConversationNotFoundException$,
   CreateDataTransformationProfile$,
@@ -24,6 +28,7 @@ import {
   CreateFHIRDatastoreCommand,
   CreateFHIRDatastoreRequest$,
   CreateFHIRDatastoreResponse$,
+  DatastoreBackupStatus$,
   DatastoreFilter$,
   DatastoreProperties$,
   DatastoreStatus,
@@ -125,6 +130,11 @@ import {
   PublishDataTransformationProfileResponse$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  RestoreConfiguration$,
+  RestoreFHIRDatastore$,
+  RestoreFHIRDatastoreCommand,
+  RestoreFHIRDatastoreRequest$,
+  RestoreFHIRDatastoreResponse$,
   S3Configuration$,
   SampleDataSource$,
   ServiceQuotaExceededException,
@@ -231,6 +241,8 @@ assert(typeof ListTagsForResourceCommand === "function");
 assert(typeof ListTagsForResource$ === "object");
 assert(typeof PublishDataTransformationProfileCommand === "function");
 assert(typeof PublishDataTransformationProfile$ === "object");
+assert(typeof RestoreFHIRDatastoreCommand === "function");
+assert(typeof RestoreFHIRDatastore$ === "object");
 assert(typeof StartDataTransformationJobCommand === "function");
 assert(typeof StartDataTransformationJob$ === "object");
 assert(typeof StartFHIRExportJobCommand === "function");
@@ -251,11 +263,14 @@ assert(typeof UpdateProfileWithAgent$ === "object");
 assert(typeof AgentInputMessage$ === "object");
 assert(typeof AgentOutputMessage$ === "object");
 assert(typeof AnalyticsConfiguration$ === "object");
+assert(typeof BackupConfiguration$ === "object");
+assert(typeof ContinuousBackupRestoreConfiguration$ === "object");
 assert(typeof CreateDataTransformationProfileRequest$ === "object");
 assert(typeof CreateDataTransformationProfileResponse$ === "object");
 assert(typeof CreateDataTransformationProfileSource$ === "object");
 assert(typeof CreateFHIRDatastoreRequest$ === "object");
 assert(typeof CreateFHIRDatastoreResponse$ === "object");
+assert(typeof DatastoreBackupStatus$ === "object");
 assert(typeof DatastoreFilter$ === "object");
 assert(typeof DatastoreProperties$ === "object");
 assert(typeof DataTransformationProfileSummary$ === "object");
@@ -304,6 +319,9 @@ assert(typeof ProfileConfiguration$ === "object");
 assert(typeof ProfileMappingSource$ === "object");
 assert(typeof PublishDataTransformationProfileRequest$ === "object");
 assert(typeof PublishDataTransformationProfileResponse$ === "object");
+assert(typeof RestoreConfiguration$ === "object");
+assert(typeof RestoreFHIRDatastoreRequest$ === "object");
+assert(typeof RestoreFHIRDatastoreResponse$ === "object");
 assert(typeof S3Configuration$ === "object");
 assert(typeof SampleDataSource$ === "object");
 assert(typeof SseConfiguration$ === "object");
@@ -335,6 +353,8 @@ assert(typeof AgentInputMessageType === "object");
 assert(typeof AgentOutputMessageType === "object");
 assert(typeof AnalyticsStatus === "object");
 assert(typeof AuthorizationStrategy === "object");
+assert(typeof BackupStatus === "object");
+assert(typeof BackupType === "object");
 assert(typeof CmkType === "object");
 assert(typeof DatastoreStatus === "object");
 assert(typeof ErrorCategory === "object");

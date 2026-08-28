@@ -23,7 +23,7 @@ export interface ListDataTransformationJobsCommandInput extends ListDataTransfor
 export interface ListDataTransformationJobsCommandOutput extends ListDataTransformationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists data transformation jobs for your AWS account. Results can be filtered by status, job name, and submit time window. Results are paginated. Use the <code>NextToken</code> parameter to retrieve additional results.</p>
+ * <p>Lists data transformation jobs for your Amazon Web Services account. Results can be filtered by status, job name, and submit time window. Results are paginated. Use the <code>NextToken</code> parameter to retrieve additional results.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

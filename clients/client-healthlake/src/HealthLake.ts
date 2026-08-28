@@ -93,6 +93,11 @@ import {
   PublishDataTransformationProfileCommand,
 } from "./commands/PublishDataTransformationProfileCommand";
 import {
+  type RestoreFHIRDatastoreCommandInput,
+  type RestoreFHIRDatastoreCommandOutput,
+  RestoreFHIRDatastoreCommand,
+} from "./commands/RestoreFHIRDatastoreCommand";
+import {
   type StartDataTransformationJobCommandInput,
   type StartDataTransformationJobCommandOutput,
   StartDataTransformationJobCommand,
@@ -166,6 +171,7 @@ const commands = {
   ListFHIRImportJobsCommand,
   ListTagsForResourceCommand,
   PublishDataTransformationProfileCommand,
+  RestoreFHIRDatastoreCommand,
   StartDataTransformationJobCommand,
   StartFHIRExportJobCommand,
   StartFHIRImportJobCommand,
@@ -484,6 +490,23 @@ export interface HealthLake {
   ): void;
 
   /**
+   * @see {@link RestoreFHIRDatastoreCommand}
+   */
+  restoreFHIRDatastore(
+    args: RestoreFHIRDatastoreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreFHIRDatastoreCommandOutput>;
+  restoreFHIRDatastore(
+    args: RestoreFHIRDatastoreCommandInput,
+    cb: (err: any, data?: RestoreFHIRDatastoreCommandOutput) => void
+  ): void;
+  restoreFHIRDatastore(
+    args: RestoreFHIRDatastoreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreFHIRDatastoreCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartDataTransformationJobCommand}
    */
   startDataTransformationJob(
@@ -737,7 +760,7 @@ export interface HealthLake {
 }
 
 /**
- * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer Guide</i>.</p>
+ * <p>This is the <i>HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is HealthLake?</a> in the <i>HealthLake Developer Guide</i>.</p>
  * @public
  */
 export class HealthLake extends HealthLakeClient implements HealthLake {}

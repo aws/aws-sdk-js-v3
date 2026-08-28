@@ -123,6 +123,10 @@ import type {
   PublishDataTransformationProfileCommandOutput,
 } from "./commands/PublishDataTransformationProfileCommand";
 import type {
+  RestoreFHIRDatastoreCommandInput,
+  RestoreFHIRDatastoreCommandOutput,
+} from "./commands/RestoreFHIRDatastoreCommand";
+import type {
   StartDataTransformationJobCommandInput,
   StartDataTransformationJobCommandOutput,
 } from "./commands/StartDataTransformationJobCommand";
@@ -180,6 +184,7 @@ export type ServiceInputTypes =
   | ListFHIRImportJobsCommandInput
   | ListTagsForResourceCommandInput
   | PublishDataTransformationProfileCommandInput
+  | RestoreFHIRDatastoreCommandInput
   | StartDataTransformationJobCommandInput
   | StartFHIRExportJobCommandInput
   | StartFHIRImportJobCommandInput
@@ -210,6 +215,7 @@ export type ServiceOutputTypes =
   | ListFHIRImportJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | PublishDataTransformationProfileCommandOutput
+  | RestoreFHIRDatastoreCommandOutput
   | StartDataTransformationJobCommandOutput
   | StartFHIRExportJobCommandOutput
   | StartFHIRImportJobCommandOutput
@@ -410,7 +416,7 @@ export type HealthLakeClientResolvedConfigType = __SmithyResolvedConfiguration<_
 export interface HealthLakeClientResolvedConfig extends HealthLakeClientResolvedConfigType {}
 
 /**
- * <p>This is the <i>AWS HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is AWS HealthLake?</a> in the <i>AWS HealthLake Developer Guide</i>.</p>
+ * <p>This is the <i>HealthLake API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/healthlake/latest/devguide/what-is.html">What is HealthLake?</a> in the <i>HealthLake Developer Guide</i>.</p>
  * @public
  */
 export class HealthLakeClient extends __Client<

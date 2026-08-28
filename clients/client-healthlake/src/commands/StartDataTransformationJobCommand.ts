@@ -23,7 +23,7 @@ export interface StartDataTransformationJobCommandInput extends StartDataTransfo
 export interface StartDataTransformationJobCommandOutput extends StartDataTransformationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous data transformation job that converts source files from Amazon Simple Storage Service (Amazon S3) and writes the output to Amazon S3 or AWS HealthLake.</p>
+ * <p>Starts an asynchronous data transformation job that converts source files from Amazon Simple Storage Service (Amazon S3) and writes the output to Amazon S3 or HealthLake.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

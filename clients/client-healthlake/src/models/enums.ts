@@ -107,6 +107,31 @@ export type AuthorizationStrategy = (typeof AuthorizationStrategy)[keyof typeof 
  * @public
  * @enum
  */
+export const BackupType = {
+  CONTINUOUS: "CONTINUOUS",
+} as const;
+/**
+ * @public
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BackupStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+/**
+ * @public
+ */
+export type BackupStatus = (typeof BackupStatus)[keyof typeof BackupStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const CmkType = {
   AO_CMK: "AWS_OWNED_KMS_KEY",
   CM_CMK: "CUSTOMER_MANAGED_KMS_KEY",

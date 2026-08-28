@@ -72,7 +72,7 @@ export interface StartFHIRImportJobCommandOutput extends StartFHIRImportJobRespo
  *  <p>Access is denied. Your account is not authorized to perform this operation.</p>
  *
  * @throws {@link FailedDependencyException} (client fault)
- *  A dependent service failed to fulfill the request.
+ *  <p>A dependent service failed to fulfill the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unknown internal error occurred in the service.</p>
