@@ -43,6 +43,7 @@ const _APw = "AwsPartition";
 const _APws = "AwsProducts";
 const _AR = "AccountReceiver";
 const _AS = "AccountSummary";
+const _ASR = "AwsSoftwareRevenue";
 const _ASd = "AddressSummary";
 const _ASw = "AwsSubmission";
 const _ATCD = "AfterTargetCloseDate";
@@ -127,6 +128,7 @@ const _DRSJ = "DeleteResourceSnapshotJob";
 const _DRSJR = "DeleteResourceSnapshotJobRequest";
 const _De = "Description";
 const _Det = "Details";
+const _Di = "Discount";
 const _E = "Email";
 const _EA = "EngagementArn";
 const _EC = "EngagementCustomer";
@@ -142,9 +144,9 @@ const _ECSL = "ExpectedCustomerSpendList";
 const _ECT = "ExcludeContextTypes";
 const _ECn = "EnrichmentContext";
 const _ECng = "EngagementContexts";
-const _ED = "ExpirationDate";
-const _EDf = "EffectiveDate";
+const _ED = "EffectiveDate";
 const _EDn = "EngagementDescription";
+const _EDx = "ExpirationDate";
 const _EI = "EngagementIdentifier";
 const _EII = "EngagementInvitationIdentifier";
 const _EIIn = "EngagementInvitationId";
@@ -689,8 +691,8 @@ export var AwsOpportunityRelatedEntities$: StaticStructureSchema = [3, n0, _AORE
 ];
 export var AwsOpportunitySummaryFullView$: StaticStructureSchema = [3, n0, _AOSFV,
   0,
-  [_ROI, _O, _IT, _V, _LC, _OT, _Ins, _ITCR, _REIe, _Cu, _Pr, _CM],
-  [0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0], 0]
+  [_ROI, _O, _IT, _V, _LC, _OT, _Ins, _ITCR, _REIe, _Cu, _Pr, _CM, _SR],
+  [0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0], 0, [() => AwsSoftwareRevenue$, 0]]
 ];
 export var AwsProductDetails$: StaticStructureSchema = [3, n0, _APD,
   0,
@@ -711,6 +713,11 @@ export var AwsProductsSpendInsightsBySource$: StaticStructureSchema = [3, n0, _A
   0,
   [_Pa, _AWS],
   [[() => AwsProductInsights$, 0], [() => AwsProductInsights$, 0]]
+];
+export var AwsSoftwareRevenue$: StaticStructureSchema = [3, n0, _ASR,
+  0,
+  [_Va, _Di, _ED, _EDx],
+  [[() => MonetaryValue$, 0], 0, 0, 0]
 ];
 export var AwsSubmission$: StaticStructureSchema = [3, n0, _ASw,
   0,
@@ -834,7 +841,7 @@ export var EngagementCustomerProjectDetails$: StaticStructureSchema = [3, n0, _E
 ];
 export var EngagementInvitationSummary$: StaticStructureSchema = [3, n0, _EIS,
   0,
-  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _PTa],
+  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _EDx, _SAAI, _SCN, _Rec, _PTa],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0], 2
 ];
 export var EngagementMember$: StaticStructureSchema = [3, n0, _EM,
@@ -889,8 +896,8 @@ export var GetAwsOpportunitySummaryRequest$: StaticStructureSchema = [3, n0, _GA
 ];
 export var GetAwsOpportunitySummaryResponse$: StaticStructureSchema = [3, n0, _GAOSRe,
   0,
-  [_C, _ROI, _O, _IT, _V, _LC, _OT, _Ins, _ITCR, _REIe, _Cu, _Pr, _CM],
-  [0, 0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0], 0], 1
+  [_C, _ROI, _O, _IT, _V, _LC, _OT, _Ins, _ITCR, _REIe, _Cu, _Pr, _CM, _SR],
+  [0, 0, 0, 0, 0, [() => AwsOpportunityLifeCycle$, 0], [() => AwsOpportunityTeamMembersList, 0], [() => AwsOpportunityInsights$, 0], 0, () => AwsOpportunityRelatedEntities$, [() => AwsOpportunityCustomer$, 0], [() => AwsOpportunityProject$, 0], 0, [() => AwsSoftwareRevenue$, 0]], 1
 ];
 export var GetEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _GEIR,
   0,
@@ -899,7 +906,7 @@ export var GetEngagementInvitationRequest$: StaticStructureSchema = [3, n0, _GEI
 ];
 export var GetEngagementInvitationResponse$: StaticStructureSchema = [3, n0, _GEIRe,
   0,
-  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _ED, _SAAI, _SCN, _Rec, _RR, _Pay, _IM, _EDn, _EMx, _ECn],
+  [_Id, _C, _Ar, _PT, _EIn, _ET, _St, _ID, _EDx, _SAAI, _SCN, _Rec, _RR, _Pay, _IM, _EDn, _EMx, _ECn],
   [0, 0, 0, 0, 0, 0, 0, 5, 5, [() => AwsAccount, 0], 0, [() => Receiver$, 0], 0, [() => Payload$, 0], [() => InvitationMessage, 0], 0, [() => EngagementMemberSummaries, 0], [() => EnrichmentContext$, 0]], 2
 ];
 export var GetEngagementRequest$: StaticStructureSchema = [3, n0, _GER,
@@ -1329,7 +1336,7 @@ export var SenderContact$: StaticStructureSchema = [3, n0, _SCen,
 ];
 export var SoftwareRevenue$: StaticStructureSchema = [3, n0, _SR,
   0,
-  [_DMe, _Va, _EDf, _ED],
+  [_DMe, _Va, _ED, _EDx],
   [0, [() => MonetaryValue$, 0], 0, 0]
 ];
 export var SolutionBase$: StaticStructureSchema = [3, n0, _SBo,

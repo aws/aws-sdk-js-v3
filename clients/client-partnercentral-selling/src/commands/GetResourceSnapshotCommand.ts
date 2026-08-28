@@ -165,7 +165,7 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //           Email: "STRING_VALUE",
  * //           FirstName: "STRING_VALUE",
  * //           LastName: "STRING_VALUE",
- * //           BusinessTitle: "AWSSalesRep" || "AWSAccountOwner" || "WWPSPDM" || "PDM" || "PSM" || "ISVSM",
+ * //           BusinessTitle: "AWSSalesRep" || "AWSAccountOwner" || "WWPSPDM" || "PDM" || "PSM" || "ISVSM" || "Signatory",
  * //         },
  * //       ],
  * //       Insights: { // AwsOpportunityInsights
@@ -282,6 +282,15 @@ export interface GetResourceSnapshotCommandOutput extends GetResourceSnapshotRes
  * //         AwsPartition: "aws-eusc",
  * //       },
  * //       CosellMotion: "STRING_VALUE",
+ * //       SoftwareRevenue: { // AwsSoftwareRevenue
+ * //         Value: { // MonetaryValue
+ * //           Amount: "STRING_VALUE", // required
+ * //           CurrencyCode: "USD" || "EUR" || "GBP" || "AUD" || "CAD" || "CNY" || "NZD" || "INR" || "JPY" || "CHF" || "SEK" || "AED" || "AFN" || "ALL" || "AMD" || "ANG" || "AOA" || "ARS" || "AWG" || "AZN" || "BAM" || "BBD" || "BDT" || "BGN" || "BHD" || "BIF" || "BMD" || "BND" || "BOB" || "BOV" || "BRL" || "BSD" || "BTN" || "BWP" || "BYN" || "BZD" || "CDF" || "CHE" || "CHW" || "CLF" || "CLP" || "COP" || "COU" || "CRC" || "CUC" || "CUP" || "CVE" || "CZK" || "DJF" || "DKK" || "DOP" || "DZD" || "EGP" || "ERN" || "ETB" || "FJD" || "FKP" || "GEL" || "GHS" || "GIP" || "GMD" || "GNF" || "GTQ" || "GYD" || "HKD" || "HNL" || "HRK" || "HTG" || "HUF" || "IDR" || "ILS" || "IQD" || "IRR" || "ISK" || "JMD" || "JOD" || "KES" || "KGS" || "KHR" || "KMF" || "KPW" || "KRW" || "KWD" || "KYD" || "KZT" || "LAK" || "LBP" || "LKR" || "LRD" || "LSL" || "LYD" || "MAD" || "MDL" || "MGA" || "MKD" || "MMK" || "MNT" || "MOP" || "MRU" || "MUR" || "MVR" || "MWK" || "MXN" || "MXV" || "MYR" || "MZN" || "NAD" || "NGN" || "NIO" || "NOK" || "NPR" || "OMR" || "PAB" || "PEN" || "PGK" || "PHP" || "PKR" || "PLN" || "PYG" || "QAR" || "RON" || "RSD" || "RUB" || "RWF" || "SAR" || "SBD" || "SCR" || "SDG" || "SGD" || "SHP" || "SLL" || "SOS" || "SRD" || "SSP" || "STN" || "SVC" || "SYP" || "SZL" || "THB" || "TJS" || "TMT" || "TND" || "TOP" || "TRY" || "TTD" || "TWD" || "TZS" || "UAH" || "UGX" || "USN" || "UYI" || "UYU" || "UZS" || "VEF" || "VND" || "VUV" || "WST" || "XAF" || "XCD" || "XDR" || "XOF" || "XPF" || "XSU" || "XUA" || "YER" || "ZAR" || "ZMW" || "ZWL", // required
+ * //         },
+ * //         Discount: "STRING_VALUE",
+ * //         EffectiveDate: "STRING_VALUE",
+ * //         ExpirationDate: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * //   TargetMemberAccounts: [ // AwsAccountIdOrAliasList

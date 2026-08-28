@@ -445,6 +445,7 @@ export const AwsMemberBusinessTitle = {
   ISVSM: "ISVSM",
   PDM: "PDM",
   PSM: "PSM",
+  SIGNATORY: "Signatory",
   WWPSPDM: "WWPSPDM",
 } as const;
 /**

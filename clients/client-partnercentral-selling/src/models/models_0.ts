@@ -774,6 +774,54 @@ export interface AwsTeamMember {
 }
 
 /**
+ * <p>Specifies payments details.</p>
+ * @public
+ */
+export interface MonetaryValue {
+  /**
+   * <p>Specifies the payment amount.</p>
+   * @public
+   */
+  Amount: string | undefined;
+
+  /**
+   * <p>Specifies the payment currency. Accepted values are <code>USD</code> (US Dollars) and <code>EUR</code> (Euros). If the AWS Partition is <code>aws-eusc</code> (AWS European Sovereign Cloud), the currency code must be <code>EUR</code>.</p>
+   * @public
+   */
+  CurrencyCode: CurrencyCode | undefined;
+}
+
+/**
+ * <p>Seller-provided PARC deal terms for the opportunity, including commitment value, discount percentage, and contract dates.</p>
+ * @public
+ */
+export interface AwsSoftwareRevenue {
+  /**
+   * <p>Specifies payments details.</p>
+   * @public
+   */
+  Value?: MonetaryValue | undefined;
+
+  /**
+   * <p>Discount percentage offered on the software revenue. Percent convention: 15.00 means 15%.</p>
+   * @public
+   */
+  Discount?: string | undefined;
+
+  /**
+   * <p>Contract effective (start) date in YYYY-MM-DD format.</p>
+   * @public
+   */
+  EffectiveDate?: string | undefined;
+
+  /**
+   * <p>Contract expiration (end) date in YYYY-MM-DD format.</p>
+   * @public
+   */
+  ExpirationDate?: string | undefined;
+}
+
+/**
  * <p>Provides a comprehensive view of AwsOpportunitySummaryFullView template.</p>
  * @public
  */
@@ -849,6 +897,12 @@ export interface AwsOpportunitySummaryFullView {
    * @public
    */
   CosellMotion?: string | undefined;
+
+  /**
+   * <p>Seller-provided PARC deal terms: commitment value, discount, and contract dates.</p>
+   * @public
+   */
+  SoftwareRevenue?: AwsSoftwareRevenue | undefined;
 }
 
 /**
@@ -3342,24 +3396,6 @@ export interface Project {
 }
 
 /**
- * <p>Specifies payments details.</p>
- * @public
- */
-export interface MonetaryValue {
-  /**
-   * <p>Specifies the payment amount.</p>
-   * @public
-   */
-  Amount: string | undefined;
-
-  /**
-   * <p>Specifies the payment currency. Accepted values are <code>USD</code> (US Dollars) and <code>EUR</code> (Euros). If the AWS Partition is <code>aws-eusc</code> (AWS European Sovereign Cloud), the currency code must be <code>EUR</code>.</p>
-   * @public
-   */
-  CurrencyCode: CurrencyCode | undefined;
-}
-
-/**
  * <p>Specifies a customer's procurement terms details. Required only for partners in eligible programs.</p>
  * @public
  */
@@ -3622,6 +3658,12 @@ export interface GetAwsOpportunitySummaryResponse {
    * @public
    */
   CosellMotion?: string | undefined;
+
+  /**
+   * <p>Seller-provided PARC deal terms: commitment value, discount, and contract dates.</p>
+   * @public
+   */
+  SoftwareRevenue?: AwsSoftwareRevenue | undefined;
 
   /**
    * <p>Specifies the catalog in which the AWS Opportunity exists. This is the environment (e.g., <code>AWS</code> or <code>Sandbox</code>) where the opportunity is being managed.</p>

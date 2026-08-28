@@ -206,6 +206,7 @@ export type {
   AwsProductInsights,
   AwsProductOptimization,
   AwsProductsSpendInsightsBySource,
+  AwsSoftwareRevenue,
   AwsSubmission,
   AwsTeamMember,
   Contact,

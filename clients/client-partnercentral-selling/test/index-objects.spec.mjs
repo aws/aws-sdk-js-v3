@@ -32,6 +32,7 @@ import {
   AwsProductInsights$,
   AwsProductOptimization$,
   AwsProductsSpendInsightsBySource$,
+  AwsSoftwareRevenue$,
   AwsSubmission$,
   AwsTeamMember$,
   Channel,
@@ -458,6 +459,7 @@ assert(typeof AwsProductDetails$ === "object");
 assert(typeof AwsProductInsights$ === "object");
 assert(typeof AwsProductOptimization$ === "object");
 assert(typeof AwsProductsSpendInsightsBySource$ === "object");
+assert(typeof AwsSoftwareRevenue$ === "object");
 assert(typeof AwsSubmission$ === "object");
 assert(typeof AwsTeamMember$ === "object");
 assert(typeof Contact$ === "object");
