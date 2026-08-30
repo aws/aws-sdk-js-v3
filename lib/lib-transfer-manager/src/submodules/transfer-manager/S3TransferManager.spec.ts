@@ -1,6 +1,6 @@
 import { S3, S3Client } from "@aws-sdk/client-s3";
 import { existsSync } from "node:fs";
-import { mkdir, mkdtemp, readdir, readFile, rm, stat, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { Readable } from "node:stream";
@@ -2052,6 +2052,64 @@ describe("S3TransferManager Unit Tests", () => {
       expect(result.objectsDownloaded).toBe(1);
       expect(result.objectsFailed).toBe(1);
       expect(existsSync(join(destination, "normal/file.txt"))).toBe(true);
+    });
+
+    it("descendant symlink escaping the destination is rejected (linked/escaped.txt)", async () => {
+      // Set up: destination/linked -> outsideDirectory (a real symlink whose
+      // target is outside the destination). deriveLocalPath's lexical check
+      // passes for "linked/escaped.txt" (it looks contained), so this exercises
+      // the canonical (realpath) check in createLocalParentDirectories.
+      const destination = join(tmpDir, "downloads");
+      const outsideDirectory = join(tmpDir, "outside");
+      await mkdir(destination, { recursive: true });
+      await mkdir(outsideDirectory, { recursive: true });
+      await symlink(outsideDirectory, join(destination, "linked"));
+
+      const objects = [
+        { key: "linked/escaped.txt", size: 1024 },
+        { key: "safe-file.txt", size: 2048 },
+      ];
+      const mockClient = createMockClient(objects);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      const failures: Array<{ key: unknown; message: string }> = [];
+      const result = await tm.downloadDirectory({
+        bucket: "example-bucket",
+        destination,
+        failurePolicy: async (context) => {
+          failures.push({
+            key: (context.objectRequest as any).Key,
+            message: (context.error as Error).message,
+          });
+          return "continue";
+        },
+      });
+
+      // The escaping object failed; the safe one succeeded.
+      expect(result.objectsFailed).toBe(1);
+      expect(result.objectsDownloaded).toBe(1);
+      expect(failures).toHaveLength(1);
+      expect(failures[0].key).toBe("linked/escaped.txt");
+      expect(failures[0].message).toMatch(/symbolic link/i);
+
+      // The file was NOT written through the symlink to the outside directory.
+      expect(existsSync(join(outsideDirectory, "escaped.txt"))).toBe(false);
+      expect(existsSync(join(destination, "safe-file.txt"))).toBe(true);
+    });
+
+    it("should reject maxConcurrency of 0 before sending S3 request", async () => {
+      // Empty listing so the test never hangs even if validation regressed.
+      const destination = join(tmpDir, "downloads");
+      const mockClient = createMockClient([]);
+      const tm = new S3TransferManager({ s3: mockClient });
+
+      await expect(
+        tm.downloadDirectory({ bucket: "example-bucket", destination, maxConcurrency: 0 })
+      ).rejects.toThrow(/maxConcurrency must be a positive integer/);
+
+      // Rejected before making any S3 request (validation precedes listing).
+      expect(listCalls()).toHaveLength(0);
+      expect(getCalls()).toHaveLength(0);
     });
 
     it("verify continue policy, a failed object does not stop the rest", async () => {

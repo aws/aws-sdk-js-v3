@@ -25,13 +25,14 @@ import {
 import type { Logger } from "@smithy/types";
 import type { StreamingBlobPayloadOutputTypes } from "@smithy/types";
 import { createReadStream, existsSync } from "node:fs";
-import { open, opendir, mkdir, realpath, stat } from "node:fs/promises";
-import { dirname, join, relative, resolve, sep } from "node:path";
+import { open, opendir, realpath, stat } from "node:fs/promises";
+import { join, relative, resolve, sep } from "node:path";
 import { Readable } from "node:stream";
 
 import { type RawDataPart, byteLength, getChunk } from "./chunker";
 import {
   createDestinationDirectory,
+  createLocalParentDirectories,
   deriveLocalPath,
   handleFailure,
   isFolderObject,
@@ -1118,8 +1119,11 @@ export class S3TransferManager implements IS3TransferManager {
     request: UploadDirectoryRequest,
     transferOptions?: TransferOptions
   ): Promise<UploadDirectoryResponse> {
-    const absoluteSource = await validateDirectory(request.source);
     const maxConcurrency = request.maxConcurrency ?? 100;
+    if (!Number.isInteger(maxConcurrency) || maxConcurrency < 1) {
+      throw new Error("maxConcurrency must be a positive integer");
+    }
+    const absoluteSource = await validateDirectory(request.source);
     const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
     const semaphore = new Semaphore(maxConcurrency);
     const abortController = new AbortController();
@@ -1139,8 +1143,18 @@ export class S3TransferManager implements IS3TransferManager {
     let totalBytes: number | undefined = undefined;
     let traversalComplete = false;
 
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    const onUserAbort = () => {
+      if (!terminated) {
+        terminated = true;
+        terminationError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
+      }
+      abortController.abort();
+    };
+
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
+      userSignal?.removeEventListener("abort", onUserAbort);
     };
 
     this.dispatchEvent(
@@ -1155,12 +1169,7 @@ export class S3TransferManager implements IS3TransferManager {
       })
     );
 
-    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
-    if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), {
-        once: true,
-      });
-    }
+    userSignal?.addEventListener("abort", onUserAbort, { once: true });
 
     let discoveredFiles = 0;
     let discoveredBytes = 0;
@@ -1308,8 +1317,11 @@ export class S3TransferManager implements IS3TransferManager {
     request: DownloadDirectoryRequest,
     transferOptions?: TransferOptions
   ): Promise<DownloadDirectoryResponse> {
+    const maxConcurrency = request.maxConcurrency ?? 100;
+    if (!Number.isInteger(maxConcurrency) || maxConcurrency < 1) {
+      throw new Error("maxConcurrency must be a positive integer");
+    }
     const destination = await createDestinationDirectory(request.destination);
-    const maxConcurrency = request.maxConcurrency ?? 64;
     const failurePolicy = request.failurePolicy ?? ("terminate" as CannedFailurePolicy);
     const semaphore = new Semaphore(maxConcurrency);
     const abortController = new AbortController();
@@ -1331,8 +1343,18 @@ export class S3TransferManager implements IS3TransferManager {
     let totalBytes: number | undefined = undefined;
     let traversalComplete = false;
 
+    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
+    const onUserAbort = () => {
+      if (!terminated) {
+        terminated = true;
+        terminationError = Object.assign(new Error("Transfer aborted."), { name: "AbortError" });
+      }
+      abortController.abort();
+    };
+
     const removeLocalEventListeners = () => {
       this.removeEventListeners(transferOptions?.eventListeners);
+      userSignal?.removeEventListener("abort", onUserAbort);
       if (transferOptions?.abortSignal) {
         this.abortCleanupFunctions.get(transferOptions.abortSignal as AbortSignal)?.();
         this.abortCleanupFunctions.delete(transferOptions.abortSignal as AbortSignal);
@@ -1351,12 +1373,7 @@ export class S3TransferManager implements IS3TransferManager {
       })
     );
 
-    const userSignal = transferOptions?.abortSignal as AbortSignal | undefined;
-    if (userSignal) {
-      userSignal.addEventListener("abort", () => abortController.abort(), {
-        once: true,
-      });
-    }
+    userSignal?.addEventListener("abort", onUserAbort, { once: true });
 
     try {
       // Stream objects page by page. Using null delimiter so that
@@ -1418,8 +1435,9 @@ export class S3TransferManager implements IS3TransferManager {
               // Derive and validate the local destination path.
               const localPath = deriveLocalPath(destination, key);
 
-              // Ensure all intermediate sub directories exist before writing.
-              await mkdir(dirname(localPath), { recursive: true });
+              // Create parent directories, verifying each resolves inside the
+              // destination (blocks descendant-symlink escapes).
+              await createLocalParentDirectories(destination, localPath);
 
               if (request.downloadObjectRequestModifier) {
                 objectRequest = request.downloadObjectRequestModifier(objectRequest);

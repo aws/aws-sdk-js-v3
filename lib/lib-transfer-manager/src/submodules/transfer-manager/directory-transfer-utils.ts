@@ -1,8 +1,8 @@
 import type { _Object as S3Object } from "@aws-sdk/client-s3";
 import type { Stats } from "node:fs";
 import { existsSync } from "node:fs";
-import { mkdir, stat } from "node:fs/promises";
-import { isAbsolute, resolve, sep } from "node:path";
+import { mkdir, stat, realpath } from "node:fs/promises";
+import { dirname, isAbsolute, join, relative, resolve, sep } from "node:path";
 
 import type { CannedFailurePolicy, DirectoryTransferFailureContext, FailurePolicy } from "./types";
 
@@ -167,4 +167,37 @@ export function deriveLocalPath(destination: string, key: string): string {
   }
 
   return fullPath;
+}
+
+/**
+ * Creates the parent directories for a local download path, verifying each
+ * component's canonical (symlink-resolved) location stays within the
+ * destination. 
+ *
+ * @param destination - The resolved absolute destination directory.
+ * @param localPath - The resolved absolute local file path (from deriveLocalPath).
+ *
+ * @throws Error - If any parent component resolves outside the destination.
+ *
+ * @internal
+ */
+export async function createLocalParentDirectories(destination: string, localPath: string): Promise<void> {
+  const canonicalDestination = await realpath(destination);
+  const relativeParent = relative(destination, dirname(localPath));
+  let currentDirectory = destination;
+
+  for (const segment of relativeParent.split(sep)) {
+    if (!segment || segment === ".") {
+      continue;
+    }
+
+    currentDirectory = join(currentDirectory, segment);
+    await mkdir(currentDirectory, { recursive: true });
+
+    const canonicalDirectory = await realpath(currentDirectory);
+    const canonicalRelative = relative(canonicalDestination, canonicalDirectory);
+    if (canonicalRelative === ".." || canonicalRelative.startsWith(`..${sep}`) || isAbsolute(canonicalRelative)) {
+      throw new Error("Symbolic links outside the destination are not allowed.");
+    }
+  }
 }
