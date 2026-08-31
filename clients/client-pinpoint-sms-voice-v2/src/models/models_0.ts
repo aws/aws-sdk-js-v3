@@ -335,6 +335,102 @@ export interface CloudWatchLogsDestination {
 }
 
 /**
+ * <p>Per-rule validation constraints that override the field's default validation when the containing rule matches. All fields are optional; only the constraints that need to differ from the field's default validation are provided.</p>
+ * @public
+ */
+export interface ConditionalValidation {
+  /**
+   * <p>The minimum length for the field value when this rule applies.</p>
+   * @public
+   */
+  MinLength?: number | undefined;
+
+  /**
+   * <p>The maximum length for the field value when this rule applies.</p>
+   * @public
+   */
+  MaxLength?: number | undefined;
+
+  /**
+   * <p>A regular expression that the field value must match when this rule applies.</p>
+   * @public
+   */
+  Pattern?: string | undefined;
+
+  /**
+   * <p>The allowed values for a select field when this rule applies. A subset of the field's full option list.</p>
+   * @public
+   */
+  AllowedValues?: string[] | undefined;
+}
+
+/**
+ * <p>A single condition on a dependency field's value. Conditions are combined into a <b>ConditionalRule</b> and evaluated together with logical AND.</p>
+ * @public
+ */
+export interface FieldCondition {
+  /**
+   * <p>The path of the field whose value determines this condition, for example <b>companyInfo.businessType</b>.</p>
+   * @public
+   */
+  DependsOnFieldPath: string | undefined;
+
+  /**
+   * <p>The comparison operator to apply between the dependency field's value and <b>Values</b>. Valid values are <b>EQUALS</b>, <b>NOT_EQUALS</b>, <b>IN</b>, <b>NOT_IN</b>, <b>HAS_VALUE</b>, and <b>NO_VALUE</b>. Operators not in this list are treated as evaluating to false, which causes the containing rule to be skipped. This allows forward-compatible additions of new operators without breaking older SDK clients.</p>
+   * @public
+   */
+  Operator: string | undefined;
+
+  /**
+   * <p>The values to compare the dependency field's value against. Required for the <b>EQUALS</b>, <b>NOT_EQUALS</b>, <b>IN</b>, and <b>NOT_IN</b> operators. Omitted for <b>HAS_VALUE</b> and <b>NO_VALUE</b>, which test only presence.</p>
+   * @public
+   */
+  Values?: string[] | undefined;
+}
+
+/**
+ * <p>A single conditional rule that resolves to a field behavior when all of its conditions evaluate to true. Conditions within a rule are combined with logical AND: all conditions must match for the rule to fire.</p>
+ * @public
+ */
+export interface ConditionalRule {
+  /**
+   * <p>The conditions that must all evaluate to true for this rule to match. Conditions are combined with logical AND. Use multiple rules with the same <b>RuleBehavior</b> to express logical OR.</p>
+   * @public
+   */
+  Conditions: FieldCondition[] | undefined;
+
+  /**
+   * <p>The field behavior that applies when all conditions in this rule match. Valid values are <b>REQUIRED</b>, <b>OPTIONAL</b>, and <b>DISALLOWED</b>.</p>
+   * @public
+   */
+  RuleBehavior: string | undefined;
+
+  /**
+   * <p>Optional per-rule validation constraints (minimum length, maximum length, regex pattern, allowed select values) that override the field's default validation when this rule matches.</p>
+   * @public
+   */
+  ConditionalValidation?: ConditionalValidation | undefined;
+}
+
+/**
+ * <p>The set of conditional rules that determine a field's resolved requirement based on the values of other fields in the same registration form. Attached to fields whose <b>FieldRequirement</b> is <b>CONDITIONAL</b>.</p> <p>Evaluation proceeds top-to-bottom through <b>Rules</b>. The first rule whose conditions all evaluate to true wins and its behavior is returned. If no rule matches, the <b>DefaultBehavior</b> is returned.</p>
+ * @public
+ */
+export interface ConditionalBehavior {
+  /**
+   * <p>An ordered list of conditional rules. Rules are evaluated top-to-bottom and the first rule whose conditions all evaluate to true determines the field's behavior. Rules whose conditions do not all match are skipped and evaluation continues to the next rule.</p>
+   * @public
+   */
+  Rules: ConditionalRule[] | undefined;
+
+  /**
+   * <p>The field behavior that applies when no conditional rule in <b>Rules</b> matches. Valid values are <b>REQUIRED</b>, <b>OPTIONAL</b>, and <b>DISALLOWED</b>.</p>
+   * @public
+   */
+  DefaultBehavior: string | undefined;
+}
+
+/**
  * <p>The information for configuration sets that meet a specified criteria.</p>
  * @public
  */
@@ -1341,7 +1437,7 @@ export interface CreateRegistrationAssociationResult {
  */
 export interface CreateRegistrationAttachmentRequest {
   /**
-   * <p>The registration file to upload. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG.</p>
+   * <p>The registration file to upload. The maximum file size is 5MB and valid file extensions are PDF, JPEG and PNG.</p>
    * @public
    */
   AttachmentBody?: Uint8Array | undefined;
@@ -4391,6 +4487,12 @@ export interface RegistrationFieldDefinition {
    * @public
    */
   DisplayHints: RegistrationFieldDisplayHints | undefined;
+
+  /**
+   * <p>The conditional behavior rules for this field. Only present when <b>FieldRequirement</b> is <b>CONDITIONAL</b>. Rules are evaluated in order and the first matching rule determines the field's resolved requirement. If no rule matches, the <b>DefaultBehavior</b> applies.</p>
+   * @public
+   */
+  ConditionalBehavior?: ConditionalBehavior | undefined;
 }
 
 /**
@@ -9078,240 +9180,4 @@ export interface UpdateProtectConfigurationCountryRuleSetResult {
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRcsAgentRequest {
-  /**
-   * <p>The unique identifier of the RCS agent to update. You can use either the RcsAgentId or RcsAgentArn.</p>
-   * @public
-   */
-  RcsAgentId: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true the RCS agent can't be deleted.</p>
-   * @public
-   */
-  DeletionProtectionEnabled?: boolean | undefined;
-
-  /**
-   * <p>The OptOutList to associate with the RCS agent. Valid values are either OptOutListName or OptOutListArn.</p>
-   * @public
-   */
-  OptOutListName?: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
-   * @public
-   */
-  SelfManagedOptOutsEnabled?: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
-   * @public
-   */
-  TwoWayChannelArn?: string | undefined;
-
-  /**
-   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
-   * @public
-   */
-  TwoWayChannelRole?: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
-   * @public
-   */
-  TwoWayEnabled?: boolean | undefined;
-
-  /**
-   * <p>The name of the S3 bucket where inbound RCS media files are stored. Two-way messaging must be enabled on the agent. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3Role.</p>
-   * @public
-   */
-  TwoWayMediaS3BucketName?: string | undefined;
-
-  /**
-   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
-   * @public
-   */
-  TwoWayMediaS3KeyPrefix?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket. The role must have <code>s3:PutObject</code> permission on the bucket and a trust policy allowing <code>sms-voice.amazonaws.com</code> to assume it. To remove the media configuration, pass the sentinel value <code>UNSET_RCS_MEDIA_CONFIGURATION</code> for both this field and TwoWayMediaS3BucketName.</p>
-   * @public
-   */
-  TwoWayMediaS3Role?: string | undefined;
-
-  /**
-   * <p>The list of RCS event types to enable for two-way messaging. Pass an empty list to disable all event types. The special value <code>ALL</code> enables all current and future event types and must be the sole element if used.</p>
-   * @public
-   */
-  TwoWayRcsEventsEnabled?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateRcsAgentResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated RCS agent.</p>
-   * @public
-   */
-  RcsAgentArn: string | undefined;
-
-  /**
-   * <p>The unique identifier for the RCS agent.</p>
-   * @public
-   */
-  RcsAgentId: string | undefined;
-
-  /**
-   * <p>The current status of the RCS agent.</p>
-   * @public
-   */
-  Status: RcsAgentStatus | undefined;
-
-  /**
-   * <p>The time when the RCS agent was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
-   * @public
-   */
-  CreatedTimestamp: Date | undefined;
-
-  /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.</p>
-   * @public
-   */
-  DeletionProtectionEnabled: boolean | undefined;
-
-  /**
-   * <p>The name of the OptOutList associated with the RCS agent.</p>
-   * @public
-   */
-  OptOutListName?: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
-   * @public
-   */
-  SelfManagedOptOutsEnabled: boolean | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
-   * @public
-   */
-  TwoWayChannelArn?: string | undefined;
-
-  /**
-   * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
-   * @public
-   */
-  TwoWayChannelRole?: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
-   * @public
-   */
-  TwoWayEnabled: boolean | undefined;
-
-  /**
-   * <p>The name of the S3 bucket where inbound RCS media files are stored.</p>
-   * @public
-   */
-  TwoWayMediaS3BucketName?: string | undefined;
-
-  /**
-   * <p>The key prefix used for inbound RCS media objects in the S3 bucket.</p>
-   * @public
-   */
-  TwoWayMediaS3KeyPrefix?: string | undefined;
-
-  /**
-   * <p>The ARN of the IAM role used to write inbound RCS media files to the S3 bucket.</p>
-   * @public
-   */
-  TwoWayMediaS3Role?: string | undefined;
-
-  /**
-   * <p>The list of RCS event types enabled for two-way messaging on the agent.</p>
-   * @public
-   */
-  TwoWayRcsEventsEnabled?: string[] | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSenderIdRequest {
-  /**
-   * <p>The sender ID to update.</p>
-   * @public
-   */
-  SenderId: string | undefined;
-
-  /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
-   * @public
-   */
-  IsoCountryCode: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
-   * @public
-   */
-  DeletionProtectionEnabled?: boolean | undefined;
-}
-
-/**
- * @public
- */
-export interface UpdateSenderIdResult {
-  /**
-   * <p>The Amazon Resource Name (ARN) associated with the SenderId.</p>
-   * @public
-   */
-  SenderIdArn: string | undefined;
-
-  /**
-   * <p>The sender ID that was updated.</p>
-   * @public
-   */
-  SenderId: string | undefined;
-
-  /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
-   * @public
-   */
-  IsoCountryCode: string | undefined;
-
-  /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
-   * @public
-   */
-  MessageTypes: MessageType[] | undefined;
-
-  /**
-   * <p>The monthly price, in US dollars, to lease the sender ID.</p>
-   * @public
-   */
-  MonthlyLeasingPrice: string | undefined;
-
-  /**
-   * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
-   * @public
-   */
-  DeletionProtectionEnabled: boolean | undefined;
-
-  /**
-   * <p>True if the sender ID is registered..</p>
-   * @public
-   */
-  Registered: boolean | undefined;
-
-  /**
-   * <p>The unique identifier for the registration.</p>
-   * @public
-   */
-  RegistrationId?: string | undefined;
 }

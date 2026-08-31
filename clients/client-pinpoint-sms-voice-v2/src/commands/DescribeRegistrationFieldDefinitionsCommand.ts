@@ -82,6 +82,31 @@ export interface DescribeRegistrationFieldDefinitionsCommandOutput extends Descr
  * //         TextValidationDescription: "STRING_VALUE",
  * //         ExampleTextValue: "STRING_VALUE",
  * //       },
+ * //       ConditionalBehavior: { // ConditionalBehavior
+ * //         Rules: [ // ConditionalRuleList // required
+ * //           { // ConditionalRule
+ * //             Conditions: [ // FieldConditionList // required
+ * //               { // FieldCondition
+ * //                 DependsOnFieldPath: "STRING_VALUE", // required
+ * //                 Operator: "STRING_VALUE", // required
+ * //                 Values: [ // ConditionValueList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             RuleBehavior: "STRING_VALUE", // required
+ * //             ConditionalValidation: { // ConditionalValidation
+ * //               MinLength: Number("int"),
+ * //               MaxLength: Number("int"),
+ * //               Pattern: "STRING_VALUE",
+ * //               AllowedValues: [ // SelectChoiceList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         DefaultBehavior: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

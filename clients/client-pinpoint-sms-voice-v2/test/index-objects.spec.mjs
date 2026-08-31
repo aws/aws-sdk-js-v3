@@ -23,6 +23,9 @@ import {
   CarrierStatus,
   CarrierStatusInformation$,
   CloudWatchLogsDestination$,
+  ConditionalBehavior$,
+  ConditionalRule$,
+  ConditionalValidation$,
   ConfigurationSetFilter$,
   ConfigurationSetFilterName,
   ConfigurationSetInformation$,
@@ -280,6 +283,7 @@ import {
   DiscardRegistrationVersionResult$,
   EventDestination$,
   EventType,
+  FieldCondition$,
   FieldRequirement,
   FieldType,
   GetProtectConfigurationCountryRuleSet$,
@@ -865,6 +869,9 @@ assert(typeof CarrierLookupRequest$ === "object");
 assert(typeof CarrierLookupResult$ === "object");
 assert(typeof CarrierStatusInformation$ === "object");
 assert(typeof CloudWatchLogsDestination$ === "object");
+assert(typeof ConditionalBehavior$ === "object");
+assert(typeof ConditionalRule$ === "object");
+assert(typeof ConditionalValidation$ === "object");
 assert(typeof ConfigurationSetFilter$ === "object");
 assert(typeof ConfigurationSetInformation$ === "object");
 assert(typeof CountryLaunchStatusFilter$ === "object");
@@ -992,6 +999,7 @@ assert(typeof DisassociateProtectConfigurationResult$ === "object");
 assert(typeof DiscardRegistrationVersionRequest$ === "object");
 assert(typeof DiscardRegistrationVersionResult$ === "object");
 assert(typeof EventDestination$ === "object");
+assert(typeof FieldCondition$ === "object");
 assert(typeof GetProtectConfigurationCountryRuleSetRequest$ === "object");
 assert(typeof GetProtectConfigurationCountryRuleSetResult$ === "object");
 assert(typeof GetResourcePolicyRequest$ === "object");
