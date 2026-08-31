@@ -43,6 +43,8 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
  * //   OpenShardCount: Number("int"), // required
  * //   OnDemandStreamCount: Number("int"), // required
  * //   OnDemandStreamCountLimit: Number("int"), // required
+ * //   ChannelCount: Number("int"),
+ * //   ChannelCountLimit: Number("int"),
  * // };
  *
  * ```

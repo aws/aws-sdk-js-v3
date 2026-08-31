@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep5, _mw0, command } from "../commandBuilder";
+import { _ep6, _mw0, command } from "../commandBuilder";
 import type { SubscribeToShardInput, SubscribeToShardOutput } from "../models/models_0";
 import { SubscribeToShard$ } from "../schemas/schemas_0";
 
@@ -158,7 +158,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * @public
  */
 export class SubscribeToShardCommand extends command<SubscribeToShardCommandInput, SubscribeToShardCommandOutput>(
-  _ep5,
+  _ep6,
   _mw0,
   "SubscribeToShard",
   SubscribeToShard$

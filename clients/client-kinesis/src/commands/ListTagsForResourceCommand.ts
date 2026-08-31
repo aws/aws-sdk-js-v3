@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep2, _mw0, command } from "../commandBuilder";
+import { _ep3, _mw0, command } from "../commandBuilder";
 import type { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0";
 import { ListTagsForResource$ } from "../schemas/schemas_0";
 
@@ -83,7 +83,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @public
  */
 export class ListTagsForResourceCommand extends command<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput>(
-  _ep2,
+  _ep3,
   _mw0,
   "ListTagsForResource",
   ListTagsForResource$

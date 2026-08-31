@@ -1,0 +1,150 @@
+POST https://kinesis.us-east-1.amazonaws.com 
+/
+
+content-type: application/x-amz-json-1.1
+x-amz-target: Kinesis_20131202.CreateChannel
+content-length: 2532
+x-amz-user-agent: aws-sdk-js/3.___._
+user-agent: aws-sdk-js/3.___._ ua/2.1 lang/js md/nodejs#_.__ api/kinesis#_.__ m/E,P,e
+host: kinesis.us-east-1.amazonaws.com
+amz-sdk-invocation-id: 1111abcd-uuid-uuid-uuid-000000001111
+amz-sdk-request: attempt=1; max=3
+x-amz-date: 19991231T235959Z
+x-amz-content-sha256: d013ae73c4fc7aede3629933e1df823a8290353c08315fa238b0c5f898db81c6
+authorization: AWS4-HMAC-SHA256 Credential=***/19991231/us-east-1/kinesis/aws4_request, SignedHeaders=amz-sdk-invocation-id;amz-sdk-request;content-length;content-type;host;x-amz-content-sha256;x-amz-date;x-amz-target;x-amz-user-agent, Signature=***
+
+[Uint8Array (json)]
+{
+  "ChannelName": "__ChannelName__",
+  "ServiceExecutionRoleARN": "__ServiceExecutionRoleARN__",
+  "StreamConfigurationList": [
+    {
+      "StreamARN": "__StreamARN__",
+      "RecordConfiguration": {
+        "RecordFormatType": "__RecordFormatType__",
+        "GSRSchemaARN": "__GSRSchemaARN__"
+      }
+    },
+    {
+      "StreamARN": "__StreamARN__",
+      "RecordConfiguration": {
+        "RecordFormatType": "__RecordFormatType__",
+        "GSRSchemaARN": "__GSRSchemaARN__"
+      }
+    },
+    {
+      "StreamARN": "__StreamARN__",
+      "RecordConfiguration": {
+        "RecordFormatType": "__RecordFormatType__",
+        "GSRSchemaARN": "__GSRSchemaARN__"
+      }
+    }
+  ],
+  "S3DestinationConfiguration": {
+    "StorageConfiguration": {
+      "BucketARN": "__BucketARN__",
+      "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+      "CompressionType": "__CompressionType__",
+      "OutputKeyTemplate": "__OutputKeyTemplate__",
+      "StorageClass": "__StorageClass__"
+    },
+    "DataFreshnessInSeconds": 0,
+    "DeadLetterQueueS3Configuration": {
+      "BucketARN": "__BucketARN__",
+      "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+      "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+    }
+  },
+  "S3TablesDestinationConfiguration": {
+    "DeadLetterQueueS3Configuration": {
+      "BucketARN": "__BucketARN__",
+      "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+      "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+    },
+    "S3TablesConfigurationList": [
+      {
+        "TableBucketARN": "__TableBucketARN__",
+        "Namespace": "__Namespace__",
+        "TableName": "__TableName__",
+        "CompressionType": "__CompressionType__",
+        "PartitionSpec": {
+          "PartitionFields": [
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            }
+          ]
+        }
+      },
+      {
+        "TableBucketARN": "__TableBucketARN__",
+        "Namespace": "__Namespace__",
+        "TableName": "__TableName__",
+        "CompressionType": "__CompressionType__",
+        "PartitionSpec": {
+          "PartitionFields": [
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            }
+          ]
+        }
+      },
+      {
+        "TableBucketARN": "__TableBucketARN__",
+        "Namespace": "__Namespace__",
+        "TableName": "__TableName__",
+        "CompressionType": "__CompressionType__",
+        "PartitionSpec": {
+          "PartitionFields": [
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            },
+            {
+              "Transform": "__Transform__",
+              "SourceName": "__SourceName__"
+            }
+          ]
+        }
+      }
+    ],
+    "DataFreshnessInSeconds": 0
+  },
+  "EncryptionConfiguration": {
+    "EncryptionType": "__EncryptionType__",
+    "KeyId": "__KeyId__"
+  },
+  "Tags": {
+    "key1": "__value__",
+    "key2": "__value__",
+    "key3": "__value__"
+  },
+  "LoggingConfiguration": {
+    "CloudWatchLogs": {
+      "Enabled": false,
+      "LogGroupName": "__LogGroupName__",
+      "LogStreamName": "__LogStreamName__"
+    }
+  }
+}

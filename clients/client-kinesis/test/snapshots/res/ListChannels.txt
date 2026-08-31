@@ -1,0 +1,334 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ChannelSummaries": [
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ChannelSummaries: [
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    },
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    },
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ChannelSummaries": [
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    },
+    {
+      "ChannelName": "__ChannelName__",
+      "ChannelARN": "__ChannelARN__",
+      "ChannelId": "__ChannelId__",
+      "ChannelStatus": "__ChannelStatus__",
+      "ChannelCreationTimestamp": 946702799.999,
+      "ChannelDestinationType": "__ChannelDestinationType__",
+      "Streams": [
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        },
+        {
+          "StreamARN": "__StreamARN__",
+          "StreamCreationTimestamp": 946702799.999
+        }
+      ],
+      "ChannelStatusReason": "__ChannelStatusReason__"
+    }
+  ],
+  "NextToken": "__NextToken__"
+}
+
+
+--- [output object] ---
+{
+  ChannelSummaries: [
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    },
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    },
+    {
+      ChannelName: "__ChannelName__",
+      ChannelARN: "__ChannelARN__",
+      ChannelId: "__ChannelId__",
+      ChannelStatus: "__ChannelStatus__",
+      ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+      ChannelDestinationType: "__ChannelDestinationType__",
+      Streams: [
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        },
+        {
+          StreamARN: "__StreamARN__",
+          StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time
+        }
+      ],
+      ChannelStatusReason: "__ChannelStatusReason__"
+    }
+  ],
+  NextToken: "__NextToken__",
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

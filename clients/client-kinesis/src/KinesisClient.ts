@@ -67,11 +67,13 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import type { AddTagsToStreamCommandInput, AddTagsToStreamCommandOutput } from "./commands/AddTagsToStreamCommand";
+import type { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand";
 import type { CreateStreamCommandInput, CreateStreamCommandOutput } from "./commands/CreateStreamCommand";
 import type {
   DecreaseStreamRetentionPeriodCommandInput,
   DecreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
+import type { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "./commands/DeleteChannelCommand";
 import type {
   DeleteResourcePolicyCommandInput,
   DeleteResourcePolicyCommandOutput,
@@ -85,6 +87,7 @@ import type {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand";
+import type { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand";
 import type { DescribeLimitsCommandInput, DescribeLimitsCommandOutput } from "./commands/DescribeLimitsCommand";
 import type { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "./commands/DescribeStreamCommand";
 import type {
@@ -113,6 +116,7 @@ import type {
   IncreaseStreamRetentionPeriodCommandInput,
   IncreaseStreamRetentionPeriodCommandOutput,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
+import type { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand";
 import type { ListShardsCommandInput, ListShardsCommandOutput } from "./commands/ListShardsCommand";
 import type {
   ListStreamConsumersCommandInput,
@@ -158,6 +162,7 @@ import type {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand";
+import type { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand";
 import type {
   UpdateMaxRecordSizeCommandInput,
   UpdateMaxRecordSizeCommandOutput,
@@ -184,12 +189,15 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddTagsToStreamCommandInput
+  | CreateChannelCommandInput
   | CreateStreamCommandInput
   | DecreaseStreamRetentionPeriodCommandInput
+  | DeleteChannelCommandInput
   | DeleteResourcePolicyCommandInput
   | DeleteStreamCommandInput
   | DeregisterStreamConsumerCommandInput
   | DescribeAccountSettingsCommandInput
+  | DescribeChannelCommandInput
   | DescribeLimitsCommandInput
   | DescribeStreamCommandInput
   | DescribeStreamConsumerCommandInput
@@ -200,6 +208,7 @@ export type ServiceInputTypes =
   | GetResourcePolicyCommandInput
   | GetShardIteratorCommandInput
   | IncreaseStreamRetentionPeriodCommandInput
+  | ListChannelsCommandInput
   | ListShardsCommandInput
   | ListStreamConsumersCommandInput
   | ListStreamsCommandInput
@@ -218,6 +227,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountSettingsCommandInput
+  | UpdateChannelCommandInput
   | UpdateMaxRecordSizeCommandInput
   | UpdateShardCountCommandInput
   | UpdateStreamModeCommandInput
@@ -228,12 +238,15 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddTagsToStreamCommandOutput
+  | CreateChannelCommandOutput
   | CreateStreamCommandOutput
   | DecreaseStreamRetentionPeriodCommandOutput
+  | DeleteChannelCommandOutput
   | DeleteResourcePolicyCommandOutput
   | DeleteStreamCommandOutput
   | DeregisterStreamConsumerCommandOutput
   | DescribeAccountSettingsCommandOutput
+  | DescribeChannelCommandOutput
   | DescribeLimitsCommandOutput
   | DescribeStreamCommandOutput
   | DescribeStreamConsumerCommandOutput
@@ -244,6 +257,7 @@ export type ServiceOutputTypes =
   | GetResourcePolicyCommandOutput
   | GetShardIteratorCommandOutput
   | IncreaseStreamRetentionPeriodCommandOutput
+  | ListChannelsCommandOutput
   | ListShardsCommandOutput
   | ListStreamConsumersCommandOutput
   | ListStreamsCommandOutput
@@ -262,6 +276,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountSettingsCommandOutput
+  | UpdateChannelCommandOutput
   | UpdateMaxRecordSizeCommandOutput
   | UpdateShardCountCommandOutput
   | UpdateStreamModeCommandOutput

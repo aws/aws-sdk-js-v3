@@ -9,7 +9,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ShardLimit": 0,
   "OpenShardCount": 0,
   "OnDemandStreamCount": 0,
-  "OnDemandStreamCountLimit": 0
+  "OnDemandStreamCountLimit": 0,
+  "ChannelCount": 0,
+  "ChannelCountLimit": 0
 }
 
 
@@ -19,6 +21,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   OpenShardCount: (number) 0,
   OnDemandStreamCount: (number) 0,
   OnDemandStreamCountLimit: (number) 0,
+  ChannelCount: (number) 0,
+  ChannelCountLimit: (number) 0,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",
@@ -40,7 +44,9 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   "ShardLimit": 0,
   "OpenShardCount": 0,
   "OnDemandStreamCount": 0,
-  "OnDemandStreamCountLimit": 0
+  "OnDemandStreamCountLimit": 0,
+  "ChannelCount": 0,
+  "ChannelCountLimit": 0
 }
 
 
@@ -50,6 +56,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
   OpenShardCount: (number) 0,
   OnDemandStreamCount: (number) 0,
   OnDemandStreamCountLimit: (number) 0,
+  ChannelCount: (number) 0,
+  ChannelCountLimit: (number) 0,
   $metadata: {
     httpStatusCode: (number) 200,
     requestId: "1111amzn-requ-stid-uuid-000000001111",

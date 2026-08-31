@@ -109,89 +109,6 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
- * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
- *             capacity mode. This API is only supported for data streams with the provisioned capacity
- *             mode. </p>
- * @public
- */
-export class ValidationException extends __BaseException {
-  readonly name = "ValidationException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
-}
-
-/**
- * <p>The provided iterator exceeds the maximum age allowed.</p>
- * @public
- */
-export class ExpiredIteratorException extends __BaseException {
-  readonly name = "ExpiredIteratorException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredIteratorException, __BaseException>) {
-    super({
-      name: "ExpiredIteratorException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredIteratorException.prototype);
-  }
-}
-
-/**
- * <p>The pagination token passed to the operation is expired.</p>
- * @public
- */
-export class ExpiredNextTokenException extends __BaseException {
-  readonly name = "ExpiredNextTokenException" as const;
-  readonly $fault = "client" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
-    super({
-      name: "ExpiredNextTokenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
-  }
-}
-
-/**
- * <p>The processing of the request failed because of an unknown error, exception, or
- *             failure.</p>
- * @public
- */
-export class InternalFailureException extends __BaseException {
-  readonly name = "InternalFailureException" as const;
-  readonly $fault = "server" as const;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
-    super({
-      name: "InternalFailureException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalFailureException.prototype);
-  }
-}
-
-/**
  * <p>The ciphertext references a key that doesn't exist or that you don't have access
  *             to.</p>
  * @public
@@ -317,6 +234,89 @@ export class KMSThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, KMSThrottlingException.prototype);
+  }
+}
+
+/**
+ * <p>Specifies that you tried to invoke this API for a data stream with the on-demand
+ *             capacity mode. This API is only supported for data streams with the provisioned capacity
+ *             mode. </p>
+ * @public
+ */
+export class ValidationException extends __BaseException {
+  readonly name = "ValidationException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
+/**
+ * <p>The provided iterator exceeds the maximum age allowed.</p>
+ * @public
+ */
+export class ExpiredIteratorException extends __BaseException {
+  readonly name = "ExpiredIteratorException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredIteratorException, __BaseException>) {
+    super({
+      name: "ExpiredIteratorException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredIteratorException.prototype);
+  }
+}
+
+/**
+ * <p>The pagination token passed to the operation is expired.</p>
+ * @public
+ */
+export class ExpiredNextTokenException extends __BaseException {
+  readonly name = "ExpiredNextTokenException" as const;
+  readonly $fault = "client" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ExpiredNextTokenException, __BaseException>) {
+    super({
+      name: "ExpiredNextTokenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ExpiredNextTokenException.prototype);
+  }
+}
+
+/**
+ * <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ * @public
+ */
+export class InternalFailureException extends __BaseException {
+  readonly name = "InternalFailureException" as const;
+  readonly $fault = "server" as const;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalFailureException, __BaseException>) {
+    super({
+      name: "InternalFailureException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalFailureException.prototype);
   }
 }
 

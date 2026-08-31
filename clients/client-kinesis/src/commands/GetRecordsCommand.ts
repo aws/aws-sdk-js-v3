@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep4, _mw0, command } from "../commandBuilder";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { GetRecordsInput, GetRecordsOutput } from "../models/models_0";
 import { GetRecords$ } from "../schemas/schemas_0";
 
@@ -189,7 +189,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @public
  */
 export class GetRecordsCommand extends command<GetRecordsCommandInput, GetRecordsCommandOutput>(
-  _ep4,
+  _ep5,
   _mw0,
   "GetRecords",
   GetRecords$

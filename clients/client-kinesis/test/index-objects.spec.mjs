@@ -5,16 +5,37 @@ import {
   AddTagsToStream$,
   AddTagsToStreamCommand,
   AddTagsToStreamInput$,
+  ChannelDescription$,
+  ChannelDestinationType,
+  ChannelEncryptionConfiguration$,
+  ChannelEncryptionType,
+  ChannelLoggingConfiguration$,
+  ChannelLoggingUpdateInput$,
+  ChannelStatus,
+  ChannelStreamConfiguration$,
+  ChannelStreamDescription$,
+  ChannelStreamIdentifier$,
+  ChannelSummary$,
   ChildShard$,
+  CloudWatchLogs$,
+  CloudWatchLogsUpdateInput$,
   Consumer$,
   ConsumerDescription$,
   ConsumerStatus,
+  CreateChannel$,
+  CreateChannelCommand,
+  CreateChannelInput$,
+  CreateChannelOutput$,
   CreateStream$,
   CreateStreamCommand,
   CreateStreamInput$,
+  DeadLetterQueueS3Configuration$,
   DecreaseStreamRetentionPeriod$,
   DecreaseStreamRetentionPeriodCommand,
   DecreaseStreamRetentionPeriodInput$,
+  DeleteChannel$,
+  DeleteChannelCommand,
+  DeleteChannelInput$,
   DeleteResourcePolicy$,
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyInput$,
@@ -28,6 +49,10 @@ import {
   DescribeAccountSettingsCommand,
   DescribeAccountSettingsInput$,
   DescribeAccountSettingsOutput$,
+  DescribeChannel$,
+  DescribeChannelCommand,
+  DescribeChannelInput$,
+  DescribeChannelOutput$,
   DescribeLimits$,
   DescribeLimitsCommand,
   DescribeLimitsInput$,
@@ -94,6 +119,10 @@ import {
   KMSThrottlingException$,
   LimitExceededException,
   LimitExceededException$,
+  ListChannels$,
+  ListChannelsCommand,
+  ListChannelsInput$,
+  ListChannelsOutput$,
   ListShards$,
   ListShardsCommand,
   ListShardsInput$,
@@ -122,8 +151,12 @@ import {
   MinimumThroughputBillingCommitmentInputStatus,
   MinimumThroughputBillingCommitmentOutput$,
   MinimumThroughputBillingCommitmentOutputStatus,
+  paginateListChannels,
   paginateListStreamConsumers,
   paginateListStreams,
+  PartitionField$,
+  PartitionSpec$,
+  PartitionTransform,
   ProvisionedThroughputExceededException,
   ProvisionedThroughputExceededException$,
   PutRecord$,
@@ -139,6 +172,8 @@ import {
   PutResourcePolicy$,
   PutResourcePolicyCommand,
   PutResourcePolicyInput$,
+  RecordConfiguration$,
+  RecordFormatType,
   RegisterStreamConsumer$,
   RegisterStreamConsumerCommand,
   RegisterStreamConsumerInput$,
@@ -150,6 +185,17 @@ import {
   ResourceInUseException$,
   ResourceNotFoundException,
   ResourceNotFoundException$,
+  S3CompressionType,
+  S3DestinationConfiguration$,
+  S3DestinationDescription$,
+  S3DestinationUpdateInput$,
+  S3StorageClass,
+  S3StorageConfiguration$,
+  S3TablesCompressionType,
+  S3TablesConfiguration$,
+  S3TablesDestinationConfiguration$,
+  S3TablesDestinationDescription$,
+  S3TablesDestinationUpdateInput$,
   ScalingType,
   SequenceNumberRange$,
   Shard$,
@@ -168,6 +214,7 @@ import {
   StopStreamEncryptionInput$,
   StreamDescription$,
   StreamDescriptionSummary$,
+  StreamFilter$,
   StreamMode,
   StreamModeDetails$,
   StreamStatus,
@@ -189,6 +236,10 @@ import {
   UpdateAccountSettingsCommand,
   UpdateAccountSettingsInput$,
   UpdateAccountSettingsOutput$,
+  UpdateChannel$,
+  UpdateChannelCommand,
+  UpdateChannelInput$,
+  UpdateChannelOutput$,
   UpdateMaxRecordSize$,
   UpdateMaxRecordSizeCommand,
   UpdateMaxRecordSizeInput$,
@@ -205,8 +256,10 @@ import {
   UpdateStreamWarmThroughputOutput$,
   ValidationException,
   ValidationException$,
+  waitForChannelActive,
   waitForStreamExists,
   waitForStreamNotExists,
+  waitUntilChannelActive,
   waitUntilStreamExists,
   waitUntilStreamNotExists,
   WarmThroughputObject$,
@@ -218,10 +271,14 @@ assert(typeof Kinesis === "function");
 // commands
 assert(typeof AddTagsToStreamCommand === "function");
 assert(typeof AddTagsToStream$ === "object");
+assert(typeof CreateChannelCommand === "function");
+assert(typeof CreateChannel$ === "object");
 assert(typeof CreateStreamCommand === "function");
 assert(typeof CreateStream$ === "object");
 assert(typeof DecreaseStreamRetentionPeriodCommand === "function");
 assert(typeof DecreaseStreamRetentionPeriod$ === "object");
+assert(typeof DeleteChannelCommand === "function");
+assert(typeof DeleteChannel$ === "object");
 assert(typeof DeleteResourcePolicyCommand === "function");
 assert(typeof DeleteResourcePolicy$ === "object");
 assert(typeof DeleteStreamCommand === "function");
@@ -230,6 +287,8 @@ assert(typeof DeregisterStreamConsumerCommand === "function");
 assert(typeof DeregisterStreamConsumer$ === "object");
 assert(typeof DescribeAccountSettingsCommand === "function");
 assert(typeof DescribeAccountSettings$ === "object");
+assert(typeof DescribeChannelCommand === "function");
+assert(typeof DescribeChannel$ === "object");
 assert(typeof DescribeLimitsCommand === "function");
 assert(typeof DescribeLimits$ === "object");
 assert(typeof DescribeStreamCommand === "function");
@@ -250,6 +309,8 @@ assert(typeof GetShardIteratorCommand === "function");
 assert(typeof GetShardIterator$ === "object");
 assert(typeof IncreaseStreamRetentionPeriodCommand === "function");
 assert(typeof IncreaseStreamRetentionPeriod$ === "object");
+assert(typeof ListChannelsCommand === "function");
+assert(typeof ListChannels$ === "object");
 assert(typeof ListShardsCommand === "function");
 assert(typeof ListShards$ === "object");
 assert(typeof ListStreamConsumersCommand === "function");
@@ -286,6 +347,8 @@ assert(typeof UntagResourceCommand === "function");
 assert(typeof UntagResource$ === "object");
 assert(typeof UpdateAccountSettingsCommand === "function");
 assert(typeof UpdateAccountSettings$ === "object");
+assert(typeof UpdateChannelCommand === "function");
+assert(typeof UpdateChannel$ === "object");
 assert(typeof UpdateMaxRecordSizeCommand === "function");
 assert(typeof UpdateMaxRecordSize$ === "object");
 assert(typeof UpdateShardCountCommand === "function");
@@ -296,16 +359,32 @@ assert(typeof UpdateStreamWarmThroughputCommand === "function");
 assert(typeof UpdateStreamWarmThroughput$ === "object");
 // structural schemas
 assert(typeof AddTagsToStreamInput$ === "object");
+assert(typeof ChannelDescription$ === "object");
+assert(typeof ChannelEncryptionConfiguration$ === "object");
+assert(typeof ChannelLoggingConfiguration$ === "object");
+assert(typeof ChannelLoggingUpdateInput$ === "object");
+assert(typeof ChannelStreamConfiguration$ === "object");
+assert(typeof ChannelStreamDescription$ === "object");
+assert(typeof ChannelStreamIdentifier$ === "object");
+assert(typeof ChannelSummary$ === "object");
 assert(typeof ChildShard$ === "object");
+assert(typeof CloudWatchLogs$ === "object");
+assert(typeof CloudWatchLogsUpdateInput$ === "object");
 assert(typeof Consumer$ === "object");
 assert(typeof ConsumerDescription$ === "object");
+assert(typeof CreateChannelInput$ === "object");
+assert(typeof CreateChannelOutput$ === "object");
 assert(typeof CreateStreamInput$ === "object");
+assert(typeof DeadLetterQueueS3Configuration$ === "object");
 assert(typeof DecreaseStreamRetentionPeriodInput$ === "object");
+assert(typeof DeleteChannelInput$ === "object");
 assert(typeof DeleteResourcePolicyInput$ === "object");
 assert(typeof DeleteStreamInput$ === "object");
 assert(typeof DeregisterStreamConsumerInput$ === "object");
 assert(typeof DescribeAccountSettingsInput$ === "object");
 assert(typeof DescribeAccountSettingsOutput$ === "object");
+assert(typeof DescribeChannelInput$ === "object");
+assert(typeof DescribeChannelOutput$ === "object");
 assert(typeof DescribeLimitsInput$ === "object");
 assert(typeof DescribeLimitsOutput$ === "object");
 assert(typeof DescribeStreamConsumerInput$ === "object");
@@ -326,6 +405,8 @@ assert(typeof GetShardIteratorInput$ === "object");
 assert(typeof GetShardIteratorOutput$ === "object");
 assert(typeof HashKeyRange$ === "object");
 assert(typeof IncreaseStreamRetentionPeriodInput$ === "object");
+assert(typeof ListChannelsInput$ === "object");
+assert(typeof ListChannelsOutput$ === "object");
 assert(typeof ListShardsInput$ === "object");
 assert(typeof ListShardsOutput$ === "object");
 assert(typeof ListStreamConsumersInput$ === "object");
@@ -339,6 +420,8 @@ assert(typeof ListTagsForStreamOutput$ === "object");
 assert(typeof MergeShardsInput$ === "object");
 assert(typeof MinimumThroughputBillingCommitmentInput$ === "object");
 assert(typeof MinimumThroughputBillingCommitmentOutput$ === "object");
+assert(typeof PartitionField$ === "object");
+assert(typeof PartitionSpec$ === "object");
 assert(typeof PutRecordInput$ === "object");
 assert(typeof PutRecordOutput$ === "object");
 assert(typeof PutRecordsInput$ === "object");
@@ -347,9 +430,18 @@ assert(typeof PutRecordsRequestEntry$ === "object");
 assert(typeof PutRecordsResultEntry$ === "object");
 assert(typeof PutResourcePolicyInput$ === "object");
 assert(typeof _Record$ === "object");
+assert(typeof RecordConfiguration$ === "object");
 assert(typeof RegisterStreamConsumerInput$ === "object");
 assert(typeof RegisterStreamConsumerOutput$ === "object");
 assert(typeof RemoveTagsFromStreamInput$ === "object");
+assert(typeof S3DestinationConfiguration$ === "object");
+assert(typeof S3DestinationDescription$ === "object");
+assert(typeof S3DestinationUpdateInput$ === "object");
+assert(typeof S3StorageConfiguration$ === "object");
+assert(typeof S3TablesConfiguration$ === "object");
+assert(typeof S3TablesDestinationConfiguration$ === "object");
+assert(typeof S3TablesDestinationDescription$ === "object");
+assert(typeof S3TablesDestinationUpdateInput$ === "object");
 assert(typeof SequenceNumberRange$ === "object");
 assert(typeof Shard$ === "object");
 assert(typeof ShardFilter$ === "object");
@@ -359,6 +451,7 @@ assert(typeof StartStreamEncryptionInput$ === "object");
 assert(typeof StopStreamEncryptionInput$ === "object");
 assert(typeof StreamDescription$ === "object");
 assert(typeof StreamDescriptionSummary$ === "object");
+assert(typeof StreamFilter$ === "object");
 assert(typeof StreamModeDetails$ === "object");
 assert(typeof StreamSummary$ === "object");
 assert(typeof SubscribeToShardEvent$ === "object");
@@ -370,6 +463,8 @@ assert(typeof TagResourceInput$ === "object");
 assert(typeof UntagResourceInput$ === "object");
 assert(typeof UpdateAccountSettingsInput$ === "object");
 assert(typeof UpdateAccountSettingsOutput$ === "object");
+assert(typeof UpdateChannelInput$ === "object");
+assert(typeof UpdateChannelOutput$ === "object");
 assert(typeof UpdateMaxRecordSizeInput$ === "object");
 assert(typeof UpdateShardCountInput$ === "object");
 assert(typeof UpdateShardCountOutput$ === "object");
@@ -378,11 +473,19 @@ assert(typeof UpdateStreamWarmThroughputInput$ === "object");
 assert(typeof UpdateStreamWarmThroughputOutput$ === "object");
 assert(typeof WarmThroughputObject$ === "object");
 // enums
+assert(typeof ChannelDestinationType === "object");
+assert(typeof ChannelEncryptionType === "object");
+assert(typeof ChannelStatus === "object");
 assert(typeof ConsumerStatus === "object");
 assert(typeof EncryptionType === "object");
 assert(typeof MetricsName === "object");
 assert(typeof MinimumThroughputBillingCommitmentInputStatus === "object");
 assert(typeof MinimumThroughputBillingCommitmentOutputStatus === "object");
+assert(typeof PartitionTransform === "object");
+assert(typeof RecordFormatType === "object");
+assert(typeof S3CompressionType === "object");
+assert(typeof S3StorageClass === "object");
+assert(typeof S3TablesCompressionType === "object");
 assert(typeof ScalingType === "object");
 assert(typeof ShardFilterType === "object");
 assert(typeof ShardIteratorType === "object");
@@ -423,11 +526,14 @@ assert(ValidationException.prototype instanceof KinesisServiceException);
 assert(typeof ValidationException$ === "object");
 assert(KinesisServiceException.prototype instanceof Error);
 // waiters
+assert(typeof waitForChannelActive === "function");
 assert(typeof waitForStreamExists === "function");
 assert(typeof waitForStreamNotExists === "function");
+assert(typeof waitUntilChannelActive === "function");
 assert(typeof waitUntilStreamExists === "function");
 assert(typeof waitUntilStreamNotExists === "function");
 // paginators
+assert(typeof paginateListChannels === "function");
 assert(typeof paginateListStreamConsumers === "function");
 assert(typeof paginateListStreams === "function");
 console.log(`Kinesis index test passed.`);

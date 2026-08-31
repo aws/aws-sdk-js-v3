@@ -1,10 +1,18 @@
 // smithy-typescript generated code
 import type {
+  ChannelDestinationType,
+  ChannelEncryptionType,
+  ChannelStatus,
   ConsumerStatus,
   EncryptionType,
   MetricsName,
   MinimumThroughputBillingCommitmentInputStatus,
   MinimumThroughputBillingCommitmentOutputStatus,
+  PartitionTransform,
+  RecordFormatType,
+  S3CompressionType,
+  S3StorageClass,
+  S3TablesCompressionType,
   ScalingType,
   ShardFilterType,
   ShardIteratorType,
@@ -51,6 +59,604 @@ export interface AddTagsToStreamInput {
    * @public
    */
   StreamId?: string | undefined;
+}
+
+/**
+ * <p>The server-side encryption configuration for a channel.</p>
+ * @public
+ */
+export interface ChannelEncryptionConfiguration {
+  /**
+   * <p>The encryption type. The only valid value is <code>KMS</code>.</p>
+   * @public
+   */
+  EncryptionType: ChannelEncryptionType | undefined;
+
+  /**
+   * <p>The identifier of the customer managed Amazon Web Services KMS key. You cannot use the Amazon Kinesis Data Streams service key (<code>aws/kinesis</code>).</p>
+   * @public
+   */
+  KeyId: string | undefined;
+}
+
+/**
+ * <p>The Amazon CloudWatch Logs settings for channel logging.</p>
+ * @public
+ */
+export interface CloudWatchLogs {
+  /**
+   * <p>Specifies whether logging to Amazon CloudWatch Logs is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log group. Defaults to <code>/aws/kinesis/\{channelName\}/\{channelId\}</code>.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log stream. Defaults to <code>DestinationDelivery</code>.</p>
+   * @public
+   */
+  LogStreamName?: string | undefined;
+}
+
+/**
+ * <p>The Amazon CloudWatch Logs configuration for a channel.</p>
+ * @public
+ */
+export interface ChannelLoggingConfiguration {
+  /**
+   * <p>The Amazon CloudWatch Logs settings for the channel.</p>
+   * @public
+   */
+  CloudWatchLogs: CloudWatchLogs | undefined;
+}
+
+/**
+ * <p>The Amazon S3 dead-letter queue configuration for records that cannot be delivered.</p>
+ * @public
+ */
+export interface DeadLetterQueueS3Configuration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the dead-letter queue Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the expected owner of the dead-letter queue bucket.</p>
+   * @public
+   */
+  ExpectedBucketOwner: string | undefined;
+
+  /**
+   * <p>The Amazon S3 key prefix for error records.</p>
+   * @public
+   */
+  ErrorOutputPrefix?: string | undefined;
+}
+
+/**
+ * <p>The Amazon S3 storage settings for a general purpose Amazon S3 destination.</p>
+ * @public
+ */
+export interface S3StorageConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination Amazon S3 bucket.</p>
+   * @public
+   */
+  BucketARN: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID of the expected owner of the destination bucket. This value helps prevent delivery to an unintended bucket if ownership changes.</p>
+   * @public
+   */
+  ExpectedBucketOwner: string | undefined;
+
+  /**
+   * <p>The template used to construct the Amazon S3 object key for delivered objects. If not specified, a default template is used.</p>
+   * @public
+   */
+  OutputKeyTemplate?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 storage class for delivered objects. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>STANDARD</code> (default)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INTELLIGENT_TIERING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GLACIER_IR</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  StorageClass?: S3StorageClass | undefined;
+
+  /**
+   * <p>The compression applied to delivered objects. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No compression.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GZIP</code> - gzip compression.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ZSTD</code> - Zstandard compression.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CompressionType: S3CompressionType | undefined;
+}
+
+/**
+ * <p>The configuration for delivery to a general purpose Amazon S3 bucket. Returned in <a>ChannelDescription</a>.</p>
+ * @public
+ */
+export interface S3DestinationDescription {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data.</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+
+  /**
+   * <p>The dead-letter queue configuration for records that cannot be delivered.</p>
+   * @public
+   */
+  DeadLetterQueueS3Configuration: DeadLetterQueueS3Configuration | undefined;
+
+  /**
+   * <p>The Amazon S3 storage configuration for the channel.</p>
+   * @public
+   */
+  StorageConfiguration: S3StorageConfiguration | undefined;
+}
+
+/**
+ * <p>Specifies a single partition field.</p>
+ * @public
+ */
+export interface PartitionField {
+  /**
+   * <p>The partition transform to apply. The only valid value is <code>TIME_HOUR</code>.</p>
+   * @public
+   */
+  Transform: PartitionTransform | undefined;
+
+  /**
+   * <p>The name of the source column used for partitioning. This column must be of the <code>timestamptz</code> type.</p>
+   * @public
+   */
+  SourceName: string | undefined;
+}
+
+/**
+ * <p>Specifies how the destination table is partitioned.</p>
+ * @public
+ */
+export interface PartitionSpec {
+  /**
+   * <p>The list of partition fields.</p>
+   * @public
+   */
+  PartitionFields: PartitionField[] | undefined;
+}
+
+/**
+ * <p>Specifies a destination streaming table on Apache Iceberg.</p>
+ * @public
+ */
+export interface S3TablesConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon S3 table bucket.</p>
+   * @public
+   */
+  TableBucketARN: string | undefined;
+
+  /**
+   * <p>The namespace (database) of the destination table.</p>
+   * @public
+   */
+  Namespace: string | undefined;
+
+  /**
+   * <p>The name of the destination table. Amazon Kinesis Data Streams creates this table in the specified table bucket.</p>
+   * @public
+   */
+  TableName: string | undefined;
+
+  /**
+   * <p>The compression applied to Parquet data files. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - No compression.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ZSTD</code> - Zstandard compression.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SNAPPY</code> - Snappy compression.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CompressionType: S3TablesCompressionType | undefined;
+
+  /**
+   * <p>The partitioning specification for the destination table.</p>
+   * @public
+   */
+  PartitionSpec?: PartitionSpec | undefined;
+}
+
+/**
+ * <p>The configuration for delivery to streaming tables on Apache Iceberg. Returned in <a>ChannelDescription</a>.</p>
+ * @public
+ */
+export interface S3TablesDestinationDescription {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data.</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+
+  /**
+   * <p>The dead-letter queue configuration for records that cannot be delivered.</p>
+   * @public
+   */
+  DeadLetterQueueS3Configuration: DeadLetterQueueS3Configuration | undefined;
+
+  /**
+   * <p>The list of streaming table configurations.</p>
+   * @public
+   */
+  S3TablesConfigurationList: S3TablesConfiguration[] | undefined;
+}
+
+/**
+ * <p>Specifies the format of records read from the source stream.</p>
+ * @public
+ */
+export interface RecordConfiguration {
+  /**
+   * <p>The format of records on the source stream. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>GSR_JSON</code> - Supported only for streaming table (Amazon S3 Tables) destinations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>JSON</code> - Supported for both general purpose Amazon S3 and streaming table destinations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRING</code> - Supported only for general purpose Amazon S3 destinations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BYTE_ARRAY</code> - Supported only for general purpose Amazon S3 destinations.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  RecordFormatType: RecordFormatType | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Glue Schema Registry schema used to validate records. Required when the channel destination is a streaming table (Amazon S3 Tables), for both the <code>JSON</code> and <code>GSR_JSON</code> record formats.</p>
+   * @public
+   */
+  GSRSchemaARN?: string | undefined;
+}
+
+/**
+ * <p>Describes the source stream of a channel.</p>
+ * @public
+ */
+export interface ChannelStreamDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source Kinesis data stream.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The time at which the source stream was created.</p>
+   * @public
+   */
+  StreamCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The record format configuration for the source stream.</p>
+   * @public
+   */
+  RecordConfiguration: RecordConfiguration | undefined;
+}
+
+/**
+ * <p>Describes the configuration and current status of a channel.</p>
+ * @public
+ */
+export interface ChannelDescription {
+  /**
+   * <p>The name of the channel.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   * @public
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>The unique identifier of the channel.</p>
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * <p>The current status of the channel. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - See <code>ChannelStatusReason</code> for the failure cause.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ChannelStatus: ChannelStatus | undefined;
+
+  /**
+   * <p>A message describing the reason for a <code>FAILED</code> status.</p>
+   * @public
+   */
+  ChannelStatusReason?: string | undefined;
+
+  /**
+   * <p>The time at which the channel was created.</p>
+   * @public
+   */
+  ChannelCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Data Streams assumes to write records to the destination.</p>
+   * @public
+   */
+  ServiceExecutionRoleARN: string | undefined;
+
+  /**
+   * <p>The source stream configuration for the channel.</p>
+   * @public
+   */
+  StreamConfigurationList: ChannelStreamDescription[] | undefined;
+
+  /**
+   * <p>The configuration for delivery to a general purpose Amazon S3 bucket. Present only when the channel destination is a general purpose Amazon S3 bucket.</p>
+   * @public
+   */
+  S3DestinationConfiguration?: S3DestinationDescription | undefined;
+
+  /**
+   * <p>The configuration for delivery to streaming tables on Apache Iceberg in Amazon S3 Tables. Present only when the channel destination is a streaming table.</p>
+   * @public
+   */
+  S3TablesDestinationConfiguration?: S3TablesDestinationDescription | undefined;
+
+  /**
+   * <p>The server-side encryption configuration for the channel.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ChannelEncryptionConfiguration | undefined;
+
+  /**
+   * <p>The Amazon CloudWatch Logs configuration for the channel.</p>
+   * @public
+   */
+  LoggingConfiguration: ChannelLoggingConfiguration | undefined;
+}
+
+/**
+ * <p>The updated Amazon CloudWatch Logs settings for a channel.</p>
+ * @public
+ */
+export interface CloudWatchLogsUpdateInput {
+  /**
+   * <p>Specifies whether logging to Amazon CloudWatch Logs is enabled.</p>
+   * @public
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log group.</p>
+   * @public
+   */
+  LogGroupName?: string | undefined;
+
+  /**
+   * <p>The name of the Amazon CloudWatch Logs log stream.</p>
+   * @public
+   */
+  LogStreamName?: string | undefined;
+}
+
+/**
+ * <p>The updated Amazon CloudWatch Logs configuration for a channel. Used in <a>UpdateChannel</a>.</p>
+ * @public
+ */
+export interface ChannelLoggingUpdateInput {
+  /**
+   * <p>The updated Amazon CloudWatch Logs settings for the channel.</p>
+   * @public
+   */
+  CloudWatchLogs: CloudWatchLogsUpdateInput | undefined;
+}
+
+/**
+ * <p>Specifies the source stream and record configuration when creating a channel.</p>
+ * @public
+ */
+export interface ChannelStreamConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source Kinesis data stream.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The record format configuration for the source stream.</p>
+   * @public
+   */
+  RecordConfiguration: RecordConfiguration | undefined;
+}
+
+/**
+ * <p>Identifies a source stream associated with a channel.</p>
+ * @public
+ */
+export interface ChannelStreamIdentifier {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source Kinesis data stream.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The time at which the source stream was created.</p>
+   * @public
+   */
+  StreamCreationTimestamp: Date | undefined;
+}
+
+/**
+ * <p>A summary of a channel, returned by <a>ListChannels</a>.</p>
+ * @public
+ */
+export interface ChannelSummary {
+  /**
+   * <p>The name of the channel.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   * @public
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>The unique identifier of the channel.</p>
+   * @public
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * <p>The current status of the channel. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CREATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UPDATING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DELETING</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - See <code>ChannelStatusReason</code> for the failure cause.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ChannelStatus: ChannelStatus | undefined;
+
+  /**
+   * <p>A message describing the reason for a <code>FAILED</code> status.</p>
+   * @public
+   */
+  ChannelStatusReason?: string | undefined;
+
+  /**
+   * <p>The time at which the channel was created.</p>
+   * @public
+   */
+  ChannelCreationTimestamp: Date | undefined;
+
+  /**
+   * <p>The destination type of the channel. Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>S3</code> - Delivery to a general purpose Amazon S3 bucket.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>S3_TABLES</code> - Delivery to streaming tables on Apache Iceberg.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ChannelDestinationType: ChannelDestinationType | undefined;
+
+  /**
+   * <p>The source streams associated with the channel.</p>
+   * @public
+   */
+  Streams: ChannelStreamIdentifier[] | undefined;
 }
 
 /**
@@ -179,6 +785,118 @@ export interface ConsumerDescription {
 }
 
 /**
+ * <p>The configuration for delivery to a general purpose Amazon S3 bucket. Used in <a>CreateChannel</a>.</p>
+ * @public
+ */
+export interface S3DestinationConfiguration {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes). The default value is 300 seconds.</p>
+   * @public
+   */
+  DataFreshnessInSeconds?: number | undefined;
+
+  /**
+   * <p>The dead-letter queue configuration for records that cannot be delivered. Optional for general purpose Amazon S3 destinations. If not specified, it defaults to the destination bucket with an error prefix.</p>
+   * @public
+   */
+  DeadLetterQueueS3Configuration?: DeadLetterQueueS3Configuration | undefined;
+
+  /**
+   * <p>The Amazon S3 storage configuration for the channel.</p>
+   * @public
+   */
+  StorageConfiguration: S3StorageConfiguration | undefined;
+}
+
+/**
+ * <p>The configuration for delivery to streaming tables on Apache Iceberg. Used in <a>CreateChannel</a>.</p>
+ * @public
+ */
+export interface S3TablesDestinationConfiguration {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes). The default value is 300 seconds.</p>
+   * @public
+   */
+  DataFreshnessInSeconds?: number | undefined;
+
+  /**
+   * <p>The dead-letter queue configuration for records that cannot be delivered. Required for streaming table destinations.</p>
+   * @public
+   */
+  DeadLetterQueueS3Configuration: DeadLetterQueueS3Configuration | undefined;
+
+  /**
+   * <p>The list of streaming table configurations. Currently, one table is supported per channel.</p>
+   * @public
+   */
+  S3TablesConfigurationList: S3TablesConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelInput {
+  /**
+   * <p>The name of the channel. The name is unique within your Amazon Web Services account and Amazon Web Services Region.</p>
+   * @public
+   */
+  ChannelName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Data Streams assumes to write records to the destination.</p>
+   * @public
+   */
+  ServiceExecutionRoleARN: string | undefined;
+
+  /**
+   * <p>The source stream configuration for the channel. Currently, one stream is supported per channel.</p>
+   * @public
+   */
+  StreamConfigurationList: ChannelStreamConfiguration[] | undefined;
+
+  /**
+   * <p>The configuration for delivery to a general purpose Amazon S3 bucket. You must specify either <code>S3DestinationConfiguration</code> or <code>S3TablesDestinationConfiguration</code>, but not both.</p>
+   * @public
+   */
+  S3DestinationConfiguration?: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>The configuration for delivery to streaming tables on Apache Iceberg in Amazon S3 Tables. You must specify either <code>S3DestinationConfiguration</code> or <code>S3TablesDestinationConfiguration</code>, but not both.</p>
+   * @public
+   */
+  S3TablesDestinationConfiguration?: S3TablesDestinationConfiguration | undefined;
+
+  /**
+   * <p>The server-side encryption configuration that uses an Amazon Web Services KMS key to encrypt data delivered to the destination.</p>
+   * @public
+   */
+  EncryptionConfiguration?: ChannelEncryptionConfiguration | undefined;
+
+  /**
+   * <p>A set of key-value pairs to assign to the channel. A tag consists of a required key and an optional value.</p>
+   * @public
+   */
+  Tags?: Record<string, string> | undefined;
+
+  /**
+   * <p>The Amazon CloudWatch Logs configuration for the channel.</p>
+   * @public
+   */
+  LoggingConfiguration?: ChannelLoggingConfiguration | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateChannelOutput {
+  /**
+   * <p>The configuration and current status of the channel.</p>
+   * @public
+   */
+  ChannelDescription: ChannelDescription | undefined;
+}
+
+/**
  * <p> Specifies the capacity mode to which you want to set your data stream. Currently, in
  *             Kinesis Data Streams, you can choose between an <b>on-demand</b> capacity mode and a <b>provisioned</b> capacity mode for your data streams. </p>
  * @public
@@ -271,6 +989,17 @@ export interface DecreaseStreamRetentionPeriodInput {
    * @public
    */
   StreamId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteChannelInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel to delete.</p>
+   * @public
+   */
+  ChannelARN: string | undefined;
 }
 
 /**
@@ -406,6 +1135,28 @@ export interface DescribeAccountSettingsOutput {
 /**
  * @public
  */
+export interface DescribeChannelInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel to describe.</p>
+   * @public
+   */
+  ChannelARN: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeChannelOutput {
+  /**
+   * <p>The configuration and current status of the channel.</p>
+   * @public
+   */
+  ChannelDescription: ChannelDescription | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeLimitsInput {}
 
 /**
@@ -435,6 +1186,18 @@ export interface DescribeLimitsOutput {
    * @public
    */
   OnDemandStreamCountLimit: number | undefined;
+
+  /**
+   * <p>The number of channels in the account.</p>
+   * @public
+   */
+  ChannelCount?: number | undefined;
+
+  /**
+   * <p>The maximum number of channels allowed in the account.</p>
+   * @public
+   */
+  ChannelCountLimit?: number | undefined;
 }
 
 /**
@@ -992,6 +1755,12 @@ export interface StreamDescriptionSummary {
    * @public
    */
   MaxRecordSizeInKiB?: number | undefined;
+
+  /**
+   * <p>The number of channels associated with the stream.</p>
+   * @public
+   */
+  ChannelCount?: number | undefined;
 }
 
 /**
@@ -1466,6 +2235,64 @@ export interface IncreaseStreamRetentionPeriodInput {
    * @public
    */
   StreamId?: string | undefined;
+}
+
+/**
+ * <p>Filters <a>ListChannels</a> results by source stream.</p>
+ * @public
+ */
+export interface StreamFilter {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source stream to filter by.</p>
+   * @public
+   */
+  StreamARN: string | undefined;
+
+  /**
+   * <p>The creation timestamp of the source stream.</p>
+   * @public
+   */
+  StreamCreationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelsInput {
+  /**
+   * <p>Filters the results to channels associated with the specified streams.</p>
+   * @public
+   */
+  StreamFilter?: StreamFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of channels to return in a single call. The default value is 100. If you specify a value greater than 100, at most 100 results are returned.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The pagination token returned by a previous call. Specify this token to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListChannelsOutput {
+  /**
+   * <p>A list of channel summaries.</p>
+   * @public
+   */
+  ChannelSummaries: ChannelSummary[] | undefined;
+
+  /**
+   * <p>The pagination token to use in a subsequent call to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2999,6 +3826,70 @@ export interface UpdateAccountSettingsOutput {
    * @public
    */
   MinimumThroughputBillingCommitment?: MinimumThroughputBillingCommitmentOutput | undefined;
+}
+
+/**
+ * <p>The updated configuration for a general purpose Amazon S3 destination. Used in <a>UpdateChannel</a>. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+ * @public
+ */
+export interface S3DestinationUpdateInput {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes).</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+}
+
+/**
+ * <p>The updated configuration for a streaming table destination. Used in <a>UpdateChannel</a>. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+ * @public
+ */
+export interface S3TablesDestinationUpdateInput {
+  /**
+   * <p>The maximum age, in seconds, of undelivered data. Valid range is 300 to 900 seconds (5 to 15 minutes).</p>
+   * @public
+   */
+  DataFreshnessInSeconds: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChannelInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel to update.</p>
+   * @public
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>The updated configuration for a general purpose Amazon S3 destination. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+   * @public
+   */
+  S3DestinationConfiguration?: S3DestinationUpdateInput | undefined;
+
+  /**
+   * <p>The updated configuration for a streaming table destination. Only <code>DataFreshnessInSeconds</code> can be updated.</p>
+   * @public
+   */
+  S3TablesDestinationConfiguration?: S3TablesDestinationUpdateInput | undefined;
+
+  /**
+   * <p>The updated Amazon CloudWatch Logs configuration for the channel.</p>
+   * @public
+   */
+  LoggingConfiguration?: ChannelLoggingUpdateInput | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateChannelOutput {
+  /**
+   * <p>The configuration and current status of the updated channel.</p>
+   * @public
+   */
+  ChannelDescription: ChannelDescription | undefined;
 }
 
 /**

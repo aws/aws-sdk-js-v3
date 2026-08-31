@@ -26,7 +26,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     "KeyId": "__KeyId__",
     "ConsumerCount": 0,
     "WarmThroughput": {},
-    "MaxRecordSizeInKiB": 0
+    "MaxRecordSizeInKiB": 0,
+    "ChannelCount": 0
   }
 }
 
@@ -53,7 +54,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
     KeyId: "__KeyId__",
     ConsumerCount: (number) 0,
     WarmThroughput: {},
-    MaxRecordSizeInKiB: (number) 0
+    MaxRecordSizeInKiB: (number) 0,
+    ChannelCount: (number) 0
   },
   $metadata: {
     httpStatusCode: (number) 200,
@@ -114,7 +116,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       "TargetMiBps": 0,
       "CurrentMiBps": 0
     },
-    "MaxRecordSizeInKiB": 0
+    "MaxRecordSizeInKiB": 0,
+    "ChannelCount": 0
   }
 }
 
@@ -162,7 +165,8 @@ x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
       TargetMiBps: (number) 0,
       CurrentMiBps: (number) 0
     },
-    MaxRecordSizeInKiB: (number) 0
+    MaxRecordSizeInKiB: (number) 0,
+    ChannelCount: (number) 0
   },
   $metadata: {
     httpStatusCode: (number) 200,

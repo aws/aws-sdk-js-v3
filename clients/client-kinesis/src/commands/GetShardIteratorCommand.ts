@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep4, _mw0, command } from "../commandBuilder";
+import { _ep5, _mw0, command } from "../commandBuilder";
 import type { GetShardIteratorInput, GetShardIteratorOutput } from "../models/models_0";
 import { GetShardIterator$ } from "../schemas/schemas_0";
 
@@ -123,7 +123,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  * @public
  */
 export class GetShardIteratorCommand extends command<GetShardIteratorCommandInput, GetShardIteratorCommandOutput>(
-  _ep4,
+  _ep5,
   _mw0,
   "GetShardIterator",
   GetShardIterator$

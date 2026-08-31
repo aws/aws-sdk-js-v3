@@ -1,0 +1,594 @@
+======================== minimal response ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ChannelDescription": {
+    "ChannelName": "__ChannelName__",
+    "ChannelARN": "__ChannelARN__",
+    "ChannelId": "__ChannelId__",
+    "ChannelStatus": "__ChannelStatus__",
+    "ChannelCreationTimestamp": 946702799.999,
+    "ServiceExecutionRoleARN": "__ServiceExecutionRoleARN__",
+    "StreamConfigurationList": [
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      }
+    ],
+    "LoggingConfiguration": {
+      "CloudWatchLogs": {
+        "Enabled": false,
+        "LogGroupName": "__LogGroupName__",
+        "LogStreamName": "__LogStreamName__"
+      }
+    },
+    "ChannelStatusReason": "__ChannelStatusReason__",
+    "S3DestinationConfiguration": {
+      "DataFreshnessInSeconds": 0,
+      "DeadLetterQueueS3Configuration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+      },
+      "StorageConfiguration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "CompressionType": "__CompressionType__",
+        "OutputKeyTemplate": "__OutputKeyTemplate__",
+        "StorageClass": "__StorageClass__"
+      }
+    },
+    "S3TablesDestinationConfiguration": {
+      "DataFreshnessInSeconds": 0,
+      "DeadLetterQueueS3Configuration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+      },
+      "S3TablesConfigurationList": [
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "EncryptionConfiguration": {
+      "EncryptionType": "__EncryptionType__",
+      "KeyId": "__KeyId__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  ChannelDescription: {
+    ChannelName: "__ChannelName__",
+    ChannelARN: "__ChannelARN__",
+    ChannelId: "__ChannelId__",
+    ChannelStatus: "__ChannelStatus__",
+    ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ServiceExecutionRoleARN: "__ServiceExecutionRoleARN__",
+    StreamConfigurationList: [
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      }
+    ],
+    LoggingConfiguration: {
+      CloudWatchLogs: {
+        Enabled: (boolean) false,
+        LogGroupName: "__LogGroupName__",
+        LogStreamName: "__LogStreamName__"
+      }
+    },
+    ChannelStatusReason: "__ChannelStatusReason__",
+    S3DestinationConfiguration: {
+      DataFreshnessInSeconds: (number) 0,
+      DeadLetterQueueS3Configuration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        ErrorOutputPrefix: "__ErrorOutputPrefix__"
+      },
+      StorageConfiguration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        CompressionType: "__CompressionType__",
+        OutputKeyTemplate: "__OutputKeyTemplate__",
+        StorageClass: "__StorageClass__"
+      }
+    },
+    S3TablesDestinationConfiguration: {
+      DataFreshnessInSeconds: (number) 0,
+      DeadLetterQueueS3Configuration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        ErrorOutputPrefix: "__ErrorOutputPrefix__"
+      },
+      S3TablesConfigurationList: [
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    EncryptionConfiguration: {
+      EncryptionType: "__EncryptionType__",
+      KeyId: "__KeyId__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+
+======================== w/ optional fields ========================
+[status] 200
+  
+content-type: application/x-amz-json-1.1
+x-amzn-requestid: 1111amzn-requ-stid-uuid-000000001111
+
+[Uint8Array (json)]
+{
+  "ChannelDescription": {
+    "ChannelName": "__ChannelName__",
+    "ChannelARN": "__ChannelARN__",
+    "ChannelId": "__ChannelId__",
+    "ChannelStatus": "__ChannelStatus__",
+    "ChannelCreationTimestamp": 946702799.999,
+    "ServiceExecutionRoleARN": "__ServiceExecutionRoleARN__",
+    "StreamConfigurationList": [
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      },
+      {
+        "StreamARN": "__StreamARN__",
+        "StreamCreationTimestamp": 946702799.999,
+        "RecordConfiguration": {
+          "RecordFormatType": "__RecordFormatType__",
+          "GSRSchemaARN": "__GSRSchemaARN__"
+        }
+      }
+    ],
+    "LoggingConfiguration": {
+      "CloudWatchLogs": {
+        "Enabled": false,
+        "LogGroupName": "__LogGroupName__",
+        "LogStreamName": "__LogStreamName__"
+      }
+    },
+    "ChannelStatusReason": "__ChannelStatusReason__",
+    "S3DestinationConfiguration": {
+      "DataFreshnessInSeconds": 0,
+      "DeadLetterQueueS3Configuration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+      },
+      "StorageConfiguration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "CompressionType": "__CompressionType__",
+        "OutputKeyTemplate": "__OutputKeyTemplate__",
+        "StorageClass": "__StorageClass__"
+      }
+    },
+    "S3TablesDestinationConfiguration": {
+      "DataFreshnessInSeconds": 0,
+      "DeadLetterQueueS3Configuration": {
+        "BucketARN": "__BucketARN__",
+        "ExpectedBucketOwner": "__ExpectedBucketOwner__",
+        "ErrorOutputPrefix": "__ErrorOutputPrefix__"
+      },
+      "S3TablesConfigurationList": [
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          "TableBucketARN": "__TableBucketARN__",
+          "Namespace": "__Namespace__",
+          "TableName": "__TableName__",
+          "CompressionType": "__CompressionType__",
+          "PartitionSpec": {
+            "PartitionFields": [
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              },
+              {
+                "Transform": "__Transform__",
+                "SourceName": "__SourceName__"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "EncryptionConfiguration": {
+      "EncryptionType": "__EncryptionType__",
+      "KeyId": "__KeyId__"
+    }
+  }
+}
+
+
+--- [output object] ---
+{
+  ChannelDescription: {
+    ChannelName: "__ChannelName__",
+    ChannelARN: "__ChannelARN__",
+    ChannelId: "__ChannelId__",
+    ChannelStatus: "__ChannelStatus__",
+    ChannelCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+    ServiceExecutionRoleARN: "__ServiceExecutionRoleARN__",
+    StreamConfigurationList: [
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      },
+      {
+        StreamARN: "__StreamARN__",
+        StreamCreationTimestamp: (Date) Fri, Dec 31, 1999, 20:59:59 Pacific Standard Time,
+        RecordConfiguration: {
+          RecordFormatType: "__RecordFormatType__",
+          GSRSchemaARN: "__GSRSchemaARN__"
+        }
+      }
+    ],
+    LoggingConfiguration: {
+      CloudWatchLogs: {
+        Enabled: (boolean) false,
+        LogGroupName: "__LogGroupName__",
+        LogStreamName: "__LogStreamName__"
+      }
+    },
+    ChannelStatusReason: "__ChannelStatusReason__",
+    S3DestinationConfiguration: {
+      DataFreshnessInSeconds: (number) 0,
+      DeadLetterQueueS3Configuration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        ErrorOutputPrefix: "__ErrorOutputPrefix__"
+      },
+      StorageConfiguration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        CompressionType: "__CompressionType__",
+        OutputKeyTemplate: "__OutputKeyTemplate__",
+        StorageClass: "__StorageClass__"
+      }
+    },
+    S3TablesDestinationConfiguration: {
+      DataFreshnessInSeconds: (number) 0,
+      DeadLetterQueueS3Configuration: {
+        BucketARN: "__BucketARN__",
+        ExpectedBucketOwner: "__ExpectedBucketOwner__",
+        ErrorOutputPrefix: "__ErrorOutputPrefix__"
+      },
+      S3TablesConfigurationList: [
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        },
+        {
+          TableBucketARN: "__TableBucketARN__",
+          Namespace: "__Namespace__",
+          TableName: "__TableName__",
+          CompressionType: "__CompressionType__",
+          PartitionSpec: {
+            PartitionFields: [
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              },
+              {
+                Transform: "__Transform__",
+                SourceName: "__SourceName__"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    EncryptionConfiguration: {
+      EncryptionType: "__EncryptionType__",
+      KeyId: "__KeyId__"
+    }
+  },
+  $metadata: {
+    httpStatusCode: (number) 200,
+    requestId: "1111amzn-requ-stid-uuid-000000001111",
+    extendedRequestId: (undefined),
+    cfId: (undefined),
+    attempts: (number) 1,
+    totalRetryDelay: (number) 0
+  }
+}
+

@@ -11,6 +11,7 @@ const cache = new EndpointCache({
   params: [
     "AccountId",
     "AccountIdEndpointMode",
+    "ChannelARN",
     "ConsumerARN",
     "Endpoint",
     "OperationType",

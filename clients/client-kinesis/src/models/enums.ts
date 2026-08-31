@@ -3,6 +3,116 @@
  * @public
  * @enum
  */
+export const ChannelStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  FAILED: "FAILED",
+  UPDATING: "UPDATING",
+} as const;
+/**
+ * @public
+ */
+export type ChannelStatus = (typeof ChannelStatus)[keyof typeof ChannelStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelEncryptionType = {
+  KMS: "KMS",
+} as const;
+/**
+ * @public
+ */
+export type ChannelEncryptionType = (typeof ChannelEncryptionType)[keyof typeof ChannelEncryptionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3CompressionType = {
+  GZIP: "GZIP",
+  NONE: "NONE",
+  ZSTD: "ZSTD",
+} as const;
+/**
+ * @public
+ */
+export type S3CompressionType = (typeof S3CompressionType)[keyof typeof S3CompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3StorageClass = {
+  GLACIER_IR: "GLACIER_IR",
+  INTELLIGENT_TIERING: "INTELLIGENT_TIERING",
+  STANDARD: "STANDARD",
+} as const;
+/**
+ * @public
+ */
+export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass];
+
+/**
+ * @public
+ * @enum
+ */
+export const S3TablesCompressionType = {
+  NONE: "NONE",
+  SNAPPY: "SNAPPY",
+  ZSTD: "ZSTD",
+} as const;
+/**
+ * @public
+ */
+export type S3TablesCompressionType = (typeof S3TablesCompressionType)[keyof typeof S3TablesCompressionType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PartitionTransform = {
+  TIME_HOUR: "TIME_HOUR",
+} as const;
+/**
+ * @public
+ */
+export type PartitionTransform = (typeof PartitionTransform)[keyof typeof PartitionTransform];
+
+/**
+ * @public
+ * @enum
+ */
+export const RecordFormatType = {
+  BYTE_ARRAY: "BYTE_ARRAY",
+  GSR_JSON: "GSR_JSON",
+  JSON: "JSON",
+  STRING: "STRING",
+} as const;
+/**
+ * @public
+ */
+export type RecordFormatType = (typeof RecordFormatType)[keyof typeof RecordFormatType];
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelDestinationType = {
+  S3: "S3",
+  S3_TABLES: "S3_TABLES",
+} as const;
+/**
+ * @public
+ */
+export type ChannelDestinationType = (typeof ChannelDestinationType)[keyof typeof ChannelDestinationType];
+
+/**
+ * @public
+ * @enum
+ */
 export const ConsumerStatus = {
   ACTIVE: "ACTIVE",
   CREATING: "CREATING",

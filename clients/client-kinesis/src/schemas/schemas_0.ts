@@ -4,33 +4,69 @@ const _APSI = "AdjacentParentShardId";
 const _ASTM = "AdjacentShardToMerge";
 const _ATTS = "AddTagsToStream";
 const _ATTSI = "AddTagsToStreamInput";
+const _BARN = "BucketARN";
 const _C = "Consumer";
-const _CARN = "ConsumerARN";
-const _CC = "ConsumerCount";
-const _CCT = "ConsumerCreationTimestamp";
-const _CD = "ConsumerDescription";
+const _CARN = "ChannelARN";
+const _CARNo = "ConsumerARN";
+const _CC = "ChannelCount";
+const _CCI = "CreateChannelInput";
+const _CCL = "ChannelCountLimit";
+const _CCO = "CreateChannelOutput";
+const _CCT = "ChannelCreationTimestamp";
+const _CCTo = "ConsumerCreationTimestamp";
+const _CCo = "ConsumerCount";
+const _CCr = "CreateChannel";
+const _CD = "ChannelDescription";
+const _CDT = "ChannelDestinationType";
+const _CDo = "ConsumerDescription";
+const _CEC = "ChannelEncryptionConfiguration";
+const _CI = "ChannelId";
 const _CL = "ConsumerList";
+const _CLC = "ChannelLoggingConfiguration";
+const _CLUI = "ChannelLoggingUpdateInput";
 const _CMB = "CurrentMiBps";
-const _CN = "ConsumerName";
-const _CS = "ChildShard";
-const _CSC = "CurrentShardCount";
-const _CSI = "CreateStreamInput";
-const _CSL = "ChildShardList";
+const _CN = "ChannelName";
+const _CNo = "ConsumerName";
+const _CS = "ChannelStatus";
+const _CSC = "ChannelStreamConfiguration";
+const _CSCL = "ChannelStreamConfigurationList";
+const _CSCu = "CurrentShardCount";
+const _CSD = "ChannelStreamDescription";
+const _CSDL = "ChannelStreamDescriptionList";
+const _CSI = "ChannelStreamIdentifier";
+const _CSIL = "ChannelStreamIdentifierList";
+const _CSIr = "CreateStreamInput";
+const _CSL = "ChannelSummaryList";
 const _CSLM = "CurrentShardLevelMetrics";
+const _CSLh = "ChildShardList";
 const _CSN = "ContinuationSequenceNumber";
-const _CSh = "ChildShards";
+const _CSR = "ChannelStatusReason";
+const _CSh = "ChannelSummary";
+const _CSha = "ChannelSummaries";
+const _CShi = "ChildShard";
+const _CShil = "ChildShards";
 const _CSo = "ConsumerStatus";
 const _CSr = "CreateStream";
+const _CT = "CompressionType";
+const _CWL = "CloudWatchLogs";
+const _CWLUI = "CloudWatchLogsUpdateInput";
 const _Co = "Consumers";
 const _D = "Data";
 const _DAS = "DescribeAccountSettings";
 const _DASI = "DescribeAccountSettingsInput";
 const _DASO = "DescribeAccountSettingsOutput";
+const _DC = "DeleteChannel";
+const _DCI = "DeleteChannelInput";
+const _DCIe = "DescribeChannelInput";
+const _DCO = "DescribeChannelOutput";
+const _DCe = "DescribeChannel";
 const _DEM = "DisableEnhancedMonitoring";
 const _DEMI = "DisableEnhancedMonitoringInput";
+const _DFIS = "DataFreshnessInSeconds";
 const _DL = "DescribeLimits";
 const _DLI = "DescribeLimitsInput";
 const _DLO = "DescribeLimitsOutput";
+const _DLQSC = "DeadLetterQueueS3Configuration";
 const _DRP = "DeleteResourcePolicy";
 const _DRPI = "DeleteResourcePolicyInput";
 const _DS = "DeleteStream";
@@ -49,10 +85,13 @@ const _DSS = "DescribeStreamSummary";
 const _DSSI = "DescribeStreamSummaryInput";
 const _DSSO = "DescribeStreamSummaryOutput";
 const _DSe = "DescribeStream";
+const _E = "Enabled";
 const _EA = "EndedAt";
 const _EAEA = "EarliestAllowedEndAt";
-const _EC = "ErrorCode";
+const _EBO = "ExpectedBucketOwner";
+const _EC = "EncryptionConfiguration";
 const _ECD = "EnforceConsumerDeletion";
+const _ECr = "ErrorCode";
 const _EEM = "EnableEnhancedMonitoring";
 const _EEMI = "EnableEnhancedMonitoringInput";
 const _EHK = "EndingHashKey";
@@ -64,6 +103,7 @@ const _EMO = "EnhancedMonitoringOutput";
 const _EMn = "EnhancedMonitoring";
 const _EMr = "ErrorMessage";
 const _ENTE = "ExpiredNextTokenException";
+const _EOP = "ErrorOutputPrefix";
 const _ES = "EventStream";
 const _ESN = "EndingSequenceNumber";
 const _ESSI = "ExclusiveStartShardId";
@@ -80,6 +120,7 @@ const _GRPO = "GetResourcePolicyOutput";
 const _GSI = "GetShardIterator";
 const _GSII = "GetShardIteratorInput";
 const _GSIO = "GetShardIteratorOutput";
+const _GSRSARN = "GSRSchemaARN";
 const _HKR = "HashKeyRange";
 const _HMS = "HasMoreStreams";
 const _HMSa = "HasMoreShards";
@@ -97,13 +138,19 @@ const _KMSNFE = "KMSNotFoundException";
 const _KMSOIR = "KMSOptInRequired";
 const _KMSTE = "KMSThrottlingException";
 const _L = "Limit";
+const _LC = "LoggingConfiguration";
+const _LCI = "ListChannelsInput";
+const _LCO = "ListChannelsOutput";
+const _LCi = "ListChannels";
 const _LEE = "LimitExceededException";
+const _LGN = "LogGroupName";
 const _LS = "ListShards";
 const _LSC = "ListStreamConsumers";
 const _LSCI = "ListStreamConsumersInput";
 const _LSCO = "ListStreamConsumersOutput";
 const _LSI = "ListShardsInput";
 const _LSIi = "ListStreamsInput";
+const _LSN = "LogStreamName";
 const _LSO = "ListShardsOutput";
 const _LSOi = "ListStreamsOutput";
 const _LSi = "ListStreams";
@@ -121,13 +168,18 @@ const _MSI = "MergeShardsInput";
 const _MTBC = "MinimumThroughputBillingCommitment";
 const _MTBCI = "MinimumThroughputBillingCommitmentInput";
 const _MTBCO = "MinimumThroughputBillingCommitmentOutput";
+const _N = "Namespace";
 const _NSHK = "NewStartingHashKey";
 const _NSI = "NextShardIterator";
 const _NT = "NextToken";
 const _ODSC = "OnDemandStreamCount";
 const _ODSCL = "OnDemandStreamCountLimit";
+const _OKT = "OutputKeyTemplate";
 const _OSC = "OpenShardCount";
 const _P = "Policy";
+const _PF = "PartitionField";
+const _PFL = "PartitionFieldList";
+const _PFa = "PartitionFields";
 const _PK = "PartitionKey";
 const _PR = "PutRecord";
 const _PRI = "PutRecordInput";
@@ -143,9 +195,12 @@ const _PRREu = "PutRecordsResultEntry";
 const _PRu = "PutRecords";
 const _PS = "ParentShards";
 const _PSI = "ParentShardId";
+const _PSa = "PartitionSpec";
 const _PTEE = "ProvisionedThroughputExceededException";
 const _R = "Records";
 const _RARN = "ResourceARN";
+const _RC = "RecordConfiguration";
+const _RFT = "RecordFormatType";
 const _RIUE = "ResourceInUseException";
 const _RL = "RecordList";
 const _RNFE = "ResourceNotFoundException";
@@ -156,14 +211,23 @@ const _RSCO = "RegisterStreamConsumerOutput";
 const _RTFS = "RemoveTagsFromStream";
 const _RTFSI = "RemoveTagsFromStreamInput";
 const _Re = "Record";
-const _S = "Shards";
+const _S = "Streams";
 const _SA = "StartedAt";
 const _SARN = "StreamARN";
 const _SC = "ShardCount";
+const _SCL = "StreamConfigurationList";
 const _SCT = "StreamCreationTimestamp";
+const _SCt = "StorageConfiguration";
+const _SCto = "StorageClass";
 const _SD = "StreamDescription";
+const _SDC = "S3DestinationConfiguration";
+const _SDD = "S3DestinationDescription";
 const _SDS = "StreamDescriptionSummary";
-const _SF = "ShardFilter";
+const _SDUI = "S3DestinationUpdateInput";
+const _SERARN = "ServiceExecutionRoleARN";
+const _SF = "StreamFilter";
+const _SFL = "StreamFilterList";
+const _SFh = "ShardFilter";
 const _SHK = "StartingHashKey";
 const _SI = "StreamId";
 const _SIT = "ShardIteratorType";
@@ -178,9 +242,11 @@ const _SN = "StreamName";
 const _SNFO = "SequenceNumberForOrdering";
 const _SNR = "SequenceNumberRange";
 const _SNe = "SequenceNumber";
+const _SNo = "SourceName";
 const _SNt = "StreamNames";
 const _SP = "StartingPosition";
 const _SS = "StreamSummaries";
+const _SSC = "S3StorageConfiguration";
 const _SSE = "StartStreamEncryption";
 const _SSEI = "StartStreamEncryptionInput";
 const _SSEIt = "StopStreamEncryptionInput";
@@ -192,6 +258,11 @@ const _SSp = "SplitShard";
 const _SSt = "StreamStatus";
 const _SStr = "StreamSummary";
 const _ST = "ScalingType";
+const _STC = "S3TablesConfiguration";
+const _STCL = "S3TablesConfigurationList";
+const _STDC = "S3TablesDestinationConfiguration";
+const _STDD = "S3TablesDestinationDescription";
+const _STDUI = "S3TablesDestinationUpdateInput";
 const _STM = "ShardToMerge";
 const _STS = "ShardToSplit";
 const _STSE = "SubscribeToShardEvent";
@@ -199,21 +270,28 @@ const _STSES = "SubscribeToShardEventStream";
 const _STSI = "SubscribeToShardInput";
 const _STSO = "SubscribeToShardOutput";
 const _STSu = "SubscribeToShard";
-const _Sh = "Shard";
+const _Sh = "Shards";
+const _Sha = "Shard";
 const _St = "Status";
 const _T = "Tags";
+const _TBARN = "TableBucketARN";
 const _TK = "TagKeys";
 const _TL = "TagList";
 const _TMB = "TargetMiBps";
+const _TN = "TableName";
 const _TR = "TagResource";
 const _TRI = "TagResourceInput";
 const _TSC = "TargetShardCount";
 const _Ta = "Tag";
 const _Ti = "Timestamp";
+const _Tr = "Transform";
 const _Ty = "Type";
 const _UAS = "UpdateAccountSettings";
 const _UASI = "UpdateAccountSettingsInput";
 const _UASO = "UpdateAccountSettingsOutput";
+const _UC = "UpdateChannel";
+const _UCI = "UpdateChannelInput";
+const _UCO = "UpdateChannelOutput";
 const _UMRS = "UpdateMaxRecordSize";
 const _UMRSI = "UpdateMaxRecordSizeInput";
 const _UR = "UntagResource";
@@ -385,30 +463,100 @@ export var AddTagsToStreamInput$: StaticStructureSchema = [3, n0, _ATTSI,
   [_T, _SN, _SARN, _SI],
   [128 | 0, 0, 0, 0], 1
 ];
-export var ChildShard$: StaticStructureSchema = [3, n0, _CS,
+export var ChannelDescription$: StaticStructureSchema = [3, n0, _CD,
+  0,
+  [_CN, _CARN, _CI, _CS, _CCT, _SERARN, _SCL, _LC, _CSR, _SDC, _STDC, _EC],
+  [0, 0, 0, 0, 4, 0, () => ChannelStreamDescriptionList, () => ChannelLoggingConfiguration$, 0, () => S3DestinationDescription$, () => S3TablesDestinationDescription$, () => ChannelEncryptionConfiguration$], 8
+];
+export var ChannelEncryptionConfiguration$: StaticStructureSchema = [3, n0, _CEC,
+  0,
+  [_ET, _KI],
+  [0, 0], 2
+];
+export var ChannelLoggingConfiguration$: StaticStructureSchema = [3, n0, _CLC,
+  0,
+  [_CWL],
+  [() => CloudWatchLogs$], 1
+];
+export var ChannelLoggingUpdateInput$: StaticStructureSchema = [3, n0, _CLUI,
+  0,
+  [_CWL],
+  [() => CloudWatchLogsUpdateInput$], 1
+];
+export var ChannelStreamConfiguration$: StaticStructureSchema = [3, n0, _CSC,
+  0,
+  [_SARN, _RC],
+  [0, () => RecordConfiguration$], 2
+];
+export var ChannelStreamDescription$: StaticStructureSchema = [3, n0, _CSD,
+  0,
+  [_SARN, _SCT, _RC],
+  [0, 4, () => RecordConfiguration$], 3
+];
+export var ChannelStreamIdentifier$: StaticStructureSchema = [3, n0, _CSI,
+  0,
+  [_SARN, _SCT],
+  [0, 4], 2
+];
+export var ChannelSummary$: StaticStructureSchema = [3, n0, _CSh,
+  0,
+  [_CN, _CARN, _CI, _CS, _CCT, _CDT, _S, _CSR],
+  [0, 0, 0, 0, 4, 0, () => ChannelStreamIdentifierList, 0], 7
+];
+export var ChildShard$: StaticStructureSchema = [3, n0, _CShi,
   0,
   [_SIh, _PS, _HKR],
   [0, 64 | 0, () => HashKeyRange$], 3
 ];
+export var CloudWatchLogs$: StaticStructureSchema = [3, n0, _CWL,
+  0,
+  [_E, _LGN, _LSN],
+  [2, 0, 0], 1
+];
+export var CloudWatchLogsUpdateInput$: StaticStructureSchema = [3, n0, _CWLUI,
+  0,
+  [_E, _LGN, _LSN],
+  [2, 0, 0], 1
+];
 export var Consumer$: StaticStructureSchema = [3, n0, _C,
   0,
-  [_CN, _CARN, _CSo, _CCT],
+  [_CNo, _CARNo, _CSo, _CCTo],
   [0, 0, 0, 4], 4
 ];
-export var ConsumerDescription$: StaticStructureSchema = [3, n0, _CD,
+export var ConsumerDescription$: StaticStructureSchema = [3, n0, _CDo,
   0,
-  [_CN, _CARN, _CSo, _CCT, _SARN],
+  [_CNo, _CARNo, _CSo, _CCTo, _SARN],
   [0, 0, 0, 4, 0], 5
 ];
-export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSI,
+export var CreateChannelInput$: StaticStructureSchema = [3, n0, _CCI,
+  0,
+  [_CN, _SERARN, _SCL, _SDC, _STDC, _EC, _T, _LC],
+  [0, 0, () => ChannelStreamConfigurationList, () => S3DestinationConfiguration$, () => S3TablesDestinationConfiguration$, () => ChannelEncryptionConfiguration$, 128 | 0, () => ChannelLoggingConfiguration$], 3
+];
+export var CreateChannelOutput$: StaticStructureSchema = [3, n0, _CCO,
+  0,
+  [_CD],
+  [() => ChannelDescription$], 1
+];
+export var CreateStreamInput$: StaticStructureSchema = [3, n0, _CSIr,
   0,
   [_SN, _SC, _SMD, _T, _WTMB, _MRSIKB],
   [0, 1, () => StreamModeDetails$, 128 | 0, 1, 1], 1
+];
+export var DeadLetterQueueS3Configuration$: StaticStructureSchema = [3, n0, _DLQSC,
+  0,
+  [_BARN, _EBO, _EOP],
+  [0, 0, 0], 2
 ];
 export var DecreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, _DSRPI,
   0,
   [_RPH, _SN, _SARN, _SI],
   [1, 0, 0, 0], 1
+];
+export var DeleteChannelInput$: StaticStructureSchema = [3, n0, _DCI,
+  0,
+  [_CARN],
+  [0], 1
 ];
 export var DeleteResourcePolicyInput$: StaticStructureSchema = [3, n0, _DRPI,
   0,
@@ -422,7 +570,7 @@ export var DeleteStreamInput$: StaticStructureSchema = [3, n0, _DSI,
 ];
 export var DeregisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCI,
   0,
-  [_SARN, _CN, _CARN, _SI],
+  [_SARN, _CNo, _CARNo, _SI],
   [0, 0, 0, 0]
 ];
 export var DescribeAccountSettingsInput$: StaticStructureSchema = [3, n0, _DASI,
@@ -435,6 +583,16 @@ export var DescribeAccountSettingsOutput$: StaticStructureSchema = [3, n0, _DASO
   [_MTBC],
   [() => MinimumThroughputBillingCommitmentOutput$]
 ];
+export var DescribeChannelInput$: StaticStructureSchema = [3, n0, _DCIe,
+  0,
+  [_CARN],
+  [0], 1
+];
+export var DescribeChannelOutput$: StaticStructureSchema = [3, n0, _DCO,
+  0,
+  [_CD],
+  [() => ChannelDescription$], 1
+];
 export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI,
   0,
   [],
@@ -442,17 +600,17 @@ export var DescribeLimitsInput$: StaticStructureSchema = [3, n0, _DLI,
 ];
 export var DescribeLimitsOutput$: StaticStructureSchema = [3, n0, _DLO,
   0,
-  [_SL, _OSC, _ODSC, _ODSCL],
-  [1, 1, 1, 1], 4
+  [_SL, _OSC, _ODSC, _ODSCL, _CC, _CCL],
+  [1, 1, 1, 1, 1, 1], 4
 ];
 export var DescribeStreamConsumerInput$: StaticStructureSchema = [3, n0, _DSCIe,
   0,
-  [_SARN, _CN, _CARN, _SI],
+  [_SARN, _CNo, _CARNo, _SI],
   [0, 0, 0, 0]
 ];
 export var DescribeStreamConsumerOutput$: StaticStructureSchema = [3, n0, _DSCO,
   0,
-  [_CD],
+  [_CDo],
   [() => ConsumerDescription$], 1
 ];
 export var DescribeStreamInput$: StaticStructureSchema = [3, n0, _DSIe,
@@ -502,7 +660,7 @@ export var GetRecordsInput$: StaticStructureSchema = [3, n0, _GRI,
 ];
 export var GetRecordsOutput$: StaticStructureSchema = [3, n0, _GRO,
   0,
-  [_R, _NSI, _MBL, _CSh],
+  [_R, _NSI, _MBL, _CShil],
   [() => RecordList, 0, 1, () => ChildShardList], 1
 ];
 export var GetResourcePolicyInput$: StaticStructureSchema = [3, n0, _GRPI,
@@ -535,14 +693,24 @@ export var IncreaseStreamRetentionPeriodInput$: StaticStructureSchema = [3, n0, 
   [_RPH, _SN, _SARN, _SI],
   [1, 0, 0, 0], 1
 ];
+export var ListChannelsInput$: StaticStructureSchema = [3, n0, _LCI,
+  0,
+  [_SF, _MR, _NT],
+  [() => StreamFilterList, 1, 0]
+];
+export var ListChannelsOutput$: StaticStructureSchema = [3, n0, _LCO,
+  0,
+  [_CSha, _NT],
+  [() => ChannelSummaryList, 0], 1
+];
 export var ListShardsInput$: StaticStructureSchema = [3, n0, _LSI,
   0,
-  [_SN, _NT, _ESSI, _MR, _SCT, _SF, _SARN, _SI],
+  [_SN, _NT, _ESSI, _MR, _SCT, _SFh, _SARN, _SI],
   [0, 0, 0, 1, 4, () => ShardFilter$, 0, 0]
 ];
 export var ListShardsOutput$: StaticStructureSchema = [3, n0, _LSO,
   0,
-  [_S, _NT],
+  [_Sh, _NT],
   [() => ShardList, 0]
 ];
 export var ListStreamConsumersInput$: StaticStructureSchema = [3, n0, _LSCI,
@@ -600,6 +768,16 @@ export var MinimumThroughputBillingCommitmentOutput$: StaticStructureSchema = [3
   [_St, _SA, _EA, _EAEA],
   [0, 4, 4, 4], 1
 ];
+export var PartitionField$: StaticStructureSchema = [3, n0, _PF,
+  0,
+  [_Tr, _SNo],
+  [0, 0], 2
+];
+export var PartitionSpec$: StaticStructureSchema = [3, n0, _PSa,
+  0,
+  [_PFa],
+  [() => PartitionFieldList], 1
+];
 export var PutRecordInput$: StaticStructureSchema = [3, n0, _PRI,
   0,
   [_D, _PK, _SN, _EHKx, _SNFO, _SARN, _SI],
@@ -627,7 +805,7 @@ export var PutRecordsRequestEntry$: StaticStructureSchema = [3, n0, _PRRE,
 ];
 export var PutRecordsResultEntry$: StaticStructureSchema = [3, n0, _PRREu,
   0,
-  [_SNe, _SIh, _EC, _EMr],
+  [_SNe, _SIh, _ECr, _EMr],
   [0, 0, 0, 0]
 ];
 export var PutResourcePolicyInput$: StaticStructureSchema = [3, n0, _PRPI,
@@ -640,9 +818,14 @@ export var _Record$: StaticStructureSchema = [3, n0, _Re,
   [_SNe, _D, _PK, _AAT, _ET],
   [0, 21, 0, 4, 0], 3
 ];
+export var RecordConfiguration$: StaticStructureSchema = [3, n0, _RC,
+  0,
+  [_RFT, _GSRSARN],
+  [0, 0], 1
+];
 export var RegisterStreamConsumerInput$: StaticStructureSchema = [3, n0, _RSCI,
   0,
-  [_SARN, _CN, _SI, _T],
+  [_SARN, _CNo, _SI, _T],
   [0, 0, 0, 128 | 0], 2
 ];
 export var RegisterStreamConsumerOutput$: StaticStructureSchema = [3, n0, _RSCO,
@@ -655,17 +838,57 @@ export var RemoveTagsFromStreamInput$: StaticStructureSchema = [3, n0, _RTFSI,
   [_TK, _SN, _SARN, _SI],
   [64 | 0, 0, 0, 0], 1
 ];
+export var S3DestinationConfiguration$: StaticStructureSchema = [3, n0, _SDC,
+  0,
+  [_SCt, _DFIS, _DLQSC],
+  [() => S3StorageConfiguration$, 1, () => DeadLetterQueueS3Configuration$], 1
+];
+export var S3DestinationDescription$: StaticStructureSchema = [3, n0, _SDD,
+  0,
+  [_DFIS, _DLQSC, _SCt],
+  [1, () => DeadLetterQueueS3Configuration$, () => S3StorageConfiguration$], 3
+];
+export var S3DestinationUpdateInput$: StaticStructureSchema = [3, n0, _SDUI,
+  0,
+  [_DFIS],
+  [1], 1
+];
+export var S3StorageConfiguration$: StaticStructureSchema = [3, n0, _SSC,
+  0,
+  [_BARN, _EBO, _CT, _OKT, _SCto],
+  [0, 0, 0, 0, 0], 3
+];
+export var S3TablesConfiguration$: StaticStructureSchema = [3, n0, _STC,
+  0,
+  [_TBARN, _N, _TN, _CT, _PSa],
+  [0, 0, 0, 0, () => PartitionSpec$], 4
+];
+export var S3TablesDestinationConfiguration$: StaticStructureSchema = [3, n0, _STDC,
+  0,
+  [_DLQSC, _STCL, _DFIS],
+  [() => DeadLetterQueueS3Configuration$, () => S3TablesConfigurationList, 1], 2
+];
+export var S3TablesDestinationDescription$: StaticStructureSchema = [3, n0, _STDD,
+  0,
+  [_DFIS, _DLQSC, _STCL],
+  [1, () => DeadLetterQueueS3Configuration$, () => S3TablesConfigurationList], 3
+];
+export var S3TablesDestinationUpdateInput$: StaticStructureSchema = [3, n0, _STDUI,
+  0,
+  [_DFIS],
+  [1], 1
+];
 export var SequenceNumberRange$: StaticStructureSchema = [3, n0, _SNR,
   0,
   [_SSN, _ESN],
   [0, 0], 1
 ];
-export var Shard$: StaticStructureSchema = [3, n0, _Sh,
+export var Shard$: StaticStructureSchema = [3, n0, _Sha,
   0,
   [_SIh, _HKR, _SNR, _PSI, _APSI],
   [0, () => HashKeyRange$, () => SequenceNumberRange$, 0, 0], 3
 ];
-export var ShardFilter$: StaticStructureSchema = [3, n0, _SF,
+export var ShardFilter$: StaticStructureSchema = [3, n0, _SFh,
   0,
   [_Ty, _SIh, _Ti],
   [0, 0, 4], 1
@@ -692,13 +915,18 @@ export var StopStreamEncryptionInput$: StaticStructureSchema = [3, n0, _SSEIt,
 ];
 export var StreamDescription$: StaticStructureSchema = [3, n0, _SD,
   0,
-  [_SN, _SARN, _SSt, _S, _HMSa, _RPH, _SCT, _EMn, _SMD, _ET, _KI],
+  [_SN, _SARN, _SSt, _Sh, _HMSa, _RPH, _SCT, _EMn, _SMD, _ET, _KI],
   [0, 0, 0, () => ShardList, 2, 1, 4, () => EnhancedMonitoringList, () => StreamModeDetails$, 0, 0], 8
 ];
 export var StreamDescriptionSummary$: StaticStructureSchema = [3, n0, _SDS,
   0,
-  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SI, _SMD, _ET, _KI, _CC, _WT, _MRSIKB],
-  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1], 7
+  [_SN, _SARN, _SSt, _RPH, _SCT, _EMn, _OSC, _SI, _SMD, _ET, _KI, _CCo, _WT, _MRSIKB, _CC],
+  [0, 0, 0, 1, 4, () => EnhancedMonitoringList, 1, 0, () => StreamModeDetails$, 0, 0, 1, () => WarmThroughputObject$, 1, 1], 7
+];
+export var StreamFilter$: StaticStructureSchema = [3, n0, _SF,
+  0,
+  [_SARN, _SCT],
+  [0, 4], 1
 ];
 export var StreamModeDetails$: StaticStructureSchema = [3, n0, _SMD,
   0,
@@ -712,12 +940,12 @@ export var StreamSummary$: StaticStructureSchema = [3, n0, _SStr,
 ];
 export var SubscribeToShardEvent$: StaticStructureSchema = [3, n0, _STSE,
   0,
-  [_R, _CSN, _MBL, _CSh],
+  [_R, _CSN, _MBL, _CShil],
   [() => RecordList, 0, 1, () => ChildShardList], 3
 ];
 export var SubscribeToShardInput$: StaticStructureSchema = [3, n0, _STSI,
   0,
-  [_CARN, _SIh, _SP, _SI],
+  [_CARNo, _SIh, _SP, _SI],
   [0, 0, () => StartingPosition$, 0], 3
 ];
 export var SubscribeToShardOutput$: StaticStructureSchema = [3, n0, _STSO,
@@ -750,6 +978,16 @@ export var UpdateAccountSettingsOutput$: StaticStructureSchema = [3, n0, _UASO,
   [_MTBC],
   [() => MinimumThroughputBillingCommitmentOutput$]
 ];
+export var UpdateChannelInput$: StaticStructureSchema = [3, n0, _UCI,
+  0,
+  [_CARN, _SDC, _STDC, _LC],
+  [0, () => S3DestinationUpdateInput$, () => S3TablesDestinationUpdateInput$, () => ChannelLoggingUpdateInput$], 1
+];
+export var UpdateChannelOutput$: StaticStructureSchema = [3, n0, _UCO,
+  0,
+  [_CD],
+  [() => ChannelDescription$], 1
+];
 export var UpdateMaxRecordSizeInput$: StaticStructureSchema = [3, n0, _UMRSI,
   0,
   [_MRSIKB, _SARN, _SI],
@@ -762,7 +1000,7 @@ export var UpdateShardCountInput$: StaticStructureSchema = [3, n0, _USCI,
 ];
 export var UpdateShardCountOutput$: StaticStructureSchema = [3, n0, _USCO,
   0,
-  [_SN, _CSC, _TSC, _SARN],
+  [_SN, _CSCu, _TSC, _SARN],
   [0, 1, 1, 0]
 ];
 export var UpdateStreamModeInput$: StaticStructureSchema = [3, n0, _USMI,
@@ -786,7 +1024,19 @@ export var WarmThroughputObject$: StaticStructureSchema = [3, n0, _WTO,
   [1, 1]
 ];
 var __Unit = "unit" as const;
-var ChildShardList: StaticListSchema = [1, n0, _CSL,
+var ChannelStreamConfigurationList: StaticListSchema = [1, n0, _CSCL,
+  0, () => ChannelStreamConfiguration$
+];
+var ChannelStreamDescriptionList: StaticListSchema = [1, n0, _CSDL,
+  0, () => ChannelStreamDescription$
+];
+var ChannelStreamIdentifierList: StaticListSchema = [1, n0, _CSIL,
+  0, () => ChannelStreamIdentifier$
+];
+var ChannelSummaryList: StaticListSchema = [1, n0, _CSL,
+  0, () => ChannelSummary$
+];
+var ChildShardList: StaticListSchema = [1, n0, _CSLh,
   0, () => ChildShard$
 ];
 var ConsumerList: StaticListSchema = [1, n0, _CL,
@@ -796,6 +1046,9 @@ var EnhancedMonitoringList: StaticListSchema = [1, n0, _EML,
   0, () => EnhancedMetrics$
 ];
 var MetricsNameList = 64 | 0;
+var PartitionFieldList: StaticListSchema = [1, n0, _PFL,
+  0, () => PartitionField$
+];
 var PutRecordsRequestEntryList: StaticListSchema = [1, n0, _PRREL,
   0, () => PutRecordsRequestEntry$
 ];
@@ -805,9 +1058,15 @@ var PutRecordsResultEntryList: StaticListSchema = [1, n0, _PRRELu,
 var RecordList: StaticListSchema = [1, n0, _RL,
   0, () => _Record$
 ];
+var S3TablesConfigurationList: StaticListSchema = [1, n0, _STCL,
+  0, () => S3TablesConfiguration$
+];
 var ShardIdList = 64 | 0;
 var ShardList: StaticListSchema = [1, n0, _SLh,
   0, () => Shard$
+];
+var StreamFilterList: StaticListSchema = [1, n0, _SFL,
+  0, () => StreamFilter$
 ];
 var StreamNameList = 64 | 0;
 var StreamSummaryList: StaticListSchema = [1, n0, _SSL,
@@ -826,11 +1085,17 @@ export var SubscribeToShardEventStream$: StaticUnionSchema = [4, n0, _STSES,
 export var AddTagsToStream$: StaticOperationSchema = [9, n0, _ATTS,
   0, () => AddTagsToStreamInput$, () => __Unit
 ];
+export var CreateChannel$: StaticOperationSchema = [9, n0, _CCr,
+  0, () => CreateChannelInput$, () => CreateChannelOutput$
+];
 export var CreateStream$: StaticOperationSchema = [9, n0, _CSr,
   0, () => CreateStreamInput$, () => __Unit
 ];
 export var DecreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _DSRP,
   0, () => DecreaseStreamRetentionPeriodInput$, () => __Unit
+];
+export var DeleteChannel$: StaticOperationSchema = [9, n0, _DC,
+  0, () => DeleteChannelInput$, () => __Unit
 ];
 export var DeleteResourcePolicy$: StaticOperationSchema = [9, n0, _DRP,
   0, () => DeleteResourcePolicyInput$, () => __Unit
@@ -843,6 +1108,9 @@ export var DeregisterStreamConsumer$: StaticOperationSchema = [9, n0, _DSC,
 ];
 export var DescribeAccountSettings$: StaticOperationSchema = [9, n0, _DAS,
   0, () => DescribeAccountSettingsInput$, () => DescribeAccountSettingsOutput$
+];
+export var DescribeChannel$: StaticOperationSchema = [9, n0, _DCe,
+  0, () => DescribeChannelInput$, () => DescribeChannelOutput$
 ];
 export var DescribeLimits$: StaticOperationSchema = [9, n0, _DL,
   0, () => DescribeLimitsInput$, () => DescribeLimitsOutput$
@@ -873,6 +1141,9 @@ export var GetShardIterator$: StaticOperationSchema = [9, n0, _GSI,
 ];
 export var IncreaseStreamRetentionPeriod$: StaticOperationSchema = [9, n0, _ISRP,
   0, () => IncreaseStreamRetentionPeriodInput$, () => __Unit
+];
+export var ListChannels$: StaticOperationSchema = [9, n0, _LCi,
+  0, () => ListChannelsInput$, () => ListChannelsOutput$
 ];
 export var ListShards$: StaticOperationSchema = [9, n0, _LS,
   0, () => ListShardsInput$, () => ListShardsOutput$
@@ -927,6 +1198,9 @@ export var UntagResource$: StaticOperationSchema = [9, n0, _UR,
 ];
 export var UpdateAccountSettings$: StaticOperationSchema = [9, n0, _UAS,
   0, () => UpdateAccountSettingsInput$, () => UpdateAccountSettingsOutput$
+];
+export var UpdateChannel$: StaticOperationSchema = [9, n0, _UC,
+  0, () => UpdateChannelInput$, () => UpdateChannelOutput$
 ];
 export var UpdateMaxRecordSize$: StaticOperationSchema = [9, n0, _UMRS,
   0, () => UpdateMaxRecordSizeInput$, () => __Unit

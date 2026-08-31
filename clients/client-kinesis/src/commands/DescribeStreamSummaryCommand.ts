@@ -78,6 +78,7 @@ export interface DescribeStreamSummaryCommandOutput extends DescribeStreamSummar
  * //       CurrentMiBps: Number("int"),
  * //     },
  * //     MaxRecordSizeInKiB: Number("int"),
+ * //     ChannelCount: Number("int"),
  * //   },
  * // };
  *

@@ -13,6 +13,11 @@ import {
   AddTagsToStreamCommand,
 } from "./commands/AddTagsToStreamCommand";
 import {
+  type CreateChannelCommandInput,
+  type CreateChannelCommandOutput,
+  CreateChannelCommand,
+} from "./commands/CreateChannelCommand";
+import {
   type CreateStreamCommandInput,
   type CreateStreamCommandOutput,
   CreateStreamCommand,
@@ -22,6 +27,11 @@ import {
   type DecreaseStreamRetentionPeriodCommandOutput,
   DecreaseStreamRetentionPeriodCommand,
 } from "./commands/DecreaseStreamRetentionPeriodCommand";
+import {
+  type DeleteChannelCommandInput,
+  type DeleteChannelCommandOutput,
+  DeleteChannelCommand,
+} from "./commands/DeleteChannelCommand";
 import {
   type DeleteResourcePolicyCommandInput,
   type DeleteResourcePolicyCommandOutput,
@@ -42,6 +52,11 @@ import {
   type DescribeAccountSettingsCommandOutput,
   DescribeAccountSettingsCommand,
 } from "./commands/DescribeAccountSettingsCommand";
+import {
+  type DescribeChannelCommandInput,
+  type DescribeChannelCommandOutput,
+  DescribeChannelCommand,
+} from "./commands/DescribeChannelCommand";
 import {
   type DescribeLimitsCommandInput,
   type DescribeLimitsCommandOutput,
@@ -92,6 +107,11 @@ import {
   type IncreaseStreamRetentionPeriodCommandOutput,
   IncreaseStreamRetentionPeriodCommand,
 } from "./commands/IncreaseStreamRetentionPeriodCommand";
+import {
+  type ListChannelsCommandInput,
+  type ListChannelsCommandOutput,
+  ListChannelsCommand,
+} from "./commands/ListChannelsCommand";
 import {
   type ListShardsCommandInput,
   type ListShardsCommandOutput,
@@ -179,6 +199,11 @@ import {
   UpdateAccountSettingsCommand,
 } from "./commands/UpdateAccountSettingsCommand";
 import {
+  type UpdateChannelCommandInput,
+  type UpdateChannelCommandOutput,
+  UpdateChannelCommand,
+} from "./commands/UpdateChannelCommand";
+import {
   type UpdateMaxRecordSizeCommandInput,
   type UpdateMaxRecordSizeCommandOutput,
   UpdateMaxRecordSizeCommand,
@@ -201,19 +226,24 @@ import {
 import { KinesisClient } from "./KinesisClient";
 import type { ResourceNotFoundException } from "./models/errors";
 import type { KinesisServiceException } from "./models/KinesisServiceException";
+import { paginateListChannels } from "./pagination/ListChannelsPaginator";
 import { paginateListStreamConsumers } from "./pagination/ListStreamConsumersPaginator";
 import { paginateListStreams } from "./pagination/ListStreamsPaginator";
+import { waitUntilChannelActive } from "./waiters/waitForChannelActive";
 import { waitUntilStreamExists } from "./waiters/waitForStreamExists";
 import { waitUntilStreamNotExists } from "./waiters/waitForStreamNotExists";
 
 const commands = {
   AddTagsToStreamCommand,
+  CreateChannelCommand,
   CreateStreamCommand,
   DecreaseStreamRetentionPeriodCommand,
+  DeleteChannelCommand,
   DeleteResourcePolicyCommand,
   DeleteStreamCommand,
   DeregisterStreamConsumerCommand,
   DescribeAccountSettingsCommand,
+  DescribeChannelCommand,
   DescribeLimitsCommand,
   DescribeStreamCommand,
   DescribeStreamConsumerCommand,
@@ -224,6 +254,7 @@ const commands = {
   GetResourcePolicyCommand,
   GetShardIteratorCommand,
   IncreaseStreamRetentionPeriodCommand,
+  ListChannelsCommand,
   ListShardsCommand,
   ListStreamConsumersCommand,
   ListStreamsCommand,
@@ -242,16 +273,19 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAccountSettingsCommand,
+  UpdateChannelCommand,
   UpdateMaxRecordSizeCommand,
   UpdateShardCountCommand,
   UpdateStreamModeCommand,
   UpdateStreamWarmThroughputCommand,
 };
 const paginators = {
+  paginateListChannels,
   paginateListStreamConsumers,
   paginateListStreams,
 };
 const waiters = {
+  waitUntilChannelActive,
   waitUntilStreamExists,
   waitUntilStreamNotExists,
 };
@@ -272,6 +306,23 @@ export interface Kinesis {
     args: AddTagsToStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddTagsToStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateChannelCommand}
+   */
+  createChannel(
+    args: CreateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateChannelCommandOutput>;
+  createChannel(
+    args: CreateChannelCommandInput,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
+  ): void;
+  createChannel(
+    args: CreateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateChannelCommandOutput) => void
   ): void;
 
   /**
@@ -306,6 +357,23 @@ export interface Kinesis {
     args: DecreaseStreamRetentionPeriodCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DecreaseStreamRetentionPeriodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteChannelCommand}
+   */
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteChannelCommandOutput>;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
+  ): void;
+  deleteChannel(
+    args: DeleteChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteChannelCommandOutput) => void
   ): void;
 
   /**
@@ -377,6 +445,23 @@ export interface Kinesis {
     args: DescribeAccountSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   */
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeChannelCommandOutput>;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
+  ): void;
+  describeChannel(
+    args: DescribeChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeChannelCommandOutput) => void
   ): void;
 
   /**
@@ -551,6 +636,24 @@ export interface Kinesis {
     args: IncreaseStreamRetentionPeriodCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: IncreaseStreamRetentionPeriodCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListChannelsCommand}
+   */
+  listChannels(): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListChannelsCommandOutput>;
+  listChannels(
+    args: ListChannelsCommandInput,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
+  ): void;
+  listChannels(
+    args: ListChannelsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListChannelsCommandOutput) => void
   ): void;
 
   /**
@@ -863,6 +966,23 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link UpdateChannelCommand}
+   */
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateChannelCommandOutput>;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+  updateChannel(
+    args: UpdateChannelCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateChannelCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMaxRecordSizeCommand}
    */
   updateMaxRecordSize(
@@ -931,6 +1051,17 @@ export interface Kinesis {
   ): void;
 
   /**
+   * @see {@link ListChannelsCommand}
+   * @param args - command input.
+   * @param paginationConfig - optional pagination config.
+   * @returns AsyncIterable of {@link ListChannelsCommandOutput}.
+   */
+  paginateListChannels(
+    args?: ListChannelsCommandInput,
+    paginationConfig?: Omit<PaginationConfiguration, "client">
+  ): Paginator<ListChannelsCommandOutput>;
+
+  /**
    * @see {@link ListStreamConsumersCommand}
    * @param args - command input.
    * @param paginationConfig - optional pagination config.
@@ -951,6 +1082,16 @@ export interface Kinesis {
     args?: ListStreamsCommandInput,
     paginationConfig?: Omit<PaginationConfiguration, "client">
   ): Paginator<ListStreamsCommandOutput>;
+
+  /**
+   * @see {@link DescribeChannelCommand}
+   * @param args - command input.
+   * @param waiterConfig - `maxWaitTime` in seconds or waiter config object.
+   */
+  waitUntilChannelActive(
+    args: DescribeChannelCommandInput,
+    waiterConfig: number | Omit<WaiterConfiguration<Kinesis>, "client">
+  ): Promise<WaiterResult<DescribeChannelCommandOutput>>;
 
   /**
    * @see {@link DescribeStreamCommand}

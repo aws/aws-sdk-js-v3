@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import type { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { _ep3, _mw0, command } from "../commandBuilder";
+import { _ep4, _mw0, command } from "../commandBuilder";
 import type { DeregisterStreamConsumerInput } from "../models/models_0";
 import { DeregisterStreamConsumer$ } from "../schemas/schemas_0";
 
@@ -76,7 +76,7 @@ export interface DeregisterStreamConsumerCommandOutput extends __MetadataBearer 
  * @public
  */
 export class DeregisterStreamConsumerCommand extends command<DeregisterStreamConsumerCommandInput, DeregisterStreamConsumerCommandOutput>(
-  _ep3,
+  _ep4,
   _mw0,
   "DeregisterStreamConsumer",
   DeregisterStreamConsumer$
