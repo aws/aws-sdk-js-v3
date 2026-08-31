@@ -192,6 +192,66 @@ describe("memoize runtime config aware AWS credential chain", () => {
     expect(cached).toBe(refreshed);
   });
 
+  it("should not surface an unhandled rejection when the passive refresh fails", async () => {
+    // own expiration so the case stays on the passive path regardless of
+    // cumulative suite time (the shared 5s constant is captured at collection).
+    const farExpiration = new Date(Date.now() + 60_000);
+    let sequence = 0;
+    const flakyExpiringCredentials: RuntimeConfigAwsCredentialIdentityProvider = vi
+      .fn()
+      .mockImplementation(async () => {
+        await new Promise((r) => setTimeout(r, 100));
+        const current = sequence++;
+        if (current === 1) {
+          throw new CredentialsProviderError("transient refresh failure", { tryNextLink: false });
+        }
+        return {
+          accessKeyId: "",
+          secretAccessKey: "",
+          expiration: farExpiration,
+          sequence: current,
+        };
+      });
+
+    const unhandled: unknown[] = [];
+    const onUnhandledRejection = (reason: unknown) => {
+      unhandled.push(reason);
+    };
+    process.on("unhandledRejection", onUnhandledRejection);
+
+    try {
+      const provider = memoizeChain([flakyExpiringCredentials], credentialsWillNeedRefresh);
+
+      // initial invocation caches sequence-0 credentials via the active lock.
+      const initial = await provider();
+      expect(initial).toMatchObject({ sequence: 0 });
+
+      // second invocation returns the stale-but-valid credentials and starts the
+      // passive background refresh, which rejects (sequence-1).
+      const stale = await provider();
+      expect(stale).toMatchObject({ sequence: 0 });
+
+      // allow the rejected background refresh to settle and node to dispatch
+      // any unhandled rejection.
+      await new Promise((r) => setTimeout(r, 200));
+      await new Promise((r) => setImmediate(r));
+
+      expect(unhandled).toEqual([]);
+
+      // the failed refresh released the lock: the next invocation retries the
+      // chain (sequence-2) while still returning the cached credentials.
+      const retried = await provider();
+      expect(retried).toMatchObject({ sequence: 0 });
+
+      await new Promise((r) => setTimeout(r, 200));
+
+      const settled = await provider();
+      expect(settled).toMatchObject({ sequence: 2 });
+    } finally {
+      process.off("unhandledRejection", onUnhandledRejection);
+    }
+  });
+
   it("should release locks on credential resolution failure at the end of the chain", async () => {
     const neverAvailableCredentialProvider: () => RuntimeConfigAwsCredentialIdentityProvider = () => async () => {
       throw new CredentialsProviderError("never available", { tryNextLink: true });
