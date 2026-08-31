@@ -2044,6 +2044,40 @@ export interface ListWorkerConfigurationsResponse {
 /**
  * @public
  */
+export interface RestartConnectorRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector that you want to restart.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to restart only the connector's failed tasks. If <code>true</code>, the operation restarts only the tasks that are currently in a failed state, and healthy tasks continue running. If <code>false</code> or not specified, the operation restarts the connector and all of its tasks.</p>
+   * @public
+   */
+  onlyFailedTasks?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RestartConnectorResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation created to perform the restart.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to which you want to attach tags.</p>

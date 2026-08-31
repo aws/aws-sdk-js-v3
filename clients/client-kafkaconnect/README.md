@@ -286,6 +286,13 @@ ListWorkerConfigurations
 </details>
 <details>
 <summary>
+RestartConnector
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/kafkaconnect/command/RestartConnectorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/RestartConnectorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-kafkaconnect/Interface/RestartConnectorCommandOutput/)
+</details>
+<details>
+<summary>
 TagResource
 </summary>
 

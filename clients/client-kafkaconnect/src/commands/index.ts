@@ -14,6 +14,7 @@ export * from "./ListConnectorsCommand";
 export * from "./ListCustomPluginsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListWorkerConfigurationsCommand";
+export * from "./RestartConnectorCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateConnectorCommand";

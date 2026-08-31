@@ -85,6 +85,9 @@ const _PC = "ProvisionedCapacity";
 const _PCD = "ProvisionedCapacityDescription";
 const _PCU = "ProvisionedCapacityUpdate";
 const _PD = "PluginDescription";
+const _RC = "RestartConnector";
+const _RCR = "RestartConnectorRequest";
+const _RCRe = "RestartConnectorResponse";
 const _SD = "StateDescription";
 const _SIP = "ScaleInPolicy";
 const _SIPD = "ScaleInPolicyDescription";
@@ -188,6 +191,7 @@ const _nP = "namePrefix";
 const _nT = "networkType";
 const _nTe = "nextToken";
 const _oCC = "originConnectorConfiguration";
+const _oFT = "onlyFailedTasks";
 const _oS = "operationSteps";
 const _oV = "objectVersion";
 const _oWS = "originWorkerSetting";
@@ -634,6 +638,16 @@ export var ProvisionedCapacityUpdate$: StaticStructureSchema = [3, n0, _PCU,
   [_mC, _wCor],
   [1, 1], 2
 ];
+export var RestartConnectorRequest$: StaticStructureSchema = [3, n0, _RCR,
+  0,
+  [_cA, _oFT],
+  [[0, 1], [2, { [_hQ]: _oFT }]], 1
+];
+export var RestartConnectorResponse$: StaticStructureSchema = [3, n0, _RCRe,
+  0,
+  [_cA, _cOA],
+  [0, 0]
+];
 export var S3Location$: StaticStructureSchema = [3, n0, _SL,
   0,
   [_bA, _fK, _oV],
@@ -843,6 +857,9 @@ export var ListTagsForResource$: StaticOperationSchema = [9, n0, _LTFR,
 ];
 export var ListWorkerConfigurations$: StaticOperationSchema = [9, n0, _LWC,
   { [_h]: ["GET", "/v1/worker-configurations", 200] }, () => ListWorkerConfigurationsRequest$, () => ListWorkerConfigurationsResponse$
+];
+export var RestartConnector$: StaticOperationSchema = [9, n0, _RC,
+  { [_h]: ["POST", "/v1/connectors/{connectorArn}/restart", 200] }, () => RestartConnectorRequest$, () => RestartConnectorResponse$
 ];
 export var TagResource$: StaticOperationSchema = [9, n0, _TR,
   { [_h]: ["POST", "/v1/tags/{resourceArn}", 200] }, () => TagResourceRequest$, () => TagResourceResponse$

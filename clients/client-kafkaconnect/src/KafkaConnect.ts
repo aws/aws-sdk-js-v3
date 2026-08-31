@@ -78,6 +78,11 @@ import {
   ListWorkerConfigurationsCommand,
 } from "./commands/ListWorkerConfigurationsCommand";
 import {
+  type RestartConnectorCommandInput,
+  type RestartConnectorCommandOutput,
+  RestartConnectorCommand,
+} from "./commands/RestartConnectorCommand";
+import {
   type TagResourceCommandInput,
   type TagResourceCommandOutput,
   TagResourceCommand,
@@ -114,6 +119,7 @@ const commands = {
   ListCustomPluginsCommand,
   ListTagsForResourceCommand,
   ListWorkerConfigurationsCommand,
+  RestartConnectorCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateConnectorCommand,
@@ -382,6 +388,23 @@ export interface KafkaConnect {
     args: ListWorkerConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestartConnectorCommand}
+   */
+  restartConnector(
+    args: RestartConnectorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestartConnectorCommandOutput>;
+  restartConnector(
+    args: RestartConnectorCommandInput,
+    cb: (err: any, data?: RestartConnectorCommandOutput) => void
+  ): void;
+  restartConnector(
+    args: RestartConnectorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestartConnectorCommandOutput) => void
   ): void;
 
   /**
